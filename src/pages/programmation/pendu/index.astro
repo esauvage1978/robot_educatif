@@ -1,0 +1,23 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Le pendu en Python — mots et fichier texte"
+	metaDescription="Série guidée : mot mystère, chargement d’une liste depuis un fichier, lettres essayées, pendu ASCII et jeu complet."
+	series="Le pendu"
+	breadcrumbLast="Le pendu"
+	pageTitle="Le pendu en Python"
+>
+	<p>
+		Jeu classique au <strong>terminal</strong> : deviner un mot <strong>lettre par lettre</strong> avec un nombre limité
+		d’erreurs. Tu
+		apprends à lire un <strong>fichier texte</strong> (un mot par ligne) et à manipuler des <strong>ensembles</strong> et
+		chaînes. Prérequis : <a href="/python-fichiers-texte/">fichiers texte</a> et{' '}
+		<a href="/python-listes-et-chaines/">chaînes</a> du <a href="/programmation/python/">parcours Python</a>. Ressources :{' '}
+		<a href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}>livres projets Python</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

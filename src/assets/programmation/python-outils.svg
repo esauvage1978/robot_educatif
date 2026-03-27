@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="180" viewBox="0 0 560 180" role="img" aria-labelledby="t">
+  <title id="t">Outils de développement</title>
+  <rect width="560" height="180" fill="#f4f6f8"/>
+  <rect x="24" y="40" width="150" height="100" rx="8" fill="#0078d4" opacity="0.9"/>
+  <text x="99" y="100" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Windows</text>
+  <rect x="205" y="40" width="150" height="100" rx="8" fill="#555" opacity="0.95"/>
+  <text x="280" y="100" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="15" font-weight="700">macOS</text>
+  <rect x="386" y="40" width="150" height="100" rx="8" fill="#3ddc84" opacity="0.95"/>
+  <text x="461" y="100" text-anchor="middle" fill="#0d1117" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Android</text>
+  <text x="280" y="24" text-anchor="middle" fill="#333" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Environnements accessibles</text>
+</svg>

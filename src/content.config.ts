@@ -25,6 +25,12 @@ const blog = defineCollection({
 					}),
 				)
 				.optional(),
+			/** Série pédagogique (ex. « Python », « Bataille navale ») — hubs /programmation/… */
+			series: z.string().optional(),
+			/** Ordre dans la série (1, 2, …) */
+			seriesOrder: z.number().int().optional(),
+			/** Étiquettes (affichage / filtrage futur) */
+			tags: z.array(z.string()).optional(),
 		}),
 });
 

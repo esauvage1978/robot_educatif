@@ -1,108 +1,133 @@
 ---
-title: "Mon premier programme sur mBot avec mBlock 5"
-description: "Tutoriel pas à pas : installer mBlock 5 (PC ou web), connecter le mBot, modes Live et Upload, et réaliser un premier programme avec les blocs. Mise à jour pour les versions actuelles du logiciel."
-pubDate: "2021-09-18"
-updatedDate: "2026-03-27"
+title: "Mon premier programme mBot"
+description: "Dans cet article nous allons concevoir notr premier programme pour le robot éducatif mBot. De la conception au téléversement."
+pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
-amazonPreset: mbot
-relatedLinks:
-  - title: "Guide mBlock 5 pour débutants : interface, blocs et premier script"
-    href: "/guide-mblock-5-debutant/"
-  - title: "Guide mBlock 5 intermédiaire : capteurs, variables et logique"
-    href: "/guide-mblock-5-intermediaire/"
-  - title: "Comment installer mBlock 5 sur PC, Mac, navigateur et mobile"
-    href: "/comment-installer-mblock-5/"
-  - title: "mBot, mon premier robot éducatif"
-    href: "/mbot-mon-premier-robot-educatif/"
-  - title: "mBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
-    href: "/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/"
+updatedDate: "2020-04-21"
 ---
 
-Ce guide t’accompagne pour passer de **“mBot allumé”** à **“mBot programmé”** avec **mBlock 5**, l’environnement officiel basé sur Scratch. Il est mis à jour pour les **versions récentes** du logiciel (dont la branche **mBlock 5 V5.x** pour ordinateur, au **2025**).
+Nous allons faire un premier programme très basique pour notre mBot. Celui ci consistera à jouer une mélodie après avoir appuyé sur le bouton de la carte. Le but n’est pas de vous apprendre l’algorithme mais de vous expliquer le processus de création d’un programme jusqu’au téléversement dans le robot.
 
-Pour télécharger et installer le logiciel selon ton ordinateur (Windows, Mac, navigateur, mobile), suis d’abord le guide dédié : [Comment installer mBlock 5 sur PC, Mac, navigateur et mobile](/comment-installer-mblock-5/).
+## 1\. pré requis
 
-Si tu n’as pas encore monté ou testé le robot, commence par l’article [mBot, mon premier robot éducatif](/mbot-mon-premier-robot-educatif/).
+Avoir en sa possession le [robot éducatif mBot de chez MakeBlock](https://robot-educatif.info/2020/04/06/mbot-mon-premier-robot-educatif/)
 
-> Cet article contient des liens affiliés Amazon. En tant que Partenaire Amazon, je peux percevoir une commission sur les achats éligibles, sans coût supplémentaire pour vous.
+[![achetez le robot éducatif mBot sur Amazon](https://robot-educatif.info/wp-content/uploads/2020/04/banniere_mbot.png)](https://amzn.to/3bVU8RR?tag=manuso06-21)
 
-## Quel logiciel utiliser en 2025–2026 ?
+[Installer l’application mBlock 5](https://robot-educatif.info/2020/04/07/installer-mblock-5-sous-windows-10/)
 
-Makeblock propose aujourd’hui principalement **mBlock 5** :
+S’être familiariser avec l’[interface graphique de mBlock 5](https://robot-educatif.info/2020/04/07/premier-pas-avec-mblock-5/)
 
-| Option | À retenir |
-|--------|-----------|
-| **Application PC (recommandée pour débuter)** | Windows (64 bits) ou macOS, installation locale, connexion USB / Bluetooth / 2,4 GHz selon ton modèle. |
-| **Version web** | Éditeur dans le navigateur ([IDE en ligne](https://ide.mblock.cc/)) ; il faut aussi installer **mLink** sur l’ordinateur pour que le navigateur puisse parler au robot. |
-| **Tablette / mobile** | Apps mBlock selon ton appareil ; pratique en mobilité, un peu moins confortable pour les premiers réglages. |
-| **mBlock 3** | **N’est plus maintenu** ; privilégie **mBlock 5** pour un mBot récent et les tutoriels actuels. |
+Avoir installé les [blocs d’instruction du mBot](https://robot-educatif.info/2020/04/08/installer-les-blocs-du-mbot/)
 
-La page officielle de téléchargement (versions PC, mLink, applications) est **[mblock.cc — téléchargements](https://www.mblock.cc/fr-fr/download/)**.  
-À la rédaction de cette mise à jour, la version **PC** desktop indiquée sur le site est la **V5.6.0** (sortie **8 avril 2025**) : **Windows 64 bits** (fichiers `.exe` / `.msi`) et **macOS 10.12+**, avec un installeur dédié **Apple M1/M2** (architecture ARM64). Les numéros exacts peuvent évoluer : garde l’habitude de reprendre le fichier le plus récent sur la page officielle.
+## 2\. Le programme
 
-### Version web + mLink
+Nous allons donc ouvrir l’application mBlock 5 et sélectionner notre robot dans l’onglet **Appareil**.
 
-Si tu codes dans le navigateur, installe **mLink** pour ton système (Windows, Mac, Linux, Chromebook — liens sur la [même page téléchargement](https://www.mblock.cc/fr-fr/download/)). Sans mLink, la version web ne pourra généralement pas **connecter** le mBot.
+Un programme **doit** commencer par **Lorsque le mBot(mcore) démarre**
 
-## Avant de brancher : alimentation et câble
+![Premier programme, démarrage](https://robot-educatif.info/wp-content/uploads/2020/04/pg1-1.png)
 
-- **Piles ou batterie** : le mBot doit être **allumé** pendant la programmation.  
-- **Câble USB** : utilise de préférence le câble fourni ; un mauvais câble (charge seule) empêche souvent la connexion.
+A partir de la catégorie **contrôle**, déplacez la structure conditionnelle **attendre jusqu’à** vers la zone de script. Celle-ci doit être placée sous le bloc déposé précédemment.
 
-## Connecter le mBot à mBlock 5
+![Ajout du bloc conditionnel](https://robot-educatif.info/wp-content/uploads/2020/04/pg2-1.png)
 
-Tu peux connecter le mBot ainsi (selon **la version** de ton kit) :
+le **losange orange** signifie que ce bloc attend une **condition.** Une condition peut avoir 2 valeurs, **vrai** ou **faux**. Les instructions qui seront dessous seront exécutées lorsque la condition aura la valeur **vrai**.
 
-1. **USB** — brancher le câble sur le PC, allumer le robot. Dans mBlock 5 : onglet **Périphériques** (Devices), **+**, choisir **mBot** dans la bibliothèque, **Connecter** → onglet **USB**.  
-2. **Bluetooth 4.0** — uniquement si ton modèle est **Bluetooth** ; sur Windows, un dongle **Bluetooth 4.0** peut être nécessaire.  
-3. **Module 2,4 GHz** — dongle USB côté PC et module sur la carte ; **sans appairage**. **Attention** : la **mise à jour du firmware** ne se fait en général **pas** en 2,4 GHz : passe par **USB** si mBlock te demande une mise à jour.
+A partir de la catégorie **Détection**, remplir la condition avec le bloc **sur appui du bouton Carte pressé ?**.
 
-Référence utile côté constructeur : [Programmer mBot avec mBlock 5 (aide Makeblock)](https://support.makeblock.com/hc/en-us/articles/1500003954802-Program-mBot-with-mBlock-5).
+![Ajout de la condition](https://robot-educatif.info/wp-content/uploads/2020/04/pg3-1-1024x544.png)
 
-## Mode « Live » et mode « Upload »
+Pour terminer, dans la catégorie Afficher, déplacez le bloc **jouer la note C4 pendant 0.25 pulsations** sous la structure conditionnelle. Vous pouvez reproduire cette mélodie.
 
-Deux modes importants :
+![Ajout de la mélodie](https://robot-educatif.info/wp-content/uploads/2020/04/pg6.png)
 
-- **Live** : le programme s’exécute **tant que** le robot reste connecté au PC. Idéal pour **tester** et déboguer.  
-- **Upload** : le programme est **envoyé dans la carte** du mBot ; le robot peut continuer à tourner **débranché** (selon le programme).
+Pour résumer ce programme : Au démarrage du robot, lorsque la touche du bouton carte est pressée la mélodie est jouée une fois. Sans aucune autre action, le robot ne fera rien d’autre.
 
-En pratique : commence en **Live** pour valider ton idée, puis passe en **Upload** pour garder le comportement sans câble.
+## 3\. Sauvegarder son programme
 
-## Premier programme : « avancer deux secondes »
+Nous allons maintenant enregistrer le programme sur notre ordinateur. Même si celui-ci n’est pas très élaboré, Je vous conseille fortement de prendre l’habitude de faire des enregistrements fréquents. Que ce soit sur mBlock mais également sur tous les logiciels que vous utilisez.
 
-Objectif : au clic sur le drapeau vert, le mBot **avance** quelques secondes puis **s’arrête**.
+![Enregistrement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/save.png)
 
-1. Ouvre **mBlock 5**, ajoute le périphérique **mBot** et **connecte-le** (USB de préférence pour la première fois).  
-2. Choisis le mode **Live**.  
-3. Dans la zone de script, assemble par exemple :  
-   - **Événement** : « **quand le drapeau vert est cliqué** » ;  
-   - **Moteurs** (blocs mBot) : « **régler la vitesse du moteur M1 / M2** » ou équivalent pour avancer (selon l’orientation de ton robot, tu peux devoir **inverser** un côté ; c’est normal sur un premier essai) ;  
-   - **Contrôle** : un bloc **attendre 2 secondes** ;  
-   - puis **arrêter** les moteurs (vitesse **0**).  
-4. Clique sur le **drapeau vert** dans l’interface : observe le robot. Ajuste les vitesses si le trajet n’est pas droit.
+Enregistrer sur votre ordinateur
 
-**Astuce** : un clic droit sur un bloc → **Aide** donne souvent la signification exacte dans ta version de mBlock.
+![Destination de l'enregistrement](https://robot-educatif.info/wp-content/uploads/2020/04/save1.png)
 
-**Étape suivante** : refais le même enchaînement en mode **Upload**, téléverse (*upload*), débranche le câble (ou éteins/rallumes), et vérifie que le robot replay le comportement en autonome.
+Choix de l’emplacement et du nom du fichier
 
-## Si ça ne répond pas
+![Enregistrement rapide](https://robot-educatif.info/wp-content/uploads/2020/04/save2.png)
 
-- **Pilotage usine** : certains mBot démarrent avec un **programme par défaut** (ligne, télécommande). Reprogramme en **Upload** ou reconnecte-toi en **Live** pour reprendre la main.  
-- **Pilote / port COM** : sous Windows, vérifie dans le gestionnaire de périphériques que la carte est bien reconnue.  
-- **Firmware** : si mBlock propose une **mise à jour**, fais-la en **USB** (pas en 2,4 GHz).  
-- **Version du logiciel** : si un tutoriel ancien ne correspond plus aux menus, compare avec la **[documentation Makeblock](https://support.makeblock.com/)** ou la page **[FAQ / téléchargements](https://www.mblock.cc/fr-fr/download/)**.
+Enregistrement rapide
 
-## Liens utiles (non affiliés)
+Par la suite vous allez pouvoir faire un enregistrement rapide en appuyant sur le bouton **enregistrer**
 
-- Téléchargements mBlock 5 et mLink : **[mblock.cc/fr-fr/download](https://www.mblock.cc/fr-fr/download/)**  
-- IDE web : **[ide.mblock.cc](https://ide.mblock.cc/)**
+### 3.1 Connexion du mBot
 
-## Matériel et idées d’approfondissement (Amazon, affiliation)
+Nous allons maintenant téléverser (injecter) le programme dans notre [mBot](https://amzn.to/34eEFtr?tag=manuso06-21).
 
-- <a href="https://www.amazon.fr/s?k=Makeblock+mBot&tag=manuso06-21" target="_blank" rel="noopener sponsored">Rechercher le mBot sur Amazon</a>  
-- <a href="https://www.amazon.fr/s?k=mBot+Makeblock+accessoires&tag=manuso06-21" target="_blank" rel="noopener sponsored">Accessoires et extensions mBot</a>  
-- <a href="https://www.amazon.fr/s?k=Scratch+robotique+livre+enfant&tag=manuso06-21" target="_blank" rel="noopener sponsored">Livres Scratch / robotique pour aller plus loin</a>
+Reliez le robot mBot à l’ordinateur à l’aide du câble USB.
 
-## Conclusion
+Mettre en route votre [mBot](https://amzn.to/34eEFtr?tag=manuso06-21) en mettant l’interrupteur sur **on**
 
-Avec **mBlock 5** à jour, une connexion **fiable** (souvent **USB** au début) et les modes **Live** puis **Upload**, tu as tout ce qu’il faut pour enchaîner sur des capteurs, des boucles et de vrais petits défis robotiques. Bonne programmation !
+A partir de l’application mBlock 5 , appuyez sur le bouton **connecter**
+
+![Connexion du robot mBot](https://robot-educatif.info/wp-content/uploads/2020/04/conn1.png)
+
+Connexion du mBot
+
+Vous avez le choix entre une connexion filaire avec le câble USB ou une connexion en Bluetooth.
+
+![Connexion en usb](https://robot-educatif.info/wp-content/uploads/2020/04/conn4-1.png)
+
+Le bluetooth sera surtout utilisé dans la phase de création du programme afin de tester (débogger) le programme en live (temps réel).
+
+![Connexion Bluetooth effectuée](https://robot-educatif.info/wp-content/uploads/2020/04/conn3-1.png)
+
+Connexion Bluetooth effectuée
+
+![Connexion USB effectuée](https://robot-educatif.info/wp-content/uploads/2020/04/conn5-1.png)
+
+Connexion USB effectuée
+
+### 3.2 Micro-programme ou firmware
+
+Il se peut qu’une mise à jour du microprogramme soit nécessaire. Il est conseillé de la faire. Cependant cette connexion doit obligatoirement être effectuée avec un câble USB.
+
+ATTENTION, lors de la mise à jour du microprogramme, il ne faut pas débrancher le robot. Veillez également à ce que les piles soient chargées.
+
+![Mise à jour du firmware terminée](https://robot-educatif.info/wp-content/uploads/2020/04/pg7.png)
+
+## 4\. Teste (deboggage) du programme
+
+Une fois le robot connecté, testons notre programme en cliquant sur le bloc présent dans l’espace de travail
+
+![Test du programme](https://robot-educatif.info/wp-content/uploads/2020/04/conn4-1024x223.png)
+
+## 5\. Téléverser le programme
+
+Nous allons maintenant téléverser le programme dans le mBot
+
+![Téléversement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/pg4.png)
+
+Une fois connecté, appuyez sur le bouton **téléverser** et **télécharger**
+
+### 5.1. Erreur dans le programme
+
+Si une erreur est présente, le message suivant sera affiché lors du téléversement du programme
+
+![Erreur lors du téléversement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/pg5.png)
+
+Il vous faudra alors reprendre celui-ci et le corriger.
+
+## 6\. Améliorer le programme
+
+Actuellement la mélodie ne sera jouée qu’une seule fois. Je vous invite donc à trouver comment faire pour le jouer à l’infini dès que le bouton est pressé.
+
+La solution est téléchargeable ci-dessous
+
+[https://robot-educatif.info/programmes/premierProgramme.mblock](https://robot-educatif.info/programmes/premierProgramme.mblock)
+
+## 7\. Apprendre scratch
+
+Je vous ai sélectionné une série de livre pour vous former avec scratch et l’algorithme.

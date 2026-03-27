@@ -1,0 +1,22 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Carnet Todo en Python — données JSON"
+	metaDescription="Série guidée : modèle de tâches, lecture et écriture JSON, menu en ligne de commande, persistance sur disque."
+	series="Carnet Todo"
+	breadcrumbLast="Carnet Todo"
+	pageTitle="Carnet Todo (JSON) en Python"
+>
+	<p>
+		Petit outil <strong>utile au quotidien</strong> : ajouter, lister, cocher et supprimer des tâches, le tout sauvegardé
+		dans un fichier <strong>JSON</strong> (lisible et standard). Prérequis :{' '}
+		<a href="/python-fichiers-texte/">fichiers</a>, <a href="/python-listes-et-chaines/">listes / dictionnaires de base</a>{' '}
+		et <a href="/python-fonctions/">fonctions</a>. Le module <code>json</code> est dans la bibliothèque standard. Ressources :{' '}
+		<a href={`https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=${tag}`}>données &amp; Python</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

@@ -6,11 +6,25 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
+import { resolveHeroImage } from '../lib/contentHeroImage';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
+	articleSlug?: string;
+};
 
-const { title, description, pubDate, updatedDate, heroImage, amazonPreset, relatedLinks } =
-	Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	amazonPreset,
+	relatedLinks,
+	articleSlug = '',
+} = Astro.props;
+
+const resolvedHero = resolveHeroImage(heroImage);
 ---
 
 <html lang="fr">
@@ -97,6 +111,14 @@ const { title, description, pubDate, updatedDate, heroImage, amazonPreset, relat
 				padding: 0.25em 0 1em 0;
 				color: rgb(var(--gray-dark));
 			}
+			.prose img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+				border-radius: 8px;
+				margin: 1.35rem 0;
+				border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.08));
+			}
 			.last-updated-on {
 				font-style: italic;
 			}
@@ -122,9 +144,9 @@ const { title, description, pubDate, updatedDate, heroImage, amazonPreset, relat
 		<Header />
 		<main>
 			<section class="hero-article">
-				{heroImage && (
+				{resolvedHero && (
 					<div class="hero-article-media">
-						<Image width={1600} height={760} src={heroImage} alt={title} />
+						<Image width={1600} height={760} src={resolvedHero} alt={title} />
 					</div>
 				)}
 				<div class="hero-article-content">
@@ -146,7 +168,7 @@ const { title, description, pubDate, updatedDate, heroImage, amazonPreset, relat
 						<slot />
 					</div>
 				</article>
-				<Sidebar affiliatePreset={amazonPreset ?? null} relatedLinks={relatedLinks} />
+				<Sidebar articleSlug={articleSlug} affiliatePreset={amazonPreset ?? null} relatedLinks={relatedLinks} />
 			</div>
 		</main>
 		<Footer />

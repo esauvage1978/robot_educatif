@@ -20,8 +20,9 @@ type Props = {
 
 const { post } = Astro.props as Props;
 const { Content } = await render(post);
+const articleSlug = post.id.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} articleSlug={articleSlug}>
 	<Content />
 </BlogPost>

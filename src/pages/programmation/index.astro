@@ -1,0 +1,202 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../consts';
+import bandeauPythonUrl from '../../assets/programmation/bandeau-python.svg?url';
+import bandeauBatailleNavaleUrl from '../../assets/programmation/bandeau-bataille-navale.svg?url';
+import bandeauPenduUrl from '../../assets/programmation/bandeau-pendu.svg?url';
+import bandeauPuissance4Url from '../../assets/programmation/bandeau-puissance-4.svg?url';
+import bandeauCarnetTodoUrl from '../../assets/programmation/bandeau-carnet-todo.svg?url';
+
+const tag = AMAZON_AFFILIATE_TAG;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Programmation"
+			description="Parcours et tutoriels pour apprendre la programmation : Python, exercices progressifs et ressources."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="prog-hub">
+			<h1>Programmation</h1>
+			<p class="lead">
+				Des parcours structurés avec exercices, exemples de code et liens vers des ressources (dont des ouvrages sur
+				<a href={`https://www.amazon.fr/s?k=programmation+python+livre&tag=${tag}`}>Amazon.fr</a>
+				— partenaire).
+			</p>
+
+			<section class="tracks" aria-labelledby="tracks-title">
+				<h2 id="tracks-title">Parcours disponibles</h2>
+				<ul class="track-cards">
+					<li>
+						<a href="/programmation/python" class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : parcours Python — programmation"
+								loading="eager"
+							/>
+							<h3>Python — du débutant au mini-projet</h3>
+							<p>
+								10 articles : environnement, variables, types, conditions, boucles, fonctions, listes, fichiers,
+								débogage, mini-jeu au terminal.
+							</p>
+							<span class="cta">Voir le parcours →</span>
+						</a>
+					</li>
+					<li>
+						<a href="/programmation/bataille-navale" class="track-card">
+							<img
+								src={bandeauBatailleNavaleUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : projet bataille navale en Python"
+								loading="lazy"
+							/>
+							<h3>Bataille navale — projet Python</h3>
+							<p>
+								Six articles : cahier des charges, grille et coordonnées, placement des navires, tirs, détection
+								coulé, jeu complet au terminal (deux joueurs ou IA simple).
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+					<li>
+						<a href="/programmation/pendu" class="track-card">
+							<img
+								src={bandeauPenduUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : le pendu en Python"
+								loading="lazy"
+							/>
+							<h3>Le pendu — fichier de mots</h3>
+							<p>
+								Six articles : mot masqué, chargement depuis un fichier texte, lettres essayées, victoire ou défaite,
+								dessin ASCII optionnel, jeu complet.
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+					<li>
+						<a href="/programmation/puissance-4" class="track-card">
+							<img
+								src={bandeauPuissance4Url}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : puissance 4 en Python"
+								loading="lazy"
+							/>
+							<h3>Puissance 4</h3>
+							<p>
+								Six articles : grille 6×7, gravité, alternance joueurs, détection de quatre alignés, match nul, boucle
+								de partie et IA aléatoire.
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+					<li>
+						<a href="/programmation/carnet-todo" class="track-card">
+							<img
+								src={bandeauCarnetTodoUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : carnet Todo JSON en Python"
+								loading="lazy"
+							/>
+							<h3>Carnet Todo + JSON</h3>
+							<p>
+								Six articles : structure des données, lire et écrire JSON, modèle de tâche, menu CLI, persistance,
+								projet complet et idées d’extension.
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prog-hub {
+		width: min(900px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2.25rem 0 3rem;
+	}
+	.prog-hub h1 {
+		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead {
+		margin: 0 0 2rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		max-width: 40rem;
+	}
+	.lead a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.tracks h2 {
+		font-size: 1.2rem;
+		margin: 0 0 1rem;
+	}
+	.track-cards {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+		gap: 1.25rem;
+	}
+	.track-card {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		overflow: hidden;
+		background: var(--surface);
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+	.track-card:hover {
+		border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+		box-shadow: var(--box-shadow);
+	}
+	.track-card img {
+		display: block;
+		width: 100%;
+		height: auto;
+		background: var(--surface-2);
+	}
+	.track-card h3 {
+		margin: 1rem 1.25rem 0.35rem;
+		font-size: 1.15rem;
+		color: rgb(var(--gray-dark));
+	}
+	.track-card p {
+		margin: 0 1.25rem 0.75rem;
+		font-size: 0.95rem;
+		line-height: 1.5;
+		color: rgb(var(--gray));
+	}
+	.track-card .cta {
+		display: inline-block;
+		margin: 0 1.25rem 1.25rem;
+		font-weight: 700;
+		font-size: 0.92rem;
+		color: var(--accent);
+	}
+	.track-card:hover h3 {
+		color: var(--accent);
+	}
+</style>

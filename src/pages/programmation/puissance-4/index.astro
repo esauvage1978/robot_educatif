@@ -1,0 +1,22 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Puissance 4 en Python — grille et alignements"
+	metaDescription="Série guidée : grille 6×7, gravité des jetons, alternance des joueurs, détection de quatre alignés, jeu complet."
+	series="Puissance 4"
+	breadcrumbLast="Puissance 4"
+	pageTitle="Puissance 4 en Python"
+>
+	<p>
+		Variante du « connect four » : deux joueurs laissent tomber des jetons dans des <strong>colonnes</strong> ; le premier
+		qui aligne <strong>quatre</strong> pions gagne. Tu travailles une grille 2D, des boucles et des tests dans toutes les
+		directions. Prérequis : <a href="/python-listes-et-chaines/">listes</a>,{' '}
+		<a href="/python-boucles-for-while/">boucles</a> et <a href="/python-conditions-if-else/">conditions</a>. Ressources :{' '}
+		<a href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}>livres projets Python</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

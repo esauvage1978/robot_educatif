@@ -1,79 +1,24 @@
 ---
-title: "mBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
-description: "Découvre mBot2 : capteurs, programmation Scratch et Python, idées d’activités et où l’acheter au meilleur prix (liens affiliés)."
+title: "MBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
+description: "Le MBot2 de Makeblock est un robot éducatif passionnant pour les enfants et les adultes. Découvrez ses fonctionnalités avancées, sa compatibilité multi-langage et ses capteurs innovants."
 pubDate: "2023-04-10"
-updatedDate: "2026-03-27"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
-amazonPreset: mbot2
-relatedLinks:
-  - title: "Les modes de programmation dans mBlock 5 : blocs, Python et Arduino"
-    href: "/mblock-5-programmation-blocs-python-arduino/"
-  - title: "Guide mBlock 5 intermédiaire : capteurs, variables et logique"
-    href: "/guide-mblock-5-intermediaire/"
-  - title: "Guide mBlock 5 avancé : Upload, Arduino C et bonnes pratiques"
-    href: "/guide-mblock-5-avance/"
-  - title: "Comment installer mBlock 5 sur PC, Mac, navigateur et mobile"
-    href: "/comment-installer-mblock-5/"
-  - title: "mBot, mon premier robot éducatif"
-    href: "/mbot-mon-premier-robot-educatif/"
 ---
 
-Le **mBot2** de Makeblock est un robot éducatif polyvalent : il permet d’apprendre la robotique en manipulant de vrais capteurs, tout en démarrant facilement avec une programmation visuelle (type Scratch), puis en allant plus loin avec **Python**.
+Le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) de Makeblock est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec son design élégant, sa facilité d’utilisation et ses fonctionnalités avancées, le MBot2 est le choix idéal pour les amateurs de robotique et les éducateurs.
 
-Pour installer **mBlock 5** sur ton PC, Mac ou navigateur (avec **mLink**), suis le guide [Comment installer mBlock 5](/comment-installer-mblock-5/). Pour enchaîner avec les **blocs**, le **Python** et le **code Arduino**, voir l’article [Les modes de programmation dans mBlock 5](/mblock-5-programmation-blocs-python-arduino/).
+![Enfant découvrant un robot éducatif programmable (illustration d’ambiance)](/images/blog/inset-mbot2.png)
 
-> Cet article contient des liens affiliés Amazon. En tant que Partenaire Amazon, je peux percevoir une commission sur les achats éligibles, sans coût supplémentaire pour vous.
+*Illustration générée pour l’article — robot éducatif générique, sans reproduire un modèle commercial précis.*
 
-## Pourquoi mBot2 est un excellent robot pour débuter (et progresser)
+Le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) est livré avec une variété de capteurs, notamment des capteurs de suivi de ligne, des capteurs ultrasoniques et des capteurs de suivi de lumière. Ces capteurs permettent au robot de détecter son environnement et de réagir en conséquence, ce qui en fait un choix idéal pour les projets d’automatisation et de contrôle.
 
-mBot2 est intéressant car il coche trois cases importantes :
+Le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) est également compatible avec Scratch, un langage de programmation visuel facile à utiliser, qui permet aux utilisateurs de créer des programmes simples en faisant glisser et déposer des blocs de code. Cette fonctionnalité en fait un choix idéal pour les jeunes enfants ou les débutants en programmation.
 
-- **Pratique** : on voit immédiatement le résultat sur le robot (mouvements, détection, réactions).
-- **Progressif** : on peut commencer en “blocs” puis passer à du code.
-- **Riche en projets** : idéal pour des activités à la maison ou en classe.
+De plus, le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) est compatible avec le langage de programmation Python, qui permet aux utilisateurs de créer des programmes plus avancés pour contrôler le robot. Cette fonctionnalité en fait un choix idéal pour les étudiants et les professionnels de la programmation.
 
-## Capteurs et fonctionnalités : ce que le robot sait faire
+Le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) est également équipé d’un module Bluetooth, qui permet aux utilisateurs de contrôler le robot à distance en utilisant une application mobile. Cette fonctionnalité en fait un choix idéal pour les projets interactifs et de contrôle.
 
-Selon le kit et la configuration, mBot2 s’appuie sur des capteurs très utiles pour des projets éducatifs :
+Le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) est livré avec des instructions détaillées et des exemples de projets pour aider les utilisateurs à démarrer rapidement. Les enseignants peuvent également utiliser cette ressource pour créer des activités d’apprentissage interactives pour leurs élèves.
 
-- **suivi de ligne** (parcours, labyrinthe, vitesse) ;
-- **distance (ultrason)** (éviter des obstacles, parking automatique, “radar”) ;
-- **lumière / environnement** (réagir à l’éclairage, capter des variations).
-
-Ces capteurs donnent de la matière pour apprendre la logique “si/alors”, les boucles, et l’algorithmique.
-
-## Programmer mBot2 : Scratch puis Python
-
-### Scratch (programmation par blocs)
-
-Pour démarrer, l’approche Scratch est idéale : on assemble des blocs, on teste, on corrige.  
-C’est parfait pour comprendre les bases :
-
-- séquences d’instructions ;
-- conditions ;
-- répétitions ;
-- variables simples.
-
-### Python (pour aller plus loin)
-
-Quand on veut passer un cap (projets plus avancés, meilleure maîtrise), **Python** permet de structurer proprement un programme, de réutiliser des fonctions et de mieux comprendre la logique “développeur”.
-
-## Idées d’activités pour apprendre en s’amusant
-
-Voici quelques projets très efficaces pour progresser rapidement :
-
-- **suiveur de ligne** : régler les seuils, stabiliser la trajectoire ;
-- **évitement d’obstacles** : distances + choix de direction ;
-- **robot “gardien”** : alerte sonore/lumineuse selon une condition ;
-- **défis de vitesse** : optimiser un parcours avec contraintes.
-
-## Où acheter mBot2 ? (liens affiliés)
-
-- <a href="https://www.amazon.fr/s?k=Makeblock+mBot2&tag=manuso06-21" target="_blank" rel="noopener sponsored">Voir mBot2 sur Amazon</a>
-- <a href="https://www.amazon.fr/s?k=robot+educatif+programmation&tag=manuso06-21" target="_blank" rel="noopener sponsored">Comparer d’autres robots éducatifs sur Amazon</a>
-
-## Conclusion
-
-Si tu cherches un robot éducatif capable de **démarrer très simple** puis d’ouvrir la porte à des projets plus ambitieux, **mBot2** est un excellent choix.  
-Il combine capteurs utiles, programmation accessible et potentiel d’évolution — exactement ce qu’il faut pour apprendre la robotique avec plaisir.
-
+En conclusion, le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) de Makeblock est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec sa compatibilité multi-langage, ses capteurs avancés et sa connectivité Bluetooth, il est idéal pour les projets d’automatisation, les projets interactifs et les activités d’apprentissage en classe.

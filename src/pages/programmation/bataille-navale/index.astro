@@ -1,0 +1,22 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Bataille navale en Python — projet guidé"
+	metaDescription="Série d’articles : modéliser une grille, placer des bateaux, tirs, coulé, et assembler un jeu complet au terminal."
+	series="Bataille navale"
+	breadcrumbLast="Bataille navale"
+	pageTitle="Bataille navale en Python"
+>
+	<p>
+		Projet <strong>plus long</strong> que le parcours « mini-jeu » : tu réutilises listes, boucles, fonctions et conditions
+		pour construire pas à pas un jeu au <strong>terminal</strong>. Prérequis recommandé : avoir suivi au moins jusqu’aux{' '}
+		<a href="/python-listes-et-chaines/">listes et chaînes</a> du <a href="/programmation/python/">parcours Python</a>.
+		Ressources :{' '}
+		<a href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}>livres projets Python</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

@@ -8,6 +8,7 @@ import Header from '../components/Header.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
 import Sidebar from '../components/Sidebar.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { resolveHeroImage } from '../lib/contentHeroImage';
 
 const latestPosts = (await getCollection('blog'))
 	.sort((a, b) => {
@@ -222,24 +223,28 @@ const latestPosts = (await getCollection('blog'))
 				<div class="main-column">
 					<div class="intro-block">
 						<p class="lead">
-							<strong>ROBOT éducatif</strong> propose des contenus structurés pour choisir un robot pédagogique,
-							démarrer sereinement et poursuivre la lecture avec des objectifs clairs : mise en œuvre en classe
-							ou à la maison, limites du matériel et pistes d’activités.
+							<strong>ROBOT éducatif</strong>, ce sont des guides pour comparer et choisir un robot pédagogique,
+							installer les logiciels (mBlock, Scratch…), puis lancer vos premières activités — en classe comme
+							à la maison — sans oublier ce que le matériel sait faire (ou pas) et des idées d’exercices à
+							reprendre telles quelles.
 						</p>
 						<p class="lead" style="margin-bottom: 0;">
-							Chaque article vise un ton factuel et des explications actionnables, afin que vous passiez vite du
-							choix du matériel à la pratique.
+							On privilégie le concret : faits utiles, pas à pas et ressources directes, pour raccourcir le
+							trajet entre « quel robot pour mon groupe ou mon enfant ? » et « le programme tourne sur le
+							robot ».
 						</p>
 					</div>
 					<section class="latest-posts">
 						<h2>Les 5 derniers articles</h2>
 						<ul>
 							{
-								latestPosts.map((post) => (
+								latestPosts.map((post) => {
+									const thumb = resolveHeroImage(post.data.heroImage);
+									return (
 									<li>
-										<a href={`/blog/${post.id}/`}>
-											{post.data.heroImage && (
-												<Image src={post.data.heroImage} alt={post.data.title} width={220} height={130} />
+										<a href={`/${post.id}/`}>
+											{thumb && (
+												<Image src={thumb} alt={post.data.title} width={220} height={130} />
 											)}
 											<span class="title">{post.data.title}</span>
 											<span class="date">
@@ -247,7 +252,8 @@ const latestPosts = (await getCollection('blog'))
 											</span>
 										</a>
 									</li>
-								))
+									);
+								})
 							}
 						</ul>
 						<a class="all-posts" href="/blog/">Voir tous les articles</a>

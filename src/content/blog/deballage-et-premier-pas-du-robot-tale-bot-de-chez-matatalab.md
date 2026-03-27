@@ -1,107 +1,83 @@
 ---
-title: "Déballage et premiers pas du robot Tale-Bot Pro de chez Matatalab"
-description: "Test complet du Tale-Bot Pro : contenu de la boîte, activités pour enfants de 3 à 6 ans, avantages, limites et où l’acheter."
+title: "Déballage et découverte du robot Tale-bot pro de chez Matatalab"
+description: "Le robot tale-bot de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation."
 pubDate: "2023-05-01"
-updatedDate: "2026-03-27"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
-amazonPreset: matatalab
 ---
 
-Le **Tale-Bot Pro** de Matatalab est un robot éducatif conçu pour aider les enfants à découvrir la logique, le langage et les premiers réflexes de programmation, sans écran.  
-Dans cet article, je partage un retour d’expérience concret après plusieurs sessions à la maison avec un enfant de 4 ans.
+Le robot tale-bot de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons déballer et découvrir ensemble ce robot éducatif. Nous allons également voir comment effectuer les premiers pas pour programmer et utiliser le robot tale-bot.
 
-> Cet article contient des liens affiliés Amazon. En tant que Partenaire Amazon, je peux percevoir une commission sur les achats éligibles, sans coût supplémentaire pour vous.
+Pour découvrir ce qu’est le robot Talebot pro, je vous invite à lire l’article intitulé : [Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants](/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants/)
 
-## Ce que vous allez découvrir dans ce test
+## Remerciement
 
-- Ce qu’il y a dans la boîte (les éléments utiles dès le départ)
-- Comment les activités se vivent en pratique à 3-6 ans
-- Les points forts et les limites constatés
-- Où acheter le Tale-Bot Pro (liens affiliés)
+Je tiens à exprimer ma gratitude envers la société Matatalab pour m’avoir offert la possibilité de découvrir leur robot éducatif. Ils ont été très aimables de me le fournir gratuitement pour que je puisse le tester en toute indépendance, sans aucune influence de leur part.
 
-## Déballage du Tale-Bot Pro : ce que contient la boîte
+## Déballage et découverte du Tale-bot
 
-![Tale-Bot Pro dans la boîte](../../assets/tale-bot/tale-bot-pro-hero.webp)
+Le robot est livré dans 2 boites. Avec mon fils nous avons ouvert la première qui contient le robot. Il était tellement content que nous n’avons pas eu le temps de lire la notice, notamment pour le mettre en Français ([une aide est présente sur cet article](/le-robot-tale-bot-de-chez-matatalab-questions-reponses/)).
 
-Le coffret est pensé pour une prise en main immédiate. On retrouve notamment :
+lors de cette découverte, nous lui avons fait enchainer quelques instructions comme avancer, reculer, tourner à gauche et à droite. mais ce qui a surtout plu c’est de le faire danser !
 
-- le robot Tale-Bot Pro et son câble d’alimentation ;
-- plusieurs accessoires (bras, ailes, supports compatibles) ;
-- des déguisements pour personnaliser le robot ;
-- des supports d’activités et une grille de configuration ;
-- la documentation de démarrage.
+Le temps de la prise en main par mon fils de 4 ans, j’ai cherché pour le passer en français. Par rapport à ça la documentation n’est pas très clair. En fait c’est tellement simple que j’ai cherché compliqué.
 
-![Contenu du coffret Tale-Bot Pro](../../assets/tale-bot/tale-bot-pro-contenu.webp)
+### Contenu
 
-Premier bon point : les commandes de base sont rapidement comprises (avancer, reculer, tourner).
+Les 2 boites contiennent :
 
-## Premiers pas avec un enfant : retours terrain
+*   Le Tale-bot et son câble d’alimentation
+*   Des bras différents ( des ailes, des bras et des supports compatibles avec les Legos et des feutres)
+*   3 déguisements (lapin, police et petit garçon)
+*   1 livret de sticker repositionnable (non testé car connaissant mon fils, il va les coller partout sauf sur les grilles)
+*   1 grille de configuration pour la langue et la taille des déplacements (10 cm ou 15)
+*   Des pages interactives
+*   et les notices
+
+![contenu du Tale-Bot](https://robot-educatif.info/wp-content/uploads/2023/05/partslist_720x-300x300.webp)
 
 ### Activité histoire
 
-Le mode histoire est l’un des points forts. Les contenus audio captent l’attention et aident l’enfant à rester concentré.  
-Sur notre test, ce mode a été relancé plusieurs fois dans la même journée, signe d’un intérêt réel.
+Dès que nous avons modifié la langue du Tale-bot pour passer en français, nous avons immédiatement testé le mode histoire en commençant par la balade au zoo. Mon fils a été captivé par cette histoire et l’a écoutée au moins six fois en l’espace d’une heure. Il a également été intrigué par le conte sur la grenouille et la graine de tournesol, qu’il a également écouté attentivement. La qualité des histoires proposées par le robot Tale-bot pro de chez Matatalab est impressionnante et offre un excellent moyen d’encourager l’apprentissage et la créativité de notre enfant.
 
-### Activités de comptage et de formes
+En terme d’utilisation, à 3 ans et 10 mois, il est totalement autonome pour cette activité. L’utilisation est simple et adapté à cet âge.
 
-Les activités de dénombrement et de repérage visuel sont adaptées au rythme des enfants.  
-Elles stimulent la logique sans complexité inutile, ce qui permet une progression naturelle.
+### Activité dénombrement et forme
+
+Mon fils est également très friand de l’activité de dénombrement proposée par le robot Tale-bot pro de chez Matatalab, où il doit retrouver un certain nombre de fraises, par exemple six. Étant capable de dénombrer et de compter les fraises, il réussit cette activité aisément. Cependant, il a dû comprendre une petite subtilité : lorsque l’on « propose » une solution, il faut appuyer sur la touche **lecture** pour vérifier le nombre de fraises trouvées, ce qui a demandé un peu d’adaptation pour lui. Cette activité est un excellent moyen de stimuler la pensée logique et mathématique de notre enfant, tout en lui offrant une expérience de jeu ludique et divertissante.
 
 ### Activité déguisement
 
-La personnalisation du robot plaît beaucoup aux enfants.  
-Dans notre cas, le changement de costumes a été un vrai moteur de motivation, et l’enfant a pu le faire avec autonomie.
+Mon fils prend beaucoup de plaisir à habiller le Tale-bot en utilisant l’un des trois déguisements proposés. Il est capable de changer les accessoires tout seul, ce qui renforce son sentiment d’autonomie et sa créativité. Toutefois, il est à noter que ces accessoires semblent fragiles et commencent déjà à se détériorer, ce qui est regrettable car mon fils adore changer de costumes régulièrement.
 
-![Déguisement Tale-Bot Pro : lapin](../../assets/tale-bot/tale-bot-pro-deguisement-lapin.webp)
-![Déguisement Tale-Bot Pro : policier](../../assets/tale-bot/tale-bot-pro-deguisement-police.webp)
+![Déguisement Tale-bot](https://robot-educatif.info/wp-content/uploads/2023/05/20230430_204855-1-225x300.webp)
 
-Point de vigilance : certains éléments semblent plus fragiles si les manipulations sont très fréquentes.
+![Déguisement Tale-bot](https://robot-educatif.info/wp-content/uploads/2023/05/20230430_205319-225x300.webp)
 
-## Avantages et limites du Tale-Bot Pro
+## Avantages et inconvénients
 
-### Les points que j’ai aimés
+### Avantages
 
-- Prise en main intuitive pour les 3 ans et +
-- De nombreuses activités éducatives
-- Un bon équilibre entre jeu libre et apprentissage guidé
-- Une voix claire et des interactions motivantes
+*   Voix claire et audible
+*   Nombreuses activités
+*   Adapté à un enfant de 3 ans
+*   Simple et intuitif
+*   Livré chargé et prêt à l’emploi
 
-### Les limites constatées
+### Inconvénients
 
-- Déguisements/accessoires potentiellement fragiles
-- Selon les périodes, certaines fonctions peuvent dépendre des disponibilités (documentation, plateformes, etc.)
+*   Déguisements fragiles
+*   Application Android non présente sur le store
 
-## Où acheter le Tale-Bot Pro ? (liens affiliés)
+## Où trouver le Tale-bot pro ?
 
-Voici des liens pour comparer les prix et la disponibilité :
+Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-- <a href="https://www.amazon.fr/s?k=Matatalab+Tale-Bot+Pro&tag=manuso06-21" target="_blank" rel="noopener sponsored">Voir le Tale-Bot Pro sur Amazon</a>
-- <a href="https://www.amazon.fr/s?k=robot+educatif+enfant&tag=manuso06-21" target="_blank" rel="noopener sponsored">Comparer d’autres robots éducatifs sur Amazon</a>
+[![Boutique en ligne de Matatalab](https://robot-educatif.info/wp-content/uploads/2023/05/Tale-BotPro1_720x-1-300x300.webp)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
 
-Vous pouvez aussi retrouver le Tale-Bot Pro directement chez Matatalab :  
-[Tale-Bot Pro (boutique Matatalab)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+Boutique en ligne de Matatalab Tale-bot pro
 
-## FAQ (questions fréquentes)
-
-### Pour quel âge est-il conseillé ?
-
-Le Tale-Bot Pro est particulièrement adapté à la tranche 3 à 6 ans, avec des activités progressives pour garder l’enfant engagé.
-
-### Est-ce que le robot parle en français ?
-
-Lors de notre prise en main, la mise en français a été possible via la documentation et les réglages du robot.
-
-### L’application est-elle nécessaire ?
-
-Pour démarrer, l’essentiel passe par les supports d’activités et les commandes du robot.  
-Selon les fonctions, une appli peut exister, mais ce n’est pas le point central pour débuter.
-
-### Quelles sont les choses à surveiller ?
-
-Si l’enfant change souvent de déguisements, il peut être utile de manipuler les accessoires avec douceur pour prolonger leur durée de vie.
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://amzn.to/40SsLB5?tag=manuso06-21)
 
 ## Conclusion
 
-Après plusieurs jours de test, le **Tale-Bot Pro** a été adopté sans hésitation.  
-C’est un excellent point de départ pour apprendre la robotique éducative tôt : on combine plaisir, autonomie et apprentissages fondamentaux, le tout dans un format ludique et accessible.
-
+Après avoir testé le robot Tale-bot pro de chez Matatalab pendant plusieurs jours, mon fils de 4 ans l’aime tellement qu’il ne le quitte plus ! Ce produit éducatif propose une multitude de fonctionnalités amusantes et interactives, telles que le mode histoire, l’enregistrement des sons, les jeux de recherche de forme et de dénombrement, ainsi que la possibilité de déguiser le robot selon les préférences de votre enfant. Nous sommes convaincus que ce jouet intelligent aidera à développer la créativité et les compétences cognitives de notre enfant, tout en lui procurant des heures de plaisir. En somme, le robot Tale-bot pro de chez Matatalab est un excellent choix pour les parents cherchant à offrir un jouet éducatif et amusant à leurs enfants.

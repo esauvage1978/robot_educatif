@@ -9,3 +9,10 @@ export const AMAZON_AFFILIATE_TAG = 'manuso06-21';
 
 /** Google Analytics 4 — Measurement ID (gtag.js) */
 export const GA_MEASUREMENT_ID = 'G-PST9T1NFNX';
+
+/** Webhook Zapier (Catch Hook) — formulaire de contact */
+export const ZAPIER_CONTACT_WEBHOOK_URL =
+	'https://hooks.zapier.com/hooks/catch/26903545/upkex8r/';
+
+/** Adresse e-mail affichée sur le site */
+export const CONTACT_EMAIL = 'contact@robot-educatif.info';

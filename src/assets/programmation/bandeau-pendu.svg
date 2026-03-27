@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" role="img" aria-labelledby="t">
+  <title id="t">Projet Python - le pendu</title>
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3d2914"/>
+      <stop offset="100%" style="stop-color:#5c3d1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" fill="url(#g)"/>
+  <line x1="520" y1="210" x2="620" y2="210" stroke="#c9a86c" stroke-width="4"/>
+  <line x1="570" y1="210" x2="570" y2="60" stroke="#c9a86c" stroke-width="4"/>
+  <line x1="570" y1="60" x2="640" y2="60" stroke="#c9a86c" stroke-width="4"/>
+  <line x1="640" y1="60" x2="640" y2="85" stroke="#c9a86c" stroke-width="3"/>
+  <circle cx="640" cy="105" r="18" fill="none" stroke="#e8dcc8" stroke-width="3"/>
+  <line x1="640" y1="123" x2="640" y2="165" stroke="#e8dcc8" stroke-width="3"/>
+  <text x="100" y="118" fill="#f5ead8" font-family="system-ui,sans-serif" font-size="42" font-weight="800">Le pendu</text>
+  <text x="100" y="168" fill="#d4c4a8" font-family="system-ui,sans-serif" font-size="19" font-weight="600">Mots dans un fichier - Python</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" role="img" aria-labelledby="t">
+  <title id="t">Projet Python - carnet Todo JSON</title>
+  <defs>
+    <linearGradient id="td" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1b5e20"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" fill="url(#td)"/>
+  <rect x="510" y="58" width="200" height="145" rx="6" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+  <rect x="530" y="78" width="12" height="12" rx="2" fill="#4caf50"/>
+  <text x="552" y="89" fill="#1b5e20" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Acheter piles</text>
+  <rect x="530" y="108" width="12" height="12" rx="2" fill="#c8e6c9"/>
+  <text x="552" y="119" fill="#666" font-family="system-ui,sans-serif" font-size="14" text-decoration="line-through">Lire doc JSON</text>
+  <rect x="530" y="138" width="12" height="12" rx="2" fill="#4caf50"/>
+  <text x="552" y="149" fill="#1b5e20" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Sauver taches.json</text>
+  <text x="90" y="108" fill="#e8f5e9" font-family="system-ui,sans-serif" font-size="36" font-weight="800">Carnet Todo</text>
+  <text x="90" y="148" fill="#a5d6a7" font-family="system-ui,sans-serif" font-size="22" font-weight="700">+ JSON</text>
+  <text x="90" y="185" fill="#c8e6c9" font-family="system-ui,sans-serif" font-size="17" font-weight="600">Utile au quotidien - Python</text>
+</svg>

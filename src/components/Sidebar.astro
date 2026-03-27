@@ -1,9 +1,7 @@
 ---
 import { amazonSearchUrl } from '../lib/amazon';
-import {
-	AMAZON_SIDEBAR_PRESETS,
-	type AmazonSidebarPreset,
-} from '../lib/amazonSidebarPresets';
+import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
+import { resolveAmazonSidebarLinks } from '../lib/resolveAmazonSidebar';
 
 interface RelatedLink {
 	title: string;
@@ -11,41 +9,35 @@ interface RelatedLink {
 }
 
 interface Props {
+	/** Slug fichier article (sans extension) ; vide sur la liste blog → suggestions générales */
+	articleSlug?: string;
 	affiliatePreset?: AmazonSidebarPreset | null;
 	relatedLinks?: RelatedLink[] | undefined;
 }
 
-const { affiliatePreset = null, relatedLinks = undefined } = Astro.props;
-const affiliateLinks = affiliatePreset ? AMAZON_SIDEBAR_PRESETS[affiliatePreset] : null;
+const { articleSlug = '', affiliatePreset = null, relatedLinks = undefined } = Astro.props;
+const affiliateLinks = resolveAmazonSidebarLinks(articleSlug, affiliatePreset);
 const internalLinks = relatedLinks?.length ? relatedLinks : null;
 ---
 
 <aside class="sidebar">
-	{
-		affiliateLinks && (
-			<section class="widget widget-affiliate" aria-labelledby="sidebar-affiliate-title">
-				<h3 id="sidebar-affiliate-title">Recherches Amazon</h3>
-				<p class="affiliate-note">
-					Liens affiliés vers Amazon. En tant que partenaire, ce site peut percevoir une commission sur des achats
-					éligibles, sans surcoût pour vous.
-				</p>
-				<ul class="affiliate-list">
-					{affiliateLinks.map((item) => (
-						<li>
-							<a
-								href={amazonSearchUrl(item.query)}
-								target="_blank"
-								rel="noopener noreferrer sponsored"
-							>
-								{item.label}
-								<span aria-hidden="true" class="external-hint"> ↗</span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
+	<section class="widget widget-affiliate" aria-labelledby="sidebar-affiliate-title">
+		<h3 id="sidebar-affiliate-title">Propositions d’achat Amazon</h3>
+		<p class="affiliate-note">
+			Idées de produits en lien avec cet article. Liens affiliés : en tant que partenaire Amazon, ce site peut
+			percevoir une commission sur des achats éligibles, sans surcoût pour vous.
+		</p>
+		<ul class="affiliate-list">
+			{affiliateLinks.map((item) => (
+				<li>
+					<a href={amazonSearchUrl(item.query)} target="_blank" rel="noopener noreferrer sponsored">
+						{item.label}
+						<span aria-hidden="true" class="external-hint"> ↗</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
 	{
 		internalLinks && (
 			<section class="widget widget-related" aria-labelledby="sidebar-related-title">

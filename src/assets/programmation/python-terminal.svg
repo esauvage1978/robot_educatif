@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="220" viewBox="0 0 540 220" role="img" aria-labelledby="t">
+  <title id="t">Fen&#234;tre de terminal Python</title>
+  <rect width="540" height="220" rx="14" fill="#e4e8ec"/>
+  <g transform="translate(10,10)">
+    <rect width="520" height="200" rx="12" fill="#1e1e1e"/>
+    <rect x="0" y="0" width="520" height="36" rx="12" fill="#2d2d2d"/>
+    <circle cx="22" cy="18" r="6" fill="#ff5f57"/><circle cx="44" cy="18" r="6" fill="#febc2e"/><circle cx="66" cy="18" r="6" fill="#28c840"/>
+    <text x="260" y="23" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="12">python</text>
+    <text x="24" y="78" fill="#6a9955" font-family="Consolas,monospace" font-size="15">&gt;&gt;&gt; print("Hello")</text>
+    <text x="24" y="108" fill="#d4d4d4" font-family="Consolas,monospace" font-size="15">Hello</text>
+    <text x="24" y="148" fill="#569cd6" font-family="Consolas,monospace" font-size="15">&gt;&gt;&gt; </text>
+  </g>
+</svg>

@@ -1,0 +1,164 @@
+---
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import { getCollection } from 'astro:content';
+
+interface Props {
+	metaTitle: string;
+	metaDescription: string;
+	/** Valeur exacte de `series` dans le frontmatter des articles */
+	series: string;
+	breadcrumbLast: string;
+	pageTitle: string;
+}
+
+const { metaTitle, metaDescription, series, breadcrumbLast, pageTitle } = Astro.props;
+
+const all = await getCollection('blog');
+const posts = all
+	.filter((p) => p.data.series === series)
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const slug = (id: string) => id.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={metaTitle} description={metaDescription} />
+	</head>
+	<body>
+		<Header />
+		<main class="series-hub">
+			<nav class="breadcrumb" aria-label="Fil d’Ariane">
+				<a href="/programmation">Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>{breadcrumbLast}</span>
+			</nav>
+			<h1>{pageTitle}</h1>
+			<div class="lead-block">
+				<slot />
+			</div>
+			<ol class="lesson-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/${slug(post.id)}/`}>
+								<span class="num">{post.data.seriesOrder ?? '—'}</span>
+								<span class="meta">
+									<span class="title">{post.data.title}</span>
+									<span class="desc">{post.data.description}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+			<p class="back">
+				<a href="/programmation">← Toutes les rubriques programmation</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.series-hub {
+		width: min(720px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1rem;
+	}
+	.breadcrumb a {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.series-hub h1 {
+		font-size: clamp(1.65rem, 3vw, 2rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead-block {
+		margin-bottom: 1.75rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.lead-block :global(p) {
+		margin: 0 0 0.75rem;
+	}
+	.lead-block :global(p:last-child) {
+		margin-bottom: 0;
+	}
+	.lead-block :global(a) {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.lesson-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.lesson-list li {
+		margin-bottom: 0.65rem;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.lesson-list a:hover {
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.num {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 8px;
+		background: linear-gradient(135deg, #1a3a5c, #2d6a4f);
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+	.meta .title {
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list a:hover .title {
+		color: var(--accent);
+	}
+	.meta .desc {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		line-height: 1.45;
+	}
+	.back {
+		margin-top: 2rem;
+	}
+	.back a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>

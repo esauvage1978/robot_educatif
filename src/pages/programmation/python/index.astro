@@ -1,0 +1,176 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+const all = await getCollection('blog');
+const posts = all
+	.filter((p) => p.data.series === 'Python')
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const slug = (id: string) => id.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Python — parcours débutant"
+			description="Série de 10 articles Python : installation, syntaxe, exercices progressifs et mini-projet."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="py-series">
+			<nav class="breadcrumb" aria-label="Fil d’Ariane">
+				<a href="/programmation">Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>Python</span>
+			</nav>
+			<h1>Python — parcours progressif</h1>
+			<p class="lead">
+				Dix leçons du choix de l’éditeur au mini-projet. Chaque article propose des <strong>exemples</strong>, du{' '}
+				<strong>code</strong> à taper ou modifier et des <strong>exercices</strong>. Ressources complémentaires sur{' '}
+				<a href={`https://www.amazon.fr/s?k=python+3+apprendre+livre&tag=${tag}`}>Amazon.fr</a> (partenaire).
+			</p>
+			<p class="extra-series">
+				Projets guidés après le parcours :{' '}
+				<a href="/programmation/bataille-navale">Bataille navale</a>,{' '}
+				<a href="/programmation/pendu">Le pendu</a> (fichier de mots),{' '}
+				<a href="/programmation/puissance-4">Puissance 4</a>,{' '}
+				<a href="/programmation/carnet-todo">Carnet Todo + JSON</a>.
+			</p>
+			<ol class="lesson-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/${slug(post.id)}/`}>
+								<span class="num">{post.data.seriesOrder ?? '—'}</span>
+								<span class="meta">
+									<span class="title">{post.data.title}</span>
+									<span class="desc">{post.data.description}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+			<p class="back">
+				<a href="/programmation">← Toutes les rubriques programmation</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.py-series {
+		width: min(720px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1rem;
+	}
+	.breadcrumb a {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.py-series h1 {
+		font-size: clamp(1.65rem, 3vw, 2rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead {
+		margin: 0 0 1.75rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.lead a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.extra-series {
+		margin: 0 0 1.25rem;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.extra-series a {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.lesson-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: lesson;
+	}
+	.lesson-list li {
+		margin-bottom: 0.65rem;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.lesson-list a:hover {
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.num {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 8px;
+		background: var(--brand-gradient, linear-gradient(135deg, var(--accent), var(--accent-warm)));
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+	.meta .title {
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list a:hover .title {
+		color: var(--accent);
+	}
+	.meta .desc {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		line-height: 1.45;
+	}
+	.back {
+		margin-top: 2rem;
+	}
+	.back a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>

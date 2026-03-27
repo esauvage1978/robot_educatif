@@ -6,6 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "import:wp": "node scripts/import-wordpress.mjs",
+    "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -17,5 +19,10 @@
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.1",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "turndown": "^7.2.2",
+    "turndown-plugin-gfm": "^1.0.2"
   }
 }
