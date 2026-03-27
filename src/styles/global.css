@@ -1,0 +1,227 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--accent: #2b9ed0;
+	--accent-dark: #5eb6e0;
+	--accent-soft: #7ebad4;
+	--accent-warm: #e8941a;
+	--accent-warm-soft: #c9a05a;
+	--brand-gradient: linear-gradient(135deg, #2b9ed0 0%, #4a9ec9 48%, #e8941a 100%);
+	/* Thème sombre — fond uniforme (plus de bandeau tronqué) */
+	--page-bg: #080c14;
+	--page-bg-elevated: #0e1522;
+	--black: 242, 245, 252;
+	--gray: 138, 152, 182;
+	--gray-light: 28, 36, 52;
+	--gray-dark: 218, 224, 238;
+	--gray-gradient: #080c14, #0e1522;
+	--surface: #101823;
+	--surface-2: #141d2c;
+	--surface-border: rgba(255, 255, 255, 0.08);
+	--card: #101823;
+	--card-2: #151e2e;
+	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
+	--font-heading: 'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
+	--font-body: 'Atkinson', system-ui, -apple-system, sans-serif;
+	--prose-width: 42rem;
+}
+
+html[data-theme='light'] {
+	--accent: #1e7aa3;
+	--accent-dark: #155a78;
+	--accent-soft: #5a9fb8;
+	--accent-warm: #c77a0a;
+	--accent-warm-soft: #9a6b1a;
+	--brand-gradient: linear-gradient(135deg, #1e7aa3 0%, #3d8faf 50%, #c77a0a 100%);
+	--page-bg: #f0f2f6;
+	--page-bg-elevated: #ffffff;
+	--black: 16, 22, 34;
+	--gray: 88, 98, 118;
+	--gray-light: 238, 241, 246;
+	--gray-dark: 36, 44, 58;
+	--gray-gradient: #f0f2f6, #f5f7fb;
+	--surface: #ffffff;
+	--surface-2: #f7f8fb;
+	--surface-border: rgba(20, 28, 48, 0.1);
+	--card: #ffffff;
+	--card-2: #f3f5f9;
+	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 10px 28px rgba(15, 25, 45, 0.08);
+}
+
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Atkinson";
+	src: url("/fonts/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+html {
+	background-color: var(--page-bg);
+}
+
+body {
+	font-family: var(--font-body);
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background-color: var(--page-bg);
+	min-height: 100vh;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--gray-dark));
+	font-size: 17px;
+	line-height: 1.72;
+}
+
+main {
+	width: min(1200px, calc(100% - 2em));
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 2.5em 1em 3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 0.5rem 0;
+	font-family: var(--font-heading);
+	color: rgb(var(--black));
+	line-height: 1.22;
+	font-weight: 600;
+	letter-spacing: -0.015em;
+}
+
+h1 {
+	font-size: 2.15em;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.65em;
+}
+
+h3 {
+	font-size: 1.28em;
+}
+
+h4 {
+	font-size: 1.12em;
+}
+
+h5 {
+	font-size: 1.02em;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
+
+a {
+	color: var(--accent);
+	text-underline-offset: 3px;
+}
+
+a:hover {
+	color: var(--accent-dark);
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.prose p {
+	margin-bottom: 1.35em;
+	max-width: var(--prose-width);
+}
+
+.prose {
+	font-size: 1.02rem;
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+
+input {
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border-left: 3px solid var(--accent);
+	padding: 0 0 0 1.15rem;
+	margin: 0;
+	font-family: var(--font-heading);
+	font-size: 1.125em;
+	color: rgb(var(--gray));
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--surface-border);
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 16px;
+	}
+
+	main {
+		padding: 1.25em 1em 2em;
+	}
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

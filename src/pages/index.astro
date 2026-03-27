@@ -1,0 +1,262 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import HomeShowcase from '../components/HomeShowcase.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const latestPosts = (await getCollection('blog'))
+	.sort((a, b) => {
+		const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
+		const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
+		return dateB - dateA;
+	})
+	.slice(0, 5);
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero-home {
+				position: relative;
+				width: 100vw;
+				margin: 0 calc(50% - 50vw) 2rem calc(50% - 50vw);
+				min-height: clamp(440px, 56vh, 620px);
+				display: flex;
+				align-items: flex-end;
+				background-color: #060a10;
+				background-image:
+					linear-gradient(180deg, rgba(6, 10, 16, 0.45) 0%, rgba(6, 10, 16, 0.82) 100%),
+					linear-gradient(90deg, rgba(6, 10, 16, 0.88) 0%, rgba(6, 10, 16, 0.55) 45%, rgba(6, 10, 16, 0.35) 100%),
+					url('/hero-home.jpg');
+				background-size: cover;
+				background-position: center 40%;
+			}
+			.hero-home-inner {
+				width: min(1140px, calc(100% - 2.5rem));
+				margin: 0 auto;
+				padding: 2.75rem 0 3rem 0;
+			}
+			.hero-home .hero-kicker {
+				display: inline-block;
+				margin: 0 0 0.85rem 0;
+				font-size: 0.82rem;
+				font-weight: 600;
+				font-family: var(--font-body, system-ui);
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: rgba(255, 255, 255, 0.72);
+			}
+			.hero-home h1 {
+				margin: 0 0 1rem 0;
+				color: #fff;
+				max-width: 20ch;
+				font-size: clamp(2.1rem, 4.2vw, 3.35rem);
+				line-height: 1.12;
+				font-weight: 700;
+				text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+			}
+			.hero-home .hero-lead {
+				margin: 0 0 1.35rem 0;
+				max-width: 38rem;
+				color: rgba(255, 255, 255, 0.92);
+				font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+				line-height: 1.6;
+				font-family: var(--font-body, system-ui);
+			}
+			.hero-actions {
+				display: flex;
+				gap: 0.85rem;
+				flex-wrap: wrap;
+			}
+			.hero-actions a {
+				text-decoration: none;
+				font-weight: 600;
+				font-family: var(--font-body, system-ui);
+				padding: 0.62rem 1.15rem;
+				border-radius: 6px;
+				border: 1px solid rgba(255, 255, 255, 0.35);
+				background: rgba(255, 255, 255, 0.12);
+				color: #fff;
+				transition: background 0.15s ease, border-color 0.15s ease;
+			}
+			.hero-actions a:first-child {
+				background: var(--accent);
+				border-color: color-mix(in oklab, var(--accent) 80%, #fff 20%);
+				color: #fff;
+			}
+			.hero-actions a:first-child:hover {
+				background: color-mix(in oklab, var(--accent) 88%, #fff 12%);
+			}
+			.hero-actions a:hover {
+				background: rgba(255, 255, 255, 0.2);
+			}
+			.page-layout {
+				display: grid;
+				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+				gap: 1.25rem;
+				align-items: start;
+			}
+			.main-column {
+				min-width: 0;
+			}
+			.intro-block {
+				padding-bottom: 0.5rem;
+				border-bottom: 1px solid var(--surface-border);
+				margin-bottom: 1.75rem;
+			}
+			.intro-block .lead {
+				font-size: 1.125rem;
+				color: rgb(var(--gray-dark));
+				max-width: var(--prose-width, 42rem);
+				line-height: 1.75;
+				margin-bottom: 0.85rem;
+			}
+			.latest-posts {
+				margin-top: 2.25rem;
+				padding: 1.5rem 1.35rem;
+				background: var(--surface-2);
+				border: 1px solid var(--surface-border);
+				border-radius: 8px;
+				box-shadow: var(--box-shadow);
+			}
+			.latest-posts h2 {
+				margin-bottom: 1rem;
+				font-size: 1.5rem;
+			}
+			.latest-posts ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: grid;
+				gap: 0.75rem;
+			}
+			.latest-posts li a {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				padding: 0.75rem;
+				background: var(--surface);
+				border: 1px solid var(--surface-border);
+				border-radius: 10px;
+				text-decoration: none;
+				transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+			}
+			.latest-posts li a img {
+				width: 92px;
+				height: 58px;
+				object-fit: cover;
+				border-radius: 8px;
+				flex-shrink: 0;
+			}
+			.latest-posts li a:hover {
+				border-color: var(--accent);
+				box-shadow: var(--box-shadow);
+				transform: translateY(-1px);
+			}
+			.latest-posts .title {
+				color: var(--accent-dark);
+				font-weight: 700;
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 2px;
+				flex: 1;
+			}
+			.latest-posts .date {
+				color: rgb(var(--gray));
+				white-space: nowrap;
+			}
+			.latest-posts .all-posts {
+				display: inline-block;
+				margin-top: 1rem;
+				font-weight: 700;
+				padding: 0.4rem 0.75rem;
+				border-radius: 999px;
+				border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
+				background: color-mix(in oklab, var(--accent) 16%, transparent);
+				text-decoration: none;
+			}
+			@media (max-width: 720px) {
+				.hero-home {
+					min-height: 380px;
+					margin-bottom: 1.35rem;
+					background-position: center center;
+				}
+				.hero-home-inner {
+					padding: 1.75rem 0 2rem 0;
+				}
+				.page-layout {
+					grid-template-columns: 1fr;
+				}
+				.latest-posts li a {
+					flex-direction: column;
+					gap: 0.4rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero-home">
+				<div class="hero-home-inner">
+					<p class="hero-kicker">Robotique &amp; pédagogie</p>
+					<h1>Apprendre la robotique en s'amusant</h1>
+					<p class="hero-lead">
+						Guides détaillés, retours d’expérience et idées d’activités pour enseigner la programmation et la
+						robotique avec du matériel adapté aux collégiens, lycéens et autodidactes motivés.
+					</p>
+					<div class="hero-actions">
+						<a href="/blog/">Articles à la une</a>
+						<a href="/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/">Focus mBot2</a>
+					</div>
+				</div>
+			</section>
+			<div class="page-layout">
+				<div class="main-column">
+					<div class="intro-block">
+						<p class="lead">
+							<strong>ROBOT éducatif</strong> propose des contenus structurés pour choisir un robot pédagogique,
+							démarrer sereinement et poursuivre la lecture avec des objectifs clairs : mise en œuvre en classe
+							ou à la maison, limites du matériel et pistes d’activités.
+						</p>
+						<p class="lead" style="margin-bottom: 0;">
+							Chaque article vise un ton factuel et des explications actionnables, afin que vous passiez vite du
+							choix du matériel à la pratique.
+						</p>
+					</div>
+					<section class="latest-posts">
+						<h2>Les 5 derniers articles</h2>
+						<ul>
+							{
+								latestPosts.map((post) => (
+									<li>
+										<a href={`/blog/${post.id}/`}>
+											{post.data.heroImage && (
+												<Image src={post.data.heroImage} alt={post.data.title} width={220} height={130} />
+											)}
+											<span class="title">{post.data.title}</span>
+											<span class="date">
+												<FormattedDate date={post.data.pubDate} />
+											</span>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+						<a class="all-posts" href="/blog/">Voir tous les articles</a>
+					</section>
+					<HomeShowcase />
+				</div>
+				<Sidebar />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

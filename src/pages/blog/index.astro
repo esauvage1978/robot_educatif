@@ -1,0 +1,205 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+const posts = (await getCollection('blog')).sort((a, b) => {
+	const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
+	const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
+	return dateB - dateA;
+});
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero-blog {
+				width: 100vw;
+				position: relative;
+				margin-left: calc(50% - 50vw);
+				margin-right: calc(50% - 50vw);
+				margin-bottom: 2rem;
+				padding: clamp(2rem, 5vw, 3rem) 0;
+				border-radius: 0;
+				border: none;
+				border-bottom: 1px solid var(--surface-border);
+				background: var(--surface);
+				box-shadow: none;
+			}
+			.hero-blog-inner {
+				width: min(1140px, calc(100% - 2.5rem));
+				margin: 0 auto;
+				border-left: 4px solid var(--accent);
+				padding-left: 1.25rem;
+			}
+			.hero-blog .hero-kicker {
+				margin: 0 0 0.5rem 0;
+				font-size: 0.78rem;
+				font-weight: 600;
+				letter-spacing: 0.11em;
+				text-transform: uppercase;
+				color: rgb(var(--gray));
+			}
+			.hero-blog h1 {
+				margin: 0 0 0.65rem 0;
+				font-size: clamp(1.85rem, 3vw, 2.5rem);
+			}
+			.hero-blog p {
+				margin: 0;
+				max-width: 36rem;
+				color: rgb(var(--gray-dark));
+				font-size: 1.08rem;
+				line-height: 1.65;
+				font-family: var(--font-body, system-ui);
+			}
+			.page-layout {
+				display: grid;
+				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+				gap: 1.25rem;
+				align-items: start;
+			}
+			.main-column {
+				min-width: 0;
+			}
+			.posts-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			.posts-list li {
+				width: calc(50% - 1rem);
+			}
+			.posts-list li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
+			.posts-list li:first-child {
+				width: 100%;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+			.posts-list li:first-child img {
+				width: 100%;
+			}
+			.posts-list li:first-child .title {
+				font-size: 2.369rem;
+			}
+			.posts-list li img {
+				margin-bottom: 0.5rem;
+				border-radius: 12px;
+			}
+			.posts-list li a {
+				display: block;
+				padding: 0.35rem 0;
+				border-radius: 6px;
+				transition: background 0.12s ease;
+			}
+			.posts-list li a:hover {
+				background: color-mix(in oklab, var(--accent) 6%, transparent);
+			}
+			.posts-list li a:hover .title {
+				color: var(--accent);
+			}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1.25;
+				text-decoration: none;
+				font-family: var(--font-heading);
+				font-weight: 600;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--gray));
+			}
+			.posts-list li a:hover h4,
+			.posts-list li a:hover .date {
+				color: rgb(var(--accent));
+			}
+			.posts-list a:hover img {
+				box-shadow: var(--box-shadow);
+			}
+			@media (max-width: 720px) {
+				.hero-blog {
+					padding: 1.5rem 0;
+					margin-bottom: 1.25rem;
+				}
+				.hero-blog-inner {
+					width: calc(100% - 2rem);
+				}
+				.page-layout {
+					grid-template-columns: 1fr;
+				}
+				.posts-list {
+					gap: 0.5em;
+				}
+				.posts-list li {
+					width: 100%;
+					text-align: center;
+				}
+				.posts-list li:first-child {
+					margin-bottom: 0;
+				}
+				.posts-list li:first-child .title {
+					font-size: 1.563em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero-blog">
+				<div class="hero-blog-inner">
+					<p class="hero-kicker">Publications</p>
+					<h1>Blog — robotique éducative</h1>
+					<p>
+						Retours terrain, comparatifs et activités pour enseigner ou apprendre la programmation et la
+						robotique avec du matériel grand public et des kits pédagogiques.
+					</p>
+				</div>
+			</section>
+			<div class="page-layout">
+				<div class="main-column">
+					<section>
+						<h2 style="margin: 0 0 1rem 0;">Articles</h2>
+						<p style="margin: 0 0 1.5rem 0; color: rgb(var(--gray-dark));">
+							Des tests, des idées d’activités et des guides pour apprendre la programmation et la robotique.
+						</p>
+					</section>
+					<section>
+						<ul class="posts-list">
+							{
+								posts.map((post) => (
+									<li>
+										<a href={`/blog/${post.id}/`}>
+											{post.data.heroImage && (
+												<Image width={720} height={360} src={post.data.heroImage} alt="" />
+											)}
+											<h4 class="title">{post.data.title}</h4>
+											<p class="date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</section>
+				</div>
+				<Sidebar />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

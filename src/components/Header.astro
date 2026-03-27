@@ -1,0 +1,209 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<a class="brand" href="/">
+			<img src="/logo-robot-educatif.png" alt={SITE_TITLE} />
+		</a>
+		<div class="internal-links">
+			<HeaderLink href="/">Accueil</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+		</div>
+		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le thème sombre" title="Changer de thème">
+			<span class="theme-icons" aria-hidden="true">
+				<svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<circle cx="12" cy="12" r="4" />
+					<path d="M12 2v2" />
+					<path d="M12 20v2" />
+					<path d="M4.93 4.93l1.41 1.41" />
+					<path d="M17.66 17.66l1.41 1.41" />
+					<path d="M2 12h2" />
+					<path d="M20 12h2" />
+					<path d="M4.93 19.07l1.41-1.41" />
+					<path d="M17.66 6.34l1.41-1.41" />
+				</svg>
+				<svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path
+						d="M21 13.2A8.5 8.5 0 0 1 10.8 3a6.9 6.9 0 1 0 10.2 10.2Z"
+					/>
+				</svg>
+			</span>
+			<span class="sr-only" id="theme-toggle-label">Thème : sombre</span>
+		</button>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 clamp(1rem, 4vw, 1.75rem);
+		background: var(--surface);
+		border-bottom: 1px solid var(--surface-border);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+		overflow: visible;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		padding: 0.65rem 0;
+		flex-shrink: 0;
+		margin-right: 0.5rem;
+		overflow: visible;
+	}
+	.brand img {
+		height: 56px;
+		width: auto;
+		max-width: min(320px, 52vw);
+		max-height: 64px;
+		object-fit: contain;
+		object-position: left center;
+		display: block;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		max-width: min(1320px, 100%);
+		margin: 0 auto;
+	}
+	.internal-links {
+		display: flex;
+		gap: 0.35rem;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+	nav a {
+		padding: 0.42em 0.95em;
+		color: rgb(var(--gray-dark));
+		border: 1px solid var(--surface-border);
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.95rem;
+		background: transparent;
+		transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+	}
+	nav a:not(.brand).active {
+		background: color-mix(in oklab, var(--accent) 14%, transparent);
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		color: var(--accent);
+	}
+	nav a:not(.brand):hover {
+		border-color: color-mix(in oklab, var(--accent) 45%, transparent);
+		color: var(--accent);
+	}
+	@media (max-width: 720px) {
+		.brand img {
+			height: 46px;
+			max-width: min(280px, 70vw);
+			max-height: 54px;
+		}
+		nav {
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		.internal-links {
+			order: 3;
+			width: 100%;
+			justify-content: flex-start;
+		}
+		.theme-toggle {
+			margin-left: auto;
+		}
+	}
+
+	.theme-toggle {
+		cursor: pointer;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--surface) 75%, transparent);
+		border-radius: 999px;
+		padding: 0.35rem;
+		color: rgb(var(--gray-dark));
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(10px);
+		transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+	}
+	.theme-toggle:hover {
+		border-color: var(--accent-soft);
+		box-shadow: var(--box-shadow);
+		transform: translateY(-1px);
+	}
+	.theme-toggle:focus-visible {
+		outline: 3px solid rgba(40, 157, 204, 0.35);
+		outline-offset: 2px;
+	}
+
+	.theme-icons {
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--brand-gradient);
+		color: #fff;
+	}
+
+	.theme-icons .icon {
+		width: 16px;
+		height: 16px;
+		display: none;
+	}
+
+	html[data-theme='light'] .theme-icons .icon.moon {
+		display: block;
+	}
+
+	html:not([data-theme='light']) .theme-icons .icon.sun {
+		display: block;
+	}
+
+	/* label masqué via sr-only */
+</style>
+
+<script is:inline>
+	(() => {
+		const key = 'robot-educatif-theme';
+		const button = document.getElementById('theme-toggle');
+		const label = document.getElementById('theme-toggle-label');
+		if (!button) return;
+
+		const apply = (theme) => {
+			document.documentElement.dataset.theme = theme;
+			localStorage.setItem(key, theme);
+			const isLight = theme === 'light';
+			if (label)
+				label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
+			button.setAttribute(
+				'aria-label',
+				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
+			);
+		};
+
+		const current = document.documentElement.dataset.theme;
+		if (!current) {
+			apply(
+				localStorage.getItem(key) ||
+					(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
+			);
+		} else if (label) {
+			const isLight = current === 'light';
+			label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
+			button.setAttribute(
+				'aria-label',
+				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
+			);
+		}
+
+		button.addEventListener('click', () => {
+			const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+			apply(next);
+		});
+	})();
+</script>

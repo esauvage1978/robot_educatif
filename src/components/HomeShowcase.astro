@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import mbot2Hero from '../assets/mbot2/mbot2-hero.jpg';
+import taleBotHero from '../assets/tale-bot/tale-bot-pro-hero.webp';
+import taleBotItems from '../assets/tale-bot/tale-bot-pro-contenu.webp';
+---
+
+<section class="home-showcase">
+	<h2>Robots à découvrir</h2>
+	<div class="cards">
+		<a class="card" href="/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/">
+			<Image src={mbot2Hero} alt="Robot mBot2 de Makeblock" width={500} height={320} />
+			<span class="label">mBot2</span>
+		</a>
+		<a class="card" href="/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab/">
+			<Image src={taleBotHero} alt="Robot Tale-Bot Pro" width={500} height={320} />
+			<span class="label">Tale-Bot Pro</span>
+		</a>
+		<a class="card" href="/blog/">
+			<Image src={taleBotItems} alt="Accessoires robot éducatif" width={500} height={320} />
+			<span class="label">Guides et activités</span>
+		</a>
+	</div>
+</section>
+
+<style>
+	.home-showcase {
+		margin: 2rem 0 1.5rem 0;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--surface-border);
+	}
+	.home-showcase h2 {
+		margin: 0 0 1rem 0;
+		font-size: 1.45rem;
+	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	.card {
+		position: relative;
+		display: block;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid var(--surface-border);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+		text-decoration: none;
+		min-height: 195px;
+	}
+	.card img {
+		width: 100%;
+		height: 100%;
+		min-height: 175px;
+		object-fit: cover;
+		display: block;
+	}
+	.card::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(6, 10, 18, 0.82), transparent 50%);
+	}
+	.label {
+		position: absolute;
+		left: 0.85rem;
+		bottom: 0.75rem;
+		z-index: 1;
+		color: #fff;
+		font-weight: 600;
+		font-size: 1.05rem;
+		font-family: var(--font-heading);
+		letter-spacing: 0.01em;
+	}
+	.card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+	}
+	@media (max-width: 900px) {
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

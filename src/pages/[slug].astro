@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const normalize = (value: string) =>
+		value.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		// En dev, selon la version/adapter, `post.id` peut contenir une extension ou varier.
+		// On normalise pour que l'URL demandée (sans extension) matche toujours.
+		params: { slug: normalize(post.id) },
+		props: { post },
+	}));
+}
+
+type Props = {
+	post: CollectionEntry<'blog'>;
+};
+
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+---
+
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>

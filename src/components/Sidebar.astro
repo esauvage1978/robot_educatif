@@ -1,0 +1,207 @@
+---
+import { amazonSearchUrl } from '../lib/amazon';
+import {
+	AMAZON_SIDEBAR_PRESETS,
+	type AmazonSidebarPreset,
+} from '../lib/amazonSidebarPresets';
+
+interface RelatedLink {
+	title: string;
+	href: string;
+}
+
+interface Props {
+	affiliatePreset?: AmazonSidebarPreset | null;
+	relatedLinks?: RelatedLink[] | undefined;
+}
+
+const { affiliatePreset = null, relatedLinks = undefined } = Astro.props;
+const affiliateLinks = affiliatePreset ? AMAZON_SIDEBAR_PRESETS[affiliatePreset] : null;
+const internalLinks = relatedLinks?.length ? relatedLinks : null;
+---
+
+<aside class="sidebar">
+	{
+		affiliateLinks && (
+			<section class="widget widget-affiliate" aria-labelledby="sidebar-affiliate-title">
+				<h3 id="sidebar-affiliate-title">Recherches Amazon</h3>
+				<p class="affiliate-note">
+					Liens affiliés vers Amazon. En tant que partenaire, ce site peut percevoir une commission sur des achats
+					éligibles, sans surcoût pour vous.
+				</p>
+				<ul class="affiliate-list">
+					{affiliateLinks.map((item) => (
+						<li>
+							<a
+								href={amazonSearchUrl(item.query)}
+								target="_blank"
+								rel="noopener noreferrer sponsored"
+							>
+								{item.label}
+								<span aria-hidden="true" class="external-hint"> ↗</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+	{
+		internalLinks && (
+			<section class="widget widget-related" aria-labelledby="sidebar-related-title">
+				<h3 id="sidebar-related-title">À lire aussi</h3>
+				<p class="related-hint">Articles du site en lien avec ce sujet.</p>
+				<ul class="related-list">
+					{internalLinks.map((item) => (
+						<li>
+							<a href={item.href}>{item.title}</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+	<section class="widget">
+		<h3>Catégories</h3>
+		<ul>
+			<li><a href="/blog/">Toutes les catégories</a></li>
+			<li>
+				<a href="/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab/">Matatalab</a>
+			</li>
+			<li>
+				<a href="/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/">Makeblock / mBot</a>
+			</li>
+			<li>
+				<a href="/mbot-mon-premier-robot-educatif/">mBot débutant</a>
+			</li>
+			<li>
+				<a href="/mon-premier-programme-mbot/">Premier programme mBot</a>
+			</li>
+			<li>
+				<a href="/comment-installer-mblock-5/">Installer mBlock 5</a>
+			</li>
+			<li>
+				<a href="/mblock-5-programmation-blocs-python-arduino/">mBlock : blocs, Python, Arduino</a>
+			</li>
+			<li>
+				<a href="/guide-mblock-5-debutant/">Guide mBlock — débutant</a>
+			</li>
+			<li>
+				<a href="/guide-mblock-5-intermediaire/">Guide mBlock — intermédiaire</a>
+			</li>
+			<li>
+				<a href="/guide-mblock-5-avance/">Guide mBlock — avancé</a>
+			</li>
+			<li class="sidebar-heading">Robots éducatifs (guides)</li>
+			<li>
+				<a href="/robot-educatif-codey-rocky-makeblock/">Codey Rocky</a>
+			</li>
+			<li>
+				<a href="/robot-educatif-eilik-compagnon/">Eilik</a>
+			</li>
+			<li>
+				<a href="/robot-educatif-ikuper-technic-stem/">IKUPER Technic</a>
+			</li>
+			<li>
+				<a href="/lexibook-power-puppy-robot-programmable/">Lexibook Power Puppy</a>
+			</li>
+			<li>
+				<a href="/sphero-mini-robot-programmable/">Sphero Mini</a>
+			</li>
+			<li>
+				<a href="/ozobot-evo-robot-codage/">Ozobot Evo</a>
+			</li>
+		</ul>
+	</section>
+</aside>
+
+<style>
+	.sidebar {
+		display: grid;
+		gap: 1rem;
+	}
+	.widget {
+		background: var(--surface-2);
+		border: 1px solid var(--surface-border);
+		border-radius: 8px;
+		padding: 1.15rem 1.1rem;
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+	}
+	.widget-affiliate {
+		border-color: color-mix(in oklab, var(--accent) 22%, var(--surface-border));
+	}
+	.widget-related {
+		border-color: color-mix(in oklab, var(--accent-warm) 18%, var(--surface-border));
+	}
+	.related-hint {
+		margin: 0 0 0.75rem 0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+		color: rgb(var(--gray));
+		font-family: var(--font-body, system-ui);
+	}
+	.related-list {
+		gap: 0.5rem;
+	}
+	.widget h3 {
+		margin: 0 0 0.85rem 0;
+		font-size: 0.78rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-family: var(--font-body, system-ui);
+		color: rgb(var(--gray));
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--surface-border);
+	}
+	.affiliate-note {
+		margin: 0 0 0.85rem 0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+		color: rgb(var(--gray));
+		font-family: var(--font-body, system-ui);
+	}
+	.widget ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.45rem;
+	}
+	.sidebar-heading {
+		margin: 0.6rem 0 0.1rem 0;
+		padding: 0.35rem 0 0 0;
+		border-top: 1px solid var(--surface-border);
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+		font-weight: 600;
+		list-style: none;
+	}
+	.affiliate-list {
+		gap: 0.55rem;
+	}
+	.widget a {
+		text-decoration: none;
+		color: var(--accent);
+		font-weight: 600;
+		font-size: 0.96rem;
+		display: inline-block;
+		padding: 0.2rem 0;
+		border: none;
+		background: none;
+		border-radius: 0;
+		transition: color 0.12s ease;
+	}
+	.widget a:hover {
+		color: var(--accent-dark);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.external-hint {
+		font-weight: 500;
+		opacity: 0.75;
+		text-decoration: none !important;
+	}
+</style>
