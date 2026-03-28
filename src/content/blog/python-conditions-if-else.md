@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-types-et-saisie/"
   - title: "Leçon 5 — boucles for et while"
     href: "/python-boucles-for-while/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Débutant"
 ---
-
 Les **conditions** choisissent quelle partie du programme s’exécute. En Python, un bloc qui dépend d’un `if` est reconnaissable à **l’indentation** (généralement **4 espaces**) : pas d’accolades `{}` comme en C ou Java.
 
 Tu t’appuies sur les conversions vues en [leçon 3](/python-types-et-saisie/) (`int(input(...))`, etc.) pour comparer des nombres saisis au clavier.

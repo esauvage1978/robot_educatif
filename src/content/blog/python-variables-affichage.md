@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-environnement-developpement/"
   - title: "Leçon 3 — types et saisie"
     href: "/python-types-et-saisie/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Débutant"
 ---
-
 Après avoir installé Python et ouvert un éditeur ([leçon 1](/python-environnement-developpement/)), tu passes à la **matière première** des programmes : stocker des informations dans des **variables** et les **afficher** à l’écran. Cette leçon reste volontairement sans `input()` : tout est écrit **dans le code** ; la saisie clavier arrive à la [leçon 3](/python-types-et-saisie/).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

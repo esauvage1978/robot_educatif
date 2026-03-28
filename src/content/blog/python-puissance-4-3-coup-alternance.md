@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-puissance-4-2-affichage-gravite/"
   - title: "Partie 4 — quatre alignés"
     href: "/python-puissance-4-4-quatre-alignes/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 Après [jouer_colonne](/python-puissance-4-2-affichage-gravite/), on lit une **colonne au clavier**, on valide, on joue, puis on **passe la main** à l’autre joueur. Ce chapitre ne détecte pas encore la victoire (chapitre 4).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

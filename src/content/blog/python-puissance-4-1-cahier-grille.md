@@ -12,8 +12,12 @@ relatedLinks:
     href: "/programmation/python/"
   - title: "Partie 2 — affichage et gravité"
     href: "/python-puissance-4-2-affichage-gravite/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 Le **Puissance 4** se joue sur une grille **6 lignes × 7 colonnes** : les jetons tombent dans une colonne jusqu’à la case libre la plus basse. Le premier qui aligne **quatre** pions (horizontal, vertical, diagonal) gagne.
 
 Tu travailles dans un **terminal** (PowerShell, invite de commandes, ou terminal intégré de VS Code / Thonny) : tu lances chaque script avec `python nom_du_fichier.py`.

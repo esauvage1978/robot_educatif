@@ -3,6 +3,7 @@ import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import { getCollection } from 'astro:content';
+import { articleSlugFromId } from '../lib/articleSlug';
 
 interface Props {
 	metaTitle: string;
@@ -20,7 +21,7 @@ const posts = all
 	.filter((p) => p.data.series === series)
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
 
-const slug = (id: string) => id.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
+const slug = articleSlugFromId;
 ---
 
 <!doctype html>

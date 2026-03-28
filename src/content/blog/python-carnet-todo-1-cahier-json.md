@@ -11,8 +11,12 @@ relatedLinks:
     href: "/programmation/python/"
   - title: "Partie 2 — lire et écrire JSON"
     href: "/python-carnet-todo-2-lire-ecrire-json/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 Un **carnet Todo** en console, c’est un programme qui **ajoute**, **liste**, **coche** et **supprime** des tâches, avec une **sauvegarde** sur disque pour ne rien perdre quand tu fermes le terminal. Le format **JSON** est lisible par un humain, standard, et supporté par Python avec le module intégré **`json`**.
 
 ## 1. Pourquoi JSON plutôt qu’un inventaire binaire ?

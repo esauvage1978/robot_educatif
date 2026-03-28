@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-bataille-navale-4-tirs-et-marques/"
   - title: "Partie 6 — jeu complet"
     href: "/python-bataille-navale-6-jeu-complet/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Après un tir **touché** ([partie 4](/python-bataille-navale-4-tirs-et-marques/)), il faut savoir si le navire est **coulé** (toutes ses cases sont `X` sur la grille défense) et si la **flotte entière** est détruite.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

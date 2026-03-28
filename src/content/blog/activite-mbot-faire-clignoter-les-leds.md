@@ -4,8 +4,12 @@ description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS a
 pubDate: "2020-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-21"
+categories:
+  - "Activité"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 8 ans"
 ---
-
 le [mBot](https://amzn.to/3eAmt2m?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
 
 Ces 2 LEDS, DELS ou diodes ont la particularité de pouvoir changer de couleur suivant le système de codage des couleurs RGB (Rouge, vert et bleu).

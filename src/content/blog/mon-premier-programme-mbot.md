@@ -4,8 +4,12 @@ description: "Dans cet article nous allons concevoir notr premier programme pour
 pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-21"
+categories:
+  - "mBot"
+  - "mBlock"
+  - "Scratch"
+  - "À partir de 8 ans"
 ---
-
 Nous allons faire un premier programme très basique pour notre mBot. Celui ci consistera à jouer une mélodie après avoir appuyé sur le bouton de la carte. Le but n’est pas de vous apprendre l’algorithme mais de vous expliquer le processus de création d’un programme jusqu’au téléversement dans le robot.
 
 ## 1\. pré requis

@@ -4,8 +4,12 @@ description: "Dans ce nouvel article, je vais vous apprendre à faire défiler u
 pubDate: "2020-04-20"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-21"
+categories:
+  - "Activité"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 8 ans"
 ---
-
 Dans ce nouvel article, je vais vous apprendre à faire défiler un texte sur la matrice LED du robot mBot. Nous allons décomposer le programme pour qu’il soit simple à mettre en oeuvre. A la fin de cette activité, nous auront une fonction pour afficher un message défilant qui pourra être réutilisé dans d’autre projet.
 
 ## 1\. pré requis

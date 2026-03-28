@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-puissance-4-5-match-nul/"
   - title: "Sommaire — Puissance 4"
     href: "/programmation/puissance-4/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 Ce dernier chapitre ajoute un **menu** (`1` = deux humains, `2` = toi contre une **IA** qui choisit une colonne jouable au **hasard**), et la possibilité de quitter avec **`q`** pendant ta partie.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-puissance-4-4-quatre-alignes/"
   - title: "Partie 6 — jeu complet"
     href: "/python-puissance-4-6-jeu-complet/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 Après chaque coup réussi : d’abord **`victoire`**, sinon **`grille_pleine`** → **match nul** (42 coups maximum sans 4 alignés). L’ordre est important : on teste la victoire **avant** de changer de joueur.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

@@ -11,8 +11,12 @@ relatedLinks:
     href: "/python-carnet-todo-1-cahier-json/"
   - title: "Partie 3 — modèle de données"
     href: "/python-carnet-todo-3-modele-donnees/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 Le module **`json`** convertit entre **texte JSON** et **objets Python** (`dict`, `list`, `str`, `bool`, `int`, `float`, `None`).
 
 ## 1. Charger

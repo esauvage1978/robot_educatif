@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-bataille-navale-3-placement-bateaux/"
   - title: "Partie 5 — coulé et victoire"
     href: "/python-bataille-navale-5-coule-et-victoire/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Tu as une **flotte** posée sur une grille défense ([partie 3](/python-bataille-navale-3-placement-bateaux/)). Cet article décrit ce qui se passe quand un joueur **tire** sur une case `(ligne, colonne)`.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

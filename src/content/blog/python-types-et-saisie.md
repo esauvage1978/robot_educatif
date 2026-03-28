@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-variables-affichage/"
   - title: "Leçon 4 — conditions if / else"
     href: "/python-conditions-if-else/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Débutant"
 ---
-
 Tu sais déjà afficher des variables ([leçon 2](/python-variables-affichage/)). Ici, le programme **réagit** à ce que tape l’utilisateur : tout passe par **`input()`**, qui renvoie **toujours** une chaîne (`str`). Savoir **convertir** proprement vers `int` ou `float` est indispensable avant d’enchaîner avec les [conditions](/python-conditions-if-else/).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

@@ -4,8 +4,12 @@ description: "Développé par MakeBlock, l’application mBlock est une variante
 pubDate: "2020-04-07"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-13"
+categories:
+  - "mBlock"
+  - "Guide"
+  - "Scratch"
+  - "Débutant"
 ---
-
 Pour vos premier pas avec mblock 5, il faut bien entendu l’avoir installé au préalable, je vous invite donc à lire l’article [Installer mBlock 5 sous Windows 10](/installer-mblock-5-sous-windows-10/) si ce n’est pas fait.
 
 mBlock est une variante de Scratch développé par MakeBlock. Elle permet de programmer les robots tel que le [mBot](/mbot-mon-premier-robot-educatif/).

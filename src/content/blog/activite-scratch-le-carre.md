@@ -4,8 +4,12 @@ description: "Aujourd’hui je vous propose votre première activité pour déco
 pubDate: "2020-04-10"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 updatedDate: "2020-04-27"
+categories:
+  - "Activité"
+  - "Scratch"
+  - "À partir de 8 ans"
+  - "mBlock"
 ---
-
 Dans cet article, je vous propose de faire votre première activité très facile pour découvrir [scratch](https://scratch.mit.edu/). Le but sera de déplacer notre petit lutin autour d’un carré de 200 pas de côté.
 
 ## 1\. pré requis

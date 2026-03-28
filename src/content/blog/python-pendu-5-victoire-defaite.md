@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-pendu-4-boucle-partie/"
   - title: "Partie 6 — projet complet"
     href: "/python-pendu-6-projet-complet/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 La [boucle](/python-pendu-4-boucle-partie/) fonctionne : tu peux **polir** l’expérience joueur et ajouter de petites **statistiques** pour rendre le jeu plus satisfaisant.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

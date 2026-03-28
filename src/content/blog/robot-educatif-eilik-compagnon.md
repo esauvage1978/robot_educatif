@@ -13,8 +13,12 @@ relatedLinks:
     href: "/scratch-creer-un-jeu-video-premiere-partie/"
   - title: "Premiers pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
+categories:
+  - "Robot éducatif"
+  - "Eilik"
+  - "Compagnon"
+  - "Programmation"
 ---
-
 **Eilik** s’inscrit dans la famille des **robots compagnons de table** : un objet interactif qui réagit au **toucher**, aux **sollicitations**, affiche des **animations** sur un petit écran et propose des **mini-jeux** ou comportements du type « humeur » ou « personnage ». L’objectif ici est de présenter **Eilik pour ce qu’il est** — interaction, curiosité, vocabulaire tech — sans le confondre avec un **kit de robotique** ou un **cours de programmation** complets.
 
 > Cet article contient des **liens affiliés Amazon**. En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, sans surcoût pour vous.

@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
+import { articleSlugFromId } from '../lib/articleSlug';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 export async function GET(context) {
@@ -10,7 +11,7 @@ export async function GET(context) {
 		site: context.site,
 		items: posts.map((post) => ({
 			...post.data,
-			link: `/${post.id}/`,
+			link: `/${articleSlugFromId(post.id)}/`,
 		})),
 	});
 }

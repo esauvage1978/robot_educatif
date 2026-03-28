@@ -7,13 +7,17 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { articleSlugFromId } from '../../lib/articleSlug';
+import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
 
-const posts = (await getCollection('blog')).sort((a, b) => {
+const allPosts = await getCollection('blog');
+const posts = [...allPosts].sort((a, b) => {
 	const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
 	const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
 	return dateB - dateA;
 });
+const topCategories = topCategoriesByCount(allPosts, 15);
 ---
 
 <!doctype html>
@@ -123,6 +127,30 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 				margin: 0;
 				color: rgb(var(--gray));
 			}
+			.post-categories {
+				margin: 0.35rem 0 0 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.35rem;
+				justify-content: inherit;
+			}
+			.posts-list li:first-child .post-categories {
+				justify-content: center;
+			}
+			.post-categories a {
+				display: inline-block;
+				padding: 0.15rem 0.45rem;
+				font-size: 0.72rem;
+				font-weight: 600;
+				text-decoration: none;
+				color: var(--accent);
+				background: color-mix(in oklab, var(--accent) 10%, transparent);
+				border-radius: 999px;
+				border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
+			}
+			.post-categories a:hover {
+				background: color-mix(in oklab, var(--accent) 18%, transparent);
+			}
 			.posts-list li a:hover h4,
 			.posts-list li a:hover .date {
 				color: rgb(var(--accent));
@@ -176,6 +204,8 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 						<h2 style="margin: 0 0 1rem 0;">Articles</h2>
 						<p style="margin: 0 0 1.5rem 0; color: rgb(var(--gray-dark));">
 							Des tests, des idées d’activités et des guides pour apprendre la programmation et la robotique.
+							Parcourez aussi les articles par{' '}
+							<a href="/categorie/" style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.
 						</p>
 					</section>
 					<section>
@@ -185,7 +215,7 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 									const thumb = resolveHeroImage(post.data.heroImage);
 									return (
 									<li>
-										<a href={`/${post.id}/`}>
+										<a href={`/${articleSlugFromId(post.id)}/`}>
 											{thumb && (
 												<Image width={720} height={360} src={thumb} alt="" />
 											)}
@@ -193,6 +223,13 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 											<p class="date">
 												<FormattedDate date={post.data.pubDate} />
 											</p>
+											{post.data.categories?.length ? (
+												<div class="post-categories">
+													{post.data.categories.map((cat) => (
+														<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
+													))}
+												</div>
+											) : null}
 										</a>
 									</li>
 									);
@@ -201,7 +238,7 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 						</ul>
 					</section>
 				</div>
-				<Sidebar />
+				<Sidebar topCategories={topCategories} />
 			</div>
 		</main>
 		<Footer />

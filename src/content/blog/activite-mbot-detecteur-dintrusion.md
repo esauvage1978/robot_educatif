@@ -4,8 +4,12 @@ description: "Cette activité permet de réaliser un détecteur d’intrusion av
 pubDate: "2020-04-28"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-29"
+categories:
+  - "Activité"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 8 ans"
 ---
-
 Cette activité permet de réaliser un détecteur d’intrusion avec un compteur des intrus. Utilisation du capteur à ultrason , des LED, du capteur sonore et de la matrice LED du mBot.
 
 [Prev](#) 1 of 1 [Next](#)

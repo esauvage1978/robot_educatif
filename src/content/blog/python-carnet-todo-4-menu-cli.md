@@ -11,8 +11,12 @@ relatedLinks:
     href: "/python-carnet-todo-3-modele-donnees/"
   - title: "Partie 5 — persistance"
     href: "/python-carnet-todo-5-persistance/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 Le [modèle](/python-carnet-todo-3-modele-donnees/) est prêt : il faut une **interface** texte claire qui appelle les bonnes fonctions et **affiche** les retours.
 
 ## 1. Afficher la liste

@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-pendu-5-victoire-defaite/"
   - title: "Sommaire — le pendu"
     href: "/programmation/pendu/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 Tu as tout pour **assembler** le jeu. Ce dernier article propose une **structure de fichiers**, une **checklist** et des **pistes d’extension**.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

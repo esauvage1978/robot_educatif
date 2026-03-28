@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-bataille-navale-2-grille-et-affichage/"
   - title: "Partie 4 — tirs et marques"
     href: "/python-bataille-navale-4-tirs-et-marques/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Tu sais [créer et afficher une grille](/python-bataille-navale-2-grille-et-affichage/). Il faut maintenant **poser les navires** sur la grille défense et mémoriser **quelles cases** appartiennent à quel bateau.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

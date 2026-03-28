@@ -11,8 +11,12 @@ relatedLinks:
     href: "/python-carnet-todo-4-menu-cli/"
   - title: "Partie 6 — projet complet"
     href: "/python-carnet-todo-6-projet-complet/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 Sans **sauvegarde**, fermer le terminal efface tout. Deux stratégies courantes :
 
 1. **À chaque modification** : après ajout, bascule, suppression → `sauvegarder(chemin, data)`. Simple et sûr si le programme plante.

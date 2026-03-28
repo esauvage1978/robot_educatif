@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-listes-et-chaines/"
   - title: "Leçon 9 — erreurs et débogage"
     href: "/python-erreurs-debogage/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Fichiers"
+  - "Intermédiaire"
 ---
-
 Les **fichiers** permettent de **conserver** des données entre deux exécutions du programme (scores, préférences, journaux). En Python, on ouvre un fichier avec **`open`**, mais la forme recommandée est le bloc **`with`** : le fichier est **fermé automatiquement**, même si une erreur survient au milieu.
 
 ## 1. Où se trouve le fichier ?

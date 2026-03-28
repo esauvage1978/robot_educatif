@@ -1,0 +1,55 @@
+# Apache — site statique Astro (build dans dist/, ce fichier est copié depuis public/)
+# Compatible Apache 2.4+ / WAMP
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Production : https://robot-educatif.info (racine du vhost)
+	# Si le site est dans un sous-dossier, décommentez et adaptez :
+	# RewriteBase /site_vitrine/robot_educatif/
+
+	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
+	RewriteCond %{HTTPS} !=on
+	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]
+	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Page d’accueil des dossiers
+DirectoryIndex index.html
+
+# Ne pas lister le contenu des répertoires
+Options -Indexes
+
+# Encodage par défaut
+AddDefaultCharset utf-8
+
+<IfModule mod_headers.c>
+	# Réduction des fuites d’infos (navigateurs récents)
+	Header set X-Content-Type-Options "nosniff"
+	Header set X-Frame-Options "SAMEORIGIN"
+	Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Compression (si mod_deflate est activé)
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache long pour les fichiers hashés Astro (/_astro/…)
+<IfModule mod_headers.c>
+	<FilesMatch "\.(css|js|mjs|woff2?|webp|avif|ico|png|jpg|jpeg|gif|svg)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+</IfModule>
+
+# HTML : revalidation modérée (contenu éditorial)
+<IfModule mod_headers.c>
+	<FilesMatch "\.html$">
+		Header set Cache-Control "public, max-age=0, must-revalidate"
+	</FilesMatch>
+</IfModule>
+
+# Types MIME utiles
+<IfModule mod_mime.c>
+	AddType application/manifest+json webmanifest
+</IfModule>

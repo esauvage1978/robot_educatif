@@ -11,8 +11,12 @@ relatedLinks:
     href: "/python-carnet-todo-2-lire-ecrire-json/"
   - title: "Partie 4 — menu CLI"
     href: "/python-carnet-todo-4-menu-cli/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 Tu [charges et sauvegardes](/python-carnet-todo-2-lire-ecrire-json/) le dictionnaire global. Ce chapitre concentre la **logique métier** sans encore polir le menu.
 
 ## 1. Ajouter une tâche

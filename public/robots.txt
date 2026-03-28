@@ -1,0 +1,5 @@
+# https://robot-educatif.info — Astro (@astrojs/sitemap)
+User-agent: *
+Allow: /
+
+Sitemap: https://robot-educatif.info/sitemap-index.xml

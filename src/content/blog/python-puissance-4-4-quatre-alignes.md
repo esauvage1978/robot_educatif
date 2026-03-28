@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-puissance-4-3-coup-alternance/"
   - title: "Partie 5 — match nul"
     href: "/python-puissance-4-5-match-nul/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 On teste les **quatre directions** (horizontal, vertical, deux diagonales) à partir de la **dernière case jouée** : on compte les pions consécutifs du même joueur dans chaque sens sur un axe.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

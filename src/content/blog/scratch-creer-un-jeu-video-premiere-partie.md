@@ -4,8 +4,12 @@ description: "Cet article est le premier d’une série pour apprendre à créer
 pubDate: "2020-04-12"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 updatedDate: "2020-04-13"
+categories:
+  - "Scratch"
+  - "Activité"
+  - "Jeu vidéo"
+  - "À partir de 10 ans"
 ---
-
 Le but de cet série d’article est d’apprendre la programmation grâce au développement d’un jeu vidéo sous Scratch. Cet approche se veut ludique et facile grâce au bloc visuel de Scratch. En tout premier lieu, nous allons créer le décor. Puis nous allons le programmer pour le faire défiler à l’aide des flèches directionnelles du clavier. Au final, Nous allons réaliser un jeu de plateforme à la Mario Bross.
 
 ## 1\. pré requis

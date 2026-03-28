@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-puissance-4-1-cahier-grille/"
   - title: "Partie 3 — coup et alternance"
     href: "/python-puissance-4-3-coup-alternance/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Puissance 4"
+  - "Projet"
 ---
-
 Tu reprends la grille du [chapitre 1](/python-puissance-4-1-cahier-grille/). Ce chapitre ajoute l’**affichage** lisible dans le terminal et la fonction **`jouer_colonne`** : le pion tombe à la **plus basse** case libre de la colonne.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

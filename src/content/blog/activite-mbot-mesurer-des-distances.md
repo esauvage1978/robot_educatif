@@ -4,8 +4,12 @@ description: "Dans cette activité, je vais vous montrer comment mesurer des dis
 pubDate: "2020-04-21"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-28"
+categories:
+  - "Activité"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 10 ans"
 ---
-
 Dans cette activité, je vais vous montrer comment mesurer des distances à l’aide du capteur à ultrason du [mBot](https://amzn.to/3avo9qi?tag=manuso06-21). La distance sera ensuite affichée sur la matrice led.
 
 [Prev](#) 1 of 1 [Next](#)

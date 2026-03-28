@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-pendu-1-cahier-mot-masque/"
   - title: "Partie 3 — affichage et lettres"
     href: "/python-pendu-3-affichage-lettres/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 Tu maîtrises le principe du [masque](/python-pendu-1-cahier-mot-masque/). Pour varier les parties, les mots viennent d’un **fichier** : une **ligne** = un **mot** (sans espaces). Tu réutilises la lecture de fichiers vue dans le [parcours](/python-fichiers-texte/).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

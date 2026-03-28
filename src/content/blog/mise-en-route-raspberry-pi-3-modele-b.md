@@ -4,8 +4,12 @@ description: "Dans cet article je vais vous présenter une manière d’effectue
 pubDate: "2020-05-01"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"
 updatedDate: "2023-04-09"
+categories:
+  - "Raspberry Pi"
+  - "Linux"
+  - "Tutoriel"
+  - "À partir de 12 ans"
 ---
-
 Dans cet article je vais vous présenter une manière d’effectuer la mise en route de Raspberry Pi 3 Modèle B.
 
 Mais c’est quoi au fait ? Le rasberry Pi est un nano ordinateur un peu plus grand qu’une carte de crédit et coûtant au environ de 35€.

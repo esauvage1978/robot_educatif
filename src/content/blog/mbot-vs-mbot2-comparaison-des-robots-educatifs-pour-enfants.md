@@ -3,8 +3,12 @@ title: "mbot vs mbot2 : Comparaison des robots éducatifs pour enfants"
 description: "Découvrez les différences entre le mBot et le mBot2, deux robots éducatifs populaires pour enfants. De la fonctionnalité aux accessoires, explorez les avantages et inconvénients de chaque robot pour choisir lequel convient le mieux à votre enfant."
 pubDate: "2023-04-09"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+categories:
+  - "Comparatif"
+  - "mBot"
+  - "Makeblock"
+  - "Robot éducatif"
 ---
-
 La robotique et la programmation sont devenues des compétences essentielles pour les enfants qui cherchent à explorer le monde de la technologie. Les robots éducatifs sont un excellent moyen pour les enfants d’apprendre ces compétences en s’amusant. Deux des robots les plus populaires sur le marché sont le mBot et le mBot2. Alors, quelle est la différence entre les deux?
 
 ![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.png)

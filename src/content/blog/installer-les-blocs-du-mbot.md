@@ -4,8 +4,12 @@ description: "Pour commencer à programmer le robot éducatif mBot, Une des prem
 pubDate: "2020-04-08"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-29"
+categories:
+  - "mBot"
+  - "mBlock"
+  - "Guide"
+  - "Makeblock"
 ---
-
 Dans cette partie, nous allons installer les blocs d’instructions du [mBot](https://amzn.to/34eEFtr?tag=manuso06-21). Cette procédure est rapide et très facile à mettre en oeuvre.
 
 Si vous n’êtes pas familiarisé avec mBlock, vous pouvez consulter l’article [Premier pas avec mBlock 5](https://robot-educatif.info/2020/04/07/premier-pas-avec-mblock-5/).

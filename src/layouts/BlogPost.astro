@@ -1,11 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
+import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -21,10 +22,13 @@ const {
 	heroImage,
 	amazonPreset,
 	relatedLinks,
+	categories = [],
 	articleSlug = '',
 } = Astro.props;
 
 const resolvedHero = resolveHeroImage(heroImage);
+const allPosts = await getCollection('blog');
+const topCategories = topCategoriesByCount(allPosts, 15);
 ---
 
 <html lang="fr">
@@ -96,6 +100,35 @@ const resolvedHero = resolveHeroImage(heroImage);
 				font-weight: 600;
 				letter-spacing: 0.02em;
 			}
+			.hero-categories {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem 0.5rem;
+				align-items: center;
+				margin: 0 0 0.85rem 0;
+				padding: 0;
+				list-style: none;
+			}
+			.hero-categories li {
+				margin: 0;
+			}
+			.hero-categories a {
+				display: inline-block;
+				padding: 0.28rem 0.65rem;
+				font-size: 0.82rem;
+				font-weight: 600;
+				font-family: var(--font-body, system-ui);
+				text-decoration: none;
+				color: var(--accent);
+				background: color-mix(in oklab, var(--accent) 12%, transparent);
+				border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--surface-border));
+				border-radius: 999px;
+				transition: background 0.12s ease, color 0.12s ease;
+			}
+			.hero-categories a:hover {
+				background: color-mix(in oklab, var(--accent) 22%, transparent);
+				color: var(--accent-dark);
+			}
 			.page-layout {
 				width: min(1200px, calc(100% - 2em));
 				margin: 0 auto;
@@ -158,6 +191,17 @@ const resolvedHero = resolveHeroImage(heroImage);
 							)
 						}
 					</div>
+					{
+						categories.length > 0 && (
+							<ul class="hero-categories" aria-label="Catégories de l’article">
+								{categories.map((cat) => (
+									<li>
+										<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
+									</li>
+								))}
+							</ul>
+						)
+					}
 					<h1>{title}</h1>
 					<p class="hero-desc">{description}</p>
 				</div>
@@ -168,7 +212,13 @@ const resolvedHero = resolveHeroImage(heroImage);
 						<slot />
 					</div>
 				</article>
-				<Sidebar articleSlug={articleSlug} affiliatePreset={amazonPreset ?? null} relatedLinks={relatedLinks} />
+				<Sidebar
+					articleSlug={articleSlug}
+					affiliatePreset={amazonPreset ?? null}
+					relatedLinks={relatedLinks}
+					categories={categories}
+					topCategories={topCategories}
+				/>
 			</div>
 		</main>
 		<Footer />

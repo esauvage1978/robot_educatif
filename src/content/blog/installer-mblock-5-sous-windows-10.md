@@ -4,8 +4,12 @@ description: "Installation de l’application mBlock 5 pour commencer ces premie
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 updatedDate: "2023-04-07"
+categories:
+  - "mBlock"
+  - "Guide"
+  - "Installation"
+  - "Windows"
 ---
-
 Nous allons voir en détail comment installer mBlock 5.4 sous Windows 10.
 
 MBlock peut également être installée sous MAC, IOS, Android, Linux et ChromeBook.

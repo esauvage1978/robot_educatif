@@ -3,8 +3,12 @@ title: "Matatalab, une entreprise innovante"
 description: "Matatalab, une entreprise spécialisée dans la conception et la production de jouets éducatifs pour les enfants."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
+categories:
+  - "Matatalab"
+  - "Marque"
+  - "Robotique éducative"
+  - "Entreprise"
 ---
-
 **Matatalab** est une entreprise qui se spécialise dans la **conception et la production de jouets éducatifs pour les enfants**. Fondée en 2017, la société a rapidement connu un succès international grâce à son approche innovante de l’apprentissage des sciences, de la technologie, de l’ingénierie et des mathématiques (STEM).
 
 La philosophie de Matatalab est de fournir des **outils éducatifs** qui encouragent la **créativité**, la **curiosité** et **l’exploration** chez les enfants. Leur gamme de produits comprend des robots programmables, des kits de construction et des jeux d’apprentissage qui permettent aux enfants de découvrir les concepts STEM de manière ludique et interactive.

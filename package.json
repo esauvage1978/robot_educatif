@@ -8,6 +8,7 @@
   "scripts": {
     "import:wp": "node scripts/import-wordpress.mjs",
     "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
+    "generate:favicon": "node scripts/generate-favicon.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

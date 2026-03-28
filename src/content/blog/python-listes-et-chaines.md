@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-fonctions/"
   - title: "Leçon 8 — fichiers texte"
     href: "/python-fichiers-texte/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Intermédiaire"
 ---
-
 Les **listes** regroupent plusieurs valeurs dans un **ordre** (souvent homogènes : des nombres, des noms…). Les **chaînes** (`str`) se manipulent aussi par **indices** et **tranches**, mais sont **immuables** : une méthode comme `lower()` renvoie une **nouvelle** chaîne plutôt que de « modifier sur place » la variable.
 
 ## 1. Listes : indices et tranches

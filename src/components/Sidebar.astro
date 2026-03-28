@@ -1,6 +1,7 @@
 ---
 import { amazonSearchUrl } from '../lib/amazon';
 import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
+import { categoryToSlug, type TopCategory } from '../lib/categories';
 import { resolveAmazonSidebarLinks } from '../lib/resolveAmazonSidebar';
 
 interface RelatedLink {
@@ -13,9 +14,19 @@ interface Props {
 	articleSlug?: string;
 	affiliatePreset?: AmazonSidebarPreset | null;
 	relatedLinks?: RelatedLink[] | undefined;
+	/** Quatre catégories (liens vers /categorie/…) — colonne 1/3 */
+	categories?: string[];
+	/** Top catégories par nombre d’articles (accueil, blog, etc.) */
+	topCategories?: TopCategory[];
 }
 
-const { articleSlug = '', affiliatePreset = null, relatedLinks = undefined } = Astro.props;
+const {
+	articleSlug = '',
+	affiliatePreset = null,
+	relatedLinks = undefined,
+	categories = [],
+	topCategories = undefined,
+} = Astro.props;
 const affiliateLinks = resolveAmazonSidebarLinks(articleSlug, affiliatePreset);
 const internalLinks = relatedLinks?.length ? relatedLinks : null;
 ---
@@ -53,56 +64,51 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 			</section>
 		)
 	}
+	{
+		categories.length > 0 && (
+			<section class="widget widget-categories" aria-labelledby="sidebar-categories-title">
+				<h3 id="sidebar-categories-title">Catégories</h3>
+				<p class="related-hint">Cliquez pour voir tous les articles du même thème.</p>
+				<ul class="related-list category-chips">
+					{categories.map((cat) => (
+						<li>
+							<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
+						</li>
+					))}
+				</ul>
+				<p class="cat-all">
+					<a href="/categorie/">Toutes les catégories</a>
+				</p>
+			</section>
+		)
+	}
+	{
+		topCategories && topCategories.length > 0 && (
+			<section class="widget widget-top-categories" aria-labelledby="sidebar-top-cats-title">
+				<h3 id="sidebar-top-cats-title">Catégories les plus représentées</h3>
+				<p class="related-hint">Les 15 thèmes avec le plus d’articles.</p>
+				<ul class="related-list top-cat-list">
+					{topCategories.map((c) => (
+						<li>
+							<a href={`/categorie/${c.slug}/`}>
+								<span class="top-cat-label">{c.label}</span>
+								<span class="top-cat-count">{c.count}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+				<p class="cat-all">
+					<a href="/categorie/">Toutes les catégories</a>
+				</p>
+			</section>
+		)
+	}
 	<section class="widget">
-		<h3>Catégories</h3>
+		<h3>Explorer le blog</h3>
 		<ul>
-			<li><a href="/blog/">Toutes les catégories</a></li>
-			<li>
-				<a href="/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab/">Matatalab</a>
-			</li>
-			<li>
-				<a href="/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/">Makeblock / mBot</a>
-			</li>
-			<li>
-				<a href="/mbot-mon-premier-robot-educatif/">mBot débutant</a>
-			</li>
-			<li>
-				<a href="/mon-premier-programme-mbot/">Premier programme mBot</a>
-			</li>
-			<li>
-				<a href="/comment-installer-mblock-5/">Installer mBlock 5</a>
-			</li>
-			<li>
-				<a href="/mblock-5-programmation-blocs-python-arduino/">mBlock : blocs, Python, Arduino</a>
-			</li>
-			<li>
-				<a href="/guide-mblock-5-debutant/">Guide mBlock — débutant</a>
-			</li>
-			<li>
-				<a href="/guide-mblock-5-intermediaire/">Guide mBlock — intermédiaire</a>
-			</li>
-			<li>
-				<a href="/guide-mblock-5-avance/">Guide mBlock — avancé</a>
-			</li>
-			<li class="sidebar-heading">Robots éducatifs (guides)</li>
-			<li>
-				<a href="/robot-educatif-codey-rocky-makeblock/">Codey Rocky</a>
-			</li>
-			<li>
-				<a href="/robot-educatif-eilik-compagnon/">Eilik</a>
-			</li>
-			<li>
-				<a href="/robot-educatif-ikuper-technic-stem/">IKUPER Technic</a>
-			</li>
-			<li>
-				<a href="/lexibook-power-puppy-robot-programmable/">Lexibook Power Puppy</a>
-			</li>
-			<li>
-				<a href="/sphero-mini-robot-programmable/">Sphero Mini</a>
-			</li>
-			<li>
-				<a href="/ozobot-evo-robot-codage/">Ozobot Evo</a>
-			</li>
+			<li><a href="/blog/">Tous les articles</a></li>
+			<li><a href="/categorie/">Par catégorie</a></li>
+			<li><a href="/programmation/">Programmation</a></li>
 		</ul>
 	</section>
 </aside>
@@ -124,6 +130,43 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 	}
 	.widget-related {
 		border-color: color-mix(in oklab, var(--accent-warm) 18%, var(--surface-border));
+	}
+	.widget-categories {
+		border-color: color-mix(in oklab, var(--accent) 15%, var(--surface-border));
+	}
+	.widget-top-categories {
+		border-color: color-mix(in oklab, var(--accent-warm) 12%, var(--surface-border));
+	}
+	.top-cat-list a {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.65rem;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.top-cat-label {
+		min-width: 0;
+		flex: 1;
+	}
+	.top-cat-count {
+		flex-shrink: 0;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: rgb(var(--gray));
+		font-variant-numeric: tabular-nums;
+		text-decoration: none !important;
+	}
+	.category-chips a {
+		font-weight: 600;
+	}
+	.cat-all {
+		margin: 0.75rem 0 0 0;
+		font-size: 0.88rem;
+	}
+	.cat-all a {
+		color: rgb(var(--gray));
+		font-weight: 600;
 	}
 	.related-hint {
 		margin: 0 0 0.75rem 0;

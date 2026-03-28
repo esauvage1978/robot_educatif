@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-conditions-if-else/"
   - title: "Leçon 6 — fonctions"
     href: "/python-fonctions/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Débutant"
 ---
-
 Les **boucles** répètent un bloc de code. Après les [conditions](/python-conditions-if-else/), c’est l’outil pour traiter **plusieurs** valeurs, **compter**, ou **réessayer** jusqu’à un bon résultat.
 
 ## 1. `for` et `range`

@@ -14,8 +14,12 @@ relatedLinks:
     href: "/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/"
   - title: "CyberPi : carte Makeblock polyvalente"
     href: "/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/"
+categories:
+  - "Robot éducatif"
+  - "Codey Rocky"
+  - "Makeblock"
+  - "Programmation"
 ---
-
 **Codey Rocky** est un robot éducatif **Makeblock** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 
 > Cet article contient des **liens affiliés Amazon** (identifiant `manuso06-21`). En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, **sans surcoût** pour vous.

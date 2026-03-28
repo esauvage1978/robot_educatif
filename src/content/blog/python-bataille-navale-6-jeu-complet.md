@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-bataille-navale-5-coule-et-victoire/"
   - title: "Série — sommaire"
     href: "/programmation/bataille-navale/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Tu as toutes les **briques** : [grille](/python-bataille-navale-2-grille-et-affichage/), [placement](/python-bataille-navale-3-placement-bateaux/), [tirs](/python-bataille-navale-4-tirs-et-marques/), [coulé](/python-bataille-navale-5-coule-et-victoire/). Il reste à **assembler** une `main()` lisible et une boucle de partie.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

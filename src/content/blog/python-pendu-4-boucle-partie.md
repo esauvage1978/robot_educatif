@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-pendu-3-affichage-lettres/"
   - title: "Partie 5 — victoire et défaite"
     href: "/python-pendu-5-victoire-defaite/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 Tu as les **briques** ([masque](/python-pendu-1-cahier-mot-masque/), [fichier](/python-pendu-2-mots-depuis-fichier/), [affichage](/python-pendu-3-affichage-lettres/)). Il faut une **boucle** propre qui enchaîne les tours jusqu’à victoire ou défaite, sans laisser le programme planter sur une saisie bancale.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

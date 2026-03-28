@@ -12,8 +12,12 @@ relatedLinks:
     href: "/programmation/python/"
   - title: "Partie 2 — grille et affichage"
     href: "/python-bataille-navale-2-grille-et-affichage/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Ce projet s’étale sur **six articles**. Tu vas coder une **bataille navale** jouable au **terminal**, en réutilisant ce que tu as vu dans le [parcours Python](/programmation/python/) : listes, boucles, `input`, fonctions, conditions.
 
 **Niveau conseillé** : à l’aise jusqu’aux articles sur les [listes](/python-listes-et-chaines/) et idéalement les [fichiers](/python-fichiers-texte/) (optionnel pour sauvegarder une partie plus tard).

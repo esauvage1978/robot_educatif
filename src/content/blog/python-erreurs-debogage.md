@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-fichiers-texte/"
   - title: "Leçon 10 — mini-jeu au terminal"
     href: "/python-mini-jeu-terminal/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Débogage"
+  - "Intermédiaire"
 ---
-
 Un **bug** est un comportement non voulu ; une **exception** est le mécanisme par lequel Python **arrête** une ligne qui échoue et affiche un **traceback**. Savoir **lire** ce message et **entourer** les zones fragiles avec `try` / `except` rend les programmes plus **robustes** — comme pour les [fichiers](/python-fichiers-texte/) manquants ou les **`int(input())`** qui reçoivent du texte invalide.
 
 ## 1. Erreurs fréquentes au début

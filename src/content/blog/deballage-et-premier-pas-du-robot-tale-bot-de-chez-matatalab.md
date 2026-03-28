@@ -3,8 +3,12 @@ title: "Déballage et découverte du robot Tale-bot pro de chez Matatalab"
 description: "Le robot tale-bot de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
+categories:
+  - "Matatalab"
+  - "Déballage"
+  - "Tale Bot"
+  - "À partir de 5 ans"
 ---
-
 Le robot tale-bot de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons déballer et découvrir ensemble ce robot éducatif. Nous allons également voir comment effectuer les premiers pas pour programmer et utiliser le robot tale-bot.
 
 Pour découvrir ce qu’est le robot Talebot pro, je vous invite à lire l’article intitulé : [Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants](/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants/)

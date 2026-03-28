@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-bataille-navale-1-cahier-des-charges/"
   - title: "Partie 3 — placement des navires"
     href: "/python-bataille-navale-3-placement-bateaux/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Bataille navale"
+  - "Projet"
 ---
-
 Tu continues le [projet bataille navale](/programmation/bataille-navale/) après la [partie 1](/python-bataille-navale-1-cahier-des-charges/) : cette fois, tout le « moteur d’affichage » minimal pour **voir** les grilles dans le terminal.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

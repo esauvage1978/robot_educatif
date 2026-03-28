@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-boucles-for-while/"
   - title: "Leçon 7 — listes et chaînes"
     href: "/python-listes-et-chaines/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Intermédiaire"
 ---
-
 Une **fonction** regroupe des instructions sous un **nom**. Tu l’**appelles** quand tu en as besoin, avec des **arguments** si nécessaire. C’est la base pour éviter de **copier-coller** le même code et pour tester des petits morceaux isolément.
 
 ## 1. Définition minimale avec `return`

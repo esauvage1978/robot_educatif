@@ -1,15 +1,12 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../layouts/BlogPost.astro';
+import { articleSlugFromId } from '../lib/articleSlug';
 
 export async function getStaticPaths() {
-	const normalize = (value: string) =>
-		value.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		// En dev, selon la version/adapter, `post.id` peut contenir une extension ou varier.
-		// On normalise pour que l'URL demandée (sans extension) matche toujours.
-		params: { slug: normalize(post.id) },
+		params: { slug: articleSlugFromId(post.id) },
 		props: { post },
 	}));
 }
@@ -20,7 +17,7 @@ type Props = {
 
 const { post } = Astro.props as Props;
 const { Content } = await render(post);
-const articleSlug = post.id.replace(/\.mdx?$/i, '').replace(/^\/+|\/+$/g, '');
+const articleSlug = articleSlugFromId(post.id);
 ---
 
 <BlogPost {...post.data} articleSlug={articleSlug}>

@@ -12,8 +12,12 @@ relatedLinks:
     href: "/programmation/python/"
   - title: "Partie 2 — mots depuis un fichier"
     href: "/python-pendu-2-mots-depuis-fichier/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 Le **pendu** est un jeu de lettres : l’ordinateur choisit un **mot secret** ; le joueur propose des **lettres**. Chaque bonne lettre révèle ses positions ; chaque **mauvaise** lettre consomme une **vie**. À zéro vie ou mot entièrement découvert, la partie s’arrête.
 
 Cette série comporte **six articles** ; celui-ci pose les règles et le **noyau** sans fichier : mot fixe dans le code.

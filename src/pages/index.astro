@@ -8,15 +8,19 @@ import Header from '../components/Header.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
 import Sidebar from '../components/Sidebar.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { articleSlugFromId } from '../lib/articleSlug';
+import { topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 
-const latestPosts = (await getCollection('blog'))
+const allPosts = await getCollection('blog');
+const latestPosts = [...allPosts]
 	.sort((a, b) => {
 		const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
 		const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
 		return dateB - dateA;
 	})
 	.slice(0, 5);
+const topCategories = topCategoriesByCount(allPosts, 15);
 ---
 
 <!doctype html>
@@ -242,7 +246,7 @@ const latestPosts = (await getCollection('blog'))
 									const thumb = resolveHeroImage(post.data.heroImage);
 									return (
 									<li>
-										<a href={`/${post.id}/`}>
+										<a href={`/${articleSlugFromId(post.id)}/`}>
 											{thumb && (
 												<Image src={thumb} alt={post.data.title} width={220} height={130} />
 											)}
@@ -260,7 +264,7 @@ const latestPosts = (await getCollection('blog'))
 					</section>
 					<HomeShowcase />
 				</div>
-				<Sidebar />
+				<Sidebar topCategories={topCategories} />
 			</div>
 		</main>
 		<Footer />

@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-pendu-2-mots-depuis-fichier/"
   - title: "Partie 4 — boucle de partie"
     href: "/python-pendu-4-boucle-partie/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Pendu"
+  - "Projet"
 ---
-
 Une interface **terminal** lisible change tout : le joueur voit d’un coup d’œil le **mot masqué**, ses **vies** et les lettres **déjà jouées**. Ce court article ajoute aussi un **pendu ASCII** progressif (optionnel mais motivant).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

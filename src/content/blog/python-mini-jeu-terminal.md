@@ -12,8 +12,12 @@ relatedLinks:
     href: "/python-erreurs-debogage/"
   - title: "Revoir le parcours Python"
     href: "/programmation/python/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Mini-projet"
+  - "Terminal"
 ---
-
 Ce mini-projet **recapitule** le parcours : saisie avec **`input`**, conversion **`int`**, boucle **`while`**, comparaisons **`if` / `elif` / `else`**, module **`random`**, et gestion d’une saisie incorrecte avec **`try` / `except`** ([leçon 9](/python-erreurs-debogage/)). Tu peux le coder dans le même dossier que tes autres scripts et le lancer avec `python plus_ou_moins.py`.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)

@@ -4,8 +4,12 @@ description: "Le mBot est un robot éducatif en kit idéal pour découvrir la ro
 pubDate: "2023-04-06"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2023-04-09"
+categories:
+  - "Robot éducatif"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 8 ans"
 ---
-
 Dans cet article, je vais vous faire découvrir le robot éducatif [mBot](https://amzn.to/3mietLQ?tag=manuso06-21) de chez makeBlock. C’est le robot par excellence et je le conseille pour une première acquisition.
 
 [![achetez le robot éducatif mBot sur Amazon](https://robot-educatif.info/wp-content/uploads/2020/04/banniere_mbot.png)](https://amzn.to/41vNrjl?tag=manuso06-21)

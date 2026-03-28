@@ -12,8 +12,12 @@ relatedLinks:
     href: "/programmation/python"
   - title: "Python — variables et affichage (leçon 2)"
     href: "/python-variables-affichage/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Tutoriel"
+  - "Débutant"
 ---
-
 Bien choisir ton **environnement** dès le début évite la frustration : interpréteur à jour, éditeur lisible, et sur mobile une appli qui gère vraiment Python 3.
 
 ![Schéma Windows, macOS, Android](../../assets/programmation/python-outils.svg)

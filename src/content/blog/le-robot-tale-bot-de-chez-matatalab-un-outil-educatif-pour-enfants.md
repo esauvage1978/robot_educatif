@@ -4,8 +4,12 @@ description: "La robotique éducative est en train de devenir l’un des outils 
 pubDate: "2023-04-30"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 updatedDate: "2023-05-01"
+categories:
+  - "Matatalab"
+  - "Tale Bot"
+  - "Robot éducatif"
+  - "À partir de 5 ans"
 ---
-
 Le robot Tale-bot de chez Matatalab est un outil pédagogique innovant qui permet **aux enfants de 3 à 8 ans** de découvrir le monde de la robotique et de la programmation de manière ludique et amusante. Grâce à ses fonctionnalités simples et intuitives, les enfants peuvent apprendre à programmer et à contrôler leur robot en toute sécurité.
 
 ## Où trouver le Tale-bot de chez Matatalab ?

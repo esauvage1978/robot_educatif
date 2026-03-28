@@ -11,8 +11,12 @@ relatedLinks:
     href: "/python-carnet-todo-5-persistance/"
   - title: "Sommaire — Carnet Todo"
     href: "/programmation/carnet-todo/"
+categories:
+  - "Python"
+  - "Programmation"
+  - "Carnet Todo"
+  - "Projet"
 ---
-
 ## 1. Point d’entrée
 
 ```python
