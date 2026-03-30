@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ROBOT éducatif">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ROBOT &#233;ducatif">
 	<defs>
 		<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
 			<stop offset="0%" stop-color="#1e7aa3"/>
@@ -11,7 +12,7 @@
 	<!-- antenne -->
 	<path d="M16 7v4" stroke="#f0f4fa" stroke-width="2" stroke-linecap="round"/>
 	<circle cx="16" cy="6" r="2" fill="#f0f4fa"/>
-	<!-- tête / corps robot -->
+	<!-- t&#234;te / corps robot -->
 	<rect x="7" y="11" width="18" height="15" rx="4" fill="#f0f4fa" opacity="0.96"/>
 	<!-- yeux -->
 	<circle cx="12" cy="17" r="2.2" fill="#0e1522"/>

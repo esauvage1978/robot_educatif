@@ -18,7 +18,19 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
 			/** Liens Amazon (recherches affiliées) affichés dans la colonne latérale de l’article */
-			amazonPreset: z.enum(['mbot', 'mbot2', 'matatalab']).optional(),
+			amazonPreset: z
+				.enum([
+					'mbot',
+					'mbot2',
+					'mbotVs',
+					'matatalab',
+					'codeyRocky',
+					'cyberpi',
+					'raspberry',
+					'eilik',
+					'scratch',
+				])
+				.optional(),
 			/** Maillage interne : articles mis en avant dans la colonne 1/3 */
 			relatedLinks: z
 				.array(

@@ -1,16 +1,29 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE_TITLE } from '../consts';
+import { withBase } from '../lib/siteUrl';
 import HeaderLink from './HeaderLink.astro';
+import logoHeader from '../assets/logo-header.webp';
 ---
 
 <header>
 	<nav>
-		<a class="brand" href="/">
-			<img src="/logo-robot-educatif.png" alt={SITE_TITLE} />
+		<a class="brand" href={withBase('/')}>
+			<Image
+				class="brand-logo"
+				src={logoHeader}
+				alt={SITE_TITLE}
+				width={144}
+				height={80}
+				densities={[1, 2]}
+				loading="eager"
+				decoding="async"
+			/>
 		</a>
 		<div class="internal-links">
 			<HeaderLink href="/">Accueil</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/recherche/">Recherche</HeaderLink>
 			<HeaderLink href="/categorie/">Catégories</HeaderLink>
 			<HeaderLink href="/programmation">Programmation</HeaderLink>
 			<HeaderLink href="/contact/">Contact</HeaderLink>
@@ -92,14 +105,18 @@ import HeaderLink from './HeaderLink.astro';
 	nav a:not(.brand).active {
 		background: color-mix(in oklab, var(--accent) 14%, transparent);
 		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
-		color: var(--accent);
+		color: var(--accent-dark);
 	}
 	nav a:not(.brand):hover {
 		border-color: color-mix(in oklab, var(--accent) 45%, transparent);
-		color: var(--accent);
+		color: var(--accent-dark);
+	}
+	html[data-theme='light'] nav a:not(.brand).active {
+		background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
+		border-color: color-mix(in oklab, var(--accent-dark) 34%, transparent);
 	}
 	@media (max-width: 720px) {
-		.brand img {
+		.brand :global(img.brand-logo) {
 			height: 46px;
 			max-width: min(280px, 70vw);
 			max-height: 54px;

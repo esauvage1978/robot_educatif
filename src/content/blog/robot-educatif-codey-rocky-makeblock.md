@@ -4,7 +4,7 @@ description: "Présentation du robot Codey Rocky : capteurs, mBlock 5, Scratch e
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
 heroImage: "../../assets/codey-rocky/codey-rocky-hero.png"
-amazonPreset: mbot2
+amazonPreset: codeyRocky
 relatedLinks:
   - title: "Installer mBlock 5 sous Windows 10"
     href: "/installer-mblock-5-sous-windows-10/"

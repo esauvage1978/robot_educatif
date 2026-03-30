@@ -14,15 +14,13 @@ Dans ce nouvel article, je vais vous apprendre à faire défiler un texte sur la
 
 ## 1\. pré requis
 
-Avoir en sa possession le [robot éducatif mBot de chez MakeBlock](https://robot-educatif.info/2020/04/06/mbot-mon-premier-robot-educatif/)
+Avoir en sa possession le [robot éducatif mBot de chez MakeBlock](/mbot-mon-premier-robot-educatif/)
 
-[![achetez le robot éducatif mBot sur Amazon](https://robot-educatif.info/wp-content/uploads/2020/04/banniere_mbot.png)](https://amzn.to/3bVU8RR?tag=manuso06-21)
+[Installer l’application mBlock 5](/installer-mblock-5-sous-windows-10/)
 
-[Installer l’application mBlock 5](https://robot-educatif.info/2020/04/07/installer-mblock-5-sous-windows-10/)
+S’être familiariser avec l’[interface graphique de mBlock 5](/premier-pas-avec-mblock-5/)
 
-S’être familiariser avec l’[interface graphique de mBlock 5](https://robot-educatif.info/2020/04/07/premier-pas-avec-mblock-5/)
-
-Avoir installé les [blocs d’instruction du mBot](https://robot-educatif.info/2020/04/08/installer-les-blocs-du-mbot/)
+Avoir installé les [blocs d’instruction du mBot](/installer-les-blocs-du-mbot/)
 
 ## 2\. première activité : affichage basique du texte
 
@@ -78,9 +76,7 @@ et intégrer le code précédent
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/blocks6.png)
 
-et vous pouvez télécharger le programme ci-dessous
-
-[https://robot-educatif.info/programmes/defile\_final.mblock](https://robot-educatif.info/programmes/defile_final.mblock)
+*Fichier defile_final.mblock non hébergé — reconstituez le programme dans mBlock 5 d’après les captures ([Programmes mBlock](/programmes/)).*
 
 Pour conclure, vous êtes maintenant en capacité de faire défiler un texte et de réutiliser le code dans d’autre projet.
 

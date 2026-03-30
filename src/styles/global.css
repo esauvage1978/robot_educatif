@@ -40,7 +40,8 @@ html[data-theme='light'] {
 	--page-bg: #f0f2f6;
 	--page-bg-elevated: #ffffff;
 	--black: 16, 22, 34;
-	--gray: 88, 98, 118;
+	/* Texte secondaire : ≥ 4.5:1 sur fond clair (#fff / #f7f8fb) */
+	--gray: 62, 72, 88;
 	--gray-light: 238, 241, 246;
 	--gray-dark: 36, 44, 58;
 	--gray-gradient: #f0f2f6, #f5f7fb;
@@ -69,6 +70,8 @@ html[data-theme='light'] {
 
 html {
 	background-color: var(--page-bg);
+	/* Évite le scroll horizontal dû aux sections « full bleed » en 100vw (scrollbar ≠ largeur utile). */
+	overflow-x: hidden;
 }
 
 body {
@@ -139,6 +142,15 @@ a {
 
 a:hover {
 	color: var(--accent-dark);
+}
+
+/* Thème clair : le bleu --accent seul est souvent sous le ratio 4.5:1 sur blanc (WCAG AA). */
+html[data-theme='light'] a {
+	color: var(--accent-dark);
+}
+
+html[data-theme='light'] a:hover {
+	color: #0c3a50;
 }
 
 p {
@@ -224,4 +236,104 @@ hr {
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
 	white-space: nowrap;
+}
+
+/* Exercices : solutions masquées par défaut (<details>) */
+.prose .exercise-solution {
+	margin: 1rem 0 1.5rem;
+	border: 1px solid var(--surface-border);
+	border-radius: 8px;
+	background: var(--surface-2);
+	overflow: hidden;
+}
+
+.prose .exercise-solution__summary {
+	cursor: pointer;
+	list-style: none;
+	padding: 0.65rem 1rem;
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--accent-dark);
+	user-select: none;
+}
+
+.prose .exercise-solution__summary::-webkit-details-marker {
+	display: none;
+}
+
+.prose .exercise-solution__summary::before {
+	content: '▸ ';
+	display: inline-block;
+	transition: transform 0.15s ease;
+	opacity: 0.85;
+}
+
+.prose .exercise-solution[open] .exercise-solution__summary::before {
+	transform: rotate(90deg);
+}
+
+.prose .exercise-solution__summary:hover {
+	color: var(--accent);
+}
+
+.prose .exercise-solution__body {
+	padding: 0 0 0.75rem;
+}
+
+.prose .exercise-solution__pre {
+	margin: 0 0.75rem 0.75rem;
+	padding: 1rem 1.1rem;
+	border-radius: 6px;
+	background: var(--page-bg-elevated);
+	border: 1px solid var(--surface-border);
+	font-size: 0.9rem;
+	line-height: 1.45;
+	overflow-x: auto;
+}
+
+.prose .exercise-solution__pre code {
+	background: transparent;
+	padding: 0;
+	border-radius: 0;
+	font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+	white-space: pre;
+	display: block;
+}
+
+/* Niveaux d’exercices (Python, etc.) */
+.prose .exo-badge {
+	display: inline-block;
+	margin-left: 0.35rem;
+	padding: 0.12rem 0.45rem;
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+.prose .exo-badge--simple {
+	background: color-mix(in oklab, #1f883d 22%, transparent);
+	color: #7dd88a;
+	border: 1px solid color-mix(in oklab, #1f883d 45%, transparent);
+}
+.prose .exo-badge--inter {
+	background: color-mix(in oklab, var(--accent) 22%, transparent);
+	color: var(--accent-soft);
+	border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+}
+.prose .exo-badge--hard {
+	background: color-mix(in oklab, var(--accent-warm) 24%, transparent);
+	color: var(--accent-warm-soft);
+	border: 1px solid color-mix(in oklab, var(--accent-warm) 40%, transparent);
+}
+
+html[data-theme='light'] .prose .exo-badge--simple {
+	color: #146c2e;
+}
+html[data-theme='light'] .prose .exo-badge--inter {
+	color: var(--accent-dark);
+}
+html[data-theme='light'] .prose .exo-badge--hard {
+	color: #8a5a0a;
 }

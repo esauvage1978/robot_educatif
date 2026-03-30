@@ -4,6 +4,7 @@ description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS a
 pubDate: "2020-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2020-04-21"
+amazonPreset: mbot
 categories:
   - "Activité"
   - "mBot"
@@ -11,6 +12,13 @@ categories:
   - "À partir de 8 ans"
 ---
 le [mBot](https://amzn.to/3eAmt2m?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
+
+## Matériel et logiciel
+
+- [Robot mBot (présentation)](/mbot-mon-premier-robot-educatif/), programmation avec **mBlock**  
+- [Installer mBlock 5](/installer-mblock-5-sous-windows-10/) · [Premiers pas](/premier-pas-avec-mblock-5/) · [Blocs mBot](/installer-les-blocs-du-mbot/)
+
+*Lien affilié Amazon — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*
 
 Ces 2 LEDS, DELS ou diodes ont la particularité de pouvoir changer de couleur suivant le système de codage des couleurs RGB (Rouge, vert et bleu).
 
@@ -36,9 +44,7 @@ Voici une des solutions possibles :
 
 ![image représentant la solution de l'activité sur les LED pour le mBot](https://robot-educatif.info/wp-content/uploads/2020/04/led2.png)
 
-et vous pouvez télécharger le programme ci-dessous
-
-[https://robot-educatif.info/programmes/led1.mblock](https://robot-educatif.info/programmes/led1.mblock)
+*Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5 (voir [Programmes mBlock](/programmes/)).*
 
 ## 3\. Activité 2 : changer les couleurs des LEDS du mBot
 
@@ -52,9 +58,7 @@ Pour avoir une solution qui peut être celle ci
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/led4.png)
 
-La solution est téléchargeable ci-dessous
-
-[https://robot-educatif.info/programmes/led2.mblock](https://robot-educatif.info/programmes/led2.mblock)
+*Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5.*
 
 ## 4\. Activité 3 : affichage progressif des LEDS du mBot
 
@@ -70,9 +74,7 @@ Je vous présente une solution possible
 
 ![activité d'affichage des leds du mBot](https://robot-educatif.info/wp-content/uploads/2020/04/led5.png)
 
-et si vous ne souhaitez pas le reproduire, voici le programme en téléchargement
-
-[https://robot-educatif.info/programmes/led3.mblock](https://robot-educatif.info/programmes/led3.mblock)
+et si vous ne souhaitez pas le reproduire, exportez votre propre projet depuis mBlock une fois les blocs en place (*fichier .mblock d’origine non fourni*).
 
 ### 4.1 Amélioration du programme
 

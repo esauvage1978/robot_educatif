@@ -10,14 +10,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { articleSlugFromId } from '../../lib/articleSlug';
 import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
+import { isProgrammingSeriesArticle } from '../../lib/blogScope';
+import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
+import { withBase } from '../../lib/siteUrl';
 
 const allPosts = await getCollection('blog');
-const posts = [...allPosts].sort((a, b) => {
-	const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
-	const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
-	return dateB - dateA;
-});
-const topCategories = topCategoriesByCount(allPosts, 15);
+const posts = [...allPosts]
+	.filter((p) => !isProgrammingSeriesArticle(p))
+	.sort(compareBlogPostsByLastActivityDesc);
+const topCategories = topCategoriesByCount(posts, 15);
 ---
 
 <!doctype html>
@@ -203,9 +204,11 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 					<section>
 						<h2 style="margin: 0 0 1rem 0;">Articles</h2>
 						<p style="margin: 0 0 1.5rem 0; color: rgb(var(--gray-dark));">
-							Des tests, des idées d’activités et des guides pour apprendre la programmation et la robotique.
-							Parcourez aussi les articles par{' '}
-							<a href="/categorie/" style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.
+							Des tests, des idées d’activités et des guides pour la robotique et le matériel pédagogique. Les tutoriels
+							de programmation (Python, projets) sont regroupés sous{' '}
+							<a href={withBase('/programmation/')} style="font-weight: 600; color: var(--accent);">Programmation</a>
+							{' '}— parcourez aussi par{' '}
+							<a href={withBase('/categorie/')} style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.
 						</p>
 					</section>
 					<section>
@@ -215,18 +218,26 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 									const thumb = resolveHeroImage(post.data.heroImage);
 									return (
 									<li>
-										<a href={`/${articleSlugFromId(post.id)}/`}>
+										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
 											{thumb && (
 												<Image width={720} height={360} src={thumb} alt="" />
 											)}
 											<h4 class="title">{post.data.title}</h4>
 											<p class="date">
-												<FormattedDate date={post.data.pubDate} />
+												{post.data.updatedDate ? (
+													<>
+														Mis à jour le <FormattedDate date={post.data.updatedDate} />
+													</>
+												) : (
+													<>
+														Publié le <FormattedDate date={post.data.pubDate} />
+													</>
+												)}
 											</p>
 											{post.data.categories?.length ? (
 												<div class="post-categories">
 													{post.data.categories.map((cat) => (
-														<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
+														<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
 													))}
 												</div>
 											) : null}

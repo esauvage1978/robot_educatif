@@ -5,14 +5,26 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 import { rehypeAmazonExternalLinks } from './src/rehype/rehype-amazon-external-links.mjs';
+import { rehypePrependBaseForInternalLinks } from './src/rehype/rehype-prepend-base-internal-links.mjs';
+import { rehypePrependBaseForPublicImages } from './src/rehype/rehype-prepend-base-public-images.mjs';
+import { normalizeAstroBase } from './src/lib/astroBase.mjs';
+import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 
 // https://astro.build/config
+// ASTRO_BASE : sous-dossier WAMP uniquement (npm run dev:wamp / build:wamp).
+// Production (robot-educatif.info) : `npm run build` force base = / (voir package.json).
 export default defineConfig({
 	site: 'https://robot-educatif.info',
-	// WAMP / sous-dossier : décommenter et adapter pour que les images et le JS se chargent.
-	// base: '/site_vitrine/robot_educatif/',
+	base: normalizeAstroBase(process.env.ASTRO_BASE),
 	integrations: [mdx(), sitemap()],
+	// Évite 2 requêtes CSS bloquantes sur le chemin critique (LCP / FCP en lab 4G).
+	build: {
+		inlineStylesheets: 'always',
+	},
 	markdown: {
-		rehypePlugins: [rehypeAmazonExternalLinks],
+		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks],
+	},
+	vite: {
+		plugins: [vitePluginDevWampUrlMirror()],
 	},
 });

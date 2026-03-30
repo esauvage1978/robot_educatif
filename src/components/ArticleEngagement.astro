@@ -1,0 +1,320 @@
+---
+/**
+ * Vues + notation (1–5) par article, via Supabase (optionnel).
+ * Variables : PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY + SQL scripts/supabase-article-engagement.sql
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = {
+	articleSlug: string;
+	/** `hero` : compact, à placer à côté des catégories en tête d’article */
+	variant?: 'default' | 'hero';
+} & HTMLAttributes<'section'>;
+
+const { articleSlug, variant = 'default', class: className, ...rest } = Astro.props as Props;
+const isHero = variant === 'hero';
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
+---
+
+{
+	enabled && (
+		<section
+			class:list={['article-engagement', isHero && 'article-engagement--hero', className]}
+			aria-label="Statistiques et notation de l’article"
+			data-article-slug={articleSlug}
+			data-supabase-url={supabaseUrl}
+			data-supabase-key={supabaseKey}
+			{...rest}
+		>
+			<div class="article-engagement__stats">
+				<span class="article-engagement__views" data-role="views" aria-live="polite">
+					<span class="article-engagement__views-value" data-role="views-value">—</span>
+					<span class="article-engagement__views-label"> vues</span>
+				</span>
+				<span class="article-engagement__sep" aria-hidden="true">
+					·
+				</span>
+				<span class="article-engagement__rating-display" data-role="rating-summary" aria-live="polite">
+					<span data-role="rating-avg">—</span>
+					<span class="article-engagement__muted"> / 5</span>
+					<span class="article-engagement__muted" data-role="rating-count">
+						{' '}
+						(0 vote)
+					</span>
+				</span>
+			</div>
+			<div class="article-engagement__rate" data-role="rate-wrap">
+				<p class="article-engagement__rate-label" id="rate-label">Votre note</p>
+				<div
+					class="article-engagement__stars"
+					role="group"
+					aria-labelledby="rate-label"
+					data-role="stars"
+				>
+					{[1, 2, 3, 4, 5].map((n) => (
+						<button
+							type="button"
+							class="article-engagement__star"
+							data-star={n}
+							aria-label={`Noter ${n} sur 5`}
+						>
+							★
+						</button>
+					))}
+				</div>
+			</div>
+			<p class="article-engagement__thanks" data-role="thanks" hidden>
+				Merci pour votre note.
+			</p>
+			<p class="article-engagement__err" data-role="error" hidden />
+		</section>
+	)
+}
+
+{
+	enabled && (
+		<script is:inline>
+			(function () {
+				const LS_PREFIX = 'robot-educatif-rated:';
+
+				function formatAvg(sum, count) {
+					if (!count) return '—';
+					const x = sum / count;
+					return x.toFixed(1).replace('.', ',');
+				}
+
+				function voteLabel(n) {
+					if (n === 0) return '(aucun vote)';
+					if (n === 1) return '(1 vote)';
+					return '(' + n + ' votes)';
+				}
+
+				/** @param {HTMLElement} root */
+				async function init(root) {
+					const slug = root.dataset.articleSlug;
+					const base = root.dataset.supabaseUrl;
+					const key = root.dataset.supabaseKey;
+					if (!slug || !base || !key) return;
+
+					const elViews = root.querySelector('[data-role="views-value"]');
+					const elAvg = root.querySelector('[data-role="rating-avg"]');
+					const elCount = root.querySelector('[data-role="rating-count"]');
+					const rateWrap = root.querySelector('[data-role="rate-wrap"]');
+					const thanks = root.querySelector('[data-role="thanks"]');
+					const errEl = root.querySelector('[data-role="error"]');
+					const stars = root.querySelectorAll('[data-star]');
+
+					function showErr(msg) {
+						if (errEl) {
+							errEl.textContent = msg;
+							errEl.hidden = false;
+						}
+					}
+
+					function headers() {
+						return {
+							apikey: key,
+							Authorization: 'Bearer ' + key,
+							'Content-Type': 'application/json',
+						};
+					}
+
+					async function visitAndGetStats() {
+						const res = await fetch(base + '/rest/v1/rpc/visit_and_get_stats', {
+							method: 'POST',
+							headers: headers(),
+							body: JSON.stringify({ p_slug: slug }),
+						});
+						if (!res.ok) throw new Error('visit');
+						const rows = await res.json();
+						return rows[0] || { views: 0, rating_sum: 0, rating_count: 0 };
+					}
+
+					async function fetchStatsOnly() {
+						const u =
+							base +
+							'/rest/v1/article_engagement?slug=eq.' +
+							encodeURIComponent(slug) +
+							'&select=views,rating_sum,rating_count';
+						const res = await fetch(u, { headers: headers() });
+						if (!res.ok) throw new Error('fetch');
+						const rows = await res.json();
+						return rows[0] || { views: 0, rating_sum: 0, rating_count: 0 };
+					}
+
+					function renderStats(row) {
+						if (elViews) elViews.textContent = String(row.views ?? 0);
+						if (elAvg) elAvg.textContent = formatAvg(Number(row.rating_sum), Number(row.rating_count));
+						if (elCount)
+							elCount.textContent = ' ' + voteLabel(Number(row.rating_count) || 0);
+					}
+
+					try {
+						const row = await visitAndGetStats();
+						renderStats(row);
+					} catch {
+						showErr('Impossible de charger les statistiques pour le moment.');
+						if (elViews) elViews.textContent = '—';
+						return;
+					}
+
+					const already = localStorage.getItem(LS_PREFIX + slug);
+					if (rateWrap && thanks) {
+						if (already) {
+							rateWrap.hidden = true;
+							thanks.hidden = false;
+						} else {
+							rateWrap.hidden = false;
+							thanks.hidden = true;
+						}
+					}
+
+					stars.forEach(function (btn) {
+						btn.addEventListener('click', async function () {
+							const n = Number(btn.getAttribute('data-star'));
+							if (n < 1 || n > 5) return;
+							try {
+								const res = await fetch(base + '/rest/v1/rpc/submit_article_rating', {
+									method: 'POST',
+									headers: headers(),
+									body: JSON.stringify({ p_slug: slug, p_stars: n }),
+								});
+								if (!res.ok) throw new Error('rate');
+								localStorage.setItem(LS_PREFIX + slug, String(n));
+								const row = await fetchStatsOnly();
+								renderStats(row);
+								if (rateWrap) rateWrap.hidden = true;
+								if (thanks) thanks.hidden = false;
+							} catch {
+								showErr('Envoi de la note impossible. Réessayez plus tard.');
+							}
+						});
+					});
+				}
+
+				document.querySelectorAll('.article-engagement[data-article-slug]').forEach(function (root) {
+					init(/** @type {HTMLElement} */ (root));
+				});
+			})();
+		</script>
+	)
+}
+
+<style>
+	.article-engagement {
+		margin: 2rem 0 0 0;
+		padding: 1rem 1.1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+		font-family: var(--font-body, system-ui);
+		font-size: 0.95rem;
+		color: rgb(var(--gray-dark));
+	}
+	.article-engagement--hero {
+		margin: 0;
+		padding: 0.55rem 0.75rem;
+		font-size: 0.82rem;
+		border-radius: 10px;
+		flex: 0 1 auto;
+		max-width: min(100%, 420px);
+	}
+	.article-engagement--hero .article-engagement__stats {
+		margin-bottom: 0.45rem;
+		font-size: 0.8rem;
+	}
+	.article-engagement--hero .article-engagement__rate-label {
+		margin: 0 0.5rem 0 0;
+		display: inline;
+		font-size: 0.78rem;
+	}
+	.article-engagement--hero .article-engagement__rate {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35rem 0.5rem;
+	}
+	.article-engagement--hero .article-engagement__stars {
+		display: inline-flex;
+	}
+	.article-engagement--hero .article-engagement__star {
+		font-size: 1.1rem;
+		padding: 0.15rem 0.35rem;
+	}
+	.article-engagement--hero .article-engagement__thanks,
+	.article-engagement--hero .article-engagement__err {
+		margin-top: 0.4rem;
+		font-size: 0.8rem;
+	}
+	.article-engagement__stats {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 0.65rem;
+		margin: 0 0 0.75rem 0;
+		font-weight: 600;
+	}
+	.article-engagement__views-value {
+		font-variant-numeric: tabular-nums;
+		color: var(--accent);
+	}
+	.article-engagement__sep {
+		color: rgb(var(--gray));
+		font-weight: 400;
+	}
+	.article-engagement__muted {
+		color: rgb(var(--gray));
+		font-weight: 500;
+	}
+	.article-engagement__rate-label {
+		margin: 0 0 0.4rem 0;
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: rgb(var(--gray-dark));
+	}
+	.article-engagement__stars {
+		display: flex;
+		gap: 0.2rem;
+		flex-wrap: wrap;
+	}
+	.article-engagement__star {
+		cursor: pointer;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		color: var(--accent);
+		font-size: 1.35rem;
+		line-height: 1;
+		padding: 0.2rem 0.45rem;
+		border-radius: 6px;
+		transition:
+			background 0.12s ease,
+			border-color 0.12s ease,
+			transform 0.12s ease;
+	}
+	.article-engagement__star:hover {
+		background: color-mix(in oklab, var(--accent) 14%, transparent);
+		border-color: color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+	}
+	.article-engagement__star:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.article-engagement__thanks {
+		margin: 0;
+		font-weight: 600;
+		color: var(--accent);
+	}
+	.article-engagement__err {
+		margin: 0.5rem 0 0 0;
+		font-size: 0.88rem;
+		color: #c62828;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.article-engagement__star {
+			transition: none;
+		}
+	}
+</style>

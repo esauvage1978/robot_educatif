@@ -1,0 +1,73 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import type { SeriesHubFallbackLesson } from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import { withBase } from '../../../lib/siteUrl';
+
+const tag = AMAZON_AFFILIATE_TAG;
+
+const fallbackJournal: SeriesHubFallbackLesson[] = [
+	{
+		href: '/projet-av-journal-1-architecture/',
+		order: 1,
+		title: 'Projet Journal CLI (1/6) — architecture et périmètre',
+		desc: 'Analyse de fichiers log ligne à ligne, modules parser/stats/cli, objectifs et livrables ; 12 exercices.',
+	},
+	{
+		href: '/projet-av-journal-2-parse-generateurs/',
+		order: 2,
+		title: 'Projet Journal CLI (2/6) — parsing par générateurs',
+		desc: 'Lecture ligne à ligne, yield, regex ou split, lignes ignorées ; 12 exercices.',
+	},
+	{
+		href: '/projet-av-journal-3-decorateurs/',
+		order: 3,
+		title: 'Projet Journal CLI (3/6) — décorateurs pour métriques et journalisation',
+		desc: 'Mesurer le temps de parsing, journaliser le nombre de lignes, functools.wraps ; 12 exercices.',
+	},
+	{
+		href: '/projet-av-journal-4-asyncio-batch/',
+		order: 4,
+		title: 'Projet Journal CLI (4/6) — asyncio et traitement de plusieurs fichiers',
+		desc: 'gather, semaphore, run_in_executor pour lecture disque ; pas de blocage ; 12 exercices.',
+	},
+	{
+		href: '/projet-av-journal-5-typing-mypy/',
+		order: 5,
+		title: 'Projet Journal CLI (5/6) — typage et vérification mypy',
+		desc: 'Protocol, TypedDict, Literal pour niveaux de log ; mypy strict progressif ; 12 exercices.',
+	},
+	{
+		href: '/projet-av-journal-6-package-pyproject/',
+		order: 6,
+		title: 'Projet Journal CLI (6/6) — package, pyproject et livraison',
+		desc: 'pyproject.toml, setuptools, entrée journal-stats, README, tests et publication ; 12 exercices.',
+	},
+];
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Projet Python avancé — Analyseur de journal CLI"
+	metaDescription="Projet guidé en six parties : architecture, parsing générateur, décorateurs et métriques, asyncio pour fichiers, typage, package pyproject et entrée console."
+	series="Projet Python avancé — Journal CLI"
+	breadcrumbLast="Projet Journal CLI"
+	pageTitle="Projet — Analyseur de journal (CLI)"
+	fallbackLessons={fallbackJournal}
+>
+	<p>
+		Ce projet **synthétise** le <a href={withBase('/programmation/python-avance')}>parcours avancé</a> : générateurs pour lire de gros
+		fichiers ligne à ligne, <strong>décorateurs</strong> pour mesurer ou journaliser, <strong>asyncio</strong> pour
+		traiter plusieurs fichiers sans bloquer inutilement (schémas avec <code>asyncio</code> + exécuteur pour I/O disque),
+		<strong>typage</strong> et <strong>pyproject.toml</strong> pour livrer un paquet installable avec commande
+		<code>journal-stats</code>
+		— fictive dans le tutoriel, mais structurée comme un vrai outil.
+	</p>
+	<p>
+		Prérequis : <a href={withBase('/programmation/python-intermediaire')}>intermédiaire</a> +{' '}
+		<a href={withBase('/programmation/python-avance')}>avancé</a> (ou niveau équivalent). Ressource :{' '}
+		<a
+			href={`https://www.amazon.fr/s?k=python+asyncio+avanc%C3%A9+livre&tag=${tag}`}
+			target="_blank"
+			rel="noopener noreferrer sponsored">Python avancé</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

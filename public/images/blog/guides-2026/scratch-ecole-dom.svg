@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t">
+  <title id="t">Scratch : contraintes &#224; l&apos;&#233;cole et &#224; la maison</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6f8fa"/>
+      <stop offset="100%" stop-color="#eaeef2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)"/>
+  <text x="400" y="36" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="18" font-weight="700" fill="#24292f">Deux contextes, deux leviers</text>
+  <rect x="32" y="56" width="360" height="340" rx="10" fill="#fff" stroke="#d0d7de" stroke-width="2"/>
+  <rect x="408" y="56" width="360" height="340" rx="10" fill="#fff" stroke="#0969da" stroke-width="2"/>
+  <text x="212" y="88" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="600" fill="#24292f">&#192; l&apos;&#233;cole</text>
+  <text x="588" y="88" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="600" fill="#0969da">&#192; la maison</text>
+  <text x="48" y="118" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Temps structur&#233; (s&#233;ance)</text>
+  <text x="48" y="142" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Objectif collectif (classe)</text>
+  <text x="48" y="166" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Mat&#233;riel homog&#232;ne</text>
+  <text x="48" y="190" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; &#201;valuation / grille</text>
+  <text x="48" y="214" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Pair &#224; pair fort</text>
+  <text x="424" y="118" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Cr&#233;neau r&#233;gulier &#224; d&#233;fendre</text>
+  <text x="424" y="142" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Projet qui motive l&apos;enfant</text>
+  <text x="424" y="166" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; PC / tablette variables</text>
+  <text x="424" y="190" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Adulte pour installer / sauver</text>
+  <text x="424" y="214" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#57606a">&#8226; Progression au rythme familial</text>
+  <rect x="48" y="248" width="328" height="120" rx="6" fill="#fff8c5" stroke="#d4a72c"/>
+  <text x="64" y="272" font-family="Segoe UI,system-ui,sans-serif" font-size="11" font-weight="600" fill="#24292f">Levier principal</text>
+  <text x="64" y="294" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Consigne claire + fin de s&#233;ance</text>
+  <text x="64" y="314" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">visible (livrable partageable).</text>
+  <rect x="424" y="248" width="328" height="120" rx="6" fill="#ddf4ff" stroke="#0969da"/>
+  <text x="440" y="272" font-family="Segoe UI,system-ui,sans-serif" font-size="11" font-weight="600" fill="#24292f">Levier principal</text>
+  <text x="440" y="294" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Projet personnel (jeu, histoire)</text>
+  <text x="440" y="314" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">+ routine hebdo courte.</text>
+  <text x="400" y="404" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">Illustration p&#233;dagogique &#8212; ROBOT &#233;ducatif</text>
+</svg>

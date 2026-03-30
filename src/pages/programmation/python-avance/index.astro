@@ -1,0 +1,271 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { articleSlugFromId } from '../../../lib/articleSlug';
+import { withBase } from '../../../lib/siteUrl';
+import bandeauPythonUrl from '../../../assets/programmation/bandeau-python.svg?url';
+
+/** Comparaison robuste (YAML / CRLF / espaces / Unicode). */
+function normSeries(value: unknown): string {
+	return String(value ?? '')
+		.replace(/\r/g, '')
+		.trim()
+		.normalize('NFC');
+}
+
+const SERIE = 'Python avancé';
+const all = await getCollection('blog');
+let posts = all
+	.filter((p) => normSeries(p.data.series) === normSeries(SERIE))
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+/** Si le filtre ne matche aucun article (cache dev, encodage), afficher quand même les leçons attendues. */
+const FALLBACK = [
+	{
+		href: '/python-av-generateurs-iterateurs/',
+		order: 1,
+		title: 'Python avancé — itérateurs, générateurs et itertools',
+		desc: 'Protocole iterator, yield, générateurs, itertools ; 20 exercices.',
+	},
+	{
+		href: '/python-av-decorateurs-functools/',
+		order: 2,
+		title: 'Python avancé — décorateurs, functools et fermetures',
+		desc: 'Fermetures, décorateurs, @wraps, partial, lru_cache ; 20 exercices.',
+	},
+	{
+		href: '/python-av-context-managers/',
+		order: 3,
+		title: 'Python avancé — gestionnaires de contexte et contextlib',
+		desc: 'with, __enter__, __exit__, contextmanager, ExitStack ; 20 exercices.',
+	},
+	{
+		href: '/python-av-asyncio/',
+		order: 4,
+		title: 'Python avancé — asyncio : concurrence et I/O non bloquants',
+		desc: 'Event loop, async/await, Task, gather ; 20 exercices.',
+	},
+	{
+		href: '/python-av-typing-avance/',
+		order: 5,
+		title: 'Python avancé — typage statique avancé (typing, Protocol)',
+		desc: 'Optional, Union, generics, Protocol, TypedDict, Literal ; 20 exercices.',
+	},
+	{
+		href: '/python-av-packaging-pyproject/',
+		order: 6,
+		title: 'Python avancé — packaging moderne avec pyproject.toml',
+		desc: 'Structure de projet, PEP 621, wheel, entrée console ; 20 exercices.',
+	},
+] as const;
+
+const useFallback = posts.length === 0;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Python avancé — générateurs, async, typage, packaging"
+			description="Six leçons après le parcours intermédiaire : générateurs et itertools, décorateurs, gestionnaires de contexte, asyncio, typage statique avancé, packaging moderne — 20 exercices par cours."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="py-series">
+			<nav class="breadcrumb" aria-label="Fil d’Ariane">
+				<a href={withBase('/programmation')}>Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>Python avancé</span>
+			</nav>
+			<img
+				class="track-hero"
+				src={bandeauPythonUrl}
+				width="800"
+				height="250"
+				alt="Bandeau visuel : Python avancé"
+				loading="eager"
+			/>
+			<h1>Python — parcours avancé</h1>
+			<p class="lead">
+				Après le <a href={withBase('/programmation/python-intermediaire')}>parcours intermédiaire</a> (modules, venv, pathlib, POO,
+				tests, regex), ce bloc aborde des mécanismes profonds du langage : <strong>itérateurs et générateurs</strong>,
+				<strong>décorateurs</strong>, <strong>gestionnaires de contexte</strong>, <strong>asyncio</strong>,
+				<strong>typage statique</strong> et <strong>packaging</strong> avec <code>pyproject.toml</code>. Chaque article
+				est rédigé de façon détaillée et propose <strong>vingt exercices</strong> avec solutions repliables.
+			</p>
+			<p class="prereq">
+				Prérequis : maîtriser les leçons intermédiaires ou équivalent (classes, exceptions, tests de base, imports).
+				Un environnement Python 3.10+ est recommandé pour certaines notations de typage.
+			</p>
+			<ol class="lesson-list">
+				{
+					useFallback
+						? FALLBACK.map((row) => (
+								<li>
+									<a href={withBase(row.href)}>
+										<span class="num">{row.order}</span>
+										<span class="meta">
+											<span class="title">{row.title}</span>
+											<span class="desc">{row.desc}</span>
+										</span>
+									</a>
+								</li>
+							))
+						: posts.map((post) => (
+								<li>
+									<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+										<span class="num">{post.data.seriesOrder ?? '—'}</span>
+										<span class="meta">
+											<span class="title">{post.data.title}</span>
+											<span class="desc">{post.data.description}</span>
+										</span>
+									</a>
+								</li>
+							))
+				}
+			</ol>
+			<p class="extra-series">
+				<strong>Projet guidé (intermédiaire)</strong> :{' '}
+				<a href={withBase('/programmation/projet-python-intermediaire-agenda')}>Agenda personnel en CLI</a> — met en œuvre modules,
+				pathlib, POO et tests. — <strong>Projet guidé (avancé)</strong> :{' '}
+				<a href={withBase('/programmation/projet-python-avance-journal')}>Analyseur de journal CLI</a> — générateurs, décorateurs,
+				asyncio, typage et package installable.
+			</p>
+			<p class="back">
+				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
+				{' · '}
+				<a href={withBase('/programmation/python-intermediaire')}>Python intermédiaire</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.py-series {
+		width: min(720px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.track-hero {
+		width: 100%;
+		height: auto;
+		border-radius: 12px;
+		margin-bottom: 1.25rem;
+		border: 1px solid var(--surface-border);
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1rem;
+	}
+	.breadcrumb a {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.py-series h1 {
+		font-size: clamp(1.65rem, 3vw, 2rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead {
+		margin: 0 0 1rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.lead a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.prereq {
+		margin: 0 0 1.75rem;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px dashed color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.lesson-list li {
+		margin-bottom: 0.65rem;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.lesson-list a:hover {
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.num {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 8px;
+		background: var(--brand-gradient, linear-gradient(135deg, #1a3a5c, #6b2d5c));
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+	.meta .title {
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list a:hover .title {
+		color: var(--accent);
+	}
+	.meta .desc {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		line-height: 1.45;
+	}
+	.extra-series {
+		margin: 1.5rem 0 0;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+		font-size: 0.92rem;
+		line-height: 1.55;
+		color: rgb(var(--gray-dark));
+	}
+	.extra-series a {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.back {
+		margin-top: 1.5rem;
+		font-size: 0.92rem;
+	}
+	.back a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>

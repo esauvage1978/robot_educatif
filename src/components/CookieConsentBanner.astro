@@ -1,0 +1,145 @@
+---
+import { COOKIE_CONSENT_STORAGE_KEY } from '../lib/cookieConsent';
+import { withBase } from '../lib/siteUrl';
+
+const cookiesPageUrl = withBase('/gestion-des-cookies/');
+---
+
+<div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc" hidden>
+	<div class="cookie-consent__inner">
+		<p id="cookie-consent-title" class="cookie-consent__title">Cookies et mesure d&apos;audience</p>
+		<p id="cookie-consent-desc" class="cookie-consent__text">
+			Nous utilisons Google Analytics 4 pour comprendre comment le site est utilisé (pages vues, navigation). Ces données sont
+			activées uniquement si vous acceptez. Refuser n&apos;empêche pas la consultation du site. En savoir plus :
+			<a href={cookiesPageUrl}>gestion des cookies</a> et
+			<a href={withBase('/politique-de-confidentialite/')}>politique de confidentialité</a>.
+		</p>
+		<div class="cookie-consent__actions">
+			<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Refuser</button>
+			<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accepter</button>
+		</div>
+	</div>
+</div>
+
+<script is:inline define:vars={{ COOKIE_CONSENT_STORAGE_KEY }}>
+	(function () {
+		var banner = document.getElementById('cookie-consent-banner');
+		var btnAccept = document.getElementById('cookie-consent-accept');
+		var btnReject = document.getElementById('cookie-consent-reject');
+		if (!banner || !btnAccept || !btnReject) return;
+
+		function hide() {
+			banner.hidden = true;
+			banner.setAttribute('aria-hidden', 'true');
+		}
+
+		function show() {
+			banner.hidden = false;
+			banner.removeAttribute('aria-hidden');
+		}
+
+		try {
+			if (localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) === null) {
+				show();
+			} else {
+				hide();
+			}
+		} catch (e) {
+			show();
+		}
+
+		btnAccept.addEventListener('click', function () {
+			window.dispatchEvent(new CustomEvent('robot-educatif-cookie-accept'));
+			hide();
+		});
+		btnReject.addEventListener('click', function () {
+			window.dispatchEvent(new CustomEvent('robot-educatif-cookie-reject'));
+			hide();
+		});
+	})();
+</script>
+
+<style>
+	.cookie-consent {
+		position: fixed;
+		z-index: 9999;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 1rem;
+		pointer-events: none;
+	}
+	.cookie-consent[hidden] {
+		display: none !important;
+	}
+	.cookie-consent__inner {
+		max-width: 52rem;
+		margin: 0 auto;
+		padding: 1.1rem 1.25rem;
+		background: var(--surface, #fff);
+		color: rgb(var(--gray-dark, 60 60 65));
+		border: 1px solid var(--surface-border, #e5e7eb);
+		border-radius: 12px;
+		box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+		pointer-events: auto;
+	}
+	html[data-theme='dark'] .cookie-consent__inner,
+	:root[data-theme='dark'] .cookie-consent__inner {
+		background: var(--surface-2, #1e1e24);
+		border-color: var(--surface-border, #333);
+		color: var(--color-base, #e6e6ea);
+	}
+	.cookie-consent__title {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--accent-dark);
+	}
+	.cookie-consent__text {
+		margin: 0 0 1rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+	}
+	.cookie-consent__text a {
+		color: var(--accent-dark);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+	.cookie-consent__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		justify-content: flex-end;
+	}
+	.cookie-consent__btn {
+		cursor: pointer;
+		border-radius: 8px;
+		padding: 0.55rem 1.1rem;
+		font-size: 0.94rem;
+		font-weight: 600;
+		border: 1px solid var(--surface-border, #ccc);
+		background: var(--surface, #fff);
+		color: inherit;
+	}
+	.cookie-consent__btn--primary {
+		background: color-mix(in oklab, var(--accent) 88%, #000 12%);
+		color: #fff;
+		border-color: transparent;
+	}
+	.cookie-consent__btn--primary:hover {
+		filter: brightness(1.06);
+	}
+	.cookie-consent__btn--secondary:hover {
+		border-color: var(--accent-dark);
+		color: var(--accent-dark);
+	}
+	@media (max-width: 520px) {
+		.cookie-consent__actions {
+			flex-direction: column;
+		}
+		.cookie-consent__btn {
+			width: 100%;
+		}
+	}
+</style>

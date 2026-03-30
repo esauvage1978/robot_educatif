@@ -1,4 +1,4 @@
----
+﻿---
 title: "S’inscrire sur mBlock 5"
 description: "Cet article vous explique de façon détailler comment s’inscrire sur mBlock. Soit à partir du site, soit à partir de l’application."
 pubDate: "2020-04-07"
@@ -10,7 +10,7 @@ categories:
   - "Guide"
   - "Compte"
 ---
-Avant de vous inscrire sur mblock 5, il faut bien entendu l’avoir installé au préalable, je vous invite donc à lire l’article [Installer mBlock 5 sous Windows 10](https://robot-educatif.info/2020/04/07/installer-mblock-5-sous-windows-10) si ce n’est pas fait.
+Avant de vous inscrire sur mblock 5, il faut bien entendu l’avoir installé au préalable, je vous invite donc à lire l’article [Installer mBlock 5 sous Windows 10](/installer-mblock-5-sous-windows-10/) si ce n’est pas fait.
 
 Maintenant la question légitime serait : Pourquoi s’incrire ?
 

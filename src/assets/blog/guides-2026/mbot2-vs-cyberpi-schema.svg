@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="t">
+  <title id="t">Robot roulant versus carte programmable</title>
+  <rect width="800" height="300" fill="#f6f8fa"/>
+  <text x="400" y="28" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="16" font-weight="700" fill="#24292f">mBot2 = robot mobile &#183; CyberPi = carte + projets vari&#233;s</text>
+  <rect x="60" y="52" width="300" height="200" rx="8" fill="#fff" stroke="#1f883d" stroke-width="2"/>
+  <text x="210" y="84" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#1f883d">mBot2</text>
+  <text x="80" y="112" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; D&#233;placements, capteurs &#171; terrain &#187;</text>
+  <text x="80" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; Scratch &#8594; Python int&#233;gr&#233;</text>
+  <text x="80" y="160" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; Projet visible en 1 s&#233;ance</text>
+  <rect x="440" y="52" width="300" height="200" rx="8" fill="#fff" stroke="#bf8700" stroke-width="2"/>
+  <text x="590" y="84" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#bf8700">CyberPi</text>
+  <text x="460" y="112" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; Wi-Fi, &#233;cran, capteurs sur carte</text>
+  <text x="460" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; Montages &#233;lectroniques / IoT</text>
+  <text x="460" y="160" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#8226; Moins &#171; roues &#187; par d&#233;faut</text>
+  <text x="400" y="272" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#24292f">Choisissez selon ce que l&apos;&#233;l&#232;ve veut montrer : parcours robot ou console / objet connect&#233;.</text>
+</svg>

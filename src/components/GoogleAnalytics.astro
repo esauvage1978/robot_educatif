@@ -1,0 +1,122 @@
+---
+/**
+ * GA4 + Consent Mode v2. Chargement de gtag.js uniquement après le LCP (PerformanceObserver)
+ * + idle, pour ne pas concurrencer l’image hero / le CSS sur 4G. Repli : 8 s.
+ * Clic « Accepter » : chargement immédiat. Tag Assistant : accepter les cookies puis recharger.
+ */
+import { GA_MEASUREMENT_ID } from '../consts';
+import { COOKIE_CONSENT_STORAGE_KEY } from '../lib/cookieConsent';
+---
+
+<script is:inline define:vars={{ GA_MEASUREMENT_ID, COOKIE_CONSENT_STORAGE_KEY }}>
+	(function () {
+		var loading = false;
+		var loaded = false;
+
+		function loadScript(onload) {
+			var s = document.createElement('script');
+			s.async = true;
+			s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+			document.head.appendChild(s);
+			s.onload = onload;
+		}
+
+		function configureGtag() {
+			window.dataLayer = window.dataLayer || [];
+			if (typeof window.gtag !== 'function') {
+				window.gtag = function () {
+					window.dataLayer.push(arguments);
+				};
+			}
+			window.gtag('js', new Date());
+			var consent = null;
+			try {
+				consent = localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY);
+			} catch (e) {}
+			if (consent === 'accepted') {
+				window.gtag('consent', 'update', {
+					analytics_storage: 'granted',
+				});
+			}
+			window.gtag('config', GA_MEASUREMENT_ID);
+		}
+
+		function inject() {
+			if (loaded || loading) return;
+			try {
+				if (localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) === 'rejected') return;
+			} catch (e) {}
+			loading = true;
+			loadScript(function () {
+				loaded = true;
+				loading = false;
+				window.__ga4ScriptLoaded = true;
+				configureGtag();
+			});
+		}
+
+		window.addEventListener('robot-educatif-cookie-accept', function () {
+			try {
+				localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, 'accepted');
+			} catch (e) {}
+			if (window.__ga4ScriptLoaded && typeof window.gtag === 'function') {
+				window.gtag('consent', 'update', { analytics_storage: 'granted' });
+				return;
+			}
+			inject();
+		});
+
+		window.addEventListener('robot-educatif-cookie-reject', function () {
+			try {
+				localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, 'rejected');
+			} catch (e) {}
+			if (window.__ga4ScriptLoaded && typeof window.gtag === 'function') {
+				window.gtag('consent', 'update', {
+					analytics_storage: 'denied',
+					ad_storage: 'denied',
+					ad_user_data: 'denied',
+					ad_personalization: 'denied',
+				});
+			}
+		});
+
+		function scheduleInject() {
+			var scheduled = false;
+			function runAfterIdle() {
+				if (scheduled) return;
+				scheduled = true;
+				function run() {
+					inject();
+				}
+				if (typeof window.requestIdleCallback === 'function') {
+					window.requestIdleCallback(run, { timeout: 4000 });
+				} else {
+					window.setTimeout(run, 500);
+				}
+			}
+			/** Si LCP n’est jamais notifié (navigateur rare), charger GA quand même. */
+			function armLongFallback() {
+				window.setTimeout(runAfterIdle, 8000);
+			}
+			if (typeof PerformanceObserver !== 'undefined') {
+				try {
+					var po = new PerformanceObserver(function () {
+						runAfterIdle();
+						try {
+							po.disconnect();
+						} catch (e) {}
+					});
+					po.observe({ type: 'largest-contentful-paint', buffered: true });
+					armLongFallback();
+				} catch (e) {
+					window.setTimeout(runAfterIdle, 3500);
+					armLongFallback();
+				}
+			} else {
+				window.setTimeout(runAfterIdle, 3500);
+				armLongFallback();
+			}
+		}
+		scheduleInject();
+	})();
+</script>

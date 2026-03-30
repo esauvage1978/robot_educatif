@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="t">
+  <title id="t">mBot char versus Codey Rocky t&#234;te + base</title>
+  <rect width="800" height="320" fill="#f6f8fa"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="16" font-weight="700" fill="#24292f">Deux profils Makeblock (mBlock commun)</text>
+  <rect x="48" y="56" width="320" height="220" rx="8" fill="#fff" stroke="#0969da" stroke-width="2"/>
+  <rect x="200" y="120" width="120" height="80" rx="4" fill="#ddf4ff" stroke="#0969da"/>
+  <circle cx="140" cy="200" r="24" fill="#57606a"/><circle cx="260" cy="200" r="24" fill="#57606a"/>
+  <text x="208" y="92" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#0969da">mBot</text>
+  <text x="208" y="268" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Kit char, capteurs &#171; cours &#187;, montage</text>
+  <rect x="432" y="56" width="320" height="220" rx="8" fill="#fff" stroke="#8250df" stroke-width="2"/>
+  <rect x="520" y="100" width="72" height="56" rx="6" fill="#f3e8ff" stroke="#8250df"/>
+  <circle cx="556" cy="118" r="8" fill="#24292f"/>
+  <rect x="500" y="168" width="112" height="48" rx="4" fill="#eaeef2"/>
+  <text x="592" y="92" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#8250df">Codey Rocky</text>
+  <text x="592" y="268" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#201;cran + &#233;motions, peu de montage</text>
+  <text x="400" y="308" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">Sch&#233;ma conceptuel &#8212; pas &#224; l&apos;&#233;chelle des produits r&#233;els.</text>
+</svg>

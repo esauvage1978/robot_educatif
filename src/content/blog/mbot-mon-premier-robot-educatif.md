@@ -4,6 +4,7 @@ description: "Le mBot est un robot éducatif en kit idéal pour découvrir la ro
 pubDate: "2023-04-06"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2023-04-09"
+amazonPreset: mbot
 categories:
   - "Robot éducatif"
   - "mBot"
@@ -11,8 +12,6 @@ categories:
   - "À partir de 8 ans"
 ---
 Dans cet article, je vais vous faire découvrir le robot éducatif [mBot](https://amzn.to/3mietLQ?tag=manuso06-21) de chez makeBlock. C’est le robot par excellence et je le conseille pour une première acquisition.
-
-[![achetez le robot éducatif mBot sur Amazon](https://robot-educatif.info/wp-content/uploads/2020/04/banniere_mbot.png)](https://amzn.to/41vNrjl?tag=manuso06-21)
 
 [mBot](https://amzn.to/3mietLQ?tag=manuso06-21) est un robot éducatif à construire et à programmer. Il peut être donné à un enfant de 10 ans mais pas que. Il est également destiné à tous ceux qui veulent se plonger dans le robotique et la programmation.
 
@@ -76,6 +75,6 @@ Il peut donc :
 
 On entre là dans la section la plus intéressante à mon goût car les possibilités sont énormes.
 
-La première étape consiste à [installer l’environnement de développement, à savoir mBlock](https://robot-educatif.info/2020/04/07/installer-mblock-5-sous-windows-10/) basé sur Scratch.
+La première étape consiste à [installer l’environnement de développement, à savoir mBlock](/installer-mblock-5-sous-windows-10/) basé sur Scratch.
 
-La seconde consiste à prendre en main [l’application mBlock](https://robot-educatif.info/2020/04/07/premier-pas-avec-mblock-5/)
+La seconde consiste à prendre en main [l’application mBlock](/premier-pas-avec-mblock-5/)

@@ -11,22 +11,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
+import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
+import { withBase } from '../lib/siteUrl';
 
 const allPosts = await getCollection('blog');
-const latestPosts = [...allPosts]
-	.sort((a, b) => {
-		const dateA = a.data.updatedDate?.valueOf() ?? a.data.pubDate.valueOf();
-		const dateB = b.data.updatedDate?.valueOf() ?? b.data.pubDate.valueOf();
-		return dateB - dateA;
-	})
-	.slice(0, 5);
+const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 5);
 const topCategories = topCategoriesByCount(allPosts, 15);
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} preloadLcpImage={withBase('/hero-home.webp')} />
 		<style>
 			.hero-home {
 				position: relative;
@@ -36,14 +32,29 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				display: flex;
 				align-items: flex-end;
 				background-color: #060a10;
+				overflow: hidden;
+			}
+			.hero-home-bg {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center 40%;
+				z-index: 0;
+			}
+			.hero-home-overlay {
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+				pointer-events: none;
 				background-image:
 					linear-gradient(180deg, rgba(6, 10, 16, 0.45) 0%, rgba(6, 10, 16, 0.82) 100%),
-					linear-gradient(90deg, rgba(6, 10, 16, 0.88) 0%, rgba(6, 10, 16, 0.55) 45%, rgba(6, 10, 16, 0.35) 100%),
-					url('/hero-home.jpg');
-				background-size: cover;
-				background-position: center 40%;
+					linear-gradient(90deg, rgba(6, 10, 16, 0.88) 0%, rgba(6, 10, 16, 0.55) 45%, rgba(6, 10, 16, 0.35) 100%);
 			}
 			.hero-home-inner {
+				position: relative;
+				z-index: 2;
 				width: min(1140px, calc(100% - 2.5rem));
 				margin: 0 auto;
 				padding: 2.75rem 0 3rem 0;
@@ -186,6 +197,11 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				border: 1px solid color-mix(in oklab, var(--accent) 45%, transparent);
 				background: color-mix(in oklab, var(--accent) 16%, transparent);
 				text-decoration: none;
+				color: var(--accent-dark);
+			}
+			html[data-theme='light'] .latest-posts .all-posts {
+				border-color: color-mix(in oklab, var(--accent-dark) 40%, transparent);
+				background: color-mix(in oklab, var(--accent-dark) 10%, transparent);
 			}
 			@media (max-width: 720px) {
 				.hero-home {
@@ -209,7 +225,17 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 	<body>
 		<Header />
 		<main>
-			<section class="hero-home">
+			<section class="hero-home" aria-label="Présentation">
+				<img
+					class="hero-home-bg"
+					src={withBase('/hero-home.webp')}
+					alt=""
+					width="683"
+					height="435"
+					fetchpriority="high"
+					decoding="async"
+				/>
+				<div class="hero-home-overlay" aria-hidden="true"></div>
 				<div class="hero-home-inner">
 					<p class="hero-kicker">Robotique &amp; pédagogie</p>
 					<h1>Apprendre la robotique en s'amusant</h1>
@@ -218,8 +244,8 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 						robotique avec du matériel adapté aux collégiens, lycéens et autodidactes motivés.
 					</p>
 					<div class="hero-actions">
-						<a href="/blog/">Articles à la une</a>
-						<a href="/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/">Focus mBot2</a>
+						<a href={withBase('/blog/')}>Articles à la une</a>
+						<a href={withBase('/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/')}>Focus mBot2</a>
 					</div>
 				</div>
 			</section>
@@ -246,9 +272,18 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 									const thumb = resolveHeroImage(post.data.heroImage);
 									return (
 									<li>
-										<a href={`/${articleSlugFromId(post.id)}/`}>
+										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
 											{thumb && (
-												<Image src={thumb} alt={post.data.title} width={220} height={130} />
+												<Image
+													src={thumb}
+													alt={post.data.title}
+													width={184}
+													height={116}
+													sizes="92px"
+													quality={72}
+													loading="lazy"
+													decoding="async"
+												/>
 											)}
 											<span class="title">{post.data.title}</span>
 											<span class="date">
@@ -260,7 +295,7 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 								})
 							}
 						</ul>
-						<a class="all-posts" href="/blog/">Voir tous les articles</a>
+						<a class="all-posts" href={withBase('/blog/')}>Voir tous les articles</a>
 					</section>
 					<HomeShowcase />
 				</div>

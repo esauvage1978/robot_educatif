@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="t">
+  <title id="t">mBlock 5 : panneau Appareils sur la gauche</title>
+  <rect width="800" height="480" fill="#e8eef5"/>
+  <rect x="16" y="16" width="768" height="448" rx="8" fill="#fff" stroke="#c8d4e4"/>
+  <rect x="16" y="16" width="768" height="40" rx="8" fill="#2d3a4a"/>
+  <text x="40" y="42" fill="#e6edf7" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600">mBlock 5</text>
+  <rect x="16" y="56" width="200" height="408" fill="#f4f7fb" stroke="#d0dce8"/>
+  <text x="32" y="88" fill="#1f2937" font-family="Segoe UI,system-ui,sans-serif" font-size="11" font-weight="700">APPAREILS</text>
+  <rect x="32" y="100" width="168" height="36" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="44" y="123" fill="#1e40af" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600">+ Ajouter</text>
+  <rect x="232" y="72" width="536" height="376" fill="#fff" stroke="#e5e7eb"/>
+  <text x="252" y="108" fill="#6b7280" font-family="Segoe UI,system-ui,sans-serif" font-size="13">Zone de programme (blocs Scratch)</text>
+  <rect x="252" y="400" width="520" height="36" rx="4" fill="#f9fafb"/>
+  <text x="400" y="423" text-anchor="middle" fill="#9ca3af" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Illustration pedagogique &#8212; interface indicative</text>
+</svg>

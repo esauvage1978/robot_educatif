@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { buildCategoryIndex } from '../../lib/categories';
+import { withBase } from '../../lib/siteUrl';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -118,12 +119,12 @@ const pageDesc = `Articles du blog classés sous « ${entry.label} » — roboti
 				</div>
 			</section>
 			<div class="list-wrap">
-				<a class="back" href="/categorie/">← Toutes les catégories</a>
+				<a class="back" href={withBase('/categorie/')}>← Toutes les catégories</a>
 				<ul class="post-list">
 					{
 						entry.posts.map((p) => (
 							<li>
-								<a href={`/${p.slug}/`}>
+								<a href={withBase(`/${p.slug}/`)}>
 									<h2>{p.title}</h2>
 									<p class="date">
 										<FormattedDate date={p.pubDate} />

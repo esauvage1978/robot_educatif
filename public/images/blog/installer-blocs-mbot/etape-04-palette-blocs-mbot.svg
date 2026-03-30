@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="t">
+  <title id="t">Palette de blocs mBot disponible</title>
+  <rect width="800" height="480" fill="#e8eef5"/>
+  <rect x="16" y="16" width="768" height="448" rx="8" fill="#fff" stroke="#c8d4e4"/>
+  <rect x="16" y="16" width="768" height="40" rx="8" fill="#2d3a4a"/>
+  <text x="40" y="42" fill="#e6edf7" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600">mBlock 5</text>
+  <rect x="16" y="56" width="220" height="408" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="32" y="84" fill="#9a3412" font-family="Segoe UI,system-ui,sans-serif" font-size="11" font-weight="700">APPAREIL : MBOT</text>
+  <rect x="32" y="96" width="188" height="28" rx="4" fill="#fb923c"/>
+  <text x="44" y="115" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="12">Moteurs</text>
+  <rect x="32" y="132" width="188" height="28" rx="4" fill="#fb923c"/>
+  <text x="44" y="151" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="12">Capteurs</text>
+  <rect x="32" y="168" width="188" height="28" rx="4" fill="#fb923c"/>
+  <text x="44" y="187" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="12">LED / buzzer</text>
+  <rect x="248" y="72" width="520" height="376" fill="#fff" stroke="#e5e7eb"/>
+  <text x="268" y="108" fill="#6b7280" font-family="Segoe UI,system-ui,sans-serif" font-size="13">Glissez les blocs orange (categorie mBot) dans le script.</text>
+  <text x="400" y="430" text-anchor="middle" fill="#9ca3af" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Les couleurs et libelles peuvent varier selon la version.</text>
+</svg>

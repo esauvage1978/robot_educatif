@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="t">
+  <title id="t">Boucle planifier, coder, tester, partager</title>
+  <rect width="800" height="360" fill="#f6f8fa"/>
+  <text x="400" y="32" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="17" font-weight="700" fill="#24292f">Une s&#233;quence Scratch r&#233;ussie (maison ou classe)</text>
+  <circle cx="400" cy="190" r="120" fill="none" stroke="#d0d7de" stroke-width="3" stroke-dasharray="8 6"/>
+  <g font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600">
+    <rect x="320" y="72" width="160" height="48" rx="8" fill="#0969da"/>
+    <text x="400" y="102" text-anchor="middle" fill="#fff">1. Objectif mini</text>
+    <rect x="548" y="160" width="160" height="48" rx="8" fill="#1f883d"/>
+    <text x="628" y="190" text-anchor="middle" fill="#fff">2. Blocs</text>
+    <rect x="320" y="268" width="160" height="48" rx="8" fill="#bf8700"/>
+    <text x="400" y="298" text-anchor="middle" fill="#fff">4. Partage / d&#233;mo</text>
+    <rect x="92" y="160" width="160" height="48" rx="8" fill="#8250df"/>
+    <text x="172" y="190" text-anchor="middle" fill="#fff">3. Tester</text>
+  </g>
+  <path d="M 400 120 L 520 168" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 600 208 L 520 248" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 400 268 L 280 248" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 200 208 L 280 168" stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#57606a"/>
+    </marker>
+  </defs>
+  <text x="400" y="348" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">Court-circuiter &#171; tout finir &#187; : viser un livrable &#224; chaque tour.</text>
+</svg>

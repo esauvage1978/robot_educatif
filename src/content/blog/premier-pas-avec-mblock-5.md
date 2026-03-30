@@ -1,107 +1,171 @@
 ---
-title: "Premier pas avec mBlock 5"
-description: "Développé par MakeBlock, l’application mBlock est une variante de Scratch. Elle permet de programmer les robots tel que le mBot."
+title: "Premiers pas avec mBlock 5 : comprendre l’environnement"
+description: "Tour d’horizon de mBlock 5 : scène, lutins, onglet Appareil, palettes de blocs, zone de script, connexion au robot et exécution du programme. Guide pour débutants après l’installation."
 pubDate: "2020-04-07"
-heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2020-04-13"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+updatedDate: "2026-03-30"
 categories:
   - "mBlock"
   - "Guide"
   - "Scratch"
   - "Débutant"
+relatedLinks:
+  - title: "Installer mBlock 5 sous Windows 10"
+    href: "/installer-mblock-5-sous-windows-10/"
+  - title: "Quel logiciel mBlock pour votre robot"
+    href: "/logiciel-mblock-makeblock-mbot-quel-choisir/"
+  - title: "Installer les blocs du mBot"
+    href: "/installer-les-blocs-du-mbot/"
+  - title: "Mon premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+  - title: "Dépannage Bluetooth mBlock"
+    href: "/mblock-bluetooth-erreurs-frequentes-depannage/"
 ---
-Pour vos premier pas avec mblock 5, il faut bien entendu l’avoir installé au préalable, je vous invite donc à lire l’article [Installer mBlock 5 sous Windows 10](/installer-mblock-5-sous-windows-10/) si ce n’est pas fait.
 
-mBlock est une variante de Scratch développé par MakeBlock. Elle permet de programmer les robots tel que le [mBot](/mbot-mon-premier-robot-educatif/).
+**mBlock 5** est l’application de **programmation par blocs** de Makeblock, proche de **Scratch**, mais pensée pour **brancher** des robots (mBot, mBot2, Codey Rocky, CyberPi, etc.) en plus d’animer des **lutins** à l’écran. Une fois [mBlock installé](/installer-mblock-5-sous-windows-10/), ce guide vous aide à **vous repérer** dans la fenêtre : menus, zones, vocabulaire — avant de enchaîner sur un [premier programme pour le mBot](/mon-premier-programme-mbot/).
 
-[![achetez le robot éducatif mBot sur Amazon](/images/blog/premier-pas-mblock/banniere_mbot.png)](https://amzn.to/3bVU8RR?tag=manuso06-21)
+**Illustrations :** les captures d’écran sont référencées sous `/images/blog/premier-pas-mblock/` avec des **noms de fichier fixes** ; dès que vous déposez les fichiers correspondants (PNG recommandé), ils s’affichent sans modifier l’article.
 
-## 1\. Interface graphique de mBlock
+## 1. Écran « type Scratch » et robot : ce que mBlock permet
 
-![Interface graphique de mBlock](/images/blog/premier-pas-mblock/mblock1-1024x566.png)
+mBlock n’est **pas** coupé en deux bandes dans la fenêtre : c’est **un seul** logiciel, avec des **zones** (scène, scripts, palettes de blocs) qui se ressemblent à Scratch.
 
-Interface graphique de mBlock
+**Côté écran**, vous utilisez la **scène**, les **lutins** et les arrière-plans comme sur Scratch : animer des personnages, des décors, de petits jeux — tout reste **dans la fenêtre** de mBlock.
 
-Il est possible de connecter des appareils tel que le [mBot](/mbot-mon-premier-robot-educatif/). mais également d’apprendre la programmation avec les lutins de Scratch.
+**Côté robot**, ce n’est pas une « autre moitié » de l’interface : une fois un **appareil Makeblock** ajouté (mBot, etc.) et **connecté** en USB ou Bluetooth, des **blocs supplémentaires** apparaissent pour le matériel réel — moteurs, LED, capteurs, buzzer, etc. Tant que vous n’avez pas ajouté d’appareil, vous ne voyez que la partie **lutins / scène** ; après ajout, vous programmez avec les blocs **dédiés au robot**, seuls ou **en plus** des lutins si le projet mélange les deux (par exemple un score à l’écran pendant que le robot avance).
 
-### 1.1 Le menu
+En pratique : **sans robot**, vous restez sur l’animation à l’écran comme sur Scratch. **Avec robot**, vous vous concentrez souvent sur les blocs **appareil** — la scène peut attendre. **Les deux** peuvent aussi être combinés dans un même projet.
 
-![partie menu de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i2-1024x41.png)
+## 2. Vue globale de la fenêtre
 
-Le **menu** vous permet de sauvegarder votre travail et de le récupérer. Vous avez également la possibilité de changer la langue de l’interface, de consulter le didacticiel et ou de vous connecter.
+![Vue globale de la fenêtre mBlock 5 — barre de titre, scène, palettes, zone de script](/images/blog/premier-pas-mblock/mblock-vue-globale.png)
 
-### 1.2 La scène
+En parcourant l’interface de gauche à droite et de haut en bas, on retrouve en général :
 
-La **scène** est l’endroit où les objets s’animent. Le panda s’appelle un lutin et vous pouvez en avoir plusieurs.
+1. **Barre de menus** : fichier, édition, réglages, langue, aide, parfois compte Makeblock.
+2. **Scène** : aperçu du projet visuel (lutins, décor).
+3. **Contrôles sous la scène** : **drapeau vert** (démarrer), **stop**, parfois **plein écran**, **taille des blocs**.
+4. **Zone des lutins / appareils** : onglets pour choisir **qui** est programmé (lutin, robot…).
+5. **Catégories de blocs** : colonnes colorées (Mouvement, Apparence, etc., + catégories **mBot** ou autre appareil une fois ajouté).
+6. **Zone de script** : grand espace central où l’on **emboîte** les blocs pour former le programme.
 
-![partie scène de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i1.png)
+Les libellés exacts peuvent varier selon la **langue** (français / anglais) et la **version** de mBlock ; la **logique** des zones reste la même.
 
-Sous la scène se trouve une série de boutons
+## 3. Le menu principal
 
-![partie bouton sous la scène de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i3.png)
+![Barre de menus — Nouveau, Ouvrir, Enregistrer, langue, tutoriel](/images/blog/premier-pas-mblock/mblock-menu-principal.png)
 
-Le premier permet de mettre la scène en plein écran.
+À connaître dès le début :
 
-Les deux autres permettent de modifier la taille des blocs dans l’interface graphique.
+- **Nouveau / Ouvrir / Enregistrer** : vos projets sont souvent des fichiers **.mblock** (pensez à sauvegarder souvent).
+- **Langue** : basculer l’interface en **français** si besoin (souvent dans les préférences ou le menu).
+- **Tutoriel ou aide en ligne** : raccourci utile la première semaine.
+- **Connexion / compte** : optionnel selon l’usage ; pour piloter un robot, l’essentiel est la **connexion à l’appareil** (voir plus bas), pas forcément un compte cloud.
 
-Le bouton stop permet de stopper un programme en cours d’exécution (qui bouclerait indéfiniment par exemple).
+## 4. La scène et les contrôles de lecture
 
-Le drapeau vert est un déclencheur que vous pouvez utiliser pour démarrer votre programme.
+![Scène avec lutin, drapeau vert, stop, réglage taille des blocs](/images/blog/premier-pas-mblock/mblock-scene-controles.png)
 
-Viens ensuite la zone des lutins de son ancien nom. Cette zone contient 3 onglets
+- **Scène** : c’est le « théâtre » des lutins. Coordonnées, taille, ordre des calques : même idée que sur [scratch.mit.edu](https://scratch.mit.edu/).
+- **Drapeau vert** : démarre les scripts qui commencent par le bloc « quand le drapeau vert est cliqué ».
+- **Bouton stop** : arrête tout — indispensable si une boucle ne se termine pas.
+- **Taille des blocs** : agrandir ou réduire pour les jeunes ou les démonstrations sur vidéoprojecteur.
 
-### 1.3 La zone des lutins
+## 5. Lutins, appareils et les trois onglets
 
-![partie zone des lutins de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i4.png)
+![Onglets Appareil, Objet (lutins), Arrière-plan](/images/blog/premier-pas-mblock/mblock-onglets-lutins-appareil.png)
 
-L’onglet **appareil** permet l’ajout de vos appareils comme le [mBot](/mbot-mon-premier-robot-educatif/). Une fois l’appareil ajouté il vous sera alors possible de le connecter. Soit en filaire avec le câble USB soit en Bluetooth. Une fois la connexion effectuée, vous allez pouvoir lancer vos programmes en direct ou les téléverser dans votre robot.
+Sous ou à côté de la scène, la zone qui gère **qui** est sélectionné comporte souvent trois onglets :
 
-L’onglet **Objet** quand à lui permet d’ajouter les lutins et de les positionner aux coordonnées sur la scène. Vous avez la possibilité de créer vos propres lutins ou d’en importer.
+| Onglet | Usage |
+|--------|--------|
+| **Appareil** | Ajouter un robot Makeblock (mBot, etc.), le **connecter** (USB / Bluetooth), puis utiliser ses **blocs** dédiés. |
+| **Objet** (lutins) | Choisir le lutin actif, en créer ou en importer ; position sur la scène. |
+| **Arrière-plan** | Choisir ou importer le décor de la scène. |
 
-![partie zone des lutins de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i5.png)
+Pour le [mBot](/mbot-mon-premier-robot-educatif/), commencez par **ajouter l’appareil** puis [installer les blocs mBot](/installer-les-blocs-du-mbot/) si la palette n’apparaît pas. La connexion **USB** est la plus simple pour dépanner ; le **Bluetooth** est pratique sans fil mais plus sensible aux interférences — voir [dépannage Bluetooth](/mblock-bluetooth-erreurs-frequentes-depannage/).
 
-![partie zone des lutins de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i6.png)
+## 6. Catégories de blocs et couleur
 
-L’onglet **arrière plan** permet de changer le fond de la scène. Comme pour les lutins, il y a des image pré définies mais vous pouvez également en créer ou en importer
+![Colonne des catégories et palette de blocs pour le lutin ou l’appareil sélectionné](/images/blog/premier-pas-mblock/mblock-categories-blocs.png)
 
-### 1.4 Les catégories de bloc
+- Les **catégories** regroupent les blocs par thème : mouvement, apparence, son, contrôle, capteurs, etc.
+- Les blocs **du robot** n’apparaissent que lorsque l’**appareil** correspondant est **ajouté** et **sélectionné**.
+- La catégorie **« Mes blocs »** (ou équivalent) sert à créer vos **propres** blocs à partir de scripts réutilisables — utile plus tard pour structurer de gros projets.
 
-![partie catégorie de blocs de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i7-1.png)
+Les **couleurs** aident à retrouver rapidement une famille de commandes ; ce n’est pas décoratif seulement, c’est un **repère visuel** en classe.
 
-Les blocs de commande sont classés par **catégories** afin de les retrouver plus rapidement.
+## 7. La zone de script
 
-Ces catégories seront propres aux lutins ou appareils que vous utilisez.
+![Zone de script avec blocs emboîtés](/images/blog/premier-pas-mblock/mblock-zone-script.png)
 
-La catégorie **mes blocs** vous permet de définir vos propres instructions.
+C’est ici que vous **construisez** le programme :
 
-### 1.5 Les blocs
+- Les blocs s’**emboîtent** comme des pièces de puzzle ; seuls certains assemblages sont valides (formes compatibles).
+- L’exécution suit en général le **flux de haut en bas** pour une pile de blocs (sauf si vous utilisez des structures de contrôle plus avancées).
+- Vous pouvez avoir **plusieurs scripts** en parallèle (plusieurs piles qui démarrent sur des événements différents).
 
-Dès que vous avez sélectionnez une **catégorie de bloc**, la liste des instructions correspondante s’affiche.
+**Astuce :** commencez toujours par un bloc **déclencheur** (drapeau vert, touche, message, événement robot…) pour savoir **quand** le programme démarre.
 
-ces **instructions** peuvent avoir plusieurs noms comme **bloc**, **commande**, **consigne**… choisissez celui qui vous correspond. Le but est de s’amuser !
+## 8. Mode Python (aperçu)
 
-Les catégories et les blocs correspondants sont associés à une couleur afin de mieux les identifier.
+Sur certaines versions et appareils, mBlock propose un passage vers **Python** (onglet ou bascule « code »). Ce n’est pas nécessaire pour les premiers pas en blocs ; retenez simplement que c’est la **suite logique** quand la syntaxe texte devient un objectif pédagogique — comme sur [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/) ou [CyberPi](/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/).
 
-![partie blocs de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i8.png)
+## 9. Connexion au robot : ce qu’il faut vérifier
 
-### 1.6 la zone de script
+Avant de cliquer sur « connecter » :
 
-![partie zone de script de l'interface graphique de scratch](/images/blog/premier-pas-mblock/scratch_i9.png)
+1. **Robot allumé** et **batterie** ou piles suffisantes.
+2. **Câble USB** bien branché *ou* **Bluetooth** appairé côté Windows (voir [logiciel : app vs Web](/logiciel-mblock-makeblock-mbot-quel-choisir/)).
+3. Dans mBlock, **bon appareil** sélectionné dans la liste (éviter de confondre deux robots identiques en classe).
 
-C’est dans la **zone de script** que vous allez déplacer les blocs pour construire vos programmes.
+Ensuite, selon le mode :
 
-Il faudra emboîter les bloc tel un puzzle. Le programme sera lu de haut vers le bas de façon séquentiel.
+- **Exécution en direct** : le programme tourne **tant que** le lien avec le PC est actif (utile pour tester).
+- **Téléversement** : le programme est **enregistré dans le robot** pour qu’il fonctionne **sans** le câble — détaillé dans [mon premier programme mBot](/mon-premier-programme-mbot/).
 
-## Questions fréquentes (FAQ)
+## 10. Mini-FAQ
 
-### mBlock 5, mblock5 ou « mblock 5 », c’est quoi ?
+### mBlock 5 et Scratch en ligne, c’est pareil ?
 
-Il s’agit du **même logiciel** : l’application **mBlock 5** de Makeblock (recherches **mblock 5**, **mblock5**, etc.). C’est une interface de **programmation par blocs**, proche de Scratch, utilisée pour animer des lutins et piloter des robots éducatifs.
+**Presque** pour la partie lutins / scène. La différence majeure est le **matériel Makeblock** : pilotes, blocs robots, mise à jour du **firmware**. Pour du pur Scratch sans robot, le site officiel suffit ; pour un **mBot**, mBlock est adapté.
 
-### Où télécharger et installer mBlock 5 en français ?
+### Je ne vois pas les blocs de mon robot
 
-Pour **télécharger mBlock 5**, **télécharger mblock** ou **installer mBlock** sur Windows, suivez le tutoriel pas à pas : [Installer mBlock 5 sous Windows 10](/installer-mblock-5-sous-windows-10/). Vous y trouverez le lien officiel Makeblock, les étapes de **téléchargement** et le choix de la langue **français** à l’installation.
+Ajoutez d’abord l’**appareil** dans l’onglet prévu, puis vérifiez la [procédure d’extension mBot](/installer-les-blocs-du-mbot/). Sans appareil reconnu, les blocs spécifiques n’apparaissent pas.
 
-### mBlock 5 est-il gratuit ?
+### L’interface est en anglais
 
-Oui : le **téléchargement** de **mBlock 5** depuis le site Makeblock est **gratuit** pour un usage habituel (voir la FAQ détaillée dans l’article d’[installation](/installer-mblock-5-sous-windows-10/) pour la version **5.4** / dernière version disponible).
+Cherchez **Language** / **Préférences** / **Paramètres** dans le menu (emplacement variable selon la version) et choisissez **Français**.
+
+### mBlock plante au premier lancement
+
+Mettez à jour **Windows**, **mBlock** et les **pilotes** ; testez en **administrateur** une fois ; en cas de blocage antivirus, voir la FAQ de [l’article d’installation](/installer-mblock-5-sous-windows-10/).
+
+---
+
+## Fichiers d’illustration attendus
+
+Pour que toutes les images ci-dessus s’affichent, placez les fichiers **PNG** (ou JPG si vous préférez, en adaptant l’extension dans l’article) dans **`public/images/blog/premier-pas-mblock/`** :
+
+| Fichier | Sujet de la capture |
+|---------|---------------------|
+| `mblock-vue-globale.png` | Fenêtre complète annotée si possible |
+| `mblock-menu-principal.png` | Menu Fichier / bande supérieure |
+| `mblock-scene-controles.png` | Scène + drapeau + stop + taille des blocs |
+| `mblock-onglets-lutins-appareil.png` | Onglets Appareil / Objet / Arrière-plan |
+| `mblock-categories-blocs.png` | Catégories + quelques blocs visibles |
+| `mblock-zone-script.png` | Exemple de scripts emboîtés |
+
+Vous pouvez envoyer des captures **dans l’ordre qui vous arrange** : il suffit de les **renommer** selon ce tableau pour qu’elles correspondent au texte.
+
+## Liens Amazon (affiliation)
+
+- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
+- [Robot éducatif programmable enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable+enfant&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles.*
+
+---
+
+**Étape suivante :** enchaînez avec [l’installation des blocs mBot](/installer-les-blocs-du-mbot/) si nécessaire, puis [mon premier programme mBot](/mon-premier-programme-mbot/) pour relier **interface**, **connexion** et **téléversement**.

@@ -4,22 +4,42 @@ import Footer from './Footer.astro';
 import Header from './Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../lib/articleSlug';
+import { withBase } from '../lib/siteUrl';
+
+/** Comparaison robuste (YAML / CRLF / espaces / Unicode). */
+function normSeries(value: unknown): string {
+	return String(value ?? '')
+		.replace(/\r/g, '')
+		.trim()
+		.normalize('NFC');
+}
+
+export interface SeriesHubFallbackLesson {
+	href: string;
+	order: number;
+	title: string;
+	desc: string;
+}
 
 interface Props {
 	metaTitle: string;
 	metaDescription: string;
-	/** Valeur exacte de `series` dans le frontmatter des articles */
+	/** Valeur de `series` dans le frontmatter des articles */
 	series: string;
 	breadcrumbLast: string;
 	pageTitle: string;
+	/** Si aucun article ne matche (après normalisation), afficher ces liens à la place */
+	fallbackLessons?: SeriesHubFallbackLesson[];
 }
 
-const { metaTitle, metaDescription, series, breadcrumbLast, pageTitle } = Astro.props;
+const { metaTitle, metaDescription, series, breadcrumbLast, pageTitle, fallbackLessons = [] } = Astro.props;
 
 const all = await getCollection('blog');
 const posts = all
-	.filter((p) => p.data.series === series)
+	.filter((p) => normSeries(p.data.series) === normSeries(series))
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const useFallback = posts.length === 0 && fallbackLessons.length > 0;
 
 const slug = articleSlugFromId;
 ---
@@ -33,7 +53,7 @@ const slug = articleSlugFromId;
 		<Header />
 		<main class="series-hub">
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
-				<a href="/programmation">Programmation</a>
+				<a href={withBase('/programmation')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
 				<span>{breadcrumbLast}</span>
 			</nav>
@@ -43,21 +63,33 @@ const slug = articleSlugFromId;
 			</div>
 			<ol class="lesson-list">
 				{
-					posts.map((post) => (
-						<li>
-							<a href={`/${slug(post.id)}/`}>
-								<span class="num">{post.data.seriesOrder ?? '—'}</span>
-								<span class="meta">
-									<span class="title">{post.data.title}</span>
-									<span class="desc">{post.data.description}</span>
-								</span>
-							</a>
-						</li>
-					))
+					useFallback
+						? fallbackLessons.map((row) => (
+								<li>
+									<a href={withBase(row.href)}>
+										<span class="num">{row.order}</span>
+										<span class="meta">
+											<span class="title">{row.title}</span>
+											<span class="desc">{row.desc}</span>
+										</span>
+									</a>
+								</li>
+							))
+						: posts.map((post) => (
+								<li>
+									<a href={withBase(`/${slug(post.id)}/`)}>
+										<span class="num">{post.data.seriesOrder ?? '—'}</span>
+										<span class="meta">
+											<span class="title">{post.data.title}</span>
+											<span class="desc">{post.data.description}</span>
+										</span>
+									</a>
+								</li>
+							))
 				}
 			</ol>
 			<p class="back">
-				<a href="/programmation">← Toutes les rubriques programmation</a>
+				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
 		</main>
 		<Footer />

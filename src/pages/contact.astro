@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { CONTACT_EMAIL, ZAPIER_CONTACT_WEBHOOK_URL } from '../consts';
+import { withBase } from '../lib/siteUrl';
 
 const mailtoHref = `mailto:${CONTACT_EMAIL}`;
 ---
@@ -82,7 +83,7 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}`;
 							/>
 							<label for="contact-privacy" class="label-checkbox">
 								J’ai lu et j’accepte la{' '}
-								<a href="/politique-de-confidentialite/" target="_blank" rel="noopener noreferrer"
+								<a href={withBase('/politique-de-confidentialite/')} target="_blank" rel="noopener noreferrer"
 									>politique de confidentialité</a
 								>
 								<span class="req" aria-hidden="true"> *</span>

@@ -3,6 +3,7 @@ import { amazonSearchUrl } from '../lib/amazon';
 import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
 import { categoryToSlug, type TopCategory } from '../lib/categories';
 import { resolveAmazonSidebarLinks } from '../lib/resolveAmazonSidebar';
+import { withBase } from '../lib/siteUrl';
 
 interface RelatedLink {
 	title: string;
@@ -57,7 +58,7 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 				<ul class="related-list">
 					{internalLinks.map((item) => (
 						<li>
-							<a href={item.href}>{item.title}</a>
+							<a href={withBase(item.href)}>{item.title}</a>
 						</li>
 					))}
 				</ul>
@@ -72,12 +73,12 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 				<ul class="related-list category-chips">
 					{categories.map((cat) => (
 						<li>
-							<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
+							<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
 						</li>
 					))}
 				</ul>
 				<p class="cat-all">
-					<a href="/categorie/">Toutes les catégories</a>
+					<a href={withBase('/categorie/')}>Toutes les catégories</a>
 				</p>
 			</section>
 		)
@@ -86,7 +87,6 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 		topCategories && topCategories.length > 0 && (
 			<section class="widget widget-top-categories" aria-labelledby="sidebar-top-cats-title">
 				<h3 id="sidebar-top-cats-title">Catégories les plus représentées</h3>
-				<p class="related-hint">Les 15 thèmes avec le plus d’articles.</p>
 				<ul class="related-list top-cat-list">
 					{topCategories.map((c) => (
 						<li>
@@ -98,7 +98,7 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 					))}
 				</ul>
 				<p class="cat-all">
-					<a href="/categorie/">Toutes les catégories</a>
+					<a href={withBase('/categorie/')}>Toutes les catégories</a>
 				</p>
 			</section>
 		)
@@ -106,9 +106,9 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 	<section class="widget">
 		<h3>Explorer le blog</h3>
 		<ul>
-			<li><a href="/blog/">Tous les articles</a></li>
-			<li><a href="/categorie/">Par catégorie</a></li>
-			<li><a href="/programmation/">Programmation</a></li>
+			<li><a href={withBase('/blog/')}>Tous les articles</a></li>
+			<li><a href={withBase('/categorie/')}>Par catégorie</a></li>
+			<li><a href={withBase('/programmation/')}>Programmation</a></li>
 		</ul>
 	</section>
 </aside>
@@ -219,7 +219,7 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 	}
 	.widget a {
 		text-decoration: none;
-		color: var(--accent);
+		color: var(--accent-dark);
 		font-weight: 600;
 		font-size: 0.96rem;
 		display: inline-block;
@@ -230,9 +230,14 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 		transition: color 0.12s ease;
 	}
 	.widget a:hover {
-		color: var(--accent-dark);
 		text-decoration: underline;
 		text-underline-offset: 3px;
+	}
+	html[data-theme='light'] .widget a:hover {
+		color: #0c3a50;
+	}
+	html:not([data-theme='light']) .widget a:hover {
+		color: var(--accent);
 	}
 	.external-hint {
 		font-weight: 500;

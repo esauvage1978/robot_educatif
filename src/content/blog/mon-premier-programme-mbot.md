@@ -1,137 +1,119 @@
 ---
 title: "Mon premier programme mBot"
-description: "Dans cet article nous allons concevoir notr premier programme pour le robot éducatif mBot. De la conception au téléversement."
+description: "Créer un premier programme mBlock 5 pour le mBot : bouton carte, mélodie, enregistrement, connexion USB ou Bluetooth, firmware et téléversement — avec captures d’écran et fichier .mblock."
 pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2020-04-21"
+updatedDate: "2026-03-29"
 categories:
   - "mBot"
   - "mBlock"
   - "Scratch"
   - "À partir de 8 ans"
 ---
-Nous allons faire un premier programme très basique pour notre mBot. Celui ci consistera à jouer une mélodie après avoir appuyé sur le bouton de la carte. Le but n’est pas de vous apprendre l’algorithme mais de vous expliquer le processus de création d’un programme jusqu’au téléversement dans le robot.
 
-## 1\. pré requis
+Ce tutoriel vous guide **pas à pas** : du premier bloc dans mBlock 5 jusqu’au **téléversement** dans le robot. Le programme reste volontairement **simple** : au démarrage, le mBot attend que vous appuyiez sur le **bouton de la carte** ; il joue alors une **note (mélodie courte)**. L’objectif est surtout de comprendre le **enchaînement** (ouvrir le logiciel → empiler les blocs → enregistrer → connecter → tester → envoyer dans le robot), pas encore d’algorithmique avancée.
 
-Avoir en sa possession le [robot éducatif mBot de chez MakeBlock](https://robot-educatif.info/2020/04/06/mbot-mon-premier-robot-educatif/)
+## Prérequis
 
-[![achetez le robot éducatif mBot sur Amazon](https://robot-educatif.info/wp-content/uploads/2020/04/banniere_mbot.png)](https://amzn.to/3bVU8RR?tag=manuso06-21)
+- Avoir un [robot éducatif mBot (Makeblock)](/mbot-mon-premier-robot-educatif/).
+- [Installer mBlock 5](/installer-mblock-5-sous-windows-10/) sur l’ordinateur.
+- Avoir parcouru l’[interface de mBlock 5](/premier-pas-avec-mblock-5/) (lutins, appareil, zone de script).
+- [Ajouter les blocs mBot](/installer-les-blocs-du-mbot/) si ce n’est pas déjà fait.
 
-[Installer l’application mBlock 5](https://robot-educatif.info/2020/04/07/installer-mblock-5-sous-windows-10/)
+Dans mBlock 5, passez en mode **Appareil** et sélectionnez le **mBot** (carte mCore) comme cible, pour voir les blocs orange « mBot ».
 
-S’être familiariser avec l’[interface graphique de mBlock 5](https://robot-educatif.info/2020/04/07/premier-pas-avec-mblock-5/)
+## Construire le programme
 
-Avoir installé les [blocs d’instruction du mBot](https://robot-educatif.info/2020/04/08/installer-les-blocs-du-mbot/)
+### 1. Point d’entrée : au démarrage du robot
 
-## 2\. Le programme
+Un programme destiné à tourner **dans** le robot doit commencer par le bloc d’événement **« Lorsque le mBot (mcore) démarre »** (catégorie **mBot** / démarrage). C’est le déclencheur qui correspond au **mise sous tension** ou au **reset** de la carte.
 
-Nous allons donc ouvrir l’application mBlock 5 et sélectionner notre robot dans l’onglet **Appareil**.
+![Bloc « Lorsque le mBot (mcore) démarre »](/capture/premier_programme/01-bloc-demarrage-mbot.png)
 
-Un programme **doit** commencer par **Lorsque le mBot(mcore) démarre**
+### 2. Attendre une action : le bouton carte
 
-![Premier programme, démarrage](https://robot-educatif.info/wp-content/uploads/2020/04/pg1-1.png)
+Sous ce bloc, ajoutez la structure **« attendre jusqu’à »** (catégorie **Contrôle**). Le **losange** à l’intérieur attend une **condition** vraie ou fausse : tant que la condition est fausse, le programme **reste** sur cette attente.
 
-A partir de la catégorie **contrôle**, déplacez la structure conditionnelle **attendre jusqu’à** vers la zone de script. Celle-ci doit être placée sous le bloc déposé précédemment.
+![Bloc « attendre jusqu’à »](/capture/premier_programme/02-attendre-jusqua.png)
 
-![Ajout du bloc conditionnel](https://robot-educatif.info/wp-content/uploads/2020/04/pg2-1.png)
+### 3. Condition : bouton pressé
 
-le **losange orange** signifie que ce bloc attend une **condition.** Une condition peut avoir 2 valeurs, **vrai** ou **faux**. Les instructions qui seront dessous seront exécutées lorsque la condition aura la valeur **vrai**.
+Dans le losange, insérez le bloc de **détection** **« sur appui du bouton Carte pressé ? »** (catégorie **Détection** / entrées). Ainsi, dès que l’utilisateur appuie sur le bouton présent sur la **carte mCore**, la condition devient vraie et la suite du script s’exécute.
 
-A partir de la catégorie **Détection**, remplir la condition avec le bloc **sur appui du bouton Carte pressé ?**.
+![Condition « sur appui du bouton Carte pressé ? »](/capture/premier_programme/03-appui-bouton-carte.png)
 
-![Ajout de la condition](https://robot-educatif.info/wp-content/uploads/2020/04/pg3-1-1024x544.png)
+### 4. Jouer une note
 
-Pour terminer, dans la catégorie Afficher, déplacez le bloc **jouer la note C4 pendant 0.25 pulsations** sous la structure conditionnelle. Vous pouvez reproduire cette mélodie.
+Enfin, sous « attendre jusqu’à », placez un bloc **« jouer la note … pendant … pulsations »** (catégorie **Afficher** / sons). Ici : **note C4** et **0,25 pulsation** — vous pouvez ensuite changer la note ou enchaîner plusieurs blocs pour une petite mélodie.
 
-![Ajout de la mélodie](https://robot-educatif.info/wp-content/uploads/2020/04/pg6.png)
+![Bloc « jouer la note C4 pendant 0,25 pulsations »](/capture/premier_programme/04-jouer-note-c4.png)
 
-Pour résumer ce programme : Au démarrage du robot, lorsque la touche du bouton carte est pressée la mélodie est jouée une fois. Sans aucune autre action, le robot ne fera rien d’autre.
+**Comportement obtenu :** au démarrage, le robot ne fait rien d’autre qu’attendre ; **un appui** sur le bouton carte déclenche **une fois** la note. Sans boucle, le programme ne répète pas l’action tout seul.
 
-## 3\. Sauvegarder son programme
+**Équivalent logique (pour lecture) :**
 
-Nous allons maintenant enregistrer le programme sur notre ordinateur. Même si celui-ci n’est pas très élaboré, Je vous conseille fortement de prendre l’habitude de faire des enregistrements fréquents. Que ce soit sur mBlock mais également sur tous les logiciels que vous utilisez.
+```text
+Au démarrage du mBot :
+  attendre jusqu’à (bouton carte pressé)
+    jouer la note C4 pendant 0,25 pulsation
+```
 
-![Enregistrement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/save.png)
+## Enregistrer le projet
 
-Enregistrer sur votre ordinateur
+Enregistrez souvent votre travail : **Fichier → Enregistrer sous…**, choisissez un dossier et un nom (extension **.mblock**).
 
-![Destination de l'enregistrement](https://robot-educatif.info/wp-content/uploads/2020/04/save1.png)
+![Barre d’outils — enregistrer](/capture/premier_programme/05-enregistrement-barre.png)
 
-Choix de l’emplacement et du nom du fichier
+![Boîte de dialogue — nom et emplacement du fichier](/capture/premier_programme/06-save-destination.png)
 
-![Enregistrement rapide](https://robot-educatif.info/wp-content/uploads/2020/04/save2.png)
+Les enregistrements suivants sont plus rapides avec le **bouton disque** (enregistrement rapide) dans la barre d’outils.
 
-Enregistrement rapide
+## Connecter le mBot à l’ordinateur
 
-Par la suite vous allez pouvoir faire un enregistrement rapide en appuyant sur le bouton **enregistrer**
+Branchez le robot en **USB** (câble fourni) ou préparez le **jumelage Bluetooth** selon votre usage. Allumez le mBot (interrupteur **ON**).
 
-### 3.1 Connexion du mBot
+Dans mBlock, cliquez sur **Connecter** : une fenêtre liste les appareils disponibles.
 
-Nous allons maintenant téléverser (injecter) le programme dans notre [mBot](https://amzn.to/34eEFtr?tag=manuso06-21).
+![Bouton Connecter — fenêtre de choix du robot](/capture/premier_programme/07-connexion-dialogue.png)
 
-Reliez le robot mBot à l’ordinateur à l’aide du câble USB.
+Vous pouvez choisir la **connexion USB** ou **Bluetooth** (libellés selon version et pilotes).
 
-Mettre en route votre [mBot](https://amzn.to/34eEFtr?tag=manuso06-21) en mettant l’interrupteur sur **on**
+![Choix USB ou Bluetooth](/capture/premier_programme/08-choix-connexion-usb-bluetooth.png)
 
-A partir de l’application mBlock 5 , appuyez sur le bouton **connecter**
+Quand la connexion est établie, l’interface l’indique (exemples ci-dessous : Bluetooth puis USB).
 
-![Connexion du robot mBot](https://robot-educatif.info/wp-content/uploads/2020/04/conn1.png)
+![Connexion Bluetooth établie](/capture/premier_programme/09-bluetooth-connecte.png)
 
-Connexion du mBot
+![Connexion USB établie](/capture/premier_programme/10-usb-connecte.png)
 
-Vous avez le choix entre une connexion filaire avec le câble USB ou une connexion en Bluetooth.
+Le **Bluetooth** est pratique pour **essayer** le programme en direct (mode **Live**) sans câble ; pour une **mise à jour du firmware** ou un **téléversement** fiable, le **USB** est en général recommandé.
 
-![Connexion en usb](https://robot-educatif.info/wp-content/uploads/2020/04/conn4-1.png)
+## Microprogramme (firmware)
 
-Le bluetooth sera surtout utilisé dans la phase de création du programme afin de tester (débogger) le programme en live (temps réel).
+Si mBlock le propose, acceptez une **mise à jour du firmware** de la carte — **uniquement en USB**, robot branché et **piles chargées**. **Ne pas débrancher** le robot pendant l’opération.
 
-![Connexion Bluetooth effectuée](https://robot-educatif.info/wp-content/uploads/2020/04/conn3-1.png)
+![Firmware à jour](/capture/premier_programme/11-firmware-a-jour.png)
 
-Connexion Bluetooth effectuée
+## Tester avant d’envoyer dans le robot
 
-![Connexion USB effectuée](https://robot-educatif.info/wp-content/uploads/2020/04/conn5-1.png)
+Une fois connecté, vous pouvez **cliquer sur les blocs** dans la zone de script (ou utiliser le drapeau vert selon l’interface) pour **vérifier** le comportement **tant que le câble ou le Bluetooth** relie le PC au mBot. Corrigez les blocs si le résultat n’est pas celui attendu.
 
-Connexion USB effectuée
+## Téléverser le programme dans le mBot
 
-### 3.2 Micro-programme ou firmware
+Quand le test vous convient, utilisez **Téléverser** / **Télécharger vers l’appareil** (libellé variable selon la version) pour **écrire le programme dans la mémoire** du robot. Après coupure ou sortie de portée, le mBot pourra **rejouer** le script **sans** l’ordinateur.
 
-Il se peut qu’une mise à jour du microprogramme soit nécessaire. Il est conseillé de la faire. Cependant cette connexion doit obligatoirement être effectuée avec un câble USB.
+![Téléversement du programme](/capture/premier_programme/12-televersement.png)
 
-ATTENTION, lors de la mise à jour du microprogramme, il ne faut pas débrancher le robot. Veillez également à ce que les piles soient chargées.
+Si le téléversement **échoue**, un message d’erreur s’affiche : vérifiez la connexion, que le bon appareil est choisi, puis **repassez le script bloc par bloc** (blocs bien imbriqués, bloc de démarrage présent). Corrigez et réessayez.
 
-![Mise à jour du firmware terminée](https://robot-educatif.info/wp-content/uploads/2020/04/pg7.png)
+## Fichier projet et poursuite
 
-## 4\. Teste (deboggage) du programme
+Vous pouvez **ouvrir directement** le projet décrit dans cet article :
 
-Une fois le robot connecté, testons notre programme en cliquant sur le bloc présent dans l’espace de travail
+- **[Télécharger `premier_programme.mblock`](/programmes/premier_programme.mblock)** (fichier mBlock 5).
 
-![Test du programme](https://robot-educatif.info/wp-content/uploads/2020/04/conn4-1024x223.png)
+Pour aller plus loin : faites **répéter** la mélodie tant que le bouton est maintenu, ou en boucle, en ajoutant des blocs **répéter** / **pour toujours** (attention aux comportements inattendus — testez au fur et à mesure).
 
-## 5\. Téléverser le programme
+## Aller plus loin avec Scratch
 
-Nous allons maintenant téléverser le programme dans le mBot
-
-![Téléversement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/pg4.png)
-
-Une fois connecté, appuyez sur le bouton **téléverser** et **télécharger**
-
-### 5.1. Erreur dans le programme
-
-Si une erreur est présente, le message suivant sera affiché lors du téléversement du programme
-
-![Erreur lors du téléversement du programme](https://robot-educatif.info/wp-content/uploads/2020/04/pg5.png)
-
-Il vous faudra alors reprendre celui-ci et le corriger.
-
-## 6\. Améliorer le programme
-
-Actuellement la mélodie ne sera jouée qu’une seule fois. Je vous invite donc à trouver comment faire pour le jouer à l’infini dès que le bouton est pressé.
-
-La solution est téléchargeable ci-dessous
-
-[https://robot-educatif.info/programmes/premierProgramme.mblock](https://robot-educatif.info/programmes/premierProgramme.mblock)
-
-## 7\. Apprendre scratch
-
-Je vous ai sélectionné une série de livre pour vous former avec scratch et l’algorithme.
+Pour progresser en **Scratch** et en **logique de programme**, des ouvrages grand public ou pédagogiques sur Scratch et la robotique peuvent compléter les tutoriels du site ; commencez par les activités mBot et Scratch déjà publiées sur le blog.

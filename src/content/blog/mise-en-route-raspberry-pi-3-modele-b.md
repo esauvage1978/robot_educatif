@@ -4,6 +4,7 @@ description: "Dans cet article je vais vous présenter une manière d’effectue
 pubDate: "2020-05-01"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"
 updatedDate: "2023-04-09"
+amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
   - "Linux"

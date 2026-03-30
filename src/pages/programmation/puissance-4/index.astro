@@ -1,6 +1,7 @@
 ---
 import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import { withBase } from '../../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
 ---
@@ -15,8 +16,9 @@ const tag = AMAZON_AFFILIATE_TAG;
 	<p>
 		Variante du « connect four » : deux joueurs laissent tomber des jetons dans des <strong>colonnes</strong> ; le premier
 		qui aligne <strong>quatre</strong> pions gagne. Tu travailles une grille 2D, des boucles et des tests dans toutes les
-		directions. Prérequis : <a href="/python-listes-et-chaines/">listes</a>,{' '}
-		<a href="/python-boucles-for-while/">boucles</a> et <a href="/python-conditions-if-else/">conditions</a>. Ressources :{' '}
+		directions. Prérequis : <a href={withBase('/python-listes-et-chaines/')}>listes</a>,{' '}
+		<a href={withBase('/python-boucles-for-while/')}>boucles</a> et{' '}
+		<a href={withBase('/python-conditions-if-else/')}>conditions</a>. Ressources :{' '}
 		<a
 			href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}
 			target="_blank"

@@ -1,6 +1,7 @@
 ---
 import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import { withBase } from '../../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
 ---
@@ -15,7 +16,8 @@ const tag = AMAZON_AFFILIATE_TAG;
 	<p>
 		Projet <strong>plus long</strong> que le parcours « mini-jeu » : tu réutilises listes, boucles, fonctions et conditions
 		pour construire pas à pas un jeu au <strong>terminal</strong>. Prérequis recommandé : avoir suivi au moins jusqu’aux{' '}
-		<a href="/python-listes-et-chaines/">listes et chaînes</a> du <a href="/programmation/python/">parcours Python</a>.
+		<a href={withBase('/python-listes-et-chaines/')}>listes et chaînes</a> du{' '}
+		<a href={withBase('/programmation/python/')}>parcours Python</a>.
 		Ressources :{' '}
 		<a
 			href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}

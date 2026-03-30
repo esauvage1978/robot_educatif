@@ -43,7 +43,7 @@ function rewriteSiteLinks(markdown, slugs) {
 		const esc = slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 		out = out.replace(new RegExp(`https?://robot-educatif\\.info/${esc}/`, 'g'), `/${slug}/`);
 	}
-	// Ne pas remplacer l’origine globalement : les images restent sur robot-educatif.info/wp-content/…
+	// Les médias restent en https://robot-educatif.info/wp-content/uploads/… (pas de copie locale obligatoire)
 	return out;
 }
 

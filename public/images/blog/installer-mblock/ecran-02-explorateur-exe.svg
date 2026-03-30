@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t">
+  <title id="t">Repr&#233;sentation : Explorateur Windows, fichier installateur dans T&#233;l&#233;chargements</title>
+  <rect width="800" height="420" rx="10" fill="#0d1117"/>
+  <rect x="20" y="24" width="760" height="372" rx="6" fill="#fff" stroke="#d0d7de"/>
+  <rect x="20" y="24" width="760" height="32" fill="#f3f3f3" stroke="#d0d7de"/>
+  <text x="40" y="44" fill="#24292f" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="600">T&#233;l&#233;chargements</text>
+  <rect x="28" y="68" width="744" height="28" fill="#fafafa" stroke="#e1e4e8"/>
+  <text x="44" y="86" fill="#57606a" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Nom</text>
+  <rect x="28" y="108" width="744" height="52" fill="#cce8ff" stroke="#0078d7" stroke-width="2"/>
+  <rect x="44" y="122" width="28" height="28" rx="3" fill="#0078d7"/>
+  <text x="84" y="142" fill="#24292f" font-family="Consolas,monospace" font-size="14">mblock5-win32-setup.exe</text>
+  <text x="44" y="190" fill="#57606a" font-family="Segoe UI,system-ui,sans-serif" font-size="12">Double-cliquez sur le fichier pour lancer l'installateur.</text>
+  <text x="400" y="390" text-anchor="middle" fill="#8b949e" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Le nom exact du fichier d&#233;pend de la version t&#233;l&#233;charg&#233;e.</text>
+</svg>

@@ -4,6 +4,7 @@ description: "Eilik : robot compagnon de bureau, jeux, réactions tactiles et an
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
 heroImage: "../../assets/eilik/eilik-hero.png"
+amazonPreset: eilik
 relatedLinks:
   - title: "Tale-Bot Pro Matatalab : déballage et premiers pas"
     href: "/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab/"

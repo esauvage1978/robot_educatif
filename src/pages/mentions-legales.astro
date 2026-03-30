@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { withBase } from '../lib/siteUrl';
 ---
 
 <!doctype html>
@@ -28,7 +29,7 @@ import Header from '../components/Header.astro';
 					</p>
 					<ul>
 						<li><strong>Emmanuel SAUVAGE</strong></li>
-						<li>Agissant en qualité de <strong>responsable du traitement</strong> au sens du Règlement (UE) 2016/679 (RGPD) pour les traitements de données personnels décrits dans la <a href="/politique-de-confidentialite/">politique de confidentialité</a>.</li>
+						<li>Agissant en qualité de <strong>responsable du traitement</strong> au sens du Règlement (UE) 2016/679 (RGPD) pour les traitements de données personnels décrits dans la <a href={withBase('/politique-de-confidentialite/')}>politique de confidentialité</a>.</li>
 						<li>
 							Site professionnel / contact : <a href="https://emmanuelsauvage.fr" rel="noopener noreferrer">emmanuelsauvage.fr</a>
 						</li>
@@ -77,12 +78,12 @@ import Header from '../components/Header.astro';
 					<p>
 						Cette rémunération contribue au financement du Site. Conformément aux obligations légales et aux
 						règles du programme, une information sur la présence de liens affiliés est également rappelée dans la
-						<a href="/politique-de-confidentialite/">politique de confidentialité</a> et, le cas échéant, à proximité des contenus concernés.
+						<a href={withBase('/politique-de-confidentialite/')}>politique de confidentialité</a> et, le cas échéant, à proximité des contenus concernés.
 					</p>
 					<p>
 						Amazon applique sa propre politique de confidentialité et peut utiliser des cookies ou technologies
 						similaires lorsque vous consultez ses pages : pour plus de détails, voir la
-						<a href="/gestion-des-cookies/">page Gestion des cookies</a> et les documents légaux d’Amazon.
+						<a href={withBase('/gestion-des-cookies/')}>page Gestion des cookies</a> et les documents légaux d’Amazon.
 					</p>
 				</section>
 
@@ -90,7 +91,7 @@ import Header from '../components/Header.astro';
 					<h2 id="ml-donnees">5. Données personnelles</h2>
 					<p>
 						Le traitement des données personnelles est décrit de manière détaillée dans la
-						<a href="/politique-de-confidentialite/">politique de confidentialité</a>. Les utilisateurs disposent
+						<a href={withBase('/politique-de-confidentialite/')}>politique de confidentialité</a>. Les utilisateurs disposent
 						d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité
 						dans les conditions prévues par le RGPD, en contactant l’éditeur via les coordonnées indiquées sur
 						<a href="https://emmanuelsauvage.fr" rel="noopener noreferrer">emmanuelsauvage.fr</a>.

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t">
+  <title id="t">Repr&#233;sentation : assistant mBlock &#8211; choix de la langue</title>
+  <rect width="800" height="460" rx="10" fill="#0d1117"/>
+  <rect x="120" y="40" width="560" height="380" rx="2" fill="#fff" stroke="#ccc"/>
+  <rect x="120" y="40" width="560" height="32" fill="#0078d7"/>
+  <text x="140" y="61" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600">mBlock &#8211; Installation</text>
+  <text x="140" y="110" fill="#000" font-family="Segoe UI,system-ui,sans-serif" font-size="14">Choisissez la langue d'installation :</text>
+  <rect x="140" y="130" width="320" height="28" fill="#fff" stroke="#7a7a7a"/>
+  <text x="150" y="148" fill="#000" font-family="Segoe UI,system-ui,sans-serif" font-size="13">Fran&#231;ais</text>
+  <text x="450" y="148" fill="#666" font-family="Segoe UI,sans-serif" font-size="12">&#188;</text>
+  <rect x="140" y="340" width="88" height="28" rx="2" fill="#e1e1e1" stroke="#adadad"/>
+  <text x="184" y="358" text-anchor="middle" fill="#000" font-family="Segoe UI,sans-serif" font-size="13">Annuler</text>
+  <rect x="560" y="340" width="88" height="28" rx="2" fill="#0078d7"/>
+  <text x="604" y="358" text-anchor="middle" fill="#fff" font-family="Segoe UI,sans-serif" font-size="13">OK</text>
+  <text x="400" y="430" text-anchor="middle" fill="#8b949e" font-family="Segoe UI,sans-serif" font-size="11">Libell&#233;s pouvant varier selon la version (Language / OK).</text>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-labelledby="t">
+  <title id="t">Une s&#233;ance d&apos;une heure avec le mBot</title>
+  <rect width="800" height="220" fill="#f6f8fa"/>
+  <text x="400" y="28" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" fill="#24292f">D&#233;coupage type 60 minutes (mBot d&#233;j&#224; install&#233;)</text>
+  <circle cx="120" cy="120" r="50" fill="none" stroke="#0969da" stroke-width="4"/>
+  <text x="120" y="118" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0969da">60</text>
+  <text x="120" y="138" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#57606a">min</text>
+  <rect x="220" y="60" width="520" height="120" rx="6" fill="#fff" stroke="#d0d7de"/>
+  <text x="236" y="88" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">0&#8211;10 min : rappel objectif + ouvrir mBlock</text>
+  <text x="236" y="112" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">10&#8211;40 min : blocs + tests (1 objectif visible)</text>
+  <text x="236" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">40&#8211;55 min : d&#233;mo &#224; un pair / parent</text>
+  <text x="236" y="160" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">55&#8211;60 min : sauvegarde + note &#171; prochaine fois &#187;</text>
+  <text x="400" y="204" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">Mieux vaut un mini-livrable qu&apos;un projet g&#233;ant inachev&#233;.</text>
+</svg>

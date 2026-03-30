@@ -5,9 +5,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import ArticleEngagement from '../components/ArticleEngagement.astro';
 import Sidebar from '../components/Sidebar.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
+import { ARTICLE_AUTHOR } from '../consts';
+import { withBase } from '../lib/siteUrl';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
@@ -29,6 +32,10 @@ const {
 const resolvedHero = resolveHeroImage(heroImage);
 const allPosts = await getCollection('blog');
 const topCategories = topCategoriesByCount(allPosts, 15);
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug);
 ---
 
 <html lang="fr">
@@ -77,7 +84,7 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 			.hero-article-content h1 {
 				margin: 0 0 0.6rem 0;
 				font-size: clamp(1.65rem, 3.2vw, 2.65rem);
-				max-width: 22ch;
+				max-width: 100%;
 				line-height: 1.14;
 			}
 			.hero-article-content .hero-desc {
@@ -85,7 +92,7 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				color: rgb(var(--gray));
 				font-size: 1.125rem;
 				line-height: 1.55;
-				max-width: var(--prose-width, 42rem);
+				max-width: 100%;
 				font-family: var(--font-body, system-ui);
 			}
 			.hero-meta {
@@ -99,6 +106,26 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				font-family: var(--font-body, system-ui);
 				font-weight: 600;
 				letter-spacing: 0.02em;
+			}
+			.hero-article-toolbar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				justify-content: flex-start;
+				gap: 0.65rem 1rem;
+				margin: 0 0 0.85rem 0;
+			}
+			.hero-article-toolbar .hero-categories {
+				flex: 1 1 auto;
+				min-width: 0;
+				margin: 0;
+			}
+			.hero-article-toolbar .article-engagement--hero {
+				margin-left: auto;
+			}
+			.hero-article-toolbar .article-engagement--hero:only-child {
+				margin-left: 0;
+				max-width: 100%;
 			}
 			.hero-categories {
 				display: flex;
@@ -119,15 +146,17 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				font-weight: 600;
 				font-family: var(--font-body, system-ui);
 				text-decoration: none;
-				color: var(--accent);
-				background: color-mix(in oklab, var(--accent) 12%, transparent);
-				border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--surface-border));
+				color: var(--accent-dark);
+				background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
+				border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
 				border-radius: 999px;
 				transition: background 0.12s ease, color 0.12s ease;
 			}
 			.hero-categories a:hover {
-				background: color-mix(in oklab, var(--accent) 22%, transparent);
-				color: var(--accent-dark);
+				background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
+			}
+			html:not([data-theme='light']) .hero-categories a:hover {
+				color: var(--accent);
 			}
 			.page-layout {
 				width: min(1200px, calc(100% - 2em));
@@ -136,6 +165,10 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
 				gap: 2rem;
 				align-items: start;
+				min-width: 0;
+			}
+			.page-layout > article {
+				min-width: 0;
 			}
 			.prose {
 				width: 100%;
@@ -152,8 +185,17 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 				margin: 1.35rem 0;
 				border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.08));
 			}
+			/* SVG tutoriels : fond souvent très sombre — éviter qu’ils se confondent avec le thème sombre */
+			.prose img[src$='.svg'] {
+				background: var(--surface-2);
+				box-shadow: 0 0 0 1px var(--surface-border);
+			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.hero-author {
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
 			}
 			@media (max-width: 720px) {
 				.hero-article-media,
@@ -190,16 +232,32 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 								<span class="last-updated-on">Mis à jour le <FormattedDate date={updatedDate} /></span>
 							)
 						}
+						{
+							articleSlug && (
+								<span class="hero-author">
+									Par {ARTICLE_AUTHOR}
+								</span>
+							)
+						}
 					</div>
 					{
-						categories.length > 0 && (
-							<ul class="hero-categories" aria-label="Catégories de l’article">
-								{categories.map((cat) => (
-									<li>
-										<a href={`/categorie/${categoryToSlug(cat)}/`}>{cat}</a>
-									</li>
-								))}
-							</ul>
+						(categories.length > 0 || showArticleEngagement) && (
+							<div class="hero-article-toolbar">
+								{
+									categories.length > 0 && (
+										<ul class="hero-categories" aria-label="Catégories de l’article">
+											{categories.map((cat) => (
+												<li>
+													<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
+												</li>
+											))}
+										</ul>
+									)
+								}
+								{showArticleEngagement ? (
+									<ArticleEngagement articleSlug={articleSlug!} variant="hero" />
+								) : null}
+							</div>
 						)
 					}
 					<h1>{title}</h1>

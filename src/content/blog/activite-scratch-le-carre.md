@@ -3,7 +3,7 @@ title: "Activité facile avec scratch : le carré"
 description: "Aujourd’hui je vous propose votre première activité pour découvrir scratch. Le but sera de déplacer le lutin autour d’un carré"
 pubDate: "2020-04-10"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
-updatedDate: "2020-04-27"
+updatedDate: "2026-03-29"
 categories:
   - "Activité"
   - "Scratch"
@@ -12,7 +12,7 @@ categories:
 ---
 Dans cet article, je vous propose de faire votre première activité très facile pour découvrir [scratch](https://scratch.mit.edu/). Le but sera de déplacer notre petit lutin autour d’un carré de 200 pas de côté.
 
-## 1\. pré requis
+## 1\. Prérequis
 
 [Installer l’application mBlock 5](/installer-mblock-5-sous-windows-10/) ou scratch
 
@@ -22,25 +22,25 @@ S’être familiariser avec l’[interface graphique de mBlock 5](/premier-pas-a
 
 En premier lieu, pour effectuer cette activité, nous allons tout d’abord voir la scène en détail pour comprendre le placement des lutins sur celle-ci.
 
-Dans la scène la position de chaque lutin est définie sur un plan à 2 dimensions. C’est un repère orthonormé ayant deux axes X et Y.
+Dans la scène, la position de chaque lutin est définie sur un **plan à deux dimensions** : un **repère orthonormé** avec deux axes, **X** (horizontal) et **Y** (vertical).
 
-Les coordonnées d’un point sont écrit de la manière suivante : (x,y).
+Les coordonnées d’un point s’écrivent **(x, y)** : d’abord l’abscisse **x**, puis l’ordonnée **y**.
 
-Le croisement des 2 axes se nomme l’origine et a pour coordonnées (0,0).
+Le croisement des deux axes est l’**origine**, de coordonnées **(0, 0)** — au **centre** de la scène dans Scratch / mBlock.
 
-![Repère orthonormé](https://robot-educatif.info/wp-content/uploads/2020/04/scratch1.png)
+![Schéma du repère orthonormé de la scène mBlock / Scratch : origine au centre, axe x de −240 à +240, axe y de −180 à +180.](/images/blog/activite-scratch-carre/repere-orthonorme-mblock.svg)
 
-> A ce jour pour que le lutin reste sur la scène X doit être compris entre -240 et +240 et Y doit être entre -180 et +180
+> **Limites de la scène :** pour que le lutin reste **à l’écran**, en pratique **x** doit rester entre **−240** et **+240**, et **y** entre **−180** et **+180** (scène classique 480 × 360 pixels, comme sur le schéma ci-dessus).
 
 ## 3\. Placement du lutin
 
-La seconde chose à entreprendre est de placer le lutin. Nous allons donc le positionner aux coordonnées (-100,100)
+Ensuite, placez le lutin aux coordonnées **(−100, 100)**.
 
-![Placement du lutin aux corrdonnées -100,100](https://robot-educatif.info/wp-content/uploads/2020/04/scratch2.png)
+![Placement du lutin aux coordonnées (−100, 100) dans mBlock / Scratch](/capture/carre/01-placement-lutin-moins100-100.png)
 
-A ce niveau vous avez deux possibilités, soit déplacer le lutin à la souris sur la scène soit saisir les coordonnées comme sur l’image ci-dessous
+Vous pouvez **déplacer le lutin à la souris** sur la scène ou **saisir x et y** dans les champs prévus (panneau du lutin ou zone d’information selon la version).
 
-![saisie des coordonnées du lutin](https://robot-educatif.info/wp-content/uploads/2020/04/0scratch3.png)
+![Saisie des coordonnées du lutin](/capture/carre/02-saisie-coordonnees-lutin.png)
 
 ## 4\. Le carré
 
@@ -48,11 +48,9 @@ Un carré a tous ses côté égaux et pour cette activité sa longueur est de 20
 
 Sachant que le lutin est placé aux coordonnées (-100,100) quelles sont les coordonnées du carré ? la réponse sera donnée à la fin de ce chapitre.
 
-Pour vous aider à visualiser le déplacement du lutin, je vous ai préparé le projet avec un fond en forme de carré. Vous pouvez le télécharger ci dessous
+Pour vous aider à visualiser le déplacement du lutin, vous pouvez ouvrir le projet mBlock déjà préparé (fond en forme de carré) : **[télécharger `carre.mblock`](/capture/carre/carre.mblock)**. Ouvrez le fichier avec **mBlock 5** (Fichier → Ouvrir).
 
-[Télécharger scratch_carre_initial.mblock](/programmes/scratch_carre_initial.mblock)
-
-![scène préparée avec un carré](https://robot-educatif.info/wp-content/uploads/2020/04/0scratch3-1.png)
+![Scène préparée avec un carré (fond d’arrière-plan)](/capture/carre/03-scene-preparee-carre.png)
 
 Solution : Les coordonnées des quatre coins sont :
 
@@ -61,25 +59,19 @@ Solution : Les coordonnées des quatre coins sont :
 *   celui en bas à droite : ( 100 , -100 )
 *   et le dernier en bas à gauche : ( -100 , -100 )
 
-Le lutin devra déplacer en suivant ces lignes, à vos clavier !
+Le lutin devra se déplacer en suivant ces lignes — à vous de programmer le parcours !
 
 ## 5\. Le programme
 
 Maintenant que le décor est planté, nous allons passer au programme.
 
-Je vous détaille les actions que le lutin devra effectuer et je vous donnerai la réponse ensuite.
+**Comportement attendu :** lorsque l’on appuie sur la **barre espace**, le lutin **glisse** le long du carré dans le **sens horaire** (sens des aiguilles d’une montre), fait le **tour** du carré et revient à sa position de départ.
 
-Lorsque l’on appuie sur la barre espace alors le lutin glisse le long du carré dans le sens horaire, autrement dit, dans le sens des aiguilles d’une montre. Il doit faire le tour du carré pour revenir à sa position initiale.
+Le script correspondant est dans le même fichier que la scène : **[`carre.mblock`](/capture/carre/carre.mblock)**. Ouvrez-le dans mBlock 5 pour voir la **zone de script** ; vous pouvez modifier le projet ou recopier les blocs pour vous entraîner.
 
-Programme à télécharger ci-dessous
+**Pour lancer :** cliquez sur le **drapeau vert**, puis sur la **barre espace** pour déclencher le déplacement.
 
-[Télécharger scratch_carre_simple.mblock](/programmes/scratch_carre_simple.mblock)
-
-La mise en route du programme se fait en appuyant sur le drapeau vert puis sur la barre espace.
-
-![programme simple de déplacement du lutin autour du carré](https://robot-educatif.info/wp-content/uploads/2020/04/0scratch3-2.png)
-
-En dernier lieu félicitations !! vous avez réussit ce premier programme avec scratch
+En dernier lieu : **bravo** — vous avez réussi ce premier programme avec Scratch !
 
 ## 6\. Apprendre scratch
 

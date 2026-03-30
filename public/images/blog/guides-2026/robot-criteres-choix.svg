@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="t">
+  <title id="t">Trois crit&#232;res pour choisir un robot &#233;ducatif</title>
+  <rect width="800" height="380" fill="#f6f8fa"/>
+  <text x="400" y="34" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="17" font-weight="700" fill="#24292f">Le bon robot = logiciel + capteurs + budget r&#233;aliste</text>
+  <rect x="40" y="64" width="220" height="260" rx="10" fill="#fff" stroke="#0969da" stroke-width="2"/>
+  <rect x="290" y="64" width="220" height="260" rx="10" fill="#fff" stroke="#1f883d" stroke-width="2"/>
+  <rect x="540" y="64" width="220" height="260" rx="10" fill="#fff" stroke="#bf8700" stroke-width="2"/>
+  <text x="150" y="96" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#0969da">Logiciel</text>
+  <text x="150" y="128" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Tutoriels, MAJ,</text>
+  <text x="150" y="146" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">communaut&#233;,</text>
+  <text x="150" y="164" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">compatibilit&#233; OS.</text>
+  <text x="400" y="96" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#1f883d">Capteurs</text>
+  <text x="400" y="128" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Distance, ligne,</text>
+  <text x="400" y="146" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">lumi&#232;re, son&#8230;</text>
+  <text x="400" y="172" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">= d&#233;fis vari&#233;s.</text>
+  <text x="650" y="96" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#bf8700">Budget total</text>
+  <text x="650" y="128" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Robot + piles +</text>
+  <text x="650" y="146" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">accessoires +</text>
+  <text x="650" y="164" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">livre &#233;ventuel.</text>
+  <path d="M150 220 L400 220 L650 220" stroke="#d0d7de" stroke-width="2"/>
+  <text x="400" y="256" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">Si un pilier manque, la motivation retombe vite.</text>
+  <text x="400" y="300" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Ex. : robot &#171; pas cher &#187; sans doc logicielle &#8212; bloqu&#233; au 1er pilote Bluetooth.</text>
+  <text x="400" y="352" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">Sch&#233;ma indicatif &#8212; ROBOT &#233;ducatif</text>
+</svg>

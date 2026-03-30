@@ -1,6 +1,7 @@
 ---
 import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import { withBase } from '../../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
 ---
@@ -15,8 +16,10 @@ const tag = AMAZON_AFFILIATE_TAG;
 	<p>
 		Petit outil <strong>utile au quotidien</strong> : ajouter, lister, cocher et supprimer des tâches, le tout sauvegardé
 		dans un fichier <strong>JSON</strong> (lisible et standard). Prérequis :{' '}
-		<a href="/python-fichiers-texte/">fichiers</a>, <a href="/python-listes-et-chaines/">listes / dictionnaires de base</a>{' '}
-		et <a href="/python-fonctions/">fonctions</a>. Le module <code>json</code> est dans la bibliothèque standard. Ressources :{' '}
+		<a href={withBase('/python-fichiers-texte/')}>fichiers</a>,{' '}
+		<a href={withBase('/python-listes-et-chaines/')}>listes / dictionnaires de base</a> et{' '}
+		<a href={withBase('/python-fonctions/')}>fonctions</a>. Le module <code>json</code> est dans la bibliothèque standard.
+		Ressources :{' '}
 		<a
 			href={`https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=${tag}`}
 			target="_blank"

@@ -26,7 +26,7 @@ const HERO_BY_FILE = {
 		'../../assets/tale-bot/tale-bot-pro-hero.webp',
 	'installer-mblock-5-sous-windows-10.md': '../../assets/blog-heroes/hero-scratch-mblock.png',
 	'sinscrire-sur-mblock.md': '../../assets/blog-heroes/hero-scratch-mblock.png',
-	'installer-les-blocs-du-mbot.md': '../../assets/mbot/mbot-hero.png',
+	'installer-les-blocs-du-mbot.md': '../../assets/blog-heroes/hero-scratch-mblock.png',
 	'activite-mbot-detecteur-dintrusion.md': '../../assets/mbot/mbot-hero.png',
 	'activite-mbot-faire-clignoter-les-leds.md': '../../assets/mbot/mbot-hero.png',
 	'activite-mbot-faire-defiler-un-texte.md': '../../assets/mbot/mbot-hero.png',

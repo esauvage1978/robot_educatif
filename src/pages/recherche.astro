@@ -1,0 +1,126 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Recherche';
+const description =
+	'Rechercher dans les articles et pages du site ROBOT éducatif (robotique, Scratch, mBlock, Python).';
+const basePath = import.meta.env.BASE_URL;
+const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead title={title} description={description} />
+		<link rel="stylesheet" href={pagefindUiCss} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="search-page">
+				<h1>Recherche</h1>
+				<p class="search-lead">
+					Tapez un mot-clé pour parcourir le contenu du site (articles, guides, pages fixes).
+				</p>
+				<p id="search-dev-note" class="search-dev-note" hidden>
+					La recherche n’a pas pu se charger. En local : <code>npm run build</code> puis{' '}
+					<code>npm run preview</code>. En production : déployer tout <code>dist/</code> dont{' '}
+					<code>pagefind/</code>. Si le dossier est bien en place, vérifiez qu’une règle Apache (rewrite) ne
+					renvoie pas les fichiers <code>.js</code> vers <code>index.html</code> (test : ouvrir l’URL du
+					fichier <code>pagefind-ui.js</code> dans le navigateur — vous devez voir du JavaScript, pas une page
+					HTML).
+				</p>
+				<div id="search" class="search-root" aria-live="polite"></div>
+			</article>
+		</main>
+		<Footer />
+		<script is:inline define:vars={{ basePath }}>
+			(function () {
+				const devNote = document.getElementById('search-dev-note');
+				const base = typeof basePath === 'string' && basePath.length ? basePath : '/';
+				const bundlePath = new URL(base + 'pagefind/', window.location.origin).pathname;
+				const pagefindUiJs = new URL(base + 'pagefind/pagefind-ui.js', window.location.origin).href;
+
+				function fail(err) {
+					if (err) console.error('[pagefind]', err);
+					if (devNote) devNote.hidden = false;
+				}
+
+				/* pagefind-ui.js est un bundle IIFE (window.PagefindUI), pas un module ES — import() échoue. */
+				const s = document.createElement('script');
+				s.src = pagefindUiJs;
+				s.async = true;
+				s.onload = function () {
+					try {
+						var PagefindUI = window.PagefindUI;
+						if (typeof PagefindUI !== 'function') {
+							fail(new Error('PagefindUI indisponible'));
+							return;
+						}
+						new PagefindUI({
+							element: '#search',
+							bundlePath: bundlePath,
+							showSubResults: true,
+							resetStyles: false,
+							debounceTimeoutMs: 200,
+							translations: {
+								placeholder: 'Rechercher sur le site…',
+								zero_results: 'Aucun résultat pour « [SEARCH_TERM] »',
+								many_results: '[COUNT] résultats pour « [SEARCH_TERM] »',
+								one_result: '1 résultat pour « [SEARCH_TERM] »',
+								load_more: 'Charger plus de résultats',
+								alt_search:
+									'Aucun résultat direct. Affichage des résultats proches pour « [SEARCH_TERM] »',
+							},
+						});
+					} catch (e) {
+						fail(e);
+					}
+				};
+				s.onerror = function () {
+					fail(new Error('Chargement de pagefind-ui.js impossible'));
+				};
+				document.head.appendChild(s);
+			})();
+		</script>
+		<style>
+			.search-page {
+				width: min(920px, calc(100% - 2rem));
+				margin: 0 auto;
+				padding: clamp(1.5rem, 4vw, 2.5rem) 1rem 3rem;
+			}
+			.search-page h1 {
+				margin: 0 0 0.75rem 0;
+				font-size: clamp(1.75rem, 3vw, 2.25rem);
+			}
+			.search-lead {
+				margin: 0 0 1.25rem 0;
+				max-width: 40rem;
+				color: rgb(var(--gray-dark));
+				line-height: 1.65;
+			}
+			.search-dev-note {
+				padding: 0.85rem 1rem;
+				margin: 0 0 1.25rem 0;
+				border-radius: 8px;
+				border: 1px solid var(--surface-border);
+				background: color-mix(in oklab, var(--accent) 8%, transparent);
+				color: rgb(var(--gray-dark));
+				font-size: 0.95rem;
+				line-height: 1.5;
+			}
+			.search-dev-note code {
+				font-size: 0.88em;
+			}
+			.search-root {
+				min-height: 12rem;
+			}
+			/* Pagefind UI (resetStyles: false) — léger ajustement pour coller au thème */
+			.search-root :global(.pagefind-ui) {
+				--pagefind-ui-scale: 1;
+			}
+		</style>
+	</body>
+</html>

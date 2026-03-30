@@ -8,6 +8,7 @@ import bandeauBatailleNavaleUrl from '../../assets/programmation/bandeau-bataill
 import bandeauPenduUrl from '../../assets/programmation/bandeau-pendu.svg?url';
 import bandeauPuissance4Url from '../../assets/programmation/bandeau-puissance-4.svg?url';
 import bandeauCarnetTodoUrl from '../../assets/programmation/bandeau-carnet-todo.svg?url';
+import { withBase } from '../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
 ---
@@ -37,7 +38,7 @@ const tag = AMAZON_AFFILIATE_TAG;
 				<h2 id="tracks-title">Parcours disponibles</h2>
 				<ul class="track-cards">
 					<li>
-						<a href="/programmation/python" class="track-card">
+						<a href={withBase('/programmation/python')} class="track-card">
 							<img
 								src={bandeauPythonUrl}
 								width="800"
@@ -54,7 +55,75 @@ const tag = AMAZON_AFFILIATE_TAG;
 						</a>
 					</li>
 					<li>
-						<a href="/programmation/bataille-navale" class="track-card">
+						<a href={withBase('/programmation/python-intermediaire')} class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : Python intermédiaire — modules et bonnes pratiques"
+								loading="lazy"
+							/>
+							<h3>Python intermédiaire — modules et qualité</h3>
+							<p>
+								Six articles : imports et structure, venv et pip, pathlib, classes et POO, tests, expressions
+								régulières — bonnes pratiques et 20 exercices par leçon.
+							</p>
+							<span class="cta">Voir le parcours →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/programmation/python-avance')} class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : Python avancé"
+								loading="lazy"
+							/>
+							<h3>Python avancé — générateurs, async, typage</h3>
+							<p>
+								Six articles détaillés : itérateurs et itertools, décorateurs, context managers, asyncio, typage
+								statique, packaging pyproject — 20 exercices par leçon.
+							</p>
+							<span class="cta">Voir le parcours →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/programmation/projet-python-intermediaire-agenda')} class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : projet agenda CLI Python"
+								loading="lazy"
+							/>
+							<h3>Projet — Agenda personnel (CLI)</h3>
+							<p>
+								Six parties : cahier des charges, JSON et pathlib, POO, pytest, argparse, livraison — prolonge le
+								parcours intermédiaire.
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/programmation/projet-python-avance-journal')} class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : projet analyseur de journaux Python"
+								loading="lazy"
+							/>
+							<h3>Projet — Analyseur de journal (CLI)</h3>
+							<p>
+								Six parties : architecture, parsing générateur, décorateurs, asyncio, typage mypy, package
+								installable — prolonge le parcours avancé.
+							</p>
+							<span class="cta">Voir la série →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/programmation/bataille-navale')} class="track-card">
 							<img
 								src={bandeauBatailleNavaleUrl}
 								width="800"
@@ -71,7 +140,7 @@ const tag = AMAZON_AFFILIATE_TAG;
 						</a>
 					</li>
 					<li>
-						<a href="/programmation/pendu" class="track-card">
+						<a href={withBase('/programmation/pendu')} class="track-card">
 							<img
 								src={bandeauPenduUrl}
 								width="800"
@@ -88,7 +157,7 @@ const tag = AMAZON_AFFILIATE_TAG;
 						</a>
 					</li>
 					<li>
-						<a href="/programmation/puissance-4" class="track-card">
+						<a href={withBase('/programmation/puissance-4')} class="track-card">
 							<img
 								src={bandeauPuissance4Url}
 								width="800"
@@ -105,7 +174,7 @@ const tag = AMAZON_AFFILIATE_TAG;
 						</a>
 					</li>
 					<li>
-						<a href="/programmation/carnet-todo" class="track-card">
+						<a href={withBase('/programmation/carnet-todo')} class="track-card">
 							<img
 								src={bandeauCarnetTodoUrl}
 								width="800"

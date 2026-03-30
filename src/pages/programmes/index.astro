@@ -1,0 +1,64 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { withBase } from '../../lib/siteUrl';
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Programmes mBlock (.mblock)"
+			description="Fichiers projets mBlock : pourquoi les liens de téléchargement ont été retirés et comment refaire les activités à partir des tutoriels."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="programmes-hub">
+			<h1>Programmes mBlock (.mblock)</h1>
+			<p class="lead">
+				La plupart des tutoriels se suivent en <strong>reproduisant les blocs</strong> à partir des captures d’écran.
+				Quelques fichiers projet <strong>.mblock</strong> sont aussi proposés en téléchargement lorsqu’ils sont
+				disponibles.
+			</p>
+			<p>
+				Exemples :{' '}
+				<a href={withBase('/programmes/premier_programme.mblock')}>premier_programme.mblock</a> (article{' '}
+				<a href={withBase('/mon-premier-programme-mbot/')}>Mon premier programme mBot</a>) ·{' '}
+				<a href={withBase('/capture/carre/carre.mblock')}>carre.mblock</a> (article{' '}
+				<a href={withBase('/activite-scratch-le-carre/')}>Activité Scratch : le carré</a>).
+			</p>
+			<p>
+				Sinon, ouvrez <strong>mBlock 5</strong> et recréez le script bloc par bloc comme sur les illustrations —
+				c’est la méthode prévue par le pas à pas.
+			</p>
+			<p>
+				Pour installer l’environnement : <a href={withBase('/installer-mblock-5-sous-windows-10/')}>Installer mBlock 5</a>
+				· <a href={withBase('/premier-pas-avec-mblock-5/')}>Premiers pas avec mBlock 5</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.programmes-hub {
+		width: min(720px, calc(100% - 2.5rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.programmes-hub h1 {
+		margin: 0 0 1rem;
+		font-size: 1.75rem;
+	}
+	.programmes-hub .lead {
+		font-size: 1.05rem;
+		line-height: 1.65;
+		margin-bottom: 1rem;
+	}
+	.programmes-hub p {
+		line-height: 1.65;
+		margin: 0 0 1rem;
+	}
+</style>

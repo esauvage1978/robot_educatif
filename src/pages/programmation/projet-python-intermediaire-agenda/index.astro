@@ -1,0 +1,71 @@
+---
+import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
+import type { SeriesHubFallbackLesson } from '../../../components/ProgrammationSeriesHub.astro';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import { withBase } from '../../../lib/siteUrl';
+
+const tag = AMAZON_AFFILIATE_TAG;
+
+const fallbackAgenda: SeriesHubFallbackLesson[] = [
+	{
+		href: '/projet-inter-agenda-1-cahier-des-charges/',
+		order: 1,
+		title: 'Projet Agenda CLI (1/6) — cahier des charges et arborescence',
+		desc: 'Objectifs fonctionnels, structure de dossiers src/, format JSON des événements, critères de réussite ; 12 exercices.',
+	},
+	{
+		href: '/projet-inter-agenda-2-donnees-pathlib/',
+		order: 2,
+		title: 'Projet Agenda CLI (2/6) — données, pathlib et JSON',
+		desc: 'Chemin du fichier agenda, pathlib.Path, lecture et écriture atomique, encodage UTF-8 ; 12 exercices.',
+	},
+	{
+		href: '/projet-inter-agenda-3-modele-poo/',
+		order: 3,
+		title: 'Projet Agenda CLI (3/6) — modèle métier et classes',
+		desc: 'Classe Event, validation des dates avec datetime, service AgendaService ; séparation storage ; 12 exercices.',
+	},
+	{
+		href: '/projet-inter-agenda-4-tests-pytest/',
+		order: 4,
+		title: 'Projet Agenda CLI (4/6) — tests avec pytest',
+		desc: 'Fixtures tmp_path, tests du service, mocks de stockage, couverture des erreurs ; 12 exercices.',
+	},
+	{
+		href: '/projet-inter-agenda-5-cli-argparse/',
+		order: 5,
+		title: 'Projet Agenda CLI (5/6) — argparse et interface ligne de commande',
+		desc: 'Sous-commandes add, list, remove ; dates ; codes de sortie ; messages utilisateur ; 12 exercices.',
+	},
+	{
+		href: '/projet-inter-agenda-6-livraison-extensions/',
+		order: 6,
+		title: 'Projet Agenda CLI (6/6) — livraison, qualité et extensions',
+		desc: 'requirements.txt ou pyproject, entrée console, README, idées d’extensions (export ICS, rappels) ; 12 exercices.',
+	},
+];
+---
+
+<ProgrammationSeriesHub
+	metaTitle="Projet Python — Agenda personnel en CLI"
+	metaDescription="Projet guidé en six parties : cahier des charges, données JSON et pathlib, classes et services, tests pytest, argparse, livraison et extensions."
+	series="Projet Python intermédiaire — Agenda CLI"
+	breadcrumbLast="Projet Agenda CLI"
+	pageTitle="Projet — Agenda personnel (CLI)"
+	fallbackLessons={fallbackAgenda}
+>
+	<p>
+		Ce projet **synthétise** le <a href={withBase('/programmation/python-intermediaire')}>parcours intermédiaire</a> : modules,
+		<strong>pathlib</strong>, <strong>JSON</strong>, <strong>classes</strong>, <strong>pytest</strong>, ligne de commande
+		avec <code>argparse</code>. Tu construis un petit <strong>agenda</strong> : événements datés, sauvegarde locale,
+		listage et suppression — sans framework web, pour te concentrer sur la <strong>structure</strong> du code et les
+		<strong>tests</strong>. Prérequis : avoir suivi les six leçons intermédiaires ou équivalent.
+	</p>
+	<p>
+		Ressource complémentaire :{' '}
+		<a
+			href={`https://www.amazon.fr/s?k=python+projet+cli+livre&tag=${tag}`}
+			target="_blank"
+			rel="noopener noreferrer sponsored">Python et projets CLI</a> (partenaire).
+	</p>
+</ProgrammationSeriesHub>

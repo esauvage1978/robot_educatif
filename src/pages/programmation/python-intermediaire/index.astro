@@ -1,0 +1,217 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { articleSlugFromId } from '../../../lib/articleSlug';
+import { withBase } from '../../../lib/siteUrl';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import bandeauPythonUrl from '../../../assets/programmation/bandeau-python.svg?url';
+
+const tag = AMAZON_AFFILIATE_TAG;
+const SERIE = 'Python intermédiaire';
+const all = await getCollection('blog');
+const posts = all
+	.filter((p) => p.data.series === SERIE)
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Python intermédiaire — modules, outils, qualité"
+			description="Six leçons après le parcours débutant : modules, environnements virtuels, pathlib, POO, tests et regex, avec bonnes pratiques et 20 exercices par cours."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="py-series">
+			<nav class="breadcrumb" aria-label="Fil d’Ariane">
+				<a href={withBase('/programmation')}>Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>Python intermédiaire</span>
+			</nav>
+			<img
+				class="track-hero"
+				src={bandeauPythonUrl}
+				width="800"
+				height="250"
+				alt="Bandeau visuel : Python intermédiaire"
+				loading="eager"
+			/>
+			<h1>Python — parcours intermédiaire</h1>
+			<p class="lead">
+				Une fois le <a href={withBase('/programmation/python')}>parcours débutant</a> maîtrisé (syntaxe, fichiers, débogage), ce bloc
+				aborde l’<strong>organisation du code</strong>, les <strong>outils pro</strong> (venv, pip), les
+				<strong>chemins</strong> modernes, la <strong>POO</strong>, les <strong>tests</strong> et les
+				<strong>expressions régulières</strong>. Chaque article intègre des <strong>bonnes pratiques</strong> (PEP 8,
+				clarté, pas de raccourcis dangereux) et <strong>vingt exercices</strong> avec solutions repliables.
+			</p>
+			<p class="prereq">
+				Prérequis : avoir suivi les leçons « Python » (série débutant) ou équivalent, savoir écrire des fonctions et lire
+				un fichier texte.
+			</p>
+			<ol class="lesson-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+								<span class="num">{post.data.seriesOrder ?? '—'}</span>
+								<span class="meta">
+									<span class="title">{post.data.title}</span>
+									<span class="desc">{post.data.description}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+			<p class="extra-series">
+				<strong>Projet guidé (intermédiaire)</strong> :{' '}
+				<a href={withBase('/programmation/projet-python-intermediaire-agenda')}>Agenda personnel en CLI</a> — six articles pour
+				mettre en pratique modules, pathlib, POO et tests. — <strong>Suite pédagogique</strong> :{' '}
+				<a href={withBase('/programmation/python-avance')}>Python avancé</a> (générateurs, décorateurs, asyncio, typage,
+				packaging). — Autres projets :{' '}
+				<a href={withBase('/programmation/bataille-navale')}>Bataille navale</a>,{' '}
+				<a href={withBase('/programmation/pendu')}>Le pendu</a>,{' '}
+				<a href={withBase('/programmation/puissance-4')}>Puissance 4</a>,{' '}
+				<a href={withBase('/programmation/carnet-todo')}>Carnet Todo + JSON</a>.
+			</p>
+			<p class="back">
+				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
+				{' · '}
+				<a href={withBase('/programmation/python')}>Parcours Python débutant</a>
+				{' · '}
+				<a href={withBase('/programmation/python-avance')}>Python avancé</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.py-series {
+		width: min(720px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.track-hero {
+		width: 100%;
+		height: auto;
+		border-radius: 12px;
+		margin-bottom: 1.25rem;
+		border: 1px solid var(--surface-border);
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1rem;
+	}
+	.breadcrumb a {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.py-series h1 {
+		font-size: clamp(1.65rem, 3vw, 2rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead {
+		margin: 0 0 1rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.lead a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.prereq {
+		margin: 0 0 1.75rem;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px dashed color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.lesson-list li {
+		margin-bottom: 0.65rem;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.lesson-list a:hover {
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.num {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 8px;
+		background: var(--brand-gradient, linear-gradient(135deg, var(--accent), var(--accent-warm)));
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+	.meta .title {
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list a:hover .title {
+		color: var(--accent);
+	}
+	.meta .desc {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		line-height: 1.45;
+	}
+	.extra-series {
+		margin: 1.5rem 0 0;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.extra-series a {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.back {
+		margin-top: 1.5rem;
+		font-size: 0.92rem;
+	}
+	.back a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>

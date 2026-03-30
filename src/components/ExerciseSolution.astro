@@ -1,0 +1,20 @@
+---
+/**
+ * Bloc repliable pour la solution d’un exercice (évite d’afficher le code par défaut).
+ */
+interface Props {
+	/** Code source affiché dans le bloc (Python, etc.) */
+	code: string;
+	/** Libellé du résumé cliquable */
+	summary?: string;
+}
+
+const { code, summary = 'Afficher la solution' } = Astro.props;
+---
+
+<details class="exercise-solution">
+	<summary class="exercise-solution__summary">{summary}</summary>
+	<div class="exercise-solution__body">
+		<pre class="exercise-solution__pre"><code class="language-python">{code}</code></pre>
+	</div>
+</details>

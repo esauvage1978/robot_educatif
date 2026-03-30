@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="t">
+  <title id="t">Bibliotheque d appareils Makeblock</title>
+  <rect width="800" height="480" fill="#1a1f2e"/>
+  <rect x="120" y="60" width="560" height="360" rx="6" fill="#fff" stroke="#d0d7de"/>
+  <rect x="120" y="60" width="560" height="40" fill="#0078d7"/>
+  <text x="140" y="86" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600">Bibliotheque d&apos;appareils</text>
+  <text x="140" y="130" fill="#374151" font-family="Segoe UI,system-ui,sans-serif" font-size="13">Choisissez un robot ou une carte :</text>
+  <rect x="140" y="150" width="520" height="40" rx="4" fill="#f3f4f6" stroke="#e5e7eb"/>
+  <text x="156" y="175" fill="#111827" font-family="Segoe UI,system-ui,sans-serif" font-size="13">mBot</text>
+  <rect x="140" y="198" width="520" height="40" rx="4" fill="#fff" stroke="#e5e7eb"/>
+  <text x="156" y="223" fill="#6b7280" font-family="Segoe UI,system-ui,sans-serif" font-size="13">mBot 2 / Ranger / autres...</text>
+  <rect x="580" y="360" width="80" height="36" rx="4" fill="#e5e7eb"/>
+  <text x="620" y="382" text-anchor="middle" fill="#374151" font-family="Segoe UI,system-ui,sans-serif" font-size="13">Annuler</text>
+  <rect x="140" y="360" width="80" height="36" rx="4" fill="#0078d7"/>
+  <text x="180" y="382" text-anchor="middle" fill="#fff" font-family="Segoe UI,system-ui,sans-serif" font-size="13">OK</text>
+  <text x="400" y="450" text-anchor="middle" fill="#9ca3af" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Exemple de liste (libelles selon version mBlock)</text>
+</svg>

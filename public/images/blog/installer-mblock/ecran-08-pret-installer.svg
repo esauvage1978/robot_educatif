@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="t">
+  <title id="t">Repr&#233;sentation : assistant &#8211; pr&#234;t &#224; installer</title>
+  <rect width="800" height="480" rx="10" fill="#0d1117"/>
+  <rect x="100" y="40" width="600" height="400" rx="2" fill="#fff" stroke="#ccc"/>
+  <rect x="100" y="40" width="600" height="32" fill="#0078d7"/>
+  <text x="120" y="61" fill="#fff" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">mBlock &#8211; Installation</text>
+  <text x="120" y="100" fill="#000" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600">Pr&#234;t &#224; installer</text>
+  <text x="120" y="128" fill="#333" font-family="Segoe UI,sans-serif" font-size="12">L'assistant va installer mBlock avec les options choisies.</text>
+  <text x="120" y="165" fill="#57606a" font-family="Segoe UI,sans-serif" font-size="12">V&#233;rifiez le r&#233;sum&#233;, puis cliquez sur Installer.</text>
+  <rect x="120" y="380" width="100" height="28" rx="2" fill="#e1e1e1" stroke="#adadad"/>
+  <text x="170" y="398" text-anchor="middle" fill="#000" font-family="Segoe UI,sans-serif" font-size="13">&lt; Pr&#233;c&#233;dent</text>
+  <rect x="560" y="380" width="100" height="28" rx="2" fill="#0078d7"/>
+  <text x="610" y="398" text-anchor="middle" fill="#fff" font-family="Segoe UI,sans-serif" font-size="13">Installer</text>
+</svg>

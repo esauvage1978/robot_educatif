@@ -52,4 +52,6 @@ AddDefaultCharset utf-8
 # Types MIME utiles
 <IfModule mod_mime.c>
 	AddType application/manifest+json webmanifest
+	# Favicon SVG : sans ceci + nosniff, certains navigateurs repassent au PNG 32×32 (moins net).
+	AddType image/svg+xml .svg
 </IfModule>

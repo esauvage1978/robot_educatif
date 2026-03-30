@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="t">
+  <title id="t">Ordre d&apos;achat des accessoires mBot</title>
+  <rect width="720" height="260" fill="#f6f8fa"/>
+  <text x="360" y="26" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" fill="#24292f">Priorit&#233; : consommables &#8594; capteurs utiles &#8594; fun m&#233;canique</text>
+  <rect x="40" y="48" width="180" height="160" rx="8" fill="#fff" stroke="#bf8700" stroke-width="2"/>
+  <text x="130" y="78" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="600" fill="#bf8700">1. Piles / rangement</text>
+  <text x="52" y="108" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Rechargeables adapt&#233;es,</text>
+  <text x="52" y="126" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">bo&#238;te &#224; compartiments.</text>
+  <rect x="270" y="48" width="180" height="160" rx="8" fill="#fff" stroke="#0969da" stroke-width="2"/>
+  <text x="360" y="78" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="600" fill="#0969da">2. Capteurs (ultrason&#8230;)</text>
+  <text x="282" y="108" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Nouveaux d&#233;fis sans</text>
+  <text x="282" y="126" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">changer de robot.</text>
+  <rect x="500" y="48" width="180" height="160" rx="8" fill="#fff" stroke="#1f883d" stroke-width="2"/>
+  <text x="590" y="78" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="600" fill="#1f883d">3. Bras, chenilles&#8230;</text>
+  <text x="512" y="108" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Quand les blocs</text>
+  <text x="512" y="126" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">&#171; classiques &#187; sont ma&#238;tris&#233;s.</text>
+  <text x="360" y="232" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">V&#233;rifiez compatibilit&#233; avec votre r&#233;vision de mBot.</text>
+</svg>

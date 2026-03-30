@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-labelledby="t">
+  <title id="t">Prix bas : prix, doc, support</title>
+  <rect width="720" height="280" fill="#f6f8fa"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" fill="#24292f">Triangle : vous n&apos;en avez souvent que deux</text>
+  <polygon points="360,60 560,240 160,240" fill="#fff" stroke="#cf222e" stroke-width="2"/>
+  <text x="360" y="120" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="600" fill="#cf222e">Prix bas</text>
+  <text x="220" y="220" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Doc / MAJ</text>
+  <text x="500" y="220" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Communaut&#233;</text>
+  <text x="360" y="258" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#24292f">M&#233;fiez-vous du clone sans tutoriels ni avis r&#233;cents.</text>
+</svg>

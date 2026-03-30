@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="t">
+  <title id="t">Ordre de d&#233;pannage Bluetooth mBlock</title>
+  <rect width="720" height="400" fill="#f6f8fa"/>
+  <text x="360" y="28" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" fill="#24292f">D&#233;pannage : toujours valider USB avant Bluetooth</text>
+  <rect x="260" y="48" width="200" height="44" rx="6" fill="#1f883d"/>
+  <text x="360" y="76" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#fff">1. USB : le robot r&#233;pond ?</text>
+  <text x="360" y="118" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Si non : firmware / c&#226;ble / pilote (voir installer mBlock).</text>
+  <rect x="260" y="138" width="200" height="44" rx="6" fill="#0969da"/>
+  <text x="360" y="166" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#fff">2. mBlock &#224; jour + firmware robot</text>
+  <rect x="260" y="208" width="200" height="44" rx="6" fill="#8250df"/>
+  <text x="360" y="236" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#fff">3. Bluetooth PC : mode avion, r&#233;appairage</text>
+  <rect x="260" y="278" width="200" height="44" rx="6" fill="#bf8700"/>
+  <text x="360" y="306" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#fff">4. Port&#233;e / interf&#233;rences / dongle USB BT</text>
+  <path d="M360 92 L360 138 M360 182 L360 208 M360 252 L360 278" stroke="#57606a" stroke-width="2"/>
+  <text x="360" y="372" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#8c959f">En classe : USB pour t&#233;l&#233;verser ; BT pour essais une fois le programme charg&#233;.</text>
+</svg>

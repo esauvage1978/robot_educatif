@@ -2,6 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { COOKIE_CONSENT_STORAGE_KEY } from '../lib/cookieConsent';
+import { withBase } from '../lib/siteUrl';
+
+const politiqueUrl = withBase('/politique-de-confidentialite/');
+const mentionsUrl = withBase('/mentions-legales/');
 ---
 
 <!doctype html>
@@ -9,7 +14,7 @@ import Header from '../components/Header.astro';
 	<head>
 		<BaseHead
 			title="Gestion des cookies"
-			description="Informations sur les cookies, traceurs et liens d'affiliation Amazon — ROBOT éducatif."
+			description="Cookies, Consent Mode Google Analytics 4 et traceurs — ROBOT éducatif."
 		/>
 	</head>
 	<body>
@@ -18,13 +23,14 @@ import Header from '../components/Header.astro';
 			<article class="legal-doc">
 				<h1>Gestion des cookies et traceurs</h1>
 				<p class="legal-meta">
-					<time>Dernière mise à jour : 27 mars 2026</time>
+					<time>Dernière mise à jour : 28 mars 2026</time>
 				</p>
 				<p>
-					Cette page explique comment le site <strong>ROBOT éducatif</strong> utilise ou peut utiliser des
-					<strong>cookies</strong> et autres <strong>traceurs</strong>, et comment vous maîtrisez ces choix. Pour le
-					traitement plus global des données personnelles, voir la
-					<a href="/politique-de-confidentialite/">politique de confidentialité</a>.
+					Cette page explique comment le site <strong>ROBOT éducatif</strong> utilise des
+					<strong>cookies</strong> et autres <strong>traceurs</strong>, comment fonctionne le
+					<strong>bandeau de consentement</strong> et le <strong>mode de consentement Google</strong> (Google
+					Analytics&nbsp;4). Pour le traitement global des données personnelles, voir la
+					<a href={politiqueUrl}>politique de confidentialité</a>.
 				</p>
 
 				<section aria-labelledby="ck-quoi">
@@ -38,11 +44,8 @@ import Header from '../components/Header.astro';
 				</section>
 
 				<section aria-labelledby="ck-site">
-					<h2 id="ck-site">2. Cookies et stockage utilisés sur ce Site</h2>
-					<p>
-						À ce jour, le Site vise à rester <strong>sobre en traceurs</strong>. Les éléments suivants peuvent
-						s’appliquer :
-					</p>
+					<h2 id="ck-site">2. Cookies et stockage utilisés sur ce site</h2>
+					<p>Les éléments suivants peuvent s’appliquer :</p>
 					<ul>
 						<li>
 							<strong>Préférence d’affichage (thème clair / sombre)</strong> : stockée dans le
@@ -51,21 +54,51 @@ import Header from '../components/Header.astro';
 							paramètres du navigateur (effacer les données du site).
 						</li>
 						<li>
+							<strong>Mémorisation de votre choix sur les cookies de mesure d’audience</strong> : lorsque vous
+							utilisez le bandeau « Accepter » ou « Refuser », une entrée est enregistrée dans le
+							<em>localStorage</em> du navigateur (clé technique <code>{COOKIE_CONSENT_STORAGE_KEY}</code>) pour ne
+							pas vous redemander à chaque page. Ce n’est pas un cookie déposé par Google sur votre machine, mais
+							une information locale pour le fonctionnement du site.
+						</li>
+						<li>
+							<strong>Google Analytics 4 (GA4)</strong> : si vous <strong>acceptez</strong> la mesure d’audience,
+							le site charge la bibliothèque <strong>gtag.js</strong> (Google) et peut déposer des cookies ou
+							identifiants liés à cette finalité (statistiques de consultation, pages vues, durée, etc.). Si vous
+							refusez, le script n’est pas chargé (ou reste en mode « refus » conformément au
+							<strong>Consent Mode v2</strong> décrit ci‑dessous).
+						</li>
+						<li>
 							<strong>Cookies strictement nécessaires à la navigation ou à la sécurité</strong> : si l’hébergeur
 							(o2switch) ou le logiciel du serveur en dépose dans le cadre technique habituel (session, sécurité),
-							ils sont limités à ce qui est nécessaire au service ; détail éventuel selon l’évolution du Site.
+							ils sont limités à ce qui est nécessaire au service.
 						</li>
 					</ul>
+				</section>
+
+				<section aria-labelledby="ck-ga">
+					<h2 id="ck-ga">3. Google Analytics 4 et Consent Mode (gtag)</h2>
 					<p>
-						Si des outils de mesure d’audience ou de publicité tiers étaient ajoutés ultérieurement au Site, une
-						information plus détaillée (liste des cookies, durée, finalité) et, le cas échéant, un mécanisme de
-						<strong>consentement</strong> (bandeau) sera mis à jour sur cette page conformément à la loi et aux
-						lignes directrices de la <a href="https://www.cnil.fr" rel="noopener noreferrer">CNIL</a>.
+						Le site utilise l’identifiant de mesure <strong>Google Analytics 4</strong> (fournisseur :
+						<strong>Google Ireland Limited</strong>, conformément à la
+						<a href="https://policies.google.com/privacy?hl=fr" rel="noopener noreferrer">politique de confidentialité Google</a>).
+						Avant tout chargement de script, la balise <strong>gtag</strong> applique le
+						<strong>mode de consentement</strong> (Consent Mode v2) avec des valeurs par défaut
+						<strong>refusées</strong> pour le stockage publicitaire et l’analyse, tant que vous n’avez pas accepté.
+					</p>
+					<p>
+						Lorsque vous cliquez sur <strong>Accepter</strong> dans le bandeau, le site enregistre votre accord et
+						envoie un signal <code>analytics_storage: granted</code> à Google (mise à jour du consentement). Si vous
+						cliquez sur <strong>Refuser</strong>, le chargement de la mesure d’audience est évité lors des visites
+						suivantes et le consentement reste sur « refus ».
+					</p>
+					<p>
+						Pour en savoir plus sur le mode de consentement :
+						<a href="https://support.google.com/analytics/answer/9976101?hl=fr" rel="noopener noreferrer">Google Analytics — Consent Mode</a>.
 					</p>
 				</section>
 
 				<section aria-labelledby="ck-amazon">
-					<h2 id="ck-amazon">3. Cookies et traceurs liés aux liens Amazon (affiliation)</h2>
+					<h2 id="ck-amazon">4. Cookies et traceurs liés aux liens Amazon (affiliation)</h2>
 					<p>
 						Lorsque vous <strong>cliquez sur un lien menant vers Amazon</strong> (lien affilié ou non), vous
 						quittez notre Site. <strong>Amazon</strong> (et ses sous-traitants) peut alors déposer ou lire des
@@ -82,31 +115,34 @@ import Header from '../components/Header.astro';
 						Si vous souhaitez limiter le dépôt de cookies publicitaires : utilisez les paramètres de votre
 						navigateur (blocage des cookies tiers, mode privé…) et les options proposées par Amazon dans leur
 						compte ou leurs pages d’aide. Pour rappel : le Site participe au programme d’affiliation Amazon ;
-						voir les <a href="/mentions-legales/">mentions légales</a>.
+						voir les <a href={mentionsUrl}>mentions légales</a>.
 					</p>
 				</section>
 
 				<section aria-labelledby="ck-consentement">
-					<h2 id="ck-consentement">4. Consentement et cookies « non essentiels »</h2>
+					<h2 id="ck-consentement">5. Bandeau de consentement</h2>
 					<p>
-						Selon la jurisprudence et les recommandations de la CNIL, les traceurs qui ne sont pas strictement
-						nécessaires au fonctionnement du service (par exemple certaines mesures d’audience ou de publicité)
-						reposent en principe sur votre <strong>consentement</strong>, recueilli de façon explicite avant
-						dépôt.
+						Un bandeau en bas d’écran vous permet d’<strong>accepter</strong> ou de <strong>refuser</strong> la
+						mesure d’audience Google Analytics 4. Ce choix est conservé dans votre navigateur (localStorage) jusqu’à
+						ce que vous le modifiez ou effaciez les données du site.
 					</p>
 					<p>
-						Tant que le Site ne dépose pas lui-même de tels traceurs non essentiels, aucun bandeau de consentement
-						n’est requis pour notre compte ; en revanche, votre navigation sur Amazon reste soumise à leurs règles
-						dès le clic sur un lien externe.
+						<button type="button" class="cookie-reset-btn" id="cookie-reset-choice">
+							Réinitialiser mon choix (le bandeau réapparaîtra après rechargement)
+						</button>
 					</p>
 				</section>
 
 				<section aria-labelledby="ck-refuser">
-					<h2 id="ck-refuser">5. Comment refuser ou supprimer les cookies</h2>
+					<h2 id="ck-refuser">6. Comment refuser ou supprimer les cookies</h2>
 					<ul>
 						<li>
-							Paramétrez votre navigateur pour refuser les cookies tiers ou tous les cookies (aide :
-							Chrome, Firefox, Safari, Edge…).
+							Utilisez le bandeau « Refuser » ou le bouton ci‑dessus pour réinitialiser, puis choisissez à
+							nouveau.
+						</li>
+						<li>
+							Paramétrez votre navigateur pour refuser les cookies tiers ou tous les cookies (aide : Chrome,
+							Firefox, Safari, Edge…).
 						</li>
 						<li>Utilisez le mode « navigation privée » pour une session sans conservation prolongée.</li>
 						<li>
@@ -117,7 +153,7 @@ import Header from '../components/Header.astro';
 				</section>
 
 				<section aria-labelledby="ck-contact">
-					<h2 id="ck-contact">6. Contact</h2>
+					<h2 id="ck-contact">7. Contact</h2>
 					<p>
 						Pour toute question relative aux cookies ou à cette page :
 						<a href="https://emmanuelsauvage.fr" rel="noopener noreferrer">emmanuelsauvage.fr</a> (Emmanuel SAUVAGE,
@@ -126,7 +162,7 @@ import Header from '../components/Header.astro';
 				</section>
 
 				<section aria-labelledby="ck-credits">
-					<h2 id="ck-credits">7. Crédits visuels</h2>
+					<h2 id="ck-credits">8. Crédits visuels</h2>
 					<p>
 						Photo d’illustration du bandeau d’accueil : <strong>Wikimedia Commons</strong>, licence
 						<strong>CC BY-SA</strong>.
@@ -135,6 +171,14 @@ import Header from '../components/Header.astro';
 			</article>
 		</main>
 		<Footer />
+		<script is:inline define:vars={{ COOKIE_CONSENT_STORAGE_KEY }}>
+			document.getElementById('cookie-reset-choice')?.addEventListener('click', function () {
+				try {
+					localStorage.removeItem(COOKIE_CONSENT_STORAGE_KEY);
+				} catch (e) {}
+				location.reload();
+			});
+		</script>
 	</body>
 </html>
 
@@ -158,5 +202,23 @@ import Header from '../components/Header.astro';
 	}
 	.legal-doc li {
 		margin-bottom: 0.35em;
+	}
+	.legal-doc code {
+		font-size: 0.88em;
+		word-break: break-all;
+	}
+	.cookie-reset-btn {
+		cursor: pointer;
+		border-radius: 8px;
+		padding: 0.55rem 1rem;
+		font-size: 0.94rem;
+		font-weight: 600;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		color: inherit;
+	}
+	.cookie-reset-btn:hover {
+		border-color: var(--accent);
+		color: var(--accent);
 	}
 </style>

@@ -4,6 +4,7 @@ description: "Cet article est le premier d’une série pour apprendre à créer
 pubDate: "2020-04-12"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 updatedDate: "2020-04-13"
+amazonPreset: scratch
 categories:
   - "Scratch"
   - "Activité"
@@ -34,7 +35,7 @@ Dans cette exemple, notre lutin a 3 programmes associés. Lorsque l’on appuie 
 
 ## 3\. Place à la pratique
 
-L’objet en question sera le décor. Donc il nous faut créer un jolie décor qui nous servira par la suite du jeu vidéo. Pour ceux qui veulent passer cette étape, je vous en ai préparé un [ici](https://robot-educatif.info/programmes/jeu_video_partie_1_1.mblock).
+L’objet en question sera le décor. Donc il nous faut créer un jolie décor qui nous servira par la suite du jeu vidéo. Un fichier décor tout prêt était proposé à l’origine en téléchargement ; sans ce fichier, réalisez le vôtre en suivant les contraintes ci-dessous (voir aussi [Programmes mBlock](/programmes/)).
 
 C’est maintenant à vous de jouer, Laisser faire votre imagination.
 
@@ -95,9 +96,7 @@ Vous allez maintenant pouvoir faire la même chose pour avoir un costume large d
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/step9.png)
 
-Pour ceux qui seraient tombés amoureux de mon décor, le voici rien que pour vous :
-
-[https://robot-educatif.info/programmes/jeu\_video\_partie\_1\_1.mblock](https://robot-educatif.info/programmes/jeu_video_partie_1_1.mblock)
+Pour ceux qui seraient tombés amoureux de mon décor, reproduisez-le à partir des captures (fichier projet **.mblock** non hébergé — [Programmes mBlock](/programmes/)).
 
 ## 4\. Le programme
 
@@ -115,7 +114,7 @@ Ce programme ci-dessous permet de déplacer notre décor suivant les flèches ap
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/step10.png)
 
-[https://robot-educatif.info/programmes/](https://robot-educatif.info/programmes/jeu_video_partie_1_2.mblock)[jeu\_video\_partie\_1\_](https://robot-educatif.info/programmes/jeu_video_partie_1_1.mblock)2[.mblock](https://robot-educatif.info/programmes/scratch_carre_initial.mblock)
+*Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
 ### 4.2 Initialisation
 
@@ -133,7 +132,7 @@ Nous allons donc déclarer 3 variables
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/step12.png)
 
-[https://robot-educatif.info/programmes/](https://robot-educatif.info/programmes/scratch_carre_initial.mblock)[jeu\_video\_partie\_1\_3](https://robot-educatif.info/programmes/jeu_video_partie_1_3.mblock)[.mblock](https://robot-educatif.info/programmes/scratch_carre_initial.mblock)
+*Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
 ### 4.3 Mettre des limites
 
@@ -147,12 +146,20 @@ Ainsi, pour le déplacement par la droite la condition sera : Si la flèche de d
 
 ![](https://robot-educatif.info/wp-content/uploads/2020/04/step13.png)
 
-[https://robot-educatif.info/programmes/](https://robot-educatif.info/programmes/scratch_carre_initial.mblock)[jeu\_video\_partie\_1\_4](https://robot-educatif.info/programmes/jeu_video_partie_1_3.mblock)[.mblock](https://robot-educatif.info/programmes/jeu_video_partie_1_4.mblock)
+*Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
 Voilà notre premier partie concernant la programmation d’un jeu vidéo sous Scratch est maintenant terminée. Je vous invite fortement à vous exercer sur ce bout de code.
 
-## 5\. Apprendre scratch
+## 5\. Aller plus loin (Scratch, livres, robots)
 
-Pour terminer, je vous ai sélectionné une série de livre pour vous former avec scratch et l’algorithme.
+Le site officiel [Scratch](https://scratch.mit.edu/) reste la référence pour télécharger l’appli, voir des exemples et la communauté.
 
-Si vous voulez aller plus loin avec Scratch, vous pouvez consulter leur site internet [https://scratch.mit.edu/](https://scratch.mit.edu/)
+Pour compléter ce tutoriel avec des **supports papier** ou des **robots compatibles Scratch**, vous pouvez parcourir ces recherches sur **Amazon.fr** (affiliation ; vérifiez fiche produit, avis et prix au moment de l’achat) :
+
+- [Livres Scratch programmation enfants](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfants&tag=manuso06-21)
+- [Algorithmique et jeux pour débutants](https://www.amazon.fr/s?k=algorithmique+jeu+enfant+d%C3%A9butant+livre&tag=manuso06-21)
+- [Robots éducatifs programmables Scratch](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+Scratch+programmable&tag=manuso06-21)
+
+*Commission possible pour le site via le programme Partenaires Amazon, sans surcoût pour vous.*
+
+Sur ce site : [activité « le carré » avec Scratch](/activite-scratch-le-carre/), [installer mBlock 5](/installer-mblock-5-sous-windows-10/), [premiers pas mBot](/mon-premier-programme-mbot/).

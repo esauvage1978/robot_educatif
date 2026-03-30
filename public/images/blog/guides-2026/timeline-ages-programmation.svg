@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-labelledby="t">
+  <title id="t">Rep&#232;res d&apos;&#226;ge pour la programmation et la robotique</title>
+  <rect width="800" height="280" fill="#f6f8fa"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="16" font-weight="700" fill="#24292f">Indicatif : &#226;ge &#8212; type d&apos;activit&#233;</text>
+  <line x1="60" y1="200" x2="740" y2="200" stroke="#d0d7de" stroke-width="4"/>
+  <g font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">
+    <circle cx="120" cy="200" r="10" fill="#8250df"/>
+    <text x="120" y="240" text-anchor="middle">4&#8211;6 ans</text>
+    <text x="120" y="258" text-anchor="middle" font-size="10">Logique sans &#233;cran</text>
+    <circle cx="280" cy="200" r="10" fill="#0969da"/>
+    <text x="280" y="240" text-anchor="middle">7&#8211;9 ans</text>
+    <text x="280" y="258" text-anchor="middle" font-size="10">Blocs Scratch</text>
+    <circle cx="440" cy="200" r="10" fill="#1f883d"/>
+    <text x="440" y="240" text-anchor="middle">10&#8211;12 ans</text>
+    <text x="440" y="258" text-anchor="middle" font-size="10">Capteurs + d&#233;but Python</text>
+    <circle cx="620" cy="200" r="10" fill="#bf8700"/>
+    <text x="620" y="240" text-anchor="middle">12+ ans</text>
+    <text x="620" y="258" text-anchor="middle" font-size="10">Projets, cartes, Linux</text>
+  </g>
+  <text x="400" y="100" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">L&apos;&#226;ge affich&#233; sur la bo&#238;te est une indication : lisez aussi</text>
+  <text x="400" y="122" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#24292f">concentration, lecture des consignes, envie de d&#233;boguer.</text>
+  <text x="400" y="156" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#cf222e">Contre-indication fr&#233;quente : enfant tr&#232;s &#224; l&apos;aise tablette mais refuse d&apos;attendre 5 min un chargement.</text>
+</svg>

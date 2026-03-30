@@ -4,6 +4,7 @@ import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
+import { withBase } from '../../../lib/siteUrl';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
 
 const tag = AMAZON_AFFILIATE_TAG;
@@ -25,7 +26,7 @@ const posts = all
 		<Header />
 		<main class="py-series">
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
-				<a href="/programmation">Programmation</a>
+				<a href={withBase('/programmation')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
 				<span>Python</span>
 			</nav>
@@ -39,17 +40,22 @@ const posts = all
 					rel="noopener noreferrer sponsored">Amazon.fr</a> (partenaire).
 			</p>
 			<p class="extra-series">
-				Projets guidés après le parcours :{' '}
-				<a href="/programmation/bataille-navale">Bataille navale</a>,{' '}
-				<a href="/programmation/pendu">Le pendu</a> (fichier de mots),{' '}
-				<a href="/programmation/puissance-4">Puissance 4</a>,{' '}
-				<a href="/programmation/carnet-todo">Carnet Todo + JSON</a>.
+				Bloc suivant :{' '}
+				<a href={withBase('/programmation/python-intermediaire')}>Python intermédiaire</a> (modules, venv, pathlib, POO, tests,
+				regex), puis <a href={withBase('/programmation/python-avance')}>Python avancé</a> (générateurs, décorateurs, context
+				managers, asyncio, typage, packaging). — Projet sur l’intermédiaire :{' '}
+				<a href={withBase('/programmation/projet-python-intermediaire-agenda')}>Agenda CLI</a>. — Projet sur l’avancé :{' '}
+				<a href={withBase('/programmation/projet-python-avance-journal')}>Journal CLI</a>. — Autres projets guidés :{' '}
+				<a href={withBase('/programmation/bataille-navale')}>Bataille navale</a>,{' '}
+				<a href={withBase('/programmation/pendu')}>Le pendu</a> (fichier de mots),{' '}
+				<a href={withBase('/programmation/puissance-4')}>Puissance 4</a>,{' '}
+				<a href={withBase('/programmation/carnet-todo')}>Carnet Todo + JSON</a>.
 			</p>
 			<ol class="lesson-list">
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/${articleSlugFromId(post.id)}/`}>
+							<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
 								<span class="num">{post.data.seriesOrder ?? '—'}</span>
 								<span class="meta">
 									<span class="title">{post.data.title}</span>
@@ -61,7 +67,7 @@ const posts = all
 				}
 			</ol>
 			<p class="back">
-				<a href="/programmation">← Toutes les rubriques programmation</a>
+				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
 		</main>
 		<Footer />

@@ -16,3 +16,12 @@ export const ZAPIER_CONTACT_WEBHOOK_URL =
 
 /** Adresse e-mail affichée sur le site */
 export const CONTACT_EMAIL = 'contact@robot-educatif.info';
+
+/** Auteur affiché sur les articles du blog */
+export const ARTICLE_AUTHOR = 'Emmanuel SAUVAGE';
+
+/*
+  Vues / notation des articles (optionnel) : définir dans `.env`
+  PUBLIC_SUPABASE_URL et PUBLIC_SUPABASE_ANON_KEY, puis exécuter
+  scripts/supabase-article-engagement.sql dans le projet Supabase.
+*/

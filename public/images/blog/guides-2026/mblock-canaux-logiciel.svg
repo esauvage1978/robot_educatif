@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" role="img" aria-labelledby="t">
+  <title id="t">Application mBlock, navigateur, Python</title>
+  <rect width="800" height="260" fill="#f6f8fa"/>
+  <text x="400" y="28" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" fill="#24292f">Trois &#171; portes &#187; vers le m&#234;me univers Makeblock</text>
+  <rect x="48" y="56" width="200" height="140" rx="8" fill="#fff" stroke="#0969da" stroke-width="2"/>
+  <text x="148" y="88" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#0969da">App bureau</text>
+  <text x="60" y="118" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Install, firmware,</text>
+  <text x="60" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">USB fiable.</text>
+  <rect x="300" y="56" width="200" height="140" rx="8" fill="#fff" stroke="#1f883d" stroke-width="2"/>
+  <text x="400" y="88" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#1f883d">Navigateur</text>
+  <text x="312" y="118" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Pratique sans install ;</text>
+  <text x="312" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">BT parfois capricieux.</text>
+  <rect x="552" y="56" width="200" height="140" rx="8" fill="#fff" stroke="#8250df" stroke-width="2"/>
+  <text x="652" y="88" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600" fill="#8250df">Python</text>
+  <text x="564" y="118" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">Apr&#232;s les blocs ;</text>
+  <text x="564" y="136" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#57606a">selon mod&#232;le / version.</text>
+  <text x="400" y="228" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="11" fill="#24292f">Commencez par l&apos;app si vous branchez un robot r&#233;el.</text>
+</svg>

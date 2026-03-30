@@ -2,6 +2,10 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { withBase } from '../lib/siteUrl';
+
+const cookiesUrl = withBase('/gestion-des-cookies/');
+const mentionsUrl = withBase('/mentions-legales/');
 ---
 
 <!doctype html>
@@ -18,7 +22,7 @@ import Header from '../components/Header.astro';
 			<article class="legal-doc">
 				<h1>Politique de confidentialité</h1>
 				<p class="legal-meta">
-					<time>Dernière mise à jour : 27 mars 2026</time>
+					<time>Dernière mise à jour : 28 mars 2026</time>
 				</p>
 				<p>
 					La présente politique décrit comment <strong>ROBOT éducatif</strong> (ci-après « nous », « l’éditeur »)
@@ -38,7 +42,7 @@ import Header from '../components/Header.astro';
 					</ul>
 					<p>
 						Le site est développé et administré par la même personne. L’hébergement est assuré par
-						<strong>o2switch</strong> (voir <a href="/mentions-legales/">mentions légales</a>), qui peut avoir
+						<strong>o2switch</strong> (voir <a href={mentionsUrl}>mentions légales</a>), qui peut avoir
 						accès à certaines données techniques dans le cadre strict de l’hébergement.
 					</p>
 				</section>
@@ -57,6 +61,12 @@ import Header from '../components/Header.astro';
 							peut être enregistré dans le stockage local de votre navigateur (<em>localStorage</em>) afin d’éviter
 							de devoir le redéfinir à chaque visite. Ces données restent sur votre appareil et ne sont pas
 							transmises au serveur par ce mécanisme.
+						</li>
+						<li>
+							<strong>Données de mesure d’audience (Google Analytics 4)</strong> : si vous acceptez les cookies
+							de statistiques via le bandeau du site, Google peut traiter des données telles que des identifiants
+							de navigateur, des informations sur les pages consultées et des données techniques agrégées. Voir
+							la <a href={cookiesUrl}>gestion des cookies</a> et la documentation Google.
 						</li>
 						<li>
 							<strong>Données que vous nous envoyez volontairement</strong> (si un formulaire de contact ou un
@@ -92,8 +102,15 @@ import Header from '../components/Header.astro';
 								<td>
 									Intérêt légitime (confort d’utilisation) ; lorsque des traceurs équivalents aux cookies sont
 									utilisés, la règlementation sur les traceurs et le consentement peut s’appliquer (voir
-									<a href="/gestion-des-cookies/">cookies</a>).
+									<a href={cookiesUrl}>cookies</a>).
 								</td>
+							</tr>
+							<tr>
+								<td>
+									Mesure d’audience et statistiques de fréquentation du Site (Google Analytics 4), via gtag et
+									Consent Mode
+								</td>
+								<td>Consentement (article 6.1.a RGPD) lorsque vous cliquez sur « Accepter » dans le bandeau</td>
 							</tr>
 							<tr>
 								<td>Respect des obligations légales (conservation de preuves, réponse aux autorités)</td>
@@ -125,7 +142,7 @@ import Header from '../components/Header.astro';
 					</p>
 					<p>
 						Vous êtes informé(e) de la nature commerciale de ces liens (publicité rémunérée / partenariat) dans
-						les <a href="/mentions-legales/">mentions légales</a> ; une mention courte peut également figurer à
+						les <a href={mentionsUrl}>mentions légales</a> ; une mention courte peut également figurer à
 						côté des recommandations de produits sur le Site.
 					</p>
 				</section>
@@ -136,14 +153,19 @@ import Header from '../components/Header.astro';
 					<ul>
 						<li><strong>o2switch</strong>, uniquement pour l’hébergement ;</li>
 						<li>
+							<strong>Google Ireland Limited</strong> (Google Analytics 4), lorsque vous avez accepté la mesure
+							d’audience — données hébergées dans l’Union européenne ou transférées selon les clauses types et la
+							politique Google ;
+						</li>
+						<li>
 							toute autorité administrative ou judiciaire légalement habilitée à en faire la demande.
 						</li>
 					</ul>
 					<p>
-						Nous ne vendons pas vos données personnelles. En l’absence d’outils d’analyse publicitaire tiers
-						intégrés directement au Site, les principaux traitements « publicitaires » liés aux achats passent par
-						Amazon après votre clic ; référez-vous à leurs paramètres et politiques pour limiter la publicité ciblée
-						sur leurs services.
+						Nous ne vendons pas vos données personnelles. Les traitements « publicitaires » liés aux achats sur
+						Amazon relèvent d’Amazon après votre clic ; référez-vous à leurs paramètres. Pour la mesure d’audience
+						Google, vous pouvez retirer votre consentement en réinitialisant le choix sur la page
+						<a href={cookiesUrl}>gestion des cookies</a>.
 					</p>
 				</section>
 
@@ -162,6 +184,10 @@ import Header from '../components/Header.astro';
 						<li>
 							<strong>Préférences locales (thème)</strong> : jusqu’à ce que vous effaciez les données du site
 							dans votre navigateur ou changiez d’appareil.
+						</li>
+						<li>
+							<strong>Données Google Analytics</strong> : durées et paramètres de conservation conformément à la
+							configuration du compte Analytics et aux options proposées par Google (voir leur aide).
 						</li>
 					</ul>
 				</section>
