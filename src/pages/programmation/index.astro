@@ -4,6 +4,7 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { AMAZON_AFFILIATE_TAG } from '../../consts';
 import bandeauPythonUrl from '../../assets/programmation/bandeau-python.svg?url';
+import bandeauArduinoCUrl from '../../assets/programmation/bandeau-arduino-c.svg?url';
 import bandeauBatailleNavaleUrl from '../../assets/programmation/bandeau-bataille-navale.svg?url';
 import bandeauPenduUrl from '../../assets/programmation/bandeau-pendu.svg?url';
 import bandeauPuissance4Url from '../../assets/programmation/bandeau-puissance-4.svg?url';
@@ -50,6 +51,24 @@ const tag = AMAZON_AFFILIATE_TAG;
 							<p>
 								10 articles : environnement, variables, types, conditions, boucles, fonctions, listes, fichiers,
 								débogage, mini-jeu au terminal.
+							</p>
+							<span class="cta">Voir le parcours →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/programmation/arduino-c')} class="track-card">
+							<img
+								src={bandeauArduinoCUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : parcours Arduino C — robotique"
+								loading="lazy"
+							/>
+							<h3>Arduino C — robotique (débutant)</h3>
+							<p>
+								Cinq leçons : structure d’un sketch, types et variables, conditions (seuils capteurs), boucles et
+								timing (<code>delay</code> vs <code>millis()</code>), fonctions et bonnes pratiques (DRY, portée).
+								— 20 exercices par leçon.
 							</p>
 							<span class="cta">Voir le parcours →</span>
 						</a>

@@ -1,8 +1,15 @@
 ---
 import CookieConsentBanner from './CookieConsentBanner.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
+import PagePathViewTracker from './PagePathViewTracker.astro';
 import { withBase } from '../lib/siteUrl';
 
+interface Props {
+	/** Pages article : true pour ne pas doubler les vues (déjà comptées par ArticleEngagement). */
+	suppressPagePathTracking?: boolean;
+}
+
+const { suppressPagePathTracking = false } = Astro.props;
 const today = new Date();
 ---
 
@@ -11,6 +18,7 @@ const today = new Date();
 		<a href={withBase('/blog/')}>Blog</a>
 		<a href={withBase('/recherche/')}>Recherche</a>
 		<a href={withBase('/categorie/')}>Catégories</a>
+		<a href={withBase('/partenariat/')}>Partenariat</a>
 		<a href={withBase('/contact/')}>Contact</a>
 		<a href={withBase('/mentions-legales/')}>Mentions légales</a>
 		<a href={withBase('/politique-de-confidentialite/')}>Politique de confidentialité</a>
@@ -52,5 +60,6 @@ const today = new Date();
 		margin: 0;
 	}
 </style>
+{!suppressPagePathTracking && <PagePathViewTracker />}
 <CookieConsentBanner />
 <GoogleAnalytics />

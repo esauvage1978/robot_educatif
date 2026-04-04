@@ -1,0 +1,129 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PageNotFoundTracker from '../components/PageNotFoundTracker.astro';
+import { withBase } from '../lib/siteUrl';
+
+/** Servie via ErrorDocument 404 : l’URL du navigateur reste /chemin/inexistant/ — <base> aligne les URLs relatives (_astro/, etc.). */
+const documentBaseHref = (Astro.site
+	? new URL(import.meta.env.BASE_URL, Astro.site)
+	: new URL(import.meta.env.BASE_URL, Astro.url)
+).href;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<base href={documentBaseHref} />
+		<BaseHead
+			title="Page introuvable (404)"
+			description="La page demandée n’existe pas ou a été déplacée — ROBOT éducatif."
+			noIndex={true}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="not-found">
+			<article class="not-found__article">
+				<p class="not-found__code" aria-hidden="true">404</p>
+				<h1>Page introuvable</h1>
+				<p class="not-found__lead">
+					Il n’y a pas de contenu à l’adresse indiquée. L’URL peut être incorrecte, ou la page a été renommée ou
+					supprimée.
+				</p>
+				<p class="not-found__path" id="not-found-display-path" hidden>
+					<span class="not-found__path-label">Chemin demandé :</span>
+					<code id="not-found-path-value"></code>
+				</p>
+				<nav class="not-found__actions" aria-label="Poursuivre la visite">
+					<Button href={withBase('/')}>Retour à l’accueil</Button>
+					<Button href={withBase('/recherche/')} variant="secondary">Recherche</Button>
+					<Button href={withBase('/blog/')} variant="secondary">Blog</Button>
+				</nav>
+			</article>
+		</main>
+		<Footer suppressPagePathTracking />
+		<PageNotFoundTracker />
+		<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL ?? '/' }}>
+			(function () {
+				function normalizePath(pathname, base) {
+					var b = base || '/';
+					if (!b.endsWith('/')) b += '/';
+					var p = pathname;
+					if (b !== '/' && p.startsWith(b)) {
+						p = p.slice(b.length);
+					}
+					if (!p.startsWith('/')) p = '/' + p;
+					if (p === '' || p === '/') return '/';
+					if (p.length > 1 && !p.endsWith('/')) p += '/';
+					return p;
+				}
+				var path = normalizePath(window.location.pathname, baseUrl);
+				var wrap = document.getElementById('not-found-display-path');
+				var codeEl = document.getElementById('not-found-path-value');
+				if (wrap && codeEl && path && path !== '/') {
+					codeEl.textContent = path;
+					wrap.hidden = false;
+				}
+			})();
+		</script>
+		<style>
+			.not-found {
+				width: min(640px, calc(100% - 2rem));
+				margin: 0 auto;
+				padding: 2.5rem 0 3.5rem;
+			}
+			.not-found__article {
+				text-align: center;
+			}
+			.not-found__code {
+				margin: 0 0 0.5rem;
+				font-size: clamp(3.5rem, 12vw, 5.5rem);
+				font-weight: 800;
+				line-height: 1;
+				letter-spacing: -0.04em;
+				color: color-mix(in oklab, var(--accent) 55%, rgb(var(--gray)));
+				font-variant-numeric: tabular-nums;
+			}
+			.not-found__article h1 {
+				margin: 0 0 1rem;
+				font-size: clamp(1.35rem, 3vw, 1.75rem);
+			}
+			.not-found__lead {
+				margin: 0 0 1.25rem;
+				line-height: 1.6;
+				color: rgb(var(--gray-dark));
+				font-size: 1.02rem;
+			}
+			.not-found__path {
+				margin: 0 0 1.75rem;
+				font-size: 0.92rem;
+				color: rgb(var(--gray));
+				line-height: 1.5;
+				word-break: break-all;
+			}
+			.not-found__path-label {
+				display: block;
+				margin-bottom: 0.35rem;
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
+			}
+			.not-found__path code {
+				font-size: 0.88em;
+				padding: 0.2rem 0.45rem;
+				border-radius: 6px;
+				background: var(--surface-2);
+				border: 1px solid var(--surface-border);
+			}
+			.not-found__actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</body>
+</html>

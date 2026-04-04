@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" role="img" aria-labelledby="t">
+  <title id="t">Arduino C - programmation</title>
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00979D"/>
+      <stop offset="100%" style="stop-color:#0f5b60"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" fill="url(#g)"/>
+  <text x="400" y="112" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="54" font-weight="850">Arduino C</text>
+  <text x="400" y="165" text-anchor="middle" fill="#dff9fb" font-family="system-ui,sans-serif" font-size="22" font-weight="650">Robotique - capteurs, actionneurs, bonnes pratiques</text>
+</svg>
+

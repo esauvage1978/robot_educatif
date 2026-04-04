@@ -1,0 +1,185 @@
+---
+/**
+ * Bouton ou lien d’action — styles unifiés (CTA, secondaire, discret).
+ * `tone="inverse"` : texte sur fond sombre (ex. hero accueil).
+ */
+interface Props {
+	variant?: 'primary' | 'secondary' | 'ghost';
+	tone?: 'default' | 'inverse';
+	size?: 'md' | 'sm';
+	href?: string;
+	type?: 'button' | 'submit' | 'reset';
+	class?: string;
+}
+
+const props = Astro.props as Props & Record<string, unknown>;
+const {
+	variant = 'primary',
+	tone = 'default',
+	size = 'md',
+	href,
+	class: className = '',
+	type = 'button',
+	...rest
+} = props;
+
+const classes = [
+	'ui-btn',
+	`ui-btn--${variant}`,
+	tone === 'inverse' && 'ui-btn--inverse',
+	size === 'sm' && 'ui-btn--sm',
+	className,
+]
+	.filter(Boolean)
+	.join(' ');
+---
+
+{
+	href ? (
+		<a href={href} class={classes} {...rest}>
+			<slot />
+		</a>
+	) : (
+		<button type={type} class={classes} {...rest}>
+			<slot />
+		</button>
+	)
+}
+
+<style>
+	.ui-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.25rem;
+		box-sizing: border-box;
+		font-family: var(--font-body, system-ui);
+		font-weight: 700;
+		font-size: 1rem;
+		line-height: 1.25;
+		text-decoration: none;
+		border-radius: 8px;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease,
+			filter 0.12s ease,
+			transform 0.12s ease;
+	}
+	.ui-btn--sm {
+		font-size: 0.92rem;
+		padding: 0.5rem 0.95rem;
+		border-radius: 7px;
+	}
+	.ui-btn:not(.ui-btn--sm) {
+		padding: 0.65rem 1.2rem;
+	}
+
+	/* --- default tone --- */
+	.ui-btn--primary:not(.ui-btn--inverse) {
+		color: #fff !important;
+		background: var(--brand-gradient, linear-gradient(135deg, var(--accent), var(--accent-warm)));
+		border-color: color-mix(in oklab, #fff 18%, transparent);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.18) inset,
+			0 2px 0 rgba(0, 0, 0, 0.12) inset,
+			0 4px 16px rgba(0, 0, 0, 0.28);
+	}
+	.ui-btn--primary:not(.ui-btn--inverse):hover {
+		filter: brightness(1.07);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.22) inset,
+			0 2px 0 rgba(0, 0, 0, 0.1) inset,
+			0 6px 20px rgba(0, 0, 0, 0.32);
+	}
+	html[data-theme='light'] .ui-btn--primary:not(.ui-btn--inverse) {
+		border-color: color-mix(in oklab, var(--accent-warm) 35%, #fff 40%);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.65) inset,
+			0 2px 0 rgba(0, 0, 0, 0.06) inset,
+			0 4px 14px rgba(15, 25, 45, 0.14);
+	}
+	html[data-theme='light'] .ui-btn--primary:not(.ui-btn--inverse):hover {
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.75) inset,
+			0 2px 0 rgba(0, 0, 0, 0.05) inset,
+			0 6px 18px rgba(15, 25, 45, 0.18);
+	}
+	.ui-btn--secondary:not(.ui-btn--inverse) {
+		color: #fff !important;
+		background: color-mix(in oklab, var(--accent) 88%, #fff 12%);
+		border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.12) inset,
+			0 3px 12px rgba(0, 0, 0, 0.18);
+	}
+	.ui-btn--secondary:not(.ui-btn--inverse):hover {
+		filter: brightness(1.05);
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.16) inset,
+			0 4px 14px rgba(0, 0, 0, 0.22);
+	}
+	html[data-theme='light'] .ui-btn--secondary:not(.ui-btn--inverse) {
+		box-shadow:
+			0 1px 0 rgba(255, 255, 255, 0.5) inset,
+			0 3px 10px rgba(15, 25, 45, 0.1);
+	}
+	.ui-btn--ghost:not(.ui-btn--inverse) {
+		color: var(--accent-dark) !important;
+		background: color-mix(in oklab, var(--accent) 22%, var(--surface-2));
+		border-color: color-mix(in oklab, var(--accent) 38%, var(--surface-border));
+	}
+	.ui-btn--ghost:not(.ui-btn--inverse):hover {
+		background: color-mix(in oklab, var(--accent) 32%, var(--surface-2));
+		text-decoration: none !important;
+	}
+	html[data-theme='light'] .ui-btn--ghost:not(.ui-btn--inverse) {
+		background: color-mix(in oklab, var(--accent) 14%, #fff);
+		color: var(--accent-dark) !important;
+	}
+	html[data-theme='light'] .ui-btn--ghost:not(.ui-btn--inverse):hover {
+		background: color-mix(in oklab, var(--accent) 22%, #eef6f9);
+		color: #0c3a50 !important;
+	}
+	html:not([data-theme='light']) .ui-btn--ghost:not(.ui-btn--inverse):hover {
+		color: var(--accent) !important;
+	}
+
+	/* --- inverse (sur fond sombre) --- */
+	.ui-btn--inverse.ui-btn--primary {
+		background: var(--accent);
+		border-color: color-mix(in oklab, var(--accent) 80%, #fff 20%);
+		color: #fff !important;
+		box-shadow: none;
+	}
+	.ui-btn--inverse.ui-btn--primary:hover {
+		background: color-mix(in oklab, var(--accent) 88%, #fff 12%);
+		filter: none;
+	}
+	.ui-btn--inverse.ui-btn--secondary {
+		background: rgba(255, 255, 255, 0.12);
+		border-color: rgba(255, 255, 255, 0.35);
+		color: #fff !important;
+	}
+	.ui-btn--inverse.ui-btn--secondary:hover {
+		background: rgba(255, 255, 255, 0.2);
+	}
+	.ui-btn--inverse.ui-btn--ghost {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.28);
+		color: rgba(255, 255, 255, 0.95) !important;
+	}
+	.ui-btn--inverse.ui-btn--ghost:hover {
+		background: rgba(255, 255, 255, 0.16);
+	}
+
+	.ui-btn:disabled {
+		opacity: 0.65;
+		cursor: not-allowed;
+		transform: none;
+		filter: none;
+		box-shadow: none;
+	}
+</style>

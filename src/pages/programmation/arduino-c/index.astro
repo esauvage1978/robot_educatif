@@ -1,0 +1,180 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { articleSlugFromId } from '../../../lib/articleSlug';
+import { withBase } from '../../../lib/siteUrl';
+import bandeauArduinoUrl from '../../../assets/programmation/bandeau-arduino-c.svg?url';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+
+const tag = AMAZON_AFFILIATE_TAG;
+const SERIE = 'Arduino C';
+const all = await getCollection('blog');
+const posts = all
+	.filter((p) => p.data.series === SERIE)
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Arduino C — parcours débutant (robotique)"
+			description="Série de cours Arduino C pour débutant orientée robotique : variables, conditions, boucles, timing (millis), modularité et bonnes pratiques, avec 20 exercices par leçon."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="py-series">
+			<nav class="breadcrumb" aria-label="Fil d’Ariane">
+				<a href={withBase('/programmation')}>Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>Arduino C</span>
+			</nav>
+			<img
+				class="track-hero"
+				src={bandeauArduinoUrl}
+				width="800"
+				height="250"
+				alt="Bandeau visuel : parcours Arduino C"
+				loading="eager"
+			/>
+			<h1>Arduino C — parcours robotique (débutant)</h1>
+			<p class="lead">
+				Leçons progressives pour passer de la structure d’un sketch aux automatismes utiles en robotique : types,
+				seuils, boucles, timing non-bloquant avec <code>millis()</code> et modularité. Chaque article propose du{' '}
+				<strong>code</strong>, des <strong>exercices</strong> et des <strong>bonnes pratiques</strong>.
+				Ressources complémentaires sur{' '}
+				<a
+					href={`https://www.amazon.fr/s?k=arduino+apprendre+c+livre&tag=${tag}`}
+					target="_blank"
+					rel="noopener noreferrer sponsored">Amazon.fr</a>{' '}
+				(partenaire).
+			</p>
+
+			<ol class="lesson-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+								<span class="num">{post.data.seriesOrder ?? '—'}</span>
+								<span class="meta">
+									<span class="title">{post.data.title}</span>
+									<span class="desc">{post.data.description}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+			<p class="back">
+				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.py-series {
+		width: min(720px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 2rem 0 3rem;
+	}
+	.track-hero {
+		width: 100%;
+		height: auto;
+		border-radius: 14px;
+		border: 1px solid var(--surface-border);
+		margin: 0.75rem 0 1.25rem;
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1rem;
+	}
+	.breadcrumb a {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	.py-series h1 {
+		font-size: clamp(1.65rem, 3vw, 2rem);
+		margin: 0 0 0.75rem;
+		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.lead {
+		margin: 0 0 1.75rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.lead a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.lesson-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: lesson;
+	}
+	.lesson-list li {
+		margin-bottom: 0.65rem;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.lesson-list a:hover {
+		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.num {
+		flex-shrink: 0;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 8px;
+		background: var(--brand-gradient, linear-gradient(135deg, var(--accent), var(--accent-warm)));
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.95rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		min-width: 0;
+	}
+	.meta .title {
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.lesson-list a:hover .title {
+		color: var(--accent);
+	}
+	.meta .desc {
+		font-size: 0.88rem;
+		color: rgb(var(--gray));
+		line-height: 1.45;
+	}
+	.back {
+		margin-top: 2rem;
+	}
+	.back a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>
+

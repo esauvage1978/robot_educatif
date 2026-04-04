@@ -1,5 +1,7 @@
 # https://robot-educatif.info — Astro (@astrojs/sitemap)
 User-agent: *
 Allow: /
+# Si le site est servi sous un sous-dossier (ASTRO_BASE), préfixer ce chemin (ex. /projet/stats-articles-interne/).
+Disallow: /stats-articles-interne/
 
 Sitemap: https://robot-educatif.info/sitemap-index.xml

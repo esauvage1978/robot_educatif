@@ -1,0 +1,60 @@
+---
+/**
+ * Enregistre le chemin demandé (404) dans Supabase — à utiliser uniquement sur la page 404.
+ */
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+const enabled = Boolean(supabaseUrl && supabaseKey);
+---
+
+{
+	enabled && (
+		<script is:inline define:vars={{ supabaseUrl, supabaseKey, baseUrl }}>
+			(function () {
+				function stripNullBytes(s) {
+					if (s == null) return '';
+					return String(s).split('\u0000').join('');
+				}
+				function normalizePath(pathname, base) {
+					var b = stripNullBytes(base || '/');
+					if (!b.endsWith('/')) b += '/';
+					var p = stripNullBytes(pathname);
+					if (b !== '/' && p.startsWith(b)) {
+						p = p.slice(b.length);
+					}
+					if (!p.startsWith('/')) p = '/' + p;
+					if (p === '' || p === '/') return '/';
+					if (p.length > 1 && !p.endsWith('/')) p += '/';
+					return p;
+				}
+
+				var path = normalizePath(window.location.pathname, baseUrl);
+
+				fetch(supabaseUrl + '/rest/v1/rpc/increment_page_not_found', {
+					method: 'POST',
+					headers: {
+						apikey: supabaseKey,
+						Authorization: 'Bearer ' + supabaseKey,
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ p_requested_path: path }),
+				})
+					.then(function (res) {
+						return res.text().then(function (txt) {
+							if (!res.ok) {
+								console.warn('[404 stats] RPC HTTP ' + res.status, txt || '');
+								return;
+							}
+							if (typeof console !== 'undefined' && console.debug) {
+								console.debug('[404 stats] OK', path, txt || '(vide)');
+							}
+						});
+					})
+					.catch(function (err) {
+						console.warn('[404 stats] réseau', err);
+					});
+			})();
+		</script>
+	)
+}

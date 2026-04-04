@@ -87,6 +87,9 @@ En **Live** (connecté), vous **testez** souvent en direct. Le **téléversement
 **mBlock 5 et mBlock 3 : pareil ?**  
 Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle type Scratch 3). Si vous ouvrez un très vieux tutoriel, les libellés peuvent différer légèrement.
 
+**« Minecraft mblock » ou Minecraft et mBlock : c’est pareil ?**  
+**Non.** **Minecraft** est un **jeu** de construction en blocs 3D. **mBlock** est le **logiciel de programmation** Makeblock (blocs de code, robots **mBot**, etc.). Si une recherche ne retourne pas le bon outil, ajoutez **Makeblock** ou **mBot** à votre requête.
+
 ## Liens Amazon (affiliation)
 
 - [Robot Makeblock mBot](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)

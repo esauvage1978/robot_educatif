@@ -8,6 +8,10 @@
 	# Si le site est dans un sous-dossier, décommentez et adaptez :
 	# RewriteBase /site_vitrine/robot_educatif/
 
+	# Ancien segment anglais « category » (liens externes / Google) → « categorie »
+	RewriteRule ^category/?$ /categorie/ [R=301,L,NC]
+	RewriteRule ^category/(.*)$ /categorie/$1 [R=301,L,NC]
+
 	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]
@@ -16,6 +20,11 @@
 
 # Page d’accueil des dossiers
 DirectoryIndex index.html
+
+# 404 personnalisée : le build Astro produit /404.html à la racine du site.
+# Sans cette ligne, l’hébergeur peut utiliser un ErrorDocument cassé → message
+# « error was encountered while trying to use an ErrorDocument ».
+ErrorDocument 404 /404.html
 
 # Ne pas lister le contenu des répertoires
 Options -Indexes

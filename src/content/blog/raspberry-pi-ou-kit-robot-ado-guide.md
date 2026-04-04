@@ -11,14 +11,14 @@ categories:
   - "Guide"
   - "À partir de 12 ans"
 relatedLinks:
+  - title: "Comparatif Pi 3 / 4 / 5"
+    href: "/raspberry-pi-3-vs-4-vs-5-comparatif-2026/"
   - title: "Mise en route Raspberry Pi 3"
     href: "/mise-en-route-raspberry-pi-3-modele-b/"
+  - title: "Raspberry Pi 4 : quelle mémoire ?"
+    href: "/raspberry-pi-4-quelle-version-memoire-acheter/"
   - title: "mBot2 vs CyberPi"
     href: "/mbot2-vs-cyberpi-comparatif/"
-  - title: "Quel robot pour 12 ans ?"
-    href: "/quel-robot-acheter-enfant-12-ans-guide-achat/"
-  - title: "CyberPi Makeblock"
-    href: "/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/"
 ---
 
 Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable** type **Raspberry Pi** (projets variés, Linux, Python « pur ») et le **robot éducatif** (motivation immédiate, mouvement, capteurs). Ce n’est pas le même investissement en **temps adulte** ni le même **niveau d’autonomie** — et ce n’est pas non plus « l’un mieux que l’autre » : ça dépend de ce que l’ado veut **montrer** en premier.

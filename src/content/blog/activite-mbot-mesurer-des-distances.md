@@ -19,14 +19,19 @@ relatedLinks:
     href: "/premier-pas-avec-mblock-5/"
 ---
 
-Cette activité en **deux temps** vous guide pour :
+<aside class="article-callout" role="note">
+<p><strong>Côté cours (collège / lycée)</strong></p>
+<p>En une séance, tu peux montrer une <strong>mesure physique réelle</strong> (distance), un <strong>retour visuel</strong> sur l’écran mBlock, puis le même principe <strong>embarqué</strong> sur le robot — idéal pour parler capteur, variable, types de données et programme autonome.</p>
+</aside>
+
+Cette activité en **deux temps** guide pour :
 
 1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://amzn.to/3avo9qi?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
 2. **Afficher cette distance sur la matrice LED** du robot en **mode autonome** (sans câble), en gérant le passage **nombre → texte**.
 
 Les libellés exacts des blocs peuvent varier selon la **version de mBlock** et la **langue** de l’interface ; l’**enchaînement logique** reste le même.
 
-**Vidéo d’accompagnement (YouTube)** — *Activité mBot : mesure des distances* : [youtube.com/watch?v=1smaSvnB7Aw](https://www.youtube.com/watch?v=1smaSvnB7Aw)
+> **Vidéo** — *Activité mBot : mesure des distances* : [YouTube — démonstration pas à pas](https://www.youtube.com/watch?v=1smaSvnB7Aw)
 
 ## 1. Prérequis
 
@@ -55,7 +60,12 @@ La vitesse du son intervient dans le calcul côté carte ; pour l’activité, l
 
 Quand vous lancez le script, la variable se **met à jour** : vous lisez la distance en **cm** (tant que l’obstacle reste dans la plage valide).
 
-Captures d’écran d’origine (référence) : [blocks-4.png](https://robot-educatif.info/wp-content/uploads/2020/04/blocks-4.png), [c1.png](https://robot-educatif.info/wp-content/uploads/2020/04/c1.png) — si elles ne s’affichent plus, reproduisez la structure **boucle + capteur → variable** comme ci-dessus.
+<figure class="article-figure">
+  <img src="/capture/capteur/mblock-capteur-ultrason-variable-lutin.png" alt="Capture mBlock : script en boucle qui lit le capteur ultrason du mBot et affecte la valeur à une variable affichée dans la zone du lutin." width="960" height="540" loading="lazy" decoding="async" />
+  <figcaption>Exemple de script : le capteur alimente une variable visible près du lutin — pratique pour vérifier que la mesure « vit » quand tu bouges une feuille devant le robot.</figcaption>
+</figure>
+
+Références d’époque (si besoin de comparer avec d’autres versions de mBlock) : [blocks-4.png](https://robot-educatif.info/wp-content/uploads/2020/04/blocks-4.png), [c1.png](https://robot-educatif.info/wp-content/uploads/2020/04/c1.png).
 
 ## 4. Deuxième partie : distance sur la matrice LED (autonome)
 
@@ -103,4 +113,4 @@ Ici, `data` est la variable qui contient la distance lue ; on forme une **chaîn
 
 ## 6. Aller plus loin
 
-Pour prolonger avec le **mBot**, la **robotique** et l’**algorithmique**, des ouvrages et kits sont faciles à trouvoir sur les librairies en ligne ; sur ce site, enchaînez avec les autres [activités mBot](/categorie/mbot/) et les guides **mBlock** listés dans la colonne « À lire aussi ».
+Pour prolonger avec le **mBot**, la **robotique** et l’**algorithmique**, poursuivez avec les autres fiches du site : [activités mBot](/categorie/mbot/), [détecteur d’intrusion](/activite-mbot-detecteur-dintrusion/) (même famille de capteur), et les guides **mBlock** dans la colonne « À lire aussi ».

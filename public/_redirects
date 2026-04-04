@@ -1,0 +1,6 @@
+# Netlify / Cloudflare Pages (fichier public → copié à la racine du déploiement)
+# Anciennes URLs /category/… → /categorie/… (301, même effet SEO qu’Apache .htaccess)
+
+/category /categorie/ 301
+/category/ /categorie/ 301
+/category/* /categorie/:splat 301

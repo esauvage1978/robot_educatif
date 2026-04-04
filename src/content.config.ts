@@ -20,6 +20,7 @@ const blog = defineCollection({
 			/** Liens Amazon (recherches affiliées) affichés dans la colonne latérale de l’article */
 			amazonPreset: z
 				.enum([
+					'general',
 					'mbot',
 					'mbot2',
 					'mbotVs',

@@ -16,7 +16,15 @@ import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 export default defineConfig({
 	site: 'https://robot-educatif.info',
 	base: normalizeAstroBase(process.env.ASTRO_BASE),
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => {
+				const u = String(page);
+				return !u.includes('/stats-articles-interne') && !u.endsWith('/404');
+			},
+		}),
+	],
 	// Évite 2 requêtes CSS bloquantes sur le chemin critique (LCP / FCP en lab 4G).
 	build: {
 		inlineStylesheets: 'always',

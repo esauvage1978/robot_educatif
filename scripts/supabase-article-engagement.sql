@@ -57,3 +57,8 @@ end;
 $$;
 
 grant execute on function public.submit_article_rating(text, int) to anon, authenticated;
+
+-- Tableau de bord vues / notes (page Astro statique, noindex, hors sitemap) : /stats-articles-interne/
+-- Lecture : GET /rest/v1/article_engagement (policy select true — ne pas diffuser l’URL publiquement).
+--
+-- Vues des autres pages (accueil, contact, etc.) : exécuter aussi scripts/supabase-page-path-stats.sql

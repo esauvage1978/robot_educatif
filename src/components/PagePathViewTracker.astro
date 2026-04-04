@@ -1,0 +1,132 @@
+---
+/**
+ * Envoie un RPC Supabase à chaque chargement de page pour incrémenter page_path_stats.
+ * Désactivé sur les articles blog (Footer avec suppressPagePathTracking) pour ne pas doubler article_engagement.views.
+ */
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+const enabled = Boolean(supabaseUrl && supabaseKey);
+---
+
+{
+	enabled && (
+		<script is:inline define:vars={{ supabaseUrl, supabaseKey, baseUrl }}>
+			(function () {
+				function stripNullBytes(s) {
+					if (s == null) return '';
+					return String(s).split('\u0000').join('');
+				}
+				function normalizePath(pathname, base) {
+					var b = stripNullBytes(base || '/');
+					if (!b.endsWith('/')) b += '/';
+					var p = stripNullBytes(pathname);
+					if (b !== '/' && p.startsWith(b)) {
+						p = p.slice(b.length);
+					}
+					if (!p.startsWith('/')) p = '/' + p;
+					if (p === '' || p === '/') return '/';
+					if (p.length > 1 && !p.endsWith('/')) p += '/';
+					return p;
+				}
+
+				var path = normalizePath(window.location.pathname, baseUrl);
+
+				function sanitizeTrafficPart(s, maxLen) {
+					s = String(s || '')
+						.toLowerCase()
+						.trim()
+						.replace(/[\r\n\u0000]/g, '')
+						.slice(0, maxLen);
+					return s;
+				}
+
+				/** utm_* sur l’URL courante (prioritaire sur document.referrer). */
+				function utmSourceMedium() {
+					try {
+						var sp = new URLSearchParams(window.location.search);
+						var us = sp.get('utm_source');
+						var um = sp.get('utm_medium');
+						if (!us && !um) return null;
+						var s = sanitizeTrafficPart(us || '(not set)', 100);
+						var m = sanitizeTrafficPart(um || '(none)', 80);
+						return s + ' / ' + m;
+					} catch (e) {
+						return null;
+					}
+				}
+
+				/**
+				 * Quand le navigateur n’envoie pas de Referer (souvent depuis Google), des paramètres d’URL
+				 * restent parfois présents après le clic (srsltid sur certaines SERP, gclid pour les annonces).
+				 */
+				function attributionFromUrlParams() {
+					try {
+						var sp = new URLSearchParams(window.location.search);
+						if (sp.get('gclid') || sp.get('gbraid') || sp.get('wbraid')) return 'google / cpc';
+						if (sp.get('msclkid')) return 'bing / cpc';
+						if (sp.get('fbclid')) return 'facebook / paid_social';
+						if (sp.get('srsltid')) return 'google / organic';
+						return null;
+					} catch (e) {
+						return null;
+					}
+				}
+
+				function searchEngineSource(hostname) {
+					var h = hostname.toLowerCase();
+					if (/\.(doubleclick|googleadservices|gstatic|googleusercontent)\./.test(h)) return null;
+					if (h.includes('.google.') || h === 'google.com' || /^www\.google\./.test(h)) return 'google';
+					if (h.includes('bing.com')) return 'bing';
+					if (h.includes('yahoo.') || h.includes('search.yahoo')) return 'yahoo';
+					if (h.includes('duckduckgo')) return 'duckduckgo';
+					if (h.includes('qwant')) return 'qwant';
+					if (h.includes('ecosia')) return 'ecosia';
+					if (h.includes('startpage')) return 'startpage';
+					if (h.includes('search.brave') || h === 'brave.com') return 'brave';
+					if (h.includes('baidu')) return 'baidu';
+					if (h.includes('yandex')) return 'yandex';
+					return null;
+				}
+
+				/** Style GA : « source / support » (organic vs referral, hôte pour les sites). */
+				function trafficSourceMedium() {
+					var fromUtm = utmSourceMedium();
+					if (fromUtm) return fromUtm;
+
+					var fromParams = attributionFromUrlParams();
+					if (fromParams) return fromParams;
+
+					var r = document.referrer;
+					if (!r) return '(direct) / (none)';
+					var u;
+					try {
+						u = new URL(r);
+					} catch (e) {
+						return 'invalid / (none)';
+					}
+					var host = u.hostname.toLowerCase();
+					if (host.length > 180) host = host.slice(0, 180);
+					if (u.origin === window.location.origin) return '(internal) / (internal)';
+
+					var eng = searchEngineSource(host);
+					if (eng) return eng + ' / organic';
+
+					return host + ' / referral';
+				}
+
+				/* Pas de Prefer: return=representation (écritures tabulaires) : sur RPC → int, PostgREST peut répondre 500. */
+				fetch(supabaseUrl + '/rest/v1/rpc/increment_page_path_view', {
+					method: 'POST',
+					headers: {
+						apikey: supabaseKey,
+						Authorization: 'Bearer ' + supabaseKey,
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ p_path: path, p_referrer_origin: trafficSourceMedium() }),
+					keepalive: true,
+				}).catch(function () {});
+			})();
+		</script>
+	)
+}

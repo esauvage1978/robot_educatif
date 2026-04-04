@@ -1,9 +1,9 @@
 ---
 title: "mBot, mon premier robot éducatif"
-description: "Le mBot est un robot éducatif en kit idéal pour découvrir la robotique. Sa programmation se fait par Scratch, l’environnement visuel par excellence."
+description: "Robot mBot (robot éducatif Makeblock) : fonctionnement, programmation avec mBlock, idée de ce qu’est un robot pédagogique. Liens vers installation mBlock et premier programme."
 pubDate: "2023-04-06"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2023-04-09"
+updatedDate: "2026-03-31"
 amazonPreset: mbot
 categories:
   - "Robot éducatif"
@@ -77,4 +77,26 @@ On entre là dans la section la plus intéressante à mon goût car les possibil
 
 La première étape consiste à [installer l’environnement de développement, à savoir mBlock](/installer-mblock-5-sous-windows-10/) basé sur Scratch.
 
-La seconde consiste à prendre en main [l’application mBlock](/premier-pas-avec-mblock-5/)
+La seconde consiste à prendre en main [l’application mBlock](/premier-pas-avec-mblock-5/).
+
+## Questions fréquentes
+
+### Comment fonctionne le robot mBot ?
+
+Le **mBot** est une **petite plateforme mobile** : une **carte électronique** (souvent **mCore**) lit un **programme** que vous préparez sur l’ordinateur, puis **commande** les **moteurs** (avancer, tourner), les **LED**, le **buzzer** et lit les **capteurs** (par exemple **ultrason** pour la distance, capteur de **ligne** sous le châssis). Au démarrage, il peut exécuter un **programme déjà enregistré** dans la carte (**téléversement** depuis mBlock) ou des **modes** préchargés selon votre modèle — d’où les comportements « éviter les obstacles » ou « suivre une ligne » sans ouvrir le logiciel.
+
+### Robot éducatif, robot pédagogique : le mBot est-il dans cette catégorie ?
+
+Oui. Les **robots éducatifs** (ou **robots pédagogiques**) sont pensés pour **apprendre** la programmation et la robotique en manipulant un objet réel. Le **mBot** en est un exemple très répandu en **milieu scolaire** et en famille.
+
+### mBot : programmation et « programme mBot »
+
+La **programmation** se fait en **blocs** avec **mBlock** (voir [installation](/installer-mblock-5-sous-windows-10/) et [prise en main](/premier-pas-avec-mblock-5/)). Un **programme mBot** est une suite de blocs qui décrit ce que doit faire le robot ; pour un premier exemple pas à pas : [Mon premier programme mBot](/mon-premier-programme-mbot/).
+
+### « Programme mBot corrigé » ou ça ne fait pas ce que je veux : par où commencer ?
+
+Vérifiez que le **bon appareil** est sélectionné dans mBlock, que le robot est **connecté** (USB souvent le plus simple pour tester), puis **téléversez** à nouveau après chaque modification. Pour des soucis de **connexion sans fil**, voir [dépannage Bluetooth mBlock](/mblock-bluetooth-erreurs-frequentes-depannage/). Pour comparer avec une version plus récente du robot : [mBot vs mBot 2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
+
+### mBot et « m bots » (recherche approximative)
+
+Il s’agit en général du même produit : le **mBot** de **Makeblock** (« m » pour la gamme, **Bot** pour robot). Méfiez-vous des **imitations** sans doc ni communauté : préférez les fiches **Makeblock** officielles ou revendeurs reconnus.

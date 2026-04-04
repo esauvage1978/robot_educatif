@@ -1,40 +1,41 @@
 /**
- * Vérifie que les visuels du tutoriel mBlock sont bien dans public/
- * (SVG pour la plupart des étapes ; PNG pour les captures réelles).
+ * Vérifie les visuels référencés par installer-mblock-5-sous-windows-10.md
+ * (page + UAC dans public/images/blog/installer-mblock ; captures + exe optionnel dans public/capture/...).
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dir = path.join(__dirname, '..', 'public', 'images', 'blog', 'installer-mblock');
+const root = path.join(__dirname, '..', 'public');
+const imgDir = path.join(root, 'images', 'blog', 'installer-mblock');
+const captureDir = path.join(root, 'capture', 'installer-mblock-5-sous-windows-10');
 
-const svgFiles = [
-	'ecran-02-explorateur-exe.svg',
-	'ecran-03-uac.svg',
-	'ecran-04-langue.svg',
-	'ecran-05-dossier-destination.svg',
-	'ecran-06-menu-demarrer.svg',
-	'ecran-07-raccourci-bureau.svg',
-	'ecran-08-pret-installer.svg',
-];
-
-const pngFiles = [
-	'ecran-01-page-makeblock.png',
-	'ecran-09-progression.png',
-	'ecran-10-termine.png',
+const pngBlog = ['ecran-01-page-makeblock.png'];
+const svgBlog = ['ecran-03-uac.svg'];
+const pngCapture = [
+	'explorateur_telechargement.png',
+	'installation_fin.png',
+	'taille-dossier-mblock-apres-install.png',
 ];
 
 let ok = true;
-for (const f of pngFiles) {
-	const p = path.join(dir, f);
+for (const f of pngBlog) {
+	const p = path.join(imgDir, f);
 	if (!existsSync(p)) {
 		console.error(`[verify] Manquant : ${p}`);
 		ok = false;
 	}
 }
-for (const f of svgFiles) {
-	const p = path.join(dir, f);
+for (const f of pngCapture) {
+	const p = path.join(captureDir, f);
+	if (!existsSync(p)) {
+		console.error(`[verify] Manquant : ${p}`);
+		ok = false;
+	}
+}
+for (const f of svgBlog) {
+	const p = path.join(imgDir, f);
 	if (!existsSync(p)) {
 		console.error(`[verify] Manquant : ${p}`);
 		ok = false;
@@ -57,7 +58,15 @@ for (const f of svgFiles) {
 		ok = false;
 	}
 }
+
+const exePath = path.join(captureDir, 'V5.6.0.exe');
+if (!existsSync(exePath)) {
+	console.warn(`[verify] Optionnel absent (lien secours article) : ${exePath}`);
+}
+
 if (!ok) {
 	process.exit(1);
 }
-console.log(`[verify] OK — ${pngFiles.length} PNG + ${svgFiles.length} SVG dans public/images/blog/installer-mblock/`);
+console.log(
+	`[verify] OK — ${pngBlog.length} PNG + ${svgBlog.length} SVG (installer-mblock) + ${pngCapture.length} PNG (capture/installer-mblock-5-sous-windows-10).`,
+);

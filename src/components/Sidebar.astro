@@ -1,4 +1,5 @@
 ---
+import Button from './Button.astro';
 import { amazonSearchUrl } from '../lib/amazon';
 import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
 import { categoryToSlug, type TopCategory } from '../lib/categories';
@@ -65,6 +66,31 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 			</section>
 		)
 	}
+	<section class="widget widget-feedback" aria-labelledby="sidebar-feedback-title">
+		<h3 id="sidebar-feedback-title">Votre avis</h3>
+		<p class="feedback-text">
+			{
+				articleSlug ? (
+					<>
+						Vous avez un <strong>retour</strong> sur cet article, des <strong>points à améliorer</strong> ou
+						des <strong>sujets</strong> à aborder ? Écrivez-nous : votre message aide à enrichir le site.
+					</>
+				) : (
+					<>
+						Vous avez un <strong>retour</strong> sur le site, des <strong>idées d’articles</strong> ou des{' '}
+						<strong>sujets</strong> à aborder ? Écrivez-nous : votre message aide à orienter les prochains contenus.
+					</>
+				)
+			}
+		</p>
+		<p class="feedback-cta-wrap">
+			<Button href={withBase('/contact/')} variant="ghost" size="sm" target="_blank" rel="noopener noreferrer">
+				Me contacter
+				<span class="sr-only"> (ouvre dans un nouvel onglet)</span>
+				<span aria-hidden="true" class="external-hint"> ↗</span>
+			</Button>
+		</p>
+	</section>
 	{
 		categories.length > 0 && (
 			<section class="widget widget-categories" aria-labelledby="sidebar-categories-title">
@@ -136,6 +162,38 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 	}
 	.widget-top-categories {
 		border-color: color-mix(in oklab, var(--accent-warm) 12%, var(--surface-border));
+	}
+	.widget-feedback {
+		border-color: color-mix(in oklab, var(--accent) 24%, var(--surface-border));
+		background: linear-gradient(
+			160deg,
+			color-mix(in oklab, var(--accent) 10%, var(--surface-2)) 0%,
+			var(--surface-2) 100%
+		);
+	}
+	html[data-theme='light'] .widget-feedback {
+		background: linear-gradient(
+			160deg,
+			color-mix(in oklab, var(--accent) 8%, #f7f9fc) 0%,
+			var(--surface-2) 100%
+		);
+	}
+	.feedback-text {
+		margin: 0 0 1rem 0;
+		font-size: 0.88rem;
+		line-height: 1.55;
+		color: rgb(var(--gray-dark));
+		font-family: var(--font-body, system-ui);
+	}
+	.feedback-text strong {
+		color: rgb(var(--black));
+		font-weight: 700;
+	}
+	.feedback-cta-wrap {
+		margin: 0;
+	}
+	.feedback-cta-wrap :global(.ui-btn) {
+		display: inline-flex;
 	}
 	.top-cat-list a {
 		display: flex;

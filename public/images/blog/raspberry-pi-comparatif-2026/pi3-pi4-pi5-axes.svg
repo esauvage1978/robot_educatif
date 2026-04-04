@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-labelledby="t">
+  <title id="t">Comparatif relatif USB, CPU et RAM max Pi 3, Pi 4, Pi 5</title>
+  <rect width="720" height="230" fill="#f6f8fa"/>
+  <text x="360" y="26" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="700" fill="#24292f">Vue d&#8217;ensemble (p&#233;dagogique)</text>
+  <text x="360" y="44" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#57606a">Longueur de barre = ordre de grandeur, pas une mesure absolue</text>
+  <g font-family="Segoe UI,system-ui,sans-serif" font-size="10" fill="#24292f">
+    <text x="20" y="68" font-weight="600">Ports USB 3</text>
+    <text x="140" y="68" fill="#1a7f37" font-weight="600">Pi 3</text>
+    <rect x="140" y="74" width="24" height="14" fill="#1a7f37" rx="2"/>
+    <text x="300" y="68" fill="#0969da" font-weight="600">Pi 4</text>
+    <rect x="300" y="74" width="120" height="14" fill="#0969da" rx="2"/>
+    <text x="460" y="68" fill="#a84500" font-weight="600">Pi 5</text>
+    <rect x="460" y="74" width="120" height="14" fill="#a84500" rx="2"/>
+    <text x="140" y="94" fill="#57606a">0 &#215; USB 3</text>
+    <text x="300" y="94" fill="#57606a">2 &#215; USB 3</text>
+    <text x="460" y="94" fill="#57606a">2 &#215; USB 3</text>
+    <text x="20" y="118" font-weight="600">C&#339;urs CPU (g&#233;n&#233;ration)</text>
+    <rect x="140" y="124" width="70" height="14" fill="#1a7f37" rx="2"/>
+    <rect x="300" y="124" width="100" height="14" fill="#0969da" rx="2"/>
+    <rect x="460" y="124" width="130" height="14" fill="#a84500" rx="2"/>
+    <text x="140" y="148" fill="#57606a">Cortex-A53</text>
+    <text x="300" y="148" fill="#57606a">Cortex-A72</text>
+    <text x="460" y="148" fill="#57606a">Cortex-A76</text>
+    <text x="20" y="172" font-weight="600">RAM max annonc&#233;e</text>
+    <rect x="140" y="178" width="40" height="14" fill="#1a7f37" rx="2"/>
+    <rect x="300" y="178" width="100" height="14" fill="#0969da" rx="2"/>
+    <rect x="460" y="178" width="200" height="14" fill="#a84500" rx="2"/>
+    <text x="140" y="202" fill="#57606a">1 Go</text>
+    <text x="300" y="202" fill="#57606a">8 Go</text>
+    <text x="460" y="202" fill="#57606a">16 Go</text>
+  </g>
+</svg>

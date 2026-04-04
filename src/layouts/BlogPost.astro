@@ -170,26 +170,7 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 			.page-layout > article {
 				min-width: 0;
 			}
-			.prose {
-				width: 100%;
-				max-width: 100%;
-				margin: 0;
-				padding: 0.25em 0 1em 0;
-				color: rgb(var(--gray-dark));
-			}
-			.prose img {
-				max-width: 100%;
-				height: auto;
-				display: block;
-				border-radius: 8px;
-				margin: 1.35rem 0;
-				border: 1px solid var(--surface-border, rgba(0, 0, 0, 0.08));
-			}
-			/* SVG tutoriels : fond souvent très sombre — éviter qu’ils se confondent avec le thème sombre */
-			.prose img[src$='.svg'] {
-				background: var(--surface-2);
-				box-shadow: 0 0 0 1px var(--surface-border);
-			}
+			/* Typo et images du corps d’article : src/styles/global.css (.prose) */
 			.last-updated-on {
 				font-style: italic;
 			}
@@ -266,7 +247,7 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 			</section>
 			<div class="page-layout">
 				<article>
-					<div class="prose">
+					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
 					</div>
 				</article>
@@ -279,6 +260,6 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				/>
 			</div>
 		</main>
-		<Footer />
+		<Footer suppressPagePathTracking={Boolean(articleSlug)} />
 	</body>
 </html>

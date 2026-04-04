@@ -1,0 +1,954 @@
+---
+/**
+ * Tableau de bord interne : vues articles, pages, 404 archivées, référents (Supabase).
+ * Non référencé : noindex, exclu du sitemap, Disallow dans robots.txt — ne pas lier depuis le site public.
+ */
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { articleSlugFromId } from '../lib/articleSlug';
+
+const posts = await getCollection('blog');
+const articlesPayload = posts
+	.map((p) => ({
+		slug: articleSlugFromId(p.id),
+		title: p.data.title,
+	}))
+	.sort((a, b) => a.slug.localeCompare(b.slug, 'fr'));
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const statsEnabled = Boolean(supabaseUrl && supabaseKey);
+const pathPrefix = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Statistiques site (interne)"
+			description="Vues par article, vues par page et notes — page non indexée, usage personnel."
+			noIndex={true}
+		/>
+	</head>
+	<body data-pagefind-ignore>
+		<Header />
+		<main class="stats-interne">
+			<article class="stats-interne__article">
+				<h1>Statistiques site</h1>
+				<p class="stats-interne__warn">
+					<strong>Usage interne.</strong> Cette page n’est pas destinée au référencement : elle n’apparaît pas dans le
+					sitemap, porte <code>noindex</code> et n’est liée nulle part sur le site. Conservez l’URL confidentielle.
+				</p>
+
+				<p id="stats-status" class="stats-interne__status" aria-live="polite">
+					{statsEnabled ? 'Chargement des données…' : 'Supabase non configuré (variables PUBLIC_SUPABASE_URL / PUBLIC_SUPABASE_ANON_KEY).'}
+				</p>
+
+				<div class="stats-interne__tiles" aria-label="Totaux de vues">
+					<div class="stats-interne__tile">
+						<span class="stats-interne__tile-label">Vues pages</span>
+						<p class="stats-interne__tile-value" id="stats-total-path-views">—</p>
+						<p class="stats-interne__tile-hint">Parcours du site (hors articles blog)</p>
+					</div>
+					<div class="stats-interne__tile">
+						<span class="stats-interne__tile-label">Vues articles</span>
+						<p class="stats-interne__tile-value" id="stats-total-views">—</p>
+						<p class="stats-interne__tile-hint">Fiches du blog</p>
+					</div>
+					<div class="stats-interne__tile">
+						<span class="stats-interne__tile-label">Frappes 404</span>
+						<p class="stats-interne__tile-value" id="stats-total-404-hits">—</p>
+						<p class="stats-interne__tile-hint">Total des accès à des URL inexistantes</p>
+					</div>
+				</div>
+
+				<div class="stats-interne__tabs" data-stats-tabs>
+					<div class="stats-interne__tablist" role="tablist" aria-label="Sections des statistiques">
+						<button
+							type="button"
+							class="stats-interne__tab"
+							role="tab"
+							id="tab-pages"
+							aria-selected="true"
+							aria-controls="panel-pages"
+							tabindex="0"
+						>
+							Pages
+						</button>
+						<button
+							type="button"
+							class="stats-interne__tab"
+							role="tab"
+							id="tab-articles"
+							aria-selected="false"
+							aria-controls="panel-articles"
+							tabindex="-1"
+						>
+							Articles
+						</button>
+						<button
+							type="button"
+							class="stats-interne__tab"
+							role="tab"
+							id="tab-referrals"
+							aria-selected="false"
+							aria-controls="panel-referrals"
+							tabindex="-1"
+						>
+							Référents
+						</button>
+						<button
+							type="button"
+							class="stats-interne__tab"
+							role="tab"
+							id="tab-404"
+							aria-selected="false"
+							aria-controls="panel-404"
+							tabindex="-1"
+						>
+							404
+						</button>
+					</div>
+
+					<div
+						class="stats-interne__panel"
+						id="panel-pages"
+						role="tabpanel"
+						aria-labelledby="tab-pages"
+					>
+						<p class="stats-interne__panel-hint">
+							Chemins avec slash final. Les articles du blog ne sont pas comptés ici (vues dans l’onglet Articles).
+						</p>
+						<div class="stats-interne__table-wrap">
+							<table class="stats-interne__table">
+								<thead>
+									<tr>
+										<th scope="col">Chemin</th>
+										<th scope="col" class="stats-interne__col-num">Vues</th>
+									</tr>
+								</thead>
+								<tbody id="stats-paths-tbody">
+									{
+										!statsEnabled && (
+											<tr>
+												<td colspan="2">—</td>
+											</tr>
+										)
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div
+						class="stats-interne__panel"
+						id="panel-articles"
+						role="tabpanel"
+						aria-labelledby="tab-articles"
+						hidden
+					>
+						<div class="stats-interne__table-wrap">
+							<table class="stats-interne__table">
+								<thead>
+									<tr>
+										<th scope="col">Article</th>
+										<th scope="col" class="stats-interne__col-num">Vues</th>
+										<th scope="col" class="stats-interne__col-num">Note moy.</th>
+										<th scope="col" class="stats-interne__col-num">Votes</th>
+									</tr>
+								</thead>
+								<tbody id="stats-tbody">
+									{
+										!statsEnabled && (
+											<tr>
+												<td colspan="4">—</td>
+											</tr>
+										)
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div
+						class="stats-interne__panel"
+						id="panel-referrals"
+						role="tabpanel"
+						aria-labelledby="tab-referrals"
+						hidden
+					>
+						<p class="stats-interne__panel-hint">
+							<strong>Source / support</strong> (proche de Google Analytics), agrégé sur toutes les pages comptées
+							par <code>page_referral_stats</code> : moteurs en <code>… / organic</code>, liens depuis un site en
+							<code>hôte / referral</code>, sans référent HTTP en <code>(direct) / (none)</code>, navigation sur le
+							site en <code>(internal) / (internal)</code>. Les paramètres <code>utm_source</code> et
+							<code>utm_medium</code> sur l’URL d’arrivée priment sur le référent. Si Google n’envoie pas de
+							<code>Referer</code> (fréquent), le tracker utilise quand même <code>srsltid</code> (certaines
+							recherches) ou <code>gclid</code> (annonces) s’ils sont dans l’URL ; sinon la visite reste
+							<code>(direct) / (none)</code> — ce n’est pas un bug du site, c’est une limite du Web par rapport à
+							GA.
+						</p>
+						<div class="stats-interne__ref-grid">
+							<div class="stats-interne__ref-card" id="stats-ref-card-1">
+								<span class="stats-interne__ref-rank">1</span>
+								<p class="stats-interne__ref-origin" id="stats-ref-origin-1">—</p>
+								<p class="stats-interne__ref-views">
+									<span id="stats-ref-views-1">—</span> vues
+								</p>
+							</div>
+							<div class="stats-interne__ref-card" id="stats-ref-card-2">
+								<span class="stats-interne__ref-rank">2</span>
+								<p class="stats-interne__ref-origin" id="stats-ref-origin-2">—</p>
+								<p class="stats-interne__ref-views">
+									<span id="stats-ref-views-2">—</span> vues
+								</p>
+							</div>
+						</div>
+						<p class="stats-interne__hint" style="margin-top: 1rem">
+							Top 15 des combinaisons (toutes pages confondues). Les anciennes lignes
+							<code>direct</code> / <code>https://…</code> sont regroupées avec le nouveau format quand c’est
+							possible.
+						</p>
+						<div class="stats-interne__table-wrap" style="margin-top: 0.5rem">
+							<table class="stats-interne__table">
+								<thead>
+									<tr>
+										<th scope="col">Source / support</th>
+										<th scope="col" class="stats-interne__col-num">Vues</th>
+									</tr>
+								</thead>
+								<tbody id="stats-ref-tbody">
+									<tr>
+										<td colspan="2">—</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div
+						class="stats-interne__panel"
+						id="panel-404"
+						role="tabpanel"
+						aria-labelledby="tab-404"
+						hidden
+					>
+						<p class="stats-interne__panel-hint">
+							Chemins demandés ayant servi une page <strong>404</strong>, agrégés dans
+							<code>page_not_found_stats</code> (nombre de frappes, première et dernière occurrence). Exécuter
+							<code>scripts/supabase-page-not-found-stats.sql</code> dans Supabase si la table n’existe pas encore.
+						</p>
+						<div class="stats-interne__table-wrap">
+							<table class="stats-interne__table">
+								<thead>
+									<tr>
+										<th scope="col">Chemin demandé</th>
+										<th scope="col" class="stats-interne__col-num">Frappes</th>
+										<th scope="col" class="stats-interne__col-nowrap">1<sup>re</sup> fois</th>
+										<th scope="col" class="stats-interne__col-nowrap">Dernière fois</th>
+									</tr>
+								</thead>
+								<tbody id="stats-404-tbody">
+									<tr>
+										<td colspan="4">—</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</article>
+		</main>
+		<Footer suppressPagePathTracking />
+		<script
+			define:vars={{
+				articlesPayload,
+				supabaseUrl,
+				supabaseKey,
+				statsEnabled,
+				pathPrefix,
+			}}
+		>
+			(function () {
+				function formatAvg(sum, count) {
+					if (!count) return '—';
+					return (Number(sum) / Number(count)).toFixed(1).replace('.', ',');
+				}
+
+				function normalizeBase() {
+					var b = pathPrefix || '/';
+					return b.endsWith('/') ? b : b + '/';
+				}
+
+				function initTabs() {
+					var root = document.querySelector('[data-stats-tabs]');
+					if (!root) return;
+					var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+					var panels = {};
+					tabs.forEach(function (tab) {
+						var id = tab.getAttribute('aria-controls');
+						if (id) panels[id] = document.getElementById(id);
+					});
+
+					function selectTab(selected) {
+						tabs.forEach(function (tab) {
+							var on = tab === selected;
+							tab.setAttribute('aria-selected', on ? 'true' : 'false');
+							tab.tabIndex = on ? 0 : -1;
+							var pid = tab.getAttribute('aria-controls');
+							if (pid && panels[pid]) panels[pid].hidden = !on;
+						});
+					}
+
+					tabs.forEach(function (tab) {
+						tab.addEventListener('click', function () {
+							selectTab(tab);
+						});
+						tab.addEventListener('keydown', function (e) {
+							var i = tabs.indexOf(tab);
+							var ix = i;
+							if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+								e.preventDefault();
+								ix = (i + 1) % tabs.length;
+							} else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+								e.preventDefault();
+								ix = (i - 1 + tabs.length) % tabs.length;
+							} else if (e.key === 'Home') {
+								e.preventDefault();
+								ix = 0;
+							} else if (e.key === 'End') {
+								e.preventDefault();
+								ix = tabs.length - 1;
+							} else {
+								return;
+							}
+							selectTab(tabs[ix]);
+							tabs[ix].focus();
+						});
+					});
+				}
+
+				async function run() {
+					var tbody = document.getElementById('stats-tbody');
+					var pathsTbody = document.getElementById('stats-paths-tbody');
+					var totalEl = document.getElementById('stats-total-views');
+					var totalPathEl = document.getElementById('stats-total-path-views');
+					var statusEl = document.getElementById('stats-status');
+					var o1 = document.getElementById('stats-ref-origin-1');
+					var o2 = document.getElementById('stats-ref-origin-2');
+					var v1 = document.getElementById('stats-ref-views-1');
+					var v2 = document.getElementById('stats-ref-views-2');
+					var refTbody = document.getElementById('stats-ref-tbody');
+					var total404El = document.getElementById('stats-total-404-hits');
+					var nfTbody = document.getElementById('stats-404-tbody');
+
+					if (!tbody || !pathsTbody || !totalEl || !totalPathEl || !statusEl) return;
+
+					initTabs();
+
+					function reset404Panel() {
+						if (total404El) total404El.textContent = '—';
+						if (nfTbody) nfTbody.innerHTML = '<tr><td colspan="4">—</td></tr>';
+					}
+
+					function resetReferralCards() {
+						if (!o1 || !o2 || !v1 || !v2) return;
+						o1.textContent = '—';
+						o2.textContent = '—';
+						v1.textContent = '—';
+						v2.textContent = '—';
+						if (refTbody) {
+							refTbody.innerHTML = '<tr><td colspan="2">—</td></tr>';
+						}
+					}
+
+					/** Aligne l’affichage avec le format actuel du tracker (anciennes clés SQL / https://). */
+					function normalizeReferrerAggKey(raw) {
+						var o = String(raw || '').trim();
+						var ol = o.toLowerCase();
+						if (ol === '' || ol === 'direct') return '(direct) / (none)';
+						if (ol === 'internal') return '(internal) / (internal)';
+						if (ol === 'invalid') return 'invalid / (none)';
+						if (/^https?:\/\//i.test(o)) {
+							try {
+								var h = new URL(o).hostname.toLowerCase();
+								if (h.length > 180) h = h.slice(0, 180);
+								if (/\.(doubleclick|googleadservices|gstatic|googleusercontent)\./.test(h))
+									return h + ' / referral';
+								if (h.includes('.google.') || h === 'google.com' || /^www\.google\./.test(h))
+									return 'google / organic';
+								if (h.includes('bing.com')) return 'bing / organic';
+								if (h.includes('yahoo.') || h.includes('search.yahoo')) return 'yahoo / organic';
+								if (h.includes('duckduckgo')) return 'duckduckgo / organic';
+								if (h.includes('qwant')) return 'qwant / organic';
+								if (h.includes('ecosia')) return 'ecosia / organic';
+								if (h.includes('startpage')) return 'startpage / organic';
+								if (h.includes('search.brave') || h === 'brave.com') return 'brave / organic';
+								if (h.includes('baidu')) return 'baidu / organic';
+								if (h.includes('yandex')) return 'yandex / organic';
+								return h + ' / referral';
+							} catch (e) {
+								return ol;
+							}
+						}
+						return ol;
+					}
+
+					function fillReferralTable(rows) {
+						if (!refTbody) return;
+						refTbody.innerHTML = '';
+						if (!rows.length) {
+							var tr0 = document.createElement('tr');
+							tr0.innerHTML = '<td colspan="2">Aucune donnée pour l’instant.</td>';
+							refTbody.appendChild(tr0);
+							return;
+						}
+						for (var ti = 0; ti < rows.length; ti++) {
+							var pair = rows[ti];
+							var trR = document.createElement('tr');
+							var tdS = document.createElement('td');
+							setOriginEl(tdS, pair[0]);
+							var tdN = document.createElement('td');
+							tdN.className = 'stats-interne__col-num';
+							tdN.textContent = String(pair[1]);
+							trR.appendChild(tdS);
+							trR.appendChild(tdN);
+							refTbody.appendChild(trR);
+						}
+					}
+
+					function setOriginEl(el, originText) {
+						if (!el) return;
+						el.textContent = '';
+						var t = originText || '—';
+						if (/^https?:\/\//i.test(t)) {
+							var a = document.createElement('a');
+							a.href = t;
+							a.textContent = t;
+							a.target = '_blank';
+							a.rel = 'noopener noreferrer';
+							el.appendChild(a);
+						} else {
+							el.appendChild(document.createTextNode(t));
+						}
+					}
+
+					if (!statsEnabled) {
+						tbody.innerHTML = '';
+						var tr = document.createElement('tr');
+						tr.innerHTML = '<td colspan="4">Configurez Supabase pour afficher les statistiques.</td>';
+						tbody.appendChild(tr);
+						pathsTbody.innerHTML = '';
+						var trp = document.createElement('tr');
+						trp.innerHTML = '<td colspan="2">—</td>';
+						pathsTbody.appendChild(trp);
+						totalEl.textContent = '—';
+						totalPathEl.textContent = '—';
+						resetReferralCards();
+						reset404Panel();
+						return;
+					}
+
+					function headers() {
+						return {
+							apikey: supabaseKey,
+							Authorization: 'Bearer ' + supabaseKey,
+						};
+					}
+
+					try {
+						var res = await fetch(
+							supabaseUrl + '/rest/v1/article_engagement?select=slug,views,rating_sum,rating_count',
+							{ headers: headers() },
+						);
+						if (!res.ok) throw new Error('HTTP ' + res.status);
+						var rows = await res.json();
+
+						var resPaths = await fetch(
+							supabaseUrl + '/rest/v1/page_path_stats?select=path,views&order=views.desc',
+							{ headers: headers() },
+						);
+						var pathRows = [];
+						if (resPaths.ok) {
+							pathRows = await resPaths.json();
+							if (!Array.isArray(pathRows)) pathRows = [];
+						}
+
+						var resRef = await fetch(
+							supabaseUrl + '/rest/v1/page_referral_stats?select=path,referrer_origin,views',
+							{ headers: headers() },
+						);
+						var refRows = [];
+						if (resRef.ok) {
+							refRows = await resRef.json();
+							if (!Array.isArray(refRows)) refRows = [];
+						}
+
+						var res404 = await fetch(
+							supabaseUrl +
+								'/rest/v1/page_not_found_stats?select=requested_path,hits,first_seen,last_seen&order=hits.desc',
+							{ headers: headers() },
+						);
+						var nfRows = [];
+						if (res404.ok) {
+							nfRows = await res404.json();
+							if (!Array.isArray(nfRows)) nfRows = [];
+						}
+
+						var bySlug = new Map();
+						for (var i = 0; i < rows.length; i++) {
+							bySlug.set(rows[i].slug, rows[i]);
+						}
+
+						var merged = [];
+						for (var j = 0; j < articlesPayload.length; j++) {
+							var a = articlesPayload[j];
+							var r = bySlug.get(a.slug);
+							if (r) bySlug.delete(a.slug);
+							else r = { views: 0, rating_sum: 0, rating_count: 0 };
+							merged.push({
+								slug: a.slug,
+								title: a.title,
+								views: Number(r.views) || 0,
+								rating_sum: Number(r.rating_sum) || 0,
+								rating_count: Number(r.rating_count) || 0,
+							});
+						}
+
+						var orphans = [];
+						bySlug.forEach(function (r, slug) {
+							orphans.push({
+								slug: slug,
+								title: '(slug sans article actuel)',
+								views: Number(r.views) || 0,
+								rating_sum: Number(r.rating_sum) || 0,
+								rating_count: Number(r.rating_count) || 0,
+							});
+						});
+
+						var all = merged.concat(orphans);
+						all.sort(function (x, y) {
+							return y.views - x.views;
+						});
+
+						var total = 0;
+						for (var k = 0; k < all.length; k++) total += all[k].views;
+
+						var pathTotal = 0;
+						for (var pi = 0; pi < pathRows.length; pi++) pathTotal += Number(pathRows[pi].views) || 0;
+
+						var total404Hits = 0;
+						for (var nfi = 0; nfi < nfRows.length; nfi++) {
+							total404Hits += Number(nfRows[nfi].hits) || 0;
+						}
+						if (total404El) total404El.textContent = String(total404Hits);
+
+						totalEl.textContent = String(total);
+						totalPathEl.textContent = String(pathTotal);
+
+						var pathNote = resPaths.ok ? pathRows.length + ' chemin(s)' : 'pages indisponibles';
+						var refNote = resRef.ok ? refRows.length + ' ligne(s) référents' : 'référents indisponibles';
+						var nfNote = res404.ok ? nfRows.length + ' URL(s) 404' : '404 indisponibles';
+						statusEl.textContent =
+							'Mise à jour : ' +
+							new Date().toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) +
+							' · ' +
+							all.length +
+							' article(s) · ' +
+							pathNote +
+							' · ' +
+							refNote +
+							' · ' +
+							nfNote +
+							'.';
+
+						var base = normalizeBase();
+						tbody.innerHTML = '';
+						for (var n = 0; n < all.length; n++) {
+							var row = all[n];
+							var tr = document.createElement('tr');
+							var link = base + encodeURIComponent(row.slug) + '/';
+							var tdTitle = document.createElement('td');
+							var a = document.createElement('a');
+							a.href = link;
+							a.textContent = row.title;
+							tdTitle.appendChild(a);
+							var small = document.createElement('div');
+							small.className = 'stats-interne__slug';
+							small.textContent = row.slug;
+							tdTitle.appendChild(small);
+
+							var tdV = document.createElement('td');
+							tdV.className = 'stats-interne__col-num';
+							tdV.textContent = String(row.views);
+
+							var tdAvg = document.createElement('td');
+							tdAvg.className = 'stats-interne__col-num';
+							tdAvg.textContent = formatAvg(row.rating_sum, row.rating_count);
+
+							var tdC = document.createElement('td');
+							tdC.className = 'stats-interne__col-num';
+							tdC.textContent = String(row.rating_count);
+
+							tr.appendChild(tdTitle);
+							tr.appendChild(tdV);
+							tr.appendChild(tdAvg);
+							tr.appendChild(tdC);
+							tbody.appendChild(tr);
+						}
+
+						pathsTbody.innerHTML = '';
+						if (!resPaths.ok) {
+							var trPe = document.createElement('tr');
+							trPe.innerHTML =
+								'<td colspan="2">Impossible de lire <code>page_path_stats</code> (HTTP ' +
+								resPaths.status +
+								').</td>';
+							pathsTbody.appendChild(trPe);
+						} else if (pathRows.length === 0) {
+							var trEmpty = document.createElement('tr');
+							trEmpty.innerHTML =
+								'<td colspan="2">Aucune donnée pour l’instant.</td>';
+							pathsTbody.appendChild(trEmpty);
+						} else {
+							for (var q = 0; q < pathRows.length; q++) {
+								var pr = pathRows[q];
+								var p = String(pr.path || '');
+								var trP = document.createElement('tr');
+								var tdPath = document.createElement('td');
+								var aP = document.createElement('a');
+								aP.textContent = p;
+								aP.href = base + (p.startsWith('/') ? p.slice(1) : p);
+								tdPath.appendChild(aP);
+								var tdPv = document.createElement('td');
+								tdPv.className = 'stats-interne__col-num';
+								tdPv.textContent = String(Number(pr.views) || 0);
+								trP.appendChild(tdPath);
+								trP.appendChild(tdPv);
+								pathsTbody.appendChild(trP);
+							}
+						}
+
+						resetReferralCards();
+						if (resRef.ok && refRows.length && o1 && o2 && v1 && v2) {
+							var agg = new Map();
+							for (var ri = 0; ri < refRows.length; ri++) {
+								var rr = refRows[ri];
+								var o = normalizeReferrerAggKey(rr.referrer_origin);
+								agg.set(o, (agg.get(o) || 0) + (Number(rr.views) || 0));
+							}
+							var sorted = Array.from(agg.entries()).sort(function (x, y) {
+								return y[1] - x[1];
+							});
+							var top = sorted.slice(0, 2);
+							if (top[0]) {
+								setOriginEl(o1, top[0][0]);
+								v1.textContent = String(top[0][1]);
+							}
+							if (top[1]) {
+								setOriginEl(o2, top[1][0]);
+								v2.textContent = String(top[1][1]);
+							}
+							fillReferralTable(sorted.slice(0, 15));
+						} else if (resRef.ok && refRows.length === 0 && refTbody) {
+							fillReferralTable([]);
+						} else if (!resRef.ok && o1 && o2 && v1 && v2) {
+							o1.textContent = '';
+							o1.appendChild(
+								document.createTextNode('Données indisponibles (HTTP ' + resRef.status + ').'),
+							);
+							o2.textContent = '—';
+							v1.textContent = '—';
+							v2.textContent = '—';
+							if (refTbody) {
+								refTbody.innerHTML =
+									'<tr><td colspan="2">Données indisponibles (HTTP ' + resRef.status + ').</td></tr>';
+							}
+						}
+
+						function formatNotFoundTs(iso) {
+							if (!iso) return '—';
+							try {
+								var d = new Date(iso);
+								if (isNaN(d.getTime())) return '—';
+								return d.toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' });
+							} catch (e) {
+								return '—';
+							}
+						}
+
+						if (nfTbody) {
+							nfTbody.innerHTML = '';
+							if (!res404.ok) {
+								var trNfE = document.createElement('tr');
+								trNfE.innerHTML =
+									'<td colspan="4">Impossible de lire <code>page_not_found_stats</code> (HTTP ' +
+									res404.status +
+									').</td>';
+								nfTbody.appendChild(trNfE);
+							} else if (nfRows.length === 0) {
+								var trNf0 = document.createElement('tr');
+								trNf0.innerHTML = '<td colspan="4">Aucune 404 enregistrée pour l’instant.</td>';
+								nfTbody.appendChild(trNf0);
+							} else {
+								for (var nfj = 0; nfj < nfRows.length; nfj++) {
+									var nr = nfRows[nfj];
+									var trN = document.createElement('tr');
+									var tdP = document.createElement('td');
+									var pth = String(nr.requested_path || '');
+									var aN = document.createElement('a');
+									aN.textContent = pth;
+									aN.href = base + (pth.startsWith('/') ? pth.slice(1) : pth);
+									tdP.appendChild(aN);
+									var tdH = document.createElement('td');
+									tdH.className = 'stats-interne__col-num';
+									tdH.textContent = String(Number(nr.hits) || 0);
+									var td1 = document.createElement('td');
+									td1.className = 'stats-interne__col-nowrap';
+									td1.textContent = formatNotFoundTs(nr.first_seen);
+									var tdL = document.createElement('td');
+									tdL.className = 'stats-interne__col-nowrap';
+									tdL.textContent = formatNotFoundTs(nr.last_seen);
+									trN.appendChild(tdP);
+									trN.appendChild(tdH);
+									trN.appendChild(td1);
+									trN.appendChild(tdL);
+									nfTbody.appendChild(trN);
+								}
+							}
+						}
+					} catch (e) {
+						statusEl.textContent = 'Impossible de charger les données Supabase.';
+						tbody.innerHTML = '';
+						var trE = document.createElement('tr');
+						trE.innerHTML = '<td colspan="4">Erreur réseau ou configuration.</td>';
+						tbody.appendChild(trE);
+						pathsTbody.innerHTML = '';
+						var trEp = document.createElement('tr');
+						trEp.innerHTML = '<td colspan="2">—</td>';
+						pathsTbody.appendChild(trEp);
+						totalEl.textContent = '—';
+						totalPathEl.textContent = '—';
+						resetReferralCards();
+						reset404Panel();
+					}
+				}
+
+				run();
+			})();
+		</script>
+		<style>
+			.stats-interne {
+				width: min(1100px, calc(100% - 2rem));
+				margin: 0 auto;
+				padding: 2rem 0 3rem;
+			}
+			.stats-interne__article h1 {
+				margin: 0 0 1rem 0;
+				font-size: clamp(1.5rem, 3vw, 2rem);
+			}
+			.stats-interne__warn {
+				padding: 1rem 1.1rem;
+				border-radius: 10px;
+				border: 1px solid var(--surface-border);
+				background: color-mix(in oklab, #c62828 12%, var(--surface));
+				font-size: 0.95rem;
+				line-height: 1.5;
+				margin: 0 0 1rem 0;
+			}
+			.stats-interne__warn code {
+				font-size: 0.88em;
+			}
+			.stats-interne__status {
+				margin: 0 0 1rem 0;
+				color: rgb(var(--gray));
+				font-size: 0.92rem;
+			}
+			.stats-interne__tiles {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+				gap: 1rem;
+				margin: 0 0 1.75rem 0;
+			}
+			.stats-interne__tile {
+				padding: 1.15rem 1.25rem;
+				border-radius: 12px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface);
+				box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+			}
+			.stats-interne__tile-label {
+				display: block;
+				font-size: 0.82rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: rgb(var(--gray));
+				margin-bottom: 0.35rem;
+			}
+			.stats-interne__tile-value {
+				margin: 0;
+				font-size: clamp(1.75rem, 4vw, 2.25rem);
+				font-weight: 700;
+				font-variant-numeric: tabular-nums;
+				color: var(--accent);
+				line-height: 1.1;
+			}
+			.stats-interne__tile-hint {
+				margin: 0.5rem 0 0 0;
+				font-size: 0.86rem;
+				color: rgb(var(--gray));
+				line-height: 1.4;
+			}
+			.stats-interne__tabs {
+				margin-top: 0.25rem;
+			}
+			.stats-interne__tablist {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.35rem;
+				margin-bottom: 1rem;
+				border-bottom: 1px solid var(--surface-border);
+				padding-bottom: 0.25rem;
+			}
+			.stats-interne__tab {
+				cursor: pointer;
+				font: inherit;
+				font-weight: 600;
+				font-size: 0.95rem;
+				padding: 0.55rem 1rem;
+				border-radius: 8px 8px 0 0;
+				border: 1px solid transparent;
+				border-bottom: none;
+				background: transparent;
+				color: rgb(var(--gray-dark));
+				transition:
+					background 0.15s ease,
+					border-color 0.15s ease,
+					color 0.15s ease;
+			}
+			.stats-interne__tab:hover {
+				background: color-mix(in oklab, var(--accent) 8%, var(--surface));
+			}
+			.stats-interne__tab[aria-selected='true'] {
+				background: var(--surface);
+				border-color: var(--surface-border);
+				color: var(--accent-dark);
+				margin-bottom: -1px;
+				padding-bottom: calc(0.55rem + 1px);
+			}
+			.stats-interne__panel {
+				padding-top: 0.25rem;
+			}
+			.stats-interne__panel-hint {
+				margin: 0 0 0.85rem 0;
+				font-size: 0.88rem;
+				color: rgb(var(--gray));
+				line-height: 1.45;
+			}
+			.stats-interne__panel-hint code {
+				font-size: 0.85em;
+			}
+			.stats-interne__ref-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+				gap: 1rem;
+			}
+			.stats-interne__ref-card {
+				position: relative;
+				padding: 1.1rem 1.15rem 1.15rem 3.25rem;
+				border-radius: 12px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface);
+			}
+			.stats-interne__ref-rank {
+				position: absolute;
+				left: 1rem;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 1.75rem;
+				height: 1.75rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 800;
+				font-size: 0.95rem;
+				background: color-mix(in oklab, var(--accent) 22%, var(--surface-2));
+				color: var(--accent-dark);
+			}
+			.stats-interne__ref-origin {
+				margin: 0 0 0.35rem 0;
+				font-weight: 700;
+				font-size: 1rem;
+				word-break: break-all;
+				line-height: 1.35;
+			}
+			.stats-interne__ref-origin a {
+				color: var(--accent);
+			}
+			.stats-interne__ref-views {
+				margin: 0;
+				font-size: 0.92rem;
+				color: rgb(var(--gray-dark));
+				font-variant-numeric: tabular-nums;
+			}
+			.stats-interne__hint {
+				margin: 0;
+				font-size: 0.88rem;
+				color: rgb(var(--gray));
+				line-height: 1.45;
+			}
+			.stats-interne__hint code {
+				font-size: 0.85em;
+			}
+			.stats-interne__table-wrap {
+				overflow-x: auto;
+				border: 1px solid var(--surface-border);
+				border-radius: 10px;
+				background: var(--surface);
+			}
+			.stats-interne__table {
+				width: 100%;
+				border-collapse: collapse;
+				font-family: var(--font-body, system-ui);
+				font-size: 0.92rem;
+			}
+			.stats-interne__table th,
+			.stats-interne__table td {
+				padding: 0.65rem 0.85rem;
+				text-align: left;
+				border-bottom: 1px solid var(--surface-border);
+				vertical-align: top;
+			}
+			.stats-interne__table thead th {
+				font-weight: 700;
+				background: color-mix(in oklab, var(--accent) 8%, var(--surface));
+			}
+			.stats-interne__table tbody tr:last-child td {
+				border-bottom: none;
+			}
+			.stats-interne__col-num {
+				text-align: right;
+				font-variant-numeric: tabular-nums;
+				white-space: nowrap;
+			}
+			.stats-interne__col-nowrap {
+				white-space: nowrap;
+				font-size: 0.88rem;
+			}
+			.stats-interne__slug {
+				margin-top: 0.25rem;
+				font-size: 0.8rem;
+				color: rgb(var(--gray));
+				word-break: break-all;
+			}
+			.stats-interne__table a {
+				font-weight: 600;
+				color: var(--accent);
+			}
+		</style>
+	</body>
+</html>

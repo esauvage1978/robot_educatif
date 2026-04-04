@@ -57,6 +57,12 @@ Non — mais exigez des **preuves** : appli à jour, chaîne YouTube ou forum ac
 **Faut-il prendre le pack le plus complet ?**  
 Pas forcément : un pack **simple** + **projets** guidés bat souvent un gros carton sous-utilisé.
 
+**Comment choisir un robot éducatif parmi « les robots éducatifs » du marché ?**  
+Regardez trois choses : **logiciel** à jour et documenté, **communauté** (tutos, enseignants), **possibilité d’évoluer** (accessoires ou cartes). Notre synthèse : [meilleur robot programmable enfant (2026)](/meilleur-robot-programmable-enfant-2026/) ; un modèle très documenté côté **robot mBot** : [présentation mBot](/mbot-mon-premier-robot-educatif/).
+
+**« Robot éducatif » et « robot educatif » (sans accent) : même recherche ?**  
+Oui — en français, les deux **formules** courantes désignent la même idée : un **robot à vocation pédagogique** plutôt qu’un simple jouet fermé.
+
 ## Liens Amazon (affiliation)
 
 - [Robot éducatif programmable pas cher](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable&tag=manuso06-21)

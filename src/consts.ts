@@ -10,9 +10,16 @@ export const AMAZON_AFFILIATE_TAG = 'manuso06-21';
 /** Google Analytics 4 — Measurement ID (gtag.js) */
 export const GA_MEASUREMENT_ID = 'G-PST9T1NFNX';
 
-/** Webhook Zapier (Catch Hook) — formulaire de contact */
-export const ZAPIER_CONTACT_WEBHOOK_URL =
-	'https://hooks.zapier.com/hooks/catch/26903545/upkex8r/';
+/**
+ * Webhook formulaire contact (POST `application/x-www-form-urlencoded`).
+ * Développement local : défaut ci-dessous. Production : définir `PUBLIC_CONTACT_FORM_WEBHOOK_URL` (build / hébergeur).
+ */
+const DEFAULT_CONTACT_FORM_WEBHOOK_URL =
+	'https://zapier.emmanuelsauvage.fr/webhook/form/993fd5f4-7a09-4052-99d7-fd6722f92989';
+
+const fromEnv = import.meta.env.PUBLIC_CONTACT_FORM_WEBHOOK_URL;
+export const CONTACT_FORM_WEBHOOK_URL =
+	typeof fromEnv === 'string' && fromEnv.trim() !== '' ? fromEnv.trim() : DEFAULT_CONTACT_FORM_WEBHOOK_URL;
 
 /** Adresse e-mail affichée sur le site */
 export const CONTACT_EMAIL = 'contact@robot-educatif.info';

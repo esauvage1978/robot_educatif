@@ -1,9 +1,9 @@
 ---
 title: "Télécharger et installer mBlock 5 sous Windows 10 / 11"
-description: "Où télécharger mBlock 5 gratuitement (site officiel Makeblock), puis l’installer sur Windows 10 ou 11 : étapes détaillées, captures d’écran, FAQ dépannage (SmartScreen, antivirus, droits admin, fichier bloqué)."
+description: "Télécharger mBlock 5 gratuitement (mblock5, mBlock v5) pour Windows : installer mBlock sur PC, mblock download Windows, versions 5.6.x vs anciennes 5.4.x ; étapes après l’UAC, ~380 Mo / ~1,05 Go installé, lien de secours, FAQ SmartScreen et antivirus."
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
-updatedDate: "2026-03-29"
+updatedDate: "2026-03-31"
 categories:
   - "mBlock"
   - "Guide"
@@ -11,11 +11,9 @@ categories:
   - "Windows"
 ---
 
-Ce guide vous accompagne **de A à Z** pour **installer mBlock 5.6** (programmation par blocs Makeblock) sur **Windows 10** ou **Windows 11**. Le numéro exact de version peut évoluer (**5.6.x**) selon le site officiel ; l’**ordre des écrans** de l’assistant reste en général le même.
+Ce guide vous accompagne **de A à Z** pour **installer mBlock 5.6** (programmation par blocs Makeblock) sur **Windows 10** ou **Windows 11**. Le numéro exact de version peut évoluer (**5.6.x**) selon le site officiel. Depuis les versions récentes de l’installateur, **après l’acceptation du Contrôle de compte d’utilisateur (UAC)**, l’installation **démarre tout de suite** : il n’y a **plus d’écran** pour la langue par défaut, le dossier d’installation, le menu Démarrer, le raccourci bureau ou un résumé avant la copie des fichiers.
 
-**À propos des images :** les étapes **sans** capture réelle sont illustrées par des **schémas** (fenêtres simplifiées) ; les **trois** illustrations en **photo d’écran** correspondent au site de téléchargement, à la **barre de progression** et à l’**écran de fin**. Les **libellés** peuvent différer selon la langue ou la version ; en cas de doute, suivez la **logique** décrite (Suivant, Installer, Oui, etc.).
-
-**Affichage des illustrations** : **trois étapes clés** (page de téléchargement, installation en cours, fin d’installation) sont illustrées par de **vraies captures d’écran** (PNG) dans `public/images/blog/installer-mblock/`. Les **autres étapes** restent en **schémas SVG** (représentation des fenêtres), servis en direct comme les PNG — pas d’optimiseur obligatoire, chemins `/images/...` réécrits en **relatifs** après `npm run build` pour WAMP / sous-dossiers. Déployez **tout** le dossier `dist/` (dont `_astro/` et `images/`).
+**Illustrations :** **captures** pour la **page de téléchargement**, le fichier dans **Téléchargements**, l’**écran de fin** et la **taille du dossier** une fois installé ; l’**UAC** reste schématisé. Les libellés peuvent varier selon la langue de Windows ou la version : en cas de doute, suivez la **logique** (Oui, Terminer, etc.).
 
 mBlock existe aussi pour **macOS**, **iOS**, **Android**, **Linux** et **Chromebook** — ici nous ne traitons que **Windows**.
 
@@ -25,7 +23,7 @@ Une fois l’installation faite, vous pourrez programmer un robot comme le **[mB
 
 - **Compte administrateur** (ou mot de passe administrateur) : Windows affichera souvent une fenêtre **Contrôle de compte d’utilisateur** ; il faut pouvoir cliquer sur **Oui**.
 - **Connexion Internet** uniquement pour **télécharger** l’installateur ; l’usage de mBlock en local peut ensuite se faire sans réseau selon votre usage.
-- **Espace disque** : prévoyez au moins **300 à 500 Mo** libres (marge confortable).
+- **Espace disque** : le fichier d’installation fait **environ 380 Mo** ; **une fois installé**, le programme occupe **environ 1,05 Go** sur le disque (dossier sous `Program Files`, valeur pouvant varier légèrement selon la version). Prévoyez **au moins 1,5 à 2 Go** libres sur le disque système pour l’installation, les fichiers déployés et les mises à jour (marge confortable).
 - **Antivirus / pare-feu** : en cas de blocage rare du fichier `.exe`, vérifiez que la source est bien **mblock.cc** (site officiel) avant d’autoriser l’exception.
 
 ---
@@ -47,7 +45,9 @@ Sur la page :
 - Sélectionnez la section **Windows**.
 - Privilégiez la version **64 bits** si votre PC est récent (cas le plus courant). Si vous ne savez pas : sous Windows, **Paramètres → Système → À propos** indique le type du système (**64 bits** ou **32 bits**).
 
-Le fichier téléchargé ressemble en général à un nom du type **`mblock5-win32-….exe`** ou **`mblock5-win64-….exe`** — le préfixe exact peut varier selon la version publiée.
+Le fichier téléchargé ressemble en général à un nom du type **`mblock5-win32-….exe`**, **`mblock5-win64-….exe`** ou **`V5.6.0.exe`** — le nom exact peut varier selon la version publiée.
+
+**Si le site officiel est indisponible**, vous pouvez utiliser à titre de secours une **copie de l’installateur** hébergée sur ce site (même famille de version) : **[Télécharger l’installateur mBlock 5 (Windows, secours)](/capture/installer-mblock-5-sous-windows-10/V5.6.0.exe)**. Préférez toujours **[mblock.cc](https://www.mblock.cc/en-us/download/)** dès qu’il est à nouveau accessible, pour avoir la **dernière** version et les **empreintes** attendues.
 
 ![Capture d’écran : page de téléchargement Makeblock — mBlock 5 pour Windows](/images/blog/installer-mblock/ecran-01-page-makeblock.png)
 
@@ -65,7 +65,7 @@ Après le clic sur **Download** :
 
 ---
 
-## Étape 2 — Lancer l’installateur et suivre l’assistant
+## Étape 2 — Lancer l’installateur
 
 ### 2.1 Ouvrir le fichier `.exe`
 
@@ -74,7 +74,7 @@ Après le clic sur **Download** :
 3. Repérez le fichier **`.exe`** téléchargé (icône d’application ou d’installateur).
 4. **Double-cliquez** sur ce fichier pour lancer l’installation.
 
-![Représentation : Explorateur Windows — fichier installateur dans Téléchargements](/images/blog/installer-mblock/ecran-02-explorateur-exe.svg)
+![Capture d’écran : Explorateur Windows — fichier installateur mBlock dans Téléchargements](/capture/installer-mblock-5-sous-windows-10/explorateur_telechargement.png)
 
 *Le **nom exact** du fichier dépend de la version ; l’important est de lancer le **bon** `.exe` que vous venez de télécharger.*
 
@@ -88,72 +88,36 @@ Windows peut afficher une fenêtre **« Voulez-vous autoriser cette application�
 
 *Si vous n’êtes pas administrateur, demandez à une personne qui a les droits sur la machine.*
 
-### 2.3 Choix de la langue
+### 2.3 Installation automatique (sans assistant « étape par étape »)
 
-L’assistant peut proposer en premier le **choix de la langue** d’installation.
+Après **Oui** sur l’**UAC**, l’installateur **récent** ne propose **plus** :
 
-- Sélectionnez **Français** (ou la langue souhaitée).
-- Validez avec **OK** (ou **Suivant** selon l’écran).
+- de **langue** d’installation ;
+- de **dossier** de destination à choisir manuellement ;
+- d’options **menu Démarrer** / **raccourci bureau** ;
+- d’écran **Résumé** avec un bouton **Installer** séparé.
 
-![Représentation : assistant mBlock — choix de la langue](/images/blog/installer-mblock/ecran-04-langue.svg)
+La **copie des fichiers** commence **directement** (emplacement habituel : sous **`Program Files`**, géré par l’installateur). Patientez jusqu’à l’écran de fin.
 
-### 2.4 Dossier d’installation (destination)
+### 2.4 Barre de progression
 
-L’écran suivant indique le **dossier** où mBlock sera installé (souvent sous **`Program Files`**).
+Pendant la **copie des fichiers**, une fenêtre avec une **barre de progression** peut s’afficher. **Ne fermez pas** la fenêtre tant que l’installateur ne l’indique pas.
 
-- En général, **gardez le chemin proposé** pour éviter les problèmes de droits ou de mises à jour.
-- Utilisez **Parcourir…** seulement si vous savez pourquoi vous changez d’emplacement (disque secondaire, politique établissement, etc.).
-- Cliquez sur **Suivant**.
+### 2.5 Fin de l’installation
 
-![Représentation : assistant — dossier d’installation](/images/blog/installer-mblock/ecran-05-dossier-destination.svg)
+À la fin, un écran du type **« Install Finished »** / installation **terminée** s’affiche. Il n’y a en général **plus de case à cocher** du style « Lancer mBlock » : cliquez sur **Finish** / **Terminer** pour fermer l’assistant.
 
-### 2.5 Menu Démarrer (dossier du programme)
+![Capture d’écran : fin de l’installation mBlock — bouton Terminer / Finish](/capture/installer-mblock-5-sous-windows-10/installation_fin.png)
 
-L’installateur propose souvent un **nom de dossier** dans le **menu Démarrer** (ex. « mBlock »).
+### 2.6 Taille sur le disque après installation
 
-- Le nom par défaut convient dans la plupart des cas.
-- Cliquez sur **Suivant**.
+Après l’installation, le dossier **mBlock** (souvent **`Program Files\mBlock5`**) affiche environ **1,05 Go** dans les **propriétés** Windows (**Taille** / **Taille sur disque**) — le chiffre exact peut varier un peu selon la **version** de mBlock et le **système de fichiers**.
 
-![Représentation : assistant — dossier dans le menu Démarrer](/images/blog/installer-mblock/ecran-06-menu-demarrer.svg)
+![Capture d’écran : propriétés du dossier mBlock — taille sur le disque après installation](/capture/installer-mblock-5-sous-windows-10/taille-dossier-mblock-apres-install.png)
 
-### 2.6 Raccourci sur le bureau
+### 2.7 Ouvrir mBlock après l’installation
 
-Une case à cocher permet de **créer un raccourci sur le bureau**.
-
-- Il est **conseillé de laisser cette option activée** pour retrouver mBlock rapidement après l’installation.
-- Cliquez sur **Suivant**.
-
-![Représentation : assistant — raccourci sur le bureau](/images/blog/installer-mblock/ecran-07-raccourci-bureau.svg)
-
-### 2.7 Résumé puis installation
-
-Un écran récapitule les choix (**Prêt à installer** ou équivalent).
-
-- Vérifiez que le dossier d’installation et les options vous conviennent.
-- Cliquez sur **Installer** (ou **Installer maintenant**).
-
-Une **nouvelle demande UAC** peut réapparaître : cliquez encore sur **Oui** si Windows le demande.
-
-![Représentation : assistant — prêt à installer, bouton Installer](/images/blog/installer-mblock/ecran-08-pret-installer.svg)
-
-### 2.8 Barre de progression
-
-Patientez pendant la **copie des fichiers**. Ne fermez pas la fenêtre tant que l’assistant ne l’indique pas.
-
-![Capture d’écran : assistant d’installation mBlock — copie des fichiers en cours](/images/blog/installer-mblock/ecran-09-progression.png)
-
-### 2.9 Fin de l’installation
-
-À la fin, une page **Installation terminée** peut proposer de **lancer mBlock** immédiatement (case à cocher).
-
-- Cochez-la si vous voulez ouvrir le logiciel tout de suite ; décochez si vous préférez le lancer plus tard.
-- Cliquez sur **Terminer** (ou **Fermer**).
-
-![Capture d’écran : assistant — installation terminée, option pour lancer mBlock](/images/blog/installer-mblock/ecran-10-termine.png)
-
-### 2.10 Premier lancement (si vous n’avez pas coché « Lancer »)
-
-Sinon, ouvrez mBlock via :
+Ensuite, ouvrez mBlock via :
 
 - le **raccourci sur le bureau**, ou  
 - le **menu Démarrer** : tapez **mBlock** dans la recherche puis cliquez sur l’application.
@@ -167,10 +131,10 @@ Ensuite, suivez l’article **[Premier pas avec mBlock 5](/premier-pas-avec-mblo
 | Problème | Piste |
 |----------|--------|
 | Le fichier `.exe` ne se lance pas | **Propriétés** → **Débloquer** si visible ; **Exécuter en tant qu’administrateur** ; retélécharger le fichier ; voir la FAQ ci-dessous. |
-| Message **Windows a protégé votre PC** (SmartScreen) | **Informations complémentaires** → **Exécuter quand même** — uniquement si le fichier vient bien de **mblock.cc**. |
+| Message **Windows a protégé votre PC** (SmartScreen) | **Informations complémentaires** → **Exécuter quand même** — uniquement si le fichier vient bien de **mblock.cc** ou du **lien de secours** proposé plus haut sur **ce site**. |
 | Installation interrompue / écran d’erreur | Antivirus ou pare-feu : autoriser l’installateur ou désactiver **temporairement** la protection le temps de l’installation (puis la réactiver). |
 | UAC bloqué / pas de droits admin | Compte administrateur ou aide d’un adulte / du service informatique. |
-| Installateur dans une autre langue | Repérez **Next** / **Back** / **Install** ; revenez en arrière ou relancez et choisissez **Français**. |
+| Écrans de l’installateur en anglais | Les libellés **Finish**, **Install Finished**, etc. sont courants ; la **langue d’interface** de mBlock se règle dans l’**application** après ouverture. |
 
 ---
 
@@ -186,19 +150,55 @@ Page officielle : **[mblock.cc — download](https://www.mblock.cc/en-us/downloa
 
 ### mBlock 5 est-il gratuit et disponible en français ?
 
-Oui : le téléchargement standard est **gratuit**. Pour le **français**, choisissez **Français** à l’écran de langue au début de l’installation.
+Oui : le téléchargement standard est **gratuit**. L’installateur **ne demande plus** la langue au début : l’interface de **mBlock** peut suivre **Windows** ou se régler dans les **paramètres / langue** du logiciel après installation.
 
 ### Windows 11 : la même procédure ?
 
-Oui. Les étapes décrites pour **Windows 10** s’appliquent en général telles quelles sous **Windows 11** (UAC, assistant, dossiers par défaut).
+Oui. Les étapes décrites pour **Windows 10** s’appliquent en général telles quelles sous **Windows 11** (UAC, copie directe des fichiers, dossier sous `Program Files`).
 
 ### Dois-je installer exactement la 5.6 ?
 
-Installez la **dernière version stable** proposée sur le site officiel (souvent **5.6.x** ou plus récent) : les écrans peuvent être légèrement différents, mais la logique est la même.
+Installez la **dernière version stable** proposée sur le site officiel (souvent **5.6.x** ou plus récent) : l’installateur peut **aller droit à la copie** des fichiers après l’**UAC**, sans les anciens écrans « Suivant » intermédiaires.
 
 ### « Télécharger mblock » et « télécharger mblock 5 », c’est la même chose ?
 
 Dans la plupart des cas, oui : il s’agit de **mBlock 5** pour PC. Vérifiez bien que la source est **Makeblock** / **mblock.cc**.
+
+### Recherches du type « mblock 5 télécharger », « telecharger mblock », « mblock téléchargement », « mblock download », « mblock5 download »
+
+Toutes renvoient au **même logiciel** (mBlock **5** pour Windows). La **page officielle** reste **[mblock.cc — Download](https://www.mblock.cc/en-us/download/)** ; pour le **PC sous Windows**, choisissez la section **Windows** (souvent **64 bits**). Les équivalents en anglais (**mblock download**, **mblock 5 download**, **download mblock 5**) pointent vers la même installation.
+
+### « mblock5 », « mblock v5 », « m block 5 », « mbloc 5 » (faute), « mblcok » : c’est bien mBlock ?
+
+Oui : il s’agit en pratique du **même programme** (**mBlock 5**, environnement Makeblock proche de Scratch). Si une recherche ne trouve rien, retapez **mBlock 5 Makeblock** ou allez directement sur **mblock.cc**.
+
+### Anciennes versions (5.3, 5.4.3, « télécharger mblock 5.4 3 ») : faut-il les installer ?
+
+Les tutos ou vidéos peuvent citer **5.3** ou **5.4.3** : ce sont d’**anciennes références**. Pour un **nouveau** PC, installez plutôt la **dernière version stable** affichée sur le site officiel (souvent **5.6.x** ou plus récent). Une vieille version n’est utile que dans un cas **très spécifique** (compatibilité matériel signalée par le fabricant).
+
+### « mblock PC », « mblock download pc », « télécharger mblock pour windows »
+
+Sur **mblock.cc**, la section **Windows** fournit l’installateur **pour PC** (ordinateur fixe ou portable). La procédure de ce guide s’applique à **Windows 10** et **Windows 11**.
+
+### « Installer mblock » après le téléchargement : rien d’autre à chercher ?
+
+Une fois le **.exe** récupéré, il suffit de **lancer** le fichier (voir la section **« Étape 2 — Lancer l’installateur »** plus haut) ; il n’y a en général **pas** d’assistant « Suivant » multiple sur les installateurs récents — la copie démarre après l’**UAC**.
+
+### mBlock en ligne, « mblock 5 web », ou installation : que choisir ?
+
+**[mBlock en ligne](https://ide.mblock.cc/)** (navigateur) convient quand on **ne peut pas** installer de logiciel. Pour **firmware**, **USB** stable et **téléversement** vers le robot, l’**application bureau** est en général préférable — voir [Quel logiciel mBlock : app, Web, Python](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+
+### C’est quoi « mblock planet » ?
+
+Souvent, il s’agit de l’**espace compte / cloud** historique autour de mBlock (adresse du type **planet.mblock.cc**). Pour **créer un compte** et la marche à suivre dans le logiciel, voyez [S’inscrire sur mBlock 5](/sinscrire-sur-mblock/).
+
+### Logo mBlock, « image mblock » : où trouver une illustration officielle ?
+
+Les **logos** et visuels de marque relèvent du **site Makeblock** et de leurs **conditions d’usage**. Pour apprendre le logiciel, les **captures d’écran** de l’interface dans les tutoriels du site montrent l’app telle qu’elle apparaît sur le bureau.
+
+### mBlock et Minecraft : confusion ?
+
+**Non** : **mBlock** (Makeblock, robots comme le **mBot**) n’**est pas** le jeu **Minecraft**. Si la recherche mélange les deux, précisez **Makeblock** ou **mBot**.
 
 ---
 
@@ -210,7 +210,7 @@ Les causes les plus fréquentes viennent de **Windows Defender / SmartScreen**, 
 
 C’est courant pour des fichiers **récemment téléchargés** ou peu « connus » de SmartScreen, même pour des logiciels légitimes.
 
-1. Vérifiez que le `.exe` vient bien de **[mblock.cc](https://www.mblock.cc/en-us/download/)** (pas d’un site inconnu).
+1. Vérifiez que le `.exe` vient bien de **[mblock.cc](https://www.mblock.cc/en-us/download/)** ou, en secours, du **lien d’installateur** fourni plus haut dans cet article (pas d’un site inconnu).
 2. Sur l’avertissement, cliquez sur **Informations complémentaires** (ou **More info**), puis **Exécuter quand même** / **Run anyway**.
 3. Si l’option n’apparaît pas : clic droit sur le fichier → **Propriétés** → cochez **Débloquer** en bas si la case existe → **OK**, puis relancez l’installateur.
 
@@ -231,8 +231,8 @@ Plusieurs suites de sécurité **interceptent** les installateurs pendant la cop
 
 ### Message du type « Accès refusé » ou erreur d’écriture dans un dossier
 
-- Installez dans le chemin **par défaut** (`Program Files\…`) plutôt qu’un dossier personnel restreint.
-- Évitez les chemins avec **caractères spéciaux** ou disques pleins.
+- L’installateur **récent** pose en principe mBlock sous **`Program Files\…`** sans demander le chemin ; en cas d’échec, vérifiez les **droits** sur le disque **C:** et l’absence de **politique** qui bloque l’écriture.
+- Évitez tout scénario où un **logiciel tiers** redirige l’installation vers un dossier personnel **restreint** ou des chemins avec **caractères spéciaux**.
 - Assurez-vous d’avoir confirmé **Oui** à l’**UAC** quand Windows le demande.
 
 ### J’ai téléchargé la mauvaise architecture (32 / 64 bits)
@@ -257,7 +257,7 @@ Si le PC est en **64 bits** (cas le plus courant), prenez la version **64 bits**
 
 ### Espace disque insuffisant
 
-Libérez de la place sur le disque **C:** (vidage de la corbeille, fichiers temporaires, *Paramètres → Stockage*). Prévoyez **plusieurs centaines de Mo** libres pour l’installation et les mises à jour.
+Libérez de la place sur le disque **C:** (vidage de la corbeille, fichiers temporaires, *Paramètres → Stockage*). Prévoyez **au moins ~1,5 à 2 Go** libres : installateur **~380 Mo** + programme installé **~1,05 Go** + marge pour les mises à jour.
 
 ### Où demander de l’aide si rien ne fonctionne ?
 

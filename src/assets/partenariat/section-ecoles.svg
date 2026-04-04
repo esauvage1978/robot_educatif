@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="260" viewBox="0 0 320 260" role="img" aria-labelledby="et">
+  <title id="et">Ecole et apprentissage de la robotique</title>
+  <defs>
+    <linearGradient id="esky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f4f7"/>
+      <stop offset="100%" style="stop-color:#cfe8ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="260" fill="url(#esky)" rx="16"/>
+  <rect x="70" y="88" width="180" height="140" fill="#fff" stroke="#2d8fa0" stroke-width="3" rx="6"/>
+  <rect x="100" y="120" width="36" height="48" fill="#b8dde4"/>
+  <rect x="184" y="120" width="36" height="48" fill="#b8dde4"/>
+  <rect x="142" y="148" width="36" height="62" fill="#89c5d0"/>
+  <polygon points="60,88 160,42 260,88" fill="#f4b942" stroke="#c98f1a" stroke-width="2"/>
+  <rect x="108" y="102" width="104" height="56" rx="4" fill="#1a4d57" stroke="#fff" stroke-width="2"/>
+  <path d="M118 118 L138 118 M148 118 L202 118" stroke="#7dd3c0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M118 132 L190 132" stroke="#a8e0d4" stroke-width="2" stroke-linecap="round"/>
+  <g transform="translate(232 168)">
+    <rect x="0" y="18" width="40" height="32" rx="6" fill="#2d8fa0" stroke="#fff" stroke-width="2"/>
+    <rect x="12" y="4" width="16" height="18" rx="4" fill="#4db8c9" stroke="#fff" stroke-width="1"/>
+  </g>
+  <circle cx="52" cy="178" r="14" fill="#f0c97a"/>
+  <path d="M52 192 L52 232 M38 210 L66 210 M52 232 L42 248 M52 232 L62 248" stroke="#2d8fa0" stroke-width="5" stroke-linecap="round"/>
+</svg>

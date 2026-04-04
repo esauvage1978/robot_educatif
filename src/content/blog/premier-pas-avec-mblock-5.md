@@ -3,7 +3,7 @@ title: "Premiers pas avec mBlock 5 : comprendre l’environnement"
 description: "Tour d’horizon de mBlock 5 : scène, lutins, onglet Appareil, palettes de blocs, zone de script, connexion au robot et exécution du programme. Guide pour débutants après l’installation."
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
-updatedDate: "2026-03-30"
+updatedDate: "2026-03-31"
 categories:
   - "mBlock"
   - "Guide"
@@ -23,8 +23,6 @@ relatedLinks:
 ---
 
 **mBlock 5** est l’application de **programmation par blocs** de Makeblock, proche de **Scratch**, mais pensée pour **brancher** des robots (mBot, mBot2, Codey Rocky, CyberPi, etc.) en plus d’animer des **lutins** à l’écran. Une fois [mBlock installé](/installer-mblock-5-sous-windows-10/), ce guide vous aide à **vous repérer** dans la fenêtre : menus, zones, vocabulaire — avant de enchaîner sur un [premier programme pour le mBot](/mon-premier-programme-mbot/).
-
-**Illustrations :** les captures d’écran sont référencées sous `/images/blog/premier-pas-mblock/` avec des **noms de fichier fixes** ; dès que vous déposez les fichiers correspondants (PNG recommandé), ils s’affichent sans modifier l’article.
 
 ## 1. Écran « type Scratch » et robot : ce que mBlock permet
 
@@ -142,22 +140,15 @@ Cherchez **Language** / **Préférences** / **Paramètres** dans le menu (emplac
 
 Mettez à jour **Windows**, **mBlock** et les **pilotes** ; testez en **administrateur** une fois ; en cas de blocage antivirus, voir la FAQ de [l’article d’installation](/installer-mblock-5-sous-windows-10/).
 
+### C’est quoi un « programme mblock » ?
+
+Dans mBlock, un **programme** est le **script en blocs** (une ou plusieurs piles) que vous assemblez dans la **zone de script**, souvent sauvegardé dans un fichier projet **`.mblock`**. Pour en voir un exemple sur **robot mBot**, suivez [Mon premier programme mBot](/mon-premier-programme-mbot/).
+
+### « mBlock 5 web » et l’application installée, même fonction ?
+
+L’**interface** (scène, blocs, zone de script) se ressemble entre **[mBlock en ligne](https://ide.mblock.cc/)** et l’**appli bureau**. En revanche, le **branchement robot**, le **Bluetooth** et le **téléversement** sont souvent **plus fiables** dans l’application — détail dans [Quel logiciel mBlock](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+
 ---
-
-## Fichiers d’illustration attendus
-
-Pour que toutes les images ci-dessus s’affichent, placez les fichiers **PNG** (ou JPG si vous préférez, en adaptant l’extension dans l’article) dans **`public/images/blog/premier-pas-mblock/`** :
-
-| Fichier | Sujet de la capture |
-|---------|---------------------|
-| `mblock-vue-globale.png` | Fenêtre complète annotée si possible |
-| `mblock-menu-principal.png` | Menu Fichier / bande supérieure |
-| `mblock-scene-controles.png` | Scène + drapeau + stop + taille des blocs |
-| `mblock-onglets-lutins-appareil.png` | Onglets Appareil / Objet / Arrière-plan |
-| `mblock-categories-blocs.png` | Catégories + quelques blocs visibles |
-| `mblock-zone-script.png` | Exemple de scripts emboîtés |
-
-Vous pouvez envoyer des captures **dans l’ordre qui vous arrange** : il suffit de les **renommer** selon ce tableau pour qu’elles correspondent au texte.
 
 ## Liens Amazon (affiliation)
 
