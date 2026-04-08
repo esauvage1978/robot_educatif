@@ -46,7 +46,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 					{statsEnabled ? 'Chargement des données…' : 'Supabase non configuré (variables PUBLIC_SUPABASE_URL / PUBLIC_SUPABASE_ANON_KEY).'}
 				</p>
 
-				<div class="stats-interne__tiles" aria-label="Totaux de vues">
+				<div class="stats-interne__tiles" aria-label="Indicateurs agrégés">
 					<div class="stats-interne__tile">
 						<span class="stats-interne__tile-label">Vues pages</span>
 						<p class="stats-interne__tile-value" id="stats-total-path-views">—</p>
@@ -56,6 +56,11 @@ const pathPrefix = import.meta.env.BASE_URL;
 						<span class="stats-interne__tile-label">Vues articles</span>
 						<p class="stats-interne__tile-value" id="stats-total-views">—</p>
 						<p class="stats-interne__tile-hint">Fiches du blog</p>
+					</div>
+					<div class="stats-interne__tile">
+						<span class="stats-interne__tile-label">Votes cumulés</span>
+						<p class="stats-interne__tile-value" id="stats-total-votes">—</p>
+						<p class="stats-interne__tile-hint">Nombre de notes enregistrées (tous articles)</p>
 					</div>
 					<div class="stats-interne__tile">
 						<span class="stats-interne__tile-label">Frappes 404</span>
@@ -342,6 +347,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 					var v2 = document.getElementById('stats-ref-views-2');
 					var refTbody = document.getElementById('stats-ref-tbody');
 					var total404El = document.getElementById('stats-total-404-hits');
+					var totalVotesEl = document.getElementById('stats-total-votes');
 					var nfTbody = document.getElementById('stats-404-tbody');
 
 					if (!tbody || !pathsTbody || !totalEl || !totalPathEl || !statusEl) return;
@@ -446,6 +452,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 						pathsTbody.appendChild(trp);
 						totalEl.textContent = '—';
 						totalPathEl.textContent = '—';
+						if (totalVotesEl) totalVotesEl.textContent = '—';
 						resetReferralCards();
 						reset404Panel();
 						return;
@@ -535,6 +542,12 @@ const pathPrefix = import.meta.env.BASE_URL;
 
 						var total = 0;
 						for (var k = 0; k < all.length; k++) total += all[k].views;
+
+						var totalVotes = 0;
+						for (var vi = 0; vi < rows.length; vi++) {
+							totalVotes += Number(rows[vi].rating_count) || 0;
+						}
+						if (totalVotesEl) totalVotesEl.textContent = String(totalVotes);
 
 						var pathTotal = 0;
 						for (var pi = 0; pi < pathRows.length; pi++) pathTotal += Number(pathRows[pi].views) || 0;
@@ -731,6 +744,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 						pathsTbody.appendChild(trEp);
 						totalEl.textContent = '—';
 						totalPathEl.textContent = '—';
+						if (totalVotesEl) totalVotesEl.textContent = '—';
 						resetReferralCards();
 						reset404Panel();
 					}

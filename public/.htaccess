@@ -12,6 +12,9 @@
 	RewriteRule ^category/?$ /categorie/ [R=301,L,NC]
 	RewriteRule ^category/(.*)$ /categorie/$1 [R=301,L,NC]
 
+	# Ancien slug sans « r » (mesure → mesurer)
+	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
+
 	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]

@@ -4,3 +4,6 @@
 /category /categorie/ 301
 /category/ /categorie/ 301
 /category/* /categorie/:splat 301
+
+/activite-mbot-mesure-des-distances /activite-mbot-mesurer-des-distances/ 301
+/activite-mbot-mesure-des-distances/ /activite-mbot-mesurer-des-distances/ 301
