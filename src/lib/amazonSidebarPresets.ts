@@ -58,4 +58,9 @@ export const AMAZON_SIDEBAR_PRESETS = {
 		{ label: 'Kits robotique & STEM', query: 'kit robotique STEM enfant' },
 		{ label: 'Livres — programmation & robotique', query: 'livre programmation robotique enfant' },
 	],
+	lego: [
+		{ label: 'LEGO SPIKE Prime', query: 'LEGO SPIKE Prime robot éducation' },
+		{ label: 'LEGO SPIKE Essential', query: 'LEGO Education SPIKE Essential' },
+		{ label: 'mBot Makeblock (alternative STEM)', query: 'mBot Makeblock robot éducatif kit' },
+	],
 } as const satisfies Record<string, AmazonSidebarLink[]>;

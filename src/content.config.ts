@@ -30,6 +30,7 @@ const blog = defineCollection({
 					'raspberry',
 					'eilik',
 					'scratch',
+					'lego',
 				])
 				.optional(),
 			/** Maillage interne : articles mis en avant dans la colonne 1/3 */
