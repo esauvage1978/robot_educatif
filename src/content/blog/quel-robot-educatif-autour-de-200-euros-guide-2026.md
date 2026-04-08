@@ -11,6 +11,8 @@ categories:
   - "Comparatif"
   - "Cadeau"
 relatedLinks:
+  - title: "Robots 500–1000 € — kits premium (2026)"
+    href: "/quel-robot-educatif-entre-500-et-1000-euros-guide-2026/"
   - title: "Robots 200–500 € — kits avancés (2026)"
     href: "/quel-robot-educatif-entre-200-et-500-euros-guide-2026/"
   - title: "Quel robot éducatif choisir en 2026 ? (panorama)"
