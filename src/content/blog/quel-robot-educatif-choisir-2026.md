@@ -11,6 +11,8 @@ categories:
   - "Comparatif"
   - "Programmation"
 relatedLinks:
+  - title: "Robots autour de 200 € — comparatif détaillé 2026"
+    href: "/quel-robot-educatif-autour-de-200-euros-guide-2026/"
   - title: "Meilleur robot programmable enfant — repères 2026"
     href: "/meilleur-robot-programmable-enfant-2026/"
   - title: "Guide d’achat : enfant de 8 ans"
