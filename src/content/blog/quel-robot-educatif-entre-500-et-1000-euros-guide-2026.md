@@ -11,6 +11,8 @@ categories:
   - "Comparatif"
   - "STEM"
 relatedLinks:
+  - title: "Robots plus de 1000 € — guide expert (2026)"
+    href: "/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/"
   - title: "Robots 200–500 € — kits intermédiaires"
     href: "/quel-robot-educatif-entre-200-et-500-euros-guide-2026/"
   - title: "mBot vs mBot2"
@@ -216,7 +218,7 @@ Dans cette gamme, un bon choix permet en général de :
 | 🧑‍💻 **Passionné / maker** | **Makeblock Ultimate** ou stack **DFRobot** |
 | 🤖 **Geek orienté recherche / quadrupède** | **Unitree** seulement si tu **acceptes** budget et complexité **réels** (voir encadré prix ci-dessus) |
 
-Guides budget inférieur : [200–500 €](/quel-robot-educatif-entre-200-et-500-euros-guide-2026/), [~200 €](/quel-robot-educatif-autour-de-200-euros-guide-2026/).
+Guides budget : [**plus de 1000 €**](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/), [200–500 €](/quel-robot-educatif-entre-200-et-500-euros-guide-2026/), [~200 €](/quel-robot-educatif-autour-de-200-euros-guide-2026/).
 
 ---
 

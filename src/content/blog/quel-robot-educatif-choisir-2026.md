@@ -11,6 +11,8 @@ categories:
   - "Comparatif"
   - "Programmation"
 relatedLinks:
+  - title: "Robots plus de 1000 € — guide expert (2026)"
+    href: "/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/"
   - title: "Robots 500–1000 € — kits premium (2026)"
     href: "/quel-robot-educatif-entre-500-et-1000-euros-guide-2026/"
   - title: "Robots 200–500 € — kits avancés & école (2026)"
