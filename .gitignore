@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Cursor IDE
 .cursor/
+
+# Installateur mBlock (binaire > limite GitHub 100 Mo — déploiement manuel / hébergement externe)
+public/capture/installer-mblock-5-sous-windows-10/*.exe
