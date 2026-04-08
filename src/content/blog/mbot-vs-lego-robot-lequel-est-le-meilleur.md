@@ -27,7 +27,7 @@ tags:
 
 « **Mieux vaut un mBot ou un robot LEGO ?** » — la question revient sans cesse chez les familles qui veulent **un seul gros achat** à la rentrée ou à Noël. Il n’y a pas de gagnant universel : **LEGO Education** excelle quand l’enfant vit pour la **construction** et l’écosystème **briques + cursus** ; **Makeblock (mBot / mBot2)** excelle quand on veut un **robot roulant compact**, une courbe **mBlock / Scratch** très documentée côté francophone, et un **prix d’entrée** souvent plus bas.
 
-Sous « Lego robot », on regroupe ici principalement **LEGO Education SPIKE Essential**, **SPIKE Prime**, et l’ancien **LEGO Mindstorms Robot Inventor (51515)** — ce dernier **n’est plus commercialisé en neuf** par LEGO depuis fin 2022 , mais circule encore en **occasion** ; gardez en tête documentation et applications sur le **long terme**. Les **prix** cités sont **indicatifs** pour la France en **2026** ; vérifiez toujours le **vendeur** et le **contenu du pack** (batterie rechargeable LEGO vendue parfois à part, etc.).
+Sous « Lego robot », on regroupe ici principalement **LEGO Education SPIKE Essential**, **SPIKE Prime**, et l’ancien **LEGO Mindstorms Robot Inventor (51515)** — ce dernier **n’est plus commercialisé en neuf** par LEGO depuis fin 2022, mais circule encore en **occasion** ; gardez en tête documentation et applications sur le **long terme**. Les **prix** cités sont **indicatifs** pour la France en **2026** ; vérifiez toujours le **vendeur** et le **contenu du pack** (batterie rechargeable LEGO vendue parfois à part, etc.).
 
 ## 1. Rappel des deux philosophies
 
