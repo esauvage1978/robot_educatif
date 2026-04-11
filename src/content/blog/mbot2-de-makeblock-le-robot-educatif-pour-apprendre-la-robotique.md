@@ -1,5 +1,6 @@
 ---
 title: "MBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
+headline: "MBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
 description: "Le MBot2 de Makeblock est un robot éducatif passionnant pour les enfants et les adultes. Découvrez ses fonctionnalités avancées, sa compatibilité multi-langage et ses capteurs innovants."
 pubDate: "2023-04-10"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"

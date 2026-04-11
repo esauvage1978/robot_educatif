@@ -1,5 +1,6 @@
 ---
 title: "Arduino C — fonctions, modularité et bonnes pratiques (DRY, portée) (20 exercices)"
+headline: "Fonctions, modularité et bonnes pratiques (DRY, portée) (20 exercices)"
 description: "Découper un programme robotique en fonctions, comprendre la portée, éviter les variables globales inutiles, appliquer DRY, et écrire du code lisible. 20 exercices corrigés."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02

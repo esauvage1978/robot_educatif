@@ -1,5 +1,6 @@
 ---
 title: "Python — lire et écrire des fichiers texte"
+headline: "Lire et écrire des fichiers texte"
 description: "open avec with, modes r / w / a, encoding utf-8, read et readlines, écriture ligne par ligne ; fichier manquant et bonnes habitudes ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

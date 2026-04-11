@@ -1,5 +1,6 @@
 ---
 title: "Bataille navale en Python (5/6) — coulé et victoire"
+headline: "Bataille navale en Python (5/6) — coulé et victoire"
 description: "Parcourir la flotte pour savoir si un navire est entièrement touché ; tester si tous les navires sont coulés."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

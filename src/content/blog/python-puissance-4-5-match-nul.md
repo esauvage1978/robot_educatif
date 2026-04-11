@@ -1,5 +1,6 @@
 ---
 title: "Puissance 4 en Python (5/6) — match nul et messages"
+headline: "Puissance 4 en Python (5/6) — match nul et messages"
 description: "Console, grille_pleine apres chaque coup ; partie complete deux humains ; .py telechargeable."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

@@ -1,5 +1,6 @@
 ---
 title: "Projet Journal CLI (6/6) — package, pyproject et livraison"
+headline: "Package, pyproject et livraison"
 description: "pyproject.toml, setuptools, entrée journal-stats, README, tests et publication ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

@@ -1,5 +1,6 @@
 ---
 title: "Le pendu en Python (1/6) — cahier des charges et mot masqué"
+headline: "Le pendu en Python (1/6) — cahier des charges et mot masqué"
 description: "Règles du jeu, choisir un mot en dur, construire la chaîne affichée avec des tirets et mettre à jour quand une lettre est trouvée."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

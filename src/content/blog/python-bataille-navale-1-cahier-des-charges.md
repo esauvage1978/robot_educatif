@@ -1,5 +1,6 @@
 ---
 title: "Bataille navale en Python (1/6) — cahier des charges et données"
+headline: "Bataille navale en Python (1/6) — cahier des charges et données"
 description: "Règles simplifiées, taille de grille, tailles des navires, et choix des structures : grille 2D, listes de cases."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

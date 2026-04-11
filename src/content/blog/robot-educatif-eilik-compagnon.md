@@ -1,5 +1,6 @@
 ---
 title: "Eilik : petit robot de bureau interactif pour découvrir la tech"
+headline: "Eilik : petit robot de bureau interactif pour découvrir la tech"
 description: "Eilik : robot compagnon de bureau, jeux, réactions tactiles et animations. Idées d’ateliers, public, limites, poursuite possible avec le code (Scratch, robots éducatifs) et lien Amazon.fr."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"

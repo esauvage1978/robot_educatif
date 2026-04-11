@@ -1,5 +1,6 @@
 ---
 title: "Python avancé — décorateurs, functools et fermetures"
+headline: "Python avancé — décorateurs, functools et fermetures"
 description: "Fermetures, décorateurs simples, @wraps, partial, lru_cache ; ordre d’application ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

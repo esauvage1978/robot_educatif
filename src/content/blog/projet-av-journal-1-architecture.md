@@ -1,5 +1,6 @@
 ---
 title: "Projet Journal CLI (1/6) — architecture et périmètre"
+headline: "Architecture et périmètre"
 description: "Analyse de fichiers log ligne à ligne, modules parser/stats/cli, objectifs et livrables ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

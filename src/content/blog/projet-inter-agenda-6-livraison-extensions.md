@@ -1,5 +1,6 @@
 ---
 title: "Projet Agenda CLI (6/6) — livraison, qualité et extensions"
+headline: "Livraison, qualité et extensions"
 description: "requirements.txt ou pyproject, entrée console, README, idées d’extensions (export ICS, rappels) ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

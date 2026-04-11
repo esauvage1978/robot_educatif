@@ -1,5 +1,6 @@
 ---
 title: "Activité mBot : faire clignoter les leds"
+headline: "Activité mBot : faire clignoter les leds"
 description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS au travers de 3 activités. 2 simples et une un peu plus complexe."
 pubDate: "2020-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"

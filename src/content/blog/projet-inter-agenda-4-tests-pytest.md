@@ -1,5 +1,6 @@
 ---
 title: "Projet Agenda CLI (4/6) — tests avec pytest"
+headline: "Tests avec pytest"
 description: "Fixtures tmp_path, tests du service, mocks de stockage, couverture des erreurs ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

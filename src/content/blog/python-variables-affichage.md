@@ -1,5 +1,6 @@
 ---
 title: "Python — variables et affichage (print)"
+headline: "Variables et affichage (print)"
 description: "Affectation, noms de variables, print (virgules, concaténation), f-strings et expressions ; pièges courants et exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

@@ -1,5 +1,6 @@
 ---
 title: "Scratch à l’école ou à la maison : par où commencer en 2026 ?"
+headline: "Scratch à l’école ou à la maison : par où commencer en 2026 ?"
 description: "Structurer l’apprentissage Scratch en classe ou à domicile : différences concrètes, planning sur quatre semaines, erreurs fréquentes, outils et passage au robot mBot. Schémas et liens tutoriels."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

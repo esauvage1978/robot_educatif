@@ -1,5 +1,6 @@
 ---
 title: "Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants"
+headline: "Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants"
 description: "La robotique éducative est en train de devenir l’un des outils pédagogiques les plus populaires pour enseigner la science, la technologie, l’ingénierie et les mathématiques (STEM) aux enfants. Dans cet article, nous allons nous concentrer sur le robot tale-bot de chez Matatalab, un robot programmable conçu pour les enfants de 3 à 9 ans."
 pubDate: "2023-04-30"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"

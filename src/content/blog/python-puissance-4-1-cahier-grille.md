@@ -1,5 +1,6 @@
 ---
 title: "Puissance 4 en Python (1/6) — cahier des charges et grille"
+headline: "Puissance 4 en Python (1/6) — cahier des charges et grille"
 description: "Console, constantes 6×7, nouvelle_grille et grille_pleine ; script .py telechargeable identique au code du chapitre."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

@@ -19,6 +19,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 
 const {
 	title,
+	headline,
 	description,
 	pubDate,
 	updatedDate,
@@ -26,8 +27,11 @@ const {
 	amazonPreset,
 	relatedLinks,
 	categories = [],
+	faqSchema,
 	articleSlug = '',
 } = Astro.props;
+
+const pageHeading = headline ?? title;
 
 const resolvedHero = resolveHeroImage(heroImage);
 const allPosts = await getCollection('blog');
@@ -193,6 +197,81 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 					grid-template-columns: 1fr;
 				}
 			}
+			/* CTA dans le corps d’article (HTML brut dans le Markdown) */
+			.prose .article-cta-row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+				margin: 1.35rem 0;
+			}
+			.prose .article-cta {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				font-family: var(--font-body, system-ui);
+				font-weight: 700;
+				font-size: 0.95rem;
+				line-height: 1.25;
+				text-decoration: none;
+				border-radius: 8px;
+				padding: 0.6rem 1.1rem;
+				border: 1px solid transparent;
+				transition:
+					background 0.15s ease,
+					border-color 0.15s ease,
+					filter 0.12s ease;
+			}
+			.prose .article-cta--primary {
+				color: #fff !important;
+				background: var(
+					--brand-gradient,
+					linear-gradient(135deg, var(--accent), var(--accent-warm))
+				);
+				border-color: color-mix(in oklab, #fff 18%, transparent);
+				box-shadow:
+					0 1px rgba(255, 255, 255, 0.12) inset,
+					0 4px 16px rgba(0, 0, 0, 0.18);
+			}
+			.prose .article-cta--primary:hover {
+				filter: brightness(1.06);
+				text-decoration: none !important;
+			}
+			.prose .article-cta--secondary {
+				color: var(--accent-dark) !important;
+				background: color-mix(in oklab, var(--accent) 22%, var(--surface-2));
+				border-color: color-mix(in oklab, var(--accent) 38%, var(--surface-border));
+			}
+			.prose .article-cta--secondary:hover {
+				background: color-mix(in oklab, var(--accent) 30%, var(--surface-2));
+				text-decoration: none !important;
+			}
+			.prose .article-toc {
+				margin: 0 0 1.75rem 0;
+				padding: 1rem 1.15rem;
+				border-radius: 12px;
+				border: 1px solid var(--surface-border);
+				background: color-mix(in oklab, var(--surface-2) 88%, var(--page-bg));
+				font-size: 0.95rem;
+			}
+			.prose .article-toc-title {
+				margin: 0 0 0.65rem 0;
+				font-size: 0.82rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: rgb(var(--gray));
+				font-family: var(--font-body, system-ui);
+			}
+			.prose .article-toc ul {
+				margin: 0;
+				padding-left: 1.15rem;
+				display: grid;
+				gap: 0.35rem;
+			}
+			.prose .article-toc a {
+				font-weight: 600;
+			}
 		</style>
 	</head>
 
@@ -202,7 +281,7 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 			<section class="hero-article">
 				{resolvedHero && (
 					<div class="hero-article-media">
-						<Image width={1600} height={760} src={resolvedHero} alt={title} />
+						<Image width={1600} height={760} src={resolvedHero} alt={pageHeading} />
 					</div>
 				)}
 				<div class="hero-article-content">
@@ -241,7 +320,7 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 							</div>
 						)
 					}
-					<h1>{title}</h1>
+					<h1>{pageHeading}</h1>
 					<p class="hero-desc">{description}</p>
 				</div>
 			</section>
@@ -249,6 +328,25 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				<article>
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
+						{
+							faqSchema && faqSchema.length > 0 && (
+								<script
+									type="application/ld+json"
+									set:html={JSON.stringify({
+										'@context': 'https://schema.org',
+										'@type': 'FAQPage',
+										mainEntity: faqSchema.map((item) => ({
+											'@type': 'Question',
+											name: item.question,
+											acceptedAnswer: {
+												'@type': 'Answer',
+												text: item.answer,
+											},
+										})),
+									})}
+								/>
+							)
+						}
 					</div>
 				</article>
 				<Sidebar

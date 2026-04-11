@@ -1,15 +1,61 @@
 ---
 title: "Activité mBot : Détecteur d’intrusion"
+headline: "MBot : détecteur d’intrusion avec capteur ultrason"
 description: "Créer un détecteur d’intrusion avec le mBot : le capteur à ultrason surveille une zone, le robot alerte (LED + visage + son) et compte le nombre d’intrusions. Activité pas à pas, accessible aux plus jeunes."
 pubDate: "2020-04-28"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2026-03-31"
+updatedDate: "2026-04-02"
+amazonPreset: mbot
 categories:
   - "Activité"
   - "mBot"
   - "Makeblock"
   - "À partir de 8 ans"
+relatedLinks:
+  - title: "Mesurer des distances (mBot)"
+    href: "/activite-mbot-mesurer-des-distances/"
+  - title: "Série capteur ultrason mBot"
+    href: "/serie-capteur-ultrason-mbot-1-mesurer-distance/"
+  - title: "Premiers pas avec mBlock 5"
+    href: "/premier-pas-avec-mblock-5/"
+  - title: "Mon premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+  - title: "Installer les blocs du mBot"
+    href: "/installer-les-blocs-du-mbot/"
+faqSchema:
+  - question: "Comment faire un détecteur d’intrusion avec le mBot ?"
+    answer: "Mesurer une distance de référence avec le capteur ultrason après une courte attente, puis comparer en boucle la distance courante à cette référence ; si l’écart dépasse un seuil (environ 3 cm), déclencher LED, visage et son. Option : compter les intrusions avec une variable et afficher sur la matrice."
+  - question: "Comment fonctionne le capteur ultrason du mBot ?"
+    answer: "Il émet une impulsion ultrasonore et mesure le temps de l’écho après réflexion sur un obstacle pour estimer une distance en centimètres dans une plage usuelle d’environ 3 cm à 400 cm selon conditions."
+  - question: "Pourquoi utiliser un seuil d’environ 3 cm pour déclencher l’alarme ?"
+    answer: "La mesure varie légèrement sans obstacle nouveau ; un seuil évite les fausses alertes liées au bruit de lecture."
+  - question: "Comment éviter de compter plusieurs fois la même intrusion ?"
+    answer: "Après l’alerte, insérer un court attendre (par ex. 1 seconde) avant de recompter, ou n’incrémenter que lors d’un nouveau franchissement du seuil."
 ---
+
+<p><strong>Détecteur d’intrusion mBot :</strong><br>
+Mémoriser une <strong>distance de référence</strong> avec le <strong>capteur ultrason</strong>, puis en <strong>boucle</strong> comparer la mesure actuelle : si l’écart dépasse un <strong>seuil</strong> (souvent ~3 cm), passer en <strong>alerte</strong> (LED, visage sur la matrice, bip). Option : <strong>compter</strong> les passages et afficher le compteur.</p>
+
+<p>Activité utilisée avec des groupes à partir de ~8 ans ; mBlock 5 et mBot classique. Les captures illustrent des versions possibles de l’interface.</p>
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#prerequis">1. Prérequis</a></li>
+<li><a href="#capteur-ultrason">2. Capteur à ultrason</a></li>
+<li><a href="#programme-detection">3. Programme de détection</a></li>
+<li><a href="#aller-plus-loin-dev">4. Aller plus loin</a></li>
+<li><a href="#faq">5. FAQ</a></li>
+</ul>
+</div>
+
+<p>En prolongement : <a href="/activite-mbot-mesurer-des-distances/">mesure de distance</a>, <a href="/activite-mbot-faire-defiler-un-texte/">affichage matrice</a>.</p>
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/activite-mbot-mesurer-des-distances/">Mesurer des distances</a>
+<a class="article-cta article-cta--secondary" href="/mon-premier-programme-mbot/">Premier programme</a>
+</div>
+
 Tu vas transformer ton **mBot** en petit “gardien” :
 
 - Il **surveille** ce qu’il y a devant lui (avec le **capteur à ultrason**).
@@ -19,7 +65,7 @@ Tu vas transformer ton **mBot** en petit “gardien” :
   - un **bip**
 - Et dans la version améliorée, il **compte** le nombre d’intrusions.
 
-## 1\. pré requis
+<h2 id="prerequis">1. Prérequis</h2>
 
 Avant de commencer, assure-toi d’avoir :
 
@@ -30,7 +76,7 @@ Avant de commencer, assure-toi d’avoir :
 
 **Conseil** : pour éviter les soucis de connexion, commence si possible en **USB** (le Bluetooth marche, mais peut être plus capricieux).
 
-## 2\. Capteur à ultrason
+<h2 id="capteur-ultrason">2. Capteur à ultrason</h2>
 
 Le **capteur à ultrason** sert à mesurer une **distance**.
 
@@ -73,7 +119,7 @@ Le **÷2** vient du fait que `t` compte le **trajet aller + retour** : l’onde 
 
 Dans cette activité, on ne cherche pas une mesure parfaite au millimètre : on veut surtout détecter un **changement** (quelque chose est apparu / a bougé).
 
-## 3\. Programme de détection d’intrusion
+<h2 id="programme-detection">3. Programme de détection d’intrusion</h2>
 
 ### 3.1 Programme de base
 
@@ -91,11 +137,11 @@ Si ça change beaucoup, il crie “intrusion !”.
 
 ### Illustrations (captures)
 
-![Image représentant le robot mBot en attente de détection](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20en%20attente%20de%20d%C3%A9tection.png)
+![mBot Makeblock : détecteur d’intrusion, robot en attente de mesure ultrason](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20en%20attente%20de%20d%C3%A9tection.png)
 
-![Image représentant le robot mBot détectant une intrusion](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20d%C3%A9tectant%20une%20intrusion.png)
+![mBot : alerte intrusion LED et matrice après franchissement du seuil](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20d%C3%A9tectant%20une%20intrusion.png)
 
-![Image représentant le programme de détection basique](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20basique.png)
+![mBlock 5 : script blocs détecteur d’intrusion mBot (version basique)](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20basique.png)
 
 #### Pourquoi on attend 3 secondes au début ?
 
@@ -160,7 +206,7 @@ On va donc :
 - l’incrémenter à chaque intrusion,
 - afficher le nombre sur la matrice LED (ou le faire défiler).
 
-![Image représentant le programme de détection avec compteur intrusion](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion.png)
+![mBlock : détection intrusion avec variable compteur sur mBot](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion.png)
 
 #### À ajouter dans les blocs (version simple)
 
@@ -179,7 +225,7 @@ On va donc ranger les actions dans des “petites fonctions” (dans mBlock : **
 
 **But** : que le programme principal reste court et clair.
 
-![Image représentant le programme de détection avec compteur intrusion sous-programme](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion%20sous%20programme.png)
+![mBlock : refactorisation détecteur intrusion avec blocs personnalisés](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion%20sous%20programme.png)
 
 #### Idée de découpage (très simple)
 
@@ -260,7 +306,7 @@ Si tu préfères le reconstruire à la main, tu peux aussi suivre :
 
 Voir aussi : [Programmes mBlock](/programmes/).
 
-## 4\. Apprendre le développement
+<h2 id="aller-plus-loin-dev">4. Apprendre le développement</h2>
 
 Si tu veux progresser, voici une progression “facile” :
 
@@ -269,3 +315,21 @@ Si tu veux progresser, voici une progression “facile” :
 - puis passer à d’autres activités mBot du site (capteurs, moteurs, petits défis).
 
 Et si tu veux aller plus loin en programmation, Scratch/mBlock sont une très bonne porte d’entrée : le plus important, c’est de comprendre **variables + conditions + boucles**.
+
+<h2 id="faq">5. FAQ</h2>
+
+<h3 id="faq-detecteur">5.1. Comment faire un détecteur d’intrusion avec le mBot ?</h3>
+
+<p>Distance de <strong>référence</strong> après une courte attente, puis <strong>boucle</strong> : si <strong>|mesure − référence|</strong> dépasse un <strong>seuil</strong>, alerte (LED, visage, son). Ajouter une variable pour <strong>compter</strong> si besoin.</p>
+
+<h3 id="faq-ultrason">5.2. Comment fonctionne le capteur ultrason du mBot ?</h3>
+
+<p>Mesure du <strong>temps de vol</strong> d’un écho pour estimer une <strong>distance</strong> ; plage courante de l’ordre de <strong>3 cm à 4 m</strong> selon conditions.</p>
+
+<h3 id="faq-seuil">5.3. Pourquoi utiliser un seuil d’environ 3 cm pour déclencher l’alarme ?</h3>
+
+<p>La lecture <strong>fluctue</strong> légèrement ; le seuil limite les <strong>fausses alertes</strong>.</p>
+
+<h3 id="faq-compter">5.4. Comment éviter de compter plusieurs fois la même intrusion ?</h3>
+
+<p>Ajouter un <strong>attendre</strong> court après l’alerte, ou ne réincrémenter qu’après retour sous le seuil.</p>

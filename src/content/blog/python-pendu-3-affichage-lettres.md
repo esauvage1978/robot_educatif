@@ -1,5 +1,6 @@
 ---
 title: "Le pendu en Python (3/6) — affichage, lettres et pendu ASCII"
+headline: "Le pendu en Python (3/6) — affichage, lettres et pendu ASCII"
 description: "Présenter clairement masque et vies ; tri des lettres essayées ; dessiner le pendu avec une liste de chaînes."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

@@ -1,5 +1,6 @@
 ---
 title: "Le robot Tale-bot pro de chez Matatalab : Questions / Réponses"
+headline: "Le robot Tale-bot pro de chez Matatalab : Questions / Réponses"
 description: "Le robot Tale-bot pro de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons répondre aux questions courantes concernant le robot Tale-bot. Vous trouverez une description du Tale-bot dans cet article et d’autres informations dans […]"
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"

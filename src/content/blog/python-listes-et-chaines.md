@@ -1,5 +1,6 @@
 ---
 title: "Python — listes et chaînes de caractères"
+headline: "Listes et chaînes de caractères"
 description: "Indices, slicing, méthodes list et str ; parcourir, modifier une liste ; split, join, strip ; idée de compréhension de liste ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

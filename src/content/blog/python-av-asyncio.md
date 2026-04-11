@@ -1,5 +1,6 @@
 ---
 title: "Python avancé — asyncio : concurrence et I/O non bloquants"
+headline: "Python avancé — asyncio : concurrence et I/O non bloquants"
 description: "Event loop, async/await, Task, gather, sleep ; différences avec threads ; limites du GIL côté CPU ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

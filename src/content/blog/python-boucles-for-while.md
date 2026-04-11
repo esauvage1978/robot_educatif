@@ -1,5 +1,6 @@
 ---
 title: "Python — boucles for et while"
+headline: "Boucles for et while"
 description: "range(début, fin, pas), parcourir une chaîne, while avec compteur, break et continue ; quand choisir for ou while ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

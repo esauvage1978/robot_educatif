@@ -1,5 +1,6 @@
 ---
 title: "Projet Agenda CLI (1/6) — cahier des charges et arborescence"
+headline: "Cahier des charges et arborescence"
 description: "Objectifs fonctionnels, structure de dossiers src/, format JSON des événements, critères de réussite ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

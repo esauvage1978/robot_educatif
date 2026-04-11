@@ -1,5 +1,6 @@
 ---
 title: "Projet Agenda CLI (2/6) — données, pathlib et JSON"
+headline: "Données, pathlib et JSON"
 description: "Chemin du fichier agenda, pathlib.Path, lecture et écriture atomique, encodage UTF-8 ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

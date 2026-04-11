@@ -1,5 +1,6 @@
 ---
 title: "Idées de projets mBot rapides (environ une heure)"
+headline: "Idées de projets mBot rapides (environ une heure)"
 description: "Défis mBot réalisables en une séance courte : LED, ultrason, ligne, compteur, mini histoire. Schéma de timing, liens vers nos activités détaillées et Amazon."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

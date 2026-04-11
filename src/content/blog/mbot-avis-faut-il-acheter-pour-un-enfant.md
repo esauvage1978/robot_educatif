@@ -1,5 +1,6 @@
 ---
 title: "mBot avis : faut-il l’acheter pour un enfant ?"
+headline: "MBot avis : faut-il l’acheter pour un enfant ?"
 description: "Avis argumenté sur le mBot et le mBot2 : pour qui, à quel âge, budget réel, prise en main, limites et alternatives. Tableaux comparatifs et liens d’achat Amazon (affiliation)."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"

@@ -1,5 +1,6 @@
 ---
 title: "Arduino C — conditions (if/else) pour capteurs et actionneurs (20 exercices)"
+headline: "Conditions (if/else) pour capteurs et actionneurs (20 exercices)"
 description: "Apprendre if/else avec des exemples robotique : seuils, états, capteurs (simulés), LED/buzzer (simulés), et bonnes pratiques (constantes, lisibilité). 20 exercices corrigés."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02

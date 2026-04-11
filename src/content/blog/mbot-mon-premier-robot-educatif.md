@@ -1,5 +1,6 @@
 ---
 title: "mBot, mon premier robot éducatif"
+headline: "MBot, mon premier robot éducatif"
 description: "Robot mBot (robot éducatif Makeblock) : fonctionnement, programmation avec mBlock, idée de ce qu’est un robot pédagogique. Liens vers installation mBlock et premier programme."
 pubDate: "2023-04-06"
 heroImage: "../../assets/mbot/mbot-hero.png"

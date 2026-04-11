@@ -1,8 +1,9 @@
 ---
 title: "Raspberry Pi 3 vs 4 vs 5 : comparatif technique, prix et quel modèle choisir (2026)"
+headline: "Raspberry Pi 3 vs 4 vs 5 : quel modèle choisir ?"
 description: "Tableau comparatif Pi 3 / Pi 4 / Pi 5 : CPU, RAM, USB, réseau, vidéo, PCIe. Déclinaisons mémoire, fourchettes de prix en France (mars 2026), cas d’usage et liens vers les guides détaillés."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-30"
+updatedDate: "2026-04-02"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"
 amazonPreset: raspberry
 categories:
@@ -19,11 +20,45 @@ relatedLinks:
     href: "/mise-en-route-raspberry-pi-3-modele-b/"
   - title: "Raspberry Pi ou kit robot pour ado"
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
+tags:
+  - "Raspberry Pi"
+  - "Comparatif"
+faqSchema:
+  - question: "Quel Raspberry Pi choisir entre le Pi 3, le Pi 4 et le Pi 5 en 2026 ?"
+    answer: "Pi 3 pour projet très léger ou réemploi à petit budget ; Pi 4 comme sweet spot USB 3 et Gigabit pour serveur ou bureau ; Pi 5 quand il faut plus de CPU, jusqu’à 16 Go de RAM ou le bus PCIe — en acceptant alimentation et refroidissement plus exigeants."
+  - question: "Le Raspberry Pi 3 vaut-il encore le coup ?"
+    answer: "Oui pour GPIO, scripts headless ou apprentissage avec matériel déjà là ; non comme poste bureau ou compilation confortable — 1 Go et USB 2 saturent vite."
+  - question: "Faut-il préférer le Pi 4 ou le Pi 5 en premier achat ?"
+    answer: "Pi 4 4 Go ou 8 Go si le budget et la simplicité thermique priment ; Pi 5 4 Go ou 8 Go si vous voulez la marge CPU, la RAM haute ou PCIe, avec dissipateur actif et bon chargeur."
+  - question: "Quelle RAM minimale pour un bureau Raspberry Pi OS agréable ?"
+    answer: "Viser au moins 4 Go sur Pi 4 ou Pi 5 ; 2 Go seulement pour usage serveur léger ou administration ponctuelle."
+  - question: "Que vérifier avant d’acheter (vendeur, accessoires) ?"
+    answer: "Révision de carte, alimentation adaptée, microSD ou NVMe selon projet, et pour le Pi 5 le coût du refroidissement actif — les prix TTC bougent souvent."
 ---
 
-Entre le **Raspberry Pi 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, propose des **fourchettes de prix** observées en France **à la fin mars 2026** (toujours à **recroiser** au moment de l’achat), et aide à **trancher** selon votre scénario.
+<p><strong>Quel Raspberry Pi choisir entre le 3, le 4 et le 5 ?</strong><br>
+En 2026, <strong>Pi 3</strong> reste pertinent pour les <strong>projets légers</strong> et le <strong>prix</strong> ; le <strong>Pi 4</strong> est le <strong>compromis</strong> le plus courant (USB 3, Gigabit, jusqu’à 8 Go) ; le <strong>Pi 5</strong> pousse <strong>CPU, RAM jusqu’à 16 Go et PCIe</strong>, au prix d’une <strong>alim</strong> et d’un <strong>refroidissement</strong> plus sérieux.</p>
 
-## 1. La gamme en un clin d’œil
+<p><strong>Résumé :</strong> l’écart n’est pas seulement le prix — <strong>USB 3</strong>, <strong>Ethernet gigabit réel</strong>, <strong>double HDMI</strong>, puis <strong>PCIe</strong> et les <strong>barrettes 16 Go</strong> sur le Pi 5 changent ce qu’il est raisonnable de faire sur une carte.</p>
+
+<p>Données calées sur les <strong>fiches Raspberry Pi</strong>, la <strong>doc communautaire</strong> et des <strong>fourchettes prix</strong> relevées en France fin <strong>mars 2026</strong> (à recroiser à l’achat).</p>
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#gamme">1. La gamme en un clin d’œil</a></li>
+<li><a href="#tableau">2. Tableau technique Pi 3 B vs Pi 4 B vs Pi 5</a></li>
+<li><a href="#memoire">3. Déclinaisons « mémoire » (résumé)</a></li>
+<li><a href="#prix">4. Prix indicatifs en France</a></li>
+<li><a href="#cas-usage">5. Quel Raspberry selon le cas d’usage</a></li>
+<li><a href="#choix-rapide">6. Choix rapide (besoin → modèle)</a></li>
+<li><a href="#prolongements">7. Prolongements</a></li>
+<li><a href="#notre-recommandation">8. Notre recommandation</a></li>
+<li><a href="#faq">9. FAQ</a></li>
+</ul>
+</div>
+
+<h2 id="gamme">1. La gamme en un clin d’œil</h2>
 
 Plusieurs familles de cartes coexistent chez Raspberry Pi (Zero, Pico, format clavier Pi 400, etc.). La photo ci-dessous illustre **l’écart de taille** entre plusieurs de ces plateformes — le **Pi 5** y figure à côté du **Pi 1**, du **Pi 400**, du **Zero 2 W** et du **Pico**.
 
@@ -31,7 +66,7 @@ Plusieurs familles de cartes coexistent chez Raspberry Pi (Zero, Pico, format cl
 
 *Photo : [SimonWaldherr](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_1,_Pi_5,_Pi_400,_Zero_2_and_Pico.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
 
-## 2. Tableau technique Pi 3 B vs Pi 4 B vs Pi 5
+<h2 id="tableau">2. Tableau technique Pi 3 B vs Pi 4 B vs Pi 5</h2>
 
 Les valeurs ci-dessous correspondent aux **références courantes** publiées par Raspberry Pi et à la littérature technique consolidée (fiches produit, documentation communautaire). Les fréquences exactes peuvent évoluer avec les **révisions firmware**.
 
@@ -57,13 +92,13 @@ Les valeurs ci-dessous correspondent aux **références courantes** publiées pa
 - **Pi 4** : **USB 3** + **vrai Gigabit** = NAS modeste, serveur, desktop correct dès **4 Go**.
 - **Pi 5** : **CPU plus récent**, **jusqu’à 16 Go** de RAM, **PCIe** pour accélérer le stockage ou des accélérateurs — mais **budget**, **dissipation thermique** et **alimentation** plus exigeants.
 
-## 3. Déclinaisons « mémoire » (résumé)
+<h2 id="memoire">3. Déclinaisons « mémoire » (résumé)</h2>
 
 - **Pi 3 B** : une seule déclinaison **1 Go** (hors Pi 3 A+, Pi 3 B+ variantes inchangées sur la RAM de ce tableau comparatif « grand public »).
 - **Pi 4 B** : **1, 2, 4 et 8 Go** — voir [Raspberry Pi 4 : quelle mémoire acheter ?](/raspberry-pi-4-quelle-version-memoire-acheter/).
 - **Pi 5** : **1, 2, 4, 8 et 16 Go** (le **16 Go** s’appuie sur des révisions SoC / DRAM plus récentes) — voir [Raspberry Pi 5 : quelle mémoire acheter ?](/raspberry-pi-5-quelle-version-memoire-acheter/).
 
-## 4. Prix indicatifs en France (fin mars 2026)
+<h2 id="prix">4. Prix indicatifs en France (fin mars 2026)</h2>
 
 Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promotions). Pour établir une **fourchette**, nous nous appuyons sur des **agrégateurs et guides d’achat** consultés autour du **30 mars 2026** (ex. idealo.fr, Les Numériques, offres marketplaces).
 
@@ -79,7 +114,7 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 *Vérifiez toujours la **fiche vendeur**, la **révision** de la carte et les **accessoires** inclus (absence d’alimentation officielle, coût du dissipateur sur Pi 5, etc.).*
 
-## 5. Quel Raspberry choisir selon le cas d’usage ?
+<h2 id="cas-usage">5. Quel Raspberry choisir selon le cas d’usage ?</h2>
 
 **Rester sur un Pi 3** quand : vous **réutilisez du matériel**, vous ciblez un **projet très léger** (GPIO, sonde, petit script), ou vous acceptez un environnement qui **râle** dès que le navigateur ou les compilations grossissent — voir encore notre [mise en route Raspberry Pi 3](/mise-en-route-raspberry-pi-3-modele-b/).
 
@@ -89,11 +124,55 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 **Pour un ado hésitant entre « carte nue » et robot** : reprenez aussi [Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/) — la question est souvent **pédagogie** / **motivation**, pas seulement le brut MIPS.
 
-## 6. Prolongements
+<h2 id="choix-rapide">6. Choix rapide (besoin → modèle)</h2>
+
+| Besoin | Modèle indicatif |
+|--------|------------------|
+| GPIO, sonde, script headless, budget mini | Pi 3 (souvent occasion) ou Pico / Zero selon projet |
+| Bureau, NAS modeste, USB 3, Gigabit | Pi 4 **4 Go** ou **8 Go** |
+| CPU fort, 8–16 Go, NVMe / PCIe | Pi 5 + refroidissement + alim 5 A |
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/raspberry-pi-4-quelle-version-memoire-acheter/">Pi 4 : quelle RAM ?</a>
+<a class="article-cta article-cta--secondary" href="/raspberry-pi-5-quelle-version-memoire-acheter/">Pi 5 : quelle RAM ?</a>
+<a class="article-cta article-cta--secondary" href="/mise-en-route-raspberry-pi-3-modele-b/">Mise en route (Imager)</a>
+</div>
+
+<h2 id="prolongements">7. Prolongements</h2>
 
 - Guide mémoire **Pi 4** : [/raspberry-pi-4-quelle-version-memoire-acheter/](/raspberry-pi-4-quelle-version-memoire-acheter/)
 - Guide mémoire **Pi 5** : [/raspberry-pi-5-quelle-version-memoire-acheter/](/raspberry-pi-5-quelle-version-memoire-acheter/)
 - Première installation (écrit autour du Pi 3 mais transposable) : [mise en route Imager / SSH](/mise-en-route-raspberry-pi-3-modele-b/)
+
+<h2 id="notre-recommandation">8. Notre recommandation</h2>
+
+<p><strong>Meilleur rapport usage polyvalent / budget :</strong> <strong>Raspberry Pi 4 en 4 Go</strong> (ou 8 Go si plusieurs services ou compilation régulière), avec boîtier ventilé et alim USB-C sérieuse.</p>
+
+<p><strong>Meilleure marge pour le futur :</strong> <strong>Pi 5 en 4 Go ou 8 Go</strong> si vous budgétisez dissipateur actif, chargeur adapté et stockage rapide (microSD qualitative ou NVMe).</p>
+
+<p><strong>Critères express :</strong> besoin USB 3 et Gigabit → Pi 4 minimum ; besoin PCIe ou 16 Go → Pi 5 ; projet minimaliste ou réemploi → Pi 3 peut suffire.</p>
+
+<h2 id="faq">9. FAQ</h2>
+
+<h3 id="faq-quel-pi">9.1. Quel Raspberry Pi choisir entre Pi 3, Pi 4 et Pi 5 ?</h3>
+
+<p>Selon charge logicielle et budget : Pi 3 pour le léger, Pi 4 pour le sweet spot grand public, Pi 5 pour performance et extensions PCIe.</p>
+
+<h3 id="faq-pi3">9.2. Le Pi 3 vaut-il encore le coup ?</h3>
+
+<p>Oui pour prototypage modeste ou réemploi ; limite vite pour bureau et gros transferts.</p>
+
+<h3 id="faq-pi4-pi5">9.3. Pi 4 ou Pi 5 en premier achat ?</h3>
+
+<p>Pi 4 si vous voulez moins de contraintes thermiques et économiques ; Pi 5 si la roadmap prévoit compilation lourde ou beaucoup de RAM.</p>
+
+<h3 id="faq-ram-bureau">9.4. Quelle RAM pour un bureau agréable ?</h3>
+
+<p>Comptez <strong>4 Go minimum</strong> sur Pi 4 ou Pi 5 pour Raspberry Pi OS desktop confortable.</p>
+
+<h3 id="faq-achat">9.5. Que vérifier chez le vendeur ?</h3>
+
+<p>Révision, alimentation officielle ou équivalent documenté, et pour Pi 5 le kit refroidissement — recroiser les prix au moment de l’achat.</p>
 
 ## Liens Amazon (affiliation)
 
@@ -102,7 +181,3 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 - [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/s?k=Raspberry+Pi+5+dissipateur+alimentation&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
-
----
-
-**En bref** : **Pi 3** = **référence historique** utile mais **serrée** ; **Pi 4** = **sweet spot** réseau / USB pour beaucoup de projets ; **Pi 5** = **plafond performance et RAM**, au prix de la **complexité thermique** et du **coût**.

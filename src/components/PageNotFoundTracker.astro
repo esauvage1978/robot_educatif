@@ -31,29 +31,33 @@ const enabled = Boolean(supabaseUrl && supabaseKey);
 
 				var path = normalizePath(window.location.pathname, baseUrl);
 
-				fetch(supabaseUrl + '/rest/v1/rpc/increment_page_not_found', {
-					method: 'POST',
-					headers: {
-						apikey: supabaseKey,
-						Authorization: 'Bearer ' + supabaseKey,
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({ p_requested_path: path }),
-				})
-					.then(function (res) {
-						return res.text().then(function (txt) {
-							if (!res.ok) {
-								console.warn('[404 stats] RPC HTTP ' + res.status, txt || '');
-								return;
-							}
-							if (typeof console !== 'undefined' && console.debug) {
-								console.debug('[404 stats] OK', path, txt || '(vide)');
-							}
-						});
+				var STATS_RPC_DEFER_MS = 4500;
+				function send404Stat() {
+					fetch(supabaseUrl + '/rest/v1/rpc/increment_page_not_found', {
+						method: 'POST',
+						headers: {
+							apikey: supabaseKey,
+							Authorization: 'Bearer ' + supabaseKey,
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ p_requested_path: path }),
 					})
-					.catch(function (err) {
-						console.warn('[404 stats] réseau', err);
-					});
+						.then(function (res) {
+							return res.text().then(function (txt) {
+								if (!res.ok) {
+									console.warn('[404 stats] RPC HTTP ' + res.status, txt || '');
+									return;
+								}
+								if (typeof console !== 'undefined' && console.debug) {
+									console.debug('[404 stats] OK', path, txt || '(vide)');
+								}
+							});
+						})
+						.catch(function (err) {
+							console.warn('[404 stats] réseau', err);
+						});
+				}
+				window.setTimeout(send404Stat, STATS_RPC_DEFER_MS);
 			})();
 		</script>
 	)

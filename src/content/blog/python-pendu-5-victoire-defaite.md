@@ -1,5 +1,6 @@
 ---
 title: "Le pendu en Python (5/6) — victoire, défaite et finitions"
+headline: "Le pendu en Python (5/6) — victoire, défaite et finitions"
 description: "Messages clairs, afficher le mot si perdu ; statistiques simples ; option thèmes de mots (plusieurs fichiers)."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

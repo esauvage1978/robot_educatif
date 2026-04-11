@@ -1,0 +1,135 @@
+<!--
+  Template MJML — Notification formulaire contact (ROBOT éducatif)
+  Couleurs alignées sur src/styles/global.css (thème clair : --accent #1e7aa3, --accent-warm #c77a0a).
+
+  Compiler : https://mjml.io — CLI : npx mjml contact-notification-mailjet.mjml -o contact-notification-mailjet.html
+
+  Variables Mailjet (déclarer dans le template / API / Zapier) :
+    {{var:source}}         — ex. robot-educatif
+    {{var:objet}}          — Valeur du select (code, ex. mbot-mblock)
+    {{var:objet_label}}    — Libellé lisible (texte de l’option), envoyé par le formulaire
+    {{var:name}}           — Nom
+    {{var:company}}        — Société (optionnel)
+    {{var:email}}          — Email
+    {{var:message}}        — Message
+    {{var:submitted_at}}   — Date/heure (ex. remplie par Zapier)
+    {{var:page}}           — URL de la page (optionnel, si routé depuis le formulaire)
+
+  Logo : favicon PNG du site (stable en prod). Remplacer si vous hébergez un logo dédié pour l’email.
+-->
+<mjml>
+  <mj-head>
+    <mj-title>Nouveau message — Contact ROBOT éducatif</mj-title>
+    <mj-preview>Un visiteur a envoyé un message depuis le formulaire de contact du site.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Atkinson, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif" />
+      <mj-text color="#242c3a" font-size="16px" line-height="24px" />
+      <mj-button
+        background-color="#1e7aa3"
+        color="#ffffff"
+        font-size="16px"
+        font-weight="600"
+        border-radius="10px"
+        inner-padding="14px 28px"
+      />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#f0f2f6" width="600px">
+    <!-- Bandeau (accent site) -->
+    <mj-section background-color="#1e7aa3" padding="24px 40px 20px">
+      <mj-column width="100%">
+        <mj-image
+          src="https://robot-educatif.info/favicon.png"
+          alt="ROBOT éducatif"
+          width="72px"
+          padding-bottom="8px"
+          href="https://robot-educatif.info/"
+        />
+        <mj-text
+          align="center"
+          font-size="13px"
+          font-weight="700"
+          letter-spacing="0.06em"
+          text-transform="uppercase"
+          color="#ffffff"
+          padding="0"
+          line-height="20px"
+        >
+          robotique éducative
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Ligne accent chaud (rappel du dégradé marque) -->
+    <mj-section padding="0" background-color="#1e7aa3">
+      <mj-column width="100%">
+        <mj-divider border-width="3px" border-color="#c77a0a" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <!-- Titre -->
+    <mj-section background-color="#ffffff" padding="28px 40px 12px">
+      <mj-column width="100%">
+        <mj-text font-size="20px" font-weight="700" color="#155a78" padding-bottom="8px">
+          Nouveau message depuis le site
+        </mj-text>
+        <mj-text font-size="14px" color="#3e4858" padding-bottom="0">
+          Formulaire de contact — réponse attendue à l’adresse indiquée ci-dessous.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Données du formulaire -->
+    <mj-section background-color="#ffffff" padding="0 40px 20px">
+      <mj-column width="100%">
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Source</strong><br />
+          {{var:source}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Objet (code)</strong><br />
+          {{var:objet}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Objet (libellé)</strong><br />
+          {{var:objet_label}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Nom</strong><br />
+          {{var:name}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Société</strong><br />
+          {{var:company}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #155a78">Email</strong><br />
+          <a href="mailto:{{var:email}}" style="color: #1e7aa3; font-weight: 600;">{{var:email}}</a>
+        </mj-text>
+        <mj-text padding-bottom="8px">
+          <strong style="color: #155a78">Message</strong>
+        </mj-text>
+        <mj-text padding="12px 16px" container-background-color="#f7f8fb" color="#242c3a" border-radius="8px">
+          {{var:message}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- CTA -->
+    <mj-section background-color="#ffffff" padding="0 40px 28px">
+      <mj-column width="100%">
+        <mj-button href="mailto:{{var:email}}" align="left">Répondre par e-mail</mj-button>
+      </mj-column>
+    </mj-section>
+
+    <!-- Pied -->
+    <mj-section background-color="#e3edf3" padding="22px 40px">
+      <mj-column width="100%">
+        <mj-text font-size="12px" color="#3e4858" align="center" padding="0">
+          Email automatique — <a href="https://robot-educatif.info/" style="color: #1e7aa3;">robot-educatif.info</a> (ROBOT éducatif).<br />
+          <span style="color: #5a6570;">Reçu le : {{var:submitted_at}}</span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

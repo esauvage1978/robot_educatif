@@ -1,5 +1,6 @@
 ---
 title: "Python avancé — itérateurs, générateurs et itertools"
+headline: "Python avancé — itérateurs, générateurs et itertools"
 description: "Protocole iterator, yield, générateurs, itertools.chain et islice ; flux paresseux et mémoire ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

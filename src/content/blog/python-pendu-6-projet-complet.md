@@ -1,5 +1,6 @@
 ---
 title: "Le pendu en Python (6/6) — projet complet et extensions"
+headline: "Le pendu en Python (6/6) — projet complet et extensions"
 description: "Organiser pendu.py : constantes, fonctions, main ; checklist ; idées (scores en ligne, accents avec unicodedata)."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

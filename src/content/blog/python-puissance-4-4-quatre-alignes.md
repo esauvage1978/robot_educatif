@@ -1,5 +1,6 @@
 ---
 title: "Puissance 4 en Python (4/6) — détecter quatre alignés"
+headline: "Puissance 4 en Python (4/6) — détecter quatre alignés"
 description: "Console, compte_direction et victoire ; test automatique + partie avec arret sur gagnant ; .py telechargeable."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

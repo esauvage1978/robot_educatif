@@ -1,5 +1,6 @@
 ---
 title: "mBot2 vs CyberPi : robot ou carte programmable Makeblock ?"
+headline: "MBot2 vs CyberPi : robot ou carte programmable Makeblock ?"
 description: "Comparer mBot2 (robot roulant, défis terrain) et CyberPi (carte Wi-Fi, projets électroniques). Indications de prix, usages, prolongements pédagogiques et schéma récapitulatif."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

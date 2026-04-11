@@ -11,7 +11,10 @@ const blog = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: ({ image }) =>
 		z.object({
+			/** Titre document (<title>, SEO). Si absent du hero, utiliser `headline`. */
 			title: z.string(),
+			/** Titre affiché en H1 dans le hero (optionnel — sinon `title`). */
+			headline: z.string().optional(),
 			description: z.string(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
@@ -50,6 +53,15 @@ const blog = defineCollection({
 			tags: z.array(z.string()).optional(),
 			/** Quatre catégories par article — liens vers /categorie/[slug]/ */
 			categories: z.array(z.string()).length(4),
+			/** Données FAQ structurées (JSON-LD FAQPage) — le Markdown ne conserve pas les &lt;script&gt; */
+			faqSchema: z
+				.array(
+					z.object({
+						question: z.string(),
+						answer: z.string(),
+					}),
+				)
+				.optional(),
 		}),
 });
 

@@ -14,7 +14,7 @@ Document de suivi à compléter. **Objectif :** obtenir des **exemplaires à con
 | 2 | LEGO Education | | Danemark — kits SPIKE / WeDo | | | |
 | 3 | Sphero | | USA — robots programmables | | | |
 | 4 | Wonder Workshop | | USA — Dash, Cue | | | |
-| 5 | Ozobot | | USA — robots Evo / Bit | | | |
+| 5 | Ozobot | | USA — robots Evo / Bit | |2/4/2026 | |
 | 6 | UBTECH | | Chine — kits Jimu / robots | | | |
 | 7 | DJI Education | | Chine — RoboMaster (ligne éducation) | | | |
 | 8 | VEX Robotics | | USA — VEX GO / IQ / V5 | | | |

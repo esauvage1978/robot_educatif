@@ -1,6 +1,6 @@
 ---
 /**
- * Tableau de bord interne : vues articles, pages, 404 archivées, référents (Supabase).
+ * Tableau de bord interne : vues articles, onglet notes (votes), pages, 404, référents (Supabase).
  * Non référencé : noindex, exclu du sitemap, Disallow dans robots.txt — ne pas lier depuis le site public.
  */
 import { getCollection } from 'astro:content';
@@ -97,6 +97,17 @@ const pathPrefix = import.meta.env.BASE_URL;
 							type="button"
 							class="stats-interne__tab"
 							role="tab"
+							id="tab-votes"
+							aria-selected="false"
+							aria-controls="panel-votes"
+							tabindex="-1"
+						>
+							Notes (votes)
+						</button>
+						<button
+							type="button"
+							class="stats-interne__tab"
+							role="tab"
 							id="tab-referrals"
 							aria-selected="false"
 							aria-controls="panel-referrals"
@@ -165,6 +176,40 @@ const pathPrefix = import.meta.env.BASE_URL;
 									</tr>
 								</thead>
 								<tbody id="stats-tbody">
+									{
+										!statsEnabled && (
+											<tr>
+												<td colspan="4">—</td>
+											</tr>
+										)
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div
+						class="stats-interne__panel"
+						id="panel-votes"
+						role="tabpanel"
+						aria-labelledby="tab-votes"
+						hidden
+					>
+						<p class="stats-interne__panel-hint">
+							Articles ayant au moins un vote (étoiles 1–5). Tri : <strong>note moyenne</strong> décroissante, puis
+							<strong>nombre de votes</strong>.
+						</p>
+						<div class="stats-interne__table-wrap">
+							<table class="stats-interne__table">
+								<thead>
+									<tr>
+										<th scope="col">Article</th>
+										<th scope="col" class="stats-interne__col-num">Note moy. / 5</th>
+										<th scope="col" class="stats-interne__col-num">Votes</th>
+										<th scope="col" class="stats-interne__col-num">Vues</th>
+									</tr>
+								</thead>
+								<tbody id="stats-votes-tbody">
 									{
 										!statsEnabled && (
 											<tr>
@@ -337,6 +382,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 
 				async function run() {
 					var tbody = document.getElementById('stats-tbody');
+					var votesTbody = document.getElementById('stats-votes-tbody');
 					var pathsTbody = document.getElementById('stats-paths-tbody');
 					var totalEl = document.getElementById('stats-total-views');
 					var totalPathEl = document.getElementById('stats-total-path-views');
@@ -446,6 +492,12 @@ const pathPrefix = import.meta.env.BASE_URL;
 						var tr = document.createElement('tr');
 						tr.innerHTML = '<td colspan="4">Configurez Supabase pour afficher les statistiques.</td>';
 						tbody.appendChild(tr);
+						if (votesTbody) {
+							votesTbody.innerHTML = '';
+							var trVote = document.createElement('tr');
+							trVote.innerHTML = '<td colspan="4">Configurez Supabase pour afficher les statistiques.</td>';
+							votesTbody.appendChild(trVote);
+						}
 						pathsTbody.innerHTML = '';
 						var trp = document.createElement('tr');
 						trp.innerHTML = '<td colspan="2">—</td>';
@@ -540,6 +592,11 @@ const pathPrefix = import.meta.env.BASE_URL;
 							return y.views - x.views;
 						});
 
+						var withVotesCount = 0;
+						for (var wvc = 0; wvc < all.length; wvc++) {
+							if ((Number(all[wvc].rating_count) || 0) > 0) withVotesCount++;
+						}
+
 						var total = 0;
 						for (var k = 0; k < all.length; k++) total += all[k].views;
 
@@ -569,7 +626,9 @@ const pathPrefix = import.meta.env.BASE_URL;
 							new Date().toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) +
 							' · ' +
 							all.length +
-							' article(s) · ' +
+							' article(s) (' +
+							withVotesCount +
+							' avec vote(s)) · ' +
 							pathNote +
 							' · ' +
 							refNote +
@@ -610,6 +669,58 @@ const pathPrefix = import.meta.env.BASE_URL;
 							tr.appendChild(tdAvg);
 							tr.appendChild(tdC);
 							tbody.appendChild(tr);
+						}
+
+						if (votesTbody) {
+							votesTbody.innerHTML = '';
+							var rated = all.filter(function (row) {
+								return (Number(row.rating_count) || 0) > 0;
+							});
+							rated.sort(function (x, y) {
+								var ax = x.rating_sum / x.rating_count;
+								var ay = y.rating_sum / y.rating_count;
+								if (ay !== ax) return ay - ax;
+								return (Number(y.rating_count) || 0) - (Number(x.rating_count) || 0);
+							});
+							if (!rated.length) {
+								var trEmptyVotes = document.createElement('tr');
+								trEmptyVotes.innerHTML =
+									'<td colspan="4">Aucun vote enregistré pour l’instant.</td>';
+								votesTbody.appendChild(trEmptyVotes);
+							} else {
+								for (var nv = 0; nv < rated.length; nv++) {
+									var rv = rated[nv];
+									var trV = document.createElement('tr');
+									var linkV = base + encodeURIComponent(rv.slug) + '/';
+									var tdTV = document.createElement('td');
+									var aV = document.createElement('a');
+									aV.href = linkV;
+									aV.textContent = rv.title;
+									tdTV.appendChild(aV);
+									var smallV = document.createElement('div');
+									smallV.className = 'stats-interne__slug';
+									smallV.textContent = rv.slug;
+									tdTV.appendChild(smallV);
+
+									var tdAvgV = document.createElement('td');
+									tdAvgV.className = 'stats-interne__col-num';
+									tdAvgV.textContent = formatAvg(rv.rating_sum, rv.rating_count);
+
+									var tdVoteN = document.createElement('td');
+									tdVoteN.className = 'stats-interne__col-num';
+									tdVoteN.textContent = String(rv.rating_count);
+
+									var tdViewsV = document.createElement('td');
+									tdViewsV.className = 'stats-interne__col-num';
+									tdViewsV.textContent = String(rv.views);
+
+									trV.appendChild(tdTV);
+									trV.appendChild(tdAvgV);
+									trV.appendChild(tdVoteN);
+									trV.appendChild(tdViewsV);
+									votesTbody.appendChild(trV);
+								}
+							}
 						}
 
 						pathsTbody.innerHTML = '';
@@ -738,6 +849,13 @@ const pathPrefix = import.meta.env.BASE_URL;
 						var trE = document.createElement('tr');
 						trE.innerHTML = '<td colspan="4">Erreur réseau ou configuration.</td>';
 						tbody.appendChild(trE);
+						var votesTbodyErr = document.getElementById('stats-votes-tbody');
+						if (votesTbodyErr) {
+							votesTbodyErr.innerHTML = '';
+							var trEv = document.createElement('tr');
+							trEv.innerHTML = '<td colspan="4">Erreur réseau ou configuration.</td>';
+							votesTbodyErr.appendChild(trEv);
+						}
 						pathsTbody.innerHTML = '';
 						var trEp = document.createElement('tr');
 						trEp.innerHTML = '<td colspan="2">—</td>';

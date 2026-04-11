@@ -1,5 +1,6 @@
 ---
 title: "Puissance 4 en Python (2/6) — affichage et gravité"
+headline: "Puissance 4 en Python (2/6) — affichage et gravité"
 description: "Console, SYM et afficher_grille ; jouer_colonne et gravite ; script complet telechargeable."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

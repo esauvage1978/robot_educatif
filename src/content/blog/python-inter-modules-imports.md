@@ -1,5 +1,6 @@
 ---
 title: "Python intermédiaire — modules, packages et imports"
+headline: "Python intermédiaire — modules, packages et imports"
 description: "Organiser le code en modules et packages : import, from, __main__, PEP 8 (guide de style officiel), ressources externes ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

@@ -1,7 +1,30 @@
-# https://robot-educatif.info — Astro (@astrojs/sitemap)
+# robot-educatif.info — directives pour indexation (SEO) et limitation des crawlers d'entraînement IA
+# Référence : https://www.robotstxt.org/
+
+# =============================================================================
+# Moteurs de recherche — exploration autorisée sur tout le site public
+# =============================================================================
 User-agent: *
 Allow: /
-# Si le site est servi sous un sous-dossier (ASTRO_BASE), préfixer ce chemin (ex. /projet/stats-articles-interne/).
+
+# Espace interne (statistiques, non référencé) : ne pas indexer ni suivre en masse
+# En préproduction sous sous-dossier (ASTRO_BASE), préfixer le chemin, ex. /projet/stats-articles-interne/
 Disallow: /stats-articles-interne/
 
+# =============================================================================
+# Crawlers dédiés à l'entraînement / collecte pour modèles — réponse : refus global
+# (OpenAI, Anthropic, Common Crawl — selon politiques publiques des éditeurs)
+# =============================================================================
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# =============================================================================
+# Plan du site (sitemap Astro @astrojs/sitemap)
+# =============================================================================
 Sitemap: https://robot-educatif.info/sitemap-index.xml

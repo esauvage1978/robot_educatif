@@ -1,5 +1,6 @@
 ---
 title: "Projet Journal CLI (2/6) — parsing par générateurs"
+headline: "Parsing par générateurs"
 description: "Lecture ligne à ligne, yield, regex ou split, lignes ignorées ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

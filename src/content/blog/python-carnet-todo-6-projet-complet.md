@@ -1,5 +1,6 @@
 ---
 title: "Carnet Todo en Python (6/6) — projet complet et extensions"
+headline: "Carnet Todo en Python (6/6) — projet complet et extensions"
 description: "main() avec chemin par défaut ou argument ; récapitulatif ; priorités, dates, export CSV."
 pubDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"

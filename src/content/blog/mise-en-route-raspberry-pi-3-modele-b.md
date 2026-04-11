@@ -1,5 +1,6 @@
 ---
 title: "Mise en route Raspberry Pi 3 Modèle B : SD, Raspberry Pi OS, SSH, VNC"
+headline: "Mise en route Raspberry Pi 3 Modèle B : SD, Raspberry Pi OS, SSH, VNC"
 description: "Guide détaillé : matériel, Raspberry Pi Imager, options sans écran (Wi‑Fi, SSH), premier démarrage, mises à jour, accès distant et transfert de fichiers. Schémas et photo (Wikimedia)."
 pubDate: "2020-05-01"
 updatedDate: "2026-03-30"

@@ -1,5 +1,6 @@
 ---
 title: "Le pendu en Python (4/6) — boucle de partie et validation"
+headline: "Le pendu en Python (4/6) — boucle de partie et validation"
 description: "while True avec conditions de sortie ; redemander une lettre invalide ; rejouer une partie sans redémarrer le script."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28

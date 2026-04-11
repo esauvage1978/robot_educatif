@@ -1,5 +1,6 @@
 ---
 title: "Python — mini-projet : jeu « plus ou moins » au terminal"
+headline: "Mini-projet : jeu « plus ou moins » au terminal"
 description: "Projet guidé : random, boucle while, conditions, int et try/except ; variantes (limite d’essais, niveaux, record dans un fichier)."
 pubDate: 2026-03-28
 updatedDate: 2026-03-27

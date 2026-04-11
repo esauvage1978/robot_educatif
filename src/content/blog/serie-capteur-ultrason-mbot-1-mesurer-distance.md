@@ -1,5 +1,6 @@
 ---
 title: "Capteur ultrason mBot (1/4) : mesurer une distance (cm) dans mBlock"
+headline: "Capteur ultrason mBot (1/4) : mesurer une distance (cm) dans mBlock"
 description: "Première activité capteur ultrason du mBot : comprendre le principe (émission, écho, temps de vol), lire une distance en cm dans mBlock, afficher la valeur en Live, puis préparer la suite (radar de recul)."
 pubDate: "2026-03-31"
 updatedDate: "2026-03-31"

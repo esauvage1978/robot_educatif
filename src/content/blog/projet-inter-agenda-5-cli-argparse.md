@@ -1,5 +1,6 @@
 ---
 title: "Projet Agenda CLI (5/6) — argparse et interface ligne de commande"
+headline: "Argparse et interface ligne de commande"
 description: "Sous-commandes add, list, remove ; dates ; codes de sortie ; messages utilisateur ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

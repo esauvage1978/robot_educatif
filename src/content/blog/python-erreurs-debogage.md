@@ -1,5 +1,6 @@
 ---
 title: "Python — erreurs, exceptions et débogage"
+headline: "Erreurs, exceptions et débogage"
 description: "SyntaxError, TypeError, ValueError ; try / except / else / finally ; lire un traceback ; print de debug et pas à pas dans l’IDE ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

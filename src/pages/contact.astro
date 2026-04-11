@@ -141,6 +141,12 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}`;
 					const company = /** @type {HTMLInputElement} */ (document.getElementById('contact-company')).value.trim();
 					const objetEl = /** @type {HTMLSelectElement | null} */ (document.getElementById('contact-objet'));
 					const objet = (objetEl && objetEl.value.trim()) || '';
+					let objet_label = '';
+					if (objetEl && objet) {
+						const opt = objetEl.options[objetEl.selectedIndex];
+						if (opt) objet_label = opt.text.trim();
+						if (!objet_label) objet_label = objet;
+					}
 					const message = /** @type {HTMLTextAreaElement} */ (document.getElementById('contact-message')).value.trim();
 					const privacy = /** @type {HTMLInputElement} */ (document.getElementById('contact-privacy'));
 
@@ -176,6 +182,7 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}`;
 						email,
 						company,
 						objet,
+						objet_label,
 						message,
 						privacy_policy_accepted: 'true',
 						privacy_policy_accepted_at: submittedAt,

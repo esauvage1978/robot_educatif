@@ -1,5 +1,6 @@
 ---
 title: "Projet Journal CLI (3/6) — décorateurs pour métriques et journalisation"
+headline: "Décorateurs pour métriques et journalisation"
 description: "Mesurer le temps de parsing, journaliser le nombre de lignes, functools.wraps ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

@@ -1,5 +1,6 @@
 ---
 title: "Carnet Todo en Python (5/6) — persistance et robustesse"
+headline: "Carnet Todo en Python (5/6) — persistance et robustesse"
 description: "Sauvegarder après chaque modification ou à la fermeture ; copie de secours ; gestion JSONDecodeError."
 pubDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"

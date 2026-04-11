@@ -1,5 +1,6 @@
 ---
 title: "Python — fonctions (def, return, paramètres)"
+headline: "Fonctions (def, return, paramètres)"
 description: "def, arguments, return et None ; paramètres par défaut ; portée locale ; découper un script en petites fonctions claires ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29

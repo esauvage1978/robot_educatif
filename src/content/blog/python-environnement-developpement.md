@@ -1,5 +1,6 @@
 ---
 title: "Python : environnement de développement idéal (Windows, Mac, Android)"
+headline: "Python : environnement de développement idéal (Windows, Mac, Android)"
 description: "Installer Python gratuitement, choisir un éditeur adapté sur PC et coder sur mobile : VS Code, Thonny, Pydroid 3."
 pubDate: 2026-03-28
 updatedDate: 2026-03-28

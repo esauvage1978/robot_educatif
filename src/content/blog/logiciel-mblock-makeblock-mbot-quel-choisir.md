@@ -1,5 +1,6 @@
 ---
 title: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
+headline: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
 description: "mBlock 5 : application bureau, version web, mode Python — quand utiliser quoi pour mBot, mBot2, Codey Rocky et CyberPi. Tableau comparatif, captures et liens vers les tutoriels du site."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

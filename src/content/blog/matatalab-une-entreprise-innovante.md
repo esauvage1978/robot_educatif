@@ -1,5 +1,6 @@
 ---
 title: "Matatalab, une entreprise innovante"
+headline: "Matatalab, une entreprise innovante"
 description: "Matatalab, une entreprise spécialisée dans la conception et la production de jouets éducatifs pour les enfants."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"

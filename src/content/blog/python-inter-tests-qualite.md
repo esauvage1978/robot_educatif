@@ -1,5 +1,6 @@
 ---
 title: "Python intermédiaire — tests automatisés et qualité de code"
+headline: "Python intermédiaire — tests automatisés et qualité de code"
 description: "Tests automatisés : assert, unittest, pytest, structure des tests ; analyse statique (ruff/flake8) ; pourquoi tester et ressources ; 20 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

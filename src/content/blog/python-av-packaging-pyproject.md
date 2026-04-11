@@ -1,5 +1,6 @@
 ---
 title: "Python avancé — packaging moderne avec pyproject.toml"
+headline: "Python avancé — packaging moderne avec pyproject.toml"
 description: "Structure de projet, PEP 621, build backend, wheel, entrée console ; venv et publication PyPI (concepts) ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

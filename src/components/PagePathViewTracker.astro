@@ -115,17 +115,26 @@ const enabled = Boolean(supabaseUrl && supabaseKey);
 					return host + ' / referral';
 				}
 
-				/* Pas de Prefer: return=representation (écritures tabulaires) : sur RPC → int, PostgREST peut répondre 500. */
-				fetch(supabaseUrl + '/rest/v1/rpc/increment_page_path_view', {
-					method: 'POST',
-					headers: {
-						apikey: supabaseKey,
-						Authorization: 'Bearer ' + supabaseKey,
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({ p_path: path, p_referrer_origin: trafficSourceMedium() }),
-					keepalive: true,
-				}).catch(function () {});
+				/**
+				 * Pas de preconnect Supabase dans le <head> : ouvrir la connexion trop tôt peut allonger la chaîne
+				 * critique (Lighthouse). Ici : délai fixe après l’exécution du script (pied de page) pour sortir
+				 * la RPC de la fenêtre LCP / navigation initiale sans dépendre de load + idle (souvent encore
+				 * comptabilisés dans le graphe).
+				 */
+				var STATS_RPC_DEFER_MS = 4500;
+				function sendPagePathView() {
+					fetch(supabaseUrl + '/rest/v1/rpc/increment_page_path_view', {
+						method: 'POST',
+						headers: {
+							apikey: supabaseKey,
+							Authorization: 'Bearer ' + supabaseKey,
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ p_path: path, p_referrer_origin: trafficSourceMedium() }),
+						keepalive: true,
+					}).catch(function () {});
+				}
+				window.setTimeout(sendPagePathView, STATS_RPC_DEFER_MS);
 			})();
 		</script>
 	)

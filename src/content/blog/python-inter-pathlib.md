@@ -1,5 +1,6 @@
 ---
 title: "Python intermédiaire — pathlib : chemins et fichiers"
+headline: "Python intermédiaire — pathlib : chemins et fichiers"
 description: "pathlib : Path, chemins portables, lecture/écriture UTF-8, existence, glob ; pourquoi abandonner os.path pour le code neuf ; ressources ; 20 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
