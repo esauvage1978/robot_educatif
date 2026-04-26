@@ -1,9 +1,9 @@
 ---
-title: "Capteur ultrason mBot (1/4) : mesurer une distance (cm) dans mBlock"
-headline: "Capteur ultrason mBot (1/4) : mesurer une distance (cm) dans mBlock"
-description: "Première activité capteur ultrason du mBot : comprendre le principe (émission, écho, temps de vol), lire une distance en cm dans mBlock, afficher la valeur en Live, puis préparer la suite (radar de recul)."
+title: "Exercice mBot (mBlock) : capteur ultrason — mesurer une distance | programme débutant"
+headline: "Exercice mBot : Mesurer une Distance avec le Capteur Ultrason (Débutant)"
+description: "Exercice mBot et mBlock : programme pour lire le capteur ultrason, enregistrer la distance dans une variable et l’afficher. Robot programmable dès 10 ans, idéal pour la classe. Partie 1/4."
 pubDate: "2026-03-31"
-updatedDate: "2026-03-31"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -12,122 +12,202 @@ categories:
   - "mBlock"
   - "Capteur"
 relatedLinks:
-  - title: "Activité mBot : mesurer des distances (article historique)"
-    href: "/activite-mbot-mesurer-des-distances/"
-  - title: "Installer les blocs du mBot"
-    href: "/installer-les-blocs-du-mbot/"
-  - title: "Premiers pas avec mBlock 5"
-    href: "/premier-pas-avec-mblock-5/"
   - title: "Capteur ultrason mBot (2/4) : radar de recul (paliers)"
     href: "/serie-capteur-ultrason-mbot-2-radar-recul-paliers/"
+  - title: "Capteur ultrason mBot (3/4) : cadence selon la distance"
+    href: "/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/"
+  - title: "Capteur ultrason mBot (4/4) : ralentir puis s’arrêter"
+    href: "/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/"
+  - title: "Mon premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+  - title: "Installer les blocs du mBot"
+    href: "/installer-les-blocs-du-mbot/"
+  - title: "mBot : présentation du robot éducatif"
+    href: "/mbot-mon-premier-robot-educatif/"
+faqSchema:
+  - question: "Comment programmer mBot ?"
+    answer: "Avec mBlock : on assemble des blocs (comme Scratch), on connecte le robot en USB ou Bluetooth, puis on lance le programme en mode Live ou on le téléverse dans la carte. Pour ce tutoriel, il suffit de lire le capteur ultrason et d’afficher la distance dans une variable."
+  - question: "Comment fonctionne le capteur ultrason du mBot ?"
+    answer: "Il envoie une onde sonore trop aiguë pour nos oreilles, l’onde rebondit sur un obstacle, et le robot mesure le temps entre l’envoi et le retour pour calculer la distance en centimètres."
+  - question: "À quoi sert une variable dans un programme mBot ?"
+    answer: "C’est une case mémoire avec un nom : on y range la valeur mesurée (par exemple la distance), pour la réutiliser ensuite (affichage, tests, calculs)."
+  - question: "Quel robot pour apprendre à coder à 10 ans ?"
+    answer: "Le mBot est un robot programmable très utilisé à l’école et au collège : roues, capteurs (dont ultrason), programmation par blocs dans mBlock, et possibilité d’aller plus loin ensuite."
 ---
 
 <aside class="article-callout" role="note">
-<p><strong>Objectif pédagogique</strong></p>
-<p>Comprendre ce que mesure vraiment un capteur à ultrason, puis <strong>obtenir une distance fiable</strong> dans une variable. C’est la base des 3 activités suivantes (radar, cadence selon distance, freinage).</p>
+<p><strong>Série « capteur ultrason » (4 parties)</strong></p>
+<p>Cet exercice est la <strong>partie 1/4</strong> : on pose les bases (distance + variable). Ensuite, la série enchaîne avec des <strong>conditions</strong>, un radar, puis un <strong>obstacle</strong> et un <strong>mini-projet complet</strong>.</p>
 </aside>
 
-## Ce que tu vas faire
+## 🧭 Introduction
 
-- Brancher/configurer le **mBot** dans mBlock.
-- Lire la distance du **capteur à ultrason** (en **cm**) dans une **variable**.
-- Afficher la valeur en continu pour vérifier que la mesure « vit » quand on approche un obstacle.
+Tu veux **apprendre à programmer un robot** avec un objectif clair : **mesurer une distance** devant le mBot et **voir le résultat** à l’écran. C’est un **programme mBot** accessible **dès 10 ans** (école ou collège), avec le logiciel **mBlock** et des blocs à emboîter. Que tu cherches un **programme mbot** tout prêt ou une entrée en **mbot programmation** en classe, la page suit toujours le même schéma : **consigne**, **leçon courte**, puis **réponse possible**.
 
-## Prérequis
+**À retenir tout de suite :** le **capteur ultrason** mesure une distance grâce à un **signal sonore** (inaudible) qui part, **rebondit** sur un obstacle, puis revient. Le robot s’appuie sur ce **aller-retour** pour calculer **combien de centimètres** séparent le robot de l’obstacle.
 
-- Un [mBot](/mbot-mon-premier-robot-educatif/) (capteur ultrason à l’avant).
-- mBlock installé et opérationnel : [installation](/installer-mblock-5-sous-windows-10/) puis [prise en main](/premier-pas-avec-mblock-5/).
-- Les blocs du mBot sont visibles (blocs orange) : [installer les blocs du mBot](/installer-les-blocs-du-mbot/).
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/premier-pas-avec-mblock-5/">Premiers pas mBlock</a>
+<a class="article-cta article-cta--secondary" href="/installer-les-blocs-du-mbot/">Blocs mBot dans mBlock</a>
+</div>
 
 ---
 
-## 1) Comment fonctionne un capteur à ultrason (explication simple)
+## 📘 Partie 1 — Consigne (exercice)
 
-Un capteur à ultrason « voit » une distance en 3 étapes :
+### 🎯 Objectif de l’exercice
 
-1. Il **émet** un son très aigu (ultrason), inaudible pour nous.
-2. L’onde part, touche un obstacle, puis **revient** en **écho**.
-3. La carte mesure le **temps** entre l’émission et le retour, puis calcule la distance.
+Tu dois réaliser un **programme mBot** qui :
 
-### Schéma 1 — l’idée du « ping → écho »
+1. **mesure** la distance devant le robot avec le **capteur ultrason** ;
+2. **affiche** cette distance (pour vérifier que la mesure change quand tu bouges un obstacle).
+
+### 📋 Matériel
+
+- un **robot mBot** (capteur ultrason à l’avant) ;
+- l’ordinateur avec **mBlock** ([installation](/installer-mblock-5-sous-windows-10/), [prise en main](/premier-pas-avec-mblock-5/)) ;
+- les **blocs mBot** visibles dans mBlock ([aide à l’installation des blocs](/installer-les-blocs-du-mbot/)).
+
+### 📝 Consigne (ce que tu dois faire)
+
+**Programme ton robot pour :**
+
+1. **Lire** la distance avec le **capteur ultrason** (en centimètres).  
+2. **Stocker** cette valeur dans une **variable** (par exemple `distance_cm`).  
+3. **Afficher** la distance (variable cochée dans la zone Variables, ou affichage prévu dans ta version de mBlock).
+
+**En classe :** un binôme peut lire la consigne, l’autre place les blocs ; au tableau, notez la **chaîne** : capteur → variable → affichage.
+
+---
+
+## 📚 Partie 2 — Leçon (explication)
+
+### 🧠 1. Comment fonctionne le capteur ultrason ?
+
+En trois idées simples :
+
+1. Le capteur **envoie** un petit « bip » ultrason (on ne l’entend pas).  
+2. Le son **se reflète** sur l’obstacle et **revient**.  
+3. Le robot **mesure le temps** entre l’envoi et le retour, puis **calcule la distance**.
+
+Le capteur comporte un **émetteur** et un **récepteur** : l’un envoie l’onde, l’autre écoute l’écho. **La distance se déduit du temps de retour du signal** (plus l’obstacle est loin, plus le signal met de temps à revenir).
+
+**Schéma — émission et écho**
 
 ```text
-mBot (capteur)                                  Obstacle (mur, boîte…)
-   [émet]  ─────────────── ultrason ───────────────►
-   [reçoit] ◄────────────── écho ───────────────────
+Étape 1 — émission          Étape 2 — écho
+mBot  ──── ultrason ────►   mur / boîte
+mBot  ◄──── retour ─────    (réflexion)
 ```
 
-### Schéma 2 — temps de vol (aller + retour)
+### 🧠 2. Notion importante : la variable
 
-Si l’onde met `t` secondes pour faire l’aller-retour, alors :
+Une **variable**, c’est une **mémoire** avec un **nom** tu choisis (ici `distance_cm`).  
+Tu y **ranges** le nombre renvoyé par le capteur ; ensuite tu peux **l’afficher**, le **comparer**, ou t’en servir dans un **test** (ce sera utile dans la [partie 2 de la série](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/), avec des **conditions** du type « si la distance est petite… »).
 
-`distance ≈ (vitesse du son × t) / 2`
+Dans **mBlock**, on utilise une variable pour **enregistrer** la distance mesurée à chaque tour de boucle.
 
-- **Pourquoi /2 ?** Parce que `t` correspond à l’**aller + retour** (l’onde parcourt **deux fois** la distance à mesurer).
-- **Vitesse du son** : environ **343 m/s** à **20 °C**. (Elle change un peu avec la température, mais pour nos activités on l’ignore.)
+### 🧠 3. Le bloc mBlock à utiliser
 
-### Pratico-pratique (pour éviter les mesures “bizarres”)
+Dans la catégorie **capteur / mBot**, cherche le bloc qui donne la **distance du capteur ultrason** (souvent en **cm**).  
+En usage courant, la valeur reste souvent dans une plage du type **3 cm à environ 400 cm** selon l’obstacle et l’environnement (trop près ou trop loin peut donner des lectures moins fiables).
 
-- **Trop près** : sous ~**3 cm**, le capteur peut mal répondre (l’écho revient “trop tôt”).
-- **Trop loin** : au-delà de quelques mètres, l’écho devient trop faible.
-- **Obstacle mou** (rideau, pull, plante) : l’écho est absorbé → distance instable.
-- **Obstacle incliné** : l’écho repart de côté → distance plus grande ou valeur qui saute.
-- **Mesure utile** : vise une zone ~**5 cm à 200 cm** au début, avec un obstacle **plat** (livre, carton).
-
-> Astuce classe : fais bouger une feuille A4 devant le capteur. Si la distance change bien, la chaîne “capteur → variable” est OK.
+**Astuce :** teste avec un **carton plat** face au robot ; bouge la feuille lentement et regarde la valeur changer.
 
 ---
 
-## 2) Activité : mesurer une distance (cm) dans mBlock
+## 💻 Partie 3 — Réponse (programme mBot)
 
-### 2.1 Créer une variable distance
+### 🧪 Programme attendu (logique)
 
-Crée une variable nommée par exemple :
+La structure logique d’un **mbot programme** simple pour cet exercice :
 
-- `distance_cm`
+1. **Créer** une variable `distance_cm` (ou un nom clair du même type).  
+2. **Lire** le capteur ultrason et **mettre** cette valeur dans la variable.  
+3. **Afficher** la variable (et, si besoin, **répéter** en boucle pour voir la mesure vivre).
 
-Et affiche-la dans la scène (case à cocher de la variable).
-
-### 2.2 Lire le capteur en boucle
-
-Le principe : en continu, tu affectes à `distance_cm` la valeur renvoyée par le capteur.
-
-Pseudo-logique :
+### 🧩 Exemple de programme (pseudo-blocs)
 
 ```text
-quand le drapeau vert est cliqué (ou en mode Live)
+Quand le programme démarre
   pour toujours
-    mettre distance_cm à (distance capteur ultrason en cm)
-    attendre 0,1 s
+    mettre distance_cm = (distance ultrason en cm)
+    attendre un court instant (ex. 0,1 s)
 ```
 
-### 2.3 Live vs téléverser : lequel choisir ici ?
+*(Les noms exacts des blocs peuvent varier selon la langue et la version de mBlock, mais l’ordre reste le même.)*
 
-- **Mode Live** : idéal pour ce premier test, car tu vois tout de suite la valeur.
-- **Téléverser** : on l’utilisera surtout quand on voudra que le robot “vive tout seul”.
+### 🧠 Explication du programme
 
----
+- Le robot **lit** la distance **en continu** (boucle).  
+- Il **stocke** le résultat dans **une variable**.  
+- Tu **vois** la valeur : c’est la preuve que ton **programme mBot** et le **capteur ultrason mBot** fonctionnent ensemble.
 
-## 3) Mini-diagnostic si ça ne marche pas
+**Live ou téléverser ?** Pour ce premier exercice, le **mode Live** est pratique pour voir les nombres changer tout de suite. Le **téléversement** servira surtout quand le robot devra tourner **sans** le câble USB.
 
-- **La valeur reste à 0 / ne bouge pas** : vérifie que le bon **appareil mBot** est sélectionné (blocs orange), et que le robot est **connecté** (USB conseillé pour dépanner).
-- **Valeurs qui sautent** : augmente `attendre` (ex. 0,2 s), et teste avec un obstacle **plat**.
-- **Toujours très grand** : l’obstacle est peut-être trop loin ou trop incliné.
-
----
-
-## 4) Liste des blocs (solution simple)
-
-Selon ta version de mBlock, les noms exacts varient un peu, mais la solution minimale utilise :
-
-- **Événement** : `quand le drapeau vert est cliqué` *(ou un déclencheur équivalent en Live)*
-- **Contrôle** : `pour toujours`
-- **Variables** : `mettre [distance_cm] à (...)`
-- **Capteur mBot** : bloc du type `distance (capteur ultrason) en cm`
-- **Contrôle** : `attendre (0,1) secondes`
+<p class="article-note">Besoin d’un pas à pas connexion / blocs orange ? Voir <a href="/mon-premier-programme-mbot/">Mon premier programme mBot</a>.</p>
 
 ---
 
-## Étape suivante
+## 🎯 Partie 4 — Aller plus loin
 
-Dans l’activité suivante, tu vas transformer `distance_cm` en un **radar de recul** : plus tu es proche, plus le robot “bipe” vite.
+Quand la mesure est stable, tu peux enchaîner avec la suite de la série :
+
+- **[Partie 2 — conditions et paliers](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/)** : utiliser la distance dans des **tests** (plusieurs zones, bips différents).  
+- **[Partie 3 — radar et distance](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)** : lier la **cadence** des bips à la proximité d’un **obstacle**.  
+- **[Partie 4 — projet complet](/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/)** : avancer, **ralentir**, **s’arrêter** si obstacle.
+
+### 🔥 Défi 1
+
+Afficher la distance sur la **matrice LED** du mBot (si ton modèle et les blocs le permettent), en plus de la zone de texte / variable.
+
+### 🔥 Défi 2
+
+Ajouter une **condition** : **si** la distance est **plus petite que 10 cm** alors afficher **« danger »** (ou un symbole), **sinon** afficher la valeur normale. C’est la porte d’entrée vers la **programmation** avec **si / alors / sinon** — détaillée dans la [partie 2](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/).
+
+---
+
+## 🤖 Résumé rapide (pour l’IA et la révision)
+
+- **mBot** = **robot programmable** avec capteurs.  
+- **Capteur ultrason** = mesure une **distance** devant le robot.  
+- **Programme** = **variable** + lecture capteur + **affichage** (puis conditions dans les articles suivants).
+
+---
+
+## 💡 Pour les familles et les enseignants
+
+Le **mBot** est un **robot éducatif** très adapté pour **débuter la programmation** vers **10 ans** : on voit tout de suite le lien entre le **programme** sur l’écran et le **robot** qui réagit. Pour choisir un modèle ou un kit : [présentation du mBot](/mbot-mon-premier-robot-educatif/).
+
+---
+
+## 🔢 Étapes numérotées (à imprimer ou au tableau)
+
+1. Ouvrir **mBlock** et ajouter le **mBot**.  
+2. Créer la variable **`distance_cm`**.  
+3. Placer une boucle **« pour toujours »**.  
+4. À l’intérieur : **mettre** `distance_cm` **à** la valeur du **capteur ultrason (cm)**.  
+5. Ajouter une petite **pause** (ex. 0,1 s) pour une lecture plus stable.  
+6. Lancer en **Live** et bouger un obstacle : la distance doit **changer**.
+
+---
+
+## ❓ FAQ
+
+Les réponses détaillées figurent dans le **bloc FAQ structuré** (données enrichies) de la page, avec notamment : **comment programmer mBot**, **comment fonctionne le capteur ultrason**, **à quoi sert une variable**, **quel robot pour apprendre à coder à 10 ans**.
+
+---
+
+## Liens utiles de la série
+
+| Étape | Lien |
+| --- | --- |
+| 1/4 Mesurer (vous êtes ici) | Cet article |
+| 2/4 Conditions / paliers | [Radar de recul (paliers)](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/) |
+| 3/4 Cadence et obstacle | [Radar amélioré](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/) |
+| 4/4 Projet complet | [Ralentir et s’arrêter](/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/) |
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/serie-capteur-ultrason-mbot-2-radar-recul-paliers/">Partie 2 — Conditions (paliers)</a>
+<a class="article-cta article-cta--secondary" href="/activite-mbot-mesurer-des-distances/">Activité « mesurer des distances » (archive)</a>
+</div>

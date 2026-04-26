@@ -15,6 +15,30 @@
 	# Ancien slug sans « r » (mesure → mesurer)
 	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
 
+	# Ancien slug installation mBlock (sans « -10 »)
+	RewriteRule ^installer-mblock-5-sous-windows/?$ /installer-mblock-5-sous-windows-10/ [R=301,L,NC]
+
+	# Archives WordPress / anciennes URL
+	RewriteRule ^author/redacteur/?$ /about/ [R=301,L,NC]
+	RewriteRule ^categorie/makeblock/mbot/?$ /categorie/mbot/ [R=301,L,NC]
+	RewriteRule ^categorie/makeblock/cyberpi/?$ /categorie/cyberpi/ [R=301,L,NC]
+	RewriteRule ^page/[12]/?$ /blog/ [R=301,L,NC]
+	RewriteRule ^politique-de-cookies-ue/?$ /gestion-des-cookies/ [R=301,L,NC]
+	RewriteRule ^2020/04/07/premier-pas-avec-mblock-5/?$ /premier-pas-avec-mblock-5/ [R=301,L,NC]
+	RewriteRule ^2020/04/12/activite-scratch-decor-qui-se-deplace/?$ /scratch-creer-un-jeu-video-premiere-partie/ [R=301,L,NC]
+	RewriteRule ^2020/04/06/mbot-mon-premier-robot-educatif/?$ /mbot-mon-premier-robot-educatif/ [R=301,L,NC]
+	RewriteRule ^privacy-policy/?$ /politique-de-confidentialite/ [R=301,L,NC]
+	RewriteRule ^programmes/jeu_video_partie_1_[24]\.mblock/?$ /scratch-creer-un-jeu-video-premiere-partie/ [R=301,L,NC]
+	RewriteRule ^recherche2/?$ /recherche/ [R=301,L,NC]
+	RewriteRule ^contact-us/?$ /contact/ [R=301,L,NC]
+
+	# Slash final : chaque page est dans <chemin>/index.html. Sans slash, certains serveurs
+	# Apache renvoient 404 au lieu de servir le dossier (selon DirectorySlash / hébergeur).
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !/$
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+	RewriteRule ^(.*)$ /$1/ [R=301,L]
+
 	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]

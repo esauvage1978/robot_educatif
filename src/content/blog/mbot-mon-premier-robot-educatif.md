@@ -11,8 +11,27 @@ categories:
   - "mBot"
   - "Makeblock"
   - "À partir de 8 ans"
+relatedLinks:
+  - title: "Télécharger mBlock 5 (gratuit, officiel)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
+  - title: "Installer mBlock sur Windows"
+    href: "/installer-mblock-5-sous-windows-10/"
+  - title: "Premiers pas dans mBlock 5"
+    href: "/premier-pas-avec-mblock-5/"
+  - title: "Mon premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+  - title: "Scratch : créer un jeu (1re partie)"
+    href: "/scratch-creer-un-jeu-video-premiere-partie/"
 ---
 Dans cet article, je vais vous faire découvrir le robot éducatif [mBot](https://amzn.to/3mietLQ?tag=manuso06-21) de chez makeBlock. C’est le robot par excellence et je le conseille pour une première acquisition.
+
+## Télécharger mBlock 5 (pour programmer le mBot)
+
+Le **mBot** se programme avec **mBlock** (logiciel **gratuit** Makeblock, interface proche de **Scratch**). **Téléchargement officiel**, versions **Windows / Mac** et **mBlock en ligne** : voir le **guide central** <a href="/telecharger-mblock-5-gratuit-guide-2026/">Télécharger mBlock 5 gratuitement</a>. Installation détaillée sous Windows : <a href="/installer-mblock-5-sous-windows-10/">installer mBlock sur Windows 10/11</a>.
+
+## mBlock : logiciel de programmation (Scratch + robot)
+
+**mBlock** permet d’assembler des **blocs**, de piloter les **moteurs** et **capteurs**, et d’envoyer le programme dans la **carte** du robot. Ce n’est pas le **Scratch** du MIT (jeux à l’écran), mais un outil **orienté matériel Makeblock** — voir <a href="/mblock-vs-scratch-lequel-choisir/">mBlock vs Scratch</a> si vous hésitez.
 
 [mBot](https://amzn.to/3mietLQ?tag=manuso06-21) est un robot éducatif à construire et à programmer. Il peut être donné à un enfant de 10 ans mais pas que. Il est également destiné à tous ceux qui veulent se plonger dans le robotique et la programmation.
 

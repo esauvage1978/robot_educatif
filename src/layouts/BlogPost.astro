@@ -28,10 +28,34 @@ const {
 	relatedLinks,
 	categories = [],
 	faqSchema,
+	productItemListSchema,
+	articleJsonLd,
 	articleSlug = '',
 } = Astro.props;
 
 const pageHeading = headline ?? title;
+
+const articleCanonicalUrl =
+	Astro.site && articleSlug ? new URL(Astro.url.pathname, Astro.site).href : '';
+const articleLdJson =
+	articleJsonLd && articleCanonicalUrl
+		? JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: pageHeading,
+				description,
+				datePublished: pubDate.toISOString(),
+				dateModified: (updatedDate ?? pubDate).toISOString(),
+				author: {
+					'@type': 'Person',
+					name: ARTICLE_AUTHOR,
+				},
+				mainEntityOfPage: {
+					'@type': 'WebPage',
+					'@id': articleCanonicalUrl,
+				},
+			})
+		: '';
 
 const resolvedHero = resolveHeroImage(heroImage);
 const allPosts = await getCollection('blog');
@@ -329,6 +353,11 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
 						{
+							articleLdJson && (
+								<script type="application/ld+json" set:html={articleLdJson} />
+							)
+						}
+						{
 							faqSchema && faqSchema.length > 0 && (
 								<script
 									type="application/ld+json"
@@ -341,6 +370,52 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 											acceptedAnswer: {
 												'@type': 'Answer',
 												text: item.answer,
+											},
+										})),
+									})}
+								/>
+							)
+						}
+						{
+							productItemListSchema && productItemListSchema.length > 0 && (
+								<script
+									type="application/ld+json"
+									set:html={JSON.stringify({
+										'@context': 'https://schema.org',
+										'@type': 'ItemList',
+										name: pageHeading,
+										numberOfItems: productItemListSchema.length,
+										itemListElement: productItemListSchema.map((item) => ({
+											'@type': 'ListItem',
+											position: item.position,
+											item: {
+												'@type': 'Product',
+												name: item.name,
+												url: item.url,
+												...(item.brand
+													? {
+															brand: {
+																'@type': 'Brand',
+																name: item.brand,
+															},
+														}
+													: {}),
+												/* Requis par Google (offers, review ou aggregateRating) : prix indicatifs EUR alignés sur le guide */
+												offers: {
+													'@type': 'AggregateOffer',
+													url: item.url,
+													priceCurrency: 'EUR',
+													lowPrice:
+														item.offerLowPrice !== undefined && item.offerLowPrice !== ''
+															? item.offerLowPrice
+															: '1',
+													highPrice:
+														item.offerHighPrice !== undefined && item.offerHighPrice !== ''
+															? item.offerHighPrice
+															: '999',
+													offerCount: 1,
+													availability: 'https://schema.org/InStock',
+												},
 											},
 										})),
 									})}

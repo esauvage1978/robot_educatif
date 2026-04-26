@@ -5,20 +5,36 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ARTICLE_AUTHOR, CONTACT_EMAIL } from '../consts';
 import { withBase } from '../lib/siteUrl';
-// SVG via le pipeline Vite (/_astro/*.svg) : mêmes règles de réécriture que le logo, pas de dépendance à public/images/
 import illuHero from '../assets/partenariat/hero-partenariat.svg?url';
 import illuEcoles from '../assets/partenariat/section-ecoles.svg?url';
 import illuMarques from '../assets/partenariat/section-marques.svg?url';
 
-const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Partenariat — ROBOT éducatif')}`;
+const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+	'Partenariat marque — robot éducatif (test / collaboration)'
+)}`;
+const mailtoSchools = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Partenariat — structure éducative')}`;
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Partenariat — écoles et essais produits"
-			description="Propositions de sujets pédagogiques pour les établissements ; possibilité d’essais matériel et d’articles détaillés, critiques et transparents sur ROBOT éducatif."
+			title="Partenariat robot éducatif : tests, avis et collaboration"
+			description="Média expert robotique éducative : tests produits, comparatifs et guides SEO. Visibilité durable, audience parents et enseignants. Proposez vos robots — collaboration transparente."
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebPage',
+			name: 'Partenariat robot éducatif : tests, avis et collaboration',
+			description:
+				'Collaboration avec les marques de robotique éducative : essais produits, contenus SEO, comparatifs et guides pédagogiques sur ROBOT éducatif.',
+			url: new URL('/partenariat/', Astro.site).href,
+			isPartOf: { '@type': 'WebSite', name: 'ROBOT éducatif', url: Astro.site?.href ?? undefined },
+			about: {
+				'@type': 'Thing',
+				name: 'Robotique éducative et partenariats média',
+			},
+		})}
 		/>
 	</head>
 	<body>
@@ -31,119 +47,178 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 						src={illuHero}
 						width="960"
 						height="280"
-						alt="Illustration : collaboration, pédagogie et essais produits autour de la robotique éducative."
+						alt="Collaboration entre une marque de robot éducatif et un média spécialisé : tests, contenus et visibilité."
 						loading="eager"
 						decoding="async"
 					/>
-					<h1>Partenariat</h1>
+					<h1>Partenariat robot éducatif : tests, avis et collaboration</h1>
 					<p class="partenariat-lead">
-						Cette page présente deux types de collaboration possibles avec <strong>ROBOT éducatif</strong> :
-						l’accompagnement des <strong>écoles et structures d’enseignement</strong> sur des contenus adaptés, et les
-						<strong>essais de produits</strong> sous forme d’articles de fond honnêtes et détaillés. Chaque projet est
-						étudié au cas par cas.
+						<strong>ROBOT éducatif</strong> est un site indépendant consacré à la <strong>robotique éducative</strong> et à la
+						programmation pour apprendre. Nous publions des <strong>guides</strong>, des <strong>comparatifs</strong> et des
+						<strong>tutoriels</strong> pour aider parents, enseignants et structures à choisir et utiliser le bon matériel.
+					</p>
+					<p class="partenariat-lead partenariat-lead--tight">
+						Cette page s’adresse aux <strong>marques</strong>, <strong>éditeurs</strong> et <strong>distributeurs</strong> qui souhaitent faire
+						tester leurs produits, gagner en visibilité sur la durée et s’associer à un contenu expert — sans ton publicitaire creux.
+						Les <strong>écoles et associations</strong> peuvent aussi nous écrire : voir la section dédiée en bas de page.
 					</p>
 				</header>
 
-				<section class="partenariat-block partenariat-block--ecoles" aria-labelledby="partenariat-ecoles-title">
-					<div class="partenariat-block__visual">
-						<img
-							src={illuEcoles}
-							width="320"
-							height="260"
-							alt=""
-							loading="lazy"
-							decoding="async"
-						/>
-					</div>
+				<section class="partenariat-block partenariat-block--marques" aria-labelledby="partenariat-cred-title">
 					<div class="partenariat-block__text">
-						<h2 id="partenariat-ecoles-title">Écoles, collèges, lycées et autres structures d’apprentissage</h2>
+						<h2 id="partenariat-cred-title">Crédibilité et audience</h2>
 						<p>
-							Les articles publiés sur ce site sont rédigés par <strong>{ARTICLE_AUTHOR}</strong> avec une visée
-							d’abord <strong>pédagogique</strong> : définitions accessibles, progression logique, schémas ou
-							structures de programme lorsque c’est pertinent, et liens vers des ressources complémentaires
-							(tutoriels logiciels, comparatifs de robots, activités mBot, parcours programmation, etc.). L’objectif
-							est de permettre à un enseignant, un médiateur numérique ou un parent motivé de <strong>s’appuyer</strong>
-							sur un texte sans devoir tout reconstruire depuis zéro.
-						</p>
-						<p>
-							Si vous représentez un établissement, un centre de loisirs éducatifs, une association ou une équipe
-							pédagogique, vous pouvez <strong>proposer des thématiques</strong> qui manquent aujourd’hui sur le site :
-							travail sur un capteur précis, fil rouge sur plusieurs séances, fiche « erreurs fréquentes » pour les
-							élèves, comparaison de deux kits pour un usage classe, etc. Les propositions les plus alignées avec la
-							ligne éditoriale (robotique et programmation pour apprendre, pas le consumérisme pur) seront
-							privilégiées.
-						</p>
-						<p>
-							En pratique, une collaboration peut prendre la forme d’un <strong>échange structuré</strong> : public visé,
-							niveau, durée des séances envisagées, matériel déjà disponible, mots-clés ou programmes scolaires
-							concernés. Rien n’engage le site à publier un contenu avant accord mutuel sur le périmètre et le
-							calendrier ; les délais de rédaction dépendent de la complexité du sujet et des tests matériel éventuels.
+							Le site est construit pour être trouvé là où les familles et les pros cherchent des réponses : requêtes type
+							« quel robot pour… », « comparatif », « tutoriel mBot », <a href={withBase('/programmation/arduino-c/')}>parcours Arduino C</a>, etc.
+							La ligne éditoriale reste <strong>pédagogique</strong> et <strong>transparente</strong> : l’objectif est l’information utile, pas le
+							consumérisme pur.
 						</p>
 						<ul class="partenariat-list">
-							<li>Articles visant une <strong>clarté de progression</strong> (du débutant au plus avancé lorsque c’est cohérent).</li>
-							<li>Intégration possible de <strong>sujets transverses</strong> : usages en classe, autonomie des élèves, sécurité, évaluation.</li>
-							<li>Aucune obligation d’achat de matériel : les contenus peuvent s’appuyer sur du matériel déjà courant (mBot, mBlock, etc.) ou sur des <strong>scénarios génériques</strong> lorsque c’est faisable.</li>
+							<li>
+								<strong>Visibilité organique</strong> : contenus structurés pour le référencement (titres, maillage interne vers nos{' '}
+								<a href={withBase('/categorie/comparatif/')}>comparatifs</a>, activités et{' '}
+								<a href={withBase('/programmation/')}>programmation</a>).
+							</li>
+							<li>
+								<strong>Audience qualifiée</strong> : parents, enseignants, médiateurs numériques, passionnés — des lecteurs qui
+								achètent ou décident d’équiper une classe.
+							</li>
+							<li>
+								<strong>Positionnement niche</strong> : nous ne sommes pas un « blog tech » généraliste ; nous parlons robot
+								éducatif, kits, logiciels associés et usages réels (classe, maison, clubs).
+							</li>
 						</ul>
-						<p class="partenariat-cta-inline">
-							<Button href={withBase('/contact/')}>Ouvrir la page Contact</Button>
-							<span class="partenariat-cta-hint">
-								Indiquez dans le message qu’il s’agit d’un <strong>partenariat école</strong> et résumez le thème souhaité.
-							</span>
-						</p>
+					</div>
+					<div class="partenariat-block__visual" aria-hidden="true">
+						<img src={illuMarques} width="320" height="260" alt="" loading="lazy" decoding="async" />
 					</div>
 				</section>
 
-				<section class="partenariat-block partenariat-block--marques" aria-labelledby="partenariat-marques-title">
-					<div class="partenariat-block__text">
-						<h2 id="partenariat-marques-title">Marques et éditeurs : essais produits et articles détaillés</h2>
-						<p>
-							Il est possible d’envisager des <strong>essais de produits</strong> (robot, carte, capteur, logiciel associé…)
-							avec publication d’<strong>articles longs et détaillés</strong> : mise en service, expérience réelle
-							d’utilisation, points forts, limites, publics pour lesquels le produit est pertinent ou non.
-						</p>
-						<p>
-							La rédaction s’inscrit dans une logique <strong>critique et transparente</strong> : pas de « critique
-							factice » positive, pas de dissimulation des défauts constatés. Si une relation commerciale ou un envoi
-							gratuit existe, il sera <strong>mentionné clairement</strong> dans l’article, conformément aux bonnes pratiques et
-							à l’information du lecteur — comme pour les <a href={withBase('/mentions-legales/')}>mentions légales</a> et
-							les éventuels liens d’affiliation déjà rappelés sur le site.
-						</p>
-						<p>
-							Selon les cas, l’essai peut passer par un <strong>prêt temporaire</strong>, un échantillon fourni à titre
-							gracieux, ou un achat réalisé indépendamment ; chaque situation est explicitée. L’éditeur du site reste
-							libre du <strong>fond</strong> du contenu publié : validation d’un titre ou d’un angle n’implique pas renonciation à
-							l’appréciation critique.
-						</p>
-						<ul class="partenariat-list">
-							<li><strong>Ce que vous pouvez attendre</strong> d’un article d’essai : structure lisible, captures ou schémas si utile, précision sur la configuration (PC, OS, version logicielle), et conclusion honnête.</li>
-							<li><strong>Ce qui n’est pas promis</strong> : date de publication immédiate, exclusivité permanente, ou tonalité 100 % « publicitaire » sans valeur pour le lecteur.</li>
-						</ul>
-						<p class="partenariat-cta-inline">
-							<Button href={mailtoHref} variant="secondary">Écrire par courriel</Button>
-							<span class="partenariat-cta-hint">
-								Objet suggéré : <cite>Essai produit — [nom du matériel]</cite>. Joindre une présentation courte et le périmètre souhaité pour l’article.
-							</span>
-						</p>
+				<section class="partenariat-section" aria-labelledby="partenariat-offre-title">
+					<h2 id="partenariat-offre-title">Ce que nous proposons</h2>
+					<p>
+						Selon vos objectifs et le matériel, nous pouvons produire des livrables concrets — toujours avec mention claire du
+						mode de collaboration (envoi gratuit, prêt, commandité) pour le lecteur.
+					</p>
+					<ul class="partenariat-list partenariat-list--spaced">
+						<li>
+							<strong>Tests produits</strong> : mise en route, usage réel, points forts et limites, publics concernés, configuration
+							(PC, OS, version logicielle).
+						</li>
+						<li>
+							<strong>Comparatifs</strong> : mise en perspective avec d’autres références du marché éducatif lorsque c’est pertinent.
+						</li>
+						<li>
+							<strong>Guides et tutoriels</strong> : prise en main, idées d’activités, pièges fréquents — utiles longtemps après la
+							publication (contenu evergreen).
+						</li>
+					</ul>
+				</section>
+
+				<section class="partenariat-section" aria-labelledby="partenariat-valeur-title">
+					<h2 id="partenariat-valeur-title">Valeur pour votre marque</h2>
+					<ul class="partenariat-list partenariat-list--spaced">
+						<li>
+							<strong>Visibilité SEO</strong> : les pages sont pensées pour répondre à des intentions de recherche précises et
+							durer dans les résultats.
+						</li>
+						<li>
+							<strong>Trafic qualifié</strong> : des lecteurs qui comparent, préparent un achat ou un équipement collectif — pas une
+							audience « gadget » généraliste.
+						</li>
+						<li>
+							<strong>Contenu réutilisable</strong> : extraits, citations et renvois possibles vers votre documentation ou vos
+							canaux, dans le respect du droit et de la mention de la source.
+						</li>
+					</ul>
+				</section>
+
+				<section class="partenariat-section" aria-labelledby="partenariat-types-title">
+					<h2 id="partenariat-types-title">Types de partenariat</h2>
+					<ul class="partenariat-list partenariat-list--spaced">
+						<li>
+							<strong>Test produit</strong> : envoi ou prêt de matériel, article de fond détaillé, ligne éditoriale indépendante sur le fond.
+						</li>
+						<li>
+							<strong>Collaboration long terme</strong> : plusieurs sorties (nouveautés, mises à jour logicielles, retours d’usage).
+						</li>
+						<li>
+							<strong>Contenu sponsorisé</strong> : encadré clairement comme tel ; le site reste exigeant sur l’apport réel pour le lecteur.
+						</li>
+					</ul>
+				</section>
+
+				<section class="partenariat-section" aria-labelledby="partenariat-process-title">
+					<h2 id="partenariat-process-title">Déroulé type</h2>
+					<ol class="partenariat-process">
+						<li><strong>Réception</strong> du produit (ou prêt) et point sur le périmètre attendu.</li>
+						<li><strong>Tests</strong> en conditions réalistes (durée selon la complexité du matériel).</li>
+						<li><strong>Rédaction</strong> : structure claire, captures ou schémas si utile, conclusion honnête.</li>
+						<li><strong>Publication</strong> sur le site ; vous pouvez recevoir une alerte à la mise en ligne.</li>
+					</ol>
+					<p class="partenariat-note">
+						Aucune promesse de date immédiate, d’exclusivité permanente ou de tonalité 100 % « brochure » : chaque projet est
+						cadré avant engagement.
+					</p>
+				</section>
+
+				<section class="partenariat-highlight" aria-labelledby="partenariat-pourquoi-title">
+					<h2 id="partenariat-pourquoi-title">Pourquoi travailler avec nous</h2>
+					<ul class="partenariat-list partenariat-list--spaced">
+						<li>
+							<strong>Expertise robot éducatif</strong> : contenus rédigés par {ARTICLE_AUTHOR}, avec une culture pédagogique et
+							technique (voir nos séries sur le <a href={withBase('/blog/')}>blog</a>).
+						</li>
+						<li>
+							<strong>Audience ciblée</strong> : décideurs et accompagnants de l’apprentissage, pas un flux massif et froid.
+						</li>
+						<li>
+							<strong>Contenu evergreen</strong> : un bon article continue d’attirer des lecteurs et de soutenir votre marque dans le temps.
+						</li>
+					</ul>
+				</section>
+
+				<section class="partenariat-cta-block" aria-labelledby="partenariat-contact-title">
+					<h2 id="partenariat-contact-title">Contact — proposer un partenariat</h2>
+					<p>
+						Décrivez votre marque, le produit concerné et ce que vous attendez (test ponctuel, campagne, autre). Nous revenons
+						vers vous avec une proposition réaliste et des délais indicatifs.
+					</p>
+					<p class="partenariat-cta-inline partenariat-cta-inline--standalone">
+						<Button href={mailtoHref} variant="secondary">Écrire à l’équipe (e-mail)</Button>
+						<Button href={withBase('/contact/')}>Formulaire contact</Button>
+					</p>
+					<p class="partenariat-cta-hint partenariat-cta-hint--block">
+						Objet suggéré : <cite>Partenariat marque — [nom du produit]</cite>. Vous pouvez joindre une fiche produit ou un lien
+						vers votre site.
+					</p>
+				</section>
+
+				<section class="partenariat-block partenariat-block--ecoles" aria-labelledby="partenariat-ecoles-title">
+					<div class="partenariat-block__visual">
+						<img src={illuEcoles} width="320" height="260" alt="" loading="lazy" decoding="async" />
 					</div>
-					<div class="partenariat-block__visual" aria-hidden="true">
-						<img
-							src={illuMarques}
-							width="320"
-							height="260"
-							alt=""
-							loading="lazy"
-							decoding="async"
-						/>
+					<div class="partenariat-block__text">
+						<h2 id="partenariat-ecoles-title">Écoles, collèges, lycées et structures d’apprentissage</h2>
+						<p>
+							Vous n’êtes pas une marque mais vous souhaitez proposer des <strong>thématiques pédagogiques</strong> (capteurs, séquences
+							plusieurs séances, fiches « erreurs fréquentes ») alignées avec notre ligne éditoriale ? Écrivez-nous en
+							précisant qu’il s’agit d’un <strong>partenariat structure</strong>.
+						</p>
+						<p class="partenariat-cta-inline">
+							<Button href={mailtoSchools} variant="secondary">Courriel — structure éducative</Button>
+							<Button href={withBase('/contact/')}>Page Contact</Button>
+						</p>
 					</div>
 				</section>
 
 				<section class="partenariat-footnote" aria-labelledby="partenariat-note-title">
 					<h2 id="partenariat-note-title">Transparence</h2>
 					<p>
-						ROBOT éducatif est un site d’information indépendant. Les éventuels partenariats (contenu commandité, prêt
-						matériel, liens affiliés) sont pensés pour rester <strong>compatibles avec une information utile au lecteur</strong>.
-						Pour toute précision juridique ou sur les liens Amazon, voir les <a href={withBase('/mentions-legales/')}
-							>mentions légales</a>.
+						ROBOT éducatif est un site d’information indépendant. Les partenariats (prêt matériel, envoi gratuit, contenu
+						commandité, liens affiliés) sont conçus pour rester <strong>compatibles avec une information utile au lecteur</strong>.
+						Toute relation avec une marque est <strong>indiquée clairement</strong> dans le contenu concerné. Pour le cadre juridique et
+						les liens Amazon, voir les <a href={withBase('/mentions-legales/')}>mentions légales</a>.
 					</p>
 				</section>
 			</article>
@@ -174,13 +249,21 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 		font-size: clamp(1.75rem, 4vw, 2.15rem);
 		margin: 0 0 0.75rem;
 		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+		line-height: 1.25;
 	}
 	.partenariat-lead {
-		margin: 0;
+		margin: 0 0 1rem;
 		font-size: 1.08rem;
 		line-height: 1.65;
 		color: rgb(var(--gray-dark));
 		max-width: 52rem;
+	}
+	.partenariat-lead--tight {
+		margin-bottom: 0;
+	}
+	.partenariat-lead a {
+		color: var(--accent);
+		font-weight: 600;
 	}
 	.partenariat-block {
 		display: grid;
@@ -196,6 +279,9 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 	}
 	.partenariat-block--marques {
 		grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+	}
+	.partenariat-block--ecoles {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
 	}
 	.partenariat-block__visual {
 		margin: 0;
@@ -224,15 +310,88 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 		color: var(--accent);
 		font-weight: 600;
 	}
+	.partenariat-section {
+		margin-bottom: 2.25rem;
+		padding: 1.35rem 1.25rem;
+		border-radius: 14px;
+		border: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--surface) 92%, var(--surface-2));
+	}
+	.partenariat-section h2 {
+		font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+		margin: 0 0 0.85rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.3;
+	}
+	.partenariat-section > p {
+		margin: 0 0 1rem;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+		font-size: 0.98rem;
+	}
+	.partenariat-highlight {
+		margin-bottom: 2.25rem;
+		padding: 1.5rem 1.35rem;
+		border-radius: 14px;
+		border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--surface-border));
+		background: color-mix(in oklab, var(--accent) 7%, var(--surface));
+	}
+	.partenariat-highlight h2 {
+		font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+		margin: 0 0 0.85rem;
+		color: rgb(var(--gray-dark));
+	}
+	.partenariat-cta-block {
+		margin-bottom: 2.5rem;
+		padding: 1.6rem 1.4rem;
+		border-radius: 14px;
+		background: var(--surface);
+		border: 2px solid color-mix(in oklab, var(--accent) 40%, var(--surface-border));
+	}
+	.partenariat-cta-block h2 {
+		font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+		margin: 0 0 0.75rem;
+		color: rgb(var(--gray-dark));
+	}
+	.partenariat-cta-block > p {
+		margin: 0 0 1rem;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+		font-size: 0.98rem;
+	}
 	.partenariat-list {
-		margin: 0 0 1.15rem;
+		margin: 0 0 1rem;
 		padding-left: 1.15rem;
 		line-height: 1.58;
 		color: rgb(var(--gray-dark));
 		font-size: 0.98rem;
 	}
+	.partenariat-list--spaced li {
+		margin-bottom: 0.55rem;
+	}
 	.partenariat-list li {
 		margin-bottom: 0.45rem;
+	}
+	.partenariat-list a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.partenariat-process {
+		margin: 0 0 1rem;
+		padding-left: 1.35rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+		font-size: 0.98rem;
+	}
+	.partenariat-process li {
+		margin-bottom: 0.55rem;
+	}
+	.partenariat-note {
+		margin: 0;
+		font-size: 0.92rem;
+		line-height: 1.55;
+		color: rgb(var(--gray));
+		font-style: italic;
 	}
 	.partenariat-cta-inline {
 		display: flex;
@@ -243,6 +402,11 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 		padding-top: 1rem;
 		border-top: 1px solid var(--surface-border);
 	}
+	.partenariat-cta-inline--standalone {
+		border-top: none;
+		padding-top: 0;
+		margin-top: 0.5rem !important;
+	}
 	.partenariat-cta-inline :global(.ui-btn) {
 		white-space: nowrap;
 	}
@@ -252,6 +416,11 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 		line-height: 1.45;
 		flex: 1;
 		min-width: 12rem;
+	}
+	.partenariat-cta-hint--block {
+		margin: 0.75rem 0 0;
+		flex: unset;
+		width: 100%;
 	}
 	.partenariat-footnote {
 		padding: 1.25rem 1.2rem;
@@ -276,10 +445,14 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 	}
 	@media (max-width: 768px) {
 		.partenariat-block,
-		.partenariat-block--marques {
+		.partenariat-block--marques,
+		.partenariat-block--ecoles {
 			grid-template-columns: 1fr;
 		}
 		.partenariat-block--marques .partenariat-block__visual {
+			order: -1;
+		}
+		.partenariat-block--ecoles .partenariat-block__visual {
 			order: -1;
 		}
 	}

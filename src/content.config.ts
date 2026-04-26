@@ -62,6 +62,22 @@ const blog = defineCollection({
 					}),
 				)
 				.optional(),
+			/** ItemList JSON-LD (produits comparés — liens affiliation, ex. guide d’achat) */
+			productItemListSchema: z
+				.array(
+					z.object({
+						position: z.number().int().positive(),
+						name: z.string(),
+						url: z.string().url(),
+						brand: z.string().optional(),
+						/** Fourchette EUR pour AggregateOffer (prix indicatifs, comme dans le tableau de l’article) */
+						offerLowPrice: z.string().optional(),
+						offerHighPrice: z.string().optional(),
+					}),
+				)
+				.optional(),
+			/** JSON-LD Article (en plus de FAQPage) — URL canonique = page courante */
+			articleJsonLd: z.boolean().optional(),
 		}),
 });
 

@@ -1,9 +1,9 @@
 ---
-title: "Python — types de base et saisie clavier (input)"
-headline: "Types de base et saisie clavier (input)"
-description: "int, float, str, bool ; type(), conversions, input() et strip() ; pièges et 20 exercices avec solutions repliables."
-pubDate: 2026-03-28
-updatedDate: 2026-03-29
+title: "Python input et types (3/10) : saisie clavier, int, float — débutant"
+headline: "Apprendre Python (3/10) : Types et Saisie (Créer un Programme Interactif)"
+description: "Python input pour débutants : types int float str, saisie utilisateur, conversions. Apprendre Python avec un programme interactif — leçon 3/10, 20 exercices."
+pubDate: "2026-03-28"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python
 seriesOrder: 3
@@ -13,44 +13,84 @@ relatedLinks:
     href: "/python-variables-affichage/"
   - title: "Leçon 4 — conditions if / else"
     href: "/python-conditions-if-else/"
+  - title: "Parcours Python (10 leçons)"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Tutoriel"
   - "Débutant"
+faqSchema:
+  - question: "Comment utiliser input en Python ?"
+    answer: "On écrit variable = input(\"Question ? \"). La fonction affiche le message, attend que l’utilisateur tape une ligne et valide, puis renvoie toujours une chaîne de caractères (str)."
+  - question: "Quels sont les types Python les plus utiles au début ?"
+    answer: "int pour les entiers, float pour les nombres à virgule, str pour le texte, bool pour vrai ou faux. input() renvoie toujours du str : il faut souvent convertir avec int() ou float() pour calculer."
+  - question: "Python débutant saisie : pourquoi convertir après input ?"
+    answer: "Parce que input renvoie du texte. Pour additionner deux nombres saisis, il faut int(input(...)) ou float(input(...)), sinon Python colle ou concatène du texte au lieu de calculer."
+  - question: "Comment apprendre Python débutant avec des programmes interactifs ?"
+    answer: "Enchaîner input, conversions et print : poser une question, stocker la réponse, afficher un message ou un calcul. Cette leçon propose 20 exercices progressifs avec solutions."
 ---
-Tu sais déjà afficher des variables ([leçon 2](/python-variables-affichage/)). Ici, le programme **réagit** à ce que tape l’utilisateur : tout passe par **`input()`**, qui renvoie **toujours** une chaîne (`str`). Savoir **convertir** proprement vers `int` ou `float` est indispensable avant d’enchaîner avec les [conditions](/python-conditions-if-else/).
+
+Ton programme ne va plus seulement **afficher** ce que tu as écrit dans le fichier…  
+👉 Il va maintenant **te poser des questions** — comme un petit robot qui **écoute** puis **répond**. Bienvenue dans le monde du **`python input`** et des **types** : tu crées enfin un **programme interactif**.
+
+**Promesse :** en suivant les missions, tu comprends **pourquoi** `input()` ramène du **texte**, comment passer à un **nombre** (`int`, `float`), et comment éviter le piège du `"3" + "5"` qui fait `"35"`. Parfait pour **apprendre python débutant** sans tableau noir interminable.
+
+Tu maîtrises déjà les variables et `print` ([leçon 2](/python-variables-affichage/)). Ici, la **saisie utilisateur** change tout : **toi** (ou un camarade) devient partie du programme. Les **python types** servent ensuite à dire à Python : « ce texte, c’est en fait un entier » avant d’enchaîner avec les [conditions](/python-conditions-if-else/) à la leçon 4.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
-## 1. Les types les plus utiles au début
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-variables-affichage/">Leçon 2 — Variables</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Série Python</a>
+</div>
 
-Python manipule des valeurs de **types** différents. Les quatre premiers à maîtriser :
+---
 
-| Type    | Rôle court              | Exemples        |
-|---------|-------------------------|-----------------|
-| `int`   | entier                  | `42`, `-3`, `0` |
-| `float` | nombre à virgule        | `3.14`, `2.0`   |
-| `str`   | texte                   | `"salut"`, `'x'` |
-| `bool`  | vrai / faux             | `True`, `False` |
+## 🎮 Partie 1 — Mission 1 : parler avec l’ordinateur
 
-Pour **inspecter** le type en cours d’apprentissage :
+### 🎯 Objectif
+
+**Faire entrer** une information au clavier et la **récupérer** dans une variable.
+
+### 💻 Code minute
+
+```python
+prenom = input("Quel est ton prénom ? ")
+print(prenom)
+```
+
+Lance le script : Python **affiche la question**, tu **tapes** ton prénom, tu valides (Entrée), puis il **réaffiche** ce que tu as écrit.  
+Tu viens de faire : **utilisateur → programme** — la base de toute **saisie** en **python débutant**.
+
+---
+
+## 🎮 Partie 2 — Mission 2 : les types (sans prise de tête)
+
+Python range chaque valeur dans une **famille** — un **type**. Au début, retiens surtout :
+
+| Type | À quoi ça sert ? | Exemples |
+| --- | --- | --- |
+| `int` | entier (sans virgule) | `42`, `-3`, `0` |
+| `float` | nombre à virgule | `3.14`, `2.0` |
+| `str` | texte | `"salut"`, `'42'` |
+| `bool` | vrai / faux | `True`, `False` |
+
+Pour **voir** le type d’une valeur pendant que tu apprends :
 
 ```python
 x = 10
 y = "10"
-print(type(x), type(y))  # <class 'int'> <class 'str'>
+print(type(x), type(y))  # int et str — pas la même chose !
 ```
 
-## 2. Conversions explicites
+👉 **À retenir :** en pratique, les **types** servent surtout à savoir si tu manipules du **texte** ou des **nombres** — et à ne pas confondre les deux.
 
-- **`int("42")`** → `42`. Échoue sur `"3.5"` ou `"douze"` → **`ValueError`**.
-- **`float("3.5")`** ou **`float("2")`** → nombre décimal.
-- **`str(2026)`** → `"2026"` (pour concaténer ou construire un message).
+---
 
-Règle pratique : dès que tu veux **calculer** à partir d’une saisie, convertis après `input()`.
+## 🎮 Partie 3 — Mission 3 : `input()` = toujours du texte (str)
 
-## 3. `input()` : toujours du texte
+Peu importe ce que tu tapes : **âge**, **note**, **prix**… `input()` renvoie **toujours** une **`str`**. Pour **calculer**, il faut **convertir** :
 
 ```python
 reponse = input("Un nombre entier ? ")
@@ -58,21 +98,39 @@ n = int(reponse)
 print(f"Le suivant est {n + 1}")
 ```
 
-Les espaces avant/après la frappe sont souvent gênants. Beaucoup de scripts commencent par :
+Tu peux aussi écrire en une ligne : `n = int(input("..."))` une fois à l’aise.
+
+### Nettoyer la saisie : `strip()`
+
+Les espaces en trop avant/après arrivent souvent. Beaucoup de scripts font :
 
 ```python
 texte = input("Ville ? ").strip()
 ```
 
-`strip()` enlève les espaces (et retours ligne invisibles) en début et fin de chaîne.
+`strip()` enlève espaces et retours ligne **en début et fin** de chaîne.
 
-## 4. `bool` et comparaisons (aperçu)
+---
 
-Les comparaisons (`==`, `<`, …) produisent déjà un booléen. Tu peux aussi écrire `bool(0)` → `False`, `bool(1)` → `True` (les détails viendront avec la pratique des `if`).
+## 🎮 Partie 4 — Conversions express
 
-## 5. Piège classique : mélanger texte et calcul
+- **`int("42")`** → `42` — plante si ce n’est pas un entier propre (`"3.5"` ou `"douze"` → erreur **`ValueError`**).
+- **`float("3.5")`** → nombre décimal.
+- **`str(2026)`** → `"2026"` pour coller du texte et des nombres sans surprise.
 
-`"3" + "5"` donne `"35"`. Pour une somme :
+**Règle d’or :** dès que tu veux **additionner ou multiplier** à partir d’une saisie, **`int()`** ou **`float()`** après `input()`.
+
+---
+
+## 🎮 Partie 5 — `bool` (aperçu)
+
+Les comparaisons (`==`, `<`, …) donnent déjà **`True`** ou **`False`**. Tu utiliseras ça partout dès la [leçon 4 — if / else](/python-conditions-if-else/). Pour l’instant, note juste : **bool** = réponse oui/non du programme.
+
+---
+
+## ⚠️ Piège dont tout le monde rit… puis pleure
+
+`"3" + "5"` donne **`"35"`** (texte collé), pas `8`. Pour une **vraie** somme :
 
 ```python
 a = int(input("Premier nombre ? "))
@@ -80,7 +138,18 @@ b = int(input("Deuxième nombre ? "))
 print(a + b)
 ```
 
-Si l’utilisateur entre `3.5` alors que tu attendais un `int`, **`int()`** lève une erreur : on verra à la [leçon 9](/python-erreurs-debogage/) comment gérer ça avec `try` / `except`.
+Si quelqu’un tape `3.5` alors que tu voulais un **`int`**, Python peut lever une erreur — la [leçon 9](/python-erreurs-debogage/) montrera comment **rattraper** ça avec `try` / `except`.
+
+---
+
+## 🤖 Résumé rapide (révision / IA)
+
+- **`input("...")`** → toujours une **chaîne** ; interaction **question / réponse**.  
+- **`int` / `float` / `str`** → **types** ; conversions explicites pour calculer.  
+- **`strip()`** → saisie plus propre.  
+- Suite logique : **conditions** avec la [leçon 4](/python-conditions-if-else/).
+
+---
 
 ## Exercices (20)
 
@@ -311,7 +380,12 @@ print(f"{prenom} mesure environ {taille} m")</code></pre>
 
 ## Suite du parcours
 
-La [leçon 4](/python-conditions-if-else/) utilise ces conversions pour **tester** des valeurs : pair / impair, menus, notes, etc.
+**Mission suivante :** la [leçon 4 — if / else](/python-conditions-if-else/) utilise tes **nombres** et **textes** pour **décider** : pair ou impair, menu, note minimale… Tu auras enfin le « si … sinon » pour compléter tes programmes **interactifs**.
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-conditions-if-else/">Leçon 4 — Conditions</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Hub Python</a>
+</div>
 
 ## Amazon (partenaire)
 

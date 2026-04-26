@@ -9,6 +9,8 @@
     "import:wp": "node scripts/import-wordpress.mjs",
     "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
     "generate:favicon": "node scripts/generate-favicon.mjs",
+    "generate:pdf-mbot-10": "node scripts/generate-mbot-10-projets-pdf.mjs",
+    "generate:pdf-mbot-10-corriges": "node scripts/generate-mbot-10-projets-corriges-pdf.mjs",
     "optimize:hero": "node scripts/optimize-hero-home.mjs",
     "verify:images-mblock": "node scripts/verify-public-installer-images.mjs",
     "fix:svg-mblock": "node scripts/fix-svg-control-chars.mjs",
@@ -36,6 +38,7 @@
     "cheerio": "^1.2.0",
     "cross-env": "^10.1.0",
     "pagefind": "^1.4.0",
+    "pdf-lib": "^1.17.1",
     "png-to-ico": "^3.0.1",
     "turndown": "^7.2.2",
     "turndown-plugin-gfm": "^1.0.2"

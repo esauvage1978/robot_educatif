@@ -1,9 +1,9 @@
 ---
-title: "Installer mBlock 5 sur Windows 10 (guide facile 2026)"
+title: "mBlock 5 sur Windows 10/11 : télécharger et installer (guide 2026)"
 headline: "Installer mBlock 5 sur Windows 10 (guide facile 2026)"
-description: "Tutoriel simple pour installer mBlock 5 sur Windows 10 étape par étape. Installation rapide pour programmer votre robot mBot."
+description: "Télécharger mBlock 5 gratuitement et l’installer sur Windows 10 ou 11 : lien officiel, UAC, SmartScreen, antivirus. Pour programmer le mBot avec mBlock."
 pubDate: "2020-04-07"
-updatedDate: "2026-04-02"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: mbot
 categories:
@@ -12,6 +12,8 @@ categories:
   - "Installation"
   - "Windows"
 relatedLinks:
+  - title: "Télécharger mBlock 5 — guide complet (Windows, Mac, web)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
   - title: "Premier pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
   - title: "Quel logiciel mBlock choisir (app, Web, Python)"
@@ -58,7 +60,7 @@ faqSchema:
 ---
 
 <p><strong>Comment installer mBlock 5 sur Windows 10 ?</strong><br>
-Pour installer mBlock 5, il suffit de télécharger le logiciel depuis le site officiel, lancer l’exécutable et suivre les étapes d’installation. L’installation prend moins de 5 minutes. <em>En pratique sous Windows 10 ou 11 :</em> téléchargez sur <strong><a href="https://www.mblock.cc/en-us/download/">mblock.cc</a></strong> (section <strong>Windows</strong>, <strong>64 bits</strong> en général), ouvrez le <code>.exe</code>, cliquez <strong>Oui</strong> à l’<strong>UAC</strong> — la copie des fichiers démarre tout de suite sur les installateurs récents. À la fin : <strong>Terminer</strong>, puis lancez <strong>mBlock</strong> depuis le bureau ou le menu Démarrer.</p>
+Pour installer mBlock 5, il suffit de télécharger le logiciel depuis le site officiel, lancer l’exécutable et suivre les étapes d’installation. L’installation prend moins de 5 minutes. <em>En pratique sous Windows 10 ou 11 :</em> téléchargez sur <strong><a href="https://www.mblock.cc/en-us/download/">mblock.cc</a></strong> (section <strong>Windows</strong>, <strong>64 bits</strong> en général), ouvrez le <code>.exe</code>, cliquez <strong>Oui</strong> à l’<strong>UAC</strong> — la copie des fichiers démarre tout de suite sur les installateurs récents. À la fin : <strong>Terminer</strong>, puis lancez <strong>mBlock</strong> depuis le bureau ou le menu Démarrer. <strong>Vue d’ensemble</strong> (Mac, Linux, version web) : <a href="/telecharger-mblock-5-gratuit-guide-2026/">télécharger mBlock 5 — guide complet</a> · <strong>Windows 11</strong> : <a href="/installer-mblock-windows-11-guide-facile/">raccourci dédié</a>.</p>
 
 <p><strong>Temps nécessaire :</strong> 5 minutes<br>
 <strong>Niveau :</strong> débutant</p>

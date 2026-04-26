@@ -7,3 +7,43 @@
 
 /activite-mbot-mesure-des-distances /activite-mbot-mesurer-des-distances/ 301
 /activite-mbot-mesure-des-distances/ /activite-mbot-mesurer-des-distances/ 301
+
+/installer-mblock-5-sous-windows /installer-mblock-5-sous-windows-10/ 301
+/installer-mblock-5-sous-windows/ /installer-mblock-5-sous-windows-10/ 301
+
+# Archives WordPress / anciennes URL (301)
+/author/redacteur /about/ 301
+/author/redacteur/ /about/ 301
+/categorie/makeblock/mbot /categorie/mbot/ 301
+/categorie/makeblock/mbot/ /categorie/mbot/ 301
+/categorie/makeblock/cyberpi /categorie/cyberpi/ 301
+/categorie/makeblock/cyberpi/ /categorie/cyberpi/ 301
+/page/1 /blog/ 301
+/page/1/ /blog/ 301
+/page/2 /blog/ 301
+/page/2/ /blog/ 301
+/politique-de-cookies-ue /gestion-des-cookies/ 301
+/politique-de-cookies-ue/ /gestion-des-cookies/ 301
+/2020/04/07/premier-pas-avec-mblock-5 /premier-pas-avec-mblock-5/ 301
+/2020/04/07/premier-pas-avec-mblock-5/ /premier-pas-avec-mblock-5/ 301
+/2020/04/12/activite-scratch-decor-qui-se-deplace /scratch-creer-un-jeu-video-premiere-partie/ 301
+/2020/04/12/activite-scratch-decor-qui-se-deplace/ /scratch-creer-un-jeu-video-premiere-partie/ 301
+/2020/04/06/mbot-mon-premier-robot-educatif /mbot-mon-premier-robot-educatif/ 301
+/2020/04/06/mbot-mon-premier-robot-educatif/ /mbot-mon-premier-robot-educatif/ 301
+/privacy-policy /politique-de-confidentialite/ 301
+/privacy-policy/ /politique-de-confidentialite/ 301
+/programmes/jeu_video_partie_1_4.mblock /scratch-creer-un-jeu-video-premiere-partie/ 301
+/programmes/jeu_video_partie_1_4.mblock/ /scratch-creer-un-jeu-video-premiere-partie/ 301
+/programmes/jeu_video_partie_1_2.mblock /scratch-creer-un-jeu-video-premiere-partie/ 301
+/programmes/jeu_video_partie_1_2.mblock/ /scratch-creer-un-jeu-video-premiere-partie/ 301
+/recherche2 /recherche/ 301
+/recherche2/ /recherche/ 301
+/contact-us /contact/ 301
+/contact-us/ /contact/ 301
+
+# Pages récentes : URL sans slash final → 301 vers la version avec slash (évite 404 sur certains hébergeurs / CF Pages)
+/10-projets-mbot-gratuits-classe-faciles /10-projets-mbot-gratuits-classe-faciles/ 301
+/telecharger-mblock-5-gratuit-guide-2026 /telecharger-mblock-5-gratuit-guide-2026/ 301
+/mblock-en-ligne-programmer-sans-installer /mblock-en-ligne-programmer-sans-installer/ 301
+/installer-mblock-windows-11-guide-facile /installer-mblock-windows-11-guide-facile/ 301
+/mblock-vs-scratch-lequel-choisir /mblock-vs-scratch-lequel-choisir/ 301

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Bataille navale — Chapitre 4/6 : tirs sur defense + radar.
+Bataille navale — Chapitre 4/6 : tirs, défense + radar (démo).
 Lancer : python bataille_chapitre_04.py
 """
 
@@ -53,6 +53,12 @@ def parser_case(texte):
     return ligne, colonne
 
 
+def demander_tir():
+    x = int(input("Ligne (0-9) : "))
+    y = int(input("Colonne (0-9) : "))
+    return x, y
+
+
 def cases_libres(grille, cases):
     for ligne, col in cases:
         if not (0 <= ligne < TAILLE and 0 <= col < TAILLE):
@@ -97,7 +103,7 @@ def placement_aleatoire(grille):
                 flotte.append(coords)
                 break
         else:
-            raise RuntimeError("Placement aleatoire impossible.")
+            raise RuntimeError("Placement aléatoire impossible.")
     return flotte
 
 
@@ -126,7 +132,7 @@ def demo_tirs():
         li, co = parser_case(case)
         res = executer_tir(defense, radar, li, co)
         print(case, "->", res)
-    afficher_grille_lettres(radar, "Ton radar apres 3 tirs")
+    afficher_grille_lettres(radar, "Ton radar après 3 tirs")
 
 
 def main():

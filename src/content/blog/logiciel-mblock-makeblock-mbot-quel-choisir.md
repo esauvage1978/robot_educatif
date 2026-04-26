@@ -1,9 +1,9 @@
 ---
-title: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
+title: "mBlock 5 : app, Web ou Python — quel logiciel pour votre robot ?"
 headline: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
 description: "mBlock 5 : application bureau, version web, mode Python — quand utiliser quoi pour mBot, mBot2, Codey Rocky et CyberPi. Tableau comparatif, captures et liens vers les tutoriels du site."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: mbot
 categories:
@@ -12,6 +12,8 @@ categories:
   - "Installation"
   - "Programmation"
 relatedLinks:
+  - title: "Télécharger mBlock 5 gratuitement (guide officiel)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
   - title: "Installer mBlock 5 sous Windows 10"
     href: "/installer-mblock-5-sous-windows-10/"
   - title: "Premiers pas avec mBlock 5"
@@ -20,9 +22,17 @@ relatedLinks:
     href: "/mblock-bluetooth-erreurs-frequentes-depannage/"
   - title: "Installer les blocs du mBot"
     href: "/installer-les-blocs-du-mbot/"
+  - title: "mBlock en ligne (sans installation)"
+    href: "/mblock-en-ligne-programmer-sans-installer/"
 ---
 
 **mBlock** est l’environnement de référence pour programmer les robots **Makeblock** en **blocs** (même esprit que **Scratch**), puis en **texte** (**Python**) sur les modèles et versions qui le proposent. La difficulté, c’est qu’il existe **plusieurs façons d’y accéder** : logiciel **installé** sur l’ordinateur, **version web** dans le navigateur, et parfois **éditeur Python** intégré — ce n’est **pas équivalent** : tout dépend si vous **branchez un robot réel**, si vous avez les **droits administrateur**, ou si vous travaillez **sans matériel** un jour donné.
+
+## Télécharger mBlock 5 (guide rapide)
+
+- **Lien officiel** : récupérez l’installateur **gratuit** sur **mblock.cc** — synthèse, FAQ et liens **Windows / Mac / Linux / Web** dans notre page pilier <a href="/telecharger-mblock-5-gratuit-guide-2026/">Télécharger mBlock 5 gratuitement</a>.
+- **Installation Windows** : <a href="/installer-mblock-5-sous-windows-10/">tutoriel détaillé Windows 10/11</a> · <a href="/installer-mblock-windows-11-guide-facile/">focus Windows 11</a>.
+- **Sans installer** : <a href="/mblock-en-ligne-programmer-sans-installer/">mBlock en ligne</a> (navigateur).
 
 Ci-dessous : **l’interface mBlock en ligne** (navigateur), proche de ce que vous voyez aussi dans l’application bureau — mêmes catégories de blocs, même zone de script.
 
@@ -75,7 +85,7 @@ Sans **bonne configuration**, les blocs **moteurs** ou **capteurs** du **mBot** 
 - **Scratch** ([site officiel](https://scratch.mit.edu/)) : projets **à l’écran**, partage en ligne, écosystème **généraliste**.
 - **mBlock** : pensé pour l’**écosystème Makeblock** (robots, cartes, capteurs) avec des **blocs dédiés** et la **connexion** au matériel.
 
-Pour un atelier **robot Makeblock**, on part presque toujours de **mBlock**, pas de Scratch seul.
+Pour un atelier **robot Makeblock**, on part presque toujours de **mBlock**, pas de Scratch seul. Approfondir : <a href="/mblock-vs-scratch-lequel-choisir/">mBlock vs Scratch : lequel choisir ?</a>
 
 ## 6. Mini-FAQ
 
@@ -101,4 +111,4 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 
 ---
 
-**À retenir** : installez l’**application** sur la machine principale du projet robot ; gardez le **Web** pour les postes verrouillés ou les démos rapides ; n’ouvrez le **Python** que quand la **logique des blocs** est solide — le logiciel n’est qu’un outil, le **projet** et la **compréhension** restent au centre.
+**En pratique** : installez l’**application** sur la machine principale du projet robot ; gardez le **Web** pour les postes verrouillés ou les démos rapides ; n’ouvrez le **Python** que quand la **logique des blocs** est solide — le logiciel n’est qu’un outil, le **projet** et la **compréhension** restent au centre.

@@ -1,22 +1,10 @@
--- À exécuter dans Supabase : SQL Editor (nouveau projet → Project Settings → API pour URL et clé anon).
--- Table + fonctions sécurisées (RLS : lecture publique, écriture uniquement via RPC).
+-- Migration : anti-abus sur les notes d’articles (RPC submit_article_rating).
+-- À exécuter dans Supabase SQL Editor APRÈS scripts/supabase-article-engagement.sql
 --
--- Déjà déployé sans la table article_rating_events ? Exécutez aussi :
---   scripts/supabase-article-rating-rate-limit.sql
+-- Remplace l’ancienne fonction à 2 arguments par une version à 3 arguments
+-- (p_client_fingerprint : UUID côté navigateur, stocké en localStorage).
 
-create table if not exists public.article_engagement (
-	slug text primary key,
-	views int not null default 0,
-	rating_sum bigint not null default 0,
-	rating_count int not null default 0
-);
-
-alter table public.article_engagement enable row level security;
-
-drop policy if exists "article_engagement_select" on public.article_engagement;
-create policy "article_engagement_select" on public.article_engagement for select using (true);
-
--- Journal des votes (anti-abus : quotas + un vote par article et par empreinte navigateur)
+-- Journal des votes (audit + limitation) — pas d’accès direct anon (RLS + pas de policy insert public)
 create table if not exists public.article_rating_events (
 	id bigserial primary key,
 	slug text not null,
@@ -33,32 +21,10 @@ create index if not exists idx_article_rating_events_fp_created
 
 alter table public.article_rating_events enable row level security;
 
--- Incrémente une vue et renvoie les stats à jour (un appel au chargement de l’article).
-create or replace function public.visit_and_get_stats(p_slug text)
-returns table (views int, rating_sum bigint, rating_count int)
-language plpgsql
-security definer
-set search_path = public
-as $$
-begin
-	insert into public.article_engagement (slug, views)
-	values (p_slug, 1)
-	on conflict (slug) do update
-	set views = public.article_engagement.views + 1;
-
-	return query
-	select e.views, e.rating_sum, e.rating_count
-	from public.article_engagement e
-	where e.slug = p_slug;
-end;
-$$;
-
-grant execute on function public.visit_and_get_stats(text) to anon, authenticated;
+-- Pas de policy INSERT/SELECT pour anon : lecture réservée au dashboard (service role) si besoin
 
 drop function if exists public.submit_article_rating(text, int);
-drop function if exists public.submit_article_rating(text, int, text);
 
--- Ajoute une note (1–5). Les vues ne sont pas modifiées. Sécurité : p_client_fingerprint (UUID).
 create or replace function public.submit_article_rating(
 	p_slug text,
 	p_stars int,
@@ -83,12 +49,14 @@ begin
 		raise exception 'invalid_slug';
 	end if;
 
+	-- UUID (36 caractères) — le client envoie crypto.randomUUID()
 	if p_client_fingerprint is null
 		or length(p_client_fingerprint) <> 36
 		or p_client_fingerprint !~ '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$' then
 		raise exception 'invalid_fingerprint';
 	end if;
 
+	-- Déjà noté cet article avec cet appareil
 	if exists (
 		select 1
 		from public.article_rating_events e
@@ -97,6 +65,7 @@ begin
 		raise exception 'already_voted';
 	end if;
 
+	-- Délai minimum entre deux votes (tous articles confondus), même fingerprint
 	select max(e.created_at) into last_any
 	from public.article_rating_events e
 	where e.client_fingerprint = p_client_fingerprint;
@@ -145,8 +114,3 @@ end;
 $$;
 
 grant execute on function public.submit_article_rating(text, int, text) to anon, authenticated;
-
--- Tableau de bord vues / notes (page Astro statique, noindex, hors sitemap) : /stats-articles-interne/
--- Lecture : GET /rest/v1/article_engagement (policy select true — ne pas diffuser l’URL publiquement).
---
--- Vues des autres pages (accueil, contact, etc.) : exécuter aussi scripts/supabase-page-path-stats.sql

@@ -1,34 +1,116 @@
 ---
-title: "Bataille navale en Python (4/6) — tirs et marques sur les grilles"
-headline: "Bataille navale en Python (4/6) — tirs et marques sur les grilles"
-description: "Appliquer un tir sur la grille défense adverse, mettre à jour radar et défense ; interdire de rejouer la même case."
+title: "Projet Python : bataille navale (4/6) — tirs et résultats (radar / défense)"
+headline: "Projet Python : Bataille Navale (4/6) – Gérer les Tirs et les Résultats"
+description: "Gestion des tirs en Python : vérifier une case sur une grille 2D, touché ou raté, mise à jour radar. Projet bataille navale, logique conditionnelle et code jouable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Bataille navale
 seriesOrder: 4
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu", "input"]
 relatedLinks:
-  - title: "Partie 3 — placement"
+  - title: "Sommaire — série Bataille navale"
+    href: "/programmation/bataille-navale/"
+  - title: "Partie 1 — cahier des charges"
+    href: "/python-bataille-navale-1-cahier-des-charges/"
+  - title: "Partie 2 — grille et affichage"
+    href: "/python-bataille-navale-2-grille-et-affichage/"
+  - title: "Partie 3 — placement des navires"
     href: "/python-bataille-navale-3-placement-bateaux/"
   - title: "Partie 5 — coulé et victoire"
     href: "/python-bataille-navale-5-coule-et-victoire/"
+  - title: "Partie 6 — jeu complet au terminal"
+    href: "/python-bataille-navale-6-jeu-complet/"
+  - title: "Parcours Python (bases)"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Bataille navale"
   - "Projet"
+faqSchema:
+  - question: "Comment gérer les tirs dans un jeu Python (bataille navale) ?"
+    answer: "Le tireur choisit une case (ligne, colonne) ; le programme lit l’état sur la grille défense adverse : eau → raté, navire intact → touché. On met à jour la grille du défenseur et le radar du tireur avec des symboles distincts, et on refuse de rejouer une case déjà tirée."
+  - question: "Comment vérifier une case sur une grille 2D en Python ?"
+    answer: "Avec grille[ligne][colonne] : lire le caractère ou la valeur, comparer à des constantes (eau, navire, déjà joué). Tester les indices avant accès si la saisie n’est pas garantie valide."
+  - question: "Touché ou coulé : quand le coder ?"
+    answer: "Dès la partie 4, on distingue touché (navire touché mais peut-être pas entièrement) et raté. La détection de « coulé » (toutes les cases d’un navire touchées) et la victoire sont traitées à la partie suivante."
+  - question: "Radar et grille défense : pourquoi deux grilles ?"
+    answer: "La défense adverse contient la vérité (bateaux cachés). Le radar du tireur ne montre que ce qu’il a découvert : inconnu, manqué, touché — sans révéler les navires non touchés."
 ---
-Tu as une **flotte** posée sur une grille défense ([partie 3](/python-bataille-navale-3-placement-bateaux/)). Cet article décrit ce qui se passe quand un joueur **tire** sur une case `(ligne, colonne)`.
+
+Tu as [placé la flotte](/python-bataille-navale-3-placement-bateaux/) sur une **grille défense** : on peut enfin **jouer**. Ce volet du [projet bataille navale](/programmation/bataille-navale/) répond à : *comment gérer les tirs dans mon jeu Python ?* — avec **interaction utilisateur** (`input`), **conditions** sur le contenu d’une case, et **deux vues** de la bataille : ce que voit le **défenseur** sur sa grille et ce que voit l’**attaquant** sur son **radar**.
+
+La promesse : un **premier gameplay fonctionnel** — tir → **vérifier la case** → **afficher le résultat** (raté / touché) et mettre à jour les grilles. La notion de **« coulé »** (navire entièrement touché) et la **fin de partie** arrivent à la [partie 5 — coulé et victoire](/python-bataille-navale-5-coule-et-victoire/), puis la **boucle complète** à la [partie 6](/python-bataille-navale-6-jeu-complet/).
+
+Dans la bataille navale, **chaque tir** produit un **résultat** : en général on distingue au minimum **raté** (eau) et **touché** (navire). Le **coulé** s’ajoute lorsque le dernier segment d’un navire est touché — nous le formaliserons à la partie 5.
+
+**Prérequis** : [grille et coordonnées](/python-bataille-navale-2-grille-et-affichage/), [placement](/python-bataille-navale-3-placement-bateaux/). Symboles du [cahier des charges](/python-bataille-navale-1-cahier-des-charges/).
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
-## 1. Côté défenseur : mettre à jour *ma* grille
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#1-principe-des-tirs">1. Principe des tirs</a></li>
+<li><a href="#2-demander-un-tir-utilisateur">2. Demander un tir utilisateur</a></li>
+<li><a href="#3-mettre-à-jour-la-grille-défense">3. Mettre à jour la grille défense</a></li>
+<li><a href="#4-mettre-à-jour-le-radar-de-lattaquant">4. Mettre à jour le radar de l’attaquant</a></li>
+<li><a href="#5-enchaîner-un-tir-complet--executer_tir">5. Enchaîner un tir complet : <code>executer_tir</code></a></li>
+<li><a href="#6-vers-la-partie-5--coulé-et-boucle">6. Vers la partie 5 : coulé et boucle</a></li>
+<li><a href="#7-exercices">7. Exercices</a></li>
+<li><a href="#8-résumé">8. Résumé</a></li>
+<li><a href="#9-suite-de-la-série">9. Suite de la série</a></li>
+<li><a href="#10-script-complet-du-chapitre">10. Script complet du chapitre</a></li>
+<li><a href="#11-télécharger-ce-chapitre">11. Télécharger ce chapitre</a></li>
+</ul>
+</div>
 
-Rappel des symboles ([partie 1](/python-bataille-navale-1-cahier-des-charges/)) :
+## 1. Principe des tirs
+
+À chaque tour, le **joueur qui attaque** choisit une **case** : en interne, des indices **`(ligne, colonne)`** entre **0** et **9** sur la grille 10×10 (comme en [partie 2](/python-bataille-navale-2-grille-et-affichage/)).
+
+Le **programme** consulte la **grille défense** de l’adversaire (là où ses navires ont été placés en [partie 3](/python-bataille-navale-3-placement-bateaux/)) :
+
+| Contenu de la case | Résultat annoncé (partie 4) | Effet |
+|--------------------|----------------------------|--------|
+| Eau `.` | **Raté** (manqué) | Marquer l’eau comme déjà tirée |
+| Navire `#` (non touché) | **Touché** | Remplacer par « touché » sur la défense |
+| Déjà jouée (`X`, `o`, …) | **Interdit** | Ne pas compter comme un nouveau tir |
+
+Le joueur **annonce une coordonnée** ; le programme **compare** à l’état réel de la case — c’est le cœur de la **logique conditionnelle** : `if` / `elif` / `else` sur le symbole lu dans `grille[ligne][colonne]`.
+
+Pour l’instant, **touché** ne distingue pas encore **coulé** : dès qu’on touche un `#`, on affiche « touché ». La [partie 5](/python-bataille-navale-5-coule-et-victoire/) parcourra la **liste des navires** pour savoir si **toutes** les cases d’un bateau sont touchées — puis « **coulé** ».
+
+## 2. Demander un tir utilisateur
+
+Version minimaliste avec **indices 0–9** (ligne puis colonne), pour bien voir le lien avec `grille[ligne][colonne]` :
+
+```python
+def demander_tir():
+    x = int(input("Ligne (0-9) : "))
+    y = int(input("Colonne (0-9) : "))
+    return x, y
+```
+
+Ici **`x`** est la **ligne** et **`y`** la **colonne** (ordre `(ligne, colonne)` cohérent avec le reste du tutoriel). En production, tu **valideras** la saisie (entiers dans `0..9`, gestion des erreurs `ValueError`) — voir [types et saisie](/python-types-et-saisie/).
+
+Pour une saisie **style plateau** `A1`–`J10`, réutilise le [`parser_case`](/python-bataille-navale-2-grille-et-affichage/) : il renvoie déjà `(ligne, colonne)` en indices Python.
+
+```python
+def demander_tir_case():
+    texte = input("Case (ex. D5) : ")
+    return parser_case(texte)
+```
+
+Ensuite : `ligne, col = demander_tir()` puis appel de la fonction qui **applique** le tir sur les grilles (section 5).
+
+## 3. Mettre à jour la grille défense
+
+Côté **défenseur**, la grille reflète la vérité après chaque tir reçu (symboles du [cahier des charges](/python-bataille-navale-1-cahier-des-charges/)) :
 
 - `#` → `X` si un navire est touché à cette case.
-- `.` → `o` si l’adversaire tire dans l’eau (sur *ta* grille on note le manqué).
+- `.` → `o` si l’adversaire tire dans l’eau (sur *ta* grille on note aussi le manqué).
 
 ```python
 VIDE = "."
@@ -44,15 +126,14 @@ def appliquer_tir_defense(grille_defense, ligne, col):
     if cell == VIDE:
         grille_defense[ligne][col] = MANQUE_DEFENSE
         return "manque"
-    # déjà joué (# impossible si bien géré, X ou o = re-tir)
     return "deja"
 ```
 
-En **jeu sérieux**, tu refuses un tir sur une case déjà `X` ou `o` : retourne `"deja"` **avant** de modifier, ou teste le radar du tireur.
+En jeu sérieux, on **refuse** un tir sur une case déjà marquée `X` ou `o` avant toute modification.
 
-## 2. Côté attaquant : mettre à jour le radar
+## 4. Mettre à jour le radar de l’attaquant
 
-Le radar ne connaît pas les `#` cachés : seulement `?`, `O`, `X`.
+Le **radar** ne révèle pas les `#` cachés : seulement l’**inconnu** `?`, les **manqués** `O` et les **touchés** `X`.
 
 ```python
 RADAR_INCONNU = "?"
@@ -61,7 +142,7 @@ RADAR_TOUCHE = "X"
 
 def appliquer_tir_radar(grille_radar, ligne, col, resultat):
     if grille_radar[ligne][col] != RADAR_INCONNU:
-        return False  # case déjà jouée côté attaquant
+        return False
     if resultat == "touche":
         grille_radar[ligne][col] = RADAR_TOUCHE
     elif resultat == "manque":
@@ -71,52 +152,63 @@ def appliquer_tir_radar(grille_radar, ligne, col, resultat):
     return True
 ```
 
-Le **défenseur** annonce `touche` / `manque` (et bientôt `coule` — [partie 5](/python-bataille-navale-5-coule-et-victoire/)) ; le **tireur** met à jour **son** radar en conséquence.
+Le défenseur « annonce » le résultat ; le tireur met à jour **son** radar en conséquence. (En [partie 5](/python-bataille-navale-5-coule-et-victoire/), le message pourra préciser **coulé**.)
 
-## 3. Enchaînement minimal dans une fonction `tour`
+## 5. Enchaîner un tir complet : `executer_tir`
+
+Une fonction unique évite les oublis : **vérifier** que le radar n’a pas déjà cette case, **lire** l’état sur la défense cible, **écrire** défense + radar, **retourner** une chaîne exploitable par l’affichage ou la boucle de jeu.
 
 ```python
 def executer_tir(grille_defense_cible, grille_radar_tireur, ligne, col):
     if grille_radar_tireur[ligne][col] != RADAR_INCONNU:
-        return "case_deja_jouee"
-
+        return "deja"
     etat = grille_defense_cible[ligne][col]
     if etat in (TOUCHE, MANQUE_DEFENSE):
-        return "incoherent_defenseur"
-
+        return "incoherent"
     if etat == NAVIRE:
         grille_defense_cible[ligne][col] = TOUCHE
-        appliquer_tir_radar(grille_radar_tireur, ligne, col, "touche")
+        grille_radar_tireur[ligne][col] = RADAR_TOUCHE
         return "touche"
-
     grille_defense_cible[ligne][col] = MANQUE_DEFENSE
-    appliquer_tir_radar(grille_radar_tireur, ligne, col, "manque")
+    grille_radar_tireur[ligne][col] = RADAR_MANQUE
     return "manque"
 ```
 
-Adapte si tu préfères **ne pas** exposer l’état interne du défenseur au tireur (en vrai jeu papier, le défenseur répond sans montrer sa grille).
+Tu peux afficher tout de suite un message du type : *Raté !* / *Touché !* selon la valeur retournée — premier **feedback** de **gameplay**.
 
-## 4. Règle « même joueur rejoue après touché » (option)
+## 6. Vers la partie 5 : coulé et boucle
 
-Version classique : après un **touché**, le même joueur **rejoue** jusqu’à un manqué. C’est une simple condition dans ta boucle de partie ([partie 6](/python-bataille-navale-6-jeu-complet/)) : si `executer_tir` retourne `touche`, ne pas changer de joueur.
+- **Coulé** : pour savoir si un navire est entièrement touché, il faut la structure **`flotte`** (liste de listes de coordonnées) de la [partie 3](/python-bataille-navale-3-placement-bateaux/) — à croiser avec les cases marquées `X` sur la défense. C’est l’objet de la [partie 5](/python-bataille-navale-5-coule-et-victoire/).
+- **Même joueur rejoue après touché** (règle classique) : une simple condition dans la boucle de partie ([partie 6](/python-bataille-navale-6-jeu-complet/)) : si `executer_tir` renvoie `touche`, ne pas changer de joueur jusqu’à un `manque`.
 
-## Exercices
+## 7. Exercices
 
-1. Crée deux grilles mini **3×3** à la main, simule trois tirs et affiche défense + radar après chaque coup.
-2. Écris une fonction `tir_valide(radar, ligne, col)` qui vaut `True` seulement si la case est encore `?`.
-3. Provoque un tir **deux fois** sur la même case : ton programme doit refuser ou afficher un message clair.
+1. Sur deux grilles mini **3×3** construites à la main, simule **trois tirs** et affiche défense + radar après chaque coup.
+2. Écris `tir_valide(radar, ligne, col)` qui vaut `True` seulement si la case radar est encore `?`.
+3. Enchaîne `demander_tir()` et `executer_tir(...)` dans une **boucle** `while` avec un compteur de coups maximum pour tester sans fin de partie.
 
-## Suite
+## 8. Résumé
 
-[Partie 5 — Détecter « coulé » et la fin de partie](/python-bataille-navale-5-coule-et-victoire/).
+| Élément | Contenu |
+|---------|---------|
+| **Entrée** | Coordonnées `(ligne, colonne)` via `demander_tir()` ou `parser_case` |
+| **Vérification** | Lecture `grille_defense[ligne][col]` — **gestion tir jeu** par conditions |
+| **Sortie** | `manque` / `touche` / `deja` ; affichage des **résultats** sur défense et radar |
+| **Suite** | **Coulé** + victoire → [partie 5](/python-bataille-navale-5-coule-et-victoire/) |
 
-## Script complet du chapitre
+## 9. Suite de la série
+
+- **Partie 3** : [Placement des bateaux](/python-bataille-navale-3-placement-bateaux/)
+- **Partie 5** : [Coulé et victoire](/python-bataille-navale-5-coule-et-victoire/)
+- **Index** : [Série bataille navale](/programmation/bataille-navale/)
+
+## 10. Script complet du chapitre
 
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Bataille navale — Chapitre 4/6 : tirs sur defense + radar.
+Bataille navale — Chapitre 4/6 : tirs, défense + radar (démo).
 Lancer : python bataille_chapitre_04.py
 """
 
@@ -168,6 +260,12 @@ def parser_case(texte):
     return ligne, colonne
 
 
+def demander_tir():
+    x = int(input("Ligne (0-9) : "))
+    y = int(input("Colonne (0-9) : "))
+    return x, y
+
+
 def cases_libres(grille, cases):
     for ligne, col in cases:
         if not (0 <= ligne < TAILLE and 0 <= col < TAILLE):
@@ -212,7 +310,7 @@ def placement_aleatoire(grille):
                 flotte.append(coords)
                 break
         else:
-            raise RuntimeError("Placement aleatoire impossible.")
+            raise RuntimeError("Placement aléatoire impossible.")
     return flotte
 
 
@@ -241,7 +339,7 @@ def demo_tirs():
         li, co = parser_case(case)
         res = executer_tir(defense, radar, li, co)
         print(case, "->", res)
-    afficher_grille_lettres(radar, "Ton radar apres 3 tirs")
+    afficher_grille_lettres(radar, "Ton radar après 3 tirs")
 
 
 def main():
@@ -252,7 +350,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## Télécharger ce chapitre
+## 11. Télécharger ce chapitre
 
 **[bataille_chapitre_04.py](/downloads/bataille-navale/bataille_chapitre_04.py)**
 

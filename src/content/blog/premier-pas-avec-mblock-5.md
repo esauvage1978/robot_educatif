@@ -1,10 +1,10 @@
 ---
-title: "Premiers pas avec mBlock 5 : comprendre l’environnement"
+title: "mBlock 5 : interface et premiers pas (guide débutant 2026)"
 headline: "MBlock 5 : se repérer dans l’interface (débutants)"
 description: "Tour d’horizon de mBlock 5 : scène, lutins, onglet Appareil, palettes de blocs, zone de script, connexion au robot et exécution du programme. Guide pour débutants après l’installation."
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
-updatedDate: "2026-04-02"
+updatedDate: "2026-04-18"
 amazonPreset: mbot
 categories:
   - "mBlock"
@@ -12,6 +12,8 @@ categories:
   - "Scratch"
   - "Débutant"
 relatedLinks:
+  - title: "Télécharger mBlock 5 (officiel, gratuit)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
   - title: "Installer mBlock 5 sous Windows 10"
     href: "/installer-mblock-5-sous-windows-10/"
   - title: "Quel logiciel mBlock pour votre robot"
@@ -43,6 +45,16 @@ faqSchema:
 Après <a href="/installer-mblock-5-sous-windows-10/">l’installation</a>, repérez la <strong>scène</strong>, les <strong>lutins</strong>, l’onglet <strong>Appareil</strong> (pour ajouter un robot), les <strong>catégories de blocs</strong> et la <strong>zone de script</strong> où l’on emboîte les commandes. Connectez l’appareil (USB ou Bluetooth) avant de téléverser un programme.</p>
 
 <p>Guide rédigé pour une prise en main en classe ou à la maison, croisée avec les versions récentes de mBlock et les usages courants sur Windows.</p>
+
+## Télécharger mBlock 5 (guide rapide)
+
+- **Lien officiel** : téléchargez **gratuitement** sur la page Makeblock — voir le **hub** <a href="/telecharger-mblock-5-gratuit-guide-2026/">Télécharger mBlock 5 gratuitement (Windows, Mac, en ligne)</a> (FAQ, liens directs).
+- **Windows** : pas à pas détaillé dans <a href="/installer-mblock-5-sous-windows-10/">Installer mBlock sous Windows 10/11</a> ; variante courte **Windows 11** : <a href="/installer-mblock-windows-11-guide-facile/">guide facile</a>.
+- **Sans installer** : <a href="/mblock-en-ligne-programmer-sans-installer/">mBlock en ligne</a> dans le navigateur.
+
+## mBlock expliqué (logiciel de programmation)
+
+**mBlock** est le **logiciel de programmation** Makeblock : **blocs** proches de **Scratch**, plus des **extensions** pour **robots** et cartes (**mBot**, **Arduino** / matériel compatible selon modèle). Vous assemblez des scripts, vous **connectez** le matériel en **USB** ou **Bluetooth**, puis vous **téléversez** le programme dans la carte. Pour comparer avec le Scratch « classique » : <a href="/mblock-vs-scratch-lequel-choisir/">mBlock vs Scratch</a>.
 
 <div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
 <p class="article-toc-title">Sommaire</p>

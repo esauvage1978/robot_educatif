@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Bataille navale — Chapitre 2/6 : affichage et parser A1–J10.
+Bataille navale — Chapitre 2/6 : grille 2D, affichage, parser A1–J10.
 Lancer : python bataille_chapitre_02.py
 """
 
@@ -51,7 +51,7 @@ def case_vers_texte(ligne, colonne):
 
 def main():
     afficher_grille_lettres(nouvelle_grille_radar(), "Radar (tout inconnu)")
-    afficher_grille_lettres(nouvelle_grille_defense(), "Defense (eau)")
+    afficher_grille_lettres(nouvelle_grille_defense(), "Défense (eau)")
     while True:
         txt = input("\nCase (ex. D5), vide pour quitter : ").strip()
         if not txt:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Bataille navale — Chapitre 5/6 : coule et flotte entiere.
+Bataille navale — Chapitre 5/6 : coulé et victoire (démo aléatoire).
 Lancer : python bataille_chapitre_05.py
 """
 
@@ -97,7 +97,7 @@ def placement_aleatoire(grille):
                 flotte.append(coords)
                 break
         else:
-            raise RuntimeError("Placement aleatoire impossible.")
+            raise RuntimeError("Placement aléatoire impossible.")
     return flotte
 
 
@@ -116,9 +116,9 @@ def executer_tir(grille_defense_cible, grille_radar_tireur, ligne, col):
     return "manque"
 
 
-def navire_coule(grille_defense, coords_navire):
-    for ligne, col in coords_navire:
-        if grille_defense[ligne][col] != TOUCHE:
+def est_coule(grille, positions_bateau):
+    for ligne, col in positions_bateau:
+        if grille[ligne][col] != TOUCHE:
             return False
     return True
 
@@ -132,7 +132,7 @@ def navire_contenant(flotte, ligne, col):
 
 def tous_coules(grille_defense, flotte):
     for navire in flotte:
-        if not navire_coule(grille_defense, navire):
+        if not est_coule(grille_defense, navire):
             return False
     return True
 
@@ -143,7 +143,7 @@ def message_apres_tir(grille_defense, flotte, ligne, col, code):
     nav = navire_contenant(flotte, ligne, col)
     if nav is None:
         return "touche"
-    if navire_coule(grille_defense, nav):
+    if est_coule(grille_defense, nav):
         return "coule"
     return "touche"
 
@@ -153,10 +153,9 @@ def demo_coule():
     g = nouvelle_grille_defense()
     flotte = placement_aleatoire(g)
     r = nouvelle_grille_radar()
-    # Tirer au hasard jusqu'a un coule ou 80 coups
     for _ in range(80):
         if tous_coules(g, flotte):
-            print("Toute la flotte est coulee.")
+            print("Toute la flotte est coulée.")
             break
         li = random.randrange(TAILLE)
         co = random.randrange(TAILLE)
@@ -167,8 +166,8 @@ def demo_coule():
         if code == "touche":
             print(lettre_ligne(li) + str(co + 1), "->", msg)
         if msg == "coule":
-            print(">>> Un navire est coule !")
-    afficher_grille_lettres(r, "Radar fin de demo")
+            print(">>> Un navire est coulé !")
+    afficher_grille_lettres(r, "Radar fin de démo")
 
 
 def main():

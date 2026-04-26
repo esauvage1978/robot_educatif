@@ -1,76 +1,126 @@
 ---
-title: "Python — variables et affichage (print)"
-headline: "Variables et affichage (print)"
-description: "Affectation, noms de variables, print (virgules, concaténation), f-strings et expressions ; pièges courants et exercices avec solutions repliables."
-pubDate: 2026-03-28
-updatedDate: 2026-03-29
+title: "Python variables et print (2/10) : créer, afficher — débutant"
+headline: "Apprendre Python (2/10) : Les Variables (Créer et Afficher des Données)"
+description: "Python variables pour débutants : affectation, print, f-strings, afficher une variable. Apprendre Python pas à pas — leçon 2/10, exercices avec solutions."
+pubDate: "2026-03-28"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python
 seriesOrder: 2
 tags: ["Python", "Programmation"]
 relatedLinks:
-  - title: "Leçon 1 — environnement de développement"
+  - title: "Leçon 1 — installer Python et premier programme"
     href: "/python-environnement-developpement/"
   - title: "Leçon 3 — types et saisie"
     href: "/python-types-et-saisie/"
+  - title: "Parcours Python (10 leçons)"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Tutoriel"
   - "Débutant"
+faqSchema:
+  - question: "C’est quoi une variable en Python ?"
+    answer: "Un nom que tu choisis pour stocker une valeur en mémoire. On écrit nom = valeur avec le signe égal ; ensuite tu peux réutiliser le nom dans print ou dans des calculs."
+  - question: "Comment afficher une variable Python ?"
+    answer: "Avec print(nom) ou print(\"texte\", nom). Pour insérer des variables dans une phrase, les f-strings sont pratiques : print(f\"Bonjour {nom}\")."
+  - question: "Comment apprendre Python débutant variables ?"
+    answer: "Commencer par créer deux ou trois variables (texte et nombre), les afficher avec print, puis utiliser des f-strings pour des messages lisibles. Cette leçon propose 20 exercices progressifs avec solutions."
+  - question: "Python débutant : f-string ou print avec virgules ?"
+    answer: "Les deux marchent. Les virgules dans print ajoutent des espaces automatiquement. Les f-strings (f\"...{variable}...\") sont souvent plus claires pour des phrases complètes et des calculs dans le texte."
 ---
-Après avoir installé Python et ouvert un éditeur ([leçon 1](/python-environnement-developpement/)), tu passes à la **matière première** des programmes : stocker des informations dans des **variables** et les **afficher** à l’écran. Cette leçon reste volontairement sans `input()` : tout est écrit **dans le code** ; la saisie clavier arrive à la [leçon 3](/python-types-et-saisie/).
+
+Dans la [leçon 1](/python-environnement-developpement/), tu as **parlé à l’ordinateur** avec un premier `print`.  
+**Maintenant**, tu vas lui apprendre à **se souvenir** : des **python variables** — un prénom, un score, un âge — que tu **ranges** dans ton programme puis que tu **réaffiches** quand tu veux.
+
+**Promesse (en ~5 minutes de lecture + ton premier script) :** tu comprends l’idée de **boîte étiquetée**, tu écris `prenom = "Alex"`, tu fais `print(prenom)`, et tu entends le petit déclic : *« ah, c’est ça une variable »*.  
+Ensuite tu enchaînes avec **afficher** proprement : virgules, **f-strings**, et une ribambelle d’**exercices** pour verrouiller.
+
+Cette leçon reste **sans** `input()` : tout est dans le code ; la saisie clavier arrive à la [leçon 3](/python-types-et-saisie/). Parfait pour **apprendre Python** en **débutant** sans surcharge.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
-## 1. Qu’est-ce qu’une variable ?
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-environnement-developpement/">Leçon 1 — Installation</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Toute la série (1/10)</a>
+</div>
 
-Une **variable** est un **nom** (que tu choisis) associé à une **valeur** en mémoire. En Python, on **affecte** avec le signe `=` : la valeur à droite est stockée sous le nom à gauche.
+---
+
+## 🎮 Partie 1 — Mission 1 : créer une mémoire
+
+### 🎯 Objectif
+
+Créer ta **première variable** et prouver que Python **retient** la valeur.
+
+### 🧠 Explication simple
+
+👉 Une **variable**, c’est une **boîte avec un nom** sur l’étiquette. Dedans tu mets **une** information : un **texte**, un **nombre**, plus tard plein d’autres choses.
+
+👉 En Python, le signe `=` ne veut pas dire « égal en maths » : il veut dire **« ranger dans la boîte »**. À **gauche** le nom, à **droite** la valeur.
+
+👉 Techniquement, une variable est un **nom** qui référence une valeur en mémoire — mais pour débuter, pense **boîte** et **étiquette**.
+
+```python
+prenom = "Alex"
+```
+
+Là, la boîte s’appelle `prenom` et contient le texte `Alex`. Tu peux **changer** le contenu plus tard :
 
 ```python
 score = 0
-pseudo = "Nova"
+score = score + 10
+print(score)  # 10 — la boîte a été mise à jour
 ```
 
-Tu peux **relire** ou **modifier** la valeur plus tard en réutilisant le même nom :
+**Attention :** l’ordre compte. `10 = score` est **interdit** (tu ne peux pas ranger une boîte dans un nombre).
+
+---
+
+## 🎮 Partie 2 — Mission 2 : montrer ce que tu as stocké
+
+### 🎯 Objectif
+
+**Afficher** une variable avec `print` — c’est le **python afficher variable** de base.
+
+### 💻 Code express
 
 ```python
-score = score + 10
-print(score)  # 10
+prenom = "Alex"
+print(prenom)
+print("Le joueur s’appelle", prenom)
 ```
 
-L’ordre compte : `10 = score` est une **erreur** (on ne peut pas affecter un nombre).
+Tu dois voir `Alex` puis une phrase complète. **Wow** : le même prénom sert **deux fois** sans retaper le texte à la main.
 
-## 2. Bien nommer ses variables
+---
 
-Python accepte des noms faits de **lettres**, **chiffres** et **underscores** `_`, à condition de **ne pas commencer par un chiffre**. Évite les **accents** dans les noms (moins portable, parfois source de confusion).
+## 🧠 Les règles du jeu (noms de variables)
 
-**Style recommandé** : plusieurs mots en **snake_case** : `annee_naissance`, `vitesse_max`.
+Python accepte des noms en **lettres**, **chiffres** et **`_`**, mais **pas** en commençant par un chiffre. Style courant : **`snake_case`** (`mon_score`, `annee_naissance`).  
+Évite les **mots réservés** (`if`, `for`, `print`…) comme noms — ton éditeur les colore souvent différemment.
 
-**À ne pas faire** : réutiliser un **mot réservé** du langage (`if`, `for`, `print`, `True`…). L’éditeur les colore souvent différemment : si ton nom « cloche », change-le.
+---
 
-## 3. Afficher avec `print`
+## 🎮 Partie 3 — Mission 3 : `print` comme une tablette magique
 
-`print` envoie du texte (et des valeurs) vers la **console** — le terminal ou la fenêtre de sortie de ton IDE.
+`print` envoie du texte vers la **console** (fenêtre en bas dans VS Code, ou terminal).
 
-### Plusieurs valeurs séparées par des virgules
-
-Python insère **un espace** entre chaque élément et ajoute un **saut de ligne** à la fin.
+### Virgules = espaces automatiques
 
 ```python
 nom = "Lina"
 print("Bonjour", nom, "!")   # Bonjour Lina !
 ```
 
-### Concaténation avec `+` (chaînes uniquement)
-
-Le `+` **colle** deux chaînes **sans espace automatique**. Pense aux espaces dans les guillemets.
+### Coller du texte avec `+` (chaînes seulement)
 
 ```python
 print("Bonjour " + nom + " !")
 ```
 
-Si tu mélanges **nombre** et **texte**, `+` provoque une erreur. Utilise des **virgules** dans `print`, ou convertis avec `str()` :
+Si tu mélanges **nombre** et **texte**, `+` peut grincer : utilise des **virgules** ou `str()` :
 
 ```python
 n = 7
@@ -78,9 +128,7 @@ print("La réponse est", n)
 print("La réponse est " + str(n))
 ```
 
-### `sep` et `end` (optionnel)
-
-Tu peux changer le séparateur entre arguments et ce qui est affiché **après** (par défaut : saut de ligne).
+### `sep` et `end` (bonus)
 
 ```python
 print("A", "B", "C", sep=" | ")   # A | B | C
@@ -88,36 +136,40 @@ print("Suite...", end="")
 print(" même ligne.")
 ```
 
-## 4. Les f-strings (Python 3.6+)
+---
 
-Une **f-string** est une chaîne précédée de `f` ; les **expressions** entre `{` et `}` sont **évaluées** et insérées dans le texte. C’est le moyen le plus lisible pour construire des messages.
+## 🎮 Partie 4 — Mission 4 : les f-strings (effet « pro »)
+
+Une **f-string** commence par `f` devant les guillemets ; ce que tu mets entre `{` et `}` est **calculé** et inséré dans la phrase.
 
 ```python
 nom = "Lina"
 age = 12
 print(f"{nom} a {age} ans")
-print(f"Dans deux ans, {age + 2} ans.")
+print(f"Dans deux ans : {age + 2} ans.")
 ```
 
-Tu peux mettre des **calculs** ou des **appels de fonctions** courts dans les accolades (sans en abuser pour garder le code clair).
-
-**Guillemets** : si ta f-string utilise des `"`, tu peux délimiter la chaîne avec `'` pour éviter les conflits, ou échapper — exemple :
+C’est **le** moyen lisible pour **python afficher variable** dans une phrase complète — idéal pour **python débutant variables** qui veulent du texte soigné.
 
 ```python
 msg = f'Il a dit "OK" à {nom}.'
 ```
 
-## 5. Pièges fréquents
+---
 
-- **`NameError`** : tu utilises un nom **avant** de l’avoir défini, ou tu fais une **faute de frappe** (`scor` au lieu de `score`).
-- **Oublier les guillemets** pour du texte : `nom = Lina` cherche une variable `Lina`, pas le prénom.
-- **`print` sans parenthèses** en Python 3 : écris bien `print(x)`, pas `print x`.
+## ⚠️ Pièges (tout le monde tombe dedans au moins une fois)
 
-**Astuce** : ajouter un `print` temporaire (`print("ici", variable)`) pour voir où ton programme en est ; tu affineras avec la leçon sur le **débogage** plus tard dans le parcours.
+- **`NameError`** : tu utilises un nom avant de l’avoir créé, ou **faute de frappe** (`scor` vs `score`).
+- **Texte sans guillemets** : `nom = Lina` cherche une variable `Lina`, pas le prénom.
+- **`print x`** sans parenthèses : en Python 3, écris **`print(x)`**.
 
-## 6. Mini-parcours : du début à un petit résumé
+**Astuce débutant :** un `print("debug", variable)` au bon endroit, et tu vois ce que contient la boîte.
 
-Les **étapes** de ce programme servent de fil rouge pour les exercices ci-dessous : définir des **variables texte et numériques**, calculer un **total**, puis **afficher** avec virgules et **f-strings**.
+---
+
+## 🏆 Mini-boss : exemple « score » (à lancer tout de suite)
+
+Copie ce bloc dans un fichier `.py`, exécute-le : tu dois voir **trois lignes** — c’est le **fil rouge** des exercices (texte + nombres + **f-strings**).
 
 ```python
 # Exemple complet sur une seule exécution
@@ -131,7 +183,17 @@ print(f"Score de base : {points}, bonus : {bonus}")
 print(f"Total affiché au classement : {total}")
 ```
 
-Lance le script avec ton éditeur ou `python fichier.py` et vérifie que les trois lignes s’affichent comme prévu.
+Si ça s’affiche, tu as compris l’essentiel des **python variables** et de l’**affichage**. Place aux **20 missions** ci-dessous pour le mode « entraînement ».
+
+---
+
+## 🤖 Résumé rapide (révision / IA)
+
+- **Variable** = nom `=` valeur (boîte étiquetée).  
+- **`print`** = montrer à l’écran ; **virgules** ou **f-strings** pour jolies phrases.  
+- **f-string** = `f"…{nom}…"` pour insérer variables et calculs.
+
+---
 
 ## Exercices (20)
 
@@ -277,7 +339,7 @@ print(f'{nom} a dit "oui"')</code></pre>
 </div>
 </details>
 
-**Exercice 14** — Reprends la **structure** du mini-parcours (§6) avec **d’autres valeurs** : `prenom`, `points`, `bonus`, `total`, puis **trois** `print` comme dans l’exemple (virgules puis deux f-strings). <span class="exo-badge exo-badge--inter">Intermédiaire</span>
+**Exercice 14** — Reprends la **structure** du **mini-boss « score »** (exemple plus haut) avec **d’autres valeurs** : `prenom`, `points`, `bonus`, `total`, puis **trois** `print` comme dans l’exemple (virgules puis deux f-strings). <span class="exo-badge exo-badge--inter">Intermédiaire</span>
 
 <details class="exercise-solution">
 <summary class="exercise-solution__summary">Afficher la solution</summary>
@@ -367,7 +429,12 @@ print(f"Total (démo) : {total}")</code></pre>
 
 ## Suite du parcours
 
-La [leçon 3](/python-types-et-saisie/) introduit les **types** (`int`, `float`, `str`…) et la saisie avec **`input()`** : tu pourras alors personnaliser l’affichage selon ce que l’utilisateur tape.
+**Mission suivante :** la [leçon 3](/python-types-et-saisie/) te donne les **noms des types** (`int`, `float`, `str`…) et le pouvoir de **`input()`** : ton programme pourra **lire** ce que quelqu’un tape au clavier — fini le tout-dans-le-code pour les textes personnalisés.
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-types-et-saisie/">Leçon 3 — Types et saisie</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Hub Python</a>
+</div>
 
 ## Amazon (partenaire)
 

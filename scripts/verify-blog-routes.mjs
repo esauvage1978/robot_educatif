@@ -17,6 +17,16 @@ function slugFromFilename(name) {
 }
 
 async function main() {
+	try {
+		await access(distDir);
+	} catch {
+		console.error(
+			'[verify-blog-routes] ÉCHEC : le dossier dist/ est absent ou inaccessible.',
+			'Lancez d’abord un build complet : npm run build',
+		);
+		process.exit(1);
+	}
+
 	let files;
 	try {
 		files = await readdir(blogDir);
@@ -43,6 +53,11 @@ async function main() {
 			`[verify-blog-routes] ÉCHEC : ${missing.length} article(s) sans dist/<slug>/index.html :`,
 			missing.join(', '),
 		);
+		if (missing.length >= 10) {
+			console.error(
+				'[verify-blog-routes] Astuce : dist/ est souvent incomplet si le build a été interrompu ou si seul un sous-ensemble de pages a été généré. Relancez : npm run build',
+			);
+		}
 		process.exit(1);
 	}
 

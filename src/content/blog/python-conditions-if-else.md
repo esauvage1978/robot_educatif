@@ -1,9 +1,9 @@
 ---
-title: "Python — conditions (if, elif, else)"
-headline: "Conditions (if, elif, else)"
-description: "Comparer des valeurs, and / or / not, blocs indentés, enchaîner if / elif / else et cas pratiques (note, parité, menus) ; 20 exercices avec solutions repliables."
-pubDate: 2026-03-28
-updatedDate: 2026-03-29
+title: "Python if else elif (4/10) : conditions pour débutants"
+headline: "Apprendre Python (4/10) : Les Conditions (If, Else, Elif)"
+description: "Python if else et elif : comparer, and / or / not, indentations. Condition python pour débutants — leçon 4/10, 20 exercices avec solutions."
+pubDate: "2026-03-28"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python
 seriesOrder: 4
@@ -13,25 +13,70 @@ relatedLinks:
     href: "/python-types-et-saisie/"
   - title: "Leçon 5 — boucles for et while"
     href: "/python-boucles-for-while/"
+  - title: "Parcours Python (10 leçons)"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Tutoriel"
   - "Débutant"
+faqSchema:
+  - question: "Comment écrire un if else en Python ?"
+    answer: "Après if condition: (avec deux-points), le bloc indenté s’exécute si la condition est vraie. Sinon, else: lance le bloc indenté sous else. Pas d’accolades : l’indentation (souvent 4 espaces) délimite les blocs."
+  - question: "C’est quoi elif en Python ?"
+    answer: "elif enchaîne des tests après un if : Python parcourt les conditions dans l’ordre et exécute le premier bloc dont la condition est vraie. Un seul bloc « gagne », contrairement à plusieurs if indépendants."
+  - question: "Comment faire une condition en Python débutant ?"
+    answer: "Comparer des valeurs avec ==, !=, <, >, <=, >=, combiner avec and, or, not, puis utiliser if / elif / else. Les nombres saisis avec input doivent souvent être convertis en int ou float avant comparaison."
+  - question: "python if else et logique du quotidien"
+    answer: "C’est la même idée que « si j’ai faim je mange, sinon j’attends » : le programme choisit une branche selon une règle. Les variables et input des leçons précédentes alimentent les tests."
 ---
-Les **conditions** choisissent quelle partie du programme s’exécute. En Python, un bloc qui dépend d’un `if` est reconnaissable à **l’indentation** (généralement **4 espaces**) : pas d’accolades `{}` comme en C ou Java.
 
-Tu t’appuies sur les conversions vues en [leçon 3](/python-types-et-saisie/) (`int(input(...))`, etc.) pour comparer des nombres saisis au clavier.
+Ton programme peut maintenant **réfléchir** — en tout cas **choisir** entre plusieurs chemins. Avant, il était un peu **passif** : affichage, saisie… Maintenant il devient un **cerveau minimal** : il **décide**.
 
-## 1. Comparaisons et opérateurs logiques
+**Exemple concret (comme dans la vraie vie) :**  
+si tu as **faim** → tu manges ; **sinon** → tu attends. En Python, c’est la même logique : une **condition** (`if`), une **branche sinon** (`else`), et parfois plusieurs cas (`elif`).
+
+Tu t’appuies sur la [leçon 2](/python-variables-affichage/) (variables), la [leçon 3](/python-types-et-saisie/) (`int(input(...))`, conversions) pour **alimenter** tes tests. Bienvenue dans les **`python if else`** et la **condition python** : l’outil n°1 pour un **programme intelligent** et pour **apprendre python débutant** sans t’endormir.
+
+![Console Python](../../assets/programmation/python-terminal.svg)
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-types-et-saisie/">Leçon 3 — Saisie</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Série Python</a>
+</div>
+
+---
+
+## 🎮 Partie 1 — Mission 1 : faire un premier choix
+
+### 🎯 Objectif
+
+Écrire une **condition** qui n’affiche un message **que si** une règle est vraie.
+
+### 💻 Code
+
+```python
+age = 12
+
+if age >= 10:
+    print("Tu peux apprendre Python !")
+```
+
+Ici, `age >= 10` est soit **vrai**, soit **faux**. Si c’est vrai, Python entre dans le bloc **indenté** sous `if` et affiche le message.
+
+**Règle d’or :** après `if ...` tu mets un **`:`** (deux-points). La ligne suivante est **décalée** (souvent **4 espaces**) : c’est le **bloc** qui dépend du `if`. Pas d’accolades `{ }` comme dans d’autres langages.
+
+---
+
+## 🎮 Partie 2 — Mission 2 : comparer et combiner
 
 **Comparaisons** : `==` (égal), `!=` (différent), `<`, `>`, `<=`, `>=`.
 
 **Combiner** des tests :
 
-- **`and`** : les deux doivent être vrais.
-- **`or`** : au moins un vrai.
-- **`not`** : inverse le résultat.
+- **`and`** : il faut que **les deux** soient vrais.  
+- **`or`** : il suffit **d’au moins un** vrai.  
+- **`not`** : on **inverse** le résultat.
 
 ```python
 age = 14
@@ -39,7 +84,11 @@ if 10 <= age <= 18:   # forme pratique « entre » en Python
     print("Collège / lycée")
 ```
 
-## 2. `if` / `else`
+---
+
+## 🎮 Partie 3 — Mission 3 : `if` / `else` (deux chemins)
+
+Soit c’est **oui**, soit c’est **non** :
 
 ```python
 note = int(input("Note sur 20 ? "))
@@ -49,11 +98,13 @@ else:
     print("À retravailler")
 ```
 
-Le **`:`** après la condition est obligatoire. La ligne suivante **doit** être indentée.
+Le **`:`** est obligatoire après `if` et après `else`. Tout ce qui est **indenté** sous `if` ne tourne **que** si la condition est vraie ; pareil pour `else`.
 
-## 3. Enchaîner avec `elif`
+---
 
-Python teste les conditions **dans l’ordre** et exécute le **premier** bloc dont la condition est vraie. Pense à couvrir le cas « reste » avec un **`else`** final si besoin.
+## 🎮 Partie 4 — Mission 4 : enchaîner avec `elif` (plusieurs cas)
+
+Python teste les conditions **dans l’ordre** et exécute le **premier** bloc qui matche. C’est idéal pour les **mentions**, **menus**, **tranches d’âge**…
 
 ```python
 note = int(input("Note /20 ? "))
@@ -70,11 +121,13 @@ else:
 print(f"Mention : {mention}")
 ```
 
-Si plusieurs `if` se suivent **sans** `elif`, **plusieurs** blocs pourraient s’exécuter ; avec `elif`, un seul bloc « gagne ».
+Si tu enchaînes plusieurs `if` **sans** `elif`, **plusieurs** blocs pourraient s’exécuter ; avec `elif`, **un seul** bloc « gagne » — souvent ce que tu veux pour une **condition python** propre.
 
-## 4. « Vrai » ou « faux » implicites
+---
 
-Une valeur « vide » peut servir de condition :
+## 🎮 Partie 5 — Bonus : « vide » ou pas ?
+
+Une chaîne **vide** peut servir de test — pratique après `input()` :
 
 ```python
 texte = input("Pseudo (Entrée = anonyme) ? ").strip()
@@ -83,11 +136,24 @@ if not texte:
 print(f"Bonjour {texte}")
 ```
 
-(`not texte` est vrai pour `""`, mais attention : `not "0"` est faux car la chaîne n’est pas vide.)
+(`not texte` est vrai pour `""` ; attention : `not "0"` reste faux, car la chaîne n’est pas vide.)
 
-## 5. Imbrications (aperçu)
+---
 
-Tu peux mettre un `if` **dans** un autre : garde l’indentation cohérente. Pour des cas complexes, les [fonctions](/python-fonctions/) (leçon 6) aideront à découper le code.
+## 🎮 Partie 6 — Imbrications (aperçu)
+
+Tu peux mettre un `if` **dans** un autre : garde la **même indentation** partout (comme des **poupées russes**). Pour des gros programmes, les [fonctions](/python-fonctions/) (leçon 6) aideront à **découper** le code.
+
+---
+
+## 🤖 Résumé rapide (révision / IA)
+
+- **`if` / `elif` / `else`** = le programme **choisit** une branche.  
+- **Indentation** = structure du code en Python.  
+- **Comparaisons + and / or / not** = règles du jeu.  
+- Enchaînement logique : [variables](/python-variables-affichage/) → [saisie](/python-types-et-saisie/) → **conditions** → [boucles](/python-boucles-for-while/) (leçon 5).
+
+---
 
 ## Exercices (20)
 
@@ -412,7 +478,12 @@ else:
 
 ## Suite du parcours
 
-Les [boucles](/python-boucles-for-while/) répètent des actions : par exemple plusieurs essais au « plus ou moins » ou parcourir une liste de notes.
+Les [boucles](/python-boucles-for-while/) (leçon 5) **répètent** des actions : plusieurs essais au « plus ou moins », parcourir une liste de notes, etc. Les conditions que tu viens d’apprendre s’y **combinent** à merveille.
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-boucles-for-while/">Leçon 5 — Boucles</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Parcours Python</a>
+</div>
 
 ## Amazon (partenaire)
 

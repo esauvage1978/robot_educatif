@@ -12,6 +12,8 @@ categories:
   - "Scratch"
   - "À partir de 8 ans"
 relatedLinks:
+  - title: "Télécharger mBlock 5 (officiel)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
   - title: "Premiers pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
   - title: "Installer mBlock 5 (Windows)"
@@ -39,6 +41,14 @@ faqSchema:
 Dans mBlock 5 (mode <strong>Appareil</strong>, mBot sélectionné), empiler <strong>« Lorsque le mBot démarre »</strong> → <strong>« attendre jusqu’à »</strong> (bouton carte pressé) → <strong>« jouer la note »</strong>. Enregistrer le <code>.mblock</code>, <strong>connecter</strong> le robot, puis <strong>téléverser</strong> pour que le script tourne sans le PC.</p>
 
 <p>Tutoriel validé sur mBlock 5 et mBot classique ; les libellés exacts des blocs peuvent varier (français / anglais, version du logiciel).</p>
+
+## Télécharger mBlock 5
+
+Pas encore le logiciel ? **Téléchargez mBlock gratuitement** sur la page officielle — repères complets (Windows, Mac, web) : <a href="/telecharger-mblock-5-gratuit-guide-2026/">guide de téléchargement mBlock 5</a>, puis installation Windows : <a href="/installer-mblock-5-sous-windows-10/">tutoriel pas à pas</a>.
+
+## mBlock expliqué (rappel)
+
+**mBlock** = environnement **blocs** (esprit Scratch) + **connexion** au **mBot** (USB / Bluetooth) + **téléversement**. Pour l’interface détaillée : <a href="/premier-pas-avec-mblock-5/">premiers pas dans mBlock 5</a>.
 
 <div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
 <p class="article-toc-title">Sommaire</p>

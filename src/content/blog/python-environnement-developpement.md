@@ -1,39 +1,63 @@
 ---
-title: "Python : environnement de développement idéal (Windows, Mac, Android)"
-headline: "Python : environnement de développement idéal (Windows, Mac, Android)"
-description: "Installer Python gratuitement, choisir un éditeur adapté sur PC et coder sur mobile : VS Code, Thonny, Pydroid 3."
-pubDate: 2026-03-28
-updatedDate: 2026-03-28
+title: "Apprendre Python débutant (1/10) : installer Python, environnement et premier programme"
+headline: "Apprendre Python (1/10) : Installer et Créer ton Premier Programme"
+description: "Python débutant : installer Python gratuitement, choisir un environnement simple (IDLE) ou moderne (VS Code), premier programme en 10 minutes. Série pour apprendre Python pas à pas."
+pubDate: "2026-03-28"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python
 seriesOrder: 1
 tags: ["Python", "Programmation"]
 relatedLinks:
-  - title: "Vue d’ensemble du parcours Python"
+  - title: "Vue d’ensemble du parcours Python (10 leçons)"
     href: "/programmation/python"
-  - title: "Python — variables et affichage (leçon 2)"
+  - title: "Leçon 2 — variables et affichage (print)"
     href: "/python-variables-affichage/"
 categories:
   - "Python"
   - "Programmation"
   - "Tutoriel"
   - "Débutant"
+faqSchema:
+  - question: "Comment installer Python sur Windows ?"
+    answer: "Télécharge l’installateur sur python.org (rubrique Windows), lance-le et coche « Add python.exe to PATH » avant d’installer. Vérifie ensuite avec py --version ou python --version dans un terminal."
+  - question: "C’est quoi un environnement Python ?"
+    answer: "C’est l’ensemble formé par l’interpréteur Python (qui exécute ton code) et l’outil où tu écris les fichiers : éditeur simple comme IDLE, ou VS Code avec l’extension Python pour un confort moderne."
+  - question: "Python débutant : par où commencer ?"
+    answer: "Installer Python 3, ouvrir un fichier .py, écrire une ligne avec print(), l’enregistrer et le lancer. Ensuite enchaîner avec variables et affichage dans la leçon 2 de la série."
+  - question: "IDLE ou Visual Studio Code pour Python ?"
+    answer: "IDLE est inclus avec Python, minimal et parfait pour démarrer. VS Code est plus riche (coloration, terminal intégré, extensions) et très utilisé en formation — choisis selon ton confort."
 ---
-Bien choisir ton **environnement** dès le début évite la frustration : interpréteur à jour, éditeur lisible, et sur mobile une appli qui gère vraiment Python 3.
+
+Imagine : **tu apprends à parler à un ordinateur** — pas avec des boutons magiques, avec des **phrases** qu’il comprend. Ces phrases, en programmation, on les écrit dans un **langage**. Ici, ce langage s’appelle **Python**.
+
+**Promesse de cette première leçon (environ 10 minutes une fois l’installation lancée) :**  
+tu installes ton **atelier**, tu écris **trois lignes**, et tu vois **ton premier message** s’afficher. Sans théorie lourde : on **fait**, puis on **nomme** ce qu’on a fait.
+
+👉 Tu veux **apprendre Python** en **débutant** du bon pied : il te faut un **environnement Python** clair (interpréteur + endroit pour taper le code). Cet article est la **partie 1/10** du parcours — la suite t’attend sur la [page Python](/programmation/python/).
 
 ![Schéma Windows, macOS, Android](../../assets/programmation/python-outils.svg)
 
-## 1. Ce dont tu as besoin
+---
 
-- **Python 3** (langage + commande `python` ou `py` dans le terminal).
-- Un **éditeur de texte** ou **IDE** pour écrire des fichiers `.py` avec coloration syntaxique et exécution simple.
-- (Optionnel) Un **terminal** ou une **console** intégrée pour lancer `python mon_script.py`.
+## 🎮 Partie 1 — Mission 1 : installer ton atelier
 
-## 2. Windows — installation gratuite et accessible
+### 🎯 Objectif
 
-1. Télécharge l’installateur officiel sur **[python.org/downloads/windows](https://www.python.org/downloads/windows/)** (gratuit).
-2. Lance l’installateur et **coche « Add python.exe to PATH »** avant d’installer — indispensable pour utiliser `python` dans l’invite de commandes ou PowerShell.
-3. Vérifie dans un terminal :
+Installer **Python 3** comme un **atelier de création** : une fois en place, tu pourras lancer autant de **petits programmes** que tu veux.
+
+### 🧠 Explication simple
+
+**Python**, c’est un **langage** pour **donner des instructions** à la machine : afficher du texte, calculer, plus tard lire des fichiers ou construire des jeux.  
+L’**installation** ajoute sur ton ordinateur un **interpréteur** : le programme qui **lit** ton fichier `.py` et **exécute** les instructions.
+
+### 🛠️ Étapes simples (Windows — le plus courant)
+
+1. Va sur la page officielle **[python.org/downloads/windows](https://www.python.org/downloads/windows/)** (gratuit).  
+2. Lance l’installateur. **Coche** « **Add python.exe to PATH** » (sinon la commande `python` ne sera pas trouvée partout).  
+3. Clique sur Installer et attends la fin.
+
+Vérifie dans **PowerShell** ou l’invite de commandes :
 
 ```text
 py --version
@@ -45,55 +69,89 @@ ou
 python --version
 ```
 
-### Éditeur recommandé : Visual Studio Code (gratuit)
+Tu dois voir une ligne du type `Python 3.12.x` (le numéro exact peut varier).
 
-**[Visual Studio Code](https://code.visualstudio.com/)** est gratuit, accessible, très utilisé en formation. Après installation :
+### ⚡ Deux façons de travailler : version rapide
 
-- Installe l’extension **Python** (Microsoft) depuis la barre d’extensions.
-- Ouvre un dossier, crée un fichier `hello.py`, écris `print("OK")` et lance avec le bouton ▶ ou le terminal intégré.
+Tu veux un **environnement Python** sans te perdre ? Deux chemins honnêtes :
 
-### Alternative très pédagogique : Thonny
+| Option | Outil | Pour qui ? |
+| --- | --- | --- |
+| **Simple** | **IDLE** (livré avec Python) | Tu veux **une fenêtre**, lancer du code **tout de suite**, zéro plugin. |
+| **Moderne** | **Visual Studio Code** + extension **Python** | Tu veux **coloration**, **dossiers**, **terminal** intégré — comme en cours pro. |
 
-**[Thonny](https://thonny.org/)** est pensé pour l’enseignement : interface simple, pas de configuration lourde, débogueur intégré. Idéal si tu préfères un outil **tout-en-un** sans multiplier les fenêtres.
+- **IDLE** : après l’installation de Python, cherche « IDLE » dans le menu Démarrer → tu peux taper du code dans l’interpréteur ou ouvrir un fichier **Fichier → Nouveau**.  
+- **VS Code** : télécharge **[Visual Studio Code](https://code.visualstudio.com/)**, installe l’extension **Python** (Microsoft), ouvre un dossier, crée un fichier `bonjour.py`.
 
-## 3. macOS
+**Bonus pédagogique :** **[Thonny](https://thonny.org/)** — interface **tout-en-un** pensée pour l’enseignement (débogueur simple). Parfait si tu préfères **un seul logiciel** sans multiplier les fenêtres.
 
-- Installe Python 3 depuis **[python.org/downloads/macos](https://www.python.org/downloads/macos/)** ou via **Homebrew** (`brew install python`) si tu es à l’aise avec le terminal.
-- **VS Code** et **Thonny** existent aussi sur Mac (mêmes liens que ci-dessus).
-- Vérifie la version : `python3 --version` (sur Mac, la commande s’appelle souvent `python3`).
+### macOS et Android (très court)
 
-## 4. Android — coder sur tablette ou téléphone
+- **macOS** : installe Python 3 depuis **[python.org/downloads/macos](https://www.python.org/downloads/macos/)** ou via Homebrew si tu es à l’aise. En terminal, la commande est souvent `python3` plutôt que `python`.  
+- **Android** : pour **s’entraîner** sur tablette, **[Pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3)** est une option stable ; pour **la série complète**, un **PC** reste plus confortable (fichiers, copier-coller).
 
-Les environnements PC restent le plus confortables pour de gros projets, mais tu peux **t’entraîner** sur Android :
+---
 
-- **[Pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3)** — éditeur + interpréteur Python 3, pip pour des bibliothèques courantes, interface adaptée au tactile (gratuit avec pub ; version payante sans pub). C’est l’une des options les plus **stables** pour du Python 3 sur mobile.
-- **Termux** (+ paquet `python`) convient aux utilisateurs à l’aise avec la ligne de commande — plus technique.
+## 🎮 Partie 2 — Mission 2 : ton premier programme
 
-> Sur Android, privilégie des **petits scripts** et des exercices courts ; pour la série d’articles suivante, un PC facilitera copier-coller et fichiers.
+### 🎯 Objectif
 
-## 5. Premier test commun à toutes les plateformes
+**Afficher un message** à l’écran. C’est la tradition en programmation : prouver que la chaîne « toi → fichier → Python » fonctionne.
 
-Crée un fichier `hello.py` :
+### 💻 Code à taper (copie-colle ou tape au clavier)
+
+Crée un fichier nommé par exemple `bonjour.py` et mets **exactement** :
 
 ```python
-print("Robot éducatif — Python OK")
+print("Bonjour, je programme en Python !")
 ```
 
-Exécute-le avec ton éditeur ou en ligne de commande :
+Enregistre le fichier.
+
+### ▶️ Comment l’exécuter ?
+
+- **Dans VS Code** : ouvre le fichier, puis lance avec le bouton ▶ ou le menu d’exécution (selon ta config).  
+- **En terminal** (dans le dossier du fichier) :
 
 ```text
-python hello.py
+python bonjour.py
 ```
 
-ou `python3 hello.py` sur Mac.
+ou `py bonjour.py` sous Windows, ou `python3 bonjour.py` sur Mac.
+
+Tu dois voir la phrase s’afficher. **Bravo :** c’est ton **premier programme Python** — tu as franchi la porte des **python débutant** qui cherchent **comment installer python** et **tester tout de suite**.
 
 ![Illustration console Python](../../assets/programmation/python-terminal.svg)
 
-## Exercices pratiques
+### 🧠 Ce qui se passe (sans jargon inutile)
 
-1. Affiche ta version de Python dans le terminal (`--version`).
-2. Crée `exo1.py` qui affiche trois lignes : ton prénom, ton âge (nombre), et une phrase au choix.
-3. Dans VS Code ou Thonny, configure le thème clair ou sombre pour un confort de lecture.
+- `print(...)` = instruction « **affiche** ce qui est entre parenthèses ».  
+- Le texte entre guillemets est une **chaîne de caractères** — on y reviendra avec les **variables** à la [leçon 2](/python-variables-affichage/).
+
+---
+
+## 🎯 Mini-missions (facultatif mais motivant)
+
+1. Affiche **deux** lignes en ajoutant une deuxième instruction `print(...)`.  
+2. Change le message pour mettre **ton prénom**.  
+3. Dans le terminal, relance `py --version` et note le numéro de version dans un carnet — utile si un jour tu demandes de l’aide en ligne.
+
+---
+
+## 🤖 Résumé rapide (pour moteurs de réponse / révision)
+
+- **Installer Python** = poser l’**interpréteur** + (souvent) **IDLE** sur ta machine.  
+- **Environnement Python** = Python + **éditeur** (IDLE, VS Code, Thonny…).  
+- **Premier programme** = un fichier `.py` avec `print("...")` **exécuté** sans erreur.  
+- **Suite** : [leçon 2 — variables et affichage](/python-variables-affichage/).
+
+---
+
+## ❓ Questions fréquentes
+
+Les réponses courtes sont aussi disponibles dans les **données structurées FAQ** de cette page pour aider les moteurs (y compris les expériences de type **réponses assistées**).
+
+---
 
 ## Ressources sur Amazon (partenaire)
 
@@ -103,6 +161,13 @@ Ces liens sont des **recherches** sur Amazon.fr ; vérifie fiche, avis et prix a
 - [Python pour débutants / enfants](https://www.amazon.fr/s?k=python+d%C3%A9butant+enfant+livre&tag=manuso06-21)
 - [Programmation et algorithmique (grand public)](https://www.amazon.fr/s?k=programmation+algorithmique+livre+d%C3%A9butant&tag=manuso06-21)
 
-## Suite du parcours
+---
 
-Passe à la leçon 2 : **variables et affichage** — lien dans l’encadré « articles liés » de la colonne ou ci-dessus.
+## Suite du parcours (10 leçons)
+
+Tu viens de terminer la **leçon 1/10**. Prochaine étape : **variables et affichage** — tout est listé sur le **[hub Python](/programmation/python/)** avec les liens vers les leçons suivantes (types, conditions, boucles, fonctions… jusqu’aux projets guidés).
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-variables-affichage/">Leçon 2 — Variables et print</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Toute la série Python</a>
+</div>

@@ -1,27 +1,81 @@
 ---
-title: "Python — boucles for et while"
-headline: "Boucles for et while"
-description: "range(début, fin, pas), parcourir une chaîne, while avec compteur, break et continue ; quand choisir for ou while ; 20 exercices avec solutions repliables."
-pubDate: 2026-03-28
-updatedDate: 2026-03-29
+title: "Apprendre Python (5/10) : Les Boucles (For et While)"
+headline: "Apprendre Python (5/10) : Les Boucles (For et While)"
+description: "Python boucle for et while : range, répétition, break et continue. Boucle python exemple pour débutants — leçon 5/10, 20 exercices avec solutions."
+pubDate: "2026-03-28"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python
 seriesOrder: 5
 tags: ["Python", "Programmation"]
 relatedLinks:
-  - title: "Leçon 4 — conditions"
+  - title: "Leçon 4 — conditions if / else"
     href: "/python-conditions-if-else/"
   - title: "Leçon 6 — fonctions"
     href: "/python-fonctions/"
+  - title: "Parcours Python (10 leçons)"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Tutoriel"
   - "Débutant"
+faqSchema:
+  - question: "C’est quoi une boucle en Python ?"
+    answer: "Une boucle répète un bloc de code plusieurs fois. Avec for, on parcourt souvent une plage d’entiers (range) ou du texte caractère par caractère. Avec while, on répète tant qu’une condition reste vraie."
+  - question: "Différence entre python for et python while ?"
+    answer: "for sert surtout quand tu connais le nombre de tours ou ce que tu parcours (chaîne, plage). while sert quand tu répètes jusqu’à un événement (bonne saisie, mot stop, victoire au jeu) — souvent avec une condition qui change dans la boucle."
+  - question: "Comment faire une boucle python exemple simple ?"
+    answer: "Exemple for : for i in range(3): print(\"Hello\") affiche Hello trois fois. Exemple while : n = 3 puis while n > 0: print(n); n -= 1 compte à rebours."
+  - question: "Comment apprendre python débutant avec les boucles ?"
+    answer: "En enchaînant range, for sur une chaîne, puis while avec compteur ou saisie. Cette page propose 20 exercices progressifs avec solutions pour ancrer for, while, break et continue."
 ---
-Les **boucles** répètent un bloc de code. Après les [conditions](/python-conditions-if-else/), c’est l’outil pour traiter **plusieurs** valeurs, **compter**, ou **réessayer** jusqu’à un bon résultat.
 
-## 1. `for` et `range`
+Tu veux **écrire 10 fois la même chose** à la main… ou **laisser Python le faire pour toi** ?
+
+À la [leçon 4](/python-conditions-if-else/), ton programme **décidait** (`if` / `else`). Ici, il devient **automatisateur** : il **répète** une action autant de fois qu’il le faut — sans copier-coller jusqu’à la fin des temps.
+
+**Promesse :** comprendre **python for** et **python while** en quelques minutes, avec des **boucle python exemple** concrets, pour **gagner du temps** et **apprendre python débutant** en mode mission (pas en mode encyclopédie).
+
+Tu maîtrises déjà variables, saisie et **conditions** ; les **python boucle** sont la couche suivante : traiter **plusieurs** valeurs, **compter**, **réessayer** jusqu’au bon résultat.
+
+![Console Python](../../assets/programmation/python-terminal.svg)
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-conditions-if-else/">Leçon 4 — Conditions</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Série Python</a>
+</div>
+
+---
+
+## 🎮 Partie 1 — Mission 1 : répéter une action
+
+### 🎯 Objectif
+
+Afficher **plusieurs fois** le même message — d’abord « à la main », puis **avec une boucle**.
+
+### 💻 Code (sans boucle)
+
+Tu peux faire comme ça… mais imagine **100** lignes :
+
+```python
+print("Hello")
+print("Hello")
+print("Hello")
+```
+
+### 💻 Même chose, version **python for** (automatisation)
+
+```python
+for _ in range(3):
+    print("Hello")
+```
+
+`range(3)` signifie « **3 tours** » (0, 1, 2 en coulisses — on s’en fiche ici). Le bloc **indenté** sous `for` est exécuté **à chaque tour**. Tu viens de gagner : **une idée**, **plusieurs exécutions**.
+
+---
+
+## 🎮 Partie 2 — Mission 2 : `for` et `range` (compter proprement)
 
 `range(n)` produit les entiers **de 0 à n - 1** :
 
@@ -30,9 +84,9 @@ for i in range(5):
     print(i)   # 0 1 2 3 4
 ```
 
-**Variantes** :
+**Variantes utiles** :
 
-- `range(debut, fin)` : de `debut` inclus à `fin` **exclu**.
+- `range(debut, fin)` : de `debut` **inclus** à `fin` **exclu**.
 - `range(debut, fin, pas)` : avec un **pas** (positif ou négatif).
 
 ```python
@@ -43,11 +97,13 @@ for j in range(10, 0, -1):
     print(j)   # compte à rebours 10 → 1
 ```
 
-Pour afficher de **1 à 10** inclus : `range(1, 11)`.
+Pour afficher de **1 à 10** **inclus** : `range(1, 11)`.
 
-## 2. Parcourir une chaîne
+---
 
-Une chaîne est une suite de caractères ; `for lettre in mot:` en affiche un par un :
+## 🎮 Partie 3 — Mission 3 : parcourir une chaîne (lettre par lettre)
+
+Une chaîne est une **suite** de caractères ; `for lettre in mot:` affiche (ou teste) **un par un** :
 
 ```python
 mot = input("Un mot ? ")
@@ -55,9 +111,13 @@ for lettre in mot:
     print(lettre)
 ```
 
-## 3. `while` : « tant que »
+Parfait pour compter des lettres, détecter un symbole, ou préparer ce que tu feras plus tard avec les **listes**.
 
-La boucle **continue** tant que la condition reste vraie. Il faut **modifier** quelque chose dans le bloc, sinon boucle **infinie** (à éviter si ce n’est pas voulu).
+---
+
+## 🎮 Partie 4 — Mission 4 : `while` — « tant que… »
+
+La boucle **continue** tant que la condition reste **vraie**. Il faut **faire évoluer** quelque chose dans le bloc (compteur, saisie…), sinon tu risques une boucle **infinie** — sauf si c’est **voulu** (`while True` + `break` plus tard).
 
 ```python
 n = 3
@@ -67,10 +127,14 @@ while n > 0:
 print("Décollage !")
 ```
 
-## 4. `break` et `continue`
+C’est le cœur du **python while** : répéter **jusqu’à** ce que la situation change.
 
-- **`break`** : sort **tout de suite** de la boucle (souvent avec un `if` à l’intérieur).
-- **`continue`** : saute le reste du tour **actuel** et repasse au test / à l’itération suivante.
+---
+
+## 🎮 Partie 5 — Mission 5 : `break` et `continue` (contrôle fin)
+
+- **`break`** : tu **sors** de la boucle **tout de suite** (souvent avec un `if` dedans).
+- **`continue`** : tu **sautes** la fin du tour **actuel** et tu passes au suivant.
 
 ```python
 for i in range(10):
@@ -81,10 +145,26 @@ for i in range(10):
     print(i)
 ```
 
-## 5. `for` ou `while` ?
+---
 
-- Tu sais **combien** de tours (ou tu parcours une **liste** / une **chaîne**) → en général **`for`**.
-- Tu arrêtes quand un **événement** arrive (bonne réponse, fichier lu, etc.) → souvent **`while`** avec une condition claire, ou **`while True`** + **`break`**.
+## 🎮 Partie 6 — Mission 6 : `for` ou `while` ?
+
+- Tu sais **combien** de tours (ou tu parcours une **chaîne** / une **liste**) → en général **`for`**.
+- Tu répètes jusqu’à un **événement** (bonne réponse, mot magique, partie gagnée) → souvent **`while`** avec une condition qui se met à jour, ou **`while True`** + **`break`**.
+
+Tu es passé de « je choisis une branche » ([conditions](/python-conditions-if-else/)) à « je **répète** intelligemment » : c’est exactement le métier d’un **automatisateur**.
+
+---
+
+## 🤖 Résumé rapide (révision / IA)
+
+- **`for`** + **`range`** = répétitions et comptages structurés.  
+- **`for` sur une chaîne** = un caractère à la fois.  
+- **`while`** = tant qu’une condition tient.  
+- **`break` / `continue`** = boutons pause / suivant sur la boucle.  
+- Enchaînement : [variables](/python-variables-affichage/) → [saisie](/python-types-et-saisie/) → [conditions](/python-conditions-if-else/) → **boucles** → [fonctions](/python-fonctions/) (leçon 6).
+
+---
 
 ## Exercices (20)
 
@@ -336,7 +416,12 @@ while True:
 
 ## Suite du parcours
 
-Les [fonctions](/python-fonctions/) permettent de **nommer** un morceau de code réutilisable — par exemple `afficher_carrés(n)` ou `demander_nombre_positif()`.
+Les [fonctions](/python-fonctions/) (leçon 6) permettent de **nommer** un morceau de code réutilisable — par exemple `afficher_carres(n)` ou `demander_nombre_positif()`. Après les boucles, tu ranges ton « usine à répéter » dans des **boîtes** claires.
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/python-fonctions/">Leçon 6 — Fonctions</a>
+<a class="article-cta article-cta--secondary" href="/programmation/python/">Parcours Python</a>
+</div>
 
 ## Amazon (partenaire)
 

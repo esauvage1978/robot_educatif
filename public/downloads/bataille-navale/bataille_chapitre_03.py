@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Bataille navale — Chapitre 3/6 : placement sans chevauchement (aleatoire demo).
+Bataille navale — Chapitre 3/6 : placement sans chevauchement (démo aléatoire).
 Lancer : python bataille_chapitre_03.py
 """
 
@@ -49,6 +49,10 @@ def parser_case(texte):
     return ligne, colonne
 
 
+def position_aleatoire():
+    return random.randint(0, 9), random.randint(0, 9)
+
+
 def cases_libres(grille, cases):
     for ligne, col in cases:
         if not (0 <= ligne < TAILLE and 0 <= col < TAILLE):
@@ -86,14 +90,13 @@ def placement_aleatoire(grille):
     for L in LONGUEURS_NAVIRES:
         for _ in range(5000):
             h = random.choice([True, False])
-            i = random.randrange(TAILLE)
-            j = random.randrange(TAILLE)
+            i, j = position_aleatoire()
             coords = essayer_placer(grille, i, j, L, h)
             if coords:
                 flotte.append(coords)
                 break
         else:
-            raise RuntimeError("Placement aleatoire impossible — reessaie.")
+            raise RuntimeError("Placement aléatoire impossible — réessaie.")
     return flotte
 
 
@@ -101,7 +104,7 @@ def main():
     random.seed()
     g = nouvelle_grille_defense()
     flotte = placement_aleatoire(g)
-    afficher_grille_lettres(g, "Flotte placee au hasard")
+    afficher_grille_lettres(g, "Flotte placée au hasard")
     nb_navire = sum(len(n) for n in flotte)
     print("Nombre de cases # :", nb_navire, "(attendu : 17)")
 

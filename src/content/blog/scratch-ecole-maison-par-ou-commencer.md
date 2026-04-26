@@ -1,9 +1,9 @@
 ---
-title: "Scratch à l’école ou à la maison : par où commencer en 2026 ?"
-headline: "Scratch à l’école ou à la maison : par où commencer en 2026 ?"
-description: "Structurer l’apprentissage Scratch en classe ou à domicile : différences concrètes, planning sur quatre semaines, erreurs fréquentes, outils et passage au robot mBot. Schémas et liens tutoriels."
+title: "Scratch débutant : guide complet école et maison 2026"
+headline: "Scratch Débutant : Par Où Commencer à l’École et à la Maison ?"
+description: "Apprendre Scratch : méthode pas à pas, école vs maison, projets simples, erreurs à éviter. Idées d’activités, matériel (robots, micro:bit) et FAQ."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: scratch
 categories:
@@ -12,98 +12,242 @@ categories:
   - "Programmation"
   - "À partir de 8 ans"
 relatedLinks:
+  - title: "Programmation enfant : à quel âge ?"
+    href: "/programmation-enfant-a-quel-age-commencer/"
   - title: "Activité Scratch : le carré"
     href: "/activite-scratch-le-carre/"
   - title: "Jeu vidéo Scratch (1re partie)"
     href: "/scratch-creer-un-jeu-video-premiere-partie/"
   - title: "Installer mBlock 5"
     href: "/installer-mblock-5-sous-windows-10/"
-  - title: "Programmation enfant : à quel âge ?"
-    href: "/programmation-enfant-a-quel-age-commencer/"
+  - title: "Quel robot éducatif choisir en 2026 ?"
+    href: "/quel-robot-educatif-choisir-2026/"
+tags:
+  - "Scratch"
+  - "débutant"
+  - "école"
+  - "STEM"
+faqSchema:
+  - question: "Scratch est-il gratuit ?"
+    answer: "Oui : l’éditeur Scratch en ligne sur le site officiel est gratuit ; il existe aussi une application hors ligne. Des ressources pédagogiques et tutoriels gratuits abondent. Seuls des coûts optionnels existent (livres, ateliers payants, matériel pour prolonger vers la robotique)."
+  - question: "À quel âge commencer Scratch ?"
+    answer: "Souvent vers 8 ans et plus pour une autonomie confortable avec la souris et la lecture des libellés de blocs ; des enfants plus jeunes peuvent débuter avec un adulte et des séances très courtes. Voir aussi le guide sur l’âge pour la programmation."
+  - question: "Faut-il savoir coder pour utiliser Scratch ?"
+    answer: "Non : Scratch est conçu pour débuter sans syntaxe textuelle. Il faut surtout de la logique, de la patience pour tester, et un peu d’aide pour la création de compte et la sauvegarde."
+  - question: "Scratch suffit-il pour apprendre à programmer ?"
+    answer: "Scratch enseigne la logique (séquences, boucles, conditions, variables) — une base solide. Ensuite, on peut enchaîner vers du texte (Python), des environnements type Makeblock/mBlock pour robots, ou micro:bit selon le projet."
+  - question: "Scratch à l’école ou à la maison en premier ?"
+    answer: "Les deux se complètent : l’école apporte cadre et pairs ; la maison permet projets libres et régularité. L’important est un objectif clair et des sauvegardes."
+  - question: "Quelle différence entre Scratch et mBlock ?"
+    answer: "Scratch cible surtout jeux et animations à l’écran. mBlock reprend une logique de blocs proche pour programmer des robots Makeblock (ex. mBot) — les concepts se transfèrent, le support change."
 ---
 
-**Scratch** (et les environnements **type Scratch**, dont **mBlock** pour les robots Makeblock) reste en 2026 un excellent **premier langage** : visuel, largement présent dans les manuels et les **projets partageables**, et proche de ce qu’on peut mettre en œuvre en **classe** comme à la **maison**. La différence n’est pas « le logiciel », mais le **cadre**, le **temps** et le **rôle** de l’adulte.
+Beaucoup de familles et d’enseignants se demandent **par où commencer** avec **Scratch** : tutoriels partout, mais **pas de fil conducteur**. Pourtant Scratch reste en **2026** une porte d’entrée idéale : **langage visuel à blocs**, **sans syntaxe** à taper, qui met l’accent sur la **logique** (ordre des instructions, répétitions, choix).
 
-![École et maison : leviers différents](/images/blog/guides-2026/scratch-ecole-dom.svg)
+**Promesse de ce guide** : une **méthode progressive** — **interface**, **premier mouvement**, **interactions**, **mini-jeu** — puis **école vs maison**, **idées de projets**, **matériel** pour aller vers le **réel** (robotique), **erreurs** à éviter, et **résumé** utilisable comme aide-mémoire.
 
-## 1. Ce que Scratch permet vraiment (au-delà du « jeu »)
+> **Scratch** = programmation par **blocs** à emboîter ; on crée des **jeux**, **animations** et **histoires interactives**, **sans code texte** au départ.
 
-- **Décomposer** un problème : qu’est-ce qui doit se passer au début, quand on appuie sur une touche, en boucle ?
-- **Tester** : lancer le programme, observer, corriger — la compétence la moins visible sur une tablette « consommation ».
-- **Nommer** ce qui ne va pas : « le lutin ne bouge pas » est le début du débogage, pas une phrase anodine.
-- **Partager** : lien vers le projet en ligne, capture, ou démo devant la famille — ce **livrable** compte autant que le code.
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#1-scratch--cest-quoi-exactement-">1. Scratch : c’est quoi exactement ?</a></li>
+<li><a href="#2-pourquoi-commencer-avec-scratch-">2. Pourquoi commencer avec Scratch ?</a></li>
+<li><a href="#3-par-où-commencer-méthode-étape-par-étape">3. Par où commencer (méthode étape par étape)</a></li>
+<li><a href="#4-scratch-à-lécole-vs-à-la-maison">4. Scratch à l’école vs à la maison</a></li>
+<li><a href="#5-idées-de-projets-scratch-débutants">5. Idées de projets Scratch débutants</a></li>
+<li><a href="#6-matériel-recommandé-amazon">6. Matériel recommandé (Amazon)</a></li>
+<li><a href="#7-erreurs-fréquentes">7. Erreurs fréquentes</a></li>
+<li><a href="#8-conseils-parents-et-enseignants">8. Conseils parents et enseignants</a></li>
+<li><a href="#9-résumé">9. Résumé</a></li>
+<li><a href="#10-faq">10. FAQ</a></li>
+<li><a href="#11-bonus--checklist-progression-programme-7-jours">11. Bonus : checklist, progression, programme 7 jours</a></li>
+</ul>
+</div>
 
-Sans ces quatre idées, on retombe sur du **copier-coller de blocs** sans compréhension. Les articles [le carré](/activite-scratch-le-carre/) et [jeu vidéo (1re partie)](/scratch-creer-un-jeu-video-premiere-partie/) du site sont justement construits comme des **séquences** avec objectif et solution progressive.
+## 1. Scratch : c’est quoi exactement ?
 
-## 2. École et maison : ce qui change (tableau)
+- **Programmation visuelle** : les instructions sont des **blocs** qu’on assemble (forme et couleur guident les associations possibles).
+- **Pas de syntaxe textuelle** au début : on évite fautes de frappe et on se concentre sur **l’ordre** et la **structure** du programme.
+- **Logique algorithmique** : séquences (« d’abord… ensuite… »), **boucles** (« répéter tant que… »), **conditions** (« si… alors… »), **variables** (score, vies, vitesse).
 
-| | **À l’école** | **À la maison** |
-|---|----------------|-----------------|
-| **Temps** | Créneau fixe, souvent 45–60 min | À défendre dans l’emploi du temps (voir ci-dessous) |
-| **Objectif** | Souvent le même défi pour tous | Peut être **hyper personnalisé** (jeu, histoire, parodie) |
-| **Matériel** | PC homogènes, comptes gérés par l’établissement | PC vieillissant, tablette, imprimante ou pas |
-| **Aide** | Enseignant + pairs (pair programming) | Souvent **un adulte** pour installation et sauvegarde |
-| **Évaluation** | Grille, oral, production | Plutôt **démo** et fierté (« regarde ce que ça fait ») |
-| **Suivi** | Progression sur plusieurs séances | Risque du **projet abandonné** si pas de routine |
+Scratch permet de créer des **jeux**, des **animations** et des **histoires interactives** ; c’est **accessible sans connaissance préalable** de programmation, avec une **scène** (le décor), des **lutins** (personnages / objets) et une **palette de blocs** classée par catégorie.
 
-Ce tableau explique pourquoi un enfant peut **réussir à l’école** et **stagner à la maison** (ou l’inverse) : ce n’est pas la même **charge cognitive** autour du clavier.
+Ressource site : [activité « le carré »](/activite-scratch-le-carre/) pour une première séquence guidée.
 
-## 3. À la maison : trois règles qui changent tout
+## 2. Pourquoi commencer avec Scratch ?
 
-1. **Un créneau court et répété** (par ex. mercredi 17 h–17 h 40, **toutes les semaines**) vaut mieux qu’un « grand dimanche » une fois par mois. La programmation demande **rappel** des notions (variables, messages, clones…).
-2. **Un seul projet « officiel »** jusqu’à livrable : miniature, mais **terminé** (écran titre, une action, fin). Les onglets Scratch pleins de brouillons fatiguent tout le monde.
-3. **Rituel de fin** : 5 minutes pour **montrer** à quelqu’un, **exporter** ou noter dans un carnet ce qui sera fait la prochaine fois.
+- **Idéal débutant** : résultat visible vite (lutin qui bouge, son qui joue).
+- **Développe la logique** : tester, observer, corriger — même démarche que sur des langages « pro », sans la barrière de la syntaxe.
+- **Ludique** : les enfants **investissent** un univers (sprites, décors) tout en structurant la pensée.
+
+Scratch facilite l’apprentissage **sans syntaxe complexe** : l’effort va sur **ce qu’on veut faire** et **comment le découper**, pas sur les points-virgules.
+
+## 3. Par où commencer (méthode étape par étape)
+
+### Étape 1 — Découvrir l’interface
+
+- **Scène** : la zone où l’action se joue ; choisir ou importer un **décor** (ou couleur unie pour débuter).
+- **Lutins** : chaque personnage ou objet a ses **scripts** (programmes) dans l’onglet **Code** ; on peut en avoir plusieurs.
+- **Blocs** : repérer les catégories (mouvement, apparence, son, événements, contrôle, capteurs, opérateurs, variables). Les **événements** (drapeau vert, clic…) déclenchent le reste.
+
+Objectif minimal : **cliquer sur le drapeau vert** et voir **un seul** comportement prévisible (ex. dire « Bonjour » 2 secondes).
+
+### Étape 2 — Premier projet simple
+
+- Faire **bouger un personnage** : blocs « avancer », « tourner », **répéter** quelques fois.
+- **Animation simple** : enchaîner **costumes** (on peut dessiner ou importer) avec « costume suivant » et une petite **pause**.
+
+Objectif minimal : le lutin fait **un tour** ou **un aller-retour** sans bug — [référence ludique : le carré](/activite-scratch-le-carre/).
+
+### Étape 3 — Ajouter interaction
+
+- **Clic** : réagir quand on clique sur le lutin (`quand ce lutin est cliqué`).
+- **Clavier** : utiliser `quand touche … pressée` pour déplacer le personnage (flèches).
+
+Objectif minimal : **contrôle** au clavier + **réaction** au clic (message, son court).
+
+### Étape 4 — Créer un mini-jeu
+
+- **Score** : une **variable** « score » qui augmente (ex. attraper un objet).
+- **Boucle** : jeu qui **continue** jusqu’à une condition (temps écoulé, game over).
+- **Règles simples** : un obstacle, une zone « gagné », ou un compte à rebours.
+
+Objectif minimal : **règle claire**, **fin possible** (victoire ou échec), même très simple. Poursuite possible avec [créer un jeu vidéo (1re partie)](/scratch-creer-un-jeu-video-premiere-partie/).
 
 ![Boucle planifier, coder, tester, partager](/images/blog/guides-2026/scratch-boucle-pedagogique.svg)
 
-## 4. Exemple de progression sur quatre semaines (à la maison)
+## 4. Scratch à l’école vs à la maison
 
-Hypothèse : enfant **8–11 ans**, déjà allumé sur les jeux vidéo, peu familier de Scratch.
+![École et maison : leviers différents](/images/blog/guides-2026/scratch-ecole-dom.svg)
 
-| Semaine | Objectif minimal | Ressource sur ce site |
-|---------|------------------|------------------------|
-| **1** | Compte Scratch ou mBlock OK, **un** lutin qui bouge au clavier | [Activité le carré](/activite-scratch-le-carre/) (s’adapter si trop dur) |
-| **2** | Ajouter un **deuxième costume** ou décor qui réagit | [Jeu vidéo partie 1](/scratch-creer-un-jeu-video-premiere-partie/) (intro décor) |
-| **3** | Introduire **une variable** (score, vitesse) | Même série, parties suivantes |
-| **4** | **Démo** 10 minutes pour un parent : expliquer à l’oral un bug corrigé | — |
+### À l’école
 
-Si la semaine 1 est déjà difficile, **raccourcissez** l’objectif (moins de blocs, mais **un** succès visible). C’est plus pédagogique qu’une « usine à blocs » copiés sur YouTube.
+- **Projets guidés** : consigne commune, critères de réussite clairs, progression sur **plusieurs séances**.
+- **Pédagogie progressive** : même notion pour tous (boucle, message entre lutins), puis variante libre.
+- **Travail en groupe** : **pair programming**, relecture croisée, oral sur le « pourquoi j’ai mis ce bloc ».
 
-## 5. Scratch en ligne, mBlock, sauvegarde : points à ne pas négliger
+### À la maison
 
-- **Scratch** sur le site officiel : créer un **compte** (ou compte enseignant / famille selon votre cas) pour **sauvegarder** en ligne ; sinon, **télécharger** le fichier `.sb3` sur une clé ou dossier familial.
-- **mBlock** : pour préparer un **robot**, suivez [installer mBlock](/installer-mblock-5-sous-windows-10/) puis [premiers pas](/premier-pas-avec-mblock-5/).
+- **Autonomie** : créneaux **réguliers** et courts valent mieux qu’une longue séance rare.
+- **Projets libres** : parodies, histoires, jeux inspirés d’un univers préféré — **motivation** forte si l’enfant choisit le thème.
+- **Créativité** : moins de contrainte qu’en classe ; fixer tout de même **un livrable** (démo, fichier `.sb3` sauvegardé, lien partagé).
 
-## 6. Passer à un robot (mBot) quand ?
+| | **École** | **Maison** |
+|---|-----------|------------|
+| **Temps** | Créneau fixe (souvent 45–60 min) | À planifier (ex. 30–40 min / semaine) |
+| **Objectif** | Souvent **même défi** pour tous | **Personnalisé** (avec un objectif réalisable) |
+| **Aide** | Enseignant + **pairs** | Souvent **un adulte** (compte, sauvegarde, débogage oral) |
+| **Évaluation** | Grille, oral, production | **Démo** et fierté du projet terminé |
 
-Quand l’enfant **explique** les blocs (boucle, événement, capteur) sans seulement les déplacer au hasard, vous pouvez enchaîner vers [premier programme mBot](/mon-premier-programme-mbot/) — les **concepts** sont les mêmes ; seul change le **support** (lutin à l’écran vs robot physique). Voir aussi [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+## 5. Idées de projets Scratch débutants
 
-## 7. Erreurs fréquentes (et comment les éviter)
+| Idée | Ce qu’on travaille |
+|------|-------------------|
+| **Animation simple** | Costumes, enchaînement, **messages** entre lutins |
+| **Jeu de clic** | Score +1 au clic, son, fin après N secondes |
+| **Plateforme très simple** | Gravité rudimentaire ou pas à pas latéral, **une** plateforme, un but |
+| **Quiz interactif** | Questions à choix, variable « bonne réponse », retour visuel |
 
-- **Trop de projets ouverts** : fermer les onglets, un seul **projet vedette**.
-- **Adulte qui code à la place** : laisser l’enfant **formuler** l’hypothèse (« j’essaie d’enlever ce bloc »).
-- **Pas de sauvegarde** : crash navigateur = larmes ; **exporter** le `.sb3` régulièrement.
-- **Comparer à un pro** : valoriser la **progression** (« la semaine dernière tu ne savais pas faire la boucle »).
+Commencer par **une** mécanique ; ajouter ensuite score, niveaux ou décors — éviter le « gros jeu » dès le départ.
 
-## 8. Mini-FAQ
+## 6. Matériel recommandé (Amazon)
 
-**Faut-il déjà savoir lire l’anglais ?**  
-Les blocs sont en français dans l’interface FR ; la communauté en ligne est souvent multilingue — ce n’est pas bloquant pour débuter.
+Passer du **lutin à l’écran** au **robot** n’est pas obligatoire, mais c’est un **prolongement naturel** quand la logique de blocs est comprise : mêmes idées (**événements**, **boucles**, **capteurs**), support **physique**.
 
-**Scratch ou mBlock seul ?**  
-Pour **Scratch pur**, restez sur Scratch ; pour **Makeblock**, mBlock regroupe blocs **et** robot.
+Liens **recherche** (comparer vendeurs, avis, SKU) — contextualisation :
 
-**L’école n’utilise pas Scratch : est-ce grave ?**  
-Non : l’apprentissage à la maison peut **compléter** ; l’important est la **régularité** et le **projet** motivant.
+- [Livre Scratch enfant débutant](https://www.amazon.fr/s?k=livre+Scratch+enfant+d%C3%A9butant&tag=manuso06-21) — support papier pour **parcours** structuré à la maison.
+- [Robot programmable enfant Scratch mBot](https://www.amazon.fr/s?k=mBot+Makeblock+Scratch&tag=manuso06-21) — **idéal pour prolonger Scratch dans le réel** avec **mBlock** (blocs proches de Scratch) ; suite possible vers [premier programme mBot](/mon-premier-programme-mbot/).
+- [Micro:bit kit débutant](https://www.amazon.fr/s?k=micro%3Abit+kit+d%C3%A9butant&tag=manuso06-21) — **MakeCode** (esprit blocs) très présent en **ateliers** et **collège**.
+- [Kit robotique Arduino débutant enfant](https://www.amazon.fr/s?k=kit+robotique+Arduino+d%C3%A9butant+enfant&tag=manuso06-21) — pour plus tard ou profil **technique** ; courbe plus raide que Scratch seul.
 
-## Liens Amazon (affiliation)
-
-- [Livre Scratch enfant débutant](https://www.amazon.fr/s?k=livre+Scratch+enfant+d%C3%A9butant&tag=manuso06-21)
-- [Robot programmable Scratch](https://www.amazon.fr/s?k=robot+programmable+Scratch+enfant&tag=manuso06-21)
-- [Kit initiation programmation](https://www.amazon.fr/s?k=kit+initiation+programmation+enfant&tag=manuso06-21)
+Installer un environnement robot : [mBlock sous Windows](/installer-mblock-5-sous-windows-10/), [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/). Vue d’ensemble robots : [guide 2026](/quel-robot-educatif-choisir-2026/).
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 
+## 7. Erreurs fréquentes
+
+- **Vouloir aller trop vite** : accumuler les fonctionnalités avant d’avoir **un** programme stable.
+- **Copier sans comprendre** : recopier une vidéo sans pouvoir **expliquer** le rôle d’un bloc ou d’une boucle.
+- **Projets trop complexes** au début → frustration ; préférer **mini-jeu fini** à **gros chantier** abandonné.
+- **Pas de progression** : pas de sauvegarde, pas de **routine** ; Scratch demande du **rappel** (variables, clones…).
+- **Trop de brouillons** : un **projet vedette** jusqu’au livrable ; les autres en pause.
+
+## 8. Conseils parents et enseignants
+
+- **Accompagner sans faire à la place** : poser des questions (« que se passe-t-il si on enlève cette boucle ? ») plutôt que prendre la souris.
+- **Encourager la créativité** : accepter les idiosyncrasies (humour, délire) tant que **l’objectif pédagogique** (boucle, message, variable) est là.
+- **Valoriser les projets** : démo courte, capture d’écran, partage avec la famille ou la classe — la **reconnaissance** prolonge l’engagement.
+- **Côté classe** : temps pour **l’erreur** et le **debug** ; célébrer les **bugs corrigés** à l’oral.
+
+## 9. Résumé
+
+Format **étapes / progression** (titres courts, listes numérotées — lisible d’un coup d’œil) :
+
+1. **Interface** : scène, lutins, blocs — premier script avec **drapeau vert**.
+2. **Mouvement** : déplacements simples puis **costumes** / animation.
+3. **Interaction** : clavier et clic — le joueur **agit**.
+4. **Mini-jeu** : variable (score), boucle, **condition de fin**.
+5. **Ensuite** : approfondir ([jeu vidéo](/scratch-creer-un-jeu-video-premiere-partie/)) ou **robot** ([mBot](/mbot-mon-premier-robot-educatif/)) si la logique est assimilée.
+
+**Idée clé** : Scratch enseigne **comment penser un programme** ; le support (écran ou robot) vient après.
+
+## 10. FAQ
+
+### Scratch est-il gratuit ?
+
+Oui pour l’essentiel : éditeur en ligne et ressources communautaires gratuits ; budget optionnel pour livres, ateliers ou matériel.
+
+### À quel âge commencer ?
+
+Souvent **à partir de ~8 ans** pour une autonomie confortable ; plus jeune possible avec **adulte** et séances **très courtes**. Détail : [à quel âge commencer la programmation](/programmation-enfant-a-quel-age-commencer/).
+
+### Faut-il savoir coder ?
+
+Non. Il faut surtout **lire** les libellés des blocs (interface en français), **essayer**, et **sauvegarder** le travail.
+
+### Scratch suffit-il ?
+
+Pour **apprendre la logique de base**, oui. Pour une **orientation** code « métier » plus tard, on ajoutera **texte** (Python, etc.) ou **robotique** selon le projet — Scratch reste une **base** reconnue.
+
+### Scratch ou mBlock pour un robot ?
+
+**Scratch** pour jeux et animations **à l’écran**. **mBlock** pour robots **Makeblock** — voir [premiers pas mBlock](/premier-pas-avec-mblock-5/).
+
 ---
 
-**En résumé** : à la maison, la **routine** et un **projet finissable** comptent plus que le nombre de tutoriels vus. À l’école, la **consigne claire** et le **pair** font souvent le reste — le schéma en tête de cet article aide à ne pas mélanger les deux contextes.
+## 11. Bonus : checklist, progression, programme 7 jours
+
+### Checklist « débuter Scratch »
+
+- [ ] Compte **Scratch** (ou mode hors ligne) + **test de sauvegarde** (fichier `.sb3` ou projet en ligne).
+- [ ] **Un** projet actif — les autres en attente.
+- [ ] Premier objectif : **drapeau vert** → action visible en **moins de 10 blocs**.
+- [ ] **Démo** à quelqu’un à la fin de chaque séance (même 2 minutes).
+
+### Tableau progression enfant (indicatif)
+
+| Phase | Compétences typiques | Exemple de projet |
+|-------|------------------------|-------------------|
+| **Début** | Déplacement, dire, costumes | Personnage qui danse ou salut |
+| **Intermédiaire** | Variables, messages entre lutins | Quiz ou jeu de clic avec score |
+| **Plus loin** | Clones, listes, capteurs vidéo simples | Petit jeu avec plusieurs vies ou niveaux |
+
+### Mini programme 7 jours Scratch
+
+| Jour | Action (20–40 min) |
+|------|---------------------|
+| **1** | Interface + lutin qui **avance** et **parle** au drapeau vert |
+| **2** | Ajouter **touches fléchées** pour diriger le lutin |
+| **3** | **Costume** ou décor + un **son** |
+| **4** | **Variable** « score » + événement qui l’augmente |
+| **5** | Condition « **si** touche pressée **alors**… » sur un obstacle simple |
+| **6** | **Mini-jeu** : score + fin (temps ou « game over ») |
+| **7** | **Démo** + export `.sb3` ou lien + note d’une amélioration future |
+
+Si un jour bloque, **réduire** l’objectif : moins de blocs, mais **succès visible**.
+
+---
+
+**En bref** : commencer Scratch, c’est **une méthode** (interface → mouvement → interaction → mini-jeu), une **routine** à la maison, un **cadre** à l’école — puis, si l’envie est là, **prolonger dans le réel** avec un **kit** documenté et des blocs **compatibles** (mBlock, MakeCode).

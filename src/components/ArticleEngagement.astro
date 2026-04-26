@@ -2,6 +2,7 @@
 /**
  * Vues + notation (1–5) par article, via Supabase (optionnel).
  * Variables : PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY + SQL scripts/supabase-article-engagement.sql
+ * (bases déjà en prod : exécuter aussi scripts/supabase-article-rating-rate-limit.sql pour la RPC à 3 paramètres)
  */
 import type { HTMLAttributes } from 'astro/types';
 
@@ -79,6 +80,46 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 		<script is:inline>
 			(function () {
 				const LS_PREFIX = 'robot-educatif-rated:';
+				const LS_FINGERPRINT = 'robot-educatif-vote-fingerprint';
+
+				function randomUUID() {
+					if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+					return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+						var r = (Math.random() * 16) | 0;
+						var v = c === 'x' ? r : (r & 0x3) | 0x8;
+						return v.toString(16);
+					});
+				}
+
+				function getOrCreateFingerprint() {
+					try {
+						var v = localStorage.getItem(LS_FINGERPRINT);
+						if (!v) {
+							v = randomUUID();
+							localStorage.setItem(LS_FINGERPRINT, v);
+						}
+						return v;
+					} catch {
+						return null;
+					}
+				}
+
+				function mapRatingError(msg) {
+					var m = String(msg || '').toLowerCase();
+					if (m.indexOf('rate_limit_cooldown') !== -1)
+						return 'Merci d’attendre quelques secondes entre deux notes.';
+					if (m.indexOf('rate_limit_minute') !== -1)
+						return 'Trop de notes en peu de temps. Réessayez dans une minute.';
+					if (m.indexOf('rate_limit_hour') !== -1)
+						return 'Limite de notes atteinte pour l’instant. Réessayez plus tard.';
+					if (m.indexOf('rate_limit_day') !== -1)
+						return 'Limite quotidienne de notes atteinte. Réessayez demain.';
+					if (m.indexOf('already_voted') !== -1)
+						return 'Cette note a déjà été enregistrée depuis cet appareil.';
+					if (m.indexOf('invalid_fingerprint') !== -1)
+						return 'Session de notation invalide. Rechargez la page.';
+					return 'Envoi de la note impossible. Réessayez plus tard.';
+				}
 
 				function formatAvg(sum, count) {
 					if (!count) return '—';
@@ -177,19 +218,43 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 							const n = Number(btn.getAttribute('data-star'));
 							if (n < 1 || n > 5) return;
 							try {
+								if (errEl) errEl.hidden = true;
+								const fp = getOrCreateFingerprint();
+								if (!fp) {
+									showErr('Votre navigateur ne permet pas la notation sécurisée.');
+									return;
+								}
+								stars.forEach(function (b) {
+									b.disabled = true;
+								});
 								const res = await fetch(base + '/rest/v1/rpc/submit_article_rating', {
 									method: 'POST',
 									headers: headers(),
-									body: JSON.stringify({ p_slug: slug, p_stars: n }),
+									body: JSON.stringify({
+										p_slug: slug,
+										p_stars: n,
+										p_client_fingerprint: fp,
+									}),
 								});
-								if (!res.ok) throw new Error('rate');
+								if (!res.ok) {
+									var detail = '';
+									try {
+										var j = await res.json();
+										detail = j.message || j.error_description || j.hint || '';
+									} catch (e) {}
+									throw new Error(detail || 'rate');
+								}
 								localStorage.setItem(LS_PREFIX + slug, String(n));
 								const row = await fetchStatsOnly();
 								renderStats(row);
 								if (rateWrap) rateWrap.hidden = true;
 								if (thanks) thanks.hidden = false;
-							} catch {
-								showErr('Envoi de la note impossible. Réessayez plus tard.');
+							} catch (e) {
+								showErr(mapRatingError(e && e.message ? e.message : ''));
+							} finally {
+								stars.forEach(function (b) {
+									b.disabled = false;
+								});
 							}
 						});
 					});

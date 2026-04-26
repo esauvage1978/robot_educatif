@@ -1,9 +1,9 @@
 ---
-title: "Capteur ultrason mBot (2/4) : radar de recul (bips par paliers)"
-headline: "Capteur ultrason mBot (2/4) : radar de recul (bips par paliers)"
-description: "Deuxième activité capteur ultrason du mBot : créer un radar de recul simple avec 3 zones (>=70 cm, 35–70 cm, <35 cm) et des bips à cadence fixe (1 s puis 0,25 s)."
+title: "Exercice mBot (niveau 2) : radar de recul par paliers | conditions mBlock"
+headline: "Exercice mBot : Créer un Radar de Recul avec le Capteur Ultrason (Niveau 2)"
+description: "Partie 2/4 : programme mBot avec conditions (si / sinon) et paliers de distance — LED et buzzer selon la proximité. Robot programmable 10–12 ans, capteur ultrason mBot, idée radar de voiture."
 pubDate: "2026-03-31"
-updatedDate: "2026-03-31"
+updatedDate: "2026-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -14,128 +14,220 @@ categories:
 relatedLinks:
   - title: "Capteur ultrason mBot (1/4) : mesurer une distance"
     href: "/serie-capteur-ultrason-mbot-1-mesurer-distance/"
-  - title: "Capteur ultrason mBot (3/4) : radar amélioré (cadence selon distance)"
+  - title: "Capteur ultrason mBot (3/4) : cadence selon la distance"
     href: "/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/"
-  - title: "Mon premier programme mBot (téléverser)"
+  - title: "Capteur ultrason mBot (4/4) : ralentir puis s’arrêter"
+    href: "/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/"
+  - title: "Mon premier programme mBot"
     href: "/mon-premier-programme-mbot/"
-  - title: "Dépannage Bluetooth / mBlock"
-    href: "/mblock-bluetooth-erreurs-frequentes-depannage/"
+  - title: "Installer les blocs du mBot"
+    href: "/installer-les-blocs-du-mbot/"
+  - title: "mBot : robot éducatif programmable"
+    href: "/mbot-mon-premier-robot-educatif/"
+faqSchema:
+  - question: "Comment programmer une condition sur mBot ?"
+    answer: "Dans mBlock, on utilise les blocs « si … alors », « sinon », et parfois « sinon si » ou des conditions imbriquées : on compare la distance (variable) à un nombre avec des opérateurs comme inférieur à, supérieur à, puis on exécute une action différente (LED, buzzer, rien)."
+  - question: "Comment utiliser un capteur ultrason avec mBot ?"
+    answer: "On lit la distance en centimètres avec le bloc du capteur ultrason, on la met dans une variable, puis on teste cette variable dans des conditions pour décider quoi faire (silence, LED, bip)."
+  - question: "Comment faire un robot éviteur d’obstacle ?"
+    answer: "Il faut lire la distance en boucle et, selon les cas, changer la direction ou la vitesse des moteurs. Ce radar à paliers prépare la logique « si trop près alors … » ; l’évitement complet est enchaîné dans la partie 4 de la série."
+  - question: "Quel robot programmable pour enfant de 10 ans ?"
+    answer: "Le mBot est un choix fréquent à l’école et au collège : programmation par blocs dans mBlock, capteurs dont l’ultrason, et possibilité de progresser vers des projets plus avancés."
 ---
 
 <aside class="article-callout" role="note">
-<p><strong>Objectif pédagogique</strong></p>
-<p>Passer de « je mesure » à « je décide » : transformer une distance en <strong>comportement</strong> grâce à des <strong>conditions</strong> et du <strong>temps</strong> (attendre).</p>
+<p><strong>Après la partie 1</strong></p>
+<p>Tu sais déjà <strong>mesurer une distance</strong> (<a href="/serie-capteur-ultrason-mbot-1-mesurer-distance/">exercice 1</a>). Ici, niveau <strong>2</strong> : le robot <strong>décide</strong> grâce aux <strong>conditions</strong> et aux <strong>paliers</strong> — comme un <strong>radar de recul</strong> de voiture : plus l’obstacle est proche, plus on alerte.</p>
 </aside>
 
-## Énoncé (radar de recul à 3 zones)
+## 🧭 Introduction
 
-Tu dois programmer le mBot pour qu’il se comporte comme un **radar de recul** :
+Dans la **partie 1**, tu as appris un **programme mBot** qui **affiche** la distance mesurée par le **capteur ultrason mBot**.  
+**Maintenant**, on monte d’un cran : le robot **réagit** selon cette distance — c’est une vraie étape de **programme mBot** : **conditions** (**si** / **sinon**). Si tu cherchais des idées sous « **mbot programmation** » ou « **programme mbot** » avec un objectif concret, tu es au bon endroit.
 
-- **Si distance ≥ 70 cm** : il ne fait **rien** (silence).
-- **Si 35 cm ≤ distance < 70 cm** : il joue une **note** toutes les **1 seconde**.
-- **Si 0 cm ≤ distance < 35 cm** : il joue une **note** toutes les **0,25 seconde**.
+Pense au **radar de recul** d’une voiture : quand il n’y a personne derrière, silence ; quand ça se rapproche, des bips plus fréquents. Ici, on simplifie avec des **zones** (paliers) : loin, moyen, trop près.
 
-> Ici on fait volontairement simple : même note, seulement la **cadence** change. Dans l’activité 3, on rendra la cadence “proportionnelle”.
+Le **capteur ultrason** continue de **mesurer la distance** ; la nouveauté, c’est que le **programme mBot** **adapte le comportement** (LED, buzzer, ou rien) **selon** cette mesure — dès qu’il y a un **obstacle** à portée.
 
----
-
-## 1) Schéma de décision (à recopier au tableau)
-
-```text
-              distance_cm (capteur ultrason)
-                         |
-        +----------------+-----------------+
-        |                                  |
-   distance >= 70 ?                    non (donc < 70)
-        |                                  |
-     rien                              distance >= 35 ?
-                                           |        |
-                                         oui       non (donc < 35)
-                                           |        |
-                                   bip toutes      bip toutes
-                                     1 s            0,25 s
-```
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/serie-capteur-ultrason-mbot-1-mesurer-distance/">Partie 1 — Mesurer la distance</a>
+<a class="article-cta article-cta--secondary" href="/installer-les-blocs-du-mbot/">Blocs mBot dans mBlock</a>
+</div>
 
 ---
 
-## 2) Construire le programme pas à pas
+## 📘 Partie 1 — Consigne (exercice)
 
-### 2.1 Garder la variable distance_cm
+### 🎯 Objectif
 
-On réutilise la variable de l’activité 1 :
+**Programmer le mBot** pour qu’il :
 
-- `distance_cm`
+1. **détecte** un obstacle devant lui (via la distance) ;  
+2. **réagisse différemment** selon que l’obstacle est **loin**, **assez proche** ou **très proche** (idée de **paliers**).
 
-Et on la met à jour en boucle :
+### 📋 Matériel
 
-- lire le capteur ultrason
-- attendre un peu (ex. 0,05 à 0,2 s)
+- un **robot mBot** (ultrason à l’avant) ;  
+- **mBlock** sur l’ordinateur ([installation](/installer-mblock-5-sous-windows-10/), [premiers pas](/premier-pas-avec-mblock-5/)) ;  
+- un obstacle **plat** (livre, carton) pour tester.
 
-### 2.2 Attention au piège “je bip trop vite”
+### 📝 Consigne
 
-Si tu écris :
+**Programme ton robot pour :**
+
+1. **Lire** la distance avec le **capteur ultrason** (en cm) et la mettre dans une **variable** (ex. `distance_cm`).  
+2. **Si** un obstacle est **loin** → **ne rien faire** de spécial (pas d’alerte, ou LED éteinte selon les blocs).  
+3. **Si** un obstacle est **proche** (zone « attention ») → **allumer une LED** (par exemple orange ou jaune).  
+4. **Si** un obstacle est **très proche** (zone « danger ») → **faire un bip** avec le **buzzer**.
+
+**Seuils proposés pour la classe** (modifiables au tableau) :
+
+| Zone | Condition (exemple) | Comportement |
+| --- | --- | --- |
+| OK — loin | distance **supérieure à 20 cm** | rien (silence) |
+| Attention — proche | entre **10 cm** et **20 cm** | **LED** |
+| Danger — très proche | **moins de 10 cm** | **bip** |
+
+*(Tu peux aussi utiliser d’autres nombres, par exemple 70 cm / 35 cm, si ton enseignant préfère des zones plus larges — l’important est la **logique** des **paliers**.)*
+
+---
+
+## 📚 Partie 2 — Leçon (concepts clés)
+
+### 🧠 1. Notion de condition (important)
+
+Une **condition**, c’est une **question** que le programme pose au robot :
+
+- **Si** la réponse est oui → on fait **une** action.  
+- **Sinon** → on peut faire **autre chose** ou poser **une autre** question (**sinon si**).
+
+Exemple simple :
+
+- **SI** distance **inférieure à 10** → **danger** (bip).  
+- **SINON** → on regarde une autre règle (par exemple la LED pour la zone « attention »).
+
+👉 Le robot **prend une décision** : ce n’est plus seulement un nombre affiché, c’est un **comportement**.
+
+### 🧠 2. Notion de paliers (niveau supérieur)
+
+Les **paliers**, ce sont **plusieurs niveaux** de réaction pour **une même** mesure :
+
+- **Loin** → tout va bien (souvent : pas d’alerte).  
+- **Intermédiaire** → prévenir (souvent : **LED**).  
+- **Très près** → alerter fort (souvent : **buzzer**).
+
+Schéma **radar de recul** (vu du dessus) :
 
 ```text
-si distance < 35 alors jouer une note
+        [ loin — OK ]    [ proche — LED ]    [ très près — BIP ]
+              |                  |                     |
+    ----------+------------------+---------------------+-----> vers l’obstacle
+              20 cm              10 cm                 0 cm
 ```
 
-dans une boucle **pour toujours** sans temporisation, le robot va “biper” **le plus vite possible** (ça peut devenir un son quasi continu).
+Le **capteur ultrason** donne la **distance** ; le **programme** compare cette valeur aux **seuils** et choisit la **bonne** branche.
 
-Donc ici, **le temps** fait partie du cahier des charges : on met un `attendre` différent selon la zone.
+### 🧠 3. Capteurs et actionneurs
 
-### 2.3 Une solution simple (logique)
+- **Capteur** : il **détecte** (ici l’**ultrason** mesure une **distance**).  
+- **Actionneur** : il **agit** — **LED** (lumière), **buzzer** (son), plus tard les **moteurs** pour rouler.
 
-Pseudo-logique (facile à traduire en blocs) :
+Ensemble, ils permettent au robot de **percevoir** puis **réagir** — base de toute **programmation** de **robot programmable** pour **enfants** et **collège** (souvent à partir de **10 ans**, jusqu’à **12 ans** et plus pour approfondir).
+
+---
+
+## 💻 Partie 3 — Réponse (programme mBot)
+
+### 🧪 Logique attendue
+
+Structure logique (à traduire en blocs mBlock) :
 
 ```text
-au démarrage
+Quand le programme démarre
   pour toujours
-    mettre distance_cm à (distance ultrason)
-    si distance_cm >= 70
-      attendre 0,1 s
-    sinon
-      si distance_cm >= 35
-        jouer une note (ex. C4) pendant 0,25 pulsation
-        attendre 1 s
-      sinon
-        jouer une note (ex. C4) pendant 0,25 pulsation
-        attendre 0,25 s
+    lire la distance → mettre dans distance_cm
+    SI distance_cm < 10
+      alors buzzer (court bip)
+    SINON SI distance_cm < 20
+      alors allumer la LED « attention »
+    SINON
+      alors éteindre LED / pas de bip
+    attendre un peu (ex. 0,1 s)
 ```
 
-> Pourquoi un `attendre` dans la zone “rien” ? Pour éviter de marteler le capteur à vitesse max et garder une boucle stable.
+*(Selon ta version de mBlock, tu auras « si / sinon » **imbriqués** ou une suite **si → sinon si → sinon** — les deux mènent au même raisonnement.)*
+
+### 🧩 Pseudo-code simple (paliers)
+
+```text
+SI distance < 10 cm
+  → bip (danger)
+
+SINON SI distance < 20 cm
+  → LED allumée (attention)
+
+SINON
+  → rien (ou LED éteinte)
+```
+
+### 🧠 Explication
+
+- Le robot **compare** la distance à des **seuils**.  
+- Il **choisit une seule** branche adaptée (la plus « urgente » d’abord : **très proche** avant **proche**).  
+- Plus l’objet est **proche**, plus la **réaction** est **forte** — d’où l’analogie **radar de recul**.
+
+**Piège fréquent :** dans une boucle **sans** `attendre`, le buzzer ou la lecture peuvent « saturer ». Garde un petit **pause** (0,05 à 0,2 s) pour un comportement stable.
+
+<p class="article-note">Premier téléversement ou aide connexion : <a href="/mon-premier-programme-mbot/">Mon premier programme mBot</a>.</p>
 
 ---
 
-## 3) Tester (mode Live puis téléversement)
+## 🎯 Partie 4 — Aller plus loin
 
-- **En Live** : approche lentement un livre devant le capteur et observe si les bips changent de rythme autour de ~70 cm et ~35 cm.
-- **En autonome** : téléverse ensuite le programme (voir [Mon premier programme mBot](/mon-premier-programme-mbot/)).
+### 🔥 Défi 1 — LED qui « pulse »
 
----
+Faire **clignoter** la LED **plus vite** quand l’obstacle est **plus proche** (toujours dans la zone « attention »). Tu joues sur un bloc **attendre** entre deux changements d’état de la LED.
 
-## 4) Améliorations possibles (sans changer l’énoncé)
+### 🔥 Défi 2 — Vrai radar : bip de plus en plus rapide
 
-- Ajouter une **LED** (vert / orange / rouge) selon la zone.
-- Filtrer les valeurs “impossibles” (ex. si la mesure vaut 0 ou très grande) en affichant “—” ou en gardant la dernière valeur connue.
+**Plus** l’objet est **proche**, **plus** le **bip** est **rapide** — sans paliers fixes uniquement : c’est exactement le thème de la **[partie 3 — radar, cadence selon la distance](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)** (suite logique après ce niveau 2).
 
----
+### 🔥 Défi 3 — Reculer automatiquement
 
-## 5) Liste des blocs (solution simple)
-
-Blocs typiques nécessaires :
-
-- **Événement mBot** : `lorsque le mBot démarre` *(pour un programme autonome)*  
-  ou `quand le drapeau vert est cliqué` *(pour tester en Live)*
-- **Contrôle** : `pour toujours`
-- **Variables** : `mettre [distance_cm] à (...)`
-- **Capteur mBot** : `distance (capteur ultrason) en cm`
-- **Contrôle** : `si ... alors` / `sinon` (conditions imbriquées)
-- **Opérateurs** : `>=` (comparaisons) + nombres `70` et `35`
-- **Son / Buzzer mBot** : `jouer la note (...) pendant (...) pulsations` *(ou bloc équivalent buzzer)*
-- **Contrôle** : `attendre (1) s` et `attendre (0,25) s` (+ `attendre (0,1) s` côté silence)
+Quand la distance devient **très faible**, commande les **moteurs** pour **reculer** un peu au lieu de seulement biper — vers un **éviteur d’obstacle** complet : voir la **[partie 4 — projet complet obstacle](/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/)**.
 
 ---
 
-## Étape suivante
+## 🤖 Résumé rapide
 
-Dans l’activité 3, on va garder l’idée du radar, mais au lieu de 2 cadences fixes (1 s / 0,25 s), on fera une **cadence qui dépend de la distance** : plus on est proche, plus ça bip vite.
+- **mBot** = **robot programmable** (idéal **dès 10 ans** en **programme mBot** au collège).  
+- **Capteur ultrason** = mesure la **distance**.  
+- **Programme** = **conditions** (**si / sinon**) + **paliers** + **réactions** (LED, buzzer).
+
+---
+
+## 💡 Robot éducatif pour enfant débutant
+
+Le **mBot** reste une **référence** pour **débuter** : on voit tout de suite le lien entre **blocs**, **capteurs** et **comportement**. Pour le choix du kit ou du modèle : [mBot, présentation](/mbot-mon-premier-robot-educatif/).
+
+---
+
+## ❓ FAQ
+
+Les questions ci-dessus sont reprises dans les **données structurées** de la page (FAQ) pour aider au référencement sur **comment programmer une condition sur mBot**, **capteur ultrason**, **éviteur d’obstacle** et **robot pour 10 ans**.
+
+---
+
+## 🔗 Série capteur ultrason (maillage)
+
+| Partie | Contenu | Lien |
+| --- | --- | --- |
+| **1/4** | Mesurer une distance | [Partie 1](/serie-capteur-ultrason-mbot-1-mesurer-distance/) |
+| **2/4** | **Radar à paliers** (vous êtes ici) | — |
+| **3/4** | Cadence / obstacle (bip lié à la distance) | [Partie 3](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/) |
+| **4/4** | Projet complet (ralentir, s’arrêter) | [Partie 4](/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/) |
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/">Partie 3 — Bip et distance</a>
+<a class="article-cta article-cta--secondary" href="/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/">Partie 4 — Obstacle complet</a>
+</div>
