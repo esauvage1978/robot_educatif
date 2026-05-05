@@ -9,14 +9,32 @@ series: "Arduino C"
 seriesOrder: 4
 tags: ["C", "Arduino", "Robotique", "Programmation"]
 relatedLinks:
+  - title: "Guide complet — apprendre Arduino C/C++"
+    href: "/programmation/arduino-c/"
   - title: "Leçon 3 — conditions"
     href: "/c-arduino-conditions-capteurs-actionneurs/"
+  - title: "Leçon 5 — fonctions et modularité"
+    href: "/c-arduino-fonctions-modularite-bonnes-pratiques/"
+  - title: "Radar de recul mBot"
+    href: "/serie-capteur-ultrason-mbot-2-radar-recul-paliers/"
 categories:
   - "C"
   - "Arduino"
   - "Programmation"
   - "Débutant"
 ---
+
+En programmation Arduino, les boucles et le timing font la différence entre un montage qui exécute une animation et un robot capable de réagir. Un robot Arduino doit mesurer, décider, corriger, puis recommencer très vite. C’est le rôle de `loop()`, des boucles `for` / `while`, et surtout de `millis()` quand on veut éviter de bloquer le programme.
+
+<aside class="article-callout" role="note">
+<p><strong>Fiche rapide</strong></p>
+<ul>
+<li><strong>Niveau :</strong> intermédiaire débutant, après les conditions.</li>
+<li><strong>Durée :</strong> 60 à 75 minutes avec les exercices.</li>
+<li><strong>Matériel :</strong> Arduino Uno compatible. Un buzzer, une LED ou un capteur ultrason permet de rendre les tests visibles.</li>
+<li><strong>Objectif :</strong> répéter des actions et gérer le temps sans empêcher le robot de réagir.</li>
+</ul>
+</aside>
 
 En robotique, les boucles servent à :
 
@@ -25,6 +43,8 @@ En robotique, les boucles servent à :
 - produire une cadence (bips, clignotement).
 
 Mais attention : un robot qui fait `delay(5000)` ne peut plus réagir pendant 5 secondes. D’où l’intérêt de `millis()` pour faire du **timing non-bloquant**.
+
+Cette leçon prolonge les [conditions Arduino](/c-arduino-conditions-capteurs-actionneurs/) et prépare la leçon sur les [fonctions et la modularité](/c-arduino-fonctions-modularite-bonnes-pratiques/). Le parcours complet est disponible ici : [apprendre Arduino C/C++](/programmation/arduino-c/).
 
 ## 1) `for` : quand tu connais le nombre de tours
 
@@ -425,4 +445,12 @@ void loop() {
 }</code></pre>
 </div>
 </details>
+
+## Amélioration possible
+
+Ajoute une deuxième cadence : une LED virtuelle toutes les 500 ms et une lecture de distance toutes les 100 ms. Tu obtiens le principe d’un robot qui peut surveiller un capteur tout en gardant un signal visuel régulier.
+
+## Suite du parcours Arduino
+
+Quand ton code commence à gérer plusieurs cadences, il faut l’organiser. Continue avec [les fonctions Arduino et la modularité](/c-arduino-fonctions-modularite-bonnes-pratiques/) pour séparer lecture capteur, décision et action moteur. Pour un exemple de projet proche, regarde aussi le [radar de recul mBot à paliers](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/) et reviens au [guide Arduino C/C++](/programmation/arduino-c/) pour choisir le prochain projet.
 

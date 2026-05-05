@@ -1,14 +1,16 @@
 ---
-title: "Puissance 4 en Python (4/6) — détecter quatre alignés"
-headline: "Puissance 4 en Python (4/6) — détecter quatre alignés"
-description: "Console, compte_direction et victoire ; test automatique + partie avec arret sur gagnant ; .py telechargeable."
+title: "Puissance 4 Python (4/6) : détecter 4 jetons alignés"
+headline: "Puissance 4 en Python — victoire horizontale, verticale, diagonales"
+description: "Apprendre Python facilement avec la logique de victoire : compte_direction, test depuis le dernier coup. Exemple python complet avec script téléchargeable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Puissance 4
 seriesOrder: 4
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu"]
 relatedLinks:
+  - title: "Sommaire — Puissance 4"
+    href: "/programmation/puissance-4/"
   - title: "Partie 3 — alternance"
     href: "/python-puissance-4-3-coup-alternance/"
   - title: "Partie 5 — match nul"
@@ -18,8 +20,17 @@ categories:
   - "Programmation"
   - "Puissance 4"
   - "Projet"
+faqSchema:
+  - question: "Comment détecter quatre pions alignés dans un Puissance 4 Python ?"
+    answer: "Après chaque coup, partir de la case jouée et compter les pions consécutifs du même joueur dans deux directions opposées pour l’horizontal, la verticale et les deux diagonales ; si au moins quatre au total sur un axe, victoire."
+  - question: "Pourquoi compter depuis le dernier coup seulement ?"
+    answer: "Un nouveau alignement ne peut passer que par la case où le joueur vient de jouer ; cela évite de rescanner toute la grille à chaque tour."
+  - question: "Quelles erreurs éviter dans compte_direction ?"
+    answer: "Ne pas dépasser les indices 0 à 5 pour les lignes et 0 à 6 pour les colonnes ; utiliser des pas directionnels (+1,+1), (+1,-1), etc., avec une boucle bornée."
 ---
-On teste les **quatre directions** (horizontal, vertical, deux diagonales) à partir de la **dernière case jouée** : on compte les pions consécutifs du même joueur dans chaque sens sur un axe.
+Tu passes du « jeu qui tourne » au **premier vrai verdict** : un joueur peut **gagner**. On teste les **quatre directions** (horizontal, vertical, deux diagonales) à partir de la **dernière case jouée** : on compte les pions consécutifs du même joueur dans chaque sens sur un axe — moment clé pour **créer un jeu en python débutant** qui ressemble au vrai Puissance 4.
+
+Pour approfondir les structures utilisées partout dans ce projet, une recherche sur les [structures de données en Python](https://www.amazon.fr/s?k=structures+de+donn%C3%A9es+python&tag=manuso06-21) peut accompagner la série.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
@@ -191,6 +202,10 @@ if __name__ == "__main__":
     partie_avec_victoire()
 ```
 
+## Résultat attendu
+
+Une partie s’**arrête dès quatre alignés** : message de victoire, grille finale affichée. Les tests automatiques valident au moins un cas horizontal ; tu peux compléter vertical et diagonales en exercice. Prochaine étape : [match nul et fin de partie propre](/python-puissance-4-5-match-nul/).
+
 ## Exercices
 
 1. Écris `test_auto_vertical()` : empile 4 `O` dans une même colonne.
@@ -203,8 +218,10 @@ if __name__ == "__main__":
 
 ## Suite
 
-[Partie 5 — Match nul, messages et fin de partie](/python-puissance-4-5-match-nul/).
+**Étape suivante :** [match nul, messages et fin de partie](/python-puissance-4-5-match-nul/).  
+**Sommaire :** [Puissance 4 — page pilier](/programmation/puissance-4/).
 
-## Amazon (partenaire)
+## Matériel recommandé (partenaire Amazon)
 
 - [Structures de données Python](https://www.amazon.fr/s?k=structures+de+donn%C3%A9es+python&tag=manuso06-21)
+- [Algorithmique débutant](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)

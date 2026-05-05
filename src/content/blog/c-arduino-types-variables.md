@@ -9,8 +9,14 @@ series: "Arduino C"
 seriesOrder: 2
 tags: ["C", "Arduino", "Robotique", "Programmation"]
 relatedLinks:
+  - title: "Guide complet — apprendre Arduino C/C++"
+    href: "/programmation/arduino-c/"
   - title: "Leçon 1 — structure d’un sketch"
     href: "/c-arduino-environnement-structure-sketch/"
+  - title: "Leçon 3 — conditions pour capteurs"
+    href: "/c-arduino-conditions-capteurs-actionneurs/"
+  - title: "Leçon 4 — boucles et timing"
+    href: "/c-arduino-boucles-timing/"
 categories:
   - "C"
   - "Arduino"
@@ -18,7 +24,19 @@ categories:
   - "Débutant"
 ---
 
-En robotique, tu manipules beaucoup de **nombres** (vitesses, distances, temps) et des **états** (allumé/éteint). En Arduino C, choisir le bon **type** rend ton programme plus clair et évite des erreurs.
+Dans un projet Arduino, tout devient une donnée : une distance en centimètres, une vitesse de moteur, un bouton appuyé, une LED allumée, un temps écoulé avec `millis()`. Pour apprendre Arduino proprement, il faut donc choisir les bons **types**, nommer clairement les **variables** et utiliser des **constantes** dès le début. C’est une étape essentielle avant de piloter un robot Arduino avec des capteurs.
+
+<aside class="article-callout" role="note">
+<p><strong>Fiche rapide</strong></p>
+<ul>
+<li><strong>Niveau :</strong> débutant après la structure `setup()` / `loop()`.</li>
+<li><strong>Durée :</strong> 45 à 60 minutes avec les exercices.</li>
+<li><strong>Matériel :</strong> Arduino Uno compatible et câble USB. Les exemples peuvent être testés avec le moniteur série.</li>
+<li><strong>Objectif :</strong> savoir représenter une mesure, un état et un seuil dans un sketch Arduino C/C++.</li>
+</ul>
+</aside>
+
+Avant de continuer, vérifie que tu maîtrises la [structure d’un sketch Arduino](/c-arduino-environnement-structure-sketch/). Ensuite, cette leçon prépare directement les [conditions pour capteurs et actionneurs](/c-arduino-conditions-capteurs-actionneurs/).
 
 ## 1) Les types les plus utiles
 
@@ -352,4 +370,12 @@ void loop() {
 void loop() {}</code></pre>
 </div>
 </details>
+
+## Amélioration possible
+
+Remplace la valeur fixe `distance_cm = 42` par plusieurs valeurs de test : 80, 35, 12, 0. Note ce que ton programme affiche. Tu prépares ainsi le raisonnement d’un robot qui devra réagir différemment selon la distance.
+
+## Suite du parcours Arduino
+
+Après les variables, passe aux [conditions Arduino pour capteurs et actionneurs](/c-arduino-conditions-capteurs-actionneurs/) : tu pourras écrire des règles du type “si la distance est trop faible, alors stop”. Tu peux aussi revenir au [guide Arduino C/C++](/programmation/arduino-c/) pour choisir un projet facile, ou avancer vers les [boucles et le timing avec millis](/c-arduino-boucles-timing/).
 

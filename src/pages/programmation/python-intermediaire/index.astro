@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../../../components/BaseHead.astro';
+import Button from '../../../components/Button.astro';
 import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
@@ -14,15 +15,57 @@ const all = await getCollection('blog');
 const posts = all
 	.filter((p) => p.data.series === SERIE)
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const faqItems = [
+	{
+		question: 'Quand passer de Python débutant à Python intermédiaire ?',
+		answer:
+			'Passe au niveau intermédiaire quand tu sais écrire des fonctions, manipuler des listes ou dictionnaires, lire un fichier texte et corriger les erreurs les plus courantes. Si ces bases sont fragiles, reviens d’abord au parcours débutant.',
+	},
+	{
+		question: 'Que faut-il apprendre après les bases de Python ?',
+		answer:
+			'Après les bases, apprends à organiser ton code en modules, créer un environnement virtuel, gérer les dépendances avec pip, utiliser pathlib pour les fichiers, écrire des classes, tester ton code et filtrer du texte avec les expressions régulières.',
+	},
+	{
+		question: 'Pourquoi apprendre les tests automatisés en Python ?',
+		answer:
+			'Les tests automatisés évitent de casser un programme quand tu ajoutes une fonction ou corriges un bug. Ils deviennent très utiles dès que ton code dépasse quelques fichiers ou que tu veux le réutiliser dans un projet complet.',
+	},
+	{
+		question: 'Le projet Agenda CLI est-il adapté après ce parcours ?',
+		answer:
+			'Oui. L’Agenda CLI réutilise modules, pathlib, classes et tests dans un projet plus réaliste qu’un exercice isolé. C’est une bonne étape entre les bases Python et les projets avancés.',
+	},
+	{
+		question: 'Faut-il apprendre la programmation orientée objet tout de suite ?',
+		answer:
+			'Pas dès le premier jour. Mais au niveau intermédiaire, comprendre les classes, les méthodes et self aide à organiser les données et les comportements dans des projets plus longs.',
+	},
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer,
+		},
+	})),
+};
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Python intermédiaire — modules, outils, qualité"
-			description="Six leçons après le parcours débutant : modules, environnements virtuels, pathlib, POO, tests et regex, avec bonnes pratiques et 20 exercices par cours."
+			title="Python intermédiaire — modules, venv, POO, tests et qualité"
+			description="Parcours Python intermédiaire : modules, imports, venv, pip, pathlib, POO, tests automatisés et regex. Six leçons pour mieux organiser son code après les bases."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 	</head>
 	<body>
 		<Header />
@@ -40,18 +83,63 @@ const posts = all
 				alt="Bandeau visuel : Python intermédiaire"
 				loading="eager"
 			/>
-			<h1>Python — parcours intermédiaire</h1>
-			<p class="lead">
-				Une fois le <a href={withBase('/programmation/python')}>parcours débutant</a> maîtrisé (syntaxe, fichiers, débogage), ce bloc
-				aborde l’<strong>organisation du code</strong>, les <strong>outils pro</strong> (venv, pip), les
-				<strong>chemins</strong> modernes, la <strong>POO</strong>, les <strong>tests</strong> et les
-				<strong>expressions régulières</strong>. Chaque article intègre des <strong>bonnes pratiques</strong> (PEP 8,
-				clarté, pas de raccourcis dangereux) et <strong>vingt exercices</strong> avec solutions repliables.
-			</p>
-			<p class="prereq">
-				Prérequis : avoir suivi les leçons « Python » (série débutant) ou équivalent, savoir écrire des fonctions et lire
-				un fichier texte.
-			</p>
+			<section class="hero-block" aria-labelledby="python-inter-title">
+				<p class="kicker">Après les bases · outils · projets plus propres</p>
+				<h1 id="python-inter-title">Python intermédiaire : organiser ton code, tester et créer des projets plus solides</h1>
+				<p class="lead">
+					Tu sais déjà écrire des fonctions, utiliser des listes, lire un fichier et corriger les erreurs simples ?
+					Ce parcours t’aide à passer un cap : organiser le code en modules, isoler les dépendances avec
+					<code>venv</code>, utiliser <code>pathlib</code>, découvrir la programmation orientée objet, tester tes fonctions
+					et manipuler du texte avec les expressions régulières.
+				</p>
+				<div class="hero-actions">
+					<Button href={withBase('/python-inter-modules-imports/')} variant="primary">
+						Commencer la leçon 1
+					</Button>
+					<Button href={withBase('/programmation/projet-python-intermediaire-agenda/')} variant="ghost">
+						Voir le projet Agenda
+					</Button>
+				</div>
+			</section>
+
+			<section class="intro-cards" aria-label="Ce que tu vas renforcer">
+				<div class="intro-card">
+					<h2>Structurer ton code</h2>
+					<p>
+						Apprends à séparer un programme en <a href={withBase('/python-inter-modules-imports/')}>modules et imports</a>, puis à garder des chemins fiables avec <a href={withBase('/python-inter-pathlib/')}>pathlib</a>.
+					</p>
+				</div>
+				<div class="intro-card">
+					<h2>Travailler proprement</h2>
+					<p>
+						Comprends les <a href={withBase('/python-inter-venv-pip/')}>environnements virtuels</a>, <code>pip</code> et les dépendances pour éviter les conflits entre projets.
+					</p>
+				</div>
+				<div class="intro-card">
+					<h2>Gagner en confiance</h2>
+					<p>
+						Utilise la <a href={withBase('/python-inter-poo-classes/')}>POO</a> quand elle aide, puis vérifie ton code avec les <a href={withBase('/python-inter-tests-qualite/')}>tests automatisés</a>.
+					</p>
+				</div>
+			</section>
+
+			<section class="prereq" aria-labelledby="prereq-title">
+				<h2 id="prereq-title">Avant de commencer</h2>
+				<p>
+					Idéalement, tu as déjà suivi le <a href={withBase('/programmation/python/')}>parcours Python débutant</a> ou tu sais écrire
+					des fonctions, manipuler des listes et lire un fichier texte. Si ce n’est pas encore fluide, revois d’abord
+					<a href={withBase('/python-fonctions/')}>les fonctions</a>, <a href={withBase('/python-listes-et-chaines/')}>les listes</a> et
+					<a href={withBase('/python-fichiers-texte/')}>les fichiers</a>.
+				</p>
+			</section>
+
+			<section class="learning-path" aria-labelledby="path-title">
+				<h2 id="path-title">Le parcours Python intermédiaire en 6 leçons</h2>
+				<p>
+					Suis les articles dans l’ordre si tu veux construire des bases solides. Chaque leçon propose des exemples, des conseils
+					de pratique et des exercices pour t’habituer à écrire du code plus clair.
+				</p>
+			</section>
 			<ol class="lesson-list">
 				{
 					posts.map((post) => (
@@ -67,17 +155,85 @@ const posts = all
 					))
 				}
 			</ol>
-			<p class="extra-series">
-				<strong>Projet guidé (intermédiaire)</strong> :{' '}
-				<a href={withBase('/programmation/projet-python-intermediaire-agenda')}>Agenda personnel en CLI</a> — six articles pour
-				mettre en pratique modules, pathlib, POO et tests. — <strong>Suite pédagogique</strong> :{' '}
-				<a href={withBase('/programmation/python-avance')}>Python avancé</a> (générateurs, décorateurs, asyncio, typage,
-				packaging). — Autres projets :{' '}
-				<a href={withBase('/programmation/bataille-navale')}>Bataille navale</a>,{' '}
-				<a href={withBase('/programmation/pendu')}>Le pendu</a>,{' '}
-				<a href={withBase('/programmation/puissance-4')}>Puissance 4</a>,{' '}
-				<a href={withBase('/programmation/carnet-todo')}>Carnet Todo + JSON</a>.
-			</p>
+
+			<section class="project-section" aria-labelledby="project-title">
+				<h2 id="project-title">Projet guidé : construire un agenda personnel en ligne de commande</h2>
+				<p>
+					Après les 6 leçons, applique ce que tu viens d’apprendre dans un vrai projet : un agenda personnel en CLI.
+					Tu y réutilises modules, <code>pathlib</code>, classes, tests et gestion de fichiers.
+				</p>
+				<div class="project-grid">
+					<a class="project-card" href={withBase('/programmation/projet-python-intermediaire-agenda/')}>
+						<strong>Agenda CLI — parcours complet</strong>
+						<span>Six articles pour passer d’un cahier des charges à une application structurée.</span>
+					</a>
+					<a class="project-card" href={withBase('/projet-inter-agenda-1-cahier-des-charges/')}>
+						<strong>Commencer le projet</strong>
+						<span>Définir les fonctionnalités, les données et les fichiers avant de coder.</span>
+					</a>
+				</div>
+			</section>
+
+			<section class="next-steps" aria-labelledby="next-title">
+				<h2 id="next-title">Continuer ensuite</h2>
+				<p>
+					Le niveau intermédiaire sert de pont : tu peux revenir vers des projets débutants pour les améliorer, ou continuer
+					vers des notions plus avancées quand ton code devient plus ambitieux.
+				</p>
+				<div class="next-grid">
+					<a href={withBase('/programmation/python-avance/')}>
+						<strong>Python avancé</strong>
+						<span>Générateurs, décorateurs, context managers, asyncio, typage et packaging.</span>
+					</a>
+					<a href={withBase('/programmation/projet-python-avance-journal/')}>
+						<strong>Projet Journal CLI</strong>
+						<span>Un projet avancé pour manipuler fichiers, parseurs, décorateurs et packaging.</span>
+					</a>
+					<a href={withBase('/programmation/carnet-todo/')}>
+						<strong>Améliorer un projet simple</strong>
+						<span>Reprends le carnet Todo et ajoute modules, classes ou tests.</span>
+					</a>
+				</div>
+			</section>
+
+			<section class="resources" aria-labelledby="resources-title">
+				<h2 id="resources-title">Ressources utiles pour pratiquer</h2>
+				<p>
+					Le parcours du site suffit pour apprendre. Si tu veux compléter avec des exercices papier, des livres de bonnes pratiques
+					ou un support pour atelier, ces recherches peuvent aider.
+				</p>
+				<div class="resource-actions">
+					<a
+						href={`https://www.amazon.fr/s?k=python+interm%C3%A9diaire+livre&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Livres Python intermédiaire</a>
+					<a
+						href={`https://www.amazon.fr/s?k=clean+code+python+livre&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Bonnes pratiques Python</a>
+					<a
+						href={`https://www.amazon.fr/s?k=pytest+python+livre&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Tests Python et pytest</a>
+				</div>
+			</section>
+
+			<section class="faq" aria-labelledby="faq-title">
+				<h2 id="faq-title">Questions fréquentes</h2>
+				<ul>
+					{
+						faqItems.map((item) => (
+							<li>
+								<details>
+									<summary>{item.question}</summary>
+									<p>{item.answer}</p>
+								</details>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 				{' · '}
@@ -92,16 +248,20 @@ const posts = all
 
 <style>
 	.py-series {
-		width: min(720px, calc(100% - 2rem));
+		width: min(980px, calc(100% - 2rem));
 		margin: 0 auto;
 		padding: 2rem 0 3rem;
 	}
 	.track-hero {
 		width: 100%;
 		height: auto;
-		border-radius: 12px;
+		max-height: 250px;
+		object-fit: cover;
+		display: block;
+		border-radius: 14px;
 		margin-bottom: 1.25rem;
 		border: 1px solid var(--surface-border);
+		background: var(--surface-2);
 	}
 	.breadcrumb {
 		font-size: 0.88rem;
@@ -114,31 +274,99 @@ const posts = all
 		text-decoration: none;
 	}
 	.py-series h1 {
-		font-size: clamp(1.65rem, 3vw, 2rem);
+		font-size: clamp(1.85rem, 4vw, 2.7rem);
 		margin: 0 0 0.75rem;
 		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+		line-height: 1.12;
+	}
+	.hero-block {
+		margin-bottom: 1.5rem;
+	}
+	.kicker {
+		margin: 0 0 0.5rem;
+		font-size: 0.82rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+		font-weight: 700;
 	}
 	.lead {
 		margin: 0 0 1rem;
-		line-height: 1.6;
+		line-height: 1.7;
+		font-size: 1.06rem;
 		color: rgb(var(--gray-dark));
+		max-width: 800px;
 	}
 	.lead a {
 		color: var(--accent);
 		font-weight: 600;
 	}
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+	.intro-cards,
+	.project-grid,
+	.next-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 1.35rem 0 1.75rem;
+	}
+	.intro-card,
+	.project-card,
+	.next-grid a {
+		padding: 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+	}
+	.intro-card h2,
+	.prereq h2,
+	.learning-path h2,
+	.project-section h2,
+	.next-steps h2,
+	.resources h2,
+	.faq h2 {
+		margin: 0 0 0.6rem;
+		font-size: 1.35rem;
+		color: rgb(var(--gray-dark));
+	}
+	.intro-card p,
+	.prereq p,
+	.learning-path p,
+	.project-section p,
+	.next-steps p,
+	.resources p {
+		margin: 0;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.intro-card a,
+	.prereq a,
+	.learning-path a,
+	.project-section a,
+	.next-steps a,
+	.resources a {
+		color: var(--accent);
+		font-weight: 700;
+	}
 	.prereq {
-		margin: 0 0 1.75rem;
-		padding: 0.85rem 1rem;
+		margin: 1.5rem 0 1.75rem;
+		padding: 1rem;
 		border-radius: 10px;
 		border: 1px dashed color-mix(in oklab, var(--accent) 35%, var(--surface-border));
 		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
-		font-size: 0.92rem;
-		line-height: 1.5;
-		color: rgb(var(--gray-dark));
+	}
+	.learning-path {
+		margin-top: 1.75rem;
 	}
 	.lesson-list {
-		margin: 0;
+		margin: 1.1rem 0 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -192,19 +420,84 @@ const posts = all
 		color: rgb(var(--gray));
 		line-height: 1.45;
 	}
-	.extra-series {
-		margin: 1.5rem 0 0;
-		padding: 0.85rem 1rem;
-		border-radius: 10px;
-		border: 1px solid var(--surface-border);
-		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
-		font-size: 0.92rem;
+	.project-section,
+	.next-steps,
+	.resources,
+	.faq {
+		margin-top: 2.2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--surface-border);
+	}
+	.project-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.project-card,
+	.next-grid a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+	}
+	.project-card:hover,
+	.next-grid a:hover {
+		border-color: color-mix(in oklab, var(--accent) 42%, transparent);
+		transform: translateY(-2px);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.project-card strong,
+	.next-grid strong {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.project-card span,
+	.next-grid span {
 		line-height: 1.5;
 		color: rgb(var(--gray-dark));
 	}
-	.extra-series a {
-		color: var(--accent);
+	.resource-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+	.resource-actions a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.55rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+		background: color-mix(in oklab, var(--accent) 10%, var(--surface));
+		text-decoration: none;
+	}
+	.faq ul {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	.faq details {
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		background: var(--surface);
+		overflow: hidden;
+	}
+	.faq summary {
+		cursor: pointer;
+		padding: 0.85rem 1rem;
 		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.faq details[open] summary {
+		border-bottom: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.faq details p {
+		margin: 0;
+		padding: 0.9rem 1rem 1rem;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
 	}
 	.back {
 		margin-top: 1.5rem;
@@ -213,5 +506,15 @@ const posts = all
 	.back a {
 		color: var(--accent);
 		font-weight: 600;
+	}
+	@media (max-width: 760px) {
+		.intro-cards,
+		.project-grid,
+		.next-grid {
+			grid-template-columns: 1fr;
+		}
+		.lesson-list a {
+			gap: 0.75rem;
+		}
 	}
 </style>

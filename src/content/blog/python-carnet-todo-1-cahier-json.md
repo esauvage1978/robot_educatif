@@ -1,13 +1,16 @@
 ---
-title: "Carnet Todo en Python (1/6) — cahier des charges et JSON"
-headline: "Carnet Todo en Python (1/6) — cahier des charges et JSON"
-description: "Pourquoi JSON ; structure du fichier : liste de tâches avec id, titre, fait ; objectifs du menu en ligne de commande."
+title: "Carnet Todo Python (1/6) : cahier des charges et fichier JSON"
+headline: "Projet carnet Todo en Python — modèle de données et JSON"
+description: "Tutoriel projet python débutant : pourquoi JSON, structure tâches (id, titre, fait), menu CLI prévu. Base d’une application utile avec persistance."
 pubDate: 2026-03-29
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Carnet Todo
 seriesOrder: 1
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "JSON"]
 relatedLinks:
+  - title: "Sommaire — Carnet Todo"
+    href: "/programmation/carnet-todo/"
   - title: "Parcours Python"
     href: "/programmation/python/"
   - title: "Partie 2 — lire et écrire JSON"
@@ -17,8 +20,19 @@ categories:
   - "Programmation"
   - "Carnet Todo"
   - "Projet"
+faqSchema:
+  - question: "Qu’est-ce qu’un carnet Todo en Python ?"
+    answer: "Un programme en ligne de commande qui gère une liste de tâches avec identifiant, titre et statut fait ou non, sauvegardée dans un fichier JSON pour retrouver les données après fermeture du terminal."
+  - question: "Pourquoi utiliser JSON pour stocker les tâches ?"
+    answer: "Le JSON est textuel, lisible dans un éditeur, standard sur le web et les APIs, et lu nativement en Python avec le module json sans bibliothèque tierce."
+  - question: "Où trouver le sommaire de la série Carnet Todo ?"
+    answer: "Sur la page pilier Carnet Todo en Python du site robot-educatif.info, qui liste les six étapes avec liens vers chaque tutoriel."
 ---
-Un **carnet Todo** en console, c’est un programme qui **ajoute**, **liste**, **coche** et **supprime** des tâches, avec une **sauvegarde** sur disque pour ne rien perdre quand tu fermes le terminal. Le format **JSON** est lisible par un humain, standard, et supporté par Python avec le module intégré **`json`**.
+Tu cherches un **projet python fichier json** concret : pas seulement des exercices, mais un **outil** que tu pourrais encore utiliser dans six mois. Un **carnet Todo** en console **ajoute**, **liste**, **coche** et **supprime** des tâches, avec une **sauvegarde** sur disque. Le format **JSON** est lisible par un humain, standard, et Python le gère avec le module **`json`**.
+
+Pour aller plus loin en parallèle de cette série gratuite, les ouvrages sur [**Python et données**](https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=manuso06-21) complètent bien la pratique (partenaire).
+
+Retrouve le **fil rouge** sur la [page pilier Carnet Todo](/programmation/carnet-todo/) — tu y verras aussi le lien avec les autres **projets guidés** ([Puissance 4](/programmation/puissance-4/), [bataille navale](/programmation/bataille-navale/)).
 
 ## 1. Pourquoi JSON plutôt qu’un inventaire binaire ?
 
@@ -58,6 +72,10 @@ Tu pourras ajouter `date_creation` ou `priorite` dans une extension.
 - [Fichiers texte](/python-fichiers-texte/) (ouverture, UTF-8).
 - [Listes et dictionnaires](/python-listes-et-chaines/) — ici surtout des **dict** imbriqués.
 
+## Résultat attendu
+
+Tu as une **vision claire** du fichier `taches.json`, des **champs** de chaque tâche et du **menu** à coder dans les articles suivants. Tu peux expliquer à quelqu’un pourquoi **`prochain_id`** existe sans avoir encore écrit `json.dump`. La suite logique : [charger et enregistrer du JSON](/python-carnet-todo-2-lire-ecrire-json/).
+
 ## Exercices
 
 1. Écris à la main un fichier JSON minimal avec **deux** tâches et valide-le sur [jsonlint.com](https://jsonlint.com) (outil en ligne).
@@ -66,8 +84,10 @@ Tu pourras ajouter `date_creation` ou `priorite` dans une extension.
 
 ## Suite
 
-[Partie 2 — Charger et enregistrer le fichier avec le module json](/python-carnet-todo-2-lire-ecrire-json/).
+**Étape suivante :** [charger et enregistrer le fichier avec le module json](/python-carnet-todo-2-lire-ecrire-json/).  
+**Sommaire :** [Carnet Todo — page pilier](/programmation/carnet-todo/).
 
-## Amazon (partenaire)
+## Matériel recommandé (partenaire Amazon)
 
-- [Python et données](https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=manuso06-21)
+- [Python, données et JSON — livres](https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=manuso06-21)
+- [Projets pratiques Python](https://www.amazon.fr/s?k=python+projets+pratiques+livre&tag=manuso06-21)

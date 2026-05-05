@@ -6,159 +6,116 @@ import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import HomeShowcase from '../components/HomeShowcase.astro';
 import Sidebar from '../components/Sidebar.astro';
-import { SITE_TITLE } from '../consts';
+import { AMAZON_AFFILIATE_TAG, SITE_TITLE } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
 
+const amazonTag = AMAZON_AFFILIATE_TAG;
+
 const allPosts = await getCollection('blog');
-const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 5);
-const topCategories = topCategoriesByCount(allPosts, 15);
+const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 6);
+const topCategories = topCategoriesByCount(allPosts, 18);
 
-/** Meta accueil : couvre les intentions Search Console (mBlock, mBot, robot éducatif) sans keyword stuffing. */
+/** Page d’accueil orientée apprentissage : Python débutant, projets et robotique éducative. */
+const HOME_TITLE = `${SITE_TITLE} — Apprendre Python, projets faciles et robots éducatifs`;
 const HOME_DESCRIPTION =
-	'Robot éducatif et robot pédagogique : guides pour télécharger mBlock 5 (Windows, gratuit), installer le logiciel, programmer le mBot (mBot vs mBot 2), premiers programmes et activités — au collège, au lycée ou à la maison.';
+	'Apprendre Python débutant, réaliser des projets Python faciles et choisir un robot éducatif enfant : parcours guidés, Scratch, mBlock, jeux Python, kits STEM, livres et comparatifs pour apprendre à coder.';
 
-/** FAQ visible + JSON-LD (questions formulées comme des recherches réelles). */
+const popularProjects = [
+	{
+		href: '/programmation/puissance-4/',
+		title: 'Puissance 4 en Python',
+		blurb:
+			'Projet Python facile pour débutant : un vrai jeu console qui fait pratiquer listes, boucles et conditions.',
+	},
+	{
+		href: '/programmation/carnet-todo/',
+		title: 'Carnet Todo en Python',
+		blurb:
+			'Application Python débutant avec JSON : apprendre à sauvegarder des données dans un outil utile.',
+	},
+	{
+		href: '/python-variables-affichage/',
+		title: 'Variables Python',
+		blurb: 'Base incontournable pour apprendre Python rapidement : stocker une valeur, afficher et comprendre.',
+	},
+	{
+		href: '/python-boucles-for-while/',
+		title: 'Boucles Python',
+		blurb: 'Répéter des actions sans copier-coller : indispensable pour tout projet Python facile.',
+	},
+	{
+		href: '/python-fonctions/',
+		title: 'Fonctions Python',
+		blurb: 'Découper un programme en blocs clairs avant d’enchaîner jeux Python et mini applications.',
+	},
+] as const;
+
+const affiliateTools = [
+	{
+		title: 'Robots éducatifs débutants',
+		blurb:
+			'Robot éducatif enfant pour démarrer sans surcharge : blocs visuels, premiers scripts et retour immédiat quand le robot bouge.',
+		usage: 'Maison ou classe : défis de déplacement, capteurs, sons, lumières et logique conditionnelle.',
+		proof: 'Valeur pédagogique : l’enfant voit tout de suite l’effet du code, ce qui renforce l’attention et la mémorisation.',
+		hrefAmazon: `https://www.amazon.fr/s?k=robot+%C3%A9ducatif+d%C3%A9butant+programmable&tag=${amazonTag}`,
+		hrefGuide: '/quel-robot-educatif-choisir-2026/',
+	},
+	{
+		title: 'Kits programmation et STEM',
+		blurb:
+			'Kits de programmation pour relier code, électronique et expérimentation : parfait après Scratch ou les bases Python.',
+		usage: 'Ateliers, clubs, séances longues : capteurs, moteurs, montage, logique et résolution de problèmes.',
+		proof: 'Valeur pédagogique : un kit STEM transforme une notion abstraite en manipulation concrète.',
+		hrefAmazon: `https://www.amazon.fr/s?k=kit+STEM+robotique+programmation+enfant&tag=${amazonTag}`,
+		hrefGuide: '/robot-educatif-pas-cher-compromis/',
+	},
+	{
+		title: 'Livres Python débutant',
+		blurb:
+			'Livres et cahiers de projets pour consolider Python débutant hors écran, avec exercices, corrigés et projets progressifs.',
+		usage: 'Autodidactes, parents et enseignants : révisions, exercices guidés, supports papier pour accompagner les tutoriels du site.',
+		proof: 'Valeur pédagogique : l’alternance lecture, code et projet améliore la rétention sur les notions clés.',
+		hrefAmazon: `https://www.amazon.fr/s?k=livre+python+d%C3%A9butant+projets&tag=${amazonTag}`,
+		hrefGuide: '/programmation/python/',
+	},
+] as const;
+
+/** FAQ visible + JSON-LD — questions à fort volume de recherche. */
 const FAQ_ITEMS: { q: string; aHtml: string; aPlain: string }[] = [
 	{
-		q: 'À quoi sert ce site « ROBOT éducatif » ?',
-		aHtml:
-			'Ce site rassemble des <strong>guides pratiques</strong> pour passer de la recherche (« robot éducatif », « mblock 5 télécharger », « mbot programmation »…) à des <strong>étapes concrètes</strong> : installer mBlock sur PC, choisir entre robots pédagogiques (mBot, mBot 2, Tale-Bot…), comprendre les capteurs et lire ou corriger un premier programme.',
+		q: 'Comment apprendre Python rapidement ?',
+		aHtml: `Commence par un parcours court et progressif : <a href="${withBase('/python-variables-affichage/')}">variables Python</a>, <a href="${withBase('/python-conditions-if-else/')}">conditions</a>, <a href="${withBase('/python-boucles-for-while/')}">boucles</a>, puis <a href="${withBase('/python-fonctions/')}">fonctions</a>. Ensuite, passe à un <strong>projet Python facile</strong> comme le <a href="${withBase('/programmation/puissance-4/')}">Puissance 4</a> ou le <a href="${withBase('/programmation/carnet-todo/')}">carnet Todo</a>.`,
 		aPlain:
-			"Ce site propose des guides pour installer mBlock, choisir un robot éducatif comme le mBot, démarrer la programmation et comprendre les capteurs, avec un ton pratique pour la classe ou la maison.",
+			'Commencez par variables, conditions, boucles et fonctions, puis passez à un projet Python facile comme le Puissance 4 ou le carnet Todo. La progression par projet accélère la compréhension.',
 	},
 	{
-		q: 'Où télécharger mBlock 5 sur Windows, gratuitement ?',
-		aHtml:
-			'La distribution officielle est celle de <strong>Makeblock</strong> (mBlock 5, parfois noté mblock5, m block 5 ou mblock v5). Sur ce site : guide pas à pas pour <a href="' +
-			withBase('/installer-mblock-5-sous-windows-10/') +
-			'">télécharger mBlock 5 pour Windows</a> (installateur, versions récentes type 5.4.x, dépannage). « Gratuit » signifie en général <strong>sans achat du logiciel</strong> ; un compte peut être utile pour certaines fonctions.',
+		q: 'Quel robot éducatif choisir pour débuter ?',
+		aHtml: `Pour débuter, privilégie un <strong>robot éducatif enfant</strong> simple, robuste et bien documenté : programmation par blocs, activités guidées, capteurs faciles à comprendre. Lis le <a href="${withBase('/quel-robot-educatif-choisir-2026/')}">guide de choix 2026</a>, compare les modèles comme <a href="${withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}">mBot vs mBot 2</a> et vérifie les guides par âge (<a href="${withBase('/quel-robot-acheter-enfant-8-ans-guide-achat/')}">8 ans</a>, <a href="${withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')}">10 ans</a>).`,
 		aPlain:
-			"Téléchargez mBlock 5 depuis la page officielle Makeblock. Le site propose un guide pour Windows (téléchargement, installation, versions 5.4.x). Le logiciel est en usage gratuit courant ; un compte peut être requis pour certaines options.",
+			'Choisissez un robot simple, robuste et documenté, avec programmation par blocs et activités guidées. Les guides par âge et les comparatifs du site aident à faire le bon choix.',
 	},
 	{
-		q: 'Comment installer mBlock sur mon PC (installer mblock, mblock installer) ?',
-		aHtml:
-			'Après le téléchargement, lancez l’installateur, acceptez les options matérielles si demandé, puis ouvrez mBlock. Détails et erreurs fréquentes : <a href="' +
-			withBase('/installer-mblock-5-sous-windows-10/') +
-			'">installer mBlock 5 sous Windows</a> et <a href="' +
-			withBase('/premier-pas-avec-mblock-5/') +
-			'">premiers pas avec mBlock 5</a>.',
+		q: 'Python est-il adapté aux enfants ?',
+		aHtml: `Oui, surtout après une première approche visuelle avec <a href="${withBase('/scratch-ecole-maison-par-ou-commencer/')}">Scratch</a> ou <a href="${withBase('/premier-pas-avec-mblock-5/')}">mBlock</a>. Python devient accessible quand il est présenté par petites étapes : <a href="${withBase('/programmation/python/')}">parcours Python débutant</a>, mini-jeux, puis <a href="${withBase('/programmation/puissance-4/')}">projets concrets</a>.`,
 		aPlain:
-			"Après téléchargement, exécutez l’installateur Windows puis ouvrez mBlock. Des articles détaillent l’installation et les premiers pas.",
+			'Python est adapté aux enfants avec un accompagnement progressif, surtout après Scratch ou mBlock. Les projets courts et les jeux rendent la syntaxe plus concrète.',
 	},
 	{
-		q: 'mBlock 5 en ligne, version web ou PC : quelle différence ?',
-		aHtml:
-			'Il existe une <strong>application mBlock 5</strong> installée sur l’ordinateur et une <strong>version navigateur</strong> (mblock en ligne / mblock 5 web). Leurs fonctions se chevauchent mais ne sont pas toujours identiques (connexion Bluetooth/USB, extensions, matériel). Voir : <a href="' +
-			withBase('/premier-pas-avec-mblock-5/') +
-			'">mBlock 5 web vs application</a> et <a href="' +
-			withBase('/logiciel-mblock-makeblock-mbot-quel-choisir/') +
-			'">quel logiciel Makeblock choisir</a>.',
+		q: 'Par quoi commencer en programmation ?',
+		aHtml: `Commence par comprendre les <strong>variables</strong>, les <strong>conditions</strong> et les <strong>boucles</strong>. Si l’enfant est jeune, Scratch ou un <a href="${withBase('/categorie/robot-educatif/')}">robot éducatif</a> rend la logique visible. Si l’objectif est de taper du code, le <a href="${withBase('/programmation/python/')}">parcours Python</a> donne une progression claire.`,
 		aPlain:
-			"mBlock existe en application desktop et en version en ligne ; les possibilités (USB, Bluetooth, matériel) peuvent varier. Des articles du site comparent ces usages.",
+			'Commencez par variables, conditions et boucles. Pour les enfants, Scratch ou un robot éducatif rend la logique visible ; pour le code texte, commencez par Python débutant.',
 	},
 	{
-		q: 'Qu’est-ce que mBlock Planet ou mBlock « Panda » ?',
-		aHtml:
-			'<strong>mBlock Planet</strong> désigne l’écosystème / plateforme autour de mBlock (évolutions selon les années et régions). Une recherche « mblock panda » pointe souvent vers l’<strong>interface</strong> ou une variante de branding, pas un autre Minecraft. Pour s’y retrouver : <a href="' +
-			withBase('/logiciel-mblock-makeblock-mbot-quel-choisir/') +
-			'">logiciel mBlock et mBot : quel choisir</a>.',
+		q: 'Quels projets Python pour débutants ?',
+		aHtml: `Les meilleurs projets Python pour débutants sont visibles, courts et progressifs : <a href="${withBase('/programmation/puissance-4/')}">Puissance 4 en Python</a>, <a href="${withBase('/programmation/carnet-todo/')}">carnet Todo JSON</a>, <a href="${withBase('/programmation/pendu/')}">jeu du pendu</a>, <a href="${withBase('/programmation/bataille-navale/')}">bataille navale</a> et <a href="${withBase('/python-mini-jeu-terminal/')}">mini-jeux au terminal</a>.`,
 		aPlain:
-			"mBlock Planet est lié à l'écosystème Makeblock/mBlock. mBlock Panda renvoie souvent à l'interface ou au branding officiel, pas à Minecraft.",
-	},
-	{
-		q: 'mBlock et Minecraft : c’est le même logiciel ?',
-		aHtml:
-			'Non. <strong>Minecraft</strong> est un jeu ; <strong>mBlock</strong> est l’environnement de programmation type Scratch pour robots Makeblock. Si vous cherchiez « minecraft mblock », vous êtes probablement sur la bonne page uniquement pour la partie <strong>robotique / mBot</strong> — pas pour le jeu.',
-		aPlain:
-			"Non : Minecraft est un jeu, mBlock est le logiciel de programmation pour robots Makeblock (mBot, etc.).",
-	},
-	{
-		q: 'Où trouver le logo mBlock ou des images officielles (logo mblock, image mblock) ?',
-		aHtml:
-			'Les visuels officiels (logo, captures) relèvent de <strong>Makeblock</strong> et de leur site de téléchargement ou de communication. Ce site indépendant n’est pas l’éditeur de mBlock ; il oriente vers les <a href="' +
-			withBase('/installer-mblock-5-sous-windows-10/') +
-			'">sources utiles</a> pour installer et utiliser le logiciel.',
-		aPlain:
-			"Les logos et images officiels mBlock sont publiés par Makeblock. Ce site est un guide tiers qui renvoie vers les ressources d'installation.",
-	},
-	{
-		q: 'Qu’est-ce qu’un robot éducatif, robot pédagogique ou cobot « éducatif » ?',
-		aHtml:
-			'On parle de <strong>robot éducatif</strong> ou <strong>robot pédagogique</strong> pour du matériel pensé pour <strong>apprendre la programmation, la robotique ou la logique</strong> (souvent en STEM), pas pour la production industrielle — même si le mot « cobot » apparaît parfois dans les recherches. Pistes de choix : <a href="' +
-			withBase('/robot-educatif-pas-cher-compromis/') +
-			'">robot éducatif : compromis et critères</a>.',
-		aPlain:
-			"Un robot éducatif sert à apprendre la programmation et la robotique en contexte pédagogique. Le site propose des critères pour choisir un modèle adapté.",
-	},
-	{
-		q: 'Comment choisir un robot éducatif (âge, budget, objectif) ?',
-		aHtml:
-			'Retenez : <strong>tranche d’âge</strong>, <strong>budget</strong>, <strong>plug-and-play vs montage</strong>, <strong>langage</strong> (blocs, Python…), et <strong>communauté / ressources</strong>. Articles : <a href="' +
-			withBase('/robot-educatif-pas-cher-compromis/') +
-			'">comment choisir un robot éducatif</a>, comparatifs mBot sur le blog.',
-		aPlain:
-			"Pour choisir : âge, budget, facilité de prise en main, type de programmation et ressources disponibles. Le site propose un guide de compromis et des comparatifs.",
-	},
-	{
-		q: 'Qu’est-ce que le robot mBot et comment fonctionne-t-il ?',
-		aHtml:
-			'Le <strong>mBot</strong> (recherches : robot mbot, mbot robot, mbot png…) est un <strong>robot Makeblock</strong> programmable en blocs (mBlock) puis en texte pour aller plus loin. Il se déplace, lit des <strong>capteurs</strong> (ultrason, ligne…) et actionne moteurs ou LEDs. Introduction : <a href="' +
-			withBase('/mbot-mon-premier-robot-educatif/') +
-			'">mBot, premier robot éducatif</a>.',
-		aPlain:
-			"Le mBot est un robot Makeblock programmable avec mBlock ; il utilise des capteurs et des moteurs pour des activités pédagogiques.",
-	},
-	{
-		q: 'mBot vs mBot 2 : que choisir ?',
-		aHtml:
-			'Les deux sont des robots Makeblock pour l’école et la maison, avec des différences de carte, capteurs et logiciels possibles. Comparaison : <a href="' +
-			withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/') +
-			'">mBot vs mBot 2</a>.',
-		aPlain:
-			"mBot et mBot 2 diffèrent notamment par la carte et les fonctionnalités ; une page du site les compare pour aider au choix.",
-	},
-	{
-		q: 'Programme mBot, programme mBlock : où commencer, y compris un « programme corrigé » ?',
-		aHtml:
-			'Un programme se sauvegarde souvent en <strong>.mblock</strong> dans l’appli. Pour un <strong>premier téléversement</strong> et des vérifications (câble, mode, pilotes) : <a href="' +
-			withBase('/mon-premier-programme-mbot/') +
-			'">mon premier programme mBot</a>. S’il « ne marche pas », ce n’est pas qu’une histoire de « corrigé » : revoir l’ordre des blocs, la connexion et les messages du logiciel — voir aussi <a href="' +
-			withBase('/mbot-mon-premier-robot-educatif/') +
-			'">programme mBot : dépannage</a> dans la FAQ de l’article.',
-		aPlain:
-			"Commencez par le tutoriel premier programme mBot ; les fichiers sont souvent en .mblock. En cas d'échec, vérifier connexion, mode et logique du programme plutôt que chercher uniquement un corrigé.",
-	},
-	{
-		q: 'Capteur mBot (ultrason, etc.) : par où commencer ?',
-		aHtml:
-			'Série progressive sur le <strong>capteur à ultrasons</strong> avec mBot : mesure de distance, radar de recul, cadence, obstacle. Première partie : <a href="' +
-			withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/') +
-			'">série capteur ultrason mBot (1)</a>.',
-		aPlain:
-			"Le site propose une série d'articles sur le capteur ultrason du mBot, de la mesure de distance à l'évitement d'obstacle.",
-	},
-	{
-		q: '« Robot tale bot », Tale-Bot Pro : de quoi s’agit-il ?',
-		aHtml:
-			'Il s’agit souvent des robots <strong>Matatalab</strong> (Tale-Bot, Tale-Bot Pro), orientés <strong>jeunes enfants</strong> et déplacements ou activités sans écran selon les modèles. Présentation et FAQ : <a href="' +
-			withBase('/le-robot-tale-bot-de-chez-matatalab-questions-reponses/') +
-			'">robot Tale-Bot Matatalab</a>.',
-		aPlain:
-			"Les recherches tale bot ou tale bot pro pointent souvent vers les robots éducatifs Matatalab Tale-Bot, présentés dans un article dédié.",
-	},
-	{
-		q: 'J’ai tapé mbloc, mblok, mabuot, m bots ou m block : c’est quoi au juste ?',
-		aHtml:
-			'Souvent vous cherchez <strong>mBlock</strong> (logiciel) ou <strong>mBot</strong> (robot). Les requêtes <strong>m bots</strong> ou <strong>m block</strong> sont des variantes courantes — les guides mBlock 5 et mBot sur ce site utilisent l’orthographe officielle pour vous retrouver dans les tutoriels.',
-		aPlain:
-			"Ces fautes de frappe renvoient généralement à mBlock (logiciel Makeblock) ou au robot mBot. Les articles utilisent les noms officiels.",
+			'Les bons projets Python pour débutants sont le Puissance 4, le carnet Todo, le pendu, la bataille navale et les mini-jeux au terminal, car ils sont progressifs et concrets.',
 	},
 ];
 
@@ -176,14 +133,14 @@ const faqJsonLd = {
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home.webp')} />
+		<BaseHead title={HOME_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home.webp')} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 		<style>
 			.hero-home {
 				position: relative;
 				width: 100vw;
 				margin: 0 calc(50% - 50vw) 2rem calc(50% - 50vw);
-				min-height: clamp(440px, 56vh, 620px);
+				min-height: clamp(420px, 52vh, 600px);
 				display: flex;
 				align-items: flex-end;
 				background-color: #060a10;
@@ -204,19 +161,19 @@ const faqJsonLd = {
 				z-index: 1;
 				pointer-events: none;
 				background-image:
-					linear-gradient(180deg, rgba(6, 10, 16, 0.45) 0%, rgba(6, 10, 16, 0.82) 100%),
-					linear-gradient(90deg, rgba(6, 10, 16, 0.88) 0%, rgba(6, 10, 16, 0.55) 45%, rgba(6, 10, 16, 0.35) 100%);
+					linear-gradient(180deg, rgba(6, 10, 16, 0.45) 0%, rgba(6, 10, 16, 0.84) 100%),
+					linear-gradient(90deg, rgba(6, 10, 16, 0.9) 0%, rgba(6, 10, 16, 0.55) 50%, rgba(6, 10, 16, 0.38) 100%);
 			}
 			.hero-home-inner {
 				position: relative;
 				z-index: 2;
 				width: min(1140px, calc(100% - 2.5rem));
 				margin: 0 auto;
-				padding: 2.75rem 0 3rem 0;
+				padding: 2.5rem 0 2.75rem 0;
 			}
 			.hero-home .hero-kicker {
 				display: inline-block;
-				margin: 0 0 0.85rem 0;
+				margin: 0 0 0.75rem 0;
 				font-size: 0.82rem;
 				font-weight: 600;
 				font-family: var(--font-body, system-ui);
@@ -227,18 +184,23 @@ const faqJsonLd = {
 			.hero-home h1 {
 				margin: 0 0 1rem 0;
 				color: #fff;
-				max-width: 20ch;
-				font-size: clamp(2.1rem, 4.2vw, 3.35rem);
-				line-height: 1.12;
+				max-width: 26ch;
+				font-size: clamp(1.65rem, 3.5vw, 2.65rem);
+				line-height: 1.14;
 				font-weight: 700;
 				text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 			}
+			@media (min-width: 900px) {
+				.hero-home h1 {
+					max-width: 38ch;
+				}
+			}
 			.hero-home .hero-lead {
 				margin: 0 0 1.35rem 0;
-				max-width: 38rem;
+				max-width: 40rem;
 				color: rgba(255, 255, 255, 0.92);
-				font-size: clamp(1.05rem, 1.35vw, 1.2rem);
-				line-height: 1.6;
+				font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+				line-height: 1.58;
 				font-family: var(--font-body, system-ui);
 			}
 			.hero-actions {
@@ -258,20 +220,235 @@ const faqJsonLd = {
 			.main-column {
 				min-width: 0;
 			}
-			.intro-block {
-				padding-bottom: 0.5rem;
-				border-bottom: 1px solid var(--surface-border);
-				margin-bottom: 1.75rem;
+			.home-section {
+				margin-bottom: 2rem;
 			}
-			.intro-block .lead {
-				font-size: 1.125rem;
+			.home-section h2 {
+				font-size: clamp(1.35rem, 2.4vw, 1.55rem);
+				margin: 0 0 0.65rem 0;
 				color: rgb(var(--gray-dark));
-				max-width: var(--prose-width, 42rem);
-				line-height: 1.75;
-				margin-bottom: 0.85rem;
+				line-height: 1.25;
+			}
+			.home-section .home-section-lead {
+				margin: 0 0 1.15rem 0;
+				font-size: 1.02rem;
+				line-height: 1.65;
+				color: rgb(var(--gray-dark));
+				max-width: 48rem;
+			}
+			.home-section .home-section-lead a {
+				color: var(--accent);
+				font-weight: 600;
+			}
+			.home-pillar-grid {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1rem;
+			}
+			.home-pillar-card {
+				padding: 1.15rem 1.15rem 1.25rem;
+				background: var(--surface-2);
+				border: 1px solid var(--surface-border);
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.home-pillar-card h3 {
+				margin: 0 0 0.55rem 0;
+				font-size: 1.08rem;
+				display: flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+			.home-pillar-card p {
+				margin: 0 0 0.65rem 0;
+				font-size: 0.94rem;
+				line-height: 1.55;
+				color: rgb(var(--gray-dark));
+			}
+			.home-pillar-card ul {
+				margin: 0;
+				padding: 0 0 0 1.15rem;
+				font-size: 0.92rem;
+				line-height: 1.55;
+			}
+			.home-pillar-card li {
+				margin-bottom: 0.35rem;
+			}
+			.home-pillar-card a {
+				color: var(--accent);
+				font-weight: 600;
+				text-decoration: underline;
+				text-underline-offset: 2px;
+			}
+			.home-pillar-more {
+				margin-top: 0.75rem;
+				font-size: 0.9rem;
+				font-weight: 600;
+			}
+			.home-cta-strip {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 1rem 1.15rem;
+				margin: 1.5rem 0;
+				border-radius: 12px;
+				border: 1px solid color-mix(in oklab, var(--accent) 28%, var(--surface-border));
+				background: color-mix(in oklab, var(--accent) 9%, var(--surface-2));
+			}
+			.home-cta-strip p {
+				margin: 0;
+				flex: 1;
+				min-width: 200px;
+				font-size: 0.98rem;
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
+			}
+			.home-cta-strip .home-cta-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+			}
+			.home-pop-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+				gap: 1.25rem;
+				align-items: stretch;
+			}
+			.home-pop-card {
+				display: grid;
+				grid-template-rows: auto 1fr auto;
+				box-sizing: border-box;
+				min-height: 250px;
+				padding: 1.1rem 1.15rem;
+				border-radius: 12px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface);
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+				transition:
+					transform 0.15s ease,
+					border-color 0.15s ease,
+					box-shadow 0.15s ease;
+			}
+			.home-pop-card:hover {
+				border-color: color-mix(in oklab, var(--accent) 45%, var(--surface-border));
+				box-shadow: var(--box-shadow);
+				transform: translateY(-2px);
+			}
+			.home-pop-card h3 {
+				margin: 0 0 0.45rem 0;
+				font-size: 1.05rem;
+				line-height: 1.25;
+				color: var(--accent-dark);
+			}
+			.home-pop-card p {
+				margin: 0 0 1rem 0;
+				font-size: 0.92rem;
+				line-height: 1.55;
+				color: rgb(var(--gray-dark));
+			}
+			.home-pop-card :global(.ui-btn) {
+				align-self: flex-start;
+			}
+			.home-steps {
+				display: grid;
+				gap: 0.65rem;
+				counter-reset: step;
+				max-width: 44rem;
+			}
+			.home-step {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 0.85rem 1rem;
+				align-items: start;
+				padding: 0.85rem 1rem;
+				border-radius: 10px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface-2);
+			}
+			.home-step::before {
+				counter-increment: step;
+				content: counter(step);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 2rem;
+				height: 2rem;
+				border-radius: 999px;
+				font-weight: 800;
+				font-size: 0.95rem;
+				background: color-mix(in oklab, var(--accent) 22%, var(--surface));
+				color: var(--accent-dark);
+			}
+			.home-step h3 {
+				margin: 0 0 0.25rem 0;
+				font-size: 1rem;
+			}
+			.home-step p {
+				margin: 0;
+				font-size: 0.92rem;
+				line-height: 1.55;
+				color: rgb(var(--gray-dark));
+			}
+			.home-step p a {
+				font-weight: 700;
+				color: var(--accent);
+			}
+			.home-affiliate-grid {
+				display: grid;
+				gap: 1rem;
+			}
+			.home-affiliate-card {
+				padding: 1.15rem 1.2rem;
+				border-radius: 12px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface);
+			}
+			.home-affiliate-card h3 {
+				margin: 0 0 0.45rem 0;
+				font-size: 1.08rem;
+			}
+			.home-affiliate-card .aff-meta {
+				font-size: 0.92rem;
+				line-height: 1.55;
+				color: rgb(var(--gray-dark));
+				margin-bottom: 0.5rem;
+			}
+			.home-affiliate-card .aff-usage {
+				font-size: 0.88rem;
+				color: rgb(var(--gray));
+				margin-bottom: 1rem;
+				font-style: italic;
+			}
+			.home-affiliate-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+				align-items: center;
+			}
+			.home-why {
+				padding: 1.25rem 1.35rem;
+				border-radius: 12px;
+				background: color-mix(in oklab, var(--accent-warm) 8%, var(--surface-2));
+				border: 1px solid var(--surface-border);
+			}
+			.home-why .home-section-lead {
+				margin-bottom: 0.5rem;
+			}
+			.home-why ul {
+				margin: 0.5rem 0 0;
+				padding-left: 1.25rem;
+				line-height: 1.65;
+				font-size: 0.98rem;
+				color: rgb(var(--gray-dark));
+			}
+			.home-why a {
+				color: var(--accent);
+				font-weight: 600;
 			}
 			.latest-posts {
-				margin-top: 2.25rem;
+				margin-top: 0;
 				padding: 1.5rem 1.35rem;
 				background: var(--surface-2);
 				border: 1px solid var(--surface-border);
@@ -279,8 +456,18 @@ const faqJsonLd = {
 				box-shadow: var(--box-shadow);
 			}
 			.latest-posts h2 {
-				margin-bottom: 1rem;
+				margin-bottom: 0.5rem;
 				font-size: 1.5rem;
+			}
+			.latest-posts .latest-intro {
+				margin: 0 0 1rem 0;
+				font-size: 0.95rem;
+				line-height: 1.55;
+				color: rgb(var(--gray-dark));
+			}
+			.latest-posts .latest-intro a {
+				color: var(--accent);
+				font-weight: 600;
 			}
 			.latest-posts ul {
 				list-style: none;
@@ -403,14 +590,18 @@ const faqJsonLd = {
 				color: var(--accent);
 				font-weight: 600;
 			}
+			@media (max-width: 960px) {
+				.home-pillar-grid {
+					grid-template-columns: 1fr;
+				}
+			}
 			@media (max-width: 720px) {
 				.hero-home {
-					min-height: 380px;
+					min-height: 360px;
 					margin-bottom: 1.35rem;
-					background-position: center center;
 				}
 				.hero-home-inner {
-					padding: 1.75rem 0 2rem 0;
+					padding: 1.65rem 0 2rem 0;
 				}
 				.page-layout {
 					grid-template-columns: 1fr;
@@ -419,13 +610,17 @@ const faqJsonLd = {
 					flex-direction: column;
 					gap: 0.4rem;
 				}
+				.home-cta-strip {
+					flex-direction: column;
+					align-items: stretch;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section class="hero-home" aria-label="Présentation">
+			<section class="hero-home" aria-label="Accueil">
 				<img
 					class="hero-home-bg"
 					src={withBase('/hero-home.webp')}
@@ -437,85 +632,295 @@ const faqJsonLd = {
 				/>
 				<div class="hero-home-overlay" aria-hidden="true"></div>
 				<div class="hero-home-inner">
-					<p class="hero-kicker">Robotique &amp; pédagogie</p>
-					<h1>Apprendre la robotique en s'amusant</h1>
+					<p class="hero-kicker">Python · Scratch · robots éducatifs</p>
+					<h1>
+						Apprendre la programmation et la robotique éducative facilement : Python, projets concrets et robots pour débutants
+					</h1>
 					<p class="hero-lead">
-						Guides détaillés, retours d’expérience et idées d’activités pour enseigner la programmation et la
-						robotique avec du matériel adapté aux collégiens, lycéens et autodidactes motivés.
+						Un parcours complet pour apprendre à coder étape par étape en réalisant des projets concrets et en utilisant des
+						robots éducatifs.
 					</p>
 					<div class="hero-actions">
-						<Button href={withBase('/blog/')} variant="primary" tone="inverse">
-							Articles à la une
+						<Button href={withBase('/programmation/python/')} variant="primary" tone="inverse">
+							Commencer par Python (gratuit)
 						</Button>
-						<Button
-							href={withBase('/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/')}
-							variant="secondary"
-							tone="inverse"
-						>
-							Focus mBot2
+						<Button href={withBase('/categorie/robot-educatif/')} variant="secondary" tone="inverse">
+							Découvrir les robots éducatifs recommandés
 						</Button>
 					</div>
 				</div>
 			</section>
+
 			<div class="page-layout">
 				<div class="main-column">
-					<div class="intro-block">
-						<p class="lead">
-							<strong>ROBOT éducatif</strong>, ce sont des guides pour comparer et choisir un robot pédagogique,
-							installer les logiciels (mBlock, Scratch…), puis lancer vos premières activités — en classe comme
-							à la maison — sans oublier ce que le matériel sait faire (ou pas) et des idées d’exercices à
-							reprendre telles quelles.
+					<section class="home-section" aria-labelledby="hub-piliers-title">
+						<h2 id="hub-piliers-title">Par où commencer pour apprendre à coder ?</h2>
+						<p class="home-section-lead">
+							Choisis le chemin qui correspond à ton objectif : apprendre les bases de Python, trouver un <strong>robot éducatif enfant</strong>
+							adapté, ou réaliser un <strong>projet Python facile</strong> pour passer rapidement à la pratique.
 						</p>
-						<p class="lead" style="margin-bottom: 0;">
-							On privilégie le concret : faits utiles, pas à pas et ressources directes, pour raccourcir le
-							trajet entre « quel robot pour mon groupe ou mon enfant ? » et « le programme tourne sur le
-							robot ».
-						</p>
+						<div class="home-pillar-grid">
+							<div class="home-pillar-card">
+								<h3>🧠 Apprendre Python</h3>
+								<p>
+									Débutant complet, variables, boucles, fonctions, fichiers et <strong>projets concrets</strong> : le chemin le plus direct pour{' '}
+									<strong>apprendre à coder</strong> sans rester bloqué sur la théorie.
+								</p>
+								<ul>
+									<li><a href={withBase('/programmation/python/')}>Parcours Python complet</a></li>
+									<li><a href={withBase('/programmation/puissance-4/')} title="Puissance 4 Python">Puissance 4</a> · <a href={withBase('/programmation/carnet-todo/')}>Carnet Todo</a> · <a href={withBase('/programmation/pendu/')}>Pendu</a></li>
+									<li><a href={withBase('/programmation/bataille-navale/')}>Bataille navale</a></li>
+									<li><a href={withBase('/python-variables-affichage/')}>Variables</a> · <a href={withBase('/python-boucles-for-while/')}>Boucles</a> · <a href={withBase('/python-fonctions/')}>Fonctions</a></li>
+								</ul>
+								<p class="home-pillar-more">
+									<a href={withBase('/categorie/python/')}>Tous les articles Python →</a>
+								</p>
+							</div>
+							<div class="home-pillar-card">
+								<h3>🤖 Choisir un robot éducatif</h3>
+								<p>
+									Robots pour enfants, robots programmables, kits STEM et apprentissage ludique : compare les options avant de choisir.
+								</p>
+								<ul>
+									<li><a href={withBase('/quel-robot-educatif-choisir-2026/')}>Guide quel robot en 2026</a></li>
+									<li><a href={withBase('/mbot-mon-premier-robot-educatif/')}>mBot : introduction</a></li>
+									<li><a href={withBase('/premier-pas-avec-mblock-5/')}>Premiers pas mBlock 5</a></li>
+									<li><a href={withBase('/mblock-vs-scratch-lequel-choisir/')} title="Scratch ou mBlock">mBlock vs Scratch</a></li>
+								</ul>
+								<p class="home-pillar-more">
+									<a href={withBase('/categorie/makeblock/')}>Catégorie Makeblock →</a>
+								</p>
+							</div>
+							<div class="home-pillar-card">
+								<h3>🎮 Réaliser des projets concrets</h3>
+								<p>
+									Jeux Python, exercices guidés, mini applications et projets progressifs : un moteur d’engagement pour apprendre plus longtemps.
+								</p>
+								<ul>
+									<li><a href={withBase('/programmation/puissance-4/')} title="projet Puissance 4">Puissance 4 (console)</a></li>
+									<li><a href={withBase('/programmation/carnet-todo/')}>Carnet Todo JSON</a></li>
+									<li><a href={withBase('/python-mini-jeu-terminal/')}>Mini-jeux au terminal</a></li>
+									<li><a href={withBase('/scratch-ecole-maison-par-ou-commencer/')}>Scratch : par où commencer</a></li>
+								</ul>
+								<p class="home-pillar-more">
+									<a href={withBase('/categorie/projet/')}>Catégorie Projets →</a>
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<div class="home-cta-strip" role="region" aria-label="Actions rapides">
+						<p>Prêt à ouvrir l’éditeur ? Le parcours gratuit relie les bases Python aux projets concrets.</p>
+						<div class="home-cta-actions">
+							<Button href={withBase('/programmation/python/')} variant="primary">Commencer par Python (gratuit)</Button>
+							<Button href={withBase('/blog/')} variant="ghost">Voir le blog</Button>
+						</div>
 					</div>
-					<section class="latest-posts">
-						<h2>Les 5 derniers articles</h2>
+
+					<section class="home-section" aria-labelledby="populaires-title">
+						<h2 id="populaires-title">Les contenus les plus populaires</h2>
+						<p class="home-section-lead">
+							Retrouve ici les leçons et projets les plus utiles pour progresser sans te disperser : <strong>projets Python faciles</strong>,
+							bases du langage et prochaines étapes.
+						</p>
+						<div class="home-pop-grid">
+							{
+								popularProjects.map((p) => (
+									<div class="home-pop-card">
+										<h3>{p.title}</h3>
+										<p>{p.blurb}</p>
+										<Button href={withBase(p.href)} variant="secondary" size="sm">
+											Voir le projet
+										</Button>
+									</div>
+								))
+							}
+						</div>
+					</section>
+
+					<div class="home-cta-strip" role="region" aria-label="Découverte robots">
+						<p>Besoin de matériel ? Compare les robots avant d’acheter.</p>
+						<div class="home-cta-actions">
+							<Button href={withBase('/quel-robot-educatif-choisir-2026/')} variant="primary">
+								Guide d’achat robots
+							</Button>
+							<Button href={withBase('/categorie/comparatif/')} variant="ghost">Comparatifs</Button>
+						</div>
+					</div>
+
+					<section class="home-section" aria-labelledby="etapes-python-title">
+						<h2 id="etapes-python-title">Parcours d’apprentissage : du premier script au robot programmable</h2>
+						<p class="home-section-lead">
+							Une progression logique en 4 étapes : bases Python, logique, projets, puis robotique. Chaque étape propose des liens internes et un objectif clair.
+						</p>
+						<div class="home-steps">
+							<div class="home-step">
+								<div>
+									<h3>Étape 1 : Bases Python</h3>
+									<p>
+										Commence par <a href={withBase('/python-variables-affichage/')}>variables Python</a>, affichage et{' '}
+										<a href={withBase('/python-conditions-if-else/')}>conditions if/else</a> pour poser les fondations.
+									</p>
+								</div>
+							</div>
+							<div class="home-step">
+								<div>
+									<h3>Étape 2 : Logique</h3>
+									<p>
+										Ajoute les <a href={withBase('/python-boucles-for-while/')}>boucles Python</a> et les{' '}
+										<a href={withBase('/python-fonctions/')}>fonctions</a> : c’est le socle de tous les jeux, menus et robots.
+									</p>
+								</div>
+							</div>
+							<div class="home-step">
+								<div>
+									<h3>Étape 3 : Projets</h3>
+									<p>
+										Passe à un <strong>projet Python facile</strong> : <a href={withBase('/programmation/puissance-4/')}>Puissance 4</a>,{' '}
+										<a href={withBase('/programmation/carnet-todo/')}>carnet Todo</a>, <a href={withBase('/programmation/pendu/')}>pendu</a> ou{' '}
+										<a href={withBase('/programmation/bataille-navale/')}>bataille navale</a>.
+									</p>
+								</div>
+							</div>
+							<div class="home-step">
+								<div>
+									<h3>Étape 4 : Robotique</h3>
+									<p>
+										Applique la logique sur un <a href={withBase('/categorie/robot-educatif/')}>robot éducatif</a> :{' '}
+										<a href={withBase('/premier-pas-avec-mblock-5/')}>mBlock</a>, <a href={withBase('/mbot-mon-premier-robot-educatif/')}>mBot</a>, capteurs et kits STEM.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<div class="home-cta-strip" role="region" aria-label="Vers Scratch">
+						<p>Tu préfères les blocs avant le texte ? Scratch et mBlock sont là aussi.</p>
+						<div class="home-cta-actions">
+							<Button href={withBase('/scratch-ecole-maison-par-ou-commencer/')} variant="primary">
+								Scratch : par où commencer
+							</Button>
+							<Button href={withBase('/programmation/python/')} variant="ghost">Passer à Python</Button>
+						</div>
+					</div>
+
+					<section class="home-section" aria-labelledby="robots-aff-title">
+						<h2 id="robots-aff-title">Les meilleurs outils pour apprendre à coder</h2>
+						<p class="home-section-lead">
+							Robots éducatifs débutants, kits programmation et livres Python : trois portes d’entrée complémentaires pour apprendre à coder.
+							Commence par le guide pour choisir selon l’âge, le niveau et l’objectif pédagogique.
+						</p>
+						<div class="home-affiliate-grid">
+							{
+								affiliateTools.map((item) => (
+									<div class="home-affiliate-card">
+										<h3>{item.title}</h3>
+										<p class="aff-meta">{item.blurb}</p>
+										<p class="aff-usage"><strong>Usage pédagogique :</strong> {item.usage}</p>
+										<p class="aff-usage"><strong>Preuve de valeur :</strong> {item.proof}</p>
+										<div class="home-affiliate-actions">
+											<Button href={withBase(item.hrefGuide)} variant="secondary" size="sm">
+												Lire le guide
+											</Button>
+											<Button
+												href={item.hrefAmazon}
+												variant="primary"
+												size="sm"
+												target="_blank"
+												rel="noopener noreferrer sponsored"
+											>
+												Voir le produit
+											</Button>
+										</div>
+									</div>
+								))
+							}
+						</div>
+					</section>
+
+					<div class="home-cta-strip" role="region" aria-label="Catégories">
+						<p>Explore toutes les rubriques : Python, Scratch, robots, activités.</p>
+						<div class="home-cta-actions">
+							<Button href={withBase('/categorie/')} variant="primary">Toutes les catégories</Button>
+							<Button href={withBase('/programmation/')} variant="ghost">Espace programmation</Button>
+						</div>
+					</div>
+
+					<section class="home-section home-why" aria-labelledby="pourquoi-title">
+						<h2 id="pourquoi-title">Pourquoi ce site existe</h2>
+						<p class="home-section-lead">
+							<strong>ROBOT éducatif</strong> aide les débutants, parents et enseignants à passer de l’idée au résultat : comprendre une notion,
+							l’essayer dans un projet, puis la réutiliser avec un robot ou un autre programme.
+						</p>
+						<ul>
+							<li><strong>Progression</strong> : du <a href={withBase('/programmation/python/')}>Python débutant</a> aux projets longs, sans sauter les fondations.</li>
+							<li><strong>Projets concrets</strong> : jeux en console, carnet Todo, robots — pas seulement de la théorie.</li>
+							<li><strong>Pédagogie active</strong> : tu codes, tu testes, tu corriges — avec des articles détaillés et téléchargeables quand c’est pertinent.</li>
+							<li>
+								<strong>Accessible</strong> : enfants, parents, enseignants et autodidactes — y compris pour la{' '}
+								<a href={withBase('/programmation-enfant-a-quel-age-commencer/')} title="programmation enfant">programmation enfant</a>.
+							</li>
+						</ul>
+					</section>
+
+					<div class="home-cta-strip" role="region" aria-label="Articles récents">
+						<p>Actualise ta veille : nouveaux tutoriels et comparatifs publiés régulièrement.</p>
+						<div class="home-cta-actions">
+							<Button href={withBase('/blog/')} variant="primary">Tous les articles</Button>
+							<Button href={withBase('/rss.xml')} variant="ghost">Flux RSS</Button>
+						</div>
+					</div>
+
+					<section class="latest-posts" aria-labelledby="latest-title">
+						<h2 id="latest-title">Derniers articles du blog</h2>
+						<p class="latest-intro">
+							Découvre les dernières publications : tutoriels{' '}
+							<a href={withBase('/categorie/python/')}>Python</a>,{' '}
+							<a href={withBase('/categorie/scratch/')}>Scratch</a>,{' '}
+							<a href={withBase('/categorie/robot-educatif/')} title="robotique éducative">robotique éducative</a> et guides d’achat.
+						</p>
 						<ul>
 							{
 								latestPosts.map((post) => {
 									const thumb = resolveHeroImage(post.data.heroImage);
 									return (
-									<li>
-										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
-											{thumb && (
-												<Image
-													src={thumb}
-													alt={post.data.title}
-													width={184}
-													height={116}
-													sizes="92px"
-													quality={72}
-													loading="lazy"
-													decoding="async"
-												/>
-											)}
-											<span class="title">{post.data.title}</span>
-											<span class="date">
-												<FormattedDate date={post.data.pubDate} />
-											</span>
-										</a>
-									</li>
+										<li>
+											<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+												{thumb && (
+													<Image
+														src={thumb}
+														alt={post.data.title}
+														width={184}
+														height={116}
+														sizes="92px"
+														quality={72}
+														loading="lazy"
+														decoding="async"
+													/>
+												)}
+												<span class="title">{post.data.title}</span>
+												<span class="date">
+													<FormattedDate date={post.data.pubDate} />
+												</span>
+											</a>
+										</li>
 									);
 								})
 							}
 						</ul>
 						<a class="all-posts" href={withBase('/blog/')}>Voir tous les articles</a>
 					</section>
-					<HomeShowcase />
 				</div>
+
 				<Sidebar topCategories={topCategories} />
 			</div>
+
 			<div class="home-faq-page-bottom">
 				<section class="home-faq" aria-labelledby="home-faq-title">
 					<h2 id="home-faq-title">Questions fréquentes</h2>
 					<p class="home-faq-intro">
-						Vous trouverez ici des réponses courtes aux questions les plus fréquentes — par exemple sur le
-						téléchargement et l’installation de mBlock 5, le robot éducatif, le mBot et la comparaison mBot vs
-						mBot 2, ou encore le Tale-Bot. Chaque lien ouvre le guide détaillé qui traite le sujet.
+						Réponses rapides aux recherches les plus courantes — <strong>Python débutant</strong>,{' '}
+						<strong>robot éducatif</strong>, Scratch, âge pour coder. Pour approfondir, suivez les liens vers les guides complets.
 					</p>
 					<ul class="home-faq-list">
 						{

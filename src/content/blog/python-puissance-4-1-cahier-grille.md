@@ -1,14 +1,16 @@
 ---
-title: "Puissance 4 en Python (1/6) — cahier des charges et grille"
-headline: "Puissance 4 en Python (1/6) — cahier des charges et grille"
-description: "Console, constantes 6×7, nouvelle_grille et grille_pleine ; script .py telechargeable identique au code du chapitre."
+title: "Puissance 4 Python (1/6) : cahier des charges et grille 6×7"
+headline: "Créer un Puissance 4 en Python — étape 1 : la grille"
+description: "Projet python débutant : constantes, tableau 2D 6×7, nouvelle_grille et grille_pleine. Tutoriel console avec script .py téléchargeable — apprendre Python en pratiquant un jeu."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Puissance 4
 seriesOrder: 1
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu"]
 relatedLinks:
+  - title: "Sommaire — Puissance 4"
+    href: "/programmation/puissance-4/"
   - title: "Parcours Python"
     href: "/programmation/python/"
   - title: "Partie 2 — affichage et gravité"
@@ -18,10 +20,21 @@ categories:
   - "Programmation"
   - "Puissance 4"
   - "Projet"
+faqSchema:
+  - question: "Comment coder un puissance 4 en Python pour débutant ?"
+    answer: "Commencer par modéliser la grille : une liste de listes 6×7, des constantes pour case vide et joueurs, puis des fonctions nouvelle_grille et grille_pleine. Les articles suivants ajoutent affichage, coups, victoire et boucle de partie."
+  - question: "Pourquoi une liste de listes pour la grille ?"
+    answer: "Chaque ligne est une liste de colonnes : grille[ligne][colonne] permet de parcourir facilement le tableau 2D avec des boucles for, comme pour la détection d’alignements plus tard."
+  - question: "Python 2 ou Python 3 pour ce projet ?"
+    answer: "Python 3 uniquement : c’est la version utilisée dans les tutoriels et les environnements modernes (VS Code, Thonny). Les scripts commencent par python3 ou python selon ton installation."
 ---
+Tu veux **créer un jeu en python débutant** sans te perdre dans une interface graphique : commence par les **données**. Si la grille est correcte dans ta tête **et** dans ton code, tout le reste — affichage, joueurs, victoire — devient une suite de petits problèmes.
+
 Le **Puissance 4** se joue sur une grille **6 lignes × 7 colonnes** : les jetons tombent dans une colonne jusqu’à la case libre la plus basse. Le premier qui aligne **quatre** pions (horizontal, vertical, diagonal) gagne.
 
 Tu travailles dans un **terminal** (PowerShell, invite de commandes, ou terminal intégré de VS Code / Thonny) : tu lances chaque script avec `python nom_du_fichier.py`.
+
+Un livre de **projets Python** peut compléter ce tutoriel série par série ([recherche Amazon « projets Python »](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)) — le fil conducteur reste cette série gratuite pas à pas.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
@@ -106,6 +119,10 @@ if __name__ == "__main__":
     print("OK — passe au chapitre 2 pour l'affichage et jouer_colonne.")
 ```
 
+## Résultat attendu
+
+À la fin de ce chapitre, tu exécutes le script téléchargeable et tu obtiens une **grille cohérente** en mémoire (7 colonnes par ligne), une **démo** qui empile des jetons dans une colonne, et la fonction **`grille_pleine`** prête pour la fin de partie. Pas encore de joli affichage : c’est normal, [l’étape 2](/python-puissance-4-2-affichage-gravite/) s’en charge.
+
 ## Exercices
 
 1. Vérifie `len(grille) == 6` et `len(grille[0]) == 7` sur une grille neuve.
@@ -118,8 +135,13 @@ if __name__ == "__main__":
 
 ## Suite
 
-[Partie 2 — Afficher la grille et faire tomber un jeton](/python-puissance-4-2-affichage-gravite/).
+**Étape suivante :** [afficher la grille et faire tomber un jeton avec la gravité](/python-puissance-4-2-affichage-gravite/).  
+**Sommaire du projet :** [Puissance 4 en Python — page pilier](/programmation/puissance-4/).
 
-## Amazon (partenaire)
+## Matériel recommandé (partenaire Amazon)
 
-- [Python — projets et jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+Pour pratiquer hors ligne ou passer plus tard sur une carte dédiée :
+
+- [Livres Python débutant / projets](https://www.amazon.fr/s?k=livre+python+debutant+projets&tag=manuso06-21) — renforcer les bases en parallèle du jeu.
+- [Raspberry Pi — kits](https://www.amazon.fr/s?k=raspberry+pi+kit+debutant&tag=manuso06-21) — exécuter tes scripts sur une petite machine « projet ».
+- [Robots programmables](https://www.amazon.fr/s?k=robot+programmable+python&tag=manuso06-21) — même logique de programme, retour physique.

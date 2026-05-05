@@ -1,26 +1,70 @@
 ---
 import BaseHead from '../../../components/BaseHead.astro';
+import Button from '../../../components/Button.astro';
 import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
 import { withBase } from '../../../lib/siteUrl';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import bandeauPythonUrl from '../../../assets/programmation/bandeau-python.svg?url';
 
 const tag = AMAZON_AFFILIATE_TAG;
 const all = await getCollection('blog');
 const posts = all
 	.filter((p) => p.data.series === 'Python')
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const faqItems = [
+	{
+		question: 'Comment apprendre Python quand on débute complètement ?',
+		answer:
+			'Commence par installer Python, écrire un premier programme, puis avance dans l’ordre : variables, saisie clavier, conditions, boucles, fonctions, listes, fichiers et débogage. Le parcours de cette page suit précisément cette progression.',
+	},
+	{
+		question: 'Combien de temps faut-il pour apprendre les bases de Python ?',
+		answer:
+			'Quelques semaines suffisent pour comprendre les bases si tu pratiques régulièrement. L’important est de coder de petits exemples puis de passer à un mini-projet comme le jeu plus ou moins, le pendu ou le Puissance 4.',
+	},
+	{
+		question: 'Faut-il installer un logiciel compliqué pour commencer Python ?',
+		answer:
+			'Non. Tu peux commencer avec Python 3 et un éditeur simple comme IDLE, puis passer à VS Code quand tu es plus à l’aise. La première leçon explique les deux options.',
+	},
+	{
+		question: 'Quels projets faire après les bases Python ?',
+		answer:
+			'Les meilleurs projets après les bases sont courts et visibles : mini-jeu au terminal, pendu, Puissance 4, bataille navale ou carnet Todo en JSON. Ils réutilisent variables, boucles, conditions, fonctions et listes.',
+	},
+	{
+		question: 'Python est-il adapté aux enfants et aux adolescents ?',
+		answer:
+			'Oui, avec une progression guidée. Pour les plus jeunes, Scratch ou mBlock peuvent préparer la logique ; Python devient ensuite une bonne étape pour écrire du vrai code et réaliser des jeux ou petits outils.',
+	},
+];
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer,
+		},
+	})),
+};
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Python — parcours débutant"
-			description="Série de 10 articles Python : installation, syntaxe, exercices progressifs et mini-projet."
+			title="Apprendre Python débutant — parcours gratuit en 10 leçons"
+			description="Apprendre Python pas à pas : installation, variables, input, conditions, boucles, fonctions, listes, fichiers, erreurs et mini-projet. Parcours gratuit pour débutants, enfants et autodidactes."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 	</head>
 	<body>
 		<Header />
@@ -30,27 +74,60 @@ const posts = all
 				<span aria-hidden="true"> / </span>
 				<span>Python</span>
 			</nav>
-			<h1>Python — parcours progressif</h1>
-			<p class="lead">
-				Dix leçons du choix de l’éditeur au mini-projet. Chaque article propose des <strong>exemples</strong>, du{' '}
-				<strong>code</strong> à taper ou modifier et des <strong>exercices</strong>. Ressources complémentaires sur{' '}
-				<a
-					href={`https://www.amazon.fr/s?k=python+3+apprendre+livre&tag=${tag}`}
-					target="_blank"
-					rel="noopener noreferrer sponsored">Amazon.fr</a> (partenaire).
-			</p>
-			<p class="extra-series">
-				Bloc suivant :{' '}
-				<a href={withBase('/programmation/python-intermediaire')}>Python intermédiaire</a> (modules, venv, pathlib, POO, tests,
-				regex), puis <a href={withBase('/programmation/python-avance')}>Python avancé</a> (générateurs, décorateurs, context
-				managers, asyncio, typage, packaging). — Projet sur l’intermédiaire :{' '}
-				<a href={withBase('/programmation/projet-python-intermediaire-agenda')}>Agenda CLI</a>. — Projet sur l’avancé :{' '}
-				<a href={withBase('/programmation/projet-python-avance-journal')}>Journal CLI</a>. — Autres projets guidés :{' '}
-				<a href={withBase('/programmation/bataille-navale')}>Bataille navale</a>,{' '}
-				<a href={withBase('/programmation/pendu')}>Le pendu</a> (fichier de mots),{' '}
-				<a href={withBase('/programmation/puissance-4')}>Puissance 4</a>,{' '}
-				<a href={withBase('/programmation/carnet-todo')}>Carnet Todo + JSON</a>.
-			</p>
+			<img
+				class="track-hero"
+				src={bandeauPythonUrl}
+				width="800"
+				height="250"
+				alt="Bandeau visuel : apprendre Python pas à pas"
+				loading="eager"
+			/>
+			<section class="hero-block" aria-labelledby="python-title">
+				<p class="kicker">Parcours gratuit · débutant · projets concrets</p>
+				<h1 id="python-title">Apprendre Python débutant : 10 leçons pour écrire tes premiers programmes</h1>
+				<p class="lead">
+					Tu veux apprendre Python sans te perdre ? Ce parcours part de zéro : installer Python, afficher du texte,
+					utiliser des variables, demander une saisie, écrire des conditions, répéter avec des boucles, créer des fonctions,
+					manipuler des listes, lire des fichiers, corriger les erreurs, puis terminer par un mini-projet au terminal.
+				</p>
+				<div class="hero-actions">
+					<Button href={withBase('/python-environnement-developpement/')} variant="primary">
+						Commencer la leçon 1
+					</Button>
+					<Button href={withBase('/python-mini-jeu-terminal/')} variant="ghost">
+						Voir le mini-projet
+					</Button>
+				</div>
+			</section>
+
+			<section class="intro-cards" aria-label="Ce que tu vas apprendre">
+				<div class="intro-card">
+					<h2>Comprendre les bases</h2>
+					<p>
+						Variables, affichage, <a href={withBase('/python-types-et-saisie/')}>input et types</a> : tu apprends à écrire de petits programmes qui réagissent à l’utilisateur.
+					</p>
+				</div>
+				<div class="intro-card">
+					<h2>Construire une logique</h2>
+					<p>
+						Les <a href={withBase('/python-conditions-if-else/')}>conditions</a>, les <a href={withBase('/python-boucles-for-while/')}>boucles</a> et les fonctions transforment une suite de lignes en vrai programme.
+					</p>
+				</div>
+				<div class="intro-card">
+					<h2>Passer aux projets</h2>
+					<p>
+						Le parcours prépare les jeux et mini-applications : <a href={withBase('/programmation/puissance-4/')}>Puissance 4</a>, <a href={withBase('/programmation/carnet-todo/')}>carnet Todo</a> et autres défis.
+					</p>
+				</div>
+			</section>
+
+			<section class="learning-path" aria-labelledby="path-title">
+				<h2 id="path-title">Le parcours Python en 10 leçons</h2>
+				<p>
+					Suis les leçons dans l’ordre si tu débutes complètement. Chaque article contient du code à taper ou modifier,
+					des exemples et des exercices pour vérifier que tu as compris.
+				</p>
+			</section>
 			<ol class="lesson-list">
 				{
 					posts.map((post) => (
@@ -66,6 +143,92 @@ const posts = all
 					))
 				}
 			</ol>
+
+			<section class="project-section" aria-labelledby="projects-title">
+				<h2 id="projects-title">Après les bases : choisis un projet Python facile</h2>
+				<p>
+					Un projet rend Python plus concret : tu réutilises les notions du parcours dans un jeu, un outil ou une petite application.
+					Commence simple, teste souvent, puis améliore ton programme.
+				</p>
+				<div class="project-grid">
+					<a class="project-card" href={withBase('/programmation/puissance-4/')}>
+						<strong>Puissance 4 en Python</strong>
+						<span>Grille 2D, boucles, conditions et détection de victoire.</span>
+					</a>
+					<a class="project-card" href={withBase('/programmation/carnet-todo/')}>
+						<strong>Carnet Todo JSON</strong>
+						<span>Fichiers, dictionnaires, menu au terminal et sauvegarde.</span>
+					</a>
+					<a class="project-card" href={withBase('/programmation/pendu/')}>
+						<strong>Jeu du pendu</strong>
+						<span>Chaînes de caractères, fichier de mots et boucle de partie.</span>
+					</a>
+					<a class="project-card" href={withBase('/programmation/bataille-navale/')}>
+						<strong>Bataille navale</strong>
+						<span>Grilles, tirs, hasard et victoire étape par étape.</span>
+					</a>
+				</div>
+			</section>
+
+			<section class="next-steps" aria-labelledby="next-title">
+				<h2 id="next-title">Continuer après le niveau débutant</h2>
+				<p>
+					Quand tu es à l’aise avec fonctions, listes, fichiers et erreurs, passe au niveau suivant : organisation du code,
+					outils modernes et projets plus longs.
+				</p>
+				<div class="next-grid">
+					<a href={withBase('/programmation/python-intermediaire/')}>
+						<strong>Python intermédiaire</strong>
+						<span>Modules, venv, pathlib, POO, tests et expressions régulières.</span>
+					</a>
+					<a href={withBase('/programmation/projet-python-intermediaire-agenda/')}>
+						<strong>Projet Agenda CLI</strong>
+						<span>Un projet plus structuré pour pratiquer les notions intermédiaires.</span>
+					</a>
+					<a href={withBase('/programmation/python-avance/')}>
+						<strong>Python avancé</strong>
+						<span>Générateurs, décorateurs, context managers, asyncio, typage et packaging.</span>
+					</a>
+				</div>
+			</section>
+
+			<section class="resources" aria-labelledby="resources-title">
+				<h2 id="resources-title">Ressources utiles pour pratiquer</h2>
+				<p>
+					Le parcours gratuit suffit pour commencer. Si tu veux t’entraîner hors ligne, ajouter des exercices papier ou préparer un atelier, ces recherches peuvent aider.
+				</p>
+				<div class="resource-actions">
+					<a
+						href={`https://www.amazon.fr/s?k=python+3+apprendre+livre+d%C3%A9butant&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Livres Python débutant</a>
+					<a
+						href={`https://www.amazon.fr/s?k=python+exercices+corrig%C3%A9s+d%C3%A9butant&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Exercices corrigés Python</a>
+					<a
+						href={`https://www.amazon.fr/s?k=raspberry+pi+kit+python+d%C3%A9butant&tag=${tag}`}
+						target="_blank"
+						rel="noopener noreferrer sponsored">Kits Raspberry Pi pour scripts Python</a>
+				</div>
+			</section>
+
+			<section class="faq" aria-labelledby="faq-title">
+				<h2 id="faq-title">Questions fréquentes</h2>
+				<ul>
+					{
+						faqItems.map((item) => (
+							<li>
+								<details>
+									<summary>{item.question}</summary>
+									<p>{item.answer}</p>
+								</details>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
@@ -76,7 +239,7 @@ const posts = all
 
 <style>
 	.py-series {
-		width: min(720px, calc(100% - 2rem));
+		width: min(980px, calc(100% - 2rem));
 		margin: 0 auto;
 		padding: 2rem 0 3rem;
 	}
@@ -91,35 +254,126 @@ const posts = all
 		text-decoration: none;
 	}
 	.py-series h1 {
-		font-size: clamp(1.65rem, 3vw, 2rem);
+		font-size: clamp(1.85rem, 4vw, 2.7rem);
 		margin: 0 0 0.75rem;
 		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+		line-height: 1.12;
+	}
+	.track-hero {
+		width: 100%;
+		height: auto;
+		max-height: 250px;
+		object-fit: cover;
+		display: block;
+		border-radius: 14px;
+		margin-bottom: 1.25rem;
+		border: 1px solid var(--surface-border);
+		background: var(--surface-2);
+	}
+	.hero-block {
+		margin-bottom: 1.5rem;
+	}
+	.kicker {
+		margin: 0 0 0.5rem;
+		font-size: 0.82rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+		font-weight: 700;
 	}
 	.lead {
-		margin: 0 0 1.75rem;
-		line-height: 1.6;
+		margin: 0 0 1rem;
+		line-height: 1.7;
+		font-size: 1.06rem;
 		color: rgb(var(--gray-dark));
+		max-width: 760px;
 	}
 	.lead a {
 		color: var(--accent);
 		font-weight: 600;
 	}
-	.extra-series {
-		margin: 0 0 1.25rem;
-		padding: 0.85rem 1rem;
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+	.intro-cards,
+	.project-grid,
+	.next-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 1.35rem 0 1.75rem;
+	}
+	.intro-card,
+	.project-card,
+	.next-grid a {
+		padding: 1rem;
 		border-radius: 10px;
 		border: 1px solid var(--surface-border);
-		background: color-mix(in oklab, var(--accent) 6%, var(--surface));
-		font-size: 0.92rem;
-		line-height: 1.5;
+		background: var(--surface);
+		text-decoration: none;
+		color: inherit;
+	}
+	.intro-card h2,
+	.learning-path h2,
+	.project-section h2,
+	.next-steps h2,
+	.resources h2,
+	.faq h2 {
+		margin: 0 0 0.6rem;
+		font-size: 1.35rem;
 		color: rgb(var(--gray-dark));
 	}
-	.extra-series a {
+	.intro-card p,
+	.learning-path p,
+	.project-section p,
+	.next-steps p,
+	.resources p {
+		margin: 0;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+	.intro-card a,
+	.learning-path a,
+	.project-section a,
+	.next-steps a,
+	.resources a {
 		color: var(--accent);
 		font-weight: 700;
 	}
+	.learning-path {
+		margin-top: 1.75rem;
+	}
+	.project-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.project-card,
+	.next-grid a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+	}
+	.project-card:hover,
+	.next-grid a:hover {
+		border-color: color-mix(in oklab, var(--accent) 42%, transparent);
+		transform: translateY(-2px);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.project-card strong,
+	.next-grid strong {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.project-card span,
+	.next-grid span {
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
 	.lesson-list {
-		margin: 0;
+		margin: 1.1rem 0 0;
 		padding: 0;
 		list-style: none;
 		counter-reset: lesson;
@@ -174,11 +428,74 @@ const posts = all
 		color: rgb(var(--gray));
 		line-height: 1.45;
 	}
+	.project-section,
+	.next-steps,
+	.resources,
+	.faq {
+		margin-top: 2.2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--surface-border);
+	}
+	.resource-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+	.resource-actions a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.55rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+		background: color-mix(in oklab, var(--accent) 10%, var(--surface));
+		text-decoration: none;
+	}
+	.faq ul {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	.faq details {
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		background: var(--surface);
+		overflow: hidden;
+	}
+	.faq summary {
+		cursor: pointer;
+		padding: 0.85rem 1rem;
+		font-weight: 700;
+		color: rgb(var(--gray-dark));
+	}
+	.faq details[open] summary {
+		border-bottom: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--accent) 5%, var(--surface));
+	}
+	.faq details p {
+		margin: 0;
+		padding: 0.9rem 1rem 1rem;
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+	}
 	.back {
 		margin-top: 2rem;
 	}
 	.back a {
 		color: var(--accent);
 		font-weight: 600;
+	}
+	@media (max-width: 760px) {
+		.intro-cards,
+		.project-grid,
+		.next-grid {
+			grid-template-columns: 1fr;
+		}
+		.lesson-list a {
+			gap: 0.75rem;
+		}
 	}
 </style>

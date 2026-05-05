@@ -9,8 +9,14 @@ series: "Arduino C"
 seriesOrder: 3
 tags: ["C", "Arduino", "Robotique", "Programmation"]
 relatedLinks:
+  - title: "Guide complet — apprendre Arduino C/C++"
+    href: "/programmation/arduino-c/"
   - title: "Leçon 2 — types et variables"
     href: "/c-arduino-types-variables/"
+  - title: "Leçon 4 — boucles et timing"
+    href: "/c-arduino-boucles-timing/"
+  - title: "Projet capteur ultrason mBot"
+    href: "/serie-capteur-ultrason-mbot-1-mesurer-distance/"
 categories:
   - "C"
   - "Arduino"
@@ -18,7 +24,19 @@ categories:
   - "Débutant"
 ---
 
-Les **conditions** (`if`, `else if`, `else`) décident quoi faire selon l’état du monde : distance mesurée, bouton pressé, lumière faible, etc.
+Les **conditions** sont le moment où la programmation Arduino devient vraiment robotique. Avec `if`, `else if` et `else`, ton programme décide quoi faire selon l’état du monde : distance mesurée, bouton pressé, lumière faible, obstacle proche, batterie basse. C’est la base d’un robot Arduino qui ne se contente plus d’exécuter une séquence, mais réagit à ce qu’il mesure.
+
+<aside class="article-callout" role="note">
+<p><strong>Fiche rapide</strong></p>
+<ul>
+<li><strong>Niveau :</strong> débutant confirmé, après variables et constantes.</li>
+<li><strong>Durée :</strong> 60 minutes avec les exercices.</li>
+<li><strong>Matériel :</strong> Arduino Uno compatible. Un capteur ultrason ou un bouton sera utile pour tester ensuite.</li>
+<li><strong>Objectif :</strong> écrire des règles claires pour capteurs et actionneurs.</li>
+</ul>
+</aside>
+
+Si besoin, revois les [types et variables Arduino](/c-arduino-types-variables/) avant de commencer. Pour le parcours complet, la page [apprendre Arduino C/C++](/programmation/arduino-c/) te montre comment cette leçon mène vers les robots simples.
 
 En robotique, tu écris très souvent des règles du type :
 
@@ -377,4 +395,12 @@ void loop() {}</code></pre>
 void loop() {}</code></pre>
 </div>
 </details>
+
+## Amélioration possible
+
+Ajoute une troisième zone : si la distance est inférieure ou égale à 15 cm, la vitesse devient 0. Ton programme aura alors trois comportements : avancer vite, ralentir, s’arrêter. C’est exactement la logique d’un robot éviteur d’obstacles.
+
+## Suite du parcours Arduino
+
+Les conditions deviennent beaucoup plus puissantes quand elles sont répétées en continu. Continue avec les [boucles et le timing Arduino](/c-arduino-boucles-timing/) pour lire un capteur régulièrement sans bloquer le robot. Pour relier cette logique à un cas réel, consulte aussi le projet [capteur ultrason mBot](/serie-capteur-ultrason-mbot-1-mesurer-distance/) et le [guide complet Arduino C/C++](/programmation/arduino-c/).
 

@@ -106,6 +106,11 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 
 				function mapRatingError(msg) {
 					var m = String(msg || '').toLowerCase();
+					if (
+						m.indexOf('article_rating_events') !== -1 ||
+						m.indexOf('relation') !== -1 && m.indexOf('does not exist') !== -1
+					)
+						return 'La notation est en cours de configuration. Réessayez plus tard.';
 					if (m.indexOf('rate_limit_cooldown') !== -1)
 						return 'Merci d’attendre quelques secondes entre deux notes.';
 					if (m.indexOf('rate_limit_minute') !== -1)
@@ -148,6 +153,16 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 					const errEl = root.querySelector('[data-role="error"]');
 					const stars = root.querySelectorAll('[data-star]');
 
+					function shouldTryLegacyRatingRpc(detail) {
+						var m = String(detail || '').toLowerCase();
+						return (
+							m.indexOf('pgrst202') !== -1 ||
+							m.indexOf('could not find the function') !== -1 ||
+							m.indexOf('schema cache') !== -1 ||
+							m.indexOf('p_client_fingerprint') !== -1
+						);
+					}
+
 					function showErr(msg) {
 						if (errEl) {
 							errEl.textContent = msg;
@@ -184,6 +199,49 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 						if (!res.ok) throw new Error('fetch');
 						const rows = await res.json();
 						return rows[0] || { views: 0, rating_sum: 0, rating_count: 0 };
+					}
+
+					async function postRating(n, fp) {
+						const payload = {
+							p_slug: slug,
+							p_stars: n,
+							p_client_fingerprint: fp,
+						};
+						const res = await fetch(base + '/rest/v1/rpc/submit_article_rating', {
+							method: 'POST',
+							headers: headers(),
+							body: JSON.stringify(payload),
+						});
+						if (res.ok) return;
+
+						var detail = '';
+						try {
+							var j = await res.json();
+							detail = [j.code, j.message, j.error_description, j.hint, j.details]
+								.filter(Boolean)
+								.join(' ');
+						} catch (e) {}
+
+						if (shouldTryLegacyRatingRpc(detail)) {
+							const legacyRes = await fetch(base + '/rest/v1/rpc/submit_article_rating', {
+								method: 'POST',
+								headers: headers(),
+								body: JSON.stringify({
+									p_slug: slug,
+									p_stars: n,
+								}),
+							});
+							if (legacyRes.ok) return;
+
+							try {
+								var legacyJson = await legacyRes.json();
+								detail = [legacyJson.code, legacyJson.message, legacyJson.error_description, legacyJson.hint, legacyJson.details]
+									.filter(Boolean)
+									.join(' ');
+							} catch (e) {}
+						}
+
+						throw new Error(detail || 'rate');
 					}
 
 					function renderStats(row) {
@@ -227,23 +285,7 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 								stars.forEach(function (b) {
 									b.disabled = true;
 								});
-								const res = await fetch(base + '/rest/v1/rpc/submit_article_rating', {
-									method: 'POST',
-									headers: headers(),
-									body: JSON.stringify({
-										p_slug: slug,
-										p_stars: n,
-										p_client_fingerprint: fp,
-									}),
-								});
-								if (!res.ok) {
-									var detail = '';
-									try {
-										var j = await res.json();
-										detail = j.message || j.error_description || j.hint || '';
-									} catch (e) {}
-									throw new Error(detail || 'rate');
-								}
+								await postRating(n, fp);
 								localStorage.setItem(LS_PREFIX + slug, String(n));
 								const row = await fetchStatsOnly();
 								renderStats(row);

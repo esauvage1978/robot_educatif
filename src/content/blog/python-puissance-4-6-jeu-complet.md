@@ -1,25 +1,34 @@
 ---
-title: "Puissance 4 en Python (6/6) — jeu complet et IA aléatoire"
-headline: "Puissance 4 en Python (6/6) — jeu complet et IA aléatoire"
-description: "Console, menu deux humains ou vs IA ; script final telechargeable ; pistes d'extension."
+title: "Puissance 4 Python (6/6) : jeu complet, menu et IA aléatoire"
+headline: "Puissance 4 en Python — projet terminé : humain vs humain ou vs IA"
+description: "Projet python débutant bouclé : menu console, partie deux joueurs ou IA aléatoire, script final téléchargeable. Idéal pour apprendre Python avec un jeu jouable puis passer au minimax."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Puissance 4
 seriesOrder: 6
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu"]
 relatedLinks:
-  - title: "Partie 5 — match nul"
-    href: "/python-puissance-4-5-match-nul/"
   - title: "Sommaire — Puissance 4"
     href: "/programmation/puissance-4/"
+  - title: "Partie 5 — match nul"
+    href: "/python-puissance-4-5-match-nul/"
 categories:
   - "Python"
   - "Programmation"
   - "Puissance 4"
   - "Projet"
+faqSchema:
+  - question: "Comment ajouter une IA au Puissance 4 en Python après ce tutoriel ?"
+    answer: "Remplacer choix_ia par une fonction qui évalue les coups : au minimum bloquer un alignement adverse de trois ; au maximum implémenter minimax avec profondeur limitée sur une copie de la grille."
+  - question: "Le jeu console est-il une base pour Pygame ou un robot ?"
+    answer: "Oui : la logique du plateau et des coups reste identique ; seule la couche affichage ou hardware change (fenêtre graphique, GPIO sur Raspberry Pi, communication série pour un robot)."
+  - question: "Où télécharger le script final du projet ?"
+    answer: "Sur cet article, lien puissance4_chapitre_06.py dans la section téléchargement ; il reprend les fonctions des chapitres précédents avec menu et IA aléatoire."
 ---
-Ce dernier chapitre ajoute un **menu** (`1` = deux humains, `2` = toi contre une **IA** qui choisit une colonne jouable au **hasard**), et la possibilité de quitter avec **`q`** pendant ta partie.
+Tu arrives au **fil rouge du projet** : ce dernier chapitre ajoute un **menu** (`1` = deux humains, `2` = toi contre une **IA** qui choisit une colonne jouable au **hasard**) et la possibilité de quitter avec **`q`** pendant ta partie. C’est la version que tu peux montrer comme **exemple python complet** — puis la faire évoluer vers une IA plus maligne.
+
+Une recherche large sur les [projets Python et jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21) donne des idées pour la suite hors Puissance 4.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
@@ -215,6 +224,10 @@ if __name__ == "__main__":
     main()
 ```
 
+## Résultat attendu
+
+Un **exécutable unique** au sens pratique : tu lances le script, tu choisis le mode, tu joues jusqu’à victoire, match nul ou abandon. Tu as bouclé le **projet puissance 4 python** console — bravo. Reviens sur la [page pilier](/programmation/puissance-4/) pour partager ou réviser une étape.
+
 ## Extensions
 
 - IA qui **bloque** un alignement adverse de 3, ou complète ses 3 pions.
@@ -225,6 +238,14 @@ if __name__ == "__main__":
 
 **[puissance4_chapitre_06.py](/downloads/puissance4/puissance4_chapitre_06.py)**
 
-## Amazon (partenaire)
+## Et après ce tutoriel ?
 
-- [Projets Python jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+- **Révision :** [Sommaire Puissance 4](/programmation/puissance-4/)
+- **Autre projet guidé :** [Bataille navale en Python](/programmation/bataille-navale/)
+- **Suite ludique sur le site :** [Carnet Todo Python](/programmation/carnet-todo/)
+
+## Matériel recommandé (partenaire Amazon)
+
+- [Projets et jeux Python — livres](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+- [Raspberry Pi 5 — kits](https://www.amazon.fr/s?k=raspberry+pi+5+kit+debutant&tag=manuso06-21)
+- [Robot programmable / STEM](https://www.amazon.fr/s?k=robot+programmable+python+enfant&tag=manuso06-21)

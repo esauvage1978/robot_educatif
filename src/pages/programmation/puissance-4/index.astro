@@ -4,24 +4,177 @@ import { AMAZON_AFFILIATE_TAG } from '../../../consts';
 import { withBase } from '../../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
+
+const faqSchema = [
+	{
+		question: 'Comment apprendre Python avec un projet concret ?',
+		answer:
+			'Choisis un objectif visible (jeu au terminal, petit outil), découpe en étapes testables et code une fonction à la fois. Ce tutoriel Puissance 4 part de la grille vide jusqu’au jeu complet : chaque article ajoute une brique (affichage, tours, victoire, partie).',
+	},
+	{
+		question: 'Le Puissance 4 en Python est-il adapté aux débutants ?',
+		answer:
+			'Oui si tu maîtrises les bases : listes, boucles et conditions. Tu réutilises ces notions dans une grille 6×7 (tableau 2D), sans interface graphique au départ : tout se lit dans la console.',
+	},
+	{
+		question: 'Combien de temps pour coder un Puissance 4 en Python ?',
+		answer:
+			'En suivant les six parties, prévoir plusieurs séances : la logique de victoire et la boucle de jeu demandent le plus d’attention. Va à ton rythme et teste chaque fichier .py après chaque chapitre.',
+	},
+	{
+		question: 'Pourquoi préférer la console pour un premier jeu Python ?',
+		answer:
+			'Tu te concentres sur la logique (données, fonctions, tests) sans bibliothèque graphique. Une fois le jeu stable, tu peux ajouter Pygame ou une interface web en prolongement.',
+	},
+	{
+		question: 'Quelles erreurs fréquentes éviter dans ce projet ?',
+		answer:
+			'Mélanger indices 0–6 et colonnes affichées 1–7, oublier que la ligne 0 est en haut, tester la victoire après le coup dans la bonne case, ou inverser l’ordre victoire puis match nul dans la boucle de partie.',
+	},
+	{
+		question: 'Python suffit-il pour une IA Puissance 4 plus tard ?',
+		answer:
+			'Oui : après la série, tu peux remplacer l’IA aléatoire par un minimax ou des heuristiques. Les structures du projet (copie de grille, coup valide) sont le bon terrain d’expérimentation.',
+	},
+];
 ---
 
 <ProgrammationSeriesHub
-	metaTitle="Puissance 4 en Python — grille et alignements"
-	metaDescription="Série guidée : grille 6×7, gravité des jetons, alternance des joueurs, détection de quatre alignés, jeu complet."
+	metaTitle="Puissance 4 en Python — projet débutant complet (console)"
+	metaDescription="Apprendre Python en créant un vrai jeu : grille 6×7, gravité des jetons, détection des quatre alignés, partie complète et pistes IA. Tutoriel gratuit en 6 étapes avec scripts téléchargeables."
 	series="Puissance 4"
 	breadcrumbLast="Puissance 4"
-	pageTitle="Puissance 4 en Python"
+	pageTitle="Puissance 4 en Python — ton premier jeu console"
+	faqSchema={faqSchema}
 >
 	<p>
-		Variante du « connect four » : deux joueurs laissent tomber des jetons dans des <strong>colonnes</strong> ; le premier
-		qui aligne <strong>quatre</strong> pions gagne. Tu travailles une grille 2D, des boucles et des tests dans toutes les
-		directions. Prérequis : <a href={withBase('/python-listes-et-chaines/')}>listes</a>,{' '}
-		<a href={withBase('/python-boucles-for-while/')}>boucles</a> et{' '}
-		<a href={withBase('/python-conditions-if-else/')}>conditions</a>. Ressources :{' '}
-		<a
-			href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}
-			target="_blank"
-			rel="noopener noreferrer sponsored">livres projets Python</a> (partenaire).
+		<strong>Imagine lancer ton script… et jouer au Puissance 4 contre un ami ou une petite IA au terminal.</strong> Pas une liste d’exercices isolés : un fil rouge qui transforme les
+		<a href={withBase('/programmation/python/')}>bases Python</a> — listes,
+		<a href={withBase('/python-boucles-for-while/')}>boucles</a>,
+		<a href={withBase('/python-conditions-if-else/')}>conditions</a> — en un
+		<strong>projet python débutant</strong> concret dont tu vois la progression à chaque fichier.
+	</p>
+
+	<h2>Pourquoi « apprendre Python en créant un vrai jeu » ?</h2>
+	<p>
+		La <strong>pédagogie active</strong> bat la mémorisation passive : tu cherches la solution parce que le jeu « casse » si tu te trompes sur un indice ou une boucle. Un
+		<strong>puissance 4 python</strong> en console fixe des <strong>bénéfices nets</strong> :
+		variables avec des rôles clairs, boucles qui parcourent une <strong>grille 2D</strong>, conditions imbriquées qui décident la victoire — exactement les briques demandées dans un
+		<strong>projet python débutant</strong> sérieux tout en restant ludique.
+	</p>
+
+	<h2>Pourquoi le Puissance 4 (et pas un autre jeu) ?</h2>
+	<ul>
+		<li><strong>Simple à décrire</strong> : six lignes, sept colonnes, quatre pions alignés.</li>
+		<li><strong>Riche côté code</strong> : gravité d’un jeton, scan des directions, fin de partie.</li>
+		<li><strong>Progression naturelle</strong> : affichage ASCII d’abord, règles ensuite, IA ou interface plus tard.</li>
+		<li><strong>Prolongements</strong> : minimax, Pygame, robot qui pose les jetons — la même base suffit.</li>
+	</ul>
+
+	<h2>Plan du projet — les 6 étapes (avec tutoriels détaillés)</h2>
+	<p>
+		Chaque étape s’appuie sur la précédente ; les scripts <code>.py</code> sont <strong>téléchargeables</strong> pour comparer avec ton code. C’est la structure type d’un
+		<strong>python jeu console</strong> bien découpé.
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">Étape</th>
+				<th scope="col">Tu apprends…</th>
+				<th scope="col">Article</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>1 — Grille &amp; cahier des charges</strong></td>
+				<td>Constantes, liste de listes 6×7, case vide / jetons.</td>
+				<td><a href={withBase('/python-puissance-4-1-cahier-grille/')}>Cahier des charges et grille</a></td>
+			</tr>
+			<tr>
+				<td><strong>2 — Affichage &amp; gravité</strong></td>
+				<td>Terminal lisible, symboles, chute du pion dans la colonne.</td>
+				<td><a href={withBase('/python-puissance-4-2-affichage-gravite/')}>Affichage et gravité</a></td>
+			</tr>
+			<tr>
+				<td><strong>3 — Coups &amp; joueurs</strong></td>
+				<td>Saisie 1–7, validation, alternance des tours.</td>
+				<td><a href={withBase('/python-puissance-4-3-coup-alternance/')}>Coup valide et alternance</a></td>
+			</tr>
+			<tr>
+				<td><strong>4 — Détection de victoire</strong></td>
+				<td>Compter dans les 4 directions depuis le dernier coup.</td>
+				<td><a href={withBase('/python-puissance-4-4-quatre-alignes/')}>Détecter quatre alignés</a></td>
+			</tr>
+			<tr>
+				<td><strong>5 — Partie complète</strong></td>
+				<td>Match nul, messages, boucle deux humains.</td>
+				<td><a href={withBase('/python-puissance-4-5-match-nul/')}>Match nul et partie jouable</a></td>
+			</tr>
+			<tr>
+				<td><strong>6 — Jeu final &amp; bonus</strong></td>
+				<td>Menu, IA aléatoire, pistes pour aller plus loin.</td>
+				<td><a href={withBase('/python-puissance-4-6-jeu-complet/')}>Jeu complet et IA</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>Maillage utile avant de te lancer</h3>
+	<p>
+		Révise si besoin :
+		<a href={withBase('/python-listes-et-chaines/')}>listes et chaînes</a>,
+		<a href={withBase('/python-variables-affichage/')}>variables et affichage</a>,
+		<a href={withBase('/python-types-et-saisie/')}>types et saisie</a>. Pour une autre série dans le même esprit :
+		<a href={withBase('/programmation/bataille-navale/')}>bataille navale en Python</a> ou le
+		<a href={withBase('/programmation/pendu/')}>pendu</a>.
+	</p>
+
+	<h2>Matériel recommandé (partenaire Amazon)</h2>
+	<p>
+		Tout le tutoriel fonctionne sur un PC classique avec Python 3. Pour prolonger après le terminal — robot programmable, carte pour brancher capteurs, ou livre de projets — ces recherches regroupent des idées cohérentes avec la suite du parcours sur
+		<strong>robot-educatif.info</strong> :
+	</p>
+	<ul>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=livre+python+debutant+projets&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored"
+				>Livres Python débutant / projets</a
+			>
+			— pour solidifier la syntaxe hors jeux.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=raspberry+pi+5+kit+debutant&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored"
+				>Raspberry Pi et kits débutants</a
+			>
+			— passer du script isolé à un mini ordinateur dédié à tes essais.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=robot+programmable+python+enfant&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored"
+				>Robots programmables</a
+			>
+			— même logique algorithmique, monde physique.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=arduino+starter+kit&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">Kits Arduino / électronique</a> — si tu veux coupler code et hardware plus tard.
+		</li>
+	</ul>
+
+	<h2>FAQ express</h2>
+	<p>
+		Les réponses détaillées sont aussi fournies en données structurées pour les moteurs. Version courte : commence par l’
+		<a href={withBase('/python-puissance-4-1-cahier-grille/')}>étape 1</a>, garde le même découpage que les articles, et lis les messages d’erreur Python comme des indices (indentation,
+		<code>IndexError</code> sur les colonnes, etc.).
+	</p>
+
+	<h2>Erreurs fréquentes &amp; conseils débutants</h2>
+	<ul>
+		<li><strong>Indices</strong> : en interne colonnes 0–6 ; pour le joueur, souvent 1–7 — garde une convention et des noms explicites.</li>
+		<li><strong>Boucle de partie</strong> : tester la victoire sur le joueur qui vient de jouer avant de déclarer le match nul.</li>
+		<li><strong>Gravité</strong> : parcourir les lignes du bas vers le haut pour la première case libre.</li>
+		<li><strong>Motivation</strong> : joue une partie réelle après chaque chapitre ; le micro-progrès maintient l’envie.</li>
+	</ul>
+
+	<h2>Prêt à coder ton Puissance 4 ?</h2>
+	<p>
+		Ouvre l’
+		<a href={withBase('/python-puissance-4-1-cahier-grille/')}><strong>étape 1 — cahier des charges et grille</strong></a>. Quand tu auras terminé la série, reviens ici pour choisir une piste — livre de projets, Raspberry Pi ou robot — et transformer ton jeu console en carnet de projets plus larges.
 	</p>
 </ProgrammationSeriesHub>

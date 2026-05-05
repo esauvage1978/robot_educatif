@@ -14,60 +14,324 @@ const all = await getCollection('blog');
 const posts = all
 	.filter((p) => p.data.series === SERIE)
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const lessonByOrder = new Map(posts.map((post) => [post.data.seriesOrder, post]));
+const lessonUrl = (order: number) => {
+	const post = lessonByOrder.get(order);
+	return post ? withBase(`/${articleSlugFromId(post.id)}/`) : withBase('/programmation/arduino-c/');
+};
+
+const faqItems = [
+	{
+		question: 'Arduino utilise-t-il le langage C ?',
+		answer:
+			'Arduino utilise un langage dérivé du C/C++. Un sketch Arduino reprend la syntaxe du C/C++, avec des fonctions propres à Arduino pour piloter les broches, lire les capteurs et commander des actionneurs.',
+	},
+	{
+		question: 'Par quoi commencer pour apprendre Arduino débutant ?',
+		answer:
+			'Le plus simple est de commencer par la structure setup() et loop(), puis une LED, des variables, des conditions, des boucles et enfin un premier capteur.',
+	},
+	{
+		question: 'Faut-il connaître le C++ avant Arduino ?',
+		answer:
+			'Non. On peut apprendre Arduino progressivement sans maîtriser tout le C++. Les notions essentielles sont les variables, les conditions, les boucles, les fonctions et la logique de capteurs.',
+	},
+	{
+		question: 'Quel projet Arduino facile choisir pour débuter ?',
+		answer:
+			'Une LED interactive, un capteur ultrason ou un petit robot éviteur d’obstacles sont de bons premiers projets, car ils montrent tout de suite le lien entre code et monde réel.',
+	},
+	{
+		question: 'Arduino est-il adapté à la robotique éducative ?',
+		answer:
+			'Oui. Arduino est très utilisé pour apprendre la robotique, car il permet de relier programmation, électronique, capteurs, moteurs et projets concrets.',
+	},
+];
+
+const faqJsonLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: item.answer,
+		},
+	})),
+});
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Arduino C — parcours débutant (robotique)"
-			description="Série de cours Arduino C pour débutant orientée robotique : variables, conditions, boucles, timing (millis), modularité et bonnes pratiques, avec 20 exercices par leçon."
+			title="Apprendre Arduino (C/C++) : guide débutant et projets robotiques"
+			description="Guide complet pour apprendre Arduino débutant : langage C/C++, setup(), loop(), capteurs, moteurs, robot Arduino, projets faciles et parcours progressif."
 		/>
+		<script type="application/ld+json" set:html={faqJsonLd} />
 	</head>
 	<body>
 		<Header />
-		<main class="py-series">
+		<main class="arduino-hub">
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
-				<span>Arduino C</span>
+				<span>Arduino C/C++</span>
 			</nav>
 			<img
 				class="track-hero"
 				src={bandeauArduinoUrl}
 				width="800"
 				height="250"
-				alt="Bandeau visuel : parcours Arduino C"
+				alt="Bandeau visuel : apprendre Arduino C/C++ et robotique"
 				loading="eager"
 			/>
-			<h1>Arduino C — parcours robotique (débutant)</h1>
-			<p class="lead">
-				Leçons progressives pour passer de la structure d’un sketch aux automatismes utiles en robotique : types,
-				seuils, boucles, timing non-bloquant avec <code>millis()</code> et modularité. Chaque article propose du{' '}
-				<strong>code</strong>, des <strong>exercices</strong> et des <strong>bonnes pratiques</strong>.
-				Ressources complémentaires sur{' '}
-				<a
-					href={`https://www.amazon.fr/s?k=arduino+apprendre+c+livre&tag=${tag}`}
-					target="_blank"
-					rel="noopener noreferrer sponsored">Amazon.fr</a>{' '}
-				(partenaire).
-			</p>
+			<section class="hero-block">
+				<p class="kicker">Programmation Arduino débutant</p>
+				<h1>Apprendre Arduino (C/C++) : guide complet pour débutants et projets robotiques</h1>
+				<p class="lead">
+					La <strong>programmation Arduino</strong> permet de créer des objets qui réagissent au monde réel :
+					une LED qui clignote, un capteur qui mesure une distance, un moteur qui tourne, puis un{' '}
+					<strong>robot Arduino</strong> capable d’éviter un obstacle. Si tu veux{' '}
+					<strong>apprendre Arduino débutant</strong>, le plus important n’est pas de mémoriser toute la
+					syntaxe d’un coup, mais de comprendre le cycle simple d’un programme embarqué : initialiser la carte,
+					lire une information, décider, puis agir. Arduino utilise un langage dérivé du <strong>C/C++</strong>.
+					On y retrouve les variables, les conditions, les boucles et les fonctions, avec deux repères
+					indispensables : <code>void setup()</code>, exécutée une seule fois au démarrage, et{' '}
+					<code>void loop()</code>, répétée tant que la carte est alimentée. Ce parcours te guide étape par
+					étape, depuis le premier sketch jusqu’à des projets faciles de robotique éducative.
+				</p>
+				<div class="hero-actions">
+					<a class="button button-primary" href={lessonUrl(1)}>Commencer la leçon 1</a>
+					<a class="button button-secondary" href="#projets-arduino">Voir les projets Arduino</a>
+				</div>
+			</section>
 
-			<ol class="lesson-list">
+			<section class="content-section">
+				<h2>Qu’est-ce qu’Arduino ?</h2>
+				<p>
+					Arduino est une carte programmable basée sur un <strong>microcontrôleur</strong>. Contrairement à un
+					ordinateur classique, elle ne sert pas à afficher des fenêtres ou naviguer sur Internet : elle pilote
+					des composants physiques. Elle peut lire un bouton, un capteur de lumière, un capteur ultrason, puis
+					commander une LED, un buzzer, un servomoteur ou des moteurs de robot.
+				</p>
+				<div class="info-grid">
+					<article>
+						<h3>Carte programmable</h3>
+						<p>Tu écris un sketch, tu le téléverses, puis la carte exécute le programme seule.</p>
+					</article>
+					<article>
+						<h3>Capteurs</h3>
+						<p>Ils transforment le monde réel en valeurs : distance, lumière, appui, inclinaison.</p>
+					</article>
+					<article>
+						<h3>Actionneurs</h3>
+						<p>Ils produisent une action : allumer, tourner, sonner, avancer, freiner.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Pourquoi apprendre Arduino ?</h2>
+				<p>
+					Arduino rend la programmation visible. Une condition ne reste pas une ligne abstraite : elle peut
+					arrêter un robot devant un mur. Une boucle ne reste pas une notion de cours : elle permet de mesurer
+					une distance en continu. C’est pour cela qu’Arduino est excellent en robotique, en objets connectés et
+					en pédagogie.
+				</p>
+				<p>
+					Pour consolider les bases, tu peux aussi travailler en parallèle les notions de programmation avec
+					<a href={withBase('/programmation/python/')}> le parcours Python débutant</a>, puis revenir à Arduino
+					pour manipuler du matériel réel.
+				</p>
+			</section>
+
+			<section class="content-section diff-card">
+				<h2>Différence entre C et Arduino</h2>
+				<p>
+					Arduino n’est pas un langage totalement séparé. C’est une façon d’écrire du <strong>C/C++</strong>
+					avec un environnement simplifié et des fonctions prêtes à l’emploi comme <code>pinMode()</code>,{' '}
+					<code>digitalWrite()</code>, <code>analogRead()</code> ou <code>delay()</code>.
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>C/C++ classique</th>
+							<th>Arduino</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Programme souvent organisé autour de <code>main()</code>.</td>
+							<td>Sketch organisé autour de <code>setup()</code> et <code>loop()</code>.</td>
+						</tr>
+						<tr>
+							<td>Entrées/sorties dépendantes du système.</td>
+							<td>Fonctions simples pour broches, capteurs et actionneurs.</td>
+						</tr>
+						<tr>
+							<td>Souvent exécuté sur ordinateur.</td>
+							<td>Exécuté sur microcontrôleur, dans un objet ou un robot.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section class="content-section">
+				<h2>Structure du langage Arduino : setup, loop, variables, conditions et boucles</h2>
+				<p>
+					Tout débutant doit comprendre ce squelette. <code>setup()</code> prépare la carte, puis{' '}
+					<code>loop()</code> répète les actions.
+				</p>
+				<pre><code>const int LED_PIN = 13;
+
+void setup() &#123;
+  pinMode(LED_PIN, OUTPUT); // préparation de la broche
+&#125;
+
+void loop() &#123;
+  digitalWrite(LED_PIN, HIGH);
+  delay(500);
+  digitalWrite(LED_PIN, LOW);
+  delay(500);
+&#125;</code></pre>
+				<p>
+					Ensuite, tu ajoutes des <strong>variables</strong> pour stocker une valeur, des{' '}
+					<strong>conditions</strong> pour décider, et des <strong>boucles</strong> pour répéter proprement.
+				</p>
+				<pre><code>int distanceCm = 12;
+const int SEUIL_STOP = 15;
+
+if (distanceCm &lt;= SEUIL_STOP) &#123;
+  // le robot doit s'arrêter
+&#125; else &#123;
+  // le robot peut avancer
+&#125;</code></pre>
+			</section>
+
+			<section class="content-section" id="parcours">
+				<h2>Parcours d’apprentissage Arduino : du premier programme au robot</h2>
+				<div class="level-grid">
+					<article>
+						<span class="level-label">Niveau 1</span>
+						<h3>LED et premiers programmes</h3>
+						<p>Comprendre le sketch, compiler, téléverser, afficher avec Serial et lancer une première LED.</p>
+						<a href={lessonUrl(1)}>Découvrir setup(), loop() et Serial</a>
+					</article>
+					<article>
+						<span class="level-label">Niveau 2</span>
+						<h3>Variables, capteurs et conditions</h3>
+						<p>Stocker une distance, fixer un seuil, puis décider si le robot doit ralentir ou s’arrêter.</p>
+						<a href={lessonUrl(2)}>Voir les variables</a>
+						<a href={lessonUrl(3)}>Voir les conditions</a>
+					</article>
+					<article>
+						<span class="level-label">Niveau 3</span>
+						<h3>Boucles, timing et réactions</h3>
+						<p>Mesurer en continu et éviter les blocages avec <code>millis()</code>.</p>
+						<a href={lessonUrl(4)}>Travailler les boucles et le timing</a>
+					</article>
+					<article>
+						<span class="level-label">Niveau 4</span>
+						<h3>Projet complet et code propre</h3>
+						<p>Organiser un robot avec des fonctions : mesurer, décider, agir.</p>
+						<a href={lessonUrl(5)}>Structurer un projet Arduino</a>
+					</article>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Les leçons Arduino C/C++ du parcours</h2>
+				<ol class="lesson-list">
+					{
+						posts.map((post) => (
+							<li>
+								<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+									<span class="num">{post.data.seriesOrder ?? '—'}</span>
+									<span class="meta">
+										<span class="title">{post.data.title}</span>
+										<span class="desc">{post.data.description}</span>
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ol>
+			</section>
+
+			<section class="content-section" id="projets-arduino">
+				<h2>Projets Arduino faciles pour progresser</h2>
+				<div class="project-grid">
+					<article>
+						<h3>LED interactive</h3>
+						<p>Idéal pour comprendre sorties numériques, timing et état allumé/éteint.</p>
+						<a href={lessonUrl(1)}>Commencer avec la structure d’un sketch</a>
+					</article>
+					<article>
+						<h3>Capteur ultrason</h3>
+						<p>Excellent pour relier mesure, variable, seuil et réaction du robot.</p>
+						<a href={withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/')}>Mesurer une distance</a>
+					</article>
+					<article>
+						<h3>Robot éviteur d’obstacles</h3>
+						<p>Un projet concret pour combiner capteur, conditions, moteurs et fonctions.</p>
+						<a href={lessonUrl(5)}>Organiser le code d’un robot</a>
+					</article>
+					<article>
+						<h3>Robot suiveur de ligne</h3>
+						<p>Parfait pour travailler la lecture de capteurs et les corrections de trajectoire.</p>
+						<a href={withBase('/accessoires-mbot-par-ou-commencer/')}>Voir les capteurs et accessoires utiles</a>
+					</article>
+				</div>
+			</section>
+
+			<section class="content-section resources">
+				<h2>Matériel recommandé pour apprendre Arduino</h2>
+				<p>
+					Un petit kit suffit pour démarrer : une carte compatible Arduino, quelques LED, résistances, boutons,
+					câbles, puis un capteur ultrason et un kit moteurs quand tu passes au robot.
+				</p>
+				<div class="resource-grid">
+					<a href={`https://www.amazon.fr/s?k=kit+arduino+d%C3%A9butant&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">
+						<strong>Kit Arduino débutant</strong>
+						<span>Voir le kit recommandé</span>
+					</a>
+					<a href={`https://www.amazon.fr/s?k=robot+arduino+kit&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">
+						<strong>Robot Arduino</strong>
+						<span>Voir le kit recommandé</span>
+					</a>
+					<a href={`https://www.amazon.fr/s?k=capteurs+arduino+kit&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">
+						<strong>Capteurs Arduino</strong>
+						<span>Voir le kit recommandé</span>
+					</a>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<h2>Erreurs fréquentes quand on débute Arduino</h2>
+				<ul class="check-list">
+					<li>Oublier <code>setup()</code> ou <code>loop()</code>, alors que ce sont les deux fonctions de base d’un sketch.</li>
+					<li>Confondre <code>=</code> pour affecter une valeur et <code>==</code> pour comparer.</li>
+					<li>Utiliser des numéros de broches partout au lieu de constantes comme <code>LED_PIN</code>.</li>
+					<li>Bloquer le robot avec de longs <code>delay()</code> au lieu de progresser vers <code>millis()</code>.</li>
+					<li>Accuser le code alors que le câblage, l’alimentation ou la masse commune sont incorrects.</li>
+				</ul>
+			</section>
+
+			<section class="content-section faq-section">
+				<h2>Questions fréquentes sur Arduino débutant</h2>
 				{
-					posts.map((post) => (
-						<li>
-							<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
-								<span class="num">{post.data.seriesOrder ?? '—'}</span>
-								<span class="meta">
-									<span class="title">{post.data.title}</span>
-									<span class="desc">{post.data.description}</span>
-								</span>
-							</a>
-						</li>
+					faqItems.map((item) => (
+						<article>
+							<h3>{item.question}</h3>
+							<p>{item.answer}</p>
+						</article>
 					))
 				}
-			</ol>
+			</section>
+
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
@@ -77,8 +341,8 @@ const posts = all
 </html>
 
 <style>
-	.py-series {
-		width: min(720px, calc(100% - 2rem));
+	.arduino-hub {
+		width: min(1040px, calc(100% - 2rem));
 		margin: 0 auto;
 		padding: 2rem 0 3rem;
 	}
@@ -99,19 +363,143 @@ const posts = all
 		font-weight: 600;
 		text-decoration: none;
 	}
-	.py-series h1 {
-		font-size: clamp(1.65rem, 3vw, 2rem);
+	.hero-block {
+		margin: 0 0 2rem;
+		padding: clamp(1.25rem, 3vw, 2rem);
+		border: 1px solid var(--surface-border);
+		border-radius: 18px;
+		background:
+			linear-gradient(135deg, color-mix(in oklab, var(--accent) 10%, transparent), transparent),
+			var(--surface);
+	}
+	.kicker {
+		margin: 0 0 0.6rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 0.78rem;
+		font-weight: 800;
+		color: var(--accent);
+	}
+	.arduino-hub h1 {
+		font-size: clamp(2rem, 4vw, 3.1rem);
 		margin: 0 0 0.75rem;
 		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+		line-height: 1.08;
 	}
 	.lead {
-		margin: 0 0 1.75rem;
+		margin: 0;
 		line-height: 1.6;
 		color: rgb(var(--gray-dark));
 	}
 	.lead a {
 		color: var(--accent);
 		font-weight: 600;
+	}
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+	}
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.75rem 1rem;
+		border-radius: 999px;
+		font-weight: 800;
+		text-decoration: none;
+	}
+	.button-primary {
+		background: var(--brand-gradient, linear-gradient(135deg, var(--accent), var(--accent-warm)));
+		color: #fff;
+	}
+	.button-secondary {
+		border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+		color: var(--accent);
+		background: var(--surface);
+	}
+	.content-section {
+		margin-top: 2rem;
+		padding: clamp(1.15rem, 2vw, 1.6rem);
+		border: 1px solid var(--surface-border);
+		border-radius: 16px;
+		background: var(--surface);
+	}
+	.content-section h2 {
+		margin: 0 0 0.8rem;
+		font-size: clamp(1.35rem, 3vw, 1.9rem);
+		color: rgb(var(--gray-dark));
+	}
+	.content-section h3 {
+		margin: 0 0 0.45rem;
+		color: rgb(var(--gray-dark));
+	}
+	.content-section p,
+	.content-section li {
+		line-height: 1.65;
+		color: rgb(var(--gray-dark));
+	}
+	.content-section a {
+		color: var(--accent);
+		font-weight: 700;
+	}
+	.info-grid,
+	.level-grid,
+	.project-grid,
+	.resource-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+	.level-grid,
+	.project-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.info-grid article,
+	.level-grid article,
+	.project-grid article,
+	.faq-section article {
+		padding: 1rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: color-mix(in oklab, var(--accent) 4%, var(--surface));
+	}
+	.level-label {
+		display: inline-flex;
+		margin-bottom: 0.5rem;
+		padding: 0.2rem 0.55rem;
+		border-radius: 999px;
+		background: color-mix(in oklab, var(--accent) 12%, transparent);
+		color: var(--accent);
+		font-size: 0.78rem;
+		font-weight: 800;
+	}
+	.diff-card table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 1rem;
+		overflow: hidden;
+		border-radius: 12px;
+	}
+	.diff-card th,
+	.diff-card td {
+		border: 1px solid var(--surface-border);
+		padding: 0.8rem;
+		text-align: left;
+		vertical-align: top;
+	}
+	.diff-card th {
+		background: color-mix(in oklab, var(--accent) 9%, var(--surface));
+	}
+	pre {
+		overflow-x: auto;
+		padding: 1rem;
+		border-radius: 12px;
+		background: #111827;
+		color: #f8fafc;
+		line-height: 1.55;
 	}
 	.lesson-list {
 		margin: 0;
@@ -169,12 +557,41 @@ const posts = all
 		color: rgb(var(--gray));
 		line-height: 1.45;
 	}
+	.resource-grid a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 1rem;
+		border-radius: 14px;
+		background: color-mix(in oklab, var(--accent-warm) 10%, var(--surface));
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+	}
+	.resource-grid span {
+		color: var(--accent);
+		font-weight: 800;
+	}
+	.check-list {
+		padding-left: 1.25rem;
+	}
+	.faq-section {
+		display: grid;
+		gap: 1rem;
+	}
 	.back {
 		margin-top: 2rem;
 	}
 	.back a {
 		color: var(--accent);
 		font-weight: 600;
+	}
+	@media (max-width: 760px) {
+		.info-grid,
+		.level-grid,
+		.project-grid,
+		.resource-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
 

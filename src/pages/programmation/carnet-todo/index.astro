@@ -4,25 +4,165 @@ import { AMAZON_AFFILIATE_TAG } from '../../../consts';
 import { withBase } from '../../../lib/siteUrl';
 
 const tag = AMAZON_AFFILIATE_TAG;
+
+const faqSchema = [
+	{
+		question: 'Comment apprendre Python avec un carnet de tâches en JSON ?',
+		answer:
+			'On modélise des tâches (id, titre, fait) dans un dictionnaire, on les lit et on les écrit sur disque avec le module json, puis on branche un menu en ligne de commande. Ce tutoriel en six parties va du cahier des charges au projet complet avec robustesse.',
+	},
+	{
+		question: 'Pourquoi utiliser JSON pour un projet Python débutant ?',
+		answer:
+			'Le JSON est lisible dans un éditeur de texte, échangeable avec d’autres langages ou une future appli web, et natif dans Python avec json.load et json.dump sans dépendance externe.',
+	},
+	{
+		question: 'Faut-il connaître pathlib pour suivre cette série ?',
+		answer:
+			'Les articles utilisent pathlib.Path pour les chemins de fichier de façon portable ; une lecture rapide du tutoriel pathlib intermédiaire aide, mais le code reste accessible si tu connais déjà l’ouverture de fichiers en Python.',
+	},
+	{
+		question: 'Quelle différence entre ce projet et un jeu au terminal comme le Puissance 4 ?',
+		answer:
+			'Le carnet Todo met l’accent sur fichiers, sérialisation et menu utilitaire ; les jeux mettent l’accent sur boucles et logique de plateau. Les deux sont des projets Python débutant solides à mettre dans un portfolio.',
+	},
+	{
+		question: 'Comment éviter de corrompre le fichier JSON si le programme plante ?',
+		answer:
+			'Sauvegarder après chaque modification ou à la sortie avec encodage UTF-8 ; gérer JSONDecodeError pour repartir d’une base vide ; une copie .bak avant écriture est une option décrite dans la partie persistance.',
+	},
+	{
+		question: 'Peut-on étendre le carnet Todo vers une API ou une interface graphique ?',
+		answer:
+			'Oui : le même fichier JSON peut être lu par Flask ou FastAPI plus tard ; les fonctions du modèle de données restent réutilisables si tu sépares stockage, logique et interface.',
+	},
+];
 ---
 
 <ProgrammationSeriesHub
-	metaTitle="Carnet Todo en Python — données JSON"
-	metaDescription="Série guidée : modèle de tâches, lecture et écriture JSON, menu en ligne de commande, persistance sur disque."
+	metaTitle="Carnet Todo en Python — projet JSON et ligne de commande (tutoriel)"
+	metaDescription="Projet Python débutant : tâches en JSON, lecture/écriture utf-8, menu CLI, persistance et fichier complet téléchargeable. Série gratuite en 6 étapes sur robot-educatif.info."
 	series="Carnet Todo"
 	breadcrumbLast="Carnet Todo"
-	pageTitle="Carnet Todo (JSON) en Python"
+	pageTitle="Carnet Todo en Python — projet utile avec fichier JSON"
+	faqSchema={faqSchema}
 >
 	<p>
-		Petit outil <strong>utile au quotidien</strong> : ajouter, lister, cocher et supprimer des tâches, le tout sauvegardé
-		dans un fichier <strong>JSON</strong> (lisible et standard). Prérequis :{' '}
+		<strong>Tu veux un projet qui reste sur ton disque et que tu réutilises vraiment</strong> : ajouter des tâches, les cocher, tout sauvegarder dans un fichier{' '}
+		<strong>JSON</strong> lisible. Pas une démo jetable — la même base pourrait alimenter une appli ou un script sur Raspberry Pi. C’est un excellent{' '}
+		<strong>projet python débutant</strong> pour maîtriser{' '}
 		<a href={withBase('/python-fichiers-texte/')}>fichiers</a>,{' '}
-		<a href={withBase('/python-listes-et-chaines/')}>listes / dictionnaires de base</a> et{' '}
-		<a href={withBase('/python-fonctions/')}>fonctions</a>. Le module <code>json</code> est dans la bibliothèque standard.
-		Ressources :{' '}
-		<a
-			href={`https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=${tag}`}
-			target="_blank"
-			rel="noopener noreferrer sponsored">données &amp; Python</a> (partenaire).
+		<a href={withBase('/python-listes-et-chaines/')}>listes et dictionnaires</a>,{' '}
+		<a href={withBase('/python-fonctions/')}>fonctions</a> et le module standard{' '}
+		<code>json</code>.
+	</p>
+
+	<h2>Pourquoi ce tutoriel « carnet todo python » ?</h2>
+	<ul>
+		<li><strong>Utile au quotidien</strong> : tu construis un outil, pas seulement un exercice.</li>
+		<li><strong>Données réelles</strong> : sérialisation, chemins, erreurs de fichier — compétences proches du terrain.</li>
+		<li><strong>Progression claire</strong> : six articles du modèle de données au <code>main()</code> avec extensions.</li>
+	</ul>
+
+	<h2>Plan complet — les 6 étapes</h2>
+	<p>
+		Chaque lien mène au détail, au code commenté et au fichier à télécharger quand il est proposé dans l’article. Le maillage renvoie toujours vers cette page pilier pour retrouver le fil.
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">Étape</th>
+				<th scope="col">Tu apprends…</th>
+				<th scope="col">Article</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>1 — Cahier des charges</strong></td>
+				<td>Structure JSON, champs des tâches, menu prévu.</td>
+				<td><a href={withBase('/python-carnet-todo-1-cahier-json/')}>Cahier des charges et JSON</a></td>
+			</tr>
+			<tr>
+				<td><strong>2 — Lire / écrire</strong></td>
+				<td><code>json.load</code>, <code>json.dump</code>, UTF-8, fichier absent.</td>
+				<td><a href={withBase('/python-carnet-todo-2-lire-ecrire-json/')}>Lire et écrire du JSON</a></td>
+			</tr>
+			<tr>
+				<td><strong>3 — Modèle</strong></td>
+				<td>Ajouter, trouver, basculer <code>fait</code>, supprimer ; <code>prochain_id</code>.</td>
+				<td><a href={withBase('/python-carnet-todo-3-modele-donnees/')}>Modèle de données</a></td>
+			</tr>
+			<tr>
+				<td><strong>4 — Menu CLI</strong></td>
+				<td>Boucle <code>while</code>, options, <code>input</code>, gestion des erreurs de saisie.</td>
+				<td><a href={withBase('/python-carnet-todo-4-menu-cli/')}>Menu en ligne de commande</a></td>
+			</tr>
+			<tr>
+				<td><strong>5 — Persistance</strong></td>
+				<td>Quand sauver, <code>JSONDecodeError</code>, copies de secours.</td>
+				<td><a href={withBase('/python-carnet-todo-5-persistance/')}>Persistance et robustesse</a></td>
+			</tr>
+			<tr>
+				<td><strong>6 — Projet complet</strong></td>
+				<td><code>main()</code>, arguments, checklist, extensions (priorité, CSV…).</td>
+				<td><a href={withBase('/python-carnet-todo-6-projet-complet/')}>Assembler le projet</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2>Maillage : bases Python et autres séries</h2>
+	<p>
+		Avant ou en parallèle, appuie-toi sur le{' '}
+		<a href={withBase('/programmation/python/')}>parcours Python</a> :{' '}
+		<a href={withBase('/python-conditions-if-else/')}>conditions</a>,{' '}
+		<a href={withBase('/python-boucles-for-while/')}>boucles</a>,{' '}
+		<a href={withBase('/python-erreurs-debogage/')}>erreurs et débogage</a>. Pour structurer les fichiers comme un petit logiciel :{' '}
+		<a href={withBase('/python-inter-modules-imports/')}>imports et modules</a>. Pour les chemins propres sous Windows et Linux :{' '}
+		<a href={withBase('/python-inter-pathlib/')}>pathlib</a>.
+	</p>
+	<p>
+		D’autres <strong>projets guidés</strong> sur le même site — à combiner pour un portfolio varié :{' '}
+		<a href={withBase('/programmation/puissance-4/')}>Puissance 4 en Python</a>,{' '}
+		<a href={withBase('/programmation/bataille-navale/')}>bataille navale</a>,{' '}
+		<a href={withBase('/programmation/pendu/')}>pendu</a>. Jeux = logique de plateau ; carnet Todo ={' '}
+		<strong>données persistantes</strong> et <strong>CLI</strong>.
+	</p>
+
+	<h2>Matériel recommandé (partenaire Amazon)</h2>
+	<p>
+		Un PC suffit pour la série ; pour aller plus loin (livres de pratique, carte pour héberger ton script 24/7, kit pour bricoler) :
+	</p>
+	<ul>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=python+donn%C3%A9es+json+fichiers+livre&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored"
+				>Livres Python — données, fichiers, JSON</a
+			>.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=python+projets+pratiques+livre&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">Projets Python pratiques</a>.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=raspberry+pi+5+kit+debutant&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">Raspberry Pi — kits débutants</a> pour faire tourner ton script sur une machine dédiée.
+		</li>
+		<li>
+			<a href={`https://www.amazon.fr/s?k=programmation+python+console+cli&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">Ouvrages programmation / console</a>.
+		</li>
+	</ul>
+
+	<h2>FAQ et pièges fréquents</h2>
+	<ul>
+		<li><strong>Encodage</strong> : toujours <code>encoding=&quot;utf-8&quot;</code> à l’ouverture pour les accents dans les titres.</li>
+		<li><strong>Types</strong> : après <code>json.load</code>, tu manipules des <code>dict</code> et <code>list</code> Python — pas du « JSON » comme type.</li>
+		<li><strong>Id</strong> : incrémenter <code>prochain_id</code> à chaque création évite les collisions si tu supprimes des tâches.</li>
+	</ul>
+	<p>
+		Les questions fréquentes sont aussi déclarées en FAQ structurée sur cette page pour faciliter l’indexation.
+	</p>
+
+	<h2>Lancer le tutoriel</h2>
+	<p>
+		Commence par l’
+		<a href={withBase('/python-carnet-todo-1-cahier-json/')}><strong>étape 1 — cahier des charges et structure JSON</strong></a>. À la fin de la série, tu pourras boucler avec le{' '}
+		<a href={withBase('/python-carnet-todo-6-projet-complet/')}>projet complet</a> et choisir un livre ou un kit dans la section partenaire pour pousser la pratique au-delà du terminal.
 	</p>
 </ProgrammationSeriesHub>

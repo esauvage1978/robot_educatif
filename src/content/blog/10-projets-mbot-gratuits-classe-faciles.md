@@ -1,9 +1,9 @@
 ---
-title: "10 projets mBot en classe (PDF gratuit) — idées faciles 2026"
-headline: "10 Projets mBot Gratuits à Faire en Classe (Faciles et Rapides)"
-description: "10 projets mBot gratuits pour la classe : avancer, éviter obstacles, ligne, LED, sons, capteurs. Fiche PDF à télécharger, niveaux, durées, astuces enseignants."
+title: "10 projets mBot gratuits et faciles à réaliser en classe"
+headline: "10 projets mBot gratuits et faciles à réaliser en classe (guide complet enseignants)"
+description: "Guide complet enseignants : 10 projets mBot gratuits pour la classe avec objectifs, niveaux, durées, matériel, variantes, progression pédagogique, conseils et FAQ."
 pubDate: 2026-04-19
-updatedDate: 2026-04-20
+updatedDate: 2026-05-03
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 articleJsonLd: true
@@ -28,488 +28,333 @@ relatedLinks:
   - title: "Faire clignoter les LED"
     href: "/activite-mbot-faire-clignoter-les-leds/"
 faqSchema:
-  - question: "Quel projet faire avec mBot en premier ?"
-    answer: "Commencer par un déplacement simple (avancer / reculer) pour valider connexion, téléversement et sécurité autour du robot, puis enchaîner avec un capteur (distance ou ligne) selon le matériel disponible."
-  - question: "Comment utiliser mBot en classe sans perdre le fil ?"
-    answer: "Un poste par groupe, une consigne courte, un critère de réussisse visible (traverser une zone, s’arrêter à une distance, allumer une couleur), puis un temps de démo et de verbalisation du programme avant tout nouveau gadget."
-  - question: "mBot est-il adapté aux enfants et aux débutants ?"
-    answer: "Oui : programmation par blocs dans mBlock (proche de Scratch), robot solide, progression possible vers des projets plus exigeants. Prévoir l’accompagnement adulte pour les tout jeunes et les consignes de sécurité."
-  - question: "Où télécharger la fiche PDF des 10 projets ?"
-    answer: "Sur cette page, section « Télécharger le PDF », lien direct vers le fichier hébergé sur robot-educatif.info (downloads/mbot)."
-  - question: "Existe-t-il un corrigé avec schémas pour les enseignants ?"
-    answer: "Oui : un second PDF propose des logigrammes simplifiés et des corrections (pièges fréquents, critères de réussite) pour chaque projet — même dossier downloads/mbot sur le site."
+  - question: "Comment programmer un mBot ?"
+    answer: "Le plus simple est d’utiliser mBlock, un logiciel par blocs proche de Scratch. On ajoute le robot mBot, on choisit les blocs moteurs, LED ou capteurs, puis on teste en mode connecté ou on téléverse le programme dans le robot."
+  - question: "Quel âge pour utiliser mBot ?"
+    answer: "mBot est utilisable dès le cycle 3 avec un adulte, et très adapté au collège. Les plus jeunes commencent par des blocs simples (moteurs, LED, sons), puis ajoutent les capteurs, les conditions et les boucles."
+  - question: "mBot est-il adapté à l’école ?"
+    answer: "Oui. mBot est robuste, programmable avec mBlock, proche de Scratch, et permet des activités courtes en groupe : mouvement, capteur ultrason, suivi de ligne, LED, son et mini-défis."
+  - question: "Scratch ou Python pour mBot ?"
+    answer: "Pour débuter avec mBot en classe, mBlock par blocs est le plus accessible car il ressemble à Scratch. Python peut venir plus tard avec des élèves à l’aise avec la programmation textuelle."
+  - question: "Combien coûte un robot mBot ?"
+    answer: "Le prix varie selon la version, les accessoires et les vendeurs. Il faut généralement prévoir le robot, un ordinateur ou une tablette compatible, et éventuellement des accessoires comme pistes, piles, batteries ou capteurs complémentaires."
 ---
 
-Trouver **des idées de projets mBot** prêtes à l’emploi pour une **classe** ou un **club STEM**, ce n’est pas toujours évident : le matériel est là, le temps est compté, et on veut à la fois **du concret**, **du niveau juste**, et une trace **réutilisable** l’année suivante.
+Le **mBot** est l’un des robots les plus pratiques pour mettre en place une **activité robotique** en classe : il est compact, visuel, programmable avec **mBlock** et suffisamment concret pour que les élèves comprennent vite le lien entre un bloc de code et une action réelle. Quand le robot avance, s’arrête devant un obstacle, change de couleur ou suit une ligne, la **programmation enfant** devient observable, testable et discutable en groupe.
 
-Ce guide propose **10 projets mBot gratuits** (aucun coût logiciel : **mBlock** est téléchargeable gratuitement), pensés pour **enseignants**, **documentalistes** et **parents** qui animent un atelier. Chaque idée est découpée comme une **mini-séance** : objectif, matériel, niveau, durée, étapes, compétences, astuce pédagogique.
+Ce guide rassemble 10 idées de **projet mBot** gratuites, faciles à adapter au primaire, au collège, en club robotique ou en atelier découverte. Les projets utilisent la logique de **Scratch** via mBlock : événements, séquences, boucles, conditions, capteurs et sorties. Chaque activité est pensée pour un enseignant qui doit gérer du matériel, un temps limité, des groupes hétérogènes et un objectif pédagogique clair.
 
-**Bonus** : une **fiche PDF** reprend les 10 fiches en version **imprimable** (checklist matériel + conseils) — idéale à partager avec des collègues ou à afficher en salle.
+L’idée n’est pas de donner une simple liste d’activités mBot, mais une progression réaliste : commencer par les moteurs et les LED, ajouter les capteurs, introduire les conditions, puis terminer par un mini-défi. Vous pouvez utiliser ces projets séparément, ou les enchaîner sur plusieurs séances pour construire un vrai parcours de **programmation mBot Scratch**. Pour démarrer côté logiciel, consultez aussi le guide [télécharger mBlock 5 gratuitement](/telecharger-mblock-5-gratuit-guide-2026/) et l’article [mon premier programme mBot](/mon-premier-programme-mbot/).
 
 <div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
 <p class="article-toc-title">Sommaire</p>
 <ul>
 <li><a href="#pourquoi-mbot">1. Pourquoi utiliser mBot en classe ?</a></li>
-<li><a href="#presentation-mbot">2. Présentation rapide du robot mBot</a></li>
-<li><a href="#les-10-projets">3. Les 10 projets</a></li>
-<li><a href="#pdf-gratuit">4. Télécharger les PDF gratuits</a></li>
-<li><a href="#resume-rapide">5. Résumé rapide</a></li>
-<li><a href="#partager-ressource">6. Partager la ressource (backlinks & diffusion)</a></li>
+<li><a href="#materiel-necessaire">2. Matériel nécessaire</a></li>
+<li><a href="#les-10-projets">3. Les 10 projets mBot</a></li>
+<li><a href="#progression-pedagogique">4. Progression pédagogique</a></li>
+<li><a href="#conseils-enseignants">5. Conseils enseignants</a></li>
+<li><a href="#aller-plus-loin">6. Pour aller plus loin</a></li>
 <li><a href="#faq">7. FAQ</a></li>
-<li><a href="#materiel-affiliation">8. Matériel recommandé (Makeblock)</a></li>
 </ul>
 </div>
 
 <h2 id="pourquoi-mbot">1. Pourquoi utiliser mBot en classe ?</h2>
 
-- **Code et logique** : les élèves manipulent des **conditions**, des **boucles**, des **entrées** (capteurs) et des **sorties** (moteurs, LED, buzzer) — la « pensée algorithmique » devient visible sur la table.
-- **Motivation** : le **retour concret** (le robot bouge, bipe, s’arrête) renforce l’engagement mieux qu’un exercice uniquement à l’écran — tout en restant proche de **Scratch** via **mBlock**.
-- **Travail d’équipe** : on peut répartir les rôles (**programme**, **test**, **chronomètre**, **compte-rendu**) et faire **verbaliser** les hypothèses avant chaque essai.
-- **Évaluation formative** : critères simples (le robot franchit une ligne, s’arrête à 15 cm, joue une séquence) adaptés au **cycle 3 / collège** selon votre programme.
+Le mBot fonctionne bien en classe parce qu’il transforme une notion abstraite en comportement visible. Une boucle n’est plus seulement un bloc qui répète : c’est un robot qui avance tant qu’il ne voit pas d’obstacle. Une condition n’est plus une phrase théorique : c’est un choix entre continuer, tourner, s’arrêter ou allumer une LED.
 
-Pour cadrer l’âge et la progression : voir aussi notre article [programmation enfant : à quel âge commencer](/programmation-enfant-a-quel-age-commencer/).
+Les principaux avantages pédagogiques :
 
-<h2 id="presentation-mbot">2. Présentation rapide du robot mBot</h2>
+- **Apprentissage par projet** : chaque séance produit un résultat observable, même simple.
+- **Logique et algorithmique** : les élèves manipulent séquence, boucle, condition, variable, seuil et événement.
+- **Résolution de problème** : le robot ne fait pas toujours ce qui était prévu ; il faut tester, expliquer, corriger.
+- **Travail d’équipe** : un élève programme, un autre teste, un autre observe, un autre note les modifications.
+- **Lien Scratch / mBlock** : les blocs ressemblent à Scratch, ce qui facilite la transition depuis les activités à l’écran.
+- **Progression vers la robotique éducative** : capteurs, moteurs, lumière, son et environnement réel.
 
-Le **mBot** est un **robot programmable** en kit (Makeblock), pensé pour l’**éducation** : châssis, roues, carte de commande, moteurs, souvent un **capteur ultrason** et des **suiveurs de ligne** (selon version). On le programme avec **mBlock** — interface **par blocs** proche de **Scratch**, avec des extensions pour piloter le matériel réel.
+Pour cadrer l’âge et la progression, voir aussi [programmation enfant : à quel âge commencer](/programmation-enfant-a-quel-age-commencer/). Pour comparer mBlock et Scratch, consultez [mBlock vs Scratch : lequel choisir ?](/mblock-vs-scratch-lequel-choisir/).
 
-- **mBlock** : à installer sur PC/Mac ou version **Web** selon votre établissement — guide central : [télécharger mBlock 5 gratuitement](/telecharger-mblock-5-gratuit-guide-2026/).
-- **Scratch « officiel »** vs **mBot** : pour du **robot Makeblock**, on travaille dans **mBlock** ; le Scratch du MIT reste excellent pour des **jeux à l’écran** — comparaison : [mBlock vs Scratch](/mblock-vs-scratch-lequel-choisir/).
+<h2 id="materiel-necessaire">2. Matériel nécessaire</h2>
 
-Présentation plus détaillée du robot : [mBot, mon premier robot éducatif](/mbot-mon-premier-robot-educatif/).
+Pour réaliser ces activités, il faut peu de matériel, mais l’organisation compte beaucoup.
+
+- **Robot mBot** : un robot pour 2 à 4 élèves fonctionne bien. Avec un seul robot, prévoyez des rôles tournants.
+- **Logiciel mBlock** : à installer ou à utiliser selon votre configuration. Démarrez par [télécharger mBlock 5](/telecharger-mblock-5-gratuit-guide-2026/) puis [premiers pas avec mBlock 5](/premier-pas-avec-mblock-5/).
+- **Ordinateur ou tablette** : vérifier avant la séance la connexion USB, Bluetooth ou le mode de téléversement.
+- **Espace de test** : sol plat, zone délimitée, scotch au sol, cartons, livres ou plots.
+- **Accessoires utiles** : câble USB, batteries chargées, ruban adhésif noir pour piste, feuilles de défi, chronomètre, feutres, cartons mats pour obstacles.
+
+Si vous débutez complètement, commencez par [mBot, mon premier robot éducatif](/mbot-mon-premier-robot-educatif/) puis [mon premier programme mBot](/mon-premier-programme-mbot/).
 
 <h2 id="les-10-projets">3. Les 10 projets</h2>
 
-> **Note classe** : adaptez les blocs exacts à votre **version de mBlock** et au **modèle** (mBot classique, mBot2, etc.). L’important est la **logique** : capteur → décision → action.
-
----
+> **Note classe** : les blocs exacts peuvent varier selon la version de mBlock et le modèle de robot. Gardez l’objectif : entrée → décision → action.
 
 ## Projet 1 — Robot qui avance et recule
 
-### Objectif
+**🎯 Objectif pédagogique** : comprendre la relation entre un ordre moteur, une durée et un mouvement réel.
 
-Comprendre **moteurs gauche / droite**, l’enchaînement des blocs et le **téléversement** — base indispensable avant tout capteur.
+**👶 Niveau** : primaire / collège débutant.
 
-### Matériel nécessaire
+**⏱ Durée** : 30 à 40 minutes.
 
-**mBot** (kit standard), **mBlock**, câble **USB** ou **Bluetooth**, sol **plat** et dégagé.
+**🧠 Compétences travaillées** : séquence, ordre d’exécution, durée, observation, test.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, mBlock, câble USB ou Bluetooth, zone plate et dégagée.
 
-**Débutant**
+**📝 Description détaillée** : les élèves créent un programme très court : au démarrage, le robot avance pendant 1 seconde, s’arrête, recule pendant 1 seconde, puis s’arrête à nouveau. Avant le test, chaque groupe dessine la trajectoire attendue sur une feuille. Après le test, les élèves comparent le dessin et le comportement réel : le robot a-t-il avancé droit ? La durée est-elle trop longue ? Faut-il réduire la vitesse ?
 
-### Durée
+Cette première activité mBot est essentielle : elle vérifie la connexion, le téléversement, le sens des moteurs et la sécurité autour du robot. Elle prépare toutes les autres séances.
 
-**≈ 30 min**
-
-### Étapes
-
-1. Créer un projet **Appareil** avec le **mBot** sélectionné.
-2. Empiler : **démarrage mBot** → **moteurs : avancer** (1 s) → **pause** (0,5 s) → **reculer** (1 s).
-3. **Téléverser**, placer le robot au sol, observer.
-4. Faire **varier les durées** et prévoir le nouveau comportement **avant** le test.
-
-### Compétences
-
-**Séquence**, **durée**, **test / observation**.
-
-### Astuce enseignant
-
-Demandez à deux élèves de **dessiner** la trajectoire attendue **avant** l’essai : ancrage du vocabulaire (avancer, reculer, durée).
-
----
+**💡 Variante / amélioration possible** : transformer l’activité en défi “parking” : avancer jusqu’à une zone, reculer dans une autre, puis s’arrêter précisément.
 
 ## Projet 2 — Robot éviteur d’obstacles
 
-### Objectif
+**🎯 Objectif pédagogique** : utiliser un capteur ultrason pour prendre une décision.
 
-Introduire une **boucle**, un **seuil** sur le **capteur ultrason** et une **réaction** (tourner ou reculer).
+**👶 Niveau** : collège / débutant accompagné.
 
-### Matériel nécessaire
+**⏱ Durée** : 45 minutes à 1 heure.
 
-**mBot** avec **ultrason**, obstacle fixe (carton, livre), ruban au sol pour la « route ».
+**🧠 Compétences travaillées** : condition, boucle, seuil, capteur, correction d’un comportement.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot avec capteur ultrason, cartons ou livres comme obstacles, ruban au sol.
 
-**Intermédiaire**
+**📝 Description détaillée** : le programme lit la distance en continu. Si la distance est inférieure à 15 ou 20 cm, le robot recule ou tourne. Sinon, il avance lentement. Le groupe doit d’abord choisir un seuil, le noter, puis tester. On discute ensuite : que se passe-t-il si le seuil est trop grand ? Trop petit ? Pourquoi le robot ne voit-il pas bien certains objets ?
 
-### Durée
+Cette activité est parfaite pour introduire la forme “si… alors… sinon…”. Elle peut être reliée à un vrai contexte : voiture qui évite un mur, robot explorateur ou radar de recul. Pour approfondir le capteur, voir [mesurer des distances avec mBot](/activite-mbot-mesurer-des-distances/).
 
-**45 min à 1 h**
-
-### Étapes
-
-1. **Boucle** « pour toujours » : mesurer la **distance**.
-2. Si **distance &lt; 15 cm** (à ajuster) : **tourner** ou **reculer** brièvement.
-3. Sinon : **avancer** lentement.
-4. Noter au tableau **un seul seuil** pour toute la classe, puis faire des **réglages** par petits groupes.
-
-### Compétences
-
-**Condition**, **capteur**, **boucle**, **réglage de paramètre**.
-
-### Astuce enseignant
-
-Évitez les obstacles **réfléchissants** au début (vitres) : privilégiez un **carton mat**. Prolongement sur le site : [mesurer des distances](/activite-mbot-mesurer-des-distances/).
-
----
+**💡 Variante / amélioration possible** : ajouter une LED rouge quand l’obstacle est proche et une LED verte quand la route est libre.
 
 ## Projet 3 — Robot suiveur de ligne
 
-### Objectif
+**🎯 Objectif pédagogique** : comprendre comment un robot utilise des capteurs pour corriger sa trajectoire.
 
-Exploiter les **capteurs IR** sous le châssis pour **suivre une ligne** (noire sur fond clair en général).
+**👶 Niveau** : collège / intermédiaire.
 
-### Matériel nécessaire
+**⏱ Durée** : 45 minutes à 1 heure.
 
-**mBot**, **piste** (ruban adhésif large **noir** sur support clair), bon **éclairage** (éviter les ombres qui « trompent » le capteur).
+**🧠 Compétences travaillées** : capteur, condition, correction, essais successifs, calibration.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, piste claire, ruban adhésif noir, éclairage stable.
 
-**Intermédiaire**
+**📝 Description détaillée** : les élèves préparent une ligne simple au sol, sans courbe serrée au départ. Le robot doit détecter si la ligne est sous le capteur gauche, droit ou les deux, puis corriger sa direction. On commence à vitesse faible pour éviter que le robot sorte immédiatement de la piste. L’activité permet de montrer qu’un programme ne “sait” pas suivre une ligne : il répète de petites corrections.
 
-### Durée
+L’intérêt pédagogique est fort : les élèves doivent observer, ajuster, retester. Ils découvrent que la réussite dépend à la fois du code, de la vitesse, de la lumière et de la qualité de la piste.
 
-**45 min à 1 h**
-
-### Étapes
-
-1. Si votre version propose un **mode suiveur de ligne**, testez-le d’abord **vitesse basse**.
-2. Sinon : logique du type « si capteur gauche voit la ligne → corriger vers la droite » (à adapter selon blocs disponibles).
-3. **Élargir** les courbes au début ; **resserrer** quand ça fonctionne.
-
-### Compétences
-
-**Régulation**, **capteurs**, **réglages fins**.
-
-### Astuce enseignant
-
-Tracez au sol une **ligne simple** avant toute courbe serrée : la **première réussite** visible motive la suite.
-
----
+**💡 Variante / amélioration possible** : créer deux circuits de difficulté différente : une ligne droite pour les débutants, puis un parcours avec virages larges.
 
 ## Projet 4 — Robot télécommandé
 
-### Objectif
+**🎯 Objectif pédagogique** : associer une entrée utilisateur à une action du robot.
 
-Relier une **commande** (touches, **télécommande IR** selon kit) aux **moteurs** — notion d’**événement** → **action**.
+**👶 Niveau** : primaire avancé / collège.
 
-### Matériel nécessaire
+**⏱ Durée** : 45 minutes.
 
-**mBot**, **télécommande IR** si incluse, sinon blocs **clavier** / entrées selon votre configuration mBlock.
+**🧠 Compétences travaillées** : événement, commande, moteur, sécurité, coopération.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, mBlock, clavier ou télécommande IR selon le kit.
 
-**Intermédiaire**
+**📝 Description détaillée** : les élèves programment quatre commandes : avancer, reculer, tourner à gauche, tourner à droite. Il faut ajouter une commande “stop”, souvent oubliée. Avant de tester, l’enseignant définit une zone de circulation et un seul conducteur par robot. Les autres élèves observent et notent les améliorations possibles.
 
-### Durée
+Ce projet est très motivant, mais il doit être cadré : sans règle, il peut vite devenir une course. Avec des contraintes claires, il devient une excellente activité sur les événements et les entrées utilisateur.
 
-**≈ 45 min**
-
-### Étapes
-
-1. Associer **haut** = avancer, **bas** = reculer, **gauche / droite** = pivoter.
-2. Ajouter une commande **Stop** explicite.
-3. **Tester** en mode connecté si possible, puis **téléverser** pour un usage autonome court.
-
-### Compétences
-
-**Entrée utilisateur**, **commande**, **sécurité** (qui pilote, où roule le robot).
-
-### Astuce enseignant
-
-Règle de classe : **un conducteur**, un **périmètre** délimité, chronomètre pour éviter l’effet « course folle ».
-
----
+**💡 Variante / amélioration possible** : créer un parcours à franchir avec un maximum de 5 commandes, pour obliger les élèves à anticiper.
 
 ## Projet 5 — Robot avec LED
 
-### Objectif
+**🎯 Objectif pédagogique** : utiliser les LED comme sortie visuelle d’un programme.
 
-Piloter les **LED** (couleur / état) pour représenter une **situation** (attente, alarme, succès).
+**👶 Niveau** : primaire / débutant.
 
-### Matériel nécessaire
+**⏱ Durée** : 30 minutes.
 
-**mBot**, mBlock — pas d’extension obligatoire pour les LED de base du robot.
+**🧠 Compétences travaillées** : sortie, temporisation, état, événement.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, mBlock, salle pas trop lumineuse pour bien voir les couleurs.
 
-**Débutant**
+**📝 Description détaillée** : les élèves programment trois états : rouge au démarrage, vert après quelques secondes, bleu quand on appuie sur un bouton. On demande ensuite : que signifie chaque couleur ? Peut-on comprendre l’état du robot sans lire le programme ?
 
-### Durée
+Cette activité est simple, rapide et très utile avant les capteurs : elle montre qu’un programme peut communiquer avec l’utilisateur. Elle prépare aussi les projets de feu tricolore, radar, alarme ou robot autonome. Voir aussi [faire clignoter les LED du mBot](/activite-mbot-faire-clignoter-les-leds/).
 
-**≈ 30 min**
-
-### Étapes
-
-1. Au **démarrage** : LED **rouge** (par exemple « prêt »).
-2. Après **2 s** : passer au **vert** (« go »).
-3. Au **bouton sur la carte** : **bleu** (interaction).
-4. Faire **deviner** l’état sans regarder l’écran du PC.
-
-### Compétences
-
-**Sorties**, **temporisation**, **entrée bouton**.
-
-### Astuce enseignant
-
-Une **couleur = un état** : excellent support pour expliquer la **machine à états** sans jargon. Voir aussi : [faire clignoter les LED](/activite-mbot-faire-clignoter-les-leds/).
-
----
+**💡 Variante / amélioration possible** : créer un code couleur : vert = route libre, orange = attention, rouge = obstacle.
 
 ## Projet 6 — Robot qui joue un son
 
-### Objectif
+**🎯 Objectif pédagogique** : programmer une séquence sonore courte et comprendre l’ordre d’exécution.
 
-Utiliser le **buzzer** : **notes**, **rythme**, **courtes mélodies**.
+**👶 Niveau** : primaire / débutant.
 
-### Matériel nécessaire
+**⏱ Durée** : 25 à 35 minutes.
 
-**mBot**, mBlock.
+**🧠 Compétences travaillées** : séquence, rythme, durée, créativité, écoute.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, mBlock, buzzer intégré, consigne de volume ou temps d’écoute commun.
 
-**Débutant**
+**📝 Description détaillée** : chaque groupe programme une courte signature sonore : trois ou quatre notes, séparées par des pauses. Les élèves doivent d’abord écrire la séquence sur papier, puis la coder. Ensuite, la classe écoute les signatures et tente de reconnaître les groupes.
 
-### Durée
+Ce projet est utile pour varier les activités : tous les apprentissages ne passent pas par le déplacement. Il renforce la notion de séquence et permet d’intégrer de la créativité sans complexifier le code.
 
-**≈ 30 min**
-
-### Étapes
-
-1. Jouer **une note** au démarrage.
-2. Enchaîner **4 notes courtes** avec **pauses**.
-3. Chaque équipe compose une **signature** de 3 notes (reconnaissance « à l’oreille »).
-
-### Compétences
-
-**Séquence**, **rythme**, **créativité**.
-
-### Astuce enseignant
-
-Prévoir un **créneau unique** « concert » ou limiter le volume : le buzzer porte loin en salle de classe.
-
----
+**💡 Variante / amélioration possible** : associer une mélodie à un événement : obstacle détecté, fin de parcours ou bouton pressé.
 
 ## Projet 7 — Robot détecteur de distance
 
-### Objectif
+**🎯 Objectif pédagogique** : lire une distance et déclencher une réaction selon un seuil.
 
-**Afficher** ou **réagir** clairement quand un obstacle / une main franchit un **seuil** de distance — projet « **radar** » ou **feu de recul** simplifié.
+**👶 Niveau** : débutant accompagné / collège.
 
-### Matériel nécessaire
+**⏱ Durée** : 40 minutes.
 
-**mBot** avec **ultrason**, obstacle mobile (main, carton).
+**🧠 Compétences travaillées** : capteur ultrason, seuil, condition, sortie LED ou son.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot avec capteur ultrason, carton, main comme obstacle mobile, règle ou mètre.
 
-**Débutant** à **intermédiaire** (selon ce que vous ajoutez : LED, sons, compteur).
+**📝 Description détaillée** : les élèves créent un mini radar. Le robot lit la distance en boucle. Si un objet est à moins de 20 cm, il allume une LED rouge ou joue un son bref. Sinon, il reste vert ou silencieux. La classe peut comparer les mesures : 10 cm, 20 cm, 30 cm. On discute alors de la précision du capteur et des erreurs possibles.
 
-### Durée
+Cette activité est très efficace pour expliquer la différence entre une valeur mesurée et une décision programmée. Elle peut être liée à un radar de recul ou à une porte automatique.
 
-**≈ 40 min**
-
-### Étapes
-
-1. Lire la **distance** en boucle.
-2. Si **&lt; 20 cm** : **son bref** ou **LED rouge**.
-3. Sinon : **silence** ou **LED verte**.
-4. Jeu : deviner la **distance** sans afficher le nombre sur l’écran — puis vérifier.
-
-### Compétences
-
-**Seuil**, **décision**, **capteur**.
-
-### Astuce enseignant
-
-Contextualisez : **parking**, **porte**, **obstacle invisible** — les élèves proposent des histoires, vous gardez la même structure de code.
-
----
+**💡 Variante / amélioration possible** : créer trois zones : loin = vert, moyen = orange, proche = rouge + son.
 
 ## Projet 8 — Robot automatique (parcours)
 
-### Objectif
+**🎯 Objectif pédagogique** : créer une suite d’actions autonome sans intervention humaine.
 
-Enchaîner **plusieurs actions** sans intervention : **parcours** simple (ex. tracer un **carré** approximatif avec des durées de rotation).
+**👶 Niveau** : collège / intermédiaire.
 
-### Matériel nécessaire
+**⏱ Durée** : 45 minutes.
 
-**mBot**, espace dégagé, **limite** visible (bancs, ruban).
+**🧠 Compétences travaillées** : séquence, répétition, calibration, estimation, correction.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, ruban au sol, zone dégagée, feuille de mesure.
 
-**Intermédiaire**
+**📝 Description détaillée** : les élèves programment un parcours simple : avancer, tourner, avancer, tourner. L’objectif peut être de tracer un carré approximatif, d’éviter une zone ou de rejoindre une “base”. Les élèves doivent prévoir la trajectoire, tester, puis ajuster les durées de mouvement et de rotation.
 
-### Durée
+Ce projet montre une réalité importante : un robot ne se comporte pas toujours comme dans un schéma parfait. Le sol, la batterie, la vitesse et les roues influencent le résultat. C’est un excellent support pour parler d’essais, d’erreurs et de mesure.
 
-**≈ 45 min**
-
-### Étapes
-
-1. **Avancer** 2 s.
-2. **Pivoter** ~90° (ajuster le temps de rotation sur le sol réel).
-3. **Répéter** 4 fois pour un carré approximatif.
-4. Comparer **prédit / observé** : pourquoi le robot dévie ?
-
-### Compétences
-
-**Répétition**, **calibration**, **erreur de mesure**.
-
-### Astuce enseignant
-
-Tracez le **carré attendu** au sol : l’**écart** devient une mesure **discutable** en groupe — excellent pour l’esprit scientifique.
-
----
+**💡 Variante / amélioration possible** : imposer une boucle “répéter 4 fois” pour créer un carré et comparer avec une version sans boucle.
 
 ## Projet 9 — Robot avec capteur de lumière
 
-### Objectif
+**🎯 Objectif pédagogique** : utiliser une valeur de luminosité pour déclencher une action.
 
-Exploiter un **capteur de luminosité** (selon **carte / modèle**) : réagir à la **main** qui fait de l’ombre, à une **lampe**, à une **salle plus sombre**.
+**👶 Niveau** : collège / intermédiaire.
 
-### Matériel nécessaire
+**⏱ Durée** : 40 minutes.
 
-**mBot** avec **luminosité** disponible dans mBlock pour votre version, **lampe de poche**, pièce **semi-sombre** possible.
+**🧠 Compétences travaillées** : valeur analogique, seuil, expérimentation, comparaison.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot compatible avec la mesure de lumière selon votre version, lampe de poche, salle modulable, feuille de relevé.
 
-**Intermédiaire**
+**📝 Description détaillée** : les élèves lisent une valeur de luminosité, puis choisissent un seuil. Si la lumière est faible, le robot allume une LED ou avance lentement ; si la lumière est forte, il s’arrête ou change de couleur. L’objectif n’est pas de trouver “la bonne réponse”, mais de comprendre qu’un seuil dépend du contexte : salle éclairée, ombre, lampe, distance.
 
-### Durée
+Si votre modèle ou votre version de mBlock ne propose pas ce capteur, remplacez cette activité par le projet distance : la logique pédagogique reste la même.
 
-**≈ 40 min**
-
-### Étapes
-
-1. Lire la **luminosité**.
-2. Si **sombre** : avancer **lentement**.
-3. Si **clair** : **stop** ou reculer.
-4. Tester avec la main qui **couvre** le robot.
-
-### Compétences
-
-**Seuils analogiques**, **expérimentation**.
-
-### Astuce enseignant
-
-Si votre modèle **n’a pas** ce capteur : remplacez par le **projet 7** (distance) — même logique de **seuil**.
-
----
+**💡 Variante / amélioration possible** : créer un robot “peureux” qui recule quand on l’éclaire avec une lampe.
 
 ## Projet 10 — Mini défi robot (équipe)
 
-### Objectif
+**🎯 Objectif pédagogique** : réinvestir plusieurs notions dans un projet court en équipe.
 
-Mettre les élèves en **projet court** : **contrainte** imposée + **prototype** + **démonstration** — synthèse des séances précédentes.
+**👶 Niveau** : tous niveaux, difficulté réglable.
 
-### Matériel nécessaire
+**⏱ Durée** : 45 minutes à 1 heure.
 
-**mBot**, chronomètre, **obstacle**, **ruban**, éventuellement feuille bilan.
+**🧠 Compétences travaillées** : projet, communication, test, amélioration, coopération.
 
-### Niveau
+**⚙️ Matériel nécessaire** : mBot, obstacles, ruban au sol, chronomètre, fiche défi.
 
-**Tous niveaux** (complexité ajustée par la contrainte)
+**📝 Description détaillée** : chaque équipe tire une contrainte : s’arrêter à 15 cm d’un mur, suivre une ligne courte, produire trois sons selon trois étapes, franchir une zone sans toucher un obstacle, ou allumer une couleur à la fin. Les élèves ont un temps de prototype, un temps de test, puis une mini-démonstration.
 
-### Durée
+L’évaluation peut porter sur trois critères : le robot respecte-t-il la consigne ? Le groupe sait-il expliquer son programme ? Le groupe a-t-il amélioré son premier essai ?
 
-**45 min à 1 h**
+**💡 Variante / amélioration possible** : donner des cartes bonus : “ajoute une LED”, “ajoute un son”, “réduis le nombre de blocs”, “explique ton seuil”.
 
-### Étapes
+<h2 id="progression-pedagogique">4. Progression pédagogique</h2>
 
-1. **Tirage** d’une contrainte : « traverser une zone **sans** toucher le ruban », « produire **3 sons** différents selon l’étape », « s’arrêter à **distance** d’un mur ».
-2. **Prototype** (~15 min), **tests** (~15 min), **démo** (~2 min par équipe).
-3. **Vote** (optionnel) : le plus **clair**, le plus **robuste**, le plus **expliqué**.
+Pour éviter de disperser les élèves, le plus simple est d’organiser les projets en quatre étapes :
 
-### Compétences
+1. **Découverte : LED et mouvement**  
+   Commencez par avancer / reculer, puis LED et sons. Les élèves découvrent le téléversement, les blocs de base et la sécurité.
 
-**Projet**, **communication**, **tests**, **résilience**.
+2. **Capteurs : obstacle et ligne**  
+   Ajoutez le capteur ultrason et le suivi de ligne. Les élèves comprennent que le robot peut “lire” son environnement.
 
-### Astuce enseignant
+3. **Logique : conditions et boucles**  
+   Faites verbaliser les programmes : “tant que le robot roule, si la distance est trop faible, alors il tourne”. C’est le cœur de la programmation mBot Scratch.
 
-Évaluez le **processus** (hypothèses, essais) et pas seulement le **résultat** : en classe, la **démarche** prime.
+4. **Projet complet**  
+   Terminez par un défi en équipe : parcours, obstacle, alarme, robot télécommandé ou mini-démo. Les élèves réutilisent plusieurs notions dans une situation plus ouverte.
 
----
+<h2 id="conseils-enseignants">5. Conseils enseignants</h2>
 
-<h2 id="pdf-gratuit">4. Télécharger les PDF gratuits</h2>
+**Gestion de classe** : délimitez une zone de test. Un robot au sol, un groupe autour, un seul élève qui manipule à la fois. Les autres observent ou remplissent la fiche.
 
-### Fiche élèves / atelier (synthèse)
+**Organisation de séance** : gardez une consigne courte. Exemple : “Le robot doit avancer et s’arrêter avant le carton.” Une fois la première version réussie, proposez une amélioration.
 
-La version **imprimable** reprend les **10 fiches** sous forme compacte, une **checklist matériel** et des **conseils enseignants** — pratique pour un **classeur**, une **salle des profs** ou un **mail** à vos collègues.
+**Rôles dans le groupe** : programmeur, testeur, responsable matériel, rapporteur. Changer les rôles à chaque projet évite qu’un seul élève fasse tout.
 
-**Contenu** : couverture / introduction / 10 projets synthétisés / checklist / conseils — lisible en **réunion pédagogique**.
+**Erreurs fréquentes** :
+
+- le robot n’est pas le bon appareil dans mBlock ;
+- le programme n’est pas téléversé ;
+- la batterie est faible ;
+- le seuil du capteur est trop bas ou trop haut ;
+- la vitesse est trop élevée pour observer correctement ;
+- la piste de ligne est trop fine ou trop sombre.
+
+**Différenciation** : pour les élèves rapides, ajoutez une contrainte : son, LED, deuxième seuil, compteur ou boucle. Pour les élèves en difficulté, donnez une structure de programme à compléter plutôt qu’une page vide.
+
+<h2 id="aller-plus-loin">6. Pour aller plus loin</h2>
+
+Une fois les premières activités réussies, vous pouvez enrichir votre matériel ou préparer des ateliers plus longs.
+
+- **Robot mBot recommandé** : utile pour démarrer une progression complète avec moteurs, capteurs, LED et mBlock.
+- **Kits complémentaires** : capteurs, câbles, batteries, pistes et accessoires pour varier les défis.
+- **Accessoires utiles** : ruban noir pour suiveur de ligne, cartons mats, feuilles de défi, boîtes de rangement, batteries de secours.
+
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="https://www.amazon.fr/s?k=mBot+Makeblock+kit&tag=manuso06-21" target="_blank" rel="noopener noreferrer sponsored">Voir le robot mBot</a>
+<a class="article-cta article-cta--secondary" href="https://www.amazon.fr/s?k=mBot+accessoires+Makeblock&tag=manuso06-21" target="_blank" rel="noopener noreferrer sponsored">Voir les accessoires mBot</a>
+<a class="article-cta article-cta--secondary" href="https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21" target="_blank" rel="noopener noreferrer sponsored">Livres Scratch / programmation</a>
+</div>
+
+Pour préparer les séances, vous pouvez aussi consulter [15 idées mBot en une heure](/idees-projets-mbot-rapides-une-heure/), [accessoires mBot : par où commencer](/accessoires-mbot-par-ou-commencer/) et le guide [quel robot éducatif choisir](/quel-robot-educatif-choisir-2026/).
+
+### Télécharger les fiches PDF
 
 <div class="article-cta-row">
 <a class="article-cta article-cta--primary" href="/downloads/mbot/10-projets-mbot-classe.pdf" target="_blank" rel="noopener noreferrer">PDF — 10 fiches projets mBot</a>
-<a class="article-cta article-cta--secondary" href="/telecharger-mblock-5-gratuit-guide-2026/">Installer mBlock 5</a>
+<a class="article-cta article-cta--secondary" href="/downloads/mbot/10-projets-mbot-corriges-diagrammes.pdf" target="_blank" rel="noopener noreferrer">PDF — corrigés &amp; diagrammes</a>
 </div>
-
-### Corrigé enseignant (diagrammes + corrections)
-
-Un **second PDF** complète la fiche atelier : pour **chaque** projet, un **logigramme** (schéma logique simplifié) et une **correction** — structure de programme attendue, **pièges fréquents**, **critères** de réussite. Utile pour **préparer** la séance ou **aider** un collègue qui couvre votre groupe.
-
-<div class="article-cta-row">
-<a class="article-cta article-cta--primary" href="/downloads/mbot/10-projets-mbot-corriges-diagrammes.pdf" target="_blank" rel="noopener noreferrer">PDF — corrigés &amp; diagrammes (enseignants)</a>
-</div>
-
-- **Formats** : PDF **A4**, **imprimables**.
-- **Usage** : partage **non commercial** en contexte **éducatif** — merci de **citer la source** (robot-educatif.info) si vous republiez une fiche sur votre blog ou ENT.
-
----
-
-<h2 id="resume-rapide">5. Résumé rapide</h2>
-
-- **mBot** = robot **éducatif** programmable avec **mBlock** (blocs type **Scratch**).
-- **10 projets** = **parcours progressif** : moteurs → capteurs → défis → **mise en scène** en équipe.
-- **PDF** (fiches + **corrigé diagrammes**) = **support** pour l’atelier et la **préparation** enseignant.
-
----
-
-<h2 id="partager-ressource">6. Partager la ressource (backlinks &amp; diffusion)</h2>
-
-Si cette page vous aide, vous pouvez **en faire bénéficier d’autres classes** — c’est aussi ce qui construit une **autorité** utile sur le web (liens naturels depuis des sites d’écoles, blogs enseignants, académies) :
-
-- **Partagez le lien** vers cet article ou vers le **PDF** dans votre **newsletter** école, sur l’**ENT**, ou avec vos **collègues STEM**.
-- **Blogueurs** et **associations** : un lien contextuel depuis un article de robotique (« ressource gratuite sur robot-educatif.info ») aide les lecteurs et renforce la **découvrabilité** — pas besoin d’ancre surchargée en mots-clés : un texte **naturel** suffit.
-- **Crédit** : pas d’obligation, mais indiquer la **source** lors de la redistribution du PDF est une bonne pratique (et évite les copies sans contexte).
-
-Objectif : **utilité réelle** → partages → **trafic** durable et **reconnaissance** du site comme **référence** mBot / mBlock en français.
-
----
 
 <h2 id="faq">7. FAQ</h2>
 
-### Quel projet faire avec mBot le premier jour ?
+### Comment programmer un mBot ?
 
-Commencer par **avancer / reculer** (projet 1), puis choisir **un capteur** selon votre matériel : **distance** (projet 2 ou 7) ou **ligne** (projet 3) si la piste est prête.
+Le plus simple est d’utiliser **mBlock**, qui fonctionne avec des blocs proches de Scratch. On ajoute le robot mBot, on choisit les blocs moteurs, LED ou capteurs, puis on teste en mode connecté ou on téléverse le programme.
 
-### Comment utiliser mBot en classe sans dépasser le temps ?
+### Quel âge pour utiliser mBot ?
 
-**Une consigne**, **un critère de réussite visible**, **un rôle par élève**, et un **arrêt** après la première version qui « marche » — la **v2** peut attendre la séance suivante.
+mBot est utilisable dès le cycle 3 avec un adulte, et très adapté au collège. Les plus jeunes commencent par des blocs simples ; les élèves plus à l’aise peuvent ajouter capteurs, boucles et conditions.
 
-### mBot est-il adapté aux enfants ?
+### mBot est-il adapté à l’école ?
 
-Oui, avec **mBlock** et des **règles de sécurité** (câbles, périmètre, batterie). Adapter la **complexité** au niveau — voir [programmation enfant](/programmation-enfant-a-quel-age-commencer/).
+Oui. Il est robuste, accessible avec mBlock, proche de Scratch, et se prête bien aux activités courtes en groupe : mouvement, obstacle, suivi de ligne, LED, son et mini-défi.
 
-### Où trouver encore plus d’idées ?
+### Scratch ou Python pour mBot ?
 
-Liste plus fournie d’**ateliers 1 h** : [15 projets mBot en une heure](/idees-projets-mbot-rapides-une-heure/).
+Pour débuter en classe, mBlock par blocs est le plus accessible car il ressemble à Scratch. Python peut venir plus tard avec des élèves déjà à l’aise avec la programmation textuelle. Pour un parcours Python, voir [apprendre Python débutant](/programmation/python/).
 
----
+### Combien coûte un robot mBot ?
 
-<h2 id="materiel-affiliation">8. Matériel recommandé (Makeblock)</h2>
-
-Liens **Amazon** (partenaire) pour commander le **robot** et prolonger les ateliers — idéal **une fois** mBlock maîtrisé en classe :
-
-- [Recherche **Makeblock mBot** (kit)](https://www.amazon.fr/s?k=mBot+Makeblock+kit&tag=manuso06-21)
-- [Recherche **Makeblock mBot2**](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Livres **Scratch** / **programmation** jeunes](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
-
-*Commission possible sur achats éligibles — prix et disponibilité vérifiés chez le marchand.*
+Le prix dépend de la version, du vendeur et des accessoires. Vérifiez si le kit contient le robot, le câble, la batterie ou les piles, les capteurs et les éléments utiles pour la classe.
 
 ---
 
-## Maillage interne (pour aller plus loin)
+## Pour continuer sur le site
 
 - **Logiciel** : [télécharger mBlock 5](/telecharger-mblock-5-gratuit-guide-2026/) · [premiers pas mBlock](/premier-pas-avec-mblock-5/) · [premier programme mBot](/mon-premier-programme-mbot/)
-- **Robot** : [présentation mBot](/mbot-mon-premier-robot-educatif/)
-- **Scratch** : [Scratch école / maison](/scratch-ecole-maison-par-ou-commencer/)
+- **Robot** : [présentation mBot](/mbot-mon-premier-robot-educatif/) · [mBot vs mBot 2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/)
+- **Scratch et programmation** : [Scratch école / maison](/scratch-ecole-maison-par-ou-commencer/) · [parcours Python débutant](/programmation/python/)
+- **Guides d’achat** : [quel robot éducatif choisir](/quel-robot-educatif-choisir-2026/) · [meilleur robot programmable enfant](/meilleur-robot-programmable-enfant-2026/)

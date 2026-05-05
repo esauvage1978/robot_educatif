@@ -44,7 +44,17 @@ faqSchema:
     answer: "Fonctions trop longues, variables globales mutables partout, duplication, noms flous, logique mélangée au matériel — tout cela complique le débogage sur un robot réel."
 ---
 
-Tu as déjà vécu ça : tu démarres un sketch Arduino “pour tester vite”, tu empiles des `if`, des `delay()`, des numéros de broches… et deux jours plus tard tu n’oses plus toucher à `loop()` parce que **tout casse**. C’est le début du *code spaghetti Arduino*.
+Tu as déjà vécu ça : tu démarres un sketch Arduino “pour tester vite”, tu empiles des `if`, des `delay()`, des numéros de broches… et deux jours plus tard tu n’oses plus toucher à `loop()` parce que **tout casse**. C’est le début du code Arduino difficile à maintenir.
+
+<aside class="article-callout" role="note">
+<p><strong>Fiche rapide</strong></p>
+<ul>
+<li><strong>Niveau :</strong> fin de parcours débutant, avant un projet robot complet.</li>
+<li><strong>Durée :</strong> 75 à 90 minutes avec lecture du code et adaptations.</li>
+<li><strong>Matériel :</strong> Arduino Uno compatible, capteur ultrason HC-SR04, driver moteurs et petit châssis robot si tu veux tester en réel.</li>
+<li><strong>Objectif :</strong> organiser un programme Arduino C/C++ en fonctions lisibles : mesurer, décider, agir.</li>
+</ul>
+</aside>
 
 Ce guide te donne une méthode simple et “pro” pour passer de **débutant** à **intermédiaire** :
 
@@ -53,7 +63,7 @@ Ce guide te donne une méthode simple et “pro” pour passer de **débutant** 
 - **bonnes pratiques Arduino** (clean code Arduino) pour garder un projet lisible quand il grossit  
 - un **mini-projet robot** (ultrason + moteurs) structuré, réutilisable et facile à déboguer
 
-> Objectif SEO (et réel) : savoir **comment organiser un code Arduino propre**, éviter le spaghetti, et créer des **fonctions réutilisables** pour des projets capteurs / moteurs.
+Si tu arrives directement ici, commence par le [guide complet Arduino C/C++](/programmation/arduino-c/), puis revois les [conditions pour capteurs](/c-arduino-conditions-capteurs-actionneurs/) et les [boucles avec millis](/c-arduino-boucles-timing/). Cette leçon sert de passerelle vers un robot Arduino plus complet.
 
 ## Résumé
 
@@ -63,7 +73,7 @@ Ce guide te donne une méthode simple et “pro” pour passer de **débutant** 
 - **Clean code Arduino** : noms explicites, petites fonctions, duplication évitée, globales minimisées, commentaires “pourquoi”.
 - **Anti-spaghetti** : pas de logique métier noyée dans les `digitalWrite()` / `analogWrite()`.
 
-## Liens utiles (affiliation Amazon, sans spam)
+## Matériel utile pour tester les exemples
 
 - Idéal pour débuter : [kit Arduino débutant recommandé](https://www.amazon.fr/s?k=kit+arduino+d%C3%A9butant&tag=manuso06-21)
 - Carte simple et standard : [Arduino Uno R3 (compatible)](https://www.amazon.fr/s?k=arduino+uno+r3&tag=manuso06-21)
@@ -225,7 +235,7 @@ Mini-projet : un robot avance et **s’arrête / tourne** si obstacle détecté.
 - capteur ultrason HC-SR04  
 - driver moteurs (L298N, TB6612…) + 2 moteurs DC + roues
 
-Liens (affiliation) :
+Liens utiles :
 
 - [HC-SR04](https://www.amazon.fr/s?k=hc-sr04&tag=manuso06-21)
 - [kit moteurs robotique](https://www.amazon.fr/s?k=kit+moteur+robotique+arduino+roues+driver&tag=manuso06-21)
@@ -347,6 +357,10 @@ void loop() {
 
 Ce découpage est la réponse directe à “**comment éviter le code spaghetti Arduino**”.
 
+## Amélioration possible
+
+Transforme l’exemple en robot éviteur d’obstacles plus progressif : au-dessus de 40 cm, il avance ; entre 20 et 40 cm, il ralentit ; sous 20 cm, il stoppe puis tourne. Tu réutilises les notions du parcours complet : variables, conditions, timing et fonctions.
+
 ## Checklist : code Arduino propre (à cocher)
 
 - [ ] `loop()` tient en ~10–25 lignes et lit comme une recette  
@@ -365,8 +379,10 @@ Ce découpage est la réponse directe à “**comment éviter le code spaghetti 
 
 ## Pour aller plus loin (maillage interne)
 
+- Guide complet pour apprendre Arduino C/C++ : [/programmation/arduino-c/](/programmation/arduino-c/)  
 - Arduino C — structure d’un sketch : [/c-arduino-environnement-structure-sketch/](/c-arduino-environnement-structure-sketch/)  
 - Arduino C — types et variables : [/c-arduino-types-variables/](/c-arduino-types-variables/)  
 - Arduino C — conditions, capteurs, actionneurs : [/c-arduino-conditions-capteurs-actionneurs/](/c-arduino-conditions-capteurs-actionneurs/)  
 - Arduino C — boucles et timing : [/c-arduino-boucles-timing/](/c-arduino-boucles-timing/)  
+- Projet capteur ultrason : [/serie-capteur-ultrason-mbot-1-mesurer-distance/](/serie-capteur-ultrason-mbot-1-mesurer-distance/)  
 

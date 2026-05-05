@@ -1,14 +1,16 @@
 ---
-title: "Puissance 4 en Python (2/6) — affichage et gravité"
-headline: "Puissance 4 en Python (2/6) — affichage et gravité"
-description: "Console, SYM et afficher_grille ; jouer_colonne et gravite ; script complet telechargeable."
+title: "Puissance 4 Python (2/6) : affichage console et gravité du jeton"
+headline: "Puissance 4 en Python — afficher la grille et jouer une colonne"
+description: "Python jeu console : symboles X/O, afficher_grille ASCII, jouer_colonne avec gravité. Projet python débutant avec script .py téléchargeable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Puissance 4
 seriesOrder: 2
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu"]
 relatedLinks:
+  - title: "Sommaire — Puissance 4"
+    href: "/programmation/puissance-4/"
   - title: "Partie 1 — cahier des charges"
     href: "/python-puissance-4-1-cahier-grille/"
   - title: "Partie 3 — coup et alternance"
@@ -18,8 +20,17 @@ categories:
   - "Programmation"
   - "Puissance 4"
   - "Projet"
+faqSchema:
+  - question: "Comment afficher une grille Puissance 4 en Python dans le terminal ?"
+    answer: "Construire une chaîne ou imprimer ligne par ligne : indices colonnes 1 à 7 pour le joueur, conversion vers 0 à 6 en interne. Utiliser un dictionnaire SYM pour mapper vide, joueur 1 et joueur 2 vers des caractères lisibles."
+  - question: "Comment simuler la gravité des jetons ?"
+    answer: "Pour une colonne donnée, parcourir les lignes du bas vers le haut et placer le pion sur la première case vide rencontrée ; si aucune case libre, la colonne est pleine."
+  - question: "Pourquoi séparer affichage et logique de la grille ?"
+    answer: "Tu peux changer les symboles ou passer plus tard à une interface graphique sans réécrire les règles : la grille reste une liste de listes d’entiers."
 ---
-Tu reprends la grille du [chapitre 1](/python-puissance-4-1-cahier-grille/). Ce chapitre ajoute l’**affichage** lisible dans le terminal et la fonction **`jouer_colonne`** : le pion tombe à la **plus basse** case libre de la colonne.
+Tu reprends la grille du [chapitre 1](/python-puissance-4-1-cahier-grille/). Ce chapitre ajoute l’**affichage** lisible dans le terminal et la fonction **`jouer_colonne`** : le pion tombe à la **plus basse** case libre de la colonne — le cœur du **python jeu console** avant les règles de victoire.
+
+Pour aller plus loin hors série, une recherche sur l’**algorithmique en Python** peut appuyer tes révisions ([Amazon](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)) ; ici on reste sur le code étape par étape.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
@@ -127,6 +138,10 @@ if __name__ == "__main__":
     afficher_grille(g)
 ```
 
+## Résultat attendu
+
+Tu lances le script : la **grille s’affiche** avec des symboles clairs, et **`jouer_colonne`** empile correctement les jetons en bas de colonne. Tu peux montrer ton travail à quelqu’un dans le terminal — étape suivante : [alterner deux joueurs](/python-puissance-4-3-coup-alternance/).
+
 ## Exercices
 
 1. Ajoute un quatrième coup dans la même colonne et réaffiche la grille.
@@ -139,8 +154,11 @@ if __name__ == "__main__":
 
 ## Suite
 
-[Partie 3 — Alterner les joueurs et lire une colonne valide](/python-puissance-4-3-coup-alternance/).
+**Étape suivante :** [alterner les joueurs et lire une colonne valide](/python-puissance-4-3-coup-alternance/).  
+**Sommaire :** [Puissance 4 — page pilier](/programmation/puissance-4/).
 
-## Amazon (partenaire)
+## Matériel recommandé (partenaire Amazon)
 
-- [Algorithmique Python](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)
+- [Algorithmique et Python débutant](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)
+- [Livres projets / jeux Python](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+- [Kits Raspberry Pi](https://www.amazon.fr/s?k=raspberry+pi+kit&tag=manuso06-21)

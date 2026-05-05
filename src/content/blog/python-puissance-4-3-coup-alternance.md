@@ -1,14 +1,16 @@
 ---
-title: "Puissance 4 en Python (3/6) — coup valide et alternance"
-headline: "Puissance 4 en Python (3/6) — coup valide et alternance"
-description: "Console, input colonne 1-7, alternance X/O ; demo de plusieurs tours sans detection victoire ; .py telechargeable."
+title: "Puissance 4 Python (3/6) : coups valides et alternance des joueurs"
+headline: "Puissance 4 en Python — input colonne, tours X et O"
+description: "Projet python débutant : input 1–7, validation, alternance sans détection de victoire encore. Exemple python complet téléchargeable pour une partie courte au terminal."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-04-18
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Puissance 4
 seriesOrder: 3
-tags: ["Python", "Programmation", "Projet"]
+tags: ["Python", "Programmation", "Projet", "débutant", "jeu"]
 relatedLinks:
+  - title: "Sommaire — Puissance 4"
+    href: "/programmation/puissance-4/"
   - title: "Partie 2 — affichage et gravité"
     href: "/python-puissance-4-2-affichage-gravite/"
   - title: "Partie 4 — quatre alignés"
@@ -18,8 +20,17 @@ categories:
   - "Programmation"
   - "Puissance 4"
   - "Projet"
+faqSchema:
+  - question: "Comment lire une colonne au clavier pour un Puissance 4 en Python ?"
+    answer: "Utiliser input puis int avec gestion des erreurs : boucle tant que la valeur n’est pas entre 1 et 7 ou que la colonne est pleine. Convertir vers l’indice 0 à 6 avant d’appeler jouer_colonne."
+  - question: "Pourquoi ce chapitre ne détecte pas encore la victoire ?"
+    answer: "Pour isoler la mécanique des tours et la validation des coups ; la série dédie le chapitre 4 aux quatre directions et au test après chaque coup."
+  - question: "Comment alterner deux joueurs en Python ?"
+    answer: "Une variable joueur qui vaut une constante J1 ou J2 et une réaffectation à chaque coup réussi : joueur = J2 if joueur == J1 else J1."
 ---
-Après [jouer_colonne](/python-puissance-4-2-affichage-gravite/), on lit une **colonne au clavier**, on valide, on joue, puis on **passe la main** à l’autre joueur. Ce chapitre ne détecte pas encore la victoire (chapitre 4).
+Après [jouer_colonne](/python-puissance-4-2-affichage-gravite/), on lit une **colonne au clavier**, on valide, on joue, puis on **passe la main** à l’autre joueur. Ce chapitre ne détecte pas encore la victoire — [chapitre 4](/python-puissance-4-4-quatre-alignes/) s’en charge : tu construis une **boucle de jeu** lisible avant d’ajouter la logique « quatre alignés ».
+
+Besoin de fiches ou d’exercices hors ligne ? Les [ouvrages Python avec exercices corrigés](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21) complètent bien ce tutoriel gratuit.
 
 ![Console Python](../../assets/programmation/python-terminal.svg)
 
@@ -135,6 +146,10 @@ if __name__ == "__main__":
     demo_partie_rapide()
 ```
 
+## Résultat attendu
+
+Tu joues plusieurs coups au terminal : la grille se met à jour, les joueurs **alternent**, les colonnes pleines sont refusées. Il manque encore l’arrêt sur victoire — c’est volontaire. Enchaîne avec la [détection des quatre alignés](/python-puissance-4-4-quatre-alignes/).
+
 ## Exercices
 
 1. Permets de quitter avec `q` au lieu d’un nombre (`demander_colonne` retourne `None` et on arrête la boucle).
@@ -147,8 +162,10 @@ if __name__ == "__main__":
 
 ## Suite
 
-[Partie 4 — Détecter quatre jetons alignés](/python-puissance-4-4-quatre-alignes/).
+**Étape suivante :** [détecter quatre jetons alignés](/python-puissance-4-4-quatre-alignes/).  
+**Sommaire :** [Puissance 4 — page pilier](/programmation/puissance-4/).
 
-## Amazon (partenaire)
+## Matériel recommandé (partenaire Amazon)
 
-- [Python 3 exercices](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21)
+- [Python 3 — exercices corrigés](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21)
+- [Projets et jeux Python](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
