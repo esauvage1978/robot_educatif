@@ -1,9 +1,9 @@
 ---
-title: "Projet Journal CLI (5/6) — typage et vérification mypy"
-headline: "Typage et vérification mypy"
-description: "Protocol, TypedDict, Literal pour niveaux de log ; mypy strict progressif ; 12 exercices."
+title: "Projet Journal CLI (5/6) — comment typer le projet avec mypy"
+headline: "Projet Journal CLI — comment typer le projet avec mypy"
+description: "Projet Python avancé : typer LogLine et Report avec TypedDict, Literal, Protocol, mypy progressif, py.typed, reveal_type et CI."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 5
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "typing"]
 relatedLinks:
   - title: "Partie 4 — asyncio"
     href: "/projet-av-journal-4-asyncio-batch/"
+  - title: "Python avancé — typing"
+    href: "/python-av-typing-avance/"
+  - title: "Python intermédiaire — tests et qualité"
+    href: "/python-inter-tests-qualite/"
   - title: "Partie 6 — package"
     href: "/projet-av-journal-6-package-pyproject/"
 categories:
@@ -19,11 +23,59 @@ categories:
   - "Projet"
   - "Avancé"
 ---
+Après le parsing, les décorateurs et le traitement de plusieurs fichiers, le projet **Journal CLI** commence à avoir plusieurs types de données : lignes de log, rapports partiels, rapports fusionnés, erreurs récupérées, options de CLI. Cette cinquième partie ajoute un filet de sécurité : le **typage Python** vérifié avec **mypy**.
+
+Le but n’est pas de rendre le code verbeux. Le typage sert à clarifier les contrats : ce que retourne `parse_lines`, ce que contient `Report`, quels niveaux de log sont acceptés, et quelles sources peuvent être utilisées en test. C’est particulièrement utile avant la dernière étape, où le projet devient un package installable.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 5</strong></p>
+<ul>
+<li>Définir les types centraux du projet.</li>
+<li>Utiliser <code>TypedDict</code>, <code>Literal</code> et <code>Protocol</code>.</li>
+<li>Lancer <code>mypy</code> sans bloquer tout le projet d’un coup.</li>
+<li>Préparer le packaging avec des annotations exploitables.</li>
+</ul>
+</aside>
+
+Pour réviser les notions, consulte [typing avancé en Python](/python-av-typing-avance/). Cette étape complète aussi les tests vus dans [tests et qualité Python](/python-inter-tests-qualite/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#types-centraux">Types centraux</a></li>
+<li><a href="#mypy">Mypy progressif</a></li>
+<li><a href="#protocol">Protocol pour tester</a></li>
+<li><a href="#ci">CI et règles d’équipe</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="types-centraux">Types centraux du projet</h2>
+
 Définis un **`TypedDict`** pour le **rapport JSON** final : **`{"total": int, "by_level": dict[str, int], ...}`**. Utilise **`Literal["INFO", "ERROR", "WARN"]`** pour le niveau dans **`LogLine`**. Un **`Protocol`** **`SupportsReadLines`** peut décrire les sources **testables** sans dépendre de **`Path`** uniquement.
+
+Ces types doivent rester au service du code. Si un type devient trop compliqué, c’est souvent le signe que la structure de données mérite d’être simplifiée ou remplacée par une `dataclass`.
 
 **`mypy`** sur le dossier **`src/`** : commence avec **`disallow_untyped_defs = False`** puis resserre. Intègre **`mypy`** dans **CI** (GitHub Actions ou équivalent) pour **bloquer** les régressions de types.
 
-## Exercices (12)
+<h2 id="mypy">Mypy progressif</h2>
+
+Sur un projet existant, activer `--strict` partout dès le premier jour peut décourager. Une meilleure approche consiste à typifier les modules importants d’abord : `parser.py`, `stats.py`, puis `cli.py`. Quand un module devient propre, on peut renforcer les règles.
+
+Bon réflexe : ne pas ajouter des `# type: ignore` en masse. S’il faut ignorer une erreur, indique pourquoi : bibliothèque mal typée, bug de stubs, ou limite assumée.
+
+<h2 id="protocol">Protocol pour tester sans dépendre de Path</h2>
+
+`Protocol` est utile quand plusieurs objets peuvent fournir le même comportement. Par exemple, le parseur peut accepter une source qui expose `readlines()` ou un itérateur de chaînes, sans exiger un vrai fichier sur disque. Cela rend les tests plus simples et garde le code flexible.
+
+Mais attention : n’ajoute pas un `Protocol` pour chaque fonction. Utilise-le quand il exprime une vraie abstraction, pas pour rendre le code “plus avancé”.
+
+<h2 id="ci">CI et règles d’équipe</h2>
+
+Dans une vraie livraison, `mypy` doit être lancé avec les tests et le linter. La CI empêche qu’un refactoring casse silencieusement un contrat de type. Pour ce tutoriel, l’idée est simple : les erreurs de type doivent être visibles avant la partie 6, quand le projet sera empaqueté avec `pyproject.toml`.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Annoter **`def merge_reports(a: Counter, b: Counter) -> Counter`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -148,10 +200,14 @@ NAME: Final = "journal-stats"</code></pre>
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Package et pyproject](/projet-av-journal-6-package-pyproject/)
+La dernière étape est la partie 6 : [package et pyproject](/projet-av-journal-6-package-pyproject/). Le typage préparé ici rendra le package plus lisible, plus testable et plus facile à maintenir.
+
+Tu peux aussi consolider avec [typing avancé en Python](/python-av-typing-avance/) avant de passer au packaging.
 
 ## Amazon (partenaire)
 
 - [Python typing](https://www.amazon.fr/s?k=python+type+hints+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

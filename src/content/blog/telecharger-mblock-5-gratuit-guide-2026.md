@@ -1,9 +1,9 @@
 ---
-title: "mBlock 5 gratuit : télécharger (Windows, Mac, web) | 2026"
-headline: "Télécharger mBlock 5 Gratuit (Windows, Mac, En ligne)"
+title: "mBlock 5 gratuit : télécharger et choisir la bonne version | Guide 2026"
+headline: "Télécharger mBlock 5 Gratuit : guide pour choisir Windows, Mac ou en ligne"
 description: "Télécharger mBlock 5 gratuitement : lien officiel Makeblock, Windows et Mac, version en ligne (navigateur). Installation, FAQ, robots mBot — guide 2026."
 pubDate: 2026-04-18
-updatedDate: 2026-04-18
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: mbot
 articleJsonLd: true
@@ -58,6 +58,9 @@ Sur la page officielle <strong><a href="https://www.mblock.cc/fr-fr/download/" r
 <li><a href="#mblock-en-ligne">mBlock en ligne</a></li>
 <li><a href="#apres-telechargement">Après le téléchargement</a></li>
 <li><a href="#mblock-explique">mBlock : logiciel de programmation</a></li>
+<li><a href="#comment-choisir-version">Quelle version choisir ?</a></li>
+<li><a href="#profils">Recommandations selon profil</a></li>
+<li><a href="#exemples-utilisation">Exemples d’utilisation</a></li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#aller-plus-loin">Aller plus loin (mBot, Arduino, affiliation)</a></li>
 </ul>
@@ -124,6 +127,30 @@ Vous cherchez **« mblock 5 en ligne »** ou **« mblock français »** tout en 
 - Sur certains modèles, un mode **Python** permet de poursuivre en **texte** — utile au collège / lycée quand les blocs sont maîtrisés.
 
 Pour une comparaison pédagogique Scratch vs mBlock : <a href="/mblock-vs-scratch-lequel-choisir/">mBlock vs Scratch : lequel choisir ?</a>
+
+<h2 id="comment-choisir-version">Quelle version de mBlock choisir ?</h2>
+
+| Besoin | Version conseillée |
+|---|---|
+| Installer mBlock 5 sur PC familial | **Application Windows / macOS** |
+| PC d'école sans droits administrateur | **mBlock en ligne** |
+| Programmer un mBot en USB régulièrement | **Application installée** |
+| Démonstration rapide sans robot | **Version web** |
+| Passer des blocs vers Python | **Application mBlock + robot compatible** |
+
+Pour un usage avec robot réel, l'application bureau reste le choix le plus confortable. Pour découvrir l'interface ou travailler sur un ordinateur verrouillé, la version web suffit. Le bon choix dépend donc moins du logiciel que du contexte : droits administrateur, robot disponible, besoin de téléversement et niveau des élèves.
+
+<h2 id="profils">Recommandations selon profil</h2>
+
+Pour un **enfant**, commencez par mBlock installé ou en ligne avec des blocs simples. Pour un **débutant adulte**, installez l'application afin de tester un robot réel en USB. Pour un **enseignant**, préparez une machine de référence avec l'application et gardez mBlock Web comme plan B en salle informatique.
+
+<h2 id="exemples-utilisation">Exemples d'utilisation après téléchargement</h2>
+
+- Ajouter le **mBot** dans mBlock et lancer un premier programme d'avance / arrêt.
+- Tester un projet Scratch-like à l'écran sans robot.
+- Installer les blocs mBot pour accéder aux moteurs et capteurs.
+- Comparer le mode blocs et le mode Python sur un robot compatible.
+- Préparer une activité de classe autour du capteur ultrason.
 
 <h2 id="faq">FAQ</h2>
 

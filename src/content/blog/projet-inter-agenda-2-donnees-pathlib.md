@@ -1,9 +1,9 @@
 ---
-title: "Projet Agenda CLI (2/6) — données, pathlib et JSON"
-headline: "Données, pathlib et JSON"
-description: "Chemin du fichier agenda, pathlib.Path, lecture et écriture atomique, encodage UTF-8 ; 12 exercices."
+title: "Projet Agenda CLI (2/6) — comment gérer JSON avec pathlib"
+headline: "Projet Agenda CLI — comment gérer les données JSON avec pathlib"
+description: "Projet Python intermédiaire : gérer le fichier agenda avec pathlib, JSON UTF-8, load_events, save_events, écriture atomique, tmp_path et tests."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 2
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "pathlib"]
 relatedLinks:
   - title: "Partie 1 — cahier des charges"
     href: "/projet-inter-agenda-1-cahier-des-charges/"
+  - title: "Python intermédiaire — pathlib"
+    href: "/python-inter-pathlib/"
+  - title: "Python fichiers texte"
+    href: "/python-fichiers-texte/"
   - title: "Partie 3 — modèle et POO"
     href: "/projet-inter-agenda-3-modele-poo/"
 categories:
@@ -19,15 +23,63 @@ categories:
   - "Projet"
   - "Intermédiaire"
 ---
+Dans la partie 1, tu as défini le format JSON de l’agenda et les commandes principales. Cette deuxième étape s’occupe de la persistance : où stocker le fichier, comment le lire, comment l’écrire et comment éviter de perdre les données.
+
 Le module **`storage`** isole tout ce qui touche au **disque** : où se trouve le fichier, comment le **lire** et l’**écrire**. On utilise **`pathlib.Path`** pour composer les chemins (`Path.home() / ".agenda" / "agenda.json"`) et **`json.load` / `json.dump`** avec **`encoding="utf-8"`**. Pour éviter un fichier **corrompu** si le processus meurt en pleine écriture, une stratégie simple est d’écrire dans un **fichier temporaire** dans le même répertoire puis **`Path.replace`** (atomique sur le même volume en général).
 
-## Contrat du module `storage`
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 2</strong></p>
+<ul>
+<li>Créer un module <code>storage.py</code> dédié au disque.</li>
+<li>Choisir un chemin de fichier configurable.</li>
+<li>Lire et écrire du JSON UTF-8.</li>
+<li>Tester la persistance avec <code>tmp_path</code>.</li>
+</ul>
+</aside>
+
+Pour réviser les chemins modernes, consulte [pathlib en Python intermédiaire](/python-inter-pathlib/). Pour les bases de lecture/écriture, voir aussi [fichiers texte en Python](/python-fichiers-texte/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#contrat">Contrat du module storage</a></li>
+<li><a href="#json">Format JSON attendu</a></li>
+<li><a href="#ecriture-atomique">Écriture atomique</a></li>
+<li><a href="#tests">Tests à prévoir</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="contrat">Contrat du module `storage`</h2>
 
 - **`load_events(path: Path) -> dict`** : si le fichier n’existe pas, retourner **`{"events": []}`** (ou structure équivalente documentée).
 - **`save_events(path: Path, data: dict) -> None`** : sérialiser avec **`indent=2`** pour un diff Git lisible.
 - Créer les **répertoires parents** avec **`path.parent.mkdir(parents=True, exist_ok=True)`** avant écriture.
 
-## Exercices (12)
+<h2 id="json">Format JSON attendu</h2>
+
+Le fichier doit rester simple et lisible. Une racine `{"events": [...]}` suffit pour la v1. Évite de stocker directement des objets Python : le JSON doit rester portable, même si tu changes plus tard l’implémentation interne de `Event`.
+
+Quand le JSON est invalide, ne laisse pas une trace d’erreur illisible pour l’utilisateur final. Le module peut lever une exception claire ; la CLI transformera ensuite cette erreur en message propre et code de sortie non zéro.
+
+<h2 id="ecriture-atomique">Pourquoi une écriture atomique ?</h2>
+
+Si ton programme écrit directement dans `agenda.json` et s’arrête au mauvais moment, tu peux laisser un fichier tronqué. Une stratégie plus sûre consiste à écrire dans un fichier temporaire situé dans le même dossier, puis à remplacer le fichier final avec `Path.replace`.
+
+Ce n’est pas une garantie absolue contre tous les problèmes système, mais c’est un bon réflexe pour un projet local sérieux.
+
+<h2 id="tests">Tests à prévoir</h2>
+
+Les tests de stockage doivent utiliser `tmp_path`, pas ton vrai dossier utilisateur. Vérifie au minimum :
+
+- fichier absent ;
+- sauvegarde puis rechargement ;
+- JSON invalide ;
+- création automatique du dossier parent ;
+- conservation des accents avec `ensure_ascii=False`.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Écris l’expression **`Path.home() / ".agenda" / "agenda.json"`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -153,10 +205,12 @@ def data_path() -> Path:
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Modèle métier et classes](/projet-inter-agenda-3-modele-poo/)
+Continue avec la partie 3 : [modèle métier et classes](/projet-inter-agenda-3-modele-poo/). Le stockage restera volontairement simple, tandis que la validation et les règles de l’agenda iront dans le modèle et le service.
 
 ## Amazon (partenaire)
 
 - [Python fichiers données](https://www.amazon.fr/s?k=python+json+fichiers+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

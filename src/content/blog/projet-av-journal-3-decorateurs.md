@@ -1,9 +1,9 @@
 ---
-title: "Projet Journal CLI (3/6) — décorateurs pour métriques et journalisation"
-headline: "Décorateurs pour métriques et journalisation"
-description: "Mesurer le temps de parsing, journaliser le nombre de lignes, functools.wraps ; 12 exercices."
+title: "Projet Journal CLI (3/6) — comment utiliser des décorateurs Python"
+headline: "Projet Journal CLI — comment utiliser des décorateurs pour métriques et logs"
+description: "Projet Python avancé : ajouter des décorateurs timed et log_calls, mesurer le parsing, utiliser functools.wraps, logging, caplog et éviter les pièges des générateurs."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 3
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "Décorateurs"]
 relatedLinks:
   - title: "Partie 2 — parsing"
     href: "/projet-av-journal-2-parse-generateurs/"
+  - title: "Python avancé — décorateurs"
+    href: "/python-av-decorateurs-functools/"
+  - title: "Python intermédiaire — tests et qualité"
+    href: "/python-inter-tests-qualite/"
   - title: "Partie 4 — asyncio"
     href: "/projet-av-journal-4-asyncio-batch/"
 categories:
@@ -19,11 +23,66 @@ categories:
   - "Projet"
   - "Avancé"
 ---
+Dans la partie 2, tu as construit un parseur ligne à ligne avec des générateurs. Cette troisième étape ajoute une couche utile dans un vrai outil CLI : mesurer ce qui se passe sans polluer le cœur du code. Pour cela, on utilise des **décorateurs Python**.
+
+L’objectif n’est pas d’ajouter des décorateurs partout “par style avancé”. Ils servent ici à instrumenter le projet : mesurer la durée d’un traitement, journaliser un appel, vérifier qu’une fonction n’est pas relancée trop souvent, et activer ces informations seulement en mode debug ou `--verbose`.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 3</strong></p>
+<ul>
+<li>Créer un décorateur <code>@timed</code> avec <code>time.perf_counter</code>.</li>
+<li>Utiliser <code>logging</code> plutôt que des <code>print</code> dispersés.</li>
+<li>Conserver les métadonnées avec <code>functools.wraps</code>.</li>
+<li>Comprendre pourquoi mesurer un générateur demande de la prudence.</li>
+</ul>
+</aside>
+
+Si tu veux revoir la notion avant l’exercice, consulte [décorateurs et functools en Python avancé](/python-av-decorateurs-functools/). Pour garder le fil du projet, tu peux aussi revenir au [parsing par générateurs](/projet-av-journal-2-parse-generateurs/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#pourquoi">Pourquoi ajouter des décorateurs ?</a></li>
+<li><a href="#timed">Décorateur timed</a></li>
+<li><a href="#generateurs">Piège avec les générateurs</a></li>
+<li><a href="#logging">Logging et mode verbose</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="pourquoi">Pourquoi ajouter des décorateurs ?</h2>
+
+Dans un outil comme **`journal-stats`**, on veut parfois savoir combien de temps prend le parsing ou combien de fois une fonction est appelée. Si tu ajoutes ces mesures directement dans `parse_lines`, `aggregate` ou `main`, tu mélanges la logique métier avec l’observation du programme.
+
+Un décorateur permet de garder une séparation nette : la fonction fait son travail, le décorateur ajoute une information autour de l’appel. C’est particulièrement utile avant la partie 4, où plusieurs fichiers seront traités et où les temps d’exécution deviendront plus visibles.
+
+<h2 id="timed">Décorateur `timed`</h2>
+
 Enveloppe les fonctions **`parse_lines`** et **`aggregate`** avec un décorateur **`@timed`** qui enregistre la durée via **`logging.info`** ou **`print`** en mode debug. Un second décorateur **`@log_calls`** peut compter les invocations — utile pour vérifier que tu ne **repars** pas le parseur dans une boucle par erreur.
 
 Utilise **`functools.wraps`** pour garder **`__name__`** et la docstring, afin que **`pytest`** et **`help()`** restent lisibles.
 
-## Exercices (12)
+<h2 id="generateurs">Attention aux générateurs</h2>
+
+Un point subtil : décorer une fonction qui **retourne un générateur** ne mesure pas forcément le parcours complet. La fonction peut être appelée rapidement, puis le vrai travail se produit plus tard, quand le générateur est consommé.
+
+Pour mesurer correctement le parsing, tu peux :
+
+- mesurer l’agrégation, qui consomme réellement les lignes ;
+- écrire un décorateur spécialisé pour générateur ;
+- utiliser un context manager autour de la boucle qui consomme les lignes ;
+- documenter clairement ce qui est mesuré.
+
+Cette nuance est importante dans un projet avancé : un décorateur mal placé donne une métrique rassurante mais fausse.
+
+<h2 id="logging">Logging et mode verbose</h2>
+
+Le module `logging` doit être configuré dans `main`, pas au milieu des modules métier. Ainsi, la bibliothèque reste silencieuse par défaut, et la CLI choisit d’activer les messages avec un futur flag `--verbose`.
+
+Pour les tests, `caplog` de pytest est plus propre que de vérifier un `print`. Cela permet de confirmer que le décorateur émet bien un message sans rendre les tests dépendants de la sortie console.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Décorateur **`timed`** avec **`time.perf_counter`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -153,10 +212,14 @@ def timer(name):
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[asyncio et batch de fichiers](/projet-av-journal-4-asyncio-batch/)
+La suite logique est la partie 4 : [asyncio et batch de fichiers](/projet-av-journal-4-asyncio-batch/). Les métriques ajoutées ici aideront à comprendre ce qui change quand on traite plusieurs fichiers et quand on délègue de l’I/O disque.
+
+Tu peux aussi revoir [tests et qualité Python](/python-inter-tests-qualite/) pour tester proprement les logs avec `caplog`.
 
 ## Amazon (partenaire)
 
 - [Python patterns](https://www.amazon.fr/s?k=python+design+patterns+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

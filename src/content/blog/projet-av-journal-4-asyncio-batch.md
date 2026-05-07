@@ -1,9 +1,9 @@
 ---
-title: "Projet Journal CLI (4/6) — asyncio et traitement de plusieurs fichiers"
-headline: "Asyncio et traitement de plusieurs fichiers"
-description: "gather, semaphore, run_in_executor pour lecture disque ; pas de blocage ; 12 exercices."
+title: "Projet Journal CLI (4/6) — comment traiter plusieurs fichiers avec asyncio"
+headline: "Projet Journal CLI — comment traiter plusieurs fichiers avec asyncio"
+description: "Projet Python avancé : traiter plusieurs fichiers log avec asyncio, gather, Semaphore, run_in_executor, to_thread, fusion de rapports et fallback synchrone."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 4
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "asyncio"]
 relatedLinks:
   - title: "Partie 3 — décorateurs"
     href: "/projet-av-journal-3-decorateurs/"
+  - title: "Python avancé — asyncio"
+    href: "/python-av-asyncio/"
+  - title: "Python avancé — générateurs"
+    href: "/python-av-generateurs-iterateurs/"
   - title: "Partie 5 — typage"
     href: "/projet-av-journal-5-typing-mypy/"
 categories:
@@ -19,11 +23,41 @@ categories:
   - "Projet"
   - "Avancé"
 ---
-Quand tu analyses **plusieurs gros fichiers**, tu peux **paralléliser** le travail : **`asyncio.gather`** pour lancer des tâches qui **attendent** des I/O. **Attention** : la lecture fichier avec **`open()`** synchrone **bloque** la boucle — pattern courant : **`await loop.run_in_executor(None, parse_file_sync, path)`** où **`parse_file_sync`** lit et agrège en **thread** (I/O disque libère le GIL souvent).
+Après le parsing et les métriques, le projet **Journal CLI** doit gérer un cas réaliste : analyser **plusieurs fichiers de logs**. Cette partie introduit `asyncio` pour lancer plusieurs traitements et limiter la concurrence proprement.
+
+Le point à comprendre dès le départ : `asyncio` n’accélère pas automatiquement tout code Python. Une lecture avec **`open()`** reste synchrone et peut bloquer la boucle d’événements. Pour ce projet, le pattern utile consiste donc à garder un parseur synchrone fiable, puis à l’exécuter dans un thread avec **`run_in_executor`** ou **`asyncio.to_thread`**.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 4</strong></p>
+<ul>
+<li>Lancer plusieurs analyses de fichiers avec <code>asyncio.gather</code>.</li>
+<li>Limiter le nombre de fichiers simultanés avec <code>Semaphore</code>.</li>
+<li>Éviter de bloquer la boucle avec une lecture disque synchrone.</li>
+<li>Fusionner les rapports partiels en un rapport final.</li>
+</ul>
+</aside>
+
+Pour réviser les bases, consulte [asyncio en Python avancé](/python-av-asyncio/). Cette étape s’appuie aussi sur les [générateurs Python](/python-av-generateurs-iterateurs/) et sur les décorateurs de la [partie 3](/projet-av-journal-3-decorateurs/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#idee">Idée générale</a></li>
+<li><a href="#schema">Schéma recommandé</a></li>
+<li><a href="#executor">run_in_executor ou to_thread</a></li>
+<li><a href="#limites">Limites et fallback synchrone</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="idee">Idée générale</h2>
+
+Quand tu analyses **plusieurs gros fichiers**, tu peux **paralléliser** le travail : **`asyncio.gather`** lance des tâches qui **attendent** des I/O, pendant qu’un `Semaphore` évite de démarrer trop de lectures à la fois. **Attention** : la lecture fichier avec **`open()`** synchrone **bloque** la boucle — pattern courant : **`await loop.run_in_executor(None, parse_file_sync, path)`** où **`parse_file_sync`** lit et agrège en **thread**.
 
 En alternative minimaliste, rester **100 % synchrone** avec **`concurrent.futures.ThreadPoolExecutor`** pour ce projet — mais **documente** le choix : le **cours avancé** demande d’illustrer **`asyncio`**.
 
-## Schéma recommandé
+<h2 id="schema">Schéma recommandé</h2>
 
 ```python
 async def process_paths(paths: list[Path]) -> Report:
@@ -38,7 +72,24 @@ async def process_paths(paths: list[Path]) -> Report:
     return merge_reports(parts)
 ```
 
-## Exercices (12)
+<h2 id="executor">`run_in_executor` ou `asyncio.to_thread` ?</h2>
+
+`run_in_executor` est explicite : tu vois la boucle, l’exécuteur et la fonction synchrone appelée. `asyncio.to_thread` est plus lisible pour un cas simple : déléguer une fonction bloquante à un thread.
+
+Pour ce projet, les deux approches sont acceptables. Choisis-en une et reste cohérent. Le plus important est de garder une fonction synchrone testable, par exemple `parse_and_count(path)`, puis de l’appeler depuis la couche asynchrone.
+
+<h2 id="limites">Limites et fallback synchrone</h2>
+
+Un traitement async n’est pas toujours plus rapide :
+
+- fichiers minuscules : l’overhead peut coûter plus cher que le gain ;
+- disque déjà saturé : lancer plus de tâches n’aide pas ;
+- parseur CPU-bound : les threads ne résolvent pas tout à cause du GIL ;
+- environnement de debug : une version séquentielle est plus facile à comprendre.
+
+Prévoir un fallback synchrone, par exemple `--no-async`, est une bonne décision pédagogique et pratique. Cela permet de comparer les résultats, tester plus facilement et éviter que `asyncio` masque un bug de parsing.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Écris **`asyncio.run`** + coroutine **`main()`** qui **`await asyncio.sleep(0)`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -156,10 +207,14 @@ a.update(Counter({"INFO": 2, "ERROR": 1}))</code></pre>
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Typage et mypy](/projet-av-journal-5-typing-mypy/)
+Passe ensuite à la partie 5 : [typage et mypy](/projet-av-journal-5-typing-mypy/). Les fonctions async, les rapports partiels et les erreurs récupérées par `gather` gagnent beaucoup à être typés clairement.
+
+Tu peux aussi revenir à [asyncio en Python avancé](/python-av-asyncio/) si tu veux consolider les notions de coroutine, task, event loop et `gather`.
 
 ## Amazon (partenaire)
 
 - [Python asyncio livre](https://www.amazon.fr/s?k=python+asyncio+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

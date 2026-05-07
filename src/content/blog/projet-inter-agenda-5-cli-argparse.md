@@ -1,9 +1,9 @@
 ---
-title: "Projet Agenda CLI (5/6) — argparse et interface ligne de commande"
-headline: "Argparse et interface ligne de commande"
-description: "Sous-commandes add, list, remove ; dates ; codes de sortie ; messages utilisateur ; 12 exercices."
+title: "Projet Agenda CLI (5/6) — comment créer une CLI avec argparse"
+headline: "Projet Agenda CLI — comment créer l’interface en ligne de commande avec argparse"
+description: "Projet Python intermédiaire : créer une CLI argparse avec sous-commandes add/list/remove, dates ISO, codes de sortie, stderr, --file et dispatch testable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 5
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "CLI"]
 relatedLinks:
   - title: "Partie 4 — tests"
     href: "/projet-inter-agenda-4-tests-pytest/"
+  - title: "Python mini-jeu terminal"
+    href: "/python-mini-jeu-terminal/"
+  - title: "Python erreurs et débogage"
+    href: "/python-erreurs-debogage/"
   - title: "Partie 6 — livraison"
     href: "/projet-inter-agenda-6-livraison-extensions/"
 categories:
@@ -19,15 +23,70 @@ categories:
   - "Projet"
   - "Intermédiaire"
 ---
+Après avoir testé le service avec pytest, tu peux exposer l’agenda dans le terminal. Cette partie construit l’interface utilisateur avec **`argparse`** : sous-commandes, arguments, messages d’erreur et codes de sortie.
+
+Le rôle de la CLI est volontairement limité. Elle lit les arguments, appelle `AgendaService`, affiche un résultat lisible, puis retourne un code entier. Les règles métier restent dans le service ; l’affichage reste dans la couche CLI.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 5</strong></p>
+<ul>
+<li>Créer les sous-commandes <code>add</code>, <code>list</code> et <code>remove</code>.</li>
+<li>Parser les dates ISO depuis le terminal.</li>
+<li>Retourner des codes de sortie cohérents.</li>
+<li>Garder une CLI testable sans lancer un vrai subprocess partout.</li>
+</ul>
+</aside>
+
+Pour réviser la logique terminal, consulte [mini-jeu Python dans le terminal](/python-mini-jeu-terminal/) et [erreurs / débogage Python](/python-erreurs-debogage/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#structure">Structure argparse</a></li>
+<li><a href="#bonnes-pratiques">Bonnes pratiques CLI</a></li>
+<li><a href="#dispatch">Séparer parsing et exécution</a></li>
+<li><a href="#tests">Tests à prévoir</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="structure">Structure `argparse`</h2>
+
 **`argparse`** structure la CLI avec **`ArgumentParser`**, **`add_subparsers`** pour **`agenda add`**, **`agenda list`**, **`agenda remove`**. Chaque sous-commande a ses propres arguments : **`--title`**, **`--start`** (chaîne ISO), **`--from` / `--to`** pour la liste, **`--id`** pour la suppression. Retourne **`sys.exit(1)`** en cas d’erreur utilisateur ou fichier corrompu.
 
-## Bonnes pratiques
+<h2 id="bonnes-pratiques">Bonnes pratiques</h2>
 
 - **`prog`** et **`description`** clairs dans le parser principal.
 - Messages d’erreur sur **`stderr`** (`print(..., file=sys.stderr)`).
 - **`type=`** pour parser les dates avec une petite fonction qui appelle **`datetime.fromisoformat`**.
 
-## Exercices (12)
+Pense aussi à l’expérience utilisateur. Une commande qui réussit peut afficher un message court sur `stdout` : événement ajouté, nombre d’événements listés, identifiant supprimé. Une erreur doit aller sur `stderr` avec un code de sortie non zéro, afin qu’un script puisse détecter l’échec. Cette séparation sera utile si l’agenda est un jour appelé depuis un autre outil.
+
+<h2 id="dispatch">Séparer parsing et exécution</h2>
+
+Une CLI devient vite difficile à tester si tout est dans `main`. Une structure simple fonctionne mieux :
+
+- `build_parser()` crée le parser ;
+- `parse_args(argv)` transforme les chaînes en `Namespace` ;
+- `dispatch(args, service)` appelle le bon comportement ;
+- `main(argv=None)` orchestre et retourne un code.
+
+Avec ce découpage, tu peux tester `dispatch` avec un faux service ou un `Namespace` construit à la main, sans capturer toute la sortie terminal à chaque test.
+
+<h2 id="tests">Tests à prévoir</h2>
+
+Ajoute au minimum :
+
+- `--help` affiche les sous-commandes ;
+- `add` refuse un titre absent ;
+- une date invalide donne un message clair ;
+- `list` appelle le service avec les bonnes bornes ;
+- `remove` transforme un identifiant inconnu en code de sortie non zéro.
+
+Ces tests complètent ceux de la partie 4 : [tests avec pytest](/projet-inter-agenda-4-tests-pytest/).
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Crée un parser avec sous-commande **`add`** et argument **`--title`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -151,10 +210,12 @@ except ValueError as e:
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Livraison et extensions](/projet-inter-agenda-6-livraison-extensions/)
+Continue avec la partie 6 : [livraison et extensions](/projet-inter-agenda-6-livraison-extensions/). Tu y prépareras README, installation, qualité et idées d’évolution.
 
 ## Amazon (partenaire)
 
 - [Python ligne de commande](https://www.amazon.fr/s?k=python+cli+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

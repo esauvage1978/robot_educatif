@@ -23,6 +23,25 @@ relatedLinks:
 tags:
   - "Raspberry Pi"
   - "Comparatif"
+productItemListSchema:
+  - position: 1
+    name: "Raspberry Pi 3 Model B"
+    url: "https://www.amazon.fr/s?k=Raspberry+Pi+3+Model+B&tag=manuso06-21"
+    brand: "Raspberry Pi"
+    offerLowPrice: "35"
+    offerHighPrice: "70"
+  - position: 2
+    name: "Raspberry Pi 4 Model B"
+    url: "https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21"
+    brand: "Raspberry Pi"
+    offerLowPrice: "55"
+    offerHighPrice: "120"
+  - position: 3
+    name: "Raspberry Pi 5"
+    url: "https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21"
+    brand: "Raspberry Pi"
+    offerLowPrice: "65"
+    offerHighPrice: "275"
 faqSchema:
   - question: "Quel Raspberry Pi choisir entre le Pi 3, le Pi 4 et le Pi 5 en 2026 ?"
     answer: "Pi 3 pour projet très léger ou réemploi à petit budget ; Pi 4 comme sweet spot USB 3 et Gigabit pour serveur ou bureau ; Pi 5 quand il faut plus de CPU, jusqu’à 16 Go de RAM ou le bus PCIe — en acceptant alimentation et refroidissement plus exigeants."
@@ -52,9 +71,12 @@ En 2026, <strong>Pi 3</strong> reste pertinent pour les <strong>projets légers<
 <li><a href="#prix">4. Prix indicatifs en France</a></li>
 <li><a href="#cas-usage">5. Quel Raspberry selon le cas d’usage</a></li>
 <li><a href="#choix-rapide">6. Choix rapide (besoin → modèle)</a></li>
-<li><a href="#prolongements">7. Prolongements</a></li>
-<li><a href="#notre-recommandation">8. Notre recommandation</a></li>
-<li><a href="#faq">9. FAQ</a></li>
+<li><a href="#profils">7. Recommandations par profil</a></li>
+<li><a href="#achat">8. Ce qu’il faut acheter avec la carte</a></li>
+<li><a href="#erreurs">9. Erreurs d’achat fréquentes</a></li>
+<li><a href="#prolongements">10. Prolongements</a></li>
+<li><a href="#notre-recommandation">11. Notre recommandation</a></li>
+<li><a href="#faq">12. FAQ</a></li>
 </ul>
 </div>
 
@@ -138,13 +160,58 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 <a class="article-cta article-cta--secondary" href="/mise-en-route-raspberry-pi-3-modele-b/">Mise en route (Imager)</a>
 </div>
 
-<h2 id="prolongements">7. Prolongements</h2>
+<h2 id="profils">7. Recommandations par profil</h2>
+
+### Pour apprendre Linux et les bases du terminal
+
+Le **Raspberry Pi 4 en 4 Go** est souvent le choix le plus équilibré. Il permet d’ouvrir un environnement graphique, d’utiliser le terminal, de manipuler des fichiers, de lancer un petit serveur web et de brancher des périphériques USB sans trop lutter contre les limites matérielles. Le Pi 3 peut suffire pour un apprentissage très léger, mais il risque de donner une mauvaise première impression si l’élève ouvre trop d’onglets ou compile du code.
+
+### Pour un serveur maison ou un NAS modeste
+
+Le **Pi 4** reste très solide grâce à l’USB 3 et au Gigabit. Pour un partage de fichiers, un serveur domotique, un tableau de bord local ou quelques services Docker légers, il évite souvent le surcoût du Pi 5. Le **Pi 5** devient intéressant si vous voulez du stockage plus rapide via NVMe, plus de marge CPU ou une machine qui restera confortable plus longtemps.
+
+### Pour robotique, GPIO et capteurs
+
+Un **Pi 3** déjà disponible reste exploitable pour GPIO, capteurs, scripts Python et petits montages. En achat neuf, le Pi 4 est plus confortable, surtout si vous voulez aussi afficher un bureau, brancher une caméra ou faire tourner plusieurs services. Pour un ado qui hésite entre Raspberry Pi et robot mobile, consultez aussi [Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/) : l’enjeu principal est souvent la motivation, pas la puissance brute.
+
+### Pour un poste de bureau ou un mini-PC
+
+Visez au minimum un **Pi 4 4 Go**, idéalement un **Pi 5 4 Go ou 8 Go** si le budget suit. Le Pi 5 donne une sensation plus moderne, mais il impose un meilleur refroidissement et une alimentation adaptée. Si l’objectif est de remplacer un ordinateur principal, gardez des attentes raisonnables : un Raspberry Pi reste une carte pédagogique, pas toujours un PC familial universel.
+
+### Pour expérimenter l’IA, la compilation ou les projets avancés
+
+Le **Pi 5** prend l’avantage grâce au CPU, à la RAM disponible jusqu’à 16 Go et au PCIe. Il devient pertinent pour compiler plus souvent, tester des accélérateurs, manipuler des conteneurs ou prototyper des services plus lourds. Dans ce cas, le prix de la carte seule ne suffit plus : il faut compter boîtier ventilé, alimentation sérieuse, stockage rapide et parfois carte d’extension.
+
+<h2 id="achat">8. Ce qu’il faut acheter avec la carte</h2>
+
+Un achat Raspberry Pi ne se limite presque jamais à la carte. Pour éviter les mauvaises surprises, prévoyez :
+
+- une **alimentation adaptée** au modèle, surtout pour le Pi 5 ;
+- une **microSD fiable**, ou un stockage NVMe si votre projet Pi 5 le justifie ;
+- un **boîtier** avec circulation d’air ;
+- un **refroidissement actif** pour le Pi 5 ou pour un Pi 4 sollicité longtemps ;
+- les bons câbles HDMI ou micro-HDMI ;
+- éventuellement clavier, souris, adaptateurs réseau ou HAT selon le projet.
+
+C’est pour cela qu’un Pi 5 “pas beaucoup plus cher” peut devenir nettement plus coûteux une fois le panier complet ajouté. À l’inverse, un Pi 4 bien équipé peut être plus agréable qu’un Pi 5 acheté sans refroidissement correct.
+
+<h2 id="erreurs">9. Erreurs d’achat fréquentes</h2>
+
+La première erreur est d’acheter uniquement la carte la plus puissante. Un **Pi 5 sans bonne alimentation** ou sans refroidissement peut devenir instable, bruyant ou frustrant. Pour un usage bureau ou serveur, la stabilité vaut souvent plus que quelques euros économisés.
+
+La deuxième erreur est de sous-estimer la **mémoire**. Un Pi 3 peut encore rendre service, mais 1 Go devient vite très contraignant. Sur Pi 4 ou Pi 5, le modèle 4 Go est souvent le minimum confortable pour un bureau léger ; 8 Go devient intéressant si vous ouvrez plusieurs services, conteneurs ou outils de développement.
+
+La troisième erreur est de confondre **Raspberry Pi** et **microcontrôleur**. Pour piloter quelques capteurs très simples, un Pico ou une carte Arduino peut être plus adaptée, moins chère et plus directe. Un Raspberry Pi est un mini-ordinateur Linux : il brille quand vous avez besoin de réseau, fichiers, serveur, caméra, interface ou scripts plus complets.
+
+La quatrième erreur est de ne pas prévoir la sauvegarde. Une carte microSD peut s’user ou se corrompre, surtout si le Pi écrit beaucoup de logs. Pour un serveur maison, pensez à sauvegarder la configuration, à limiter les écritures inutiles et à choisir un stockage sérieux.
+
+<h2 id="prolongements">10. Prolongements</h2>
 
 - Guide mémoire **Pi 4** : [/raspberry-pi-4-quelle-version-memoire-acheter/](/raspberry-pi-4-quelle-version-memoire-acheter/)
 - Guide mémoire **Pi 5** : [/raspberry-pi-5-quelle-version-memoire-acheter/](/raspberry-pi-5-quelle-version-memoire-acheter/)
 - Première installation (écrit autour du Pi 3 mais transposable) : [mise en route Imager / SSH](/mise-en-route-raspberry-pi-3-modele-b/)
 
-<h2 id="notre-recommandation">8. Notre recommandation</h2>
+<h2 id="notre-recommandation">11. Notre recommandation</h2>
 
 <p><strong>Meilleur rapport usage polyvalent / budget :</strong> <strong>Raspberry Pi 4 en 4 Go</strong> (ou 8 Go si plusieurs services ou compilation régulière), avec boîtier ventilé et alim USB-C sérieuse.</p>
 
@@ -152,7 +219,12 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 <p><strong>Critères express :</strong> besoin USB 3 et Gigabit → Pi 4 minimum ; besoin PCIe ou 16 Go → Pi 5 ; projet minimaliste ou réemploi → Pi 3 peut suffire.</p>
 
-<h2 id="faq">9. FAQ</h2>
+<div class="article-cta-row">
+<a class="article-cta article-cta--primary" href="https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21" target="_blank" rel="noopener noreferrer sponsored">Voir les offres Raspberry Pi 5</a>
+<a class="article-cta article-cta--secondary" href="https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21" target="_blank" rel="noopener noreferrer sponsored">Voir les offres Raspberry Pi 4</a>
+</div>
+
+<h2 id="faq">12. FAQ</h2>
 
 <h3 id="faq-quel-pi">9.1. Quel Raspberry Pi choisir entre Pi 3, Pi 4 et Pi 5 ?</h3>
 

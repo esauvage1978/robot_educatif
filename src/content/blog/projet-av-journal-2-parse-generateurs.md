@@ -1,9 +1,9 @@
 ---
-title: "Projet Journal CLI (2/6) — parsing par générateurs"
-headline: "Parsing par générateurs"
-description: "Lecture ligne à ligne, yield, regex ou split, lignes ignorées ; 12 exercices."
+title: "Projet Journal CLI (2/6) — comment parser des logs avec des générateurs"
+headline: "Projet Journal CLI — comment parser des logs avec des générateurs"
+description: "Projet Python avancé : parser des fichiers log ligne à ligne avec yield, regex précompilée, Iterator, gestion des lignes invalides et tests simples."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 2
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "Générateurs"]
 relatedLinks:
   - title: "Partie 1 — architecture"
     href: "/projet-av-journal-1-architecture/"
+  - title: "Python avancé — générateurs et itérateurs"
+    href: "/python-av-generateurs-iterateurs/"
+  - title: "Python intermédiaire — tests et qualité"
+    href: "/python-inter-tests-qualite/"
   - title: "Partie 3 — décorateurs"
     href: "/projet-av-journal-3-decorateurs/"
 categories:
@@ -19,15 +23,73 @@ categories:
   - "Projet"
   - "Avancé"
 ---
+Dans la partie 1, tu as défini l’architecture du projet **Journal CLI** : `parser`, `stats`, `cli`, puis packaging plus tard. Cette deuxième étape transforme ce découpage en code concret : écrire une fonction qui lit un fichier de logs **ligne par ligne** et renvoie des objets exploitables sans remplir la mémoire.
+
+L’objectif est de construire **`parse_lines(path: Path) -> Iterator[LogLine]`**. Le mot important est `Iterator` : un fichier de logs peut faire quelques kilo-octets ou plusieurs centaines de mégaoctets. Un bon parseur ne commence donc pas par `read_text().splitlines()` ; il lit, parse et produit les résultats progressivement avec `yield`.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 2</strong></p>
+<ul>
+<li>Lire un fichier en flux avec un générateur.</li>
+<li>Extraire timestamp, niveau et message.</li>
+<li>Décider quoi faire des lignes invalides.</li>
+<li>Préparer des tests simples avec <code>tmp_path</code>.</li>
+</ul>
+</aside>
+
+Si la notion de générateur n’est pas encore fluide, relis [générateurs et itérateurs Python](/python-av-generateurs-iterateurs/). Pour replacer cette étape dans le projet complet, reviens à [l’architecture Journal CLI](/projet-av-journal-1-architecture/) ou au [hub du projet](/programmation/projet-python-avance-journal/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#parse-lines">Implémenter parse_lines</a></li>
+<li><a href="#performance">Performance et mémoire</a></li>
+<li><a href="#lignes-invalides">Lignes invalides</a></li>
+<li><a href="#tests">Tests à prévoir</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="parse-lines">Implémenter `parse_lines`</h2>
+
 Implémente **`parse_lines(path: Path) -> Iterator[LogLine]`** en ouvrant le fichier en **`encoding="utf-8"`** avec gestion **`errors="replace"`** ou **`strict`** selon politique documentée. Pour chaque ligne non vide, extrais **timestamp**, **niveau**, **message** avec **`re.compile`** précompilée en **constante de module** pour éviter de recompiler à chaque ligne.
 
-## Performance
+Le parseur ne doit pas afficher de rapport utilisateur. Il reçoit un chemin, lit les lignes, puis produit des `LogLine`. L’agrégation viendra ensuite dans `stats.py`, et la ligne de commande restera dans `cli.py`.
+
+<h2 id="performance">Performance</h2>
 
 - **Précompiler** les regex.
 - Éviter **`strip()`** répété inutile si le pattern gère les espaces.
 - **`yield`** immédiatement : ne pas accumuler `lines` dans une liste.
 
-## Exercices (12)
+Le principe à retenir : tant que tu peux traiter une ligne puis l’oublier, ne stocke pas tout le fichier. Cette stratégie rend le projet compatible avec des fichiers volumineux et prépare la suite, où `Counter`, agrégations et lecture multi-fichiers pourront travailler sur un flux.
+
+<h2 id="lignes-invalides">Que faire des lignes invalides ?</h2>
+
+Un vrai fichier de logs contient souvent des lignes imparfaites : stack trace sur plusieurs lignes, message sans date, niveau inconnu, caractères d’encodage. Tu dois choisir une politique simple et la documenter.
+
+Trois options raisonnables :
+
+- ignorer la ligne et incrémenter un compteur `skipped`;
+- produire un `LogLine` avec niveau `UNKNOWN` ;
+- lever une erreur en mode strict.
+
+Pour ce tutoriel, l’option la plus pédagogique est souvent `UNKNOWN` ou `skipped`, car elle laisse l’outil terminer son analyse sans masquer complètement le problème.
+
+<h2 id="tests">Tests à prévoir</h2>
+
+Avant de passer aux décorateurs, écris au moins quelques tests avec `tmp_path` :
+
+- fichier vide ;
+- trois lignes valides ;
+- ligne invalide ;
+- fichier avec BOM UTF-8 ;
+- vérification que `parse_lines` renvoie bien un itérateur.
+
+Les bases sont dans [tests automatisés et qualité Python](/python-inter-tests-qualite/). Même dans un projet avancé, un test simple qui protège une règle métier vaut mieux qu’un gros test fragile.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Générateur lisant **`path`** avec **`open`** et **`yield`** ligne nettoyée. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -151,10 +213,14 @@ datetime.strptime(m.group("ts"), "%Y-%m-%d %H:%M:%S")</code></pre>
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Décorateurs pour métriques](/projet-av-journal-3-decorateurs/)
+Une fois le parsing en place, passe à la partie 3 : [décorateurs pour métriques](/projet-av-journal-3-decorateurs/). Tu pourras mesurer le temps de parsing, compter les lignes et ajouter une journalisation propre sans mélanger ces préoccupations avec le cœur du parseur.
+
+Tu peux aussi revenir à la [partie 1 — architecture](/projet-av-journal-1-architecture/) si tu veux vérifier que `parser`, `stats` et `cli` restent bien séparés.
 
 ## Amazon (partenaire)
 
 - [Python performance](https://www.amazon.fr/s?k=python+performance+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*

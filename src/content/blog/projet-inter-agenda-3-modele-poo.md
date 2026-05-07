@@ -1,9 +1,9 @@
 ---
-title: "Projet Agenda CLI (3/6) — modèle métier et classes"
-headline: "Modèle métier et classes"
-description: "Classe Event, validation des dates avec datetime, service AgendaService ; séparation storage ; 12 exercices."
+title: "Projet Agenda CLI (3/6) — comment créer le modèle métier"
+headline: "Projet Agenda CLI — comment créer le modèle métier et les classes"
+description: "Projet Python intermédiaire : créer la classe Event, convertir dict vers objet, valider datetime, séparer storage et AgendaService, puis préparer les tests."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-05-06
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 3
@@ -11,6 +11,10 @@ tags: ["Python", "Projet", "POO"]
 relatedLinks:
   - title: "Partie 2 — données"
     href: "/projet-inter-agenda-2-donnees-pathlib/"
+  - title: "Python intermédiaire — POO et classes"
+    href: "/python-inter-poo-classes/"
+  - title: "Python intermédiaire — tests et qualité"
+    href: "/python-inter-tests-qualite/"
   - title: "Partie 4 — tests"
     href: "/projet-inter-agenda-4-tests-pytest/"
 categories:
@@ -19,13 +23,59 @@ categories:
   - "Projet"
   - "Intermédiaire"
 ---
+Après le stockage JSON, il faut donner une forme claire aux données de l’agenda. Cette troisième partie introduit le **modèle métier** : une classe `Event`, des conversions entre dictionnaires JSON et objets Python, puis un `AgendaService` qui porte les règles de l’application.
+
+L’objectif est de ne pas mélanger les responsabilités. Le module `storage` sait lire et écrire des dictionnaires JSON. Le module `model` sait représenter un événement. Le module `service` sait ajouter, lister, filtrer et supprimer des événements.
+
+<aside class="article-callout" role="note">
+<p><strong>Objectif de la partie 3</strong></p>
+<ul>
+<li>Créer une classe <code>Event</code> avec <code>dataclass</code>.</li>
+<li>Convertir proprement <code>dict ↔ objet</code>.</li>
+<li>Valider titre, date et durée.</li>
+<li>Séparer règles métier et persistance disque.</li>
+</ul>
+</aside>
+
+Pour réviser les bases, consulte [POO et classes en Python](/python-inter-poo-classes/). Cette partie prépare directement les [tests avec pytest](/projet-inter-agenda-4-tests-pytest/).
+
+<div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#roles">Rôle de model, service et storage</a></li>
+<li><a href="#datetime">Datetime et validation</a></li>
+<li><a href="#service">AgendaService</a></li>
+<li><a href="#tests">Tests à préparer</a></li>
+<li><a href="#exercices">Exercices</a></li>
+<li><a href="#suite">Suite du projet</a></li>
+</ul>
+</div>
+
+<h2 id="roles">Rôle de `model`, `service` et `storage`</h2>
+
 Le **`model`** décrit la **forme** des événements et les conversions **dict ↔ objet** ; le **`service`** applique les **règles** : ajouter un événement avec nouvel **`id`**, filtrer par dates, supprimer. Garder **`storage`** ignorant des classes métier (il ne manipule que **dict** JSON) ou fournir des **méthodes** `Event.to_dict()` / `Event.from_dict()` — les deux approches sont valides si tu restes **cohérent**.
 
-## Datetime
+<h2 id="datetime">Datetime</h2>
 
 Parse les chaînes ISO avec **`datetime.fromisoformat`** (Python 3.7+) pour comparer des instants. Normalise en **timezone** si tu en ajoutes plus tard ; en v1, reste en **naïf** UTC local mais **documente** le choix.
 
-## Exercices (12)
+<h2 id="service">`AgendaService`</h2>
+
+`AgendaService` orchestre le projet : il charge les événements, applique les règles, puis demande au stockage de sauvegarder. C’est ici que tu places les comportements importants : refuser un titre vide, générer un identifiant, trier les événements ou signaler un identifiant inconnu.
+
+Cette couche est aussi celle que tu testeras le plus. Si `AgendaService` est propre, la future CLI `argparse` pourra rester fine : lire des arguments, appeler le service, afficher un message.
+
+<h2 id="tests">Tests à préparer</h2>
+
+Avant d’écrire la partie pytest, note déjà les comportements à protéger :
+
+- `Event.from_dict` accepte un dictionnaire valide ;
+- une date invalide est rejetée ;
+- un titre vide déclenche une erreur ;
+- deux ajouts produisent deux identifiants distincts ;
+- supprimer un identifiant inconnu est documenté.
+
+<h2 id="exercices">Exercices (12)</h2>
 
 **Exercice 1** — Classe **`Event`** avec **`title`**, **`start: datetime`**, **`id`**. <span class="exo-badge exo-badge--simple">Simple</span>
 
@@ -165,10 +215,12 @@ e.id = str(uuid.uuid4())</code></pre>
 </div>
 </details>
 
-## Suite
+<h2 id="suite">Suite</h2>
 
-[Tests avec pytest](/projet-inter-agenda-4-tests-pytest/)
+Continue avec la partie 4 : [tests avec pytest](/projet-inter-agenda-4-tests-pytest/). Tu y vérifieras le service sans lancer toute la CLI à la main.
 
 ## Amazon (partenaire)
 
 - [Python orienté objet](https://www.amazon.fr/s?k=python+orient%C3%A9+objet+livre&tag=manuso06-21)
+
+*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
