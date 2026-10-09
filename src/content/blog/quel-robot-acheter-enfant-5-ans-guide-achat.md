@@ -1,6 +1,6 @@
 ---
 title: "Quel robot acheter pour un enfant de 5 ans ? Guide d’achat détaillé"
-description: "Critères, repères d’âge, idées de robots et kits STEM pour accompagner un enfant d’environ 5 ans : sécurité, temps d’écran, premières logiques sans écran, et liens pour comparer les offres sur Amazon."
+description: "Robot éducatif 5 ans : critères, repères d'âge, kits STEM. Guide pour accompagner un enfant en maternelle/début primaire."
 pubDate: "2026-03-15"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 amazonPreset: "matatalab"

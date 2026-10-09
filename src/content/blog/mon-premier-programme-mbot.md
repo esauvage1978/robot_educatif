@@ -1,6 +1,6 @@
 ---
 title: "Mon premier programme mBot"
-description: "Créer un premier programme mBlock 5 pour le mBot : bouton carte, mélodie, enregistrement, connexion USB ou Bluetooth, firmware et téléversement — avec captures d’écran et fichier .mblock."
+description: "Premier programme mBlock 5 pour mBot : bouton capteur, LED RGB, boucle, connexion Bluetooth. Guide débutant avec captures."
 pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2026-03-29"

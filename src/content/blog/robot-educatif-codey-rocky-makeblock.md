@@ -26,7 +26,7 @@ categories:
 
 ## Points forts pédagogiques
 
-![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.png)
+![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.webp)
 
 *Bloc « code visuel » : la même logique que sur mBlock s’applique aux robots Makeblock compatibles.*
 

@@ -1,5 +1,5 @@
 ---
-title: "Raspberry Pi 4 Modèle B : quelle version (1 / 2 / 4 / 8 Go) acheter ?"
+title: "Raspberry Pi 4 : quelle version RAM choisir ?"
 description: "Déclinaisons RAM du Pi 4, spécifications, refroidissement, dual HDMI, et guide de choix par usage (serveur, bureau, rétro, GPIO). Photo et prix indicatifs France 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
@@ -25,7 +25,7 @@ Le **Raspberry Pi 4 Modèle B** (2019, révisions ultérieures) se distingue du 
 
 Ce guide détaille les **quatre déclinaisons mémoire** courantes, **quand choisir l’une ou l’autre**, et ce qu’il faut prévoir au **panier** (alim, câbles, dissipation).
 
-![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.jpg)
+![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.webp)
 
 *Photo : [Laserlicht](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Top.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
 

@@ -1,6 +1,6 @@
 ---
 title: "Quel robot éducatif choisir en 2026 ?"
-description: "Guide 2026 : familles de robots éducatifs (sans écran, Scratch, LEGO, Makeblock, cartes), critères budget / âge / évolutivité, erreurs fréquentes et liens Amazon affiliés pour comparer."
+description: "Guide 2026 : familles de robots (sans écran, Scratch, Python/C++, kits avancés). Tableau âge, budget et progression."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"

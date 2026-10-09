@@ -1,6 +1,6 @@
 ---
-title: "Quel robot éducatif choisir entre 200 € et 500 € ? (Guide complet 2026)"
-description: "Budget 200–500 € : mBot Ranger, mBot Ultimate, fischertechnik STEM Coding Robo Mission, Ohbot, ELEGOO Smart Robot Car V4 — critères, comparatif, profils et liens Amazon. Visuels officiels."
+title: "Robots éducatifs 200-500€ : comparatif 2026"
+description: "Budget 200-500€ : mBot Ranger, mBot Ultimate, fischertechnik STEM, Elegoo V4. Comparatif fonctions, âge et projets."
 pubDate: "2026-04-08"
 updatedDate: "2026-04-08"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"

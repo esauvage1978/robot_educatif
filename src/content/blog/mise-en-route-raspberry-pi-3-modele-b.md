@@ -1,5 +1,5 @@
 ---
-title: "Mise en route Raspberry Pi 3 Modèle B : SD, Raspberry Pi OS, SSH, VNC"
+title: "Mise en route Raspberry Pi 3 : installation complète"
 description: "Guide détaillé : matériel, Raspberry Pi Imager, options sans écran (Wi‑Fi, SSH), premier démarrage, mises à jour, accès distant et transfert de fichiers. Schémas et photo (Wikimedia)."
 pubDate: "2020-05-01"
 updatedDate: "2026-03-30"
@@ -41,7 +41,7 @@ Ce tutoriel vous guide **pas à pas** ; il met à jour l’ancienne dénominatio
 
 **Illustration (carte réelle)** — Raspberry Pi 3 Modèle B :
 
-![Raspberry Pi 3 Model B, vue de dessus — connecteurs USB, Ethernet, GPIO](/images/blog/raspberry-pi3-mise-en-route/raspberry-pi-3-model-b-sven-petersen-cc-by-sa-4.jpg)
+![Raspberry Pi 3 Model B, vue de dessus — connecteurs USB, Ethernet, GPIO](/images/blog/raspberry-pi3-mise-en-route/raspberry-pi-3-model-b-sven-petersen-cc-by-sa-4.webp)
 
 *Photo : [Sven.petersen](https://commons.wikimedia.org/wiki/File:9815_-_Raspberry_Pi_3.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
 

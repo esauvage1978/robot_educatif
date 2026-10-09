@@ -1,6 +1,6 @@
 ---
-title: "Quel robot acheter pour un enfant de 7 ou 8 ans ? Guide d’achat détaillé"
-description: "Comment choisir un robot éducatif vers 7–8 ans : Scratch, premiers capteurs, montage du kit, autonomie à l’école ou à la maison. Critères, idées de produits et liens Amazon pour affiner votre budget."
+title: "Robot éducatif pour un enfant de 7-8 ans : guide 2026"
+description: "Choisir un robot éducatif 7-8 ans : Scratch, premiers capteurs, montage simple. Critères, repères d'âge et sélection adaptée."
 pubDate: "2026-03-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: "mbot"

@@ -1,5 +1,5 @@
 ---
-title: "Projet Journal CLI (4/6) — asyncio et traitement de plusieurs fichiers"
+title: "Projet Journal CLI (4/6) : asyncio et batch"
 description: "gather, semaphore, run_in_executor pour lecture disque ; pas de blocage ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29

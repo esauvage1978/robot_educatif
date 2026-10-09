@@ -1,6 +1,6 @@
 ---
-title: "Quel robot acheter pour un enfant de 10 ans ? Guide d’achat détaillé"
-description: "Guide pour choisir un robot éducatif vers 10 ans : Scratch avancé, Python, capteurs riches, projets durables. Comparaisons de familles de produits et liens Amazon pour guides d’achat et accessoires."
+title: "Robot éducatif pour un enfant de 10 ans : guide 2026"
+description: "Choisir un robot éducatif 10 ans : Scratch avancé, Python, capteurs. Critères, repères d'âge et sélection adaptée."
 pubDate: "2026-03-21"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
 amazonPreset: "mbot2"

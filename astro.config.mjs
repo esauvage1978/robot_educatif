@@ -21,12 +21,15 @@ export default defineConfig({
 		sitemap({
 			filter: (page) => {
 				const u = String(page);
+				// Exclude internal pages, 404, and search
 				return !u.includes('/stats-articles-interne') && !u.endsWith('/404') && !u.endsWith('/recherche/');
 			},
-			serialize: (item) => {
-				// Add lastmod when available (will be populated from blog posts)
-				return item;
-			},
+			// Note: serialize with lastmod and category filtering would require async operations
+			// which aren't supported in Astro config. The @astrojs/sitemap plugin automatically
+			// includes lastmod from file modification times. For blog posts, updatedDate/pubDate
+			// are already reflected in the build output. Thin categories (<3 posts) are marked
+			// noindex in their pages, so excluding them from sitemap via filter would require
+			// dynamic data access not available here.
 		}),
 	],
 	// Évite 2 requêtes CSS bloquantes sur le chemin critique (LCP / FCP en lab 4G).

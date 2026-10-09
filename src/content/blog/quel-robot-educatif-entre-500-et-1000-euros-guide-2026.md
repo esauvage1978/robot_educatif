@@ -1,5 +1,5 @@
 ---
-title: "Quel robot éducatif choisir entre 500 € et 1000 € ? (Guide complet 2026)"
+title: "Robots éducatifs 500-1000€ : comparatif 2026"
 description: "Budget premium : robots éducatifs 500-1000€ avec mBot2, fischertechnik TXT 4.0, quadrupède Go2, HuskyLens IA. Projets avancés et écosystèmes complets."
 pubDate: "2026-04-08"
 updatedDate: "2026-04-08"

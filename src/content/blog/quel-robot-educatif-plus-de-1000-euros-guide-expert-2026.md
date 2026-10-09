@@ -122,7 +122,7 @@ Les **prix** ci-dessous sont des **ordres de grandeur 2026** (TVA, import, bundl
 
 ### 🥉 Quadrupède — **UGOT (UBTECH)**
 
-![UBTECH Education — kit UGOT, mode transformable (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.png)
+![UBTECH Education — kit UGOT, mode transformable (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.webp)
 
 *Visuel **UBTECH Education** — family **UGOT** (scène « transforming », fiche produit **City Guardian**).*
 
@@ -150,7 +150,7 @@ Les **prix** ci-dessous sont des **ordres de grandeur 2026** (TVA, import, bundl
 
 ### 🤖 Robot mobile autonome — **myAGV (Elephant Robotics)**
 
-![Elephant Robotics — myAGV Pi (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-myagv-pi.png)
+![Elephant Robotics — myAGV Pi (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-myagv-pi.webp)
 
 *Visuel Elephant Robotics — **myAGV** (variante **Pi**).*
 

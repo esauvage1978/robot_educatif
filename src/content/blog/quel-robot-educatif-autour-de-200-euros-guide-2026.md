@@ -1,6 +1,6 @@
 ---
 title: "Quel robot éducatif choisir autour de 200 € ? (Guide complet 2026)"
-description: "Budget ~200 € : mBot Ranger, Ozobot Evo Entry, mBot Ultimate (option haut de gamme), Ohbot — critères âge, type d’apprentissage, comparatif et liens Amazon. Photos officielles, avis nuancé 2026."
+description: "Budget ~200€ : mBot Ranger, Ozobot Evo Entry, mBot Ultimate. Comparatif fonctions, âge et projets selon profil."
 pubDate: "2026-04-08"
 updatedDate: "2026-04-08"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"

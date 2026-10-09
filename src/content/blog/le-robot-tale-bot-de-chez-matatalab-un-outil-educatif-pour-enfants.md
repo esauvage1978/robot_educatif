@@ -1,5 +1,5 @@
 ---
-title: "Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants"
+title: "Tale-Bot Matatalab : robot éducatif 3-9 ans"
 description: "Tale-Bot de Matatalab : robot éducatif pour enfants 3-9 ans avec programmation par blocs physiques, histoires interactives et apprentissage des bases de la robotique."
 pubDate: "2023-04-30"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
