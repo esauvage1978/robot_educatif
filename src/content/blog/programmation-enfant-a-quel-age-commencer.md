@@ -1,5 +1,5 @@
 ---
-title: "Programmation pour enfant : à quel âge commencer (repères réalistes)"
+title: "Programmation enfant : à quel âge commencer ?"
 description: "Repères par âge : jeu débranché, robots sans écran, Scratch, robots éducatifs, Python et cartes. Signes de maturité, erreurs des parents et schéma récapitulatif."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

@@ -1,6 +1,6 @@
 ---
-title: "Raspberry Pi 3 vs 4 vs 5 : comparatif technique, prix et quel modèle choisir (2026)"
-description: "Tableau comparatif Pi 3 / Pi 4 / Pi 5 : CPU, RAM, USB, réseau, vidéo, PCIe. Déclinaisons mémoire, fourchettes de prix en France (mars 2026), cas d’usage et liens vers les guides détaillés."
+title: "Raspberry Pi 3 vs 4 vs 5 : comparatif 2026"
+description: "Comparatif Raspberry Pi 3/4/5 : CPU, RAM, USB, connectivité. Tableau des différences, performances, prix et conseils."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"

@@ -1,6 +1,6 @@
 ---
-title: "Découvrez Makeblock CyberPi, une carte de développement électronique polyvalente"
-description: "Découvrez Makeblock CyberPi, une carte de développement puissante pour construire des projets électroniques interactifs en utilisant Scratch, Python, C++, et plus encore. Compatible avec les composants Makeblock et dotée de connectivité Wi-Fi et Bluetooth, cette carte est idéale pour les projets électroniques et les activités d’apprentissage pour les personnes de tous âges et niveaux de compétences."
+title: "CyberPi Makeblock : carte de développement polyvalente"
+description: "CyberPi de Makeblock : carte de développement polyvalente avec écran, capteurs, WiFi et Bluetooth. Compatible Scratch, Python et C++ pour projets électroniques."
 pubDate: "2023-04-09"
 heroImage: "../../assets/blog-heroes/hero-cyberpi.png"
 amazonPreset: cyberpi
@@ -12,7 +12,7 @@ categories:
 ---
 Makeblock [CyberPi](https://amzn.to/3KKCjsZ?tag=manuso06-21) est une carte de développement électronique conçue pour offrir une expérience interactive et éducative à tous les niveaux. Avec sa compatibilité multi-langage, ses fonctionnalités avancées et sa connectivité sans fil, elle est idéale pour les amateurs de technologie, les étudiants, les enseignants et les professionnels de l’électronique.
 
-![Carte programmable et câblage en atelier maker (illustration d’ambiance)](/images/blog/inset-cyberpi.png)
+![Carte programmable et câblage en atelier maker (illustration d’ambiance)](/images/blog/inset-cyberpi.webp)
 
 *Illustration générée pour l’article — style carte de développement éducative, sans reproduire un produit commercial précis.*
 

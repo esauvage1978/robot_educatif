@@ -1,6 +1,6 @@
 ---
-title: "Meilleur robot programmable pour enfant en 2026 : repères pour choisir"
-description: "Choisir un robot programmable : objectifs par âge, trois critères décisifs (logiciel, capteurs, budget), erreurs d’achat et schéma récapitulatif. Liens vers comparatifs et guides d’achat."
+title: "Meilleur robot programmable enfant 2026 : guide complet"
+description: "Choisir un robot programmable enfant : objectifs par âge, critères clés (budget, progression, écosystème) et sélection 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"

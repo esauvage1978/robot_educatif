@@ -7,6 +7,8 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ArticleEngagement from '../components/ArticleEngagement.astro';
 import Sidebar from '../components/Sidebar.astro';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { ARTICLE_AUTHOR } from '../consts';
@@ -40,7 +42,33 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 
 <html lang="fr">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead 
+			title={title} 
+			description={description} 
+			image={resolvedHero}
+			ogType="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+		/>
+		{articleSlug && (
+			<>
+				<StructuredDataArticle
+					title={title}
+					description={description}
+					pubDate={pubDate}
+					updatedDate={updatedDate}
+					heroImage={resolvedHero}
+					articleSlug={articleSlug}
+				/>
+				<StructuredDataBreadcrumb
+					items={[
+						{ name: 'Accueil', url: withBase('/') },
+						{ name: 'Blog', url: withBase('/blog/') },
+						{ name: title, url: withBase(`/${articleSlug}/`) },
+					]}
+				/>
+			</>
+		)}
 		<style>
 			main {
 				width: 100%;

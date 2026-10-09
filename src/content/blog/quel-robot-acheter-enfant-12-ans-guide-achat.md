@@ -1,6 +1,6 @@
 ---
-title: "Quel robot acheter pour un enfant de 12 ans (ou collégien) ? Guide d’achat détaillé"
-description: "Choisir un robot éducatif pour un jeune de 12 ans et plus : Python, projets longs, cartes type Raspberry ou kits avancés, orientation compétitions et autonomie. Liens Amazon et ressources du site."
+title: "Robot éducatif pour un enfant de 12 ans : guide 2026"
+description: "Robot éducatif 12 ans et + : Python, projets longs, capteurs avancés. Critères et sélection collège/lycée pour approfondir."
 pubDate: "2026-03-24"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
 amazonPreset: "mbot2"

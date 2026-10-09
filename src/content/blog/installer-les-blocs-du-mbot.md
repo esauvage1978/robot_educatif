@@ -41,7 +41,7 @@ Cliquez sur **Ajouter** (ou **+**) pour ouvrir la **bibliothèque d’appareils*
 
 Une fenêtre (ou panneau) liste les robots et cartes compatibles : **mBot**, **mBot 2**, **Ranger**, etc. **Sélectionnez le modèle qui correspond à votre kit** (mBot « classique » / mBot v1.x pour la plupart des kits bleus à deux moteurs).
 
-![Capture mBlock 5 : bibliothèque d’appareils, ajout du mBot](/images/blog/installer-blocs-mbot/etape-02-bibliotheque.png)
+![Capture mBlock 5 : bibliothèque d’appareils, ajout du mBot](/images/blog/installer-blocs-mbot/etape-02-bibliotheque.webp)
 
 - Utilisez la **recherche** ou faites défiler la liste si vous ne voyez pas « mBot » tout de suite.
 - Si vous utilisez plusieurs robots, vous pourrez ajouter d’autres appareils plus tard de la même manière.
@@ -50,7 +50,7 @@ Une fenêtre (ou panneau) liste les robots et cartes compatibles : **mBot**, **m
 
 Une fois **mBot** (ou le bon modèle) **mis en surbrillance**, confirmez avec **OK**.
 
-![Capture mBlock 5 : mBot sélectionné, fenêtre de validation](/images/blog/installer-blocs-mbot/etape-03-mbot-selectionne.png)
+![Capture mBlock 5 : mBot sélectionné, fenêtre de validation](/images/blog/installer-blocs-mbot/etape-03-mbot-selectionne.webp)
 
 Fermez la fenêtre si un second clic sur **Annuler** ou **OK** est requis selon votre version.
 
@@ -58,7 +58,7 @@ Fermez la fenêtre si un second clic sur **Annuler** ou **OK** est requis selon 
 
 Après validation, le mBot apparaît dans **Appareils**, et la palette affiche une **catégorie de blocs orange** (ou équivalent) liée au mBot : **moteurs**, **capteurs de ligne / ultrason**, **LED**, **buzzer**, etc.
 
-![Capture mBlock 5 : palette des blocs mBot (moteurs, capteurs, LED…)](/images/blog/installer-blocs-mbot/etape-04-palette-blocs-mbot.png)
+![Capture mBlock 5 : palette des blocs mBot (moteurs, capteurs, LED…)](/images/blog/installer-blocs-mbot/etape-04-palette-blocs-mbot.webp)
 
 Dans l’onglet **Appareil** (ou équivalent), assurez-vous que le **mBot reste l’appareil actif** pour que les bons blocs restent visibles lorsque vous assemblez votre programme.
 

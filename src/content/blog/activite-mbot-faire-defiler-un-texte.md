@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : faire défiler un texte sur la matrice LED"
-description: "Faire défiler un message sur la matrice LED du mBot dans mBlock : position X, boucle simple, double boucle pour répéter l’affichage, règle longueur × 5 + 15. Schémas de la logique du programme."
+description: "Faire défiler un message sur la matrice LED du mBot : position X, boucles, règle longueur×5+15. Schémas du programme."
 pubDate: "2020-04-20"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2026-04-01"

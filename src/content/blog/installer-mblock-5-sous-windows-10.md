@@ -1,6 +1,6 @@
 ---
 title: "Télécharger et installer mBlock 5 sous Windows 10 / 11"
-description: "Télécharger mBlock 5 gratuitement (mblock5, mBlock v5) pour Windows : installer mBlock sur PC, mblock download Windows, versions 5.6.x vs anciennes 5.4.x ; étapes après l’UAC, ~380 Mo / ~1,05 Go installé, lien de secours, FAQ SmartScreen et antivirus."
+description: "Télécharger et installer mBlock 5 (gratuit) pour Windows 10/11 : guide complet, version 5.6, étapes simplifiées, FAQ Windows Defender et SmartScreen."
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 updatedDate: "2026-03-31"

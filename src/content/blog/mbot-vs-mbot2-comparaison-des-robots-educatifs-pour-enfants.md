@@ -1,6 +1,6 @@
 ---
 title: "mbot vs mbot2 : Comparaison des robots éducatifs pour enfants"
-description: "mBot vs mBot 2 (comparatif) : prix indicatifs, tableau des fonctionnalités, accessoires, Python et CyberPi. Choisir entre le robot Makeblock classique et le mBot2 pour enfants ou collège."
+description: "mBot vs mBot 2 : comparatif prix, fonctions, capteurs, CyberPi. Aide au choix selon âge, budget et objectifs pédagogiques."
 pubDate: "2023-04-09"
 updatedDate: "2026-03-29"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
@@ -24,7 +24,7 @@ La robotique et la programmation sont des compétences de plus en plus utiles po
 
 Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous aider à trancher — sans remplacer la fiche technique officielle du fabricant, que vous devriez toujours vérifier avant d’acheter (révision de kit, couleur du châssis, présence ou non du module Bluetooth, etc.).
 
-![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.png)
+![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.webp)
 
 *Illustration générée pour l’article — schéma conceptuel, sans reproduire des produits commerciaux précis.*
 

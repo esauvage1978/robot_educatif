@@ -33,6 +33,7 @@
   "devDependencies": {
     "cheerio": "^1.2.0",
     "cross-env": "^10.1.0",
+    "gray-matter": "^4.0.3",
     "pagefind": "^1.4.0",
     "png-to-ico": "^3.0.1",
     "turndown": "^7.2.2",
