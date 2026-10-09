@@ -21,7 +21,11 @@ export default defineConfig({
 		sitemap({
 			filter: (page) => {
 				const u = String(page);
-				return !u.includes('/stats-articles-interne') && !u.endsWith('/404');
+				return !u.includes('/stats-articles-interne') && !u.endsWith('/404') && !u.endsWith('/recherche/');
+			},
+			serialize: (item) => {
+				// Add lastmod when available (will be populated from blog posts)
+				return item;
 			},
 		}),
 	],

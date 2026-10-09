@@ -1,0 +1,45 @@
+---
+import { SITE_TITLE, ARTICLE_AUTHOR } from '../consts';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	heroImage?: ImageMetadata;
+	articleSlug: string;
+}
+
+const { title, description, pubDate, updatedDate, heroImage, articleSlug } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = heroImage ? new URL(heroImage.src, Astro.site).toString() : '';
+
+const articleJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description: description,
+	image: imageUrl,
+	datePublished: pubDate.toISOString(),
+	...(updatedDate && { dateModified: updatedDate.toISOString() }),
+	author: {
+		'@type': 'Person',
+		name: ARTICLE_AUTHOR,
+	},
+	publisher: {
+		'@type': 'Organization',
+		name: SITE_TITLE,
+		logo: {
+			'@type': 'ImageObject',
+			url: new URL('/favicon.png', Astro.site).toString(),
+		},
+	},
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalURL,
+	},
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />

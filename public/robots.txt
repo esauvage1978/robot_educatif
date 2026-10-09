@@ -3,5 +3,6 @@ User-agent: *
 Allow: /
 # Si le site est servi sous un sous-dossier (ASTRO_BASE), préfixer ce chemin (ex. /projet/stats-articles-interne/).
 Disallow: /stats-articles-interne/
+Disallow: /rest/
 
 Sitemap: https://robot-educatif.info/sitemap-index.xml

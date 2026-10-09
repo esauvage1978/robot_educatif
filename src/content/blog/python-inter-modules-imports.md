@@ -143,7 +143,6 @@ print(sys.version)</code></pre>
 def carre(n):
     return n * n
 
-# main.py
 import geo
 print(geo.carre(5))</code></pre>
 </div>
@@ -204,7 +203,6 @@ pass</code></pre>
 def salut():
     print("Salut")
 
-# app.py
 from hello import salut
 salut()</code></pre>
 </div>
@@ -243,7 +241,6 @@ print(os.getcwd())</code></pre>
 def moyenne(xs):
     return sum(xs) / len(xs)
 
-# cli.py
 import stats
 print(stats.moyenne([2, 4, 6]))</code></pre>
 </div>
@@ -284,7 +281,6 @@ if __name__ == "__main__":
 def hint():
     return "aide"
 
-# script.py
 from pkg.aide import hint
 print(hint())</code></pre>
 </div>
@@ -351,7 +347,6 @@ print([x for x in dir(math) if not x.startswith("_")])</code></pre>
 <pre class="exercise-solution__pre"><code class="language-python"># constants.py
 TAILLE_MAX = 100
 
-# run.py
 from constants import TAILLE_MAX
 print(TAILLE_MAX)</code></pre>
 </div>

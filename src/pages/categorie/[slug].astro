@@ -17,14 +17,22 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const pageTitle = `Catégorie « ${entry.label} »`;
-const pageDesc = `Articles du blog classés sous « ${entry.label} » — robotique et programmation éducatives.`;
+const pageTitle = `${entry.label} : guides et tutoriels — ROBOT éducatif`;
+const pageDesc = `Découvrez tous nos articles sur ${entry.label} : tutoriels, comparatifs, guides d'achat et conseils pour la robotique et la programmation éducatives.`;
+const shouldNoIndex = entry.posts.length < 3;
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={pageTitle} description={pageDesc} />
+		<BaseHead title={pageTitle} description={pageDesc} noIndex={shouldNoIndex} />
+		<StructuredDataBreadcrumb
+			items={[
+				{ name: 'Accueil', url: withBase('/') },
+				{ name: 'Catégories', url: withBase('/categorie/') },
+				{ name: entry.label, url: withBase(`/categorie/${entry.slug}/`) },
+			]}
+		/>
 		<style>
 			.hero-cat {
 				width: 100vw;
@@ -50,9 +58,16 @@ const pageDesc = `Articles du blog classés sous « ${entry.label} » — roboti
 				font-size: clamp(1.65rem, 2.8vw, 2.15rem);
 				line-height: 1.2;
 			}
-			.hero-cat p {
-				margin: 0;
+			.hero-cat .intro {
+				margin: 0 0 0.5rem 0;
 				color: rgb(var(--gray-dark));
+				max-width: 40rem;
+				line-height: 1.6;
+			}
+			.hero-cat .count {
+				margin: 0;
+				color: rgb(var(--gray));
+				font-size: 0.9rem;
 				max-width: 40rem;
 			}
 			.list-wrap {
@@ -115,7 +130,11 @@ const pageDesc = `Articles du blog classés sous « ${entry.label} » — roboti
 				<div class="hero-cat-inner">
 					<p class="kicker">Catégorie</p>
 					<h1>{entry.label}</h1>
-					<p>{entry.posts.length} article{entry.posts.length > 1 ? 's' : ''} dans cette catégorie.</p>
+					<p class="intro">
+						Retrouvez ici tous nos articles sur <strong>{entry.label}</strong> : tutoriels pratiques, guides d'achat, 
+						comparatifs de robots éducatifs et conseils pour l'apprentissage de la robotique et de la programmation.
+					</p>
+					<p class="count">{entry.posts.length} article{entry.posts.length > 1 ? 's' : ''} dans cette catégorie.</p>
 				</div>
 			</section>
 			<div class="list-wrap">
