@@ -1,6 +1,6 @@
 ---
 title: "Quel robot éducatif choisir à plus de 1000 € ? (Guide expert 2026)"
-description: "Budget au-delà de 1000 € : bras collaboratif myCobot + IA, Bioloid Premium, UGOT UBTECH, plateforme mobile myAGV, offres Sphero éducation — critères niveau / type / techno, comparatif honnête et liens Amazon."
+description: "Robots haut de gamme +1000€ : bras myCobot IA, Bioloid Premium, UGOT transformable. Pour projets avancés, recherche et perfectionnement en robotique."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
