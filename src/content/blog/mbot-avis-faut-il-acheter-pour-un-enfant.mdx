@@ -1,8 +1,8 @@
 ---
-title: "mBot avis : faut-il l’acheter pour un enfant ?"
-description: "Avis argumenté sur le mBot et le mBot2 : pour qui, à quel âge, budget réel, prise en main, limites et alternatives. Tableaux comparatifs et liens d’achat Amazon (affiliation)."
+title: "mBot avis : faut-il l'acheter pour un enfant ?"
+description: "Avis argumenté sur le mBot et le mBot2 : pour qui, à quel âge, budget réel, prise en main, limites et alternatives. Tableaux comparatifs et liens d'achat Amazon (affiliation)."
 pubDate: "2026-04-02"
-updatedDate: "2026-04-02"
+updatedDate: "2026-10-12"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbotVs
 categories:
@@ -25,6 +25,10 @@ tags:
   - "Makeblock"
 ---
 
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" />
 Le **mBot** est souvent le premier « vrai » robot programmable qu’on envisage après un jouet de codage sans écran. La question **« faut-il l’acheter ? »** ne se répond pas par un oui/non : elle dépend de l’**âge**, du **temps adulte disponible**, du **matériel** (PC Windows, tablette parfois limitée) et de l’objectif — **découverte courte** ou **projet sur plusieurs années**.
 
 Cet avis s’appuie sur une utilisation type **famille / club**, les usages courants de **mBlock** et la différence entre **mBot « classique »** et **mBot2**. Pour les prix, nous donnons des **ordres de grandeur indicatifs** ; vérifiez toujours la **fiche produit** et le **prix du jour** avant d’acheter.
@@ -96,6 +100,54 @@ L’article [présentation du mBot](/mbot-mon-premier-robot-educatif/) complète
 - [Livre Scratch / robotique enfant](https://www.amazon.fr/s?k=livre+Scratch+robot+%C3%A9ducatif+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — une commission peut être versée au site sur des achats éligibles, **sans surcoût** pour vous. Les liens ouvrent des **pages de recherche** : comparez vendeurs, avis et conditions avant d’ajouter au panier.*
+
+---
+
+**En synthèse** : le mBot reste en **2026** une valeur sûre **si** le projet est encadré et **si** le couple enfant + famille est prêt pour un **petit investissement technique** au début. Le « meilleur » modèle pour vous est presque toujours **mBot vs mBot2**, pas « mBot oui/non ».
+
+## Prix et où acheter
+
+### mBot classique (8-12 ans, Scratch)
+
+<ProductBox
+  productId="mbot"
+  name="Makeblock mBot"
+  asin="B07XR98YYQ"
+  ages="8-12 ans"
+  priceRange="80-100€"
+  languages={['Scratch', 'Arduino']}
+  pros={[
+    'Facile à assembler en 15 minutes',
+    'Programmation par blocs intuitive',
+    'Compatible Scratch et Arduino',
+    'Nombreux capteurs inclus'
+  ]}
+  badge="Meilleur choix 8 ans"
+  position={1}
+/>
+
+**Idéal pour** : premier robot programmable, famille, club, primaire/collège.
+
+### mBot2 (10-14 ans, Python inclus)
+
+<ProductBox
+  productId="mbot2"
+  name="Makeblock mBot2"
+  asin="B0919F9CKS"
+  ages="10-14 ans"
+  priceRange="150-180€"
+  languages={['Scratch', 'Python']}
+  pros={[
+    'Carte CyberPi avec écran couleur',
+    'Compatible Python et Scratch',
+    'Wi-Fi et IoT intégrés',
+    'Très évolutif avec extensions mBuild'
+  ]}
+  badge="Évolution Python"
+  position={2}
+/>
+
+**Idéal pour** : projet sur 2-3 ans, Python, collège/lycée, programmation textuelle.
 
 ---
 
