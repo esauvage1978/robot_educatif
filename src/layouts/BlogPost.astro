@@ -11,6 +11,7 @@ import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import TutorialProductBox from '../components/TutorialProductBox.astro';
 import ChristmasBanner from '../components/ChristmasBanner.astro';
+import PinterestShare from '../components/PinterestShare.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { ARTICLE_AUTHOR } from '../consts';
@@ -40,6 +41,10 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
 const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug);
+
+// URL de la page pour Pinterest
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const pinterestMediaUrl = articleSlug ? new URL(`/pinterest/${articleSlug}-1.jpg`, Astro.site).toString() : '';
 
 // Détection automatique du TutorialProductBox selon les catégories
 const categoryLower = categories.map(c => c.toLowerCase());
@@ -176,6 +181,9 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				margin-left: 0;
 				max-width: 100%;
 			}
+			.hero-article-toolbar .pinterest-hero-button {
+				flex-shrink: 0;
+			}
 			.hero-categories {
 				display: flex;
 				flex-wrap: wrap;
@@ -271,8 +279,17 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 							)
 						}
 					</div>
+					{articleSlug && pinterestMediaUrl && (
+						<img 
+							src={pinterestMediaUrl} 
+							alt={title}
+							data-pin-media={pinterestMediaUrl}
+							style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+							aria-hidden="true"
+						/>
+					)}
 					{
-						(categories.length > 0 || showArticleEngagement) && (
+						(categories.length > 0 || showArticleEngagement || articleSlug) && (
 							<div class="hero-article-toolbar">
 								{
 									categories.length > 0 && (
@@ -288,6 +305,15 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 								{showArticleEngagement ? (
 									<ArticleEngagement articleSlug={articleSlug!} variant="hero" />
 								) : null}
+								{articleSlug && (
+									<PinterestShare
+										url={pageUrl}
+										description={`${title} - ${description}`}
+										media={pinterestMediaUrl}
+										variant="button"
+										class="pinterest-hero-button"
+									/>
+								)}
 							</div>
 						)
 					}

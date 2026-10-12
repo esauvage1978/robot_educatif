@@ -178,7 +178,7 @@ const faqJsonLd = {
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home.webp')} />
+		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home-optimized.webp')} />
 		<StructuredDataWebsite />
 		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 		<style>
@@ -497,11 +497,12 @@ const faqJsonLd = {
 			<section class="hero-home" aria-label="Présentation">
 				<img
 					class="hero-home-bg"
-					src={withBase('/hero-home.webp')}
-					alt=""
-					width="683"
-					height="435"
+					src={withBase('/hero-home-optimized.webp')}
+					alt="Robot éducatif programmable pour apprendre la robotique en s'amusant"
+					width="1366"
+					height="860"
 					fetchpriority="high"
+					loading="eager"
 					decoding="async"
 				/>
 				<div class="hero-home-overlay" aria-hidden="true"></div>
