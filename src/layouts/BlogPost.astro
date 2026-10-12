@@ -10,6 +10,7 @@ import Sidebar from '../components/Sidebar.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import TutorialProductBox from '../components/TutorialProductBox.astro';
+import ChristmasBanner from '../components/ChristmasBanner.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { ARTICLE_AUTHOR } from '../consts';
@@ -246,6 +247,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 
 	<body>
 		<Header />
+		<ChristmasBanner />
 		<main>
 			<section class="hero-article">
 				{resolvedHero && (

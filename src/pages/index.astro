@@ -9,6 +9,7 @@ import Header from '../components/Header.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
 import Sidebar from '../components/Sidebar.astro';
 import StructuredDataWebsite from '../components/StructuredDataWebsite.astro';
+import ChristmasBanner from '../components/ChristmasBanner.astro';
 import { SITE_TITLE } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { topCategoriesByCount } from '../lib/categories';
@@ -491,6 +492,7 @@ const faqJsonLd = {
 	</head>
 	<body>
 		<Header />
+		<ChristmasBanner />
 		<main>
 			<section class="hero-home" aria-label="Présentation">
 				<img

@@ -1,0 +1,151 @@
+---
+import { withBase } from '../lib/siteUrl';
+
+const CHRISTMAS_END_DATE = new Date('2026-12-31T23:59:59');
+const ENABLE_CHRISTMAS_BANNER = true;
+
+const now = new Date();
+const showBanner = ENABLE_CHRISTMAS_BANNER && now <= CHRISTMAS_END_DATE;
+---
+
+{showBanner && (
+	<aside class="christmas-banner" role="complementary" aria-label="Guide cadeaux de Noël">
+		<div class="christmas-banner-inner">
+			<span class="christmas-icon" aria-hidden="true">🎄🎁</span>
+			<div class="christmas-content">
+				<strong class="christmas-title">Guide cadeaux Noël 2026</strong>
+				<p class="christmas-text">Trouvez le robot éducatif parfait par âge et budget</p>
+			</div>
+			<a 
+				href={withBase('/robot-educatif-cadeau-noel-2026/')}
+				class="christmas-cta"
+			>
+				Voir le guide
+				<span aria-hidden="true">→</span>
+			</a>
+		</div>
+	</aside>
+)}
+
+<style>
+	.christmas-banner {
+		background: linear-gradient(135deg, #165B33 0%, #0B4222 100%);
+		border-bottom: 3px solid #FFD700;
+		color: white;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.christmas-banner::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+		pointer-events: none;
+	}
+
+	.christmas-banner-inner {
+		position: relative;
+		z-index: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 1.5rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.christmas-icon {
+		font-size: 2rem;
+		line-height: 1;
+		flex-shrink: 0;
+	}
+
+	.christmas-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.christmas-title {
+		display: block;
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin: 0 0 0.25rem 0;
+		color: #FFD700;
+		letter-spacing: 0.02em;
+	}
+
+	.christmas-text {
+		margin: 0;
+		font-size: 0.9rem;
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.4;
+	}
+
+	.christmas-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1.25rem;
+		background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+		color: #0B4222;
+		font-weight: 700;
+		font-size: 0.95rem;
+		text-decoration: none;
+		border-radius: 6px;
+		white-space: nowrap;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+	}
+
+	.christmas-cta:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+	}
+
+	@media (max-width: 640px) {
+		.christmas-banner-inner {
+			flex-direction: column;
+			text-align: center;
+			gap: 0.75rem;
+			padding: 1rem;
+		}
+
+		.christmas-icon {
+			font-size: 1.75rem;
+		}
+
+		.christmas-title {
+			font-size: 1rem;
+		}
+
+		.christmas-text {
+			font-size: 0.85rem;
+		}
+
+		.christmas-cta {
+			font-size: 0.9rem;
+			padding: 0.6rem 1.1rem;
+		}
+	}
+</style>
+
+<script>
+	const banner = document.querySelector('.christmas-banner');
+	if (banner && typeof window.gtag === 'function') {
+		const cta = banner.querySelector('.christmas-cta');
+		if (cta) {
+			cta.addEventListener('click', () => {
+				window.gtag('event', 'christmas_banner_click', {
+					page_path: window.location.pathname,
+				});
+			});
+		}
+	}
+</script>
