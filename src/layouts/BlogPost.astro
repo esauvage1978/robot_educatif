@@ -9,6 +9,7 @@ import ArticleEngagement from '../components/ArticleEngagement.astro';
 import Sidebar from '../components/Sidebar.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import TutorialProductBox from '../components/TutorialProductBox.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { ARTICLE_AUTHOR } from '../consts';
@@ -38,6 +39,25 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
 const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug);
+
+// Détection automatique du TutorialProductBox selon les catégories
+const categoryLower = categories.map(c => c.toLowerCase());
+let tutorialProducts: string[] | null = null;
+let tutorialGuide: { url: string; title: string } | null = null;
+
+if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
+	tutorialProducts = ['mbot2', 'mbot'];
+	tutorialGuide = { url: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Guide complet : quel robot mBot choisir ?' };
+} else if (categoryLower.some(c => c.includes('python'))) {
+	tutorialProducts = ['mbot2', 'raspberry-pi-5-8gb', 'cyberpi'];
+	tutorialGuide = { url: '/robot-programmable-python/', title: 'Guide : robots programmables Python' };
+} else if (categoryLower.some(c => c.includes('arduino'))) {
+	tutorialProducts = ['elegoo-robot-car', 'elegoo-penguin'];
+	tutorialGuide = { url: '/kit-robot-arduino-enfant/', title: 'Guide : kits robot Arduino pour enfants' };
+} else if (categoryLower.some(c => c.includes('raspberry'))) {
+	tutorialProducts = ['raspberry-pi-5-8gb', 'raspberry-pi-5-4gb'];
+	tutorialGuide = { url: '/kit-raspberry-pi-5-complet/', title: 'Guide : kit Raspberry Pi 5 complet' };
+}
 ---
 
 <html lang="fr">
@@ -277,6 +297,13 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				<article>
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
+						{tutorialProducts && tutorialProducts.length > 0 && (
+							<TutorialProductBox
+								productIds={tutorialProducts}
+								guideUrl={tutorialGuide?.url}
+								guideTitle={tutorialGuide?.title}
+							/>
+						)}
 					</div>
 				</article>
 				<Sidebar
