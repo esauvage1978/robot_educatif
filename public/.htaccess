@@ -24,6 +24,9 @@
 	# Ancien slug sans « r » (mesure → mesurer)
 	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
 
+	# Typo dans l'URL (enfants au pluriel au lieu de enfant)
+	RewriteRule ^meilleur-robot-programmable-enfants-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+
 	# Anciens URLs WordPress vers équivalents
 	RewriteRule ^category/matatalab/tale-bot/?$ /categorie/matatalab/ [R=301,L,NC]
 	RewriteRule ^category/test/?$ /blog/ [R=301,L,NC]

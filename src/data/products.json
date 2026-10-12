@@ -1,0 +1,157 @@
+{
+  "mbot": {
+    "id": "mbot",
+    "name": "Makeblock mBot",
+    "asin": "B07XR98YYQ",
+    "ages": "8-12 ans",
+    "priceRange": "80-100€",
+    "languages": ["Scratch", "Arduino"],
+    "image": "/images/products/mbot.jpg",
+    "pros": [
+      "Facile à assembler en 15 minutes",
+      "Programmation par blocs intuitive",
+      "Compatible Scratch et Arduino",
+      "Nombreux capteurs inclus"
+    ],
+    "description": "Robot éducatif parfait pour débuter la programmation",
+    "badge": "Meilleur choix 8 ans"
+  },
+  "mbot2": {
+    "id": "mbot2",
+    "name": "Makeblock mBot2",
+    "asin": null,
+    "searchQuery": "mBot2+Makeblock",
+    "ages": "10-14 ans",
+    "priceRange": "150-180€",
+    "languages": ["Scratch", "Python"],
+    "image": "/images/products/mbot2.jpg",
+    "pros": [
+      "Carte CyberPi avec écran couleur",
+      "Compatible Python et Scratch",
+      "Wi-Fi et IoT intégrés",
+      "Très évolutif avec extensions mBuild"
+    ],
+    "description": "Version avancée avec support Python et fonctions IA",
+    "badge": "Meilleur choix 10 ans"
+  },
+  "cyberpi": {
+    "id": "cyberpi",
+    "name": "Makeblock CyberPi",
+    "asin": "B0BBZY9L59",
+    "ages": "10+ ans",
+    "priceRange": "60-80€",
+    "languages": ["Scratch", "Python"],
+    "image": "/images/products/cyberpi.jpg",
+    "pros": [
+      "Carte programmable polyvalente",
+      "Écran LED intégré",
+      "Wi-Fi et capteurs multiples",
+      "Idéale pour projets IoT"
+    ],
+    "description": "Carte de développement éducative pour projets avancés",
+    "badge": "Choix polyvalent"
+  },
+  "elegoo-robot-car": {
+    "id": "elegoo-robot-car",
+    "name": "ELEGOO Kit Voiture Robot Intelligent V4.0",
+    "asin": "B078Y9RYM2",
+    "ages": "12+ ans",
+    "priceRange": "70-90€",
+    "languages": ["Arduino C"],
+    "image": "/images/products/elegoo-car.jpg",
+    "pros": [
+      "Kit complet avec UNO R3",
+      "Tutoriels détaillés en français",
+      "Contrôle Wi-Fi et caméra FPV",
+      "Excellent rapport qualité-prix"
+    ],
+    "description": "Kit Arduino complet pour apprendre la robotique",
+    "badge": "Meilleur rapport qualité-prix"
+  },
+  "elegoo-penguin": {
+    "id": "elegoo-penguin",
+    "name": "ELEGOO Penguin Bot",
+    "asin": "B07GVD6GQH",
+    "ages": "8-14 ans",
+    "priceRange": "35-45€",
+    "languages": ["Arduino C"],
+    "image": "/images/products/elegoo-penguin.jpg",
+    "pros": [
+      "Robot bipède original",
+      "Musique et danse programmables",
+      "Facile à personnaliser",
+      "Prix très accessible"
+    ],
+    "description": "Robot bipède ludique pour découvrir Arduino",
+    "badge": "Petit budget"
+  },
+  "raspberry-pi-5-4gb": {
+    "id": "raspberry-pi-5-4gb",
+    "name": "Raspberry Pi 5 (4GB)",
+    "asin": "B0CK3L9WD3",
+    "ages": "12+ ans",
+    "priceRange": "70-80€",
+    "languages": ["Python", "C++", "JavaScript"],
+    "image": "/images/products/raspberry-pi-5.jpg",
+    "pros": [
+      "Processeur ARM Cortex-A76 2.4GHz",
+      "Performance 2-3× supérieure au Pi 4",
+      "Double sortie 4K",
+      "Idéal pour projets avancés"
+    ],
+    "description": "Nano-ordinateur puissant pour robotique avancée",
+    "badge": "Choix expert"
+  },
+  "raspberry-pi-5-8gb": {
+    "id": "raspberry-pi-5-8gb",
+    "name": "Raspberry Pi 5 (8GB)",
+    "asin": "B0CK2FCG1K",
+    "ages": "12+ ans",
+    "priceRange": "95-110€",
+    "languages": ["Python", "C++", "JavaScript"],
+    "image": "/images/products/raspberry-pi-5.jpg",
+    "pros": [
+      "8GB de RAM pour multitâche",
+      "Parfait pour vision par ordinateur",
+      "Compatible avec nombreux HATs",
+      "Communauté immense"
+    ],
+    "description": "Version 8GB recommandée pour l'IA et la vision",
+    "badge": "Recommandé 8GB"
+  },
+  "mbot-ranger": {
+    "id": "mbot-ranger",
+    "name": "Makeblock mBot Ranger",
+    "asin": "B07KG4JHBH",
+    "ages": "10-14 ans",
+    "priceRange": "140-160€",
+    "languages": ["Scratch", "Arduino"],
+    "image": "/images/products/mbot-ranger.jpg",
+    "pros": [
+      "3 formes prédéfinies possibles",
+      "Tout-terrain avec grandes roues",
+      "Robot auto-équilibré",
+      "Nombreux capteurs"
+    ],
+    "description": "Version tout-terrain du mBot avec 3 modes",
+    "badge": "Version avancée"
+  },
+  "codey-rocky": {
+    "id": "codey-rocky",
+    "name": "Makeblock Codey Rocky",
+    "asin": null,
+    "searchQuery": "Codey+Rocky+Makeblock",
+    "ages": "6-12 ans",
+    "priceRange": "140-160€",
+    "languages": ["Scratch", "Python"],
+    "image": "/images/products/codey-rocky.jpg",
+    "pros": [
+      "Design amusant et robuste",
+      "IA et reconnaissance vocale",
+      "Programmation sans écran possible",
+      "Parfait pour débutants"
+    ],
+    "description": "Robot éducatif ludique avec IA intégrée",
+    "badge": "Plus ludique"
+  }
+}

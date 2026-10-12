@@ -1,0 +1,269 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+import productsData from '../data/products.json';
+
+interface ProductEntry {
+	id: string;
+	badge?: string;
+}
+
+interface Props {
+	products: ProductEntry[];
+	title?: string;
+}
+
+const { products, title = 'Notre sélection rapide' } = Astro.props;
+
+const productDetails = products.map((entry) => {
+	const data = productsData[entry.id as keyof typeof productsData];
+	if (!data) return null;
+	return {
+		...data,
+		...entry,
+		url: data.asin
+			? amazonProductUrl(data.asin, null)
+			: amazonProductUrl(null, data.searchQuery || data.name),
+	};
+}).filter(Boolean);
+---
+
+{productDetails.length > 0 && (
+	<div class="comparison-table-wrapper" id="selection">
+		<h2 class="comparison-title">{title}</h2>
+		<div class="comparison-table-scroll">
+			<table class="comparison-table">
+				<thead>
+					<tr>
+						<th>Robot</th>
+						<th>Âge</th>
+						<th>Langages</th>
+						<th>Prix indicatif</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{productDetails.map((product) => (
+						<tr>
+							<td class="product-name-cell">
+								<strong>{product.name}</strong>
+								{product.badge && (
+									<span class="table-badge">{product.badge}</span>
+								)}
+							</td>
+							<td>{product.ages}</td>
+							<td class="languages-cell">
+								{Array.isArray(product.languages) ? product.languages.join(', ') : product.languages}
+							</td>
+							<td class="price-cell">{product.priceRange}</td>
+							<td class="cta-cell">
+								<a
+									href={product.url}
+									target="_blank"
+									rel="sponsored nofollow noopener"
+									class="table-btn affiliate-link"
+									data-product-id={product.id}
+								>
+									Voir sur Amazon
+								</a>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+		<p class="comparison-note">
+			<strong>Note :</strong> Liens affiliés Amazon. Les prix sont indicatifs et peuvent varier.
+		</p>
+	</div>
+)}
+
+<style>
+	.comparison-table-wrapper {
+		background: linear-gradient(
+			135deg,
+			color-mix(in oklab, var(--accent) 8%, var(--surface-2)) 0%,
+			var(--surface-2) 100%
+		);
+		border: 2px solid color-mix(in oklab, var(--accent) 30%, var(--surface-border));
+		border-radius: 12px;
+		padding: 1.75rem 1.5rem;
+		margin: 2rem 0 2.5rem 0;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	}
+
+	.comparison-title {
+		margin: 0 0 1.25rem 0;
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: rgb(var(--black));
+		text-align: center;
+	}
+
+	.comparison-table-scroll {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		margin: 0 -1.5rem;
+		padding: 0 1.5rem;
+	}
+
+	.comparison-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+		background: var(--page-bg);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.comparison-table thead {
+		background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+		color: white;
+	}
+
+	.comparison-table th {
+		padding: 0.9rem 1rem;
+		text-align: left;
+		font-weight: 700;
+		font-size: 0.88rem;
+		letter-spacing: 0.02em;
+		white-space: nowrap;
+	}
+
+	.comparison-table tbody tr {
+		border-bottom: 1px solid var(--surface-border);
+		transition: background 0.15s ease;
+	}
+
+	.comparison-table tbody tr:last-child {
+		border-bottom: none;
+	}
+
+	.comparison-table tbody tr:hover {
+		background: color-mix(in oklab, var(--accent) 5%, var(--page-bg));
+	}
+
+	.comparison-table td {
+		padding: 1rem;
+		vertical-align: middle;
+	}
+
+	.product-name-cell {
+		min-width: 180px;
+	}
+
+	.product-name-cell strong {
+		display: block;
+		font-weight: 700;
+		color: rgb(var(--black));
+		margin-bottom: 0.25rem;
+	}
+
+	.table-badge {
+		display: inline-block;
+		background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+		color: white;
+		padding: 0.2rem 0.6rem;
+		border-radius: 999px;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+	}
+
+	.languages-cell {
+		color: rgb(var(--gray-dark));
+		font-size: 0.9rem;
+	}
+
+	.price-cell {
+		font-weight: 600;
+		color: rgb(var(--black));
+		white-space: nowrap;
+	}
+
+	.cta-cell {
+		text-align: center;
+	}
+
+	.table-btn {
+		display: inline-block;
+		padding: 0.6rem 1.2rem;
+		background: linear-gradient(135deg, #ff9900 0%, #ff8800 100%);
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.88rem;
+		border-radius: 6px;
+		white-space: nowrap;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		box-shadow: 0 2px 6px rgba(255, 153, 0, 0.25);
+	}
+
+	.table-btn:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 3px 10px rgba(255, 153, 0, 0.35);
+	}
+
+	.comparison-note {
+		margin: 1rem 0 0 0;
+		font-size: 0.82rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+		text-align: center;
+	}
+
+	.comparison-note strong {
+		font-weight: 700;
+		color: rgb(var(--black));
+	}
+
+	@media (max-width: 768px) {
+		.comparison-table-wrapper {
+			padding: 1.25rem 1rem;
+		}
+
+		.comparison-table-scroll {
+			margin: 0 -1rem;
+			padding: 0 1rem;
+		}
+
+		.comparison-table {
+			font-size: 0.88rem;
+		}
+
+		.comparison-table th,
+		.comparison-table td {
+			padding: 0.75rem 0.6rem;
+		}
+
+		.product-name-cell {
+			min-width: 140px;
+		}
+
+		.table-btn {
+			font-size: 0.82rem;
+			padding: 0.5rem 1rem;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const tableLinks = document.querySelectorAll('.comparison-table .affiliate-link[data-product-id]');
+		
+		tableLinks.forEach((link, index) => {
+			link.addEventListener('click', () => {
+				const productId = link.getAttribute('data-product-id');
+				const pagePath = window.location.pathname;
+				
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', 'affiliate_click', {
+						product_id: productId,
+						page_path: pagePath,
+						position: index + 1,
+						placement: 'comparison_table',
+					});
+				}
+			});
+		});
+	});
+</script>
