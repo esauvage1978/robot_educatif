@@ -19,8 +19,7 @@
   "mbot2": {
     "id": "mbot2",
     "name": "Makeblock mBot2",
-    "asin": null,
-    "searchQuery": "mBot2+Makeblock",
+    "asin": "B0919F9CKS",
     "ages": "10-14 ans",
     "priceRange": "150-180€",
     "languages": ["Scratch", "Python"],
@@ -139,8 +138,7 @@
   "codey-rocky": {
     "id": "codey-rocky",
     "name": "Makeblock Codey Rocky",
-    "asin": null,
-    "searchQuery": "Codey+Rocky+Makeblock",
+    "asin": "B07CGH8NZ7",
     "ages": "6-12 ans",
     "priceRange": "140-160€",
     "languages": ["Scratch", "Python"],
