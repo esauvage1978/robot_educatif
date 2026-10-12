@@ -10,6 +10,10 @@ categories:
   - "Robot éducatif"
   - "Scratch"
 relatedLinks:
+  - title: "Cadeau robot enfant 8 ans (Noël)"
+    href: "/cadeau-robot-enfant-8-ans/"
+  - title: "Guide cadeaux Noël 2026"
+    href: "/robot-educatif-cadeau-noel-2026/"
   - title: "Quel robot pour un enfant de 5 ans ?"
     href: "/quel-robot-acheter-enfant-5-ans-guide-achat/"
   - title: "Quel robot pour un enfant de 10 ans ?"
