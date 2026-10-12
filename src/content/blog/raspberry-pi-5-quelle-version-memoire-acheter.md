@@ -1,8 +1,8 @@
 ---
-title: "Raspberry Pi 5 : quelle version (1 à 16 Go) acheter ?"
-description: "Toutes les déclinaisons RAM du Raspberry Pi 5, spécifications BCM2712, PCIe, refroidissement actif, alimentation 5 A et guide de choix. Photo CC et prix indicatifs France 2026."
+title: "Raspberry Pi 5 : 4 Go ou 8 Go ? Notre choix + prix 2026"
+description: "Raspberry Pi 5 : quelle mémoire choisir ? Comparatif 4GB/8GB/16GB, prix, performances. Notre verdict : 8GB pour 20€ de plus = tranquille 5 ans."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-30"
+updatedDate: "2026-10-12"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"
 amazonPreset: raspberry
 categories:
@@ -13,8 +13,8 @@ categories:
 relatedLinks:
   - title: "Comparatif Pi 3 vs 4 vs 5"
     href: "/raspberry-pi-3-vs-4-vs-5-comparatif-2026/"
-  - title: "Raspberry Pi 4 : quelle mémoire acheter ?"
-    href: "/raspberry-pi-4-quelle-version-memoire-acheter/"
+  - title: "Kit Raspberry Pi 5 complet"
+    href: "/kit-raspberry-pi-5-complet/"
   - title: "Mise en route Raspberry Pi 3"
     href: "/mise-en-route-raspberry-pi-3-modele-b/"
   - title: "Raspberry Pi ou kit robot pour ado"

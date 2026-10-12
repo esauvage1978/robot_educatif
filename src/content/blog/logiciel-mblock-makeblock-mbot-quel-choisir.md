@@ -1,8 +1,8 @@
 ---
-title: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
-description: "mBlock 5 : appli bureau, web, mode Python. Quand utiliser quoi pour mBot, mBot2, Codey Rocky, CyberPi. Tableau comparatif."
+title: "mBlock en ligne (ide.mblock.cc) ou application : quel logiciel choisir ?"
+description: "mBlock en ligne vs app bureau vs Python : comparatif complet pour mBot, mBot2, CyberPi. Notre conseil : app bureau pour robots réels, web pour tests."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-10-12"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: mbot
 categories:
@@ -11,7 +11,7 @@ categories:
   - "Installation"
   - "Programmation"
 relatedLinks:
-  - title: "Installer mBlock 5 sous Windows 10"
+  - title: "Télécharger et installer mBlock 5"
     href: "/installer-mblock-5-sous-windows-10/"
   - title: "Premiers pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
