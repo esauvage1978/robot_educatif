@@ -97,9 +97,9 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21)
-- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/s?k=Raspberry+Pi+5+dissipateur+alimentation&tag=manuso06-21)
+- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

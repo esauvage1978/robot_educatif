@@ -89,7 +89,7 @@
     "name": "Raspberry Pi 5 (4GB)",
     "asin": "B0CK3L9WD3",
     "ages": "12+ ans",
-    "priceRange": "70-80€",
+    "priceRange": "voir le prix",
     "languages": ["Python", "C++", "JavaScript"],
     "image": "/images/products/raspberry-pi-5.jpg",
     "pros": [
@@ -99,14 +99,14 @@
       "Idéal pour projets avancés"
     ],
     "description": "Nano-ordinateur puissant pour robotique avancée",
-    "badge": "Choix expert"
+    "badge": "Recommandé"
   },
   "raspberry-pi-5-8gb": {
     "id": "raspberry-pi-5-8gb",
     "name": "Raspberry Pi 5 (8GB)",
     "asin": "B0CK2FCG1K",
     "ages": "12+ ans",
-    "priceRange": "95-110€",
+    "priceRange": "voir le prix",
     "languages": ["Python", "C++", "JavaScript"],
     "image": "/images/products/raspberry-pi-5.jpg",
     "pros": [
@@ -115,8 +115,8 @@
       "Compatible avec nombreux HATs",
       "Communauté immense"
     ],
-    "description": "Version 8GB recommandée pour l'IA et la vision",
-    "badge": "Recommandé 8GB"
+    "description": "Version 8GB pour projets gourmands en mémoire",
+    "badge": "Version avancée"
   },
   "mbot-ranger": {
     "id": "mbot-ranger",

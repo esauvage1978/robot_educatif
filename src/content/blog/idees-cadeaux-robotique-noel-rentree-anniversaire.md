@@ -45,7 +45,7 @@ relatedLinks:
 **Amazon — recherches généralistes utiles pour comparer avant d’acheter :**
 
 - [Cadeau robotique enfant STEM](https://www.amazon.fr/s?k=cadeau+robotique+enfant+STEM&tag=manuso06-21)
-- [Robot éducatif programmable enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable+enfant&tag=manuso06-21)
+- [Robot éducatif programmable enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 ## 2. Environ 5–7 ans
 
@@ -69,8 +69,8 @@ La **maternelle du code** laisse place à des projets un peu plus longs : **Scra
 
 **Amazon (recherche affiliée) :**
 
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
-- [Robot éducatif Scratch programmable](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+Scratch+programmable&tag=manuso06-21)
+- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Robot éducatif Scratch programmable](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
 - [Kit électronique enfant montage circuit](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+enfant+montage+circuit&tag=manuso06-21) — alternative ou complément « mains dans le cambouis ».
 
@@ -83,11 +83,11 @@ Les enfants tiennent des **séquences plus longues** et comparent leur projet à
 
 **Amazon (recherche affiliée) :**
 
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Codey Rocky Makeblock](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/s?k=CyberPi+Makeblock&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Codey Rocky Makeblock](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
+- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 - [Kit robotique programmation ado STEM](https://www.amazon.fr/s?k=kit+robotique+programmation+ado+STEM&tag=manuso06-21)
-- [Raspberry Pi kit débutant carte](https://www.amazon.fr/s?k=Raspberry+Pi+kit+d%C3%A9butant&tag=manuso06-21)
+- [Raspberry Pi kit débutant carte](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 - [Livre Python robotique débutant jeunes](https://www.amazon.fr/s?k=livre+Python+robotique+d%C3%A9butant+jeunes&tag=manuso06-21)
 
 ## 5. Toujours utile en plus du robot

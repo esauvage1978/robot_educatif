@@ -92,8 +92,8 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 
 ## Liens Amazon (affiliation)
 
-- [Robot Makeblock mBot](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [Robot Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

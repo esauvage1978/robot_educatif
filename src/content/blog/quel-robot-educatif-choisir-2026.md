@@ -110,9 +110,9 @@ Utilisez ce tableau comme **filtre**, pas comme loi absolue :
 
 ## Liens Amazon (recherche affiliée)
 
-- [Robot éducatif programmable enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable+enfant&tag=manuso06-21)
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [Robot éducatif programmable enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [LEGO SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
 - [LEGO SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
 - [Kit robotique STEM ado](https://www.amazon.fr/s?k=kit+robotique+STEM+ado+programmation&tag=manuso06-21)

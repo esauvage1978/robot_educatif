@@ -61,7 +61,7 @@ Un enfant peut être **rapide sur YouTube ou un jeu** sans être prêt pour **d�
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif enfant par âge](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+enfant&tag=manuso06-21)
+- [Robot éducatif enfant par âge](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre initiation programmation enfant](https://www.amazon.fr/s?k=livre+initiation+programmation+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

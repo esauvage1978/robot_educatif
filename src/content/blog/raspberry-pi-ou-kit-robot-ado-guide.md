@@ -59,9 +59,9 @@ Non : la CyberPi est une **carte Makeblock** avec écosystème mBlock — proche
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi kit débutant](https://www.amazon.fr/s?k=Raspberry+Pi+kit+d%C3%A9butant&tag=manuso06-21)
+- [Raspberry Pi kit débutant](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 - [Robot kit programmable Python ado](https://www.amazon.fr/s?k=robot+kit+programmable+Python+ado&tag=manuso06-21)
-- [Carte micro SD Raspberry Pi](https://www.amazon.fr/s?k=carte+micro+SD+Raspberry+Pi+32+Go&tag=manuso06-21)
+- [Carte micro SD Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

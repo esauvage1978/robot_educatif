@@ -58,9 +58,9 @@ Pas toujours : certains lieux utilisent un **mBot** pour la chaîne « mécaniqu
 
 ## Liens Amazon (affiliation)
 
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
-- [Codey Rocky Makeblock](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21)
-- [Accessoires Makeblock mBot](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires&tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Codey Rocky Makeblock](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
+- [Accessoires Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
 

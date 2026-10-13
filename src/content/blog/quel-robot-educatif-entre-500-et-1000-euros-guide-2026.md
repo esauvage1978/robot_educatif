@@ -90,7 +90,7 @@ Dans cette gamme, un bon choix permet en général de :
 
 👉 **Meilleur compromis « robot éducatif actuel »** si tu veux **une plateforme vivante** et documentée en français / anglais.
 
-**Amazon** : [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+**Amazon** : [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 ---
 
@@ -145,7 +145,7 @@ Dans cette gamme, un bon choix permet en général de :
 
 👉 **Passionné maker** plutôt que premier robot à 9 ans sans adulte.
 
-**Amazon** : [mBot Ultimate](https://www.amazon.fr/s?k=mBot+Ultimate+Makeblock&tag=manuso06-21)
+**Amazon** : [mBot Ultimate](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 ---
 
@@ -238,9 +238,9 @@ Entre **500 € et 1000 €**, tu achètes surtout du **temps de cerveau** dis
 
 ## Liens Amazon (recherche — affiliation)
 
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [fischertechnik TXT 4.0](https://www.amazon.fr/s?k=fischertechnik+TXT+4.0+robotics&tag=manuso06-21)
-- [mBot Ultimate](https://www.amazon.fr/s?k=mBot+Ultimate+Makeblock&tag=manuso06-21)
+- [mBot Ultimate](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [HuskyLens DFRobot](https://www.amazon.fr/s?k=HuskyLens+DFRobot&tag=manuso06-21)
 - [Unitree Go robot](https://www.amazon.fr/s?k=Unitree+Go+robot&tag=manuso06-21)
 

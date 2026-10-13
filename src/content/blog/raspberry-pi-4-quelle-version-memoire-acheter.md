@@ -73,9 +73,9 @@ La procédure est la même que pour les autres Pi récents : **Raspberry Pi Imag
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 4 Model B](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/s?k=bo%C3%AEtier+Raspberry+Pi+4+ventilateur&tag=manuso06-21)
-- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/s?k=alimentation+USB-C+Raspberry+Pi+4+officielle&tag=manuso06-21)
+- [Raspberry Pi 4 Model B](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

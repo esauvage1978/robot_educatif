@@ -30,8 +30,8 @@ En conclusion, le [MBot2](https://amzn.to/3UnG7ni?tag=manuso06-21) de Makeblock 
 
 ## Comparer les offres sur Amazon.fr
 
-- [Recherche : mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Recherche : accessoires mBot2](https://www.amazon.fr/s?k=mBot2+Makeblock+accessoires&tag=manuso06-21)
+- [Recherche : mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Recherche : accessoires mBot2](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Recherche : livre Python robotique enfant](https://www.amazon.fr/s?k=livre+Python+robotique+enfant&tag=manuso06-21)
 
 *Liens affiliés Amazon — commission possible pour le site, sans surcoût pour l’acheteur.*

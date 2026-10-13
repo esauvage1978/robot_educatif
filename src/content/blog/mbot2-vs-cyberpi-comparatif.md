@@ -51,8 +51,8 @@ Si l’ado veut surtout **Linux**, **serveur**, **Python hors robot**, lisez [Ra
 
 ## Liens Amazon (affiliation)
 
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/s?k=CyberPi+Makeblock&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 - [Kit électronique programmable enfant](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+programmable+ado&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

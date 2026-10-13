@@ -156,10 +156,10 @@ Une fois la **base système** stable, vous pouvez enchaîner vers des **projets 
 
 Recherches indicatives (prix et vendeurs à vérifier sur la fiche) :
 
-- [Raspberry Pi kit débutant](https://www.amazon.fr/s?k=Raspberry+Pi+kit+d%C3%A9butant&tag=manuso06-21)
-- [Carte micro SD Raspberry Pi 32 Go](https://www.amazon.fr/s?k=carte+micro+SD+Raspberry+Pi+32+Go&tag=manuso06-21)
-- [Alimentation 5V 2.5A micro USB Raspberry](https://www.amazon.fr/s?k=alimentation+5V+2.5A+micro+USB+Raspberry&tag=manuso06-21)
-- [Livre Raspberry Pi débutant français](https://www.amazon.fr/s?k=Raspberry+Pi+livre+d%C3%A9butant+fran%C3%A7ais&tag=manuso06-21)
+- [Raspberry Pi kit débutant](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Carte micro SD Raspberry Pi 32 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Alimentation 5V 2.5A micro USB Raspberry](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Livre Raspberry Pi débutant français](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

@@ -95,8 +95,8 @@ En conclusion, le choix entre le **mBot** et le **mBot2** dépend du **budget**,
 
 ## Acheter sur Amazon
 
-- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires+capteur&tag=manuso06-21)
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Liens affiliés — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*

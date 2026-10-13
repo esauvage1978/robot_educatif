@@ -26,7 +26,7 @@ Makeblock [CyberPi](https://amzn.to/3KKCjsZ?tag=manuso06-21) peut être utilisé
 
 Pour comparer offres, bundles et avis au moment où vous lisez cet article :
 
-- [CyberPi Makeblock](https://www.amazon.fr/s?k=CyberPi+Makeblock&tag=manuso06-21)
+- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 - [Kit électronique programmable Makeblock](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+Makeblock+programmable&tag=manuso06-21)
 - [Capteurs et modules pour atelier maker](https://www.amazon.fr/s?k=capteur+module+arduino+maker+enfant&tag=manuso06-21)
 

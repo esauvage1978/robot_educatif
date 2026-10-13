@@ -58,7 +58,7 @@ Prévoyez parfois **piles rechargeables**, **tapis de jeu** ou **extensions** (p
 
 ## Liens Amazon pour comparer (recherches affiliées)
 
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
+- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Robot programmable Scratch enfant capteur](https://www.amazon.fr/s?k=robot+programmable+scratch+capteur+enfant&tag=manuso06-21)
 - [Kit robotique école STEM 8-12 ans](https://www.amazon.fr/s?k=kit+robotique+STEM+8+12+ans&tag=manuso06-21)
 - [Accessoires capteurs mBot](https://www.amazon.fr/s?k=mBot+accessoires+capteur&tag=manuso06-21)
