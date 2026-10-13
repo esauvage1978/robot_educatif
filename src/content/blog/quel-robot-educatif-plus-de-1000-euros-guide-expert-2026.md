@@ -1,5 +1,5 @@
 ---
-title: "Quel robot éducatif choisir à plus de 1000 € ? (Guide expert 2026)"
+title: "Robot éducatif +1000 € : guide expert (2026)"
 description: "Robots haut de gamme +1000€ : bras myCobot IA, Bioloid Premium, UGOT transformable. Pour projets avancés, recherche et perfectionnement en robotique."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"

@@ -1,5 +1,5 @@
 ---
-title: "MBot2 de Makeblock : le robot éducatif pour apprendre la robotique"
+title: "mBot2 Makeblock : avis, prix et ce qu'il apprend (2026)"
 description: "MBot2 de Makeblock : robot éducatif avec capteurs avancés, compatibilité Scratch/Python et fonctionnalités innovantes."
 pubDate: "2023-04-10"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
