@@ -1,5 +1,5 @@
 ---
-title: "Eilik : petit robot de bureau interactif pour découvrir la tech"
+title: "Eilik : robot de bureau interactif pour découvrir tech"
 description: "Eilik : robot compagnon de bureau avec jeux et réactions tactiles. Différence avec robots éducatifs programmables."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"

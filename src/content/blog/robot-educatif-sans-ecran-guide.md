@@ -1,5 +1,5 @@
 ---
-title: "Robot éducatif sans écran : lesquels choisir et pour quels âges ?"
+title: "Robot éducatif sans écran : lesquels choisir par âge ?"
 description: "Guide des robots sans écran ou avec usage d’écran limité : logique, sécurité, prolongements Scratch, exemples Tale-Bot / Matatalab. Schéma parcours au sol et liens Amazon."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"

@@ -1,8 +1,8 @@
 ---
-title: "Python intermédiaire — classes et programmation orientée objet"
+title: "Python intermédiaire : classes et POO"
 description: "POO en Python : classes, __init__, self, méthodes, encapsulation par convention ; CapWords (PEP 8) ; dataclasses évoquées ; ressources ; 20 exercices."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python intermédiaire
 seriesOrder: 4
