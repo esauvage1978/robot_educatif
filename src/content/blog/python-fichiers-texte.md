@@ -1,9 +1,9 @@
 ---
 title: "Python — lire et écrire des fichiers texte"
-description: "open avec with, modes r / w / a, encoding utf-8, read et readlines, écriture ligne par ligne ; fichier manquant et bonnes habitudes ; 20 exercices avec solutions repliables."
+description: "Fichiers Python : open, with, modes r/w/a, encoding utf-8. 20 exercices avec solutions."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 8
 tags: ["Python", "Programmation"]

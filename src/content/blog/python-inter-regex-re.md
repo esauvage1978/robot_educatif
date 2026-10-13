@@ -3,7 +3,7 @@ title: "Python intermédiaire — expressions régulières (module re)"
 description: "Module re : search, match, findall, groupes, sub ; raw strings ; limites des regex ; ressources officielles ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python intermédiaire
 seriesOrder: 6
 tags: ["Python", "Programmation", "Bonnes pratiques"]

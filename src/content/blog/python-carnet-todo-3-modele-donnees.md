@@ -2,7 +2,7 @@
 title: "Carnet Todo Python (3/6) : modèle de données"
 description: "ajouter_tache, trouver par id, basculer fait, supprimer ; garder prochain_id cohérent."
 pubDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo
 seriesOrder: 3
 tags: ["Python", "Programmation", "Projet"]

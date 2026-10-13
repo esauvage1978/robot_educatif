@@ -3,7 +3,7 @@ title: "Python : environnement de développement (Win, Mac, Linux)"
 description: "Installer Python gratuitement, choisir un éditeur adapté sur PC et coder sur mobile : VS Code, Thonny, Pydroid 3."
 pubDate: 2026-03-28
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 1
 tags: ["Python", "Programmation"]

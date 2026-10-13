@@ -3,7 +3,7 @@ title: "Scratch école ou maison : par où commencer en 2026 ?"
 description: "Structurer l'apprentissage Scratch classe/domicile : différences, progression par projets, ressources et validation autonome."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: scratch
 categories:
   - "Scratch"

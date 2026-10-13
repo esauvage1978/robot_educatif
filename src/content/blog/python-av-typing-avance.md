@@ -3,7 +3,7 @@ title: "Python avancé — typage statique avancé (typing, Protocol)"
 description: "Optional, Union, generics, Protocol, TypedDict, Literal ; mypy en bref ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python avancé
 seriesOrder: 5
 tags: ["Python", "Programmation", "Avancé"]

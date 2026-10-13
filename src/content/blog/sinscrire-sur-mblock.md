@@ -2,7 +2,7 @@
 title: "S’inscrire sur mBlock 5"
 description: "Mettre l’interface en français, puis créer un compte mBlock : menu compte, e-mail, âge, mot de passe et confirmation — avec captures en français."
 pubDate: "2020-04-07"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: scratch
 updatedDate: "2026-03-30"
 categories:

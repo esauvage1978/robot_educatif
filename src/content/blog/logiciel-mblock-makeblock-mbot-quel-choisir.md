@@ -3,7 +3,7 @@ title: "mBlock en ligne (ide.mblock.cc) : accès, Web vs appli"
 description: "mBlock en ligne sur ide.mblock.cc : accès gratuit, différences avec l'application bureau, connexion mBot depuis navigateur avec mLink."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: mbot
 categories:
   - "mBlock"

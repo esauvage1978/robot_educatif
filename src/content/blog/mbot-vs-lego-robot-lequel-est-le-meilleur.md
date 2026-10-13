@@ -1,9 +1,9 @@
 ---
 title: "mBot vs Lego robot : lequel est le meilleur ?"
-description: "Comparatif détaillé mBot / mBot2 vs LEGO SPIKE (Essential, Prime) et ancien Mindstorms : budget, âge, construction, logiciel, concours FLL, évolutivité — avec liens Amazon affiliés."
+description: "mBot vs LEGO SPIKE/Mindstorms : budget, âge, construction, logiciel, FLL. Liens Amazon."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: lego
 categories:
   - "Comparatif"

@@ -1,9 +1,9 @@
 ---
 title: "Raspberry Pi 4 : quelle version RAM choisir ?"
-description: "Déclinaisons RAM du Pi 4, spécifications, refroidissement, dual HDMI, et guide de choix par usage (serveur, bureau, rétro, GPIO). Photo et prix indicatifs France 2026."
+description: "Raspberry Pi 4 : RAM, refroidissement, dual HDMI, choix par usage. Prix France 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"

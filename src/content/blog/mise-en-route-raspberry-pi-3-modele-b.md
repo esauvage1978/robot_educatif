@@ -1,9 +1,9 @@
 ---
 title: "Mise en route Raspberry Pi 3 : installation complète"
-description: "Guide détaillé : matériel, Raspberry Pi Imager, options sans écran (Wi‑Fi, SSH), premier démarrage, mises à jour, accès distant et transfert de fichiers. Schémas et photo (Wikimedia)."
+description: "Raspberry Pi 3 : matériel, Imager, WiFi, SSH, premier boot, accès distant. Schémas et photos."
 pubDate: "2020-05-01"
 updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"

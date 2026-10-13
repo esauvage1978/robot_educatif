@@ -3,7 +3,7 @@ title: "mBot vs Codey Rocky : quel robot Makeblock choisir ?"
 description: "Comparatif détaillé mBot et Codey Rocky : montage, public, capteurs, usage scolaire ou famille, limites. Schéma des deux form factors et liens tutoriels."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot
 categories:
   - "Comparatif"

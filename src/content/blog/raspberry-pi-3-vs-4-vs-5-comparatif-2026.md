@@ -3,7 +3,7 @@ title: "Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter en 2026 ?"
 description: "Comparatif Raspberry Pi 3 vs 4 vs 5 : performances, prix, RAM. Tableau détaillé, verdict 2026 et FAQ pour choisir le bon modèle."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"

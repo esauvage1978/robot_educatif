@@ -3,7 +3,7 @@ title: "Python — boucles for et while"
 description: "range(début, fin, pas), parcourir une chaîne, while avec compteur, break et continue ; quand choisir for ou while ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 5
 tags: ["Python", "Programmation"]

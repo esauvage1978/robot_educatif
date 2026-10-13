@@ -3,7 +3,7 @@ title: "Projet Journal CLI (2/6) — parsing par générateurs"
 description: "Lecture ligne à ligne, yield, regex ou split, lignes ignorées ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 2
 tags: ["Python", "Projet", "Générateurs"]

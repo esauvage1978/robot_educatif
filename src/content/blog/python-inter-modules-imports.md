@@ -1,9 +1,9 @@
 ---
 title: "Python intermédiaire — modules, packages et imports"
-description: "Organiser le code en modules et packages : import, from, __main__, PEP 8 (guide de style officiel), ressources externes ; 20 exercices avec solutions repliables."
+description: "Modules Python : import, from, __main__, PEP 8. 20 exercices avec solutions."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python intermédiaire
 seriesOrder: 1
 tags: ["Python", "Programmation", "Bonnes pratiques"]

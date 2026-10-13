@@ -3,7 +3,7 @@ title: "Quel robot éducatif choisir en 2026 ?"
 description: "Guide 2026 : familles de robots (sans écran, Scratch, Python/C++, kits avancés). Tableau âge, budget et progression."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: general
 categories:
   - "Guide"

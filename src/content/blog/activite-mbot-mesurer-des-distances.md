@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : mesurer des distances"
-description: "Utiliser le capteur à ultrason du mBot pour mesurer une distance, l’afficher sur l’écran (mode Live) puis sur la matrice LED en autonome — types nombre / texte et piste Arduino."
+description: "Capteur ultrason mBot : mesurer distance, afficher (LED). Types, Arduino C."
 pubDate: "2020-04-21"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot

@@ -55,11 +55,11 @@ ruban  … H e l l o  w o r l d …  →  on fait glisser le ruban
 
 Pour bien voir ce qui se passe « en vrai », voici une photo/capture sur le robot avec un affichage simple :
 
-![Photo : affichage d’un mot sur la matrice LED](/capture/activite-mbot-faire-defiler-un-texte/2.1/photo_affichage_hel.jpeg)
+![Photo : affichage d’un mot sur la matrice LED](/capture/activite-mbot-faire-defiler-un-texte/2.1/photo_affichage_hel.webp)
 
 Et la capture du programme correspondant (activité 2.1) :
 
-![Image représentant la première activité d'affichage du texte](/capture/activite-mbot-faire-defiler-un-texte/2.1/Image%20repr%C3%A9sentant%20la%20premi%C3%A8re%20activit%C3%A9%20d'affichage%20du%20texte.png)
+![Image représentant la première activité d'affichage du texte](/capture/activite-mbot-faire-defiler-un-texte/2.1/premiere-activite-affichage-texte.png)
 
 Programme mBlock : [`afficher_1_mot.mblock`](/capture/activite-mbot-faire-defiler-un-texte/2.1/afficher_1_mot.mblock)
 
@@ -109,7 +109,7 @@ Voici exactement le même mot, mais avec un décalage `X` différent (exemple `X
 
 Capture du programme (activité 2.2) :
 
-![Image représentant la première activité d'affichage du texte quand X vaut 10](/capture/activite-mbot-faire-defiler-un-texte/2.2/Image%20repr%C3%A9sentant%20la%20premi%C3%A8re%20activit%C3%A9%20d'affichage%20du%20texte_x_vaut_10.png)
+![Image représentant la première activité d'affichage du texte quand X vaut 10](/capture/activite-mbot-faire-defiler-un-texte/2.2/activite-affichage-texte-x-vaut-10.png)
 
 Programme mBlock : [`afficher_1_mot_x_vaut_10.mblock`](/capture/activite-mbot-faire-defiler-un-texte/2.2/afficher_1_mot_x_vaut_10.mblock)
 
@@ -171,7 +171,7 @@ La **temporisation** (souvent **0,1 s**) est indispensable : sans elle, le défi
 
 Capture locale (point 4) :
 
-![Défilement : boucle qui diminue X](/capture/activite-mbot-faire-defiler-un-texte/4/D%C3%A9filement%20%20boucle%20qui%20diminue%20X.png)
+![Défilement : boucle qui diminue X](/capture/activite-mbot-faire-defiler-un-texte/4/defilement-boucle-diminue-x.png)
 
 Programme mBlock : [`boucle.mblock`](/capture/activite-mbot-faire-defiler-un-texte/4/boucle.mblock)
 
@@ -236,7 +236,7 @@ Tu peux stocker **`longueur_du_texte`** dans une variable pour rendre le program
 
 Capture locale (étape 5.2) :
 
-![Trois répétitions du défilement (double boucle)](/capture/activite-mbot-faire-defiler-un-texte/5.2/Trois%20r%C3%A9p%C3%A9titions%20du%20d%C3%A9filement%20(double%20boucle).png)
+![Trois répétitions du défilement (double boucle)](/capture/activite-mbot-faire-defiler-un-texte/5.2/trois-repetitions-defilement.png)
 
 Programme mBlock : [`defiler52.mblock`](/capture/activite-mbot-faire-defiler-un-texte/5.2/defiler52.mblock)
 

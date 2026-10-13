@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 import { rehypeAmazonExternalLinks } from './src/rehype/rehype-amazon-external-links.mjs';
 import { rehypePrependBaseForInternalLinks } from './src/rehype/rehype-prepend-base-internal-links.mjs';
 import { rehypePrependBaseForPublicImages } from './src/rehype/rehype-prepend-base-public-images.mjs';
+import { rehypeImageSize } from './src/lib/rehype-image-size.mjs';
 import { normalizeAstroBase } from './src/lib/astroBase.mjs';
 import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
@@ -76,7 +77,7 @@ export default defineConfig({
 		inlineStylesheets: 'always',
 	},
 	markdown: {
-		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks],
+		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks, rehypeImageSize],
 	},
 	vite: {
 		plugins: [vitePluginDevWampUrlMirror()],

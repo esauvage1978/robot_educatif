@@ -1,8 +1,8 @@
 ---
 title: "CyberPi Makeblock : avis, prix et programmation Python"
-description: "CyberPi de Makeblock : carte de développement polyvalente avec écran, capteurs, WiFi et Bluetooth. Compatible Scratch, Python et C++ pour projets électroniques."
+description: "CyberPi Makeblock : carte écran, capteurs, WiFi, Bluetooth. Scratch, Python, C++."
 pubDate: "2023-04-09"
-heroImage: "../../assets/blog-heroes/hero-cyberpi.png"
+heroImage: "../../assets/blog-heroes/hero-cyberpi.webp"
 amazonPreset: cyberpi
 updatedDate: "2026-10-13"
 categories:

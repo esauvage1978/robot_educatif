@@ -1,6 +1,6 @@
 ---
 title: "Programmation enfant : à quel âge commencer ?"
-description: "Repères par âge : jeu débranché, robots sans écran, Scratch, robots éducatifs, Python et cartes. Signes de maturité, erreurs des parents et schéma récapitulatif."
+description: "Programmation enfants par âge : jeu débranché, Scratch, robots, Python. Signes maturité, erreurs parents."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"

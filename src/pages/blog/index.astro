@@ -24,7 +24,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title="Blog ROBOT éducatif" description="Découvrez nos articles sur la robotique éducative, la programmation pour enfants, des tutoriels mBlock, Scratch, Python, et nos guides d'achat de robots programmables." />
+		<BaseHead title="Blog ROBOT éducatif" description="Articles robotique éducative : tutoriels mBlock, Scratch, Python, guides achat robots et comparatifs pour enfants." />
 		<style>
 			.hero-blog {
 				width: 100vw;
@@ -220,7 +220,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 									<li>
 										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
 											{thumb && (
-												<Image width={720} height={360} src={thumb} alt="" />
+												<Image width={720} height={360} src={thumb} alt={post.data.title} />
 											)}
 											<h4 class="title">{post.data.title}</h4>
 											<p class="date">

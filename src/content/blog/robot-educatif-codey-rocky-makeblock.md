@@ -1,9 +1,9 @@
 ---
 title: "Codey Rocky (Makeblock) : robot éducatif Scratch et Python"
-description: "Présentation du robot Codey Rocky : capteurs, mBlock 5, Scratch et Python, public 6+, idées d’usage. Exemples de programmes et ressources en ligne. Lien Amazon France."
+description: "Codey Rocky : capteurs, mBlock, Scratch, Python. Public 6+."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/codey-rocky/codey-rocky-hero.png"
+heroImage: "../../assets/codey-rocky/codey-rocky-hero.webp"
 amazonPreset: codeyRocky
 relatedLinks:
   - title: "Installer mBlock 5 sous Windows 10"

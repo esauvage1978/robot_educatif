@@ -1,6 +1,6 @@
 ---
 title: "Idées cadeaux robotique : Noël, anniversaire (par âge)"
-description: "Calendrier des occasions, grille par âge, budgets et accessoires. Pistes concrètes avec liens de recherche Amazon et renvois vers nos guides mBot, Scratch et robot sans écran."
+description: "Idées cadeaux robotique : grille par âge, budgets, accessoires. Liens guides mBot, Scratch, robots."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"

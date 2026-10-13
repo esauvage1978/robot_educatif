@@ -3,7 +3,7 @@ title: "Eilik : robot de bureau interactif pour découvrir tech"
 description: "Eilik : robot compagnon de bureau avec jeux et réactions tactiles. Différence avec robots éducatifs programmables."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/eilik/eilik-hero.png"
+heroImage: "../../assets/eilik/eilik-hero.webp"
 amazonPreset: eilik
 relatedLinks:
   - title: "Tale-Bot Pro Matatalab : déballage et premiers pas"

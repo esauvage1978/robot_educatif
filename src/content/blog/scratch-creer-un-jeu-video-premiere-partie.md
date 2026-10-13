@@ -2,7 +2,7 @@
 title: "Scratch : développement d’un jeu vidéo, première partie"
 description: "Cet article est le premier d’une série pour apprendre à créer un jeu vidéo sous scratch. Partie 1 : Déplacer le décor à l’aide des flèches du clavier"
 pubDate: "2020-04-12"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 updatedDate: "2020-04-13"
 amazonPreset: scratch
 categories:

@@ -1,9 +1,9 @@
 ---
 title: "mBlock Bluetooth : mBot ne se connecte pas ? Solutions"
-description: "Réparer les connexions Bluetooth entre mBlock et un robot Makeblock : pilotes, appairage, portée, versions logicielles. Schéma de dépannage et liens installation Amazon."
+description: "Dépanner Bluetooth mBlock : pilotes, appairage, portée, versions. Schéma et liens installation."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: mbot
 categories:
   - "mBlock"

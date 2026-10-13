@@ -3,7 +3,7 @@ title: "Bataille navale Python (4/6) : tirs et marques grilles"
 description: "Appliquer un tir sur la grille défense adverse, mettre à jour radar et défense ; interdire de rejouer la même case."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 4
 tags: ["Python", "Programmation", "Projet"]

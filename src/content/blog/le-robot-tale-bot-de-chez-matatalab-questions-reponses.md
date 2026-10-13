@@ -1,6 +1,6 @@
 ---
 title: "Tale-Bot Matatalab : Questions / Réponses (FAQ 2026)"
-description: "Robot Tale-Bot Pro de Matatalab : outil éducatif pour enfants avec programmation par blocs de commandes, histoires interactives et apprentissage ludique de la logique."
+description: "Tale-Bot Pro : robot éducatif, blocs de commandes, histoires interactives, apprentissage logique."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:

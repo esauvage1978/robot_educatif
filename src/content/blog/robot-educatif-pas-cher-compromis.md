@@ -1,9 +1,9 @@
 ---
 title: "Robot éducatif pas cher : ce qu’il faut accepter (et éviter)"
-description: "Acheter un robot programmable à petit prix sans mauvaises surprises : solidité, logiciel, communauté. Triangle prix / doc / communauté et liens guides Amazon."
+description: "Robot programmable pas cher : solidité, logiciel, communauté. Conseils et liens guides."
 pubDate: "2026-03-30"
 updatedDate: "2026-04-01"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot
 categories:
   - "Guide"

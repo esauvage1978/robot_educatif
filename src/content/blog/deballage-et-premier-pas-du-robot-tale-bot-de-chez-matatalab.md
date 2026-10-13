@@ -1,6 +1,6 @@
 ---
 title: "Déballage et découverte Tale-Bot Pro Matatalab"
-description: "Le robot tale-bot de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation."
+description: "Tale-Bot Matatalab : robot éducatif pour enfants, découverte robotique et programmation par blocs."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:

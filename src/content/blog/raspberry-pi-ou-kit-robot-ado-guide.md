@@ -1,9 +1,9 @@
 ---
 title: "Raspberry Pi ou kit robot pour ado : comment trancher ?"
-description: "Aider un ado à choisir entre Raspberry Pi (Linux, Python, objets connectés) et un robot éducatif tout-en-un : critères, temps, budget, schéma Pi vs robot et prolongations."
+description: "Raspberry Pi vs robot ado : Linux/Python ou robot tout-en-un. Critères, budget, prolongations."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"

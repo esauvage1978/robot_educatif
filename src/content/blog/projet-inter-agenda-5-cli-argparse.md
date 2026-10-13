@@ -3,7 +3,7 @@ title: "Agenda Python CLI (5/6) : argparse et ligne commande"
 description: "Sous-commandes add, list, remove ; dates ; codes de sortie ; messages utilisateur ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 5
 tags: ["Python", "Projet", "CLI"]

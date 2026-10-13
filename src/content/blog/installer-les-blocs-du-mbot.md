@@ -2,7 +2,7 @@
 title: "Installer les blocs du mBot"
 description: "Ajouter le robot mBot comme appareil dans mBlock 5 pour afficher les blocs orange (moteurs, capteurs, LED). Guide pas à pas."
 pubDate: "2020-04-08"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 updatedDate: "2026-03-28"
 amazonPreset: mbot
 categories:
