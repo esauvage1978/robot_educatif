@@ -8,6 +8,8 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import HomeShowcase from '../components/HomeShowcase.astro';
 import Sidebar from '../components/Sidebar.astro';
+import StructuredDataWebsite from '../components/StructuredDataWebsite.astro';
+import ChristmasBanner from '../components/ChristmasBanner.astro';
 import { SITE_TITLE } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { topCategoriesByCount } from '../lib/categories';
@@ -21,7 +23,7 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 
 /** Meta accueil : couvre les intentions Search Console (mBlock, mBot, robot éducatif) sans keyword stuffing. */
 const HOME_DESCRIPTION =
-	'Robot éducatif et robot pédagogique : guides pour télécharger mBlock 5 (Windows, gratuit), installer le logiciel, programmer le mBot (mBot vs mBot 2), premiers programmes et activités — au collège, au lycée ou à la maison.';
+	'Guides mBlock 5 et mBot : télécharger, installer, programmer (Scratch/Python). Comparatifs robots, tutoriels et activités pour débuter en robotique éducative.';
 
 /** FAQ visible + JSON-LD (questions formulées comme des recherches réelles). */
 const FAQ_ITEMS: { q: string; aHtml: string; aPlain: string }[] = [
@@ -176,7 +178,8 @@ const faqJsonLd = {
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home.webp')} />
+		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} preloadLcpImage={withBase('/hero-home-optimized.webp')} />
+		<StructuredDataWebsite />
 		<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 		<style>
 			.hero-home {
@@ -340,6 +343,71 @@ const faqJsonLd = {
 				background: color-mix(in oklab, var(--accent-dark) 10%, transparent);
 			}
 			.home-faq-page-bottom {
+			
+			.age-guide {
+				margin-top: 2rem;
+				margin-bottom: 2.25rem;
+				padding: 1.75rem 1.5rem;
+				background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
+				border: 1px solid var(--surface-border);
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.age-guide h2 {
+				margin-top: 0;
+				margin-bottom: 0.75rem;
+				font-size: 1.75rem;
+				color: var(--accent-dark);
+			}
+			.age-guide-intro {
+				color: rgb(var(--gray-dark));
+				font-size: 1.05rem;
+				line-height: 1.6;
+				margin-bottom: 1.5rem;
+			}
+			.age-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+				gap: 1rem;
+			}
+			.age-card {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				padding: 1.25rem 1.15rem;
+				background: var(--surface);
+				border: 2px solid var(--surface-border);
+				border-radius: 10px;
+				text-decoration: none;
+				transition: all 0.2s ease;
+				position: relative;
+			}
+			.age-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+				transform: translateY(-2px);
+			}
+			.age-badge {
+				display: inline-block;
+				padding: 0.35rem 0.75rem;
+				background: var(--accent);
+				color: white;
+				font-size: 0.8rem;
+				font-weight: 700;
+				border-radius: 6px;
+				width: fit-content;
+			}
+			.age-card h3 {
+				margin: 0.5rem 0 0 0;
+				font-size: 1.15rem;
+				color: var(--accent-dark);
+			}
+			.age-card p {
+				margin: 0;
+				font-size: 0.92rem;
+				color: rgb(var(--gray));
+				line-height: 1.5;
+			}
 				width: min(1140px, calc(100% - 2.5rem));
 				margin: 0 auto;
 				padding: 2rem 0 2.75rem;
@@ -424,15 +492,17 @@ const faqJsonLd = {
 	</head>
 	<body>
 		<Header />
+		<ChristmasBanner />
 		<main>
 			<section class="hero-home" aria-label="Présentation">
 				<img
 					class="hero-home-bg"
-					src={withBase('/hero-home.webp')}
-					alt=""
-					width="683"
-					height="435"
+					src={withBase('/hero-home-optimized.webp')}
+					alt="Robot éducatif programmable pour apprendre la robotique en s'amusant"
+					width="1366"
+					height="860"
 					fetchpriority="high"
+					loading="eager"
 					decoding="async"
 				/>
 				<div class="hero-home-overlay" aria-hidden="true"></div>
@@ -472,6 +542,47 @@ const faqJsonLd = {
 							robot ».
 						</p>
 					</div>
+					
+					<section class="age-guide" aria-labelledby="age-guide-title">
+						<h2 id="age-guide-title">Choisir un robot par âge</h2>
+						<p class="age-guide-intro">
+							Chaque tranche d'âge a ses besoins : jouets sensoriels pour les 4-5 ans, Scratch pour les 8-10 ans,
+							Python et Arduino pour les ados. Sélectionnez l'âge qui vous intéresse :
+						</p>
+						<div class="age-cards">
+							<a href={withBase('/robot-enfant-4-ans/')} class="age-card">
+								<span class="age-badge">4-5 ans</span>
+								<h3>Robots sans écran</h3>
+								<p>Découverte sensorielle, manipulation, séquences simples</p>
+							</a>
+							<a href={withBase('/quel-robot-acheter-enfant-5-ans-guide-achat/')} class="age-card">
+								<span class="age-badge">5-7 ans</span>
+								<h3>Premières bases</h3>
+								<p>Scratch Jr, blocs visuels, découverte de la logique</p>
+							</a>
+							<a href={withBase('/meilleur-robot-programmable-enfant-2026/')} class="age-card">
+								<span class="age-badge">8-9 ans</span>
+								<h3>mBot & Scratch</h3>
+								<p>Programmation par blocs, capteurs, projets concrets</p>
+							</a>
+							<a href={withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')} class="age-card">
+								<span class="age-badge">10-12 ans</span>
+								<h3>Python & IoT</h3>
+								<p>Transition vers le code texte, Wi-Fi, capteurs avancés</p>
+							</a>
+							<a href={withBase('/quel-robot-acheter-enfant-12-ans-guide-achat/')} class="age-card">
+								<span class="age-badge">12-14 ans</span>
+								<h3>Collège & Arduino</h3>
+								<p>C++, électronique, projets longs, documentation technique</p>
+							</a>
+							<a href={withBase('/robot-programmable-14-ans-ado/')} class="age-card">
+								<span class="age-badge">14+ ans</span>
+								<h3>Lycée & Raspberry Pi</h3>
+								<p>IA, vision par ordinateur, Linux, projets autonomes</p>
+							</a>
+						</div>
+					</section>
+					
 					<section class="latest-posts">
 						<h2>Les 5 derniers articles</h2>
 						<ul>

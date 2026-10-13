@@ -1,6 +1,6 @@
 ---
 title: "Quel robot éducatif choisir en 2026 ?"
-description: "Guide 2026 : familles de robots éducatifs (sans écran, Scratch, LEGO, Makeblock, cartes), critères budget / âge / évolutivité, erreurs fréquentes et liens Amazon affiliés pour comparer."
+description: "Guide 2026 : familles de robots (sans écran, Scratch, Python/C++, kits avancés). Tableau âge, budget et progression."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
@@ -110,9 +110,9 @@ Utilisez ce tableau comme **filtre**, pas comme loi absolue :
 
 ## Liens Amazon (recherche affiliée)
 
-- [Robot éducatif programmable enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable+enfant&tag=manuso06-21)
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [Robot éducatif programmable enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [LEGO SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
 - [LEGO SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
 - [Kit robotique STEM ado](https://www.amazon.fr/s?k=kit+robotique+STEM+ado+programmation&tag=manuso06-21)

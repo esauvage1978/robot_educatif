@@ -1,0 +1,406 @@
+---
+title: "Robots pour la technologie au collège : guide complet 2026"
+description: "Choisir robots pour cours technologie collège (6e-3e) : mBot, mBot2, ELEGOO, programmes 2020, activités Scratch/Python, budget classe."
+pubDate: "2026-10-13"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+amazonPreset: mbot2
+categories:
+  - "Guide"
+  - "Technologie"
+  - "Collège"
+  - "6e à 3e"
+relatedLinks:
+  - title: "Équiper une classe en robots : budget"
+    href: "/equiper-classe-robots-budget-packs-2026/"
+  - title: "Prix mBot, mBot2, Ranger : comparatif"
+    href: "/prix-mbot-mbot2-ranger-comparatif-2026/"
+  - title: "Programmation enfant : à quel âge ?"
+    href: "/programmation-enfant-a-quel-age-commencer/"
+  - title: "Premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" />
+
+<ComparisonTable
+  products={[
+    { id: 'mbot', badge: '6e-5e Scratch' },
+    { id: 'mbot2', badge: '4e-3e Python' },
+    { id: 'elegoo-robot-car', badge: 'Option Arduino' },
+  ]}
+  title="Robots par cycle collège"
+/>
+
+Les cours de **technologie au collège** (cycles 3 et 4) intègrent désormais la **programmation** et la **robotique** dans les programmes officiels 2020. Ce guide vous aide à **choisir les bons robots**, comprendre les **attendus pédagogiques** par niveau, et préparer des **séquences** conformes aux **repères de progression**.
+
+## 1. Programmes officiels 2020 : ce qui est attendu
+
+### Cycle 3 (6e)
+
+**Compétences** :
+- Programmer les déplacements d'un robot
+- Utiliser des capteurs simples (distance, ligne)
+- Comprendre la notion d'algorithme (séquence, boucle)
+- Tester et valider un programme
+
+**Langages** : Scratch ou équivalent (blocs)
+
+**Volume horaire** : 6-8 séances robotique/an (sur 36 séances techno)
+
+### Cycle 4 (5e-4e-3e)
+
+**Compétences** :
+- **5e** : Conditions, variables, capteurs multiples
+- **4e** : Algorithmique structurée, introduction Python (recommandé BO)
+- **3e** : Projets longs, interaction capteurs/actionneurs, IoT
+
+**Langages** : Scratch (5e) → Python (4e-3e)
+
+**Volume horaire** : 8-12 séances/an (dont projet final 3e)
+
+## 2. Quel robot par niveau ?
+
+### 6e-5e : mBot classique
+
+<ProductBox
+  productId="mbot"
+  name="Makeblock mBot"
+  asin="B07XR98YYQ"
+  ages="11-13 ans (6e-5e)"
+  priceRange="89.99€"
+  languages={['Scratch', 'Arduino']}
+  pros={[
+    'Conforme programmes cycle 3-4',
+    'Montage 15 min (séance découverte)',
+    'mBlock = Scratch officiel',
+    'Capteurs variés (ultrason, ligne, lumière)',
+    'Réparation simple'
+  ]}
+  badge="Référence 6e-5e"
+  position={1}
+/>
+
+**Activités type 6e** :
+- Parcours imposé (avancer, tourner, durées fixes)
+- Éviter un obstacle (capteur ultrason + condition)
+- Suivre une ligne noire (capteur ligne + boucle)
+- Jouer une mélodie (buzzer + séquences)
+
+**Activités type 5e** :
+- Radar de recul (distance + paliers)
+- Compteur d'intrusions (variables)
+- Labyrinthe autonome (boucles + conditions imbriquées)
+
+**Budget classe** : 8 robots = 720€ (hors accessoires)
+
+### 4e-3e : mBot2 (Python recommandé)
+
+<ProductBox
+  productId="mbot2"
+  name="Makeblock mBot2"
+  asin="B0919F9CKS"
+  ages="13-15 ans (4e-3e)"
+  priceRange="167.95€"
+  languages={['Scratch', 'Python']}
+  pros={[
+    'Python natif (programmes 2020)',
+    'CyberPi = ordinateur embarqué',
+    'Wi-Fi pour projets IoT',
+    'Progression naturelle Scratch → Python',
+    'Écran couleur (affichage graphique)'
+  ]}
+  badge="Recommandé 4e-3e"
+  position={1}
+/>
+
+**Activités type 4e** :
+- Transition Scratch → Python (mêmes défis)
+- Capteur température + affichage graphique
+- Notification téléphone (Wi-Fi + API)
+- Détection événements (accéléromètre)
+
+**Activités type 3e (projet BAC Blanc)** :
+- Station météo connectée (cloud data)
+- Robot messager (Telegram bot)
+- Parking intelligent (compteur + affichage)
+- Jeu interactif multi-robots (réseau)
+
+**Budget classe** : 6 mBot2 = 1008€
+
+### Alternative Arduino : ELEGOO Robot Car
+
+<ProductBox
+  productId="elegoo-robot-car"
+  name="ELEGOO Kit Voiture Robot V4.0"
+  asin="B078Y9RYM2"
+  ages="14+ ans (3e)"
+  priceRange="79.99€"
+  languages={['Arduino C']}
+  pros={[
+    'Arduino C/C++ (proche industrie)',
+    'Caméra FPV intégrée',
+    'Tutoriels détaillés',
+    'Excellent rapport qualité-prix',
+    'Écosystème Arduino immense'
+  ]}
+  badge="Option lycée/STI2D"
+  position={1}
+/>
+
+**Quand choisir ELEGOO plutôt que mBot2** :
+- Classe ayant déjà des mBot pour 6e-5e
+- Projet 3e orienté vision/IA
+- Préparation STI2D lycée
+- Budget très serré (80€ vs 168€)
+
+**Limites** :
+- Courbe d'apprentissage Arduino plus raide
+- Pas d'écran natif (affichage via série)
+- Moins de capteurs "prêts à l'emploi"
+
+## 3. Progression pédagogique 4 ans
+
+### 6e : Découverte blocs (8 séances)
+
+1. **Montage robot** (1h) : vis, moteurs, câbles
+2. **Premiers déplacements** (1h) : avancer, tourner, stop
+3. **Capteur ultrason** (2h) : distance, seuil, alerte
+4. **Suiveur de ligne** (2h) : capteurs, boucle, régulation
+5. **Projet libre** (2h) : défis imposés binômes
+
+**Évaluation** : grille observation + autoévaluation
+
+### 5e : Algorithmique structurée (10 séances)
+
+1. **Révision blocs** (1h) : retrouver réflexes 6e
+2. **Variables** (2h) : compteur, score, timer
+3. **Conditions imbriquées** (2h) : ET/OU, priorités
+4. **Sous-programmes** (2h) : fonctions réutilisables
+5. **Projet labyrinthe** (3h) : autonomie complète
+
+**Évaluation** : projet noté (programme + démo)
+
+### 4e : Transition Python (10 séances)
+
+1. **Découverte Python** (2h) : syntaxe, indentation
+2. **Mêmes défis en Python** (3h) : traduction Scratch
+3. **Nouveaux capteurs** (2h) : température, lumière
+4. **Affichage graphique** (1h) : CyberPi écran
+5. **Mini-projet IoT** (2h) : notification téléphone
+
+**Évaluation** : QCM Python + programme commenté
+
+### 3e : Projet long (12 séances)
+
+1. **Cahier des charges** (1h) : besoins, contraintes
+2. **Conception** (2h) : algorithme, logigramme
+3. **Réalisation** (6h) : code, tests, debug
+4. **Documentation** (1h) : notice utilisateur
+5. **Soutenance** (2h) : démo + oral 5 min
+
+**Évaluation** : oral DNB Blanc (compétences transversales)
+
+## 4. Activités clés en main par niveau
+
+### 6e : Feu tricolore
+
+**Objectif** : Alterner LED rouge/vert avec temporisations
+
+**Blocs Scratch** :
+```
+Quand drapeau cliqué
+Répéter indéfiniment
+  Allumer LED rouge
+  Attendre 3 secondes
+  Éteindre LED rouge
+  Allumer LED verte
+  Attendre 2 secondes
+  Éteindre LED verte
+```
+
+**Compétences** : Séquence, boucle, temporisation
+
+**Durée** : 1h (30 min code + 30 min tests)
+
+### 5e : Radar de recul
+
+**Objectif** : Son et LED selon distance obstacle
+
+**Algorithme** :
+- Distance > 50 cm : LED verte, pas de son
+- 20-50 cm : LED orange, bip lent
+- < 20 cm : LED rouge, bip rapide
+
+**Compétences** : Conditions multiples, variables
+
+**Durée** : 2h (inclus découverte capteur ultrason)
+
+### 4e : Station météo (Python)
+
+**Objectif** : Afficher température + humidité sur écran CyberPi
+
+**Python mBot2** :
+```python
+import cyberpi
+import time
+
+while True:
+    temp = cyberpi.get_temperature()
+    cyberpi.display.show_label(str(temp) + "°C", 16)
+    time.sleep(1)
+```
+
+**Compétences** : Bibliothèques, boucle infinie, affichage
+
+**Durée** : 2h (découverte syntaxe Python)
+
+### 3e : Parking intelligent
+
+**Objectif** : Compter entrées/sorties, afficher places libres
+
+**Capteurs** : 2× ultrason (entrée/sortie)
+
+**Variables** : `places_totales`, `places_occupees`
+
+**Affichage** : Écran couleur + LED verte/rouge
+
+**Compétences** : Architecture complexe, états, IHM
+
+**Durée** : 6h (projet complet)
+
+## 5. Gestion classe et îlots
+
+### Organisation type (24 élèves, 8 robots)
+
+- **Îlots de 3** élèves
+- **Rôles tournants** :
+  - Pilote : tape le code
+  - Copilote : dicte/vérifie
+  - Testeur : manipule robot
+
+**Rotation** : tous les 15 min
+
+### Éviter les conflits
+
+- ✅ Chaque binôme = 1 couleur (autocollant robot)
+- ✅ Fiche suivi (qui a fait quoi)
+- ✅ Temps imposés (chrono visible)
+- ❌ "Premier arrivé, premier servi" (chaos)
+
+### Rangement
+
+- Checklist plastifiée : câble, télécommande, vis
+- Responsable matériel (2 élèves/semaine)
+- Sanction douce : 5 min nettoyage si oubli
+
+## 6. Matériel complémentaire
+
+### Obligatoire
+
+- **Piles rechargeables AA** : 3 lots de 8 (rotation charge)
+- **Tapis suiveur ligne** : 1 pour 2 robots (80€/tapis A1)
+- **Obstacles** : carton, LEGO, livres (gratuit)
+
+### Recommandé
+
+- **Extensions mBuild** (mBot2) : capteur CO2, température
+- **Tablettes/PC portables** : 1 pour 2 (si pas salle info)
+- **Vidéoprojecteur** : démonstrations prof
+
+### Nice-to-have
+
+- **Arènes Sumo** : combats robots (ludique)
+- **Ponts/rampes** : défis tout-terrain
+- **Décors thématiques** : mission Mars, sauvetage…
+
+## 7. Formation enseignant
+
+### Minimum vital (3h)
+
+1. **Montage robot** : 30 min
+2. **Interface mBlock** : 30 min
+3. **5 défis de base** : 1h30 (avancer, ultrason, ligne…)
+4. **Dépannage** : 30 min (Bluetooth, firmware)
+
+### Formation complète (12h - PAF)
+
+- Jour 1 (6h) : Prise en main, progression 6e-5e
+- Jour 2 (6h) : Python 4e-3e, projets IoT
+
+**Gratuit** via Plan Académique Formation (inscription juin-septembre).
+
+### Ressources en ligne
+
+- [Premiers pas mBlock 5](/premier-pas-avec-mblock-5/)
+- [Mon premier programme mBot](/mon-premier-programme-mbot/)
+- Tutoriels officiels Makeblock (français)
+- Forum Technologie Collège (partage séquences)
+
+## 8. Budget réaliste
+
+### Équipement initial (classe 24 élèves)
+
+| Poste | Détail | Coût |
+|-------|--------|------|
+| **Robots 6e-5e** | 8× mBot (89,99€) | 720€ |
+| **Robots 4e-3e** | 4× mBot2 (167,95€) | 672€ |
+| **Piles** | 3 lots AA recharg. + chargeurs | 150€ |
+| **Tapis** | 4 tapis suiveur ligne | 320€ |
+| **Rangement** | Armoire métal 12 casiers | 250€ |
+| **Formation** | PAF (gratuit) | 0€ |
+| **Total initial** | | **2112€** |
+
+### Maintenance annuelle
+
+- Piles : 40€
+- Pièces détachées : 80€
+- Renouvellement : 100€
+- **Total/an** : **220€**
+
+### Amortissement
+
+**2112€ / 5 ans / 4 classes** = **105€/classe/an** = **4,40€/élève/an**
+
+➜ Très rentable vs sorties pédagogiques.
+
+## 9. Appels à projets
+
+### Financements disponibles 2026
+
+- **Région** : Équipement numérique (500-5000€)
+- **CARDIE** : Projets innovants (1000-3000€)
+- **Fondation CGénial** : Sciences & Techno (jusqu'à 2000€)
+- **Concours robotique** : Dotations matériel (1er prix = 5 robots)
+
+**Calendrier** : dépôts septembre-novembre, résultats janvier-mars
+
+## 10. Liens et ressources
+
+### Acheter les robots
+
+- [mBot classique (6e-5e)](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 (4e-3e Python)](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
+- [ELEGOO Robot Car (Arduino)](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21)
+- [Piles rechargeables AA](https://www.amazon.fr/s?k=piles+rechargeables+AA+eneloop&tag=manuso06-21)
+
+*Liens affiliés — soutien gratuit pour ce site.*
+
+### Séquences pédagogiques
+
+- Site Technologie Collège (académies)
+- Makeblock Education (ressources français)
+- [10 projets mBot classe](/idees-projets-mbot-rapides-une-heure/)
+
+### Communauté enseignants
+
+- Forum Technologie Collège
+- Groupe Facebook "Profs de Techno"
+- Discord Makeblock FR
+
+---
+
+**En résumé** : privilégier **mBot classique** pour **6e-5e** (Scratch) et **mBot2** pour **4e-3e** (Python). Budget réaliste **2100€** initial pour équiper technologie collège (8 mBot + 4 mBot2). Amortissement **5 ans** = **4,40€/élève/an**. Formation PAF **gratuite** (12h). Conformité **programmes 2020** garantie.

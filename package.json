@@ -9,6 +9,7 @@
     "import:wp": "node scripts/import-wordpress.mjs",
     "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
     "generate:favicon": "node scripts/generate-favicon.mjs",
+    "generate:pins": "node scripts/generate-pins.mjs",
     "optimize:hero": "node scripts/optimize-hero-home.mjs",
     "verify:images-mblock": "node scripts/verify-public-installer-images.mjs",
     "fix:svg-mblock": "node scripts/fix-svg-control-chars.mjs",
@@ -31,10 +32,13 @@
     "sharp": "^0.34.3"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "cheerio": "^1.2.0",
     "cross-env": "^10.1.0",
+    "gray-matter": "^4.0.3",
     "pagefind": "^1.4.0",
     "png-to-ico": "^3.0.1",
+    "satori": "^0.49.1",
     "turndown": "^7.2.2",
     "turndown-plugin-gfm": "^1.0.2"
   }

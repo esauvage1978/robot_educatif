@@ -290,6 +290,25 @@ html[data-theme='light'] .prose h2[id*='questions-frequentes'] ~ h3 {
 		0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* Pinterest hover pour les images */
+.prose p:has(> img),
+.prose p:has(> a > img) {
+	position: relative;
+}
+
+.prose p:has(> img):hover .pinterest-share--hover,
+.prose p:has(> a > img):hover .pinterest-share--hover {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@media (hover: none) {
+	.prose .pinterest-share--hover {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
 .prose p:has(> img:only-child),
 .prose p:has(> a:only-child > img:only-child) {
 	text-align: center;

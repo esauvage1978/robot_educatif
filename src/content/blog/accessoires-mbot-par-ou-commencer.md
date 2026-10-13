@@ -65,8 +65,8 @@ Utile en **club** ou **journée projet** ; à la maison, des piles rechargeables
 
 ## Liens Amazon (affiliation)
 
-- [Accessoires mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires+capteur&tag=manuso06-21)
-- [Capteur ultrason robot éducatif](https://www.amazon.fr/s?k=capteur+ultrason+robot+%C3%A9ducatif&tag=manuso06-21)
+- [Accessoires mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Capteur ultrason robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Kit vis mécanique robot](https://www.amazon.fr/s?k=kit+vis+m%C3%A9canique+robot&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

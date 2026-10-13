@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : Détecteur d’intrusion"
-description: "Créer un détecteur d’intrusion avec le mBot : le capteur à ultrason surveille une zone, le robot alerte (LED + visage + son) et compte le nombre d’intrusions. Activité pas à pas, accessible aux plus jeunes."
+description: "Détecteur d'intrusion avec mBot : capteur ultrason surveille un seuil, LED et buzzer alertent. Variables et conditions."
 pubDate: "2020-04-28"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2026-03-31"

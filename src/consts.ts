@@ -27,6 +27,10 @@ export const CONTACT_EMAIL = 'contact@robot-educatif.info';
 /** Auteur affiché sur les articles du blog */
 export const ARTICLE_AUTHOR = 'Emmanuel SAUVAGE';
 
+/** Configuration Pinterest */
+export const PINTEREST_ENABLED = true;
+export const PINTEREST_DOMAIN_VERIFY = 'bef2baa401bc4a6ee2a6f88481b9f9a7';
+
 /*
   Vues / notation des articles (optionnel) : définir dans `.env`
   PUBLIC_SUPABASE_URL et PUBLIC_SUPABASE_ANON_KEY, puis exécuter

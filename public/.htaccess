@@ -8,6 +8,15 @@
 	# Si le site est dans un sous-dossier, décommentez et adaptez :
 	# RewriteBase /site_vitrine/robot_educatif/
 
+	# WWW vers non-WWW (https, évite chaînes de redirections)
+	RewriteCond %{HTTP_HOST} ^www\.robot-educatif\.info$ [NC]
+	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
+
+	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
+	RewriteCond %{HTTPS} !=on
+	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]
+	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
+
 	# Ancien segment anglais « category » (liens externes / Google) → « categorie »
 	RewriteRule ^category/?$ /categorie/ [R=301,L,NC]
 	RewriteRule ^category/(.*)$ /categorie/$1 [R=301,L,NC]
@@ -15,10 +24,18 @@
 	# Ancien slug sans « r » (mesure → mesurer)
 	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
 
-	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
-	RewriteCond %{HTTPS} !=on
-	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]
-	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
+	# Typo dans l'URL (enfants au pluriel au lieu de enfant)
+	RewriteRule ^meilleur-robot-programmable-enfants-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+
+	# Anciens URLs WordPress vers équivalents
+	RewriteRule ^category/matatalab/tale-bot/?$ /categorie/matatalab/ [R=301,L,NC]
+	RewriteRule ^category/test/?$ /blog/ [R=301,L,NC]
+	RewriteRule ^category/activity/?$ /categorie/activite/ [R=301,L,NC]
+	RewriteRule ^category/developpement/?$ /programmation/ [R=301,L,NC]
+	RewriteRule ^privacy-policy/?$ /politique-de-confidentialite/ [R=301,L,NC]
+
+	# Sitemap legacy
+	RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
 </IfModule>
 
 # Page d’accueil des dossiers

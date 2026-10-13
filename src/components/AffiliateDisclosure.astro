@@ -1,0 +1,61 @@
+---
+interface Props {
+	variant?: 'full' | 'compact';
+}
+
+const { variant = 'full' } = Astro.props;
+---
+
+<div class:list={['affiliate-disclosure', `affiliate-disclosure--${variant}`]}>
+	{variant === 'full' ? (
+		<p>
+			<strong>Divulgation :</strong> Cet article contient des liens affiliés Amazon. En tant que
+			partenaire Amazon, ce site perçoit une commission sur les achats éligibles réalisés via ces liens,
+			sans surcoût pour vous. Ces commissions nous aident à maintenir et améliorer le contenu du site.
+		</p>
+	) : (
+		<p>
+			<strong>Liens affiliés :</strong> Ce site perçoit une commission sur les achats Amazon éligibles,
+			sans surcoût pour vous.
+		</p>
+	)}
+</div>
+
+<style>
+	.affiliate-disclosure {
+		background: color-mix(in oklab, var(--accent-warm) 8%, var(--surface-2));
+		border-left: 4px solid var(--accent-warm);
+		border-radius: 6px;
+		padding: 1rem 1.25rem;
+		margin: 1.5rem 0;
+		font-size: 0.88rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+
+	.affiliate-disclosure--compact {
+		padding: 0.75rem 1rem;
+		font-size: 0.82rem;
+	}
+
+	.affiliate-disclosure p {
+		margin: 0;
+	}
+
+	.affiliate-disclosure strong {
+		color: rgb(var(--black));
+		font-weight: 700;
+	}
+
+	@media (max-width: 640px) {
+		.affiliate-disclosure {
+			padding: 0.9rem 1rem;
+			font-size: 0.85rem;
+		}
+
+		.affiliate-disclosure--compact {
+			padding: 0.7rem 0.9rem;
+			font-size: 0.8rem;
+		}
+	}
+</style>

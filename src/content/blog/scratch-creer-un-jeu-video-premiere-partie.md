@@ -158,7 +158,7 @@ Pour compléter ce tutoriel avec des **supports papier** ou des **robots compati
 
 - [Livres Scratch programmation enfants](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfants&tag=manuso06-21)
 - [Algorithmique et jeux pour débutants](https://www.amazon.fr/s?k=algorithmique+jeu+enfant+d%C3%A9butant+livre&tag=manuso06-21)
-- [Robots éducatifs programmables Scratch](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+Scratch+programmable&tag=manuso06-21)
+- [Robots éducatifs programmables Scratch](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Commission possible pour le site via le programme Partenaires Amazon, sans surcoût pour vous.*
 

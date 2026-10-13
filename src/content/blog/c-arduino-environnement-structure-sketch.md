@@ -1,5 +1,5 @@
 ---
-title: "Arduino C — démarrer : structure d’un sketch, setup/loop, Serial (20 exercices)"
+title: "Arduino C : structure sketch, setup/loop, Serial Monitor"
 description: "Découvrir Arduino C pour la robotique : structure d’un sketch (setup/loop), compilation, téléversement, Serial, et premières bonnes pratiques. 20 exercices corrigés."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02

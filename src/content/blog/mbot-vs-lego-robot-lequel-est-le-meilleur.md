@@ -95,8 +95,8 @@ Pour un panorama des alternatives (sans écran, cartes, etc.) : [quel robot édu
 
 ## Liens Amazon (recherche affiliée)
 
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [LEGO SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
 - [LEGO SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
 - [LEGO Mindstorms Robot Inventor occasion / neuf marchands](https://www.amazon.fr/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=manuso06-21)
