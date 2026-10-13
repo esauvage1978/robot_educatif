@@ -15,6 +15,25 @@ import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
 // Build metadata synchronously at config time
 const { articleDates, thinCategories, latestDate } = buildSitemapMetadata();
 
+// URLs redirected via .htaccess (301) — exclude from sitemap
+const redirectedPaths = new Set([
+	'/activite-mbot-mesure-des-distances/',
+	'/meilleur-robot-programmable-enfants-2026/',
+	'/telecharger-mblock-5-gratuit-guide-2026/',
+	'/installer-mblock-windows-11-guide-facile/',
+	'/mblock-en-ligne-programmer-sans-installer/',
+	'/projets-mbot-classe/',
+	'/robot-par-age/',
+	'/robots-budget/',
+	'/10-projets-mbot-classe-faciles/',
+	'/meilleur-robot-programmable-2026/',
+	'/quel-acheter-enfant-5-ans-guide-achat/',
+	'/quel-acheter-enfant-10-ans-guide-achat/',
+	'/mbot-vs-mbot2-comparaison-des-robots-educatifs-for-enfants/',
+	'/activite-mbot-faire-colignoter-les-leds/',
+	'/kit-robot-arduino-enfant/',
+]);
+
 // https://astro.build/config
 // ASTRO_BASE : sous-dossier WAMP uniquement (npm run dev:wamp / build:wamp).
 // Production (robot-educatif.info) : `npm run build` force base = / (voir package.json).
@@ -27,6 +46,11 @@ export default defineConfig({
 			filter: (page) => {
 				const url = new URL(page);
 				const path = url.pathname;
+				
+				// Exclude 301 redirected pages
+				if (redirectedPaths.has(path)) {
+					return false;
+				}
 				
 				// Exclude internal pages, 404, and search
 				if (path.includes('/stats-articles-interne') || path.endsWith('/404') || path.endsWith('/recherche/')) {
