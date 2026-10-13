@@ -1,0 +1,305 @@
+---
+title: "10 projets mBot gratuits pour la classe : faciles"
+description: "10 projets mBot gratuits, progressifs et faciles pour la classe : activités mBot avec PDF à télécharger, corrigés et diagrammes inclus."
+pubDate: "2026-03-15"
+updatedDate: "2026-10-13"
+heroImage: "../../assets/mbot/mbot-hero.png"
+amazonPreset: "mbot"
+categories:
+  - "Activité mBot"
+  - "École"
+  - "mBot"
+  - "Enseignants"
+relatedLinks:
+  - title: "Idées projets mBot rapides (une heure)"
+    href: "/idees-projets-mbot-rapides-une-heure/"
+  - title: "Premier programme mBot"
+    href: "/mon-premier-programme-mbot/"
+  - title: "Activité : faire clignoter les LEDs"
+    href: "/activite-mbot-faire-clignoter-les-leds/"
+  - title: "Accessoires mBot : par où commencer"
+    href: "/accessoires-mbot-par-ou-commencer/"
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ProductBox from '../../components/ProductBox.astro';
+import { withBase } from '../../lib/siteUrl';
+
+<AffiliateDisclosure variant="compact" />
+
+<ProductBox
+  productId="mbot"
+  name="Makeblock mBot"
+  asin="B07XR98YYQ"
+  ages="8-12 ans"
+  priceRange="80-100€"
+  languages={['Scratch', 'Arduino']}
+  pros={[
+    'Facile à assembler en 15 minutes',
+    'Programmation par blocs intuitive',
+    'Compatible Scratch et Arduino',
+    'Nombreux capteurs inclus'
+  ]}
+  badge="Idéal pour la classe"
+  position={1}
+/>
+
+Vous cherchez des **activités mBot clés en main** pour votre classe ? Ce guide propose **10 projets progressifs, gratuits et testés** en situation réelle, du débutant complet (faire avancer le robot) jusqu'aux défis avec capteurs (suiveur de ligne, radar de recul).
+
+Tous les projets sont **disponibles en PDF téléchargeable** avec les corrections et diagrammes mBlock, prêts à imprimer ou à vidéoprojeter.
+
+## 📥 Télécharger les activités (PDF)
+
+<div style="margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%); border: 2px solid #81c784; border-radius: 12px; text-align: center;">
+  <h3 style="margin-top: 0; color: #2e7d32;">10 projets mBot pour la classe</h3>
+  <p style="margin-bottom: 1.5rem; color: #33691e;">Fichier PDF avec les 10 activités progressives, énoncés et corrections complètes</p>
+  <a 
+    href={withBase('/downloads/mbot/10-projets-mbot-classe.pdf')} 
+    download
+    style="display: inline-block; padding: 0.75rem 2rem; background: #43a047; color: white; text-decoration: none; font-weight: 700; border-radius: 8px; box-shadow: 0 3px 8px rgba(67,160,71,0.3); transition: transform 0.15s ease;"
+  >
+    📄 Télécharger le PDF complet (gratuit)
+  </a>
+</div>
+
+<div style="margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%); border: 2px solid #64b5f6; border-radius: 12px; text-align: center;">
+  <h3 style="margin-top: 0; color: #1565c0;">Corrigés avec diagrammes mBlock</h3>
+  <p style="margin-bottom: 1.5rem; color: #283593;">Fichier PDF avec tous les diagrammes de blocs mBlock pour chaque projet</p>
+  <a 
+    href={withBase('/downloads/mbot/corriges-diagrammes.pdf')} 
+    download
+    style="display: inline-block; padding: 0.75rem 2rem; background: #1976d2; color: white; text-decoration: none; font-weight: 700; border-radius: 8px; box-shadow: 0 3px 8px rgba(25,118,210,0.3); transition: transform 0.15s ease;"
+  >
+    📋 Télécharger les corrigés (gratuit)
+  </a>
+</div>
+
+## Pourquoi ces 10 projets ?
+
+Ces activités ont été **testées en classe** avec des élèves de **8 à 12 ans** (cycle 3 et début collège). Elles suivent une **progression pédagogique** : chaque projet introduit **une nouvelle compétence** tout en réutilisant les acquis précédents.
+
+**Matériel nécessaire** :
+- Un robot **mBot** par groupe (1 à 3 élèves)
+- Un ordinateur avec [mBlock 5 installé](/installer-mblock-5-sous-windows-10/)
+- Le câble USB fourni avec le mBot
+- Piles rechargeables (recommandé)
+
+## Les 10 projets progressifs
+
+### Projet 1 : Faire avancer le robot
+
+**Objectif** : Comprendre les blocs de base moteurs  
+**Durée** : 15-20 minutes  
+**Compétences** : Premier programme, téléversement USB
+
+Les élèves apprennent à :
+- Ouvrir mBlock et connecter le mBot
+- Utiliser les blocs « avancer » et « reculer »
+- Téléverser le programme dans le robot
+- Observer la différence entre mode « en direct » et mode « téléverser »
+
+**Variante** : Faire des carrés ou des rectangles en ajoutant les virages.
+
+### Projet 2 : Faire clignoter les LEDs
+
+**Objectif** : Maîtriser les boucles et les temporisations  
+**Durée** : 20-25 minutes  
+**Compétences** : Boucles, attendre, LEDs RGB
+
+Guide détaillé complet dans l'article [Faire clignoter les LEDs du mBot](/activite-mbot-faire-clignoter-les-leds/).
+
+Les élèves découvrent :
+- Les blocs de contrôle des LEDs RGB
+- La notion de boucle infinie
+- Les temporisations avec « attendre »
+- Les couleurs personnalisées
+
+**Défi** : Créer un feu tricolore avec les bonnes durées.
+
+### Projet 3 : Avancer puis s'arrêter
+
+**Objectif** : Séquencer des actions dans le temps  
+**Durée** : 15-20 minutes  
+**Compétences** : Séquences, arrêt des moteurs
+
+Programme simple mais essentiel :
+1. Avancer pendant 2 secondes
+2. S'arrêter
+3. Reculer pendant 1 seconde
+4. S'arrêter
+
+**Piège pédagogique** : Beaucoup d'élèves oublient le bloc « arrêter les moteurs » et le robot continue indéfiniment.
+
+### Projet 4 : Parcours chronométré
+
+**Objectif** : Régler la vitesse et le temps pour atteindre une cible  
+**Durée** : 30-40 minutes  
+**Compétences** : Vitesse des moteurs, mesures, précision
+
+Vous tracez au sol une ligne d'arrivée à 1 mètre. Les élèves doivent :
+- Programmer le mBot pour qu'il s'arrête pile sur la ligne
+- Tester différentes vitesses et durées
+- Noter leurs résultats dans un tableau
+
+**Apprentissage** : Lien entre physique et programmation, notion d'essai-erreur.
+
+### Projet 5 : Détection d'obstacle basique
+
+**Objectif** : Découvrir le capteur ultrason  
+**Durée** : 25-30 minutes  
+**Compétences** : Capteur de distance, condition SI
+
+Premier programme avec capteur :
+```
+Répéter indéfiniment
+  SI distance < 20 cm ALORS
+    arrêter moteurs
+    jouer un son
+  SINON
+    avancer
+```
+
+Article complet : [Mesurer des distances avec le capteur ultrason](/activite-mbot-mesurer-des-distances/).
+
+### Projet 6 : Radar de recul
+
+**Objectif** : Utiliser les conditions pour adapter le comportement  
+**Durée** : 30-35 minutes  
+**Compétences** : Conditions multiples, LEDs comme indicateur
+
+Programme inspiré des voitures :
+- Distance > 30 cm : LEDs vertes, avancer
+- Distance entre 15 et 30 cm : LEDs oranges, ralentir
+- Distance < 15 cm : LEDs rouges, arrêter et biper
+
+Voir la série complète : [Capteur ultrason mBot - radar de recul](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/).
+
+### Projet 7 : Évitement d'obstacle intelligent
+
+**Objectif** : Créer un comportement autonome  
+**Durée** : 35-40 minutes  
+**Compétences** : Logique, enchaînement d'actions
+
+Le robot doit :
+1. Avancer en surveillant la distance
+2. Si obstacle détecté : s'arrêter
+3. Reculer un peu
+4. Tourner à droite
+5. Reprendre l'avancée
+
+**Défi avancé** : Ajouter un virage aléatoire (gauche ou droite) pour varier les trajets.
+
+### Projet 8 : Suiveur de ligne basique
+
+**Objectif** : Comprendre le capteur de ligne  
+**Durée** : 35-45 minutes  
+**Compétences** : Capteur de suivi de ligne, corrections en temps réel
+
+Programme de base :
+```
+Répéter indéfiniment
+  SI capteur gauche sur noir ET capteur droit sur blanc
+    tourner à gauche
+  SINON SI capteur droit sur noir ET capteur gauche sur blanc
+    tourner à droite
+  SINON (les deux sur noir ou blanc)
+    avancer tout droit
+```
+
+**Matériel supplémentaire** : Ruban adhésif noir sur fond blanc (ou imprimez une piste).
+
+### Projet 9 : Afficher un message qui défile
+
+**Objectif** : Utiliser l'écran de la matrice LED (si équipé)  
+**Durée** : 20-25 minutes  
+**Compétences** : Affichage, texte défilant
+
+Les élèves programment le mBot pour :
+- Afficher « BONJOUR » qui défile
+- Afficher la distance mesurée en temps réel
+- Créer des animations simples (cœur, smiley)
+
+**Remarque** : Nécessite un mBot avec matrice LED (ou panneau additionnel).
+
+### Projet 10 : Détecteur d'intrusion
+
+**Objectif** : Projet final combinant plusieurs capteurs  
+**Durée** : 45-60 minutes  
+**Compétences** : Intégration, capteurs multiples, boucles, sons
+
+Le robot reste immobile et surveille :
+- Si quelqu'un passe devant (capteur ultrason < 20 cm)
+- Déclencher une alarme (son + LEDs rouges clignotantes)
+- Afficher « ALERTE » sur la matrice
+- Envoyer une notification (si connecté en Bluetooth)
+
+Article complet : [Détecteur d'intrusion avec mBot](/activite-mbot-detecteur-dintrusion/).
+
+## Conseils pour la classe
+
+### Organisation des séances
+
+- **Groupes de 2-3 élèves** par robot (favorise l'entraide)
+- Commencez **toujours par une démonstration** rapide
+- Laissez **10 minutes de test libre** après chaque projet
+- Prévoyez des **défis bonus** pour les plus rapides
+
+### Gestion des erreurs courantes
+
+| Erreur | Solution |
+|--------|----------|
+| Le robot ne réagit pas | Vérifier le mode (direct vs téléverser) |
+| Les moteurs tournent à l'envers | Inverser les paramètres gauche/droite |
+| Le capteur ne fonctionne pas | Vérifier le branchement et la calibration |
+| Le programme ne se téléverse pas | Redémarrer le robot et mBlock |
+
+### Évaluation
+
+Plutôt qu'une note, privilégiez :
+- Un **carnet de bord** où les élèves notent leurs découvertes
+- Des **photos ou vidéos** des robots en action
+- Une **présentation finale** d'un projet personnalisé
+
+## Aller plus loin après les 10 projets
+
+Une fois ces bases maîtrisées, proposez :
+
+1. **Projets libres** : Les élèves choisissent leur défi (robot nettoyeur, livreur, danseur...)
+2. **Compétitions** : Course de vitesse, labyrinthe, précision
+3. **Extensions** : [Accessoires mBot](/accessoires-mbot-par-ou-commencer/) (bras, capteurs additionnels)
+4. **Programmation avancée** : Transition vers [Arduino C](/programmation/arduino-c/) pour les plus motivés
+
+## FAQ - 10 projets mBot classe
+
+### Combien de temps prévoir pour les 10 projets ?
+
+Entre **4 et 6 séances de 45 minutes**, selon le niveau des élèves et le temps de prise en main. Comptez au moins **2 séances pour les 3 premiers projets** (installation, premiers programmes).
+
+### Faut-il un mBot par élève ?
+
+Non, **1 mBot pour 2 à 3 élèves** est idéal. Cela favorise la collaboration et réduit les coûts. Pour une classe de 24 élèves, **8 robots** suffisent.
+
+### Puis-je adapter ces projets pour des élèves de 6-7 ans ?
+
+Les projets 1 à 3 sont accessibles dès 6-7 ans avec un accompagnement fort. Pour les plus jeunes, privilégiez des robots **sans écran** comme le [Tale-Bot](/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants/).
+
+### Les PDF sont-ils vraiment gratuits ?
+
+Oui, **100% gratuits**. Vous pouvez les télécharger, les imprimer et les partager librement dans un cadre pédagogique. Pas d'inscription requise.
+
+### Que faire si je n'ai qu'un seul mBot pour toute la classe ?
+
+Organisez des **rotations** : pendant qu'un groupe programme le mBot, les autres travaillent sur :
+- La conception du programme **sur papier**
+- Des défis **Scratch** sur ordinateur (logique similaire)
+- La rédaction du **cahier de bord**
+
+### Ces activités fonctionnent-elles avec le mBot2 ?
+
+Oui, tous ces projets sont **compatibles mBot et mBot2**. Le mBot2 offre même des capteurs supplémentaires qui peuvent enrichir les projets 5 à 10. Voir [mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
+
+---
+
+**En résumé** : Ces **10 projets mBot gratuits** offrent une **progression pédagogique complète** pour découvrir la robotique en classe. Du simple déplacement aux capteurs intelligents, chaque activité construit les fondations nécessaires à des projets plus ambitieux.
+
+**Téléchargez les PDF** et lancez-vous dès la prochaine séance !

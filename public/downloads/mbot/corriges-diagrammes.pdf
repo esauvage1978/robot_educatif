@@ -1,0 +1,173 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 4 0 R
+/F2 5 0 R
+>>
+>>
+/MediaBox [0 0 595 842]
+/Contents 6 0 R
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+6 0 obj
+<<
+/Length 3500
+>>
+stream
+BT
+/F1 24 Tf
+50 792 Td
+(CORRIGES - DIAGRAMMES mBlock) Tj
+0 -30 Td
+/F2 12 Tf
+(Solutions detaillees pour les 10 projets mBot classe) Tj
+
+0 -40 Td
+/F1 14 Tf
+(PROJET 1 - FAIRE AVANCER LE ROBOT) Tj
+0 -20 Td
+/F2 10 Tf
+(Blocs a utiliser :) Tj
+0 -15 Td
+(1. "Quand drapeau vert clique") Tj
+0 -12 Td
+(2. "Avancer a la vitesse 100") Tj
+0 -12 Td
+(3. "Attendre 2 secondes") Tj
+0 -12 Td
+(4. "Arreter les moteurs") Tj
+0 -20 Td
+(Explication : Le robot avance pendant 2 secondes puis s'arrete.) Tj
+0 -12 Td
+(Variante : Remplacer 2 secondes par 3 ou 4 pour aller plus loin.) Tj
+
+0 -30 Td
+/F1 14 Tf
+(PROJET 2 - FAIRE CLIGNOTER LES LEDs) Tj
+0 -20 Td
+/F2 10 Tf
+(Blocs a utiliser :) Tj
+0 -15 Td
+(1. "Quand drapeau vert clique") Tj
+0 -12 Td
+(2. "Repeter indefiniment") Tj
+0 -12 Td
+(   - "Allumer les LEDs en rouge") Tj
+0 -12 Td
+(   - "Attendre 1 seconde") Tj
+0 -12 Td
+(   - "Eteindre toutes les LEDs") Tj
+0 -12 Td
+(   - "Attendre 1 seconde") Tj
+0 -20 Td
+(Explication : Boucle infinie qui alterne rouge ON/OFF chaque seconde.) Tj
+
+0 -30 Td
+/F1 14 Tf
+(PROJET 3 - AVANCER PUIS S'ARRETER) Tj
+0 -20 Td
+/F2 10 Tf
+(Blocs a utiliser :) Tj
+0 -15 Td
+(1. "Quand drapeau vert clique") Tj
+0 -12 Td
+(2. "Avancer a la vitesse 100") Tj
+0 -12 Td
+(3. "Attendre 2 secondes") Tj
+0 -12 Td
+(4. "Arreter les moteurs") Tj
+0 -12 Td
+(5. "Reculer a la vitesse 100") Tj
+0 -12 Td
+(6. "Attendre 1 seconde") Tj
+0 -12 Td
+(7. "Arreter les moteurs") Tj
+0 -20 Td
+(Piege courant : Oublier d'arreter les moteurs entre avancer et reculer.) Tj
+
+0 -30 Td
+/F1 14 Tf
+(PROJET 4 - PARCOURS CHRONOME) Tj
+0 -20 Td
+/F2 10 Tf
+(Solution indicative pour 1 metre :) Tj
+0 -15 Td
+(1. "Avancer a la vitesse 100") Tj
+0 -12 Td
+(2. "Attendre 4 secondes" \(a ajuster selon le sol\)) Tj
+0 -12 Td
+(3. "Arreter les moteurs") Tj
+0 -20 Td
+(Conseil : Creer un tableau avec vitesse / duree / distance parcourue.) Tj
+
+0 -30 Td
+/F1 14 Tf
+(PROJET 5 - DETECTION D'OBSTACLE BASIQUE) Tj
+0 -20 Td
+/F2 10 Tf
+(Blocs a utiliser :) Tj
+0 -15 Td
+(1. "Quand drapeau vert clique") Tj
+0 -12 Td
+(2. "Repeter indefiniment") Tj
+0 -12 Td
+(   - "SI distance ultrason < 20") Tj
+0 -12 Td
+(     ALORS "Arreter moteurs" + "Jouer note DO") Tj
+0 -12 Td
+(   - "SINON Avancer a vitesse 80") Tj
+0 -20 Td
+(Attention : Bien placer le capteur ultrason vers l'avant.) Tj
+
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f
+0000000015 00000 n
+0000000068 00000 n
+0000000125 00000 n
+0000000265 00000 n
+0000000347 00000 n
+0000000425 00000 n
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+3979
+%%EOF

@@ -36,6 +36,41 @@
 
 	# Sitemap legacy
 	RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
+
+	# Guides mBlock : consolider vers page principale installation
+	RewriteRule ^telecharger-mblock-5-gratuit-guide-2026/?$ /installer-mblock-5-sous-windows-10/ [R=301,L,NC]
+	RewriteRule ^installer-mblock-windows-11-guide-facile/?$ /installer-mblock-5-sous-windows-10/ [R=301,L,NC]
+	
+	# Guide mBlock en ligne vers page dédiée logiciel
+	RewriteRule ^mblock-en-ligne-programmer-sans-installer/?$ /logiciel-mblock-makeblock-mbot-quel-choisir/ [R=301,L,NC]
+	
+	# Projets mBot classe : rediriger vers la nouvelle page avec PDF
+	RewriteRule ^projets-mbot-classe/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+	
+	# Guides par âge consolidés
+	RewriteRule ^robot-par-age/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+	
+	# Guide budget vers page existante
+	RewriteRule ^robots-budget/?$ /robot-moins-de-100-euros/ [R=301,L,NC]
+	
+	# Corrections de typos communes : 10-projets-mbot (sans "gratuits")
+	RewriteRule ^10-projets-mbot-classe-faciles/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+	
+	# Typo : meilleur-robot-programmable sans "enfant"
+	RewriteRule ^meilleur-robot-programmable-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+	
+	# Typos guides par âge : quel-acheter au lieu de quel-robot-acheter
+	RewriteRule ^quel-acheter-enfant-5-ans-guide-achat/?$ /quel-robot-acheter-enfant-5-ans-guide-achat/ [R=301,L,NC]
+	RewriteRule ^quel-acheter-enfant-10-ans-guide-achat/?$ /quel-robot-acheter-enfant-10-ans-guide-achat/ [R=301,L,NC]
+	
+	# Typo : mbot2 avec "for-enfants" au lieu de "pour-enfants"
+	RewriteRule ^mbot-vs-mbot2-comparaison-des-robots-educatifs-for-enfants/?$ /mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/ [R=301,L,NC]
+	
+	# Typo : activité clignoter
+	RewriteRule ^activite-mbot-faire-colignoter-les-leds/?$ /activite-mbot-faire-clignoter-les-leds/ [R=301,L,NC]
+	
+	# Arduino : rediriger ancienne page vers nouveau guide complet
+	RewriteRule ^kit-robot-arduino-enfant/?$ /meilleur-robot-educatif-arduino-kit-choisir/ [R=301,L,NC]
 </IfModule>
 
 # Page d’accueil des dossiers

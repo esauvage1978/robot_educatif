@@ -23,7 +23,7 @@ const topCategories = topCategoriesByCount(allPosts, 15);
 
 /** Meta accueil : couvre les intentions Search Console (mBlock, mBot, robot éducatif) sans keyword stuffing. */
 const HOME_DESCRIPTION =
-	'Guides mBlock 5 et mBot : télécharger, installer, programmer (Scratch/Python). Comparatifs robots, tutoriels et activités pour débuter en robotique éducative.';
+	'Robots éducatifs pour enfants, ados et écoles : guides d\'achat par âge, comparatifs mBot/LEGO, tutoriels mBlock, Scratch et Python.';
 
 /** FAQ visible + JSON-LD (questions formulées comme des recherches réelles). */
 const FAQ_ITEMS: { q: string; aHtml: string; aPlain: string }[] = [
@@ -514,15 +514,11 @@ const faqJsonLd = {
 						robotique avec du matériel adapté aux collégiens, lycéens et autodidactes motivés.
 					</p>
 					<div class="hero-actions">
-						<Button href={withBase('/blog/')} variant="primary" tone="inverse">
-							Articles à la une
+						<Button href={withBase('/meilleur-robot-programmable-enfant-2026/')} variant="primary" tone="inverse">
+							Guide par âge
 						</Button>
-						<Button
-							href={withBase('/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/')}
-							variant="secondary"
-							tone="inverse"
-						>
-							Focus mBot2
+						<Button href={withBase('/10-projets-mbot-gratuits-classe-faciles/')} variant="secondary" tone="inverse">
+							10 projets mBot classe
 						</Button>
 					</div>
 				</div>

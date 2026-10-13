@@ -1,8 +1,8 @@
 ---
-title: "Raspberry Pi 3 vs 4 vs 5 : lequel acheter en 2026 ? Notre verdict"
-description: "Comparatif Pi 3/4/5 : performances, prix, USB 3.0, RAM. Notre verdict 2026 : Pi 5 8GB = meilleur choix futur-proof. Tableau détaillé + conseils."
+title: "Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter en 2026 ?"
+description: "Comparatif Raspberry Pi 3 vs 4 vs 5 : performances, prix, RAM. Tableau détaillé, verdict 2026 et FAQ pour choisir le bon modèle."
 pubDate: "2026-03-30"
-updatedDate: "2026-10-12"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-raspberry.png"
 amazonPreset: raspberry
 categories:

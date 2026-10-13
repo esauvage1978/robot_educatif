@@ -1,8 +1,8 @@
 ---
-title: "mBlock en ligne (ide.mblock.cc) ou application : quel logiciel choisir ?"
-description: "mBlock en ligne vs app bureau vs Python : comparatif complet pour mBot, mBot2, CyberPi. Notre conseil : app bureau pour robots réels, web pour tests."
+title: "mBlock en ligne (ide.mblock.cc) : accès, Web vs appli"
+description: "mBlock en ligne sur ide.mblock.cc : accès gratuit, différences avec l'application bureau, connexion mBot depuis navigateur avec mLink."
 pubDate: "2026-03-30"
-updatedDate: "2026-10-12"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 amazonPreset: mbot
 categories:
