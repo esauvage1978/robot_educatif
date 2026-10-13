@@ -1,5 +1,5 @@
 ---
-title: "mBlock et Bluetooth : erreurs fréquentes et dépannage (mBot, mBot2…)"
+title: "mBlock Bluetooth : mBot ne se connecte pas ? Solutions"
 description: "Réparer les connexions Bluetooth entre mBlock et un robot Makeblock : pilotes, appairage, portée, versions logicielles. Schéma de dépannage et liens installation Amazon."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
