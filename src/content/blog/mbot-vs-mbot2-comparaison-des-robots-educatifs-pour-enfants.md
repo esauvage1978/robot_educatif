@@ -1,8 +1,8 @@
 ---
-title: "mbot vs mbot2 : Comparaison des robots éducatifs pour enfants"
-description: "mBot vs mBot 2 : comparatif prix, fonctions, capteurs, CyberPi. Aide au choix selon âge, budget et objectifs pédagogiques."
+title: "mBot vs mBot2 : différences, prix et lequel choisir ?"
+description: "mBot vs mBot2 : tableau comparatif, différences prix, CyberPi, Python. Lequel choisir en 2026 selon l'âge et budget ?"
 pubDate: "2023-04-09"
-updatedDate: "2026-03-29"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
 amazonPreset: mbotVs
 categories:

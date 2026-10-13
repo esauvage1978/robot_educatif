@@ -1,9 +1,9 @@
 ---
-title: "Activité mBot : faire clignoter les leds"
+title: "Programme mBot : faire clignoter les LED (mBlock)"
 description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS au travers de 3 activités. 2 simples et une un peu plus complexe."
 pubDate: "2020-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2020-04-21"
+updatedDate: "2026-10-13"
 amazonPreset: mbot
 categories:
   - "Activité"

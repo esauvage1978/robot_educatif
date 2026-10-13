@@ -1,8 +1,8 @@
 ---
-title: "Accessoires mBot : par quoi commencer (capteurs, packs, pièces) ?"
-description: "Prioriser les accessoires mBot Makeblock : capteurs utiles, packs officiels, pièces de rechange et erreurs à éviter. Schéma de priorisation, tutoriels du site et recherches Amazon."
+title: "Accessoires mBot : capteurs, packs et pièces à acheter"
+description: "Quels accessoires mBot acheter ? Capteurs, extensions, packs mBuild, pièces détachées. Guide composants 2026."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:

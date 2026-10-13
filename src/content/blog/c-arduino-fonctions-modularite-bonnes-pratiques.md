@@ -1,8 +1,8 @@
 ---
-title: "Arduino C : fonctions et bonnes pratiques (DRY, portée)"
+title: "Fonction Arduino : créer et appeler des fonctions en C"
 description: "Découper un programme robotique en fonctions, comprendre la portée, éviter les variables globales inutiles, appliquer DRY, et écrire du code lisible. 20 exercices corrigés."
 pubDate: 2026-04-02
-updatedDate: 2026-04-02
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: "Arduino C"
 seriesOrder: 5
