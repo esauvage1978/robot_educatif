@@ -31,7 +31,7 @@ Dans l’ensemble, le robot mBot est un outil éducatif polyvalent, fiable et fa
 
 ## 1\. Assemblage du mBot
 
-![Liste des pièces détachés du robot éducatif mBlot](https://robot-educatif.info/wp-content/uploads/2020/04/contenu.jpg)
+*[Liste des pièces détachés du robot éducatif mBlot - illustration indisponible]*
 
 Liste des pièces détachés
 

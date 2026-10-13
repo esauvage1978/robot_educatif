@@ -19,7 +19,7 @@ Vous trouverez une description du Tale-bot dans [cet article](/le-robot-tale-bot
 
 Le robot Tale-bot est livré avec une planche recto / verso qui vous permettra de choisir entre 11 langues différentes.
 
-![Planche de langue du Tale-bot](https://robot-educatif.info/wp-content/uploads/2023/04/1-300x260.png)
+*[Planche de langue du Tale-bot - illustration indisponible]*
 
 Planche de choix de langue
 
@@ -42,7 +42,7 @@ En date du 1 mai 2023, la procédure ne fonctionne pas sur Android. Je suis en c
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[![Boutique en ligne de Matatalab](https://robot-educatif.info/wp-content/uploads/2023/05/Tale-BotPro1_720x-1-300x300.webp)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
 
 Boutique en ligne de Matatalab Tale-bot pro
 

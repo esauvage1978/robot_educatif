@@ -25,7 +25,7 @@ Le robot [Tale-bot de chez Matatalab](/le-robot-tale-bot-de-chez-matatalab-un-ou
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[![Boutique en ligne de Matatalab](https://robot-educatif.info/wp-content/uploads/2023/05/Tale-BotPro1_720x-1-300x300.webp)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
 
 Boutique en ligne de Matatalab Tale-bot pro
 
@@ -37,7 +37,7 @@ Le Matatalab Pro est un robot programmable plus avancé destiné **aux enfants d
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-![Matatalab pro set](https://robot-educatif.info/wp-content/uploads/2023/05/8_2048x-300x300.webp)
+*[Matatalab pro set - illustration indisponible]*
 
 Boutique en ligne pour acheter le Matatalab Pro Set
 

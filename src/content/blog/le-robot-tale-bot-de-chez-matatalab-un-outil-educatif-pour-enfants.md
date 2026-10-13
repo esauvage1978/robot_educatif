@@ -16,7 +16,7 @@ Le robot Tale-bot de chez Matatalab est un outil pédagogique innovant qui perme
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[![Boutique en ligne de Matatalab](https://robot-educatif.info/wp-content/uploads/2023/05/Tale-BotPro1_720x-1-300x300.webp)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
 
 Boutique en ligne de Matatalab Tale-bot pro
 
@@ -26,7 +26,7 @@ ou sur Amazon : [Tale-Bot Pro sur Amazon](https://amzn.to/40SsLB5?tag=manuso06-2
 
 Le robot [Tale-bot](https://amzn.to/41Qfjiy?tag=manuso06-21) est un petit robot programmable doté d’un capteur optique, d’un haut-parleur, de lumières LED et de deux moteurs qui lui permettent de se déplacer et de tourner. Toutes les commandes se trouvent sur le robot, il n’y a donc aucun écran, ce qui le rend particulièrement adapté aux jeunes enfants.
 
-![Tale-bot](https://robot-educatif.info/wp-content/uploads/2023/05/TBPimage_720x-300x300.webp)
+*[Tale-bot - illustration indisponible]*
 
 ## Comment fonctionne le robot Tale-bot ?
 

@@ -44,7 +44,22 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 
 // URL de la page pour Pinterest
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const pinterestMediaUrl = articleSlug ? new URL(`/pinterest/${articleSlug}-1.jpg`, Astro.site).toString() : '';
+
+// Vérifier si l'image Pinterest existe avant de l'afficher
+let pinterestMediaUrl = '';
+if (articleSlug) {
+	try {
+		const pinterestImagePath = `/pinterest/${articleSlug}-1.jpg`;
+		const fs = await import('node:fs');
+		const path = await import('node:path');
+		const publicPath = path.join(process.cwd(), 'public', pinterestImagePath);
+		if (fs.existsSync(publicPath)) {
+			pinterestMediaUrl = new URL(pinterestImagePath, Astro.site).toString();
+		}
+	} catch (e) {
+		// Image Pinterest non disponible, on n'affiche pas
+	}
+}
 
 // Détection automatique du TutorialProductBox selon les catégories
 const categoryLower = categories.map(c => c.toLowerCase());
