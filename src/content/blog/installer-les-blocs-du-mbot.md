@@ -19,7 +19,7 @@ relatedLinks:
     href: "/mon-premier-programme-mbot/"
 ---
 
-Pour programmer le [robot éducatif mBot](https://amzn.to/34eEFtr?tag=manuso06-21) dans **mBlock 5**, il faut d’abord **charger les blocs spécifiques** au mBot : ce sont les blocs **orange** (moteurs, capteurs, buzzer, LED…). Sans cette étape, vous ne verrez que les blocs Scratch « classiques » et pas les commandes pour le robot.
+Pour programmer le [robot éducatif mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) dans **mBlock 5**, il faut d’abord **charger les blocs spécifiques** au mBot : ce sont les blocs **orange** (moteurs, capteurs, buzzer, LED…). Sans cette étape, vous ne verrez que les blocs Scratch « classiques » et pas les commandes pour le robot.
 
 Cette procédure est rapide : elle consiste à **déclarer le mBot comme appareil** dans la bibliothèque Makeblock, puis à valider. L’interface mBlock peut varier légèrement selon la version (5.x, langue, thème), mais le principe reste le même.
 

@@ -46,4 +46,4 @@ Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://amzn.to/40SsLB5?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)

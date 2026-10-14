@@ -11,7 +11,7 @@ categories:
   - "Makeblock"
   - "À partir de 8 ans"
 ---
-le [mBot](https://amzn.to/3eAmt2m?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
+le [mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
 
 ## Matériel et logiciel
 

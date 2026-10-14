@@ -26,7 +26,7 @@ relatedLinks:
 
 Cette activité en **deux temps** guide pour :
 
-1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://amzn.to/3avo9qi?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
+1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
 2. **Afficher cette distance sur la matrice LED** du robot en **mode autonome** (sans câble), en gérant le passage **nombre → texte**.
 
 Les libellés exacts des blocs peuvent varier selon la **version de mBlock** et la **langue** de l’interface ; l’**enchaînement logique** reste le même.

@@ -20,11 +20,11 @@ Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://amzn.to/40SsLB5?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)
 
 ## Qu’est-ce que le robot Tale-bot ?
 
-Le robot [Tale-bot](https://amzn.to/41Qfjiy?tag=manuso06-21) est un petit robot programmable doté d’un capteur optique, d’un haut-parleur, de lumières LED et de deux moteurs qui lui permettent de se déplacer et de tourner. Toutes les commandes se trouvent sur le robot, il n’y a donc aucun écran, ce qui le rend particulièrement adapté aux jeunes enfants.
+Le robot [Tale-bot](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21) est un petit robot programmable doté d’un capteur optique, d’un haut-parleur, de lumières LED et de deux moteurs qui lui permettent de se déplacer et de tourner. Toutes les commandes se trouvent sur le robot, il n’y a donc aucun écran, ce qui le rend particulièrement adapté aux jeunes enfants.
 
 *[Tale-bot - illustration indisponible]*
 
