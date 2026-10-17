@@ -46,12 +46,13 @@ export function generateProductSvg(productName: string, width: number = 250, hei
 		.join(' ')
 		.trim();
 	
-	// Scale font sizes proportionally (14px at 250px = 5.6% base)
-	const baseFontPercent = 0.056; // 14px at 250px
-	const fontSize = Math.max(Math.round(width * baseFontPercent), 11);
+	// Scale font sizes proportionally (18px at 250px = 7.2% base)
+	const baseFontPercent = 0.072; // 18px at 250px
+	const fontSize = Math.max(Math.round(width * baseFontPercent), 12);
 	const iconSize = width * 0.35;
 	const circleRadius = width * 0.28;
 	const textY = height * 0.78; // Position text lower to avoid cutting
+	const headCenterX = iconSize * 0.5; // Center of head in local coordinates
 	
 	// Robot icon SVG (vectoriel, teal head + orange antenna)
 	const robotIcon = iconType === 'robot' ? `
@@ -59,8 +60,8 @@ export function generateProductSvg(productName: string, width: number = 250, hei
 			<!-- Head -->
 			<rect x="${iconSize * 0.15}" y="${iconSize * 0.2}" width="${iconSize * 0.7}" height="${iconSize * 0.6}" rx="${iconSize * 0.1}" fill="${categoryColor}"/>
 			<!-- Antenna -->
-			<line x1="${width/2}" y1="${iconSize * 0.1}" x2="${width/2}" y2="${iconSize * 0.2}" stroke="#F97316" stroke-width="${iconSize * 0.06}" stroke-linecap="round"/>
-			<circle cx="${width/2}" cy="${iconSize * 0.08}" r="${iconSize * 0.08}" fill="#F97316"/>
+			<line x1="${headCenterX}" y1="${iconSize * 0.1}" x2="${headCenterX}" y2="${iconSize * 0.2}" stroke="#F97316" stroke-width="${iconSize * 0.06}" stroke-linecap="round"/>
+			<circle cx="${headCenterX}" cy="${iconSize * 0.08}" r="${iconSize * 0.08}" fill="#F97316"/>
 			<!-- Eyes -->
 			<circle cx="${iconSize * 0.35}" cy="${iconSize * 0.45}" r="${iconSize * 0.08}" fill="white"/>
 			<circle cx="${iconSize * 0.65}" cy="${iconSize * 0.45}" r="${iconSize * 0.08}" fill="white"/>
