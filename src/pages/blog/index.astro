@@ -10,7 +10,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { articleSlugFromId } from '../../lib/articleSlug';
 import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
-import { resolveArticleThumbnail, generateArticleThumbnail } from '../../lib/articleThumbnail';
+import { resolveArticleThumbnail, getGeneratedThumbnailPath } from '../../lib/articleThumbnail';
 import { isProgrammingSeriesArticle } from '../../lib/blogScope';
 import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
 import { withBase } from '../../lib/siteUrl';
@@ -139,20 +139,23 @@ const topCategories = topCategoriesByCount(posts, 15);
 			.posts-list li:first-child .post-categories {
 				justify-content: center;
 			}
-			.post-categories a {
-				display: inline-block;
-				padding: 0.15rem 0.45rem;
-				font-size: 0.72rem;
-				font-weight: 600;
-				text-decoration: none;
-				color: var(--accent);
-				background: color-mix(in oklab, var(--accent) 10%, transparent);
-				border-radius: 999px;
-				border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
-			}
-			.post-categories a:hover {
-				background: color-mix(in oklab, var(--accent) 18%, transparent);
-			}
+		.post-categories a {
+			display: inline-block;
+			padding: 0.15rem 0.45rem;
+			font-size: 0.72rem;
+			font-weight: 600;
+			text-decoration: none;
+			color: var(--accent);
+			background: color-mix(in oklab, var(--accent) 10%, transparent);
+			border-radius: 999px;
+			border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
+		}
+		html:not([data-theme='light']) .post-categories a {
+			color: #5EEAD4;
+		}
+		.post-categories a:hover {
+			background: color-mix(in oklab, var(--accent) 18%, transparent);
+		}
 			.posts-list li a:hover h4,
 			.posts-list li a:hover .date {
 				color: rgb(var(--accent));
@@ -212,13 +215,12 @@ const topCategories = topCategoriesByCount(posts, 15);
 							<a href={withBase('/categorie/')} style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.
 						</p>
 					</section>
-					<section>
-						<ul class="posts-list">
-					{
-							posts.map((post) => {
-								const heroImage = resolveHeroImage(post.data.heroImage);
-								const thumbnail = resolveArticleThumbnail(post, heroImage);
-								return (
+				<section>
+					<ul class="posts-list">
+						{posts.map((post) => {
+							const heroImage = resolveHeroImage(post.data.heroImage);
+							const thumbnail = resolveArticleThumbnail(post, heroImage);
+							return (
 								<li>
 									<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
 										{thumbnail.type === 'image' && (
@@ -236,7 +238,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 										)}
 										{thumbnail.type === 'generated' && (
 											<img
-												src={generateArticleThumbnail(post)}
+												src={withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')))}
 												alt={post.data.title}
 												width="720"
 												height="360"
@@ -264,11 +266,10 @@ const topCategories = topCategoriesByCount(posts, 15);
 										) : null}
 									</a>
 								</li>
-								);
-							})
-						}
-						</ul>
-					</section>
+							);
+						})}
+					</ul>
+				</section>
 				</div>
 				<Sidebar topCategories={topCategories} />
 			</div>

@@ -1,9 +1,13 @@
 /**
  * Génère une vignette 1200×630 unique par article
  * Utilisée pour cartes blog et og:image
+ * - Retour à la ligne propre (mots entiers)
+ * - Taille adaptative
+ * - Vraie catégorie + photo produit quand disponible
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
+import sharp from 'sharp';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -11,6 +15,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDir = path.join(__dirname, '../src/content/blog');
 const outputDir = path.join(__dirname, '../public/images/blog-thumbnails');
+const productsDir = path.join(__dirname, '../public/images/products');
 const fontPath = path.join(__dirname, './fonts/Roboto-Bold.ttf');
 
 const COLORS = {
@@ -28,18 +33,61 @@ async function extractFrontmatter(filePath) {
 	const frontmatter = match[1];
 	const titleMatch = frontmatter.match(/title:\s*["'](.+?)["']/);
 	const categoriesMatch = frontmatter.match(/categories:\s*\[([^\]]+)\]/);
+	const productMatch = frontmatter.match(/heroImage:\s*['"]*.*?\/products\/([a-z0-9-]+)\.webp/);
 	
 	return {
 		title: titleMatch ? titleMatch[1] : 'Article',
-		category: categoriesMatch ? categoriesMatch[1].split(',')[0].trim().replace(/["']/g, '') : 'Guide'
+		category: categoriesMatch ? categoriesMatch[1].split(',')[0].trim().replace(/["']/g, '') : 'Guide',
+		productSlug: productMatch ? productMatch[1] : null
 	};
 }
 
-async function generateThumbnail(slug, title, category) {
+function wrapText(text, maxCharsPerLine = 38) {
+	const words = text.split(' ');
+	const lines = [];
+	let currentLine = '';
+	
+	for (const word of words) {
+		const testLine = currentLine ? `${currentLine} ${word}` : word;
+		if (testLine.length <= maxCharsPerLine) {
+			currentLine = testLine;
+		} else {
+			if (currentLine) lines.push(currentLine);
+			currentLine = word;
+		}
+	}
+	if (currentLine) lines.push(currentLine);
+	return lines.slice(0, 3); // Max 3 lignes
+}
+
+function calculateFontSize(titleLength) {
+	if (titleLength < 30) return 58;
+	if (titleLength < 50) return 52;
+	if (titleLength < 70) return 46;
+	return 42;
+}
+
+async function generateThumbnail(slug, title, category, productSlug) {
 	const fontBuffer = await fs.readFile(fontPath);
 	
-	// Truncate title if too long
-	const displayTitle = title.length > 70 ? title.substring(0, 67) + '...' : title;
+	// Retour à la ligne propre sur mots entiers
+	const titleLines = wrapText(title, 38);
+	const fontSize = calculateFontSize(title.length);
+	
+	// Charger la photo produit si disponible
+	let productImageDataUrl = null;
+	if (productSlug) {
+		const productImagePath = path.join(productsDir, `${productSlug}.webp`);
+		try {
+			const productBuffer = await sharp(productImagePath)
+				.resize(320, 320, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })
+				.png()
+				.toBuffer();
+			productImageDataUrl = `data:image/png;base64,${productBuffer.toString('base64')}`;
+		} catch (err) {
+			// Photo produit non disponible
+		}
+	}
 	
 	const svg = await satori(
 		{
@@ -49,88 +97,134 @@ async function generateThumbnail(slug, title, category) {
 					width: '100%',
 					height: '100%',
 					display: 'flex',
-					flexDirection: 'column',
 					backgroundColor: COLORS.darkBg,
-					padding: '60px',
-					justifyContent: 'space-between'
+					padding: 0
 				},
 				children: [
-					// Category badge
+					// Zone texte (gauche)
 					{
 						type: 'div',
 						props: {
 							style: {
+								width: productImageDataUrl ? '800px' : '100%',
+								height: '100%',
 								display: 'flex',
-								marginBottom: '30px'
-							},
-							children: {
-								type: 'div',
-								props: {
-									style: {
-										backgroundColor: COLORS.orangeAccent,
-										color: COLORS.white,
-										padding: '12px 24px',
-										borderRadius: '8px',
-										fontSize: '28px',
-										fontWeight: 800
-									},
-									children: category
-								}
-							}
-						}
-					},
-					// Title
-					{
-						type: 'div',
-						props: {
-							style: {
-								fontSize: '54px',
-								fontWeight: 800,
-								color: COLORS.white,
-								lineHeight: 1.15,
-								flex: 1,
-								display: 'flex',
-								alignItems: 'center'
-							},
-							children: displayTitle
-						}
-					},
-					// Footer
-					{
-						type: 'div',
-						props: {
-							style: {
-								display: 'flex',
-								alignItems: 'center',
+								flexDirection: 'column',
+								padding: '60px',
 								justifyContent: 'space-between'
 							},
 							children: [
+								// Category badge
 								{
 									type: 'div',
 									props: {
 										style: {
-											fontSize: '30px',
-											fontWeight: 800,
-											color: COLORS.tealPrimary
+											display: 'flex',
+											marginBottom: '30px'
 										},
-										children: 'robot-educatif'
+										children: {
+											type: 'div',
+											props: {
+												style: {
+													backgroundColor: COLORS.orangeAccent,
+													color: COLORS.white,
+													padding: '12px 24px',
+													borderRadius: '8px',
+													fontSize: '28px',
+													fontWeight: 800
+												},
+												children: category
+											}
+										}
 									}
 								},
+								// Title (multi-ligne propre)
 								{
 									type: 'div',
 									props: {
 										style: {
-											width: '60px',
-											height: '60px',
-											borderRadius: '50%',
-											backgroundColor: COLORS.tealPrimary
-										}
+											fontSize: `${fontSize}px`,
+											fontWeight: 800,
+											color: COLORS.white,
+											lineHeight: 1.15,
+											flex: 1,
+											display: 'flex',
+											flexDirection: 'column',
+											justifyContent: 'center'
+										},
+										children: titleLines.map(line => ({
+											type: 'div',
+											props: {
+												style: { marginBottom: '8px' },
+												children: line
+											}
+										}))
+									}
+								},
+								// Footer
+								{
+									type: 'div',
+									props: {
+										style: {
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between'
+										},
+										children: [
+											{
+												type: 'div',
+												props: {
+													style: {
+														fontSize: '30px',
+														fontWeight: 800,
+														color: COLORS.tealPrimary
+													},
+													children: 'robot-educatif'
+												}
+											},
+											{
+												type: 'div',
+												props: {
+													style: {
+														width: '60px',
+														height: '60px',
+														borderRadius: '50%',
+														backgroundColor: COLORS.tealPrimary
+													}
+												}
+											}
+										]
 									}
 								}
 							]
 						}
+					},
+					// Photo produit (droite)
+					productImageDataUrl && {
+						type: 'div',
+						props: {
+							style: {
+								width: '400px',
+								height: '100%',
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+								backgroundColor: COLORS.white
+							},
+							children: {
+								type: 'img',
+								props: {
+									src: productImageDataUrl,
+									style: {
+										width: '320px',
+										height: '320px',
+										objectFit: 'contain'
+									}
+								}
+							}
+						}
 					}
-				]
+				].filter(Boolean)
 			}
 		},
 		{
@@ -192,7 +286,7 @@ async function main() {
 		}
 		
 		try {
-			const pngBuffer = await generateThumbnail(slug, frontmatter.title, frontmatter.category);
+			const pngBuffer = await generateThumbnail(slug, frontmatter.title, frontmatter.category, frontmatter.productSlug);
 			await fs.writeFile(outputPath, pngBuffer);
 			generated++;
 			console.log(`✅ ${slug}`);

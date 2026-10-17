@@ -1,7 +1,13 @@
 import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 
-const genericImages = ['mbot-hero.png', 'robots-hero.png', 'hero-placeholder.png'];
+const genericImages = [
+	'mbot-hero.png', 'mbot-hero', 
+	'robots-hero.png', 'robots-hero',
+	'hero-placeholder.png', 'hero-placeholder',
+	'hero-mbot-vs', 'hero-scratch-mblock', 'hero-raspberry', 'hero-cyberpi',
+	'tale-bot-pro-hero', 'codey-rocky-hero', 'eilik-hero', 'mbot2-hero'
+];
 
 // Liste des épingles Pinterest disponibles (générées à la compilation)
 const availablePinterestPins = [

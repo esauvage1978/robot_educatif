@@ -246,12 +246,13 @@ async function generatePin({ title, subtitle, icon, imagePath, slug, variantInde
 	const bgColor = isChristmas ? COLORS.teal : COLORS.darkBg;
 	const accentColor = COLORS.orange;
 	
-	// Préparer l'image
+	// Préparer l'image (convertir WebP → PNG pour Satori)
 	let imageDataUrl = null;
 	if (imagePath && existsSync(imagePath)) {
 		try {
 			const imageBuffer = await sharp(imagePath)
-				.resize(1000, 600, { fit: 'cover', position: 'center', background: { r: 255, g: 255, b: 255, alpha: 1 } })
+				.resize(1000, 600, { fit: 'contain', position: 'center', background: { r: 255, g: 255, b: 255, alpha: 1 } })
+				.png()
 				.toBuffer();
 			imageDataUrl = `data:image/png;base64,${imageBuffer.toString('base64')}`;
 		} catch (error) {
