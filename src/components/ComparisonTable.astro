@@ -1,6 +1,6 @@
 ---
 import { amazonProductUrl } from '../lib/amazon';
-import { amazonImageUrl, generatePlaceholderSvg } from '../lib/amazonImage';
+import { getProductImage } from '../lib/amazonImage';
 import productsData from '../data/products.json';
 
 interface ProductEntry {
@@ -18,9 +18,7 @@ const { products, title = 'Notre sélection rapide' } = Astro.props;
 const productDetails = products.map((entry) => {
 	const data = productsData[entry.id as keyof typeof productsData];
 	if (!data) return null;
-	const imageUrl = data.asin 
-		? amazonImageUrl(data.asin, 160) 
-		: generatePlaceholderSvg(data.name, 160, 160);
+	const imageUrl = getProductImage(data.asin, data.name, 80, 80);
 	return {
 		...data,
 		...entry,
@@ -28,7 +26,6 @@ const productDetails = products.map((entry) => {
 			? amazonProductUrl(data.asin, null)
 			: amazonProductUrl(null, data.searchQuery || data.name),
 		imageUrl,
-		hasAmazonImage: Boolean(data.asin),
 	};
 }).filter(Boolean);
 ---
@@ -63,7 +60,7 @@ const productDetails = products.map((entry) => {
 										width="80"
 										height="80"
 										loading="lazy"
-										class:list={['table-img', { 'amazon-image': product.hasAmazonImage }]}
+										class="table-img"
 									/>
 								</a>
 							</td>
@@ -196,10 +193,6 @@ const productDetails = products.map((entry) => {
 		background: white;
 		border-radius: 4px;
 		border: 1px solid var(--surface-border);
-	}
-
-	.table-img.amazon-image {
-		border: none;
 	}
 
 	.product-name-cell {

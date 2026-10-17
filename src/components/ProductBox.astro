@@ -1,6 +1,6 @@
 ---
 import { amazonProductUrl } from '../lib/amazon';
-import { amazonImageUrl, generatePlaceholderSvg } from '../lib/amazonImage';
+import { getProductImage } from '../lib/amazonImage';
 
 interface Props {
 	productId?: string;
@@ -34,9 +34,8 @@ const affiliateUrl = asin
 	? amazonProductUrl(asin)
 	: amazonProductUrl(null, searchQuery || name);
 
-// Use Amazon image if ASIN available, otherwise placeholder
-const productImage = asin ? amazonImageUrl(asin, 250) : generatePlaceholderSvg(name, 250, 250);
-const hasAmazonImage = Boolean(asin);
+// Get product image (PA-API cached or SVG placeholder)
+const productImage = getProductImage(asin, name, 250, 250);
 
 const trackingAttrs = productId
 	? `data-product-id="${productId}" data-position="${position}"`
@@ -60,7 +59,7 @@ const trackingAttrs = productId
 					width="250"
 					height="250"
 					loading="lazy"
-					class:list={['product-img', { 'amazon-image': hasAmazonImage }]}
+					class="product-img"
 				/>
 			</div>
 		</a>
@@ -264,10 +263,6 @@ const trackingAttrs = productId
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
-	}
-
-	.product-img.amazon-image {
-		padding: 0;
 	}
 
 	@media (max-width: 640px) {

@@ -1,6 +1,6 @@
 ---
 import { amazonProductUrl } from '../lib/amazon';
-import { amazonImageUrl, generatePlaceholderSvg } from '../lib/amazonImage';
+import { getProductImage } from '../lib/amazonImage';
 import productsData from '../data/products.json';
 
 interface Props {
@@ -21,16 +21,13 @@ const products = productIds
 	.map((id) => {
 		const product = productsData[id as keyof typeof productsData];
 		if (!product) return null;
-		const imageUrl = product.asin 
-			? amazonImageUrl(product.asin, 120) 
-			: generatePlaceholderSvg(product.name, 120, 120);
+		const imageUrl = getProductImage(product.asin, product.name, 60, 60);
 		return {
 			...product,
 			url: product.asin
 				? amazonProductUrl(product.asin, null)
 				: amazonProductUrl(null, product.searchQuery || product.name),
 			imageUrl,
-			hasAmazonImage: Boolean(product.asin),
 		};
 	})
 	.filter(Boolean);
@@ -54,7 +51,7 @@ const products = productIds
 							width="60"
 							height="60"
 							loading="lazy"
-							class:list={['tutorial-img', { 'amazon-image': product.hasAmazonImage }]}
+							class="tutorial-img"
 						/>
 					</a>
 					<div class="tutorial-product-info">
@@ -150,10 +147,6 @@ const products = productIds
 		background: white;
 		border-radius: 4px;
 		border: 1px solid var(--surface-border);
-	}
-
-	.tutorial-img.amazon-image {
-		border: none;
 	}
 
 	.tutorial-product-info {

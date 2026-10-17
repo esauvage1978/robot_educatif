@@ -11,7 +11,7 @@ import { articleSlugFromId } from '../lib/articleSlug';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
-import { amazonImageUrl } from '../lib/amazonImage';
+import { getProductImage } from '../lib/amazonImage';
 
 const allPosts = await getCollection('blog');
 const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 4);
@@ -605,7 +605,7 @@ const guideCount = allPosts.length;
 										class="product-card-link"
 									>
 										<img 
-											src={amazonImageUrl(product.asin, 200)} 
+											src={getProductImage(product.asin, product.name, 200, 200)} 
 											alt={product.name}
 											width="200"
 											height="200"
