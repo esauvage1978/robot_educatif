@@ -68,9 +68,14 @@ const guideCount = allPosts.length;
 		
 		@media (prefers-color-scheme: dark) {
 			.hero-content .badge {
-				background: rgba(251, 146, 60, 0.2);
-				color: #FB923C;
+				background: #C2410C;
+				color: #FFFFFF;
 			}
+		}
+
+		html[data-theme="dark"] .hero-content .badge {
+			background: #C2410C;
+			color: #FFFFFF;
 		}
 			
 			.hero-content h1 {

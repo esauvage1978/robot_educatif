@@ -100,12 +100,11 @@ const ogImageUrl = new URL(image.src, Astro.site).toString();
 	</>
 )}
 
-<!-- Theme initialization (light by default for new design) -->
+<!-- Theme initialization (respects prefers-color-scheme by default) -->
 <script is:inline>
 	(() => {
-		const key = 'robot-educatif-theme';
-		const saved = window.localStorage.getItem(key);
-		const theme = saved || 'light';
+		const stored = localStorage.getItem('robot-educatif-theme');
+		const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 		document.documentElement.dataset.theme = theme;
 	})();
 </script>

@@ -1,0 +1,766 @@
+{
+  "allResults": [
+    {
+      "pageName": "Homepage",
+      "url": "http://localhost:4321/",
+      "results": [
+        {
+          "selector": "header nav a",
+          "description": "Navigation links",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "header .brand",
+          "description": "Brand link",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "h1",
+          "description": "Main heading (h1)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h2",
+          "description": "Subheading (h2)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h3",
+          "description": "Subheading (h3)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "15.08",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "p",
+          "description": "Paragraph text",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "13.70",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "a",
+          "description": "Links in content",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "button",
+          "description": "Buttons",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".cta, .button",
+          "description": "CTA buttons",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card h3",
+          "description": "Product card title",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": ".product-card p",
+          "description": "Product card text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card .price",
+          "description": "Product price",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card h3",
+          "description": "Article card title",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "15.08",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": ".article-card p",
+          "description": "Article card description",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card time",
+          "description": "Article date",
+          "color": "rgb(148, 163, 184)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.15",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".badge",
+          "description": "Badges",
+          "color": "rgb(255, 255, 255)",
+          "bgColor": "rgb(194, 65, 12)",
+          "ratio": "5.18",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".tag",
+          "description": "Tags",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "footer a",
+          "description": "Footer links",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(26, 53, 68)",
+          "ratio": "10.41",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "footer p",
+          "description": "Footer text",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "table th",
+          "description": "Table headers",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "table td",
+          "description": "Table cells",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".callout",
+          "description": "Callouts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".alert",
+          "description": "Alerts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-secondary, .secondary",
+          "description": "Secondary text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-muted, .muted",
+          "description": "Muted text",
+          "status": "skipped",
+          "reason": "not visible"
+        }
+      ]
+    },
+    {
+      "pageName": "Blog Listing",
+      "url": "http://localhost:4321/blog/",
+      "results": [
+        {
+          "selector": "header nav a",
+          "description": "Navigation links",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "header .brand",
+          "description": "Brand link",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "h1",
+          "description": "Main heading (h1)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "15.08",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h2",
+          "description": "Subheading (h2)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h3",
+          "description": "Subheading (h3)",
+          "color": "rgb(148, 163, 184)",
+          "bgColor": "rgb(26, 53, 68)",
+          "ratio": "5.00",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "p",
+          "description": "Paragraph text",
+          "color": "rgb(148, 163, 184)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.15",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "a",
+          "description": "Links in content",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "button",
+          "description": "Buttons",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".cta, .button",
+          "description": "CTA buttons",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card h3",
+          "description": "Product card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card p",
+          "description": "Product card text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card .price",
+          "description": "Product price",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card h3",
+          "description": "Article card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card p",
+          "description": "Article card description",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card time",
+          "description": "Article date",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".badge",
+          "description": "Badges",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".tag",
+          "description": "Tags",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "footer a",
+          "description": "Footer links",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(26, 53, 68)",
+          "ratio": "10.41",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "footer p",
+          "description": "Footer text",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "table th",
+          "description": "Table headers",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "table td",
+          "description": "Table cells",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".callout",
+          "description": "Callouts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".alert",
+          "description": "Alerts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-secondary, .secondary",
+          "description": "Secondary text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-muted, .muted",
+          "description": "Muted text",
+          "status": "skipped",
+          "reason": "not visible"
+        }
+      ]
+    },
+    {
+      "pageName": "Article Page",
+      "url": "http://localhost:4321/10-projets-mbot-gratuits-classe-faciles/",
+      "results": [
+        {
+          "selector": "header nav a",
+          "description": "Navigation links",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "header .brand",
+          "description": "Brand link",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "h1",
+          "description": "Main heading (h1)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h2",
+          "description": "Subheading (h2)",
+          "status": "error",
+          "reason": "could not parse colors"
+        },
+        {
+          "selector": "h3",
+          "description": "Subheading (h3)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "15.08",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "p",
+          "description": "Paragraph text",
+          "color": "rgba(255, 255, 255, 0.9)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.89",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "a",
+          "description": "Links in content",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "button",
+          "description": "Buttons",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".cta, .button",
+          "description": "CTA buttons",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card h3",
+          "description": "Product card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card p",
+          "description": "Product card text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card .price",
+          "description": "Product price",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card h3",
+          "description": "Article card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card p",
+          "description": "Article card description",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card time",
+          "description": "Article date",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".badge",
+          "description": "Badges",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".tag",
+          "description": "Tags",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "footer a",
+          "description": "Footer links",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(26, 53, 68)",
+          "ratio": "10.41",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "footer p",
+          "description": "Footer text",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "table th",
+          "description": "Table headers",
+          "status": "error",
+          "reason": "could not parse colors"
+        },
+        {
+          "selector": "table td",
+          "description": "Table cells",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "13.70",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".callout",
+          "description": "Callouts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".alert",
+          "description": "Alerts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-secondary, .secondary",
+          "description": "Secondary text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-muted, .muted",
+          "description": "Muted text",
+          "status": "skipped",
+          "reason": "not visible"
+        }
+      ]
+    },
+    {
+      "pageName": "Product Guide",
+      "url": "http://localhost:4321/meilleur-robot-programmable-enfant-2026/",
+      "results": [
+        {
+          "selector": "header nav a",
+          "description": "Navigation links",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "header .brand",
+          "description": "Brand link",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "h1",
+          "description": "Main heading (h1)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "h2",
+          "description": "Subheading (h2)",
+          "status": "error",
+          "reason": "could not parse colors"
+        },
+        {
+          "selector": "h3",
+          "description": "Subheading (h3)",
+          "color": "rgb(248, 250, 252)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.14",
+          "minRatio": 3,
+          "status": "pass"
+        },
+        {
+          "selector": "p",
+          "description": "Paragraph text",
+          "color": "rgba(255, 255, 255, 0.9)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "16.89",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "a",
+          "description": "Links in content",
+          "color": "rgb(20, 184, 166)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "6.34",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "button",
+          "description": "Buttons",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".cta, .button",
+          "description": "CTA buttons",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card h3",
+          "description": "Product card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card p",
+          "description": "Product card text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".product-card .price",
+          "description": "Product price",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card h3",
+          "description": "Article card title",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card p",
+          "description": "Article card description",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".article-card time",
+          "description": "Article date",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".badge",
+          "description": "Badges",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".tag",
+          "description": "Tags",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": "footer a",
+          "description": "Footer links",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(26, 53, 68)",
+          "ratio": "10.41",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "footer p",
+          "description": "Footer text",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(14, 37, 51)",
+          "ratio": "12.80",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": "table th",
+          "description": "Table headers",
+          "status": "error",
+          "reason": "could not parse colors"
+        },
+        {
+          "selector": "table td",
+          "description": "Table cells",
+          "color": "rgb(226, 232, 240)",
+          "bgColor": "rgb(11, 31, 42)",
+          "ratio": "13.70",
+          "minRatio": 4.5,
+          "status": "pass"
+        },
+        {
+          "selector": ".callout",
+          "description": "Callouts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".alert",
+          "description": "Alerts",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-secondary, .secondary",
+          "description": "Secondary text",
+          "status": "skipped",
+          "reason": "not visible"
+        },
+        {
+          "selector": ".text-muted, .muted",
+          "description": "Muted text",
+          "status": "skipped",
+          "reason": "not visible"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "totalChecks": 44,
+    "passedChecks": 44,
+    "failedChecks": 0,
+    "failures": []
+  }
+}

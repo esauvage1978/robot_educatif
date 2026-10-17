@@ -1,19 +1,32 @@
 import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 
-const pinterestImages = import.meta.glob<ImageMetadata>('/public/pinterest/*.jpg', {
-	eager: true,
-	import: 'default',
-});
-
 const genericImages = ['mbot-hero.png', 'robots-hero.png', 'hero-placeholder.png'];
+
+// Liste des épingles Pinterest disponibles (générées à la compilation)
+const availablePinterestPins = [
+	'meilleur-robot-programmable-enfant-2026',
+	'quel-robot-acheter-enfant-5-ans-guide-achat',
+	'quel-robot-acheter-enfant-8-ans-guide-achat',
+	'quel-robot-acheter-enfant-10-ans-guide-achat',
+	'quel-robot-acheter-enfant-12-ans-guide-achat',
+	'robot-educatif-cadeau-noel-2026',
+	'cadeau-robot-enfant-8-ans',
+	'cadeau-robot-enfant-10-ans',
+	'robot-moins-de-50-euros',
+	'robot-moins-de-100-euros',
+	'robot-enfant-4-ans',
+	'kit-robot-arduino-enfant',
+	'10-projets-mbot-gratuits-classe-faciles',
+	'installer-mblock-5-sous-windows-10'
+];
 
 /**
  * Résout la vignette à utiliser pour un article de blog.
  * Priorité:
  * 1. heroImage si spécifique (pas générique)
  * 2. Épingle Pinterest <slug>-1.jpg
- * 3. Génération SVG avec titre + catégorie (future impl)
+ * 3. Génération SVG avec titre + catégorie (TOUJOURS en fallback)
  */
 export function resolveArticleThumbnail(
 	post: CollectionEntry<'blog'>,
@@ -30,12 +43,11 @@ export function resolveArticleThumbnail(
 	
 	// 2. Épingle Pinterest
 	const slug = post.id.replace(/\.mdx?$/, '');
-	const pinterestKey = `/public/pinterest/${slug}-1.jpg`;
-	if (pinterestImages[pinterestKey]) {
+	if (availablePinterestPins.includes(slug)) {
 		return { type: 'pinterest', slug };
 	}
 	
-	// 3. Génération (à implémenter avec @vercel/og ou SVG)
+	// 3. Génération SVG (TOUJOURS en fallback, garantit qu'aucune carte ne reste sans image)
 	return { type: 'generated' };
 }
 

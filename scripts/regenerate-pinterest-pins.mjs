@@ -412,10 +412,10 @@ async function generateInfographic({ slug, title, items }) {
 						type: 'div',
 						props: {
 							style: {
-								fontSize: '68px',
+								fontSize: '70px',
 								fontWeight: 'bold',
 								lineHeight: 1.2,
-								marginBottom: '45px',
+								marginBottom: '50px',
 								textAlign: 'center',
 								color: COLORS.white,
 								whiteSpace: 'pre-line'
@@ -431,7 +431,7 @@ async function generateInfographic({ slug, title, items }) {
 								flex: 1,
 								display: 'flex',
 								flexDirection: 'column',
-								gap: '28px',
+								gap: '32px',
 								justifyContent: 'center'
 							},
 							children: items.map((item) => ({
@@ -442,8 +442,8 @@ async function generateInfographic({ slug, title, items }) {
 										flexDirection: 'row',
 										alignItems: 'center',
 										backgroundColor: 'rgba(255, 255, 255, 0.05)',
-										padding: '25px 35px',
-										borderRadius: '15px',
+										padding: '28px 40px',
+										borderRadius: '16px',
 										borderLeft: `6px solid ${COLORS.orange}`
 									},
 									children: [
@@ -451,11 +451,11 @@ async function generateInfographic({ slug, title, items }) {
 											type: 'div',
 											props: {
 												style: {
-													fontSize: '32px',
+													fontSize: '38px',
 													fontWeight: 'bold',
 													color: COLORS.orangeLight,
-													minWidth: '200px',
-													marginRight: '20px'
+													minWidth: '220px',
+													marginRight: '25px'
 												},
 												children: item.label
 											}
@@ -464,10 +464,11 @@ async function generateInfographic({ slug, title, items }) {
 											type: 'div',
 											props: {
 												style: {
-													fontSize: '28px',
+													fontSize: '34px',
 													color: COLORS.white,
-													fontWeight: '500',
-													flex: 1
+													fontWeight: '600',
+													flex: 1,
+													lineHeight: 1.3
 												},
 												children: item.value
 											}

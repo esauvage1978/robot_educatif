@@ -33,25 +33,30 @@ async function main() {
 		}
 	});
 	
-	// Préparer les miniatures
+	// Préparer les miniatures (grille complète, cellules vides = blanc)
 	const composites = [];
-	for (let i = 0; i < pins.length; i++) {
-		const pinPath = join(pinterestDir, pins[i]);
-		const col = i % cols;
-		const row = Math.floor(i / cols);
+	for (let row = 0; row < rows; row++) {
+		for (let col = 0; col < cols; col++) {
+			const i = row * cols + col;
+			
+			if (i < pins.length) {
+				const pinPath = join(pinterestDir, pins[i]);
+				
+				const thumb = await sharp(pinPath)
+					.resize(thumbWidth, thumbHeight, { fit: 'cover' })
+					.toBuffer();
+				
+				composites.push({
+					input: thumb,
+					top: row * thumbHeight,
+					left: col * thumbWidth
+				});
+			}
+			// Cellules vides = déjà blanches (fond canvas)
+		}
 		
-		const thumb = await sharp(pinPath)
-			.resize(thumbWidth, thumbHeight, { fit: 'cover' })
-			.toBuffer();
-		
-		composites.push({
-			input: thumb,
-			top: row * thumbHeight,
-			left: col * thumbWidth
-		});
-		
-		if ((i + 1) % 10 === 0) {
-			console.log(`  ${i + 1}/${pins.length}...`);
+		if ((row + 1) % 2 === 0) {
+			console.log(`  ${Math.min((row + 1) * cols, pins.length)}/${pins.length}...`);
 		}
 	}
 	
@@ -62,6 +67,7 @@ async function main() {
 	
 	console.log(`\n✅ Planche contact créée : captures-produits/pinterest-contact-sheet.jpg`);
 	console.log(`📐 ${canvasWidth}×${canvasHeight} (${cols} colonnes × ${rows} lignes)`);
+	console.log(`📊 ${pins.length} épingles + ${rows * cols - pins.length} cellules vides`);
 }
 
 main().catch(console.error);
