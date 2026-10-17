@@ -47,8 +47,15 @@ export function resolveArticleThumbnail(
 		return { type: 'pinterest', slug };
 	}
 	
-	// 3. Génération SVG (TOUJOURS en fallback, garantit qu'aucune carte ne reste sans image)
+	// 3. Vignette PNG générée 1200×630 (toujours disponible après prebuild)
 	return { type: 'generated' };
+}
+
+/**
+ * Retourne le chemin de la vignette générée (PNG 1200×630)
+ */
+export function getGeneratedThumbnailPath(slug: string): string {
+	return `/images/blog-thumbnails/${slug}.png`;
 }
 
 /**

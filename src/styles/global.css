@@ -736,3 +736,38 @@ html[data-theme='light'] .prose .exo-badge--inter {
 html[data-theme='light'] .prose .exo-badge--hard {
 	color: #8a5a0a;
 }
+
+/* Dark mode badges: fond plus opaque + texte plus clair pour contraste ≥ 4.5:1 */
+@media (prefers-color-scheme: dark) {
+	.prose .exo-badge--simple {
+		background: rgba(31, 136, 61, 0.3);
+		color: #A6F4C5;
+		border-color: rgba(31, 136, 61, 0.5);
+	}
+	.prose .exo-badge--inter {
+		background: rgba(15, 118, 110, 0.3);
+		color: #5EEAD4;
+		border-color: rgba(15, 118, 110, 0.5);
+	}
+	.prose .exo-badge--hard {
+		background: rgba(194, 65, 12, 0.3);
+		color: #FED7AA;
+		border-color: rgba(194, 65, 12, 0.5);
+	}
+}
+
+html[data-theme="dark"] .prose .exo-badge--simple {
+	background: rgba(31, 136, 61, 0.3);
+	color: #A6F4C5;
+	border-color: rgba(31, 136, 61, 0.5);
+}
+html[data-theme="dark"] .prose .exo-badge--inter {
+	background: rgba(15, 118, 110, 0.3);
+	color: #5EEAD4;
+	border-color: rgba(15, 118, 110, 0.5);
+}
+html[data-theme="dark"] .prose .exo-badge--hard {
+	background: rgba(194, 65, 12, 0.3);
+	color: #FED7AA;
+	border-color: rgba(194, 65, 12, 0.5);
+}
