@@ -37,7 +37,6 @@ const productDetails = products.map((entry) => {
 						<th>Robot</th>
 						<th>Âge</th>
 						<th>Langages</th>
-						<th>Prix indicatif</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -51,11 +50,10 @@ const productDetails = products.map((entry) => {
 								)}
 							</td>
 							<td>{product.ages}</td>
-							<td class="languages-cell">
-								{Array.isArray(product.languages) ? product.languages.join(', ') : product.languages}
-							</td>
-							<td class="price-cell">{product.priceRange}</td>
-							<td class="cta-cell">
+						<td class="languages-cell">
+							{Array.isArray(product.languages) ? product.languages.join(', ') : product.languages}
+						</td>
+						<td class="cta-cell">
 								<a
 									href={product.url}
 									target="_blank"
@@ -71,9 +69,9 @@ const productDetails = products.map((entry) => {
 				</tbody>
 			</table>
 		</div>
-		<p class="comparison-note">
-			<strong>Note :</strong> Liens affiliés Amazon. Les prix sont indicatifs et peuvent varier.
-		</p>
+	<p class="comparison-note">
+		<strong>Note :</strong> Liens affiliés Amazon. En tant que partenaire, ce site peut percevoir une commission sur des achats éligibles, sans surcoût pour vous.
+	</p>
 	</div>
 )}
 

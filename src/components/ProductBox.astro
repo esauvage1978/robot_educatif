@@ -49,12 +49,6 @@ const trackingAttrs = productId
 		<div class="product-info">
 			<h3 class="product-name">{name}</h3>
 			{ages && <div class="product-meta"><strong>Âge :</strong> {ages}</div>}
-			{priceRange && (
-				<div class="product-meta">
-					<strong>Prix indicatif :</strong> {priceRange}
-					<span class="price-disclaimer">voir le prix actuel sur Amazon</span>
-				</div>
-			)}
 			{languages.length > 0 && (
 				<div class="product-meta">
 					<strong>Langages :</strong> {languages.join(', ')}
