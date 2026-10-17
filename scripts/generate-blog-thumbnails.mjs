@@ -32,13 +32,41 @@ async function extractFrontmatter(filePath) {
 	
 	const frontmatter = match[1];
 	const titleMatch = frontmatter.match(/title:\s*["'](.+?)["']/);
-	const categoriesMatch = frontmatter.match(/categories:\s*\[([^\]]+)\]/);
+	
+	// Support format YAML liste (- "Cat") et inline ([Cat1, Cat2])
+	let category = 'Guide';
+	const categoriesInlineMatch = frontmatter.match(/categories:\s*\[([^\]]+)\]/);
+	if (categoriesInlineMatch) {
+		category = categoriesInlineMatch[1].split(',')[0].trim().replace(/["']/g, '');
+	} else {
+		const categoriesListMatch = frontmatter.match(/categories:\s*\n\s*-\s*["']?([^"'\n]+)["']?/);
+		if (categoriesListMatch) {
+			category = categoriesListMatch[1].trim();
+		}
+	}
+	
 	const productMatch = frontmatter.match(/heroImage:\s*['"]*.*?\/products\/([a-z0-9-]+)\.webp/);
+	
+	// Détecter produit via titre si pas dans heroImage
+	let productSlug = productMatch ? productMatch[1] : null;
+	if (!productSlug) {
+		const title = titleMatch ? titleMatch[1].toLowerCase() : '';
+		if (title.includes('mbot2')) productSlug = 'mbot2';
+		else if (title.includes('mbot') && !title.includes('mblock')) productSlug = 'mbot';
+		else if (title.includes('cyberpi')) productSlug = 'cyberpi';
+		else if (title.includes('codey') || title.includes('rocky')) productSlug = 'codey-rocky';
+		else if (title.includes('ranger')) productSlug = 'mbot-ranger';
+		else if (title.includes('arduino')) productSlug = 'arduino-starter-kit';
+		else if (title.includes('raspberry')) productSlug = title.includes('5') ? 'raspberry-pi-5-8gb' : 'raspberry-pi-5-4gb';
+		else if (title.includes('elegoo') && title.includes('penguin')) productSlug = 'elegoo-penguin';
+		else if (title.includes('elegoo')) productSlug = 'elegoo-robot-car';
+		else if (title.includes('lego') || title.includes('spike')) productSlug = 'lego-spike-essential';
+	}
 	
 	return {
 		title: titleMatch ? titleMatch[1] : 'Article',
-		category: categoriesMatch ? categoriesMatch[1].split(',')[0].trim().replace(/["']/g, '') : 'Guide',
-		productSlug: productMatch ? productMatch[1] : null
+		category,
+		productSlug
 	};
 }
 

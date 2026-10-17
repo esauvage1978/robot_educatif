@@ -222,25 +222,28 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 			.hero-categories li {
 				margin: 0;
 			}
-			.hero-categories a {
-				display: inline-block;
-				padding: 0.28rem 0.65rem;
-				font-size: 0.82rem;
-				font-weight: 600;
-				font-family: var(--font-body, system-ui);
-				text-decoration: none;
-				color: var(--accent-dark);
-				background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
-				border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
-				border-radius: 999px;
-				transition: background 0.12s ease, color 0.12s ease;
-			}
-			.hero-categories a:hover {
-				background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
-			}
-			html:not([data-theme='light']) .hero-categories a:hover {
-				color: var(--accent);
-			}
+		.hero-categories a {
+			display: inline-block;
+			padding: 0.28rem 0.65rem;
+			font-size: 0.82rem;
+			font-weight: 600;
+			font-family: var(--font-body, system-ui);
+			text-decoration: none;
+			color: var(--accent-dark);
+			background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
+			border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
+			border-radius: 999px;
+			transition: background 0.12s ease, color 0.12s ease;
+		}
+		html:not([data-theme='light']) .hero-categories a {
+			color: #2DD4BF;
+		}
+		.hero-categories a:hover {
+			background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
+		}
+		html:not([data-theme='light']) .hero-categories a:hover {
+			color: #5EEAD4;
+		}
 			.page-layout {
 				width: min(1200px, calc(100% - 2em));
 				margin: 0 auto;

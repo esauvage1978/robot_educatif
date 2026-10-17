@@ -66,7 +66,7 @@ const PAGES_CONFIG = [
 			{ text: 'Quel Robot pour\nun Enfant de 5 Ans ?', subtitle: 'Les meilleurs robots éducatifs' },
 			{ text: 'Robots Programmables\n5 Ans', subtitle: 'Apprendre en s\'amusant dès 5 ans' }
 		],
-		visual: 'generic',
+		visual: 'codey-rocky',
 		isChristmas: false
 	},
 	{
@@ -129,7 +129,7 @@ const PAGES_CONFIG = [
 			{ text: 'Robots Éducatifs\nMoins de 50 €', subtitle: 'Qualité et petit budget' },
 			{ text: 'Robot Programmable\nPas Cher', subtitle: 'Les meilleurs choix à moins de 50 €' }
 		],
-		visual: 'generic',
+		visuals: ['elegoo-penguin', 'mbot'],
 		isChristmas: false
 	},
 	{
@@ -147,7 +147,7 @@ const PAGES_CONFIG = [
 			{ text: 'Robot Éducatif\n4 Ans', subtitle: 'Premiers pas en programmation' },
 			{ text: 'Robots sans Écran\npour 4 Ans', subtitle: 'Apprendre en manipulant' }
 		],
-		visual: 'generic',
+		visuals: ['codey-rocky', 'elegoo-robot-car'],
 		isChristmas: false
 	},
 	{
@@ -174,7 +174,7 @@ const PAGES_CONFIG = [
 			{ text: 'Installer mBlock 5\nsous Windows 10', subtitle: 'Guide pas à pas complet' },
 			{ text: 'Tutoriel mBlock 5\nWindows', subtitle: 'Installation et configuration' }
 		],
-		visual: 'screenshot',
+		visuals: ['cyberpi', 'mbot2'],
 		isChristmas: false
 	}
 ];
@@ -228,7 +228,7 @@ function getIconSvg(iconName, color = COLORS.orange) {
 
 // Obtenir visuel (photo fabricant ou générique)
 async function getVisualImage(visualType) {
-	if (visualType === 'screenshot' || visualType === 'generic') {
+	if (!visualType || visualType === 'screenshot' || visualType === 'generic') {
 		return null; // Pas d'image, juste design
 	}
 	
@@ -239,6 +239,25 @@ async function getVisualImage(visualType) {
 	}
 	
 	return null;
+}
+
+// Obtenir bandeaux de 3 photos pour infographies
+async function getInfographicBanner() {
+	const photos = ['mbot2', 'lego-spike-essential', 'arduino-starter-kit'];
+	const imagePromises = photos.map(async (product) => {
+		const productPath = join(productsImagesDir, `${product}.webp`);
+		if (existsSync(productPath)) {
+			const buffer = await sharp(productPath)
+				.resize(333, 200, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })
+				.png()
+				.toBuffer();
+			return `data:image/png;base64,${buffer.toString('base64')}`;
+		}
+		return null;
+	});
+	
+	const images = await Promise.all(imagePromises);
+	return images.filter(Boolean);
 }
 
 // Générer épingle
@@ -394,6 +413,9 @@ async function generatePin({ title, subtitle, icon, imagePath, slug, variantInde
 
 // Générer infographie
 async function generateInfographic({ slug, title, items }) {
+	// Bandeau de 3 photos produits
+	const bannerImages = await getInfographicBanner();
+	
 	const svg = await satori(
 		{
 			type: 'div',
@@ -404,26 +426,72 @@ async function generateInfographic({ slug, title, items }) {
 					display: 'flex',
 					flexDirection: 'column',
 					backgroundColor: COLORS.darkBg,
-					padding: '60px 50px',
-					color: COLORS.white
+					padding: 0
 				},
 				children: [
-					// Titre
+					// Bandeau photos en haut
+					bannerImages.length > 0 && {
+						type: 'div',
+						props: {
+							style: {
+								width: '100%',
+								height: '240px',
+								display: 'flex',
+								flexDirection: 'row',
+								backgroundColor: COLORS.white
+							},
+							children: bannerImages.map((imgData) => ({
+								type: 'div',
+								props: {
+									style: {
+										flex: 1,
+										display: 'flex',
+										alignItems: 'center',
+										justifyContent: 'center'
+									},
+									children: {
+										type: 'img',
+										props: {
+											src: imgData,
+											style: {
+												width: '100%',
+												height: '100%',
+												objectFit: 'contain'
+											}
+										}
+									}
+								}
+							}))
+						}
+					},
+					// Zone texte
 					{
 						type: 'div',
 						props: {
 							style: {
-								fontSize: '70px',
-								fontWeight: 'bold',
-								lineHeight: 1.2,
-								marginBottom: '50px',
-								textAlign: 'center',
-								color: COLORS.white,
-								whiteSpace: 'pre-line'
+								flex: 1,
+								display: 'flex',
+								flexDirection: 'column',
+								padding: '60px 50px',
+								color: COLORS.white
 							},
-							children: title
-						}
-					},
+							children: [
+								// Titre
+								{
+									type: 'div',
+									props: {
+										style: {
+											fontSize: '70px',
+											fontWeight: 'bold',
+											lineHeight: 1.2,
+											marginBottom: '50px',
+											textAlign: 'center',
+											color: COLORS.white,
+											whiteSpace: 'pre-line'
+										},
+										children: title
+									}
+								},
 					// Items
 					{
 						type: 'div',
@@ -497,6 +565,9 @@ async function generateInfographic({ slug, title, items }) {
 						}
 					}
 				]
+							}
+						}
+					].filter(Boolean)
 			}
 		},
 		{ width: PINTEREST_WIDTH, height: PINTEREST_HEIGHT, fonts }
@@ -528,10 +599,13 @@ async function main() {
 	
 	// Pages
 	for (const page of PAGES_CONFIG) {
-		const imagePath = await getVisualImage(page.visual);
+		// Support visual (simple) et visuals (tableau pour varier)
+		const visuals = page.visuals || [page.visual];
 		
 		for (let i = 0; i < page.titles.length; i++) {
 			const { text, subtitle, icon } = page.titles[i];
+			const visualType = visuals[i % visuals.length]; // Rotation si multiple
+			const imagePath = await getVisualImage(visualType);
 			
 			await generatePin({
 				title: text,
