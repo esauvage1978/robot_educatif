@@ -95,16 +95,48 @@ const cookiesPageUrl = withBase('/gestion-des-cookies/');
 		font-weight: 700;
 		color: var(--accent-dark);
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__title {
+			color: #5EEAD4;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__title {
+		color: #5EEAD4;
+	}
+	
 	.cookie-consent__text {
 		margin: 0 0 1rem;
 		font-size: 0.92rem;
 		line-height: 1.5;
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__text {
+			color: #E2E8F0;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__text {
+		color: #E2E8F0;
+	}
+	
 	.cookie-consent__text a {
 		color: var(--accent-dark);
 		font-weight: 600;
 		text-decoration: underline;
 		text-underline-offset: 2px;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__text a {
+			color: #5EEAD4;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__text a {
+		color: #5EEAD4;
 	}
 	.cookie-consent__actions {
 		display: flex;

@@ -117,17 +117,37 @@ const guideCount = allPosts.length;
 				transition: all 0.2s ease;
 			}
 			
+		.btn-primary {
+			background: var(--accent-warm);
+			color: white;
+			box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+		}
+		
+		@media (prefers-color-scheme: dark) {
 			.btn-primary {
-				background: var(--accent-warm);
-				color: white;
-				box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+				background: #C2410C;
 			}
-			
+		}
+		
+		html[data-theme="dark"] .btn-primary {
+			background: #C2410C;
+		}
+		
+		.btn-primary:hover {
+			background: #ea580c;
+			transform: translateY(-1px);
+			box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+		}
+		
+		@media (prefers-color-scheme: dark) {
 			.btn-primary:hover {
-				background: #ea580c;
-				transform: translateY(-1px);
-				box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+				background: #9A3412;
 			}
+		}
+		
+		html[data-theme="dark"] .btn-primary:hover {
+			background: #9A3412;
+		}
 			
 			.btn-secondary {
 				border: 2px solid var(--primary);
