@@ -1,75 +1,82 @@
 {
   "mbot": {
-    "name": "Makeblock mBot",
-    "sourceUrl": "https://www.makeblock.com/pages/mbot-programmable-robot-kit",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/mBot-Programmable-Robot-Kit_1024x1024.jpg",
-    "manufacturer": "Makeblock"
-  },
-  "mbot-neo": {
-    "name": "Makeblock mBot Neo",
-    "sourceUrl": "https://www.makeblock.com/pages/mbot-neo",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/mBot-Neo_1024x1024.jpg",
-    "manufacturer": "Makeblock"
+    "sourcePage": "https://www.makeblock.com/products/buy-mbot",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/products/1_2.png",
+    "manufacturer": "Makeblock",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
   "mbot2": {
-    "name": "Makeblock mBot2",
-    "sourceUrl": "https://www.makeblock.com/pages/mbot2",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/mBot2-Programmable-Robot-Kit_1024x1024.jpg",
-    "manufacturer": "Makeblock"
+    "sourcePage": "https://education.makeblock.com/cyberpi/",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/Makeblock_mBot2-1.jpg",
+    "manufacturer": "Makeblock",
+    "note": "source only 720x608",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
-  "mbot-ranger": {
-    "name": "Makeblock mBot Ranger",
-    "sourceUrl": "https://www.makeblock.com/pages/mbot-ranger",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/mBot-Ranger-Robot-Kit_1024x1024.jpg",
-    "manufacturer": "Makeblock"
+  "mbot-neo": {
+    "sourcePage": "https://www.makeblock.com/pages/mbot-neo",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/mBot_Neo_7fb93380-d627-4ca0-96ff-2d21b12d3fe7.webp",
+    "manufacturer": "Makeblock",
+    "note": "source 480x480 transparent, upscaled slightly",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
   "cyberpi": {
-    "name": "Makeblock CyberPi",
-    "sourceUrl": "https://www.makeblock.com/pages/cyberpi",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/CyberPi_1024x1024.jpg",
-    "manufacturer": "Makeblock"
+    "sourcePage": "https://www.makeblock.com/products/buy-cyberpi",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/P1030156_CyberPi-Go-Kit_de17ff67-b463-453a-9830-7327cd78b5ed.jpg",
+    "manufacturer": "Makeblock",
+    "note": "CyberPi Go Kit (CyberPi + Pocket Shield + box)",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "mbot-ranger": {
+    "sourcePage": "https://www.makeblock.com/products/buy-mbot-ranger",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/Ranger-Mainpic.webp",
+    "manufacturer": "Makeblock",
+    "note": "3 forms (tank, racer, self-balancing)",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
   "codey-rocky": {
-    "name": "Makeblock Codey Rocky",
-    "sourceUrl": "https://www.makeblock.com/pages/codey-rocky",
-    "imageUrl": "https://www.makeblock.com/cdn/shop/files/Codey-Rocky_1024x1024.jpg",
-    "manufacturer": "Makeblock"
-  },
-  "elegoo-robot-car": {
-    "name": "ELEGOO Smart Robot Car V4.0",
-    "sourceUrl": "https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0",
-    "imageUrl": "https://www.elegoo.com/cdn/shop/products/1_65e36c97-5e85-47c3-883b-b21c04655d80_1024x1024.jpg",
-    "manufacturer": "ELEGOO"
-  },
-  "elegoo-penguin": {
-    "name": "ELEGOO Penguin Bot",
-    "sourceUrl": "https://www.elegoo.com/products/elegoo-penguin-bot-biped-robot-kit",
-    "imageUrl": "https://www.elegoo.com/cdn/shop/products/1_c0d0e5c7-c5d5-4b7e-b7c5-5e8e5e5e5e5e_1024x1024.jpg",
-    "manufacturer": "ELEGOO"
-  },
-  "arduino-starter-kit": {
-    "name": "Arduino Starter Kit Officiel",
-    "sourceUrl": "https://store.arduino.cc/products/arduino-starter-kit-multi-language",
-    "imageUrl": "https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/1040x660/604a3538c15e081937dbfbd20aa60aad/a/0/a000010_featured_2.jpg",
-    "manufacturer": "Arduino"
-  },
-  "raspberry-pi-5-4gb": {
-    "name": "Raspberry Pi 5 (4GB)",
-    "sourceUrl": "https://www.raspberrypi.com/products/raspberry-pi-5/",
-    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/Raspberry-Pi-5-hero-1024x576.jpg",
-    "manufacturer": "Raspberry Pi Foundation"
+    "sourcePage": "https://www.makeblock.com/products/buy-codey-rocky",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/CodeyRocky-MainPic_625x_progressive_webp_b207cf3e-58c3-423f-a2ff-5134686c394a.webp",
+    "manufacturer": "Makeblock",
+    "note": "official render with light-blue motion arrows",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
   "raspberry-pi-5-8gb": {
-    "name": "Raspberry Pi 5 (8GB)",
-    "sourceUrl": "https://www.raspberrypi.com/products/raspberry-pi-5/",
-    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/Raspberry-Pi-5-hero-1024x576.jpg",
-    "manufacturer": "Raspberry Pi Foundation"
+    "sourcePage": "https://www.raspberrypi.com/news/introducing-raspberry-pi-5/",
+    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/aa7841cb-421a-4000-8ab9-c77478a4f83b.jpg",
+    "manufacturer": "Raspberry Pi Ltd",
+    "note": "official launch photo, grey studio background whitened",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "raspberry-pi-5-4gb": {
+    "sourcePage": "https://www.raspberrypi.com/news/introducing-raspberry-pi-5/",
+    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/aa7841cb-421a-4000-8ab9-c77478a4f83b.jpg",
+    "manufacturer": "Raspberry Pi Ltd",
+    "note": "official launch photo, grey studio background whitened",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "elegoo-robot-car": {
+    "sourcePage": "https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0296/9026/5648/products/elegoo-uno-r3-project-smart-robot-car-kit-v-40-with-camera-arduino-stem-kits-elegoo-shop-213405.jpg",
+    "manufacturer": "ELEGOO",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "elegoo-penguin": {
+    "sourcePage": "https://www.elegoo.com/products/elegoo-penguin-bot",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0296/9026/5648/products/elegoo-penguin-bot-biped-robot-kit-v20-for-arduino-project-arduino-stem-kits-elegoo-shop-593232.jpg",
+    "manufacturer": "ELEGOO",
+    "note": "Penguin Bot V2.0",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   },
   "lego-spike-essential": {
-    "name": "LEGO Education SPIKE Essential",
-    "sourceUrl": "https://education.lego.com/en-us/products/lego-education-spike-essential-set/45345",
-    "imageUrl": "https://education.lego.com/v3/assets/blt293eea581807678a/blt0c98c8c0e5e7b7c5/SPIKE_Essential_Set_45345.png",
+    "sourcePage": "https://education.lego.com/en-us/products/lego-education-spike-essential-set/45345/",
+    "imageUrl": "https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt0cc16b7f84a5b72f/6271184b5d936230ca8eaf12/45345_Prod_01.png",
     "manufacturer": "LEGO Education",
-    "note": "Remplace LEGO Boost 17101 (arrêté)"
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "arduino-starter-kit": {
+    "sourcePage": "https://store.arduino.cc/products/arduino-starter-kit-multi-language",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0438/4735/2471/files/starterkit_01.iso.jpg",
+    "manufacturer": "Arduino",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   }
 }
