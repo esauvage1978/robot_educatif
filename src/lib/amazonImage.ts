@@ -1,10 +1,14 @@
 import amazonImages from '../data/amazon-images.json';
+import productAsinMapping from '../data/product-asin-mapping.json';
 
 /**
- * Get product image from Creators API cache or generate SVG placeholder
+ * Get product image with priority:
+ * 1. Amazon Creators API cached image (amazon-images.json)
+ * 2. Official manufacturer photo (/images/products/<id>.webp)
+ * 3. Generated SVG placeholder
  */
 export function getProductImage(asin: string | null, productName: string, width: number = 250, height: number = 250): string {
-	// Try Creators API cached image first (hotlink, no re-hosting)
+	// 1. Try Creators API cached image first (hotlink, no re-hosting)
 	if (asin && amazonImages[asin as keyof typeof amazonImages]) {
 		const cached = amazonImages[asin as keyof typeof amazonImages];
 		// Return Amazon image URL (hotlink compliant with Associates Program)
@@ -15,7 +19,17 @@ export function getProductImage(asin: string | null, productName: string, width:
 		}
 	}
 	
-	// Fallback to custom SVG placeholder
+	// 2. Try official manufacturer photo
+	if (asin && productAsinMapping[asin as keyof typeof productAsinMapping]) {
+		const productId = productAsinMapping[asin as keyof typeof productAsinMapping];
+		const manufacturerPhotoPath = `/images/products/${productId}.webp`;
+		// Note: existence check handled client-side or at build time
+		// For now, we assume if mapping exists, photo should exist
+		// TODO: Add existence check at build time
+		return manufacturerPhotoPath;
+	}
+	
+	// 3. Fallback to custom SVG placeholder
 	return generateProductSvg(productName, width, height);
 }
 
