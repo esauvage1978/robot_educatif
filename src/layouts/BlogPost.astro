@@ -130,16 +130,25 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				box-shadow: none;
 			}
 			.hero-article-media {
-				max-height: min(52vh, 560px);
+				max-height: 360px;
 				overflow: hidden;
 				background: var(--page-bg-elevated);
 			}
 			.hero-article-media img {
 				display: block;
 				width: 100%;
-				height: min(52vh, 560px);
+				height: 360px;
 				object-fit: cover;
 				border-radius: 0;
+			}
+			
+			@media (max-width: 768px) {
+				.hero-article-media {
+					max-height: 220px;
+				}
+				.hero-article-media img {
+					height: 220px;
+				}
 			}
 			.hero-article-content {
 				width: min(1140px, calc(100% - 2.5rem));
