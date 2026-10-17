@@ -112,27 +112,33 @@ const showBanner = ENABLE_CHRISTMAS_BANNER && now <= CHRISTMAS_END_DATE;
 	@media (max-width: 640px) {
 		.christmas-banner-inner {
 			flex-direction: row;
-			gap: 0.5rem;
-			padding: 0.75rem 1rem;
+			justify-content: space-between;
+			align-items: center;
+			gap: 0.4rem;
+			padding: 4px 10px;
+			max-height: 48px;
+			min-height: 0;
 		}
 
 		.christmas-icon {
-			font-size: 1.5rem;
+			font-size: 1.2rem;
+			line-height: 1;
 		}
 
 		.christmas-title {
-			font-size: 0.9rem;
-			margin-bottom: 0.15rem;
+			font-size: 0.85rem;
+			margin-bottom: 0;
+			line-height: 1.2;
 		}
 
 		.christmas-text {
-			font-size: 0.8rem;
-			line-height: 1.3;
+			display: none;
 		}
 
 		.christmas-cta {
-			font-size: 0.85rem;
-			padding: 0.5rem 0.9rem;
+			font-size: 0.78rem;
+			padding: 0.35rem 0.65rem;
+			flex-shrink: 0;
 		}
 	}
 </style>

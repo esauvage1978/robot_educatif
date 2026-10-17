@@ -259,21 +259,53 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				font-weight: 600;
 				color: rgb(var(--gray-dark));
 			}
-			@media (max-width: 720px) {
-				.hero-article-media,
-				.hero-article-media img {
-					max-height: 42vh;
-					height: 42vh;
-				}
-				.hero-article-content {
-					padding: 1.25rem 1rem 1.5rem;
-					width: 100%;
-					box-sizing: border-box;
-				}
-				.page-layout {
-					grid-template-columns: 1fr;
-				}
+		@media (max-width: 720px) {
+			.hero-article {
+				margin-bottom: 1rem !important;
 			}
+			.hero-article-media {
+				max-height: 200px !important;
+			}
+			.hero-article-media img {
+				height: 170px !important;
+				max-height: 200px !important;
+				object-fit: cover;
+			}
+			.hero-article-content {
+				padding: 0 0.9rem 0.9rem !important;
+				width: 100%;
+				box-sizing: border-box;
+			}
+			.hero-meta {
+				margin-bottom: 0.15rem !important;
+				font-size: 0.76rem !important;
+				gap: 0.2rem 0.45rem !important;
+			}
+			.hero-article-toolbar {
+				margin-bottom: 0.3rem !important;
+				gap: 0.25rem 0.5rem !important;
+			}
+			.hero-categories {
+				margin-bottom: 0.4rem !important;
+				gap: 0.3rem !important;
+			}
+			.hero-categories a {
+				padding: 0.2rem 0.5rem !important;
+				font-size: 0.78rem !important;
+			}
+			.hero-article-content h1 {
+				margin-top: 0 !important;
+				margin-bottom: 0.3rem !important;
+				font-size: clamp(1.35rem, 4vw, 1.75rem) !important;
+			}
+			.hero-article-content .hero-desc {
+				font-size: 0.95rem !important;
+				line-height: 1.4 !important;
+			}
+			.page-layout {
+				grid-template-columns: 1fr;
+			}
+		}
 		</style>
 	</head>
 
