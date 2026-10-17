@@ -112,6 +112,18 @@ import logoA from '../assets/logo-a.svg';
 		position: relative;
 	}
 	
+	@media (prefers-color-scheme: dark) {
+		.internal-links :global(a) {
+			color: rgb(var(--gray-dark));
+		}
+		.internal-links :global(a.highlight) {
+			color: var(--primary-light);
+		}
+		.internal-links :global(a:hover) {
+			color: var(--primary-light);
+		}
+	}
+	
 	.internal-links :global(a:hover) {
 		color: var(--primary);
 	}
@@ -140,6 +152,12 @@ import logoA from '../assets/logo-a.svg';
 		color: var(--ink);
 	}
 	
+	@media (prefers-color-scheme: dark) {
+		.mobile-menu-toggle {
+			color: rgb(var(--gray-dark));
+		}
+	}
+	
 	.mobile-menu-toggle svg {
 		width: 24px;
 		height: 24px;
@@ -166,6 +184,16 @@ import logoA from '../assets/logo-a.svg';
 		font-weight: 600;
 		border-bottom: 1px solid var(--surface-border);
 		transition: background 0.2s ease;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.mobile-menu a {
+			color: rgb(var(--gray-dark));
+		}
+		.mobile-menu a:hover,
+		.mobile-menu a.highlight {
+			color: var(--primary-light);
+		}
 	}
 	
 	.mobile-menu a:hover,

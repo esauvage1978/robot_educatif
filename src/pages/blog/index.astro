@@ -10,6 +10,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { articleSlugFromId } from '../../lib/articleSlug';
 import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
+import { resolveArticleThumbnail, generateArticleThumbnail } from '../../lib/articleThumbnail';
 import { isProgrammingSeriesArticle } from '../../lib/blogScope';
 import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
 import { withBase } from '../../lib/siteUrl';
@@ -213,39 +214,59 @@ const topCategories = topCategoriesByCount(posts, 15);
 					</section>
 					<section>
 						<ul class="posts-list">
-							{
-								posts.map((post) => {
-									const thumb = resolveHeroImage(post.data.heroImage);
-									return (
-									<li>
-										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
-											{thumb && (
-												<Image width={720} height={360} src={thumb} alt={post.data.title} />
+					{
+							posts.map((post) => {
+								const heroImage = resolveHeroImage(post.data.heroImage);
+								const thumbnail = resolveArticleThumbnail(post, heroImage);
+								return (
+								<li>
+									<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+										{thumbnail.type === 'image' && (
+											<Image width={720} height={360} src={thumbnail.src} alt={post.data.title} />
+										)}
+										{thumbnail.type === 'pinterest' && (
+											<img
+												src={withBase(`/pinterest/${thumbnail.slug}-1.jpg`)}
+												alt={post.data.title}
+												width="720"
+												height="360"
+												loading="lazy"
+												style="object-fit: cover; object-position: top;"
+											/>
+										)}
+										{thumbnail.type === 'generated' && (
+											<img
+												src={generateArticleThumbnail(post)}
+												alt={post.data.title}
+												width="720"
+												height="360"
+												loading="lazy"
+											/>
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											{post.data.updatedDate ? (
+												<>
+													Mis à jour le <FormattedDate date={post.data.updatedDate} />
+												</>
+											) : (
+												<>
+													Publié le <FormattedDate date={post.data.pubDate} />
+												</>
 											)}
-											<h4 class="title">{post.data.title}</h4>
-											<p class="date">
-												{post.data.updatedDate ? (
-													<>
-														Mis à jour le <FormattedDate date={post.data.updatedDate} />
-													</>
-												) : (
-													<>
-														Publié le <FormattedDate date={post.data.pubDate} />
-													</>
-												)}
-											</p>
-											{post.data.categories?.length ? (
-												<div class="post-categories">
-													{post.data.categories.map((cat) => (
-														<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
-													))}
-												</div>
-											) : null}
-										</a>
-									</li>
-									);
-								})
-							}
+										</p>
+										{post.data.categories?.length ? (
+											<div class="post-categories">
+												{post.data.categories.map((cat) => (
+													<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
+												))}
+											</div>
+										) : null}
+									</a>
+								</li>
+								);
+							})
+						}
 						</ul>
 					</section>
 				</div>

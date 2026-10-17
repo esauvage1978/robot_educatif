@@ -55,6 +55,28 @@
 	--prose-width: 70ch;
 }
 
+@media (prefers-color-scheme: dark) {
+	:root {
+		--page-bg: #0B1F2A;
+		--page-bg-elevated: #0e2533;
+		--black: 248, 250, 252;
+		--gray: 148, 163, 184;
+		--gray-light: 30, 41, 59;
+		--gray-dark: 226, 232, 240;
+		--gray-gradient: #0B1F2A, #0e2533;
+		--surface: #0e2533;
+		--surface-2: #1a3544;
+		--surface-border: rgba(226, 232, 240, 0.1);
+		--card: #ffffff;
+		--card-2: #ffffff;
+		--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
+		--primary: #14B8A6;
+		--primary-light: #5EEAD4;
+		--accent: #14B8A6;
+		--accent-soft: #5EEAD4;
+	}
+}
+
 html[data-theme='dark'] {
 	--page-bg: #0B1F2A;
 	--page-bg-elevated: #0e2533;
@@ -66,9 +88,13 @@ html[data-theme='dark'] {
 	--surface: #0e2533;
 	--surface-2: #1a3544;
 	--surface-border: rgba(226, 232, 240, 0.1);
-	--card: #0e2533;
-	--card-2: #1a3544;
+	--card: #ffffff;
+	--card-2: #ffffff;
 	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
+	--primary: #14B8A6;
+	--primary-light: #5EEAD4;
+	--accent: #14B8A6;
+	--accent-soft: #5EEAD4;
 }
 
 html {

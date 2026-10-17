@@ -9,6 +9,7 @@ import StructuredDataWebsite from '../components/StructuredDataWebsite.astro';
 import { SITE_TITLE, AMAZON_AFFILIATE_TAG } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { resolveHeroImage } from '../lib/contentHeroImage';
+import { resolveArticleThumbnail, generateArticleThumbnail } from '../lib/articleThumbnail';
 import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
 import { getProductImage } from '../lib/amazonImage';
@@ -54,16 +55,23 @@ const guideCount = allPosts.length;
 				align-items: center;
 			}
 			
+		.hero-content .badge {
+			display: inline-block;
+			background: var(--accent-warm-soft);
+			color: #9A3412;
+			font-weight: 700;
+			padding: 6px 14px;
+			border-radius: 99px;
+			font-size: 0.9rem;
+			margin-bottom: 1rem;
+		}
+		
+		@media (prefers-color-scheme: dark) {
 			.hero-content .badge {
-				display: inline-block;
-				background: #FFEDD5;
-				color: #C2410C;
-				font-weight: 700;
-				padding: 6px 14px;
-				border-radius: 99px;
-				font-size: 0.9rem;
-				margin-bottom: 1rem;
+				background: rgba(251, 146, 60, 0.2);
+				color: #FB923C;
 			}
+		}
 			
 			.hero-content h1 {
 				font-family: var(--font-heading);
@@ -147,13 +155,23 @@ const guideCount = allPosts.length;
 				font-weight: 700;
 			}
 			
+		.hero-card {
+			position: relative;
+			background: var(--card);
+			border-radius: 24px;
+			padding: 18px;
+			box-shadow: 0 20px 40px rgba(11, 31, 42, 0.12);
+		}
+		
+		@media (prefers-color-scheme: dark) {
 			.hero-card {
-				position: relative;
-				background: white;
-				border-radius: 24px;
-				padding: 18px;
-				box-shadow: 0 20px 40px rgba(11, 31, 42, 0.12);
+				background: #ffffff;
 			}
+			.hero-card .card-info strong,
+			.hero-card .card-info small {
+				color: #0B1F2A;
+			}
+		}
 			
 			.hero-card img {
 				width: 100%;
@@ -163,17 +181,24 @@ const guideCount = allPosts.length;
 				display: block;
 			}
 			
-			.card-tag {
-				position: absolute;
-				top: 28px;
-				left: 28px;
-				background: var(--primary);
+		.card-tag {
+			position: absolute;
+			top: 28px;
+			left: 28px;
+			background: var(--primary);
+			color: white;
+			font-weight: 700;
+			padding: 6px 12px;
+			border-radius: 8px;
+			font-size: 0.9rem;
+		}
+		
+		@media (prefers-color-scheme: dark) {
+			.hero-card .card-tag {
+				background: #0F766E;
 				color: white;
-				font-weight: 700;
-				padding: 6px 12px;
-				border-radius: 8px;
-				font-size: 0.9rem;
 			}
+		}
 			
 			.card-footer {
 				display: flex;
@@ -197,22 +222,32 @@ const guideCount = allPosts.length;
 				font-size: 0.9rem;
 			}
 			
-			.card-cta {
-				background: var(--ink);
+		.card-cta {
+			background: var(--ink);
+			color: white;
+			padding: 12px 18px;
+			border-radius: 10px;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 0.95rem;
+			white-space: nowrap;
+			transition: all 0.2s ease;
+		}
+		
+		@media (prefers-color-scheme: dark) {
+			.hero-card .card-cta {
+				background: #0B1F2A;
 				color: white;
-				padding: 12px 18px;
-				border-radius: 10px;
-				text-decoration: none;
-				font-weight: 700;
-				font-size: 0.95rem;
-				white-space: nowrap;
-				transition: all 0.2s ease;
 			}
-			
-			.card-cta:hover {
-				background: var(--primary);
-				transform: translateY(-1px);
+			.hero-card .card-cta:hover {
+				background: #0F766E;
 			}
+		}
+		
+		.card-cta:hover {
+			background: var(--primary);
+			transform: translateY(-1px);
+		}
 			
 			.container {
 				max-width: 1320px;
@@ -369,11 +404,17 @@ const guideCount = allPosts.length;
 				background: #ea580c;
 			}
 			
+		.articles-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 2rem;
+		}
+		
+		@media (max-width: 640px) {
 			.articles-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-				gap: 2rem;
+				grid-template-columns: 1fr;
 			}
+		}
 			
 			.article-card {
 				background: var(--surface);
@@ -528,10 +569,9 @@ const guideCount = allPosts.length;
 								Choisir par âge
 							</a>
 						</div>
-						<div class="trust-signals">
-							<span>🔄 <b>Prix mis à jour</b></span>
-							<span>📚 <b>{guideCount} guides</b> détaillés</span>
-						</div>
+					<div class="trust-signals">
+						<span>📚 <b>{guideCount} guides</b> détaillés</span>
+					</div>
 					</div>
 					<div class="hero-card">
 					<span class="card-tag">⭐ Notre choix 8-12 ans</span>
@@ -637,31 +677,54 @@ const guideCount = allPosts.length;
 						<p>Guides, tutoriels et comparatifs pour bien démarrer</p>
 					</div>
 					
-					<div class="articles-grid">
-						{latestPosts.map((post) => {
-							const thumb = resolveHeroImage(post.data.heroImage);
-							return (
-								<a href={withBase(`/${articleSlugFromId(post.id)}/`)} class="article-card">
-									{thumb && (
-										<Image
-											src={thumb}
-											alt={post.data.title}
-											width={400}
-											height={250}
-											loading="lazy"
-											decoding="async"
-										/>
-									)}
-									<div class="article-content">
-										<div class="article-date">
-											<FormattedDate date={post.data.pubDate} />
-										</div>
-										<h3>{post.data.title}</h3>
+				<div class="articles-grid">
+					{latestPosts.map((post) => {
+						const heroImage = resolveHeroImage(post.data.heroImage);
+						const thumbnail = resolveArticleThumbnail(post, heroImage);
+						
+						return (
+							<a href={withBase(`/${articleSlugFromId(post.id)}/`)} class="article-card">
+								{thumbnail.type === 'image' && (
+									<Image
+										src={thumbnail.src}
+										alt={post.data.title}
+										width={400}
+										height={250}
+										loading="lazy"
+										decoding="async"
+									/>
+								)}
+								{thumbnail.type === 'pinterest' && (
+									<img
+										src={withBase(`/pinterest/${thumbnail.slug}-1.jpg`)}
+										alt={post.data.title}
+										width="400"
+										height="250"
+										loading="lazy"
+										decoding="async"
+										style="object-fit: cover; object-position: top;"
+									/>
+								)}
+								{thumbnail.type === 'generated' && (
+									<img
+										src={generateArticleThumbnail(post)}
+										alt={post.data.title}
+										width="400"
+										height="250"
+										loading="lazy"
+										decoding="async"
+									/>
+								)}
+								<div class="article-content">
+									<div class="article-date">
+										<FormattedDate date={post.data.pubDate} />
 									</div>
-								</a>
-							);
-						})}
-					</div>
+									<h3>{post.data.title}</h3>
+								</div>
+							</a>
+						);
+					})}
+				</div>
 					
 					<div style="text-align: center; margin-top: 2.5rem;">
 						<a href={withBase('/blog/')} class="btn btn-secondary">
