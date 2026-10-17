@@ -8,6 +8,7 @@
   "scripts": {
     "import:wp": "node scripts/import-wordpress.mjs",
     "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
+    "images:amazon": "node scripts/fetch-amazon-images.mjs",
     "generate:favicon": "node scripts/generate-favicon.mjs",
     "generate:pins": "node scripts/generate-pins.mjs",
     "optimize:hero": "node scripts/optimize-hero-home.mjs",

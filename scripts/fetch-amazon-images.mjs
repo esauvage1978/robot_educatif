@@ -1,178 +1,61 @@
 #!/usr/bin/env node
-
-/**
- * Fetch Amazon product images via Product Advertising API 5.0
- * 
- * Environment variables required:
- * - PAAPI_ACCESS_KEY: AWS Access Key ID
- * - PAAPI_SECRET_KEY: AWS Secret Access Key
- * - PAAPI_PARTNER_TAG: Amazon Partner Tag (default: manuso06-21)
- * 
- * If variables are not set, script exits silently (build continues)
- * 
- * Output: src/data/amazon-images.json
- * Format: { "ASIN": "https://...", ... }
- */
-
-import { createHash, createHmac } from 'crypto';
-import { readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const PRODUCTS_PATH = join(__dirname, '../src/data/products.json');
-const OUTPUT_PATH = join(__dirname, '../src/data/amazon-images.json');
-
-// Check for required environment variables
-const ACCESS_KEY = process.env.PAAPI_ACCESS_KEY;
-const SECRET_KEY = process.env.PAAPI_SECRET_KEY;
-const PARTNER_TAG = process.env.PAAPI_PARTNER_TAG || 'manuso06-21';
-
-if (!ACCESS_KEY || !SECRET_KEY) {
-	console.log('[fetch-amazon-images] PA-API credentials not set, skipping image fetch');
-	// Ensure empty JSON exists for build to succeed
-	try {
-		readFileSync(OUTPUT_PATH);
-	} catch {
-		writeFileSync(OUTPUT_PATH, '{}', 'utf8');
-	}
-	process.exit(0);
+// Fetch Amazon product images via the Creators API (OAuth2, credential v3.2 / EU).
+// Env: PAAPI_ACCESS_KEY = Credential ID (amzn1.application-oa2-client...), PAAPI_SECRET_KEY = Secret.
+// Never commit credentials. Writes src/data/amazon-images.json { ASIN: {url,width,height,title} }.
+import fs from 'node:fs'; import path from 'node:path';
+const ROOT = process.cwd(), TAG = 'manuso06-21', MKT = 'www.amazon.fr';
+const ID = process.env.PAAPI_ACCESS_KEY, SECRET = process.env.PAAPI_SECRET_KEY;
+if (!ID || !SECRET) { 
+  console.log('[fetch-amazon-images] PA-API credentials not set, skipping');
+  const outPath = path.join(ROOT, 'src/data/amazon-images.json');
+  if (!fs.existsSync(outPath)) fs.writeFileSync(outPath, '{}\n');
+  process.exit(0);
 }
-
-const MARKETPLACE = 'www.amazon.fr';
-const REGION = 'eu-west-1';
-const SERVICE = 'ProductAdvertisingAPI';
-const HOST = 'webservices.amazon.fr';
-const PATH = '/paapi5/getitems';
-
-/**
- * AWS Signature Version 4 signing
- */
-function sign(key, message) {
-	return createHmac('sha256', key).update(message).digest();
+const redact = s => String(s).replace(/amzn1\.[\w.\-]+/g, '[REDACTED]');
+// Collect ASINs from products.json + content files
+const asins = new Set();
+const walk = d => { for (const f of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, f.name);
+  if (f.isDirectory()) { if (!['node_modules', 'dist', '.git'].includes(f.name) && !/^dist\d/.test(f.name)) walk(p); }
+  else if (/\.(json|md|mdx|astro|ts|js)$/.test(f.name)) { const t = fs.readFileSync(p, 'utf8');
+    for (const m of t.matchAll(/(?:\/dp\/|\/gp\/product\/|asin=|"asin"\s*:\s*"|asin:\s*["']?)([A-Z0-9]{10})/gi)) asins.add(m[1].toUpperCase()); } } };
+walk(path.join(ROOT, 'src'));
+const list = [...asins].sort(); console.log(`ASINs: ${list.length}`);
+const tr = await fetch('https://api.amazon.co.uk/auth/o2/token', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ grant_type: 'client_credentials', client_id: ID, client_secret: SECRET, scope: 'creatorsapi::default' }) });
+const tj = await tr.json().catch(() => ({}));
+if (!tj.access_token) { 
+  console.log('[fetch-amazon-images] OAuth token error', tr.status, redact(JSON.stringify(tj)));
+  const outPath = path.join(ROOT, 'src/data/amazon-images.json');
+  if (!fs.existsSync(outPath)) fs.writeFileSync(outPath, '{}\n');
+  process.exit(0);
 }
-
-function getSignatureKey(key, dateStamp, regionName, serviceName) {
-	const kDate = sign('AWS4' + key, dateStamp);
-	const kRegion = sign(kDate, regionName);
-	const kService = sign(kRegion, serviceName);
-	const kSigning = sign(kService, 'aws4_request');
-	return kSigning;
+const out = {}, failed = {}; const sleep = ms => new Promise(r => setTimeout(r, ms));
+for (let i = 0; i < list.length; i += 10) {
+  const batch = list.slice(i, i + 10);
+  const r = await fetch('https://creatorsapi.amazon/catalog/v1/getItems', { method: 'POST',
+    headers: { Authorization: 'Bearer ' + tj.access_token, 'Content-Type': 'application/json', 'x-marketplace': MKT },
+    body: JSON.stringify({ itemIds: batch, itemIdType: 'ASIN', marketplace: MKT, partnerTag: TAG,
+      resources: ['images.primary.large', 'images.primary.medium', 'itemInfo.title'] }) });
+  const j = await r.json().catch(() => ({}));
+  if (r.status !== 200) { 
+    console.log('[fetch-amazon-images] getItems', r.status, redact(JSON.stringify(j)));
+    if (r.status === 403) {
+      console.log('[fetch-amazon-images] 403 AssociateNotEligible - need 10 sales in 30 days, fallback to SVG');
+      fs.writeFileSync(path.join(ROOT, 'src/data/amazon-images.json'), '{}\n');
+      process.exit(0);
+    }
+    batch.forEach(a => failed[a] = `HTTP ${r.status}`); await sleep(2000); continue;
+  }
+  const items = j.itemsResult?.items || j.ItemsResult?.Items || [];
+  for (const it of items) { const a = it.asin || it.ASIN; const im = it.images?.primary?.large || it.images?.primary?.medium;
+    if (!im?.url) { failed[a] = 'no image'; continue; }
+    const g = await fetch(im.url); const buf = Buffer.from(await g.arrayBuffer());
+    if (g.status === 200 && /^image\//.test(g.headers.get('content-type') || '') && buf.length > 1024)
+      out[a] = { url: im.url, width: im.width, height: im.height, title: it.itemInfo?.title?.displayValue || '' };
+    else failed[a] = `image check failed ${g.status} ${buf.length}B`; }
+  for (const e of (j.errors || [])) { const m = /([A-Z0-9]{10})/.exec(e.message || ''); if (m) failed[m[1]] = e.code + ': ' + e.message; }
+  batch.forEach(a => { if (!out[a] && !failed[a]) failed[a] = 'not returned'; });
+  await sleep(1100); // ~1 TPS
 }
-
-/**
- * Call PA-API GetItems
- */
-async function fetchProductImages(asins) {
-	const now = new Date();
-	const amzDate = now.toISOString().replace(/[:-]|\.\d{3}/g, '');
-	const dateStamp = amzDate.slice(0, 8);
-	
-	const payload = JSON.stringify({
-		ItemIds: asins,
-		Resources: ['Images.Primary.Large'],
-		PartnerTag: PARTNER_TAG,
-		PartnerType: 'Associates',
-		Marketplace: MARKETPLACE,
-	});
-	
-	const payloadHash = createHash('sha256').update(payload).digest('hex');
-	
-	const canonicalHeaders = `content-type:application/json; charset=utf-8\nhost:${HOST}\nx-amz-date:${amzDate}\n`;
-	const signedHeaders = 'content-type;host;x-amz-date';
-	const canonicalRequest = `POST\n${PATH}\n\n${canonicalHeaders}\n${signedHeaders}\n${payloadHash}`;
-	
-	const algorithm = 'AWS4-HMAC-SHA256';
-	const credentialScope = `${dateStamp}/${REGION}/${SERVICE}/aws4_request`;
-	const stringToSign = `${algorithm}\n${amzDate}\n${credentialScope}\n${createHash('sha256').update(canonicalRequest).digest('hex')}`;
-	
-	const signingKey = getSignatureKey(SECRET_KEY, dateStamp, REGION, SERVICE);
-	const signature = createHmac('sha256', signingKey).update(stringToSign).digest('hex');
-	
-	const authorizationHeader = `${algorithm} Credential=${ACCESS_KEY}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
-	
-	try {
-		const response = await fetch(`https://${HOST}${PATH}`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-				'Host': HOST,
-				'X-Amz-Date': amzDate,
-				'Authorization': authorizationHeader,
-			},
-			body: payload,
-		});
-		
-		if (!response.ok) {
-			const errorText = await response.text();
-			throw new Error(`PA-API error ${response.status}: ${errorText}`);
-		}
-		
-		const data = await response.json();
-		return data;
-	} catch (error) {
-		console.error('[fetch-amazon-images] PA-API request failed:', error.message);
-		return null;
-	}
-}
-
-/**
- * Main execution
- */
-async function main() {
-	console.log('[fetch-amazon-images] Starting image fetch via PA-API 5.0');
-	
-	// Read products.json
-	let products;
-	try {
-		products = JSON.parse(readFileSync(PRODUCTS_PATH, 'utf8'));
-	} catch (error) {
-		console.error('[fetch-amazon-images] Failed to read products.json:', error.message);
-		process.exit(1);
-	}
-	
-	// Extract ASINs
-	const asins = Object.values(products)
-		.filter(p => p.asin)
-		.map(p => p.asin);
-	
-	if (asins.length === 0) {
-		console.log('[fetch-amazon-images] No ASINs found in products.json');
-		writeFileSync(OUTPUT_PATH, '{}', 'utf8');
-		process.exit(0);
-	}
-	
-	console.log(`[fetch-amazon-images] Fetching images for ${asins.length} ASINs`);
-	
-	// Fetch from PA-API (batch of 10 max)
-	const results = {};
-	for (let i = 0; i < asins.length; i += 10) {
-		const batch = asins.slice(i, i + 10);
-		const data = await fetchProductImages(batch);
-		
-		if (data && data.ItemsResult && data.ItemsResult.Items) {
-			for (const item of data.ItemsResult.Items) {
-				if (item.Images && item.Images.Primary && item.Images.Primary.Large) {
-					results[item.ASIN] = item.Images.Primary.Large.URL;
-					console.log(`[fetch-amazon-images] ✓ ${item.ASIN}: ${item.Images.Primary.Large.URL}`);
-				} else {
-					console.log(`[fetch-amazon-images] ✗ ${item.ASIN}: No image available`);
-				}
-			}
-		}
-		
-		// Respect rate limits (1 request/second)
-		if (i + 10 < asins.length) {
-			await new Promise(resolve => setTimeout(resolve, 1000));
-		}
-	}
-	
-	// Write results
-	writeFileSync(OUTPUT_PATH, JSON.stringify(results, null, 2), 'utf8');
-	console.log(`[fetch-amazon-images] Wrote ${Object.keys(results).length} images to ${OUTPUT_PATH}`);
-}
-
-main().catch(error => {
-	console.error('[fetch-amazon-images] Fatal error:', error);
-	process.exit(1);
-});
+fs.writeFileSync(path.join(ROOT, 'src/data/amazon-images.json'), JSON.stringify(out, null, 2) + '\n');
+console.log(`OK ${Object.keys(out).length}/${list.length}`); if (Object.keys(failed).length) console.log('Failed:', failed);

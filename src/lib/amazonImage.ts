@@ -1,12 +1,18 @@
 import amazonImages from '../data/amazon-images.json';
 
 /**
- * Get product image from PA-API cache or generate SVG placeholder
+ * Get product image from Creators API cache or generate SVG placeholder
  */
 export function getProductImage(asin: string | null, productName: string, width: number = 250, height: number = 250): string {
-	// Try PA-API cached image first
+	// Try Creators API cached image first (hotlink, no re-hosting)
 	if (asin && amazonImages[asin as keyof typeof amazonImages]) {
-		return amazonImages[asin as keyof typeof amazonImages];
+		const cached = amazonImages[asin as keyof typeof amazonImages];
+		// Return Amazon image URL (hotlink compliant with Associates Program)
+		if (typeof cached === 'string') {
+			return cached; // Old format fallback
+		} else if (cached.url) {
+			return cached.url; // New format: {url, width, height, title}
+		}
 	}
 	
 	// Fallback to custom SVG placeholder
