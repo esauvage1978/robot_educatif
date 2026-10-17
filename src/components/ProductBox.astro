@@ -49,7 +49,12 @@ const trackingAttrs = productId
 		<div class="product-info">
 			<h3 class="product-name">{name}</h3>
 			{ages && <div class="product-meta"><strong>Âge :</strong> {ages}</div>}
-			{priceRange && <div class="product-meta"><strong>Prix indicatif :</strong> {priceRange}</div>}
+			{priceRange && (
+				<div class="product-meta">
+					<strong>Prix indicatif :</strong> {priceRange}
+					<span class="price-disclaimer">voir le prix actuel sur Amazon</span>
+				</div>
+			)}
 			{languages.length > 0 && (
 				<div class="product-meta">
 					<strong>Langages :</strong> {languages.join(', ')}
@@ -157,6 +162,14 @@ const trackingAttrs = productId
 	.product-meta strong {
 		color: rgb(var(--black));
 		font-weight: 600;
+	}
+	
+	.price-disclaimer {
+		display: block;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+		font-style: italic;
+		margin-top: 0.2rem;
 	}
 
 	.product-pros {
