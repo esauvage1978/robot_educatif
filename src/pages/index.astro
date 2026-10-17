@@ -113,18 +113,19 @@ const guideCount = allPosts.length;
 				background: transparent;
 			}
 			
-			.btn-secondary:hover {
-				background: var(--primary);
-				color: white;
-			}
-			
-			.trust-signals {
-				display: flex;
-				gap: 1.5rem;
-				flex-wrap: wrap;
-				font-size: 0.95rem;
-				color: rgb(var(--gray-dark));
-			}
+		.btn-secondary:hover {
+			background: var(--primary);
+			color: white;
+		}
+		
+		.show-m { display: none; }
+		.trust-signals {
+			display: flex;
+			gap: 1.5rem;
+			flex-wrap: wrap;
+			font-size: 0.95rem;
+			color: rgb(var(--gray-dark));
+		}
 			
 			.trust-signals span {
 				display: flex;
@@ -424,22 +425,58 @@ const guideCount = allPosts.length;
 				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 			}
 			
-			@media (max-width: 768px) {
-				.hero-inner {
-					grid-template-columns: 1fr;
-					gap: 2rem;
-					padding-top: 2rem;
-					padding-bottom: 2.5rem;
-				}
-				
-				.hero-card {
-					order: -1;
-				}
-				
-				.btn {
-					flex: 1;
-					text-align: center;
-				}
+		@media (max-width: 768px) {
+			.hero {
+				padding-top: 0.75rem;
+				padding-bottom: 2rem;
+			}
+			.hero-inner {
+				grid-template-columns: 1fr;
+				gap: 1.25rem !important;
+				padding-top: 0.5rem !important;
+				padding-bottom: 2.5rem;
+			}
+			.hero-content .badge {
+				font-size: 0.8rem;
+				margin-bottom: 0.6rem;
+			}
+			.hero-content h1 {
+				font-size: 1.85rem;
+				margin-bottom: 0.75rem;
+			}
+			.hero-lead {
+				font-size: 1rem;
+				margin-bottom: 1.1rem;
+			}
+			.hero-ctas {
+				flex-wrap: nowrap;
+				gap: 0.6rem;
+				margin-bottom: 1rem;
+			}
+			.hero-ctas .btn {
+				padding: 12px 10px;
+				font-size: 0.98rem;
+				white-space: nowrap;
+			}
+			.trust-signals {
+				gap: 1rem;
+				font-size: 0.88rem;
+			}
+			.hide-m { display: none; }
+			.show-m { display: inline; }
+			
+			.hero-card {
+				order: 2;
+				padding: 12px;
+			}
+			.hero-card img {
+				aspect-ratio: 16/9;
+			}
+			
+			.btn {
+				flex: 1;
+				text-align: center;
+			}
 				
 				.section {
 					padding: 2.5rem 0;
@@ -459,9 +496,9 @@ const guideCount = allPosts.length;
 							mBot, robots programmables, kits Arduino : nos comparatifs par âge (6 à 15 ans) pour offrir un cadeau qui apprend vraiment à coder.
 						</p>
 						<div class="hero-ctas">
-							<a href={withBase('/robot-educatif-cadeau-noel-2026/')} class="btn btn-primary">
-								Voir le guide cadeaux Noël →
-							</a>
+						<a href={withBase('/robot-educatif-cadeau-noel-2026/')} class="btn btn-primary">
+							<span class="hide-m">Voir le guide cadeaux </span><span class="show-m">Guide </span>Noël →
+						</a>
 							<a href={withBase('/meilleur-robot-programmable-enfant-2026/')} class="btn btn-secondary">
 								Choisir par âge
 							</a>
