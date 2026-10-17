@@ -138,17 +138,16 @@ const trackingAttrs = productId
 		width: 120px;
 		height: 120px;
 		flex-shrink: 0;
-		border-radius: 8px;
-		overflow: hidden;
-		background: var(--page-bg);
-		border: 1px solid var(--surface-border);
 	}
 
-	.product-image img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		padding: 0.5rem;
+	.product-image-link {
+		display: block;
+		text-decoration: none;
+		transition: transform 0.2s ease;
+	}
+
+	.product-image-link:hover {
+		transform: scale(1.02);
 	}
 
 	.product-info {
@@ -263,15 +262,26 @@ const trackingAttrs = productId
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+		border-radius: 8px;
 	}
 
 	@media (max-width: 640px) {
 		.product-content {
 			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 
 		.product-image {
+			width: 100%;
+			max-width: 200px;
+			height: auto;
+			aspect-ratio: 1;
 			margin: 0 auto;
+		}
+
+		.product-img {
+			width: 100%;
+			height: auto;
 		}
 
 		.product-box {
