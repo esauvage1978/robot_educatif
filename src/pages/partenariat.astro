@@ -1,14 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { ARTICLE_AUTHOR, CONTACT_EMAIL } from '../consts';
 import { withBase } from '../lib/siteUrl';
-// SVG via le pipeline Vite (/_astro/*.svg) : mêmes règles de réécriture que le logo, pas de dépendance à public/images/
-import illuHero from '../assets/partenariat/hero-partenariat.svg?url';
-import illuEcoles from '../assets/partenariat/section-ecoles.svg?url';
-import illuMarques from '../assets/partenariat/section-marques.svg?url';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const guideCount = allPosts.length;
 
 const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Partenariat — ROBOT éducatif')}`;
 ---
@@ -17,270 +16,472 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Partenariat — écoles et essais produits"
-			description="Propositions pédagogiques : essais matériel, articles transparents."
+			title="Partenariat marques — Testez vos produits avec nous"
+			description="Partenariat : tests produits, tutoriels détaillés, présence YouTube et Pinterest. Audience qualifiée de parents, enseignants et passionnés de robotique éducative."
 		/>
+		<style>
+			body {
+				background: var(--page-bg);
+			}
+			
+			.hero {
+				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+				color: white;
+				padding: 4rem clamp(1rem, 5vw, 2rem) 4.5rem;
+				text-align: center;
+			}
+			
+			.hero h1 {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: clamp(2rem, 4vw, 3rem);
+				margin: 0 0 1.25rem 0;
+				color: white;
+			}
+			
+			.hero p {
+				font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+				max-width: 700px;
+				margin: 0 auto 2rem;
+				opacity: 0.95;
+				line-height: 1.6;
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 clamp(1rem, 5vw, 2rem);
+			}
+			
+			.section {
+				padding: 4rem 0;
+			}
+			
+			.section-header {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			
+			.section-header h2 {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				color: rgb(var(--black));
+				margin: 0 0 1rem 0;
+			}
+			
+			.section-header p {
+				font-size: 1.15rem;
+				color: rgb(var(--gray-dark));
+				max-width: 650px;
+				margin: 0 auto;
+			}
+			
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
+			
+			.stat-card {
+				background: var(--surface);
+				border: 2px solid var(--surface-border);
+				border-radius: 16px;
+				padding: 2rem 1.75rem;
+				text-align: center;
+				transition: all 0.3s ease;
+			}
+			
+			.stat-card:hover {
+				border-color: var(--primary);
+				transform: translateY(-4px);
+				box-shadow: 0 8px 24px rgba(15, 118, 110, 0.15);
+			}
+			
+			.stat-value {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: 2.5rem;
+				color: var(--primary);
+				display: block;
+				margin-bottom: 0.5rem;
+			}
+			
+			.stat-label {
+				color: rgb(var(--gray-dark));
+				font-size: 1.05rem;
+				font-weight: 600;
+			}
+			
+			.offerings-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+				gap: 2rem;
+			}
+			
+			.offering-card {
+				background: var(--surface);
+				border: 1px solid var(--surface-border);
+				border-radius: 16px;
+				padding: 2rem;
+			}
+			
+			.offering-icon {
+				width: 48px;
+				height: 48px;
+				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.5rem;
+				margin-bottom: 1.25rem;
+			}
+			
+			.offering-card h3 {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: 1.35rem;
+				color: rgb(var(--black));
+				margin: 0 0 0.75rem 0;
+			}
+			
+			.offering-card p {
+				color: rgb(var(--gray-dark));
+				line-height: 1.65;
+				margin: 0;
+			}
+			
+			.channels {
+				background: var(--surface);
+				border-radius: 20px;
+				padding: 3rem 2.5rem;
+				margin: 3rem 0;
+			}
+			
+			.channels h3 {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: 1.75rem;
+				color: rgb(var(--black));
+				margin: 0 0 2rem 0;
+				text-align: center;
+			}
+			
+			.channels-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+				gap: 2rem;
+				text-align: center;
+			}
+			
+			.channel-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+			}
+			
+			.channel-icon {
+				width: 64px;
+				height: 64px;
+				background: var(--surface-2);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--primary);
+			}
+			
+			.channel-icon svg {
+				width: 32px;
+				height: 32px;
+			}
+			
+			.channel-name {
+				font-weight: 700;
+				font-size: 1.1rem;
+				color: rgb(var(--black));
+			}
+			
+			.channel-link {
+				font-size: 0.9rem;
+				color: rgb(var(--gray));
+				word-break: break-all;
+			}
+			
+			.cta-section {
+				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+				color: white;
+				border-radius: 20px;
+				padding: 3.5rem 2.5rem;
+				text-align: center;
+				margin: 3rem 0;
+			}
+			
+			.cta-section h2 {
+				font-family: var(--font-heading);
+				font-weight: 800;
+				font-size: clamp(1.8rem, 3vw, 2.5rem);
+				margin: 0 0 1rem 0;
+			}
+			
+			.cta-section p {
+				font-size: 1.15rem;
+				margin: 0 0 2rem 0;
+				opacity: 0.95;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			
+			.btn {
+				display: inline-block;
+				padding: 15px 30px;
+				border-radius: 12px;
+				font-weight: 700;
+				text-decoration: none;
+				font-size: 1.05rem;
+				transition: all 0.2s ease;
+			}
+			
+			.btn-white {
+				background: white;
+				color: var(--primary);
+			}
+			
+			.btn-white:hover {
+				background: var(--page-bg);
+				transform: translateY(-2px);
+				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+			}
+			
+			.btn-outline {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+			
+			.btn-outline:hover {
+				background: white;
+				color: var(--primary);
+			}
+			
+			.transparency {
+				background: var(--surface-2);
+				border-left: 4px solid var(--primary);
+				border-radius: 12px;
+				padding: 2rem;
+				margin: 3rem 0;
+			}
+			
+			.transparency h3 {
+				font-weight: 700;
+				font-size: 1.25rem;
+				color: rgb(var(--black));
+				margin: 0 0 1rem 0;
+			}
+			
+			.transparency p {
+				color: rgb(var(--gray-dark));
+				line-height: 1.7;
+				margin: 0;
+			}
+			
+			@media (max-width: 768px) {
+				.section {
+					padding: 2.5rem 0;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main class="partenariat-page">
-			<article>
-				<header class="partenariat-hero">
-					<img
-						class="partenariat-hero-img"
-						src={illuHero}
-						width="960"
-						height="280"
-						alt="Illustration : collaboration, pédagogie et essais produits autour de la robotique éducative."
-						loading="eager"
-						decoding="async"
-					/>
-					<h1>Partenariat</h1>
-					<p class="partenariat-lead">
-						Cette page présente deux types de collaboration possibles avec <strong>ROBOT éducatif</strong> :
-						l’accompagnement des <strong>écoles et structures d’enseignement</strong> sur des contenus adaptés, et les
-						<strong>essais de produits</strong> sous forme d’articles de fond honnêtes et détaillés. Chaque projet est
-						étudié au cas par cas.
-					</p>
-				</header>
-
-				<section class="partenariat-block partenariat-block--ecoles" aria-labelledby="partenariat-ecoles-title">
-					<div class="partenariat-block__visual">
-						<img
-							src={illuEcoles}
-							width="320"
-							height="260"
-							alt=""
-							loading="lazy"
-							decoding="async"
-						/>
+		<main>
+			<section class="hero">
+				<h1>Partenariat marques</h1>
+				<p>
+					Faites découvrir vos produits de robotique éducative à une audience qualifiée de parents, 
+					enseignants et passionnés. Tests détaillés, tutoriels pratiques, présence multi-canaux.
+				</p>
+			</section>
+			
+			<section class="section">
+				<div class="container">
+					<div class="section-header">
+						<h2>Notre audience</h2>
+						<p>Une communauté engagée autour de la robotique et de la programmation éducative</p>
 					</div>
-					<div class="partenariat-block__text">
-						<h2 id="partenariat-ecoles-title">Écoles, collèges, lycées et autres structures d’apprentissage</h2>
+					
+					<div class="stats-grid">
+						<div class="stat-card">
+							<span class="stat-value">{guideCount}</span>
+							<span class="stat-label">Guides détaillés</span>
+						</div>
+						<div class="stat-card">
+							<span class="stat-value">6-15</span>
+							<span class="stat-label">Tranches d'âge couvertes</span>
+						</div>
+						<div class="stat-card">
+							<span class="stat-value">100%</span>
+							<span class="stat-label">Tests en conditions réelles</span>
+						</div>
+					</div>
+					
+					<div class="channels">
+						<h3>Notre présence multi-canaux</h3>
+						<div class="channels-grid">
+							<div class="channel-item">
+								<div class="channel-icon">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zM10 9.658l4.917 2.338L10 14.342V9.658z"/>
+									</svg>
+								</div>
+								<div>
+									<div class="channel-name">YouTube</div>
+									<div class="channel-link">@roboteducatif6268</div>
+								</div>
+							</div>
+							<div class="channel-item">
+								<div class="channel-icon">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+									</svg>
+								</div>
+								<div>
+									<div class="channel-name">Pinterest</div>
+									<div class="channel-link">@roboteducatif</div>
+								</div>
+							</div>
+							<div class="channel-item">
+								<div class="channel-icon">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+									</svg>
+								</div>
+								<div>
+									<div class="channel-name">Facebook</div>
+									<div class="channel-link">roboteducatif.info</div>
+								</div>
+							</div>
+							<div class="channel-item">
+								<div class="channel-icon">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L7.113 13.72l-2.907-.909c-.632-.198-.644-.632.133-.93l11.356-4.377c.528-.176.99.128.82.917z"/>
+									</svg>
+								</div>
+								<div>
+									<div class="channel-name">Site web</div>
+									<div class="channel-link">robot-educatif.info</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="section" style="background: var(--surface-2);">
+				<div class="container">
+					<div class="section-header">
+						<h2>Ce que nous proposons</h2>
+						<p>Des collaborations authentiques et transparentes</p>
+					</div>
+					
+					<div class="offerings-grid">
+						<div class="offering-card">
+							<div class="offering-icon">📝</div>
+							<h3>Tests produits détaillés</h3>
+							<p>
+								Articles approfondis avec installation, utilisation en conditions réelles, points forts 
+								et limites. Pas de complaisance : nous testons vraiment.
+							</p>
+						</div>
+						
+						<div class="offering-card">
+							<div class="offering-icon">📚</div>
+							<h3>Tutoriels pratiques</h3>
+							<p>
+								Guides pas à pas pour vos produits : installation, premiers projets, résolution 
+								de problèmes courants. Valeur ajoutée pour vos clients.
+							</p>
+						</div>
+						
+						<div class="offering-card">
+							<div class="offering-icon">🎥</div>
+							<h3>Contenus vidéo</h3>
+							<p>
+								Présence sur YouTube avec démos, unboxing et tutoriels vidéo. Format engageant 
+								pour montrer vos produits en action.
+							</p>
+						</div>
+						
+						<div class="offering-card">
+							<div class="offering-icon">📊</div>
+							<h3>Comparatifs objectifs</h3>
+							<p>
+								Comparaisons entre produits similaires pour aider les parents et enseignants 
+								à choisir ce qui leur convient le mieux.
+							</p>
+						</div>
+						
+						<div class="offering-card">
+							<div class="offering-icon">👥</div>
+							<h3>Retours terrain</h3>
+							<p>
+								Tests avec des enfants et en situation d'enseignement quand c'est possible. 
+								Retours authentiques d'utilisation réelle.
+							</p>
+						</div>
+						
+						<div class="offering-card">
+							<div class="offering-icon">🔗</div>
+							<h3>Visibilité longue durée</h3>
+							<p>
+								Articles pérennes qui continuent d'être consultés. Pas de contenu éphémère : 
+								visibilité qui dure dans le temps.
+							</p>
+						</div>
+					</div>
+					
+					<div class="transparency">
+						<h3>🛡️ Transparence et éthique</h3>
 						<p>
-							Les articles publiés sur ce site sont rédigés par <strong>{ARTICLE_AUTHOR}</strong> avec une visée
-							d’abord <strong>pédagogique</strong> : définitions accessibles, progression logique, schémas ou
-							structures de programme lorsque c’est pertinent, et liens vers des ressources complémentaires
-							(tutoriels logiciels, comparatifs de robots, activités mBot, parcours programmation, etc.). L’objectif
-							est de permettre à un enseignant, un médiateur numérique ou un parent motivé de <strong>s’appuyer</strong>
-							sur un texte sans devoir tout reconstruire depuis zéro.
-						</p>
-						<p>
-							Si vous représentez un établissement, un centre de loisirs éducatifs, une association ou une équipe
-							pédagogique, vous pouvez <strong>proposer des thématiques</strong> qui manquent aujourd’hui sur le site :
-							travail sur un capteur précis, fil rouge sur plusieurs séances, fiche « erreurs fréquentes » pour les
-							élèves, comparaison de deux kits pour un usage classe, etc. Les propositions les plus alignées avec la
-							ligne éditoriale (robotique et programmation pour apprendre, pas le consumérisme pur) seront
-							privilégiées.
-						</p>
-						<p>
-							En pratique, une collaboration peut prendre la forme d’un <strong>échange structuré</strong> : public visé,
-							niveau, durée des séances envisagées, matériel déjà disponible, mots-clés ou programmes scolaires
-							concernés. Rien n’engage le site à publier un contenu avant accord mutuel sur le périmètre et le
-							calendrier ; les délais de rédaction dépendent de la complexité du sujet et des tests matériel éventuels.
-						</p>
-						<ul class="partenariat-list">
-							<li>Articles visant une <strong>clarté de progression</strong> (du débutant au plus avancé lorsque c’est cohérent).</li>
-							<li>Intégration possible de <strong>sujets transverses</strong> : usages en classe, autonomie des élèves, sécurité, évaluation.</li>
-							<li>Aucune obligation d’achat de matériel : les contenus peuvent s’appuyer sur du matériel déjà courant (mBot, mBlock, etc.) ou sur des <strong>scénarios génériques</strong> lorsque c’est faisable.</li>
-						</ul>
-						<p class="partenariat-cta-inline">
-							<Button href={withBase('/contact/')}>Ouvrir la page Contact</Button>
-							<span class="partenariat-cta-hint">
-								Indiquez dans le message qu’il s’agit d’un <strong>partenariat école</strong> et résumez le thème souhaité.
-							</span>
+							Tous nos partenariats sont clairement mentionnés. Nous gardons notre indépendance éditoriale : 
+							un produit qui ne convainc pas sera critiqué constructivement. Notre crédibilité auprès de notre 
+							audience est notre premier atout, et nous la préservons par l'honnêteté.
 						</p>
 					</div>
-				</section>
-
-				<section class="partenariat-block partenariat-block--marques" aria-labelledby="partenariat-marques-title">
-					<div class="partenariat-block__text">
-						<h2 id="partenariat-marques-title">Marques et éditeurs : essais produits et articles détaillés</h2>
+				</div>
+			</section>
+			
+			<section class="section">
+				<div class="container">
+					<div class="cta-section">
+						<h2>Travaillons ensemble</h2>
 						<p>
-							Il est possible d’envisager des <strong>essais de produits</strong> (robot, carte, capteur, logiciel associé…)
-							avec publication d’<strong>articles longs et détaillés</strong> : mise en service, expérience réelle
-							d’utilisation, points forts, limites, publics pour lesquels le produit est pertinent ou non.
+							Vous souhaitez faire connaître votre produit de robotique éducative ? 
+							Contactez-nous pour discuter d'un partenariat sur mesure.
 						</p>
-						<p>
-							La rédaction s’inscrit dans une logique <strong>critique et transparente</strong> : pas de « critique
-							factice » positive, pas de dissimulation des défauts constatés. Si une relation commerciale ou un envoi
-							gratuit existe, il sera <strong>mentionné clairement</strong> dans l’article, conformément aux bonnes pratiques et
-							à l’information du lecteur — comme pour les <a href={withBase('/mentions-legales/')}>mentions légales</a> et
-							les éventuels liens d’affiliation déjà rappelés sur le site.
-						</p>
-						<p>
-							Selon les cas, l’essai peut passer par un <strong>prêt temporaire</strong>, un échantillon fourni à titre
-							gracieux, ou un achat réalisé indépendamment ; chaque situation est explicitée. L’éditeur du site reste
-							libre du <strong>fond</strong> du contenu publié : validation d’un titre ou d’un angle n’implique pas renonciation à
-							l’appréciation critique.
-						</p>
-						<ul class="partenariat-list">
-							<li><strong>Ce que vous pouvez attendre</strong> d’un article d’essai : structure lisible, captures ou schémas si utile, précision sur la configuration (PC, OS, version logicielle), et conclusion honnête.</li>
-							<li><strong>Ce qui n’est pas promis</strong> : date de publication immédiate, exclusivité permanente, ou tonalité 100 % « publicitaire » sans valeur pour le lecteur.</li>
-						</ul>
-						<p class="partenariat-cta-inline">
-							<Button href={mailtoHref} variant="secondary">Écrire par courriel</Button>
-							<span class="partenariat-cta-hint">
-								Objet suggéré : <cite>Essai produit — [nom du matériel]</cite>. Joindre une présentation courte et le périmètre souhaité pour l’article.
-							</span>
-						</p>
+						<div class="cta-buttons">
+							<a href={mailtoHref} class="btn btn-white">
+								Nous contacter par email
+							</a>
+							<a href={withBase('/contact/')} class="btn btn-outline">
+								Formulaire de contact
+							</a>
+						</div>
 					</div>
-					<div class="partenariat-block__visual" aria-hidden="true">
-						<img
-							src={illuMarques}
-							width="320"
-							height="260"
-							alt=""
-							loading="lazy"
-							decoding="async"
-						/>
-					</div>
-				</section>
-
-				<section class="partenariat-footnote" aria-labelledby="partenariat-note-title">
-					<h2 id="partenariat-note-title">Transparence</h2>
-					<p>
-						ROBOT éducatif est un site d’information indépendant. Les éventuels partenariats (contenu commandité, prêt
-						matériel, liens affiliés) sont pensés pour rester <strong>compatibles avec une information utile au lecteur</strong>.
-						Pour toute précision juridique ou sur les liens Amazon, voir les <a href={withBase('/mentions-legales/')}
-							>mentions légales</a>.
-					</p>
-				</section>
-			</article>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
-
-<style>
-	.partenariat-page {
-		width: min(900px, calc(100% - 2rem));
-		margin: 0 auto;
-		padding: 2rem 0 3.25rem;
-		box-sizing: border-box;
-	}
-	.partenariat-hero {
-		margin-bottom: 2.5rem;
-	}
-	.partenariat-hero-img {
-		width: 100%;
-		height: auto;
-		border-radius: 14px;
-		border: 1px solid var(--surface-border);
-		display: block;
-		margin-bottom: 1.35rem;
-	}
-	.partenariat-page h1 {
-		font-size: clamp(1.75rem, 4vw, 2.15rem);
-		margin: 0 0 0.75rem;
-		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
-	}
-	.partenariat-lead {
-		margin: 0;
-		font-size: 1.08rem;
-		line-height: 1.65;
-		color: rgb(var(--gray-dark));
-		max-width: 52rem;
-	}
-	.partenariat-block {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-		gap: 1.75rem 2rem;
-		align-items: start;
-		margin-bottom: 2.75rem;
-		padding: 1.5rem 1.35rem;
-		background: var(--surface);
-		border: 1px solid var(--surface-border);
-		border-radius: 14px;
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-	}
-	.partenariat-block--marques {
-		grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-	}
-	.partenariat-block__visual {
-		margin: 0;
-	}
-	.partenariat-block__visual img {
-		width: 100%;
-		max-width: 320px;
-		height: auto;
-		display: block;
-		margin: 0 auto;
-		border-radius: 12px;
-	}
-	.partenariat-block__text h2 {
-		font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-		margin: 0 0 1rem;
-		color: rgb(var(--gray-dark));
-		line-height: 1.3;
-	}
-	.partenariat-block__text p {
-		margin: 0 0 1rem;
-		line-height: 1.65;
-		color: rgb(var(--gray-dark));
-		font-size: 0.98rem;
-	}
-	.partenariat-block__text a {
-		color: var(--accent);
-		font-weight: 600;
-	}
-	.partenariat-list {
-		margin: 0 0 1.15rem;
-		padding-left: 1.15rem;
-		line-height: 1.58;
-		color: rgb(var(--gray-dark));
-		font-size: 0.98rem;
-	}
-	.partenariat-list li {
-		margin-bottom: 0.45rem;
-	}
-	.partenariat-cta-inline {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.75rem 1rem;
-		margin: 1.25rem 0 0 !important;
-		padding-top: 1rem;
-		border-top: 1px solid var(--surface-border);
-	}
-	.partenariat-cta-inline :global(.ui-btn) {
-		white-space: nowrap;
-	}
-	.partenariat-cta-hint {
-		font-size: 0.9rem;
-		color: rgb(var(--gray));
-		line-height: 1.45;
-		flex: 1;
-		min-width: 12rem;
-	}
-	.partenariat-footnote {
-		padding: 1.25rem 1.2rem;
-		border-radius: 12px;
-		border: 1px dashed color-mix(in oklab, var(--accent) 35%, var(--surface-border));
-		background: color-mix(in oklab, var(--accent) 5%, var(--surface-2));
-	}
-	.partenariat-footnote h2 {
-		font-size: 1.05rem;
-		margin: 0 0 0.5rem;
-		color: rgb(var(--gray-dark));
-	}
-	.partenariat-footnote p {
-		margin: 0;
-		font-size: 0.94rem;
-		line-height: 1.58;
-		color: rgb(var(--gray-dark));
-	}
-	.partenariat-footnote a {
-		color: var(--accent);
-		font-weight: 600;
-	}
-	@media (max-width: 768px) {
-		.partenariat-block,
-		.partenariat-block--marques {
-			grid-template-columns: 1fr;
-		}
-		.partenariat-block--marques .partenariat-block__visual {
-			order: -1;
-		}
-	}
-</style>

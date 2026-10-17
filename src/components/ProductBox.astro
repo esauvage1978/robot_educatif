@@ -82,18 +82,19 @@ const trackingAttrs = productId
 <style>
 	.product-box {
 		position: relative;
-		background: var(--surface-2);
-		border: 2px solid color-mix(in oklab, var(--accent) 25%, var(--surface-border));
-		border-radius: 12px;
-		padding: 1.5rem;
-		margin: 1.5rem 0;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		background: var(--surface);
+		border: 2px solid var(--surface-border);
+		border-radius: 16px;
+		padding: 2rem;
+		margin: 2rem 0;
+		box-shadow: 0 4px 16px rgba(11, 31, 42, 0.08);
+		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 	}
 	
 	.product-box:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+		transform: translateY(-3px);
+		box-shadow: 0 8px 24px rgba(11, 31, 42, 0.12);
+		border-color: var(--primary);
 	}
 
 	.product-badge {
@@ -193,22 +194,23 @@ const trackingAttrs = productId
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.75rem 1.5rem;
-		background: linear-gradient(135deg, #ff9900 0%, #ff8800 100%);
+		padding: 0.85rem 1.75rem;
+		background: var(--accent-warm);
 		color: white;
 		text-decoration: none;
 		font-weight: 700;
 		font-size: 1rem;
-		border-radius: 8px;
+		border-radius: 10px;
 		border: none;
 		cursor: pointer;
 		transition: transform 0.15s ease, box-shadow 0.15s ease;
-		box-shadow: 0 2px 8px rgba(255, 153, 0, 0.3);
+		box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 	}
 
 	.product-btn:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(255, 153, 0, 0.4);
+		background: #ea580c;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
 	}
 
 	.external-icon {

@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { SITE_TITLE } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import HeaderLink from './HeaderLink.astro';
-import logoHeader from '../assets/logo-header.webp';
+import logoA from '../assets/logo-a.svg';
 ---
 
 <header>
@@ -11,220 +11,192 @@ import logoHeader from '../assets/logo-header.webp';
 		<a class="brand" href={withBase('/')}>
 			<Image
 				class="brand-logo"
-				src={logoHeader}
+				src={logoA}
 				alt={SITE_TITLE}
-				width={144}
-				height={80}
+				width={230}
+				height={45}
 				densities={[1, 2]}
 				loading="eager"
 				decoding="async"
 			/>
 		</a>
-		<div class="internal-links">
+		<div class="internal-links desktop-only">
 			<HeaderLink href="/">Accueil</HeaderLink>
+			<HeaderLink href="/meilleur-robot-programmable-enfant-2026/" class="highlight">Guides d'achat</HeaderLink>
+			<HeaderLink href="/10-projets-mbot-gratuits-classe-faciles/">Projets mBot</HeaderLink>
+			<HeaderLink href="/programmation/">Python</HeaderLink>
 			<HeaderLink href="/blog/">Blog</HeaderLink>
-			<HeaderLink href="/recherche/">Recherche</HeaderLink>
-			<HeaderLink href="/categorie/">Catégories</HeaderLink>
-			<HeaderLink href="/programmation/">Programmation</HeaderLink>
-			<HeaderLink href="/partenariat/">Partenariat</HeaderLink>
-			<HeaderLink href="/contact/">Contact</HeaderLink>
 		</div>
-		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le thème sombre" title="Changer de thème">
-			<span class="theme-icons" aria-hidden="true">
-				<svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<circle cx="12" cy="12" r="4" />
-					<path d="M12 2v2" />
-					<path d="M12 20v2" />
-					<path d="M4.93 4.93l1.41 1.41" />
-					<path d="M17.66 17.66l1.41 1.41" />
-					<path d="M2 12h2" />
-					<path d="M20 12h2" />
-					<path d="M4.93 19.07l1.41-1.41" />
-					<path d="M17.66 6.34l1.41-1.41" />
-				</svg>
-				<svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<path
-						d="M21 13.2A8.5 8.5 0 0 1 10.8 3a6.9 6.9 0 1 0 10.2 10.2Z"
-					/>
-				</svg>
-			</span>
-			<span class="sr-only" id="theme-toggle-label">Thème : sombre</span>
+		<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+				<path d="M3 12h18M3 6h18M3 18h18"/>
+			</svg>
 		</button>
 	</nav>
+	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+		<a href={withBase('/')}>Accueil</a>
+		<a href={withBase('/meilleur-robot-programmable-enfant-2026/')} class="highlight">Guides d'achat</a>
+		<a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>Projets mBot</a>
+		<a href={withBase('/programmation/')}>Python</a>
+		<a href={withBase('/blog/')}>Blog</a>
+		<a href={withBase('/partenariat/')}>Partenariat</a>
+		<a href={withBase('/contact/')}>Contact</a>
+	</div>
 </header>
 <style>
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
 		margin: 0;
-		padding: 0 clamp(1rem, 4vw, 1.75rem);
+		padding: 0 clamp(1rem, 5vw, 2rem);
 		background: var(--surface);
 		border-bottom: 1px solid var(--surface-border);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-		overflow: visible;
+		box-shadow: 0 1px 3px rgba(11, 31, 42, 0.05);
+		backdrop-filter: blur(10px);
 	}
-	.brand {
-		display: flex;
-		align-items: center;
-		padding: 0.65rem 0;
-		flex-shrink: 0;
-		margin-right: 0.5rem;
-		overflow: visible;
-	}
-	.brand img {
-		height: 56px;
-		width: auto;
-		max-width: min(320px, 52vw);
-		max-height: 64px;
-		object-fit: contain;
-		object-position: left center;
-		display: block;
-	}
+	
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		max-width: min(1320px, 100%);
+		gap: 1.5rem;
+		max-width: 1320px;
 		margin: 0 auto;
 	}
+	
+	.brand {
+		display: flex;
+		align-items: center;
+		padding: 1rem 0;
+		flex-shrink: 0;
+		text-decoration: none;
+	}
+	
+	.brand img {
+		height: 45px;
+		width: auto;
+		max-width: min(230px, 55vw);
+		display: block;
+	}
+	
 	.internal-links {
 		display: flex;
-		gap: 0.35rem;
-		flex-wrap: wrap;
-		justify-content: flex-end;
+		gap: 1.5rem;
+		align-items: center;
 	}
-	nav a {
-		padding: 0.42em 0.95em;
-		color: rgb(var(--gray-dark));
-		border: 1px solid var(--surface-border);
-		border-radius: 6px;
+	
+	.internal-links :global(a) {
+		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
-		font-size: 0.95rem;
-		background: transparent;
-		transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+		font-size: 1rem;
+		transition: color 0.2s ease;
+		position: relative;
 	}
-	nav a:not(.brand).active {
-		background: color-mix(in oklab, var(--accent) 14%, transparent);
-		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
-		color: var(--accent-dark);
+	
+	.internal-links :global(a:hover) {
+		color: var(--primary);
 	}
-	nav a:not(.brand):hover {
-		border-color: color-mix(in oklab, var(--accent) 45%, transparent);
-		color: var(--accent-dark);
+	
+	.internal-links :global(a.highlight) {
+		color: var(--primary);
+		font-weight: 700;
 	}
-	html[data-theme='light'] nav a:not(.brand).active {
-		background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
-		border-color: color-mix(in oklab, var(--accent-dark) 34%, transparent);
+	
+	.internal-links :global(a.active::after) {
+		content: '';
+		position: absolute;
+		bottom: -0.5rem;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: var(--accent-warm);
 	}
-	@media (max-width: 720px) {
-		.brand :global(img.brand-logo) {
-			height: 46px;
-			max-width: min(280px, 70vw);
-			max-height: 54px;
-		}
-		nav {
-			flex-direction: row;
-			flex-wrap: wrap;
-			align-items: center;
-		}
-		.internal-links {
-			order: 3;
-			width: 100%;
-			justify-content: flex-start;
-		}
-		.theme-toggle {
-			margin-left: auto;
-		}
-	}
-
-	.theme-toggle {
-		cursor: pointer;
-		border: 1px solid var(--surface-border);
-		background: color-mix(in oklab, var(--surface) 75%, transparent);
-		border-radius: 999px;
-		padding: 0.35rem;
-		color: rgb(var(--gray-dark));
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		backdrop-filter: blur(10px);
-		transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-	}
-	.theme-toggle:hover {
-		border-color: var(--accent-soft);
-		box-shadow: var(--box-shadow);
-		transform: translateY(-1px);
-	}
-	.theme-toggle:focus-visible {
-		outline: 3px solid rgba(40, 157, 204, 0.35);
-		outline-offset: 2px;
-	}
-
-	.theme-icons {
-		width: 34px;
-		height: 34px;
-		border-radius: 999px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		background: var(--brand-gradient);
-		color: #fff;
-	}
-
-	.theme-icons .icon {
-		width: 16px;
-		height: 16px;
+	
+	.mobile-menu-toggle {
 		display: none;
+		background: none;
+		border: none;
+		padding: 0.5rem;
+		cursor: pointer;
+		color: var(--ink);
 	}
-
-	html[data-theme='light'] .theme-icons .icon.moon {
-		display: block;
+	
+	.mobile-menu-toggle svg {
+		width: 24px;
+		height: 24px;
 	}
-
-	html:not([data-theme='light']) .theme-icons .icon.sun {
-		display: block;
+	
+	.mobile-menu {
+		display: none;
+		flex-direction: column;
+		gap: 0;
+		background: var(--surface);
+		border-bottom: 1px solid var(--surface-border);
+		max-width: 1320px;
+		margin: 0 auto;
 	}
-
-	/* label masqué via sr-only */
+	
+	.mobile-menu[aria-hidden="false"] {
+		display: flex;
+	}
+	
+	.mobile-menu a {
+		padding: 1rem clamp(1rem, 5vw, 2rem);
+		color: var(--ink);
+		text-decoration: none;
+		font-weight: 600;
+		border-bottom: 1px solid var(--surface-border);
+		transition: background 0.2s ease;
+	}
+	
+	.mobile-menu a:hover,
+	.mobile-menu a.highlight {
+		background: var(--surface-2);
+		color: var(--primary);
+	}
+	
+	.mobile-menu a:last-child {
+		border-bottom: none;
+	}
+	
+	@media (max-width: 768px) {
+		.desktop-only {
+			display: none;
+		}
+		
+		.mobile-menu-toggle {
+			display: block;
+		}
+		
+		.brand img {
+			height: 40px;
+			max-width: min(200px, 60vw);
+		}
+	}
 </style>
 
-<script is:inline>
+<script>
 	(() => {
-		const key = 'robot-educatif-theme';
-		const button = document.getElementById('theme-toggle');
-		const label = document.getElementById('theme-toggle-label');
-		if (!button) return;
-
-		const apply = (theme) => {
-			document.documentElement.dataset.theme = theme;
-			localStorage.setItem(key, theme);
-			const isLight = theme === 'light';
-			if (label)
-				label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
-			button.setAttribute(
-				'aria-label',
-				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
-			);
-		};
-
-		const current = document.documentElement.dataset.theme;
-		if (!current) {
-			apply(
-				localStorage.getItem(key) ||
-					(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
-			);
-		} else if (label) {
-			const isLight = current === 'light';
-			label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
-			button.setAttribute(
-				'aria-label',
-				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
-			);
-		}
-
+		const button = document.getElementById('mobile-menu-toggle');
+		const menu = document.getElementById('mobile-menu');
+		
+		if (!button || !menu) return;
+		
 		button.addEventListener('click', () => {
-			const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-			apply(next);
+			const isOpen = menu.getAttribute('aria-hidden') === 'false';
+			menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+			button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+			button.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+		});
+		
+		menu.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				menu.setAttribute('aria-hidden', 'true');
+				button.setAttribute('aria-expanded', 'false');
+				button.setAttribute('aria-label', 'Ouvrir le menu');
+			});
 		});
 	})();
 </script>
