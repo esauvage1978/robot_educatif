@@ -1,0 +1,82 @@
+{
+  "mbot": {
+    "sourcePage": "https://www.makeblock.com/products/buy-mbot",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/products/1_2.png",
+    "manufacturer": "Makeblock",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "mbot2": {
+    "sourcePage": "https://education.makeblock.com/cyberpi/",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/Makeblock_mBot2-1.jpg",
+    "manufacturer": "Makeblock",
+    "note": "source only 720x608",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "mbot-neo": {
+    "sourcePage": "https://www.makeblock.com/pages/mbot-neo",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/mBot_Neo_7fb93380-d627-4ca0-96ff-2d21b12d3fe7.webp",
+    "manufacturer": "Makeblock",
+    "note": "source 480x480 transparent, upscaled slightly",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "cyberpi": {
+    "sourcePage": "https://www.makeblock.com/products/buy-cyberpi",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/P1030156_CyberPi-Go-Kit_de17ff67-b463-453a-9830-7327cd78b5ed.jpg",
+    "manufacturer": "Makeblock",
+    "note": "CyberPi Go Kit (CyberPi + Pocket Shield + box)",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "mbot-ranger": {
+    "sourcePage": "https://www.makeblock.com/products/buy-mbot-ranger",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/Ranger-Mainpic.webp",
+    "manufacturer": "Makeblock",
+    "note": "3 forms (tank, racer, self-balancing)",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "codey-rocky": {
+    "sourcePage": "https://www.makeblock.com/products/buy-codey-rocky",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0070/5901/3716/files/CodeyRocky-MainPic_625x_progressive_webp_b207cf3e-58c3-423f-a2ff-5134686c394a.webp",
+    "manufacturer": "Makeblock",
+    "note": "official render with light-blue motion arrows",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "raspberry-pi-5-8gb": {
+    "sourcePage": "https://www.raspberrypi.com/news/introducing-raspberry-pi-5/",
+    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/aa7841cb-421a-4000-8ab9-c77478a4f83b.jpg",
+    "manufacturer": "Raspberry Pi Ltd",
+    "note": "official launch photo, grey studio background whitened",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "raspberry-pi-5-4gb": {
+    "sourcePage": "https://www.raspberrypi.com/news/introducing-raspberry-pi-5/",
+    "imageUrl": "https://www.raspberrypi.com/app/uploads/2023/09/aa7841cb-421a-4000-8ab9-c77478a4f83b.jpg",
+    "manufacturer": "Raspberry Pi Ltd",
+    "note": "official launch photo, grey studio background whitened",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "elegoo-robot-car": {
+    "sourcePage": "https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0296/9026/5648/products/elegoo-uno-r3-project-smart-robot-car-kit-v-40-with-camera-arduino-stem-kits-elegoo-shop-213405.jpg",
+    "manufacturer": "ELEGOO",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "elegoo-penguin": {
+    "sourcePage": "https://www.elegoo.com/products/elegoo-penguin-bot",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0296/9026/5648/products/elegoo-penguin-bot-biped-robot-kit-v20-for-arduino-project-arduino-stem-kits-elegoo-shop-593232.jpg",
+    "manufacturer": "ELEGOO",
+    "note": "Penguin Bot V2.0",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "lego-spike-essential": {
+    "sourcePage": "https://education.lego.com/en-us/products/lego-education-spike-essential-set/45345/",
+    "imageUrl": "https://assets.education.lego.com/v3/assets/blt293eea581807678a/blt0cc16b7f84a5b72f/6271184b5d936230ca8eaf12/45345_Prod_01.png",
+    "manufacturer": "LEGO Education",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "arduino-starter-kit": {
+    "sourcePage": "https://store.arduino.cc/products/arduino-starter-kit-multi-language",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0438/4735/2471/files/starterkit_01.iso.jpg",
+    "manufacturer": "Arduino",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  }
+}

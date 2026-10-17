@@ -1,6 +1,6 @@
 ---
-title: "Le robot Tale-bot pro de chez Matatalab : Questions / Réponses"
-description: "Le robot Tale-bot pro de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons répondre aux questions courantes concernant le robot Tale-bot. Vous trouverez une description du Tale-bot dans cet article et d’autres informations dans […]"
+title: "Tale-Bot Matatalab : Questions / Réponses (FAQ 2026)"
+description: "Tale-Bot Pro : robot éducatif, blocs de commandes, histoires interactives, apprentissage logique."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:
@@ -19,7 +19,7 @@ Vous trouverez une description du Tale-bot dans [cet article](/le-robot-tale-bot
 
 Le robot Tale-bot est livré avec une planche recto / verso qui vous permettra de choisir entre 11 langues différentes.
 
-![Planche de langue du Tale-bot](https://robot-educatif.info/wp-content/uploads/2023/04/1-300x260.png)
+*[Planche de langue du Tale-bot - illustration indisponible]*
 
 Planche de choix de langue
 
@@ -42,8 +42,8 @@ En date du 1 mai 2023, la procédure ne fonctionne pas sur Android. Je suis en c
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[![Boutique en ligne de Matatalab](https://robot-educatif.info/wp-content/uploads/2023/05/Tale-BotPro1_720x-1-300x300.webp)](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://amzn.to/40SsLB5?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)

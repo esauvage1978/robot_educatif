@@ -1,6 +1,6 @@
 ---
-title: "Capteur ultrason mBot (3/4) : radar de recul amélioré (cadence liée à la distance)"
-description: "Troisième activité capteur ultrason du mBot : améliorer le radar de recul en calculant un délai (attendre) en fonction de la distance. Plus l’obstacle est proche, plus les bips sont rapides."
+title: "Capteur ultrason mBot (3/4) : radar de recul amélioré"
+description: "Radar de recul mBot amélioré : vitesse du bip proportionnelle à la distance. Variables, opérateurs, boucles avancées."
 pubDate: "2026-03-31"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/mbot/mbot-hero.png"

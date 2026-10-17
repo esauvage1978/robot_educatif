@@ -3,7 +3,7 @@ title: "Puissance 4 en Python (6/6) — jeu complet et IA aléatoire"
 description: "Console, menu deux humains ou vs IA ; script final telechargeable ; pistes d'extension."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 6
 tags: ["Python", "Programmation", "Projet"]

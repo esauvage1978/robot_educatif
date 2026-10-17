@@ -1,0 +1,306 @@
+---
+title: "Kit Raspberry Pi 5 complet : quel kit choisir en 2026 ?"
+description: "Kit Raspberry Pi 5 complet pour débuter : 4GB ou 8GB, composants essentiels, projets robotique et IA. Guide d'achat complet."
+pubDate: "2026-10-12"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
+categories:
+  - "À partir de 14 ans"
+  - "Guide"
+  - "Raspberry Pi"
+  - "Projets avancés"
+relatedLinks:
+  - title: "Raspberry Pi 5 : quelle mémoire ?"
+    href: "/raspberry-pi-5-quelle-version-memoire-acheter/"
+  - title: "Comparatif Pi 3/4/5"
+    href: "/raspberry-pi-3-vs-4-vs-5-comparatif-2026/"
+  - title: "Raspberry Pi ou kit robot ?"
+    href: "/raspberry-pi-ou-kit-robot-ado-guide/"
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" />
+
+<ComparisonTable
+  products={[
+    { id: 'raspberry-pi-5-8gb', badge: 'Notre choix (IA/vision)' },
+    { id: 'raspberry-pi-5-4gb', badge: 'Bon rapport qualité-prix' },
+  ]}
+  title="Raspberry Pi 5 : quelle version ?"
+/>
+
+Le **Raspberry Pi 5** est le nano-ordinateur le plus puissant de la gamme (2-3× plus rapide que le Pi 4). Mais acheter juste la carte nue ne suffit pas : il faut l'**alimentation**, la **carte SD**, le **boîtier** et souvent des **accessoires**. Ce guide vous aide à composer un **kit complet** selon votre projet.
+
+## Raspberry Pi 5 : les bases
+
+### Caractéristiques clés
+
+- **Processeur** : Broadcom BCM2712, quad-core Cortex-A76 @ 2.4 GHz
+- **GPU** : VideoCore VII @ 800 MHz (OpenGL ES 3.1, Vulkan 1.2)
+- **RAM** : 4GB, 8GB ou 16GB LPDDR4X
+- **Connectique** : 2× USB 3.0, 2× USB 2.0, 2× micro-HDMI 4K60, Gigabit Ethernet, Wi-Fi 5, Bluetooth 5.0
+- **GPIO** : 40 broches compatibles Pi 4/3
+- **Nouveau** : PCIe 2.0, bouton power, horloge temps réel (RTC)
+
+### Quelle version choisir ?
+
+<ProductBox
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 (4GB)"
+  asin="B0CK3L9WD3"
+  ages="14+ ans"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    'Processeur ARM Cortex-A76 2.4GHz',
+    'Performance 2-3× supérieure au Pi 4',
+    'Double sortie 4K',
+    'Idéal pour projets avancés'
+  ]}
+  badge="Bon rapport qualité-prix"
+  position={1}
+/>
+
+**4GB : pour qui ?**
+- Projets **robotique** classiques (moteurs, capteurs, sans vision)
+- **Serveur léger** (Plex, Pi-hole, NAS)
+- **RetroPie** (console rétrogaming)
+- **Apprentissage** Python/Linux
+- **Budget serré** (70-80€ la carte)
+
+<ProductBox
+  productId="raspberry-pi-5-8gb"
+  name="Raspberry Pi 5 (8GB)"
+  asin="B0CK2FCG1K"
+  ages="14+ ans"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    '8GB de RAM pour multitâche',
+    'Parfait pour vision par ordinateur',
+    'Compatible avec nombreux HATs',
+    'Communauté immense'
+  ]}
+  badge="Notre choix (IA/vision)"
+  position={2}
+/>
+
+**8GB : pour qui ?**
+- **Vision par ordinateur** (OpenCV, détection d'objets)
+- **IA embarquée** (TensorFlow Lite, modèles ML)
+- **Multitâche** : serveur + interface graphique + IDE
+- **Futur-proof** : investissement durable
+- **Budget OK** (95-110€ la carte)
+
+**16GB : pour qui ?**
+- Projets **très avancés** (compilation lourde, bases de données)
+- **Overkill** pour la plupart des usages robotique enfant/ado
+
+**Notre recommandation** : **8GB** pour 20€ de plus, vous êtes tranquille 5+ ans.
+
+## Composants essentiels (obligatoires)
+
+### 1. Alimentation USB-C 27W officielle
+
+**Pourquoi 27W ?** Le Pi 5 consomme beaucoup plus que le Pi 4 (surtout avec périphériques USB).
+
+**Prix** : 10-15€  
+**Recherche** : [alimentation Raspberry Pi 5 officielle](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+
+**Alternative** : chargeur USB-C PD 27W+ de qualité (vérifiez compatibilité).
+
+### 2. Carte microSD 32GB (minimum)
+
+**Spécifications** :
+- **Capacité** : 32GB minimum, 64-128GB recommandé
+- **Classe** : A2 (meilleure performance apps)
+- **Vitesse** : UHS-I U3 ou mieux
+
+**Prix** : 8-15€  
+**Recherche** : [carte microSD 64GB A2](https://www.amazon.fr/s?k=carte+microSD+64GB+A2&tag=manuso06-21)
+
+**Conseil** : évitez les cartes no-name, privilégiez SanDisk, Samsung, Kingston.
+
+### 3. Boîtier avec refroidissement
+
+Le Pi 5 chauffe **beaucoup** plus que le Pi 4. Un boîtier avec ventilateur actif est **fortement recommandé**.
+
+**Options** :
+- **Boîtier officiel avec ventilateur actif** : 15-20€ (notre choix)
+- **Boîtier avec dissipateurs passifs** : 10-15€ (OK pour usage léger)
+- **Boîtier + ventilateur + RGB** : 20-30€ (si vous aimez le bling)
+
+**Prix** : 12-20€  
+**Recherche** : [boîtier Raspberry Pi 5 ventilateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+
+## Composants optionnels (selon projet)
+
+### Pour démarrer confortablement
+
+- **Câbles micro-HDMI vers HDMI** : 2× si double écran (5-10€)
+- **Clavier + souris** : USB ou Bluetooth (15-30€)
+- **Carte SD préchargée** : Raspberry Pi OS déjà installé (5€ de plus)
+
+### Pour la robotique
+
+- **HAT de contrôle moteurs** : L298N, Adafruit Motor HAT (10-25€)
+- **Kit capteurs** : ultrason, ligne, IMU, GPS (20-40€)
+- **Caméra Pi** : v3 avec autofocus (30-50€)
+- **Batterie portable** : pour robot mobile (20-40€)
+
+### Pour projets avancés
+
+- **HAT PoE+** : alimentation par Ethernet (30-50€)
+- **SSD NVMe** : via PCIe (optionnel, 50-100€)
+- **Module 4G/5G** : pour IoT mobile (40-80€)
+
+## Kits tout-en-un vs achat à la carte
+
+### Kits officiels Raspberry Pi
+
+**Avantages** :
+- Tous les composants **compatibles**
+- **Documentation** claire
+- **Garantie** unifiée
+
+**Inconvénients** :
+- Parfois **plus cher** que achat séparé
+- Composants **standard** (pas de choix)
+
+**Prix kit complet officiel** : 130-180€ (selon version RAM)
+
+**Recherche** : [kit Raspberry Pi 5 complet](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+
+### Achat à la carte (notre méthode)
+
+**Avantages** :
+- **Flexibilité** : choisir chaque composant
+- Souvent **moins cher**
+- Éviter les doublons (ex : si vous avez déjà clavier/souris)
+
+**Inconvénients** :
+- Vérifier **compatibilités**
+- Plusieurs commandes/délais
+
+## Budget type par projet
+
+### Kit débutant complet (4GB)
+
+| Composant | Prix |
+|-----------|------|
+| Raspberry Pi 5 4GB | 75€ |
+| Alimentation 27W | 12€ |
+| Carte microSD 64GB | 10€ |
+| Boîtier + ventilateur | 15€ |
+| Câble micro-HDMI | 7€ |
+| **TOTAL** | **119€** |
+
+### Kit robotique (8GB)
+
+| Composant | Prix |
+|-----------|------|
+| Raspberry Pi 5 8GB | 105€ |
+| Alimentation 27W | 12€ |
+| Carte microSD 128GB | 15€ |
+| Boîtier + ventilateur | 18€ |
+| HAT moteurs | 20€ |
+| Kit capteurs | 30€ |
+| Caméra Pi v3 | 40€ |
+| Batterie portable | 30€ |
+| **TOTAL** | **270€** |
+
+### Kit IA/vision (8GB)
+
+| Composant | Prix |
+|-----------|------|
+| Raspberry Pi 5 8GB | 105€ |
+| Alimentation 27W | 12€ |
+| Carte microSD 128GB | 15€ |
+| Boîtier + ventilateur | 18€ |
+| Caméra Pi HQ | 60€ |
+| Objectif | 30€ |
+| Clavier/souris | 25€ |
+| **TOTAL** | **265€** |
+
+## Installer et démarrer
+
+### 1. Préparer la carte SD (15 min)
+
+1. Télécharger **Raspberry Pi Imager** : rptl.io/imager
+2. Choisir **Raspberry Pi OS (64-bit)**
+3. Configurer Wi-Fi + user avant flash (paramètres avancés)
+4. Flasher la carte
+
+### 2. Premier démarrage (10 min)
+
+1. Insérer carte SD
+2. Connecter clavier/souris/écran
+3. Brancher alimentation (LED rouge + verte)
+4. Attendre boot (~30s)
+5. Suivre assistant de configuration
+
+### 3. Mettre à jour (5 min)
+
+```bash
+sudo apt update && sudo apt full-upgrade -y
+```
+
+### 4. Premier projet Python
+
+```python
+# blink.py - LED GPIO 17
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.OUT)
+
+try:
+    while True:
+        GPIO.output(17, True)
+        time.sleep(1)
+        GPIO.output(17, False)
+        time.sleep(1)
+except KeyboardInterrupt:
+    GPIO.cleanup()
+```
+
+## Ressources pour aller plus loin
+
+### Livres
+
+- [Raspberry Pi pour les nuls](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Projets Raspberry Pi robotique](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+
+### Sites
+
+- **raspberrypi.com** : documentation officielle
+- **framboise314.fr** : ressources francophones
+- **magpi.cc** : magazine officiel gratuit (PDF)
+
+### Composants
+
+- [kit capteurs Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [HAT Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [caméra Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+
+## FAQ
+
+**Raspberry Pi 5 vs Raspberry Pi 4 : vaut-il le coup ?**  
+Oui. 2-3× plus rapide, meilleur pour IA/vision. Si vous achetez neuf, prenez le 5.
+
+**Puis-je utiliser mon ancienne alimentation Pi 4 ?**  
+Déconseillé. Le Pi 5 demande 27W (vs 15W pour Pi 4). Risque de sous-tension.
+
+**4GB ou 8GB pour débuter en robotique ?**  
+4GB suffit. Mais si vous prévoyez IA/vision, prenez directement 8GB.
+
+**Dois-je acheter un écran ?**  
+Pas obligatoire : vous pouvez utiliser SSH (connexion sans écran) ou VNC.
+
+**Le Pi 5 remplace-t-il un PC ?**  
+Pour usage léger (bureautique, web, code) : oui. Pour jeux AAA ou montage vidéo pro : non.
+
+---
+
+**En résumé** : un kit **Raspberry Pi 5 complet** coûte 120-180€ selon la RAM et les accessoires. Notre recommandation : **Pi 5 8GB** (105€) + alimentation 27W (12€) + microSD 128GB (15€) + boîtier ventilé (18€) = **150€** pour une base solide. Ajoutez ensuite HAT moteurs, capteurs et caméra selon vos projets robotique/IA.

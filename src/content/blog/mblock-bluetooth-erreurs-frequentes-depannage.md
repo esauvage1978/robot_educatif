@@ -1,9 +1,9 @@
 ---
-title: "mBlock et Bluetooth : erreurs fréquentes et dépannage (mBot, mBot2…)"
-description: "Réparer les connexions Bluetooth entre mBlock et un robot Makeblock : pilotes, appairage, portée, versions logicielles. Schéma de dépannage et liens installation Amazon."
+title: "mBlock Bluetooth : mBot ne se connecte pas ? Solutions"
+description: "Dépanner Bluetooth mBlock : pilotes, appairage, portée, versions. Schéma et liens installation."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: mbot
 categories:
   - "mBlock"
@@ -70,7 +70,7 @@ La version **navigateur** de mBlock peut se heurter à des **limitations Bluetoo
 
 - [Adaptateur Bluetooth USB PC](https://www.amazon.fr/s?k=adaptateur+Bluetooth+USB+5.0+PC&tag=manuso06-21)
 - [Câble USB robot éducatif](https://www.amazon.fr/s?k=c%C3%A2ble+USB+micro+robot&tag=manuso06-21)
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

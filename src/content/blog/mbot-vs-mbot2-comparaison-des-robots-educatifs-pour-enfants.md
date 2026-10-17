@@ -1,8 +1,8 @@
 ---
-title: "mbot vs mbot2 : Comparaison des robots éducatifs pour enfants"
-description: "mBot vs mBot 2 (comparatif) : prix indicatifs, tableau des fonctionnalités, accessoires, Python et CyberPi. Choisir entre le robot Makeblock classique et le mBot2 pour enfants ou collège."
+title: "mBot vs mBot2 : différences, prix et lequel choisir ?"
+description: "mBot vs mBot2 : tableau comparatif, différences prix, CyberPi, Python. Lequel choisir en 2026 selon l'âge et budget ?"
 pubDate: "2023-04-09"
-updatedDate: "2026-03-29"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
 amazonPreset: mbotVs
 categories:
@@ -24,7 +24,7 @@ La robotique et la programmation sont des compétences de plus en plus utiles po
 
 Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous aider à trancher — sans remplacer la fiche technique officielle du fabricant, que vous devriez toujours vérifier avant d’acheter (révision de kit, couleur du châssis, présence ou non du module Bluetooth, etc.).
 
-![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.png)
+![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.webp)
 
 *Illustration générée pour l’article — schéma conceptuel, sans reproduire des produits commerciaux précis.*
 
@@ -95,8 +95,8 @@ En conclusion, le choix entre le **mBot** et le **mBot2** dépend du **budget**,
 
 ## Acheter sur Amazon
 
-- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires+capteur&tag=manuso06-21)
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Liens affiliés — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*

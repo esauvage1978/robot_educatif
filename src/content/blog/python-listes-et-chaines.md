@@ -1,9 +1,9 @@
 ---
 title: "Python — listes et chaînes de caractères"
-description: "Indices, slicing, méthodes list et str ; parcourir, modifier une liste ; split, join, strip ; idée de compréhension de liste ; 20 exercices avec solutions repliables."
+description: "Listes et chaînes Python : indices, slicing, méthodes, split/join. 20 exercices avec solutions."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 7
 tags: ["Python", "Programmation"]

@@ -1,6 +1,6 @@
 ---
-title: "Capteur ultrason mBot (2/4) : radar de recul (bips par paliers)"
-description: "Deuxième activité capteur ultrason du mBot : créer un radar de recul simple avec 3 zones (>=70 cm, 35–70 cm, <35 cm) et des bips à cadence fixe (1 s puis 0,25 s)."
+title: "Capteur ultrason mBot (2/4) : radar de recul (paliers)"
+description: "Radar de recul mBot : 3 zones ultrason, bips cadence fixe (1s puis 0,25s). Activité guidée."
 pubDate: "2026-03-31"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/mbot/mbot-hero.png"

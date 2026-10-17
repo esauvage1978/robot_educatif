@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : mesurer des distances"
-description: "Utiliser le capteur à ultrason du mBot pour mesurer une distance, l’afficher sur l’écran (mode Live) puis sur la matrice LED en autonome — types nombre / texte et piste Arduino."
+description: "Capteur ultrason mBot : mesurer distance, afficher (LED). Types, Arduino C."
 pubDate: "2020-04-21"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
@@ -26,7 +26,7 @@ relatedLinks:
 
 Cette activité en **deux temps** guide pour :
 
-1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://amzn.to/3avo9qi?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
+1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
 2. **Afficher cette distance sur la matrice LED** du robot en **mode autonome** (sans câble), en gérant le passage **nombre → texte**.
 
 Les libellés exacts des blocs peuvent varier selon la **version de mBlock** et la **langue** de l’interface ; l’**enchaînement logique** reste le même.
@@ -65,7 +65,7 @@ Quand vous lancez le script, la variable se **met à jour** : vous lisez la dist
   <figcaption>Exemple de script : le capteur alimente une variable visible près du lutin — pratique pour vérifier que la mesure « vit » quand tu bouges une feuille devant le robot.</figcaption>
 </figure>
 
-Références d’époque (si besoin de comparer avec d’autres versions de mBlock) : [blocks-4.png](https://robot-educatif.info/wp-content/uploads/2020/04/blocks-4.png), [c1.png](https://robot-educatif.info/wp-content/uploads/2020/04/c1.png).
+Références d'époque (si besoin de comparer avec d'autres versions de mBlock) : anciennes captures désormais obsolètes.
 
 ## 4. Deuxième partie : distance sur la matrice LED (autonome)
 
@@ -101,7 +101,7 @@ Exemple d’idée (les noms exacts `defilement_texte_…` dépendent de la gén�
 defilement_texte_N_N(String(data) + String(" cm"), 1);
 ```
 
-Ici, `data` est la variable qui contient la distance lue ; on forme une **chaîne** du type `"37 cm"` avant l’appel. L’image d’origine de l’article montrait l’emplacement de cette ligne dans le fichier généré : [c2.png](https://robot-educatif.info/wp-content/uploads/2020/04/c2.png).
+Ici, `data` est la variable qui contient la distance lue ; on forme une **chaîne** du type `"37 cm"` avant l’appel. L’image d’origine de l’article montrait l’emplacement de cette ligne dans le fichier généré : capture désormais obsolète.
 
 **Sécurité** : manipuler le code C implique **re-téléverser** sur la carte et vérifier **câble / piles**. Faites une **copie** du projet `.mblock` avant de modifier le code généré.
 

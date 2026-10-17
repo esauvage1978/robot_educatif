@@ -1,8 +1,8 @@
 ---
-title: "Accessoires mBot : par quoi commencer (capteurs, packs, pièces) ?"
-description: "Prioriser les accessoires mBot Makeblock : capteurs utiles, packs officiels, pièces de rechange et erreurs à éviter. Schéma de priorisation, tutoriels du site et recherches Amazon."
+title: "Accessoires mBot : capteurs, packs et pièces à acheter"
+description: "Quels accessoires mBot acheter ? Capteurs, extensions, packs mBuild, pièces détachées. Guide composants 2026."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -65,8 +65,8 @@ Utile en **club** ou **journée projet** ; à la maison, des piles rechargeables
 
 ## Liens Amazon (affiliation)
 
-- [Accessoires mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires+capteur&tag=manuso06-21)
-- [Capteur ultrason robot éducatif](https://www.amazon.fr/s?k=capteur+ultrason+robot+%C3%A9ducatif&tag=manuso06-21)
+- [Accessoires mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Capteur ultrason robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Kit vis mécanique robot](https://www.amazon.fr/s?k=kit+vis+m%C3%A9canique+robot&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

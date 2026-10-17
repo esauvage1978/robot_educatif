@@ -2,7 +2,7 @@
 title: "Scratch : développement d’un jeu vidéo, première partie"
 description: "Cet article est le premier d’une série pour apprendre à créer un jeu vidéo sous scratch. Partie 1 : Déplacer le décor à l’aide des flèches du clavier"
 pubDate: "2020-04-12"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 updatedDate: "2020-04-13"
 amazonPreset: scratch
 categories:
@@ -29,7 +29,7 @@ Lorsque l’on sélectionne un de ces objets, la zone de script affichée corres
 
 De plus, les différents programmes fonctionnent en parallèles.
 
-![plusieurs programme pour 1 lutin](https://robot-educatif.info/wp-content/uploads/2020/04/step14-1024x370.png)
+*[plusieurs programme pour 1 lutin - illustration indisponible]*
 
 Dans cette exemple, notre lutin a 3 programmes associés. Lorsque l’on appuie sur le drapeau vert, il avance de 10 pas et pense « Hummmm » simultanément. Lorsque l’on appuie sur la barre espace il se déplace aléatoirement.
 
@@ -45,17 +45,17 @@ En toute logique c’est un **arrière plan** que l’on devrait utiliser mais n
 
 Pour commencer, rendez-vous dans la section **Objets** et appuyer sur **ajouter**.
 
-![Ajout d'un nouvel objet](https://robot-educatif.info/wp-content/uploads/2020/04/step1.png)
+*[Ajout d'un nouvel objet - illustration indisponible]*
 
 Ensuite appuyer sur le bouton **Peinture**
 
-![Appuyer sur le bouton peinture](https://robot-educatif.info/wp-content/uploads/2020/04/step2-1024x718.png)
+*[Appuyer sur le bouton peinture - illustration indisponible]*
 
 ### 3.1 Création d’un bloc
 
 Notre sol sera constitué de bloc que nous allons dupliquer. Pour ma part j’ai créé celui-ci
 
-![Création du premier bloc](https://robot-educatif.info/wp-content/uploads/2020/04/step3.png)
+*[Création du premier bloc - illustration indisponible]*
 
 Il est constitué de plusieurs éléments. Nous allons les fusionner afin d’avoir un bloc homogène. Pour se faire, appuyer sur le bouton **convertir en bitmap** et appuyer sur le bouton **Vectoriser**.
 
@@ -71,9 +71,9 @@ Les touches de raccourci Windows pour le faire :
 
 Maintenant que vous avez 5 bloc, On va de nouveau les fusionner pour n’avoir qu’un bloc homogène.
 
-![Ajout de 5 blocs pour créer un morceau](https://robot-educatif.info/wp-content/uploads/2020/04/step4.png)
+*[Ajout de 5 blocs pour créer un morceau - illustration indisponible]*
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/step5.png)
+*[ - illustration indisponible]*
 
 Sous le bloc vous avez les flèches de contrôle pour modifier l’inclinaison de celui-ci.
 
@@ -83,18 +83,18 @@ L’espace de travail n’a pas de scrollbar et créer un décor plus large que 
 
 La première étape consiste à avoir un bloc faisant à peu près toute la largeur. Il faut à ce moment là le sélectionner et le décaler sur le bord droit. Enfin ajouter un bloc. Comme vous pouvez le constater la largeur est maintenant passée à 841 pixels
 
-*   ![](https://robot-educatif.info/wp-content/uploads/2020/04/step6.png)
+*   *[ - illustration indisponible]*
     
-*   ![](https://robot-educatif.info/wp-content/uploads/2020/04/step7.png)
+*   *[ - illustration indisponible]*
     
-*   ![](https://robot-educatif.info/wp-content/uploads/2020/04/step8.png)
+*   *[ - illustration indisponible]*
     
 
 ### 3.4 Construction du décor
 
 Vous allez maintenant pouvoir faire la même chose pour avoir un costume large d’au moins 7000 pixels.
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/step9.png)
+*[ - illustration indisponible]*
 
 Pour ceux qui seraient tombés amoureux de mon décor, reproduisez-le à partir des captures (fichier projet **.mblock** non hébergé — [Programmes mBlock](/programmes/)).
 
@@ -112,7 +112,7 @@ Comme à l’habitude, je vais vous fournir une solution
 
 Ce programme ci-dessous permet de déplacer notre décor suivant les flèches appuyées
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/step10.png)
+*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
@@ -130,7 +130,7 @@ Nous allons donc déclarer 3 variables
 *   decor\_debut aura pour valeur la coordonnée X du début du décor. On la calculera par rapport à décor largeur.
 *   et enfin decor\_fin qui aura pour valeur la coordonnée X de la fin du décor.
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/step12.png)
+*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
@@ -144,7 +144,7 @@ Utilisé dans un structure conditionnelle SI, les instructions contenues ne sero
 
 Ainsi, pour le déplacement par la droite la condition sera : Si la flèche de droite est pressée ET si la position de la valeur de X doit être supérieur à la valeur de la variable decor\_fin.
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/step13.png)
+*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
@@ -158,7 +158,7 @@ Pour compléter ce tutoriel avec des **supports papier** ou des **robots compati
 
 - [Livres Scratch programmation enfants](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfants&tag=manuso06-21)
 - [Algorithmique et jeux pour débutants](https://www.amazon.fr/s?k=algorithmique+jeu+enfant+d%C3%A9butant+livre&tag=manuso06-21)
-- [Robots éducatifs programmables Scratch](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+Scratch+programmable&tag=manuso06-21)
+- [Robots éducatifs programmables Scratch](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Commission possible pour le site via le programme Partenaires Amazon, sans surcoût pour vous.*
 

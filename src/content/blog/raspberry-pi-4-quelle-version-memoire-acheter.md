@@ -1,9 +1,9 @@
 ---
-title: "Raspberry Pi 4 Modèle B : quelle version (1 / 2 / 4 / 8 Go) acheter ?"
-description: "Déclinaisons RAM du Pi 4, spécifications, refroidissement, dual HDMI, et guide de choix par usage (serveur, bureau, rétro, GPIO). Photo et prix indicatifs France 2026."
+title: "Raspberry Pi 4 : quelle version RAM choisir ?"
+description: "Raspberry Pi 4 : RAM, refroidissement, dual HDMI, choix par usage. Prix France 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
@@ -25,7 +25,7 @@ Le **Raspberry Pi 4 Modèle B** (2019, révisions ultérieures) se distingue du 
 
 Ce guide détaille les **quatre déclinaisons mémoire** courantes, **quand choisir l’une ou l’autre**, et ce qu’il faut prévoir au **panier** (alim, câbles, dissipation).
 
-![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.jpg)
+![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.webp)
 
 *Photo : [Laserlicht](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Top.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
 
@@ -73,9 +73,9 @@ La procédure est la même que pour les autres Pi récents : **Raspberry Pi Imag
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 4 Model B](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/s?k=bo%C3%AEtier+Raspberry+Pi+4+ventilateur&tag=manuso06-21)
-- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/s?k=alimentation+USB-C+Raspberry+Pi+4+officielle&tag=manuso06-21)
+- [Raspberry Pi 4 Model B](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

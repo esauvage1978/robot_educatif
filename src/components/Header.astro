@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { SITE_TITLE } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import HeaderLink from './HeaderLink.astro';
-import logoHeader from '../assets/logo-header.webp';
+import logoA from '../assets/logo-a.svg';
 ---
 
 <header>
@@ -11,220 +11,452 @@ import logoHeader from '../assets/logo-header.webp';
 		<a class="brand" href={withBase('/')}>
 			<Image
 				class="brand-logo"
-				src={logoHeader}
+				src={logoA}
 				alt={SITE_TITLE}
-				width={144}
-				height={80}
+				width={230}
+				height={45}
 				densities={[1, 2]}
 				loading="eager"
 				decoding="async"
 			/>
 		</a>
-		<div class="internal-links">
+		<div class="internal-links desktop-only">
 			<HeaderLink href="/">Accueil</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/recherche/">Recherche</HeaderLink>
-			<HeaderLink href="/categorie/">Catégories</HeaderLink>
-			<HeaderLink href="/programmation">Programmation</HeaderLink>
-			<HeaderLink href="/partenariat/">Partenariat</HeaderLink>
-			<HeaderLink href="/contact/">Contact</HeaderLink>
-		</div>
-		<button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le thème sombre" title="Changer de thème">
-			<span class="theme-icons" aria-hidden="true">
-				<svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<circle cx="12" cy="12" r="4" />
-					<path d="M12 2v2" />
-					<path d="M12 20v2" />
-					<path d="M4.93 4.93l1.41 1.41" />
-					<path d="M17.66 17.66l1.41 1.41" />
-					<path d="M2 12h2" />
-					<path d="M20 12h2" />
-					<path d="M4.93 19.07l1.41-1.41" />
-					<path d="M17.66 6.34l1.41-1.41" />
-				</svg>
-				<svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<path
-						d="M21 13.2A8.5 8.5 0 0 1 10.8 3a6.9 6.9 0 1 0 10.2 10.2Z"
-					/>
-				</svg>
-			</span>
-			<span class="sr-only" id="theme-toggle-label">Thème : sombre</span>
+			<HeaderLink href="/meilleur-robot-programmable-enfant-2026/" class="highlight">Guides d'achat</HeaderLink>
+			<HeaderLink href="/10-projets-mbot-gratuits-classe-faciles/">Projets mBot</HeaderLink>
+			<HeaderLink href="/programmation/">Python</HeaderLink>
+		<HeaderLink href="/blog/">Blog</HeaderLink>
+	</div>
+	<div class="header-social desktop-only">
+		<button id="theme-toggle" type="button" aria-label="Passer en mode sombre" class="theme-toggle">
+			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="5"></circle>
+				<line x1="12" y1="1" x2="12" y2="3"></line>
+				<line x1="12" y1="21" x2="12" y2="23"></line>
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+				<line x1="1" y1="12" x2="3" y2="12"></line>
+				<line x1="21" y1="12" x2="23" y2="12"></line>
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+			</svg>
+			<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
 		</button>
-	</nav>
+		<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
+			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+			</svg>
+		</a>
+		<a href="https://www.pinterest.fr/roboteducatif/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-icon">
+			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+			</svg>
+		</a>
+		<a href="https://www.facebook.com/roboteducatif.info" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+				<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+			</svg>
+		</a>
+	</div>
+	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+			<path d="M3 12h18M3 6h18M3 18h18"/>
+		</svg>
+	</button>
+</nav>
+	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+		<button id="theme-toggle-mobile" type="button" aria-label="Passer en mode sombre" class="theme-toggle-mobile">
+			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<circle cx="12" cy="12" r="5"></circle>
+				<line x1="12" y1="1" x2="12" y2="3"></line>
+				<line x1="12" y1="21" x2="12" y2="23"></line>
+				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+				<line x1="1" y1="12" x2="3" y2="12"></line>
+				<line x1="21" y1="12" x2="23" y2="12"></line>
+				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+			</svg>
+			<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+			<span class="theme-toggle-label"></span>
+		</button>
+		<a href={withBase('/')}>Accueil</a>
+		<a href={withBase('/meilleur-robot-programmable-enfant-2026/')} class="highlight">Guides d'achat</a>
+		<a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>Projets mBot</a>
+		<a href={withBase('/programmation/')}>Python</a>
+		<a href={withBase('/blog/')}>Blog</a>
+		<a href={withBase('/partenariat/')}>Partenariat</a>
+		<a href={withBase('/contact/')}>Contact</a>
+	</div>
 </header>
 <style>
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
 		margin: 0;
-		padding: 0 clamp(1rem, 4vw, 1.75rem);
+		padding: 0 clamp(1rem, 5vw, 2rem);
 		background: var(--surface);
 		border-bottom: 1px solid var(--surface-border);
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
-		overflow: visible;
+		box-shadow: 0 1px 3px rgba(11, 31, 42, 0.05);
+		backdrop-filter: blur(10px);
 	}
-	.brand {
-		display: flex;
-		align-items: center;
-		padding: 0.65rem 0;
-		flex-shrink: 0;
-		margin-right: 0.5rem;
-		overflow: visible;
-	}
-	.brand img {
-		height: 56px;
-		width: auto;
-		max-width: min(320px, 52vw);
-		max-height: 64px;
-		object-fit: contain;
-		object-position: left center;
-		display: block;
-	}
+	
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		max-width: min(1320px, 100%);
+		gap: 1.5rem;
+		max-width: 1320px;
 		margin: 0 auto;
 	}
+	
+	.brand {
+		display: flex;
+		align-items: center;
+		padding: 1rem 0;
+		flex-shrink: 0;
+		text-decoration: none;
+	}
+	
+	.brand img {
+		height: 45px;
+		width: auto;
+		max-width: min(230px, 55vw);
+		display: block;
+	}
+	
 	.internal-links {
 		display: flex;
-		gap: 0.35rem;
-		flex-wrap: wrap;
-		justify-content: flex-end;
+		gap: 1.5rem;
+		align-items: center;
 	}
-	nav a {
-		padding: 0.42em 0.95em;
-		color: rgb(var(--gray-dark));
-		border: 1px solid var(--surface-border);
-		border-radius: 6px;
+	
+	.internal-links :global(a) {
+		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
-		font-size: 0.95rem;
-		background: transparent;
-		transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+		font-size: 1rem;
+		transition: color 0.2s ease;
+		position: relative;
 	}
-	nav a:not(.brand).active {
-		background: color-mix(in oklab, var(--accent) 14%, transparent);
-		border-color: color-mix(in oklab, var(--accent) 38%, transparent);
-		color: var(--accent-dark);
-	}
-	nav a:not(.brand):hover {
-		border-color: color-mix(in oklab, var(--accent) 45%, transparent);
-		color: var(--accent-dark);
-	}
-	html[data-theme='light'] nav a:not(.brand).active {
-		background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
-		border-color: color-mix(in oklab, var(--accent-dark) 34%, transparent);
-	}
-	@media (max-width: 720px) {
-		.brand :global(img.brand-logo) {
-			height: 46px;
-			max-width: min(280px, 70vw);
-			max-height: 54px;
+	
+	@media (prefers-color-scheme: dark) {
+		.internal-links :global(a) {
+			color: rgb(var(--gray-dark));
 		}
-		nav {
-			flex-direction: row;
-			flex-wrap: wrap;
-			align-items: center;
+		.internal-links :global(a.highlight) {
+			color: var(--primary-light);
 		}
-		.internal-links {
-			order: 3;
-			width: 100%;
-			justify-content: flex-start;
-		}
-		.theme-toggle {
-			margin-left: auto;
+		.internal-links :global(a:hover) {
+			color: var(--primary-light);
 		}
 	}
-
-	.theme-toggle {
+	
+	.internal-links :global(a:hover) {
+		color: var(--primary);
+	}
+	
+	.internal-links :global(a.highlight) {
+		color: var(--primary);
+		font-weight: 700;
+	}
+	
+	.internal-links :global(a.active::after) {
+		content: '';
+		position: absolute;
+		bottom: -0.5rem;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: var(--accent-warm);
+	}
+	
+	.mobile-menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		padding: 0.5rem;
 		cursor: pointer;
-		border: 1px solid var(--surface-border);
-		background: color-mix(in oklab, var(--surface) 75%, transparent);
-		border-radius: 999px;
-		padding: 0.35rem;
+		color: var(--ink);
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.mobile-menu-toggle {
+			color: rgb(var(--gray-dark));
+		}
+	}
+	
+	.mobile-menu-toggle svg {
+		width: 24px;
+		height: 24px;
+	}
+	
+	.mobile-menu {
+		display: none;
+		flex-direction: column;
+		gap: 0;
+		background: var(--surface);
+		border-bottom: 1px solid var(--surface-border);
+		max-width: 1320px;
+		margin: 0 auto;
+	}
+	
+	.mobile-menu[aria-hidden="false"] {
+		display: flex;
+	}
+	
+	.mobile-menu a {
+		padding: 1rem clamp(1rem, 5vw, 2rem);
+		color: var(--ink);
+		text-decoration: none;
+		font-weight: 600;
+		border-bottom: 1px solid var(--surface-border);
+		transition: background 0.2s ease;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.mobile-menu a {
+			color: rgb(var(--gray-dark));
+		}
+		.mobile-menu a:hover,
+		.mobile-menu a.highlight {
+			color: var(--primary-light);
+		}
+	}
+	
+	.mobile-menu a:hover,
+	.mobile-menu a.highlight {
+		background: var(--surface-2);
+		color: var(--primary);
+	}
+	
+	.mobile-menu a:last-child {
+		border-bottom: none;
+	}
+	
+	.header-social {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-left: 1rem;
+	}
+	
+	.social-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
 		color: rgb(var(--gray-dark));
+		transition: color 0.15s ease, transform 0.15s ease;
+	}
+	
+	.social-icon svg {
+		width: 18px;
+		height: 18px;
+	}
+	
+	.social-icon:hover {
+		transform: translateY(-2px);
+	}
+	
+	.social-icon:nth-child(1):hover {
+		color: #FF0000; /* YouTube */
+	}
+	
+	.social-icon:nth-child(2):hover {
+		color: #E60023; /* Pinterest */
+	}
+	
+	.social-icon:nth-child(4):hover {
+		color: #1877F2; /* Facebook */
+	}
+	
+	.theme-toggle {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		backdrop-filter: blur(10px);
-		transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+		width: 32px;
+		height: 32px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		color: rgb(var(--gray-dark));
+		transition: color 0.15s ease, transform 0.15s ease;
+		padding: 0;
+		margin-right: 0.75rem;
 	}
-	.theme-toggle:hover {
-		border-color: var(--accent-soft);
-		box-shadow: var(--box-shadow);
-		transform: translateY(-1px);
+	
+	.theme-toggle svg {
+		width: 20px;
+		height: 20px;
 	}
-	.theme-toggle:focus-visible {
-		outline: 3px solid rgba(40, 157, 204, 0.35);
-		outline-offset: 2px;
-	}
-
-	.theme-icons {
-		width: 34px;
-		height: 34px;
-		border-radius: 999px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		background: var(--brand-gradient);
-		color: #fff;
-	}
-
-	.theme-icons .icon {
-		width: 16px;
-		height: 16px;
+	
+	.theme-toggle .moon-icon {
 		display: none;
 	}
-
-	html[data-theme='light'] .theme-icons .icon.moon {
+	
+	html[data-theme='dark'] .theme-toggle .sun-icon {
+		display: none;
+	}
+	
+	html[data-theme='dark'] .theme-toggle .moon-icon {
 		display: block;
 	}
-
-	html:not([data-theme='light']) .theme-icons .icon.sun {
+	
+	.theme-toggle:hover {
+		color: var(--primary);
+		transform: translateY(-2px);
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		html:not([data-theme='light']) .theme-toggle .sun-icon {
+			display: none;
+		}
+		html:not([data-theme='light']) .theme-toggle .moon-icon {
+			display: block;
+		}
+	}
+	
+	.theme-toggle-mobile {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		width: 100%;
+		padding: 1rem clamp(1rem, 5vw, 2rem);
+		background: none;
+		border: none;
+		border-bottom: 1px solid var(--surface-border);
+		text-align: left;
+		font-weight: 600;
+		color: var(--ink);
+		cursor: pointer;
+		transition: background 0.2s ease;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.theme-toggle-mobile {
+			color: rgb(var(--gray-dark));
+		}
+	}
+	
+	.theme-toggle-mobile svg {
+		width: 20px;
+		height: 20px;
+		flex-shrink: 0;
+	}
+	
+	.theme-toggle-mobile .moon-icon {
+		display: none;
+	}
+	
+	html[data-theme='dark'] .theme-toggle-mobile .sun-icon {
+		display: none;
+	}
+	
+	html[data-theme='dark'] .theme-toggle-mobile .moon-icon {
 		display: block;
 	}
-
-	/* label masqué via sr-only */
+	
+	@media (prefers-color-scheme: dark) {
+		html:not([data-theme='light']) .theme-toggle-mobile .sun-icon {
+			display: none;
+		}
+		html:not([data-theme='light']) .theme-toggle-mobile .moon-icon {
+			display: block;
+		}
+	}
+	
+	.theme-toggle-mobile:hover {
+		background: var(--surface-2);
+		color: var(--primary);
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.theme-toggle-mobile:hover {
+			color: var(--primary-light);
+		}
+	}
+	
+	.theme-toggle-label {
+		flex: 1;
+	}
+	
+	@media (max-width: 768px) {
+		.desktop-only {
+			display: none;
+		}
+		
+		.mobile-menu-toggle {
+			display: block;
+		}
+		
+		.brand img {
+			height: 40px;
+			max-width: min(200px, 60vw);
+		}
+	}
 </style>
 
-<script is:inline>
+<script>
 	(() => {
-		const key = 'robot-educatif-theme';
-		const button = document.getElementById('theme-toggle');
-		const label = document.getElementById('theme-toggle-label');
-		if (!button) return;
+		const button = document.getElementById('mobile-menu-toggle');
+		const menu = document.getElementById('mobile-menu');
+		
+		if (!button || !menu) return;
+		
+		button.addEventListener('click', () => {
+			const isOpen = menu.getAttribute('aria-hidden') === 'false';
+			menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+			button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+			button.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+		});
+		
+		menu.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				menu.setAttribute('aria-hidden', 'true');
+				button.setAttribute('aria-expanded', 'false');
+				button.setAttribute('aria-label', 'Ouvrir le menu');
+			});
+		});
+	})();
 
-		const apply = (theme) => {
-			document.documentElement.dataset.theme = theme;
-			localStorage.setItem(key, theme);
-			const isLight = theme === 'light';
-			if (label)
-				label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
-			button.setAttribute(
-				'aria-label',
-				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
-			);
-		};
-
-		const current = document.documentElement.dataset.theme;
-		if (!current) {
-			apply(
-				localStorage.getItem(key) ||
-					(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'),
-			);
-		} else if (label) {
-			const isLight = current === 'light';
-			label.textContent = isLight ? 'Thème : clair' : 'Thème : sombre';
-			button.setAttribute(
-				'aria-label',
-				isLight ? 'Activer le thème sombre' : 'Activer le thème clair',
-			);
+	(() => {
+		function updateThemeToggle() {
+			const theme = document.documentElement.dataset.theme || 
+				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			const isDark = theme === 'dark';
+			const label = isDark ? 'Passer en mode clair' : 'Passer en mode sombre';
+			const mobileLabel = isDark ? 'Mode clair' : 'Mode sombre';
+			
+			document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
+			document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);
+			const mobileLabelEl = document.querySelector('.theme-toggle-label');
+			if (mobileLabelEl) {
+				mobileLabelEl.textContent = mobileLabel;
+			}
 		}
 
-		button.addEventListener('click', () => {
-			const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-			apply(next);
-		});
+		function setTheme(theme: 'light' | 'dark') {
+			document.documentElement.dataset.theme = theme;
+			localStorage.setItem('robot-educatif-theme', theme);
+			updateThemeToggle();
+		}
+
+		function toggleTheme() {
+			const currentTheme = document.documentElement.dataset.theme || 
+				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+		}
+
+		document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+		document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
+
+		updateThemeToggle();
 	})();
 </script>

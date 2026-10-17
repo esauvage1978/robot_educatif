@@ -3,7 +3,7 @@ title: "Projet Journal CLI (1/6) — architecture et périmètre"
 description: "Analyse de fichiers log ligne à ligne, modules parser/stats/cli, objectifs et livrables ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 1
 tags: ["Python", "Projet", "Avancé"]

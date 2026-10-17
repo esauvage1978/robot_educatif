@@ -1,9 +1,9 @@
 ---
-title: "Raspberry Pi 3 vs 4 vs 5 : comparatif technique, prix et quel modèle choisir (2026)"
-description: "Tableau comparatif Pi 3 / Pi 4 / Pi 5 : CPU, RAM, USB, réseau, vidéo, PCIe. Déclinaisons mémoire, fourchettes de prix en France (mars 2026), cas d’usage et liens vers les guides détaillés."
+title: "Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter en 2026 ?"
+description: "Comparatif Raspberry Pi 3 vs 4 vs 5 : performances, prix, RAM. Tableau détaillé, verdict 2026 et FAQ pour choisir le bon modèle."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+updatedDate: "2026-10-13"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
@@ -11,10 +11,10 @@ categories:
   - "Guide"
   - "À partir de 12 ans"
 relatedLinks:
-  - title: "Raspberry Pi 4 : quelle mémoire acheter ?"
-    href: "/raspberry-pi-4-quelle-version-memoire-acheter/"
-  - title: "Raspberry Pi 5 : quelle mémoire acheter ?"
+  - title: "Raspberry Pi 5 : 4 Go ou 8 Go ?"
     href: "/raspberry-pi-5-quelle-version-memoire-acheter/"
+  - title: "Kit Raspberry Pi 5 complet"
+    href: "/kit-raspberry-pi-5-complet/"
   - title: "Mise en route Raspberry Pi 3"
     href: "/mise-en-route-raspberry-pi-3-modele-b/"
   - title: "Raspberry Pi ou kit robot pour ado"
@@ -97,9 +97,9 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21)
-- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/s?k=Raspberry+Pi+5+dissipateur+alimentation&tag=manuso06-21)
+- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

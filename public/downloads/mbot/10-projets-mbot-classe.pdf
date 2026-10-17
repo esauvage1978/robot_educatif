@@ -1,0 +1,179 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 4 0 R
+/F2 5 0 R
+>>
+>>
+/MediaBox [0 0 595 842]
+/Contents 6 0 R
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+6 0 obj
+<<
+/Length 4200
+>>
+stream
+BT
+/F1 24 Tf
+50 792 Td
+(10 PROJETS mBot POUR LA CLASSE) Tj
+0 -30 Td
+/F2 12 Tf
+(Activites progressives avec corrections - Gratuit) Tj
+
+0 -40 Td
+/F1 16 Tf
+(PROJET 1 : FAIRE AVANCER LE ROBOT) Tj
+0 -20 Td
+/F2 10 Tf
+(Objectif : Comprendre les blocs de base moteurs) Tj
+0 -15 Td
+(Duree : 15-20 minutes) Tj
+0 -15 Td
+(Competences : Premier programme, telversement USB) Tj
+0 -20 Td
+(Consignes :) Tj
+0 -15 Td
+(1. Ouvrir mBlock et connecter le mBot en USB) Tj
+0 -12 Td
+(2. Glisser le bloc "avancer" et regler la vitesse a 100) Tj
+0 -12 Td
+(3. Ajouter "attendre 2 secondes") Tj
+0 -12 Td
+(4. Ajouter "arreter les moteurs") Tj
+0 -12 Td
+(5. Televerser le programme et tester) Tj
+
+0 -30 Td
+/F1 16 Tf
+(PROJET 2 : FAIRE CLIGNOTER LES LEDs) Tj
+0 -20 Td
+/F2 10 Tf
+(Objectif : Maitriser les boucles et les temporisations) Tj
+0 -15 Td
+(Duree : 20-25 minutes) Tj
+0 -15 Td
+(Competences : Boucles, attendre, LEDs RGB) Tj
+0 -20 Td
+(Consignes :) Tj
+0 -15 Td
+(1. Creer une boucle "repeter indefiniment") Tj
+0 -12 Td
+(2. Mettre les LEDs en rouge) Tj
+0 -12 Td
+(3. Attendre 1 seconde) Tj
+0 -12 Td
+(4. Eteindre les LEDs) Tj
+0 -12 Td
+(5. Attendre 1 seconde) Tj
+
+0 -30 Td
+/F1 16 Tf
+(PROJET 3 : AVANCER PUIS S'ARRETER) Tj
+0 -20 Td
+/F2 10 Tf
+(Objectif : Sequencer des actions dans le temps) Tj
+0 -15 Td
+(Duree : 15-20 minutes) Tj
+0 -20 Td
+(Consignes :) Tj
+0 -15 Td
+(1. Avancer pendant 2 secondes) Tj
+0 -12 Td
+(2. Arreter les moteurs) Tj
+0 -12 Td
+(3. Reculer pendant 1 seconde) Tj
+0 -12 Td
+(4. Arreter les moteurs) Tj
+
+0 -30 Td
+/F1 16 Tf
+(PROJET 4 : PARCOURS CHRONOME) Tj
+0 -20 Td
+/F2 10 Tf
+(Objectif : Regler vitesse et temps pour atteindre une cible) Tj
+0 -15 Td
+(Duree : 30-40 minutes) Tj
+0 -20 Td
+(Consignes :) Tj
+0 -15 Td
+(1. Tracer une ligne a 1 metre) Tj
+0 -12 Td
+(2. Programmer le mBot pour s'arreter sur la ligne) Tj
+0 -12 Td
+(3. Tester differentes vitesses et durees) Tj
+0 -12 Td
+(4. Noter les resultats dans un tableau) Tj
+
+0 -30 Td
+/F1 16 Tf
+(PROJET 5 : DETECTION D'OBSTACLE BASIQUE) Tj
+0 -20 Td
+/F2 10 Tf
+(Objectif : Decouvrir le capteur ultrason) Tj
+0 -15 Td
+(Duree : 25-30 minutes) Tj
+0 -20 Td
+(Consignes :) Tj
+0 -15 Td
+(1. Utiliser le bloc "capteur ultrason") Tj
+0 -12 Td
+(2. Creer une condition : SI distance < 20 cm) Tj
+0 -12 Td
+(3. ALORS arreter et jouer un son) Tj
+0 -12 Td
+(4. SINON avancer) Tj
+
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f
+0000000015 00000 n
+0000000068 00000 n
+0000000125 00000 n
+0000000265 00000 n
+0000000347 00000 n
+0000000425 00000 n
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+4679
+%%EOF

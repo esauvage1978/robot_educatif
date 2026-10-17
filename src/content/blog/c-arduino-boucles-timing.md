@@ -1,9 +1,9 @@
 ---
-title: "Arduino C — boucles et timing (delay vs millis) (20 exercices)"
+title: "Arduino C : boucles et timing (delay vs millis)"
 description: "Boucles for/while, compteurs, et timing en robotique : delay, millis, cadence de capteurs/son, éviter les blocages. 20 exercices corrigés."
 pubDate: 2026-04-02
-updatedDate: 2026-04-02
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+updatedDate: "2026-10-13"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: "Arduino C"
 seriesOrder: 4
 tags: ["C", "Arduino", "Robotique", "Programmation"]

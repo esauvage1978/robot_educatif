@@ -1,0 +1,267 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+import { getProductImage } from '../lib/amazonImage';
+import productsData from '../data/products.json';
+
+interface Props {
+	productIds: string[];
+	guideUrl?: string;
+	guideTitle?: string;
+	title?: string;
+}
+
+const {
+	productIds,
+	guideUrl = null,
+	guideTitle = null,
+	title = 'Quel robot pour suivre ce tutoriel ?',
+} = Astro.props;
+
+const products = productIds
+	.map((id) => {
+		const product = productsData[id as keyof typeof productsData];
+		if (!product) return null;
+		const imageUrl = getProductImage(product.asin, product.name, 60, 60);
+		return {
+			...product,
+			url: product.asin
+				? amazonProductUrl(product.asin, null)
+				: amazonProductUrl(null, product.searchQuery || product.name),
+			imageUrl,
+		};
+	})
+	.filter(Boolean);
+---
+
+{products.length > 0 && (
+	<aside class="tutorial-product-box">
+		<h3 class="tutorial-box-title">{title}</h3>
+		<div class="tutorial-products">
+			{products.map((product) => (
+				<div class="tutorial-product-card">
+					<a
+						href={product.url}
+						target="_blank"
+						rel="sponsored nofollow noopener"
+						class="tutorial-product-image-link"
+					>
+						<img 
+							src={product.imageUrl} 
+							alt={product.name}
+							width="60"
+							height="60"
+							loading="lazy"
+							class="tutorial-img"
+						/>
+					</a>
+					<div class="tutorial-product-info">
+						<strong class="tutorial-product-name">{product.name}</strong>
+					</div>
+					<a
+						href={product.url}
+						target="_blank"
+						rel="sponsored nofollow noopener"
+						class="tutorial-product-btn affiliate-link"
+						data-product-id={product.id}
+						data-placement="tutorial-box"
+					>
+						Voir sur Amazon
+					</a>
+				</div>
+			))}
+		</div>
+		{guideUrl && guideTitle && (
+			<div class="tutorial-guide-link">
+				<a href={guideUrl} class="guide-link-btn">
+					📚 {guideTitle}
+				</a>
+			</div>
+		)}
+		<p class="tutorial-box-note">
+			Liens affiliés Amazon. En tant que partenaire, ce site peut percevoir une commission
+			sur des achats éligibles, sans surcoût pour vous.
+		</p>
+	</aside>
+)}
+
+<style>
+	.tutorial-product-box {
+		background: linear-gradient(
+			135deg,
+			color-mix(in oklab, var(--accent-warm) 12%, var(--surface-2)) 0%,
+			var(--surface-2) 100%
+		);
+		border: 2px solid color-mix(in oklab, var(--accent-warm) 28%, var(--surface-border));
+		border-radius: 12px;
+		padding: 1.5rem;
+		margin: 2rem 0;
+		box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.tutorial-box-title {
+		margin: 0 0 1.25rem 0;
+		font-size: 1.2rem;
+		font-weight: 800;
+		color: rgb(var(--black));
+		text-align: center;
+	}
+
+	.tutorial-products {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.tutorial-product-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+		background: var(--page-bg);
+		border: 1px solid var(--surface-border);
+		border-radius: 8px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.tutorial-product-card:hover {
+		transform: translateX(3px);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.tutorial-product-image-link {
+		display: block;
+		flex-shrink: 0;
+		width: 60px;
+		height: 60px;
+		transition: transform 0.15s ease;
+	}
+
+	.tutorial-product-image-link:hover {
+		transform: scale(1.05);
+	}
+
+	.tutorial-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		background: white;
+		border-radius: 4px;
+		border: 1px solid var(--surface-border);
+	}
+
+	.tutorial-product-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.tutorial-product-name {
+		font-size: 1rem;
+		font-weight: 700;
+		color: rgb(var(--black));
+		line-height: 1.3;
+	}
+
+	.tutorial-product-price {
+		font-size: 0.88rem;
+		color: rgb(var(--gray-dark));
+		font-weight: 600;
+	}
+
+	.tutorial-product-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.6rem 1.1rem;
+		background: linear-gradient(135deg, #ff9900 0%, #ff8800 100%);
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.88rem;
+		border-radius: 6px;
+		white-space: nowrap;
+		flex-shrink: 0;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		box-shadow: 0 2px 6px rgba(255, 153, 0, 0.25);
+	}
+
+	.tutorial-product-btn:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 3px 10px rgba(255, 153, 0, 0.35);
+	}
+
+	.tutorial-guide-link {
+		margin: 1.25rem 0 1rem 0;
+		text-align: center;
+	}
+
+	.guide-link-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		background: var(--accent-dark);
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.95rem;
+		border-radius: 8px;
+		transition: background 0.15s ease, transform 0.15s ease;
+	}
+
+	.guide-link-btn:hover {
+		background: var(--accent);
+		transform: translateY(-1px);
+	}
+
+	.tutorial-box-note {
+		margin: 0;
+		padding-top: 1rem;
+		border-top: 1px solid var(--surface-border);
+		font-size: 0.78rem;
+		line-height: 1.5;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+
+	@media (max-width: 640px) {
+		.tutorial-product-card {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+
+		.tutorial-product-image-link {
+			width: 80px;
+			height: 80px;
+		}
+
+		.tutorial-product-btn {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const tutorialLinks = document.querySelectorAll('.tutorial-product-box .affiliate-link');
+		
+		tutorialLinks.forEach((link, index) => {
+			link.addEventListener('click', () => {
+				const productId = link.getAttribute('data-product-id');
+				const pagePath = window.location.pathname;
+				
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', 'affiliate_click', {
+						product_id: productId,
+						page_path: pagePath,
+						position: index + 1,
+						placement: 'tutorial_box',
+					});
+				}
+			});
+		});
+	});
+</script>

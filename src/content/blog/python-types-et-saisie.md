@@ -3,7 +3,7 @@ title: "Python — types de base et saisie clavier (input)"
 description: "int, float, str, bool ; type(), conversions, input() et strip() ; pièges et 20 exercices avec solutions repliables."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 3
 tags: ["Python", "Programmation"]

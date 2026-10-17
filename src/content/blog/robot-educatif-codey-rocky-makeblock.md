@@ -1,9 +1,9 @@
 ---
 title: "Codey Rocky (Makeblock) : robot éducatif Scratch et Python"
-description: "Présentation du robot Codey Rocky : capteurs, mBlock 5, Scratch et Python, public 6+, idées d’usage. Exemples de programmes et ressources en ligne. Lien Amazon France."
+description: "Codey Rocky : capteurs, mBlock, Scratch, Python. Public 6+."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/codey-rocky/codey-rocky-hero.png"
+heroImage: "../../assets/codey-rocky/codey-rocky-hero.webp"
 amazonPreset: codeyRocky
 relatedLinks:
   - title: "Installer mBlock 5 sous Windows 10"
@@ -26,7 +26,7 @@ categories:
 
 ## Points forts pédagogiques
 
-![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.png)
+![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.webp)
 
 *Bloc « code visuel » : la même logique que sur mBlock s’applique aux robots Makeblock compatibles.*
 
@@ -80,7 +80,7 @@ Pour le mode **transfert du programme vers le robot** (exécution autonome), voi
 
 ## Lien vers Amazon.fr
 
-- [Codey Rocky sur Amazon.fr](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21) — recherche ; prix et dispo à vérifier au moment de l’achat.
+- [Codey Rocky sur Amazon.fr](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21) — recherche ; prix et dispo à vérifier au moment de l’achat.
 
 Pour comparer avec d’autres approches Makeblock, voir [CyberPi](/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/), [mBot](/mbot-mon-premier-robot-educatif/) ou [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 

@@ -1,6 +1,6 @@
 ---
-title: "Capteur ultrason mBot (4/4) : avancer, ralentir puis s’arrêter si obstacle"
-description: "Quatrième activité capteur ultrason du mBot : le robot avance en ligne droite, joue des sons, ralentit quand un obstacle approche, puis s’arrête. Progression idéale après les radars de recul."
+title: "Capteur ultrason mBot (4/4) : avancer et s'arrêter"
+description: "mBot avance et s'arrête devant un obstacle : capteur ultrason, conditions, variables d'état. Projet complet avec code Arduino."
 pubDate: "2026-03-31"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/mbot/mbot-hero.png"

@@ -1,9 +1,9 @@
 ---
-title: "Quel robot éducatif choisir à plus de 1000 € ? (Guide expert 2026)"
-description: "Budget au-delà de 1000 € : bras collaboratif myCobot + IA, Bioloid Premium, UGOT UBTECH, plateforme mobile myAGV, offres Sphero éducation — critères niveau / type / techno, comparatif honnête et liens Amazon."
+title: "Robot éducatif +1000 € : guide expert (2026)"
+description: "Robots haut de gamme +1000€ : bras myCobot IA, Bioloid Premium, UGOT transformable. Pour projets avancés, recherche et perfectionnement en robotique."
 pubDate: "2026-04-02"
 updatedDate: "2026-04-02"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: general
 categories:
   - "Guide"
@@ -122,7 +122,7 @@ Les **prix** ci-dessous sont des **ordres de grandeur 2026** (TVA, import, bundl
 
 ### 🥉 Quadrupède — **UGOT (UBTECH)**
 
-![UBTECH Education — kit UGOT, mode transformable (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.png)
+![UBTECH Education — kit UGOT, mode transformable (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.webp)
 
 *Visuel **UBTECH Education** — family **UGOT** (scène « transforming », fiche produit **City Guardian**).*
 
@@ -150,7 +150,7 @@ Les **prix** ci-dessous sont des **ordres de grandeur 2026** (TVA, import, bundl
 
 ### 🤖 Robot mobile autonome — **myAGV (Elephant Robotics)**
 
-![Elephant Robotics — myAGV Pi (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-myagv-pi.png)
+![Elephant Robotics — myAGV Pi (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-myagv-pi.webp)
 
 *Visuel Elephant Robotics — **myAGV** (variante **Pi**).*
 

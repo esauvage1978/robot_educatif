@@ -1,9 +1,9 @@
 ---
-title: "Eilik : petit robot de bureau interactif pour découvrir la tech"
-description: "Eilik : robot compagnon de bureau, jeux, réactions tactiles et animations. Idées d’ateliers, public, limites, poursuite possible avec le code (Scratch, robots éducatifs) et lien Amazon.fr."
+title: "Eilik : robot de bureau interactif pour découvrir tech"
+description: "Eilik : robot compagnon de bureau avec jeux et réactions tactiles. Différence avec robots éducatifs programmables."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/eilik/eilik-hero.png"
+heroImage: "../../assets/eilik/eilik-hero.webp"
 amazonPreset: eilik
 relatedLinks:
   - title: "Tale-Bot Pro Matatalab : déballage et premiers pas"
@@ -35,7 +35,7 @@ categories:
 
 Ce tableau parle d’**Eilik** ; les liens du site vers d’autres articles servent seulement de **pistes** si tu enseignes aussi la programmation ailleurs.
 
-![Illustration : atelier en groupe autour d’un petit robot sur la table](/images/eilik/eilik-atelier.png)
+![Illustration : atelier en groupe autour d’un petit robot sur la table](/images/eilik/eilik-atelier.webp)
 
 *Illustrations d’ambiance (générées pour l’article) : compagnon de bureau, sans reproduire un produit commercial précis.*
 
@@ -60,7 +60,7 @@ Ce tableau parle d’**Eilik** ; les liens du site vers d’autres articles serv
 
 ## Limites : ce qu’Eilik ne remplace pas
 
-![Schéma illustratif : compagnon interactif (gauche) et robot éducatif programmable (droite)](/images/eilik/eilik-vs-programmable.png)
+![Schéma illustratif : compagnon interactif (gauche) et robot éducatif programmable (droite)](/images/eilik/eilik-vs-programmable.webp)
 
 *À gauche : logique « interaction / personnage ». À droite : logique « on programme capteurs et déplacements » — ce sont des **familles d’outils** différentes, pas des concurrents directs.*
 

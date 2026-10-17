@@ -1,7 +1,8 @@
 ---
-title: "Quel robot acheter pour un enfant de 7 ou 8 ans ? Guide d’achat détaillé"
-description: "Comment choisir un robot éducatif vers 7–8 ans : Scratch, premiers capteurs, montage du kit, autonomie à l’école ou à la maison. Critères, idées de produits et liens Amazon pour affiner votre budget."
+title: "Robot enfant 7-8 ans : meilleurs robots éducatifs 2026"
+description: "Meilleurs robots programmables pour enfants de 7-8 ans : Scratch, capteurs, montage simple. Guide 2026 pour débuter la robotique."
 pubDate: "2026-03-18"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: "mbot"
 categories:
@@ -10,6 +11,10 @@ categories:
   - "Robot éducatif"
   - "Scratch"
 relatedLinks:
+  - title: "Cadeau robot enfant 8 ans (Noël)"
+    href: "/cadeau-robot-enfant-8-ans/"
+  - title: "Guide cadeaux Noël 2026"
+    href: "/robot-educatif-cadeau-noel-2026/"
   - title: "Quel robot pour un enfant de 5 ans ?"
     href: "/quel-robot-acheter-enfant-5-ans-guide-achat/"
   - title: "Quel robot pour un enfant de 10 ans ?"
@@ -54,7 +59,7 @@ Prévoyez parfois **piles rechargeables**, **tapis de jeu** ou **extensions** (p
 
 ## Liens Amazon pour comparer (recherches affiliées)
 
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
+- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Robot programmable Scratch enfant capteur](https://www.amazon.fr/s?k=robot+programmable+scratch+capteur+enfant&tag=manuso06-21)
 - [Kit robotique école STEM 8-12 ans](https://www.amazon.fr/s?k=kit+robotique+STEM+8+12+ans&tag=manuso06-21)
 - [Accessoires capteurs mBot](https://www.amazon.fr/s?k=mBot+accessoires+capteur&tag=manuso06-21)

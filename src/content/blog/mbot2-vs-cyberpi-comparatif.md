@@ -1,9 +1,9 @@
 ---
 title: "mBot2 vs CyberPi : robot ou carte programmable Makeblock ?"
-description: "Comparer mBot2 (robot roulant, défis terrain) et CyberPi (carte Wi-Fi, projets électroniques). Indications de prix, usages, prolongements pédagogiques et schéma récapitulatif."
+description: "mBot2 vs CyberPi : robot roulant ou carte WiFi. Prix, usages, schéma récapitulatif."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot2
 categories:
   - "Comparatif"
@@ -51,8 +51,8 @@ Si l’ado veut surtout **Linux**, **serveur**, **Python hors robot**, lisez [Ra
 
 ## Liens Amazon (affiliation)
 
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/s?k=CyberPi+Makeblock&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 - [Kit électronique programmable enfant](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+programmable+ado&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

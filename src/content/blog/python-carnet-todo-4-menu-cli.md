@@ -2,7 +2,7 @@
 title: "Carnet Todo en Python (4/6) — menu en ligne de commande"
 description: "Boucle while True ; options 1–5 ; input utilisateur ; convertir id avec int et gérer ValueError."
 pubDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo
 seriesOrder: 4
 tags: ["Python", "Programmation", "Projet"]

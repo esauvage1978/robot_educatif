@@ -1,0 +1,147 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+import productsData from '../data/products.json';
+
+interface Props {
+	productId: string;
+}
+
+const { productId } = Astro.props;
+const product = productsData[productId as keyof typeof productsData];
+
+if (!product) {
+	console.warn(`MobileStickyCTA: Product "${productId}" not found in products.json`);
+}
+
+const affiliateUrl = product?.asin
+	? amazonProductUrl(product.asin, null)
+	: amazonProductUrl(null, product?.searchQuery || product?.name);
+---
+
+{product && (
+	<div class="mobile-sticky-cta" data-product-id={productId}>
+		<div class="sticky-content">
+			<div class="sticky-text">
+				<strong>{product.badge || product.name}</strong>
+			</div>
+			<a
+				href={affiliateUrl}
+				target="_blank"
+				rel="sponsored nofollow noopener"
+				class="sticky-btn affiliate-link"
+				data-product-id={productId}
+				data-placement="mobile-sticky"
+			>
+				Voir sur Amazon
+			</a>
+		</div>
+	</div>
+)}
+
+<style>
+	.mobile-sticky-cta {
+		display: none;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		background: white;
+		border-top: 2px solid var(--accent);
+		box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+		animation: slideUp 0.3s ease-out;
+	}
+
+	html[data-theme='dark'] .mobile-sticky-cta {
+		background: var(--surface-2);
+	}
+
+	@keyframes slideUp {
+		from {
+			transform: translateY(100%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+
+	.sticky-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.9rem 1rem;
+		max-width: 100%;
+	}
+
+	.sticky-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+		flex: 1;
+	}
+
+	.sticky-text strong {
+		font-size: 0.92rem;
+		font-weight: 700;
+		color: rgb(var(--black));
+		line-height: 1.3;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.sticky-price {
+		font-size: 0.82rem;
+		color: rgb(var(--gray-dark));
+		font-weight: 600;
+	}
+
+	.sticky-btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.7rem 1.3rem;
+		background: linear-gradient(135deg, #ff9900 0%, #ff8800 100%);
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.9rem;
+		border-radius: 6px;
+		white-space: nowrap;
+		flex-shrink: 0;
+		box-shadow: 0 2px 8px rgba(255, 153, 0, 0.3);
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.sticky-btn:active {
+		transform: scale(0.97);
+	}
+
+	@media (max-width: 720px) {
+		.mobile-sticky-cta {
+			display: block;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const stickyBtn = document.querySelector('.mobile-sticky-cta .affiliate-link');
+		
+		if (stickyBtn) {
+			stickyBtn.addEventListener('click', () => {
+				const productId = stickyBtn.getAttribute('data-product-id');
+				const pagePath = window.location.pathname;
+				
+				if (typeof window.gtag === 'function') {
+					window.gtag('event', 'affiliate_click', {
+						product_id: productId,
+						page_path: pagePath,
+						placement: 'mobile_sticky',
+					});
+				}
+			});
+		}
+	});
+</script>

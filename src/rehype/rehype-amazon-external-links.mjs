@@ -24,7 +24,7 @@ export function rehypeAmazonExternalLinks() {
 			if (!isAmazonHref(href)) return;
 			node.properties = node.properties || {};
 			node.properties.target = '_blank';
-			const relParts = ['noopener', 'noreferrer', 'sponsored'];
+			const relParts = ['noopener', 'nofollow', 'sponsored'];
 			const rel = node.properties.rel;
 			if (Array.isArray(rel)) {
 				node.properties.rel = [...new Set([...rel.map(String), ...relParts])];
