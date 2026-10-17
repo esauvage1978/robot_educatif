@@ -11,12 +11,21 @@ import { articleSlugFromId } from '../lib/articleSlug';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
+import { amazonImageUrl } from '../lib/amazonImage';
 
 const allPosts = await getCollection('blog');
 const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 4);
 
 const HOME_DESCRIPTION =
 	'Robots éducatifs pour enfants, ados et écoles : guides d\'achat par âge, comparatifs mBot/LEGO, tutoriels mBlock, Scratch et Python.';
+
+// Popular products for homepage
+const popularProducts = [
+	{ name: 'Makeblock mBot Neo', asin: 'B0CQXKX64J' },
+	{ name: 'Makeblock mBot2', asin: 'B09BYYMF7R' },
+	{ name: 'LEGO Boost 17101', asin: 'B06X6GN2VQ' },
+	{ name: 'Arduino Starter Kit Officiel', asin: 'B009UKZV0A' },
+];
 
 const guideCount = allPosts.length;
 ---
@@ -310,38 +319,54 @@ const guideCount = allPosts.length;
 				background: var(--page-bg);
 				border: 1px solid var(--surface-border);
 				border-radius: 12px;
-				padding: 1.25rem;
-				text-align: center;
 				transition: all 0.2s ease;
+				overflow: hidden;
 			}
 			
 			.product-card:hover {
 				box-shadow: 0 4px 12px rgba(11, 31, 42, 0.1);
+				transform: translateY(-2px);
+			}
+			
+			.product-card-link {
+				display: block;
+				text-decoration: none;
+				padding: 1.25rem;
+				text-align: center;
+			}
+			
+			.product-card-img {
+				width: 100%;
+				max-width: 200px;
+				height: auto;
+				aspect-ratio: 1;
+				object-fit: contain;
+				margin: 0 auto 1rem;
+				background: white;
+				border-radius: 8px;
+				border: 1px solid var(--surface-border);
 			}
 			
 			.product-card h3 {
 				font-weight: 700;
 				font-size: 1.05rem;
-				margin: 1rem 0 0.5rem 0;
+				margin: 0 0 0.75rem 0;
 				color: rgb(var(--black));
 			}
 			
-			.product-card a {
+			.product-card-cta {
 				display: inline-block;
 				background: var(--accent-warm);
 				color: white;
-				padding: 12px 22px;
+				padding: 10px 18px;
 				border-radius: 8px;
-				text-decoration: none;
 				font-weight: 700;
-				font-size: 0.95rem;
+				font-size: 0.9rem;
 				transition: all 0.2s ease;
-				margin-top: 0.75rem;
 			}
 			
-			.product-card a:hover {
+			.product-card-link:hover .product-card-cta {
 				background: #ea580c;
-				transform: scale(1.05);
 			}
 			
 			.articles-grid {
@@ -571,30 +596,27 @@ const guideCount = allPosts.length;
 					<div class="best-sellers">
 						<h2>🔥 Les plus populaires</h2>
 						<div class="product-grid">
-							<div class="product-card">
-								<h3>Makeblock mBot Neo</h3>
-								<a href={`https://www.amazon.fr/dp/B0CQXKX64J?tag=${AMAZON_AFFILIATE_TAG}`} rel="sponsored nofollow noopener" target="_blank">
-									Voir le prix sur Amazon
-								</a>
-							</div>
-							<div class="product-card">
-								<h3>Makeblock mBot2</h3>
-								<a href={`https://www.amazon.fr/dp/B09BYYMF7R?tag=${AMAZON_AFFILIATE_TAG}`} rel="sponsored nofollow noopener" target="_blank">
-									Voir le prix sur Amazon
-								</a>
-							</div>
-							<div class="product-card">
-								<h3>LEGO Boost 17101</h3>
-								<a href={`https://www.amazon.fr/dp/B06X6GN2VQ?tag=${AMAZON_AFFILIATE_TAG}`} rel="sponsored nofollow noopener" target="_blank">
-									Voir le prix sur Amazon
-								</a>
-							</div>
-							<div class="product-card">
-								<h3>Arduino Starter Kit Officiel</h3>
-								<a href={`https://www.amazon.fr/dp/B009UKZV0A?tag=${AMAZON_AFFILIATE_TAG}`} rel="sponsored nofollow noopener" target="_blank">
-									Voir le prix sur Amazon
-								</a>
-							</div>
+							{popularProducts.map(product => (
+								<div class="product-card">
+									<a 
+										href={`https://www.amazon.fr/dp/${product.asin}?tag=${AMAZON_AFFILIATE_TAG}`}
+										rel="sponsored nofollow noopener"
+										target="_blank"
+										class="product-card-link"
+									>
+										<img 
+											src={amazonImageUrl(product.asin, 200)} 
+											alt={product.name}
+											width="200"
+											height="200"
+											loading="lazy"
+											class="product-card-img"
+										/>
+										<h3>{product.name}</h3>
+										<span class="product-card-cta">Voir sur Amazon →</span>
+									</a>
+								</div>
+							))}
 						</div>
 					</div>
 					

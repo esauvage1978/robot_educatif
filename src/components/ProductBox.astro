@@ -1,5 +1,6 @@
 ---
 import { amazonProductUrl } from '../lib/amazon';
+import { amazonImageUrl, generatePlaceholderSvg } from '../lib/amazonImage';
 
 interface Props {
 	productId?: string;
@@ -33,6 +34,10 @@ const affiliateUrl = asin
 	? amazonProductUrl(asin)
 	: amazonProductUrl(null, searchQuery || name);
 
+// Use Amazon image if ASIN available, otherwise placeholder
+const productImage = asin ? amazonImageUrl(asin, 250) : generatePlaceholderSvg(name, 250, 250);
+const hasAmazonImage = Boolean(asin);
+
 const trackingAttrs = productId
 	? `data-product-id="${productId}" data-position="${position}"`
 	: '';
@@ -41,11 +46,24 @@ const trackingAttrs = productId
 <div class="product-box" data-has-asin={Boolean(asin)}>
 	{badge && <div class="product-badge">{badge}</div>}
 	<div class="product-content">
-		{image && (
+		<a
+			href={affiliateUrl}
+			target="_blank"
+			rel="sponsored nofollow noopener"
+			class="product-image-link"
+			{...trackingAttrs}
+		>
 			<div class="product-image">
-				<img src={image} alt={name} loading="lazy" />
+				<img 
+					src={productImage} 
+					alt={name}
+					width="250"
+					height="250"
+					loading="lazy"
+					class:list={['product-img', { 'amazon-image': hasAmazonImage }]}
+				/>
 			</div>
-		)}
+		</a>
 		<div class="product-info">
 			<h3 class="product-name">{name}</h3>
 			{ages && <div class="product-meta"><strong>Âge :</strong> {ages}</div>}
@@ -230,6 +248,26 @@ const trackingAttrs = productId
 		font-size: 0.78rem;
 		color: rgb(var(--gray));
 		font-style: italic;
+	}
+
+	.product-image-link {
+		display: block;
+		text-decoration: none;
+		transition: transform 0.2s ease;
+	}
+
+	.product-image-link:hover {
+		transform: scale(1.02);
+	}
+
+	.product-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.product-img.amazon-image {
+		padding: 0;
 	}
 
 	@media (max-width: 640px) {

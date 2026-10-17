@@ -1,5 +1,6 @@
 ---
 import { amazonProductUrl } from '../lib/amazon';
+import { amazonImageUrl, generatePlaceholderSvg } from '../lib/amazonImage';
 import productsData from '../data/products.json';
 
 interface ProductEntry {
@@ -17,12 +18,17 @@ const { products, title = 'Notre sélection rapide' } = Astro.props;
 const productDetails = products.map((entry) => {
 	const data = productsData[entry.id as keyof typeof productsData];
 	if (!data) return null;
+	const imageUrl = data.asin 
+		? amazonImageUrl(data.asin, 160) 
+		: generatePlaceholderSvg(data.name, 160, 160);
 	return {
 		...data,
 		...entry,
 		url: data.asin
 			? amazonProductUrl(data.asin, null)
 			: amazonProductUrl(null, data.searchQuery || data.name),
+		imageUrl,
+		hasAmazonImage: Boolean(data.asin),
 	};
 }).filter(Boolean);
 ---
@@ -34,6 +40,7 @@ const productDetails = products.map((entry) => {
 			<table class="comparison-table">
 				<thead>
 					<tr>
+						<th class="image-col"></th>
 						<th>Robot</th>
 						<th>Âge</th>
 						<th>Langages</th>
@@ -43,6 +50,23 @@ const productDetails = products.map((entry) => {
 				<tbody>
 					{productDetails.map((product) => (
 						<tr>
+							<td class="product-image-cell">
+								<a
+									href={product.url}
+									target="_blank"
+									rel="sponsored nofollow noopener"
+									class="table-image-link"
+								>
+									<img 
+										src={product.imageUrl} 
+										alt={product.name}
+										width="80"
+										height="80"
+										loading="lazy"
+										class:list={['table-img', { 'amazon-image': product.hasAmazonImage }]}
+									/>
+								</a>
+							</td>
 							<td class="product-name-cell">
 								<strong>{product.name}</strong>
 								{product.badge && (
@@ -127,6 +151,11 @@ const productDetails = products.map((entry) => {
 		white-space: nowrap;
 	}
 
+	.comparison-table th.image-col {
+		width: 100px;
+		padding: 0.9rem 0.5rem;
+	}
+
 	.comparison-table tbody tr {
 		border-bottom: 1px solid var(--surface-border);
 		transition: background 0.15s ease;
@@ -143,6 +172,34 @@ const productDetails = products.map((entry) => {
 	.comparison-table td {
 		padding: 1rem;
 		vertical-align: middle;
+	}
+
+	.product-image-cell {
+		padding: 0.75rem 0.5rem;
+		text-align: center;
+		width: 100px;
+	}
+
+	.table-image-link {
+		display: block;
+		transition: transform 0.15s ease;
+	}
+
+	.table-image-link:hover {
+		transform: scale(1.05);
+	}
+
+	.table-img {
+		width: 80px;
+		height: 80px;
+		object-fit: contain;
+		background: white;
+		border-radius: 4px;
+		border: 1px solid var(--surface-border);
+	}
+
+	.table-img.amazon-image {
+		border: none;
 	}
 
 	.product-name-cell {
