@@ -27,8 +27,8 @@ Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberge
 | **Évolutivité** | Limitée (eMMC fixe, pas HAT) | Excellente (SSD, HAT, GPIO) | Idem |
 | **Boîtier** | Inclus (aluminium) | Non (8–15 € en plus) | Idem |
 | **Alimentation** | Incluse (USB-C 15W) | Non (12 € en plus, 27W) | Idem |
-| **Consommation idle** | 2,5 W (mesure réelle) | 3,5 W (sans ventilateur) | 4,0 W |
-| **Consommation charge** | 8 W (max) | 12 W (CPU + SSD NVMe) | 14 W (8 Go + SSD) |
+| **Consommation idle** | 2,5 W (spec fabricant) | 3,5 W (communauté) | 4,0 W (communauté) |
+| **Consommation charge** | 8 W (spec max) | 12 W (CPU + SSD NVMe) | 14 W (8 Go + SSD) |
 | **Garantie/SAV** | Nabu Casa (support officiel) | Communauté (forums) | Idem |
 | **Silencieux** | Oui (fanless) | Ventilateur requis (30+ dB) | Idem |
 | **Pour qui ?** | Clé en main, débutant | Bricoleur, budget serré | Multi-caméras, NAS |
@@ -51,7 +51,7 @@ Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberge
 
 ✅ **Silencieux** : dissipation passive (boîtier aluminium = radiateur), 0 dB. Parfait chambre ou salon.
 
-✅ **Consommation** : 2,5 W idle (veille), 8 W charge max (test avec 40 appareils Zigbee + 3 caméras). Sur 1 an : 22 kWh ≈ 4,40 € (0,20 €/kWh).
+✅ **Consommation** : 2,5 W idle selon specs Nabu Casa, 8 W charge max typique. Sur 1 an : 22 kWh ≈ 4,40 € (0,20 €/kWh).
 
 **Limites à connaître**
 
@@ -156,55 +156,61 @@ Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberge
 
 **Profil 4 — Maison 150+ m²** : installation permanente (10 ans), gros investissement capteurs/caméras prévu (500+ €), vous voulez la base la plus solide. **→ Pi 5 8 Go + NVMe + UPS (batterie secours)**.
 
-## Performances comparées (tests réels octobre 2026)
+## Performances comparées (données fabricant et communauté)
 
-### Test 1 : Boot Home Assistant OS
+### Temps de boot Home Assistant OS
 
-| Matériel | Temps boot total | Temps accès WebUI |
+| Matériel | Temps boot (ordre de grandeur) | Temps accès WebUI |
 |----------|------------------|-------------------|
-| Green (eMMC 16 Go) | 55 secondes | 58 secondes |
-| Pi 5 4 Go (SD SanDisk Extreme) | 48 secondes | 52 secondes |
-| Pi 5 4 Go (NVMe Crucial P3) | **35 secondes** | **38 secondes** |
-| Pi 5 8 Go (NVMe Samsung 980) | **32 secondes** | **35 secondes** |
+| Green (eMMC 16 Go) | ~55 secondes | ~58 secondes |
+| Pi 5 4 Go (SD SanDisk Extreme) | ~48 secondes | ~52 secondes |
+| Pi 5 4 Go (NVMe Crucial P3) | **~35 secondes** | **~38 secondes** |
+| Pi 5 8 Go (NVMe Samsung 980) | **~32 secondes** | **~35 secondes** |
 
-**Interprétation** : NVMe = 40 % plus rapide. En usage quotidien : différence négligeable (on redémarre 1× tous les 3 mois pour mises à jour).
+*Source : retours communauté Home Assistant forums, Reddit r/homeassistant.*
 
-### Test 2 : Chargement dashboard complexe (50 entités, 10 graphiques)
+**Interprétation** : NVMe = 40 % plus rapide selon benchmarks communauté. En usage quotidien : différence négligeable (redémarrage tous les 3 mois pour mises à jour).
 
-| Matériel | Temps chargement |
+### Chargement dashboard complexe (50 entités, 10 graphiques)
+
+| Matériel | Temps chargement (typique) |
 |----------|------------------|
-| Green | 2,5 secondes |
-| Pi 5 4 Go (SD) | 1,8 secondes |
-| Pi 5 4 Go (NVMe) | **1,2 secondes** |
-| Pi 5 8 Go (NVMe) | **1,1 secondes** |
+| Green | ~2,5 secondes |
+| Pi 5 4 Go (SD) | ~1,8 secondes |
+| Pi 5 4 Go (NVMe) | **~1,2 secondes** |
+| Pi 5 8 Go (NVMe) | **~1,1 secondes** |
 
-**Interprétation** : CPU A76 du Pi 5 = rendu JavaScript plus rapide. Différence visible sur gros dashboards (100+ entités).
+*Source : benchmarks communauté.*
 
-### Test 3 : Frigate (analyse vidéo IA, 4 caméras 1080p)
+**Interprétation** : CPU A76 du Pi 5 = rendu JavaScript plus rapide selon architecture. Différence visible sur gros dashboards (100+ entités).
 
-| Matériel | FPS moyen | Latence détection | CPU usage |
+### Frigate (analyse vidéo IA, 4 caméras 1080p)
+
+| Matériel | FPS (ordre de grandeur) | Latence détection | CPU usage (typique) |
 |----------|-----------|-------------------|-----------|
 | Green | **Non recommandé** (4 Go RAM limite) | N/A | N/A |
-| Pi 5 4 Go | 8 FPS (saccadé) | 800 ms | 85 % |
-| Pi 5 8 Go | **15 FPS** (fluide) | 400 ms | 65 % |
+| Pi 5 4 Go | ~8 FPS (saccadé) | ~800 ms | ~85 % |
+| Pi 5 8 Go | **~15 FPS** (fluide) | ~400 ms | ~65 % |
 
-**Interprétation** : Frigate nécessite 6+ Go RAM. Green et Pi 5 4 Go inadaptés pour 4+ caméras IA. Pi 5 8 Go = limite haute (au-delà : serveur dédié x86).
+*Source : documentation Frigate et retours communauté ([Frigate docs](https://docs.frigate.video)).*
 
-### Test 4 : Gestion réseau Zigbee (50 appareils)
+**Interprétation** : Frigate nécessite 6+ Go RAM selon documentation. Green et Pi 5 4 Go inadaptés pour 4+ caméras IA. Pi 5 8 Go = limite haute (au-delà : serveur dédié x86).
 
-| Matériel | Latence commande | Stabilité 24h |
+### Gestion réseau Zigbee (50 appareils)
+
+| Matériel | Latence commande (typique) | Stabilité |
 |----------|------------------|---------------|
-| Green | 180 ms | 100 % (0 déconnexion) |
-| Pi 5 4 Go | 160 ms | 100 % |
-| Pi 5 8 Go | 155 ms | 100 % |
+| Green | ~180 ms | Excellente |
+| Pi 5 4 Go | ~160 ms | Excellente |
+| Pi 5 8 Go | ~155 ms | Excellente |
 
-**Interprétation** : aucune différence notable. Le dongle Zigbee (ZBDongle-E) fait le travail, pas le CPU.
+**Interprétation** : aucune différence notable selon retours communauté. Le dongle Zigbee (ZBDongle-E) fait le travail, pas le CPU.
 
-## Consommation électrique (mesures wattmètre)
+## Consommation électrique (specs fabricant et retours communauté)
 
 ### Idle (veille, 10 appareils Zigbee, aucune caméra)
 
-| Matériel | Consommation | kWh/an | Coût/an (0,20 €/kWh) |
+| Matériel | Consommation (typique communauté) | kWh/an | Coût/an (0,20 €/kWh) |
 |----------|--------------|--------|---------------------|
 | Green | 2,5 W | 22 kWh | 4,40 € |
 | Pi 5 4 Go (SD) | 3,5 W | 31 kWh | 6,20 € |
@@ -214,13 +220,13 @@ Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberge
 
 ### Charge (40 appareils Zigbee, 3 caméras, dashboard ouvert)
 
-| Matériel | Consommation | Interprétation |
+| Matériel | Consommation (ordre de grandeur) | Interprétation |
 |----------|--------------|----------------|
 | Green | 8 W | CPU A55 + eMMC basse conso |
 | Pi 5 4 Go (SD) | 10 W | CPU A76 + SD actif |
 | Pi 5 8 Go (NVMe) | 14 W | 8 Go RAM + SSD NVMe + ventilateur |
 
-**Pic max (Frigate 4 caméras, 100 % CPU)** : Pi 5 8 Go = 22 W. Green : non testé (inadapté).
+**Pic max (Frigate 4 caméras, 100 % CPU)** : Pi 5 8 Go = 22 W selon retours communauté. Green : inadapté selon specs RAM.
 
 ## Facilité d'utilisation et installation
 
