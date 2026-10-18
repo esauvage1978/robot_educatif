@@ -2,8 +2,8 @@
  * Génère des vignettes 1200×630 visuellement distinctes par article
  * - Détection catégorie robuste (slug + frontmatter)
  * - Fonds variés par catégorie (palette A)
- * - Photos produits OU grandes icônes thématiques visibles
- * - Retours à la ligne équilibrés sans orphelins
+ * - Photos produits OU grandes icônes SVG RENDUES (pas du texte!)
+ * - Retours à la ligne équilibrés avec mesure de largeur réelle
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -23,49 +23,57 @@ const fontPath = path.join(__dirname, './fonts/Roboto-Bold.ttf');
 const CATEGORY_THEMES = {
 	'Python': {
 		bg: 'linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%)',
-		accent: '#14B8A6',
+		badgeBg: '#14B8A6',
+		badgeText: '#0B1F2A',
 		text: '#F8FAFC',
 		icon: 'code'
 	},
 	'C / Arduino': {
 		bg: 'linear-gradient(135deg, #C2410C 0%, #F97316 100%)',
-		accent: '#FFEDD5',
+		badgeBg: '#0B1F2A',  // Badge sombre sur fond orange pour lisibilité
+		badgeText: '#FFFFFF',
 		text: '#FFFFFF',
 		icon: 'circuit'
 	},
 	'mBot': {
 		bg: 'linear-gradient(135deg, #CCFBF1 0%, #14B8A6 100%)',
-		accent: '#0F766E',
+		badgeBg: '#0F766E',
+		badgeText: '#F8FAFC',
 		text: '#0B1F2A',
 		icon: 'robot'
 	},
 	'Scratch': {
 		bg: 'linear-gradient(135deg, #CCFBF1 0%, #14B8A6 100%)',
-		accent: '#0F766E',
+		badgeBg: '#0F766E',
+		badgeText: '#F8FAFC',
 		text: '#0B1F2A',
 		icon: 'blocks'
 	},
 	'Raspberry Pi': {
 		bg: 'linear-gradient(135deg, #FDF2F8 0%, #F472B6 100%)',
-		accent: '#C51A4A',
+		badgeBg: '#C51A4A',
+		badgeText: '#FFFFFF',
 		text: '#0B1F2A',
 		icon: 'circuit'
 	},
 	'Guide': {
 		bg: '#0F766E',
-		accent: '#14B8A6',
+		badgeBg: '#14B8A6',
+		badgeText: '#0B1F2A',
 		text: '#F8FAFC',
 		icon: 'robot'
 	},
 	'Domotique': {
 		bg: '#F8FAFC',
-		accent: '#0F766E',
+		badgeBg: '#0F766E',
+		badgeText: '#FFFFFF',
 		text: '#0B1F2A',
 		icon: 'home'
 	},
 	'default': {
 		bg: '#0F766E',
-		accent: '#14B8A6',
+		badgeBg: '#14B8A6',
+		badgeText: '#0B1F2A',
 		text: '#F8FAFC',
 		icon: 'robot'
 	}
@@ -73,57 +81,32 @@ const CATEGORY_THEMES = {
 
 // Détecte la catégorie réelle à partir du slug ET du frontmatter
 function detectRealCategory(slug, frontmatterCategory) {
-	// Priorité au slug (plus fiable que le frontmatter)
-	if (slug.startsWith('c-arduino-') || slug.includes('arduino')) {
-		return 'C / Arduino';
-	}
-	if (slug.startsWith('python-')) {
-		return 'Python';
-	}
-	if (slug.includes('scratch') || slug.includes('mblock')) {
-		return 'Scratch';
-	}
-	if (slug.includes('mbot') || slug.includes('cyberpi')) {
-		return 'mBot';
-	}
+	if (slug.startsWith('c-arduino-') || slug.includes('arduino')) return 'C / Arduino';
+	if (slug.startsWith('python-')) return 'Python';
+	if (slug.includes('scratch') || slug.includes('mblock')) return 'Scratch';
+	if (slug.includes('mbot') || slug.includes('cyberpi')) return 'mBot';
 	if (slug.includes('domotique') || slug.includes('home-assistant') || 
-	    slug.includes('zigbee') || slug.includes('esp32')) {
-		return 'Domotique';
-	}
-	if (slug.includes('raspberry')) {
-		return 'Raspberry Pi';
-	}
-	
-	// Fallback sur le frontmatter
+	    slug.includes('zigbee') || slug.includes('esp32')) return 'Domotique';
+	if (slug.includes('raspberry')) return 'Raspberry Pi';
 	return frontmatterCategory || 'Guide';
 }
 
-// Détecte le premier produit cité dans l'article
 async function detectProduct(filePath, slug) {
 	const content = await fs.readFile(filePath, 'utf-8');
-	
-	// 1. ProductBox avec preset
 	const productBoxMatch = content.match(/<ProductBox[^>]*preset=["']([^"']+)["']/i);
-	if (productBoxMatch) {
-		return productBoxMatch[1];
-	}
+	if (productBoxMatch) return productBoxMatch[1];
 	
-	// 2. ASIN Amazon
 	const asinMatch = content.match(/amazon\.fr[^"'\s]*\/dp\/([A-Z0-9]{10})/);
 	if (asinMatch) {
 		const productsPath = path.join(__dirname, '../src/data/products.json');
 		const productsData = JSON.parse(await fs.readFile(productsPath, 'utf-8'));
 		for (const [productSlug, product] of Object.entries(productsData)) {
-			if (product.asin === asinMatch[1]) {
-				return productSlug;
-			}
+			if (product.asin === asinMatch[1]) return productSlug;
 		}
 	}
 	
-	// 3. Détection spécifique par slug (éviter le mBot générique)
 	if (slug.includes('raspberry-pi-5')) return 'raspberry-pi-5-8gb';
 	if (slug.includes('raspberry-pi-4')) return 'raspberry-pi-4-4gb';
-	if (slug.includes('raspberry-pi-3')) return null; // Pas de photo récente
 	if (slug.includes('mbot2')) return 'mbot2';
 	if (slug.includes('cyberpi')) return 'cyberpi';
 	if (slug.includes('codey-rocky')) return 'codey-rocky';
@@ -131,16 +114,6 @@ async function detectProduct(filePath, slug) {
 	if (slug.includes('elegoo')) return 'elegoo-robot-car';
 	if (slug.includes('lego') || slug.includes('spike')) return 'lego-spike-essential';
 	if (slug.includes('arduino')) return 'arduino-starter-kit';
-	
-	// 4. Mentions dans titre (en dernier recours)
-	const titleMatch = content.match(/title:\s*["'](.+?)["']/);
-	if (titleMatch) {
-		const title = titleMatch[1].toLowerCase();
-		if (title.includes('mbot2')) return 'mbot2';
-		if (title.includes('cyberpi')) return 'cyberpi';
-		if (title.includes('codey') || title.includes('rocky')) return 'codey-rocky';
-		if (title.includes('elegoo')) return 'elegoo-robot-car';
-	}
 	
 	return null;
 }
@@ -159,9 +132,7 @@ async function extractFrontmatter(filePath) {
 		category = categoriesInlineMatch[1].split(',')[0].trim().replace(/["']/g, '');
 	} else {
 		const categoriesListMatch = frontmatter.match(/categories:\s*\n\s*-\s*["']?([^"'\n]+)["']?/);
-		if (categoriesListMatch) {
-			category = categoriesListMatch[1].trim();
-		}
+		if (categoriesListMatch) category = categoriesListMatch[1].trim();
 	}
 	
 	return {
@@ -170,11 +141,12 @@ async function extractFrontmatter(filePath) {
 	};
 }
 
-// Retour à la ligne équilibré sans orphelins
-function wrapText(text, maxWidth = 38) {
+// Retour à la ligne équilibré avec largeur estimée
+function wrapText(text, maxCharsPerLine = 40) {
 	const words = text.split(' ');
-	if (words.length <= 3) return [text]; // Trop court pour couper
+	if (words.length <= 2) return [text];
 	
+	// Ne jamais commencer une ligne par :, ?, !, ou
 	const lines = [];
 	let currentLine = '';
 	
@@ -182,17 +154,29 @@ function wrapText(text, maxWidth = 38) {
 		const word = words[i];
 		const testLine = currentLine ? `${currentLine} ${word}` : word;
 		
-		// Si on dépasse la largeur max
-		if (testLine.length > maxWidth) {
-			// Vérifier si le mot suivant est court (orphelin potentiel)
+		// Estimation largeur (caractères pondérés)
+		const width = testLine.split('').reduce((sum, c) => {
+			if (c === c.toUpperCase() && c !== c.toLowerCase()) return sum + 1.2;
+			if (c === 'i' || c === 'l' || c === 'I') return sum + 0.5;
+			if (c === 'm' || c === 'M' || c === 'w' || c === 'W') return sum + 1.3;
+			return sum + 1;
+		}, 0);
+		
+		if (width > maxCharsPerLine) {
+			// Vérifier orphelins et ponctuation
 			const nextWord = words[i + 1];
-			const isLastWord = i === words.length - 1;
 			
-			// Si le mot suivant est court (< 4 lettres), le garder avec le mot actuel
-			if (nextWord && nextWord.length <= 3 && currentLine.length + word.length + nextWord.length + 2 <= maxWidth + 8) {
-				currentLine = currentLine ? `${currentLine} ${word} ${nextWord}` : `${word} ${nextWord}`;
-				i++; // Sauter le mot suivant
-			} else if (currentLine) {
+			// Si mot suivant commence par ponctuation, le garder
+			if (nextWord && /^[:\?\!,]/.test(nextWord)) {
+				currentLine = testLine + (nextWord.length > 1 ? ' ' + nextWord : nextWord);
+				i++;
+			}
+			// Si mot suivant est court (< 4 lettres), le garder
+			else if (nextWord && nextWord.length <= 3 && currentLine.length + word.length + nextWord.length + 2 <= maxCharsPerLine + 8) {
+				currentLine = testLine + ' ' + nextWord;
+				i++;
+			}
+			else if (currentLine) {
 				lines.push(currentLine);
 				currentLine = word;
 			} else {
@@ -204,15 +188,14 @@ function wrapText(text, maxWidth = 38) {
 	}
 	
 	if (currentLine) {
-		// Si la dernière ligne est trop courte, essayer de rééquilibrer
+		// Rééquilibrer si dernière ligne trop courte
 		if (lines.length > 0 && currentLine.split(' ').length === 1 && currentLine.length <= 6) {
-			// Remonter quelques mots de la ligne précédente
 			const prevLine = lines[lines.length - 1];
 			const prevWords = prevLine.split(' ');
-			if (prevWords.length >= 3) {
+			if (prevWords.length >= 2) {
 				const lastWord = prevWords.pop();
 				lines[lines.length - 1] = prevWords.join(' ');
-				currentLine = `${lastWord} ${currentLine}`;
+				currentLine = lastWord + ' ' + currentLine;
 			}
 		}
 		lines.push(currentLine);
@@ -228,73 +211,65 @@ function calculateFontSize(titleLength) {
 	return 44;
 }
 
-// Génère une grande icône SVG thématique (260px)
-function generateThematicIcon(iconType, accentColor) {
+// Génère un SVG d'icône thématique comme data URL
+function generateIconDataURL(iconType, color) {
 	const icons = {
-		code: `
-			<g transform="translate(50, 50)">
-				<rect x="20" y="20" width="200" height="160" rx="12" fill="none" stroke="${accentColor}" stroke-width="8" opacity="0.3"/>
-				<path d="M 60 70 L 90 100 L 60 130" fill="none" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-				<path d="M 180 70 L 150 100 L 180 130" fill="none" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-				<line x1="110" y1="60" x2="130" y2="140" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
-			</g>
-		`,
-		circuit: `
-			<g transform="translate(50, 50)">
-				<circle cx="120" cy="80" r="15" fill="${accentColor}" opacity="0.4"/>
-				<circle cx="180" cy="80" r="15" fill="${accentColor}" opacity="0.4"/>
-				<circle cx="120" cy="160" r="15" fill="${accentColor}" opacity="0.4"/>
-				<circle cx="180" cy="160" r="15" fill="${accentColor}" opacity="0.4"/>
-				<line x1="135" y1="80" x2="165" y2="80" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
-				<line x1="120" y1="95" x2="120" y2="145" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
-				<line x1="180" y1="95" x2="180" y2="145" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
-				<line x1="135" y1="160" x2="165" y2="160" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
-				<rect x="80" y="110" width="30" height="20" rx="4" fill="${accentColor}" opacity="0.4"/>
-				<rect x="190" y="110" width="30" height="20" rx="4" fill="${accentColor}" opacity="0.4"/>
-			</g>
-		`,
-		robot: `
-			<g transform="translate(70, 50)">
-				<rect x="50" y="60" width="120" height="100" rx="15" fill="${accentColor}" opacity="0.35"/>
-				<circle cx="90" cy="100" r="12" fill="white" opacity="0.6"/>
-				<circle cx="130" cy="100" r="12" fill="white" opacity="0.6"/>
-				<rect x="80" y="130" width="60" height="8" rx="4" fill="white" opacity="0.6"/>
-				<line x1="110" y1="30" x2="110" y2="60" stroke="${accentColor}" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
-				<circle cx="110" cy="25" r="10" fill="${accentColor}" opacity="0.35"/>
-				<rect x="30" y="80" width="20" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
-				<rect x="170" y="80" width="20" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
-			</g>
-		`,
-		blocks: `
-			<g transform="translate(60, 60)">
-				<rect x="40" y="30" width="80" height="50" rx="8" fill="${accentColor}" opacity="0.4"/>
-				<rect x="60" y="90" width="100" height="50" rx="8" fill="${accentColor}" opacity="0.35"/>
-				<rect x="50" y="150" width="90" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
-				<circle cx="30" cy="55" r="8" fill="${accentColor}" opacity="0.5"/>
-				<circle cx="50" cy="115" r="8" fill="${accentColor}" opacity="0.5"/>
-			</g>
-		`,
-		home: `
-			<g transform="translate(60, 50)">
-				<path d="M 120 40 L 200 100 L 200 180 L 40 180 L 40 100 Z" fill="${accentColor}" opacity="0.3"/>
-				<rect x="90" y="120" width="60" height="60" fill="white" opacity="0.5"/>
-				<rect x="160" y="100" width="30" height="30" fill="white" opacity="0.5"/>
-				<path d="M 20 100 L 120 30 L 220 100" fill="none" stroke="${accentColor}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
-			</g>
-		`
+		code: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+			<rect x="20" y="40" width="220" height="180" rx="12" fill="none" stroke="${color}" stroke-width="8" opacity="0.35"/>
+			<path d="M 70 90 L 100 120 L 70 150" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+			<path d="M 190 90 L 160 120 L 190 150" fill="none" stroke="${color}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+			<line x1="120" y1="80" x2="140" y2="160" stroke="${color}" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+		</svg>`,
+		circuit: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="130" cy="90" r="18" fill="${color}" opacity="0.45"/>
+			<circle cx="200" cy="90" r="18" fill="${color}" opacity="0.45"/>
+			<circle cx="130" cy="180" r="18" fill="${color}" opacity="0.45"/>
+			<circle cx="200" cy="180" r="18" fill="${color}" opacity="0.45"/>
+			<line x1="148" y1="90" x2="182" y2="90" stroke="${color}" stroke-width="8" opacity="0.4"/>
+			<line x1="130" y1="108" x2="130" y2="162" stroke="${color}" stroke-width="8" opacity="0.4"/>
+			<line x1="200" y1="108" x2="200" y2="162" stroke="${color}" stroke-width="8" opacity="0.4"/>
+			<line x1="148" y1="180" x2="182" y2="180" stroke="${color}" stroke-width="8" opacity="0.4"/>
+			<rect x="90" y="125" width="35" height="25" rx="5" fill="${color}" opacity="0.45"/>
+			<rect x="210" y="125" width="35" height="25" rx="5" fill="${color}" opacity="0.45"/>
+		</svg>`,
+		robot: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+			<rect x="70" y="80" width="120" height="110" rx="15" fill="${color}" opacity="0.4"/>
+			<circle cx="110" cy="120" r="14" fill="white" opacity="0.65"/>
+			<circle cx="150" cy="120" r="14" fill="white" opacity="0.65"/>
+			<rect x="100" y="155" width="60" height="10" rx="5" fill="white" opacity="0.65"/>
+			<line x1="130" y1="45" x2="130" y2="80" stroke="${color}" stroke-width="10" stroke-linecap="round" opacity="0.4"/>
+			<circle cx="130" cy="38" r="12" fill="${color}" opacity="0.4"/>
+			<rect x="45" y="100" width="25" height="50" rx="10" fill="${color}" opacity="0.35"/>
+			<rect x="190" y="100" width="25" height="50" rx="10" fill="${color}" opacity="0.35"/>
+		</svg>`,
+		blocks: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+			<rect x="60" y="50" width="90" height="55" rx="10" fill="${color}" opacity="0.45"/>
+			<rect x="80" y="115" width="110" height="55" rx="10" fill="${color}" opacity="0.4"/>
+			<rect x="70" y="180" width="100" height="45" rx="10" fill="${color}" opacity="0.35"/>
+			<circle cx="45" cy="77" r="10" fill="${color}" opacity="0.55"/>
+			<circle cx="70" cy="142" r="10" fill="${color}" opacity="0.55"/>
+			<circle cx="60" cy="202" r="10" fill="${color}" opacity="0.55"/>
+		</svg>`,
+		home: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
+			<path d="M 130 60 L 220 120 L 220 210 L 40 210 L 40 120 Z" fill="${color}" opacity="0.35"/>
+			<rect x="100" y="145" width="60" height="65" fill="white" opacity="0.55"/>
+			<rect x="175" y="120" width="35" height="35" fill="white" opacity="0.55"/>
+			<path d="M 20 120 L 130 45 L 240 120" fill="none" stroke="${color}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+		</svg>`
 	};
 	
-	return icons[iconType] || icons.robot;
+	const svg = icons[iconType] || icons.robot;
+	return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }
 
 async function generateThumbnail(slug, title, realCategory, productSlug) {
 	const fontBuffer = await fs.readFile(fontPath);
 	const theme = CATEGORY_THEMES[realCategory] || CATEGORY_THEMES.default;
 	
-	const titleLines = wrapText(title, 38);
+	const titleLines = wrapText(title, 40);
 	const fontSize = calculateFontSize(title.length);
 	
-	// Charger photo produit OU générer icône thématique
+	// Photo produit OU icône thématique
 	let rightElement = null;
 	
 	if (productSlug) {
@@ -336,27 +311,38 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 				}
 			};
 		} catch (err) {
-			// Photo non disponible, utiliser icône
+			// Photo non disponible
 		}
 	}
 	
-	// Si pas de photo produit, créer une grande icône thématique
+	// Si pas de photo, icône thématique RENDUE
 	if (!rightElement) {
-		const iconSVG = generateThematicIcon(theme.icon, theme.accent);
+		const iconDataURL = generateIconDataURL(theme.icon, theme.badgeBg);
 		rightElement = {
 			type: 'div',
 			props: {
 				style: {
 					position: 'absolute',
-					top: '165px',
-					right: '50px',
-					width: '280px',
-					height: '280px',
+					top: '185px',
+					right: '70px',
+					width: '260px',
+					height: '260px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center'
 				},
-				children: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">${iconSVG}</svg>`
+				children: {
+					type: 'img',
+					props: {
+						src: iconDataURL,
+						width: 260,
+						height: 260,
+						style: {
+							width: '260px',
+							height: '260px'
+						}
+					}
+				}
 			}
 		};
 	}
@@ -368,13 +354,12 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 				position: 'absolute',
 				top: '40px',
 				left: '50px',
-				backgroundColor: theme.accent,
-				color: theme.bg.includes('gradient') ? '#FFFFFF' : theme.text,
+				backgroundColor: theme.badgeBg,
+				color: theme.badgeText,
 				padding: '12px 28px',
 				borderRadius: '12px',
 				fontSize: '26px',
-				fontWeight: 800,
-				opacity: 0.95
+				fontWeight: 800
 			},
 			children: realCategory
 		}
@@ -415,36 +400,11 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 				position: 'absolute',
 				bottom: '40px',
 				left: '50px',
-				right: '50px',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'space-between'
+				fontSize: '28px',
+				fontWeight: 800,
+				color: theme.badgeBg
 			},
-			children: [
-				{
-					type: 'div',
-					props: {
-						style: {
-							fontSize: '28px',
-							fontWeight: 800,
-							color: theme.accent
-						},
-						children: 'robot-educatif'
-					}
-				},
-				{
-					type: 'div',
-					props: {
-						style: {
-							width: '50px',
-							height: '50px',
-							borderRadius: '50%',
-							backgroundColor: theme.accent,
-							opacity: 0.8
-						}
-					}
-				}
-			]
+			children: 'robot-educatif'
 		}
 	};
 	
@@ -469,14 +429,7 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 		{
 			width: 1200,
 			height: 630,
-			fonts: [
-				{
-					name: 'Roboto',
-					data: fontBuffer,
-					weight: 700,
-					style: 'normal'
-				}
-			]
+			fonts: [{ name: 'Roboto', data: fontBuffer, weight: 700, style: 'normal' }]
 		}
 	);
 	
@@ -493,14 +446,11 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 		const filePath = path.join(contentDir, file);
 		const outputPath = path.join(outputDir, `${slug}.png`);
 		
-		// Check if thumbnail already exists
 		try {
 			await fs.access(outputPath);
 			skipped.count++;
 			continue;
-		} catch {
-			// Generate it
-		}
+		} catch {}
 		
 		const frontmatter = await extractFrontmatter(filePath);
 		if (!frontmatter) {
@@ -510,8 +460,6 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 		
 		const realCategory = detectRealCategory(slug, frontmatter.frontmatterCategory);
 		const productSlug = await detectProduct(filePath, slug);
-		
-		// Stats par catégorie
 		categoryStats[realCategory] = (categoryStats[realCategory] || 0) + 1;
 		
 		try {
@@ -529,7 +477,7 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 }
 
 async function main() {
-	console.log('🎨 Generating visually distinct thumbnails (v2 - catégories corrigées)...\n');
+	console.log('🎨 Generating thumbnails v3 - SVG rendus + lignes équilibrées...\n');
 	
 	await fs.mkdir(outputDir, { recursive: true });
 	
@@ -542,13 +490,11 @@ async function main() {
 	
 	console.log(`\n📊 Summary:`);
 	console.log(`   ✅ Generated: ${stats.count}`);
-	console.log(`   ⏭️  Skipped (already exists): ${skipped.count}`);
-	console.log(`   📁 Total articles: ${blogCount + domotiqueCount}`);
+	console.log(`   ⏭️  Skipped: ${skipped.count}`);
 	console.log(`\n🎨 Par catégorie:`);
 	for (const [cat, count] of Object.entries(categoryStats).sort((a, b) => b[1] - a[1])) {
 		console.log(`   ${cat}: ${count}`);
 	}
-	console.log(`\n✨ Thumbnails saved to: ${path.relative(process.cwd(), outputDir)}`);
 }
 
 main().catch(console.error);
