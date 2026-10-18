@@ -11,7 +11,7 @@ import GoogleConsentDefault from './GoogleConsentDefault.astro';
 interface Props {
 	title: string;
 	description: string;
-	image?: ImageMetadata;
+	image?: ImageMetadata | string;
 	/** Préchargement image LCP (ex. hero accueil) — URL absolue ou chemin /public */
 	preloadLcpImage?: string;
 	/** Ne pas indexer (pages internes, brouillons, etc.) */
@@ -26,7 +26,9 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = FallbackImage, preloadLcpImage, noIndex = false, ogType = 'website', pubDate, updatedDate } = Astro.props;
-const ogImageUrl = new URL(image.src, Astro.site).toString();
+// Handle both ImageMetadata objects and plain string paths
+const imagePath = typeof image === 'string' ? image : (image?.src || FallbackImage.src);
+const ogImageUrl = new URL(imagePath, Astro.site).toString();
 ---
 
 <!-- Global Metadata -->
