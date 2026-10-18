@@ -1,108 +1,417 @@
 ---
-title: "Prise connectée Zigbee Home Assistant : notre sélection 2026"
-description: "NOUS A1Z, Tapo P110, SONOFF S60ZB : comparatif prises Zigbee avec mesure de consommation pour Home Assistant. Répéteurs, compatibilité ZHA."
+title: "Prise connectée Zigbee Home Assistant : comparatif 2026 et guide"
+description: "Comparatif complet prises connectées Zigbee pour Home Assistant : NOUS A1Z, SONOFF S26R2ZB, Aqara, Tapo P110. Mesure consommation, répéteurs, automatisations, compatibilité ZHA."
 pubDate: 2026-10-18T00:00:00Z
 category: "guides-achat"
 products: ["nous-a1z", "tapo-p110"]
 priority: 6
 ---
 
-Les **prises connectées Zigbee** mesurent la consommation, automatisent les appareils et **font répéteur** pour étendre le réseau Zigbee. Voici notre sélection Home Assistant 2026.
+Les **prises connectées Zigbee** sont essentielles dans Home Assistant : elles mesurent la consommation, automatisent les appareils et **font répéteur** pour étendre le réseau Zigbee. Ce guide compare 6 modèles populaires en 2026 pour vous aider à choisir selon votre installation.
 
-## Top 3 prises Zigbee
+## Tableau comparatif : 6 prises Zigbee pour Home Assistant
 
-### 1. NOUS A1Z (meilleur choix)
+| Modèle | Prix | Protocole | Mesure conso | Charge max | Répéteur | Type prise | Pour qui ? |
+|--------|------|-----------|--------------|------------|----------|------------|------------|
+| **NOUS A1Z** | 15–17 € | Zigbee 3.0 | ✅ W, kWh, V, A | 16 A (3680 W) | ✅ | E (FR) | **Meilleur choix** — compact, fiable, mesure précise |
+| **SONOFF S26R2ZB** | 12–18 € | Zigbee 3.0 | ✅ W, kWh | 10 A (2300 W) | ✅ | E (FR/EU) | Alternative SONOFF, charge moyenne |
+| **SONOFF S60ZB** | 14–18 € | Zigbee 3.0 | ✅ W, kWh | 16 A (3680 W) | ✅ | E (FR) | Variante S26 avec 16 A, plus récente |
+| **Aqara Smart Plug** | 18–25 € | Zigbee 3.0 | ✅ W, kWh | 10 A (2300 W) | ✅ | E (EU) | Design premium, app Aqara |
+| **Tapo P110** | 10–15 € | **Wi-Fi** | ✅ W, kWh | 16 A (3680 W) | ❌ | E (FR) | **Wi-Fi uniquement** — pas Zigbee, début sans box |
+| **IKEA Tradfri** | 10–12 € | Zigbee 3.0 | ❌ | 10 A (2300 W) | ✅ | E (EU) | Budget mini, sans mesure conso |
 
-**Prix** : 15–17 €  
-**Protocole** : Zigbee 3.0  
-**Mesure** : oui (W, kWh, tension, courant)  
-**Répéteur** : oui  
-**Charge max** : 16 A (3680 W)
+*Prix octobre 2026, indicatifs. Type E = prise française 2 broches + terre.*
 
-✅ Prise type E (FR), compact, bouton physique, LED désactivable  
-✅ Compatible ZHA et Zigbee2MQTT  
-✅ Fait répéteur Zigbee (essentiel pour maillage)
+## Notre sélection détaillée
 
-**Pour qui ?** Standard français, mesure précise, très bon rapport qualité/prix.
+### 1. NOUS A1Z — Notre choix n°1 (15–17 €)
+
+**Pourquoi c'est la meilleure** :
+- **Mesure complète** : puissance (W), énergie cumulée (kWh), tension (V), courant (A)
+- **16 A / 3680 W** : compatible radiateurs, bouilloires, machines
+- **Compact** : 7 × 7 × 4 cm, ne bloque pas prise voisine
+- **Bouton physique** : on/off manuel + reset
+- **LED désactivable** dans Home Assistant (important la nuit)
+- **Répéteur Zigbee** : étend le réseau automatiquement
+
+**Compatible** : ZHA et Zigbee2MQTT. Reconnue instantanément.
+
+**Limites** :
+- Disponibilité variable (Amazon Marketplace, pas toujours en stock direct)
+- Marque moins connue que SONOFF (mais qualité identique)
+
+**Pour qui ?** Tout le monde. Rapport qualité/prix imbattable.
 
 *Recherche Amazon : [NOUS A1Z Zigbee](https://www.amazon.fr/s?k=NOUS+A1Z&tag=manuso06-21).*
 
-### 2. Tapo P110 (Wi-Fi, sans Zigbee)
+### 2. SONOFF S26R2ZB — Alternative fiable (12–18 €)
 
-**Prix** : 10–15 €/prise (lot de 4 : 45 €)  
-**Protocole** : Wi-Fi 2,4 GHz  
-**Mesure** : oui
+**Avantages** :
+- Marque **SONOFF** reconnue, SAV réactif
+- Mesure W + kWh
+- Compatible eWeLink (app SONOFF) ET Home Assistant
+- **10 A** : OK pour lampes, TV, box Internet
 
-✅ **Le moins cher**, app Tapo simple  
-❌ **Wi-Fi** : pas de répéteur, dépend du cloud Tapo (intégration HA via HACS)
+**Limites** :
+- Charge max 10 A (pas pour radiateurs > 2300 W)
+- Plus volumineuse que NOUS A1Z (8 × 8 × 5 cm)
 
-**Pour qui ?** Débuter sans box Zigbee. [Guide débutant](/domotique/debuter-domotique-par-ou-commencer/).
+**Pour qui ?** Fans de l'écosystème SONOFF, appareils légers.
+
+### 3. SONOFF S60ZB — Version 16 A (14–18 €)
+
+**Avantages** :
+- Même que S26R2ZB mais **16 A** (radiateurs OK)
+- Sortie 2024, firmware plus récent
+- Design compact amélioré
+
+**Limites** :
+- Prix légèrement supérieur à NOUS A1Z pour features identiques
+
+**Pour qui ?** Alternative NOUS A1Z si rupture.
+
+### 4. Aqara Smart Plug — Design premium (18–25 €)
+
+**Avantages** :
+- Design **élégant** (plastique blanc mat)
+- App Aqara avec historique conso détaillé
+- Compatible HomeKit (Zigbee → Matter bridge Aqara Hub M3)
+- Mesure précise W/kWh
+
+**Limites** :
+- **10 A** seulement
+- **Prix élevé** : 18–25 € (vs 15 € NOUS)
+- Type EU (nécessite adaptateur pour prises FR anciennes)
+
+**Pour qui ?** Écosystème Aqara existant, design important.
+
+### 5. Tapo P110 — Wi-Fi sans Zigbee (10–15 €)
+
+**Avantages** :
+- **Le moins cher** : 10–15 €/prise (lot de 4 : 45 €)
+- App Tapo simple, mesure W/kWh
+- **Aucune box Zigbee nécessaire** : Wi-Fi 2,4 GHz direct
+
+**Limites** :
+- **Wi-Fi uniquement** : pas de maillage répéteur Zigbee
+- Dépend du **cloud Tapo** (intégration HA via HACS, pas native)
+- Moins fiable que Zigbee (Wi-Fi saturé = déconnexions)
+
+**Pour qui ?** Débuter sans box Zigbee, tester la domotique à moindre coût. [Guide débuter domotique](/domotique/debuter-domotique-par-ou-commencer/).
 
 *Lien Amazon : [Tapo P110 lot FR B0CJC8WMXV](https://www.amazon.fr/dp/B0CJC8WMXV?tag=manuso06-21).*
 
-### 3. SONOFF S60ZB
+### 6. IKEA Tradfri — Budget mini (10–12 €)
 
-**Prix** : 14–18 €  
-**Protocole** : Zigbee 3.0  
-**Mesure** : oui
+**Avantages** :
+- **Prix imbattable** : 10–12 €
+- Répéteur Zigbee (rôle principal)
+- Design IKEA sobre
 
-✅ Type E, répéteur, marque fiable  
-❌ Plus gros que NOUS A1Z
+**Limites** :
+- **Pas de mesure de consommation** (juste on/off)
+- 10 A max
+- Nécessite appairage spécifique (maintenir bouton 10 sec près du coordinateur)
 
-**Pour qui ?** Alternative si NOUS en rupture.
+**Pour qui ?** Créer un maillage répéteur Zigbee à petit budget, sans besoin de mesure conso.
 
-## Tableau comparatif
+## Comment choisir sa prise Zigbee ?
 
-| Modèle | Prix | Protocole | Mesure | Type prise | Répéteur |
-|--------|------|-----------|--------|------------|----------|
-| **NOUS A1Z** | 15–17 € | Zigbee | ✅ | E (FR) | ✅ |
-| **Tapo P110** | 10–15 € | Wi-Fi | ✅ | E (FR) | ❌ |
-| **SONOFF S60ZB** | 14–18 € | Zigbee | ✅ | E (FR) | ✅ |
+### Critère 1 : Besoin de mesure de consommation ?
 
-*Prix octobre 2026.*
+**Oui** (suivre conso, alerte lave-linge terminé) :
+- NOUS A1Z (W, kWh, V, A) ⭐
+- SONOFF S60ZB (W, kWh)
+- Aqara (W, kWh, historique app)
 
-## Utilisation typique
+**Non** (juste on/off, créer répéteurs) :
+- IKEA Tradfri (10 €)
+- NOUS A1Z quand même (écart prix faible, mesure = bonus)
 
-**Chauffage d'appoint** : mesurer consommation, couper si fenêtre ouverte (capteur porte SNZB-04P)  
-**Lave-linge** : alerte "linge terminé" si conso < 5 W après avoir été > 200 W  
-**Veilles** : couper TV, box, chargeurs la nuit
+### Critère 2 : Charge électrique
 
-**Exemple automatisation** :
+**Appareils légers** (< 2300 W : lampes, TV, box, chargeurs) :
+- Toutes les prises (10 A suffit)
+
+**Appareils puissants** (> 2300 W : radiateurs, bouilloires, sèche-cheveux) :
+- NOUS A1Z (16 A / 3680 W) ⭐
+- SONOFF S60ZB (16 A)
+- Tapo P110 Wi-Fi (16 A)
+
+**Très puissants** (> 3600 W : four, plaque induction) :
+- ❌ **Pas de prise connectée** : trop puissant, brancher direct sur tableau électrique avec contacteur dédié
+
+### Critère 3 : Nombre de prises nécessaires
+
+**Maillage Zigbee recommandé** : 1 répéteur tous les 10 m.
+
+- **Appartement 50 m²** : 3–4 prises
+- **Appartement 80 m²** : 4–6 prises
+- **Maison 120 m²** : 6–8 prises
+- **Maison 150+ m²** : 8–12 prises
+
+**Astuce** : placer 1 prise dans chaque pièce principale (salon, chambres, cuisine, bureau). Éviter salles de bains (humidité) sauf si IP44.
+
+### Critère 4 : Budget
+
+- **< 50 €** (3 prises) : IKEA Tradfri (30 €) ou Tapo P110 Wi-Fi (35 €)
+- **50–80 €** (4–5 prises) : NOUS A1Z (60–75 €) ⭐
+- **80–120 €** (6–8 prises) : NOUS A1Z ou SONOFF S60ZB (90–110 €)
+
+## Installation et configuration
+
+### Étape 1 : Appairer avec ZHA
+
+1. Brancher la prise NOUS A1Z sur une prise murale
+2. Ouvrir **Home Assistant → Appareils Zigbee (ZHA) → Ajouter**
+3. Maintenir le **bouton** de la prise **5 secondes**
+4. LED clignote rapidement (bleu/rouge) = mode appairage
+5. Prise apparaît dans HA après 10–30 secondes : "NOUS Smart Plug"
+
+**Entités créées** :
+- `switch.nous_a1z_prise_salon` (on/off)
+- `sensor.nous_a1z_prise_salon_power` (W)
+- `sensor.nous_a1z_prise_salon_energy` (kWh)
+- `sensor.nous_a1z_prise_salon_voltage` (V)
+- `sensor.nous_a1z_prise_salon_current` (A)
+
+### Étape 2 : Renommer et organiser
+
+1. Cliquer sur l'appareil → **Renommer** : "Prise salon TV"
+2. Assigner à une **zone** : Salon
+3. Les entités deviennent :
+   - `switch.prise_salon_tv`
+   - `sensor.prise_salon_tv_power`
+
+### Étape 3 : Désactiver la LED (optionnel)
+
+Certaines prises ont une LED bleue permanente (gênante la nuit).
+
+**NOUS A1Z** : désactiver via ZHA :
+1. **Appareils → NOUS A1Z → Configurer → Quirks**
+2. Chercher "LED" ou "Indicator light"
+3. Désactiver
+
+**Alternative** : masquer LED physiquement avec scotch noir opaque.
+
+## Automatisations utiles
+
+### 1. Alerte lave-linge terminé
+
+Détecter fin de cycle via baisse de consommation.
+
 ```yaml
 automation:
-  - alias: "Alerte lave-linge"
+  - alias: "Alerte lave-linge terminé"
     trigger:
-      platform: numeric_state
-      entity_id: sensor.nous_a1z_lavelinge_power
-      below: 5
-      for: "00:02:00"
+      - platform: numeric_state
+        entity_id: sensor.prise_lavelinge_power
+        below: 5
+        for: "00:02:00"
     condition:
-      - condition: state
-        entity_id: binary_sensor.lavelinge_en_cours
-        state: "on"
+      - condition: numeric_state
+        entity_id: sensor.prise_lavelinge_power
+        above: 200
+        value_template: "{{ state_attr('automation.alerte_lave_linge_termine', 'last_triggered')|default(0) }}"
     action:
-      - service: notify.mobile_app
+      - service: notify.mobile_app_mon_telephone
         data:
-          message: "Linge terminé !"
+          title: "Linge prêt"
+          message: "Le lave-linge a terminé son cycle"
 ```
 
-## Installation ZHA
+### 2. Couper les veilles la nuit
 
-1. Brancher la prise NOUS A1Z
-2. **Appareils → Ajouter → Zigbee (ZHA)**
-3. Maintenir bouton 5 sec (LED clignote)
-4. Elle apparaît : `sensor.nous_a1z_power`, `switch.nous_a1z`
+Économiser en coupant TV, box, chargeurs à 23h.
 
-## Combien de prises pour un bon maillage ?
+```yaml
+automation:
+  - alias: "Couper veilles 23h"
+    trigger:
+      - platform: time
+        at: "23:00:00"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.prise_tv
+            - switch.prise_box_internet
+            - switch.prise_chargeurs
+```
 
-**1 répéteur tous les 10 m** : en appartement 70 m², 3–4 prises suffisent. En maison 120 m², 6–8.
+### 3. Chauffage si température < 18 °C
+
+Automatiser radiateur d'appoint via prise + capteur température.
+
+```yaml
+automation:
+  - alias: "Chauffage salon < 18°C"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_salon
+        below: 18
+    condition:
+      - condition: time
+        after: "06:00"
+        before: "22:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.prise_radiateur_salon
+```
+
+### 4. Suivi consommation mensuelle
+
+Créer un capteur template pour conso mensuelle.
+
+```yaml
+template:
+  - sensor:
+      - name: "Conso TV mensuelle"
+        unit_of_measurement: "kWh"
+        state: >
+          {{ states('sensor.prise_tv_energy')|float }}
+        attributes:
+          last_reset: "{{ now().replace(day=1, hour=0, minute=0, second=0) }}"
+```
+
+## Erreurs courantes et dépannage
+
+### Problème : Prise ne s'appaire pas
+
+**Causes** :
+- Trop loin du coordinateur (> 10 m sans répéteur)
+- Prise déjà appairée à un autre réseau Zigbee
+- Mode appairage mal activé
+
+**Solutions** :
+1. **Rapprocher** la prise du dongle Zigbee (< 3 m pour appairage initial)
+2. **Reset factory** : maintenir bouton 10 secondes (LED clignote orange = reset)
+3. **Réessayer appairage** : bouton 5 secondes jusqu'à clignotement rapide
+4. Vérifier que ZHA est en mode appairage (60 secondes)
+
+### Problème : Prise déconnectée après quelques jours
+
+**Causes** :
+- Réseau Zigbee instable (pas assez de répéteurs)
+- Interférences Wi-Fi 2,4 GHz
+- Firmware prise obsolète
+
+**Solutions** :
+1. **Ajouter répéteurs** : 1 prise tous les 10 m minimum
+2. **Changer canal Zigbee** : ZHA → Configurer → Radio → Canal 25 (évite Wi-Fi)
+3. **Vérifier topologie** : ZHA → Visualiser réseau → la prise doit avoir 2+ chemins
+4. **Reflasher firmware** (avancé) : certaines prises NOUS A1Z ont firmware OTA via Zigbee2MQTT
+
+### Problème : Mesure de consommation incorrecte
+
+**Causes** :
+- Calibration usine approximative
+- Charge < 10 W (précision faible)
+- Appareil en veille (conso fluctuante)
+
+**Solutions** :
+1. **Calibrer** (avancé) : comparer avec Linky, ajuster via multiplier dans template
+2. **Ignorer si < 5 W** : les veilles varient 1–5 W, c'est normal
+3. **Comparer sur charge stable** : brancher lampe 60 W, vérifier mesure ≈ 60 W
+4. Si écart > 10 % : prise défectueuse, retour SAV
+
+### Problème : Prise ne fait pas répéteur
+
+**Cause** :
+- Prises sur multiprise (trop proches, ne servent qu'1 répéteur)
+- Prise éteinte manuellement (répéteur inactif si off)
+
+**Solutions** :
+1. **Espacer prises** : 1 par pièce, pas 3 sur même multiprise
+2. **Laisser prises allumées** : éteindre l'appareil branché, pas la prise elle-même
+3. **Vérifier dans ZHA** : Visualiser réseau → répéteurs = nœuds avec enfants
+
+## Sécurité électrique
+
+### Puissance maximale
+
+**16 A = 3680 W** (230 V × 16 A). Au-delà :
+- Risque surchauffe
+- Disjoncteur saute
+- Garantie annulée
+
+**Exemples** :
+- ✅ Radiateur 2000 W : OK
+- ✅ Bouilloire 2400 W : OK
+- ❌ Radiateur 3000 W + lampe 100 W : 3100 W = limite
+- ❌ Four 3500 W : trop puissant, brancher direct
+
+### Appareils interdits
+
+**Jamais brancher** :
+- Four, plaque induction (> 3000 W)
+- Lave-linge, sèche-linge (démarrage 4000 W en pointe)
+- Climatiseur mobile (3000+ W)
+- Radiateur soufflant + autre appareil sur même prise
+
+**OK pour brancher** :
+- Radiateur d'appoint seul (< 2500 W)
+- TV, box, lampes, chargeurs
+- Ventilateur, ordinateur
+- Cafetière, bouilloire (usage court)
+
+### Normes et certifications
+
+**Vérifier** :
+- Marquage **CE** (conformité européenne)
+- **RoHS** (sans substances dangereuses)
+- IP20 minimum (usage intérieur sec)
+
+**Éviter** :
+- Prises AliExpress no-name sans certification
+- Copies "SONOFF" contrefaites (risque incendie)
+
+## Combien de prises Zigbee pour un bon maillage ?
+
+**Règle de base** : 1 répéteur tous les 10 m.
+
+| Surface | Nombre prises | Configuration type |
+|---------|---------------|-------------------|
+| **Studio 30 m²** | 2–3 | Salon, chambre |
+| **Appartement 50 m²** | 3–4 | Salon, 2 chambres, cuisine |
+| **Appartement 80 m²** | 5–6 | Salon, 3 chambres, cuisine, bureau |
+| **Maison 120 m²** | 7–9 | Salon, 3 chambres, cuisine, bureau, garage |
+| **Maison 150+ m²** | 10–15 | 1 par pièce principale + dépendances |
+
+**Optimisation** :
+- Placer prises sur **chemin entre dongle et capteurs éloignés**
+- Éviter prises "en ligne" (A-B-C) : préférer maillage (A-B, A-C, B-C)
+- Vérifier topologie ZHA : chaque capteur doit avoir 2+ chemins
+
+## FAQ
+
+**Quelle différence entre prise Zigbee et Wi-Fi ?**
+**Zigbee** : réseau maillé, basse conso, local, répéteur automatique. **Wi-Fi** : plus simple (aucune box), mais dépend du cloud fabricant et sature réseau. Pour domotique sérieuse : Zigbee. Pour tester : Wi-Fi (Tapo P110).
+
+**Combien consomme une prise Zigbee en veille ?**
+< 1 W (0,5–0,8 W typique). Sur 1 an : 0,8 W × 24h × 365j = 7 kWh ≈ 1,40 € (0,20 €/kWh). Négligeable.
+
+**Puis-je brancher une multiprise sur prise Zigbee ?**
+Oui, mais attention à la **charge totale** (16 A max). Exemple : TV (100 W) + box (20 W) + lampe (60 W) = 180 W total OK. Pas : 3 radiateurs 2000 W = 6000 W ❌.
+
+**Faut-il laisser les prises allumées en permanence ?**
+**Oui** pour qu'elles fassent répéteur Zigbee. Si prise éteinte manuellement, elle ne transmet plus les signaux des autres appareils. Éteindre l'appareil branché via automatisation HA, pas la prise elle-même.
+
+**Une prise Zigbee peut-elle prendre feu ?**
+Risque quasi nul avec prises certifiées CE (NOUS, SONOFF, Aqara). Éviter copies AliExpress no-name. Respecter puissance max (16 A). Ne jamais brancher four/plaque/sèche-linge.
+
+**Comment savoir si prise fait bien répéteur ?**
+**ZHA → Configurer → Visualiser réseau** : les prises apparaissent comme nœuds avec lignes vers autres appareils. Si prise isolée (aucun enfant) : trop proche d'autres répéteurs ou éteinte.
 
 ## Pour aller plus loin
 
-- [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/)
-- [Meilleure clé Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/)
-- [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/)
+- [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/) : créer le réseau Zigbee
+- [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/) : automatiser chauffage avec prises
+- [Installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/)
+- [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/) : budget et parcours
+- [Hub domotique](/domotique/) : retour accueil section
 
 ---
 
-*Affiliation Amazon tag manuso06-21, ~3 % commission.*
+*Affiliation : liens Amazon avec tag manuso06-21, commission ~3 % catégorie Maison. Prix octobre 2026, indicatifs. Notre sélection est basée sur recherche, sans tests physiques.*
