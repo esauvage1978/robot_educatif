@@ -1,93 +1,390 @@
 ---
-title: "Capteur température Zigbee Home Assistant : SNZB-02D, Aqara T1"
-description: "Comparatif capteurs température et humidité Zigbee 2026 : SONOFF SNZB-02D, Aqara T1. Prix, autonomie, précision, compatibilité ZHA."
+title: "Capteur température Zigbee Home Assistant : comparatif SNZB-02D, Aqara"
+description: "Comparatif capteurs température et humidité Zigbee 2026 : SONOFF SNZB-02D, Aqara T1, Tuya. Précision, autonomie, placement, automatisations chauffage Home Assistant."
 pubDate: 2026-10-18T00:00:00Z
 category: "guides-achat"
 products: ["sonoff-snzb-02d"]
 priority: 7
 ---
 
-Un **capteur température Zigbee** surveille chaque pièce, automatise le chauffage et alerte si ça sèche trop ou gèle. Voici les meilleurs en 2026 pour Home Assistant.
+Un **capteur température Zigbee** surveille chaque pièce, automatise le chauffage et alerte si l'air est trop sec ou si ça gèle. Ce guide compare 5 capteurs Zigbee 3.0 populaires en 2026 pour Home Assistant, avec précision, autonomie et cas d'usage.
 
-## Top 2 capteurs température
+## Tableau comparatif : 5 capteurs température Zigbee
 
-### 1. SONOFF SNZB-02D (notre choix)
+| Modèle | Prix | Mesures | Écran | Précision | Autonomie | Pile | Taille | Pour qui ? |
+|--------|------|---------|-------|-----------|-----------|------|--------|------------|
+| **SONOFF SNZB-02D** | 11–19 € | Temp, Hum | LCD | ±0,2 °C, ±2 % RH | 2 ans | CR2450 | 4,3 cm | **Meilleur choix** — écran LCD, précis, autonomie excellente |
+| **Aqara T1 (WSDCGQ11LM)** | 15–20 € | Temp, Hum, Pression | e-ink | ±0,3 °C, ±3 % RH | 1–2 ans | CR2032 | 3,6 cm | Design premium, pression atmosphérique |
+| **SONOFF SNZB-02P** | 9–15 € | Temp, Hum | ❌ | ±0,4 °C, ±4 % RH | 1,5 ans | CR2477 | 4 cm | Version sans écran, budget |
+| **Tuya TS0201** | 8–12 € | Temp, Hum | ❌ | ±0,5 °C, ±5 % RH | 1 an | AAA ×2 | 6 cm | Budget mini, piles AAA |
+| **Aqara FP2 (mmWave)** | 58–83 € | Temp, Hum, **Présence** | ❌ | ±0,5 °C | USB-C | Secteur | 8 cm | Capteur présence mmWave + température |
 
-**Prix** : 11–19 € (lot de 2 : 25 €)  
-**Mesure** : température, humidité  
-**Écran LCD** : oui  
-**Autonomie** : 2 ans (pile CR2450)  
-**Précision** : ±0,2 °C, ±2 % RH
+*Prix octobre 2026, indicatifs.*
 
-✅ **Écran intégré** : pas besoin d'ouvrir HA pour voir la température  
-✅ **Le moins cher** avec écran LCD  
-✅ Compatible ZHA, Z2M
+## Notre sélection détaillée
 
-**Pour qui ?** Tout le monde. Rapport qualité/prix imbattable.
+### 1. SONOFF SNZB-02D — Notre choix (11–19 €)
 
-*Lien Amazon : [SNZB-02D B0BYZP8NK2](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21).*
+**Pourquoi c'est le meilleur** :
+- **Écran LCD intégré** : affiche température et humidité sans ouvrir Home Assistant
+- **Précision** : ±0,2 °C (température), ±2 % RH (humidité) — meilleure de la catégorie
+- **Autonomie 2 ans** : pile CR2450 (épaisse, grande capacité)
+- **Compact** : 4,3 × 4,3 × 1,4 cm, discret sur étagère ou mur
+- **Historique** : stocke min/max dernières 24h sur écran LCD
 
-### 2. Aqara T1 (WSDCGQ11LM)
+**Compatible** : ZHA et Zigbee2MQTT, reconnu instantanément.
 
-**Prix** : 15–20 €  
-**Mesure** : température, humidité, pression atmosphérique  
-**Écran** : e-ink  
-**Autonomie** : 1–2 ans (pile CR2032)
+**Utilisation** :
+- Surveiller température chambre bébé (alerte si < 18 °C ou > 24 °C)
+- Automatiser chauffage salon (allumer radiateur si < 19 °C)
+- Détecter humidité excessive salle de bains (> 70 % = moisissure)
 
-✅ Design élégant, pression atmosphérique (prédire météo)  
-❌ Plus cher, pas de stock stable en France
+*Lien Amazon : [SNZB-02D B0BYZP8NK2](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21) ou lot de 2 B0BZCV658S.*
 
-**Pour qui ?** Fans de design, météo locale.
+### 2. Aqara T1 — Design premium (15–20 €)
 
-## Tableau comparatif
+**Avantages** :
+- **Écran e-ink élégant** : design Apple-like, affichage permanent sans rétroéclairage
+- **Pression atmosphérique** : prédire météo locale (baisse pression = pluie probable)
+- **Petit** : 3,6 cm, le plus compact
+- **HomeKit** compatible (via Aqara Hub M3)
 
-| Modèle | Prix | Écran | Précision | Autonomie | Pression |
-|--------|------|-------|-----------|-----------|----------|
-| **SNZB-02D** | 11–19 € | LCD | ±0,2 °C | 2 ans | ❌ |
-| **Aqara T1** | 15–20 € | e-ink | ±0,3 °C | 1–2 ans | ✅ |
+**Limites** :
+- Précision légèrement inférieure : ±0,3 °C (vs ±0,2 °C SONOFF)
+- Autonomie 1–2 ans (pile CR2032 moins capacitive que CR2450)
+- Prix +30 % vs SONOFF
 
-*Prix octobre 2026.*
+**Pour qui ?** Design important, écosystème Aqara existant, intérêt pour pression atmo.
 
-## Utilisation typique
+### 3. SONOFF SNZB-02P — Sans écran (9–15 €)
 
-**Chauffage intelligent** : allumer radiateur si < 18 °C, couper si > 21 °C  
-**Chambre bébé** : alerte si < 18 °C ou > 24 °C la nuit  
-**Cave/grenier** : surveiller gel/moisissure (< 5 °C ou > 70 % humidité)
+**Avantages** :
+- **Le moins cher SONOFF** : 9–15 €
+- Compact, autonomie 1,5 ans
+- Même marque fiable que SNZB-02D
 
-**Exemple automatisation** :
+**Limites** :
+- **Pas d'écran** : voir température uniquement via Home Assistant
+- Précision ±0,4 °C (vs ±0,2 °C version D)
+
+**Pour qui ?** Budget minimal, pas besoin écran (température check uniquement via HA app).
+
+### 4. Tuya TS0201 — Budget AAA (8–12 €)
+
+**Avantages** :
+- **Prix imbattable** : 8–12 €
+- **Piles AAA** : faciles à trouver, remplacer partout
+
+**Limites** :
+- Précision médiocre : ±0,5 °C (acceptable mais pas excellente)
+- Autonomie 1 an seulement
+- Plus gros : 6 cm (piles AAA)
+- Marque générique Tuya (SAV aléatoire)
+
+**Pour qui ?** Budget extrême, stock piles AAA important, précision ±0,5 °C acceptable.
+
+### 5. Aqara FP2 — Présence + température (58–83 €)
+
+**Avantages** :
+- **Capteur présence mmWave** : détecte même immobile (bureau, lit)
+- Température + humidité bonus
+- Alimentation secteur USB-C (aucune pile)
+
+**Limites** :
+- **Prix élevé** : 58–83 € (5× SNZB-02D)
+- **Précision température moyenne** : ±0,5 °C (ce n'est pas sa fonction principale)
+- Nécessite prise USB à proximité
+
+**Pour qui ?** Besoin principal = détection présence. Température = bonus. [Guide détecteurs présence](/domotique/detecteur-presence-mmwave/) (prochainement).
+
+## Comment choisir son capteur température ?
+
+### Critère 1 : Besoin d'écran intégré ?
+
+**Oui** (voir température sans smartphone) :
+- SONOFF SNZB-02D (LCD, historique 24h) ⭐
+- Aqara T1 (e-ink design)
+
+**Non** (check via Home Assistant suffit) :
+- SONOFF SNZB-02P (9 €)
+- Tuya TS0201 (8 €)
+
+### Critère 2 : Précision requise
+
+**Haute précision ±0,2 °C** (chauffage, chambre bébé) :
+- SONOFF SNZB-02D ⭐
+
+**Précision normale ±0,3–0,5 °C** (surveillance générale) :
+- Aqara T1, SNZB-02P, Tuya
+
+**Différence pratique** :
+- 18 °C réels : SNZB-02D affiche 17,8–18,2 °C. Tuya affiche 17,5–18,5 °C.
+- Pour automatisations ±1 °C : aucune différence notable.
+
+### Critère 3 : Autonomie
+
+**Longue autonomie 2 ans** :
+- SONOFF SNZB-02D (CR2450)
+
+**Autonomie normale 1–2 ans** :
+- Aqara T1 (CR2032), SNZB-02P (CR2477), Tuya (AAA)
+
+**Secteur permanent** :
+- Aqara FP2 (USB-C)
+
+### Critère 4 : Nombre de capteurs nécessaires
+
+**Recommandations** :
+- **Studio 30 m²** : 1 capteur (salon/chambre unique)
+- **Appartement 50 m²** : 2 capteurs (salon, chambre)
+- **Appartement 80 m²** : 3 capteurs (salon, 2 chambres)
+- **Maison 120 m²** : 4–5 capteurs (salon, 3 chambres, bureau ou cave)
+
+**Règle** : 1 capteur par pièce chauffée ou pièce à surveiller. Pas besoin dans WC, couloirs, dressing.
+
+## Placement optimal des capteurs
+
+### Où placer ?
+
+**✅ Recommandé** :
+- Centre de pièce (pas contre mur extérieur)
+- Hauteur 1,2–1,8 m du sol (zone respiration)
+- Étagère, meuble, bureau
+- À l'ombre (pas lumière directe soleil)
+
+**❌ À éviter** :
+- Près fenêtre (courants d'air faussent mesure)
+- Au-dessus radiateur (température locale ≠ pièce)
+- Derrière rideau épais (air stagnant)
+- Cuisine près plaque (vapeur, chaleur)
+- Salle de bains (humidité > 80 % = condensation capteur)
+
+### Distance du dongle Zigbee
+
+**Portée directe** : 10–15 m indoor (2–3 murs)
+
+**Si > 15 m** : ajouter répéteurs Zigbee (prises) entre dongle et capteur. [Guide prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/).
+
+## Installation et configuration
+
+### Appairer avec ZHA
+
+1. Ouvrir Home Assistant → **Appareils Zigbee (ZHA) → Ajouter**
+2. Retirer languette pile SNZB-02D
+3. Maintenir **bouton** capteur **5 secondes**
+4. LED clignote (rouge/bleu)
+5. Capteur apparaît : "SONOFF SNZB-02D"
+
+**Entités créées** :
+- `sensor.snzb_02d_salon_temperature` (°C)
+- `sensor.snzb_02d_salon_humidity` (%)
+- `sensor.snzb_02d_salon_battery` (%)
+
+### Calibration (optionnel)
+
+Si écart constaté (±1 °C vs thermomètre référence) :
+
+```yaml
+# configuration.yaml
+sensor:
+  - platform: template
+    sensors:
+      temperature_salon_calibree:
+        friendly_name: "Température salon (calibrée)"
+        unit_of_measurement: "°C"
+        value_template: "{{ states('sensor.snzb_02d_salon_temperature')|float - 0.5 }}"
+```
+
+Ajuster `-0,5` selon écart mesuré.
+
+## Automatisations utiles
+
+### 1. Chauffage automatique < 19 °C
+
 ```yaml
 automation:
-  - alias: "Alerte chambre froide"
+  - alias: "Chauffage salon < 19°C"
     trigger:
-      platform: numeric_state
-      entity_id: sensor.snzb_02d_chambre_temperature
-      below: 17
+      - platform: numeric_state
+        entity_id: sensor.temperature_salon
+        below: 19
+    condition:
+      - condition: time
+        after: "06:00"
+        before: "22:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.prise_radiateur_salon
+```
+
+### 2. Alerte chambre bébé hors limites
+
+```yaml
+automation:
+  - alias: "Alerte température chambre bébé"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_chambre_bebe
+        below: 17
+      - platform: numeric_state
+        entity_id: sensor.temperature_chambre_bebe
+        above: 24
     action:
       - service: notify.mobile_app
         data:
-          message: "Chambre < 17 °C !"
+          title: "Température chambre bébé anormale"
+          message: "{{ states('sensor.temperature_chambre_bebe') }}°C"
 ```
 
-## Installation
+### 3. Alerte humidité excessive (> 70 %)
 
-1. Retirer la languette pile
-2. **ZHA → Ajouter appareil**
-3. Maintenir bouton 5 sec (écran clignote)
-4. Il apparaît : `sensor.snzb_02d_temperature`, `sensor.snzb_02d_humidity`
+```yaml
+automation:
+  - alias: "Humidité cave excessive"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.humidity_cave
+        above: 70
+        for: "01:00:00"
+    action:
+      - service: notify.mobile_app
+        data:
+          message: "Risque moisissure cave ({{ states('sensor.humidity_cave') }}%)"
+```
 
-## Où placer les capteurs ?
+### 4. Graphique température 7 jours
 
-❌ **Pas** : près d'une fenêtre, radiateur, lumière directe soleil  
-✅ **Oui** : centre de pièce, 1,5 m du sol, circulation d'air normale
+Ajouter carte historique dans Lovelace :
 
-**Combien ?** 1 par pièce chauffée (salon, chambres, bureau). Pas besoin dans WC/couloir.
+```yaml
+type: history-graph
+entities:
+  - sensor.temperature_salon
+  - sensor.temperature_chambre
+hours_to_show: 168
+refresh_interval: 0
+```
+
+## Erreurs courantes et dépannage
+
+### Problème : Capteur ne s'appaire pas
+
+**Solutions** :
+1. Retirer languette pile complètement (vérifier contact pile)
+2. Rapprocher du dongle Zigbee (< 3 m)
+3. Reset : maintenir bouton 10 secondes (LED orange = reset)
+4. Pile neuve (certaines piles neuves sont faibles après 1 an stockage)
+
+### Problème : Température incorrecte (écart > 2 °C)
+
+**Causes** :
+- Capteur en plein soleil (température locale ≠ ambiante)
+- Trop près radiateur ou fenêtre
+- Capteur défectueux
+
+**Solutions** :
+1. Déplacer capteur (centre pièce, ombre)
+2. Attendre stabilisation (30 min après déplacement)
+3. Comparer avec thermomètre médical (référence fiable)
+4. Calibrer via template sensor (voir section Calibration)
+
+### Problème : Batterie faible après 6 mois
+
+**Causes** :
+- Pile bas de gamme (capacité réelle < annoncée)
+- Capteur défectueux (fuite courant)
+- Firmware ancien (conso excessive)
+
+**Solutions** :
+1. Remplacer par pile **Duracell ou Energizer** (durée 2× piles no-name)
+2. Vérifier firmware capteur (ZHA → Appareil → Firmware OTA)
+3. Si récurrent : capteur défectueux, retour SAV
+
+### Problème : Humidité bloquée à 99 %
+
+**Cause** : condensation sur capteur (salle de bains, cave très humide).
+
+**Solutions** :
+1. Retirer pile, laisser sécher 24h (riz ou déshumidificateur)
+2. Éviter pièces > 80 % humidité (limites capteur)
+3. Utiliser capteur IP65 étanche (plus cher, rare en Zigbee)
+
+## Interprétation des mesures
+
+### Température idéale par pièce
+
+| Pièce | Température recommandée | Nuit |
+|-------|-------------------------|------|
+| **Salon** | 19–21 °C | 18–19 °C |
+| **Chambre adulte** | 18–20 °C | 16–18 °C |
+| **Chambre bébé/enfant** | 18–20 °C | 18–19 °C |
+| **Cuisine** | 18–19 °C | — |
+| **Salle de bains** | 22–24 °C (usage) | 18 °C |
+| **Bureau** | 19–21 °C | — |
+| **Cave/garage** | > 5 °C (hors-gel) | — |
+
+### Humidité idéale
+
+**Recommandations OMS** :
+- **40–60 % RH** : zone confort optimal
+- < 30 % : air trop sec (irritations, électricité statique)
+- > 70 % : risque moisissures, acariens
+
+**Actions selon humidité** :
+- < 30 % : humidificateur ou bols d'eau sur radiateur
+- > 70 % : aérer 10 min 2×/jour, déshumidificateur si récurrent
+
+## Entretien et durée de vie
+
+### Remplacement pile
+
+**Fréquence** :
+- SNZB-02D (CR2450) : tous les 2 ans
+- Aqara T1 (CR2032) : tous les 1–2 ans
+- Tuya (AAA) : tous les 12 mois
+
+**Alerte HA** : notification automatique quand batterie < 20 %.
+
+### Nettoyage
+
+**Tous les 6 mois** :
+- Dépoussiérer avec chiffon microfibre sec
+- Éviter produits liquides (risque infiltration capteur)
+
+### Durée de vie totale
+
+**Électronique** : 5–10 ans (capteurs Zigbee très fiables)  
+**Limites** : pile + boîtier plastique (jaunissement après 5 ans exposition soleil)
+
+## FAQ
+
+**Quelle précision pour automatiser chauffage ?**
+±0,5 °C suffit largement. Même capteur Tuya ±0,5 °C permet "allumer radiateur si < 19 °C" sans problème. Précision ±0,2 °C (SNZB-02D) est un bonus confort.
+
+**Combien de capteurs pour une maison 100 m² ?**
+4–5 capteurs : salon, 2–3 chambres, bureau ou cave. Inutile dans WC, couloirs, dressing (température identique pièces adjacentes).
+
+**Capteur température suffit-il pour VMC ?**
+Non, VMC nécessite capteur **CO2** (qualité air). Température + humidité détectent surchauffe/humidité, mais pas pollution air. [Projet capteur CO2 ESP32](/domotique/projets-esp32-domotique/).
+
+**Différence entre Zigbee et capteur ESP32 DIY ?**
+**Zigbee** : pile, aucun câble, plug & play, autonomie 1–2 ans. **ESP32** : alimentation USB 5V, personnalisable, moins cher (7 € ESP32 + 3 € DHT22). [Tuto ESP32 température](/domotique/esp32-esphome-capteur-temperature/).
+
+**Peut-on utiliser capteur en extérieur ?**
+Non (IP20 uniquement). Pour extérieur : capteur IP65 étanche (Aqara IP55, rare) ou ESP32 + DHT22 dans boîtier étanche DIY.
+
+**Faut-il calibrer tous les capteurs ?**
+Non si écart < 1 °C. Calibrer uniquement si écart > 1,5 °C vs thermomètre médical référence.
 
 ## Pour aller plus loin
 
-- [Prise Zigbee](/domotique/prise-connectee-zigbee-home-assistant/)
+- [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) : automatiser chauffage
+- [Meilleure clé Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/) : créer réseau
 - [Installer Home Assistant](/domotique/home-assistant-raspberry-pi-5-installation/)
-- [Projets ESP32 DIY](/domotique/projets-esp32-domotique/)
+- [Projets ESP32 température DIY](/domotique/esp32-esphome-capteur-temperature/) : alternative personnalisable
+- [Hub domotique](/domotique/) : retour accueil
 
 ---
 
-*Affiliation Amazon tag manuso06-21, ~3 % commission.*
+*Affiliation : liens Amazon tag manuso06-21, ~3 % commission. Prix octobre 2026. Notre sélection basée sur recherche, sans tests.*
