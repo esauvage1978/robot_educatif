@@ -9,7 +9,7 @@ import { getDomotiqueThumbnail, getDomotiqueHubThumbnail } from '../../lib/domot
 
 const title = 'Domotique : la maison connectée version famille et makers';
 const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien acheter. Guides pratiques pour débuter en domotique.';
-const ogImage = (await getDomotiqueHubThumbnail()) || '/images/blog-placeholder-1.jpg';
+const ogImage = '/images/blog-thumbnails/domotique-hub.png';
 
 const domotiquePosts = (await getCollection('domotique')).sort((a, b) => 
 	(a.data.priority ?? 99) - (b.data.priority ?? 99)

@@ -17,6 +17,7 @@ import ShareButtons from '../components/ShareButtons.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
 import { resolveArticleImage } from '../lib/articleThumbnail';
+import { withImageVersion } from '../lib/imageVersion';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 
@@ -45,6 +46,10 @@ const resolvedImageForMeta = resolveArticleImage(articleSlug, heroImage);
 // Pour la bannière, on affiche soit ImageMetadata, soit le string path vers vignette
 const heroIsImageMetadata = resolvedImageForMeta && typeof resolvedImageForMeta !== 'string';
 const heroImagePath = typeof resolvedImageForMeta === 'string' ? resolvedImageForMeta : null;
+
+// Versionner les images pour le cache
+const heroImagePathWithVersion = heroImagePath ? withImageVersion(heroImagePath.replace('.png', '.webp')) : null;
+const ogImagePath = typeof resolvedImageForMeta === 'string' ? withImageVersion(resolvedImageForMeta) : resolvedImageForMeta;
 const allPosts = await getCollection('blog');
 const topCategories = topCategoriesByCount(allPosts, 15);
 
@@ -96,7 +101,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 		<BaseHead 
 			title={title} 
 			description={description} 
-			image={resolvedImageForMeta}
+			image={ogImagePath}
 			ogType="article"
 			pubDate={pubDate}
 			updatedDate={updatedDate}
@@ -140,24 +145,23 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				box-shadow: none;
 			}
 			.hero-article-media {
-				max-height: 360px;
+				max-width: 900px;
+				margin: 0 auto;
+				aspect-ratio: 1200 / 630;
 				overflow: hidden;
 				background: var(--page-bg-elevated);
 			}
 			.hero-article-media img {
 				display: block;
 				width: 100%;
-				height: 360px;
-				object-fit: cover;
+				height: 100%;
+				object-fit: contain;
 				border-radius: 0;
 			}
 			
 			@media (max-width: 768px) {
 				.hero-article-media {
-					max-height: 220px;
-				}
-				.hero-article-media img {
-					height: 220px;
+					max-width: 100%;
 				}
 			}
 			.hero-article-content {
@@ -277,12 +281,10 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				margin-bottom: 1rem !important;
 			}
 			.hero-article-media {
-				max-height: 200px !important;
+				max-width: 100% !important;
 			}
 			.hero-article-media img {
-				height: 170px !important;
-				max-height: 200px !important;
-				object-fit: cover;
+				object-fit: contain !important;
 			}
 			.hero-article-content {
 				padding: 0 0.9rem 0.9rem !important;
@@ -332,9 +334,9 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 						<Image width={1600} height={760} src={resolvedImageForMeta} alt={title} />
 					</div>
 				)}
-				{heroImagePath && (
+				{heroImagePathWithVersion && (
 					<div class="hero-article-media">
-						<img src={heroImagePath} alt={title} width="1200" height="630" loading="lazy" />
+						<img src={heroImagePathWithVersion} alt={title} width="1200" height="630" loading="lazy" />
 					</div>
 				)}
 				<div class="hero-article-content">

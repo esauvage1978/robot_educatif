@@ -1,13 +1,13 @@
 /**
- * Génère des vignettes 1200×630 visuellement distinctes par article
- * - Détection catégorie robuste (slug + frontmatter)
- * - Fonds variés par catégorie (palette A)
- * - Photos produits OU grandes icônes SVG RENDUES (pas du texte!)
- * - Retours à la ligne équilibrés avec mesure de largeur réelle
+ * Génère des vignettes 1200×630 PNG + WebP par article
+ * - Parseur YAML complet (gray-matter) pour éviter coupures sur apostrophes
+ * - PNG pour og:image, WebP pour listes/bannières (qualité 82)
+ * - Fonds variés par catégorie, icônes SVG rendues
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
+import matter from 'gray-matter';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -19,7 +19,6 @@ const outputDir = path.join(__dirname, '../public/images/blog-thumbnails');
 const productsDir = path.join(__dirname, '../public/images/products');
 const fontPath = path.join(__dirname, './fonts/Roboto-Bold.ttf');
 
-// Palette A : fonds et accents par catégorie RÉELLE
 const CATEGORY_THEMES = {
 	'Python': {
 		bg: 'linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%)',
@@ -30,7 +29,7 @@ const CATEGORY_THEMES = {
 	},
 	'C / Arduino': {
 		bg: 'linear-gradient(135deg, #C2410C 0%, #F97316 100%)',
-		badgeBg: '#0B1F2A',  // Badge sombre sur fond orange pour lisibilité
+		badgeBg: '#0B1F2A',
 		badgeText: '#FFFFFF',
 		text: '#FFFFFF',
 		icon: 'circuit'
@@ -79,7 +78,6 @@ const CATEGORY_THEMES = {
 	}
 };
 
-// Détecte la catégorie réelle à partir du slug ET du frontmatter
 function detectRealCategory(slug, frontmatterCategory) {
 	if (slug.startsWith('c-arduino-') || slug.includes('arduino')) return 'C / Arduino';
 	if (slug.startsWith('python-')) return 'Python';
@@ -120,33 +118,34 @@ async function detectProduct(filePath, slug) {
 
 async function extractFrontmatter(filePath) {
 	const content = await fs.readFile(filePath, 'utf-8');
-	const match = content.match(/^---\n([\s\S]*?)\n---/);
-	if (!match) return null;
 	
-	const frontmatter = match[1];
-	const titleMatch = frontmatter.match(/title:\s*["'](.+?)["']/);
-	
-	let category = 'Guide';
-	const categoriesInlineMatch = frontmatter.match(/categories:\s*\[([^\]]+)\]/);
-	if (categoriesInlineMatch) {
-		category = categoriesInlineMatch[1].split(',')[0].trim().replace(/["']/g, '');
-	} else {
-		const categoriesListMatch = frontmatter.match(/categories:\s*\n\s*-\s*["']?([^"'\n]+)["']?/);
-		if (categoriesListMatch) category = categoriesListMatch[1].trim();
+	try {
+		// Utiliser gray-matter pour parser correctement le YAML
+		const { data } = matter(content);
+		
+		let category = 'Guide';
+		if (data.categories) {
+			if (Array.isArray(data.categories)) {
+				category = data.categories[0] || 'Guide';
+			} else if (typeof data.categories === 'string') {
+				category = data.categories;
+			}
+		}
+		
+		return {
+			title: data.title || 'Article',
+			frontmatterCategory: category
+		};
+	} catch (err) {
+		console.warn(`⚠️  Error parsing frontmatter in ${filePath}: ${err.message}`);
+		return null;
 	}
-	
-	return {
-		title: titleMatch ? titleMatch[1] : 'Article',
-		frontmatterCategory: category
-	};
 }
 
-// Retour à la ligne équilibré avec largeur estimée
 function wrapText(text, maxCharsPerLine = 40) {
 	const words = text.split(' ');
 	if (words.length <= 2) return [text];
 	
-	// Ne jamais commencer une ligne par :, ?, !, ou
 	const lines = [];
 	let currentLine = '';
 	
@@ -154,7 +153,6 @@ function wrapText(text, maxCharsPerLine = 40) {
 		const word = words[i];
 		const testLine = currentLine ? `${currentLine} ${word}` : word;
 		
-		// Estimation largeur (caractères pondérés)
 		const width = testLine.split('').reduce((sum, c) => {
 			if (c === c.toUpperCase() && c !== c.toLowerCase()) return sum + 1.2;
 			if (c === 'i' || c === 'l' || c === 'I') return sum + 0.5;
@@ -163,15 +161,12 @@ function wrapText(text, maxCharsPerLine = 40) {
 		}, 0);
 		
 		if (width > maxCharsPerLine) {
-			// Vérifier orphelins et ponctuation
 			const nextWord = words[i + 1];
 			
-			// Si mot suivant commence par ponctuation, le garder
 			if (nextWord && /^[:\?\!,]/.test(nextWord)) {
 				currentLine = testLine + (nextWord.length > 1 ? ' ' + nextWord : nextWord);
 				i++;
 			}
-			// Si mot suivant est court (< 4 lettres), le garder
 			else if (nextWord && nextWord.length <= 3 && currentLine.length + word.length + nextWord.length + 2 <= maxCharsPerLine + 8) {
 				currentLine = testLine + ' ' + nextWord;
 				i++;
@@ -188,7 +183,6 @@ function wrapText(text, maxCharsPerLine = 40) {
 	}
 	
 	if (currentLine) {
-		// Rééquilibrer si dernière ligne trop courte
 		if (lines.length > 0 && currentLine.split(' ').length === 1 && currentLine.length <= 6) {
 			const prevLine = lines[lines.length - 1];
 			const prevWords = prevLine.split(' ');
@@ -211,7 +205,6 @@ function calculateFontSize(titleLength) {
 	return 44;
 }
 
-// Génère un SVG d'icône thématique comme data URL
 function generateIconDataURL(iconType, color) {
 	const icons = {
 		code: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
@@ -269,7 +262,6 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 	const titleLines = wrapText(title, 40);
 	const fontSize = calculateFontSize(title.length);
 	
-	// Photo produit OU icône thématique
 	let rightElement = null;
 	
 	if (productSlug) {
@@ -301,21 +293,14 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 						type: 'img',
 						props: {
 							src: productImageDataUrl,
-							style: {
-								width: '280px',
-								height: '280px',
-								objectFit: 'contain'
-							}
+							style: { width: '280px', height: '280px', objectFit: 'contain' }
 						}
 					}
 				}
 			};
-		} catch (err) {
-			// Photo non disponible
-		}
+		} catch (err) {}
 	}
 	
-	// Si pas de photo, icône thématique RENDUE
 	if (!rightElement) {
 		const iconDataURL = generateIconDataURL(theme.icon, theme.badgeBg);
 		rightElement = {
@@ -337,10 +322,7 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 						src: iconDataURL,
 						width: 260,
 						height: 260,
-						style: {
-							width: '260px',
-							height: '260px'
-						}
+						style: { width: '260px', height: '260px' }
 					}
 				}
 			}
@@ -437,37 +419,52 @@ async function generateThumbnail(slug, title, realCategory, productSlug) {
 	return resvg.render().asPng();
 }
 
-async function processCollection(contentDir, collectionName, generated, skipped, categoryStats) {
+async function processCollection(contentDir, collectionName, generated, skipped, categoryStats, truncated) {
 	const allFiles = await fs.readdir(contentDir);
 	const files = allFiles.filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
 	
 	for (const file of files) {
 		const slug = file.replace(/\.mdx?$/, '');
 		const filePath = path.join(contentDir, file);
-		const outputPath = path.join(outputDir, `${slug}.png`);
+		const outputPathPng = path.join(outputDir, `${slug}.png`);
+		const outputPathWebp = path.join(outputDir, `${slug}.webp`);
 		
 		try {
-			await fs.access(outputPath);
+			await fs.access(outputPathPng);
+			await fs.access(outputPathWebp);
 			skipped.count++;
 			continue;
 		} catch {}
 		
 		const frontmatter = await extractFrontmatter(filePath);
-		if (!frontmatter) {
-			console.warn(`⚠️  No frontmatter in ${file}`);
-			continue;
-		}
+		if (!frontmatter) continue;
 		
 		const realCategory = detectRealCategory(slug, frontmatter.frontmatterCategory);
 		const productSlug = await detectProduct(filePath, slug);
 		categoryStats[realCategory] = (categoryStats[realCategory] || 0) + 1;
 		
+		// Vérifier si le titre est complet
+		const titleLines = wrapText(frontmatter.title, 40);
+		const renderedTitle = titleLines.join(' ');
+		if (!frontmatter.title.includes(renderedTitle.trim())) {
+			console.warn(`⚠️  Possible truncation: "${frontmatter.title}" → "${renderedTitle}"`);
+			truncated.push({ slug, original: frontmatter.title, rendered: renderedTitle });
+		}
+		
 		try {
 			const pngBuffer = await generateThumbnail(slug, frontmatter.title, realCategory, productSlug);
-			await fs.writeFile(outputPath, pngBuffer);
+			
+			// Sauvegarder PNG (pour og:image)
+			await fs.writeFile(outputPathPng, pngBuffer);
+			
+			// Générer WebP (pour listes et bannières)
+			await sharp(pngBuffer)
+				.webp({ quality: 82 })
+				.toFile(outputPathWebp);
+			
 			generated.count++;
 			const icon = productSlug ? '🖼️ ' : '🎨';
-			console.log(`✅ ${icon}[${collectionName}] ${slug} → ${realCategory}`);
+			console.log(`✅ ${icon}[${collectionName}] ${slug}`);
 		} catch (error) {
 			console.error(`❌ [${collectionName}] ${slug}: ${error.message}`);
 		}
@@ -477,23 +474,33 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 }
 
 async function main() {
-	console.log('🎨 Generating thumbnails v3 - SVG rendus + lignes équilibrées...\n');
+	console.log('🎨 Generating thumbnails v4 - gray-matter + WebP...\n');
 	
 	await fs.mkdir(outputDir, { recursive: true });
 	
 	const stats = { count: 0 };
 	const skipped = { count: 0 };
 	const categoryStats = {};
+	const truncated = [];
 	
-	const blogCount = await processCollection(blogContentDir, 'blog', stats, skipped, categoryStats);
-	const domotiqueCount = await processCollection(domotiqueContentDir, 'domotique', stats, skipped, categoryStats);
+	const blogCount = await processCollection(blogContentDir, 'blog', stats, skipped, categoryStats, truncated);
+	const domotiqueCount = await processCollection(domotiqueContentDir, 'domotique', stats, skipped, categoryStats, truncated);
 	
 	console.log(`\n📊 Summary:`);
-	console.log(`   ✅ Generated: ${stats.count}`);
+	console.log(`   ✅ Generated: ${stats.count} (PNG + WebP)`);
 	console.log(`   ⏭️  Skipped: ${skipped.count}`);
 	console.log(`\n🎨 Par catégorie:`);
 	for (const [cat, count] of Object.entries(categoryStats).sort((a, b) => b[1] - a[1])) {
 		console.log(`   ${cat}: ${count}`);
+	}
+	
+	if (truncated.length > 0) {
+		console.log(`\n⚠️  Titres possiblement tronqués: ${truncated.length}`);
+		for (const t of truncated.slice(0, 5)) {
+			console.log(`   ${t.slug}:`);
+			console.log(`      Original: ${t.original}`);
+			console.log(`      Rendu:    ${t.rendered}`);
+		}
 	}
 }
 
