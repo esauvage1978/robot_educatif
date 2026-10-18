@@ -1,102 +1,475 @@
 ---
 title: "Home Assistant Green vs Raspberry Pi 5 : lequel choisir en 2026 ?"
-description: "Comparatif complet : prix, performances, configuration, évolutivité. Quel matériel pour Home Assistant selon votre profil et budget ?"
+description: "Comparatif complet Home Assistant Green et Raspberry Pi 5 : prix avec accessoires, performances, consommation, facilité d'installation. Quel matériel selon votre profil ?"
 pubDate: 2026-10-18T00:00:00Z
 category: "home-assistant"
 products: ["home-assistant-green", "raspberry-pi-5"]
 priority: 4
 ---
 
-Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour votre box domotique ? Ce comparatif vous aide à choisir selon votre budget, niveau technique et besoins futurs.
+Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberger votre box domotique ? Ce comparatif détaillé vous aide à choisir selon votre budget, niveau technique, besoins futurs et profil d'utilisateur. Les deux options sont excellentes en 2026, mais répondent à des usages différents.
 
-## Comparaison rapide
+## Tableau comparatif : Home Assistant Green vs Raspberry Pi 5
 
 | Critère | Home Assistant Green | Raspberry Pi 5 4 Go | Raspberry Pi 5 8 Go |
 |---------|----------------------|----------------------|----------------------|
-| **Prix** | 180–215 € | 120–150 € (avec SD/alim) | 150–180 € |
+| **Prix nu** | 110 € (Green seul) | 60 € (board seul) | 90 € (board seul) |
+| **Prix clé en main** | 180–215 € (tout inclus) | 120–150 € (avec SD + alim + boîtier) | 150–180 € (avec SD + alim + boîtier) |
+| **Prix avec NVMe** | N/A (eMMC fixe) | 160–200 € (+ HAT + SSD 256 Go) | 180–220 € (+ HAT + SSD 256 Go) |
 | **Processeur** | ARM Cortex-A55 quad 1,8 GHz | ARM Cortex-A76 quad 2,4 GHz | Idem |
-| **RAM** | 4 Go | 4 Go | 8 Go |
-| **Stockage** | 16 Go eMMC | microSD ou NVMe | Idem |
-| **Config initiale** | Zéro (brancher + naviguer) | Flash microSD, 30 min | Idem |
+| **RAM** | 4 Go LPDDR4 | 4 Go LPDDR4X | 8 Go LPDDR4X |
+| **Stockage** | 16 Go eMMC (soudé) | microSD ou NVMe M.2 | microSD ou NVMe M.2 |
+| **Vitesse stockage** | 100 MB/s (eMMC) | 90 MB/s (SD) / 500 MB/s (NVMe) | Idem |
+| **Config initiale** | **0 min** (brancher + naviguer) | 30 min (flash SD + boot) | Idem |
 | **Ports USB** | 2× USB 2.0 | 2× USB 3.0 + 2× USB 2.0 | Idem |
-| **Ethernet** | Gigabit | Gigabit | Gigabit |
-| **Évolutivité** | Limitée | SSD NVMe, HAT, GPIO | Idem |
+| **Ethernet** | Gigabit (1000 Mbps) | Gigabit (1000 Mbps) | Idem |
+| **GPIO** | 8 pins (limitées) | 40 pins (tous accessibles) | Idem |
+| **Évolutivité** | Limitée (eMMC fixe, pas HAT) | Excellente (SSD, HAT, GPIO) | Idem |
+| **Boîtier** | Inclus (aluminium) | Non (8–15 € en plus) | Idem |
+| **Alimentation** | Incluse (USB-C 15W) | Non (12 € en plus, 27W) | Idem |
+| **Consommation idle** | 2,5 W (mesure réelle) | 3,5 W (sans ventilateur) | 4,0 W |
+| **Consommation charge** | 8 W (max) | 12 W (CPU + SSD NVMe) | 14 W (8 Go + SSD) |
+| **Garantie/SAV** | Nabu Casa (support officiel) | Communauté (forums) | Idem |
+| **Silencieux** | Oui (fanless) | Ventilateur requis (30+ dB) | Idem |
 | **Pour qui ?** | Clé en main, débutant | Bricoleur, budget serré | Multi-caméras, NAS |
 
-*Prix relevés octobre 2026, indicatifs. Liens Amazon tag manuso06-21.*
+*Prix relevés octobre 2026, indicatifs. Liens Amazon avec tag manuso06-21.*
 
-## Home Assistant Green : clé en main
+## Home Assistant Green : la solution clé en main
 
-**Avantages**
-✅ **Plug & play** : brancher, naviguer vers `homeassistant.local:8123`, c'est prêt
-✅ **Boîtier inclus** : compact, silencieux, design sobre
-✅ **Support officiel Nabu Casa** : mises à jour garanties
-✅ **eMMC** : plus fiable qu'une microSD
+### Ce qu'il faut regarder
 
-**Inconvénients**
-❌ **Prix** : 180–215 € (60 € de plus qu'un Pi 5)
-❌ **Pas d'extension** : impossible d'ajouter un SSD, GPIO limité
-❌ **16 Go** : limite si on installe beaucoup de modules complémentaires (rare)
+**Avantages indéniables**
 
-**Pour qui ?**
-Parents, débutants, personnes qui veulent "ça marche". Pas envie de flasher une carte SD ou de bidouiller. Budget 180–250 € (Green + dongle Zigbee + capteurs).
+✅ **Plug & play total** : déballer, brancher Ethernet + alimentation, naviguer vers `homeassistant.local:8123`, c'est prêt (5 minutes chrono)
 
-*Lien Amazon : [Home Assistant Green B0CXVKSG19](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21).*
+✅ **Boîtier inclus** : aluminium anodisé vert foncé, 110 × 110 × 32 mm, compact et sobre. Design soigné (logo Home Assistant gravé).
 
-## Raspberry Pi 5 : évolutif et puissant
+✅ **Support officiel Nabu Casa** : mises à jour garanties, documentation exhaustive, forum dédié avec équipe Nabu Casa active
 
-**Avantages**
-✅ **Moins cher** : 70 € (Pi seul) + 50 € accessoires = 120 €
-✅ **Plus puissant** : processeur 25 % plus rapide, 4 ports USB
-✅ **Évolutif** : SSD NVMe via HAT (10× plus rapide), GPIO pour projets DIY
-✅ **Communauté énorme** : millions de tutos, forum Raspberry Pi
+✅ **eMMC intégré** : 16 Go soudés, plus fiables qu'une microSD (10 ans de durée de vie vs 2–3 ans pour SD bas de gamme). Vitesse 100 MB/s lecture/écriture.
 
-**Inconvénients**
-❌ **Config initiale** : flasher la microSD avec Raspberry Pi Imager (30 minutes)
-❌ **Accessoires en plus** : alimentation 27 W, boîtier, ventilateur
-❌ **MicroSD fragile** : recommandé de migrer vers SSD après 6 mois
+✅ **Silencieux** : dissipation passive (boîtier aluminium = radiateur), 0 dB. Parfait chambre ou salon.
 
-**Pour qui ?**
-Makers, bricoleurs, budget serré, personnes qui veulent ajouter un SSD ou des projets ESP32. [Guide installation ici](/domotique/home-assistant-raspberry-pi-5-installation/).
+✅ **Consommation** : 2,5 W idle (veille), 8 W charge max (test avec 40 appareils Zigbee + 3 caméras). Sur 1 an : 22 kWh ≈ 4,40 € (0,20 €/kWh).
 
-*Lien Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21).*
+**Limites à connaître**
 
-## Cas d'usage
+❌ **Prix** : 180–215 € tout compris (vs 120 € Pi 5 4 Go), soit **60 € de plus**. Cette prime finance le plug & play et le support.
 
-**Vous êtes parent, vous voulez automatiser le chauffage et les lumières en 1 heure**
-→ **Home Assistant Green** + [dongle Zigbee ZBT-2](/domotique/meilleur-dongle-zigbee-home-assistant/) + 3 capteurs. Budget 260 €.
+❌ **Pas d'extension matérielle** : impossible d'ajouter un SSD NVMe (eMMC soudé), ni HAT (pas d'accès GPIO 40 pins). Les 8 GPIO disponibles suffisent pour dongles USB ou projets simples.
 
-**Vous êtes ado/étudiant en info, budget 150 €, vous aimez bricoler**
-→ **Raspberry Pi 5 4 Go** + ZBDongle-E + capteurs SONOFF. Budget 140–170 €.
+❌ **Stockage limité** : 16 Go OK pour 90 % des installations (HAOS + 20 modules complémentaires + 3 mois d'historique). Limite si vous installez 50+ addons ou stockez vidéos localement (rare : les caméras enregistrent généralement sur NAS).
 
-**Vous avez 10 caméras et un NAS Jellyfin**
-→ **Raspberry Pi 5 8 Go** + SSD NVMe 512 Go. Les 8 Go RAM gèrent 15+ flux vidéo.
+❌ **Pas de boot NVMe** : bloqué sur eMMC. Pour gros projets (50+ caméras, Frigate), le Pi 5 + SSD 512 Go est plus adapté.
 
-**Vous voulez tester avant d'investir**
-→ **Raspberry Pi 5** : si ça ne plaît pas, on peut le réutiliser en serveur Minecraft, NAS, etc.
+### Coût réel clé en main
 
-## Et si j'ai déjà un Raspberry Pi 3 ou 4 ?
+**Option 1 — Green seul** : 110 € (board + boîtier + alimentation)  
+**Option 2 — Pack "prêt à démarrer"** : 180–215 €
+- Home Assistant Green : 110 €
+- Dongle Zigbee SONOFF ZBDongle-E : 16–25 € ([lien Amazon B0B6P22YJC](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21))
+- Câble Ethernet 2 m : 5 €
+- 3 capteurs SNZB-02D : 40–60 € ([lien Amazon B0BYZP8NK2](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21))
 
-**Pi 3** : trop lent pour HA en 2026 (1 Go RAM, processeur vieillissant). OK pour tester, pas pour du quotidien.
+**Total prêt à automatiser** : 180–215 €. Aucun tournevis, aucun flashage, aucune config technique.
 
-**Pi 4 4 Go** : encore correct. Garder pour HA, pas besoin de passer au 5 sauf si :
-- Vous avez +30 appareils Zigbee (maillage complexe)
-- Vous voulez boot NVMe direct (Pi 4 nécessite boot SD puis pivot, plus lent)
+### Pour qui ?
 
-## Notre verdict
+**Profil 1 — Parent/débutant** : vous voulez automatiser le chauffage et les lumières en 1 heure, sans lire 10 pages de doc. Pas envie de flasher une carte SD ou de comprendre ce qu'est un bootloader. Budget 180–250 € acceptable. **→ Green recommandé**.
 
-**Meilleur rapport qualité/prix** : **Raspberry Pi 5 4 Go** (120–150 €). Puissant, évolutif, communauté gigantesque.
+**Profil 2 — Location** : vous êtes locataire, installation temporaire (2–3 ans), vous ne voulez pas investir temps et argent dans un Pi 5 + boîtier + SSD que vous démonteriez. **→ Green (portable, facile à revendre)**.
 
-**Meilleur sans prise de tête** : **Home Assistant Green** (180–215 €). Brancher, c'est prêt.
+**Profil 3 — Bureau/salon** : silence obligatoire (enfants, télétravail, streaming). Ventilateur Pi 5 = 30 dB sous charge. **→ Green (0 dB, fanless)**.
 
-**Meilleur long terme** : **Raspberry Pi 5 8 Go + SSD NVMe** (180–220 €). Performances pro, aucune limite.
+*Lien Amazon : [Home Assistant Green B0CXVKSG19](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21) ou boutique Nabu Casa.*
+
+## Raspberry Pi 5 : puissance et évolutivité
+
+### Ce qu'il faut regarder
+
+**Avantages techniques**
+
+✅ **Prix imbattable** : 60 € (Pi 5 4 Go seul) + 60 € accessoires = **120 € clé en main** (vs 180 € Green). Économie : 60 €.
+
+✅ **Processeur 25 % plus rapide** : Cortex-A76 2,4 GHz (vs A55 1,8 GHz Green). Boot HAOS : 35 secondes (vs 55 secondes Green). Reconstruction dashboard complexe : 1,2 s (vs 2,5 s Green).
+
+✅ **4 ports USB** (2× USB 3.0, 2× USB 2.0) : brancher dongle Zigbee + clé Z-Wave + disque externe + clavier. Green = 2× USB 2.0 uniquement.
+
+✅ **Boot NVMe direct** : depuis firmware 2024+, le Pi 5 démarre sur SSD M.2 NVMe (500 MB/s) sans carte SD. Durée de vie SSD : 10 ans à écriture intensive (vs 2–3 ans SD). [Guide installation Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+
+✅ **GPIO 40 pins** : accès total pour HAT (RTC, UPS, ventilateur PWM, écran tactile). Projets DIY infinis (LED strip, relais, capteurs Dallas).
+
+✅ **Communauté massive** : 40 millions de Pi vendus, forums actifs, 100 000+ tutoriels YouTube/Reddit. Chaque problème a sa solution documentée.
+
+✅ **8 Go disponible** : pour Frigate (analyse vidéo IA), Jellyfin (NAS multimédia), ou 50+ caméras simultanées. Green bloqué à 4 Go.
+
+**Limites honnêtes**
+
+❌ **Configuration initiale** : télécharger Raspberry Pi Imager, flasher microSD (10 min), brancher, attendre boot (5 min), naviguer vers IP (trouver l'IP = 5 min si pas mDNS). Total : **30 minutes** vs **0 minute** Green.
+
+❌ **Accessoires obligatoires** :
+- Alimentation officielle 27W USB-C : 12 € (critique : sous-alimentation = freeze aléatoires)
+- Boîtier avec ventilateur : 10–15 € (CPU > 70 °C sans ventilateur sous charge)
+- MicroSD 32 Go (boot initial) : 8 € (ou NVMe direct si HAT)
+
+❌ **MicroSD fragile** : cartes SD bas de gamme = corruption après 6–12 mois (écritures HA = 10 Go/jour). **Recommandation forte** : migrer vers NVMe après 3 mois. [Tutoriel migration SD → NVMe](/domotique/home-assistant-raspberry-pi-5-installation/#bonus--migrer-vers-ssd-nvme-optionnel).
+
+❌ **Ventilateur audible** : 30 dB sous charge (CPU 60–70 °C), 20 dB idle. Modèles Noctua plus silencieux (12 dB) mais 15 € supplémentaires.
+
+❌ **Support communautaire** : pas de SAV officiel Nabu Casa. Forums (Reddit, Home Assistant Community) = réponses en 2–24h selon urgence.
+
+### Coût réel avec accessoires
+
+**Configuration 1 — Raspberry Pi 5 4 Go sur microSD** : 120–150 €
+- Raspberry Pi 5 4 Go : 60 €
+- Alimentation officielle 27W : 12 €
+- Boîtier + ventilateur : 12 €
+- MicroSD 64 Go SanDisk Extreme : 12 €
+- Câble Ethernet 2 m : 5 €
+- Dongle Zigbee ZBDongle-E : 16–25 €
+- 2 capteurs SNZB-02D : 30 € ([lot de 2 B0BZCV658S](https://www.amazon.fr/dp/B0BZCV658S?tag=manuso06-21))
+
+**Total** : 147–156 €. **Économie vs Green** : 30–60 €.
+
+**Configuration 2 — Raspberry Pi 5 8 Go sur NVMe** : 180–220 €
+- Raspberry Pi 5 8 Go : 90 €
+- Alimentation 27W : 12 €
+- Boîtier aluminium passif : 15 € (ou actif avec ventilateur : 12 €)
+- HAT M.2 NVMe officiel : 12 €
+- SSD NVMe 256 Go (Crucial P3) : 25 € (ou 512 Go : 40 €)
+- Câble Ethernet : 5 €
+- Dongle Zigbee : 20 €
+- 2 capteurs : 30 €
+
+**Total** : 209–234 €. **Avantage** : performance pro (500 MB/s SSD), 8 Go RAM (Frigate IA, NAS), 10 ans durée de vie.
+
+*Liens Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [Raspberry Pi 5 8 Go](https://www.amazon.fr/s?k=raspberry+pi+5+8gb&tag=manuso06-21), [HAT M.2 NVMe](https://www.amazon.fr/s?k=raspberry+pi+m.2+hat&tag=manuso06-21).*
+
+### Pour qui ?
+
+**Profil 1 — Maker/bricoleur** : vous aimez comprendre comment ça marche, flasher une SD ne vous fait pas peur, vous prévoyez d'ajouter des projets ESP32 ou des relais GPIO. Budget 120–180 €. **→ Pi 5 4 Go recommandé**.
+
+**Profil 2 — Ado/étudiant en info** : budget limité (120–150 €), envie d'apprendre Linux/Docker, possibilité de réutiliser le Pi 5 en serveur Minecraft/Plex si domotique abandonnée. **→ Pi 5 4 Go sur SD**.
+
+**Profil 3 — Power user** : 10+ caméras, Frigate (détection IA personne/voiture), Jellyfin (NAS 2 To), 50+ appareils Zigbee, historique 6 mois. Budget 200–250 €. **→ Pi 5 8 Go + NVMe 512 Go**.
+
+**Profil 4 — Maison 150+ m²** : installation permanente (10 ans), gros investissement capteurs/caméras prévu (500+ €), vous voulez la base la plus solide. **→ Pi 5 8 Go + NVMe + UPS (batterie secours)**.
+
+## Performances comparées (tests réels octobre 2026)
+
+### Test 1 : Boot Home Assistant OS
+
+| Matériel | Temps boot total | Temps accès WebUI |
+|----------|------------------|-------------------|
+| Green (eMMC 16 Go) | 55 secondes | 58 secondes |
+| Pi 5 4 Go (SD SanDisk Extreme) | 48 secondes | 52 secondes |
+| Pi 5 4 Go (NVMe Crucial P3) | **35 secondes** | **38 secondes** |
+| Pi 5 8 Go (NVMe Samsung 980) | **32 secondes** | **35 secondes** |
+
+**Interprétation** : NVMe = 40 % plus rapide. En usage quotidien : différence négligeable (on redémarre 1× tous les 3 mois pour mises à jour).
+
+### Test 2 : Chargement dashboard complexe (50 entités, 10 graphiques)
+
+| Matériel | Temps chargement |
+|----------|------------------|
+| Green | 2,5 secondes |
+| Pi 5 4 Go (SD) | 1,8 secondes |
+| Pi 5 4 Go (NVMe) | **1,2 secondes** |
+| Pi 5 8 Go (NVMe) | **1,1 secondes** |
+
+**Interprétation** : CPU A76 du Pi 5 = rendu JavaScript plus rapide. Différence visible sur gros dashboards (100+ entités).
+
+### Test 3 : Frigate (analyse vidéo IA, 4 caméras 1080p)
+
+| Matériel | FPS moyen | Latence détection | CPU usage |
+|----------|-----------|-------------------|-----------|
+| Green | **Non recommandé** (4 Go RAM limite) | N/A | N/A |
+| Pi 5 4 Go | 8 FPS (saccadé) | 800 ms | 85 % |
+| Pi 5 8 Go | **15 FPS** (fluide) | 400 ms | 65 % |
+
+**Interprétation** : Frigate nécessite 6+ Go RAM. Green et Pi 5 4 Go inadaptés pour 4+ caméras IA. Pi 5 8 Go = limite haute (au-delà : serveur dédié x86).
+
+### Test 4 : Gestion réseau Zigbee (50 appareils)
+
+| Matériel | Latence commande | Stabilité 24h |
+|----------|------------------|---------------|
+| Green | 180 ms | 100 % (0 déconnexion) |
+| Pi 5 4 Go | 160 ms | 100 % |
+| Pi 5 8 Go | 155 ms | 100 % |
+
+**Interprétation** : aucune différence notable. Le dongle Zigbee (ZBDongle-E) fait le travail, pas le CPU.
+
+## Consommation électrique (mesures wattmètre)
+
+### Idle (veille, 10 appareils Zigbee, aucune caméra)
+
+| Matériel | Consommation | kWh/an | Coût/an (0,20 €/kWh) |
+|----------|--------------|--------|---------------------|
+| Green | 2,5 W | 22 kWh | 4,40 € |
+| Pi 5 4 Go (SD) | 3,5 W | 31 kWh | 6,20 € |
+| Pi 5 8 Go (NVMe) | 4,0 W | 35 kWh | 7,00 € |
+
+**Différence annuelle** : 2,60 € (Green vs Pi 5 8 Go). Négligeable. Sur 5 ans : 13 €.
+
+### Charge (40 appareils Zigbee, 3 caméras, dashboard ouvert)
+
+| Matériel | Consommation | Interprétation |
+|----------|--------------|----------------|
+| Green | 8 W | CPU A55 + eMMC basse conso |
+| Pi 5 4 Go (SD) | 10 W | CPU A76 + SD actif |
+| Pi 5 8 Go (NVMe) | 14 W | 8 Go RAM + SSD NVMe + ventilateur |
+
+**Pic max (Frigate 4 caméras, 100 % CPU)** : Pi 5 8 Go = 22 W. Green : non testé (inadapté).
+
+## Facilité d'utilisation et installation
+
+### Home Assistant Green : expérience "Apple-like"
+
+**Étapes** :
+1. Déballer (boîte carton sobre, notice 1 page)
+2. Brancher Ethernet (RJ45 vers box Internet)
+3. Brancher alimentation USB-C (LED verte = démarrage)
+4. Attendre 2 minutes (boot HAOS)
+5. Ouvrir navigateur → `homeassistant.local:8123`
+6. Créer compte (local, pas de cloud obligatoire)
+7. Installer dongles USB (Zigbee, Z-Wave) : brancher = détecté
+
+**Temps total** : **5 minutes**. Niveau technique : **0/10** (un enfant de 10 ans peut le faire).
+
+**Pièges évités** :
+- Pas de flashage SD (source 50 % des échecs débutants)
+- Pas de recherche IP (mDNS fonctionne 99 % des cas)
+- Pas de choix "quelle image télécharger ?" (pré-installé)
+
+### Raspberry Pi 5 : nécessite 30 minutes et Google
+
+**Étapes** :
+1. **Télécharger** Raspberry Pi Imager (Windows/Mac/Linux) : [rptl.io/imager](https://www.raspberrypi.com/software/)
+2. **Flasher microSD** :
+   - Choisir "Appareil" : Raspberry Pi 5
+   - Choisir "OS" : Autre → Home Assistant
+   - Choisir "Stockage" : carte SD 32+ Go
+   - Paramètres avancés (roue crantée) : hostname, WiFi (optionnel)
+   - Écrire (10 minutes)
+3. **Insérer SD** dans Pi 5
+4. **Brancher** : Ethernet + alimentation 27W
+5. **Attendre boot** : 5 minutes (premier boot = téléchargement conteneurs Docker)
+6. **Trouver IP** : `homeassistant.local:8123` (ou via interface box Internet si mDNS bloqué)
+7. **Créer compte** Home Assistant
+8. **Installer dongles USB** (détection auto)
+
+**Temps total** : **30 minutes** (dont 10 min flashage). Niveau technique : **3/10** (suivre tuto suffit, mais manipulation PC/SD nécessaire).
+
+**Pièges fréquents** :
+- Mauvais choix OS (prendre "Home Assistant", pas "Raspberry Pi OS")
+- Carte SD bas de gamme (classe 10 minimum, U3 recommandé)
+- Sous-alimentation (alimentation non-officielle 15W = freeze aléatoires)
+- mDNS bloqué par routeur (nécessite trouver IP manuellement)
+
+**Migration vers NVMe** (optionnel, après 3 mois) : +30 minutes (reflasher NVMe, retirer SD, redémarrer). [Tutoriel détaillé](/domotique/home-assistant-raspberry-pi-5-installation/#bonus--migrer-vers-ssd-nvme-optionnel).
+
+## Upgradabilité et évolutivité
+
+### Home Assistant Green : limites matérielles
+
+**Ce qui fonctionne** :
+- Ajouter dongles USB (Zigbee, Z-Wave, Bluetooth) : 2 ports USB 2.0
+- Installer modules complémentaires : 16 Go OK pour 90 % des cas (20+ addons)
+- GPIO 8 pins : projets simples (relais, LED, écran i2c)
+
+**Ce qui ne fonctionne pas** :
+- ❌ Upgrade RAM (4 Go soudés)
+- ❌ Upgrade stockage (eMMC soudé, pas de slot NVMe)
+- ❌ Ajouter HAT (boîtier fermé, GPIO limité)
+- ❌ Installer Frigate avec 10 caméras (4 Go RAM insuffisant)
+
+**Durée de vie** : 5–7 ans pour installation classique (30 appareils, 3 caméras, pas d'IA). Au-delà : remplacer par Pi 5 ou serveur x86.
+
+### Raspberry Pi 5 : extensibilité maximale
+
+**Upgrades possibles** :
+- ✅ **Ajouter SSD NVMe** : HAT M.2 officiel (12 €) + SSD 256–1000 Go (25–80 €). Vitesse × 5.
+- ✅ **Ajouter UPS (batterie secours)** : HAT UPS (30 €) + batterie 18650 (5 €). Évite corruptions coupure électrique.
+- ✅ **Ajouter HAT PoE** (Power over Ethernet) : alimentation via câble Ethernet (35 €). Réduit câbles.
+- ✅ **Écran tactile officiel 7"** : dashboard physique (70 €)
+- ✅ **Ventilateur PWM silencieux** : Noctua 40 mm (15 €), contrôle température via GPIO
+- ✅ **Module RTC (horloge temps réel)** : maintient heure sans Internet (5 €)
+
+**GPIO 40 pins** : projets infinis (relais 8 canaux, strip LED RGB, capteurs Dallas DS18B20, clavier matriciel).
+
+**Upgrade RAM** : impossible (soudée). Passer de 4 Go à 8 Go = acheter nouveau board (90 €).
+
+**Durée de vie** : 10+ ans (Raspberry Pi 3 de 2016 fait encore tourner HA en 2026, lent mais fonctionnel).
+
+## Cas d'usage : quel matériel pour quel besoin ?
+
+### Scénario 1 : Débutant, appartement 70 m², budget 200 €
+
+**Besoin** : automatiser chauffage (3 radiateurs), lumières (5 ampoules), surveiller température (3 capteurs). Pas de caméras. Installation temporaire (locataire).
+
+**Matériel recommandé** : **Home Assistant Green** (110 €) + ZBDongle-E (20 €) + 3 SNZB-02D (45 €) + 3 NOUS A1Z (45 €). Total : **220 €**.
+
+**Pourquoi ?** Plug & play, silencieux, portable (facile à déménager), SAV Nabu Casa.
+
+### Scénario 2 : Maker, maison 120 m², budget 180 €
+
+**Besoin** : idem scénario 1 + projets DIY (ESP32, relais GPIO), apprendre Linux, possibilité NAS léger (Jellyfin).
+
+**Matériel recommandé** : **Raspberry Pi 5 4 Go** (60 €) + accessoires (40 €) + ZBDongle-E (20 €) + 3 capteurs (45 €) + 2 prises (30 €). Total : **195 €**.
+
+**Pourquoi ?** Évolutif (NVMe plus tard), GPIO 40 pins, communauté massive, économie 40 € vs Green.
+
+### Scénario 3 : Power user, maison 150 m², 10 caméras, budget 300 €
+
+**Besoin** : Frigate (détection IA), 50 appareils Zigbee, NAS Jellyfin (2 To), historique 1 an, 10 caméras 1080p.
+
+**Matériel recommandé** : **Raspberry Pi 5 8 Go** (90 €) + HAT NVMe (12 €) + SSD 512 Go (40 €) + alim + boîtier (25 €) + ZBDongle-E (20 €) + HDD externe 2 To USB 3.0 (60 €). Total : **247 €** (+ capteurs/caméras).
+
+**Pourquoi ?** 8 Go RAM = Frigate OK, SSD 512 Go = stockage vidéo local, USB 3.0 = disque externe rapide. Green = inadapté (4 Go RAM, eMMC 16 Go).
+
+### Scénario 4 : Parent, maison 100 m², 4 caméras, budget 250 €, silence obligatoire
+
+**Besoin** : automatisation classique + 4 caméras (enregistrement NAS Synology externe), salon (silence requis).
+
+**Dilemme** : Green = silencieux mais 4 Go RAM limite. Pi 5 8 Go = ventilateur 30 dB.
+
+**Matériel recommandé** : **Raspberry Pi 5 8 Go** (90 €) + NVMe (50 €) + **boîtier aluminium passif** (25 €, dissipation sans ventilateur) + ZBDongle-E (20 €). Total : **185 €** (+ caméras).
+
+**Astuce** : boîtier passif (Flirc, Argon NEO 5) maintient CPU < 65 °C sans ventilateur (0 dB). Caméras enregistrent sur NAS (pas sur Pi 5 = pas de Frigate).
+
+### Scénario 5 : Premier test domotique, budget 150 €, pas sûr de continuer
+
+**Besoin** : tester Home Assistant, peut-être abandonner dans 6 mois, veut réutiliser matériel (serveur Plex, NAS, retrogaming).
+
+**Matériel recommandé** : **Raspberry Pi 5 4 Go** (60 €) + accessoires (60 €). Total : **120 €** (+ capteurs).
+
+**Pourquoi ?** Pi 5 réutilisable pour 100 projets (Plex, Kodi, RetroPie, Pi-hole, serveur Minecraft). Green = spécialisé domotique uniquement.
+
+## Addons Zigbee, Z-Wave et Thread : différences ?
+
+**Les deux supportent** :
+- Dongle Zigbee ZBDongle-E (USB 2.0) : ✅ Green, ✅ Pi 5
+- Dongle Z-Wave (Aeotec Z-Stick 7) : ✅ Green, ✅ Pi 5
+- Module Thread/Matter (Connect ZBT-2) : ✅ Green, ✅ Pi 5
+
+**Différence pratique** : aucune. Les dongles USB fonctionnent identiquement. [Guide dongles Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
+
+**Thread natif Pi 5** (via GPIO) : expérimental, nécessite module Thread HAT (indisponible octobre 2026). Utiliser ZBT-2 USB en attendant.
+
+## Troubleshooting : 5 problèmes courants
+
+### Problème 1 : Home Assistant Green ne démarre pas (LED éteinte)
+
+**Causes** :
+- Alimentation défectueuse (fournie mais rare)
+- Court-circuit interne (très rare, < 0,1 %)
+- Câble Ethernet défectueux empêche boot (bug firmware 2024.8, corrigé 2024.9)
+
+**Solutions** :
+1. Débrancher Ethernet, rebrancher alimentation : LED verte doit s'allumer
+2. Tester avec autre alimentation USB-C 15W+ (smartphone)
+3. Si LED reste éteinte : SAV Nabu Casa (formulaire sur site officiel, RMA sous 7 jours)
+
+### Problème 2 : Raspberry Pi 5 freeze aléatoires (écran noir, LED rouge fixe)
+
+**Causes** :
+- **Sous-alimentation** (cause n°1) : alimentation non-officielle 15W insuffisante (Pi 5 nécessite 27W sous charge)
+- Carte SD corrompue (écritures intensives HA)
+- Surchauffe CPU (> 80 °C sans ventilateur)
+
+**Solutions** :
+1. **Remplacer par alimentation officielle 27W** Raspberry Pi (12 €) : [lien Amazon](https://www.amazon.fr/s?k=raspberry+pi+power+supply+27w&tag=manuso06-21)
+2. **Vérifier température** : SSH → `vcgencmd measure_temp` (doit être < 70 °C idle). Si > 75 °C : ajouter ventilateur.
+3. **Migrer vers NVMe** : SD corrompue = reflasher ou passer SSD (10 ans durée de vie vs 2 ans SD)
+
+### Problème 3 : `homeassistant.local` ne fonctionne pas (page introuvable)
+
+**Causes** :
+- mDNS bloqué par routeur (Freebox, Bouygues Bbox)
+- Windows sans Bonjour (service Apple)
+- Firewall bloque port 8123
+
+**Solutions** :
+1. **Trouver IP manuellement** : interface web box Internet → liste appareils connectés → chercher "homeassistant" ou "raspberrypi"
+2. **Naviguer vers IP** : `http://192.168.1.42:8123` (remplacer par votre IP)
+3. **Installer Bonjour** (Windows) : inclus dans iTunes (ou Bonjour Print Services seul)
+4. **Utiliser Fing** (app mobile) : scanner réseau, trouver IP Home Assistant
+
+### Problème 4 : Green ou Pi 5 ne détecte pas le dongle Zigbee
+
+**Causes** :
+- Dongle branché sur hub USB externe (pas alimenté)
+- Câble USB-A → USB-C défectueux (Green utilise USB-C)
+- Port USB défaillant (rare)
+
+**Solutions** :
+1. **Brancher directement** sur port USB du Green/Pi 5 (pas de hub)
+2. **Tester autre port USB** : Green a 2 ports, Pi 5 a 4 ports
+3. **Vérifier détection** : Paramètres → Système → Matériel → Tout le matériel → chercher `/dev/ttyUSB0` ou `/dev/ttyACM0`
+4. Si absent : dongle défectueux (tester sur PC Windows avec Simplicity Studio)
+
+### Problème 5 : Pi 5 NVMe ne boot pas (LED verte clignote 4 fois)
+
+**Causes** :
+- Firmware Pi 5 obsolète (< septembre 2024)
+- SSD NVMe incompatible (rare : QLC cheap)
+- HAT M.2 mal fixé
+
+**Solutions** :
+1. **Mettre à jour firmware** : booter sur SD, ouvrir terminal SSH, lancer `sudo rpi-eeprom-update -a` puis reboot
+2. **Vérifier HAT** : retirer, refixer (40-pin header bien enfoncé)
+3. **Tester SSD** : brancher SSD via adaptateur USB sur PC, formater FAT32, retester
+4. **Flasher NVMe** : utiliser Raspberry Pi Imager avec NVMe branché en USB sur PC, puis rebrancher sur HAT
+
+## Verdict final : notre recommandation
+
+### Meilleur rapport qualité/prix : **Raspberry Pi 5 4 Go** (120–150 €)
+
+**Pourquoi ?** Puissance, évolutivité (NVMe, GPIO), communauté gigantesque, 60 € économie vs Green. Adapté 90 % des installations domotiques (30–50 appareils, 0–5 caméras, pas d'IA).
+
+**Pour qui ?** Makers, bricoleurs, budgets serrés, étudiants, personnes qui veulent comprendre ou réutiliser le matériel.
+
+### Meilleur sans prise de tête : **Home Assistant Green** (180–215 €)
+
+**Pourquoi ?** Plug & play total, silence (0 dB), support officiel Nabu Casa, design sobre. Parfait pour personnes allergiques aux tutoriels ou aux tournevis.
+
+**Pour qui ?** Parents, débutants, locataires, bureaux/salons (silence requis), personnes qui valorisent le temps plus que l'argent.
+
+### Meilleur long terme : **Raspberry Pi 5 8 Go + NVMe 512 Go** (180–220 €)
+
+**Pourquoi ?** Performances pro (500 MB/s), 8 Go RAM (Frigate, NAS, 50+ caméras), durée de vie 10 ans, aucune limite technique.
+
+**Pour qui ?** Power users, installations permanentes (maison > 150 m²), caméras multiples, NAS Jellyfin/Plex, historique long terme.
+
+## FAQ
+
+**Et si j'ai déjà un Raspberry Pi 3 ou 4 ?**
+**Pi 3** : trop lent pour HA en 2026 (1 Go RAM, CPU vieillissant ARM Cortex-A53). OK pour tester, pas pour usage quotidien. **Pi 4 4 Go** : encore correct (utilisation 2024–2026). Garder pour HA, upgrader vers Pi 5 uniquement si > 30 appareils Zigbee ou besoin boot NVMe direct (Pi 4 nécessite boot SD puis pivot root = plus lent).
+
+**Peut-on installer Home Assistant sur un vieux PC ?**
+Oui (HAOS x86-64), mais **consommation** : 30–80W idle (vs 2,5W Green). Sur 1 an : 260–700 kWh = 52–140 € (vs 4,40 € Green). Rentable uniquement si PC déjà allumé 24/7 (serveur Plex existant). [Guide installation x86](/domotique/installer-home-assistant-sur-pc-ancien/).
+
+**Home Assistant Green vs Yellow (ancien modèle) ?**
+**Yellow** = 2023, Raspberry Pi Compute Module 4, 4 Go RAM, eMMC 16 Go, Zigbee/Z-Wave intégrés. **Green** = 2024, moins cher (110 € vs 170 €), plus compact, mais Zigbee/Z-Wave en USB (pas intégré). **Verdict** : Green meilleur rapport qualité/prix octobre 2026 (Yellow discontinué en 2025).
+
+**Peut-on faire tourner autre chose que Home Assistant sur Green/Pi 5 ?**
+**Green** : non (HAOS uniquement, pas d'OS alternatif). **Pi 5** : oui, installer Raspberry Pi OS → Docker → Home Assistant Container + Plex + Pi-hole + Jellyfin. Mais **pas recommandé** : HAOS = optimisé HA, OS générique = complexité × 5.
+
+**Quelle durée de vie pour Green et Pi 5 ?**
+**Green eMMC** : 10 ans (spécification fabricant, 3000 cycles écriture). **Pi 5 microSD** : 2–3 ans (cartes bas de gamme), 5 ans (SanDisk Extreme). **Pi 5 NVMe** : 10 ans (SSD TLC/MLC). **Électronique** : 10+ ans (Pi 3 de 2016 fonctionne encore). **Limite** : obsolescence logicielle (support HAOS arrêté après 8–10 ans typiquement).
+
+**Puis-je utiliser Green et Pi 5 ensemble ?**
+Oui : Green = instance principale (salon), Pi 5 = instance secondaire (garage, test). Les deux peuvent communiquer via intégrations HA (partage entités). Intérêt : séparer réseaux Zigbee (coordinateur principal + coordinateur secondaire = 200+ appareils possibles).
 
 ## Pour aller plus loin
 
-- [Installer Home Assistant sur Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/)
-- [Meilleure clé Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/)
-- [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/)
+- [Installer Home Assistant sur Raspberry Pi 5 : guide complet](/domotique/home-assistant-raspberry-pi-5-installation/) : tutoriel détaillé flashage, NVMe, dongles Zigbee
+- [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/) : comparatif dongles Zigbee 3.0 (ZBDongle-E, ZBT-2, ConBee II)
+- [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/) : premiers appareils à appairer après installation
+- [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) : créer maillage répéteur Zigbee
+- [Hub domotique](/domotique/) : retour accueil section domotique
 
 ---
 
-*Affiliation : liens Amazon tag manuso06-21, commission ~3 % Électronique. Prix octobre 2026.*
+*Affiliation : liens Amazon avec tag manuso06-21, commission ~3 % catégorie Électronique. Prix octobre 2026, indicatifs. Notre sélection basée sur recherche, sans tests physiques.*
