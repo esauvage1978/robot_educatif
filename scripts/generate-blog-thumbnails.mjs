@@ -1,9 +1,9 @@
 /**
  * Génère des vignettes 1200×630 visuellement distinctes par article
+ * - Détection catégorie robuste (slug + frontmatter)
  * - Fonds variés par catégorie (palette A)
- * - Photos produits détourées/cadrées proprement
- * - Motifs SVG déterministes pour articles sans produit
- * - Titres lisibles avec retours à la ligne propres
+ * - Photos produits OU grandes icônes thématiques visibles
+ * - Retours à la ligne équilibrés sans orphelins
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -19,103 +19,127 @@ const outputDir = path.join(__dirname, '../public/images/blog-thumbnails');
 const productsDir = path.join(__dirname, '../public/images/products');
 const fontPath = path.join(__dirname, './fonts/Roboto-Bold.ttf');
 
-// Palette A : fonds et accents par catégorie
+// Palette A : fonds et accents par catégorie RÉELLE
 const CATEGORY_THEMES = {
 	'Python': {
 		bg: 'linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%)',
 		accent: '#14B8A6',
-		text: '#F8FAFC'
+		text: '#F8FAFC',
+		icon: 'code'
 	},
 	'C / Arduino': {
 		bg: 'linear-gradient(135deg, #C2410C 0%, #F97316 100%)',
 		accent: '#FFEDD5',
-		text: '#FFFFFF'
-	},
-	'Arduino': {
-		bg: 'linear-gradient(135deg, #C2410C 0%, #F97316 100%)',
-		accent: '#FFEDD5',
-		text: '#FFFFFF'
+		text: '#FFFFFF',
+		icon: 'circuit'
 	},
 	'mBot': {
 		bg: 'linear-gradient(135deg, #CCFBF1 0%, #14B8A6 100%)',
 		accent: '#0F766E',
-		text: '#0B1F2A'
+		text: '#0B1F2A',
+		icon: 'robot'
 	},
 	'Scratch': {
 		bg: 'linear-gradient(135deg, #CCFBF1 0%, #14B8A6 100%)',
 		accent: '#0F766E',
-		text: '#0B1F2A'
+		text: '#0B1F2A',
+		icon: 'blocks'
 	},
 	'Raspberry Pi': {
 		bg: 'linear-gradient(135deg, #FDF2F8 0%, #F472B6 100%)',
 		accent: '#C51A4A',
-		text: '#0B1F2A'
+		text: '#0B1F2A',
+		icon: 'circuit'
 	},
 	'Guide': {
 		bg: '#0F766E',
 		accent: '#14B8A6',
-		text: '#F8FAFC'
-	},
-	'Comparatif': {
-		bg: '#0F766E',
-		accent: '#14B8A6',
-		text: '#F8FAFC'
+		text: '#F8FAFC',
+		icon: 'robot'
 	},
 	'Domotique': {
 		bg: '#F8FAFC',
 		accent: '#0F766E',
-		text: '#0B1F2A'
+		text: '#0B1F2A',
+		icon: 'home'
 	},
 	'default': {
 		bg: '#0F766E',
 		accent: '#14B8A6',
-		text: '#F8FAFC'
+		text: '#F8FAFC',
+		icon: 'robot'
 	}
 };
 
+// Détecte la catégorie réelle à partir du slug ET du frontmatter
+function detectRealCategory(slug, frontmatterCategory) {
+	// Priorité au slug (plus fiable que le frontmatter)
+	if (slug.startsWith('c-arduino-') || slug.includes('arduino')) {
+		return 'C / Arduino';
+	}
+	if (slug.startsWith('python-')) {
+		return 'Python';
+	}
+	if (slug.includes('scratch') || slug.includes('mblock')) {
+		return 'Scratch';
+	}
+	if (slug.includes('mbot') || slug.includes('cyberpi')) {
+		return 'mBot';
+	}
+	if (slug.includes('domotique') || slug.includes('home-assistant') || 
+	    slug.includes('zigbee') || slug.includes('esp32')) {
+		return 'Domotique';
+	}
+	if (slug.includes('raspberry')) {
+		return 'Raspberry Pi';
+	}
+	
+	// Fallback sur le frontmatter
+	return frontmatterCategory || 'Guide';
+}
+
 // Détecte le premier produit cité dans l'article
-async function detectProduct(filePath) {
+async function detectProduct(filePath, slug) {
 	const content = await fs.readFile(filePath, 'utf-8');
 	
-	// 1. Chercher ProductBox avec preset
+	// 1. ProductBox avec preset
 	const productBoxMatch = content.match(/<ProductBox[^>]*preset=["']([^"']+)["']/i);
 	if (productBoxMatch) {
 		return productBoxMatch[1];
 	}
 	
-	// 2. Chercher ASIN Amazon
+	// 2. ASIN Amazon
 	const asinMatch = content.match(/amazon\.fr[^"'\s]*\/dp\/([A-Z0-9]{10})/);
 	if (asinMatch) {
-		// Mapper ASIN vers slug produit (charge products.json)
 		const productsPath = path.join(__dirname, '../src/data/products.json');
 		const productsData = JSON.parse(await fs.readFile(productsPath, 'utf-8'));
-		for (const [slug, product] of Object.entries(productsData)) {
+		for (const [productSlug, product] of Object.entries(productsData)) {
 			if (product.asin === asinMatch[1]) {
-				return slug;
+				return productSlug;
 			}
 		}
 	}
 	
-	// 3. Chercher mentions dans le frontmatter/titre
-	const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-	if (frontmatterMatch) {
-		const fm = frontmatterMatch[1];
-		const titleMatch = fm.match(/title:\s*["'](.+?)["']/);
-		if (titleMatch) {
-			const title = titleMatch[1].toLowerCase();
-			if (title.includes('mbot2')) return 'mbot2';
-			if (title.includes('mbot') && !title.includes('mblock')) return 'mbot';
-			if (title.includes('cyberpi')) return 'cyberpi';
-			if (title.includes('codey') || title.includes('rocky')) return 'codey-rocky';
-			if (title.includes('ranger')) return 'mbot-ranger';
-			if (title.includes('elegoo') && title.includes('penguin')) return 'elegoo-penguin';
-			if (title.includes('elegoo')) return 'elegoo-robot-car';
-			if (title.includes('raspberry pi 5')) return 'raspberry-pi-5-8gb';
-			if (title.includes('raspberry pi 4')) return 'raspberry-pi-4-4gb';
-			if (title.includes('raspberry')) return 'raspberry-pi-5-8gb';
-			if (title.includes('lego') || title.includes('spike')) return 'lego-spike-essential';
-			if (title.includes('arduino')) return 'arduino-starter-kit';
-		}
+	// 3. Détection spécifique par slug (éviter le mBot générique)
+	if (slug.includes('raspberry-pi-5')) return 'raspberry-pi-5-8gb';
+	if (slug.includes('raspberry-pi-4')) return 'raspberry-pi-4-4gb';
+	if (slug.includes('raspberry-pi-3')) return null; // Pas de photo récente
+	if (slug.includes('mbot2')) return 'mbot2';
+	if (slug.includes('cyberpi')) return 'cyberpi';
+	if (slug.includes('codey-rocky')) return 'codey-rocky';
+	if (slug.includes('elegoo') && slug.includes('penguin')) return 'elegoo-penguin';
+	if (slug.includes('elegoo')) return 'elegoo-robot-car';
+	if (slug.includes('lego') || slug.includes('spike')) return 'lego-spike-essential';
+	if (slug.includes('arduino')) return 'arduino-starter-kit';
+	
+	// 4. Mentions dans titre (en dernier recours)
+	const titleMatch = content.match(/title:\s*["'](.+?)["']/);
+	if (titleMatch) {
+		const title = titleMatch[1].toLowerCase();
+		if (title.includes('mbot2')) return 'mbot2';
+		if (title.includes('cyberpi')) return 'cyberpi';
+		if (title.includes('codey') || title.includes('rocky')) return 'codey-rocky';
+		if (title.includes('elegoo')) return 'elegoo-robot-car';
 	}
 	
 	return null;
@@ -142,32 +166,58 @@ async function extractFrontmatter(filePath) {
 	
 	return {
 		title: titleMatch ? titleMatch[1] : 'Article',
-		category
+		frontmatterCategory: category
 	};
 }
 
-// Retour à la ligne intelligent (évite "la / classe")
-function wrapText(text, maxCharsPerLine = 42) {
+// Retour à la ligne équilibré sans orphelins
+function wrapText(text, maxWidth = 38) {
 	const words = text.split(' ');
+	if (words.length <= 3) return [text]; // Trop court pour couper
+	
 	const lines = [];
 	let currentLine = '';
 	
-	for (const word of words) {
-		// Éviter les mots isolés courts en fin de ligne
+	for (let i = 0; i < words.length; i++) {
+		const word = words[i];
 		const testLine = currentLine ? `${currentLine} ${word}` : word;
-		if (testLine.length <= maxCharsPerLine) {
-			currentLine = testLine;
-		} else {
-			// Si le mot actuel est court (< 4 lettres) et qu'on peut le garder avec le précédent
-			if (word.length <= 3 && currentLine.length > 0 && currentLine.length + word.length + 1 <= maxCharsPerLine + 5) {
-				currentLine = testLine;
-			} else {
-				if (currentLine) lines.push(currentLine);
+		
+		// Si on dépasse la largeur max
+		if (testLine.length > maxWidth) {
+			// Vérifier si le mot suivant est court (orphelin potentiel)
+			const nextWord = words[i + 1];
+			const isLastWord = i === words.length - 1;
+			
+			// Si le mot suivant est court (< 4 lettres), le garder avec le mot actuel
+			if (nextWord && nextWord.length <= 3 && currentLine.length + word.length + nextWord.length + 2 <= maxWidth + 8) {
+				currentLine = currentLine ? `${currentLine} ${word} ${nextWord}` : `${word} ${nextWord}`;
+				i++; // Sauter le mot suivant
+			} else if (currentLine) {
+				lines.push(currentLine);
 				currentLine = word;
+			} else {
+				lines.push(word);
 			}
+		} else {
+			currentLine = testLine;
 		}
 	}
-	if (currentLine) lines.push(currentLine);
+	
+	if (currentLine) {
+		// Si la dernière ligne est trop courte, essayer de rééquilibrer
+		if (lines.length > 0 && currentLine.split(' ').length === 1 && currentLine.length <= 6) {
+			// Remonter quelques mots de la ligne précédente
+			const prevLine = lines[lines.length - 1];
+			const prevWords = prevLine.split(' ');
+			if (prevWords.length >= 3) {
+				const lastWord = prevWords.pop();
+				lines[lines.length - 1] = prevWords.join(' ');
+				currentLine = `${lastWord} ${currentLine}`;
+			}
+		}
+		lines.push(currentLine);
+	}
+	
 	return lines.slice(0, 3);
 }
 
@@ -178,48 +228,139 @@ function calculateFontSize(titleLength) {
 	return 44;
 }
 
-// Génère un motif SVG déterministe basé sur le slug
-function generatePatternSVG(slug, accentColor) {
-	const hash = slug.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-	const pattern = hash % 5;
-	
-	const patterns = {
-		0: `<circle cx="950" cy="450" r="180" fill="${accentColor}" opacity="0.15"/>
-			<circle cx="1050" cy="250" r="120" fill="${accentColor}" opacity="0.1"/>`,
-		1: `<rect x="900" y="200" width="250" height="250" rx="30" fill="${accentColor}" opacity="0.12"/>`,
-		2: `<path d="M 950,200 L 1100,400 L 900,500 Z" fill="${accentColor}" opacity="0.12"/>`,
-		3: `<circle cx="1000" cy="350" r="200" fill="${accentColor}" opacity="0.1"/>
-			<rect x="950" y="300" width="100" height="100" rx="10" fill="${accentColor}" opacity="0.15"/>`,
-		4: `<ellipse cx="980" cy="350" rx="200" ry="140" fill="${accentColor}" opacity="0.12"/>`
+// Génère une grande icône SVG thématique (260px)
+function generateThematicIcon(iconType, accentColor) {
+	const icons = {
+		code: `
+			<g transform="translate(50, 50)">
+				<rect x="20" y="20" width="200" height="160" rx="12" fill="none" stroke="${accentColor}" stroke-width="8" opacity="0.3"/>
+				<path d="M 60 70 L 90 100 L 60 130" fill="none" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+				<path d="M 180 70 L 150 100 L 180 130" fill="none" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+				<line x1="110" y1="60" x2="130" y2="140" stroke="${accentColor}" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+			</g>
+		`,
+		circuit: `
+			<g transform="translate(50, 50)">
+				<circle cx="120" cy="80" r="15" fill="${accentColor}" opacity="0.4"/>
+				<circle cx="180" cy="80" r="15" fill="${accentColor}" opacity="0.4"/>
+				<circle cx="120" cy="160" r="15" fill="${accentColor}" opacity="0.4"/>
+				<circle cx="180" cy="160" r="15" fill="${accentColor}" opacity="0.4"/>
+				<line x1="135" y1="80" x2="165" y2="80" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
+				<line x1="120" y1="95" x2="120" y2="145" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
+				<line x1="180" y1="95" x2="180" y2="145" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
+				<line x1="135" y1="160" x2="165" y2="160" stroke="${accentColor}" stroke-width="6" opacity="0.4"/>
+				<rect x="80" y="110" width="30" height="20" rx="4" fill="${accentColor}" opacity="0.4"/>
+				<rect x="190" y="110" width="30" height="20" rx="4" fill="${accentColor}" opacity="0.4"/>
+			</g>
+		`,
+		robot: `
+			<g transform="translate(70, 50)">
+				<rect x="50" y="60" width="120" height="100" rx="15" fill="${accentColor}" opacity="0.35"/>
+				<circle cx="90" cy="100" r="12" fill="white" opacity="0.6"/>
+				<circle cx="130" cy="100" r="12" fill="white" opacity="0.6"/>
+				<rect x="80" y="130" width="60" height="8" rx="4" fill="white" opacity="0.6"/>
+				<line x1="110" y1="30" x2="110" y2="60" stroke="${accentColor}" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+				<circle cx="110" cy="25" r="10" fill="${accentColor}" opacity="0.35"/>
+				<rect x="30" y="80" width="20" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
+				<rect x="170" y="80" width="20" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
+			</g>
+		`,
+		blocks: `
+			<g transform="translate(60, 60)">
+				<rect x="40" y="30" width="80" height="50" rx="8" fill="${accentColor}" opacity="0.4"/>
+				<rect x="60" y="90" width="100" height="50" rx="8" fill="${accentColor}" opacity="0.35"/>
+				<rect x="50" y="150" width="90" height="40" rx="8" fill="${accentColor}" opacity="0.3"/>
+				<circle cx="30" cy="55" r="8" fill="${accentColor}" opacity="0.5"/>
+				<circle cx="50" cy="115" r="8" fill="${accentColor}" opacity="0.5"/>
+			</g>
+		`,
+		home: `
+			<g transform="translate(60, 50)">
+				<path d="M 120 40 L 200 100 L 200 180 L 40 180 L 40 100 Z" fill="${accentColor}" opacity="0.3"/>
+				<rect x="90" y="120" width="60" height="60" fill="white" opacity="0.5"/>
+				<rect x="160" y="100" width="30" height="30" fill="white" opacity="0.5"/>
+				<path d="M 20 100 L 120 30 L 220 100" fill="none" stroke="${accentColor}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+			</g>
+		`
 	};
 	
-	return patterns[pattern];
+	return icons[iconType] || icons.robot;
 }
 
-async function generateThumbnail(slug, title, category, productSlug) {
+async function generateThumbnail(slug, title, realCategory, productSlug) {
 	const fontBuffer = await fs.readFile(fontPath);
-	const theme = CATEGORY_THEMES[category] || CATEGORY_THEMES.default;
+	const theme = CATEGORY_THEMES[realCategory] || CATEGORY_THEMES.default;
 	
-	const titleLines = wrapText(title, 42);
+	const titleLines = wrapText(title, 38);
 	const fontSize = calculateFontSize(title.length);
 	
-	// Charger photo produit détourée
-	let productImageDataUrl = null;
+	// Charger photo produit OU générer icône thématique
+	let rightElement = null;
+	
 	if (productSlug) {
 		const productImagePath = path.join(productsDir, `${productSlug}.webp`);
 		try {
-			// Redimensionner et arrondir les coins
 			const productBuffer = await sharp(productImagePath)
 				.resize(280, 280, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
 				.png()
 				.toBuffer();
-			productImageDataUrl = `data:image/png;base64,${productBuffer.toString('base64')}`;
+			const productImageDataUrl = `data:image/png;base64,${productBuffer.toString('base64')}`;
+			
+			rightElement = {
+				type: 'div',
+				props: {
+					style: {
+						position: 'absolute',
+						top: '175px',
+						right: '60px',
+						width: '300px',
+						height: '300px',
+						borderRadius: '24px',
+						backgroundColor: 'rgba(255,255,255,0.95)',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						boxShadow: '0 8px 32px rgba(0,0,0,0.15)'
+					},
+					children: {
+						type: 'img',
+						props: {
+							src: productImageDataUrl,
+							style: {
+								width: '280px',
+								height: '280px',
+								objectFit: 'contain'
+							}
+						}
+					}
+				}
+			};
 		} catch (err) {
-			// Photo non disponible
+			// Photo non disponible, utiliser icône
 		}
 	}
 	
-	// Badge catégorie (en haut à gauche)
+	// Si pas de photo produit, créer une grande icône thématique
+	if (!rightElement) {
+		const iconSVG = generateThematicIcon(theme.icon, theme.accent);
+		rightElement = {
+			type: 'div',
+			props: {
+				style: {
+					position: 'absolute',
+					top: '165px',
+					right: '50px',
+					width: '280px',
+					height: '280px',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center'
+				},
+				children: `<svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">${iconSVG}</svg>`
+			}
+		};
+	}
+	
 	const badge = {
 		type: 'div',
 		props: {
@@ -235,19 +376,18 @@ async function generateThumbnail(slug, title, category, productSlug) {
 				fontWeight: 800,
 				opacity: 0.95
 			},
-			children: category
+			children: realCategory
 		}
 	};
 	
-	// Titre (centré-gauche)
 	const titleBlock = {
 		type: 'div',
 		props: {
 			style: {
 				position: 'absolute',
-				top: productImageDataUrl ? '180px' : '200px',
+				top: '180px',
 				left: '50px',
-				width: productImageDataUrl ? '680px' : '1000px',
+				width: '680px',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '12px'
@@ -268,41 +408,6 @@ async function generateThumbnail(slug, title, category, productSlug) {
 		}
 	};
 	
-	// Photo produit (droite, cadre arrondi)
-	const productImage = productImageDataUrl ? {
-		type: 'div',
-		props: {
-			style: {
-				position: 'absolute',
-				top: '175px',
-				right: '60px',
-				width: '300px',
-				height: '300px',
-				borderRadius: '24px',
-				backgroundColor: 'rgba(255,255,255,0.95)',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				boxShadow: '0 8px 32px rgba(0,0,0,0.15)'
-			},
-			children: {
-				type: 'img',
-				props: {
-					src: productImageDataUrl,
-					style: {
-						width: '280px',
-						height: '280px',
-						objectFit: 'contain'
-					}
-				}
-			}
-		}
-	} : null;
-	
-	// Motif SVG pour articles sans produit
-	const patternSVG = !productImageDataUrl ? generatePatternSVG(slug, theme.accent) : '';
-	
-	// Footer
 	const footer = {
 		type: 'div',
 		props: {
@@ -358,7 +463,7 @@ async function generateThumbnail(slug, title, category, productSlug) {
 					position: 'relative',
 					...bgStyle
 				},
-				children: [badge, titleBlock, productImage, footer].filter(Boolean)
+				children: [badge, titleBlock, rightElement, footer].filter(Boolean)
 			}
 		},
 		{
@@ -379,7 +484,7 @@ async function generateThumbnail(slug, title, category, productSlug) {
 	return resvg.render().asPng();
 }
 
-async function processCollection(contentDir, collectionName, generated, skipped, withProduct, withoutProduct) {
+async function processCollection(contentDir, collectionName, generated, skipped, categoryStats) {
 	const allFiles = await fs.readdir(contentDir);
 	const files = allFiles.filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
 	
@@ -403,19 +508,18 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 			continue;
 		}
 		
-		const productSlug = await detectProduct(filePath);
-		if (productSlug) {
-			withProduct.count++;
-		} else {
-			withoutProduct.count++;
-		}
+		const realCategory = detectRealCategory(slug, frontmatter.frontmatterCategory);
+		const productSlug = await detectProduct(filePath, slug);
+		
+		// Stats par catégorie
+		categoryStats[realCategory] = (categoryStats[realCategory] || 0) + 1;
 		
 		try {
-			const pngBuffer = await generateThumbnail(slug, frontmatter.title, frontmatter.category, productSlug);
+			const pngBuffer = await generateThumbnail(slug, frontmatter.title, realCategory, productSlug);
 			await fs.writeFile(outputPath, pngBuffer);
 			generated.count++;
 			const icon = productSlug ? '🖼️ ' : '🎨';
-			console.log(`✅ ${icon}[${collectionName}] ${slug}`);
+			console.log(`✅ ${icon}[${collectionName}] ${slug} → ${realCategory}`);
 		} catch (error) {
 			console.error(`❌ [${collectionName}] ${slug}: ${error.message}`);
 		}
@@ -425,24 +529,25 @@ async function processCollection(contentDir, collectionName, generated, skipped,
 }
 
 async function main() {
-	console.log('🎨 Generating visually distinct thumbnails...\n');
+	console.log('🎨 Generating visually distinct thumbnails (v2 - catégories corrigées)...\n');
 	
 	await fs.mkdir(outputDir, { recursive: true });
 	
 	const stats = { count: 0 };
 	const skipped = { count: 0 };
-	const withProduct = { count: 0 };
-	const withoutProduct = { count: 0 };
+	const categoryStats = {};
 	
-	const blogCount = await processCollection(blogContentDir, 'blog', stats, skipped, withProduct, withoutProduct);
-	const domotiqueCount = await processCollection(domotiqueContentDir, 'domotique', stats, skipped, withProduct, withoutProduct);
+	const blogCount = await processCollection(blogContentDir, 'blog', stats, skipped, categoryStats);
+	const domotiqueCount = await processCollection(domotiqueContentDir, 'domotique', stats, skipped, categoryStats);
 	
 	console.log(`\n📊 Summary:`);
 	console.log(`   ✅ Generated: ${stats.count}`);
-	console.log(`   🖼️  With product photo: ${withProduct.count}`);
-	console.log(`   🎨 With SVG pattern: ${withoutProduct.count}`);
 	console.log(`   ⏭️  Skipped (already exists): ${skipped.count}`);
 	console.log(`   📁 Total articles: ${blogCount + domotiqueCount}`);
+	console.log(`\n🎨 Par catégorie:`);
+	for (const [cat, count] of Object.entries(categoryStats).sort((a, b) => b[1] - a[1])) {
+		console.log(`   ${cat}: ${count}`);
+	}
 	console.log(`\n✨ Thumbnails saved to: ${path.relative(process.cwd(), outputDir)}`);
 }
 
