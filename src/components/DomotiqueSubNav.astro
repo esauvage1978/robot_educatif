@@ -35,13 +35,17 @@ const categories = [
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: thin;
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
 	}
 	
 	.subnav-scroll {
 		display: flex;
 		gap: 0;
-		min-width: fit-content;
+		min-width: min-content;
 		padding: 0 1rem;
+		box-sizing: border-box;
 	}
 	
 	.subnav-item {
@@ -54,6 +58,7 @@ const categories = [
 		border-bottom: 2px solid transparent;
 		transition: all 0.2s;
 		white-space: nowrap;
+		box-sizing: border-box;
 	}
 	
 	.subnav-item:hover {
@@ -67,15 +72,13 @@ const categories = [
 		font-weight: 600;
 	}
 	
-	@media (max-width: 640px) {
-		.domotique-subnav {
-			margin-left: -1rem;
-			margin-right: -1rem;
-			width: calc(100% + 2rem);
+	@media (max-width: 768px) {
+		.subnav-scroll {
+			padding: 0 0.5rem;
 		}
 		
 		.subnav-item {
-			padding: 0.75rem 1rem;
+			padding: 0.75rem 0.875rem;
 			font-size: 0.875rem;
 		}
 	}

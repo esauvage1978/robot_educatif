@@ -3,21 +3,31 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import DomotiqueSubNav from '../../components/DomotiqueSubNav.astro';
 import { withBase } from '../../lib/siteUrl';
-import { getDomotiqueThumbnail } from '../../lib/domotiqueThumbnail';
+import { getDomotiqueThumbnail, getDomotiqueHubThumbnail } from '../../lib/domotiqueThumbnail';
 
 const title = 'Domotique : la maison connectée version famille et makers';
 const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien acheter. Guides pratiques pour débuter en domotique.';
+const ogImage = (await getDomotiqueHubThumbnail()) || '/images/blog-placeholder-1.jpg';
 
 const domotiquePosts = (await getCollection('domotique')).sort((a, b) => 
 	(a.data.priority ?? 99) - (b.data.priority ?? 99)
+);
+
+// Await all thumbnails in frontmatter
+const postsWithThumbnails = await Promise.all(
+	domotiquePosts.slice(0, 6).map(async (post) => ({
+		...post,
+		thumbnail: await getDomotiqueThumbnail(post.slug)
+	}))
 );
 ---
 
 <!doctype html>
 <html lang="fr">
 <head>
-	<BaseHead {title} {description} />
+	<BaseHead {title} {description} image={ogImage} />
 	<style>
 		.hero-domotique {
 			background: linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%);
@@ -84,6 +94,11 @@ const domotiquePosts = (await getCollection('domotique')).sort((a, b) =>
 		.card-content {
 			padding: 1.5rem;
 		}
+		@media (min-width: 1024px) {
+			.card-content {
+				padding: 1.5rem;
+			}
+		}
 		.card h3 {
 			color: var(--accent);
 			margin-bottom: 0.5rem;
@@ -102,6 +117,7 @@ const domotiquePosts = (await getCollection('domotique')).sort((a, b) =>
 </head>
 <body>
 	<Header />
+	<DomotiqueSubNav />
 	<main>
 		<section class="hero-domotique">
 			<h1>🏠 La maison connectée, version famille et makers</h1>
@@ -148,18 +164,15 @@ const domotiquePosts = (await getCollection('domotique')).sort((a, b) =>
 		<section class="section">
 			<h2>Derniers guides</h2>
 			<div class="cards-grid">
-				{domotiquePosts.slice(0, 6).map(post => {
-					const thumbnail = getDomotiqueThumbnail(post.slug);
-					return (
-						<div class="card">
-							{thumbnail && <img src={thumbnail} alt={post.data.title} class="card-image" />}
-							<div class="card-content">
-								<h3><a href={withBase(`/domotique/${post.slug}/`)}>{post.data.title}</a></h3>
-								<p>{post.data.description}</p>
-							</div>
+				{postsWithThumbnails.map(post => (
+					<div class="card">
+						{post.thumbnail && <img src={post.thumbnail.src} alt={post.data.title} class="card-image" />}
+						<div class="card-content">
+							<h3><a href={withBase(`/domotique/${post.slug}/`)}>{post.data.title}</a></h3>
+							<p>{post.data.description}</p>
 						</div>
-					);
-				})}
+					</div>
+				))}
 			</div>
 		</section>
 

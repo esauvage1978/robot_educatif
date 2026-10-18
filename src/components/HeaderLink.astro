@@ -13,7 +13,7 @@ const isActive =
 	hrefForActive === pathname || hrefForActive === '/' + (subpath?.[0] || '');
 ---
 
-<a href={resolvedHref} class:list={[className, { active: isActive }]} {...props}>
+<a href={resolvedHref} class:list={[className, { active: isActive }]} aria-current={isActive ? 'page' : undefined} {...props}>
 	<slot />
 </a>
 <style>
