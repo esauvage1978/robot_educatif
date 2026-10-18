@@ -8,6 +8,7 @@ import DomotiqueSubNav from '../components/DomotiqueSubNav.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import { withBase } from '../lib/siteUrl';
+import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
@@ -24,15 +25,8 @@ const {
 } = Astro.props;
 
 // Charger le thumbnail généré pour cet article
-let thumbnailImage = FallbackImage;
-try {
-	const thumbnailModule = await import(`../../public/images/blog-thumbnails/${articleSlug}.png`);
-	if (thumbnailModule?.default) {
-		thumbnailImage = thumbnailModule.default;
-	}
-} catch {
-	// Utiliser fallback
-}
+const thumbnailImageData = await getDomotiqueThumbnail(articleSlug);
+const thumbnailImage = thumbnailImageData || FallbackImage;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
@@ -112,6 +106,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 				padding: 0 1.5rem 3rem;
 				box-sizing: border-box;
 				min-width: 0;
+				--prose-width: 100%;
 			}
 			
 			@media (max-width: 768px) {

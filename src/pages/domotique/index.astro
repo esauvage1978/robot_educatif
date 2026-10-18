@@ -81,10 +81,14 @@ const postsWithThumbnails = await Promise.all(
 			border-radius: 12px;
 			overflow: hidden;
 			transition: transform 0.2s, box-shadow 0.2s;
+			padding: 1.5rem;
 		}
 		.card:hover {
 			transform: translateY(-4px);
 			box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+		}
+		.card:has(.card-image) {
+			padding: 0;
 		}
 		.card-image {
 			width: 100%;
@@ -93,11 +97,6 @@ const postsWithThumbnails = await Promise.all(
 		}
 		.card-content {
 			padding: 1.5rem;
-		}
-		@media (min-width: 1024px) {
-			.card-content {
-				padding: 1.5rem;
-			}
 		}
 		.card h3 {
 			color: var(--accent);
