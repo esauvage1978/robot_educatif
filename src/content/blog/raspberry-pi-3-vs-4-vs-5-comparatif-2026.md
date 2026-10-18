@@ -87,6 +87,8 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 **Monter au Pi 5** quand : vous avez besoin de **marge CPU**, de **8 Go ou plus** (idéalement **16 Go** pour certains workloads « edge »), ou du **bus PCIe** ; prévoir **refroidissement actif** et **bonne alimentation**.
 
+**Pour la domotique Home Assistant** : le **Pi 5 4 Go** est idéal (120–150 €) avec un dongle Zigbee. Alternative clé en main : **Home Assistant Green** (180 €). Voir notre [guide complet domotique](/domotique/) et le [tuto installation Home Assistant sur Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+
 **Pour un ado hésitant entre « carte nue » et robot** : reprenez aussi [Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/) — la question est souvent **pédagogie** / **motivation**, pas seulement le brut MIPS.
 
 ## 6. Prolongements

@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('domotique');
+	return posts.map((post) => {
+		const slugParts = post.id.replace(/\.mdx?$/, '').split('/');
+		return {
+			params: { slug: slugParts.join('/') },
+			props: { post },
+		};
+	});
+}
+
+type Props = {
+	post: CollectionEntry<'domotique'>;
+};
+
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+const articleSlug = post.id.replace(/\.mdx?$/, '');
+---
+
+<BlogPost {...post.data} articleSlug={articleSlug}>
+	<Content />
+</BlogPost>
