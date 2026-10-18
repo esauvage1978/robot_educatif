@@ -9,6 +9,7 @@ import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import { withBase } from '../lib/siteUrl';
 import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
+import { withImageVersion } from '../lib/imageVersion';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
@@ -28,7 +29,7 @@ const {
 // Note: getDomotiqueThumbnail uses import.meta.glob which doesn't work well with /public/
 // So we construct the path directly and let Astro handle it
 const thumbnailPath = `/images/blog-thumbnails/${articleSlug}.png`;
-const thumbnailImage = thumbnailPath;
+const thumbnailImage = withImageVersion(thumbnailPath);
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
