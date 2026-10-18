@@ -7,7 +7,43 @@ products: ["nous-a1z", "tapo-p110"]
 priority: 6
 ---
 
+import ProductBox from '../../components/ProductBox.astro';
+
 Les **prises connectées Zigbee** sont essentielles dans Home Assistant : elles mesurent la consommation, automatisent les appareils et **font répéteur** pour étendre le réseau Zigbee. Ce guide compare 6 modèles populaires en 2026 pour vous aider à choisir selon votre installation.
+
+## Notre sélection rapide
+
+<ProductBox
+  productId="nous-a1z"
+  name="NOUS A1Z"
+  searchQuery="NOUS A1Z Zigbee"
+  image="/images/products/nous-a1z.webp"
+  priceRange="15–17 €"
+  pros={[
+    'Meilleur rapport qualité/prix',
+    'Mesure complète (W, kWh, V, A)',
+    '16 A / 3680 W',
+    'Compact, LED désactivable'
+  ]}
+  badge="Notre choix n°1"
+  position={1}
+/>
+
+<ProductBox
+  productId="tapo-p110"
+  name="Tapo P110 (lot de 4)"
+  asin="B0CJC8WMXV"
+  image="/images/products/tapo-p110.webp"
+  priceRange="10–15 €/prise"
+  pros={[
+    'Prix imbattable (lot 45 €)',
+    'WiFi (pas besoin dongle Zigbee)',
+    'App Tapo simple',
+    '16 A / 3680 W'
+  ]}
+  badge="Budget WiFi"
+  position={2}
+/>
 
 ## Tableau comparatif : 6 prises Zigbee pour Home Assistant
 

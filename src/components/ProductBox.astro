@@ -34,8 +34,8 @@ const affiliateUrl = asin
 	? amazonProductUrl(asin)
 	: amazonProductUrl(null, searchQuery || name);
 
-// Get product image (PA-API cached or SVG placeholder)
-const productImage = getProductImage(asin, name, 250, 250);
+// Get product image: use provided image prop first, fallback to PA-API
+const productImage = image || getProductImage(asin, name, 250, 250);
 
 const trackingAttrs = productId
 	? `data-product-id="${productId}" data-position="${position}"`
@@ -65,7 +65,8 @@ const trackingAttrs = productId
 		</a>
 		<div class="product-info">
 			<h3 class="product-name">{name}</h3>
-			{ages && <div class="product-meta"><strong>Âge :</strong> {ages}</div>}
+			{priceRange && <div class="product-meta"><strong>Prix :</strong> {priceRange}</div>}
+			{ages && <div class="product-meta"><strong>Pour qui :</strong> {ages}</div>}
 			{languages.length > 0 && (
 				<div class="product-meta">
 					<strong>Langages :</strong> {languages.join(', ')}

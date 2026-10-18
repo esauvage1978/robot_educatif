@@ -7,7 +7,43 @@ products: ["raspberry-pi-5", "sonoff-zbdongle-e"]
 priority: 3
 ---
 
+import ProductBox from '../../components/ProductBox.astro';
+
 Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 grâce au **Raspberry Pi Imager** et au boot direct sur SSD NVMe. Ce guide complet vous accompagne de l'achat du matériel à la première automatisation, avec configuration réseau, sauvegardes, HACS, dongles Zigbee et accès distant sécurisé.
+
+## Matériel recommandé
+
+<ProductBox
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 4 Go + Kit"
+  searchQuery="Raspberry Pi 5 4GB kit"
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  priceRange="120–150 €"
+  pros={[
+    'Performances excellentes',
+    'Kit complet (alim, boîtier)',
+    'Compatible HAT et NVMe',
+    'Communauté immense'
+  ]}
+  badge="Kit complet"
+  position={1}
+/>
+
+<ProductBox
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  priceRange="16–25 €"
+  pros={[
+    'Antenne externe SMA',
+    'Compatible ZHA et Z2M',
+    'Firmware modifiable',
+    'Portée 50m indoor'
+  ]}
+  badge="Dongle Zigbee"
+  position={2}
+/>
 
 ## Liste complète du matériel nécessaire
 

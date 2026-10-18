@@ -7,7 +7,59 @@ products: ["home-assistant-green", "raspberry-pi-5"]
 priority: 4
 ---
 
+import ProductBox from '../../components/ProductBox.astro';
+
 Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberger votre box domotique ? Ce comparatif détaillé vous aide à choisir selon votre budget, niveau technique, besoins futurs et profil d'utilisateur. Les deux options sont excellentes en 2026, mais répondent à des usages différents.
+
+## Les deux options principales
+
+<ProductBox
+  productId="home-assistant-green"
+  name="Home Assistant Green"
+  asin="B0CXVKSG19"
+  image="/images/products/home-assistant-green.webp"
+  priceRange="110–125 €"
+  pros={[
+    'Plug & play total (0 config)',
+    'Boîtier + alimentation inclus',
+    'Support officiel Nabu Casa',
+    'Silencieux (0 dB, fanless)'
+  ]}
+  badge="Clé en main"
+  position={1}
+/>
+
+<ProductBox
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 4 Go"
+  searchQuery="Raspberry Pi 5 4gb"
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  priceRange="120–150 €"
+  pros={[
+    'Prix accessible avec accessoires',
+    '25% plus rapide que Green',
+    'Évolutif (NVMe, HAT, GPIO)',
+    'Communauté massive'
+  ]}
+  badge="Meilleur rapport qualité/prix"
+  position={2}
+/>
+
+<ProductBox
+  productId="raspberry-pi-5-8gb"
+  name="Raspberry Pi 5 8 Go"
+  searchQuery="Raspberry Pi 5 8gb"
+  image="/images/products/raspberry-pi-5-8gb.webp"
+  priceRange="150–180 €"
+  pros={[
+    '8 Go RAM (Frigate, NAS)',
+    'Boot NVMe direct (500 MB/s)',
+    'Multi-caméras + IA',
+    'Performances pro'
+  ]}
+  badge="Power user"
+  position={3}
+/>
 
 ## Tableau comparatif : Home Assistant Green vs Raspberry Pi 5
 
