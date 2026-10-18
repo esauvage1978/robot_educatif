@@ -11,6 +11,7 @@ import { articleSlugFromId } from '../../lib/articleSlug';
 import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
 import { resolveArticleThumbnail, getGeneratedThumbnailPath } from '../../lib/articleThumbnail';
+import { withImageVersion } from '../../lib/imageVersion';
 import { isProgrammingSeriesArticle } from '../../lib/blogScope';
 import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
 import { withBase } from '../../lib/siteUrl';
@@ -238,7 +239,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 										)}
 										{thumbnail.type === 'generated' && (
 											<img
-												src={withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')))}
+												src={withImageVersion(withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')).replace('.png', '.webp')))}
 												alt={post.data.title}
 												width="720"
 												height="360"

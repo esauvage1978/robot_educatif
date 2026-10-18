@@ -13,6 +13,7 @@ import { resolveArticleThumbnail, getGeneratedThumbnailPath } from '../lib/artic
 import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
 import { getProductImage } from '../lib/amazonImage';
+import { withImageVersion } from '../lib/imageVersion';
 
 const allPosts = await getCollection('blog');
 const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 4);
@@ -741,7 +742,7 @@ const guideCount = allPosts.length;
 								)}
 							{thumbnail.type === 'generated' && (
 								<img
-									src={withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')))}
+									src={withImageVersion(withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')).replace('.png', '.webp')))}
 									alt={post.data.title}
 									width="400"
 									height="250"
