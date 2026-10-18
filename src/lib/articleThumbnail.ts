@@ -65,6 +65,36 @@ export function getGeneratedThumbnailPath(slug: string): string {
 }
 
 /**
+ * Résout l'image à utiliser pour un article (bannière + og:image dans BlogPost).
+ * Priorité:
+ * 1. heroImage si spécifique (pas générique)
+ * 2. Vignette générée /images/blog-thumbnails/<slug>.png (toujours disponible)
+ * 
+ * Note: On ne tente plus les photos produits car elles sont déjà intégrées
+ * dans les vignettes générées par le script generate-blog-thumbnails.mjs
+ */
+export function resolveArticleImage(
+	slug: string,
+	heroImage?: ImageMetadata
+): string | ImageMetadata {
+	// 1. heroImage spécifique (pas générique)
+	if (heroImage) {
+		const isGeneric = genericImages.some(g => {
+			if (typeof heroImage === 'string') {
+				return heroImage.includes(g);
+			}
+			return heroImage.src?.includes(g);
+		});
+		if (!isGeneric) {
+			return heroImage;
+		}
+	}
+	
+	// 2. Vignette générée (toujours disponible, avec photo produit déjà intégrée)
+	return getGeneratedThumbnailPath(slug);
+}
+
+/**
  * Génère un SVG unique pour un article (couverture dynamique)
  */
 export function generateArticleThumbnail(post: CollectionEntry<'blog'>): string {

@@ -16,6 +16,7 @@ import FollowBlock from '../components/FollowBlock.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
+import { resolveArticleImage } from '../lib/articleThumbnail';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 
@@ -36,7 +37,14 @@ const {
 	articleSlug = '',
 } = Astro.props;
 
-const resolvedHero = resolveHeroImage(heroImage);
+// Résoudre l'image pour la bannière et og:image selon les mêmes priorités
+// 1. heroImage si spécifique (pas générique)
+// 2. Vignette générée avec photo produit intégrée
+const resolvedImageForMeta = resolveArticleImage(articleSlug, heroImage);
+
+// Pour la bannière, on affiche soit ImageMetadata, soit le string path vers vignette
+const heroIsImageMetadata = resolvedImageForMeta && typeof resolvedImageForMeta !== 'string';
+const heroImagePath = typeof resolvedImageForMeta === 'string' ? resolvedImageForMeta : null;
 const allPosts = await getCollection('blog');
 const topCategories = topCategoriesByCount(allPosts, 15);
 
@@ -88,7 +96,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 		<BaseHead 
 			title={title} 
 			description={description} 
-			image={resolvedHero}
+			image={resolvedImageForMeta}
 			ogType="article"
 			pubDate={pubDate}
 			updatedDate={updatedDate}
@@ -100,7 +108,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 					description={description}
 					pubDate={pubDate}
 					updatedDate={updatedDate}
-					heroImage={resolvedHero}
+					heroImage={heroIsImageMetadata ? resolvedImageForMeta : undefined}
 					articleSlug={articleSlug}
 				/>
 				<StructuredDataBreadcrumb
@@ -319,9 +327,14 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 		<ChristmasBanner />
 		<main>
 			<section class="hero-article">
-				{resolvedHero && (
+				{heroIsImageMetadata && (
 					<div class="hero-article-media">
-						<Image width={1600} height={760} src={resolvedHero} alt={title} />
+						<Image width={1600} height={760} src={resolvedImageForMeta} alt={title} />
+					</div>
+				)}
+				{heroImagePath && (
+					<div class="hero-article-media">
+						<img src={heroImagePath} alt={title} width="1200" height="630" loading="lazy" />
 					</div>
 				)}
 				<div class="hero-article-content">
