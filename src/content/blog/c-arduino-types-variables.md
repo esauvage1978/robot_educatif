@@ -3,7 +3,6 @@ title: "Arduino C — types, variables et constantes (20 exercices)"
 description: "Types Arduino : int, unsigned long, float. 20 exercices."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: "Arduino C"
 seriesOrder: 2
 tags: ["C", "Arduino", "Robotique", "Programmation"]

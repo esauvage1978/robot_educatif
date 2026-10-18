@@ -3,7 +3,6 @@ title: "Bataille navale en Python (2/6) — grille et affichage"
 description: "Créer une grille 10×10, afficher avec en-têtes, convertir A1–J10 en indices et l’inverse."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 2
 tags: ["Python", "Programmation", "Projet"]

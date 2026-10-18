@@ -3,7 +3,6 @@ title: "Bataille navale Python (1/6) : cahier charges données"
 description: "Règles simplifiées, taille de grille, tailles des navires, et choix des structures : grille 2D, listes de cases."
 pubDate: 2026-03-29
 updatedDate: "2026-10-13"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 1
 tags: ["Python", "Programmation", "Projet"]

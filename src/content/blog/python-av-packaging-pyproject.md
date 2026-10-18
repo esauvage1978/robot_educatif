@@ -3,7 +3,6 @@ title: "Python avancé — packaging moderne avec pyproject.toml"
 description: "Packaging Python : pyproject.toml, PEP 621, wheel, entrée console. 20 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python avancé
 seriesOrder: 6
 tags: ["Python", "Programmation", "Avancé"]
