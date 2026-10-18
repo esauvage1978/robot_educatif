@@ -13,7 +13,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const contentDir = path.join(__dirname, '../src/content/blog');
+const blogContentDir = path.join(__dirname, '../src/content/blog');
+const domotiqueContentDir = path.join(__dirname, '../src/content/domotique');
 const outputDir = path.join(__dirname, '../public/images/blog-thumbnails');
 const productsDir = path.join(__dirname, '../public/images/products');
 const fontPath = path.join(__dirname, './fonts/Roboto-Bold.ttf');
@@ -280,53 +281,61 @@ async function generateThumbnail(slug, title, category, productSlug) {
 	return pngData.asPng();
 }
 
-async function main() {
-	console.log('📸 Generating blog thumbnails...\n');
-	
-	// Create output directory
-	await fs.mkdir(outputDir, { recursive: true });
-	
-	// Find all blog posts
+async function processCollection(contentDir, collectionName, generated, skipped) {
 	const allFiles = await fs.readdir(contentDir);
 	const files = allFiles.filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
-	
-	let generated = 0;
-	let skipped = 0;
 	
 	for (const file of files) {
 		const slug = file.replace(/\.mdx?$/, '');
 		const filePath = path.join(contentDir, file);
 		const outputPath = path.join(outputDir, `${slug}.png`);
 		
-		// Check if thumbnail already exists (skip regeneration)
+		// Check if thumbnail already exists
 		try {
 			await fs.access(outputPath);
-			skipped++;
+			skipped.count++;
 			continue;
 		} catch {
-			// File doesn't exist, generate it
+			// Generate it
 		}
 		
 		const frontmatter = await extractFrontmatter(filePath);
 		if (!frontmatter) {
-			console.warn(`⚠️  No frontmatter found in ${file}`);
+			console.warn(`⚠️  No frontmatter in ${file}`);
 			continue;
 		}
 		
 		try {
 			const pngBuffer = await generateThumbnail(slug, frontmatter.title, frontmatter.category, frontmatter.productSlug);
 			await fs.writeFile(outputPath, pngBuffer);
-			generated++;
-			console.log(`✅ ${slug}`);
+			generated.count++;
+			console.log(`✅ [${collectionName}] ${slug}`);
 		} catch (error) {
-			console.error(`❌ ${slug}: ${error.message}`);
+			console.error(`❌ [${collectionName}] ${slug}: ${error.message}`);
 		}
 	}
 	
+	return files.length;
+}
+
+async function main() {
+	console.log('📸 Generating blog + domotique thumbnails...\n');
+	
+	await fs.mkdir(outputDir, { recursive: true });
+	
+	const stats = { count: 0 };
+	const skipped = { count: 0 };
+	
+	// Process blog collection
+	const blogCount = await processCollection(blogContentDir, 'blog', stats, skipped);
+	
+	// Process domotique collection
+	const domotiqueCount = await processCollection(domotiqueContentDir, 'domotique', stats, skipped);
+	
 	console.log(`\n📊 Summary:`);
-	console.log(`   ✅ Generated: ${generated}`);
-	console.log(`   ⏭️  Skipped (already exists): ${skipped}`);
-	console.log(`   📁 Total articles: ${files.length}`);
+	console.log(`   ✅ Generated: ${stats.count}`);
+	console.log(`   ⏭️  Skipped (already exists): ${skipped.count}`);
+	console.log(`   📁 Total articles: ${blogCount + domotiqueCount}`);
 	console.log(`\n✨ Thumbnails saved to: ${path.relative(process.cwd(), outputDir)}`);
 }
 

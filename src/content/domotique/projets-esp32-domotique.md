@@ -60,24 +60,110 @@ binary_sensor:
 ### 7. Écran e-paper météo
 
 **Matériel** : ESP32 + écran e-paper 2,9" (25 €)  
-**Utilité** : météo, calendrier, température sans écran PC.
+**Utilité** : affichage météo, calendrier, température sans écran allumé en permanence.
+
+**Code ESPHome** :
+```yaml
+display:
+  - platform: waveshare_epaper
+    model: 2.90in
+    cs_pin: GPIO5
+    dc_pin: GPIO17
+    lambda: |-
+      it.printf(10, 10, id(font1), "Salon: %.1f°C", id(temp_salon).state);
+      it.printf(10, 50, id(font1), "Météo: %s", id(meteo).state.c_str());
+```
 
 ### 8. Capteur CO2 (qualité air)
 
 **Matériel** : ESP32 + MH-Z19B (35 €)  
-**Utilité** : alerte si CO2 > 1000 ppm (aérer), automatiser VMC.
+**Utilité** : surveiller qualité de l'air, alerte si CO2 > 1000 ppm (aérer), automatiser VMC.
+
+**Seuils recommandés** :
+- < 800 ppm : excellent
+- 800-1000 ppm : bon
+- 1000-1500 ppm : aérer
+- \> 1500 ppm : très mauvais (maux de tête, concentration difficile)
+
+**Automatisation HA** :
+```yaml
+automation:
+  - alias: "VMC boost si CO2 élevé"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.co2_bureau
+      above: 1200
+    action:
+      - service: fan.set_speed
+        target:
+          entity_id: fan.vmc
+        data:
+          speed: "high"
+```
 
 ### 9. Assistant vocal local (Atom Echo)
 
-**Matériel** : M5Stack Atom Echo (15 €)  
-**Utilité** : "Allume salon" sans cloud Google/Alexa. HA Voice PE officiel (60 €) ou DIY.
+**Matériel** : M5Stack Atom Echo (15 €) ou HA Voice Preview Edition (60 €)  
+**Utilité** : commandes vocales "Allume salon" sans cloud Google/Alexa. 100 % local.
 
-*Lien Amazon : [Atom Echo](https://www.amazon.fr/s?k=M5Stack+Atom+Echo&tag=manuso06-21).*
+**Installation** :
+1. Flasher Atom Echo avec ESPHome Voice Assistant
+2. Ajouter dans HA : **Paramètres → Voice Assistants**
+3. Configurer pipeline : Wake Word (OK Nabu) → Whisper (speech-to-text) → conversation → TTS
+
+**Commandes exemples** :
+- "Allume le salon"
+- "Quelle est la température de la chambre ?"
+- "Lance l'aspirateur"
 
 ### 10. Compteur d'eau/électricité
 
 **Matériel** : ESP32 + capteur effet Hall (12 €)  
-**Utilité** : lire compteur Linky ou compteur d'eau (impulsions), suivre conso réelle.
+**Utilité** : lire les impulsions du compteur Linky ou d'eau, suivre consommation réelle.
+
+**Linky** : sortie télé-info (RX via ESP32 UART)  
+**Eau** : capteur Hall qui détecte rotation de l'aiguille
+
+**Code ESPHome compteur eau** :
+```yaml
+sensor:
+  - platform: pulse_counter
+    pin: GPIO4
+    name: "Débit eau"
+    unit_of_measurement: 'L/min'
+    filters:
+      - multiply: 0.5
+    total:
+      name: "Volume eau total"
+      unit_of_measurement: 'L'
+```
+
+## Projets bonus (niveau expert)
+
+### 11. Portail connecté avec caméra
+
+**Matériel** : ESP32-CAM (8 €) + relais  
+**Utilité** : Ouvrir portail depuis HA, photo de qui sonne, reconnaissance faciale.
+
+### 12. Irrigation automatique jardin
+
+**Matériel** : ESP32 + capteur humidité sol + électrovanne (25 €)  
+**Utilité** : arroser uniquement si sol sec, économie d'eau.
+
+### 13. Alarme DIY avec sirène
+
+**Matériel** : ESP32 + détecteurs PIR + sirène 12V (30 €)  
+**Utilité** : alarme locale sans abonnement, notification HA.
+
+### 14. Sonnette vidéo DIY
+
+**Matériel** : ESP32-CAM + bouton + haut-parleur (20 €)  
+**Utilité** : alternative Ring/Nest, 100 % local, enregistrement HA.
+
+### 15. Mesure qualité air complète
+
+**Matériel** : ESP32 + BME680 (temp/hum/pression/VOC) + PMS5003 (particules) (40 €)  
+**Utilité** : surveiller pollution intérieure (COV, PM2.5, PM10).
 
 ## Pourquoi ESP32 plutôt que Zigbee ?
 

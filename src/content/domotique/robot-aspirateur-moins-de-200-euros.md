@@ -107,17 +107,130 @@ Si budget +50–100 €, les **robots avec station auto-vidage** (Qrevo S5V, L10
 **Poils d'animaux** : Roborock Q7 M5 4200 Pa + brosse anti-emmêlement.  
 **Jouets au sol** : tous les LIDAR contournent obstacles > 2 cm. [Guide robots aspirateurs famille](/domotique/robots-aspirateurs/robot-aspirateur-enfants-animaux/).
 
-## Verdict
+## Optimiser son robot aspirateur
 
-**Meilleur < 200 €** : Roborock Q7 M5 (140–240 €). LIDAR, 4200 Pa, compatible HA, marque fiable.
+### Préparer la maison
 
-**Le moins cher avec LIDAR** : Xiaomi S40C (130–170 €). OK si surface < 80 m² sans moquette.
+**Avant le premier passage** :
+- Ramasser câbles, chaussettes, jouets < 2 cm
+- Fermer portes des pièces à exclure
+- Relever chaises légères (robot passe dessous si espace ≥ 10 cm)
+
+**Zones à éviter** (app Roborock) :
+- Gamelles animaux
+- Tapis épais (> 2 cm) si aspiration faible
+- Fils électriques au sol
+
+### Entretien hebdomadaire
+
+**Obligatoire** :
+- Vider réservoir poussière (1-2× / semaine)
+- Nettoyer brosse latérale (cheveux/poils enroulés)
+- Essuyer capteurs LIDAR (tour supérieure)
+
+**Mensuel** :
+- Laver filtre HEPA à l'eau
+- Remplacer brosse centrale (tous les 6-12 mois)
+
+### Fréquence de passage
+
+**Recommandé** :
+- Sans animaux : 2-3× / semaine
+- Avec 1 animal : quotidien
+- Avec 2+ animaux ou allergies : 2× / jour (matin + soir)
+
+**Automatisation HA** :
+```yaml
+automation:
+  - alias: "Aspirer si absent en semaine"
+    trigger:
+      platform: time
+      at: "10:00:00"
+    condition:
+      - condition: state
+        entity_id: person.moi
+        state: "not_home"
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: vacuum.start
+        target:
+          entity_id: vacuum.roborock_q7_m5
+```
+
+## Erreurs à éviter
+
+❌ **Acheter sans LIDAR** : navigation aléatoire = temps perdu  
+❌ **Prendre une marque inconnue** : SAV inexistant, pièces introuvables  
+❌ **Négliger l'entretien** : brosse encrassée = perte d'aspiration 50 %  
+❌ **Oublier de vider** : réservoir plein = arrêt auto  
+❌ **Ignorer la hauteur** : mesurer avant d'acheter (espace sous meubles)
+
+## Budget 200–400 € : passer aux stations
+
+Si budget +100 €, les **robots avec station auto-vidage** sont révolutionnaires :
+- **Dreame L10s Ultra Gen 2** (225–349 €) : station lavage serpillière + vidage automatique
+- **Roborock Qrevo S5V** (350–480 €) : station complète, lavage eau chaude, séchage
+
+**Avantages** : vider réservoir 1× tous les 60 jours au lieu de 2× / semaine.
+
+## Familles avec enfants : conseils
+
+**Jouets au sol** : tous les robots LIDAR contournent obstacles > 2 cm. Mais LEGO < 2 cm = risque d'aspiration.
+
+**Solution** : automatiser passage à 10h (enfants à l'école) ou acheter un **tapis de jeu fermant** (ramasser tout en 30 secondes).
+
+**Poils d'animaux** : Roborock Q7 M5 4200 Pa + brosse anti-emmêlement gère chiens/chats poil long.
+
+## Différences avec robots haut de gamme
+
+| Critère | < 200 € (Q7 M5) | 500–700 € (S8 Pro Ultra) |
+|---------|-----------------|--------------------------|
+| **Navigation** | LIDAR standard | LIDAR + caméra + IA obstacles |
+| **Aspiration** | 4200 Pa | 6000 Pa |
+| **Station** | ❌ Manuel | ✅ Auto-vidage + lavage + séchage |
+| **Lavage sol** | Serpillière traînée | Serpillière rotative haute pression |
+| **Autonomie** | 180 min | 240 min |
+| **Prix** | 140–240 € | 500–900 € |
+
+**Verdict** : pour 90 % des foyers (appartement 60-100 m², 1 animal), le Q7 M5 suffit largement.
+
+## Verdict final
+
+**Meilleur rapport qualité/prix < 200 €** : **Roborock Q7 M5** (140–240 €)  
+✅ LIDAR précis, 4200 Pa, lavage basique, app complète, compatible Home Assistant
+
+**Le moins cher avec LIDAR** : **Xiaomi S40C** (130–170 €)  
+✅ OK pour appartement < 80 m² sans moquette épaisse
+
+**Alternative Dreame** : **D9 Max Gen 2** (150–180 €)  
+✅ Si Roborock en rupture, performances similaires
 
 ## Pour aller plus loin
 
-- [Hub robots aspirateurs](/domotique/robots-aspirateurs/)
-- [Robots laveurs avec station < 400 €](/domotique/robots-aspirateurs/meilleur-robot-aspirateur-laveur-pas-cher-2026/)
+- [Robots laveurs avec station < 400 €](/domotique/robots-aspirateurs/meilleur-robot-aspirateur-laveur-pas-cher-2026/) (prochainement)
+- [Robot aspirateur compatible Home Assistant](/domotique/robots-aspirateurs/robot-aspirateur-home-assistant/) (intégration locale)
+- [Robots aspirateurs pour familles avec animaux](/domotique/robots-aspirateurs/robot-aspirateur-enfants-animaux/)
 - [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/)
+
+## FAQ
+
+**Quelle différence entre aspirer et laver ?**
+**Aspirer** : enlever poussière, miettes, poils. **Laver** : serpillière humide pour nettoyer taches. À moins de 200 €, le lavage est basique (serpillière traînée, pas de frottement).
+
+**Un robot remplace-t-il l'aspirateur classique ?**
+**80 % oui**. Pour les 20 % restants (canapé, intérieur voiture, recoins étroits), garder un aspirateur balai.
+
+**Combien de temps dure une batterie ?**
+180 minutes = environ 150-200 m². Si plus grand, le robot retourne se recharger puis reprend où il s'était arrêté.
+
+**Peut-on programmer par pièce ?**
+Oui avec l'app Roborock : "Aspirer uniquement le salon à 14h" ou "Éviter la chambre entre 20h et 7h".
 
 ---
 
