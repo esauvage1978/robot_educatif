@@ -99,7 +99,7 @@ Les **prises connectées Zigbee** sont essentielles dans Home Assistant : elles 
 
 **Pour qui ?** Débuter sans box Zigbee, tester la domotique à moindre coût. [Guide débuter domotique](/domotique/debuter-domotique-par-ou-commencer/).
 
-*Lien Amazon : [Tapo P110 lot FR B0CJC8WMXV](https://www.amazon.fr/dp/B0CJC8WMXV?tag=manuso06-21).*
+*Lien Amazon : [Tapo P110 lot de 4](https://www.amazon.fr/dp/B0CJC8WMXV?tag=manuso06-21).*
 
 ### 6. IKEA Tradfri — Budget mini (10–12 €)
 

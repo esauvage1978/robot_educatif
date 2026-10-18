@@ -82,7 +82,7 @@ Vous hésitez entre **Home Assistant Green** et **Raspberry Pi 5** pour héberge
 
 **Profil 3 — Bureau/salon** : silence obligatoire (enfants, télétravail, streaming). Ventilateur Pi 5 = 30 dB sous charge. **→ Green (0 dB, fanless)**.
 
-*Lien Amazon : [Home Assistant Green B0CXVKSG19](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21) ou boutique Nabu Casa.*
+*Lien Amazon : [Home Assistant Green](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21) ou boutique Nabu Casa.*
 
 ## Raspberry Pi 5 : puissance et évolutivité
 

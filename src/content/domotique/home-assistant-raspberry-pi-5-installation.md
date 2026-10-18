@@ -79,7 +79,7 @@ Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 
 - Compatible ZHA (intégré HA) et Zigbee2MQTT (addon)
 - [Comparatif dongles Zigbee complet](/domotique/meilleur-dongle-zigbee-home-assistant/)
 
-*Lien Amazon : [SONOFF ZBDongle-E B0B6P22YJC](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
+*Lien Amazon : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
 
 **Budget total avec NVMe + Zigbee** : 180–220 €.
 

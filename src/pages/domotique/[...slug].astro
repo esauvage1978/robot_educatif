@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import DomotiquePost from '../../layouts/DomotiquePost.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('domotique');
@@ -16,8 +16,9 @@ type Props = {
 
 const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
+const articleSlug = entry.id.replace(/\.mdx?$/, '');
 ---
 
-<BlogPost {...entry.data} articleSlug={entry.id}>
+<DomotiquePost {...entry.data} articleSlug={articleSlug}>
 	<Content />
-</BlogPost>
+</DomotiquePost>

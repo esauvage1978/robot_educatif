@@ -39,7 +39,7 @@ Un **capteur température Zigbee** surveille chaque pièce, automatise le chauff
 - Automatiser chauffage salon (allumer radiateur si < 19 °C)
 - Détecter humidité excessive salle de bains (> 70 % = moisissure)
 
-*Lien Amazon : [SNZB-02D B0BYZP8NK2](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21) ou lot de 2 B0BZCV658S.*
+*Lien Amazon : [SONOFF SNZB-02D](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21) ou [lot de 2](https://www.amazon.fr/dp/B0BZCV658S?tag=manuso06-21).*
 
 ### 2. Aqara T1 — Design premium (15–20 €)
 

@@ -41,7 +41,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 
 **Pour qui ?** Tout le monde. C'est le standard de facto en 2026.
 
-*Lien Amazon : [SONOFF ZBDongle-E B0B6P22YJC](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
+*Lien Amazon : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
 
 ### 2. Home Assistant Connect ZBT-2 — Support officiel (45–80 €)
 
@@ -58,7 +58,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 
 **Pour qui ?** Early adopters Matter, personnes qui veulent le support officiel Nabu Casa.
 
-*Lien Amazon : [HA Connect ZBT-2 B0G34ZTW51](https://www.amazon.fr/dp/B0G34ZTW51?tag=manuso06-21).*
+*Lien Amazon : [Home Assistant Connect ZBT-2](https://www.amazon.fr/dp/B0G34ZTW51?tag=manuso06-21).*
 
 ### 3. SONOFF Dongle Lite MG21 — Le moins cher (15–20 €)
 

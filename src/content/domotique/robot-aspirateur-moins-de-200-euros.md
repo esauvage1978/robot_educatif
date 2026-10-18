@@ -28,7 +28,7 @@ Trouver un **robot aspirateur performant à moins de 200 €** est possible en 2
 
 **Pour qui ?** Appartement 60–100 m², famille avec animaux, premier robot.
 
-*Lien Amazon : [Roborock Q7 M5 B0DT4FJJXM](https://www.amazon.fr/dp/B0DT4FJJXM?tag=manuso06-21).*
+*Lien Amazon : [Roborock Q7 Max V](https://www.amazon.fr/dp/B0DT4FJJXM?tag=manuso06-21).*
 
 ### 2. Dreame D9 Max Gen 2
 
