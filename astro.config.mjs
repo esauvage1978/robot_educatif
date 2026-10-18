@@ -8,12 +8,13 @@ import { rehypeAmazonExternalLinks } from './src/rehype/rehype-amazon-external-l
 import { rehypePrependBaseForInternalLinks } from './src/rehype/rehype-prepend-base-internal-links.mjs';
 import { rehypePrependBaseForPublicImages } from './src/rehype/rehype-prepend-base-public-images.mjs';
 import { rehypeImageSize } from './src/lib/rehype-image-size.mjs';
+import { rehypeFaqSchema } from './src/rehype/rehype-faq-schema.mjs';
 import { normalizeAstroBase } from './src/lib/astroBase.mjs';
 import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
 
 // Build metadata synchronously at config time
-const { articleDates, thinCategories, latestDate } = buildSitemapMetadata();
+const { articleDates, thinCategories, latestDate, domotiqueLatest } = buildSitemapMetadata();
 
 // URLs redirected via .htaccess (301) — exclude from sitemap
 const redirectedPaths = new Set([
@@ -84,6 +85,16 @@ export default defineConfig({
 					}
 				}
 				
+				// Articles domotique : /domotique/<slug>/
+				const domo = path.match(/^\/domotique\/([a-z0-9-]+)\/$/);
+				if (domo) {
+					const date = articleDates.get(`domotique/${domo[1]}`);
+					if (date) return { ...item, lastmod: date };
+				}
+				if (path === '/domotique/' && domotiqueLatest) {
+					return { ...item, lastmod: domotiqueLatest };
+				}
+
 				// Add lastmod for home and category pages (latest article date)
 				if (path === '/' || path.startsWith('/categorie/')) {
 					return {
@@ -101,7 +112,7 @@ export default defineConfig({
 		inlineStylesheets: 'always',
 	},
 	markdown: {
-		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks, rehypeImageSize],
+		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks, rehypeImageSize, rehypeFaqSchema],
 	},
 	vite: {
 		plugins: [vitePluginDevWampUrlMirror()],

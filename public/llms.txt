@@ -1,0 +1,65 @@
+# ROBOT éducatif (robot-educatif.info)
+
+> Site francophone d'Emmanuel SAUVAGE pour apprendre la robotique et la programmation en s'amusant : guides d'achat de robots éducatifs par âge et par budget, tutoriels mBot et mBlock, cours de Python et d'Arduino (C), Raspberry Pi et domotique (Home Assistant, Zigbee, ESP32). Public : parents, enseignants, ados et débutants.
+
+Informations importantes :
+- Affiliation : en tant que Partenaire Amazon, le site réalise un bénéfice sur les achats remplissant les conditions requises (liens Amazon.fr marqués, tag manuso06-21). Les prix changent : les vérifier sur Amazon au moment de l'achat.
+- Toutes les pages sont en français ; le plan complet du site est dans https://robot-educatif.info/sitemap-index.xml
+
+## Sections principales
+
+- [Accueil](https://robot-educatif.info/): présentation du site et derniers articles
+- [Blog](https://robot-educatif.info/blog/): tous les articles (guides d'achat, comparatifs, tutoriels)
+- [Programmation](https://robot-educatif.info/programmation/): parcours Python (débutant, intermédiaire, avancé), Arduino C et projets guidés
+- [Domotique](https://robot-educatif.info/domotique/): Home Assistant, Zigbee, ESP32/ESPHome et guides d'achat domotique
+- [Catégories](https://robot-educatif.info/categorie/): articles classés par thème
+
+## Guides d'achat robots éducatifs
+
+- [Quel robot éducatif choisir en 2026 ?](https://robot-educatif.info/quel-robot-educatif-choisir-2026/)
+- [Robot programmable enfant 2026 : top 10 par âge et prix](https://robot-educatif.info/meilleur-robot-programmable-enfant-2026/)
+- [Robot enfant 5 ans : meilleurs robots éducatifs](https://robot-educatif.info/quel-robot-acheter-enfant-5-ans-guide-achat/)
+- [Robot enfant 7-8 ans : meilleurs robots éducatifs](https://robot-educatif.info/quel-robot-acheter-enfant-8-ans-guide-achat/)
+- [Robot enfant 10 ans : kits à construire et programmer](https://robot-educatif.info/quel-robot-acheter-enfant-10-ans-guide-achat/)
+- [Robot programmable 12 ans : kits à construire](https://robot-educatif.info/quel-robot-acheter-enfant-12-ans-guide-achat/)
+- [Robot éducatif à moins de 100 euros](https://robot-educatif.info/robot-moins-de-100-euros/)
+- [Robot éducatif autour de 200 €](https://robot-educatif.info/quel-robot-educatif-autour-de-200-euros-guide-2026/)
+- [Robot pédagogique pour l'école : guide enseignants](https://robot-educatif.info/robot-pedagogique-ecole/)
+- [Robots pour la technologie au collège](https://robot-educatif.info/robots-technologie-college-guide/)
+
+## mBot et mBlock (Makeblock)
+
+- [mBot avis et prix : faut-il l'acheter pour un enfant ?](https://robot-educatif.info/mbot-avis-faut-il-acheter-pour-un-enfant/)
+- [mBot vs mBot2 : différences, prix et lequel choisir](https://robot-educatif.info/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/)
+- [Prix mBot, mBot2, Ranger : quel kit acheter ?](https://robot-educatif.info/prix-mbot-mbot2-ranger-comparatif-2026/)
+- [10 projets mBot gratuits pour la classe (PDF)](https://robot-educatif.info/10-projets-mbot-gratuits-classe-faciles/)
+- [Télécharger mBlock 5 gratuit : installation Windows 10/11](https://robot-educatif.info/installer-mblock-5-sous-windows-10/)
+- [mBlock vs Scratch : lequel choisir ?](https://robot-educatif.info/mblock-vs-scratch-lequel-choisir/)
+- [mBlock Bluetooth : dépannage quand le mBot ne se connecte pas](https://robot-educatif.info/mblock-bluetooth-erreurs-frequentes-depannage/)
+
+## Arduino et Python
+
+- [Kit robot Arduino : meilleur choix pour enfant](https://robot-educatif.info/meilleur-robot-educatif-arduino-kit-choisir/)
+- [Cours Arduino C](https://robot-educatif.info/programmation/arduino-c/)
+- [Meilleur robot programmable en Python](https://robot-educatif.info/robot-programmable-python/)
+- [Cours Python débutant](https://robot-educatif.info/programmation/python/)
+
+## Raspberry Pi
+
+- [Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter ?](https://robot-educatif.info/raspberry-pi-3-vs-4-vs-5-comparatif-2026/)
+- [Raspberry Pi 5 : 4 Go ou 8 Go de RAM ?](https://robot-educatif.info/raspberry-pi-5-quelle-version-memoire-acheter/)
+- [Kit Raspberry Pi 5 complet : quel kit choisir ?](https://robot-educatif.info/kit-raspberry-pi-5-complet/)
+
+## Domotique
+
+- [Débuter en domotique : par où commencer ?](https://robot-educatif.info/domotique/debuter-domotique-par-ou-commencer/)
+- [Home Assistant Green vs Raspberry Pi 5](https://robot-educatif.info/domotique/home-assistant-green-vs-raspberry-pi-5/)
+- [Installer Home Assistant sur Raspberry Pi 5](https://robot-educatif.info/domotique/home-assistant-raspberry-pi-5-installation/)
+- [Meilleure clé Zigbee pour Home Assistant](https://robot-educatif.info/domotique/meilleur-dongle-zigbee-home-assistant/)
+- [10 projets ESP32 pour la domotique](https://robot-educatif.info/domotique/projets-esp32-domotique/)
+
+## Optional
+
+- [À propos](https://robot-educatif.info/about/)
+- [Contact](https://robot-educatif.info/contact/)
+- [Mentions légales](https://robot-educatif.info/mentions-legales/)

@@ -15,10 +15,10 @@ type Props = {
 };
 
 const { entry } = Astro.props as Props;
-const { Content } = await render(entry);
+const { Content, remarkPluginFrontmatter } = await render(entry);
 const articleSlug = entry.id.replace(/\.mdx?$/, '');
 ---
 
-<DomotiquePost {...entry.data} articleSlug={articleSlug}>
+<DomotiquePost {...entry.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema}>
 	<Content />
 </DomotiquePost>

@@ -1,0 +1,24 @@
+---
+/**
+ * JSON-LD FAQPage — uniquement à partir des questions/réponses visibles dans l'article
+ * (extraites par src/rehype/rehype-faq-schema.mjs). N'émet rien si la liste est vide.
+ */
+interface Props {
+	items?: { question: string; answer: string }[];
+}
+const { items = [] } = Astro.props;
+const faqJsonLd =
+	items.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'FAQPage',
+				mainEntity: items.map((item) => ({
+					'@type': 'Question',
+					name: item.question,
+					acceptedAnswer: { '@type': 'Answer', text: item.answer },
+				})),
+			}
+		: null;
+---
+
+{faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}

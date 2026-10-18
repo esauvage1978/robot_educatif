@@ -9,6 +9,7 @@ import ArticleEngagement from '../components/ArticleEngagement.astro';
 import Sidebar from '../components/Sidebar.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import TutorialProductBox from '../components/TutorialProductBox.astro';
 import ChristmasBanner from '../components/ChristmasBanner.astro';
 import PinterestShare from '../components/PinterestShare.astro';
@@ -24,6 +25,8 @@ import { withBase } from '../lib/siteUrl';
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
 	articleSlug?: string;
+	/** Questions/réponses de la FAQ visible (rehype-faq-schema) → JSON-LD FAQPage */
+	faqSchema?: { question: string; answer: string }[];
 };
 
 const {
@@ -36,6 +39,7 @@ const {
 	relatedLinks,
 	categories = [],
 	articleSlug = '',
+	faqSchema = [],
 } = Astro.props;
 
 // Résoudre l'image pour la bannière et og:image selon les mêmes priorités
@@ -113,7 +117,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 					description={description}
 					pubDate={pubDate}
 					updatedDate={updatedDate}
-					heroImage={heroIsImageMetadata ? resolvedImageForMeta : undefined}
+					heroImage={heroIsImageMetadata ? resolvedImageForMeta : (ogImagePath ?? undefined)}
 					articleSlug={articleSlug}
 				/>
 				<StructuredDataBreadcrumb
@@ -123,6 +127,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 						{ name: title, url: withBase(`/${articleSlug}/`) },
 					]}
 				/>
+				<StructuredDataFaq items={faqSchema} />
 			</>
 		)}
 		<style>

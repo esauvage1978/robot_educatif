@@ -7,6 +7,8 @@ import Header from '../components/Header.astro';
 import DomotiqueSubNav from '../components/DomotiqueSubNav.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import StructuredDataFaq from '../components/StructuredDataFaq.astro';
+import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
 import { withImageVersion } from '../lib/imageVersion';
@@ -14,6 +16,7 @@ import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
 	articleSlug: string;
+	faqSchema?: { question: string; answer: string }[];
 };
 
 const {
@@ -23,6 +26,7 @@ const {
 	updatedDate,
 	category = 'home-assistant',
 	articleSlug,
+	faqSchema = [],
 } = Astro.props;
 
 // Charger le thumbnail généré pour cet article
@@ -59,6 +63,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 				{ name: title, url: withBase(`/domotique/${articleSlug}/`) },
 			]}
 		/>
+		<StructuredDataFaq items={faqSchema} />
 		<style>
 			main {
 				width: 100%;
@@ -139,6 +144,8 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 								<span>Mis à jour le <FormattedDate date={updatedDate} /></span>
 							</>
 						)}
+						<span>•</span>
+						<span>Par {ARTICLE_AUTHOR}</span>
 					</div>
 				</header>
 				
