@@ -1,8 +1,8 @@
 ---
-title: "mBlock en ligne (ide.mblock.cc) : accès, Web vs appli"
-description: "mBlock en ligne sur ide.mblock.cc : accès gratuit, différences avec l'application bureau, connexion mBot depuis navigateur avec mLink."
+title: "mBlock en ligne (ide.mblock.cc) : coder sans rien installer"
+description: "mBlock en ligne sur ide.mblock.cc : programmer en blocs dans le navigateur sans installation, limites du Bluetooth, et quand préférer l'appli ou Python."
 pubDate: "2026-03-30"
-updatedDate: "2026-10-13"
+updatedDate: "2026-10-19"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: mbot
 categories:
@@ -20,6 +20,8 @@ relatedLinks:
   - title: "Installer les blocs du mBot"
     href: "/installer-les-blocs-du-mbot/"
 ---
+
+**mBlock en ligne** s’ouvre directement dans le navigateur à l’adresse **[ide.mblock.cc](https://ide.mblock.cc/)** : rien à installer, pratique sur un poste d’école verrouillé. Pour connecter un robot de façon fiable (USB, Bluetooth, firmware), l’**application** reste préférable — le comparatif ci-dessous vous aide à choisir.
 
 **mBlock** est l’environnement de référence pour programmer les robots **Makeblock** en **blocs** (même esprit que **Scratch**), puis en **texte** (**Python**) sur les modèles et versions qui le proposent. La difficulté, c’est qu’il existe **plusieurs façons d’y accéder** : logiciel **installé** sur l’ordinateur, **version web** dans le navigateur, et parfois **éditeur Python** intégré — ce n’est **pas équivalent** : tout dépend si vous **branchez un robot réel**, si vous avez les **droits administrateur**, ou si vous travaillez **sans matériel** un jour donné.
 
