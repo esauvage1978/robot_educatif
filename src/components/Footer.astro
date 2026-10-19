@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import CookieConsentBanner from './CookieConsentBanner.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
+import AffiliateClickTracker from './AffiliateClickTracker.astro';
 import PagePathViewTracker from './PagePathViewTracker.astro';
 import { withBase } from '../lib/siteUrl';
 import logoA from '../assets/logo-a.svg';
@@ -231,3 +232,4 @@ const today = new Date();
 {!suppressPagePathTracking && <PagePathViewTracker />}
 <CookieConsentBanner />
 <GoogleAnalytics />
+<AffiliateClickTracker />

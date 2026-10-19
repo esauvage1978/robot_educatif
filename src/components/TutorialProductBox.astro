@@ -244,24 +244,3 @@ const products = productIds
 	}
 </style>
 
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const tutorialLinks = document.querySelectorAll('.tutorial-product-box .affiliate-link');
-		
-		tutorialLinks.forEach((link, index) => {
-			link.addEventListener('click', () => {
-				const productId = link.getAttribute('data-product-id');
-				const pagePath = window.location.pathname;
-				
-				if (typeof window.gtag === 'function') {
-					window.gtag('event', 'affiliate_click', {
-						product_id: productId,
-						page_path: pagePath,
-						position: index + 1,
-						placement: 'tutorial_box',
-					});
-				}
-			});
-		});
-	});
-</script>

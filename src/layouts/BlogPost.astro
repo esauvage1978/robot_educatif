@@ -11,6 +11,8 @@ import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import TutorialProductBox from '../components/TutorialProductBox.astro';
+import ChooseRobotBox from '../components/ChooseRobotBox.astro';
+import { CHOOSE_ROBOT_SLUGS } from '../lib/chooseRobotLinks';
 import ChristmasBanner from '../components/ChristmasBanner.astro';
 import PinterestShare from '../components/PinterestShare.astro';
 import FollowBlock from '../components/FollowBlock.astro';
@@ -79,6 +81,8 @@ if (articleSlug) {
 		// Image Pinterest non disponible, on n'affiche pas
 	}
 }
+
+const chooseRobotAges = articleSlug ? CHOOSE_ROBOT_SLUGS[articleSlug] : undefined;
 
 // Détection automatique du TutorialProductBox selon les catégories
 const categoryLower = categories.map(c => c.toLowerCase());
@@ -406,6 +410,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				<article>
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
+						{chooseRobotAges && <ChooseRobotBox ages={chooseRobotAges} />}
 						{tutorialProducts && tutorialProducts.length > 0 && (
 							<TutorialProductBox
 								productIds={tutorialProducts}

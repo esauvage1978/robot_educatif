@@ -1,0 +1,85 @@
+---
+/**
+ * Suivi GA4 unique des clics affiliés (délégation sur document) : un seul événement
+ * affiliate_click par clic, avec link_url, merchant et product.
+ * Remplace les écouteurs propres à ProductBox, ComparisonTable, MobileStickyCTA et TutorialProductBox
+ * (qui se cumulaient et n'envoyaient pas l'URL du lien).
+ */
+---
+
+<script is:inline>
+	(function () {
+		var MERCHANTS = [
+			[/(^|\.)amazon\.[a-z.]+$|(^|\.)amzn\.(to|eu)$/, 'amazon'],
+			[/(^|\.)awin1\.com$|(^|\.)awin\.com$/, 'awin'],
+			[/(^|\.)sunfounder\.com$/, 'sunfounder'],
+			[/(^|\.)dfrobot\.com$/, 'dfrobot'],
+		];
+		function merchantOf(host) {
+			for (var i = 0; i < MERCHANTS.length; i++) if (MERCHANTS[i][0].test(host)) return MERCHANTS[i][1];
+			var parts = host.replace(/^www\./, '').split('.');
+			return parts.length > 1 ? parts[parts.length - 2] : host;
+		}
+		function isAffiliate(a, url, merchant) {
+			if (merchant === 'amazon' || merchant === 'awin') return true;
+			var rel = (a.getAttribute('rel') || '').toLowerCase();
+			if (rel.indexOf('sponsored') !== -1) return true;
+			if (a.classList.contains('affiliate-link')) return true;
+			return /[?&](ref|tag|awinaffid|aff|affiliate)=/i.test(url.search);
+		}
+		function clean(t) {
+			return (t || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+		}
+		function productOf(a, url) {
+			var m = url.pathname.match(/\/(?:dp|gp\/product|exec\/obidos\/ASIN)\/([A-Z0-9]{10})/i);
+			if (m) return m[1].toUpperCase();
+			if (a.dataset.product) return clean(a.dataset.product);
+			if (a.dataset.asin) return clean(a.dataset.asin);
+			if (a.dataset.productName) return clean(a.dataset.productName);
+			if (url.searchParams.get('k')) return clean(url.searchParams.get('k'));
+			if (a.dataset.productId) return clean(a.dataset.productId);
+			var box = a.closest('.product-box, .tutorial-product-box, .comparison-table tr, .promo-code, li');
+			if (box) {
+				var h = box.querySelector('h2, h3, h4, .product-name, .product-name-cell');
+				if (h) return clean(h.textContent);
+			}
+			return clean(a.textContent || a.getAttribute('aria-label'));
+		}
+		function placementOf(a) {
+			if (a.closest('.comparison-table')) return 'comparison_table';
+			if (a.closest('.mobile-sticky-cta')) return 'mobile_sticky';
+			if (a.closest('.tutorial-product-box')) return 'tutorial_box';
+			if (a.closest('.product-box')) return 'product_box';
+			if (a.closest('.promo-code')) return 'promo_code';
+			if (a.closest('aside, .sidebar, .widget')) return 'sidebar';
+			return 'content';
+		}
+		function onClick(e) {
+			if (e.type === 'auxclick' && e.button !== 1) return;
+			var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+			if (!a) return;
+			var url;
+			try {
+				url = new URL(a.href, location.href);
+			} catch (err) {
+				return;
+			}
+			if (url.hostname === location.hostname) return;
+			var merchant = merchantOf(url.hostname.toLowerCase());
+			if (!isAffiliate(a, url, merchant)) return;
+			if (typeof window.gtag !== 'function') return;
+			var params = {
+				link_url: url.href.slice(0, 500),
+				merchant: merchant,
+				product: productOf(a, url),
+				placement: placementOf(a),
+				page_path: location.pathname,
+			};
+			if (a.dataset.productId) params.product_id = a.dataset.productId;
+			if (a.dataset.position) params.position = parseInt(a.dataset.position, 10) || 0;
+			window.gtag('event', 'affiliate_click', params);
+		}
+		document.addEventListener('click', onClick, true);
+		document.addEventListener('auxclick', onClick, true);
+	})();
+</script>
