@@ -7,6 +7,7 @@ import DomotiqueSubNav from '../../components/DomotiqueSubNav.astro';
 import { withBase } from '../../lib/siteUrl';
 import { getDomotiqueThumbnail, getDomotiqueHubThumbnail } from '../../lib/domotiqueThumbnail';
 import { withImageVersion } from '../../lib/imageVersion';
+import { getIllustration } from '../../lib/illustration';
 
 const title = 'Domotique : la maison connectée version famille et makers';
 const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien acheter. Guides pratiques pour débuter en domotique.';
@@ -20,6 +21,7 @@ const domotiquePosts = (await getCollection('domotique')).sort((a, b) =>
 const postsWithThumbnails = await Promise.all(
 	domotiquePosts.slice(0, 6).map(async (post) => ({
 		...post,
+		illustration: getIllustration(post.id),
 		thumbnail: await getDomotiqueThumbnail(post.slug)
 	}))
 );
@@ -111,8 +113,10 @@ const postsWithThumbnails = await Promise.all(
 		}
 		.card-image {
 			width: 100%;
-			height: 160px;
-			object-fit: cover;
+			height: auto;
+			aspect-ratio: 16/9;
+			object-fit: contain;
+			background: var(--surface, #f1f5f9);
 		}
 		.card-content {
 			padding: 1.5rem;
@@ -184,7 +188,7 @@ const postsWithThumbnails = await Promise.all(
 			<div class="cards-grid">
 				{postsWithThumbnails.map(post => (
 					<div class="card">
-						{post.thumbnail && <img src={post.thumbnail.src} alt={post.data.title} class="card-image" />}
+						{post.illustration ? <img src={withImageVersion(withBase(post.illustration.src))} alt={post.illustration.alt} width="960" height="540" loading="lazy" decoding="async" class="card-image" /> : post.thumbnail && <img src={post.thumbnail.src} alt={post.data.title} class="card-image" />}
 						<div class="card-content">
 							<h3><a href={withBase(`/domotique/${post.slug}/`)}>{post.data.title}</a></h3>
 							<p>{post.data.description}</p>

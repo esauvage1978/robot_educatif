@@ -103,6 +103,12 @@ const topCategories = topCategoriesByCount(posts, 15);
 				font-size: 2.369rem;
 			}
 			.posts-list li img {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 16 / 9;
+				object-fit: contain;
+				background: var(--surface);
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
 			}
@@ -225,7 +231,10 @@ const topCategories = topCategoriesByCount(posts, 15);
 							return (
 								<li>
 									<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
-										{thumbnail.type === 'image' && (
+										{thumbnail.type === 'illustration' && (
+									<img src={withImageVersion(withBase(thumbnail.src))} alt={thumbnail.alt} width="720" height="405" loading="lazy" decoding="async" />
+								)}
+								{thumbnail.type === 'image' && (
 											<Image width={720} height={360} src={thumbnail.src} alt={post.data.title} />
 										)}
 										{thumbnail.type === 'pinterest' && (

@@ -12,6 +12,7 @@ import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
 import { withImageVersion } from '../lib/imageVersion';
+import { getIllustration } from '../lib/illustration';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
@@ -32,7 +33,8 @@ const {
 // Charger le thumbnail généré pour cet article
 // Note: getDomotiqueThumbnail uses import.meta.glob which doesn't work well with /public/
 // So we construct the path directly and let Astro handle it
-const thumbnailPath = `/images/blog-thumbnails/${articleSlug}.png`;
+const illustration = getIllustration(articleSlug);
+const thumbnailPath = illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`;
 const thumbnailImage = withImageVersion(thumbnailPath);
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -107,6 +109,8 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 				letter-spacing: 0.05em;
 			}
 			
+			.domotique-illustration { max-width: 900px; margin: 0 auto 1.5rem; padding: 0 1.5rem; box-sizing: border-box; }
+			.domotique-illustration img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; border-radius: 12px; background: var(--surface, #f1f5f9); }
 			.article-content {
 				max-width: 900px;
 				width: 100%;
@@ -148,6 +152,12 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 						<span>Par {ARTICLE_AUTHOR}</span>
 					</div>
 				</header>
+				{illustration && (
+					<figure class="domotique-illustration">
+						<img src={thumbnailImage} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+						<figcaption class="ai-illustration-caption">Illustration générée par IA</figcaption>
+					</figure>
+				)}
 				
 				<div class="article-content prose">
 					<slot />

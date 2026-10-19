@@ -46,6 +46,7 @@
 			return clean(a.textContent || a.getAttribute('aria-label'));
 		}
 		function placementOf(a) {
+			if (a.dataset.placement) return clean(a.dataset.placement);
 			if (a.closest('.comparison-table')) return 'comparison_table';
 			if (a.closest('.mobile-sticky-cta')) return 'mobile_sticky';
 			if (a.closest('.tutorial-product-box')) return 'tutorial_box';
@@ -67,6 +68,7 @@
 			if (url.hostname === location.hostname) return;
 			var merchant = merchantOf(url.hostname.toLowerCase());
 			if (!isAffiliate(a, url, merchant)) return;
+			if (a.dataset.merchant) merchant = clean(a.dataset.merchant);
 			if (typeof window.gtag !== 'function') return;
 			var params = {
 				link_url: url.href.slice(0, 500),

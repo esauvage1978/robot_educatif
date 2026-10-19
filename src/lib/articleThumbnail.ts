@@ -1,5 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
+import { getIllustration } from './illustration';
 
 const genericImages = [
 	'mbot-hero.png', 'mbot-hero', 
@@ -36,9 +37,12 @@ const availablePinterestPins = [
  */
 export function resolveArticleThumbnail(
 	post: CollectionEntry<'blog'>,
-	heroImage?: ImageMetadata
-): { type: 'image'; src: ImageMetadata } | { type: 'pinterest'; slug: string } | { type: 'generated' } {
-	
+	heroImage?: ImageMetadata,
+): { type: 'illustration'; src: string; alt: string } | { type: 'image'; src: ImageMetadata } | { type: 'pinterest'; slug: string } | { type: 'generated' } {
+	// 0. Illustration unique de l'article (prioritaire)
+	const illu = getIllustration(post.id);
+	if (illu) return { type: 'illustration', ...illu };
+
 	// 1. heroImage spécifique (pas générique)
 	if (heroImage) {
 		const isGeneric = genericImages.some(g => heroImage.src.includes(g));
@@ -77,6 +81,9 @@ export function resolveArticleImage(
 	slug: string,
 	heroImage?: ImageMetadata
 ): string | ImageMetadata {
+	// 0. Illustration unique de l'article
+	const illu = getIllustration(slug);
+	if (illu) return illu.src;
 	// 1. heroImage spécifique (pas générique)
 	if (heroImage) {
 		const isGeneric = genericImages.some(g => {
