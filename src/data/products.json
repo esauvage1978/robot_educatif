@@ -172,6 +172,9 @@
   },
   "botley-2": {
     "id": "botley-2",
+    "image": "/images/products/botley-2.webp",
+    "imageAlt": "Illustration d'un petit robot de codage sans écran pour enfant, à côté d'une télécommande à flèches et de cartes de codage colorées",
+    "imageCaption": "Illustration générée par IA",
     "name": "Learning Resources Botley 2.0",
     "asin": "B083T5G5ZK",
     "ages": "5-9 ans",
@@ -188,6 +191,9 @@
   },
   "code-and-go-souris": {
     "id": "code-and-go-souris",
+    "image": "/images/products/code-and-go-souris.webp",
+    "imageAlt": "Illustration d'une souris robot programmable avec des boutons fléchés sur le dos, posée sur un labyrinthe modulable menant à un morceau de fromage",
+    "imageCaption": "Illustration générée par IA",
     "name": "Learning Resources Code & Go, kit souris robot",
     "asin": "B01A5YMCH4",
     "ages": "Dès 4 ans",

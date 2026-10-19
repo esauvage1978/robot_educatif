@@ -103,5 +103,21 @@
     "manufacturer": "SunFounder",
     "note": "bandeau logos LLM rogné",
     "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "botley-2": {
+    "manufacturer": "Learning Resources (produit) ; image : illustration IA générique, sans marque",
+    "sourcePage": null,
+    "imageUrl": null,
+    "note": "Aucun visuel officiel réutilisable : CGU learningresources.com (https://www.learningresources.com/terms-of-use) interdisent toute reproduction sans accord écrit ; banque presse ACE Media (https://ace.media/learnig-resources) réservée aux journalistes inscrits, sans licence d'usage publiée. Illustration IA (GenerateImage, 19/10/2026), légende « Illustration générée par IA ». Jamais d'image Amazon/revendeur.",
+    "format": "600x600 WebP q82, white bg, ~6% padding",
+    "generatedFrom": "ia-botley-like-robot-codage.jpg"
+  },
+  "code-and-go-souris": {
+    "manufacturer": "Learning Resources (produit) ; image : illustration IA générique, sans marque",
+    "sourcePage": null,
+    "imageUrl": null,
+    "note": "Aucun visuel officiel réutilisable : CGU learningresources.com (https://www.learningresources.com/terms-of-use) interdisent toute reproduction sans accord écrit ; banque presse ACE Media (https://ace.media/learnig-resources) réservée aux journalistes inscrits, sans licence d'usage publiée. Illustration IA (GenerateImage, 19/10/2026), légende « Illustration générée par IA ». Jamais d'image Amazon/revendeur.",
+    "format": "600x600 WebP q82, white bg, ~6% padding",
+    "generatedFrom": "ia-souris-robot-programmable.jpg"
   }
 }

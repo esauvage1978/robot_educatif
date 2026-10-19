@@ -70,6 +70,7 @@ const hasPhotos = productDetails.some((p) => p && !String(p.imageUrl).startsWith
 											class="table-img"
 										/>
 									</a>
+									{product.imageCaption && <span class="ai-illustration-caption" style="display:block;text-align:center;font-size:0.62rem;line-height:1.15;max-width:72px;margin:0.25rem auto 0;">{product.imageCaption}</span>}
 								</td>
 							)}
 							<td class="product-name-cell">
