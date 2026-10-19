@@ -18,6 +18,8 @@ import { withImageVersion } from '../lib/imageVersion';
 const allPosts = await getCollection('blog');
 const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 4);
 
+const HOME_TITLE = "Robot Éducatif : guides d'achat et tutos robots pour enfants";
+
 const HOME_DESCRIPTION =
 	'Robots éducatifs pour enfants, ados et écoles : guides d\'achat par âge, comparatifs mBot/LEGO, tutoriels mBlock, Scratch et Python.';
 
@@ -35,7 +37,7 @@ const guideCount = allPosts.length;
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={HOME_DESCRIPTION} />
+		<BaseHead title={HOME_TITLE} description={HOME_DESCRIPTION} />
 		<StructuredDataWebsite />
 		<style>
 			body {
