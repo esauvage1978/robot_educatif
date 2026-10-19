@@ -29,6 +29,8 @@ relatedLinks:
 
 ## Repères par rapport à 5–6 ans
 
+Votre enfant a plutôt 6 ans ? Lisez d'abord notre **[guide robot enfant 6 ans](/robot-enfant-6-ans/)**, pensé pour les lecteurs débutants.
+
 - **Scratch** (ou équivalent blocs) devient accessible : l’enfant accepte de **déboguer** (« ça ne marche pas, je change l’ordre des blocs »).
 - **Montage** : kits avec vis et notice illustrée sont envisageables si un adulte est disponible les premières fois.
 - **Jeux de rôle** : encore motivants — un robot « garde du trésor » ou « livreur » rend la programmation concrète.

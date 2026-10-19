@@ -4,7 +4,10 @@
     "name": "Makeblock mBot",
     "asin": "B07XR98YYQ",
     "ages": "8-12 ans",
-    "languages": ["Scratch", "Arduino"],
+    "languages": [
+      "Scratch",
+      "Arduino"
+    ],
     "image": "/images/products/mbot.webp",
     "pros": [
       "Facile à assembler en 15 minutes",
@@ -20,7 +23,10 @@
     "name": "Makeblock mBot2",
     "asin": "B0919F9CKS",
     "ages": "10-14 ans",
-    "languages": ["Scratch", "Python"],
+    "languages": [
+      "Scratch",
+      "Python"
+    ],
     "image": "/images/products/mbot2.webp",
     "pros": [
       "Carte CyberPi avec écran couleur",
@@ -36,7 +42,10 @@
     "name": "Makeblock CyberPi",
     "asin": "B0BBZY9L59",
     "ages": "10+ ans",
-    "languages": ["Scratch", "Python"],
+    "languages": [
+      "Scratch",
+      "Python"
+    ],
     "image": "/images/products/cyberpi.webp",
     "pros": [
       "Carte programmable polyvalente",
@@ -52,7 +61,9 @@
     "name": "ELEGOO Kit Voiture Robot Intelligent V4.0",
     "asin": "B078Y9RYM2",
     "ages": "12+ ans",
-    "languages": ["Arduino C"],
+    "languages": [
+      "Arduino C"
+    ],
     "image": "/images/products/elegoo-robot-car.webp",
     "pros": [
       "Kit complet avec UNO R3",
@@ -68,7 +79,9 @@
     "name": "ELEGOO Penguin Bot",
     "asin": "B07GVD6GQH",
     "ages": "8-14 ans",
-    "languages": ["Arduino C"],
+    "languages": [
+      "Arduino C"
+    ],
     "image": "/images/products/elegoo-penguin.webp",
     "pros": [
       "Robot bipède original",
@@ -84,7 +97,11 @@
     "name": "Raspberry Pi 5 (4GB)",
     "asin": "B0CK3L9WD3",
     "ages": "12+ ans",
-    "languages": ["Python", "C++", "JavaScript"],
+    "languages": [
+      "Python",
+      "C++",
+      "JavaScript"
+    ],
     "image": "/images/products/raspberry-pi-5-8gb.webp",
     "pros": [
       "Processeur ARM Cortex-A76 2.4GHz",
@@ -100,7 +117,11 @@
     "name": "Raspberry Pi 5 (8GB)",
     "asin": "B0CK2FCG1K",
     "ages": "12+ ans",
-    "languages": ["Python", "C++", "JavaScript"],
+    "languages": [
+      "Python",
+      "C++",
+      "JavaScript"
+    ],
     "image": "/images/products/raspberry-pi-5-8gb.webp",
     "pros": [
       "8GB de RAM pour multitâche",
@@ -116,7 +137,10 @@
     "name": "Makeblock mBot Ranger",
     "asin": "B07KG4JHBH",
     "ages": "10-14 ans",
-    "languages": ["Scratch", "Arduino"],
+    "languages": [
+      "Scratch",
+      "Arduino"
+    ],
     "image": "/images/products/mbot-ranger.webp",
     "pros": [
       "3 formes prédéfinies possibles",
@@ -132,7 +156,10 @@
     "name": "Makeblock Codey Rocky",
     "asin": "B07CGH8NZ7",
     "ages": "6-12 ans",
-    "languages": ["Scratch", "Python"],
+    "languages": [
+      "Scratch",
+      "Python"
+    ],
     "image": "/images/products/codey-rocky.webp",
     "pros": [
       "Design amusant et robuste",
@@ -142,5 +169,98 @@
     ],
     "description": "Robot éducatif ludique avec IA intégrée",
     "badge": "Plus ludique"
+  },
+  "botley-2": {
+    "id": "botley-2",
+    "name": "Learning Resources Botley 2.0",
+    "asin": "B083T5G5ZK",
+    "ages": "5-9 ans",
+    "languages": [
+      "Télécommande à flèches",
+      "Cartes de codage"
+    ],
+    "pros": [
+      "Programmation sans écran",
+      "Prêt à jouer",
+      "Suivi de ligne et détection d'obstacle"
+    ],
+    "description": "Robot de codage sans écran pour débuter dès 5 ans"
+  },
+  "code-and-go-souris": {
+    "id": "code-and-go-souris",
+    "name": "Learning Resources Code & Go, kit souris robot",
+    "asin": "B01A5YMCH4",
+    "ages": "Dès 4 ans",
+    "languages": [
+      "Boutons sur le robot",
+      "Cartes de défis"
+    ],
+    "pros": [
+      "Sans écran",
+      "Labyrinthe modulable",
+      "Cartes de défis progressifs"
+    ],
+    "description": "Jeu de logique avec souris robot programmable"
+  },
+  "elegoo-uno-super-starter": {
+    "id": "elegoo-uno-super-starter",
+    "name": "ELEGOO UNO R3 Super Starter Kit",
+    "asin": "B01JD2Z5XW",
+    "ages": "Ado et adulte",
+    "languages": [
+      "Arduino C/C++"
+    ],
+    "pros": [
+      "Tutoriel de plus de 22 leçons",
+      "Sans soudure",
+      "Composants réutilisables"
+    ],
+    "description": "Kit pour apprendre l'électronique Arduino"
+  },
+  "freenove-esp32-car": {
+    "id": "freenove-esp32-car",
+    "name": "Freenove 4WD Car Kit ESP32 (caméra)",
+    "asin": "B08X6PTQFM",
+    "ages": "Ado et adulte",
+    "languages": [
+      "Arduino C/C++"
+    ],
+    "pros": [
+      "ESP32 avec caméra inclus",
+      "Pilotage Wi-Fi par appli",
+      "Suivi de ligne et évitement"
+    ],
+    "description": "Voiture robot connectée à base d'ESP32"
+  },
+  "freenove-4wd-rpi": {
+    "id": "freenove-4wd-rpi",
+    "name": "Freenove 4WD Smart Car Kit Raspberry Pi",
+    "asin": "B07YD2LT9D",
+    "ages": "Ado et adulte",
+    "languages": [
+      "Python"
+    ],
+    "pros": [
+      "Python",
+      "Caméra et suivi de visage",
+      "Compatible Pi 5, 4, 3 B+, Zero 2 W"
+    ],
+    "description": "Voiture robot Python pour Raspberry Pi (carte non incluse)"
+  },
+  "sunfounder-picar-x": {
+    "id": "sunfounder-picar-x",
+    "name": "SunFounder PiCar-X",
+    "asin": "B0CGLPF29H",
+    "ages": "Dès 10 ans",
+    "languages": [
+      "Python",
+      "Scratch"
+    ],
+    "pros": [
+      "Caméra orientable",
+      "Projets IA et LLM",
+      "Compatible Pi 5, 4, 3 B+, Zero 2 W"
+    ],
+    "description": "Robot voiture IA pour Raspberry Pi (carte non incluse)"
   }
 }
