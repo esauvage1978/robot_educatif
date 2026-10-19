@@ -78,5 +78,30 @@
     "imageUrl": "https://cdn.shopify.com/s/files/1/0438/4735/2471/files/starterkit_01.iso.jpg",
     "manufacturer": "Arduino",
     "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "elegoo-uno-super-starter": {
+    "sourcePage": "https://www.elegoo.com/products/elegoo-uno-project-super-starter-kit",
+    "imageUrl": "https://www.elegoo.com/cdn/shop/products/elegoo-uno-r3-super-starter-kit-compatible-with-arduino-ide-arduino-stem-kits-elegoo-shop-427270.jpg",
+    "manufacturer": "ELEGOO",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "freenove-esp32-car": {
+    "sourcePage": "https://store.freenove.com/products/fnk0053",
+    "imageUrl": "https://store.freenove.com/cdn/shop/files/FNK0053.MAIN_176e2cd5-9830-4c4e-9086-f8607c6cb130.jpg",
+    "manufacturer": "Freenove",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "freenove-4wd-rpi": {
+    "sourcePage": "https://store.freenove.com/products/fnk0043",
+    "imageUrl": "https://store.freenove.com/cdn/shop/files/FNK0043.MAIN_fac56ef0-085d-46b0-8743-ab12d50d9efe.jpg",
+    "manufacturer": "Freenove",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
+  },
+  "sunfounder-picar-x": {
+    "sourcePage": "https://www.sunfounder.com/products/picar-x",
+    "imageUrl": "https://www.sunfounder.com/cdn/shop/files/sunfounder-picar-x-sunfounder-picar-x-ai-video-robot-car-kit-for-raspberry-pi-5-4-3b-zero-2w-llms-chatgpt-4o-gemini-grok-voice-video-recognition-python-scratch-camera-batterry-rpi-not-included-38845522608363.jpg",
+    "manufacturer": "SunFounder",
+    "note": "bandeau logos LLM rogné",
+    "format": "600x600 WebP q82, white bg, ~6% padding"
   }
 }

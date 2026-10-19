@@ -776,19 +776,18 @@ html[data-theme="dark"] .prose .exo-badge--hard {
    Tables responsives (mobile)
    ======================================== */
 
-/* Wrapper automatique pour toutes les tables dans .prose */
+/* Tables dans .prose : vrai tableau (en-têtes alignés sur les colonnes, texte qui passe à la ligne).
+   Sur mobile seulement, scroll horizontal propre si le contenu ne tient pas. */
 .prose table {
-	display: block;
-	max-width: 100%;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	white-space: nowrap;
+	white-space: normal;
 }
 
-.prose table tbody,
-.prose table thead {
-	display: table;
-	width: 100%;
+@media (max-width: 768px) {
+	.prose table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
 }
 
 @media (max-width: 768px) {
