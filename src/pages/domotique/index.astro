@@ -45,9 +45,14 @@ const postsWithThumbnails = await Promise.all(
 			display: flex;
 			gap: 1rem;
 			justify-content: center;
+			flex-wrap: wrap;
 			margin-top: 2rem;
 		}
 		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			white-space: nowrap;
 			padding: 0.75rem 1.5rem;
 			border-radius: 8px;
 			text-decoration: none;
@@ -64,6 +69,19 @@ const postsWithThumbnails = await Promise.all(
 		.btn-secondary {
 			background: white;
 			color: #0F766E;
+		}
+		@media (max-width: 480px) {
+			.hero-domotique {
+				padding: 2.5rem 1.25rem;
+			}
+			.hero-domotique h1 {
+				font-size: 1.75rem;
+			}
+			.hero-buttons {
+				flex-direction: column;
+				align-items: stretch;
+				gap: 0.75rem;
+			}
 		}
 		.section {
 			max-width: 1200px;

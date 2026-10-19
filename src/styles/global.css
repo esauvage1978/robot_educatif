@@ -800,3 +800,11 @@ html[data-theme="dark"] .prose .exo-badge--hard {
 		padding: 0.5rem 0.75rem;
 	}
 }
+
+/* Boutons / CTA : padding inclus dans la largeur (évite les débordements des boutons pleine largeur sur mobile) */
+a[class*='btn'],
+a[class*='cta'],
+a.affiliate-link,
+button {
+	box-sizing: border-box;
+}

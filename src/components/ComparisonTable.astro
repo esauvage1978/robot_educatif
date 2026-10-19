@@ -123,6 +123,12 @@ const hasPhotos = productDetails.some((p) => p && !String(p.imageUrl).startsWith
 		font-weight: 800;
 		color: rgb(var(--black));
 		text-align: center;
+		/* neutralise le style h2 « carte » global des articles (pas de boîte dans la boîte) */
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		box-shadow: none;
 	}
 
 	.sr-only {
@@ -285,6 +291,7 @@ const hasPhotos = productDetails.some((p) => p && !String(p.imageUrl).startsWith
 		line-height: 1.5;
 		color: rgb(var(--gray-dark));
 		text-align: center;
+		text-wrap: balance;
 	}
 
 	.comparison-note strong {
