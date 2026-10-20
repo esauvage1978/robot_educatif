@@ -22,9 +22,10 @@ const postsWithThumbnails = await Promise.all(
 	domotiquePosts.slice(0, 6).map(async (post) => ({
 		...post,
 		illustration: getIllustration(post.id),
-		thumbnail: await getDomotiqueThumbnail(post.slug)
+		thumbnail: await getDomotiqueThumbnail(post.id.replace(/\.mdx?$/, ''))
 	}))
 );
+const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCompare(b.data.title, 'fr'));
 ---
 
 <!doctype html>
@@ -125,6 +126,28 @@ const postsWithThumbnails = await Promise.all(
 			color: var(--accent);
 			margin-bottom: 0.5rem;
 		}
+		.all-guides {
+			list-style: none;
+			padding: 0;
+			margin-top: 1.5rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 1rem 2rem;
+		}
+		.all-guides li {
+			background: var(--surface);
+			border: 1px solid var(--surface-border);
+			border-radius: 10px;
+			padding: 1rem 1.25rem;
+		}
+		.all-guides a {
+			font-weight: 600;
+			color: var(--accent);
+		}
+		.all-guides p {
+			margin: 0.35rem 0 0;
+			font-size: 0.95rem;
+		}
 		.faq {
 			margin-top: 3rem;
 		}
@@ -190,13 +213,27 @@ const postsWithThumbnails = await Promise.all(
 					<div class="card">
 						{post.illustration ? <img src={withImageVersion(withBase(post.illustration.src))} alt={post.illustration.alt} width="960" height="540" loading="lazy" decoding="async" class="card-image" /> : post.thumbnail && <img src={post.thumbnail.src} alt={post.data.title} class="card-image" />}
 						<div class="card-content">
-							<h3><a href={withBase(`/domotique/${post.slug}/`)}>{post.data.title}</a></h3>
+							<h3><a href={withBase(`/domotique/${post.id.replace(/\.mdx?$/, '')}/`)}>{post.data.title}</a></h3>
 							<p>{post.data.description}</p>
 						</div>
 					</div>
 				))}
 			</div>
 		</section>
+
+		{otherPosts.length > 0 && (
+			<section class="section">
+				<h2>Tous les guides et tutoriels domotique</h2>
+				<ul class="all-guides">
+					{otherPosts.map(post => (
+						<li>
+							<a href={withBase(`/domotique/${post.id.replace(/\.mdx?$/, '')}/`)}>{post.data.title}</a>
+							<p>{post.data.description}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
 
 		<section class="section faq">
 			<h2>Questions fréquentes</h2>

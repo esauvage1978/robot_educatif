@@ -149,5 +149,6 @@
 	"raspberry-pi-detecteur-presence-pir-eclairage": "Illustration d'un détecteur PIR dans un couloir relié à un Raspberry Pi, avec une lampe allumée",
 	"raspberry-pi-capteur-ouverture-porte-notification": "Illustration d'une porte équipée d'un contact magnétique relié à un Raspberry Pi et d'un smartphone recevant une notification",
 	"ouvrir-porte-garage-smartphone-esp32-esphome": "Illustration d'une porte de garage sectionnelle avec un module ESP32 et relais au mur et un smartphone affichant une icône de garage",
-	"secours-electrique-home-assistant-onduleur-station": "Illustration d'une station électrique alimentant un petit serveur domotique, une box internet et une clé Zigbee sur une étagère pendant une coupure de courant nocturne"
+	"secours-electrique-home-assistant-onduleur-station": "Illustration d'une station électrique alimentant un petit serveur domotique, une box internet et une clé Zigbee sur une étagère pendant une coupure de courant nocturne",
+	"home-assistant-zigbee2mqtt-ou-zha": "Illustration d’un réseau maillé Zigbee : capteurs, ampoules et prises reliés entre eux autour d’un coordinateur USB branché sur un serveur Home Assistant"
 }
