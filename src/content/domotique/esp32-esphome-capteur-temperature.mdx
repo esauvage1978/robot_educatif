@@ -1,6 +1,6 @@
 ---
 title: "Capteur température ESP32 + ESPHome pour Home Assistant : tuto complet"
-description: "Tutoriel complet : créer un capteur température DHT22 ou BME280 avec ESP32 et ESPHome. Câblage, code YAML, automatisations, troubleshooting. DIY à 10 €."
+description: "Tutoriel complet : créer un capteur température DHT22 ou BME280 avec ESP32 et ESPHome. Câblage, code YAML, automatisations, troubleshooting. Projet DIY pas à pas."
 pubDate: 2026-10-18T00:00:00Z
 category: "esp32"
 products: ["esp32-c6-devkitc", "xiao-esp32c6"]
@@ -9,7 +9,7 @@ priority: 8
 
 import ProductBox from '../../components/ProductBox.astro';
 
-Créer son propre **capteur température ESP32 + ESPHome** coûte 10 € et s'intègre automatiquement dans Home Assistant. Ce tutoriel détaillé vous guide pas à pas du câblage à la première automatisation, avec des explications pour comprendre chaque étape et personnaliser votre capteur.
+Créer son propre **capteur température ESP32 + ESPHome** demande peu de matériel et s'intègre automatiquement dans Home Assistant. Ce tutoriel détaillé vous guide pas à pas du câblage à la première automatisation, avec des explications pour comprendre chaque étape et personnaliser votre capteur.
 
 ## Matériel requis
 
@@ -18,7 +18,7 @@ Créer son propre **capteur température ESP32 + ESPHome** coûte 10 € et s'in
   name="ESP32-C6 DevKitC"
   searchQuery="ESP32-C6 DevKitC-1"
   image="/images/products/esp32-c6-devkitc.webp"
-  priceRange="8–15 €"
+  priceRange="à vérifier chez le vendeur"
   pros={[
     'WiFi 6 + Zigbee/Thread',
     'Compatible ESPHome',
@@ -29,49 +29,51 @@ Créer son propre **capteur température ESP32 + ESPHome** coûte 10 € et s'in
   position={1}
 />
 
-## Liste complète du matériel nécessaire (10–25 €)
+## Liste complète du matériel nécessaire
+
+*Les prix ne sont pas indiqués : ils varient selon les boutiques et les promotions, à vérifier chez le vendeur.*
 
 ### Composants essentiels
 
-**ESP32 DevKit** : 6–15 €
-- **ESP32-C6-DevKitC-1** (recommandé) : 10–15 € — Zigbee/Thread natif, WiFi 6, basse consommation
-- **XIAO ESP32-C6** (compact) : 8–12 € — même puce, format mini (21 × 17,5 mm)
-- **ESP32-S3-DevKitC-1** (alternatif) : 8–12 € — pas de Zigbee/Thread, mais WiFi stable
+**ESP32 DevKit**
+- **ESP32-C6-DevKitC-1** (recommandé) — Zigbee/Thread natif, WiFi 6, basse consommation
+- **XIAO ESP32-C6** (compact) — même puce, format mini (21 × 17,5 mm)
+- **ESP32-S3-DevKitC-1** (alternatif) — pas de Zigbee/Thread, mais WiFi stable
 
 *Pourquoi l'ESP32-C6 ?* Puce RISC-V avec WiFi 6, Zigbee 3.0 et Thread natifs. Futur-proof pour Matter. Consommation 50 % inférieure au S3 en deep sleep.
 
 *Liens Amazon : [ESP32-C6 DevKit](https://www.amazon.fr/s?k=ESP32-C6+DevKit&tag=manuso06-21), [XIAO ESP32-C6](https://www.amazon.fr/s?k=XIAO+ESP32-C6&tag=manuso06-21).*
 
-**Capteur température + humidité** : 3–8 €
-- **DHT22 (AM2302)** : 3–5 € — ±0,5 °C, ±2 % RH, protocole 1-wire simple
-- **BME280** : 5–8 € — ±0,5 °C, ±3 % RH, **+ pression atmosphérique**, I2C, plus précis
+**Capteur température + humidité**
+- **DHT22 (AM2302)** — ±0,5 °C, ±2 % RH, protocole 1-wire simple
+- **BME280** — ±0,5 °C, ±3 % RH, **+ pression atmosphérique**, I2C, plus précis
 
 *Recommandation : BME280* pour les projets sérieux (pression = détection météo locale). DHT22 OK pour débuter.
 
 *Liens Amazon : [DHT22 AM2302](https://www.amazon.fr/s?k=DHT22&tag=manuso06-21), [BME280 module](https://www.amazon.fr/s?k=BME280+module&tag=manuso06-21).*
 
-**Accessoires de câblage** : 3–6 €
-- **Breadboard 400 points** : 2 € — prototypage sans soudure
-- **Câbles Dupont mâle-mâle** (10–20 fils) : 2–3 €
-- **Résistance 4,7 kΩ** (optionnel DHT22, pull-up data) : 0,10 € — améliore stabilité signal longue distance
+**Accessoires de câblage**
+- **Breadboard 400 points** — prototypage sans soudure
+- **Câbles Dupont mâle-mâle** (10–20 fils)
+- **Résistance 4,7 kΩ** (optionnel DHT22, pull-up data) — améliore stabilité signal longue distance
 
 *Lien Amazon : [Kit breadboard + câbles](https://www.amazon.fr/s?k=breadboard+cable+kit&tag=manuso06-21).*
 
-**Alimentation** : 2–5 €
-- **Câble USB-C** (ESP32-C6) ou **micro-USB** (ESP32-S3) : 2–3 € — pour flashage et alimentation 5V
-- **Alimentation USB 5V 1A** : 3–5 € — si branchement permanent (pas besoin de PC)
+**Alimentation**
+- **Câble USB-C** (ESP32-C6) ou **micro-USB** (ESP32-S3) — pour flashage et alimentation 5V
+- **Alimentation USB 5V 1A** — si branchement permanent (pas besoin de PC)
 
 ### Matériel optionnel (boîtier et alimentations avancées)
 
-**Boîtier 3D** : 0–5 €
+**Boîtier 3D**
 - Impression 3D maison (STL gratuits Thingiverse/Printables)
-- Boîtier ABS 70 × 50 × 30 mm avec découpes : 3–5 € sur Amazon
+- Boîtier ABS 70 × 50 × 30 mm avec découpes (disponible sur Amazon)
 
-**Alimentation batterie** (pour capteur extérieur/nomade) : 5–15 €
-- **Batterie Li-ion 18650 3,7V** + module TP4056 (charge/protection) : 5–8 €
-- **Panneau solaire 6V 1W** + régulateur : 8–15 € — autonomie totale
+**Alimentation batterie** (pour capteur extérieur/nomade)
+- **Batterie Li-ion 18650 3,7V** + module TP4056 (charge/protection)
+- **Panneau solaire 6V 1W** + régulateur — autonomie totale
 
-**Budget total** : 10 € (DHT22 + ESP32 + câbles) à 25 € (BME280 + ESP32-C6 + boîtier + batterie).
+**Budget** : prix à vérifier chez le vendeur. La version minimale se limite à un ESP32, un DHT22 et quelques câbles ; boîtier et batterie sont optionnels.
 
 ## Étape 1 : Installer ESPHome dans Home Assistant
 
@@ -574,10 +576,10 @@ entities:
 **Pour capteur nomade ou extérieur sans WiFi proche.**
 
 **Matériel supplémentaire** :
-- Batterie 18650 (3,7V 3000 mAh) : 3–5 €
-- Module TP4056 (charge + protection) : 1 €
-- Régulateur 3,3V (AMS1117 ou LDO) : 0,50 €
-- Panneau solaire 6V 1W (optionnel) : 5 €
+- Batterie 18650 (3,7V 3000 mAh)
+- Module TP4056 (charge + protection)
+- Régulateur 3,3V (AMS1117 ou LDO)
+- Panneau solaire 6V 1W (optionnel)
 
 **Câblage batterie → ESP32** :
 ```
@@ -626,7 +628,7 @@ sensor:
 **ESP32-C6** : puce RISC-V, WiFi 6, Zigbee/Thread, 20 mA en veille (2026, meilleur). **ESP32-S3** : dual-core Xtensa, pas Zigbee, 40 mA en veille, plus de GPIO (2022). **ESP32 original** : 2016, WiFi 4, 80 mA en veille (obsolète). Pour domotique 2026 : **C6 recommandé**.
 
 **DHT22 ou BME280, lequel choisir ?**
-**DHT22** : 3 €, facile (1-wire), précision OK (±0,5 °C). **BME280** : 6 €, I2C, précision +++ (±0,2 °C avec oversampling), bonus pression atmosphérique. Pour projet sérieux : **BME280**. Pour tester : **DHT22**.
+**DHT22** : facile (1-wire), précision OK (±0,5 °C). **BME280** : I2C, précision +++ (±0,2 °C avec oversampling), bonus pression atmosphérique. Pour projet sérieux : **BME280**. Pour tester : **DHT22**.
 
 **L'ESP32 consomme-t-il beaucoup en veille ?**
 **ESP32-C6 WiFi actif** : 80 mA × 3,3V = 260 mW. Sur batterie 3000 mAh : 37h. **Avec deep sleep** : 0,01 mA → 3 mois. Sur secteur USB : négligeable (2 kWh/an = 0,40 €). Zigbee pur débutants : batterie < 1 an.

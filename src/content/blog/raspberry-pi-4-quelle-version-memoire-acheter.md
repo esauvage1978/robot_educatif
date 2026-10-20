@@ -63,9 +63,9 @@ Toutes les variantes offrent **GPIO 40 broches**, **CSI / DSI** (caméra / écra
 
 Si votre budget permet un **Pi 5** avec **dissipateur actif** et **bon chargeur**, le Pi 5 apporte **CPU plus véloce**, **RAM jusqu’à 16 Go** et **PCIe**. Sinon, le **Pi 4 4 Go** ou **8 Go** reste **extrêmement pertinent** pour ne pas sur-investir — tableau détaillé dans le [comparatif Pi 3 / 4 / 5](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/).
 
-## 5. Prix indicatifs (France, fin mars 2026)
+## 5. Prix : à vérifier chez le vendeur
 
-Les **Pi 4** se trouvent souvent entre **~55 €** (variantes 2 Go, promos) et **~100 € ou plus** pour le **8 Go** selon revendeur. Vérifiez si le prix inclut **carte SD**, **boîtier** et **alimentation** — trois postes qui gonflent vite le total sans être « dans la boîte ».
+Le prix d'un **Pi 4** dépend de la mémoire (2, 4 ou 8 Go), du revendeur et des stocks : vérifiez-le chez le vendeur au moment de l'achat. Regardez aussi si le prix inclut **carte SD**, **boîtier** et **alimentation** — trois postes qui gonflent vite le total sans être « dans la boîte ».
 
 ## 6. Installation logicielle
 

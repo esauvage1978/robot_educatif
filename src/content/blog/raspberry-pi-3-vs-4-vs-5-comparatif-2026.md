@@ -63,19 +63,19 @@ Les valeurs ci-dessous correspondent aux **références courantes** publiées pa
 - **Pi 4 B** : **1, 2, 4 et 8 Go** — voir [Raspberry Pi 4 : quelle mémoire acheter ?](/raspberry-pi-4-quelle-version-memoire-acheter/).
 - **Pi 5** : **1, 2, 4, 8 et 16 Go** (le **16 Go** s’appuie sur des révisions SoC / DRAM plus récentes) — voir [Raspberry Pi 5 : quelle mémoire acheter ?](/raspberry-pi-5-quelle-version-memoire-acheter/).
 
-## 4. Prix indicatifs en France (fin mars 2026)
+## 4. Prix : à vérifier chez le vendeur
 
-Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promotions). Pour établir une **fourchette**, nous nous appuyons sur des **agrégateurs et guides d’achat** consultés autour du **30 mars 2026** (ex. idealo.fr, Les Numériques, offres marketplaces).
+Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, promotions) : nous n'indiquons pas de montant, vérifiez-le chez le vendeur au moment de l'achat. Quelques repères pour comparer les offres :
 
-| Modèle | Fourchette indicative TTC (France, mars 2026) | Commentaire |
-|--------|-----------------------------------------------|------------|
-| **Pi 3 B** (neuf / stock résiduel) | environ **35–55 €** | Souvent **moins** en occasion ; attention aux arnaques « trop belles ». |
-| **Pi 4 B** (2 / 4 / 8 Go typiques) | **~55–100+ €** selon barrette | Le **1 Go** existe au catalogue historique mais **peut être introuvable** ou peu pertinent neuf. |
-| **Pi 5** **1 Go** | d’environ **65–75 €** | Entrée de gamme « officielle » quand disponible. |
-| **Pi 5** **2 Go** | **~75–92 €** | Bon compromis **serveur léger** / **petit desktop**. |
-| **Pi 5** **4 Go** | **~95–110 €** | Usage **bureau** / dev **standard**. |
-| **Pi 5** **8 Go** | **~145–155 €** | Multi-tâches, **VM légères**, compilation. |
-| **Pi 5** **16 Go** | **~205–275 €** | Modèles récents ; prix **très volatil** selon stock. |
+| Modèle | Commentaire |
+|--------|------------|
+| **Pi 3 B** (neuf / stock résiduel) | Souvent **moins cher** d'occasion ; attention aux arnaques « trop belles ». |
+| **Pi 4 B** (2 / 4 / 8 Go typiques) | Prix selon la quantité de mémoire. Le **1 Go** existe au catalogue historique mais **peut être introuvable** ou peu pertinent neuf. |
+| **Pi 5** **1 Go** | Entrée de gamme « officielle » quand disponible. |
+| **Pi 5** **2 Go** | Bon compromis **serveur léger** / **petit desktop**. |
+| **Pi 5** **4 Go** | Usage **bureau** / dev **standard**. |
+| **Pi 5** **8 Go** | Multi-tâches, **VM légères**, compilation. |
+| **Pi 5** **16 Go** | Modèles récents ; prix **très volatil** selon stock. |
 
 *Vérifiez toujours la **fiche vendeur**, la **révision** de la carte et les **accessoires** inclus (absence d’alimentation officielle, coût du dissipateur sur Pi 5, etc.).*
 
@@ -87,7 +87,7 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 **Monter au Pi 5** quand : vous avez besoin de **marge CPU**, de **8 Go ou plus** (idéalement **16 Go** pour certains workloads « edge »), ou du **bus PCIe** ; prévoir **refroidissement actif** et **bonne alimentation**.
 
-**Pour la domotique Home Assistant** : le **Pi 5 4 Go** est idéal (120–150 €) avec un dongle Zigbee. Alternative clé en main : **Home Assistant Green** (180 €). Voir notre [guide complet domotique](/domotique/) et le [tuto installation Home Assistant sur Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+**Pour la domotique Home Assistant** : le **Pi 5 4 Go** est idéal avec un dongle Zigbee. Alternative clé en main : **Home Assistant Green**. Voir notre [guide complet domotique](/domotique/) et le [tuto installation Home Assistant sur Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
 
 **Pour un ado hésitant entre « carte nue » et robot** : reprenez aussi [Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/) — la question est souvent **pédagogie** / **motivation**, pas seulement le brut MIPS.
 

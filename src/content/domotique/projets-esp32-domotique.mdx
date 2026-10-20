@@ -9,7 +9,7 @@ priority: 9
 
 import ProductBox from '../../components/ProductBox.astro';
 
-L'**ESP32 + ESPHome** transforme un microcontrôleur à 7 € en capteur, relais ou écran connecté Home Assistant. Voici 10 projets classés par difficulté.
+L'**ESP32 + ESPHome** transforme un petit microcontrôleur Wi-Fi en capteur, relais ou écran connecté Home Assistant. Voici 10 projets classés par difficulté. Les prix du matériel ne sont pas indiqués : ils changent souvent, vérifiez-les chez le vendeur.
 
 ## Matériel recommandé
 
@@ -18,7 +18,7 @@ L'**ESP32 + ESPHome** transforme un microcontrôleur à 7 € en capteur, relais
   name="ESP32-C6 DevKitC"
   searchQuery="ESP32-C6 DevKitC-1"
   image="/images/products/esp32-c6-devkitc.webp"
-  priceRange="8–15 €"
+  priceRange="à vérifier chez le vendeur"
   pros={[
     'WiFi 6 + Zigbee/Thread',
     'Compatible ESPHome',
@@ -33,13 +33,13 @@ L'**ESP32 + ESPHome** transforme un microcontrôleur à 7 € en capteur, relais
 
 ### 1. Capteur température DHT22
 
-**Matériel** : ESP32-C6 + DHT22 (10 €)  
+**Matériel** : ESP32-C6 + DHT22  
 **Utilité** : surveiller chaque pièce sans Zigbee  
 [Tuto complet ici](/domotique/esp32-esphome-capteur-temperature/)
 
 ### 2. Bouton d'urgence
 
-**Matériel** : ESP32 + bouton poussoir (8 €)  
+**Matériel** : ESP32 + bouton poussoir  
 **Code** :
 ```yaml
 binary_sensor:
@@ -55,19 +55,19 @@ binary_sensor:
 
 ### 3. LED de statut
 
-**Matériel** : ESP32 + LED RGB WS2812 (9 €)  
+**Matériel** : ESP32 + LED RGB WS2812  
 **Utilité** : afficher état maison (vert = OK, rouge = fenêtre ouverte, bleu = absent).
 
 ## Projets intermédiaires (2–4 heures)
 
 ### 4. Station météo complète
 
-**Matériel** : ESP32 + BME280 (temp/hum/pression) + BH1750 (luminosité) (15 €)  
+**Matériel** : ESP32 + BME280 (temp/hum/pression) + BH1750 (luminosité)  
 **Utilité** : météo locale, prédire pluie, automatiser stores selon luminosité.
 
 ### 5. Relais 4 canaux
 
-**Matériel** : ESP32 + module relais 4 canaux (12 €)  
+**Matériel** : ESP32 + module relais 4 canaux  
 **Utilité** : piloter chauffage, ventilateur, pompe, portail.
 
 <div class="shelly-encart">
@@ -77,14 +77,14 @@ binary_sensor:
 
 ### 6. Détecteur de présence mmWave
 
-**Matériel** : ESP32 + LD2410 mmWave (18 €)  
+**Matériel** : ESP32 + LD2410 mmWave  
 **Utilité** : détection présence même immobile (bureau, chambre). Meilleur que PIR.
 
 ## Projets avancés (4–8 heures)
 
 ### 7. Écran e-paper météo
 
-**Matériel** : ESP32 + écran e-paper 2,9" (25 €)  
+**Matériel** : ESP32 + écran e-paper 2,9"  
 **Utilité** : affichage météo, calendrier, température sans écran allumé en permanence.
 
 **Code ESPHome** :
@@ -101,7 +101,7 @@ display:
 
 ### 8. Capteur CO2 (qualité air)
 
-**Matériel** : ESP32 + MH-Z19B (35 €)  
+**Matériel** : ESP32 + MH-Z19B  
 **Utilité** : surveiller qualité de l'air, alerte si CO2 > 1000 ppm (aérer), automatiser VMC.
 
 **Seuils recommandés** :
@@ -128,7 +128,7 @@ automation:
 
 ### 9. Assistant vocal local (Atom Echo)
 
-**Matériel** : M5Stack Atom Echo (15 €) ou HA Voice Preview Edition (60 €)  
+**Matériel** : M5Stack Atom Echo ou HA Voice Preview Edition  
 **Utilité** : commandes vocales "Allume salon" sans cloud Google/Alexa. 100 % local.
 
 **Installation** :
@@ -143,7 +143,7 @@ automation:
 
 ### 10. Compteur d'eau/électricité
 
-**Matériel** : ESP32 + capteur effet Hall (12 €)  
+**Matériel** : ESP32 + capteur effet Hall  
 **Utilité** : lire les impulsions du compteur Linky ou d'eau, suivre consommation réelle.
 
 **Linky** : sortie télé-info (RX via ESP32 UART)  
@@ -167,34 +167,34 @@ sensor:
 
 ### 11. Portail connecté avec caméra
 
-**Matériel** : ESP32-CAM (8 €) + relais  
+**Matériel** : ESP32-CAM + relais  
 **Utilité** : Ouvrir portail depuis HA, photo de qui sonne, reconnaissance faciale.
 
 ### 12. Irrigation automatique jardin
 
-**Matériel** : ESP32 + capteur humidité sol + électrovanne (25 €)  
+**Matériel** : ESP32 + capteur humidité sol + électrovanne  
 **Utilité** : arroser uniquement si sol sec, économie d'eau.
 
 ### 13. Alarme DIY avec sirène
 
-**Matériel** : ESP32 + détecteurs PIR + sirène 12V (30 €)  
+**Matériel** : ESP32 + détecteurs PIR + sirène 12V  
 **Utilité** : alarme locale sans abonnement, notification HA.
 
 ### 14. Sonnette vidéo DIY
 
-**Matériel** : ESP32-CAM + bouton + haut-parleur (20 €)  
+**Matériel** : ESP32-CAM + bouton + haut-parleur  
 **Utilité** : alternative Ring/Nest, 100 % local, enregistrement HA.
 
 ### 15. Mesure qualité air complète
 
-**Matériel** : ESP32 + BME680 (temp/hum/pression/VOC) + PMS5003 (particules) (40 €)  
+**Matériel** : ESP32 + BME680 (temp/hum/pression/VOC) + PMS5003 (particules)  
 **Utilité** : surveiller pollution intérieure (COV, PM2.5, PM10).
 
 ## Pourquoi ESP32 plutôt que Zigbee ?
 
 ✅ **Personnalisable** : ajouter n'importe quel capteur I2C, SPI, GPIO  
 ✅ **WiFi direct** : pas de dongle  
-✅ **Moins cher** : 7–15 € vs 15–25 € Zigbee
+✅ **Souvent moins cher** : un ESP32 et un capteur reviennent généralement moins cher qu'un capteur Zigbee du commerce (prix à vérifier chez le vendeur)
 
 ❌ **Alimentation secteur** : USB 5V (sauf batterie externe)  
 ❌ **Plus technique** : souder, câbler

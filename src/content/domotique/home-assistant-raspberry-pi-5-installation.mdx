@@ -18,7 +18,7 @@ Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 
   name="Raspberry Pi 5 4 Go + Kit"
   searchQuery="Raspberry Pi 5 4GB kit"
   image="/images/products/raspberry-pi-5-4gb.webp"
-  priceRange="120–150 €"
+  priceRange="à vérifier chez le vendeur"
   pros={[
     'Performances excellentes',
     'Kit complet (alim, boîtier)',
@@ -34,7 +34,7 @@ Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 
   name="SONOFF ZBDongle-E"
   asin="B0B6P22YJC"
   image="/images/products/sonoff-zbdongle-e.webp"
-  priceRange="16–25 €"
+  priceRange="à vérifier chez le vendeur"
   pros={[
     'Antenne externe SMA',
     'Compatible ZHA et Z2M',
@@ -47,83 +47,83 @@ Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 
 
 ## Liste complète du matériel nécessaire
 
-### Composants obligatoires (100–150 €)
+*Les prix ne sont pas indiqués : ils varient selon les boutiques et les stocks, à vérifier chez le vendeur.*
 
-**Raspberry Pi 5** : 60–110 €
-- **Raspberry Pi 5 4 Go** : 60 € — suffisant pour 90 % des installations (30 appareils, 3 caméras, pas de NAS)
-- **Raspberry Pi 5 8 Go** : 90 € — pour Frigate (analyse vidéo IA), NAS Jellyfin, 50+ appareils
+### Composants obligatoires
+
+**Raspberry Pi 5**
+- **Raspberry Pi 5 4 Go** — suffisant pour 90 % des installations (30 appareils, 3 caméras, pas de NAS)
+- **Raspberry Pi 5 8 Go** — pour Frigate (analyse vidéo IA), NAS Jellyfin, 50+ appareils
 
 *Recommandation : 4 Go* pour débuter, upgrader vers 8 Go uniquement si besoin confirmé (multi-caméras, IA).
 
 *Liens Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [Raspberry Pi 5 8 Go](https://www.amazon.fr/s?k=raspberry+pi+5+8gb&tag=manuso06-21).*
 
-**Alimentation officielle 27W USB-C** : 12 €
+**Alimentation officielle 27W USB-C**
 - **Critique** : les alimentations non-officielles 15W causent freeze aléatoires (Pi 5 consomme 12W sous charge)
 - Connecteur USB-C avec marquage rouge Raspberry Pi
 - Cable 1,5 m (assez long pour placer le Pi loin de la box)
 
 *Lien Amazon : [Alimentation officielle 27W](https://www.amazon.fr/s?k=raspberry+pi+power+supply+27w&tag=manuso06-21).*
 
-**Carte microSD 32–64 Go** : 8–12 € (ou 0 € si boot NVMe direct)
-- **SanDisk Extreme 64 Go** (classe U3, A2) : 12 € — la plus fiable (100 MB/s, 10 000 cycles écriture)
-- **Samsung EVO Plus 32 Go** : 8 € — budget OK (95 MB/s)
-- Éviter : cartes no-name < 10 € (corruption après 6 mois)
+**Carte microSD 32–64 Go** (inutile si boot NVMe direct)
+- **SanDisk Extreme 64 Go** (classe U3, A2) — la plus fiable (100 MB/s, 10 000 cycles écriture)
+- **Samsung EVO Plus 32 Go** — budget OK (95 MB/s)
+- Éviter : cartes no-name à prix cassé (corruption après 6 mois)
 
-*Recommandation : SanDisk Extreme* (3 € de plus, 3× plus durable).
+*Recommandation : SanDisk Extreme* (un peu plus chère, mais plus durable).
 
 *Lien Amazon : [SanDisk Extreme 64 Go](https://www.amazon.fr/s?k=sandisk+extreme+64gb&tag=manuso06-21).*
 
-**Boîtier avec ventilateur** : 10–15 €
-- **Boîtier officiel Raspberry Pi 5** (avec ventilateur actif) : 12 € — design sobre, accès GPIO, ventilateur 30 dB
-- **Boîtier Argon NEO 5** (aluminium passif) : 25 € — silencieux (0 dB), dissipation passive, CPU < 65 °C
-- **Boîtier Flirc** (aluminium massif) : 28 € — premium, 0 dB, design élégant
+**Boîtier avec ventilateur**
+- **Boîtier officiel Raspberry Pi 5** (avec ventilateur actif) — design sobre, accès GPIO, ventilateur 30 dB
+- **Boîtier Argon NEO 5** (aluminium passif) — silencieux (0 dB), dissipation passive, CPU < 65 °C
+- **Boîtier Flirc** (aluminium massif) — premium, 0 dB, design élégant
 
-*Recommandation : officiel 12 €* pour débuter (ventilateur contrôlable via GPIO). Argon NEO 5 si silence obligatoire (salon, chambre).
+*Recommandation : boîtier officiel* pour débuter (ventilateur contrôlable via GPIO). Argon NEO 5 si silence obligatoire (salon, chambre).
 
 *Lien Amazon : [Boîtier officiel Pi 5](https://www.amazon.fr/s?k=raspberry+pi+5+case&tag=manuso06-21).*
 
-**Câble Ethernet** : 3–5 €
+**Câble Ethernet**
 - Cat 5e ou Cat 6, 2–5 m selon distance box ↔ Pi
 - **WiFi déconseillé** : latence +20 ms, déconnexions aléatoires, saturation 2,4 GHz avec Zigbee
 
-**Budget total obligatoire** : 100–150 € selon Pi 4/8 Go et boîtier choisi.
+**Budget** : à vérifier chez le vendeur ; il dépend surtout de la version du Pi 5 (4 ou 8 Go) et du boîtier choisi.
 
-### Stockage NVMe (optionnel mais recommandé) : +40–60 €
+### Stockage NVMe (optionnel mais recommandé)
 
 **Pourquoi NVMe > microSD ?**
 - Vitesse : 500 MB/s (NVMe) vs 90 MB/s (SD) = 5× plus rapide
 - Durée de vie : 10 ans (SSD TLC) vs 2–3 ans (SD intensive)
 - Fiabilité : SSD = 0 % corruption, SD = 10 % échec après 18 mois
 
-**HAT M.2 NVMe officiel** : 12 €
+**HAT M.2 NVMe officiel**
 - Connecteur 40-pin vers M.2 2280 (standard SSD laptop)
 - Supporte PCIe Gen 3 (le Pi 5 est Gen 2 = 1000 MB/s max)
 
-**SSD NVMe M.2 2280** : 25–45 €
-- **256 Go** (Crucial P3, Kingston NV2) : 25 € — suffisant pour HA + 20 modules + historique 6 mois
-- **512 Go** (Samsung 980, WD Blue SN580) : 40 € — pour NAS léger, Frigate (vidéos locales)
-- **1 To** (Samsung 980 Pro) : 80 € — overkill (sauf NAS Jellyfin avec films)
+**SSD NVMe M.2 2280**
+- **256 Go** (Crucial P3, Kingston NV2) — suffisant pour HA + 20 modules + historique 6 mois
+- **512 Go** (Samsung 980, WD Blue SN580) — pour NAS léger, Frigate (vidéos locales)
+- **1 To** (Samsung 980 Pro) — overkill (sauf NAS Jellyfin avec films)
 
 *Recommandation : 256 Go Crucial P3* (meilleur rapport qualité/prix octobre 2026).
 
 *Liens Amazon : [HAT M.2 NVMe](https://www.amazon.fr/s?k=raspberry+pi+m.2+hat&tag=manuso06-21), [SSD NVMe 256 Go](https://www.amazon.fr/s?k=crucial+p3+256gb&tag=manuso06-21).*
 
-### Dongle Zigbee (pour appareils Zigbee) : 16–25 €
+### Dongle Zigbee (pour appareils Zigbee)
 
-**SONOFF ZBDongle-E** : 16–25 €
+**SONOFF ZBDongle-E**
 - Puce EFR32MG21 (Silabs), antenne externe SMA, portée 50 m indoor
 - Compatible ZHA (intégré HA) et Zigbee2MQTT (addon)
 - [Comparatif dongles Zigbee complet](/domotique/meilleur-dongle-zigbee-home-assistant/)
 
 *Lien Amazon : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
 
-**Budget total avec NVMe + Zigbee** : 180–220 €.
-
 ## Étape 1 : Préparer la carte microSD ou le SSD NVMe
 
 ### Option A : Installation sur microSD (recommandée pour débuter)
 
-**Avantages** : simple, migration NVMe possible plus tard, 0 € si carte SD existante.
+**Avantages** : simple, migration NVMe possible plus tard, aucun achat si vous avez déjà une carte SD.
 
 **Étapes** :
 
@@ -155,7 +155,7 @@ Installer **Home Assistant sur Raspberry Pi 5** est devenu très simple en 2026 
 
 1. **Brancher SSD NVMe sur PC** :
    - Soit via HAT M.2 + adaptateur USB (si HAT officiel possède mode USB)
-   - Soit via adaptateur M.2 → USB (8 €, réutilisable)
+   - Soit via adaptateur M.2 → USB (réutilisable)
 2. **Raspberry Pi Imager** : même procédure que SD, mais choisir **SSD comme stockage** (apparaît comme disque USB)
 3. **Flasher SSD** (10 min)
 4. **Retirer SSD du PC, fixer sur HAT M.2, visser sur Pi 5**
@@ -446,7 +446,7 @@ Home Assistant scanne le réseau local et détecte automatiquement :
 
 ### ESPHome (capteurs DIY ESP32)
 
-**Utilité** : flasher ESP32 pour créer capteurs température/humidité custom (10 €). [Tuto ESP32 + DHT22](/domotique/esp32-esphome-capteur-temperature/).
+**Utilité** : flasher ESP32 pour créer capteurs température/humidité custom. [Tuto ESP32 + DHT22](/domotique/esp32-esphome-capteur-temperature/).
 
 1. **Boutique → ESPHome**
 2. Installer → Démarrer → Afficher barre latérale
@@ -535,7 +535,7 @@ Créer automatisation inverse :
 
 ### Méthode 1 — Nabu Casa (recommandée, payante)
 
-**Nabu Casa Cloud** : 6,50 $/mois (≈ 6 €), reverse proxy officiel, chiffré, support HA.
+**Nabu Casa Cloud** : abonnement payant (tarif à vérifier sur le site de Nabu Casa), reverse proxy officiel, chiffré, support HA.
 
 **Avantages** :
 - ✅ Aucun port-forwarding (pas de faille sécurité)
@@ -550,7 +550,7 @@ Créer automatisation inverse :
 3. **Activer** : URL générée automatiquement
 4. **Tester** : ouvrir URL depuis 4G mobile (hors réseau local)
 
-**Coût annuel** : 72 €. Recommandé si budget OK et besoin Google/Alexa.
+**Coût** : abonnement mensuel ou annuel, tarif à vérifier sur nabucasa.com. Recommandé si le budget le permet et si vous avez besoin de Google/Alexa.
 
 ### Méthode 2 — DuckDNS + Let's Encrypt (gratuite)
 
@@ -706,7 +706,7 @@ Créer automatisation inverse :
 - **Pas de maintenance** : historique jamais purgé (base de données 50 Go)
 
 **Solutions** :
-1. **Préventif** : acheter **SanDisk Extreme** ou **Samsung EVO Plus** (3 € de plus, 5× plus durables)
+1. **Préventif** : acheter **SanDisk Extreme** ou **Samsung EVO Plus** (un peu plus chères, mais plus durables)
 2. **Migrer NVMe** : SSD = 10 ans durée de vie, 0 % corruption
 3. **Réduire écritures** : `configuration.yaml` → limiter historique :
    ```yaml
@@ -730,7 +730,7 @@ Créer automatisation inverse :
 - [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/) : ZBDongle-E, ZBT-2, ConBee II
 - [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/) : premiers appareils à appairer
 - [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) : créer maillage répéteur
-- [ESP32 + ESPHome capteur température](/domotique/esp32-esphome-capteur-temperature/) : alternative DIY 10 €
+- [ESP32 + ESPHome capteur température](/domotique/esp32-esphome-capteur-temperature/) : alternative DIY
 - [Hub domotique](/domotique/) : retour accueil section
 
 ---
