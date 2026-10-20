@@ -2,6 +2,7 @@
 title: "Meilleure clé Zigbee pour Home Assistant 2026 : comparatif complet"
 description: "Comparatif détaillé des dongles Zigbee 3.0 pour Home Assistant : SONOFF ZBDongle-E, Connect ZBT-2, ConBee II, Dongle Lite. Compatibilité ZHA et Zigbee2MQTT, portée, firmware."
 pubDate: 2026-10-18T00:00:00Z
+updatedDate: 2026-10-20T00:00:00Z
 category: "home-assistant"
 products: ["sonoff-zbdongle-e", "sonoff-dongle-lite-mg21"]
 priority: 5
@@ -49,13 +50,12 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
   productId="home-assistant-connect-zbt-2"
   name="Home Assistant Connect ZBT-2"
   asin="B0G34ZTW51"
-  image="/images/products/sonoff-zbdongle-e.webp"
   priceRange="45–80 €"
   pros={[
     'Support officiel Nabu Casa',
-    'Zigbee + Thread/Matter',
-    'Mises à jour garanties',
-    'Antenne externe'
+    'Zigbee ou Thread/Matter (au choix)',
+    'Mises à jour officielles',
+    'Puce Silicon Labs MG24'
   ]}
   badge="Officiel"
   position={3}
@@ -66,7 +66,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 | Modèle | Prix | Puce | Antenne | Portée indoor | Thread | ZHA | Z2M | Pour qui ? |
 |--------|------|------|---------|---------------|--------|-----|-----|------------|
 | **SONOFF ZBDongle-E** | 16–25 € | EFR32MG21 | Externe SMA | 50 m | ❌ | ✅ | ✅ | **Tout le monde** — meilleur rapport qualité/prix |
-| **HA Connect ZBT-2** | 45–80 € | EFR32MG21 + nRF52840 | Externe | 50 m | ✅ | ✅ | ✅ | Early adopters Matter, support officiel Nabu Casa |
+| **HA Connect ZBT-2** | 45–80 € | Silicon Labs MG24 | Optimisée (boîtier) | non communiquée | ✅ | ✅ | ✅ | Early adopters Matter, support officiel Nabu Casa |
 | **SONOFF Dongle Lite MG21** | 15–20 € | EFR32MG21 | Interne PCB | 25 m | ✅ | ✅ | ✅ | Budget mini, appartement < 70 m² |
 | **ConBee II** | 35–45 € | deCONZ | Interne | 30 m | ❌ | ✅ | ✅ | Alternative deCONZ gateway, compatible Phoscon |
 | **Elelabs ELR023** | 40–60 € | EFR32MG13 | Externe | 60 m | ❌ | ✅ | ✅ | Longue portée, firmware modifiable |
@@ -79,7 +79,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 ### 1. SONOFF ZBDongle-E — Notre choix n°1 (16–25 €)
 
 **Pourquoi c'est le meilleur** :
-- Puce **Silabs EFR32MG21** (même que ZBT-2), fiable et mature
+- Puce **Silabs EFR32MG21**, fiable et mature, citée dans la liste des clés compatibles de la documentation ZHA
 - **Antenne externe SMA** : portée 50 m indoor, possible de remplacer par antenne plus puissante
 - **Firmware modifiable** : EmberZNet 7.x, mises à jour via Silabs Simplicity Studio
 - Compatible **ZHA** (intégré HA) et **Zigbee2MQTT** (module complémentaire)
@@ -99,9 +99,10 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 
 **Avantages** :
 - **Support officiel Nabu Casa** : mises à jour garanties, config simplifiée
-- **Zigbee + Thread/Matter** : puce nRF52840 dédiée Thread, futur-proof
-- Antenne externe, portée 50 m
-- **Silicon Labs EFR32MG21** pour Zigbee (même que ZBDongle-E)
+- **Zigbee ou Thread/Matter** : la clé fait tourner l'un **ou** l'autre réseau, au choix (pas les deux en même temps)
+- Puce **Silicon Labs MG24** (génération plus récente que l'EFR32MG21), avec un ESP32-S3 qui sert de pont USB
+- Antenne optimisée intégrée au boîtier ; puissance d'émission de 10 dBm en Europe selon la fiche officielle
+- **Migration facilitée** : Home Assistant prévoit de transférer un réseau Zigbee existant vers la ZBT-2 sans tout réappairer (depuis ZHA)
 
 **Limites** :
 - **Prix élevé** : 45–80 € (2–3× le ZBDongle-E)
@@ -188,25 +189,24 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 ### Critère 3 : Besoin de Thread/Matter ?
 
 - **Non** (Zigbee suffit en 2026) : ZBDongle-E
-- **Oui** (futureproof) : HA Connect ZBT-2 ou Dongle Lite MG21
+- **Oui** (futureproof) : HA Connect ZBT-2 (réseau Zigbee **ou** Thread, au choix) ou Dongle Lite MG21
 
 ### Critère 4 : ZHA ou Zigbee2MQTT ?
 
 Les 6 dongles fonctionnent avec les deux. Différences :
 
 **ZHA (Zigbee Home Automation)** :
-- Intégré dans Home Assistant (aucun module complémentaire)
-- Simple, plug & play
-- Compatible 2000+ appareils
+- Intégré dans Home Assistant (aucune app à ajouter, pas de serveur MQTT)
+- Simple, sauvegardes automatiques du réseau
 - **Recommandé pour débutants**
 
 **Zigbee2MQTT** :
-- Module complémentaire externe (broker MQTT)
-- Interface Web dédiée, plus d'options de configuration
-- Compatible 2500+ appareils (support plus rapide des nouveautés)
+- App séparée qui a besoin d'un serveur MQTT (Mosquitto)
+- Interface web dédiée, plus d'options de configuration, catalogue d'appareils consultable en ligne
+- Pilote la ZBDongle-E avec son pilote `ember` et les clés Texas Instruments avec `zstack`
 - **Recommandé pour utilisateurs avancés**
 
-[Guide complet ZHA vs Zigbee2MQTT ici](/domotique/home-assistant-zigbee2mqtt-ou-zha/) (prochainement).
+Les deux ne peuvent pas utiliser la même clé en même temps. Tout le détail, avec l'installation pas à pas de chacun : [Zigbee2MQTT ou ZHA, lequel choisir ?](/domotique/home-assistant-zigbee2mqtt-ou-zha/)
 
 ## Installation ZBDongle-E avec ZHA (pas à pas)
 
@@ -219,18 +219,15 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 
 1. **Paramètres → Appareils et services → Ajouter une intégration**
 2. Chercher "ZHA" (Zigbee Home Automation)
-3. Sélectionner le port série : `/dev/ttyUSB0` (ou `/dev/ttyACM0` selon le système)
-4. Laisser les paramètres par défaut :
-   - Type radio : EZSP (EmberZNet Serial Protocol)
-   - Vitesse : 115200 bauds
-   - Flow control : hardware
-5. Cliquer "Soumettre"
+3. Sélectionner le port série : `/dev/ttyUSB0` (ou `/dev/ttyACM0` selon le système). Si Home Assistant a détecté la clé, elle apparaît directement comme appareil découvert : cliquez sur **Configurer**.
+4. Si ZHA demande le type de radio, choisissez **EZSP** (puces Silicon Labs EmberZNet, comme la ZBDongle-E)
+5. Valider
 
 **Durée** : 30 secondes. ZHA initialise le coordinateur Zigbee.
 
 ### Étape 3 : Appairer un premier capteur
 
-1. **Appareils Zigbee → Ajouter un appareil**
+1. **Paramètres → Connectivité → Zigbee**, puis **Ajouter un appareil** en bas à droite
 2. ZHA passe en mode appairage (60 secondes)
 3. Sur le capteur SONOFF SNZB-02D :
    - Maintenir le bouton 5 secondes
@@ -278,7 +275,7 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 
 **Solutions** :
 1. Rapprocher le capteur du dongle (< 3 m pour l'appairage initial)
-2. Changer le canal Zigbee : **ZHA → Configurer → Radio → Canal → 25** (évite Wi-Fi)
+2. Fixer d'abord le canal Wi-Fi de la box : c'est ce que la documentation ZHA conseille en premier, avant de changer le canal Zigbee (les appareils peuvent mettre jusqu'à une heure à rejoindre un nouveau canal)
 3. Reset factory du capteur (maintenir bouton 10 secondes)
 4. Ajouter des répéteurs Zigbee (prises connectées NOUS A1Z, Tapo)
 
@@ -292,7 +289,7 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 **Solutions** :
 1. Ajouter **1 répéteur tous les 10 m** (prises Zigbee font répéteur)
 2. Utiliser une **rallonge USB 2.0** de 50 cm pour éloigner le dongle du Pi (réduit interférences)
-3. Vérifier la topologie réseau : **ZHA → Configurer → Visualiser réseau** (tous les appareils doivent avoir 2+ chemins)
+3. Vérifier la topologie réseau : **Paramètres → Connectivité → Zigbee → Afficher la carte**. Un capteur sur pile sans lien affiché n'est pas forcément déconnecté : la documentation ZHA précise que c'est fréquent pour les appareils en veille
 
 ## Entretien et optimisation
 
@@ -305,7 +302,7 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 
 ### Sauvegarde de la config Zigbee
 
-**Automatique** : ZHA sauvegarde automatiquement la config dans `/config/.storage/zha.storage`.
+**Automatique** : ZHA réalise des sauvegardes automatiques du réseau Zigbee, qui permettent de le restaurer ou de le migrer vers un autre coordinateur.
 
 **Manuelle** :
 1. **Paramètres → Système → Sauvegardes → Créer**
@@ -316,14 +313,10 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 
 **Scénario** : passer de ZBDongle-E à ZBT-2 ou ConBee II.
 
-**Méthode 1 — Avec sauvegarde ZHA** (expérimental, ne fonctionne pas toujours) :
-1. Sauvegarder `/config/.storage/zha.storage`
-2. Arrêter ZHA
-3. Débrancher ancien dongle, brancher nouveau
-4. Restaurer sauvegarde
-5. Redémarrer ZHA → tous les appareils doivent réapparaître (parfois non)
+**Méthode 1 — Migration intégrée à ZHA** (méthode officielle) :
+La documentation ZHA prévoit la migration du réseau entre clés à puce Silicon Labs, Texas Instruments ou ConBee/RaspBee, **sans réappairer les appareils**, à condition que l'ancienne clé soit utilisée dans ZHA (et pas dans deCONZ ou Zigbee2MQTT) et que la sauvegarde ait été faite depuis ZHA. Faites une sauvegarde complète de Home Assistant avant de commencer.
 
-**Méthode 2 — Réappairage complet** (recommandé) :
+**Méthode 2 — Réappairage complet** (si la migration n'est pas possible, par exemple en venant de Zigbee2MQTT) :
 1. Noter tous les appareils et leurs noms
 2. Débrancher ancien dongle
 3. Configurer ZHA avec nouveau dongle
@@ -346,7 +339,7 @@ Les 6 dongles fonctionnent avec les deux. Différences :
 ## FAQ
 
 **Quelle est la différence entre ZHA et Zigbee2MQTT ?**
-ZHA est intégré dans Home Assistant (simple, plug & play). Zigbee2MQTT est un addon externe avec interface Web dédiée (plus d'options, supporte plus d'appareils exotiques). Pour débuter : ZHA. Pour utilisateurs avancés : Z2M.
+ZHA est intégré dans Home Assistant (simple, sans serveur MQTT). Zigbee2MQTT est une app séparée avec une interface web dédiée et plus d'options. Pour débuter : ZHA. Pour utilisateurs avancés : Zigbee2MQTT. Voir notre [comparatif Zigbee2MQTT ou ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/).
 
 **Puis-je utiliser plusieurs dongles Zigbee en parallèle ?**
 Non sur le même Home Assistant. Chaque coordinateur Zigbee gère son propre réseau. Si besoin de 2 réseaux : installer 2 Raspberry Pi ou utiliser Zigbee2MQTT sur un second Pi qui communique avec HA via MQTT.
@@ -369,6 +362,7 @@ Oui sur ZBDongle-E (connecteur SMA). Antenne 5 dBi → portée 70–80 m indoor.
 - [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/) : premiers appareils à appairer
 - [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) : créer un maillage répéteur
 - [Comparatif Home Assistant Green vs Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/)
+- [Zigbee2MQTT ou ZHA : lequel choisir ?](/domotique/home-assistant-zigbee2mqtt-ou-zha/)
 - [Hub domotique](/domotique/) : retour à l'accueil de la section
 
 ---
