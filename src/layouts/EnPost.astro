@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import { findPair } from '../lib/i18n.mjs';
+import { withBase } from '../lib/siteUrl';
+const fm = Astro.props.frontmatter ?? Astro.props;
+const { title, description, updated } = fm;
+const pair = findPair(Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, ''));
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} ogType="article" />
+	</head>
+	<body>
+		<header class="en-header" style="max-width:860px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+			<a href={withBase('/en/')} style="font-weight:800;text-decoration:none;">Robot Éducatif <small>(English)</small></a>
+			{pair && <a href={withBase(pair.fr)} hreflang="fr" lang="fr" style="font-size:.9rem;">Version française</a>}
+		</header>
+		<main style="max-width:860px;margin:0 auto;padding:0 1rem 3rem;">
+			<article class="prose">
+				<h1>{title}</h1>
+				{updated && <p style="font-size:.9rem;opacity:.8;">Last updated: {updated}</p>}
+				<slot />
+			</article>
+		</main>
+		<footer style="max-width:860px;margin:0 auto;padding:1.5rem 1rem;font-size:.85rem;border-top:1px solid #ccc;">
+			<p>Robot Éducatif is an independent site based in France. Some links are affiliate links: if you buy through them we may earn a commission, at no extra cost to you. We have not tested the products on these pages ourselves unless stated; specifications come from the manufacturers' official pages.</p>
+			<p><a href={withBase('/en/')}>English home</a> · <a href={withBase('/')} hreflang="fr" lang="fr">Site en français</a> · <a href={withBase('/mentions-legales/')} lang="fr">Mentions légales</a></p>
+		</footer>
+	</body>
+</html>

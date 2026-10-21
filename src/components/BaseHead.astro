@@ -7,6 +7,7 @@ import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE, PINTEREST_ENABLED, PINTEREST_DOMAIN_VERIFY, ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import GoogleConsentDefault from './GoogleConsentDefault.astro';
+import { findPair } from '../lib/i18n.mjs';
 
 interface Props {
 	title: string;
@@ -32,6 +33,9 @@ const ogImageUrl = new URL(imagePath, Astro.site).toString();
 const isIllustration = imagePath.includes('/images/illustrations/');
 const ogW = isIllustration ? '960' : '1200';
 const ogH = isIllustration ? '540' : '630';
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const langPair = findPair(_p);
+const isEn = _p.startsWith('/en/');
 ---
 
 <!-- Global Metadata -->
@@ -62,6 +66,13 @@ const ogH = isIllustration ? '540' : '630';
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+{langPair && (
+	<>
+		<link rel="alternate" hreflang="fr" href={new URL(langPair.fr, Astro.site).toString()} />
+		<link rel="alternate" hreflang="en" href={new URL(langPair.en, Astro.site).toString()} />
+		<link rel="alternate" hreflang="x-default" href={new URL(langPair.fr, Astro.site).toString()} />
+	</>
+)}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -71,7 +82,7 @@ const ogH = isIllustration ? '540' : '630';
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:locale" content="fr_FR" />
+<meta property="og:locale" content={isEn ? "en_GB" : "fr_FR"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

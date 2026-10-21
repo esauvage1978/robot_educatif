@@ -24,6 +24,7 @@ import { getIllustration } from '../lib/illustration';
 import { withImageVersion } from '../lib/imageVersion';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
+import { findPair } from '../lib/i18n.mjs';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
@@ -58,6 +59,7 @@ const heroImagePath = typeof resolvedImageForMeta === 'string' ? resolvedImageFo
 // Versionner les images pour le cache
 const heroImagePathWithVersion = heroImagePath ? withImageVersion(heroImagePath.replace('.png', '.webp')) : null;
 const ogImagePath = typeof resolvedImageForMeta === 'string' ? withImageVersion(resolvedImageForMeta) : resolvedImageForMeta;
+const enPair = findPair(Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, ''));
 const allPosts = await getCollection('blog');
 const topCategories = topCategoriesByCount(allPosts, 15);
 
@@ -411,6 +413,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 						)
 					}
 					<h1>{title}</h1>
+					{enPair && <p class="lang-switch" style="font-size:.85rem;margin:.25rem 0 0;"><a href={withBase(enPair.en)} hreflang="en" lang="en">Read in English</a></p>}
 					<p class="hero-desc">{description}</p>
 				</div>
 			</section>
