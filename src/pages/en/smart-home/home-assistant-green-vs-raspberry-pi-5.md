@@ -21,7 +21,7 @@ Both run **Home Assistant OS** and both make an excellent local smart home hub. 
 | Power supply | universal supply included | buy the official 27W USB-C supply (UK, US and EU plugs available) |
 | Cooling | fanless | Active Cooler recommended |
 | Set-up | plug in Ethernet and power, open homeassistant.local:8123 | flash Home Assistant OS with Raspberry Pi Imager, then boot |
-| Price | <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Home Assistant Green on Amazon.com (US)</a> | <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB on Amazon.com (US)</a> (board only: add supply, case, storage) |
+| Price | <a href="https://www.amazon.com/dp/B0CXVKSG19?tag=roboteducatif-20" rel="nofollow sponsored">Home Assistant Green on Amazon.com (US)</a> | <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB on Amazon.com (US)</a> (board only: add supply, case, storage) |
 
 ## 2. Who should pick the Green?
 

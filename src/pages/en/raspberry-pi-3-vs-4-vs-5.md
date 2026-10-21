@@ -30,7 +30,7 @@ Between the **Raspberry Pi 3 Model B**, the **Pi 4 Model B** and the **Pi 5**, t
 
 ## 3. Prices
 
-Raspberry Pi prices move often (stock, reseller margins, VAT or sales tax). We don't quote figures: **check current price** with an [approved reseller](https://www.raspberrypi.com/resellers/). US: <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB on Amazon.com</a> or <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 8GB on Amazon.com</a> (affiliate links). Always check the board revision and what is included (power supply, cooler).
+Raspberry Pi prices move often (stock, reseller margins, VAT or sales tax). We don't quote figures: **check current price** with an [approved reseller](https://www.raspberrypi.com/resellers/). US: <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB on Amazon.com</a> or <a href="https://www.amazon.com/dp/B0CK2FCG1K?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 8GB on Amazon.com</a> (affiliate links). Always check the board revision and what is included (power supply, cooler).
 
 ## 4. Which Raspberry Pi for which use?
 
