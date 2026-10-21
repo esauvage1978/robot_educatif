@@ -13,7 +13,7 @@ function walk(node, fn) {
 function isAmazonHref(href) {
 	if (typeof href !== 'string') return false;
 	const h = href.toLowerCase();
-	return h.includes('amazon.') || h.includes('amzn.to');
+	return h.includes('amazon.') || h.includes('amzn.to') || h.includes('awin1.com');
 }
 
 export function rehypeAmazonExternalLinks() {
