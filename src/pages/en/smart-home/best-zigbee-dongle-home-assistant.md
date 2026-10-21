@@ -16,7 +16,7 @@ To control Zigbee devices from **Home Assistant**, you need a **Zigbee coordinat
 | **SONOFF Dongle Lite MG21** | Silicon Labs EFR32MG21 | internal | not by default | yes | yes | smallest budget, small homes |
 | **ConBee II** (dresden elektronik) | deCONZ firmware | internal | no | yes | yes | users already on deCONZ / Phoscon |
 
-Official pages: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2). Prices change often: check the current price at the retailer.
+Official pages: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2). Prices change often: check the current price at the retailer. US: <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">SONOFF ZBDongle-E on Amazon.com</a>, <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Home Assistant Connect ZBT-2 on Amazon.com</a> (affiliate links).
 
 ## 2. ZHA or Zigbee2MQTT?
 

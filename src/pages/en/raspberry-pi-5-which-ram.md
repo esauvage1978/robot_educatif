@@ -35,7 +35,7 @@ Memory is **LPDDR4X-4267** on the Pi 5 (LPDDR4-3200 on the Pi 4).
 3. **Home lab with Docker** or several stacks: **8GB**.
 4. **Big compiles, memory-hungry models, no compromise**: 16GB, after checking that storage and cooling keep up.
 
-Prices move often and differ between the UK and the US: **check current price** with an official reseller. The gap between 4GB and 16GB can be large.
+Prices move often and differ between the UK and the US: **check current price** with an official reseller. US: <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB on Amazon.com</a> or <a href="https://www.amazon.com/dp/=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 8GB on Amazon.com</a> (affiliate links). The gap between 4GB and 16GB can be large.
 
 ## 4. Accessories you shouldn't forget
 
