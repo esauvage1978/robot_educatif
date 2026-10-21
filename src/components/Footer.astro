@@ -14,6 +14,8 @@ interface Props {
 
 const { suppressPagePathTracking = false } = Astro.props;
 const today = new Date();
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const isEn = _p === '/en' || _p.startsWith('/en/');
 ---
 
 <footer>
@@ -27,7 +29,7 @@ const today = new Date();
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">Choisir et apprendre avec les bons robots éducatifs</p>
+			<p class="footer-tagline">{isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -48,6 +50,39 @@ const today = new Date();
 		</div>
 		
 		<div class="footer-columns">
+{isEn ? (<>
+			<div class="footer-col">
+				<h3>Buying guides</h3>
+				<ul>
+					<li><a href={withBase('/en/best-programmable-robot-for-kids/')}>Programmable robots by age</a></li>
+					<li><a href={withBase('/en/arduino-robot-kit-for-kids/')}>Arduino robot kits</a></li>
+					<li><a href={withBase('/en/')}>All English guides</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Comparisons</h3>
+				<ul>
+					<li><a href={withBase('/en/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/en/raspberry-pi-5-which-ram/')}>Raspberry Pi 5 RAM</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Tutorials</h3>
+				<ul>
+					<li><a href={withBase('/en/install-mblock-5-windows/')}>Install mBlock 5</a></li>
+					<li><a href={withBase('/en/smart-home/')}>Smart home</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>About</h3>
+				<ul>
+					<li><a href={withBase('/contact/')} hreflang="fr">Contact</a></li>
+					<li><a href={withBase('/mentions-legales/')} hreflang="fr">Legal notice (FR)</a></li>
+					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Privacy (FR)</a></li>
+					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
+				</ul>
+			</div>
+</>) : (<>
 			<div class="footer-col">
 				<h3>Guides d'achat</h3>
 				<ul>
@@ -87,14 +122,15 @@ const today = new Date();
 					<li><a href={withBase('/gestion-des-cookies/')}>Cookies</a></li>
 				</ul>
 			</div>
+</>)}
 		</div>
 	</div>
 	
 	<div class="footer-bottom">
 		<p class="affiliate-notice">
-			En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.
+			{isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
 		</p>
-		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · Développé par Emmanuel SAUVAGE</p>
+		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
 	</div>
 </footer>
 <style>

@@ -4,11 +4,35 @@ import { SITE_TITLE } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import HeaderLink from './HeaderLink.astro';
 import logoA from '../assets/logo-a.svg';
+import { findPair } from '../lib/i18n.mjs';
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const isEn = _p === '/en' || _p.startsWith('/en/');
+const pair = findPair(_p);
+const frHref = pair ? pair.fr : '/';
+const enHref = pair ? pair.en : '/en/';
+const navFr = [
+	['/', 'Accueil'],
+	['/meilleur-robot-programmable-enfant-2026/', "Guides d'achat"],
+	['/domotique/', 'Domotique'],
+	['/10-projets-mbot-gratuits-classe-faciles/', 'Projets mBot'],
+	['/programmation/', 'Python'],
+	['/blog/', 'Blog'],
+];
+const navEn = [
+	['/en/', 'Home'],
+	['/en/best-programmable-robot-for-kids/', 'Buying guides'],
+	['/en/raspberry-pi-3-vs-4-vs-5/', 'Comparisons'],
+	['/en/install-mblock-5-windows/', 'Tutorials'],
+	['/en/arduino-robot-kit-for-kids/', 'Arduino'],
+	['/en/smart-home/', 'Smart home'],
+];
+const nav = isEn ? navEn : navFr;
+const mobileExtra = isEn ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
 ---
 
 <header>
 	<nav>
-		<a class="brand" href={withBase('/')}>
+		<a class="brand" href={withBase(isEn ? '/en/' : '/')}>
 			<Image
 				class="brand-logo"
 				src={logoA}
@@ -21,15 +45,10 @@ import logoA from '../assets/logo-a.svg';
 			/>
 		</a>
 		<div class="internal-links desktop-only">
-			<HeaderLink href="/">Accueil</HeaderLink>
-			<HeaderLink href="/meilleur-robot-programmable-enfant-2026/">Guides d'achat</HeaderLink>
-			<HeaderLink href="/domotique/">Domotique</HeaderLink>
-			<HeaderLink href="/10-projets-mbot-gratuits-classe-faciles/">Projets mBot</HeaderLink>
-			<HeaderLink href="/programmation/">Python</HeaderLink>
-		<HeaderLink href="/blog/">Blog</HeaderLink>
+			{nav.map(([href, label]) => <HeaderLink href={href}>{label}</HeaderLink>)}
 	</div>
 	<div class="header-social desktop-only">
-		<button id="theme-toggle" type="button" aria-label="Passer en mode sombre" class="theme-toggle">
+		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : "Passer en mode sombre"} class="theme-toggle">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -61,14 +80,18 @@ import logoA from '../assets/logo-a.svg';
 			</svg>
 		</a>
 	</div>
-	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : 'Langue'}>
+		<a href={withBase(frHref)} hreflang="fr" lang="fr" aria-current={isEn ? undefined : 'true'} class:list={[{ current: !isEn }]}>FR</a>
+		<a href={withBase(enHref)} hreflang="en" lang="en" aria-current={isEn ? 'true' : undefined} class:list={[{ current: isEn }]}>EN</a>
+	</div>
+	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : "Ouvrir le menu"} aria-expanded="false">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
 			<path d="M3 12h18M3 6h18M3 18h18"/>
 		</svg>
 	</button>
 </nav>
 	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-		<button id="theme-toggle-mobile" type="button" aria-label="Passer en mode sombre" class="theme-toggle-mobile">
+		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : "Passer en mode sombre"} class="theme-toggle-mobile">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -85,14 +108,7 @@ import logoA from '../assets/logo-a.svg';
 			</svg>
 			<span class="theme-toggle-label"></span>
 		</button>
-		<a href={withBase('/')}>Accueil</a>
-		<a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>Guides d'achat</a>
-		<a href={withBase('/domotique/')}>Domotique</a>
-		<a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>Projets mBot</a>
-		<a href={withBase('/programmation/')}>Python</a>
-		<a href={withBase('/blog/')}>Blog</a>
-		<a href={withBase('/partenariat/')}>Partenariat</a>
-		<a href={withBase('/contact/')}>Contact</a>
+		{[...nav, ...mobileExtra].map(([href, label]) => <a href={withBase(href)}>{label}</a>)}
 	</div>
 </header>
 <style>
@@ -178,6 +194,27 @@ import logoA from '../assets/logo-a.svg';
 		background: var(--accent-warm);
 	}
 	
+	.lang-switch {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid var(--surface-border);
+		border-radius: 999px;
+		overflow: hidden;
+		flex-shrink: 0;
+		margin-left: auto;
+	}
+	.lang-switch a {
+		padding: 0.3rem 0.65rem;
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-decoration: none;
+		color: var(--ink);
+		line-height: 1.2;
+	}
+	.lang-switch a.current {
+		background: var(--primary);
+		color: #fff;
+	}
 	.mobile-menu-toggle {
 		display: none;
 		background: none;
@@ -433,8 +470,9 @@ import logoA from '../assets/logo-a.svg';
 			const theme = document.documentElement.dataset.theme || 
 				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 			const isDark = theme === 'dark';
-			const label = isDark ? 'Passer en mode clair' : 'Passer en mode sombre';
-			const mobileLabel = isDark ? 'Mode clair' : 'Mode sombre';
+			const en = document.documentElement.lang === 'en';
+			const label = en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+			const mobileLabel = en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
 			
 			document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
 			document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);
