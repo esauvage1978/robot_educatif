@@ -11,7 +11,9 @@ Deutsche Übersetzung der [französischen Mentions légales](/mentions-legales/)
 
 Die Website ROBOT éducatif (im Folgenden „die Website“) wird herausgegeben von:
 
-**Emmanuel SAUVAGE**, Verantwortlicher im Sinne der Verordnung (EU) 2016/679 (DSGVO) für die in der Datenschutzerklärung beschriebenen Verarbeitungen personenbezogener Daten.
+**Emmanuel SAUVAGE**, 10 rue des Acacias, 59193 Erquinghem-Lys, Frankreich (Angaben gemäß § 5 DDG).
+
+Emmanuel SAUVAGE ist Verantwortlicher im Sinne der Verordnung (EU) 2016/679 (DSGVO) für die in der Datenschutzerklärung beschriebenen Verarbeitungen personenbezogener Daten.
 
 Website / Kontakt: [emmanuelsauvage.fr](https://emmanuelsauvage.fr/)
 
