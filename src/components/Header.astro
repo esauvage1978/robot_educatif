@@ -10,6 +10,9 @@ const isEn = _p === '/en' || _p.startsWith('/en/');
 const pair = findPair(_p);
 const frHref = pair ? pair.fr : '/';
 const enHref = pair ? pair.en : '/en/';
+const isDe = _p === '/de' || _p.startsWith('/de/');
+const deHref = pair && pair.de ? pair.de : '/de/';
+const isFr = !isEn && !isDe;
 const navFr = [
 	['/', 'Accueil'],
 	['/meilleur-robot-programmable-enfant-2026/', "Guides d'achat"],
@@ -26,13 +29,21 @@ const navEn = [
 	['/en/arduino-robot-kit-for-kids/', 'Arduino'],
 	['/en/smart-home/', 'Smart home'],
 ];
-const nav = isEn ? navEn : navFr;
-const mobileExtra = isEn ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
+const navDe = [
+	['/de/', 'Start'],
+	['/de/bester-programmierbarer-roboter-fuer-kinder/', 'Kaufberater'],
+	['/de/raspberry-pi-3-vs-4-vs-5/', 'Vergleiche'],
+	['/de/mblock-5-installieren-windows/', 'Anleitungen'],
+	['/de/arduino-roboter-bausatz-fuer-kinder/', 'Arduino'],
+	['/de/smart-home/', 'Smart Home'],
+];
+const nav = isEn ? navEn : isDe ? navDe : navFr;
+const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
 ---
 
 <header>
 	<nav>
-		<a class="brand" href={withBase(isEn ? '/en/' : '/')}>
+		<a class="brand" href={withBase(isEn ? '/en/' : isDe ? '/de/' : '/')}>
 			<Image
 				class="brand-logo"
 				src={logoA}
@@ -48,7 +59,7 @@ const mobileExtra = isEn ? [] : [['/partenariat/', 'Partenariat'], ['/contact/',
 			{nav.map(([href, label]) => <HeaderLink href={href}>{label}</HeaderLink>)}
 	</div>
 	<div class="header-social desktop-only">
-		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : "Passer en mode sombre"} class="theme-toggle">
+		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : "Passer en mode sombre"} class="theme-toggle">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -80,18 +91,19 @@ const mobileExtra = isEn ? [] : [['/partenariat/', 'Partenariat'], ['/contact/',
 			</svg>
 		</a>
 	</div>
-	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : 'Langue'}>
-		<a href={withBase(frHref)} hreflang="fr" lang="fr" aria-current={isEn ? undefined : 'true'} class:list={[{ current: !isEn }]}>FR</a>
+	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : isDe ? 'Sprache' : 'Langue'}>
+		<a href={withBase(frHref)} hreflang="fr" lang="fr" aria-current={isFr ? 'true' : undefined} class:list={[{ current: isFr }]}>FR</a>
 		<a href={withBase(enHref)} hreflang="en" lang="en" aria-current={isEn ? 'true' : undefined} class:list={[{ current: isEn }]}>EN</a>
+		<a href={withBase(deHref)} hreflang="de" lang="de" aria-current={isDe ? 'true' : undefined} class:list={[{ current: isDe }]}>DE</a>
 	</div>
-	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : "Ouvrir le menu"} aria-expanded="false">
+	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : isDe ? "Menü öffnen" : "Ouvrir le menu"} aria-expanded="false">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
 			<path d="M3 12h18M3 6h18M3 18h18"/>
 		</svg>
 	</button>
 </nav>
 	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : "Passer en mode sombre"} class="theme-toggle-mobile">
+		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : "Passer en mode sombre"} class="theme-toggle-mobile">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -471,8 +483,9 @@ const mobileExtra = isEn ? [] : [['/partenariat/', 'Partenariat'], ['/contact/',
 				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 			const isDark = theme === 'dark';
 			const en = document.documentElement.lang === 'en';
-			const label = en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
-			const mobileLabel = en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
+			const de = document.documentElement.lang === 'de';
+			const label = de ? (isDark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren') : en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+			const mobileLabel = de ? (isDark ? 'Hellmodus' : 'Dunkelmodus') : en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
 			
 			document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
 			document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);

@@ -36,6 +36,7 @@ const ogH = isIllustration ? '540' : '630';
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const langPair = findPair(_p);
 const isEn = _p.startsWith('/en/');
+const isDe = _p.startsWith('/de/');
 ---
 
 <!-- Global Metadata -->
@@ -70,6 +71,7 @@ const isEn = _p.startsWith('/en/');
 	<>
 		<link rel="alternate" hreflang="fr" href={new URL(langPair.fr, Astro.site).toString()} />
 		<link rel="alternate" hreflang="en" href={new URL(langPair.en, Astro.site).toString()} />
+		{langPair.de && <link rel="alternate" hreflang="de" href={new URL(langPair.de, Astro.site).toString()} />}
 		<link rel="alternate" hreflang="x-default" href={new URL(langPair.fr, Astro.site).toString()} />
 	</>
 )}
@@ -82,7 +84,7 @@ const isEn = _p.startsWith('/en/');
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:locale" content={isEn ? "en_GB" : "fr_FR"} />
+<meta property="og:locale" content={isEn ? "en_GB" : isDe ? "de_DE" : "fr_FR"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

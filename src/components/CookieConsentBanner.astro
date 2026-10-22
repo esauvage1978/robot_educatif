@@ -5,11 +5,23 @@ import { withBase } from '../lib/siteUrl';
 const cookiesPageUrl = withBase('/gestion-des-cookies/');
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const isEn = _p === '/en' || _p.startsWith('/en/');
+const isDe = _p === '/de' || _p.startsWith('/de/');
 ---
 
 <div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc" hidden>
 	<div class="cookie-consent__inner">
-		{isEn ? (
+		{isDe ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies und Statistik</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Wir nutzen Google Analytics 4, um zu verstehen, wie die Website genutzt wird (Seitenaufrufe, Navigation). Es wird nur aktiviert, wenn Sie zustimmen. Eine Ablehnung schränkt die Nutzung der Website nicht ein. Mehr: <a href={cookiesPageUrl} hreflang="fr">Cookie-Einstellungen</a> und <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Datenschutzerklärung</a> (auf Französisch).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Ablehnen</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Akzeptieren</button>
+			</div>
+		</>
+		) : isEn ? (
 		<>
 			<p id="cookie-consent-title" class="cookie-consent__title">Cookies and analytics</p>
 			<p id="cookie-consent-desc" class="cookie-consent__text">

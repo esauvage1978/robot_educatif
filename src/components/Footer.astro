@@ -16,6 +16,7 @@ const { suppressPagePathTracking = false } = Astro.props;
 const today = new Date();
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const isEn = _p === '/en' || _p.startsWith('/en/');
+const isDe = _p === '/de' || _p.startsWith('/de/');
 ---
 
 <footer>
@@ -29,7 +30,7 @@ const isEn = _p === '/en' || _p.startsWith('/en/');
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">{isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
+			<p class="footer-tagline">{isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -50,7 +51,39 @@ const isEn = _p === '/en' || _p.startsWith('/en/');
 		</div>
 		
 		<div class="footer-columns">
-{isEn ? (<>
+{isDe ? (<>
+			<div class="footer-col">
+				<h3>Kaufberater</h3>
+				<ul>
+					<li><a href={withBase('/de/bester-programmierbarer-roboter-fuer-kinder/')}>Programmierbare Roboter nach Alter</a></li>
+					<li><a href={withBase('/de/arduino-roboter-bausatz-fuer-kinder/')}>Arduino-Roboterbausätze</a></li>
+					<li><a href={withBase('/de/')}>Alle deutschen Ratgeber</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Vergleiche</h3>
+				<ul>
+					<li><a href={withBase('/de/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/de/raspberry-pi-5-welcher-ram/')}>Raspberry Pi 5: RAM</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Anleitungen</h3>
+				<ul>
+					<li><a href={withBase('/de/mblock-5-installieren-windows/')}>mBlock 5 installieren</a></li>
+					<li><a href={withBase('/de/smart-home/')}>Smart Home</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Über uns</h3>
+				<ul>
+					<li><a href={withBase('/de/impressum/')}>Impressum</a></li>
+					<li><a href={withBase('/contact/')} hreflang="fr">Kontakt (FR)</a></li>
+					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Datenschutz (FR)</a></li>
+					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
+				</ul>
+			</div>
+</>) : isEn ? (<>
 			<div class="footer-col">
 				<h3>Buying guides</h3>
 				<ul>
@@ -128,9 +161,9 @@ const isEn = _p === '/en' || _p.startsWith('/en/');
 	
 	<div class="footer-bottom">
 		<p class="affiliate-notice">
-			{isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
+			{isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
 		</p>
-		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
+		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isDe ? "Entwickelt von" : isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
 	</div>
 </footer>
 <style>
