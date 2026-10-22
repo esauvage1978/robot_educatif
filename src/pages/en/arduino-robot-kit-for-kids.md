@@ -45,7 +45,7 @@ Compare block-based robots in our [programmable robot guide](/en/best-programmab
 
 ## 5. Where to buy in the US and UK
 
-Makers' stores and large marketplaces sell these kits in both countries. For individual parts and boards, US-based [SparkFun's Arduino section](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (affiliate link) also sells sensors, boards and spare parts. [DFRobot](https://www.dfrobot.com/) ships internationally and sells robot chassis and sensors.
+Makers' stores and large marketplaces sell these kits in both countries. For individual parts and boards, US-based [SparkFun's Arduino section](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (affiliate link) also sells sensors, boards and spare parts. [DFRobot](https://www.dfrobot.com/) ships internationally and sells robot chassis and sensors. In the UK, the ELEGOO Smart Robot Car Kit V4.0 is listed on Amazon: <a href="https://www.amazon.co.uk/dp/B07474MMB5?tag=roboteducatif-21" rel="nofollow sponsored">ELEGOO Smart Robot Car Kit V4.0 (Amazon UK)</a> (affiliate link).
 
 ## 6. First steps
 

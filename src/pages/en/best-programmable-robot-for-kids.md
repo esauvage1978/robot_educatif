@@ -47,7 +47,7 @@ Figures taken on 21 October 2026 from the official pages: [Makeblock mBot](https
 
 ## 5. Where to buy in the UK and US
 
-All three kits are sold through the makers' own stores and through large marketplaces in both countries. Stock and bundles differ between the UK and the US, so **check current price and availability** on the official pages linked above before ordering. In the US, the mBot2 is listed on Amazon: <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="nofollow sponsored">Makeblock mBot2 on Amazon.com</a> (affiliate link). Mains chargers, where included, come with a local plug.
+All three kits are sold through the makers' own stores and through large marketplaces in both countries. Stock and bundles differ between the UK and the US, so **check current price and availability** on the official pages linked above before ordering. In the US and UK, the mBot2 is listed on Amazon: <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="nofollow sponsored">Makeblock mBot2 (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> (affiliate link). Mains chargers, where included, come with a local plug.
 
 ## 6. Common mistakes
 
