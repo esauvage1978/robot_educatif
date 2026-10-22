@@ -18,7 +18,7 @@ const normalizedHref = hrefForActive.endsWith('/') && hrefForActive !== '/' ? hr
 const isActive =
 	normalizedPathname === normalizedHref || 
 	hrefForActive === '/' + (subpath?.[0] || '') ||
-	(normalizedHref !== '/' && normalizedHref !== '/en' && normalizedPathname.startsWith(normalizedHref + '/'));
+	(normalizedHref !== '/' && normalizedHref !== '/en' && normalizedHref !== '/de' && normalizedPathname.startsWith(normalizedHref + '/'));
 ---
 
 <a href={resolvedHref} class:list={[className, { active: isActive }]} aria-current={isActive ? 'page' : undefined} {...props}>

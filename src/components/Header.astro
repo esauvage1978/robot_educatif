@@ -452,6 +452,11 @@ const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/
 			max-width: min(200px, 60vw);
 		}
 	}
+	@media (max-width: 480px) {
+		.brand img { height: 34px; max-width: min(150px, 40vw); }
+		.lang-switch a { padding: 0.3rem 0.45rem; font-size: 0.75rem; }
+		.mobile-menu-toggle { padding: 0.35rem; }
+	}
 </style>
 
 <script>
