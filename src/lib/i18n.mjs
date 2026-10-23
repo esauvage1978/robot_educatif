@@ -1,23 +1,25 @@
 // Paires FR/EN pour hreflang et sélecteur de langue (chemins sans base).
 export const LANG_PAIRS = [
-	{ fr: '/', en: '/en/', de: '/de/' },
-	{ fr: '/meilleur-robot-programmable-enfant-2026/', en: '/en/best-programmable-robot-for-kids/', de: '/de/bester-programmierbarer-roboter-fuer-kinder/' },
+	{ fr: '/', en: '/en/', de: '/de/', it: '/it/', es: '/es/' },
+	{ fr: '/meilleur-robot-programmable-enfant-2026/', en: '/en/best-programmable-robot-for-kids/', de: '/de/bester-programmierbarer-roboter-fuer-kinder/', it: '/it/miglior-robot-programmabile-per-bambini/', es: '/es/mejor-robot-programable-para-ninos/' },
 	{ fr: '/installer-mblock-5-sous-windows-10/', en: '/en/install-mblock-5-windows/', de: '/de/mblock-5-installieren-windows/' },
 	{ fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', en: '/en/raspberry-pi-5-which-ram/', de: '/de/raspberry-pi-5-welcher-ram/' },
-	{ fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', en: '/en/raspberry-pi-3-vs-4-vs-5/', de: '/de/raspberry-pi-3-vs-4-vs-5/' },
-	{ fr: '/meilleur-robot-educatif-arduino-kit-choisir/', en: '/en/arduino-robot-kit-for-kids/', de: '/de/arduino-roboter-bausatz-fuer-kinder/' },
+	{ fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', en: '/en/raspberry-pi-3-vs-4-vs-5/', de: '/de/raspberry-pi-3-vs-4-vs-5/', it: '/it/raspberry-pi-3-vs-4-vs-5/', es: '/es/raspberry-pi-3-vs-4-vs-5/' },
+	{ fr: '/meilleur-robot-educatif-arduino-kit-choisir/', en: '/en/arduino-robot-kit-for-kids/', de: '/de/arduino-roboter-bausatz-fuer-kinder/', it: '/it/kit-robot-arduino-per-bambini/', es: '/es/kit-robot-arduino-para-ninos/' },
 	{ fr: '/domotique/', en: '/en/smart-home/', de: '/de/smart-home/' },
 	{ fr: '/domotique/debuter-domotique-par-ou-commencer/', en: '/en/smart-home/getting-started/', de: '/de/smart-home/einstieg/' },
 	{ fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', en: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', de: '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/' },
 	{ fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', en: '/en/smart-home/best-zigbee-dongle-home-assistant/', de: '/de/smart-home/bester-zigbee-stick-home-assistant/' },
 	{ fr: '/domotique/prise-connectee-zigbee-home-assistant/', en: '/en/smart-home/smart-plugs-uk-us/', de: '/de/smart-home/smarte-steckdosen/' },
-	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/' },
-	{ fr: '/marque-matatalab/', en: '/en/matatalab-brand/', de: '/de/marke-matatalab/' },
-	{ fr: '/marque-elegoo/', en: '/en/elegoo-brand/', de: '/de/marke-elegoo/' },
+	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/', it: '/it/marchio-makeblock/', es: '/es/marca-makeblock/' },
+	{ fr: '/marque-matatalab/', en: '/en/matatalab-brand/', de: '/de/marke-matatalab/', it: '/it/marchio-matatalab/', es: '/es/marca-matatalab/' },
+	{ fr: '/marque-elegoo/', en: '/en/elegoo-brand/', de: '/de/marke-elegoo/', it: '/it/marchio-elegoo/', es: '/es/marca-elegoo/' },
 	{ fr: '/marque-lego/', en: '/en/lego-education-brand/', de: '/de/marke-lego-education/' },
-	{ fr: '/marque-raspberry-pi/', en: '/en/raspberry-pi-brand/', de: '/de/marke-raspberry-pi/' },
+	{ fr: '/marque-raspberry-pi/', en: '/en/raspberry-pi-brand/', de: '/de/marke-raspberry-pi/', it: '/it/marchio-raspberry-pi/', es: '/es/marca-raspberry-pi/' },
 	{ fr: '/marque-sonoff/', en: '/en/sonoff-brand/', de: '/de/marke-sonoff/' },
-	{ fr: '/marques/', en: '/en/brands/', de: '/de/marken/' },
+	{ it: '/it/shelly-gen4-quale-modulo-scegliere/', es: '/es/shelly-gen4-que-modulo-elegir/' },
+	{ fr: '/mentions-legales/', it: '/it/note-legali/', es: '/es/aviso-legal/' },
+	{ fr: '/marques/', en: '/en/brands/', de: '/de/marken/', it: '/it/marchi/', es: '/es/marcas/' },
 ];
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
@@ -45,10 +47,26 @@ export const DE_PAGES = [
 	{ href: '/de/smart-home/smarte-steckdosen/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Smarte Steckdosen (Schuko) für Home Assistant' },
 	{ href: '/de/marken/', fr: '/marques/', title: 'Unsere Markenseiten' },
 ];
-export const langOf = (p) => (p === '/en' || p.startsWith('/en/') ? 'en' : p === '/de' || p.startsWith('/de/') ? 'de' : 'fr');
+// Pages /it/ publiées.
+export const IT_PAGES = [
+	{ href: '/it/miglior-robot-programmabile-per-bambini/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Miglior robot programmabile per bambini: come scegliere per età' },
+	{ href: '/it/kit-robot-arduino-per-bambini/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit robot Arduino per bambini: come sceglierlo' },
+	{ href: '/it/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: quale comprare?' },
+	{ href: '/it/shelly-gen4-quale-modulo-scegliere/', fr: '', title: 'Shelly Gen4: quale modulo scegliere per la domotica' },
+	{ href: '/it/marchi/', fr: '/marques/', title: 'Le nostre pagine marchio' },
+];
+// Pages /es/ publiées.
+export const ES_PAGES = [
+	{ href: '/es/mejor-robot-programable-para-ninos/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Mejor robot programable para niños: cómo elegir según la edad' },
+	{ href: '/es/kit-robot-arduino-para-ninos/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit de robot Arduino para niños: cómo elegirlo' },
+	{ href: '/es/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: ¿cuál comprar?' },
+	{ href: '/es/shelly-gen4-que-modulo-elegir/', fr: '', title: 'Shelly Gen4: qué módulo elegir para domótica' },
+	{ href: '/es/marcas/', fr: '/marques/', title: 'Nuestras páginas de marca' },
+];
+export const langOf = (p) => { for (const l of ['en', 'de', 'it', 'es']) if (p === '/' + l || p.startsWith('/' + l + '/')) return l; return 'fr'; };
 export const slugOf = (p) => p.replace(/\/$/, '').split('/').pop();
 const norm = (p) => (p.endsWith('/') ? p : p + '/');
 export function findPair(pathname) {
 	const p = norm(pathname);
-	return LANG_PAIRS.find((x) => x.fr === p || x.en === p || x.de === p) || null;
+	return LANG_PAIRS.find((x) => x.fr === p || x.en === p || x.de === p || x.it === p || x.es === p) || null;
 }

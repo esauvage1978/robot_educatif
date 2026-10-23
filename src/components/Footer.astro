@@ -17,6 +17,8 @@ const today = new Date();
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const isEn = _p === '/en' || _p.startsWith('/en/');
 const isDe = _p === '/de' || _p.startsWith('/de/');
+const isIt = _p === '/it' || _p.startsWith('/it/');
+const isEs = _p === '/es' || _p.startsWith('/es/');
 ---
 
 <footer>
@@ -30,7 +32,7 @@ const isDe = _p === '/de' || _p.startsWith('/de/');
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">{isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
+			<p class="footer-tagline">{isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -51,7 +53,59 @@ const isDe = _p === '/de' || _p.startsWith('/de/');
 		</div>
 		
 		<div class="footer-columns">
-{isDe ? (<>
+{isIt ? (<>
+			<div class="footer-col">
+				<h3>Guide all'acquisto</h3>
+				<ul>
+					<li><a href={withBase('/it/miglior-robot-programmabile-per-bambini/')}>Robot programmabili per età</a></li>
+					<li><a href={withBase('/it/kit-robot-arduino-per-bambini/')}>Kit robot Arduino</a></li>
+					<li><a href={withBase('/it/')}>Tutte le guide in italiano</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Confronti</h3>
+				<ul>
+					<li><a href={withBase('/it/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/it/shelly-gen4-quale-modulo-scegliere/')}>Moduli Shelly Gen4</a></li>
+					<li><a href={withBase('/it/marchi/')}>Pagine marchio</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Informazioni</h3>
+				<ul>
+					<li><a href={withBase('/it/note-legali/')}>Note legali</a></li>
+					<li><a href={withBase('/contact/')} hreflang="fr">Contatto (FR)</a></li>
+					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Privacy (FR)</a></li>
+					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
+				</ul>
+			</div>
+</>) : isEs ? (<>
+			<div class="footer-col">
+				<h3>Guías de compra</h3>
+				<ul>
+					<li><a href={withBase('/es/mejor-robot-programable-para-ninos/')}>Robots programables por edad</a></li>
+					<li><a href={withBase('/es/kit-robot-arduino-para-ninos/')}>Kits de robot Arduino</a></li>
+					<li><a href={withBase('/es/')}>Todas las guías en español</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Comparativas</h3>
+				<ul>
+					<li><a href={withBase('/es/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/es/shelly-gen4-que-modulo-elegir/')}>Módulos Shelly Gen4</a></li>
+					<li><a href={withBase('/es/marcas/')}>Páginas de marca</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Información</h3>
+				<ul>
+					<li><a href={withBase('/es/aviso-legal/')}>Aviso legal</a></li>
+					<li><a href={withBase('/contact/')} hreflang="fr">Contacto (FR)</a></li>
+					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Privacidad (FR)</a></li>
+					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
+				</ul>
+			</div>
+</>) : isDe ? (<>
 			<div class="footer-col">
 				<h3>Kaufberater</h3>
 				<ul>
@@ -161,9 +215,9 @@ const isDe = _p === '/de' || _p.startsWith('/de/');
 	
 	<div class="footer-bottom">
 		<p class="affiliate-notice">
-			{isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
+			{isIt ? "Alcuni link sono link di affiliazione: in caso di acquisto potremmo ricevere una commissione, senza costi aggiuntivi per voi. I dati tecnici provengono dalle pagine ufficiali dei produttori; dichiariamo una prova solo dove è indicata espressamente." : isEs ? "Algunos enlaces son de afiliación: si compras, podemos recibir una comisión sin coste adicional para ti. Los datos técnicos proceden de las páginas oficiales de los fabricantes; solo afirmamos haber probado un producto cuando se indica expresamente." : isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
 		</p>
-		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isDe ? "Entwickelt von" : isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
+		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isIt ? "Sviluppato da" : isEs ? "Desarrollado por" : isDe ? "Entwickelt von" : isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
 	</div>
 </footer>
 <style>

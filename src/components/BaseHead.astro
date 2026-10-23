@@ -37,6 +37,10 @@ const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const langPair = findPair(_p);
 const isEn = _p.startsWith('/en/');
 const isDe = _p.startsWith('/de/');
+const isIt = _p === '/it/' || _p.startsWith('/it/');
+const isEs = _p === '/es/' || _p.startsWith('/es/');
+const hrefLangs = langPair ? ['fr', 'en', 'de', 'it', 'es'].filter((l) => langPair[l]) : [];
+const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 ---
 
 <!-- Global Metadata -->
@@ -69,10 +73,8 @@ const isDe = _p.startsWith('/de/');
 <link rel="canonical" href={canonicalURL} />
 {langPair && (
 	<>
-		<link rel="alternate" hreflang="fr" href={new URL(langPair.fr, Astro.site).toString()} />
-		<link rel="alternate" hreflang="en" href={new URL(langPair.en, Astro.site).toString()} />
-		{langPair.de && <link rel="alternate" hreflang="de" href={new URL(langPair.de, Astro.site).toString()} />}
-		<link rel="alternate" hreflang="x-default" href={new URL(langPair.fr, Astro.site).toString()} />
+		{hrefLangs.map((l) => <link rel="alternate" hreflang={l} href={new URL(langPair[l], Astro.site).toString()} />)}
+		<link rel="alternate" hreflang="x-default" href={new URL(xDefault, Astro.site).toString()} />
 	</>
 )}
 
@@ -84,7 +86,7 @@ const isDe = _p.startsWith('/de/');
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:locale" content={isEn ? "en_GB" : isDe ? "de_DE" : "fr_FR"} />
+<meta property="og:locale" content={isEn ? "en_GB" : isDe ? "de_DE" : isIt ? "it_IT" : isEs ? "es_ES" : "fr_FR"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

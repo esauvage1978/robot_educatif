@@ -8,11 +8,15 @@ import { findPair } from '../lib/i18n.mjs';
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const isEn = _p === '/en' || _p.startsWith('/en/');
 const pair = findPair(_p);
-const frHref = pair ? pair.fr : '/';
-const enHref = pair ? pair.en : '/en/';
+const frHref = pair && pair.fr ? pair.fr : '/';
+const enHref = pair && pair.en ? pair.en : '/en/';
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const deHref = pair && pair.de ? pair.de : '/de/';
-const isFr = !isEn && !isDe;
+const isIt = _p === '/it' || _p.startsWith('/it/');
+const isEs = _p === '/es' || _p.startsWith('/es/');
+const itHref = pair && pair.it ? pair.it : '/it/';
+const esHref = pair && pair.es ? pair.es : '/es/';
+const isFr = !isEn && !isDe && !isIt && !isEs;
 const navFr = [
 	['/', 'Accueil'],
 	['/meilleur-robot-programmable-enfant-2026/', "Guides d'achat"],
@@ -37,13 +41,29 @@ const navDe = [
 	['/de/arduino-roboter-bausatz-fuer-kinder/', 'Arduino'],
 	['/de/smart-home/', 'Smart Home'],
 ];
-const nav = isEn ? navEn : isDe ? navDe : navFr;
-const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
+const navIt = [
+	['/it/', 'Home'],
+	['/it/miglior-robot-programmabile-per-bambini/', "Guide all'acquisto"],
+	['/it/raspberry-pi-3-vs-4-vs-5/', 'Confronti'],
+	['/it/kit-robot-arduino-per-bambini/', 'Arduino'],
+	['/it/shelly-gen4-quale-modulo-scegliere/', 'Domotica'],
+	['/it/marchi/', 'Marchi'],
+];
+const navEs = [
+	['/es/', 'Inicio'],
+	['/es/mejor-robot-programable-para-ninos/', 'Guías de compra'],
+	['/es/raspberry-pi-3-vs-4-vs-5/', 'Comparativas'],
+	['/es/kit-robot-arduino-para-ninos/', 'Arduino'],
+	['/es/shelly-gen4-que-modulo-elegir/', 'Domótica'],
+	['/es/marcas/', 'Marcas'],
+];
+const nav = isEn ? navEn : isDe ? navDe : isIt ? navIt : isEs ? navEs : navFr;
+const mobileExtra = (isEn || isDe || isIt || isEs) ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
 ---
 
 <header>
 	<nav>
-		<a class="brand" href={withBase(isEn ? '/en/' : isDe ? '/de/' : '/')}>
+		<a class="brand" href={withBase(isEn ? '/en/' : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : '/')}>
 			<Image
 				class="brand-logo"
 				src={logoA}
@@ -59,7 +79,7 @@ const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/
 			{nav.map(([href, label]) => <HeaderLink href={href}>{label}</HeaderLink>)}
 	</div>
 	<div class="header-social desktop-only">
-		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : "Passer en mode sombre"} class="theme-toggle">
+		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : isIt ? "Attiva la modalità scura" : isEs ? "Activar modo oscuro" : "Passer en mode sombre"} class="theme-toggle">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -91,19 +111,21 @@ const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/
 			</svg>
 		</a>
 	</div>
-	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : isDe ? 'Sprache' : 'Langue'}>
+	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue'}>
 		<a href={withBase(frHref)} hreflang="fr" lang="fr" aria-current={isFr ? 'true' : undefined} class:list={[{ current: isFr }]}>FR</a>
 		<a href={withBase(enHref)} hreflang="en" lang="en" aria-current={isEn ? 'true' : undefined} class:list={[{ current: isEn }]}>EN</a>
 		<a href={withBase(deHref)} hreflang="de" lang="de" aria-current={isDe ? 'true' : undefined} class:list={[{ current: isDe }]}>DE</a>
+		<a href={withBase(itHref)} hreflang="it" lang="it" aria-current={isIt ? 'true' : undefined} class:list={[{ current: isIt }]}>IT</a>
+		<a href={withBase(esHref)} hreflang="es" lang="es" aria-current={isEs ? 'true' : undefined} class:list={[{ current: isEs }]}>ES</a>
 	</div>
-	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : isDe ? "Menü öffnen" : "Ouvrir le menu"} aria-expanded="false">
+	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : isDe ? "Menü öffnen" : isIt ? "Apri il menu" : isEs ? "Abrir el menú" : "Ouvrir le menu"} aria-expanded="false">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
 			<path d="M3 12h18M3 6h18M3 18h18"/>
 		</svg>
 	</button>
 </nav>
 	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : "Passer en mode sombre"} class="theme-toggle-mobile">
+		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : isIt ? "Attiva la modalità scura" : isEs ? "Activar modo oscuro" : "Passer en mode sombre"} class="theme-toggle-mobile">
 			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<circle cx="12" cy="12" r="5"></circle>
 				<line x1="12" y1="1" x2="12" y2="3"></line>
@@ -465,19 +487,20 @@ const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/
 		const menu = document.getElementById('mobile-menu');
 		
 		if (!button || !menu) return;
+		const menuLabels = { it: ['Apri il menu', 'Chiudi il menu'], es: ['Abrir el menú', 'Cerrar el menú'] }[document.documentElement.lang] || ['Ouvrir le menu', 'Fermer le menu'];
 		
 		button.addEventListener('click', () => {
 			const isOpen = menu.getAttribute('aria-hidden') === 'false';
 			menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
 			button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-			button.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+			button.setAttribute('aria-label', isOpen ? menuLabels[0] : menuLabels[1]);
 		});
 		
 		menu.querySelectorAll('a').forEach(link => {
 			link.addEventListener('click', () => {
 				menu.setAttribute('aria-hidden', 'true');
 				button.setAttribute('aria-expanded', 'false');
-				button.setAttribute('aria-label', 'Ouvrir le menu');
+				button.setAttribute('aria-label', menuLabels[0]);
 			});
 		});
 	})();
@@ -489,8 +512,10 @@ const mobileExtra = (isEn || isDe) ? [] : [['/partenariat/', 'Partenariat'], ['/
 			const isDark = theme === 'dark';
 			const en = document.documentElement.lang === 'en';
 			const de = document.documentElement.lang === 'de';
-			const label = de ? (isDark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren') : en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
-			const mobileLabel = de ? (isDark ? 'Hellmodus' : 'Dunkelmodus') : en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
+			const it = document.documentElement.lang === 'it';
+			const es = document.documentElement.lang === 'es';
+			const label = it ? (isDark ? 'Attiva la modalità chiara' : 'Attiva la modalità scura') : es ? (isDark ? 'Activar modo claro' : 'Activar modo oscuro') : de ? (isDark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren') : en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
+			const mobileLabel = it ? (isDark ? 'Modalità chiara' : 'Modalità scura') : es ? (isDark ? 'Modo claro' : 'Modo oscuro') : de ? (isDark ? 'Hellmodus' : 'Dunkelmodus') : en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
 			
 			document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
 			document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);

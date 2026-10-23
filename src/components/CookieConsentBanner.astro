@@ -6,11 +6,35 @@ const cookiesPageUrl = withBase('/gestion-des-cookies/');
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const isEn = _p === '/en' || _p.startsWith('/en/');
 const isDe = _p === '/de' || _p.startsWith('/de/');
+const isIt = _p === '/it' || _p.startsWith('/it/');
+const isEs = _p === '/es' || _p.startsWith('/es/');
 ---
 
 <div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc" hidden>
 	<div class="cookie-consent__inner">
-		{isDe ? (
+		{isIt ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookie e statistiche</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Usiamo Google Analytics 4 per capire come viene usato il sito (pagine viste, navigazione). Viene attivato solo se accettate. Rifiutare non impedisce di consultare il sito. Per saperne di più: <a href={cookiesPageUrl} hreflang="fr">gestione dei cookie</a> e <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">informativa sulla privacy</a> (in francese).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Rifiuta</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accetta</button>
+			</div>
+		</>
+		) : isEs ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies y estadísticas</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Usamos Google Analytics 4 para entender cómo se usa el sitio (páginas vistas, navegación). Solo se activa si aceptas. Rechazar no impide consultar el sitio. Más información: <a href={cookiesPageUrl} hreflang="fr">gestión de cookies</a> y <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">política de privacidad</a> (en francés).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Rechazar</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Aceptar</button>
+			</div>
+		</>
+		) : isDe ? (
 		<>
 			<p id="cookie-consent-title" class="cookie-consent__title">Cookies und Statistik</p>
 			<p id="cookie-consent-desc" class="cookie-consent__text">
