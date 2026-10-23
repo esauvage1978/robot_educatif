@@ -37,6 +37,11 @@
 	# Anciennes catégories WordPress /category/… : correspondances explicites
 	# AVANT la règle générique (sinon /category/x → /categorie/x qui n'existe pas)
 	# ---------------------------------------------------------------------------
+	# Lot 2 (23/10/2026) : tags en doublon fusionnes
+	RewriteRule ^categorie/cadeau/?$ /categorie/cadeaux/ [R=301,L,NC]
+	RewriteRule ^categorie/marque/?$ /categorie/marques/ [R=301,L,NC]
+	RewriteRule ^category/cadeau/?$ /categorie/cadeaux/ [R=301,L,NC]
+	RewriteRule ^category/marque/?$ /categorie/marques/ [R=301,L,NC]
 	RewriteRule ^category/matatalab/tale-bot/?$ /categorie/tale-bot/ [R=301,L,NC]
 	RewriteRule ^category/makeblock/mbot/?$ /categorie/mbot/ [R=301,L,NC]
 	RewriteRule ^category/makeblock/cyberpi/?$ /categorie/makeblock/ [R=301,L,NC]

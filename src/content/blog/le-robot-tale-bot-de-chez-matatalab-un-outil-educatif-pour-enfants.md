@@ -6,7 +6,7 @@ heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 updatedDate: "2023-05-01"
 categories:
   - "Matatalab"
-  - "Tale Bot"
+  - "Tale-Bot"
   - "Robot éducatif"
   - "À partir de 5 ans"
 ---

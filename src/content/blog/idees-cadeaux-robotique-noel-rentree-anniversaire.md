@@ -8,7 +8,7 @@ amazonPreset: general
 categories:
   - "Guide"
   - "Robot éducatif"
-  - "Cadeau"
+  - "Cadeaux"
   - "À partir de 8 ans"
 relatedLinks:
   - title: "Programmation enfant : à quel âge ?"

@@ -6,7 +6,7 @@ heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:
   - "Matatalab"
   - "Déballage"
-  - "Tale Bot"
+  - "Tale-Bot"
   - "À partir de 5 ans"
 ---
 Le robot tale-bot de chez [Matatalab](/marque-matatalab/) est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons déballer et découvrir ensemble ce robot éducatif. Nous allons également voir comment effectuer les premiers pas pour programmer et utiliser le robot tale-bot.

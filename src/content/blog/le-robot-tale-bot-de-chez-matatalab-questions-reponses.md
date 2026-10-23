@@ -5,7 +5,7 @@ pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:
   - "Matatalab"
-  - "Tale Bot"
+  - "Tale-Bot"
   - "FAQ"
   - "Robot éducatif"
 ---
