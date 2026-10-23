@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Kaufberater: programmierbare Roboter, Raspberry Pi und Smart Home"
-description: "Alle Kaufberater auf einen Blick: Roboter nach Alter, Arduino-Bausätze, RAM des Raspberry Pi 5, Zigbee-Sticks und smarte Steckdosen. Übersichtstabelle und Empfehlung."
+description: "Alle Kaufberater auf einen Blick: Roboter nach Alter, Arduino-Bausätze, RAM des Raspberry Pi 5, Zigbee-Sticks und smarte Steckdosen."
 updated: "23. Oktober 2026"
 ---
 
-Alle Artikel dieser Rubrik mit ihrem Inhalt.
+Erster Programmierroboter, Arduino-Bausatz, Raspberry Pi oder Smart-Home-Zubehör? Hier finden Sie für jede Kaufentscheidung den passenden Ratgeber.
 
 | Artikel | Thema |
 |---|---|

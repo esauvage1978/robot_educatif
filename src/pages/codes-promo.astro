@@ -17,7 +17,7 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 	<head>
 		<BaseHead
 			title="Codes promo et bons plans robotique, 3D et makers"
-			description="Codes promo vérifiés de nos partenaires (Creality, Creality Falcon, Batterie-Boutique) : dates de validité, conditions et liens directs. Mise à jour régulière."
+			description="Codes promo Creality, Creality Falcon et Batterie-Boutique : réductions en cours, dates de validité et conditions."
 		/>
 		<style>
 			.promo-wrap { max-width: 960px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 3rem; }
@@ -40,8 +40,8 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 		<Header />
 		<main class="promo-wrap">
 			<h1>Codes promo et bons plans</h1>
-			<p class="promo-intro">Uniquement des offres réelles de nos partenaires, relevées dans leurs programmes d'affiliation. Chaque offre indique sa période de validité et la date de notre dernière vérification ; elle est retirée de la page dès qu'elle expire.</p>
-			<p class="promo-note">Liens affiliés : si vous achetez via ces liens, ROBOT Éducatif peut toucher une commission, sans surcoût pour vous. Les conditions (montant minimum, produits exclus, cumul) sont fixées par chaque marchand et vérifiables sur sa boutique au moment du paiement.</p>
+			<p class="promo-intro">Imprimantes 3D, graveurs laser, piles : voici les réductions en cours chez nos partenaires. Chaque offre affiche sa période de validité, et nous retirons celles qui ont expiré.</p>
+			<p class="promo-note">Liens affiliés : si vous achetez via ces liens, ROBOT Éducatif peut toucher une commission, sans surcoût pour vous. Les conditions (montant minimum, produits exclus, cumul) sont fixées par chaque marchand : relisez-les sur sa boutique avant de payer.</p>
 			{groups.map((g) => (
 				<section class="promo-group">
 					<h2>{g} <small style="font-weight:400;color:#5b6470">· {offers.find((o) => o.merchant === g)?.topic}</small></h2>
@@ -50,7 +50,7 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 							<li class="promo-card">
 								<div class="promo-main">
 									<p class="promo-title">{o.title}</p>
-									<p class="promo-meta">Valable du {fmt(o.start)} au {fmt(o.end)} · vérifiée le {fmt(o.verified)}</p>
+									<p class="promo-meta">Valable du {fmt(o.start)} au {fmt(o.end)} · mise à jour le {fmt(o.verified)}</p>
 								</div>
 								<div class="promo-side">
 									{o.code ? <span class="promo-code">{o.code}</span> : <span class="promo-meta">Sans code</span>}

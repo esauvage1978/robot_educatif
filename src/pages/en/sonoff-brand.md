@@ -10,12 +10,12 @@ updated: "23 October 2026"
 <li><a href="/en/smart-home/best-zigbee-dongle-home-assistant/">Best Zigbee dongle for Home Assistant</a>: ZBDongle-E for most people, Dongle Lite MG21 for the smallest budget.</li>
 <li><a hreflang="fr" href="/domotique/capteur-temperature-zigbee/">Zigbee temperature sensors (in French)</a>: SNZB-02D is our pick.</li>
 </ul>
-<h2 id="strengths">Strengths (from our pages)</h2>
+<h2 id="strengths">Strengths</h2>
 <ul>
 <li>ZBDongle-E: EFR32MG21 chip, external antenna, works with ZHA and Zigbee2MQTT, well documented.</li>
 <li>SNZB-02D: LCD screen, ±0.2 °C, 2-year battery life.</li>
 </ul>
-<h2 id="limits">Limits (from our pages)</h2>
+<h2 id="limits">Limits</h2>
 <ul>
 <li>No Thread/Matter by default on the ZBDongle-E.</li>
 <li>Dongle Lite: internal antenna, shorter range.</li>

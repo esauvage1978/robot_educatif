@@ -14,6 +14,6 @@ Our smart home guides, rewritten for **UK and US homes**: we flag where plugs (T
 | [Best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/) | SONOFF, Connect ZBT-2 and ConBee compared |
 | [Smart plugs for the UK and US](/en/smart-home/smart-plugs-uk-us/) | ratings, certification, Zigbee vs Wi-Fi vs Matter |
 
-Specifications come from manufacturers' official pages and are dated. We don't quote prices we can't source: check the current price at the retailer.
+Specifications come from manufacturers' official pages and are dated. Prices change often, so check the current price at the retailer.
 
 **Best pick:** new to the smart home? Start with [Smart home for beginners](/en/smart-home/getting-started/), then choose your hub in [Home Assistant Green vs Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/).

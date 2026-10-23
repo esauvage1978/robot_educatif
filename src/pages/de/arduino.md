@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Arduino: Bausätze und ein C-Programmierkurs"
-description: "Arduino für Kinder und Einsteiger: einen Roboterbausatz wählen und ein kostenloser C-Kurs in drei Lektionen mit Lösungen. Übersichtstabelle und Empfehlung."
+description: "Arduino für Kinder und Einsteiger: einen Roboterbausatz wählen und ein kostenloser C-Kurs in drei Lektionen mit Lösungen."
 updated: "23. Oktober 2026"
 ---
 
-Alle Artikel dieser Rubrik mit ihrem Inhalt.
+Bereit für echten Code? Wählen Sie einen Bausatz und arbeiten Sie dann unsere Arduino-C-Lektionen der Reihe nach durch.
 
 | Artikel | Thema |
 |---|---|

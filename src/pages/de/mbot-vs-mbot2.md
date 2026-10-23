@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "mBot vs mBot2: Unterschiede und welcher passt"
-description: "Makeblock mBot und mBot2 im Vergleich: mCore- oder CyberPi-Platine, Sensoren, Encodermotoren, WLAN, Python, Akku und Zubehör. Übersichtstabelle und Empfehlung nach Alter und Projekt."
+description: "Makeblock mBot und mBot2 im Vergleich: mCore- oder CyberPi-Platine, Sensoren, Encodermotoren, WLAN, Python, Akku und Zubehör. Mit Empfehlung nach Alter und Projekt."
 updated: "23. Oktober 2026"
 ---
 

@@ -11,7 +11,7 @@ categories:
 tags:
   - "marque"
 ---
-<p>Chaque marque qui apparaît dans au moins un de nos tests ou comparatifs a sa page : nos articles qui en parlent, sa place dans nos comparatifs, ses points forts et ses limites, la garantie et le SAV en France, et notre verdict. Nous indiquons toujours ce que nous avons testé nous-mêmes et ce qui vient des fiches techniques des fabricants.</p>
+<p>Makeblock, LEGO Education, ELEGOO, Raspberry Pi… Voici les marques que vous croiserez le plus souvent sur Robot Éducatif. Pour chacune, vous trouverez nos articles, ce qu’elle fait bien, ses limites, la garantie et le SAV en France, et notre avis. Quand nous avons eu le produit entre les mains, nous le précisons.</p>
 <ul>
 <li><a href="/marque-makeblock/">Makeblock</a> : mBot, mBot2, Codey Rocky, CyberPi : la marque la plus présente sur le site.</li>
 <li><a href="/marque-matatalab/">Matatalab</a> : Tale-Bot Pro, notre test maison pour les 4-7 ans, sans écran.</li>

@@ -65,7 +65,7 @@ Les valeurs ci-dessous correspondent aux **références courantes** publiées pa
 
 ## 4. Prix : à vérifier chez le vendeur
 
-Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, promotions) : nous n'indiquons pas de montant, vérifiez-le chez le vendeur au moment de l'achat. Quelques repères pour comparer les offres :
+Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, promotions) : comparez le prix chez le vendeur au moment de l'achat. Quelques repères pour comparer les offres :
 
 | Modèle | Commentaire |
 |--------|------------|

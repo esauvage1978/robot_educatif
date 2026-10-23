@@ -14,6 +14,6 @@ Unsere Smart-Home-Ratgeber, überarbeitet für **Haushalte in Deutschland, Öste
 | [Bester Zigbee-Stick für Home Assistant](/de/smart-home/bester-zigbee-stick-home-assistant/) | SONOFF, Connect ZBT-2 und ConBee im Vergleich |
 | [Smarte Steckdosen (Schuko)](/de/smart-home/smarte-steckdosen/) | Belastbarkeit, Kennzeichnung, Zigbee vs WLAN vs Matter |
 
-Technische Daten stammen von den offiziellen Herstellerseiten und sind datiert. Wir nennen keine Preise, die wir nicht belegen können: Preis prüfen beim Händler.
+Technische Daten stammen von den offiziellen Herstellerseiten und sind datiert. Preise ändern sich oft: Prüfen Sie den aktuellen Preis beim Händler.
 
 **Unsere Empfehlung:** Neu im Smart Home? Beginnen Sie mit [Smart Home für Einsteiger](/de/smart-home/einstieg/) und wählen Sie dann Ihre Zentrale mit [Home Assistant Green vs Raspberry Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/).

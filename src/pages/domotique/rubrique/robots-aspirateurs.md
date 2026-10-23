@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DomotiqueHub.astro
 title: "Robots aspirateurs : bien choisir et les intégrer à Home Assistant"
-description: "La rubrique Robots aspirateurs : sélection à moins de 200 €, marques compatibles Home Assistant, navigation LiDAR ou caméra, serpillières et stations. Tableau résumé et notre meilleur choix."
+description: "Choisir un robot aspirateur : modèles à moins de 200 €, marques compatibles Home Assistant, navigation LiDAR ou caméra, serpillières et stations."
 pubDate: 2026-10-23
 category: robots-aspirateurs
 ---
 
-Un robot aspirateur s'achète sur trois critères : la navigation, le système de lavage et l'intégration à votre maison connectée. Nos guides traitent chacun d'eux, à partir des fiches fabricants et de la documentation Home Assistant.
+Un robot aspirateur s'achète sur trois critères : la navigation, le système de lavage et l'intégration à votre maison connectée. Nos guides passent ces trois points en revue, fiches des fabricants et documentation Home Assistant à l'appui.
 
 ## L'essentiel en un tableau
 

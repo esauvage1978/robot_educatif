@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DomotiqueHub.astro
 title: "Projets ESP32 avec ESPHome et Home Assistant"
-description: "La rubrique ESP32 : quelle carte choisir (ESP32, S3, C3, C6, H2), tutoriel capteur de température ESPHome, porte de garage pilotée au smartphone et 10 idées de projets. Tableau résumé et meilleur choix."
+description: "Projets ESP32 et ESPHome : quelle carte choisir (ESP32, S3, C3, C6, H2), un capteur de température, une porte de garage pilotée au smartphone et 10 idées de projets."
 pubDate: 2026-10-23
 category: esp32
 ---

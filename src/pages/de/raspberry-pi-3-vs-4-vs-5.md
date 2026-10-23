@@ -30,7 +30,7 @@ Zwischen **[Raspberry Pi](/de/marke-raspberry-pi/) 3 Model B**, **Pi 4 Model B**
 
 ## 3. Preise
 
-Die Preise für Raspberry Pi schwanken oft (Lagerbestand, Händlermargen, Mehrwertsteuer). Wir nennen keine Zahlen: **Preis prüfen** bei einem [zugelassenen Händler](https://www.raspberrypi.com/resellers/). Prüfen Sie immer die Revision der Platine und den Lieferumfang (Netzteil, Kühler).
+Die Preise für Raspberry Pi schwanken oft (Lagerbestand, Händlermargen, Mehrwertsteuer). Vergleichen Sie den **aktuellen Preis** bei einem [zugelassenen Händler](https://www.raspberrypi.com/resellers/). Prüfen Sie immer die Revision der Platine und den Lieferumfang (Netzteil, Kühler).
 
 ## 4. Welcher Raspberry Pi für welchen Zweck?
 

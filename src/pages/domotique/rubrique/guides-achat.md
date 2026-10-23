@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/DomotiqueHub.astro
 title: "Guides d'achat domotique : clés Zigbee, prises, capteurs, caméras"
-description: "La rubrique Guides d'achat domotique : meilleure clé Zigbee pour Home Assistant, prises connectées Zigbee, capteurs de température et caméras extérieures solaires. Tableau résumé et nos meilleurs choix."
+description: "Bien choisir son matériel domotique : clé Zigbee pour Home Assistant, prises connectées Zigbee, capteurs de température et caméras extérieures solaires."
 pubDate: 2026-10-23
 category: guides-achat
 ---
 
-Nos comparatifs d'équipements domotiques reposent sur les fiches techniques des fabricants, citées dans chaque article. Nous n'affichons pas de prix que nous ne pouvons pas vérifier : contrôlez le prix du jour chez le vendeur.
+Clé Zigbee, prise connectée, capteur ou caméra : voici nos comparatifs pour bien s'équiper, avec les caractéristiques des fabricants citées dans chaque article. Les prix bougent souvent, pensez à vérifier le prix du jour chez le vendeur.
 
 ## L'essentiel en un tableau
 

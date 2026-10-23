@@ -14,7 +14,7 @@ relatedLinks:
   - title: "Toutes nos pages Marque"
     href: "/marques/"
 ---
-<p>Raspberry Pi est la carte que nous utilisons dans nos tutoriels domotique et nos guides pour ados. Cette page rassemble nos comparatifs, nos projets et ce qu’il faut savoir sur la garantie.</p>
+<p>Raspberry Pi est la carte que nous utilisons dans nos tutoriels domotique et nos guides pour ados. Vous trouverez ici nos comparatifs, nos projets et ce qu’il faut savoir sur la garantie.</p>
 <h2 id="nos-comparatifs">Nos comparatifs Raspberry Pi</h2>
 <table>
 <thead><tr><th>Comparatif</th><th>Ce que nous retenons</th></tr></thead>
@@ -36,14 +36,14 @@ relatedLinks:
 <li><a href="/domotique/raspberry-pi-station-meteo-bme280-historique/">Station météo BME280</a></li>
 <li><a href="/domotique/raspberry-pi-capteur-ouverture-porte-notification/">Capteur d’ouverture de porte</a></li>
 </ul>
-<h2 id="points-forts">Points forts (d’après nos pages)</h2>
+<h2 id="points-forts">Points forts</h2>
 <ul>
 <li>Communauté gigantesque et documentation abondante.</li>
 <li>Évolutivité : GPIO 40 broches, NVMe via HAT sur le Pi 5.</li>
 <li>Achat à la carte : on réutilise alimentation, carte SD, boîtier.</li>
 <li>Polyvalence : domotique, serveur, robotique, apprentissage de Python.</li>
 </ul>
-<h2 id="limites">Limites (d’après nos pages)</h2>
+<h2 id="limites">Limites</h2>
 <ul>
 <li>Configuration initiale (flasher la carte, trouver l’IP) : environ 30 minutes.</li>
 <li>Accessoires obligatoires : alimentation officielle 27 W USB-C, refroidissement ; ventilateur audible sans boîtier passif.</li>

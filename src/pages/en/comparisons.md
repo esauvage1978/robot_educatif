@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Comparisons: robots and boards side by side"
-description: "Head-to-head comparisons: mBot vs mBot2, mBot vs Codey Rocky, Raspberry Pi 3 vs 4 vs 5, Home Assistant Green vs Raspberry Pi 5. Summary table and best pick."
+description: "Head-to-head comparisons: mBot vs mBot2, mBot vs Codey Rocky, Raspberry Pi 3 vs 4 vs 5, Home Assistant Green vs Raspberry Pi 5."
 updated: "23 October 2026"
 ---
 
-Every article in this section, with what it covers.
+Torn between two models? These head-to-head comparisons focus on the differences that matter when you buy.
 
 | Article | Topic |
 |---|---|

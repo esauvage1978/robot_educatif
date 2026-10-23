@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Tutorials: mBlock, mBot and smart home step by step"
-description: "Step-by-step tutorials: installing mBlock 5, a first mBot program, fixing Bluetooth, getting started with the smart home. Summary table and where to start."
+description: "Step-by-step tutorials: installing mBlock 5, a first mBot program, fixing Bluetooth, getting started with the smart home."
 updated: "23 October 2026"
 ---
 
-Every article in this section, with what it covers.
+Step-by-step tutorials to get your robot and software working, from installing mBlock to your first program.
 
 | Article | Topic |
 |---|---|

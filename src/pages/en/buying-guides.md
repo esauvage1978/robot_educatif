@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Buying guides: programmable robots, Raspberry Pi and smart home"
-description: "Our buying guides in one place: robots by age, Arduino kits, Raspberry Pi 5 RAM, Zigbee dongles and smart plugs. Summary table and best pick."
+description: "Our buying guides in one place: robots by age, Arduino kits, Raspberry Pi 5 RAM, Zigbee dongles and smart plugs."
 updated: "23 October 2026"
 ---
 
-Every article in this section, with what it covers.
+Choosing a first coding robot, an Arduino kit, a Raspberry Pi or smart-home gear? Start here: each guide answers one buying question.
 
 | Article | Topic |
 |---|---|

@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Anleitungen: mBlock, mBot und Smart Home Schritt für Schritt"
-description: "Anleitungen Schritt für Schritt: mBlock 5 installieren, erstes mBot-Programm, Bluetooth-Probleme lösen, Einstieg ins Smart Home. Übersichtstabelle und Startpunkt."
+description: "Anleitungen Schritt für Schritt: mBlock 5 installieren, erstes mBot-Programm, Bluetooth-Probleme lösen, Einstieg ins Smart Home."
 updated: "23. Oktober 2026"
 ---
 
-Alle Artikel dieser Rubrik mit ihrem Inhalt.
+Schritt-für-Schritt-Anleitungen, damit Roboter und Software laufen: von der Installation von mBlock bis zum ersten Programm.
 
 | Artikel | Thema |
 |---|---|

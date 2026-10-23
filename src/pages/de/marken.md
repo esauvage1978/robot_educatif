@@ -4,7 +4,7 @@ title: "Unsere Markenseiten: Makeblock, Matatalab, ELEGOO, LEGO Education, Raspb
 description: "Die Marken aus unseren Ratgebern und Vergleichen: was wir über sie schreiben, Stärken, Grenzen, Garantie und unser Fazit."
 updated: "23. Oktober 2026"
 ---
-<p>Jede Marke, die in mindestens einem unserer Tests oder Vergleiche vorkommt, hat eine eigene Seite: unsere Ratgeber dazu, Stärken und Grenzen, Garantie und Kundendienst sowie unser Fazit. Wir sagen immer, was wir selbst getestet haben und was aus den Herstellerangaben stammt.</p>
+<p>Makeblock, LEGO Education, ELEGOO, Raspberry Pi … Diese Marken begegnen Ihnen in unseren Ratgebern am häufigsten. Zu jeder finden Sie unsere Artikel, ihre Stärken und Grenzen, Garantie und Kundendienst sowie unser Fazit. Wenn wir ein Produkt selbst in der Hand hatten, sagen wir es dazu.</p>
 <ul>
 <li><a href="/de/marke-makeblock/">Makeblock</a>: mBot und mBot2: die Marke, die wir am häufigsten behandeln.</li>
 <li><a href="/de/marke-matatalab/">Matatalab</a>: Tale-Bot Pro: bildschirmfreies Programmieren für 4- bis 7-Jährige.</li>

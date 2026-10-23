@@ -14,14 +14,14 @@ updated: "23. Oktober 2026"
 <li><a hreflang="fr" href="/mbot-vs-lego-robot-lequel-est-le-meilleur/">mBot oder LEGO-Roboter</a></li>
 <li><a hreflang="fr" href="/alternatives-lego-spike-comparatif-2026/">Alternativen zu LEGO SPIKE</a></li>
 </ul>
-<h2 id="staerken">Stärken (laut unseren Seiten)</h2>
+<h2 id="staerken">Stärken</h2>
 <ul>
 <li>Bauen: ein Hub, dutzende offizielle Modelle und eigene Ideen.</li>
 <li>Sehr geführte Oberfläche; Steine für unter 8-Jährige einfacher als Schrauben.</li>
 <li>Ausgezeichnete Robustheit.</li>
 <li>Eng mit der FIRST LEGO League verbunden.</li>
 </ul>
-<h2 id="grenzen">Grenzen (laut unseren Seiten)</h2>
+<h2 id="grenzen">Grenzen</h2>
 <ul>
 <li>Hoher Preis, besonders für eine Klasse.</li>
 <li>Geschlossenes System: nur LEGO-Erweiterungen.</li>

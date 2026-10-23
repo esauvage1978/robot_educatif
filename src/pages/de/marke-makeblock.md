@@ -12,14 +12,14 @@ updated: "23. Oktober 2026"
 <li><a href="/de/arduino-roboter-bausatz-fuer-kinder/">Arduino-Roboterbausatz für Kinder</a>: wo der mBot zwischen Arduino und Raspberry Pi steht.</li>
 <li>Auf Französisch: <a hreflang="fr" href="/mbot-avis-faut-il-acheter-pour-un-enfant/">unsere ausführliche mBot-Einschätzung</a></li>
 </ul>
-<h2 id="staerken">Stärken (laut unseren Seiten)</h2>
+<h2 id="staerken">Stärken</h2>
 <ul>
 <li>Kompletter Roboter: Motoren, Ultraschallsensor, Linienfolger, Lichter und Summer.</li>
 <li>mBlock, nah an Scratch, mit vielen Anleitungen.</li>
 <li>Gutes Preis-Leistungs-Verhältnis, reparierbar und erweiterbar.</li>
 <li>Weg von Blöcken zu Python mit dem mBot2 (CyberPi), ohne Markenwechsel.</li>
 </ul>
-<h2 id="grenzen">Grenzen (laut unseren Seiten)</h2>
+<h2 id="grenzen">Grenzen</h2>
 <ul>
 <li>Schrauben und Kabel: kein Stecksystem wie LEGO.</li>
 <li>Die erste Bluetooth- und Treibereinrichtung kann auf manchen PCs 30–90 Minuten dauern.</li>

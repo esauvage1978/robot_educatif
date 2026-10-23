@@ -14,7 +14,7 @@ relatedLinks:
   - title: "Toutes nos pages Marque"
     href: "/marques/"
 ---
-<p>ELEGOO est la marque de kits Arduino que nous recommandons le plus souvent pour les ados : le <strong>Kit Voiture Robot Intelligent V4.0</strong> et le <strong>Penguin Bot</strong> apparaissent dans nos comparatifs Arduino, petits budgets et alternatives à LEGO Spike. Nous ne les avons pas testés en conditions réelles : ce qui suit vient de nos comparatifs.</p>
+<p>ELEGOO est la marque de kits Arduino que nous recommandons le plus souvent pour les ados : le <strong>Kit Voiture Robot Intelligent V4.0</strong> et le <strong>Penguin Bot</strong> apparaissent dans nos comparatifs Arduino, petits budgets et alternatives à LEGO Spike. Nous ne les avons pas encore eus entre les mains : notre avis s’appuie sur leurs fiches techniques et sur nos comparatifs.</p>
 <h2 id="dans-nos-comparatifs">ELEGOO dans nos comparatifs</h2>
 <table>
 <thead><tr><th>Comparatif</th><th>Produit ELEGOO</th><th>Ce que nous retenons</th></tr></thead>
@@ -27,7 +27,7 @@ relatedLinks:
 <tr><td><a href="/equiper-classe-robots-budget-packs-2026/">Équiper une classe</a></td><td>Robot Car V4.0</td><td>Budget classe.</td></tr>
 </tbody>
 </table>
-<h2 id="points-forts">Points forts (d’après nos pages)</h2>
+<h2 id="points-forts">Points forts</h2>
 <ul>
 <li>Kit complet avec carte UNO R3, tutoriels détaillés et code commenté.</li>
 <li>Contrôle Wi-Fi et caméra FPV sur le Robot Car V4.0 (absente des kits LEGO).</li>
@@ -35,7 +35,7 @@ relatedLinks:
 <li>Prix : environ 5 fois moins cher qu’un Spike Prime selon <a href="/alternatives-lego-spike-comparatif-2026/">notre comparatif des alternatives à LEGO Spike</a>.</li>
 <li>Penguin Bot : robot bipède original, musique et danse programmables, code open source.</li>
 </ul>
-<h2 id="limites">Limites (d’après nos pages)</h2>
+<h2 id="limites">Limites</h2>
 <ul>
 <li>Programmation en C/C++ (texte) : plutôt dès 12 ans, avec de l’aide aux premières séances.</li>
 <li>Courbe d’apprentissage raide : IDE à installer, câblage, erreurs de compilation, documentation souvent en anglais.</li>

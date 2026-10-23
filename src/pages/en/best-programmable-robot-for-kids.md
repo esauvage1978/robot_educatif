@@ -21,7 +21,7 @@ There is no single "best" robot for every family. What matters is your child's *
 
 **Sensors and variety of challenges.** A robot that only drives in a straight line gets boring fast. Look for at least two kinds of challenge (distance, line, light, sound, display).
 
-**Total cost, not just the sticker price.** Budget for rechargeable batteries, storage and possibly an add-on pack. Prices change often, so we don't quote them: check the current price at the retailer.
+**Total cost, not just the sticker price.** Budget for rechargeable batteries, storage and possibly an add-on pack. Prices change often, so check the current price at the retailer.
 
 ## 3. Manufacturer specs compared
 

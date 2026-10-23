@@ -4,7 +4,7 @@ title: "Raspberry Pi: our take on the brand (Pi 3, 4, 5)"
 description: "Raspberry Pi on Robot Éducatif: our Pi 3/4/5 comparison, RAM guide, Home Assistant, strengths, limits, warranty."
 updated: "23 October 2026"
 ---
-<p>Raspberry Pi boards power our smart-home tutorials and teen guides. Here is what we say about them.</p>
+<p>Raspberry Pi boards power our smart-home tutorials and teen guides. Here are our comparisons, projects and verdict.</p>
 <h2 id="our-guides">Our Raspberry Pi guides</h2>
 <ul>
 <li><a href="/en/raspberry-pi-3-vs-4-vs-5/">Raspberry Pi 3 vs 4 vs 5</a></li>
@@ -12,14 +12,14 @@ updated: "23 October 2026"
 <li><a href="/en/smart-home/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a></li>
 <li><a href="/en/smart-home/getting-started/">Smart home: getting started</a></li>
 </ul>
-<h2 id="strengths">Strengths (from our pages)</h2>
+<h2 id="strengths">Strengths</h2>
 <ul>
 <li>Huge community and documentation.</li>
 <li>Expandable: 40-pin GPIO, NVMe via HAT on the Pi 5.</li>
 <li>Buy only what you need and reuse accessories.</li>
 <li>Versatile: smart home, server, robotics, learning Python.</li>
 </ul>
-<h2 id="limits">Limits (from our pages)</h2>
+<h2 id="limits">Limits</h2>
 <ul>
 <li>About 30 minutes of initial setup.</li>
 <li>Official 27 W USB-C power supply and cooling needed; fan noise without a passive case.</li>

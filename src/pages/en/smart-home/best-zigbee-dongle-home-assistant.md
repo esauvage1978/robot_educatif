@@ -5,7 +5,7 @@ description: "SONOFF ZBDongle-E, Home Assistant Connect ZBT-2, SONOFF Dongle Lit
 updated: "21 October 2026"
 ---
 
-To control Zigbee devices from **Home Assistant**, you need a **Zigbee coordinator**: a USB stick with a radio chip. Zigbee runs at **2.4 GHz worldwide**, so the same dongles work in the UK and the US; only the shop and stock change. The table below lists chips and features from the manufacturers' pages; we have not measured range ourselves, so we don't quote range figures.
+To control Zigbee devices from **Home Assistant**, you need a **Zigbee coordinator**: a USB stick with a radio chip. Zigbee runs at **2.4 GHz worldwide**, so the same dongles work in the UK and the US; only the shop and stock change. The table below lists chips and features from the manufacturers' pages; range depends a lot on your walls and layout, so we leave it out.
 
 ## 1. Comparison table
 

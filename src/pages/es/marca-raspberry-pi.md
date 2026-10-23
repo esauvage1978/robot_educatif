@@ -4,21 +4,21 @@ title: "Raspberry Pi: nuestra opinión sobre la marca"
 description: "Raspberry Pi en Robot Éducatif: Pi 3, 4 y 5 en nuestras guías, puntos fuertes, límites, garantía."
 updated: "23 de octubre de 2026"
 ---
-<p>Las placas Raspberry Pi están detrás de nuestros tutoriales de domótica y de las guías para adolescentes. Esto es lo que decimos de ellas.</p>
+<p>Las placas Raspberry Pi están detrás de nuestros tutoriales de domótica y de las guías para adolescentes. Aquí tienes nuestras comparativas, proyectos y nuestro veredicto.</p>
 <h2 id="nuestras-guias">Nuestras guías Raspberry Pi</h2>
 <ul>
 <li><a href="/es/raspberry-pi-3-vs-4-vs-5/">Raspberry Pi 3 vs 4 vs 5</a></li>
 <li><a href="/es/kit-robot-arduino-para-ninos/">Kit de robot Arduino para niños</a>: Arduino, mBot y Raspberry Pi comparados.</li>
 <li>En inglés: <a hreflang="en" href="/en/raspberry-pi-5-which-ram/">Raspberry Pi 5: which RAM?</a> y <a hreflang="en" href="/en/smart-home/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a>.</li>
 </ul>
-<h2 id="puntos-fuertes">Puntos fuertes (según nuestras páginas)</h2>
+<h2 id="puntos-fuertes">Puntos fuertes</h2>
 <ul>
 <li>Comunidad y documentación enormes.</li>
 <li>Ampliable: GPIO de 40 pines, NVMe mediante HAT en la Pi 5.</li>
 <li>Compras solo lo que necesitas y reutilizas los accesorios.</li>
 <li>Versátil: domótica, servidor, robótica, aprender Python.</li>
 </ul>
-<h2 id="limites">Límites (según nuestras páginas)</h2>
+<h2 id="limites">Límites</h2>
 <ul>
 <li>Unos 30 minutos de configuración inicial.</li>
 <li>Hacen falta la fuente USB-C oficial de 27 W y refrigeración; ventilador ruidoso sin caja pasiva.</li>

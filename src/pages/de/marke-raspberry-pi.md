@@ -12,14 +12,14 @@ updated: "23. Oktober 2026"
 <li><a href="/de/smart-home/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a></li>
 <li><a href="/de/smart-home/einstieg/">Smart Home: Einstieg</a></li>
 </ul>
-<h2 id="staerken">Stärken (laut unseren Seiten)</h2>
+<h2 id="staerken">Stärken</h2>
 <ul>
 <li>Riesige Community und Dokumentation.</li>
 <li>Erweiterbar: 40-Pin-GPIO, NVMe per HAT beim Pi 5.</li>
 <li>Nur kaufen, was man braucht; Zubehör wiederverwenden.</li>
 <li>Vielseitig: Smart Home, Server, Robotik, Python lernen.</li>
 </ul>
-<h2 id="grenzen">Grenzen (laut unseren Seiten)</h2>
+<h2 id="grenzen">Grenzen</h2>
 <ul>
 <li>Etwa 30 Minuten Ersteinrichtung.</li>
 <li>Offizielles 27-W-USB-C-Netzteil und Kühlung nötig; Lüftergeräusch ohne passives Gehäuse.</li>

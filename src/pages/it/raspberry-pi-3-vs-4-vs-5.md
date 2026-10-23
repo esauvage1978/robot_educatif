@@ -30,7 +30,7 @@ Tra **Raspberry Pi 3 Model B**, **Pi 4 Model B** e **Pi 5** non cambia solo il p
 
 ## 3. Prezzi
 
-I prezzi dei Raspberry Pi cambiano spesso (scorte, margini dei rivenditori, IVA). Non indichiamo cifre: **verificate il prezzo** presso un [rivenditore autorizzato](https://www.raspberrypi.com/resellers/). Controllate sempre la revisione della scheda e il contenuto della confezione (alimentatore, dissipatore).
+I prezzi dei Raspberry Pi cambiano spesso (scorte, margini dei rivenditori, IVA). **Verificate il prezzo attuale** presso un [rivenditore autorizzato](https://www.raspberrypi.com/resellers/). Controllate sempre la revisione della scheda e il contenuto della confezione (alimentatore, dissipatore).
 
 ## 4. Quale Raspberry Pi per quale uso?
 

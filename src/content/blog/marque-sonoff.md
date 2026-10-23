@@ -14,7 +14,7 @@ relatedLinks:
   - title: "Toutes nos pages Marque"
     href: "/marques/"
 ---
-<p>SONOFF (marque d’ITEAD) revient dans trois de nos comparatifs domotique Zigbee pour Home Assistant : clés, capteurs de température et prises connectées. Ce qui suit vient de ces comparatifs.</p>
+<p>SONOFF (marque d’ITEAD) revient dans trois de nos comparatifs domotique Zigbee pour Home Assistant : clés, capteurs de température et prises connectées. Voici ce que nous en retenons.</p>
 <h2 id="dans-nos-comparatifs">SONOFF dans nos comparatifs</h2>
 <table>
 <thead><tr><th>Comparatif</th><th>Produits SONOFF</th><th>Ce que nous retenons</th></tr></thead>
@@ -24,13 +24,13 @@ relatedLinks:
 <tr><td><a href="/domotique/prise-connectee-zigbee-home-assistant/">Prise connectée Zigbee</a></td><td>S26R2ZB ; S60ZB</td><td>S26R2ZB : alternative fiable 10 A ; S60ZB : version 16 A.</td></tr>
 </tbody>
 </table>
-<h2 id="points-forts">Points forts (d’après nos pages)</h2>
+<h2 id="points-forts">Points forts</h2>
 <ul>
 <li>ZBDongle-E : puce EFR32MG21 citée par la documentation ZHA, antenne externe SMA (portée 50 m en intérieur), compatible ZHA et Zigbee2MQTT.</li>
 <li>SNZB-02D : écran LCD, précision ±0,2 °C et ±2 % HR, autonomie 2 ans (CR2450).</li>
 <li>Prises : mesure W et kWh, compatibles eWeLink et Home Assistant, marque reconnue au SAV réactif.</li>
 </ul>
-<h2 id="limites">Limites (d’après nos pages)</h2>
+<h2 id="limites">Limites</h2>
 <ul>
 <li>ZBDongle-E : pas de Thread/Matter natif, boîtier plastique léger.</li>
 <li>Dongle Lite : antenne interne, portée réduite à 25 m.</li>

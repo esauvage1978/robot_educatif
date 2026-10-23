@@ -11,14 +11,14 @@ updated: "23 de octubre de 2026"
 <li><a href="/es/kit-robot-arduino-para-ninos/">Kit de robot Arduino para niños</a>: dónde encaja el mBot entre los kits Arduino y la Raspberry Pi.</li>
 <li>En francés: <a hreflang="fr" href="/mbot-avis-faut-il-acheter-pour-un-enfant/">nuestro análisis completo del mBot</a> y <a hreflang="fr" href="/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/">mBot vs mBot2</a>.</li>
 </ul>
-<h2 id="puntos-fuertes">Puntos fuertes (según nuestras páginas)</h2>
+<h2 id="puntos-fuertes">Puntos fuertes</h2>
 <ul>
 <li>Robot completo: motores, sensor de ultrasonidos, seguidor de línea, luces y zumbador.</li>
 <li>mBlock, parecido a Scratch, con muchísimos tutoriales.</li>
 <li>Buena relación calidad-precio frente a kits «escolares» más caros; reparable y ampliable.</li>
 <li>Un camino de los bloques a Python con el mBot2 (CyberPi) sin cambiar de marca.</li>
 </ul>
-<h2 id="limites">Límites (según nuestras páginas)</h2>
+<h2 id="limites">Límites</h2>
 <ul>
 <li>Tornillos y cables: no se encaja como LEGO.</li>
 <li>La primera configuración de Bluetooth y controladores puede llevar 30–90 minutos en algunos PC.</li>

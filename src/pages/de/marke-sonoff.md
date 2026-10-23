@@ -9,12 +9,12 @@ updated: "23. Oktober 2026"
 <ul>
 <li><a href="/de/smart-home/bester-zigbee-stick-home-assistant/">Bester Zigbee-Stick für Home Assistant</a>: ZBDongle-E für die meisten, Dongle Lite MG21 für das kleinste Budget.</li>
 </ul>
-<h2 id="staerken">Stärken (laut unseren Seiten)</h2>
+<h2 id="staerken">Stärken</h2>
 <ul>
 <li>ZBDongle-E: EFR32MG21-Chip, externe Antenne, läuft mit ZHA und Zigbee2MQTT, gut dokumentiert.</li>
 <li>SNZB-02D: LCD-Anzeige, ±0,2 °C, 2 Jahre Batterielaufzeit.</li>
 </ul>
-<h2 id="grenzen">Grenzen (laut unseren Seiten)</h2>
+<h2 id="grenzen">Grenzen</h2>
 <ul>
 <li>Kein Thread/Matter ab Werk beim ZBDongle-E.</li>
 <li>Dongle Lite: interne Antenne, geringere Reichweite.</li>

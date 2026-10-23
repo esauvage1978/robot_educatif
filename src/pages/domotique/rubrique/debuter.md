@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DomotiqueHub.astro
 title: "Débuter en domotique : nos guides pour bien démarrer"
-description: "La rubrique Débuter : parcours débutant, protocoles Zigbee/Wi-Fi/Thread/Matter, choix du système (Home Assistant, Jeedom, Homey) et domotique en location. Tableau résumé et notre meilleur choix."
+description: "Débuter en domotique : par où commencer, quel protocole (Zigbee, Wi-Fi, Thread, Matter), quel système (Home Assistant, Jeedom, Homey) et que faire en location."
 pubDate: 2026-10-23
 category: debuter
 ---

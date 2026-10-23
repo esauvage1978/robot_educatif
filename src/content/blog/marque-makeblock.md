@@ -14,7 +14,7 @@ relatedLinks:
   - title: "Toutes nos pages Marque"
     href: "/marques/"
 ---
-<p>Makeblock est la marque la plus présente sur Robot Éducatif : le mBot, le mBot2, le Codey Rocky et la carte CyberPi reviennent dans nos avis, nos tutoriels mBlock et la plupart de nos comparatifs. Cette page rassemble ce que nous en disons, page par page, et ce qu’il faut savoir sur la garantie.</p>
+<p>Makeblock est la marque la plus présente sur Robot Éducatif : le mBot, le mBot2, le Codey Rocky et la carte CyberPi reviennent dans nos avis, nos tutoriels mBlock et la plupart de nos comparatifs. Voici notre avis sur la marque, les articles pour bien démarrer et ce qu’il faut savoir sur la garantie.</p>
 <h2 id="nos-avis-et-guides">Nos avis et guides Makeblock</h2>
 <ul>
 <li><a href="/mbot-avis-faut-il-acheter-pour-un-enfant/">mBot : faut-il l’acheter pour un enfant ?</a> : notre avis complet, budget, âge, limites.</li>
@@ -38,7 +38,7 @@ relatedLinks:
 <tr><td><a href="/mbot-vs-lego-robot-lequel-est-le-meilleur/">mBot vs robot LEGO</a></td><td>mBot, mBot2</td><td>mBot gagne souvent sur le prix, la simplicité du robot roulant et la documentation en français.</td></tr>
 </tbody>
 </table>
-<h2 id="points-forts">Points forts (d’après nos pages)</h2>
+<h2 id="points-forts">Points forts</h2>
 <ul>
 <li><strong>Robot complet</strong> : déplacement, capteur à ultrasons, suivi de ligne, lumières et buzzer, assez pour des défis variés.</li>
 <li><strong>mBlock</strong>, proche de Scratch, avec beaucoup de tutoriels en français et en anglais.</li>
@@ -46,7 +46,7 @@ relatedLinks:
 <li><strong>Progression sans changer de marque</strong> : du mBot au mBot2, puis Python sur CyberPi.</li>
 <li><strong>Codey Rocky</strong> : prêt à l’emploi, capteurs multiples, de Scratch à Python.</li>
 </ul>
-<h2 id="limites">Limites (d’après nos pages)</h2>
+<h2 id="limites">Limites</h2>
 <ul>
 <li><strong>Montage et câblage</strong> : ce n’est pas du LEGO « clip », il faut des vis et des ports, et parfois rebrancher après une chute.</li>
 <li><strong>Première connexion</strong> : Bluetooth et pilotes peuvent demander 30 à 90 minutes sur certains PC.</li>

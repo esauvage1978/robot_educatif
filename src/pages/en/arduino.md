@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Arduino: kits and a C programming course"
-description: "Arduino for kids and beginners: how to choose a robot kit and a free C course in three lessons with corrected exercises. Summary table and best pick."
+description: "Arduino for kids and beginners: how to choose a robot kit and a free C course in three lessons with corrected exercises."
 updated: "23 October 2026"
 ---
 
-Every article in this section, with what it covers.
+Ready for real code? Pick a kit, then work through our Arduino C lessons in order.
 
 | Article | Topic |
 |---|---|

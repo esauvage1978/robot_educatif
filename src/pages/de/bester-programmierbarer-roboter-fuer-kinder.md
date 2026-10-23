@@ -21,7 +21,7 @@ Den einen „besten“ Roboter für jede Familie gibt es nicht. Entscheidend sin
 
 **Sensoren und abwechslungsreiche Aufgaben.** Ein Roboter, der nur geradeaus fährt, wird schnell langweilig. Achten Sie auf mindestens zwei Arten von Aufgaben (Abstand, Linie, Licht, Geräusch, Display).
 
-**Gesamtkosten, nicht nur der Kaufpreis.** Planen Sie Akkus, Aufbewahrung und eventuell ein Erweiterungspaket ein. Preise ändern sich oft, daher nennen wir keine: Preis prüfen beim Händler.
+**Gesamtkosten, nicht nur der Kaufpreis.** Planen Sie Akkus, Aufbewahrung und eventuell ein Erweiterungspaket ein. Preise ändern sich oft: Prüfen Sie den aktuellen Preis beim Händler.
 
 ## 3. Herstellerdaten im Vergleich
 

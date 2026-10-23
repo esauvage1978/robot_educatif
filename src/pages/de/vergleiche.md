@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Vergleiche: Roboter und Platinen im direkten Duell"
-description: "Direkte Vergleiche: mBot vs mBot2, mBot vs Codey Rocky, Raspberry Pi 3 vs 4 vs 5, Home Assistant Green vs Raspberry Pi 5. Übersichtstabelle und Empfehlung."
+description: "Direkte Vergleiche: mBot vs mBot2, mBot vs Codey Rocky, Raspberry Pi 3 vs 4 vs 5, Home Assistant Green vs Raspberry Pi 5."
 updated: "23. Oktober 2026"
 ---
 
-Alle Artikel dieser Rubrik mit ihrem Inhalt.
+Sie schwanken zwischen zwei Modellen? Diese Vergleiche zeigen die Unterschiede, auf die es beim Kauf ankommt.
 
 | Artikel | Thema |
 |---|---|

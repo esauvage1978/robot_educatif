@@ -27,14 +27,14 @@ relatedLinks:
 <tr><td><a href="/alternatives-lego-spike-comparatif-2026/">Alternatives à LEGO Spike</a></td><td>SPIKE Essential, SPIKE Prime</td><td>Excellents mais chers pour équiper une classe ; alternatives 50 à 70 % moins chères par projet équivalent.</td></tr>
 </tbody>
 </table>
-<h2 id="points-forts">Points forts (d’après nos pages)</h2>
+<h2 id="points-forts">Points forts</h2>
 <ul>
 <li>Construction : le même hub sert à des dizaines de modèles officiels et d’inventions.</li>
 <li>Interface très guidée, briques plus intuitives que la visserie pour les moins de 8 ans.</li>
 <li>Robustesse excellente.</li>
 <li>FIRST LEGO League et cursus enseignants très alignés sur SPIKE Prime.</li>
 </ul>
-<h2 id="limites">Limites (d’après nos pages)</h2>
+<h2 id="limites">Limites</h2>
 <ul>
 <li>Prix élevé, surtout pour équiper une classe.</li>
 <li>Écosystème fermé : extensions LEGO uniquement ; briques incompatibles mécaniquement avec le mBot.</li>

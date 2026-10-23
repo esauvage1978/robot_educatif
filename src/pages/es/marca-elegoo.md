@@ -4,20 +4,20 @@ title: "ELEGOO: nuestra opinión sobre la marca (Smart Robot Car V4.0)"
 description: "ELEGOO en Robot Éducatif: el Smart Robot Car Kit V4.0 en nuestras guías Arduino, puntos fuertes, límites, garantía."
 updated: "23 de octubre de 2026"
 ---
-<p>El <strong>Smart Robot Car Kit V4.0</strong> de ELEGOO es el kit Arduino de nuestras guías. No lo hemos probado personalmente: los detalles siguientes proceden de la ficha técnica del fabricante y de nuestras comparativas.</p>
+<p>El <strong>Smart Robot Car Kit V4.0</strong> de ELEGOO es el kit Arduino de nuestras guías. Todavía no lo hemos tenido en las manos: nuestra opinión se basa en la ficha técnica de ELEGOO y en nuestras comparativas.</p>
 <h2 id="nuestras-guias">Nuestras guías con ELEGOO</h2>
 <ul>
 <li><a href="/es/kit-robot-arduino-para-ninos/">Kit de robot Arduino para niños</a>: ELEGOO indica el Robot Car V4.0 a partir de 13 años.</li>
 <li><a href="/es/mejor-robot-programable-para-ninos/">Mejor robot programable para niños</a>: ELEGOO Robot Car V4.0 frente a mBot y mBot2.</li>
 </ul>
-<h2 id="puntos-fuertes">Puntos fuertes (según nuestras páginas)</h2>
+<h2 id="puntos-fuertes">Puntos fuertes</h2>
 <ul>
 <li>Kit completo con placa UNO R3 y tutoriales detallados.</li>
 <li>Control por Wi-Fi y cámara FPV en la V4.0.</li>
 <li>Piezas Arduino estándar: fáciles de reparar y ampliar.</li>
 <li>Precio contenido frente a los kits educativos de LEGO.</li>
 </ul>
-<h2 id="limites">Límites (según nuestras páginas)</h2>
+<h2 id="limites">Límites</h2>
 <ul>
 <li>Código de texto C/C++: ideal desde los 12–13 años, con un adulto al principio.</li>
 <li>Curva de aprendizaje pronunciada: IDE, cableado, errores de compilación.</li>

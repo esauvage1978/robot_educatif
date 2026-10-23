@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DomotiqueHub.astro
 title: "Home Assistant : installation, Zigbee et projets Raspberry Pi"
-description: "La rubrique Home Assistant : installation sur Raspberry Pi 5, Green ou Pi 5, Zigbee2MQTT ou ZHA, secours électrique et projets capteurs Raspberry Pi (CO2, porte, présence, météo). Tableau résumé et meilleur choix."
+description: "Home Assistant pas à pas : installation sur Raspberry Pi 5, Green ou Pi 5, Zigbee2MQTT ou ZHA, secours électrique et projets capteurs Raspberry Pi (CO2, porte, présence, météo)."
 pubDate: 2026-10-23
 category: home-assistant
 ---
