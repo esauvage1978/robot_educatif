@@ -20,6 +20,17 @@ export const LANG_PAIRS = [
 	{ it: '/it/shelly-gen4-quale-modulo-scegliere/', es: '/es/shelly-gen4-que-modulo-elegir/' },
 	{ fr: '/mentions-legales/', it: '/it/note-legali/', es: '/es/aviso-legal/' },
 	{ fr: '/marques/', en: '/en/brands/', de: '/de/marken/', it: '/it/marchi/', es: '/es/marcas/' },
+	{ fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', en: '/en/mbot-vs-mbot2/', de: '/de/mbot-vs-mbot2/' },
+	{ fr: '/mbot-vs-codey-rocky-comparatif/', en: '/en/mbot-vs-codey-rocky/', de: '/de/mbot-vs-codey-rocky/' },
+	{ fr: '/mon-premier-programme-mbot/', en: '/en/first-mbot-program/', de: '/de/erstes-mbot-programm/' },
+	{ fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', en: '/en/mblock-bluetooth-troubleshooting/', de: '/de/mblock-bluetooth-probleme/' },
+	{ fr: '/c-arduino-environnement-structure-sketch/', en: '/en/arduino-c-sketch-structure-serial/', de: '/de/arduino-c-sketch-aufbau-serial/' },
+	{ fr: '/c-arduino-types-variables/', en: '/en/arduino-c-types-variables/', de: '/de/arduino-c-datentypen-variablen/' },
+	{ fr: '/c-arduino-conditions-capteurs-actionneurs/', en: '/en/arduino-c-conditions-sensors/', de: '/de/arduino-c-bedingungen-sensoren/' },
+	{ fr: null, en: '/en/buying-guides/', de: '/de/kaufberater/' },
+	{ fr: null, en: '/en/comparisons/', de: '/de/vergleiche/' },
+	{ fr: null, en: '/en/tutorials/', de: '/de/anleitungen/' },
+	{ fr: null, en: '/en/arduino/', de: '/de/arduino/' },
 ];
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
@@ -32,6 +43,11 @@ export const EN_PAGES = [
 	{ href: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
 	{ href: '/en/smart-home/best-zigbee-dongle-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Best Zigbee dongle for Home Assistant' },
 	{ href: '/en/smart-home/smart-plugs-uk-us/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Smart plugs for the UK and US' },
+	{ href: '/en/mbot-vs-mbot2/', fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', title: 'mBot vs mBot2: differences and which to buy' },
+	{ href: '/en/mbot-vs-codey-rocky/', fr: '/mbot-vs-codey-rocky-comparatif/', title: 'mBot vs Codey Rocky' },
+	{ href: '/en/first-mbot-program/', fr: '/mon-premier-programme-mbot/', title: 'Your first mBot program in mBlock 5' },
+	{ href: '/en/mblock-bluetooth-troubleshooting/', fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', title: 'mBlock Bluetooth troubleshooting' },
+	{ href: '/en/arduino/', fr: '/c-arduino-environnement-structure-sketch/', title: 'Arduino C course (3 lessons)' },
 	{ href: '/en/brands/', fr: '/marques/', title: 'Our brand pages' },
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
@@ -45,6 +61,11 @@ export const DE_PAGES = [
 	{ href: '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
 	{ href: '/de/smart-home/bester-zigbee-stick-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Bester Zigbee-Stick für Home Assistant' },
 	{ href: '/de/smart-home/smarte-steckdosen/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Smarte Steckdosen (Schuko) für Home Assistant' },
+	{ href: '/de/mbot-vs-mbot2/', fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', title: 'mBot vs mBot2: Unterschiede' },
+	{ href: '/de/mbot-vs-codey-rocky/', fr: '/mbot-vs-codey-rocky-comparatif/', title: 'mBot vs Codey Rocky' },
+	{ href: '/de/erstes-mbot-programm/', fr: '/mon-premier-programme-mbot/', title: 'Das erste mBot-Programm in mBlock 5' },
+	{ href: '/de/mblock-bluetooth-probleme/', fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', title: 'mBlock-Bluetooth-Probleme lösen' },
+	{ href: '/de/arduino/', fr: '/c-arduino-environnement-structure-sketch/', title: 'Arduino-C-Kurs (3 Lektionen)' },
 	{ href: '/de/marken/', fr: '/marques/', title: 'Unsere Markenseiten' },
 ];
 // Pages /it/ publiées.

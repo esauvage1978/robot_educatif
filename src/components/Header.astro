@@ -27,18 +27,18 @@ const navFr = [
 ];
 const navEn = [
 	['/en/', 'Home'],
-	['/en/best-programmable-robot-for-kids/', 'Buying guides'],
-	['/en/raspberry-pi-3-vs-4-vs-5/', 'Comparisons'],
-	['/en/install-mblock-5-windows/', 'Tutorials'],
-	['/en/arduino-robot-kit-for-kids/', 'Arduino'],
+	['/en/buying-guides/', 'Buying guides'],
+	['/en/comparisons/', 'Comparisons'],
+	['/en/tutorials/', 'Tutorials'],
+	['/en/arduino/', 'Arduino'],
 	['/en/smart-home/', 'Smart home'],
 ];
 const navDe = [
 	['/de/', 'Start'],
-	['/de/bester-programmierbarer-roboter-fuer-kinder/', 'Kaufberater'],
-	['/de/raspberry-pi-3-vs-4-vs-5/', 'Vergleiche'],
-	['/de/mblock-5-installieren-windows/', 'Anleitungen'],
-	['/de/arduino-roboter-bausatz-fuer-kinder/', 'Arduino'],
+	['/de/kaufberater/', 'Kaufberater'],
+	['/de/vergleiche/', 'Vergleiche'],
+	['/de/anleitungen/', 'Anleitungen'],
+	['/de/arduino/', 'Arduino'],
 	['/de/smart-home/', 'Smart Home'],
 ];
 const navIt = [
@@ -475,8 +475,9 @@ const mobileExtra = (isEn || isDe || isIt || isEs) ? [] : [['/partenariat/', 'Pa
 		}
 	}
 	@media (max-width: 480px) {
-		.brand img { height: 34px; max-width: min(150px, 40vw); }
-		.lang-switch a { padding: 0.3rem 0.45rem; font-size: 0.75rem; }
+		.brand img { height: 30px; max-width: min(130px, 32vw); object-fit: contain; }
+		.lang-switch a { padding: 0.25rem 0.32rem; font-size: 0.7rem; }
+		nav { gap: 0.4rem; }
 		.mobile-menu-toggle { padding: 0.35rem; }
 	}
 </style>
@@ -487,7 +488,7 @@ const mobileExtra = (isEn || isDe || isIt || isEs) ? [] : [['/partenariat/', 'Pa
 		const menu = document.getElementById('mobile-menu');
 		
 		if (!button || !menu) return;
-		const menuLabels = { it: ['Apri il menu', 'Chiudi il menu'], es: ['Abrir el menú', 'Cerrar el menú'] }[document.documentElement.lang] || ['Ouvrir le menu', 'Fermer le menu'];
+		const menuLabels = { en: ['Open menu', 'Close menu'], de: ['Menü öffnen', 'Menü schließen'], it: ['Apri il menu', 'Chiudi il menu'], es: ['Abrir el menú', 'Cerrar el menú'] }[document.documentElement.lang] || ['Ouvrir le menu', 'Fermer le menu'];
 		
 		button.addEventListener('click', () => {
 			const isOpen = menu.getAttribute('aria-hidden') === 'false';

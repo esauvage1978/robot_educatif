@@ -15,9 +15,9 @@ const card = (href) => {
 	return { ...p, img: ill ? withImageVersion(withBase(ill.src)) : null, alt: ill ? `Illustration: ${p.title}` : '' };
 };
 const hero = card('/en/best-programmable-robot-for-kids/');
-const comparisons = ['/en/raspberry-pi-3-vs-4-vs-5/', '/en/raspberry-pi-5-which-ram/', '/en/best-programmable-robot-for-kids/'].map(card);
+const comparisons = ['/en/mbot-vs-mbot2/', '/en/raspberry-pi-3-vs-4-vs-5/', '/en/raspberry-pi-5-which-ram/'].map(card);
 const smartHome = ['/en/smart-home/getting-started/', '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', '/en/smart-home/best-zigbee-dongle-home-assistant/', '/en/smart-home/smart-plugs-uk-us/'].map(card);
-const tutorials = ['/en/install-mblock-5-windows/', '/en/arduino-robot-kit-for-kids/'].map(card);
+const tutorials = ['/en/install-mblock-5-windows/', '/en/first-mbot-program/', '/en/arduino-robot-kit-for-kids/'].map(card);
 const ages = [
 	{ badge: 'Ages 6–8', title: 'First coding robot', text: 'Block coding, ready-built robot, simple sensor challenges', href: '/en/best-programmable-robot-for-kids/' },
 	{ badge: 'Ages 9–12', title: 'Blocks to Python', text: 'Scratch-style blocks first, then typed Python on mBot2', href: '/en/best-programmable-robot-for-kids/' },

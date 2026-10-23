@@ -57,12 +57,12 @@ Les détails peuvent légèrement varier selon la **révision** du kit ; le tabl
 | **Programmation** | Blocs **mBlock** ; possibilité d’approfondir selon niveau | Blocs **mBlock** + **Python** intégré de façon naturelle pour monter en niveau |
 | **Moteurs** | Deux moteurs pour se déplacer | Moteurs avec **codeurs** (meilleure précision de déplacement pour les projets avancés) |
 | **Capteurs courants** | Suivi de **ligne**, **ultrason** (distance), usage **IR** (télécommande selon kit) | **Ultrason**, suivi de **ligne**, **lumière** ambiante, **gyroscope** |
-| **Retour visuel / son** | LED RGB, **buzzer** | **Matrice LED** (affichages, visages, petites animations), **haut-parleur** et **micro** |
+| **Retour visuel / son** | LED RGB, **buzzer** | **Écran couleur 1,44"** (128 × 128) sur la CyberPi, **haut-parleur** et **micro** |
 | **Connectivité** | Souvent **Bluetooth** selon pack (vérifier la fiche produit) | **Bluetooth** et **Wi-Fi** (téléchargement de programmes, usages connectés) |
-| **Châssis** | Plastique, pédagogique, léger | Châssis **métallique**, construction plus « pro » |
+| **Châssis** | Alliage d'aluminium | Alliage d'aluminium, batterie 2 500 mAh intégrée |
 | **Public conseillé** | Découverte, clubs, familles qui veulent un **prix maîtrisé** | Collège / lycée, passionnés, projets qui durent et **montée en compétence** |
 
-**En résumé** : le **mBot** couvre très bien **découverte et premiers défis** (ligne, obstacle, lumière). Le **mBot2** ajoute une **vraie couche « projet »** : précision des mouvements, richesse des interactions (écran LED, son, micro), et une carte pensée pour **Scratch → Python** sans changer de robot.
+**En résumé** : le **mBot** couvre très bien **découverte et premiers défis** (ligne, obstacle, lumière). Le **mBot2** ajoute une **vraie couche « projet »** : précision des mouvements, richesse des interactions (écran couleur, son, micro), et une carte pensée pour **Scratch → Python** sans changer de robot.
 
 ## Accessoires et évolutivité
 

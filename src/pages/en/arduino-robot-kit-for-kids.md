@@ -59,3 +59,5 @@ Makers' stores and large marketplaces sell these kits in both countries. For ind
 - **Robot doesn't move after upload**: battery pack switched off or flat (USB alone often can't drive the motors).
 - **Port not found**: try another USB cable (some are charge-only) and install the board's USB driver if the kit supplies one.
 - **Robot spins in circles**: one motor is wired the wrong way round; swap its two wires.
+
+**Learn to code it:** our free [Arduino C course](/en/arduino/) starts with [sketch structure and Serial](/en/arduino-c-sketch-structure-serial/).
