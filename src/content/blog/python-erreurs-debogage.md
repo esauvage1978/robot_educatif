@@ -1,9 +1,9 @@
 ---
 title: "Python — erreurs, exceptions et débogage"
-description: "SyntaxError, TypeError, ValueError ; try / except / else / finally ; lire un traceback ; print de debug et pas à pas dans l’IDE ; 20 exercices avec solutions repliables."
+description: "Erreurs Python : try/except, traceback, debug. 20 exercices."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 9
 tags: ["Python", "Programmation"]

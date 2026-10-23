@@ -1,9 +1,9 @@
 ---
 title: "Codey Rocky (Makeblock) : robot éducatif Scratch et Python"
-description: "Présentation du robot Codey Rocky : capteurs, mBlock 5, Scratch et Python, public 6+, idées d’usage. Exemples de programmes et ressources en ligne. Lien Amazon France."
+description: "Codey Rocky : capteurs, mBlock, Scratch, Python. Public 6+."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/codey-rocky/codey-rocky-hero.png"
+heroImage: "../../assets/codey-rocky/codey-rocky-hero.webp"
 amazonPreset: codeyRocky
 relatedLinks:
   - title: "Installer mBlock 5 sous Windows 10"
@@ -20,13 +20,13 @@ categories:
   - "Makeblock"
   - "Programmation"
 ---
-**Codey Rocky** est un robot éducatif **Makeblock** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
+**Codey Rocky** est un robot éducatif **[Makeblock](/marque-makeblock/)** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 
 > Cet article contient des **liens affiliés Amazon** (identifiant `manuso06-21`). En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, **sans surcoût** pour vous.
 
 ## Points forts pédagogiques
 
-![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.png)
+![Atelier programmation par blocs type mBlock / Scratch (illustration d’ambiance)](/images/blog/codey-rocky-mblock-atelier.webp)
 
 *Bloc « code visuel » : la même logique que sur mBlock s’applique aux robots Makeblock compatibles.*
 
@@ -46,7 +46,7 @@ Les liens suivants sont **externes** ; la plupart sont en **anglais**, mais les 
 
 ### Manuel PDF (projets guidés)
 
-- [**Codey Rocky — Coding Guide (PDF)**](https://qiniu.makeblock.com/makeblockcom/Codey-Rocky-Coding-Guide_EN.pdf) — guide publié par Makeblock avec **activités pas à pas** et logique **upload** (programme stocké dans le robot pour qu’il tourne sans le câble).
+- [**Support et garantie Makeblock**](https://www.makeblock.com/pages/makeblock-warranty) — guide publié par Makeblock avec **activités pas à pas** et logique **upload** (programme stocké dans le robot pour qu’il tourne sans le câble).
 
 ### Tutoriels pas à pas
 
@@ -80,7 +80,7 @@ Pour le mode **transfert du programme vers le robot** (exécution autonome), voi
 
 ## Lien vers Amazon.fr
 
-- [Codey Rocky sur Amazon.fr](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21) — recherche ; prix et dispo à vérifier au moment de l’achat.
+- [Codey Rocky sur Amazon.fr](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21) — recherche ; prix et dispo à vérifier au moment de l’achat.
 
 Pour comparer avec d’autres approches Makeblock, voir [CyberPi](/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/), [mBot](/mbot-mon-premier-robot-educatif/) ou [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 

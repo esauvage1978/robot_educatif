@@ -1,0 +1,277 @@
+---
+title: "Capteur CO2 SCD41 sur Raspberry Pi + Home Assistant : tuto complet avec code"
+description: "Mesurer le CO2, la température et l'humidité avec un SCD40/SCD41 sur Raspberry Pi 4 ou 5, publication MQTT vers Home Assistant, code Python complet et service systemd."
+pubDate: 2026-10-19T00:00:00Z
+category: "home-assistant"
+priority: 6
+---
+
+Un taux de CO2 élevé dans une pièce est le signe le plus simple d'un air mal renouvelé : chambre fermée, bureau, salle de classe. Ce tutoriel transforme un Raspberry Pi et un capteur **SCD40 ou SCD41** (un vrai capteur de CO2 à technologie photoacoustique, pas une estimation) en sonde qui envoie CO2, température et humidité à **Home Assistant**, pour par exemple recevoir une alerte « aérez ».
+
+## Objectif
+
+- Lire CO2 (ppm), température et humidité toutes les 30 s.
+- Publier les mesures en MQTT avec découverte automatique dans Home Assistant.
+- Faire tourner le script en service au démarrage.
+
+## Durée, niveau et budget
+
+| Durée | Niveau | Budget |
+|---|---|---|
+| 1 h 30 (dont 30 min de configuration Home Assistant) | intermédiaire | un module SCD41 est nettement plus cher qu'un capteur de température : comparez les prix du moment sur les liens ci-dessous (à vérifier) ; le Raspberry Pi peut être celui qui fait déjà tourner Home Assistant |
+
+Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
+
+## Les étapes en un coup d'œil
+
+1. Activer l'I2C et vérifier le Pi
+2. Câbler le SCD41 (4 fils, 3,3 V)
+3. Vérifier l'adresse 0x62 avec i2cdetect
+4. Créer le venv et installer les bibliothèques
+5. Lancer le script à la main et lire les premières mesures
+6. Vérifier les entités dans Home Assistant
+7. Installer le service systemd
+8. Créer l'alerte « aérer »
+
+## Matériel
+
+- Un Raspberry Pi 4 ou 5 avec Raspberry Pi OS Bookworm (<a href="https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21" rel="sponsored nofollow" target="_blank">Raspberry Pi 5 sur Amazon</a>).
+- Un module **SCD40 ou SCD41** sur carte (breakout) avec broches VIN, GND, SCL, SDA (<a href="https://www.amazon.fr/s?k=SCD41+capteur+CO2&tag=manuso06-21" rel="sponsored nofollow" target="_blank">modules SCD41 sur Amazon</a>). Le SCD41 couvre une plage de mesure plus large que le SCD40 ; les deux s'utilisent avec le même code.
+- 4 fils Dupont femelle-femelle ou un câble STEMMA QT / Qwiic vers Dupont.
+- Un broker MQTT (Mosquitto, par exemple dans Home Assistant).
+
+## Câblage
+
+Le SCD4x communique en I2C à l'adresse **0x62**. Les GPIO du Raspberry Pi sont en **3,3 V** : alimentez le module en 3,3 V (sur la carte Adafruit, la logique I2C reste en 3,3 V même si VIN est à 5 V, mais d'autres cartes n'ont pas ce circuit, donc le 3,3 V est le choix sûr).
+
+| Module SCD4x | Raspberry Pi (broche physique) | Rôle |
+|---|---|---|
+| VIN | broche 1 (3V3) | alimentation 3,3 V |
+| GND | broche 6 (GND) | masse |
+| SDA | broche 3 (GPIO2 / SDA1) | données I2C |
+| SCL | broche 5 (GPIO3 / SCL1) | horloge I2C |
+
+## Préparer le Raspberry Pi (commun à tous les tutoriels)
+
+Système visé : **Raspberry Pi OS Bookworm** (Pi 4 ou Pi 5). Sur Bookworm, `pip install` hors environnement virtuel est bloqué : on crée donc un venv. On y donne accès aux paquets système (`--system-site-packages`) pour profiter de `gpiozero` et `lgpio` installés par apt, qui fonctionnent sur Pi 4 **et** Pi 5 (la bibliothèque RPi.GPIO ne gère pas le GPIO du Pi 5).
+
+```bash
+sudo apt update
+sudo apt install -y python3-venv python3-gpiozero python3-lgpio i2c-tools
+mkdir -p ~/capteurs && cd ~/capteurs
+python3 -m venv --system-site-packages venv
+source venv/bin/activate
+```
+
+Activez ensuite le bus I2C : `sudo raspi-config nonint do_i2c 0` (ou *Interface Options → I2C* dans `sudo raspi-config`), puis redémarrez. Vérifiez que le module est vu :
+
+```bash
+i2cdetect -y 1
+```
+
+La valeur **62** doit apparaître dans le tableau. Installez ensuite les bibliothèques :
+
+```bash
+pip install adafruit-circuitpython-scd4x paho-mqtt
+```
+
+## Code complet
+
+<p><a href="/code/raspberry-pi/co2_scd41_mqtt.py" download>Télécharger co2_scd41_mqtt.py</a> (même code que ci-dessous).</p>
+
+```python title="co2_scd41_mqtt.py"
+#!/usr/bin/env python3
+"""Capteur CO2 SCD41 (ou SCD40) sur Raspberry Pi -> MQTT / Home Assistant.
+
+Matériel : Raspberry Pi 4 ou 5 (Raspberry Pi OS Bookworm), module SCD40/SCD41 en I2C (adresse 0x62).
+Dépendances (dans un venv) : adafruit-circuitpython-scd4x, paho-mqtt (Blinka est installé avec).
+Source : robot-educatif.info - tutoriel « Mesurer le CO2 avec un Raspberry Pi ».
+"""
+import json
+import os
+import signal
+import sys
+import time
+
+import board                      # fourni par Adafruit Blinka
+import adafruit_scd4x
+import paho.mqtt.client as mqtt
+
+# --- Réglages (modifiables par variables d'environnement) -------------------
+MQTT_HOST = os.getenv("MQTT_HOST", "localhost")    # IP du broker (ex. Home Assistant)
+MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
+MQTT_USER = os.getenv("MQTT_USER", "")
+MQTT_PASS = os.getenv("MQTT_PASS", "")
+DEVICE_ID = os.getenv("DEVICE_ID", "pi_scd41_salon")
+INTERVAL = int(os.getenv("INTERVAL", "30"))         # secondes entre deux publications
+STATE_TOPIC = f"robotedu/{DEVICE_ID}/state"
+AVAIL_TOPIC = f"robotedu/{DEVICE_ID}/availability"
+
+# Capteurs annoncés à Home Assistant (MQTT discovery)
+SENSORS = {
+    "co2": {"name": "CO2", "unit": "ppm", "device_class": "carbon_dioxide"},
+    "temperature": {"name": "Température", "unit": "°C", "device_class": "temperature"},
+    "humidity": {"name": "Humidité", "unit": "%", "device_class": "humidity"},
+}
+
+
+def publish_discovery(client):
+    """Publie une config 'retained' par mesure : HA crée les entités tout seul."""
+    device = {"identifiers": [DEVICE_ID], "name": f"Raspberry Pi SCD41 ({DEVICE_ID})",
+              "model": "SCD4x", "manufacturer": "DIY robot-educatif.info"}
+    for key, s in SENSORS.items():
+        cfg = {
+            "name": s["name"],
+            "unique_id": f"{DEVICE_ID}_{key}",
+            "state_topic": STATE_TOPIC,
+            "value_template": "{{ value_json.%s }}" % key,
+            "unit_of_measurement": s["unit"],
+            "device_class": s["device_class"],
+            "state_class": "measurement",
+            "availability_topic": AVAIL_TOPIC,
+            "device": device,
+        }
+        client.publish(f"homeassistant/sensor/{DEVICE_ID}_{key}/config", json.dumps(cfg), retain=True)
+
+
+def main():
+    # 1) Capteur : bus I2C matériel (GPIO2 = SDA, GPIO3 = SCL)
+    i2c = board.I2C()
+    scd = adafruit_scd4x.SCD4X(i2c)
+    print("SCD4x détecté, numéro de série :", [hex(i) for i in scd.serial_number])
+    scd.start_periodic_measurement()          # une mesure toutes les 5 s environ
+
+    # 2) MQTT (API de callbacks version 2 de paho-mqtt 2.x)
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=DEVICE_ID)
+    if MQTT_USER:
+        client.username_pw_set(MQTT_USER, MQTT_PASS)
+    client.will_set(AVAIL_TOPIC, "offline", retain=True)   # HA saura si le Pi tombe
+    client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
+    client.loop_start()
+    client.publish(AVAIL_TOPIC, "online", retain=True)
+    publish_discovery(client)
+
+    def stop(*_):
+        client.publish(AVAIL_TOPIC, "offline", retain=True)
+        scd.stop_periodic_measurement()
+        client.loop_stop()
+        client.disconnect()
+        sys.exit(0)
+
+    signal.signal(signal.SIGTERM, stop)       # arrêt propre par systemd
+    signal.signal(signal.SIGINT, stop)        # Ctrl+C
+
+    # 3) Boucle de mesure
+    while True:
+        if scd.data_ready:
+            payload = {
+                "co2": int(scd.CO2),
+                "temperature": round(scd.temperature, 1),
+                "humidity": round(scd.relative_humidity, 1),
+            }
+            client.publish(STATE_TOPIC, json.dumps(payload))
+            print(payload, flush=True)
+            time.sleep(INTERVAL)
+        else:
+            time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Test manuel : `MQTT_HOST=192.168.1.10 MQTT_USER=pi MQTT_PASS=... python co2_scd41_mqtt.py`. La première mesure arrive environ 5 secondes après le démarrage.
+
+### Côté Home Assistant
+
+Il faut un broker MQTT (par exemple le module complémentaire **Mosquitto broker** de Home Assistant) et l'intégration **MQTT**. Le script publie une configuration « MQTT discovery » sur `homeassistant/…/config` : les entités apparaissent seules dans *Paramètres → Appareils et services → MQTT*. Créez un utilisateur Home Assistant dédié pour le Pi et passez ses identifiants via `MQTT_USER` / `MQTT_PASS`.
+
+Exemple d'automatisation (YAML) qui prévient au-delà de 1 000 ppm, seuil souvent cité pour « aérer » :
+
+```yaml
+alias: Alerte CO2 salon
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.raspberry_pi_scd41_pi_scd41_salon_co2
+    above: 1000
+    for: "00:05:00"
+actions:
+  - action: notify.notify
+    data:
+      message: "CO2 au-dessus de 1000 ppm : pensez à aérer."
+```
+
+L'identifiant exact de l'entité est visible dans Home Assistant ; adaptez-le.
+
+## Lancement automatique avec systemd
+
+Créez le fichier `/etc/systemd/system/capteur-co2.service` (adaptez l'utilisateur `pi` et le chemin) :
+
+```ini
+[Unit]
+Description=capteur-co2 (robot-educatif.info)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/capteurs
+Environment=MQTT_HOST=192.168.1.10
+Environment=MQTT_USER=pi
+Environment=MQTT_PASS=change-moi
+ExecStart=/home/pi/capteurs/venv/bin/python /home/pi/capteurs/co2_scd41_mqtt.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now capteur-co2.service
+journalctl -u capteur-co2.service -f    # suivre les messages du script
+```
+
+## L'astuce de ce tutoriel : alerter sur la vitesse de montée du CO2
+
+Un seuil fixe (1 000 ppm) prévient souvent trop tard dans une petite chambre. Home Assistant sait calculer une **dérivée** : une hausse rapide signale une pièce qui se remplit vite, avant d'atteindre le seuil. Ajoutez ce capteur dérivé (intégration *Derivative*, unité ppm/h) :
+
+```yaml
+sensor:
+  - platform: derivative
+    source: sensor.raspberry_pi_scd41_pi_scd41_salon_co2
+    name: Montée CO2 salon
+    unit_time: h
+    time_window: "00:10:00"
+```
+
+Puis déclenchez l'alerte quand la montée dépasse une valeur que vous choisissez après quelques jours d'observation de **votre** pièce (aucune valeur universelle n'est donnée ici : elle dépend du volume et du nombre d'occupants). Sans aucun achat, vous pouvez appliquer cette méthode à n'importe quel capteur CO2 déjà intégré à Home Assistant.
+
+## Erreurs fréquentes
+
+- Alimenter en 5 V un module sans adaptateur de niveau : sur le Pi, restez en 3,3 V.
+- Lire la valeur juste après le démarrage : attendez `data_ready`, c'est ce que fait le script.
+- Placer le capteur contre une fenêtre ou au-dessus du Pi : mesure faussée.
+- Éteindre le Pi toutes les nuits : l'auto-calibration a besoin d'un fonctionnement continu.
+
+## Dépannage
+
+- **`i2cdetect` n'affiche pas 62** : inversion SDA/SCL, I2C non activé, ou fil mal enfiché. Vérifiez le tableau ci-dessus.
+- **`ValueError: No I2C device at address: 0x62`** : même cause ; coupez l'alimentation avant de recâbler.
+- **Valeurs de CO2 qui dérivent les premiers jours** : l'auto-calibration du SCD4x suppose que la pièce reçoit régulièrement de l'air extérieur ; elle a besoin de plusieurs jours de fonctionnement continu (voir la fiche technique Sensirion).
+- **Température un peu haute** : le capteur chauffe légèrement et le Pi aussi ; éloignez le module du Pi avec un câble plus long.
+- **Rien dans Home Assistant** : vérifiez avec `mosquitto_sub -h IP -u ... -P ... -t 'robotedu/#' -v` que les messages arrivent.
+
+> **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
+
+## Sources vérifiées
+
+- Adafruit, *SCD-40 and SCD-41* (brochage, adresse 0x62, alimentation 3-5 V, logique I2C en 3,3 V) : https://learn.adafruit.com/adafruit-scd-40-and-scd-41
+- Bibliothèque Adafruit CircuitPython SCD4x : https://docs.circuitpython.org/projects/scd4x/en/latest/
+- Sensirion, fiche technique SCD4x : https://sensirion.com/products/catalog/SCD41
+- Raspberry Pi, documentation GPIO et brochage : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- paho-mqtt 2.x (API de callbacks version 2) : https://eclipse.dev/paho/files/paho.mqtt.python/html/migrations.html
+- Home Assistant, MQTT discovery : https://www.home-assistant.io/integrations/mqtt/
+
+À lire aussi : [installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/) et [station météo BME280 avec historique](/domotique/raspberry-pi-station-meteo-bme280-historique/).

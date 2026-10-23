@@ -10,6 +10,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { articleSlugFromId } from '../../lib/articleSlug';
 import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
+import { resolveArticleThumbnail, getGeneratedThumbnailPath } from '../../lib/articleThumbnail';
+import { withImageVersion } from '../../lib/imageVersion';
 import { isProgrammingSeriesArticle } from '../../lib/blogScope';
 import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
 import { withBase } from '../../lib/siteUrl';
@@ -24,7 +26,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Blog ROBOT éducatif" description="Articles robotique éducative : tutoriels mBlock, Scratch, Python, guides achat robots et comparatifs pour enfants." />
 		<style>
 			.hero-blog {
 				width: 100vw;
@@ -101,6 +103,12 @@ const topCategories = topCategoriesByCount(posts, 15);
 				font-size: 2.369rem;
 			}
 			.posts-list li img {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 16 / 9;
+				object-fit: contain;
+				background: var(--surface);
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
 			}
@@ -138,20 +146,23 @@ const topCategories = topCategoriesByCount(posts, 15);
 			.posts-list li:first-child .post-categories {
 				justify-content: center;
 			}
-			.post-categories a {
-				display: inline-block;
-				padding: 0.15rem 0.45rem;
-				font-size: 0.72rem;
-				font-weight: 600;
-				text-decoration: none;
-				color: var(--accent);
-				background: color-mix(in oklab, var(--accent) 10%, transparent);
-				border-radius: 999px;
-				border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
-			}
-			.post-categories a:hover {
-				background: color-mix(in oklab, var(--accent) 18%, transparent);
-			}
+		.post-categories a {
+			display: inline-block;
+			padding: 0.15rem 0.45rem;
+			font-size: 0.72rem;
+			font-weight: 600;
+			text-decoration: none;
+			color: var(--accent);
+			background: color-mix(in oklab, var(--accent) 10%, transparent);
+			border-radius: 999px;
+			border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
+		}
+		html:not([data-theme='light']) .post-categories a {
+			color: #5EEAD4;
+		}
+		.post-categories a:hover {
+			background: color-mix(in oklab, var(--accent) 18%, transparent);
+		}
 			.posts-list li a:hover h4,
 			.posts-list li a:hover .date {
 				color: rgb(var(--accent));
@@ -208,46 +219,68 @@ const topCategories = topCategoriesByCount(posts, 15);
 							de programmation (Python, projets) sont regroupés sous{' '}
 							<a href={withBase('/programmation/')} style="font-weight: 600; color: var(--accent);">Programmation</a>
 							{' '}— parcourez aussi par{' '}
-							<a href={withBase('/categorie/')} style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.
+							<a href={withBase('/categorie/')} style="font-weight: 600; color: var(--accent);">thème (catégories)</a>.{' '}Pour les fêtes, consultez notre{' '}
+							<a href={withBase('/robot-educatif-cadeau-noel-2026/')} style="font-weight: 600; color: var(--accent);">guide cadeaux de Noël 2026</a>.
 						</p>
 					</section>
-					<section>
-						<ul class="posts-list">
-							{
-								posts.map((post) => {
-									const thumb = resolveHeroImage(post.data.heroImage);
-									return (
-									<li>
-										<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
-											{thumb && (
-												<Image width={720} height={360} src={thumb} alt="" />
+				<section>
+					<ul class="posts-list">
+						{posts.map((post) => {
+							const heroImage = resolveHeroImage(post.data.heroImage);
+							const thumbnail = resolveArticleThumbnail(post, heroImage);
+							return (
+								<li>
+									<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+										{thumbnail.type === 'illustration' && (
+									<img src={withImageVersion(withBase(thumbnail.src))} alt={thumbnail.alt} width="720" height="405" loading="lazy" decoding="async" />
+								)}
+								{thumbnail.type === 'image' && (
+											<Image width={720} height={360} src={thumbnail.src} alt={post.data.title} />
+										)}
+										{thumbnail.type === 'pinterest' && (
+											<img
+												src={withBase(`/pinterest/${thumbnail.slug}-1.jpg`)}
+												alt={post.data.title}
+												width="720"
+												height="360"
+												loading="lazy"
+												style="object-fit: cover; object-position: top;"
+											/>
+										)}
+										{thumbnail.type === 'generated' && (
+											<img
+												src={withImageVersion(withBase(getGeneratedThumbnailPath(post.id.replace(/\.mdx?$/, '')).replace('.png', '.webp')))}
+												alt={post.data.title}
+												width="720"
+												height="360"
+												loading="lazy"
+											/>
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											{post.data.updatedDate ? (
+												<>
+													Mis à jour le <FormattedDate date={post.data.updatedDate} />
+												</>
+											) : (
+												<>
+													Publié le <FormattedDate date={post.data.pubDate} />
+												</>
 											)}
-											<h4 class="title">{post.data.title}</h4>
-											<p class="date">
-												{post.data.updatedDate ? (
-													<>
-														Mis à jour le <FormattedDate date={post.data.updatedDate} />
-													</>
-												) : (
-													<>
-														Publié le <FormattedDate date={post.data.pubDate} />
-													</>
-												)}
-											</p>
-											{post.data.categories?.length ? (
-												<div class="post-categories">
-													{post.data.categories.map((cat) => (
-														<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
-													))}
-												</div>
-											) : null}
-										</a>
-									</li>
-									);
-								})
-							}
-						</ul>
-					</section>
+										</p>
+										{post.data.categories?.length ? (
+											<div class="post-categories">
+												{post.data.categories.map((cat) => (
+													<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
+												))}
+											</div>
+										) : null}
+									</a>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
 				</div>
 				<Sidebar topCategories={topCategories} />
 			</div>

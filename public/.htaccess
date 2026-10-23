@@ -8,17 +8,105 @@
 	# Si le site est dans un sous-dossier, décommentez et adaptez :
 	# RewriteBase /site_vitrine/robot_educatif/
 
-	# Ancien segment anglais « category » (liens externes / Google) → « categorie »
-	RewriteRule ^category/?$ /categorie/ [R=301,L,NC]
-	RewriteRule ^category/(.*)$ /categorie/$1 [R=301,L,NC]
-
-	# Ancien slug sans « r » (mesure → mesurer)
-	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
+	# WWW vers non-WWW (https, évite chaînes de redirections)
+	RewriteCond %{HTTP_HOST} ^www\.robot-educatif\.info$ [NC]
+	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
 
 	# HTTPS uniquement pour le domaine public (localhost / autres hôtes non concernés)
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} ^robot-educatif\.info$ [NC]
 	RewriteRule ^ https://robot-educatif.info%{REQUEST_URI} [R=301,L]
+
+	# ---------------------------------------------------------------------------
+	# Anciennes URL WordPress datées : /AAAA/MM/JJ/<slug>/ → /<slug>/
+	# (liens des anciens posts Facebook / backlinks 2020). Les slugs renommés
+	# depuis sont traités juste avant la règle générique (une seule redirection).
+	# ---------------------------------------------------------------------------
+	RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/activite-mbot-mesure-des-distances(/.*)?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
+	RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/activite-mbot-faire-colignoter-les-leds(/.*)?$ /activite-mbot-faire-clignoter-les-leds/ [R=301,L,NC]
+	# Générique : on garde le slug, on ignore un éventuel suffixe (/amp/, /feed/, /comment-page-1/…)
+	RewriteRule ^[0-9]{4}/[0-9]{2}/[0-9]{2}/([^/]+)(/.*)?$ /$1/ [R=301,L]
+	# Archives WordPress par date (/2020/, /2020/04/, /2020/04/18/) et pagination → blog
+	RewriteRule ^[0-9]{4}(/[0-9]{2}){0,2}/?$ /blog/ [R=301,L]
+	RewriteRule ^page/[0-9]+/?$ /blog/ [R=301,L]
+	# Pages WordPress auteur / contact
+	RewriteRule ^author/[^/]+/?$ /about/ [R=301,L,NC]
+	RewriteRule ^contact-us/?$ /contact/ [R=301,L,NC]
+
+	# ---------------------------------------------------------------------------
+	# Anciennes catégories WordPress /category/… : correspondances explicites
+	# AVANT la règle générique (sinon /category/x → /categorie/x qui n'existe pas)
+	# ---------------------------------------------------------------------------
+	# Lot 2 (23/10/2026) : tags en doublon fusionnes
+	RewriteRule ^categorie/cadeau/?$ /categorie/cadeaux/ [R=301,L,NC]
+	RewriteRule ^categorie/marque/?$ /categorie/marques/ [R=301,L,NC]
+	RewriteRule ^category/cadeau/?$ /categorie/cadeaux/ [R=301,L,NC]
+	RewriteRule ^category/marque/?$ /categorie/marques/ [R=301,L,NC]
+	RewriteRule ^category/matatalab/tale-bot/?$ /categorie/tale-bot/ [R=301,L,NC]
+	RewriteRule ^category/makeblock/mbot/?$ /categorie/mbot/ [R=301,L,NC]
+	RewriteRule ^category/makeblock/cyberpi/?$ /categorie/makeblock/ [R=301,L,NC]
+	RewriteRule ^category/test/?$ /categorie/comparatif/ [R=301,L,NC]
+	RewriteRule ^category/activity/?$ /categorie/activite/ [R=301,L,NC]
+	RewriteRule ^category/developpement/?$ /programmation/ [R=301,L,NC]
+	RewriteRule ^category/application/?$ /categorie/programmation/ [R=301,L,NC]
+	RewriteRule ^category/rasp?berry-pi/?$ /categorie/raspberry-pi/ [R=301,L,NC]
+	# Ancien segment anglais « category » (liens externes / Google) → « categorie »
+	RewriteRule ^category/?$ /categorie/ [R=301,L,NC]
+	RewriteRule ^category/(.*)$ /categorie/$1 [R=301,L,NC]
+
+	RewriteRule ^privacy-policy/?$ /politique-de-confidentialite/ [R=301,L,NC]
+
+	# Sitemap legacy
+	RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
+
+	# PDF renommé (projets mBot : corrigés)
+	RewriteRule ^downloads/mbot/10-projets-mbot-corriges-diagrammes\.pdf$ /downloads/mbot/corriges-diagrammes.pdf [R=301,L,NC]
+
+	# Ancien slug sans « r » (mesure → mesurer)
+	RewriteRule ^activite-mbot-mesure-des-distances/?$ /activite-mbot-mesurer-des-distances/ [R=301,L,NC]
+
+	# Typo dans l'URL (enfants au pluriel au lieu de enfant)
+	RewriteRule ^meilleur-robot-programmable-enfants-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+
+	# Guides mBlock : consolider vers page principale installation
+	RewriteRule ^telecharger-mblock-5-gratuit-guide-2026/?$ /installer-mblock-5-sous-windows-10/ [R=301,L,NC]
+	RewriteRule ^installer-mblock-windows-11-guide-facile/?$ /installer-mblock-5-sous-windows-10/ [R=301,L,NC]
+
+	# Guide mBlock en ligne vers page dédiée logiciel
+	RewriteRule ^mblock-en-ligne-programmer-sans-installer/?$ /logiciel-mblock-makeblock-mbot-quel-choisir/ [R=301,L,NC]
+
+	# Projets mBot classe : rediriger vers la nouvelle page avec PDF (+ variantes tronquées vues dans GSC)
+	RewriteRule ^projets-mbot-classe/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+	RewriteRule ^10-projets-mbot-classe-faciles/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+	RewriteRule ^10-projets-(gratuits-)?classe-faciles/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+	RewriteRule ^10-mbot-(projects|classes-faciles)/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]
+
+	# Guides par âge consolidés
+	RewriteRule ^robot-par-age/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+
+	# Guide budget vers page existante
+	RewriteRule ^robots-budget/?$ /robot-moins-de-100-euros/ [R=301,L,NC]
+
+	# Typos : meilleur-robot-programmable sans "enfant", ou sans "robot"
+	RewriteRule ^meilleur-robot-programmable-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+	RewriteRule ^meilleur-programmable-enfant-2026/?$ /meilleur-robot-programmable-enfant-2026/ [R=301,L,NC]
+
+	# Typos guides par âge : quel-acheter au lieu de quel-robot-acheter
+	RewriteRule ^quel-acheter-enfant-5-ans-guide-achat/?$ /quel-robot-acheter-enfant-5-ans-guide-achat/ [R=301,L,NC]
+	RewriteRule ^quel-acheter-enfant-10-ans-guide-achat/?$ /quel-robot-acheter-enfant-10-ans-guide-achat/ [R=301,L,NC]
+
+	# Typo : mbot2 avec "for-enfants" au lieu de "pour-enfants"
+	RewriteRule ^mbot-vs-mbot2-comparaison-des-robots-educatifs-for-enfants/?$ /mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/ [R=301,L,NC]
+
+	# Typo : activité clignoter
+	RewriteRule ^activite-mbot-faire-colignoter-les-leds/?$ /activite-mbot-faire-clignoter-les-leds/ [R=301,L,NC]
+
+	# Raspberry Pi : anciens slugs / variantes
+	RewriteRule ^raspberry-pi-3-v-pi-4-b-vs-pi-5-comparatif-2026/?$ /raspberry-pi-3-vs-4-vs-5-comparatif-2026/ [R=301,L,NC]
+	RewriteRule ^raspberry-pi-3-vrai-pc-[^/]*/?$ /mise-en-route-raspberry-pi-3-modele-b/ [R=301,L,NC]
+
+	# Arduino : rediriger ancienne page vers nouveau guide complet
+	RewriteRule ^kit-robot-arduino-enfant/?$ /meilleur-robot-educatif-arduino-kit-choisir/ [R=301,L,NC]
 </IfModule>
 
 # Page d’accueil des dossiers
@@ -47,19 +135,33 @@ AddDefaultCharset utf-8
 	AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cache long pour les fichiers hashés Astro (/_astro/…)
+# BEGIN TRUITE cache-hsts (géré par TRUITE, à garder dans public/.htaccess)
 <IfModule mod_headers.c>
-	<FilesMatch "\.(css|js|mjs|woff2?|webp|avif|ico|png|jpg|jpeg|gif|svg)$">
-		Header set Cache-Control "public, max-age=31536000, immutable"
-	</FilesMatch>
+  # HSTS 1 an, sans includeSubDomains ni preload
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header unset ETag
 </IfModule>
-
-# HTML : revalidation modérée (contenu éditorial)
+FileETag None
+<IfModule mod_expires.c>
+  # On supprime les Expires pour éviter les contradictions avec Cache-Control
+  ExpiresActive Off
+</IfModule>
 <IfModule mod_headers.c>
-	<FilesMatch "\.html$">
-		Header set Cache-Control "public, max-age=0, must-revalidate"
-	</FilesMatch>
+  Header unset Expires
+  # HTML : toujours revalidé
+  <FilesMatch "\.(html?|xml|txt|json|webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Images et polices non versionnées : 30 jours
+  <FilesMatch "\.(jpe?g|png|gif|webp|avif|svg|ico|woff2?|ttf|otf)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # Fichiers versionnés (/_astro/ hashés) : 1 an immutable
+  <If "%{REQUEST_URI} =~ m#^/_astro/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
 </IfModule>
+# END TRUITE cache-hsts
 
 # Types MIME utiles
 <IfModule mod_mime.c>

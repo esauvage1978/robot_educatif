@@ -4,68 +4,97 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-:root {
-	--accent: #2b9ed0;
-	--accent-dark: #5eb6e0;
-	--accent-soft: #7ebad4;
-	--accent-warm: #e8941a;
-	--accent-warm-soft: #c9a05a;
-	--brand-gradient: linear-gradient(135deg, #2b9ed0 0%, #4a9ec9 48%, #e8941a 100%);
-	/* Thème sombre — fond uniforme (plus de bandeau tronqué) */
-	--page-bg: #080c14;
-	--page-bg-elevated: #0e1522;
-	--black: 242, 245, 252;
-	--gray: 138, 152, 182;
-	--gray-light: 28, 36, 52;
-	--gray-dark: 218, 224, 238;
-	--gray-gradient: #080c14, #0e1522;
-	--surface: #101823;
-	--surface-2: #141d2c;
-	--surface-border: rgba(255, 255, 255, 0.08);
-	--card: #101823;
-	--card-2: #151e2e;
-	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
-	--font-heading: 'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
-	--font-body: 'Atkinson', system-ui, -apple-system, sans-serif;
-	--prose-width: 42rem;
-}
+/* Piste A — Bot ami : Nouvelle identité visuelle 2026 */
 
-html[data-theme='light'] {
-	--accent: #1e7aa3;
-	--accent-dark: #155a78;
-	--accent-soft: #5a9fb8;
-	--accent-warm: #c77a0a;
-	--accent-warm-soft: #9a6b1a;
-	--brand-gradient: linear-gradient(135deg, #1e7aa3 0%, #3d8faf 50%, #c77a0a 100%);
-	--page-bg: #f0f2f6;
-	--page-bg-elevated: #ffffff;
-	--black: 16, 22, 34;
-	/* Texte secondaire : ≥ 4.5:1 sur fond clair (#fff / #f7f8fb) */
-	--gray: 62, 72, 88;
-	--gray-light: 238, 241, 246;
-	--gray-dark: 36, 44, 58;
-	--gray-gradient: #f0f2f6, #f5f7fb;
-	--surface: #ffffff;
-	--surface-2: #f7f8fb;
-	--surface-border: rgba(20, 28, 48, 0.1);
-	--card: #ffffff;
-	--card-2: #f3f5f9;
-	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 10px 28px rgba(15, 25, 45, 0.08);
+@font-face {
+	font-family: "Nunito";
+	src: url("/fonts/nunito-800-0.woff2") format("woff2");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
+	font-family: "Nunito Sans";
+	src: url("/fonts/nunito-sans-400-0.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+
+:root {
+	/* Piste A — Palette Bot ami */
+	--primary: #0F766E;
+	--primary-light: #14B8A6;
+	--accent: #0F766E;
+	--accent-dark: #0F766E;
+	--accent-soft: #14B8A6;
+	--accent-warm: #F97316;
+	--accent-warm-soft: #FB923C;
+	--ink: #0B1F2A;
+	--brand-gradient: linear-gradient(135deg, #0F766E 0%, #14B8A6 50%, #F97316 100%);
+	
+	/* Thème clair par défaut */
+	--page-bg: #F8FAFC;
+	--page-bg-elevated: #ffffff;
+	--black: 11, 31, 42;
+	--gray: 71, 85, 105;
+	--gray-light: 241, 245, 249;
+	--gray-dark: 51, 65, 85;
+	--gray-gradient: #F8FAFC, #ffffff;
+	--surface: #ffffff;
+	--surface-2: #F0FDFA;
+	--surface-border: #E2E8F0;
+	--card: #ffffff;
+	--card-2: #F8FAFC;
+	--box-shadow: 0 1px 3px rgba(11, 31, 42, 0.08), 0 1px 2px rgba(11, 31, 42, 0.06);
+	--font-heading: 'Nunito', system-ui, -apple-system, sans-serif;
+	--font-body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+	--prose-width: 70ch;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--page-bg: #0B1F2A;
+		--page-bg-elevated: #0e2533;
+		--black: 248, 250, 252;
+		--gray: 148, 163, 184;
+		--gray-light: 30, 41, 59;
+		--gray-dark: 226, 232, 240;
+		--gray-gradient: #0B1F2A, #0e2533;
+		--surface: #0e2533;
+		--surface-2: #1a3544;
+		--surface-border: rgba(226, 232, 240, 0.1);
+		--card: #ffffff;
+		--card-2: #ffffff;
+		--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
+		--primary: #14B8A6;
+		--primary-light: #5EEAD4;
+		--accent: #14B8A6;
+		--accent-soft: #5EEAD4;
+	}
+}
+
+html[data-theme='dark'] {
+	--page-bg: #0B1F2A;
+	--page-bg-elevated: #0e2533;
+	--black: 248, 250, 252;
+	--gray: 148, 163, 184;
+	--gray-light: 30, 41, 59;
+	--gray-dark: 226, 232, 240;
+	--gray-gradient: #0B1F2A, #0e2533;
+	--surface: #0e2533;
+	--surface-2: #1a3544;
+	--surface-border: rgba(226, 232, 240, 0.1);
+	--card: #ffffff;
+	--card-2: #ffffff;
+	--box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.35);
+	--primary: #14B8A6;
+	--primary-light: #5EEAD4;
+	--accent: #14B8A6;
+	--accent-soft: #5EEAD4;
 }
 
 html {
@@ -145,12 +174,8 @@ a:hover {
 }
 
 /* Thème clair : le bleu --accent seul est souvent sous le ratio 4.5:1 sur blanc (WCAG AA). */
-html[data-theme='light'] a {
-	color: var(--accent-dark);
-}
-
-html[data-theme='light'] a:hover {
-	color: #0c3a50;
+a:hover {
+	color: var(--accent-warm);
 }
 
 p {
@@ -290,6 +315,25 @@ html[data-theme='light'] .prose h2[id*='questions-frequentes'] ~ h3 {
 		0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* Pinterest hover pour les images */
+.prose p:has(> img),
+.prose p:has(> a > img) {
+	position: relative;
+}
+
+.prose p:has(> img):hover .pinterest-share--hover,
+.prose p:has(> a > img):hover .pinterest-share--hover {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@media (hover: none) {
+	.prose .pinterest-share--hover {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
 .prose p:has(> img:only-child),
 .prose p:has(> a:only-child > img:only-child) {
 	text-align: center;
@@ -305,6 +349,7 @@ html[data-theme='light'] .prose h2[id*='questions-frequentes'] ~ h3 {
 .prose figure {
 	margin: 2rem auto;
 	max-width: min(100%, 42rem);
+	position: relative;
 }
 
 .prose figure img {
@@ -318,6 +363,84 @@ html[data-theme='light'] .prose h2[id*='questions-frequentes'] ~ h3 {
 	color: rgb(var(--gray));
 	text-align: center;
 	font-family: var(--font-body, system-ui);
+}
+
+/* Pinterest overlay on article images (no third-party JS) */
+.prose figure::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0);
+	transition: background 0.2s ease;
+	pointer-events: none;
+	border-radius: 12px;
+}
+
+.prose figure:hover::after {
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.prose figure .pinterest-img-overlay {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	opacity: 0;
+	transform: translateY(-8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	z-index: 10;
+}
+
+.prose figure:hover .pinterest-img-overlay {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.pinterest-img-overlay-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.5rem 0.9rem;
+	background: #E60023;
+	color: white;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 0.85rem;
+	border-radius: 24px;
+	box-shadow: 0 2px 8px rgba(230, 0, 35, 0.4);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pinterest-img-overlay-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(230, 0, 35, 0.5);
+	background: #AD081B;
+}
+
+.pinterest-img-overlay-icon {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+	/* Show Pinterest button permanently on mobile (no hover) */
+	.prose figure .pinterest-img-overlay {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.pinterest-img-overlay-btn {
+		padding: 0.4rem 0.75rem;
+		font-size: 0.8rem;
+	}
+	
+	.pinterest-img-overlay-icon {
+		width: 14px;
+		height: 14px;
+	}
 }
 
 /* Encadré objectifs / angle pédagogique (classe optionnelle dans le Markdown) */
@@ -612,4 +735,96 @@ html[data-theme='light'] .prose .exo-badge--inter {
 }
 html[data-theme='light'] .prose .exo-badge--hard {
 	color: #8a5a0a;
+}
+
+/* Dark mode badges: fond plus opaque + texte plus clair pour contraste ≥ 4.5:1 */
+@media (prefers-color-scheme: dark) {
+	.prose .exo-badge--simple {
+		background: rgba(31, 136, 61, 0.3);
+		color: #A6F4C5;
+		border-color: rgba(31, 136, 61, 0.5);
+	}
+	.prose .exo-badge--inter {
+		background: rgba(15, 118, 110, 0.3);
+		color: #5EEAD4;
+		border-color: rgba(15, 118, 110, 0.5);
+	}
+	.prose .exo-badge--hard {
+		background: rgba(194, 65, 12, 0.3);
+		color: #FED7AA;
+		border-color: rgba(194, 65, 12, 0.5);
+	}
+}
+
+html[data-theme="dark"] .prose .exo-badge--simple {
+	background: rgba(31, 136, 61, 0.3);
+	color: #A6F4C5;
+	border-color: rgba(31, 136, 61, 0.5);
+}
+html[data-theme="dark"] .prose .exo-badge--inter {
+	background: rgba(15, 118, 110, 0.3);
+	color: #5EEAD4;
+	border-color: rgba(15, 118, 110, 0.5);
+}
+html[data-theme="dark"] .prose .exo-badge--hard {
+	background: rgba(194, 65, 12, 0.3);
+	color: #FED7AA;
+	border-color: rgba(194, 65, 12, 0.5);
+}
+
+/* ========================================
+   Tables responsives (mobile)
+   ======================================== */
+
+/* Tables dans .prose : vrai tableau (en-têtes alignés sur les colonnes, texte qui passe à la ligne).
+   Sur mobile seulement, scroll horizontal propre si le contenu ne tient pas. */
+.prose table {
+	white-space: normal;
+}
+
+@media (max-width: 768px) {
+	.prose table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+@media (max-width: 768px) {
+	.prose table {
+		font-size: 0.875rem;
+	}
+	
+	.prose table th,
+	.prose table td {
+		padding: 0.5rem 0.75rem;
+	}
+}
+
+/* Boutons / CTA : padding inclus dans la largeur (évite les débordements des boutons pleine largeur sur mobile) */
+a[class*='btn'],
+a[class*='cta'],
+a.affiliate-link,
+button {
+	box-sizing: border-box;
+}
+
+/* Encart texte Shelly (sans logo, hors tableaux comparatifs) */
+.prose .shelly-encart {
+	margin: 1.5rem 0;
+	padding: 0.9rem 1.1rem;
+	border-left: 4px solid var(--accent, #0f766e);
+	background: var(--surface, rgba(15, 118, 110, 0.06));
+	border-radius: 6px;
+}
+.prose .shelly-encart p { margin: 0; }
+.prose .shelly-encart .shelly-encart-note { margin-top: 0.4rem; font-size: 0.85em; opacity: 0.75; }
+
+/* Légende d'illustration générée par IA (page article) */
+.ai-illustration-caption {
+	margin: 0.35rem 0 0;
+	font-size: 0.78rem;
+	color: var(--muted, #6b7280);
+	text-align: right;
+	font-style: italic;
 }

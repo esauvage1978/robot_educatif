@@ -3,7 +3,6 @@ title: "Python avancé — asyncio : concurrence et I/O non bloquants"
 description: "Event loop, async/await, Task, gather, sleep ; différences avec threads ; limites du GIL côté CPU ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Python avancé
 seriesOrder: 4
 tags: ["Python", "Programmation", "Avancé"]

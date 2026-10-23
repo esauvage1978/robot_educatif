@@ -1,9 +1,9 @@
 ---
-title: "Raspberry Pi 4 Modèle B : quelle version (1 / 2 / 4 / 8 Go) acheter ?"
-description: "Déclinaisons RAM du Pi 4, spécifications, refroidissement, dual HDMI, et guide de choix par usage (serveur, bureau, rétro, GPIO). Photo et prix indicatifs France 2026."
+title: "Raspberry Pi 4 : quelle version RAM choisir ?"
+description: "Raspberry Pi 4 : RAM, refroidissement, dual HDMI, choix par usage. Prix France 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
@@ -21,11 +21,11 @@ relatedLinks:
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
 ---
 
-Le **Raspberry Pi 4 Modèle B** (2019, révisions ultérieures) se distingue du Pi 3 surtout par **deux ports USB 3.0**, un **Ethernet Gigabit** indépendant, **jusqu’à 8 Go de RAM** en LPDDR4-3200 et **deux sorties micro-HDMI** capables de pousser des définitions bien plus élevées qu’un simple écran de bureau 1080p — selon usage et refroidissement.
+Le **[Raspberry Pi](/marque-raspberry-pi/) 4 Modèle B** (2019, révisions ultérieures) se distingue du Pi 3 surtout par **deux ports USB 3.0**, un **Ethernet Gigabit** indépendant, **jusqu’à 8 Go de RAM** en LPDDR4-3200 et **deux sorties micro-HDMI** capables de pousser des définitions bien plus élevées qu’un simple écran de bureau 1080p — selon usage et refroidissement.
 
 Ce guide détaille les **quatre déclinaisons mémoire** courantes, **quand choisir l’une ou l’autre**, et ce qu’il faut prévoir au **panier** (alim, câbles, dissipation).
 
-![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.jpg)
+![Raspberry Pi 4 Modèle B — vue de dessus avec annotations](/images/blog/raspberry-pi-comparatif-2026/pi-4-model-b-top-laserlicht-cc-by-sa-4-opt.webp)
 
 *Photo : [Laserlicht](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Top.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
 
@@ -63,9 +63,9 @@ Toutes les variantes offrent **GPIO 40 broches**, **CSI / DSI** (caméra / écra
 
 Si votre budget permet un **Pi 5** avec **dissipateur actif** et **bon chargeur**, le Pi 5 apporte **CPU plus véloce**, **RAM jusqu’à 16 Go** et **PCIe**. Sinon, le **Pi 4 4 Go** ou **8 Go** reste **extrêmement pertinent** pour ne pas sur-investir — tableau détaillé dans le [comparatif Pi 3 / 4 / 5](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/).
 
-## 5. Prix indicatifs (France, fin mars 2026)
+## 5. Prix : à vérifier chez le vendeur
 
-Les **Pi 4** se trouvent souvent entre **~55 €** (variantes 2 Go, promos) et **~100 € ou plus** pour le **8 Go** selon revendeur. Vérifiez si le prix inclut **carte SD**, **boîtier** et **alimentation** — trois postes qui gonflent vite le total sans être « dans la boîte ».
+Le prix d'un **Pi 4** dépend de la mémoire (2, 4 ou 8 Go), du revendeur et des stocks : vérifiez-le chez le vendeur au moment de l'achat. Regardez aussi si le prix inclut **carte SD**, **boîtier** et **alimentation** — trois postes qui gonflent vite le total sans être « dans la boîte ».
 
 ## 6. Installation logicielle
 
@@ -73,9 +73,9 @@ La procédure est la même que pour les autres Pi récents : **Raspberry Pi Imag
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 4 Model B](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/s?k=bo%C3%AEtier+Raspberry+Pi+4+ventilateur&tag=manuso06-21)
-- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/s?k=alimentation+USB-C+Raspberry+Pi+4+officielle&tag=manuso06-21)
+- [Raspberry Pi 4 Model B](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

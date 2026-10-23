@@ -1,0 +1,50 @@
+---
+title: "Zigbee, Wi-Fi, Z-Wave, Thread ou Matter : quel protocole domotique choisir ?"
+description: "Les protocoles domotiques expliqués simplement : fréquences, maillage, besoin d'une passerelle, consommation et compatibilité Home Assistant. Tableau comparatif et conseil pour débuter."
+pubDate: 2026-10-23T00:00:00Z
+category: "debuter"
+priority: 3
+---
+
+Avant d'acheter un premier capteur, il faut choisir **la langue que parleront vos appareils**. Une prise Wi-Fi, un capteur Zigbee et une ampoule Matter ne se raccordent pas de la même façon, et ce choix décide de la passerelle à acheter. Cette page résume les cinq protocoles que vous croiserez en magasin, à partir des documentations officielles ([Connectivity Standards Alliance](https://csa-iot.org/all-solutions/matter/), [Thread Group](https://www.threadgroup.org/What-is-Thread/Overview), [Z-Wave Alliance](https://z-wavealliance.org/), [intégrations Home Assistant](https://www.home-assistant.io/integrations/)).
+
+## L'essentiel en un tableau
+
+| Protocole | Fréquence (Europe) | Réseau | Passerelle nécessaire | Consommation | Dans Home Assistant |
+|---|---|---|---|---|---|
+| **Wi-Fi** | 2,4 GHz (parfois 5 GHz) | étoile autour de la box Internet | non | élevée : appareils sur secteur | selon la marque (intégration locale ou cloud) |
+| **Zigbee** | 2,4 GHz (IEEE 802.15.4) | maillé : les appareils sur secteur relaient | oui : un coordinateur (clé USB) | très faible : capteurs à pile pendant des mois | ZHA (intégré) ou Zigbee2MQTT |
+| **Z-Wave** | 868,4 MHz | maillé | oui : contrôleur Z-Wave | très faible | Z-Wave JS |
+| **Thread** | 2,4 GHz (IEEE 802.15.4) | maillé, IPv6 | oui : un « border router » | très faible | intégrations Thread et Matter |
+| **Matter** | s'appuie sur Wi-Fi, Thread ou Ethernet | couche applicative commune | dépend du transport | dépend du transport | intégration Matter |
+
+**Notre meilleur choix pour débuter : Zigbee**, avec une clé coordinatrice branchée sur Home Assistant. Le catalogue est le plus large, les capteurs coûtent peu et tiennent longtemps sur pile, et tout reste en local. Les clés que nous comparons sont dans notre [guide des clés Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
+
+## Wi-Fi : le plus simple, pas le plus sobre
+
+Un appareil Wi-Fi se connecte directement à la box Internet : pas de passerelle à acheter. C'est idéal pour une [prise connectée](/domotique/prise-connectee-zigbee-home-assistant/) ou une caméra, qui sont branchées sur secteur. En revanche le Wi-Fi consomme trop pour un petit capteur à pile, et chaque appareil occupe une place dans le réseau de la box. Beaucoup de produits Wi-Fi d'entrée de gamme passent aussi par le cloud du fabricant : vérifiez qu'une intégration **locale** existe avant d'acheter.
+
+## Zigbee : le standard des capteurs
+
+Zigbee repose sur la norme radio IEEE 802.15.4 à 2,4 GHz. Les appareils branchés sur secteur (prises, ampoules) **relaient** les messages : plus vous en ajoutez, plus le réseau porte loin. Il faut un **coordinateur**, en pratique une clé USB, et Home Assistant le pilote avec ZHA ou Zigbee2MQTT. Nous détaillons les deux options dans [Zigbee2MQTT ou ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/). Un exemple concret : le [capteur de température Zigbee](/domotique/capteur-temperature-zigbee/) fonctionne des mois sur une pile bouton.
+
+Point d'attention : Zigbee et Wi-Fi partagent la bande 2,4 GHz. Éloignez la clé du routeur avec une rallonge USB et choisissez des canaux qui ne se chevauchent pas.
+
+## Z-Wave : robuste, catalogue plus étroit
+
+Z-Wave émet autour de **868,4 MHz** en Europe, loin du Wi-Fi, ce qui limite les interférences. Le réseau est maillé et les produits sont certifiés par la Z-Wave Alliance. En contrepartie, le choix est plus restreint et les modules coûtent en général plus cher que leurs équivalents Zigbee. La fréquence change selon la région (908,4 MHz aux États-Unis) : un module américain ne fonctionne pas en France.
+
+## Thread et Matter : la nouvelle génération
+
+**Thread** est un réseau maillé basse consommation, lui aussi sur IEEE 802.15.4, mais basé sur IPv6 : chaque appareil a une adresse IP. Il a besoin d'un **border router** pour rejoindre le réseau de la maison ; certaines enceintes et box récentes en intègrent un.
+
+**Matter** n'est pas une radio : c'est un langage commun, publié par la Connectivity Standards Alliance (version 1.0 en octobre 2022), qui fonctionne par-dessus Wi-Fi, Thread ou Ethernet. Un appareil Matter peut être piloté par plusieurs écosystèmes à la fois (Home Assistant, Apple, Google, Amazon). La liste des types d'appareils pris en charge s'allonge à chaque version, mais elle reste plus courte que le catalogue Zigbee : vérifiez la catégorie de votre appareil avant d'acheter.
+
+## Notre conseil selon votre situation
+
+- **Vous débutez avec Home Assistant** : Zigbee pour les capteurs, Wi-Fi local pour les prises et les caméras.
+- **Vous voulez rester compatible avec Apple, Google et Amazon à la fois** : privilégiez les appareils Matter.
+- **Logement en béton, grandes distances** : Z-Wave ou un réseau Zigbee bien fourni en prises relais.
+- **Vous voulez bricoler vos propres capteurs** : un [ESP32 avec ESPHome](/domotique/esp32-esphome-capteur-temperature/) parle Wi-Fi, et certaines cartes récentes Thread (voir [quelle carte ESP32 choisir](/domotique/quelle-carte-esp32-choisir-domotique/)).
+
+Pour le reste du parcours (budget, premier équipement, choix du cerveau de la maison), suivez notre guide [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/) et la comparaison [Home Assistant, Jeedom, Homey ou box du commerce](/domotique/home-assistant-jeedom-homey-quel-systeme-choisir/).

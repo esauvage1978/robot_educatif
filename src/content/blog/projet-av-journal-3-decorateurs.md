@@ -1,9 +1,9 @@
 ---
-title: "Projet Journal CLI (3/6) — décorateurs pour métriques et journalisation"
+title: "Projet Journal CLI (3/6) : décorateurs et métriques"
 description: "Mesurer le temps de parsing, journaliser le nombre de lignes, functools.wraps ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 3
 tags: ["Python", "Projet", "Décorateurs"]

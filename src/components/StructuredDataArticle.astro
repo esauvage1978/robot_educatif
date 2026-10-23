@@ -1,0 +1,49 @@
+---
+import { SITE_TITLE, ARTICLE_AUTHOR } from '../consts';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	/** Image : ImageMetadata (asset Astro) ou chemin/URL (vignette générée, og:image) */
+	heroImage?: ImageMetadata | string;
+	articleSlug: string;
+}
+
+const { title, description, pubDate, updatedDate, heroImage, articleSlug } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const imageSrc = typeof heroImage === 'string' ? heroImage : heroImage?.src;
+const imageUrl = imageSrc ? new URL(imageSrc, Astro.site).toString() : '';
+
+const articleJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description: description,
+	...(imageUrl && { image: imageUrl }),
+	datePublished: pubDate.toISOString(),
+	// dateModified : date de mise à jour du frontmatter, sinon la date de publication (article non modifié)
+	dateModified: (updatedDate ?? pubDate).toISOString(),
+	author: {
+		'@type': 'Person',
+		name: ARTICLE_AUTHOR,
+	},
+	publisher: {
+		'@type': 'Organization',
+		name: SITE_TITLE,
+		url: new URL('/', Astro.site).toString(),
+		logo: {
+			'@type': 'ImageObject',
+			url: new URL('/favicon.png', Astro.site).toString(),
+		},
+	},
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalURL,
+	},
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />

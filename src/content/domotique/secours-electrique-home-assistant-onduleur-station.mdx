@@ -1,0 +1,224 @@
+---
+title: "Secours électrique pour Home Assistant : onduleur ou station électrique, calcul d'autonomie et arrêt propre"
+description: "Garder Home Assistant (Raspberry Pi 5 ou Green), la box internet et le réseau Zigbee en marche pendant une coupure : calcul de consommation et d'autonomie, choix onduleur ou station électrique, NUT, alertes et arrêt propre automatique."
+pubDate: 2026-10-20T00:00:00Z
+category: "home-assistant"
+priority: 6
+---
+
+Une coupure de courant de quelques secondes suffit à redémarrer Home Assistant, à couper la box internet et à faire tomber une partie du réseau Zigbee. Une coupure plus longue, c'est l'alarme, les capteurs de fuite et les notifications qui disparaissent justement au moment où l'on en aurait besoin. Ce tutoriel montre comment **dimensionner** un secours électrique pour votre installation, **choisir** entre un onduleur et une station électrique, **faire remonter l'état de la batterie** dans Home Assistant et **arrêter proprement** le serveur avant que la batterie soit vide.
+
+L'angle de ce tutoriel : on raisonne **appareil par appareil** (un « budget d'autonomie ») plutôt qu'en VA sur une étiquette, et on regarde un point souvent oublié : **le maillage Zigbee**, qui dépend des prises et ampoules secteur.
+
+## Objectif
+
+- Savoir combien de watts consomme réellement le cœur de votre domotique.
+- Calculer l'autonomie d'une batterie donnée, ou la capacité nécessaire pour tenir X heures.
+- Choisir un équipement dont le **temps de bascule** est compatible avec vos appareils.
+- Recevoir une notification au passage sur batterie et déclencher un **arrêt propre** de Home Assistant.
+
+## Durée, niveau et budget
+
+| Durée | Niveau | Budget |
+|---|---|---|
+| 1 h de mesures et de calcul, 1 à 2 h d'installation | débutant à intermédiaire | un wattmètre de prise suffit pour les mesures ; onduleur ou station selon l'autonomie visée (prix à vérifier au moment de l'achat) |
+
+Aucun prix n'est indiqué ici car il varie trop. Les étapes 1 à 3 (mesure et calcul) ne demandent aucun achat et sont utiles même si vous ne vous équipez pas.
+
+## Les étapes en un coup d'œil
+
+1. Lister ce qui doit rester allumé
+2. Mesurer la consommation de chaque appareil
+3. Calculer l'autonomie (ou la capacité nécessaire)
+4. Choisir onduleur ou station électrique, vérifier le temps de bascule
+5. Brancher et tester une vraie coupure
+6. Remonter l'état de la batterie dans Home Assistant
+7. Créer les alertes et l'arrêt propre automatique
+8. Prévoir le redémarrage au retour du courant
+
+## Prérequis
+
+- Une installation Home Assistant OS qui fonctionne (voir [installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/)).
+- L'application mobile Home Assistant pour recevoir les notifications.
+- Un **wattmètre de prise** (ou une prise connectée avec mesure de puissance déjà intégrée à Home Assistant).
+
+## Étape 1 : lister ce qui doit rester allumé
+
+Le cœur minimal d'une domotique qui continue de fonctionner pendant une coupure :
+
+| Appareil | Pourquoi |
+|---|---|
+| Serveur Home Assistant (Raspberry Pi 5, Home Assistant Green…) | automatisations, historique, notifications |
+| Clé ou coordinateur Zigbee (USB ou réseau) | lien avec les capteurs Zigbee |
+| Box internet (et boîtier fibre ONT s'il est séparé) | notifications sur le téléphone, accès à distance |
+| Switch réseau, s'il y en a un entre la box et le serveur | sans lui, plus de réseau local |
+
+Les **capteurs sur pile** (ouverture, fuite d'eau, température) n'ont pas besoin de secours : ils continuent d'émettre. En revanche, les **prises et ampoules Zigbee secteur** servent souvent de **routeurs** au réseau maillé : pendant une coupure, elles s'éteignent et un capteur éloigné peut perdre son chemin vers le coordinateur. Regardez la carte du réseau dans Zigbee Home Automation (ZHA) ou Zigbee2MQTT : si vos capteurs critiques passent par un routeur secteur non secouru, rapprochez le coordinateur ou acceptez qu'ils décrochent pendant la coupure.
+
+## Étape 2 : mesurer la consommation
+
+Les valeurs des étiquettes sont des **maximums** (puissance de l'alimentation), pas la consommation réelle. Mesurez chaque appareil pendant au moins une heure avec le wattmètre et notez la puissance moyenne.
+
+Ordres de grandeur pour situer vos mesures :
+
+| Appareil | Donnée de référence | Source |
+|---|---|---|
+| Home Assistant Green | ~1,7 W au repos, ~3 W en charge (sous 12 V) | fiche technique Home Assistant Green |
+| Raspberry Pi 5 | alimentation officielle 5 V / 5 A (27 W) : c'est un **plafond**, la consommation réelle d'un serveur domotique est bien inférieure, à mesurer | documentation Raspberry Pi |
+| Box internet | variable selon l'opérateur et le modèle : lisez l'étiquette de son bloc (par exemple 12 V × 2 A = 24 W au maximum) et mesurez | étiquette du bloc d'alimentation |
+| Clé Zigbee USB | alimentée par le port USB du serveur, déjà comptée dans sa mesure | - |
+
+## Étape 3 : calculer l'autonomie
+
+Les formules :
+
+- Puissance totale : **P = somme des puissances moyennes mesurées** (en W).
+- Énergie disponible : **E = capacité (Wh) × part utilisable × rendement de sortie**.
+- Autonomie : **t (h) = E / P**.
+- Capacité nécessaire pour tenir t heures : **C = P × t / (part utilisable × rendement)**.
+
+La part utilisable et le rendement dépendent de l'équipement : la sortie 230 V passe par un onduleur interne qui a des pertes et une consommation propre. Sans donnée du fabricant, prenez une hypothèse prudente (par exemple 85 % de rendement en sortie 230 V et 90 % de capacité utilisable) puis **vérifiez par un test réel** (étape 5).
+
+### Exemple chiffré
+
+Hypothèses : Home Assistant Green à 3 W (valeur « en charge » de la fiche, donc prudente), box internet mesurée à 15 W (exemple), switch réseau à 2 W (exemple). Total **P = 20 W**.
+
+| Batterie | Calcul | Autonomie estimée |
+|---|---|---|
+| Station de 300 Wh, sortie 230 V | 300 × 0,9 × 0,85 / 20 | ≈ 11,5 h |
+| Station de 300 Wh, sortie 12 V DC | 300 × 0,9 × 0,95 / 20 (rendement DC supposé meilleur) | ≈ 12,8 h |
+| Petit onduleur avec batterie 12 V 7 Ah (84 Wh) | 84 × 0,8 × 0,85 / 20 | ≈ 2,9 h |
+
+Pour tenir **24 h** avec ces 20 W en sortie 230 V : C = 20 × 24 / (0,9 × 0,85) ≈ **630 Wh**.
+
+Deux enseignements : la **box internet pèse souvent plus que le serveur domotique**, et chaque watt économisé compte (un switch inutile, un disque dur USB, une box TV laissée sur la même multiprise). Retirez de la prise secourue tout ce qui n'est pas indispensable.
+
+L'astuce DC : le Home Assistant Green s'alimente en **12 V DC, 1 A** (connecteur 5,5 × 2,1 mm). Si votre station possède une sortie 12 V DC compatible, brancher le Green directement dessus évite la double conversion 230 V. Vérifiez **la tension, le courant maximal et le connecteur** dans la fiche de la station avant de le faire ; dans le doute, restez sur le bloc d'origine.
+
+## Étape 4 : onduleur ou station électrique ?
+
+| Critère | Onduleur (UPS) | Station électrique |
+|---|---|---|
+| Rôle principal | tenir quelques minutes à quelques heures, puis arrêter proprement | grosse réserve d'énergie, usage nomade |
+| Bascule secteur → batterie | conçu pour cela (temps de bascule indiqué dans la fiche) | seulement si le modèle a une fonction **UPS / EPS** ; temps de bascule à lire dans la fiche |
+| Communication avec Home Assistant | souvent un port USB HID, compatible NUT | rarement standard (application ou cloud du fabricant) |
+| Autonomie typique pour 20 W | de l'ordre de l'heure à quelques heures | de l'ordre de la demi-journée à plusieurs jours |
+
+**Temps de bascule** : un appareil sans batterie interne (Raspberry Pi, Green, box) s'éteint si la coupure dure plus que ce que ses condensateurs supportent. Il faut un équipement dont la fonction UPS est annoncée avec un temps de bascule court, **à vérifier dans la fiche du fabricant**. Le simple « passthrough » (recharger la station tout en alimentant des appareils) **ne garantit pas** une bascule sans coupure : ce n'est pas la même fonction.
+
+**Usage permanent** : une station branchée en continu sur le secteur reste en charge à 100 % toute l'année. Certains fabricants le déconseillent ou proposent un mode dédié (limite de charge, mode UPS). Lisez la notice sur ce point.
+
+### Où trouver ce matériel
+
+- **Stations électriques** : la marque ALLPOWERS propose des stations dont certains modèles annoncent une fonction UPS : <a href="https://www.awin1.com/cread.php?awinmid=98667&awinaffid=3126073" rel="sponsored nofollow" target="_blank" data-merchant="ALLPOWERS" data-placement="tuto_secours_ha">voir les stations ALLPOWERS</a>. Vérifiez sur la fiche du modèle choisi la présence de la fonction UPS, le temps de bascule annoncé et les sorties disponibles (230 V, 12 V DC, USB-C). BLUETTI et EcoFlow sont d'autres fabricants connus de stations électriques, à comparer selon les mêmes critères.
+- **Onduleurs** : choisissez un modèle avec port USB de communication et présent dans la liste de compatibilité NUT (<a href="https://www.amazon.fr/s?k=onduleur+USB+HID&tag=manuso06-21" rel="sponsored nofollow" target="_blank">onduleurs avec port USB sur Amazon</a>).
+
+## Étape 5 : brancher et tester une vraie coupure
+
+1. Branchez sur la sortie secourue : serveur Home Assistant, box internet (et ONT), switch. Rien d'autre.
+2. Laissez la batterie se charger complètement.
+3. Débranchez la **prise murale** de l'onduleur ou de la station (ne coupez pas avec son bouton, ce n'est pas la même chose).
+4. Vérifiez : le serveur ne redémarre pas (regardez « Paramètres > Système > Matériel » ou la durée de fonctionnement), la box reste connectée, une automation Zigbee répond.
+5. Laissez tourner 30 minutes, notez la baisse de charge et **recalculez l'autonomie réelle** : si la charge baisse de 5 % en 30 minutes, comptez environ 10 h pour 100 %, moins la marge d'arrêt.
+
+## Étape 6 : remonter l'état de la batterie dans Home Assistant
+
+### Cas 1 : onduleur avec port USB (méthode recommandée)
+
+1. Reliez l'onduleur en USB au serveur Home Assistant.
+2. Installez l'add-on **Network UPS Tools** (dépôt des add-ons communautaires de Home Assistant) et configurez-le avec un utilisateur et le pilote `usbhid-ups`. Les options exactes sont décrites dans la documentation de l'add-on, à suivre pour votre version.
+3. Ajoutez l'intégration officielle **Network UPS Tools (NUT)** : « Paramètres > Appareils et services > Ajouter une intégration ». Elle est souvent découverte automatiquement ; sinon, le port par défaut du serveur NUT est **3493**.
+4. Vous obtenez notamment `sensor.ups_status` (secteur ou batterie), `sensor.ups_battery_charge` (%) et, selon l'onduleur, l'autonomie restante estimée en secondes.
+
+Si l'onduleur est relié à un autre ordinateur (un NAS, par exemple) qui fait déjà serveur NUT, il suffit d'ajouter l'intégration NUT en pointant vers l'adresse IP de cette machine.
+
+### Cas 2 : station électrique sans protocole standard
+
+La plupart des stations ne parlent pas NUT. Il n'existe pas, à notre connaissance, d'intégration officielle Home Assistant pour chaque marque : vérifiez la liste des intégrations officielles avant de vous lancer, et méfiez-vous des intégrations non officielles qui dépendent du cloud du fabricant (elles cessent de fonctionner quand internet tombe, c'est-à-dire pendant une coupure longue si la box n'est pas secourue).
+
+Méthode simple et locale pour **détecter la coupure** : un capteur témoin branché sur une prise **non secourue**. Par exemple, un ESP32 sous ESPHome alimenté par un chargeur USB (voir [premier capteur ESP32 avec ESPHome](/domotique/esp32-esphome-capteur-temperature/)) : quand le courant tombe, l'appareil devient indisponible dans Home Assistant. Une prise connectée avec mesure de tension fait aussi l'affaire.
+
+## Étape 7 : alertes et arrêt propre automatique
+
+L'objectif est de recevoir une alerte au passage sur batterie, puis d'**arrêter le système hôte** avant que la batterie soit vide, pour éviter la corruption de la carte SD ou du disque.
+
+Automatisation de notification avec NUT (adaptez les identifiants d'entités et le service de notification aux vôtres) :
+
+```yaml
+alias: "Coupure secteur : passage sur batterie"
+triggers:
+  - trigger: state
+    entity_id: sensor.ups_status
+    to: "On Battery, Battery Discharging"
+actions:
+  - action: notify.mobile_app_mon_telephone
+    data:
+      message: "Coupure de courant : la domotique tourne sur batterie."
+```
+
+Arrêt propre quand la charge passe sous 25 % :
+
+```yaml
+alias: "Batterie faible : arrêt propre de Home Assistant"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.ups_battery_charge
+    below: 25
+conditions:
+  - condition: state
+    entity_id: sensor.ups_status
+    state: "On Battery, Battery Discharging"
+actions:
+  - action: notify.mobile_app_mon_telephone
+    data:
+      message: "Batterie sous 25 % : arrêt propre de Home Assistant dans 2 minutes."
+  - delay: "00:02:00"
+  - action: hassio.host_shutdown
+```
+
+La condition évite un arrêt intempestif si le capteur de charge affiche une valeur basse alors que le secteur est revenu. Pour la variante « station électrique + capteur témoin », remplacez le déclencheur par l'état `unavailable` de l'appareil témoin pendant une durée calculée à l'étape 3 (par exemple `for: "08:00:00"` si votre calcul donne 10 h), en gardant une marge.
+
+L'action `hassio.host_shutdown` existe sur Home Assistant OS et Supervised : vérifiez qu'elle apparaît dans « Outils de développement > Actions » sur votre installation.
+
+## Étape 8 : le redémarrage au retour du courant
+
+Un point piège : après un arrêt propre, le Raspberry Pi 5 ou le Green **redémarre seulement si son alimentation est coupée puis rétablie**. Si la batterie de l'onduleur ou de la station n'a jamais été complètement vidée, la sortie n'a pas été coupée et le serveur reste éteint au retour du secteur.
+
+Solutions, à vérifier selon votre matériel :
+
+- Onduleur : certains modèles coupent puis rétablissent leur sortie après une commande d'arrêt envoyée par NUT ; consultez la documentation NUT de votre modèle.
+- Station : coupez puis rallumez la sortie à la main au retour du courant.
+- Dans tous les cas, prévoyez une notification « Home Assistant a redémarré » (déclencheur « Home Assistant démarre ») pour savoir que tout est revenu.
+
+## Erreurs fréquentes
+
+- Dimensionner sur la puissance de l'étiquette au lieu d'une mesure réelle.
+- Oublier la box internet ou l'ONT : Home Assistant tourne, mais aucune notification n'arrive.
+- Croire qu'un « passthrough » est une fonction UPS.
+- Brancher un radiateur, une imprimante 3D ou une box TV sur la prise secourue.
+- Ne jamais tester une vraie coupure.
+- Laisser l'arrêt automatique sans condition sur l'état secteur.
+- Compter sur une intégration cloud pour surveiller une batterie pendant une coupure internet.
+
+## Dépannage
+
+- **Le serveur redémarre à chaque coupure** : temps de bascule trop long ou fonction UPS absente ; vérifiez la fiche et testez une autre sortie de l'équipement.
+- **L'intégration NUT ne trouve rien** : l'add-on ne démarre pas (regardez son journal), mauvais pilote, ou onduleur absent de la liste de compatibilité NUT.
+- **`sensor.ups_status` ne prend pas la valeur attendue** : l'état exact dépend de l'onduleur ; ouvrez l'historique du capteur pendant un test de coupure et recopiez la valeur affichée dans l'automatisation.
+- **Autonomie très inférieure au calcul** : consommation propre de l'onduleur, batterie usée, ou appareil oublié sur la prise ; refaites la mesure à la sortie de l'équipement.
+- **Des capteurs Zigbee décrochent pendant la coupure** : routeurs secteur éteints ; voir l'étape 1.
+
+> **Comment ce tutoriel a été vérifié** : nous n'avons pas réalisé ce montage sur un onduleur ou une station précise. Les formules sont des calculs d'énergie standard, les consommations du Home Assistant Green viennent de sa fiche officielle, et les automatisations reprennent la syntaxe de la documentation officielle de l'intégration NUT. Les chiffres de l'exemple sont des hypothèses à remplacer par vos mesures ; la fiche du fabricant de votre équipement fait foi pour le temps de bascule et l'usage permanent.
+
+## Sources vérifiées
+
+- Home Assistant Green, fiche technique (consommation, alimentation 12 V DC 1 A) : https://www.home-assistant.io/green/
+- Home Assistant, intégration Network UPS Tools (NUT), capteurs et exemples d'automatisations : https://www.home-assistant.io/integrations/nut/
+- Network UPS Tools, liste de compatibilité matérielle : https://networkupstools.org/stable-hcl.html
+- Add-on Network UPS Tools pour Home Assistant : https://github.com/hassio-addons/addon-nut
+- Raspberry Pi, documentation (alimentation du Raspberry Pi 5) : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- Home Assistant, actions du Supervisor (`hassio.host_shutdown`) : https://www.home-assistant.io/integrations/hassio/
+
+À lire aussi : [débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/), [capteur CO2 sur Raspberry Pi avec Home Assistant](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/), [capteur d'ouverture de porte et notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/) et [projets ESP32 domotique](/domotique/projets-esp32-domotique/).
+
+**À lire aussi** : [une caméra solaire autonome](/domotique/camera-surveillance-exterieure-solaire-iegeek/)

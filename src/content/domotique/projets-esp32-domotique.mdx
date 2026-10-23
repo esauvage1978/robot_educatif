@@ -1,0 +1,225 @@
+---
+title: "10 projets ESP32 pour la domotique avec ESPHome et Home Assistant"
+description: "Idées de projets ESP32 + ESPHome : capteurs, relais, LED, station météo, assistant vocal, écran. De débutant à avancé. Intégration Home Assistant."
+pubDate: 2026-10-18T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 9
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+L'**ESP32 + ESPHome** transforme un petit microcontrôleur Wi-Fi en capteur, relais ou écran connecté Home Assistant. Voici 10 projets classés par difficulté. Les prix du matériel bougent souvent : vérifiez-les chez le vendeur avant de commander.
+
+## Matériel recommandé
+
+<ProductBox
+  productId="esp32-c6-devkitc"
+  name="ESP32-C6 DevKitC"
+  searchQuery="ESP32-C6 DevKitC-1"
+  image="/images/products/esp32-c6-devkitc.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'WiFi 6 + Zigbee/Thread',
+    'Compatible ESPHome',
+    'USB-C direct',
+    'Parfait pour débuter'
+  ]}
+  badge="Recommandé"
+  position={1}
+/>
+
+## Projets débutants (1–2 heures)
+
+### 1. Capteur température DHT22
+
+**Matériel** : ESP32-C6 + DHT22  
+**Utilité** : surveiller chaque pièce sans Zigbee  
+[Tuto complet ici](/domotique/esp32-esphome-capteur-temperature/)
+
+### 2. Bouton d'urgence
+
+**Matériel** : ESP32 + bouton poussoir  
+**Code** :
+```yaml
+binary_sensor:
+  - platform: gpio
+    pin: GPIO4
+    name: "Bouton SOS"
+    on_press:
+      - homeassistant.event:
+          event: bouton_sos
+```
+
+**Utilité** : déclencher alarme, appeler téléphone, couper tout (panique).
+
+### 3. LED de statut
+
+**Matériel** : ESP32 + LED RGB WS2812  
+**Utilité** : afficher état maison (vert = OK, rouge = fenêtre ouverte, bleu = absent).
+
+## Projets intermédiaires (2–4 heures)
+
+### 4. Station météo complète
+
+**Matériel** : ESP32 + BME280 (temp/hum/pression) + BH1750 (luminosité)  
+**Utilité** : météo locale, prédire pluie, automatiser stores selon luminosité.
+
+### 5. Relais 4 canaux
+
+**Matériel** : ESP32 + module relais 4 canaux  
+**Utilité** : piloter chauffage, ventilateur, pompe, portail.
+
+<div class="shelly-encart">
+<p><strong>Module prêt à l'emploi</strong> — Si vous préférez un relais déjà assemblé plutôt qu'un montage maison : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-1-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1 Gen4" data-placement="encart_esp32_relais">Shelly 1 Gen4, relais Wi-Fi prêt à intégrer dans Home Assistant</a>.</p>
+<p class="shelly-encart-note">Lien affilié : si vous achetez via ce lien, le site peut percevoir une commission, sans surcoût pour vous.</p>
+</div>
+
+### 6. Détecteur de présence mmWave
+
+**Matériel** : ESP32 + LD2410 mmWave  
+**Utilité** : détection présence même immobile (bureau, chambre). Meilleur que PIR.
+
+## Projets avancés (4–8 heures)
+
+### 7. Écran e-paper météo
+
+**Matériel** : ESP32 + écran e-paper 2,9"  
+**Utilité** : affichage météo, calendrier, température sans écran allumé en permanence.
+
+**Code ESPHome** :
+```yaml
+display:
+  - platform: waveshare_epaper
+    model: 2.90in
+    cs_pin: GPIO5
+    dc_pin: GPIO17
+    lambda: |-
+      it.printf(10, 10, id(font1), "Salon: %.1f°C", id(temp_salon).state);
+      it.printf(10, 50, id(font1), "Météo: %s", id(meteo).state.c_str());
+```
+
+### 8. Capteur CO2 (qualité air)
+
+**Matériel** : ESP32 + MH-Z19B  
+**Utilité** : surveiller qualité de l'air, alerte si CO2 > 1000 ppm (aérer), automatiser VMC.
+
+**Seuils recommandés** :
+- < 800 ppm : excellent
+- 800-1000 ppm : bon
+- 1000-1500 ppm : aérer
+- \> 1500 ppm : très mauvais (maux de tête, concentration difficile)
+
+**Automatisation HA** :
+```yaml
+automation:
+  - alias: "VMC boost si CO2 élevé"
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.co2_bureau
+      above: 1200
+    action:
+      - service: fan.set_speed
+        target:
+          entity_id: fan.vmc
+        data:
+          speed: "high"
+```
+
+### 9. Assistant vocal local (Atom Echo)
+
+**Matériel** : M5Stack Atom Echo ou HA Voice Preview Edition  
+**Utilité** : commandes vocales "Allume salon" sans cloud Google/Alexa. 100 % local.
+
+**Installation** :
+1. Flasher Atom Echo avec ESPHome Voice Assistant
+2. Ajouter dans HA : **Paramètres → Voice Assistants**
+3. Configurer pipeline : Wake Word (OK Nabu) → Whisper (speech-to-text) → conversation → TTS
+
+**Commandes exemples** :
+- "Allume le salon"
+- "Quelle est la température de la chambre ?"
+- "Lance l'aspirateur"
+
+### 10. Compteur d'eau/électricité
+
+**Matériel** : ESP32 + capteur effet Hall  
+**Utilité** : lire les impulsions du compteur Linky ou d'eau, suivre consommation réelle.
+
+**Linky** : sortie télé-info (RX via ESP32 UART)  
+**Eau** : capteur Hall qui détecte rotation de l'aiguille
+
+**Code ESPHome compteur eau** :
+```yaml
+sensor:
+  - platform: pulse_counter
+    pin: GPIO4
+    name: "Débit eau"
+    unit_of_measurement: 'L/min'
+    filters:
+      - multiply: 0.5
+    total:
+      name: "Volume eau total"
+      unit_of_measurement: 'L'
+```
+
+## Projets bonus (niveau expert)
+
+### 11. Portail connecté avec caméra
+
+**Matériel** : ESP32-CAM + relais  
+**Utilité** : Ouvrir portail depuis HA, photo de qui sonne, reconnaissance faciale.
+
+### 12. Irrigation automatique jardin
+
+**Matériel** : ESP32 + capteur humidité sol + électrovanne  
+**Utilité** : arroser uniquement si sol sec, économie d'eau.
+
+### 13. Alarme DIY avec sirène
+
+**Matériel** : ESP32 + détecteurs PIR + sirène 12V  
+**Utilité** : alarme locale sans abonnement, notification HA.
+
+### 14. Sonnette vidéo DIY
+
+**Matériel** : ESP32-CAM + bouton + haut-parleur  
+**Utilité** : alternative Ring/Nest, 100 % local, enregistrement HA.
+
+### 15. Mesure qualité air complète
+
+**Matériel** : ESP32 + BME680 (temp/hum/pression/VOC) + PMS5003 (particules)  
+**Utilité** : surveiller pollution intérieure (COV, PM2.5, PM10).
+
+## Pourquoi ESP32 plutôt que Zigbee ?
+
+✅ **Personnalisable** : ajouter n'importe quel capteur I2C, SPI, GPIO  
+✅ **WiFi direct** : pas de dongle  
+✅ **Souvent moins cher** : un ESP32 et un capteur reviennent généralement moins cher qu'un capteur Zigbee du commerce (prix à vérifier chez le vendeur)
+
+❌ **Alimentation secteur** : USB 5V (sauf batterie externe)  
+❌ **Plus technique** : souder, câbler
+
+## Ressources
+
+**ESPHome** : [esphome.io](https://esphome.io)  
+**Composants** : AliExpress, Amazon  
+**Forum** : [community.home-assistant.io](https://community.home-assistant.io)
+
+<div class="shelly-encart">
+<p><strong>Mesure au tableau électrique</strong> — Pour suivre la consommation directement sur le tableau, sans montage : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-pro-3em-v2" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly Pro 3EM" data-placement="encart_esp32_mesure">Shelly Pro 3EM, suivi de consommation sur le tableau électrique</a>. Pour piloter un volet ou deux circuits d'éclairage : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-2pm-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 2PM Gen4" data-placement="encart_esp32_mesure">Shelly 2PM Gen4</a>.</p>
+<p class="shelly-encart-note">Lien affilié : si vous achetez via ce lien, le site peut percevoir une commission, sans surcoût pour vous.</p>
+</div>
+
+## Pour aller plus loin
+
+- [Tuto capteur température ESP32](/domotique/esp32-esphome-capteur-temperature/)
+- [Installer Home Assistant](/domotique/home-assistant-raspberry-pi-5-installation/)
+- [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/)
+
+---
+
+*Affiliation Amazon tag manuso06-21, ~3 % commission.*
+
+## Pour aller plus loin
+
+- [Ouvrir sa porte de garage depuis son smartphone (ESP32 + ESPHome)](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)

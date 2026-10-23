@@ -1,0 +1,47 @@
+---
+title: "Domotique en location : que peut-on installer sans travaux ?"
+description: "Locataire ou logement temporaire : prises connectées, capteurs à pile, têtes thermostatiques, interrupteurs sans fil et caméras sans perçage. Ce qu'on peut installer, ce qu'il faut demander au propriétaire, et comment tout récupérer au départ."
+pubDate: 2026-10-23T00:00:00Z
+category: "debuter"
+priority: 5
+---
+
+Être locataire n'empêche pas d'avoir une maison connectée. La règle est simple : **tout ce qui se branche, se colle ou se visse sur un embout existant** peut s'installer puis repartir avec vous. Ce qui touche au tableau électrique, aux interrupteurs encastrés ou à la chaudière demande l'accord du propriétaire et, souvent, un électricien.
+
+## L'essentiel en un tableau
+
+| Équipement | Installation | Accord du propriétaire | Récupérable au départ | Protocole courant |
+|---|---|---|---|---|
+| Prise connectée | se branche | non | oui | Wi-Fi, Zigbee, Matter |
+| Capteur température / humidité | posé ou collé | non | oui | Zigbee, Bluetooth |
+| Capteur d'ouverture | adhésif | non | oui (adhésif à retirer) | Zigbee |
+| Ampoule connectée | se visse | non | oui (remettre l'ancienne) | Zigbee, Wi-Fi, Matter |
+| Bouton / interrupteur sans fil | adhésif | non | oui | Zigbee |
+| Tête thermostatique connectée | remplace la tête du radiateur à eau | à vérifier (radiateur équipé d'un corps thermostatique) | oui (remettre l'ancienne tête) | Zigbee, Thread |
+| Caméra intérieure | posée | non (respecter la vie privée des visiteurs) | oui | Wi-Fi |
+| Interrupteur encastré, module derrière interrupteur | travaux électriques | **oui** | non conseillé | — |
+| Thermostat de chaudière | câblage | **oui** | — | — |
+
+**Notre meilleur choix pour commencer en location : une clé Zigbee sur Home Assistant, plus des prises et capteurs Zigbee.** Rien n'est fixé au mur, et le jour du déménagement le système entier tient dans un carton. Le détail des clés est dans notre [comparatif des clés Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
+
+## Les équipements sans risque
+
+**Prises connectées.** C'est l'entrée en matière idéale : programmation d'un chauffage d'appoint, mesure de consommation, coupure à distance. Respectez la puissance maximale indiquée par le fabricant (souvent 16 A) et évitez les multiprises en cascade. Notre [comparatif des prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) précise lesquelles mesurent la consommation.
+
+**Capteurs à pile.** Température, humidité, ouverture de fenêtre, fuite d'eau : ils se posent ou se collent. Pour les choisir, voir notre [comparatif des capteurs de température Zigbee](/domotique/capteur-temperature-zigbee/). Utilisez des adhésifs repositionnables pour ne pas abîmer la peinture.
+
+**Boutons sans fil.** Un bouton Zigbee collé près de la porte peut éteindre toutes les lampes en partant, sans toucher au câblage existant.
+
+## Les équipements à vérifier
+
+**Têtes thermostatiques.** Sur un radiateur à eau chaude équipé d'un robinet thermostatique, la tête se dévisse et se remplace par une tête connectée, sans vidanger. Gardez l'ancienne tête et remettez-la au départ. Vérifiez la compatibilité du filetage avec l'adaptateur fourni.
+
+**Caméras.** Une caméra intérieure ne pose pas de problème technique. En revanche, filmer les parties communes d'un immeuble ou la voie publique n'est pas autorisé : orientez-la uniquement vers votre logement, comme le rappelle la [CNIL](https://www.cnil.fr/fr/la-videosurveillance-videoprotection-chez-soi).
+
+## Ce qu'il faut laisser au propriétaire
+
+Modules encastrés derrière les interrupteurs, volets roulants, tableau électrique, thermostat de chaudière : ces installations modifient le logement. Demandez une autorisation écrite et faites appel à un électricien.
+
+## Le cerveau : discret et transportable
+
+Un [Home Assistant Green ou un Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) se branche sur la box Internet par un câble réseau. Au déménagement, vous le rebranchez chez vous : les automatisations et l'historique suivent. Pour choisir le système, lisez [Home Assistant, Jeedom, Homey ou box du commerce](/domotique/home-assistant-jeedom-homey-quel-systeme-choisir/), et pour le parcours complet, [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/).

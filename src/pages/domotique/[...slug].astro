@@ -1,0 +1,24 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import DomotiquePost from '../../layouts/DomotiquePost.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('domotique');
+	return posts.map((entry) => ({
+		params: { slug: entry.id.replace(/\.mdx?$/, '') },
+		props: { entry },
+	}));
+}
+
+type Props = {
+	entry: CollectionEntry<'domotique'>;
+};
+
+const { entry } = Astro.props as Props;
+const { Content, remarkPluginFrontmatter } = await render(entry);
+const articleSlug = entry.id.replace(/\.mdx?$/, '');
+---
+
+<DomotiquePost {...entry.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema}>
+	<Content />
+</DomotiquePost>

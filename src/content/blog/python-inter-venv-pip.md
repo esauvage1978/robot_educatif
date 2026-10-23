@@ -1,9 +1,9 @@
 ---
 title: "Python intermédiaire — environnements virtuels et pip"
-description: "Pourquoi isoler les dépendances : venv, activation, pip, requirements.txt, figer les versions, PyPI et sécurité ; ressources officielles ; 20 exercices avec solutions repliables."
+description: "Venv et pip Python : isolation, activation, requirements, PyPI. 20 exercices avec solutions."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python intermédiaire
 seriesOrder: 2
 tags: ["Python", "Programmation", "Bonnes pratiques"]

@@ -16,10 +16,10 @@ type Props = {
 };
 
 const { post } = Astro.props as Props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 const articleSlug = articleSlugFromId(post.id);
 ---
 
-<BlogPost {...post.data} articleSlug={articleSlug}>
+<BlogPost {...post.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema}>
 	<Content />
 </BlogPost>

@@ -1,0 +1,714 @@
+{
+  "accueil-desktop-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "hero-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 52,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-em-teal",
+      "fg": "rgb(15, 118, 110)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "5.23",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 52,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-lead",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "9.90",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 17.28,
+      "fontWeight": 400
+    },
+    {
+      "selector": "trust-signal",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "9.90",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 15.2,
+      "fontWeight": 400
+    },
+    {
+      "selector": "hero-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 800
+    },
+    {
+      "selector": "section-heading",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 38.4,
+      "fontWeight": 800
+    },
+    {
+      "selector": "article-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 18.4,
+      "fontWeight": 700
+    }
+  ],
+  "accueil-desktop-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "hero-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 52,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-em-teal",
+      "fg": "rgb(20, 184, 166)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "6.78",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 52,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-lead",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "13.70",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 17.28,
+      "fontWeight": 400
+    },
+    {
+      "selector": "trust-signal",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "13.70",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 15.2,
+      "fontWeight": 400
+    },
+    {
+      "selector": "hero-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 800
+    },
+    {
+      "selector": "section-heading",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 38.4,
+      "fontWeight": 800
+    },
+    {
+      "selector": "article-card-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "15.08",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 18.4,
+      "fontWeight": 700
+    }
+  ],
+  "accueil-mobile-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "hero-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 29.6,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-em-teal",
+      "fg": "rgb(15, 118, 110)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "5.23",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 29.6,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-lead",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "9.90",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "selector": "trust-signal",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "9.90",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 14.08,
+      "fontWeight": 400
+    },
+    {
+      "selector": "hero-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 800
+    },
+    {
+      "selector": "section-heading",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 28.8,
+      "fontWeight": 800
+    },
+    {
+      "selector": "article-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 18.4,
+      "fontWeight": 700
+    }
+  ],
+  "accueil-mobile-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "hero-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 29.6,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-em-teal",
+      "fg": "rgb(20, 184, 166)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "6.78",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 29.6,
+      "fontWeight": 800
+    },
+    {
+      "selector": "hero-lead",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "13.70",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "selector": "trust-signal",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "13.70",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 14.08,
+      "fontWeight": 400
+    },
+    {
+      "selector": "hero-card-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 800
+    },
+    {
+      "selector": "section-heading",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 28.8,
+      "fontWeight": 800
+    },
+    {
+      "selector": "article-card-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "15.08",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 18.4,
+      "fontWeight": 700
+    }
+  ],
+  "guide-noel-desktop-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 40.96,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "oklab(0.961277 -0.00294877 0.010886)",
+      "ratio": "0.00",
+      "wcagAA": 4.5,
+      "pass": false,
+      "fontSize": 14.08,
+      "fontWeight": 400
+    },
+    {
+      "selector": "product-name",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 700
+    }
+  ],
+  "guide-noel-desktop-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 40.96,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "oklab(0.345943 -0.0125631 -0.0209158)",
+      "ratio": "0.00",
+      "wcagAA": 4.5,
+      "pass": false,
+      "fontSize": 14.08,
+      "fontWeight": 400
+    },
+    {
+      "selector": "product-name",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "15.08",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 700
+    }
+  ],
+  "guide-noel-mobile-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 21.6,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "rgb(51, 65, 85)",
+      "bg": "oklab(0.961277 -0.00294877 0.010886)",
+      "ratio": "0.00",
+      "wcagAA": 4.5,
+      "pass": false,
+      "fontSize": 13.6,
+      "fontWeight": 400
+    },
+    {
+      "selector": "product-name",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 700
+    }
+  ],
+  "guide-noel-mobile-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 21.6,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "oklab(0.345943 -0.0125631 -0.0209158)",
+      "ratio": "0.00",
+      "wcagAA": 4.5,
+      "pass": false,
+      "fontSize": 13.6,
+      "fontWeight": 400
+    },
+    {
+      "selector": "product-name",
+      "fg": "rgb(248, 250, 252)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "15.08",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 20,
+      "fontWeight": 700
+    }
+  ],
+  "categorie-desktop-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "oklab(0.5536 -0.0389846 0.0228739)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 36,
+      "fontWeight": 700
+    }
+  ],
+  "categorie-desktop-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "oklab(0.703993 -0.0681343 0.0261587)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 36,
+      "fontWeight": 700
+    }
+  ],
+  "categorie-mobile-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "oklab(0.5536 -0.0389846 0.0228739)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 28,
+      "fontWeight": 700
+    }
+  ],
+  "categorie-mobile-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(226, 232, 240)",
+      "bg": "rgb(14, 37, 51)",
+      "ratio": "12.80",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "oklab(0.703993 -0.0681343 0.0261587)",
+      "bg": "rgb(11, 31, 42)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 28,
+      "fontWeight": 700
+    }
+  ],
+  "tutoriel-desktop-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "oklab(0.4815 -0.0507246 -0.0216972)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 88,
+      "fontWeight": 800
+    }
+  ],
+  "tutoriel-desktop-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "oklab(0.4815 -0.0507246 -0.0216972)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 88,
+      "fontWeight": 800
+    }
+  ],
+  "tutoriel-mobile-light": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 21.6,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "oklab(0.4815 -0.0507246 -0.0216972)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 56,
+      "fontWeight": 800
+    }
+  ],
+  "tutoriel-mobile-dark": [
+    {
+      "selector": "nav-link",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(255, 255, 255)",
+      "ratio": "16.89",
+      "wcagAA": 4.5,
+      "pass": true,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "selector": "page-title",
+      "fg": "rgb(11, 31, 42)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "16.14",
+      "wcagAA": 3,
+      "pass": true,
+      "fontSize": 21.6,
+      "fontWeight": 700
+    },
+    {
+      "selector": "body-text",
+      "fg": "oklab(0.4815 -0.0507246 -0.0216972)",
+      "bg": "rgb(248, 250, 252)",
+      "ratio": "0.00",
+      "wcagAA": 3,
+      "pass": false,
+      "fontSize": 56,
+      "fontWeight": 800
+    }
+  ]
+}

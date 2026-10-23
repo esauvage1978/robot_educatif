@@ -3,7 +3,7 @@ title: "Projet Agenda CLI (4/6) — tests avec pytest"
 description: "Fixtures tmp_path, tests du service, mocks de stockage, couverture des erreurs ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 4
 tags: ["Python", "Projet", "pytest"]

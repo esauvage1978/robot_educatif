@@ -1,9 +1,9 @@
 ---
-title: "Quel logiciel pour robot Makeblock : mBlock (app), Web, Python ?"
-description: "mBlock 5 : application bureau, version web, mode Python — quand utiliser quoi pour mBot, mBot2, Codey Rocky et CyberPi. Tableau comparatif, captures et liens vers les tutoriels du site."
+title: "mBlock en ligne (ide.mblock.cc) : coder sans rien installer"
+description: "mBlock en ligne sur ide.mblock.cc : programmer en blocs dans le navigateur sans installation, limites du Bluetooth, et quand préférer l'appli ou Python."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+updatedDate: "2026-10-19"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: mbot
 categories:
   - "mBlock"
@@ -11,7 +11,7 @@ categories:
   - "Installation"
   - "Programmation"
 relatedLinks:
-  - title: "Installer mBlock 5 sous Windows 10"
+  - title: "Télécharger et installer mBlock 5"
     href: "/installer-mblock-5-sous-windows-10/"
   - title: "Premiers pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
@@ -20,6 +20,8 @@ relatedLinks:
   - title: "Installer les blocs du mBot"
     href: "/installer-les-blocs-du-mbot/"
 ---
+
+**mBlock en ligne** s’ouvre directement dans le navigateur à l’adresse **[ide.mblock.cc](https://ide.mblock.cc/)** : rien à installer, pratique sur un poste d’école verrouillé. Pour connecter un robot de façon fiable (USB, Bluetooth, firmware), l’**application** reste préférable — le comparatif ci-dessous vous aide à choisir.
 
 **mBlock** est l’environnement de référence pour programmer les robots **Makeblock** en **blocs** (même esprit que **Scratch**), puis en **texte** (**Python**) sur les modèles et versions qui le proposent. La difficulté, c’est qu’il existe **plusieurs façons d’y accéder** : logiciel **installé** sur l’ordinateur, **version web** dans le navigateur, et parfois **éditeur Python** intégré — ce n’est **pas équivalent** : tout dépend si vous **branchez un robot réel**, si vous avez les **droits administrateur**, ou si vous travaillez **sans matériel** un jour donné.
 
@@ -92,8 +94,8 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 
 ## Liens Amazon (affiliation)
 
-- [Robot Makeblock mBot](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
+- [Robot Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
@@ -101,3 +103,5 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 ---
 
 **À retenir** : installez l’**application** sur la machine principale du projet robot ; gardez le **Web** pour les postes verrouillés ou les démos rapides ; n’ouvrez le **Python** que quand la **logique des blocs** est solide — le logiciel n’est qu’un outil, le **projet** et la **compréhension** restent au centre.
+
+**À lire aussi** : [mBlock ou Scratch ?](/mblock-vs-scratch-lequel-choisir/)

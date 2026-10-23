@@ -1,0 +1,95 @@
+---
+interface Props {
+	currentCategory?: string;
+}
+
+const { currentCategory = '' } = Astro.props;
+
+const categories = [
+	{ label: 'Débuter', slug: 'debuter', href: '/domotique/rubrique/debuter/' },
+	{ label: 'Home Assistant', slug: 'home-assistant', href: '/domotique/rubrique/home-assistant/' },
+	{ label: 'Projets ESP32', slug: 'esp32', href: '/domotique/rubrique/esp32/' },
+	{ label: 'Guides d\'achat', slug: 'guides-achat', href: '/domotique/rubrique/guides-achat/' },
+	{ label: 'Robots aspirateurs', slug: 'robots-aspirateurs', href: '/domotique/rubrique/robots-aspirateurs/' },
+];
+---
+
+<nav class="domotique-subnav">
+	<div class="subnav-scroll">
+		{categories.map(cat => (
+			<a 
+				href={cat.href}
+				class:list={['subnav-item', { active: currentCategory === cat.slug }]}
+			>
+				{cat.label}
+			</a>
+		))}
+	</div>
+</nav>
+
+<style>
+	.domotique-subnav {
+		background: var(--surface);
+		border-bottom: 1px solid var(--surface-border);
+		margin-bottom: 2rem;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.subnav-scroll {
+		display: flex;
+		gap: 0;
+		min-width: min-content;
+		padding: 0 1rem;
+		box-sizing: border-box;
+	}
+	
+	.subnav-item {
+		flex-shrink: 0;
+		padding: 0.875rem 1.25rem;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+		font-weight: 500;
+		font-size: 0.9375rem;
+		border-bottom: 2px solid transparent;
+		transition: all 0.2s;
+		white-space: nowrap;
+		box-sizing: border-box;
+	}
+	
+	.subnav-item:hover {
+		color: var(--accent);
+		border-bottom-color: var(--accent);
+	}
+	
+	.subnav-item.active {
+		color: var(--accent);
+		border-bottom-color: var(--accent);
+		font-weight: 600;
+	}
+	
+	@media (max-width: 768px) {
+		.subnav-scroll {
+			padding: 0 0.5rem;
+		}
+		
+		.subnav-item {
+			padding: 0.75rem 0.875rem;
+			font-size: 0.875rem;
+		}
+	}
+	
+	/* Hide scrollbar but keep functionality */
+	.domotique-subnav::-webkit-scrollbar {
+		height: 3px;
+	}
+	
+	.domotique-subnav::-webkit-scrollbar-thumb {
+		background: var(--surface-border);
+		border-radius: 3px;
+	}
+</style>

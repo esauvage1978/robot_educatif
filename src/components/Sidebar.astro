@@ -1,6 +1,6 @@
 ---
 import Button from './Button.astro';
-import { amazonSearchUrl } from '../lib/amazon';
+import { amazonSearchUrl, amazonProductUrl } from '../lib/amazon';
 import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
 import { categoryToSlug, type TopCategory } from '../lib/categories';
 import { resolveAmazonSidebarLinks } from '../lib/resolveAmazonSidebar';
@@ -41,14 +41,17 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 			percevoir une commission sur des achats éligibles, sans surcoût pour vous.
 		</p>
 		<ul class="affiliate-list">
-			{affiliateLinks.map((item) => (
-				<li>
-					<a href={amazonSearchUrl(item.query)} target="_blank" rel="noopener noreferrer sponsored">
-						{item.label}
-						<span aria-hidden="true" class="external-hint"> ↗</span>
-					</a>
-				</li>
-			))}
+			{affiliateLinks.map((item) => {
+				const url = item.asin ? amazonProductUrl(item.asin, null) : amazonSearchUrl(item.query || '');
+				return (
+					<li>
+						<a href={url} target="_blank" rel="noopener noreferrer sponsored">
+							{item.label}
+							<span aria-hidden="true" class="external-hint"> ↗</span>
+						</a>
+					</li>
+				);
+			})}
 		</ul>
 	</section>
 	{
@@ -287,6 +290,17 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 		border-radius: 0;
 		transition: color 0.12s ease;
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.widget a {
+			color: #5EEAD4;
+		}
+	}
+	
+	html[data-theme="dark"] .widget a {
+		color: #5EEAD4;
+	}
+	
 	.widget a:hover {
 		text-decoration: underline;
 		text-underline-offset: 3px;
@@ -301,5 +315,8 @@ const internalLinks = relatedLinks?.length ? relatedLinks : null;
 		font-weight: 500;
 		opacity: 0.75;
 		text-decoration: none !important;
+	}
+	html:not([data-theme='light']) .external-hint {
+		color: #5EEAD4;
 	}
 </style>

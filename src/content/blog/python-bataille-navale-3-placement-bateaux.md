@@ -3,7 +3,6 @@ title: "Bataille navale en Python (3/6) — placement des navires"
 description: "Vérifier les limites, éviter le chevauchement, placer en horizontal ou vertical ; construire la liste des flottes."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: Bataille navale
 seriesOrder: 3
 tags: ["Python", "Programmation", "Projet"]

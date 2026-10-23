@@ -3,7 +3,7 @@ title: "mBot vs Codey Rocky : quel robot Makeblock choisir ?"
 description: "Comparatif détaillé mBot et Codey Rocky : montage, public, capteurs, usage scolaire ou famille, limites. Schéma des deux form factors et liens tutoriels."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot
 categories:
   - "Comparatif"
@@ -21,7 +21,7 @@ relatedLinks:
     href: "/installer-mblock-5-sous-windows-10/"
 ---
 
-**mBot** et **Codey Rocky** partagent l’écosystème **Makeblock** et **mBlock**, mais ne répondent pas au même profil : l’un est un **robot « char »** classique (souvent associé au **montage** et aux ateliers type « parcours »), l’autre un duo **tête + base** très orienté **interaction**, **écran** et **personnage** sur la partie Codey.
+**mBot** et **Codey Rocky** partagent l’écosystème **[Makeblock](/marque-makeblock/)** et **mBlock**, mais ne répondent pas au même profil : l’un est un **robot « char »** classique (souvent associé au **montage** et aux ateliers type « parcours »), l’autre un duo **tête + base** très orienté **interaction**, **écran** et **personnage** sur la partie Codey.
 
 ![Deux silhouettes produit (schéma pédagogique)](/images/blog/guides-2026/mbot-vs-codey-schema.svg)
 
@@ -58,9 +58,9 @@ Pas toujours : certains lieux utilisent un **mBot** pour la chaîne « mécaniqu
 
 ## Liens Amazon (affiliation)
 
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
-- [Codey Rocky Makeblock](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21)
-- [Accessoires Makeblock mBot](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires&tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Codey Rocky Makeblock](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
+- [Accessoires Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
 

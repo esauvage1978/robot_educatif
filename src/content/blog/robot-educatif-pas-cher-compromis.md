@@ -1,9 +1,9 @@
 ---
 title: "Robot éducatif pas cher : ce qu’il faut accepter (et éviter)"
-description: "Acheter un robot programmable à petit prix sans mauvaises surprises : solidité, logiciel, communauté. Triangle prix / doc / communauté et liens guides Amazon."
+description: "Robot programmable pas cher : solidité, logiciel, communauté. Conseils et liens guides."
 pubDate: "2026-03-30"
 updatedDate: "2026-04-01"
-heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot
 categories:
   - "Guide"
@@ -65,8 +65,8 @@ Oui — en français, les deux **formules** courantes désignent la même idée 
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif programmable pas cher](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable&tag=manuso06-21)
-- [mBot Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
+- [Robot éducatif programmable pas cher](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Kit robotique STEM enfant](https://www.amazon.fr/s?k=kit+robotique+STEM+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

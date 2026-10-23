@@ -1,6 +1,6 @@
 ---
-title: "Idées cadeaux robotique : Noël, rentrée, anniversaire (par âge)"
-description: "Calendrier des occasions, grille par âge, budgets et accessoires. Pistes concrètes avec liens de recherche Amazon et renvois vers nos guides mBot, Scratch et robot sans écran."
+title: "Idées cadeaux robotique : Noël, anniversaire (par âge)"
+description: "Idées cadeaux robotique : grille par âge, budgets, accessoires. Liens guides mBot, Scratch, robots."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-30"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
@@ -8,7 +8,7 @@ amazonPreset: general
 categories:
   - "Guide"
   - "Robot éducatif"
-  - "Cadeau"
+  - "Cadeaux"
   - "À partir de 8 ans"
 relatedLinks:
   - title: "Programmation enfant : à quel âge ?"
@@ -45,7 +45,7 @@ relatedLinks:
 **Amazon — recherches généralistes utiles pour comparer avant d’acheter :**
 
 - [Cadeau robotique enfant STEM](https://www.amazon.fr/s?k=cadeau+robotique+enfant+STEM&tag=manuso06-21)
-- [Robot éducatif programmable enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+programmable+enfant&tag=manuso06-21)
+- [Robot éducatif programmable enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 ## 2. Environ 5–7 ans
 
@@ -60,6 +60,11 @@ relatedLinks:
 - [Jeu logique programmation enfant 6 ans](https://www.amazon.fr/s?k=jeu+logique+programmation+enfant+6+ans&tag=manuso06-21) — compléments papier ou plateau.
 - [Livre algorithmique enfant premier âge](https://www.amazon.fr/s?k=livre+algorithmique+enfant+d%C3%A9butant&tag=manuso06-21) — histoires ou fiches très guidées.
 
+**Chez Cultura (liens affiliés) :**
+
+- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-eddie-mon-robot-educatif-clementoni-11908016.html" rel="sponsored nofollow" target="_blank">Eddie, mon robot éducatif (Clementoni)</a> - robot éducatif de la gamme Clementoni ; vérifiez l'âge conseillé sur la fiche produit.
+- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-mon-robot-2-0-clementoni-11908014.html" rel="sponsored nofollow" target="_blank">Mon Robot 2.0 (Clementoni)</a> - autre robot éducatif Clementoni, même conseil sur l'âge indiqué.
+
 ## 3. Environ 8–10 ans
 
 La **maternelle du code** laisse place à des projets un peu plus longs : **Scratch**, petits **montages**, parfois un premier **capteur**. C’est souvent le bon moment pour un **mBot** (ou équivalent **Scratch / mBlock**) **si un adulte** peut consacrer une après-midi aux **premières connexions** et au **calibrage** des moteurs.
@@ -69,10 +74,15 @@ La **maternelle du code** laisse place à des projets un peu plus longs : **Scra
 
 **Amazon (recherche affiliée) :**
 
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
-- [Robot éducatif Scratch programmable](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+Scratch+programmable&tag=manuso06-21)
+- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Robot éducatif Scratch programmable](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
 - [Kit électronique enfant montage circuit](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+enfant+montage+circuit&tag=manuso06-21) — alternative ou complément « mains dans le cambouis ».
+
+**Chez Cultura (liens affiliés), côté construction et bricolage :**
+
+- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-robot-marko-3700802103028.html" rel="sponsored nofollow" target="_blank">Robot Marko (Buki)</a> - kit de construction pour assembler un robot (ce n'est pas un robot programmable).
+- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-kit-ludo-educatif-pandacraft-les-robots-10136358.html" rel="sponsored nofollow" target="_blank">Kit Pandacraft « Les robots » (8-12 ans)</a> - activités de bricolage autour des robots, sans programmation.
 
 ## 4. À partir de 10–12 ans
 
@@ -83,11 +93,11 @@ Les enfants tiennent des **séquences plus longues** et comparent leur projet à
 
 **Amazon (recherche affiliée) :**
 
-- [mBot2 Makeblock](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Codey Rocky Makeblock](https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/s?k=CyberPi+Makeblock&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Codey Rocky Makeblock](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
+- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 - [Kit robotique programmation ado STEM](https://www.amazon.fr/s?k=kit+robotique+programmation+ado+STEM&tag=manuso06-21)
-- [Raspberry Pi kit débutant carte](https://www.amazon.fr/s?k=Raspberry+Pi+kit+d%C3%A9butant&tag=manuso06-21)
+- [Raspberry Pi kit débutant carte](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 - [Livre Python robotique débutant jeunes](https://www.amazon.fr/s?k=livre+Python+robotique+d%C3%A9butant+jeunes&tag=manuso06-21)
 
 ## 5. Toujours utile en plus du robot

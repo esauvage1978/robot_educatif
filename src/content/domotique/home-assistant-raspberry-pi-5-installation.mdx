@@ -1,0 +1,747 @@
+---
+title: "Installer Home Assistant sur Raspberry Pi 5 : guide complet 2026"
+description: "Tutoriel pas à pas : installer Home Assistant OS sur Raspberry Pi 5, boot NVMe, configuration réseau, HACS, sauvegardes, dongles Zigbee, accès distant sécurisé. Actualisé octobre 2026."
+pubDate: 2026-10-18T00:00:00Z
+category: "home-assistant"
+products: ["raspberry-pi-5", "sonoff-zbdongle-e"]
+priority: 3
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+Installer **Home Assistant sur [Raspberry Pi](/marque-raspberry-pi/) 5** est devenu très simple en 2026 grâce au **Raspberry Pi Imager** et au boot direct sur SSD NVMe. Ce guide complet vous accompagne de l'achat du matériel à la première automatisation, avec configuration réseau, sauvegardes, HACS, dongles Zigbee et accès distant sécurisé.
+
+## Matériel recommandé
+
+<ProductBox
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 4 Go + Kit"
+  searchQuery="Raspberry Pi 5 4GB kit"
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Performances excellentes',
+    'Kit complet (alim, boîtier)',
+    'Compatible HAT et NVMe',
+    'Communauté immense'
+  ]}
+  badge="Kit complet"
+  position={1}
+/>
+
+<ProductBox
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Antenne externe SMA',
+    'Compatible ZHA et Z2M',
+    'Firmware modifiable',
+    'Portée 50m indoor'
+  ]}
+  badge="Dongle Zigbee"
+  position={2}
+/>
+
+## Liste complète du matériel nécessaire
+
+*Les prix ne sont pas indiqués : ils varient selon les boutiques et les stocks, à vérifier chez le vendeur.*
+
+### Composants obligatoires
+
+**Raspberry Pi 5**
+- **Raspberry Pi 5 4 Go** — suffisant pour 90 % des installations (30 appareils, 3 caméras, pas de NAS)
+- **Raspberry Pi 5 8 Go** — pour Frigate (analyse vidéo IA), NAS Jellyfin, 50+ appareils
+
+*Recommandation : 4 Go* pour débuter, upgrader vers 8 Go uniquement si besoin confirmé (multi-caméras, IA).
+
+*Liens Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [Raspberry Pi 5 8 Go](https://www.amazon.fr/s?k=raspberry+pi+5+8gb&tag=manuso06-21).*
+
+**Alimentation officielle 27W USB-C**
+- **Critique** : les alimentations non-officielles 15W causent freeze aléatoires (Pi 5 consomme 12W sous charge)
+- Connecteur USB-C avec marquage rouge Raspberry Pi
+- Cable 1,5 m (assez long pour placer le Pi loin de la box)
+
+*Lien Amazon : [Alimentation officielle 27W](https://www.amazon.fr/s?k=raspberry+pi+power+supply+27w&tag=manuso06-21).*
+
+**Carte microSD 32–64 Go** (inutile si boot NVMe direct)
+- **SanDisk Extreme 64 Go** (classe U3, A2) — la plus fiable (100 MB/s, 10 000 cycles écriture)
+- **Samsung EVO Plus 32 Go** — budget OK (95 MB/s)
+- Éviter : cartes no-name à prix cassé (corruption après 6 mois)
+
+*Recommandation : SanDisk Extreme* (un peu plus chère, mais plus durable).
+
+*Lien Amazon : [SanDisk Extreme 64 Go](https://www.amazon.fr/s?k=sandisk+extreme+64gb&tag=manuso06-21).*
+
+**Boîtier avec ventilateur**
+- **Boîtier officiel Raspberry Pi 5** (avec ventilateur actif) — design sobre, accès GPIO, ventilateur 30 dB
+- **Boîtier Argon NEO 5** (aluminium passif) — silencieux (0 dB), dissipation passive, CPU < 65 °C
+- **Boîtier Flirc** (aluminium massif) — premium, 0 dB, design élégant
+
+*Recommandation : boîtier officiel* pour débuter (ventilateur contrôlable via GPIO). Argon NEO 5 si silence obligatoire (salon, chambre).
+
+*Lien Amazon : [Boîtier officiel Pi 5](https://www.amazon.fr/s?k=raspberry+pi+5+case&tag=manuso06-21).*
+
+**Câble Ethernet**
+- Cat 5e ou Cat 6, 2–5 m selon distance box ↔ Pi
+- **WiFi déconseillé** : latence +20 ms, déconnexions aléatoires, saturation 2,4 GHz avec Zigbee
+
+**Budget** : à vérifier chez le vendeur ; il dépend surtout de la version du Pi 5 (4 ou 8 Go) et du boîtier choisi.
+
+### Stockage NVMe (optionnel mais recommandé)
+
+**Pourquoi NVMe > microSD ?**
+- Vitesse : 500 MB/s (NVMe) vs 90 MB/s (SD) = 5× plus rapide
+- Durée de vie : 10 ans (SSD TLC) vs 2–3 ans (SD intensive)
+- Fiabilité : SSD = 0 % corruption, SD = 10 % échec après 18 mois
+
+**HAT M.2 NVMe officiel**
+- Connecteur 40-pin vers M.2 2280 (standard SSD laptop)
+- Supporte PCIe Gen 3 (le Pi 5 est Gen 2 = 1000 MB/s max)
+
+**SSD NVMe M.2 2280**
+- **256 Go** (Crucial P3, Kingston NV2) — suffisant pour HA + 20 modules + historique 6 mois
+- **512 Go** (Samsung 980, WD Blue SN580) — pour NAS léger, Frigate (vidéos locales)
+- **1 To** (Samsung 980 Pro) — overkill (sauf NAS Jellyfin avec films)
+
+*Recommandation : 256 Go Crucial P3* (meilleur rapport qualité/prix octobre 2026).
+
+*Liens Amazon : [HAT M.2 NVMe](https://www.amazon.fr/s?k=raspberry+pi+m.2+hat&tag=manuso06-21), [SSD NVMe 256 Go](https://www.amazon.fr/s?k=crucial+p3+256gb&tag=manuso06-21).*
+
+### Dongle Zigbee (pour appareils Zigbee)
+
+**SONOFF ZBDongle-E**
+- Puce EFR32MG21 (Silabs), antenne externe SMA, portée 50 m indoor
+- Compatible ZHA (intégré HA) et Zigbee2MQTT (addon)
+- [Comparatif dongles Zigbee complet](/domotique/meilleur-dongle-zigbee-home-assistant/)
+
+*Lien Amazon : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
+
+## Étape 1 : Préparer la carte microSD ou le SSD NVMe
+
+### Option A : Installation sur microSD (recommandée pour débuter)
+
+**Avantages** : simple, migration NVMe possible plus tard, aucun achat si vous avez déjà une carte SD.
+
+**Étapes** :
+
+1. **Télécharger Raspberry Pi Imager** : [rptl.io/imager](https://www.raspberrypi.com/software/) (Windows, Mac, Linux)
+2. **Lancer Imager**
+3. **Sélectionner "Appareil"** : Raspberry Pi 5
+4. **Sélectionner "Système d'exploitation"** :
+   - Cliquer "Autre"
+   - Descendre jusqu'à **"Home Assistant"**
+   - Sélectionner (version HAOS 13+ en octobre 2026)
+5. **Sélectionner "Stockage"** : votre carte microSD (attention à ne pas se tromper de disque)
+6. **Paramètres avancés** (roue crantée en bas à droite) :
+   - **Hostname** : `homeassistant` (recommandé, facilite accès `.local`)
+   - **SSH** : NE PAS ACTIVER (HAOS gère SSH différemment, via addon)
+   - **WiFi** : configurer uniquement si pas d'Ethernet disponible (SSID 2,4 GHz + mot de passe)
+   - **Locale** : `Europe/Paris`, clavier `fr`
+7. **Écrire** : confirmation danger → Oui → flashage (5–10 minutes)
+8. **Retirer carte SD**, insérer dans Pi 5
+
+**Durée** : 15 minutes (dont 10 min flashage).
+
+### Option B : Boot direct NVMe (sans microSD)
+
+**Avantages** : vitesse max, durée de vie 10 ans, 1 composant de moins.
+
+**Prérequis** : firmware Pi 5 ≥ septembre 2024 (déjà installé sur Pi 5 achetés après octobre 2024).
+
+**Étapes** :
+
+1. **Brancher SSD NVMe sur PC** :
+   - Soit via HAT M.2 + adaptateur USB (si HAT officiel possède mode USB)
+   - Soit via adaptateur M.2 → USB (réutilisable)
+2. **Raspberry Pi Imager** : même procédure que SD, mais choisir **SSD comme stockage** (apparaît comme disque USB)
+3. **Flasher SSD** (10 min)
+4. **Retirer SSD du PC, fixer sur HAT M.2, visser sur Pi 5**
+5. **Démarrer Pi 5** (sans carte SD)
+
+**Si erreur boot (LED clignote 4 fois)** :
+- Firmware Pi 5 obsolète → mettre à jour via SD temporaire : [doc officielle Raspberry Pi](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#nvme-ssd-boot)
+
+**Durée** : 20 minutes (flashage + montage HAT).
+
+## Étape 2 : Premier démarrage et configuration réseau
+
+### Connexion physique
+
+1. **Insérer carte SD** (si installation SD) ou **vérifier HAT NVMe** bien fixé
+2. **Brancher câble Ethernet** entre Pi 5 et box Internet (RJ45)
+3. **Brancher alimentation USB-C** → LED rouge (alimentation) + LED verte clignotante (boot)
+
+**Temps de boot** :
+- Premier boot : 5–8 minutes (téléchargement conteneurs Docker Home Assistant)
+- Boots suivants : 35–50 secondes (SD) ou 25–35 secondes (NVMe)
+
+### Accès à l'interface Web
+
+**Méthode 1 — mDNS (fonctionne 90 % des cas)** :
+
+1. Ouvrir navigateur (PC/Mac/tablette connecté au même réseau local)
+2. Naviguer vers **`http://homeassistant.local:8123`**
+3. Attendre écran "Préparer Home Assistant" (2–5 minutes premier boot)
+
+**Si "homeassistant.local" ne fonctionne pas** → Méthode 2.
+
+**Méthode 2 — Trouver l'IP manuellement** :
+
+1. **Via interface box Internet** :
+   - Se connecter à l'interface admin box (ex: `http://192.168.1.1` ou `http://mafreebox.freebox.fr`)
+   - Liste des appareils connectés → chercher "homeassistant" ou "raspberrypi"
+   - Noter l'IP (ex: `192.168.1.42`)
+2. **Via app mobile Fing** (Android/iOS) :
+   - Scanner réseau local
+   - Chercher "Raspberry Pi" ou port 8123 ouvert
+3. **Naviguer vers IP** : `http://192.168.1.42:8123`
+
+**Méthode 3 — Installation Bonjour (Windows)** :
+
+1. Installer **Bonjour Print Services** (gratuit Apple) ou **iTunes** (inclut Bonjour)
+2. Redémarrer navigateur
+3. Retester `homeassistant.local:8123`
+
+### Créer le compte administrateur
+
+**Écran d'accueil Home Assistant** :
+
+1. **Nom et prénom** : visible dans profil HA (ex: "Jean Dupont")
+2. **Nom d'utilisateur** : `admin` ou prénom (login interface)
+3. **Mot de passe** : minimum 8 caractères (stocké localement, pas de cloud)
+4. **Confirmer mot de passe**
+5. **Suivant**
+
+**Configuration maison** :
+
+1. **Nom de la maison** : "Maison" ou adresse (ex: "Appartement Paris")
+2. **Localisation** : cliquer sur carte (détection automatique ou ajuster manuellement)
+   - Important pour automatisations lever/coucher soleil
+3. **Fuseau horaire** : Europe/Paris (auto-détecté)
+4. **Altitude** : auto-rempli (utile pour météo précise)
+5. **Système d'unités** : Métrique (°C, km, kg)
+6. **Monnaie** : EUR
+7. **Suivant**
+
+**Détection automatique** :
+
+Home Assistant scanne le réseau local et détecte automatiquement :
+- Box Internet (Freebox, Livebox, Bbox)
+- TV connectées (Samsung, LG, Sony)
+- Chromecast, Google Home
+- Imprimantes réseau
+- NAS (Synology, QNAP)
+
+**Accepter ou ignorer** selon besoin. Vous pourrez ajouter/retirer intégrations plus tard.
+
+**Finaliser** : "Terminer" → Dashboard Home Assistant s'ouvre.
+
+## Étape 3 : Configuration réseau avancée (optionnel)
+
+### Attribuer une IP fixe au Raspberry Pi
+
+**Pourquoi ?** Éviter que l'IP change (DHCP), facilite accès distant et automatisations externes.
+
+**Méthode 1 — Réservation DHCP (recommandée)** :
+
+1. **Interface admin box Internet** :
+   - Freebox : Paramètres → DHCP → Baux statiques
+   - Livebox : Réseau → DHCP → Baux statiques
+   - Bbox : Services réseau → Attribution IP statique
+2. **Trouver MAC address Pi 5** : interface box ou `ip a` en SSH
+3. **Réserver IP** : associer MAC à IP fixe (ex: `192.168.1.100`)
+4. **Redémarrer Pi 5** : `Paramètres → Système → Redémarrer`
+
+**Méthode 2 — Configuration HAOS (avancée)** :
+
+1. **SSH vers HAOS** (activer addon Terminal & SSH d'abord)
+2. Éditer `/etc/NetworkManager/system-connections/default`
+3. Ajouter section `[ipv4]` :
+   ```
+   [ipv4]
+   method=manual
+   address=192.168.1.100/24
+   gateway=192.168.1.1
+   dns=192.168.1.1;8.8.8.8
+   ```
+4. Redémarrer réseau : `nmcli connection reload`
+
+**Vérifier IP fixe** : redémarrer Pi 5, vérifier l'IP reste identique.
+
+### Configurer WiFi (si pas d'Ethernet)
+
+**Déconseillé pour usage principal** (latence +20 ms, interférences Zigbee 2,4 GHz).
+
+**Configuration** :
+
+1. **Paramètres → Système → Réseau**
+2. **WiFi** : activer
+3. **SSID** : sélectionner réseau 2,4 GHz (5 GHz non supporté par Pi 5 WiFi intégré)
+4. **Mot de passe** : saisir clé WPA2
+5. **Enregistrer** → connexion automatique
+
+**Test stabilité** : `Outils développeur → ping homeassistant.local` depuis PC → latence < 10 ms = OK, > 50 ms = problème.
+
+## Étape 4 : Mettre à jour Home Assistant
+
+**Mises à jour disponibles** : Core, Supervisor, Operating System, modules complémentaires.
+
+1. **Paramètres → Système → Mises à jour**
+2. Installer toutes les mises à jour disponibles (3–5 en général premier boot)
+   - **Home Assistant Core** (ex: 2024.10.3) : cœur du système
+   - **Home Assistant Supervisor** : gestion conteneurs
+   - **Home Assistant Operating System** : système Linux sous-jacent
+3. **Redémarrer** si demandé (Core ou OS)
+
+**Durée** : 5–10 minutes (téléchargement + installation).
+
+**Activer mises à jour automatiques** (optionnel) :
+- **Paramètres → Système → Mises à jour → Options**
+- Cocher "Auto-update" pour modules complémentaires (pas Core/OS = préférer manuel)
+
+## Étape 5 : Créer la première sauvegarde
+
+**Pourquoi ?** Restaurer configuration en cas de corruption SD/NVMe, mauvaise manipulation, test d'addon qui casse HA.
+
+**Créer sauvegarde manuelle** :
+
+1. **Paramètres → Système → Sauvegardes**
+2. **Créer une sauvegarde**
+3. **Type** :
+   - **Complète** (recommandé) : tout (HAOS, config, modules, historique) → 2–5 Go
+   - **Partielle** : sélectionner dossiers spécifiques → 500 MB–1 Go
+4. **Nom** : "Sauvegarde initiale post-install" (date automatique ajoutée)
+5. **Créer** → durée 2–5 minutes
+
+**Télécharger sauvegarde** (stockage externe) :
+
+1. Cliquer sur sauvegarde → **Télécharger** (fichier `.tar`)
+2. Stocker sur PC, NAS, cloud (Google Drive, Dropbox)
+3. Taille : 2–5 Go compressé
+
+**Sauvegardes automatiques** (addon Google Drive Backup recommandé) :
+
+1. **Paramètres → Modules complémentaires → Boutique**
+2. Rechercher **"Home Assistant Google Drive Backup"**
+3. Installer → Configurer (lier compte Google Drive)
+4. Planning : 1 sauvegarde/jour à 3h du matin
+5. Rétention : 7 sauvegardes locales + 30 dans Drive
+
+**Restaurer sauvegarde** :
+
+1. **Paramètres → Système → Sauvegardes**
+2. Sélectionner sauvegarde → **Restaurer**
+3. Confirmer → redémarrage automatique (5–10 min)
+
+## Étape 6 : Installer HACS (Home Assistant Community Store)
+
+**HACS** : magasin d'extensions communautaires (3000+ intégrations custom, cartes Lovelace, thèmes).
+
+**Exemples d'intégrations HACS utiles** :
+- **Tapo (TP-Link)** : prises/ampoules Tapo non natives HA
+- **Xiaomi Gateway 3** : hack pour Xiaomi hors cloud
+- **Frigate** : analyse vidéo IA (détection personnes/véhicules)
+- **Android TV** : contrôle avancé TV Android
+- **Waste Collection Schedule** : rappel sortie poubelles
+
+**Installation HACS** :
+
+1. **Installer addon Terminal & SSH** :
+   - **Paramètres → Modules complémentaires → Boutique → Terminal & SSH**
+   - Installer → Démarrer → Afficher dans barre latérale
+2. **Ouvrir Terminal** (icône ">_" barre latérale)
+3. **Lancer commande** :
+   ```bash
+   wget -O - https://get.hacs.xyz | bash -
+   ```
+4. **Attendre installation** (30 secondes)
+5. **Redémarrer Home Assistant** : `Paramètres → Système → Redémarrer`
+6. **Ajouter intégration HACS** :
+   - **Paramètres → Appareils et services → Ajouter une intégration**
+   - Rechercher **"HACS"**
+   - Sélectionner → Suivre instructions (authentification GitHub requise)
+7. **Lier compte GitHub** :
+   - Créer compte GitHub gratuit si besoin : [github.com](https://github.com/signup)
+   - Autoriser HACS → copier code → coller dans HA
+8. **HACS installé** : icône apparaît dans barre latérale
+
+**Durée** : 10 minutes (dont création compte GitHub).
+
+**Premier usage HACS** :
+
+1. **HACS → Intégrations**
+2. **Rechercher intégration** (ex: "Tapo")
+3. **Télécharger** → Redémarrer HA → Ajouter intégration (Paramètres → Appareils)
+
+## Étape 7 : Brancher le dongle Zigbee et configurer ZHA
+
+**ZHA** (Zigbee Home Automation) : intégration Zigbee native Home Assistant, supporte 2000+ appareils.
+
+**Alternative** : Zigbee2MQTT (addon externe, interface Web dédiée, 2500+ appareils). Pour débuter : **ZHA recommandé**.
+
+### Brancher le dongle
+
+1. **Brancher ZBDongle-E** sur port USB du Pi 5 (USB 2.0 ou 3.0, peu importe)
+2. **Attendre 10 secondes** (détection automatique)
+3. **Vérifier détection** : `Paramètres → Système → Matériel → Tout le matériel` → chercher `/dev/ttyUSB0` ou `/dev/ttyACM0`
+
+**Si absent** : tester autre port USB, changer câble, redémarrer Pi 5.
+
+### Configurer ZHA
+
+1. **Paramètres → Appareils et services → Ajouter une intégration**
+2. Rechercher **"ZHA"** (Zigbee Home Automation)
+3. **Sélectionner port série** : `/dev/ttyUSB0` (ou `/dev/ttyACM0`)
+4. **Type de radio** : EZSP (EmberZNet Serial Protocol) — détection automatique pour ZBDongle-E
+5. **Vitesse** : 115200 bauds (par défaut)
+6. **Flow control** : hardware (par défaut)
+7. **Soumettre** → ZHA initialise coordinateur (30 secondes)
+
+**Écran ZHA** : "Zigbee Home Automation configuré" → coordinateur créé.
+
+### Appairer un premier capteur Zigbee
+
+**Exemple** : SONOFF SNZB-02D (capteur température + humidité).
+
+1. **ZHA → Appareils → Ajouter un appareil** (bouton +)
+2. **Mode appairage activé** (60 secondes)
+3. **Sur le capteur** :
+   - Retirer languette pile
+   - Maintenir bouton 5 secondes
+   - LED clignote rapidement (rouge/bleu alterné)
+4. **Apparition HA** : 10–30 secondes → "SONOFF SNZB-02D"
+5. **Renommer** : "Capteur salon" → Zone : Salon
+
+**Entités créées** :
+- `sensor.capteur_salon_temperature` (°C)
+- `sensor.capteur_salon_humidity` (%)
+- `sensor.capteur_salon_battery` (%)
+
+**Ajouter au dashboard** : Vue d'ensemble → Modifier → Ajouter carte → Entités → Sélectionner capteur.
+
+[Guide complet capteurs Zigbee](/domotique/capteur-temperature-zigbee/) | [Guide prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/)
+
+## Étape 8 : Installer les addons essentiels
+
+**Addons recommandés** (selon besoin) :
+
+### File Editor (éditer fichiers YAML)
+
+**Utilité** : éditer `configuration.yaml`, `automations.yaml` depuis interface Web (pas de SSH nécessaire).
+
+1. **Paramètres → Modules complémentaires → Boutique → File editor**
+2. Installer → Démarrer → Afficher dans barre latérale
+3. Configurer : cocher "Enforce basepath" (sécurité)
+
+### Studio Code Server (éditeur avancé)
+
+**Utilité** : VSCode complet dans navigateur (coloration syntaxe, auto-complétion, extensions).
+
+1. **Boutique → Studio Code Server**
+2. Installer (2 min) → Démarrer
+3. Ouvrir → éditer `/config/configuration.yaml`
+
+### ESPHome (capteurs DIY ESP32)
+
+**Utilité** : flasher ESP32 pour créer capteurs température/humidité custom. [Tuto ESP32 + DHT22](/domotique/esp32-esphome-capteur-temperature/).
+
+1. **Boutique → ESPHome**
+2. Installer → Démarrer → Afficher barre latérale
+
+### Samba Share (accès réseau)
+
+**Utilité** : accéder aux fichiers HA depuis explorateur Windows/Mac (glisser-déposer sauvegardes).
+
+1. **Boutique → Samba share**
+2. Installer → Configurer :
+   - Username : `homeassistant`
+   - Password : (votre mot de passe)
+3. Démarrer → accès réseau `\\homeassistant\` (Windows) ou `smb://homeassistant` (Mac)
+
+### Terminal & SSH (accès ligne de commande)
+
+**Utilité** : debug, commandes Linux avancées, installation HACS.
+
+1. **Boutique → Terminal & SSH**
+2. Installer → Démarrer → Afficher barre latérale
+3. Configurer : définir mot de passe SSH (sécurité)
+
+## Étape 9 : Créer la première automatisation
+
+**Exemple** : allumer radiateur (prise Zigbee) si température < 19 °C.
+
+**Prérequis** :
+- 1 capteur température Zigbee appairé (ex: SNZB-02D)
+- 1 prise Zigbee appairée (ex: NOUS A1Z)
+
+**Méthode 1 — Interface graphique** :
+
+1. **Paramètres → Automatisations et scènes → Créer une automatisation**
+2. **Déclencheur** :
+   - Type : **État numérique**
+   - Entité : `sensor.capteur_salon_temperature`
+   - Condition : **En dessous de**
+   - Valeur : `19`
+3. **Condition** (optionnel) :
+   - Type : **Heure**
+   - Après : `06:00`
+   - Avant : `22:00`
+4. **Action** :
+   - Type : **Appeler un service**
+   - Service : `switch.turn_on`
+   - Entité : `switch.prise_radiateur_salon`
+5. **Enregistrer** : nom "Chauffage salon < 19°C"
+
+**Méthode 2 — YAML** (pour utilisateurs avancés) :
+
+1. **Studio Code Server** → `/config/automations.yaml`
+2. Ajouter :
+   ```yaml
+   - alias: "Chauffage salon < 19°C"
+     trigger:
+       - platform: numeric_state
+         entity_id: sensor.capteur_salon_temperature
+         below: 19
+     condition:
+       - condition: time
+         after: "06:00:00"
+         before: "22:00:00"
+     action:
+       - service: switch.turn_on
+         target:
+           entity_id: switch.prise_radiateur_salon
+   ```
+3. **Vérifier configuration** : `Outils développeur → YAML → Vérifier la configuration`
+4. **Redémarrer** : `Paramètres → Système → Redémarrer`
+
+**Tester automatisation** :
+
+1. **Outils développeur → Services**
+2. Service : `input_number.set_value` (ou refroidir capteur au frigo 5 min)
+3. Vérifier prise s'allume
+
+**Arrêt automatique 21 °C** :
+
+Créer automatisation inverse :
+- Déclencheur : température > 21
+- Action : `switch.turn_off` prise
+
+## Étape 10 : Configurer l'accès distant sécurisé
+
+**3 méthodes selon niveau sécurité/technique** :
+
+### Méthode 1 — Nabu Casa (recommandée, payante)
+
+**Nabu Casa Cloud** : abonnement payant (tarif à vérifier sur le site de Nabu Casa), reverse proxy officiel, chiffré, support HA.
+
+**Avantages** :
+- ✅ Aucun port-forwarding (pas de faille sécurité)
+- ✅ URL `https://xxxxx.ui.nabu.casa` automatique
+- ✅ Support Google Assistant / Alexa inclus
+- ✅ Finance développement Home Assistant
+
+**Configuration** :
+
+1. **Paramètres → Home Assistant Cloud**
+2. **S'inscrire** : créer compte Nabu Casa (CB nécessaire)
+3. **Activer** : URL générée automatiquement
+4. **Tester** : ouvrir URL depuis 4G mobile (hors réseau local)
+
+**Coût** : abonnement mensuel ou annuel, tarif à vérifier sur nabucasa.com. Recommandé si le budget le permet et si vous avez besoin de Google/Alexa.
+
+### Méthode 2 — DuckDNS + Let's Encrypt (gratuite)
+
+**DuckDNS** : DNS dynamique gratuit, URL `https://monha.duckdns.org`.
+
+**Prérequis** : box Internet avec IPv4 publique (vérifier sur [whatismyip.com](https://www.whatismyip.com)).
+
+**Configuration** :
+
+1. **Créer compte DuckDNS** : [duckdns.org](https://www.duckdns.org) (login GitHub/Google)
+2. **Créer domaine** : `monha.duckdns.org` (noter token)
+3. **Installer addon DuckDNS** :
+   - **Paramètres → Modules complémentaires → Boutique → Duck DNS**
+   - Installer → Configurer :
+     ```yaml
+     domains:
+       - monha.duckdns.org
+     token: VOTRE_TOKEN_DUCKDNS
+     let_encrypt:
+       accept_terms: true
+       certfile: fullchain.pem
+       keyfile: privkey.pem
+     ```
+   - Démarrer
+4. **Port-forwarding box** :
+   - Interface admin box → NAT/PAT
+   - Port externe `443` → IP Pi 5 (`192.168.1.100`) → Port interne `8123`
+   - Protocole TCP
+5. **Éditer `configuration.yaml`** :
+   ```yaml
+   http:
+     ssl_certificate: /ssl/fullchain.pem
+     ssl_key: /ssl/privkey.pem
+   ```
+6. **Redémarrer HA**
+7. **Tester** : `https://monha.duckdns.org` depuis 4G
+
+**Sécurité** : SSL/TLS Let's Encrypt (chiffré), mais **port-forwarding = risque** (exposer HA à Internet).
+
+### Méthode 3 — Tailscale (VPN, gratuite, sécurisée)
+
+**Tailscale** : VPN mesh gratuit (20 appareils max), aucun port-forwarding.
+
+**Avantages** :
+- ✅ Zéro port-forwarding (sécurité maximale)
+- ✅ Accès depuis smartphone/laptop n'importe où
+- ✅ Chiffré WireGuard
+
+**Configuration** :
+
+1. **Créer compte Tailscale** : [tailscale.com](https://tailscale.com)
+2. **Installer addon Tailscale** :
+   - **Boutique → Tailscale**
+   - Installer → Configurer :
+     ```yaml
+     auth_key: tskey-xxxxx (généré sur tailscale.com)
+     ```
+   - Démarrer
+3. **Installer Tailscale sur smartphone** :
+   - App iOS/Android : Tailscale
+   - Login même compte
+4. **Accéder HA** : `http://homeassistant:8123` (nom Tailscale) ou IP Tailscale
+
+**Recommandé pour sécurité maximale** (pas d'exposition Internet publique).
+
+## Troubleshooting : 5 problèmes courants
+
+### Problème 1 : Pi 5 ne démarre pas (LED verte clignote 4 fois)
+
+**Symptômes** :
+- LED rouge (alimentation) fixe
+- LED verte clignote 4 fois en boucle
+- Aucun affichage écran (si HDMI branché)
+
+**Causes** :
+- **Boot NVMe échoue** : firmware Pi 5 obsolète (< sept 2024)
+- **Carte SD corrompue** : flashage incomplet ou carte défectueuse
+- **Alimentation insuffisante** : 15W au lieu de 27W
+
+**Solutions** :
+1. **Retirer NVMe**, insérer carte SD (boot SD fonctionne toujours) → si démarre : mettre à jour firmware via `sudo rpi-eeprom-update -a`
+2. **Reflasher carte SD** avec Raspberry Pi Imager (carte neuve si possible)
+3. **Tester alimentation** : mesurer tension USB-C (doit être 5V ±0,25V). Si 4,5V : alimentation défectueuse.
+4. **Vérifier HAT NVMe** bien enfoncé (40-pin header complet)
+
+### Problème 2 : `homeassistant.local` ne fonctionne pas
+
+**Symptômes** :
+- Navigateur : "Site introuvable" ou "DNS_PROBE_FINISHED_NXDOMAIN"
+- Ping `homeassistant.local` échoue
+
+**Causes** :
+- **mDNS bloqué** par routeur (Freebox, Bouygues Bbox)
+- **Windows sans Bonjour** (service Apple pour mDNS)
+- **Firewall bloque port 5353** (mDNS)
+
+**Solutions** :
+1. **Trouver IP manuellement** : interface box → liste appareils → noter IP
+2. **Naviguer vers IP** : `http://192.168.1.42:8123`
+3. **Installer Bonjour** (Windows) : [support.apple.com/kb/DL999](https://support.apple.com/kb/DL999) ou iTunes
+4. **Désactiver firewall** temporairement pour tester
+5. **Utiliser Fing** (app mobile) : scanner réseau → trouver IP Pi 5
+
+### Problème 3 : Freeze aléatoires, redémarrages intempestifs
+
+**Symptômes** :
+- HA inaccessible aléatoirement (1–2× par semaine)
+- Dashboard ne charge plus
+- Logs : kernel panic, undervoltage warning
+
+**Causes** :
+- **Sous-alimentation** (cause n°1) : alimentation non-officielle 15W
+- **Carte SD corrompue** : écritures intensives HA (10 Go/jour)
+- **Surchauffe CPU** : > 80 °C sans ventilateur
+- **Câble USB-C défectueux**
+
+**Solutions** :
+1. **Remplacer par alimentation officielle 27W** ([lien Amazon](https://www.amazon.fr/s?k=raspberry+pi+power+supply+27w&tag=manuso06-21))
+2. **Vérifier température** : `Paramètres → Système → Informations → Température` (doit être < 70 °C idle)
+   - Si > 75 °C : ajouter ventilateur actif ou boîtier passif aluminium
+3. **Migrer vers NVMe** : remplacer SD corrompue par SSD (durée vie 10 ans)
+4. **Vérifier logs** : `Paramètres → Système → Journaux` → chercher "undervoltage" (= alimentation insuffisante)
+
+### Problème 4 : Dongle Zigbee non détecté
+
+**Symptômes** :
+- `/dev/ttyUSB0` absent dans Matériel
+- ZHA refuse de s'installer ("No radio found")
+
+**Causes** :
+- **Hub USB non alimenté** (si dongle branché sur hub externe)
+- **Câble USB-A → USB-C défectueux** (certains sont charge-only)
+- **Port USB défaillant** (rare)
+- **Dongle défectueux** (5 % des ZBDongle-E cheap)
+
+**Solutions** :
+1. **Brancher directement** sur Pi 5 (pas de hub intermédiaire)
+2. **Tester autre port USB** : Pi 5 a 4 ports, essayer tous
+3. **Vérifier détection Linux** : Terminal SSH → `ls /dev/tty*` → doit afficher `ttyUSB0` ou `ttyACM0`
+4. **Tester dongle sur PC Windows** : Simplicity Studio (Silabs) doit détecter EFR32MG21
+5. Si échec : dongle mort, retour SAV Amazon
+
+### Problème 5 : Carte SD corrompue après 6–12 mois
+
+**Symptômes** :
+- HA ne démarre plus (boot bloqué)
+- Logs : "Read-only file system" ou "I/O error"
+- Sauvegarde impossible (erreur écriture)
+
+**Causes** :
+- **Carte SD bas de gamme** : 10 000 cycles écriture vs 100 000 (SanDisk Extreme)
+- **Écritures intensives HA** : 10–20 Go/jour (base de données, logs)
+- **Pas de maintenance** : historique jamais purgé (base de données 50 Go)
+
+**Solutions** :
+1. **Préventif** : acheter **SanDisk Extreme** ou **Samsung EVO Plus** (un peu plus chères, mais plus durables)
+2. **Migrer NVMe** : SSD = 10 ans durée de vie, 0 % corruption
+3. **Réduire écritures** : `configuration.yaml` → limiter historique :
+   ```yaml
+   recorder:
+     purge_keep_days: 7  # Au lieu de 10 par défaut
+     exclude:
+       domains:
+         - updater
+         - automation
+   ```
+4. **Restaurer depuis sauvegarde** : reflasher SD neuve, restaurer dernier backup
+
+<div class="shelly-encart">
+<p><strong>Premiers modules Wi-Fi après l'installation</strong> — <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-plug-s-gen3" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly Plug S Gen3" data-placement="encart_ha_install">Shelly Plug S Gen3</a>, une prise Wi-Fi avec mesure de consommation, et <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-plus-i4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly Plus i4" data-placement="encart_ha_install">Shelly Plus i4</a>, pour relier des boutons à vos scénarios.</p>
+<p class="shelly-encart-note">Lien affilié : si vous achetez via ce lien, le site peut percevoir une commission, sans surcoût pour vous.</p>
+</div>
+
+## Pour aller plus loin
+
+- [Comparatif Home Assistant Green vs Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) : choisir le bon matériel selon profil
+- [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/) : ZBDongle-E, ZBT-2, ConBee II
+- [Capteur température Zigbee](/domotique/capteur-temperature-zigbee/) : premiers appareils à appairer
+- [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) : créer maillage répéteur
+- [ESP32 + ESPHome capteur température](/domotique/esp32-esphome-capteur-temperature/) : alternative DIY
+- [Hub domotique](/domotique/) : retour accueil section
+
+---
+
+*Affiliation : liens Amazon avec tag manuso06-21, commission ~3 % catégorie Électronique. Prix octobre 2026, indicatifs. Notre sélection basée sur recherche, sans tests physiques.*
+
+## Tutoriels capteurs sur Raspberry Pi
+
+- [Capteur CO2 SCD41 + Home Assistant](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)
+- [Station m?t?o BME280 avec historique](/domotique/raspberry-pi-station-meteo-bme280-historique/)
+- [D?tecteur de pr?sence PIR pour l'?clairage](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/)
+- [Capteur d'ouverture de porte avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/)
+
+Pour garder la domotique en marche pendant une coupure de courant : [secours électrique pour Home Assistant](/domotique/secours-electrique-home-assistant-onduleur-station/).

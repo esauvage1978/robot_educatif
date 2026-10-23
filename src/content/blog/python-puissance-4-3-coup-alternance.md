@@ -3,7 +3,7 @@ title: "Puissance 4 en Python (3/6) — coup valide et alternance"
 description: "Console, input colonne 1-7, alternance X/O ; demo de plusieurs tours sans detection victoire ; .py telechargeable."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 3
 tags: ["Python", "Programmation", "Projet"]

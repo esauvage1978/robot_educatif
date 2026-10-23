@@ -1,0 +1,325 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+import { getProductImage } from '../lib/amazonImage';
+import productsData from '../data/products.json';
+
+interface Props {
+	productId?: string;
+	asin?: string;
+	searchQuery?: string;
+	name: string;
+	image?: string;
+	priceRange?: string;
+	ages?: string;
+	languages?: string[];
+	pros?: string[];
+	badge?: string;
+	position?: number;
+}
+
+const {
+	productId = '',
+	asin = null,
+	searchQuery = null,
+	name,
+	image = null,
+	priceRange = null,
+	ages = null,
+	languages = [],
+	pros = [],
+	badge = null,
+	position = 0,
+} = Astro.props;
+
+const affiliateUrl = asin 
+	? amazonProductUrl(asin)
+	: amazonProductUrl(null, searchQuery || name);
+
+// Get product image: use provided image prop first, fallback to PA-API
+const productImage = image || getProductImage(asin, name, 250, 250);
+const productEntry = productId ? (productsData as Record<string, any>)[productId] : null;
+const productImageAlt: string = productEntry?.imageAlt || name;
+const productImageCaption: string | null = productEntry?.imageCaption || null;
+
+const trackingAttrs = productId
+	? `data-product-id="${productId}" data-position="${position}"`
+	: '';
+---
+
+<div class="product-box" data-has-asin={Boolean(asin)}>
+	{badge && <div class="product-badge">{badge}</div>}
+	<div class="product-content">
+		{productImageCaption ? (
+			<figure class="product-media" style="margin:0;">
+			<a
+			href={affiliateUrl}
+			target="_blank"
+			rel="sponsored nofollow noopener"
+			class="product-image-link"
+			{...trackingAttrs}
+		>
+			<div class="product-image">
+				<img 
+					src={productImage} 
+					alt={productImageAlt}
+					width="250"
+					height="250"
+					loading="lazy"
+					class="product-img"
+				/>
+			</div>
+		</a>
+				<figcaption class="ai-illustration-caption" style="text-align:center;max-width:200px;">{productImageCaption}</figcaption>
+			</figure>
+		) : (
+			<a
+			href={affiliateUrl}
+			target="_blank"
+			rel="sponsored nofollow noopener"
+			class="product-image-link"
+			{...trackingAttrs}
+		>
+			<div class="product-image">
+				<img 
+					src={productImage} 
+					alt={productImageAlt}
+					width="250"
+					height="250"
+					loading="lazy"
+					class="product-img"
+				/>
+			</div>
+		</a>
+		)}
+		<div class="product-info">
+			<h3 class="product-name">{name}</h3>
+			{priceRange && <div class="product-meta"><strong>Prix :</strong> {priceRange}</div>}
+			{ages && <div class="product-meta"><strong>Pour qui :</strong> {ages}</div>}
+			{languages.length > 0 && (
+				<div class="product-meta">
+					<strong>Langages :</strong> {languages.join(', ')}
+				</div>
+			)}
+			{pros.length > 0 && (
+				<ul class="product-pros">
+					{pros.map((pro) => <li>{pro}</li>)}
+				</ul>
+			)}
+		</div>
+	</div>
+	<div class="product-cta">
+		<a
+			href={affiliateUrl}
+			target="_blank"
+			rel="sponsored nofollow noopener"
+			class="product-btn affiliate-link"
+			{...trackingAttrs}
+		>
+			Voir le prix sur Amazon
+			<span aria-hidden="true" class="external-icon">↗</span>
+		</a>
+		{!asin && (
+			<p class="product-disclaimer">Lien de recherche Amazon</p>
+		)}
+	</div>
+</div>
+
+<style>
+	.product-box {
+		position: relative;
+		background: var(--surface);
+		border: 2px solid var(--surface-border);
+		border-radius: 16px;
+		padding: 2rem;
+		margin: 2rem 0;
+		box-shadow: 0 4px 16px rgba(11, 31, 42, 0.08);
+		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+	}
+	
+	.product-box:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 8px 24px rgba(11, 31, 42, 0.12);
+		border-color: var(--primary);
+	}
+
+	.product-badge {
+		position: absolute;
+		top: -12px;
+		left: 1.5rem;
+		background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+		color: white;
+		padding: 0.4rem 0.9rem;
+		border-radius: 999px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	}
+
+	.product-content {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 1.25rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.product-image {
+		width: 120px;
+		height: 120px;
+		flex-shrink: 0;
+	}
+
+	.product-image-link {
+		display: block;
+		text-decoration: none;
+		transition: transform 0.2s ease;
+	}
+
+	.product-image-link:hover {
+		transform: scale(1.02);
+	}
+
+	.product-info {
+		min-width: 0;
+	}
+
+	.product-name {
+		margin: 0 0 0.75rem 0;
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.3;
+		color: rgb(var(--black));
+	}
+
+	.product-meta {
+		margin: 0.4rem 0;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+
+	.product-meta strong {
+		color: rgb(var(--black));
+		font-weight: 600;
+	}
+	
+	.price-disclaimer {
+		display: block;
+		font-size: 0.8rem;
+		color: rgb(var(--gray));
+		font-style: italic;
+		margin-top: 0.2rem;
+	}
+
+	.product-pros {
+		list-style: none;
+		margin: 0.75rem 0 0 0;
+		padding: 0;
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	.product-pros li {
+		position: relative;
+		padding-left: 1.4rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+
+	.product-pros li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--accent-dark);
+		font-weight: 700;
+	}
+
+	.product-cta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		align-items: flex-start;
+	}
+
+	.product-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.85rem 1.75rem;
+		background: var(--accent-warm);
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1rem;
+		border-radius: 10px;
+		border: none;
+		cursor: pointer;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+	}
+
+	.product-btn:hover {
+		background: #ea580c;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+	}
+
+	.external-icon {
+		font-size: 0.9em;
+		opacity: 0.9;
+	}
+
+	.product-disclaimer {
+		margin: 0;
+		font-size: 0.78rem;
+		color: rgb(var(--gray));
+		font-style: italic;
+	}
+
+	.product-image-link {
+		display: block;
+		text-decoration: none;
+		transition: transform 0.2s ease;
+	}
+
+	.product-image-link:hover {
+		transform: scale(1.02);
+	}
+
+	.product-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		border-radius: 8px;
+	}
+
+	@media (max-width: 640px) {
+		.product-content {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.product-image {
+			width: 100%;
+			max-width: 200px;
+			height: auto;
+			aspect-ratio: 1;
+			margin: 0 auto;
+		}
+
+		.product-img {
+			width: 100%;
+			height: auto;
+		}
+
+		.product-box {
+			padding: 1.25rem;
+		}
+
+		.product-badge {
+			left: 1.25rem;
+		}
+	}
+</style>
+

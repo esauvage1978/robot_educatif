@@ -1,0 +1,40 @@
+---
+title: "Robot aspirateur : navigation LiDAR, caméra ou gyroscope, ce qui change vraiment"
+description: "Comment un robot aspirateur se repère : navigation aléatoire, gyroscope, caméra (vSLAM) ou LiDAR, et évitement d'obstacles. Tableau comparatif, impact sur la cartographie, le nettoyage par pièce et la domotique."
+pubDate: 2026-10-23T00:00:00Z
+category: "robots-aspirateurs"
+priority: 12
+---
+
+Sur une fiche produit, la puissance d'aspiration attire l'œil. Pourtant c'est la **navigation** qui décide si le robot nettoie toute la pièce, ou s'il repasse trois fois au même endroit en oubliant le couloir. Voici les quatre technologies que vous rencontrerez, et ce qu'elles permettent concrètement.
+
+## L'essentiel en un tableau
+
+| Navigation | Principe | Carte de la maison | Nettoyage par pièce | Fonctionne dans le noir | Gamme |
+|---|---|---|---|---|---|
+| **Aléatoire** | rebondit sur les obstacles | non | non | oui | premier prix |
+| **Gyroscope** | trajectoires en lignes grâce à des capteurs de mouvement | approximative ou aucune | rarement | oui | entrée de gamme |
+| **Caméra (vSLAM)** | reconnaît des repères visuels (plafond, meubles) | oui | oui | dépend de l'éclairage | moyen et haut de gamme |
+| **LiDAR (laser)** | un laser rotatif mesure les distances à 360° | oui, précise | oui | oui | dès l'entrée de gamme récente |
+
+**Notre meilleur choix : le LiDAR.** Il produit une carte précise dès le premier passage, fonctionne dans le noir et permet le nettoyage pièce par pièce, également depuis Home Assistant. On le trouve désormais sur des modèles abordables : voir notre sélection [à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
+
+## Aléatoire et gyroscope : à éviter si possible
+
+Un robot à navigation **aléatoire** avance jusqu'à toucher un obstacle, puis repart dans une autre direction. Il finit par couvrir une petite pièce, mais lentement et de façon inégale. Le **gyroscope** améliore les choses : le robot avance en lignes parallèles et sait à peu près où il est, mais il perd ses repères dans un logement à plusieurs pièces et ne garde en général pas de carte exploitable.
+
+## Caméra (vSLAM)
+
+Le robot filme le plafond ou son environnement et reconnaît des points de repère pour se localiser. La carte est bonne et permet le nettoyage par pièce. Deux limites : les performances baissent dans une pièce sombre, et une caméra dans la maison pose la question de la confidentialité. Lisez la politique du fabricant sur le traitement des images.
+
+## LiDAR
+
+La tourelle sur le dessus du robot contient un laser qui tourne et mesure la distance des murs et des meubles. Le robot dessine une carte précise, se relocalise vite s'il est déplacé et fonctionne dans l'obscurité. Inconvénient : la tourelle ajoute de la hauteur, ce qui peut empêcher le robot de passer sous certains meubles bas. Mesurez la hauteur sous votre canapé et comparez-la à la fiche technique.
+
+## L'évitement d'obstacles, un autre sujet
+
+La navigation sert à se repérer ; l'**évitement d'obstacles** sert à ne pas avaler un câble ou une chaussette. Selon les modèles, il repose sur des capteurs infrarouges, de la lumière structurée ou une caméra frontale avec reconnaissance d'objets. Sur les modèles d'entrée de gamme, l'évitement est souvent limité : rangez câbles et petits objets avant le passage.
+
+## Navigation et domotique
+
+Une carte précise, c'est ce qui permet à Home Assistant de dire « nettoie la cuisine » plutôt que « nettoie tout ». La disponibilité du nettoyage par pièce dépend de l'intégration de la marque : voir notre tableau [robots aspirateurs compatibles Home Assistant](/domotique/robot-aspirateur-compatible-home-assistant/). Pour la serpillière et les stations, voir [robot aspirateur laveur](/domotique/robot-aspirateur-laveur-serpilliere-station/).

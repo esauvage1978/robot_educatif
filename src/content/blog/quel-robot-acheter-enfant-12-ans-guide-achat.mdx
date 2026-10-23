@@ -1,0 +1,150 @@
+---
+title: "Robot programmable 12 ans : 7 kits à construire (2026)"
+description: "Robots programmables pour ados 12 ans et plus : Arduino, Raspberry Pi, Python. Guide pour projets robotiques avancés et kits à construire."
+pubDate: "2026-03-24"
+updatedDate: "2026-10-13"
+heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
+amazonPreset: "mbot2"
+categories:
+  - "À partir de 12 ans"
+  - "Guide"
+  - "Robot éducatif"
+  - "Programmation"
+relatedLinks:
+  - title: "Cadeau geek ado programmation (Noël)"
+    href: "/cadeau-geek-ado-programmation/"
+  - title: "Guide cadeaux Noël 2026"
+    href: "/robot-educatif-cadeau-noel-2026/"
+  - title: "Quel robot pour 10 ans ?"
+    href: "/quel-robot-acheter-enfant-10-ans-guide-achat/"
+  - title: "Robot pour ados 14 ans"
+    href: "/robot-programmable-14-ans-ado/"
+  - title: "CyberPi Makeblock"
+    href: "/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/"
+  - title: "Raspberry Pi — mise en route"
+    href: "/mise-en-route-raspberry-pi-3-modele-b/"
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" />
+
+<ComparisonTable
+  products={[
+    { id: 'mbot2', badge: 'Meilleur choix 12 ans' },
+    { id: 'elegoo-robot-car', badge: 'Arduino' },
+    { id: 'raspberry-pi-5-8gb', badge: 'Projets avancés' },
+  ]}
+  title="Notre sélection pour 12 ans et +"
+/>
+
+À partir de **12 ans**, et souvent dès la **6ᵉ–5ᵉ**, les jeunes peuvent tenir des **projets sur plusieurs séances**, lire une documentation technique avec repères, et s'intéresser à la **programmation textuelle**, au **versioning** (même basique), ou à la **prise de données** (capteurs, graphiques). Le « bon robot » dépend autant des **objectifs** (concours, brevet des collèges orienté ICN, simple loisir) que du **matériel déjà présent** à la maison.
+
+## Profils types (pour cadrer l'achat)
+
+| Profil | Pistes | Ce qu'il faut surveiller |
+|--------|--------|---------------------------|
+| **Débutant curieux** | Robot tout-en-un bien documenté (Scratch → Python), défis progressifs | Frustration si le logiciel est bancal ; lisez les avis long terme |
+| **Déjà club / collège** | Compatibilité avec ce qu'utilise l'établissement ou le club | Demandez aux enseignants si un modèle est recommandé |
+| **Maker / bricoleur** | Kits modulaires, carte Raspberry, capteurs à l'unité | Temps adulte, fer à souder parfois, budget « imprevu » |
+| **Orientation concours** | Plateformes reconnues, règles des compétitions locales | Vérifier **règlement** avant d'investir |
+
+## Critères sérieux pour un achat à ce niveau
+
+### 1. Langages et outils
+
+**Python** est la référence pour beaucoup de robots et cartes ; **C / Arduino** apparaît sur certaines plateformes. Vérifiez IDE supportés, **mises à jour** du firmware et existence de **exemples** sur GitHub ou doc officielle.
+
+### 2. Capteurs et bus
+
+Au-delà du simple ultrason : **IMU** (gyro / accéléro), **vision** (caméra USB ou intégrée), bus **I2C** pour enchaîner les capteurs. Si le projet vise la **data**, un moyen simple d'**exporter** mesures (CSV, série) est un plus.
+
+### 3. Évolutivité et réparation
+
+Pièces détachées, schémas, communauté francophone ou internationale : à 12 ans, un robot cassé **sans doc** tue le projet. Les écosystèmes largement diffusés (Makeblock, certaines cartes open hardware) aident.
+
+### 4. Autonomie et responsabilité
+
+Piles, outils, sauvegardes de code : c'est le bon âge pour **tenir un carnet de bord** (objectif, ce qui marche, bug connu). Peu importe le robot — cette habitude **vaut plus qu'un capteur en plus**.
+
+## Nos recommandations par profil
+
+### Pour débuter avec Python (recommandé)
+
+<ProductBox
+  productId="mbot2"
+  name="Makeblock mBot2"
+  asin="B0919F9CKS"
+  ages="10-14 ans"
+  languages={['Scratch', 'Python']}
+  pros={[
+    'Carte CyberPi avec écran couleur',
+    'Compatible Python et Scratch',
+    'Wi-Fi et IoT intégrés',
+    'Très évolutif avec extensions mBuild'
+  ]}
+  badge="Meilleur choix 12 ans"
+  position={1}
+/>
+
+**Idéal pour** : collège, transition Scratch → Python, projets IoT, programmation textuelle avec support visuel.
+
+### Pour apprendre Arduino et l'électronique
+
+<ProductBox
+  productId="elegoo-robot-car"
+  name="ELEGOO Kit Voiture Robot Intelligent V4.0"
+  asin="B078Y9RYM2"
+  ages="12+ ans"
+  languages={['Arduino C']}
+  pros={[
+    'Kit complet avec UNO R3',
+    'Tutoriels détaillés en français',
+    'Contrôle Wi-Fi et caméra FPV',
+    'Excellent rapport qualité-prix'
+  ]}
+  badge="Meilleur Arduino"
+  position={2}
+/>
+
+**Idéal pour** : comprendre l'électronique, programmation C++, projets autonomes, excellent rapport qualité-prix.
+
+### Pour projets avancés (IA, vision, Linux)
+
+<ProductBox
+  productId="raspberry-pi-5-8gb"
+  name="Raspberry Pi 5 (8GB)"
+  asin="B0CK2FCG1K"
+  ages="14+ ans"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    '8GB de RAM pour multitâche',
+    'Parfait pour vision par ordinateur',
+    'Compatible avec nombreux HATs',
+    'Communauté immense'
+  ]}
+  badge="Projets avancés"
+  position={3}
+/>
+
+**Idéal pour** : lycée, NSI, projets longs, intelligence artificielle, serveur, media center.
+
+**À ajouter** : HAT contrôle moteurs (20€), kit capteurs (30€), caméra (40€).
+
+## Erreurs fréquentes
+
+- **Acheter « le plus technique » sans vérifier** si le jeune a déjà touché du code : un robot Scratch tenu à fond vaut mieux qu'un Raspberry poussiéreux.
+- **Négliger les accessoires** : piles, câbles, capteurs additionnels — budget réel souvent **+30-50€**.
+- **Oublier l'accompagnement** : à 12 ans, l'autonomie progresse, mais un **adulte ressource** (parent, prof, club) reste précieux.
+
+## Enchaîner vers le lycée
+
+Vers **14-15 ans**, les projets se complexifient : vision par ordinateur, IA, robotique compétitive. Lisez notre **[guide robot 14 ans](/robot-programmable-14-ans-ado/)** et l'article **[Raspberry Pi ou kit robot](/raspberry-pi-ou-kit-robot-ado-guide/)** pour anticiper.
+
+---
+
+**En résumé** : à **12 ans**, privilégiez **Python** (mBot2, Raspberry Pi) ou **Arduino** (ELEGOO) selon l'orientation. Le mBot2 offre le meilleur équilibre débutant/avancé pour le collège. Pour les makers, le Raspberry Pi 5 ouvre un univers de possibilités mais demande plus d'accompagnement.
+
+**Comparer les âges** : notre [guide du robot programmable pour enfant](/meilleur-robot-programmable-enfant-2026/) met côte à côte mBot, mBot2 et ELEGOO et renvoie vers chaque guide par âge, avec nos conseils pour un cadeau de Noël réussi.

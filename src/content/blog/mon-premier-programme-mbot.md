@@ -1,6 +1,6 @@
 ---
 title: "Mon premier programme mBot"
-description: "Créer un premier programme mBlock 5 pour le mBot : bouton carte, mélodie, enregistrement, connexion USB ou Bluetooth, firmware et téléversement — avec captures d’écran et fichier .mblock."
+description: "Premier programme mBlock 5 pour mBot : bouton capteur, LED RGB, boucle, connexion Bluetooth. Guide débutant avec captures."
 pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2026-03-29"
@@ -117,3 +117,5 @@ Pour aller plus loin : faites **répéter** la mélodie tant que le bouton est m
 ## Aller plus loin avec Scratch
 
 Pour progresser en **Scratch** et en **logique de programme**, des ouvrages grand public ou pédagogiques sur Scratch et la robotique peuvent compléter les tutoriels du site ; commencez par les activités mBot et Scratch déjà publiées sur le blog.
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

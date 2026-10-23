@@ -3,7 +3,7 @@ title: "Projet Journal CLI (5/6) — typage et vérification mypy"
 description: "Protocol, TypedDict, Literal pour niveaux de log ; mypy strict progressif ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 5
 tags: ["Python", "Projet", "typing"]

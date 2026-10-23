@@ -3,7 +3,7 @@ title: "Le pendu en Python (2/6) — mots depuis un fichier"
 description: "Lire un fichier texte UTF-8, une ligne = un mot ; ignorer les lignes vides ; choisir un mot au hasard avec random."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Le pendu
 seriesOrder: 2
 tags: ["Python", "Programmation", "Projet"]

@@ -8,7 +8,9 @@
   "scripts": {
     "import:wp": "node scripts/import-wordpress.mjs",
     "normalize:amazon": "node scripts/normalize-amazon-links.mjs",
+    "images:amazon": "node scripts/fetch-amazon-images.mjs",
     "generate:favicon": "node scripts/generate-favicon.mjs",
+    "generate:pins": "node scripts/generate-pins.mjs",
     "optimize:hero": "node scripts/optimize-hero-home.mjs",
     "verify:images-mblock": "node scripts/verify-public-installer-images.mjs",
     "fix:svg-mblock": "node scripts/fix-svg-control-chars.mjs",
@@ -16,9 +18,11 @@
     "repair:svg-mblock": "node scripts/fix-svg-control-chars.mjs && node scripts/normalize-svg-utf8.mjs",
     "dev": "astro dev --strictPort",
     "dev:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro dev --strictPort",
-    "build": "cross-env ASTRO_BASE= astro build && node scripts/rewrite-relative-assets.mjs && cross-env ASTRO_BASE= node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs && node scripts/verify-blog-routes.mjs",
+    "prebuild": "node scripts/generate-blog-thumbnails.mjs",
+    "build": "cross-env ASTRO_BASE= astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && cross-env ASTRO_BASE= node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs && node scripts/verify-blog-routes.mjs",
     "verify:blog-routes": "node scripts/verify-blog-routes.mjs",
-    "build:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro build && node scripts/rewrite-relative-assets.mjs && cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs",
+    "check:product-jsonld": "node scripts/check-product-jsonld.mjs",
+    "build:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs",
     "preview": "cross-env ASTRO_BASE= astro preview",
     "preview:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro preview",
     "astro": "astro"
@@ -27,15 +31,21 @@
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.1",
-    "sharp": "^0.34.3"
+    "astro": "^6.1.1"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "cheerio": "^1.2.0",
     "cross-env": "^10.1.0",
+    "gray-matter": "^4.0.3",
+    "node-html-parser": "^9.0.4",
     "pagefind": "^1.4.0",
+    "playwright": "^1.64.1",
     "png-to-ico": "^3.0.1",
+    "satori": "^0.49.1",
+    "sharp": "^0.35.5",
     "turndown": "^7.2.2",
-    "turndown-plugin-gfm": "^1.0.2"
+    "turndown-plugin-gfm": "^1.0.2",
+    "unist-util-visit": "^5.1.0"
   }
 }

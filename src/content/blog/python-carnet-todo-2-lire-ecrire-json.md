@@ -2,7 +2,7 @@
 title: "Carnet Todo en Python (2/6) — lire et écrire du JSON"
 description: "json.load et json.dump ; encoding utf-8 ; indent pour lisibilité ; fichier vide ou absent : état par défaut."
 pubDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo
 seriesOrder: 2
 tags: ["Python", "Programmation", "Projet"]
