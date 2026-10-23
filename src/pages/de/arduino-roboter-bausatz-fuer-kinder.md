@@ -59,3 +59,5 @@ Hersteller-Shops und große Online-Marktplätze verkaufen diese Bausätze auch i
 - **Roboter fährt nach dem Hochladen nicht**: Akkupack ausgeschaltet oder leer (USB allein reicht oft nicht für die Motoren).
 - **Port nicht gefunden**: ein anderes USB-Kabel probieren (manche laden nur) und den USB-Treiber der Platine installieren, falls der Bausatz einen mitliefert.
 - **Roboter dreht sich im Kreis**: ein Motor ist verpolt; seine beiden Kabel tauschen.
+
+**Programmieren lernen:** unser kostenloser [Arduino-C-Kurs](/de/arduino/) beginnt mit [Sketch-Aufbau und Serial](/de/arduino-c-sketch-aufbau-serial/).

@@ -15,3 +15,5 @@ Unsere Smart-Home-Ratgeber, überarbeitet für **Haushalte in Deutschland, Öste
 | [Smarte Steckdosen (Schuko)](/de/smart-home/smarte-steckdosen/) | Belastbarkeit, Kennzeichnung, Zigbee vs WLAN vs Matter |
 
 Technische Daten stammen von den offiziellen Herstellerseiten und sind datiert. Wir nennen keine Preise, die wir nicht belegen können: Preis prüfen beim Händler.
+
+**Unsere Empfehlung:** Neu im Smart Home? Beginnen Sie mit [Smart Home für Einsteiger](/de/smart-home/einstieg/) und wählen Sie dann Ihre Zentrale mit [Home Assistant Green vs Raspberry Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/).

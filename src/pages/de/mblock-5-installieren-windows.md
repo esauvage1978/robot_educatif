@@ -49,3 +49,5 @@ mBlock 5 öffnen und im Bereich **Geräte** Ihr Gerät wählen (zum Beispiel **m
 **Funktioniert es auf einem Mac oder Chromebook?** Auf derselben Download-Seite gibt es eine macOS-Version; auf einem Chromebook die Browserversion nutzen.
 
 **Welchen Roboter sollte ich dazu kaufen?** Siehe unseren [Ratgeber zu programmierbaren Robotern für Kinder](/de/bester-programmierbarer-roboter-fuer-kinder/).
+
+**Nächste Schritte:** [das erste mBot-Programm](/de/erstes-mbot-programm/) bauen; klappt die Funkverbindung nicht, hilft [mBlock-Bluetooth-Probleme lösen](/de/mblock-bluetooth-probleme/).

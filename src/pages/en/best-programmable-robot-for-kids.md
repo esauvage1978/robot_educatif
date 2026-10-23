@@ -56,3 +56,5 @@ All three kits are sold through the makers' own stores and through large marketp
 - Buying something too advanced as a first robot: a kit your child fully masters beats one gathering dust.
 
 **Bottom line:** the best robot is the one that **gets used**, with clear software, varied challenges and an honest total budget.
+
+**Comparing Makeblock robots?** See [mBot vs mBot2](/en/mbot-vs-mbot2/) and [mBot vs Codey Rocky](/en/mbot-vs-codey-rocky/).

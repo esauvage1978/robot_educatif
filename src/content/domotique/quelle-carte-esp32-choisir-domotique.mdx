@@ -1,0 +1,46 @@
+---
+title: "Quelle carte ESP32 choisir pour la domotique : ESP32, S3, C3, C6 ou H2 ?"
+description: "Les puces ESP32 comparées d'après les fiches Espressif : cœurs, fréquence, Wi-Fi, Bluetooth, Thread/Zigbee, USB et GPIO. Laquelle choisir pour un capteur ESPHome, une caméra ou un appareil Thread."
+pubDate: 2026-10-23T00:00:00Z
+category: "esp32"
+priority: 4
+---
+
+« ESP32 » désigne aujourd'hui toute une famille de puces Espressif. Pour un projet [ESPHome](https://esphome.io/) dans Home Assistant, le choix change ce que la carte sait faire : Bluetooth ou non, Thread ou non, USB natif ou non. Voici les cinq puces que l'on trouve sur les cartes de développement, avec les données des [pages produits Espressif](https://www.espressif.com/en/products/socs).
+
+## Tableau résumé
+
+| Puce | Cœurs / fréquence max | Wi-Fi | Bluetooth | IEEE 802.15.4 (Thread, Zigbee) | USB natif | SRAM |
+|---|---|---|---|---|---|---|
+| **ESP32** (classique) | 2 × Xtensa LX6, 240 MHz | Wi-Fi 4, 2,4 GHz | Classic + BLE 4.2 | non | non | 520 Ko |
+| **ESP32-S3** | 2 × Xtensa LX7, 240 MHz | Wi-Fi 4, 2,4 GHz | BLE 5 | non | oui (OTG) | 512 Ko |
+| **ESP32-C3** | 1 × RISC-V, 160 MHz | Wi-Fi 4, 2,4 GHz | BLE 5 | non | série/JTAG | 400 Ko |
+| **ESP32-C6** | 1 × RISC-V 160 MHz + cœur basse conso | **Wi-Fi 6**, 2,4 GHz | BLE 5 | **oui** | série/JTAG | 512 Ko |
+| **ESP32-H2** | 1 × RISC-V, 96 MHz | **non** | BLE 5 | **oui** | série/JTAG | 320 Ko |
+
+**Notre meilleur choix pour débuter : une carte ESP32 classique (type DevKitC).** C'est la mieux documentée dans ESPHome et dans les forums, et elle suffit pour la quasi-totalité des projets de notre page [10 projets ESP32](/domotique/projets-esp32-domotique/). Prenez un **ESP32-S3** si vous voulez une caméra ou plus de broches, un **ESP32-C6** si vous voulez préparer Thread.
+
+## ESP32 classique : la valeur sûre
+
+Deux cœurs, Wi-Fi et Bluetooth (y compris le Bluetooth « Classic »), une trentaine de broches utilisables : c'est la puce de nos tutoriels [capteur de température ESPHome](/domotique/esp32-esphome-capteur-temperature/) et [porte de garage](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/). Son Bluetooth sert aussi de **proxy Bluetooth** pour Home Assistant : la carte relaie les capteurs BLE éloignés du serveur.
+
+## ESP32-S3 : plus de broches et l'USB
+
+Le S3 garde deux cœurs à 240 MHz, ajoute l'USB OTG natif, davantage de GPIO et des instructions vectorielles utiles au traitement de signal. C'est la puce de nombreuses cartes caméra et écran. Il n'a plus de Bluetooth Classic, seulement le BLE 5.
+
+## ESP32-C3 : petit et économique
+
+Un seul cœur RISC-V à 160 MHz, Wi-Fi et BLE 5 : largement assez pour un capteur ou un relais. Les cartes C3 sont souvent minuscules, pratiques pour se glisser dans un boîtier. Moins de broches que l'ESP32 classique.
+
+## ESP32-C6 et H2 : la radio Thread et Zigbee
+
+Le **C6** est la première puce de la famille à réunir **Wi-Fi 6**, BLE 5 et une radio **IEEE 802.15.4**, celle de Thread et Zigbee. Le **H2** n'a pas de Wi-Fi : il est conçu pour les appareils Thread ou Zigbee à pile. La prise en charge de ces radios dans ESPHome évolue encore : vérifiez la [documentation ESPHome](https://esphome.io/components/esp32/) de votre puce avant de vous lancer. Pour comprendre Thread et Zigbee, voir notre page [protocoles domotiques](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
+
+## Conseils d'achat
+
+- **Carte de développement** plutôt que module nu : port USB, régulateur et bouton de reset déjà présents.
+- **Vérifiez le connecteur** (USB-C ou micro-USB) et la présence d'une puce USB-série si la puce n'a pas d'USB natif.
+- **Mémoire flash** : 4 Mo suffisent pour ESPHome ; 8 Mo ou plus et de la PSRAM pour une caméra.
+- **Alimentation** : 5 V par USB ; pour un usage permanent, un bloc secteur de qualité.
+
+Une fois la carte choisie, suivez [notre tuto ESPHome complet](/domotique/esp32-esphome-capteur-temperature/) puis piochez une idée dans les [10 projets ESP32](/domotique/projets-esp32-domotique/).

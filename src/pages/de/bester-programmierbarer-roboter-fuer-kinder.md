@@ -56,3 +56,5 @@ Alle drei Bausätze werden über die Shops der Hersteller und über große Onlin
 - Als ersten Roboter etwas zu Anspruchsvolles kaufen: Ein Bausatz, den Ihr Kind wirklich beherrscht, ist besser als einer, der verstaubt.
 
 **Fazit:** Der beste Roboter ist der, der **benutzt wird**, mit verständlicher Software, abwechslungsreichen Aufgaben und einem ehrlichen Gesamtbudget.
+
+**Makeblock-Roboter vergleichen?** Siehe [mBot vs mBot2](/de/mbot-vs-mbot2/) und [mBot vs Codey Rocky](/de/mbot-vs-codey-rocky/).

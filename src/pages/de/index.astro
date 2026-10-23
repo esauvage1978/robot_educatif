@@ -15,9 +15,9 @@ const card = (href) => {
 	return { ...p, img: ill ? withImageVersion(withBase(ill.src)) : null, alt: ill ? `Illustration: ${p.title}` : '' };
 };
 const hero = card('/de/bester-programmierbarer-roboter-fuer-kinder/');
-const comparisons = ['/de/raspberry-pi-3-vs-4-vs-5/', '/de/raspberry-pi-5-welcher-ram/', '/de/bester-programmierbarer-roboter-fuer-kinder/'].map(card);
+const comparisons = ['/de/mbot-vs-mbot2/', '/de/raspberry-pi-3-vs-4-vs-5/', '/de/raspberry-pi-5-welcher-ram/'].map(card);
 const smartHome = ['/de/smart-home/einstieg/', '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/', '/de/smart-home/bester-zigbee-stick-home-assistant/', '/de/smart-home/smarte-steckdosen/'].map(card);
-const tutorials = ['/de/mblock-5-installieren-windows/', '/de/arduino-roboter-bausatz-fuer-kinder/'].map(card);
+const tutorials = ['/de/mblock-5-installieren-windows/', '/de/erstes-mbot-programm/', '/de/arduino-roboter-bausatz-fuer-kinder/'].map(card);
 const ages = [
 	{ badge: '6–8 Jahre', title: 'Erster Programmierroboter', text: 'Blockprogrammierung, fertig montierter Roboter, einfache Sensoraufgaben', href: '/de/bester-programmierbarer-roboter-fuer-kinder/' },
 	{ badge: '9–12 Jahre', title: 'Von Blöcken zu Python', text: 'Erst Blöcke im Scratch-Stil, dann getipptes Python auf dem mBot2', href: '/de/bester-programmierbarer-roboter-fuer-kinder/' },

@@ -1,0 +1,65 @@
+---
+title: "Robot aspirateur compatible Home Assistant : quelles marques s'intègrent, et comment"
+description: "Roborock, iRobot Roomba, Ecovacs, SwitchBot, Shark, Xiaomi, Dreame : intégration officielle ou communautaire, fonctionnement local ou cloud, d'après la documentation Home Assistant. Tableau et conseil d'achat."
+pubDate: 2026-10-23T00:00:00Z
+category: "robots-aspirateurs"
+priority: 11
+---
+
+Un robot aspirateur devient vraiment utile quand il se lance **tout seul** : quand la maison est vide, après le dîner, ou seulement dans la cuisine. Pour cela il doit remonter dans Home Assistant. Toutes les marques ne s'intègrent pas de la même façon : certaines communiquent en local, d'autres passent par le cloud du fabricant, d'autres encore n'ont qu'une intégration communautaire. Le tableau ci-dessous reprend la [documentation officielle de Home Assistant](https://www.home-assistant.io/integrations/#vacuum) (classe IoT indiquée sur chaque page, octobre 2026).
+
+## Tableau résumé
+
+| Marque | Intégration Home Assistant | Type de connexion (doc HA) | Remarque |
+|---|---|---|---|
+| **Roborock** | [Roborock](https://www.home-assistant.io/integrations/roborock/) (officielle) | Local Polling | connexion au compte Roborock pour la configuration, puis pilotage local |
+| **iRobot Roomba / Braava** | [iRobot Roomba and Braava](https://www.home-assistant.io/integrations/roomba/) (officielle) | Local Push | modèles connectés Wi-Fi |
+| **Ecovacs** | [Ecovacs](https://www.home-assistant.io/integrations/ecovacs/) (officielle) | Cloud Push | dépend du cloud Ecovacs |
+| **SwitchBot** | [SwitchBot Cloud](https://www.home-assistant.io/integrations/switchbot_cloud/) (officielle) | Cloud Polling | la doc liste notamment les K10+, K10+ Pro, K11+, K20+ Pro, S10, S20 |
+| **Shark** | [Shark IQ](https://www.home-assistant.io/integrations/sharkiq/) (officielle) | Cloud Polling | gamme Shark IQ |
+| **Xiaomi (anciens modèles)** | [Xiaomi Miio](https://www.home-assistant.io/integrations/xiaomi_miio/) (officielle) | Local Polling | compatibilité variable selon le modèle |
+| **Dreame** | pas d'intégration officielle | — | intégration communautaire via HACS |
+| **Robots Matter** | [Matter](https://www.home-assistant.io/integrations/matter/) | local | catégorie « robot aspirateur » ajoutée dans Matter 1.2 ([CSA](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/)) |
+
+**Notre meilleur choix : un Roborock.** L'intégration est officielle et pilote le robot en local, avec le choix des pièces, l'état des consommables et les erreurs. C'est aussi notre choix à petit budget, le Roborock Q7 M5, détaillé dans [Robot aspirateur à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
+
+## Local ou cloud : pourquoi c'est important
+
+- **Local** : Home Assistant parle directement au robot sur votre réseau. Les commandes sont immédiates et continuent de fonctionner si Internet tombe ou si le fabricant change son service.
+- **Cloud** : chaque commande passe par les serveurs du fabricant. Ça fonctionne, mais une panne, un changement d'API ou l'arrêt d'un service peut couper l'intégration du jour au lendemain.
+
+Pour un usage durable, privilégiez une intégration marquée **Local** dans la documentation Home Assistant.
+
+## Ce que l'on peut automatiser
+
+Une fois le robot intégré, il apparaît comme une entité `vacuum`. Exemples courants :
+
+- lancer le ménage quand tout le monde a quitté la maison (zones de présence) ;
+- nettoyer seulement la cuisine après le repas (nettoyage par pièce, si l'intégration le permet) ;
+- recevoir une notification quand le bac est plein ou quand le robot est bloqué ;
+- suivre l'usure des brosses et des filtres.
+
+```yaml
+automation:
+  - alias: "Ménage quand la maison est vide"
+    trigger:
+      - platform: state
+        entity_id: zone.home
+        to: "0"
+        for: "00:15:00"
+    action:
+      - action: vacuum.start
+        target:
+          entity_id: vacuum.robot_salon
+```
+
+Remplacez `vacuum.robot_salon` par le nom de votre entité.
+
+## Avant d'acheter
+
+1. Cherchez le modèle exact dans la page d'intégration Home Assistant de la marque.
+2. Vérifiez si l'intégration est **officielle** et **locale**.
+3. Choisissez la navigation : un LiDAR cartographie précisément, ce qui permet le nettoyage par pièce (voir [LiDAR, caméra ou gyroscope](/domotique/robot-aspirateur-navigation-lidar-camera-gyroscope/)).
+4. Décidez si vous voulez la fonction serpillière et une station : voir [robot aspirateur laveur et stations](/domotique/robot-aspirateur-laveur-serpilliere-station/).
+
+Vous n'avez pas encore de serveur ? Suivez notre guide [Installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).

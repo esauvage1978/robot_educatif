@@ -69,10 +69,10 @@ const isDe = _p.startsWith('/de/');
 <link rel="canonical" href={canonicalURL} />
 {langPair && (
 	<>
-		<link rel="alternate" hreflang="fr" href={new URL(langPair.fr, Astro.site).toString()} />
+		{langPair.fr && <link rel="alternate" hreflang="fr" href={new URL(langPair.fr, Astro.site).toString()} />}
 		<link rel="alternate" hreflang="en" href={new URL(langPair.en, Astro.site).toString()} />
 		{langPair.de && <link rel="alternate" hreflang="de" href={new URL(langPair.de, Astro.site).toString()} />}
-		<link rel="alternate" hreflang="x-default" href={new URL(langPair.fr, Astro.site).toString()} />
+		<link rel="alternate" hreflang="x-default" href={new URL(langPair.fr ?? langPair.en, Astro.site).toString()} />
 	</>
 )}
 
