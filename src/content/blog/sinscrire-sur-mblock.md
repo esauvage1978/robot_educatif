@@ -99,3 +99,5 @@ Après validation, **consultez votre messagerie** : Makeblock envoie en principe
 | 6 | **Confirmer** via le lien reçu par mail |
 
 Une fois connecté, vous pourrez enchaîner sur un [premier programme pour le mBot](/mon-premier-programme-mbot/) ou continuer à apprendre les bases de l’[interface mBlock 5](/premier-pas-avec-mblock-5/).
+
+**À lire aussi** : [mBlock ou Scratch ?](/mblock-vs-scratch-lequel-choisir/)

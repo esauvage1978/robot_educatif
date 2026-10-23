@@ -17,7 +17,7 @@ Den einen „besten“ Roboter für jede Familie gibt es nicht. Entscheidend sin
 
 ## 2. Die drei Kriterien, die wirklich zählen
 
-**Gut gepflegte Software.** Ohne aktuelle Anleitungen und eine aktive Community stehen Sie beim ersten Bluetooth-Problem oder Windows-Update allein da. Wenn Sie sich für Makeblock entscheiden, beginnen Sie mit unserer Anleitung [mBlock 5 unter Windows installieren](/de/mblock-5-installieren-windows/).
+**Gut gepflegte Software.** Ohne aktuelle Anleitungen und eine aktive Community stehen Sie beim ersten Bluetooth-Problem oder Windows-Update allein da. Wenn Sie sich für [Makeblock](/de/marke-makeblock/) entscheiden, beginnen Sie mit unserer Anleitung [mBlock 5 unter Windows installieren](/de/mblock-5-installieren-windows/).
 
 **Sensoren und abwechslungsreiche Aufgaben.** Ein Roboter, der nur geradeaus fährt, wird schnell langweilig. Achten Sie auf mindestens zwei Arten von Aufgaben (Abstand, Linie, Licht, Geräusch, Display).
 
@@ -34,7 +34,7 @@ Angaben vom 21. Oktober 2026 aus den offiziellen Seiten: [Makeblock mBot](https:
 | Sprachen | Blöcke (mBlock), Arduino | Blöcke (mBlock), Python, Arduino IDE für CyberPi | Arduino (C/C++) |
 | Mitgelieferte Sensoren | Ultraschall, Linienfolger, Licht, Infrarot | Ultraschall, Quad-RGB-Sensor, Licht, Mikrofon, Gyroskop, Beschleunigungssensor | Hinderniserkennung, Linienverfolgung, IR-Fernbedienung, Kamera |
 | Montage | etwa 15 Min. | etwa 30 Min. | Steckmodule XH2.54, Anleitung beiliegend |
-| Stromversorgung / Laufzeit | 4 × AA oder optionaler LiPo-Akku, etwa 1 h | eingebauter Akku, etwa 5 h | Akkupack beiliegend (siehe ELEGOO-Seite) |
+| Stromversorgung / Laufzeit | 4 × AA oder optionaler LiPo-Akku, etwa 1 h | eingebauter Akku, etwa 5 h | Akkupack beiliegend (siehe [ELEGOO-Seite](/de/marke-elegoo/)) |
 
 ## 4. Schnellauswahl nach Alter
 

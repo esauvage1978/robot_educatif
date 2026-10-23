@@ -9,7 +9,7 @@ Both run **Home Assistant OS** and both make an excellent local smart home hub. 
 
 ## 1. Specs side by side
 
-| | Home Assistant Green | Raspberry Pi 5 (4GB or 8GB) |
+| | Home Assistant Green | [Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB) |
 |---|---|---|
 | In the box | finished device: case, storage, power supply | bare board only |
 | Processor | quad-core Cortex-A55, 1.8 GHz | quad-core Cortex-A76, 2.4 GHz |
@@ -47,3 +47,5 @@ Not sure which Pi 5 memory size? Read [Raspberry Pi 5: which RAM to buy](/en/ras
 Neither device has Zigbee built in. Plug in a USB coordinator on a short extension cable to reduce interference: see [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/).
 
 **Verdict:** Green for zero-hassle; Pi 5 for power and flexibility.
+
+[All smart-home guides](/en/smart-home/)

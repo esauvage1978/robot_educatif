@@ -38,11 +38,9 @@ Une LED une fois allumée ne s’éteint pas seule, il faut donc lui affecter la
 
 Pour se faire, vous aller utiliser les blocs suivants :
 
-*[image représentant les Blocs à utiliser pour cette activité - illustration indisponible]*
 
 Voici une des solutions possibles :
 
-*[image représentant la solution de l'activité sur les LED pour le mBot - illustration indisponible]*
 
 *Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5 (voir [Programmes mBlock](/programmes/)).*
 
@@ -52,11 +50,9 @@ L’objectif de ce second programme est d’afficher les couleurs rouge, vert et
 
 Ci dessous les blocs à utiliser
 
-*[ - illustration indisponible]*
 
 Pour avoir une solution qui peut être celle ci
 
-*[ - illustration indisponible]*
 
 *Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5.*
 
@@ -72,7 +68,6 @@ Pour faire évoluer la valeur de la variable de 1, il faut utiliser le bloc **ch
 
 Je vous présente une solution possible
 
-*[activité d'affichage des leds du mBot - illustration indisponible]*
 
 et si vous ne souhaitez pas le reproduire, exportez votre propre projet depuis mBlock une fois les blocs en place (*fichier .mblock d’origine non fourni*).
 
@@ -86,17 +81,14 @@ La seconde raison est que mes constantes sont elle aussi dupliquées. Dans ce pr
 
 Je vous propose de réfléchir à une solution et je vous en donnerai une utilisant un bloc personnalisé avec 3 paramètres.
 
-*[ - illustration indisponible]*
 
 Les premiers paramètres correspondent à mes deux constantes. Le dernier paramètre sera une variable pouvant contenir les valeurs 0,1 et 2. Si sa valeur est 0 alors j’afficherai le rouge, le 1 pour le vert et le 2 pour le bleu.
 
 Le contenu du bloc est le suivant
 
-*[Image représentant un bloc personnalisé avec 3 paramètres en entrée - illustration indisponible]*
 
 et le programme principal sera le suivant
 
-*[Image représentant le programme principal modifié - illustration indisponible]*
 
 En terme de nombre de ligne de code, ce programme n’est pas plus court. Cependant il est plus simple à faire évoluer et à paramétrer. Dans le cas d’un projet plus gros, il est indispensable de mettre en oeuvre ces mécanismes.
 

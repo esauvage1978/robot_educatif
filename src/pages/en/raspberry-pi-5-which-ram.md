@@ -5,7 +5,7 @@ description: "Which Raspberry Pi 5 memory size should you buy? What each RAM opt
 updated: "21 October 2026"
 ---
 
-The **Raspberry Pi 5** is built around the Broadcom **BCM2712**: four **Cortex-A76** cores at **2.4 GHz**, a **VideoCore VII** GPU and the **RP1** I/O controller. It is also the first full-size Raspberry Pi with a **PCIe 2.0 ×1** link, which opens the door to **NVMe SSDs** through an add-on board. Specs from the [official Raspberry Pi 5 page](https://www.raspberrypi.com/products/raspberry-pi-5/).
+The **[Raspberry Pi](/en/raspberry-pi-brand/) 5** is built around the Broadcom **BCM2712**: four **Cortex-A76** cores at **2.4 GHz**, a **VideoCore VII** GPU and the **RP1** I/O controller. It is also the first full-size Raspberry Pi with a **PCIe 2.0 ×1** link, which opens the door to **NVMe SSDs** through an add-on board. Specs from the [official Raspberry Pi 5 page](https://www.raspberrypi.com/products/raspberry-pi-5/).
 
 This guide covers the **memory options** in the range (availability varies by country), what you must budget for **cooling** and **power**, and how to choose.
 

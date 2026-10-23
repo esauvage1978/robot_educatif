@@ -50,7 +50,7 @@ Les **prises connectées Zigbee** sont essentielles dans Home Assistant : elles 
 | Modèle | Protocole | Mesure conso | Charge max | Répéteur | Type prise | Pour qui ? |
 |--------|-----------|--------------|------------|----------|------------|------------|
 | **NOUS A1Z** | Zigbee 3.0 | ✅ W, kWh, V, A | 16 A (3680 W) | ✅ | E (FR) | **Meilleur choix** — compact, fiable, mesure précise |
-| **SONOFF S26R2ZB** | Zigbee 3.0 | ✅ W, kWh | 10 A (2300 W) | ✅ | E (FR/EU) | Alternative SONOFF, charge moyenne |
+| **[SONOFF](/marque-sonoff/) S26R2ZB** | Zigbee 3.0 | ✅ W, kWh | 10 A (2300 W) | ✅ | E (FR/EU) | Alternative SONOFF, charge moyenne |
 | **SONOFF S60ZB** | Zigbee 3.0 | ✅ W, kWh | 16 A (3680 W) | ✅ | E (FR) | Variante S26 avec 16 A, plus récente |
 | **Aqara Smart Plug** | Zigbee 3.0 | ✅ W, kWh | 10 A (2300 W) | ✅ | E (EU) | Design premium, app Aqara |
 | **Tapo P110** | **Wi-Fi** | ✅ W, kWh | 16 A (3680 W) | ❌ | E (FR) | **Wi-Fi uniquement** — pas Zigbee, début sans box |
@@ -421,6 +421,9 @@ template:
 - Placer prises sur **chemin entre dongle et capteurs éloignés**
 - Éviter prises "en ligne" (A-B-C) : préférer maillage (A-B, A-C, B-C)
 - Vérifier topologie ZHA : chaque capteur doit avoir 2+ chemins
+
+
+**À lire aussi** : [choisir entre Zigbee2MQTT et ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/)
 
 ## FAQ
 

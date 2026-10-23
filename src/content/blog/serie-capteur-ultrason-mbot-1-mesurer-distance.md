@@ -130,3 +130,5 @@ Selon ta version de mBlock, les noms exacts varient un peu, mais la solution min
 ## Étape suivante
 
 Dans l’activité suivante, tu vas transformer `distance_cm` en un **radar de recul** : plus tu es proche, plus le robot “bipe” vite.
+
+[Épisode suivant →](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/)

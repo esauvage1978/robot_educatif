@@ -181,3 +181,5 @@ Blocs nécessaires (forme générale) :
 
 - Ajouter une LED (vert/orange/rouge) selon la distance.
 - En faire un “parking assist” complet : si obstacle détecté, reculer lentement puis stop.
+
+[← Épisode précédent](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)

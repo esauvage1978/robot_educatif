@@ -23,7 +23,7 @@ Ein **Arduino-Roboterbausatz** ist eine Kiste mit Bauteilen (Steuerplatine, Moto
 | 12–14 | Arduino-Autobausatz mit wachsender Selbstständigkeit |
 | 14+ | Autobausatz plus Erweiterungen (Kamera, weitere Sensoren) |
 
-Zum Vergleich: ELEGOO gibt für sein [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) **13+** an (Herstellerseite, geprüft am 21. Oktober 2026).
+Zum Vergleich: [ELEGOO](/de/marke-elegoo/) gibt für sein [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) **13+** an (Herstellerseite, geprüft am 21. Oktober 2026).
 
 ## 3. Arduino vs mBot vs Raspberry Pi
 

@@ -9,7 +9,7 @@ categories:
   - "FAQ"
   - "Robot éducatif"
 ---
-Le robot Tale-bot pro de chez Matatalab est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons répondre aux questions courantes concernant le robot Tale-bot.
+Le robot Tale-bot pro de chez [Matatalab](/marque-matatalab/) est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons répondre aux questions courantes concernant le robot Tale-bot.
 
 Les recherches du type **« robot tale bot »** (avec ou sans tiret, ou « Tale Bot ») désignent en général **ce** robot programmable sans écran, et non les robots Makeblock du type **mBot**.
 
@@ -19,7 +19,6 @@ Vous trouverez une description du Tale-bot dans [cet article](/le-robot-tale-bot
 
 Le robot Tale-bot est livré avec une planche recto / verso qui vous permettra de choisir entre 11 langues différentes.
 
-*[Planche de langue du Tale-bot - illustration indisponible]*
 
 Planche de choix de langue
 
@@ -42,8 +41,10 @@ En date du 1 mai 2023, la procédure ne fonctionne pas sur Android. Je suis en c
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+Pour en savoir plus : le [site officiel de Matatalab](https://www.matatalab.com/).
 
 Boutique en ligne de Matatalab Tale-bot pro
 
 ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)
+
+**À lire aussi** : [qui est Matatalab ?](/matatalab-une-entreprise-innovante/)

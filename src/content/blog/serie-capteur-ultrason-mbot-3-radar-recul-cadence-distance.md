@@ -150,3 +150,5 @@ Pourquoi on “force” la distance à 10 ?
 ## Étape suivante
 
 Dans l’activité 4, on garde l’idée “plus proche = plus d’alerte”, mais au lieu de seulement biper, le robot va **avancer**, puis **ralentir** progressivement, puis **s’arrêter** si un obstacle est détecté.
+
+[← Épisode précédent](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/) · [Épisode suivant →](/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/)

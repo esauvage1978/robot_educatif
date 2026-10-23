@@ -21,7 +21,7 @@ relatedLinks:
     href: "/logiciel-mblock-makeblock-mbot-quel-choisir/"
 ---
 
-**mBot2** est avant tout un **robot mobile** : on pense **parcours**, **capteurs au sol**, **démo** en quelques minutes. **CyberPi** est une **carte de développement** : on pense **console**, **objets connectés**, **projet sans roues** si on le souhaite. Les deux sont Makeblock et **mBlock**, mais le **geste pédagogique** n’est pas le même.
+**mBot2** est avant tout un **robot mobile** : on pense **parcours**, **capteurs au sol**, **démo** en quelques minutes. **CyberPi** est une **carte de développement** : on pense **console**, **objets connectés**, **projet sans roues** si on le souhaite. Les deux sont [Makeblock](/marque-makeblock/) et **mBlock**, mais le **geste pédagogique** n’est pas le même.
 
 ## Prix indicatifs (France, mars 2026)
 

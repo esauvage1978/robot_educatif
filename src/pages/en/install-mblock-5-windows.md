@@ -5,7 +5,7 @@ description: "Download and install mBlock 5, Makeblock's free block-coding app, 
 updated: "21 October 2026"
 ---
 
-**mBlock 5 is free** to download from the official site, [mblock.cc](https://www.mblock.cc/en-us/download/). It is Makeblock's Scratch-based app for coding robots such as the **mBot** and **mBot2**, and it can also switch to Python. This guide takes you through installing it on Windows 10 or 11.
+**mBlock 5 is free** to download from the official site, [mblock.cc](https://www.mblock.cc/en-us/download/). It is [Makeblock](/en/makeblock-brand/)'s Scratch-based app for coding robots such as the **mBot** and **mBot2**, and it can also switch to Python. This guide takes you through installing it on Windows 10 or 11.
 
 ## Before you start
 

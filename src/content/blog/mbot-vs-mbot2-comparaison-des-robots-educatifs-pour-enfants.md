@@ -45,7 +45,7 @@ Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous a
 
 - **Même univers logiciel** : programmation par blocs avec **mBlock** (proche de Scratch), tutoriels et communauté nombreuse.
 - **Même idée pédagogique** : assembler un châssis, brancher des capteurs, faire des **parcours** et des petits défis.
-- **Makeblock** : pièces, documentations et **accessoires** officiels — attention toutefois à la **compatibilité** génération par génération (voir plus bas).
+- **[Makeblock](/marque-makeblock/)** : pièces, documentations et **accessoires** officiels — attention toutefois à la **compatibilité** génération par génération (voir plus bas).
 
 ## Fonctionnalités : tableau comparatif
 

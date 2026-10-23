@@ -50,3 +50,5 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 - Rewiring light switches yourself without the right qualifications.
 
 **Next:** [Smart plugs for the UK and US](/en/smart-home/smart-plugs-uk-us/).
+
+[All smart-home guides](/en/smart-home/)

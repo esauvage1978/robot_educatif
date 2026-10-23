@@ -21,7 +21,7 @@ relatedLinks:
     href: "/installer-mblock-5-sous-windows-10/"
 ---
 
-**mBot** et **Codey Rocky** partagent l’écosystème **Makeblock** et **mBlock**, mais ne répondent pas au même profil : l’un est un **robot « char »** classique (souvent associé au **montage** et aux ateliers type « parcours »), l’autre un duo **tête + base** très orienté **interaction**, **écran** et **personnage** sur la partie Codey.
+**mBot** et **Codey Rocky** partagent l’écosystème **[Makeblock](/marque-makeblock/)** et **mBlock**, mais ne répondent pas au même profil : l’un est un **robot « char »** classique (souvent associé au **montage** et aux ateliers type « parcours »), l’autre un duo **tête + base** très orienté **interaction**, **écran** et **personnage** sur la partie Codey.
 
 ![Deux silhouettes produit (schéma pédagogique)](/images/blog/guides-2026/mbot-vs-codey-schema.svg)
 

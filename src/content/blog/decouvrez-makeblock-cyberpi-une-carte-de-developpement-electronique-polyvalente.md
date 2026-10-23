@@ -11,7 +11,7 @@ categories:
   - "Électronique"
   - "Programmation"
 ---
-Makeblock [CyberPi](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21) est une carte de développement électronique conçue pour offrir une expérience interactive et éducative à tous les niveaux. Avec sa compatibilité multi-langage, ses fonctionnalités avancées et sa connectivité sans fil, elle est idéale pour les amateurs de technologie, les étudiants, les enseignants et les professionnels de l’électronique.
+[Makeblock](/marque-makeblock/) [CyberPi](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21) est une carte de développement électronique conçue pour offrir une expérience interactive et éducative à tous les niveaux. Avec sa compatibilité multi-langage, ses fonctionnalités avancées et sa connectivité sans fil, elle est idéale pour les amateurs de technologie, les étudiants, les enseignants et les professionnels de l’électronique.
 
 ![Carte programmable et câblage en atelier maker (illustration d’ambiance)](/images/blog/inset-cyberpi.webp)
 

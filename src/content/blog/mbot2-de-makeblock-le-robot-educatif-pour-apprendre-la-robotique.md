@@ -10,7 +10,7 @@ categories:
   - "Makeblock"
   - "À partir de 10 ans"
 ---
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) de Makeblock est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec son design élégant, sa facilité d’utilisation et ses fonctionnalités avancées, le MBot2 est le choix idéal pour les amateurs de robotique et les éducateurs.
+Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) de [Makeblock](/marque-makeblock/) est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec son design élégant, sa facilité d’utilisation et ses fonctionnalités avancées, le MBot2 est le choix idéal pour les amateurs de robotique et les éducateurs.
 
 ![Enfant découvrant un robot éducatif programmable (illustration d’ambiance)](/images/blog/inset-mbot2.webp)
 

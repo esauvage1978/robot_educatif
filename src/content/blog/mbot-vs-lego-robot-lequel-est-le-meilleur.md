@@ -25,27 +25,30 @@ tags:
   - "Makeblock"
 ---
 
+
+> **Mise à jour du 23/10/2026** : LEGO Education a retiré SPIKE Essential et SPIKE Prime de la vente directe depuis le 30 juin 2026 ; seuls des revendeurs écoulent encore leurs stocks. Les prix SPIKE de cette page (289 € et 379 €) sont les derniers prix catalogue LEGO, pas des prix actuels garantis. Détails sur [notre page LEGO Education](/marque-lego/).
+
 « **Mieux vaut un mBot ou un robot LEGO ?** » — la question revient sans cesse chez les familles qui veulent **un seul gros achat** à la rentrée ou à Noël. Il n’y a pas de gagnant universel : **LEGO Education** excelle quand l’enfant vit pour la **construction** et l’écosystème **briques + cursus** ; **Makeblock (mBot / mBot2)** excelle quand on veut un **robot roulant compact**, une courbe **mBlock / Scratch** très documentée côté francophone, et un **prix d’entrée** souvent plus bas.
 
-Sous « Lego robot », on regroupe ici principalement **LEGO Education SPIKE Essential**, **SPIKE Prime**, et l’ancien **LEGO Mindstorms Robot Inventor (51515)** — ce dernier **n’est plus commercialisé en neuf** par LEGO depuis fin 2022, mais circule encore en **occasion** ; gardez en tête documentation et applications sur le **long terme**. Les **prix** cités sont **indicatifs** pour la France en **2026** ; vérifiez toujours le **vendeur** et le **contenu du pack** (batterie rechargeable LEGO vendue parfois à part, etc.).
+Sous « Lego robot », on regroupe ici principalement **[LEGO Education](/marque-lego/) SPIKE Essential**, **SPIKE Prime**, et l’ancien **LEGO Mindstorms Robot Inventor (51515)** — ce dernier **n’est plus commercialisé en neuf** par LEGO depuis fin 2022, mais circule encore en **occasion** ; gardez en tête documentation et applications sur le **long terme**. Les **prix** cités sont **indicatifs** pour la France en **2026** ; vérifiez toujours le **vendeur** et le **contenu du pack** (batterie rechargeable LEGO vendue parfois à part, etc.).
 
 ## 1. Rappel des deux philosophies
 
 | | **mBot / mBot2 (Makeblock)** | **LEGO SPIKE (Essential / Prime)** |
 |--|------------------------------|-------------------------------------|
-| **Cœur du produit** | Châssis robot + électronique Makeblock | Hub programmable + moteurs / capteurs + briques |
+| **Cœur du produit** | Châssis robot + électronique [Makeblock](/marque-makeblock/) | Hub programmable + moteurs / capteurs + briques |
 | **Montage** | Kit « petit robot » (vis, ports dédiés) | **LEGO Technic** — rebuild constant |
 | **Logiciel principal** | **mBlock** (Scratch-like) ; Python fort sur **mBot2** | App **LEGO SPIKE** : **Word Blocks** puis **Python** |
 | **Communauté FR** | Nombreux tutoriels blog / YouTube autour de **mBot** | Beaucoup de ressources **FLL** et enseignants ; FR variable selon set |
-| **Prix d’entrée indicatif** | **~80–100 €** (mBot) à **~150–190 €** (mBot2) | **SPIKE Essential** souvent **~150–250 €** ; **SPIKE Prime** souvent **~300–400+ €** |
+| **Prix d’entrée indicatif** | **~80–100 €** (mBot) à **~150–190 €** (mBot2) | **Plus vendu en direct par LEGO depuis le 30/06/2026** : stocks de revendeurs, prix variables (derniers prix catalogue : 289 € Essential, 379 € Prime) |
 
 ## 2. Tranche d’âge et autonomie réelle
 
 | Public | Orientation |
 |--------|-------------|
-| **6–8 ans**, première approche « école + briques » | **SPIKE Essential** peut coller si budget OK ; sinon **robot sans écran** + mini-projets — [guide](/robot-educatif-sans-ecran-guide/) |
+| **6–8 ans**, première approche « école + briques » | **SPIKE Essential** peut coller si vous en trouvez encore chez un revendeur ; sinon **robot sans écran** + mini-projets — [guide](/robot-educatif-sans-ecran-guide/) |
 | **8–10 ans**, PC Windows dispo, envie de **Scratch robot** | **mBot** : excellent rapport **temps passé / euros** ; [avis mBot](/mbot-avis-faut-il-acheter-pour-un-enfant/) |
-| **10 ans et +**, goût pour **construire** 1 h puis **programmer** 1 h | **SPIKE Prime** brille ; **mBot2** reste très fort si le budget est inférieur |
+| **10 ans et +**, goût pour **construire** 1 h puis **programmer** 1 h | **SPIKE Prime** brillait, mais n’est plus vendu en direct : **mBot2** est l’alternative disponible la plus proche (Python, capteurs) |
 | Parent prêt à chiner de l’**occasion** | **Robot Inventor 51515** peut être une valeur si le prix est bas **et** que vous acceptez l’incertitude long terme |
 
 Pour l’âge côté code : [programmation enfant : à quel âge](/programmation-enfant-a-quel-age-commencer/).
@@ -82,8 +85,8 @@ Pour l’âge côté code : [programmation enfant : à quel âge](/programmation
 |-----------------|---------------|
 | **Budget** serré, robot roulant + capteurs tout de suite | **mBot** |
 | **Scratch → Python**, matrice LED / micro, **prix** modéré | **mBot2** |
-| **Construction LEGO**, projets FLL ou reconstruction permanente | **SPIKE Prime** (ou **Essential** si plus jeune) |
-| **Premier LEGO code** sans exploser la tranche Prime | **SPIKE Essential** |
+| **Construction LEGO**, projets FLL ou reconstruction permanente | **SPIKE Prime** (ou **Essential** si plus jeune), si vous en trouvez encore chez un revendeur ; sinon **mBot2** |
+| **Premier LEGO code** sans exploser la tranche Prime | **SPIKE Essential** (stocks revendeurs) ; sinon **mBot** |
 | Occasion / nostalgie Mindstorms | **Robot Inventor** (si prix et état ok — **produit arrêté**) |
 
 ## 6. Pas de « vainqueur », un choix de design
@@ -96,13 +99,16 @@ Pour un panorama des alternatives (sans écran, cartes, etc.) : [quel robot édu
 ## Liens Amazon (recherche affiliée)
 
 - [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [LEGO SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
-- [LEGO SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
+- [mBot2 Makeblock](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
+- [mBot Ranger Makeblock](https://www.amazon.fr/dp/B07KG4JHBH?tag=manuso06-21)
+- [LEGO SPIKE Prime (stocks restants chez les revendeurs)](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
+- [LEGO SPIKE Essential (stocks restants chez les revendeurs)](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
 - [LEGO Mindstorms Robot Inventor occasion / neuf marchands](https://www.amazon.fr/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
 
 ---
 
-**En synthèse** : **mBot** gagne souvent sur **prix, simplicité du robot roulant et docs francophones** ; **LEGO SPIKE Prime** gagne sur **construction, cursus institutionnels et robotique compétitive**. Choisissez selon ce qui **motive votre enfant**, pas selon la marque sur la boîte.
+**En synthèse** : **mBot** gagne souvent sur **prix, simplicité du robot roulant et docs francophones** ; **LEGO SPIKE Prime** gagne sur **construction, cursus institutionnels et robotique compétitive**, mais LEGO ne le vend plus en direct depuis le 30/06/2026 : pour un achat neuf, le **mBot2** est l’alternative disponible la plus proche (voir nos [alternatives à LEGO Spike](/alternatives-lego-spike-comparatif-2026/)). Choisissez selon ce qui **motive votre enfant**, pas selon la marque sur la boîte.
+
+**À lire aussi** : [alternatives à LEGO Spike](/alternatives-lego-spike-comparatif-2026/)

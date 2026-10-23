@@ -20,7 +20,7 @@ categories:
   - "Makeblock"
   - "Programmation"
 ---
-**Codey Rocky** est un robot éducatif **Makeblock** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
+**Codey Rocky** est un robot éducatif **[Makeblock](/marque-makeblock/)** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 
 > Cet article contient des **liens affiliés Amazon** (identifiant `manuso06-21`). En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, **sans surcoût** pour vous.
 
@@ -46,7 +46,7 @@ Les liens suivants sont **externes** ; la plupart sont en **anglais**, mais les 
 
 ### Manuel PDF (projets guidés)
 
-- [**Codey Rocky — Coding Guide (PDF)**](https://qiniu.makeblock.com/makeblockcom/Codey-Rocky-Coding-Guide_EN.pdf) — guide publié par Makeblock avec **activités pas à pas** et logique **upload** (programme stocké dans le robot pour qu’il tourne sans le câble).
+- [**Support et garantie Makeblock**](https://www.makeblock.com/pages/makeblock-warranty) — guide publié par Makeblock avec **activités pas à pas** et logique **upload** (programme stocké dans le robot pour qu’il tourne sans le câble).
 
 ### Tutoriels pas à pas
 

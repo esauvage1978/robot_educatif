@@ -29,7 +29,6 @@ Lorsque l’on sélectionne un de ces objets, la zone de script affichée corres
 
 De plus, les différents programmes fonctionnent en parallèles.
 
-*[plusieurs programme pour 1 lutin - illustration indisponible]*
 
 Dans cette exemple, notre lutin a 3 programmes associés. Lorsque l’on appuie sur le drapeau vert, il avance de 10 pas et pense « Hummmm » simultanément. Lorsque l’on appuie sur la barre espace il se déplace aléatoirement.
 
@@ -45,17 +44,14 @@ En toute logique c’est un **arrière plan** que l’on devrait utiliser mais n
 
 Pour commencer, rendez-vous dans la section **Objets** et appuyer sur **ajouter**.
 
-*[Ajout d'un nouvel objet - illustration indisponible]*
 
 Ensuite appuyer sur le bouton **Peinture**
 
-*[Appuyer sur le bouton peinture - illustration indisponible]*
 
 ### 3.1 Création d’un bloc
 
 Notre sol sera constitué de bloc que nous allons dupliquer. Pour ma part j’ai créé celui-ci
 
-*[Création du premier bloc - illustration indisponible]*
 
 Il est constitué de plusieurs éléments. Nous allons les fusionner afin d’avoir un bloc homogène. Pour se faire, appuyer sur le bouton **convertir en bitmap** et appuyer sur le bouton **Vectoriser**.
 
@@ -71,9 +67,7 @@ Les touches de raccourci Windows pour le faire :
 
 Maintenant que vous avez 5 bloc, On va de nouveau les fusionner pour n’avoir qu’un bloc homogène.
 
-*[Ajout de 5 blocs pour créer un morceau - illustration indisponible]*
 
-*[ - illustration indisponible]*
 
 Sous le bloc vous avez les flèches de contrôle pour modifier l’inclinaison de celui-ci.
 
@@ -83,18 +77,14 @@ L’espace de travail n’a pas de scrollbar et créer un décor plus large que 
 
 La première étape consiste à avoir un bloc faisant à peu près toute la largeur. Il faut à ce moment là le sélectionner et le décaler sur le bord droit. Enfin ajouter un bloc. Comme vous pouvez le constater la largeur est maintenant passée à 841 pixels
 
-*   *[ - illustration indisponible]*
     
-*   *[ - illustration indisponible]*
     
-*   *[ - illustration indisponible]*
     
 
 ### 3.4 Construction du décor
 
 Vous allez maintenant pouvoir faire la même chose pour avoir un costume large d’au moins 7000 pixels.
 
-*[ - illustration indisponible]*
 
 Pour ceux qui seraient tombés amoureux de mon décor, reproduisez-le à partir des captures (fichier projet **.mblock** non hébergé — [Programmes mBlock](/programmes/)).
 
@@ -112,7 +102,6 @@ Comme à l’habitude, je vais vous fournir une solution
 
 Ce programme ci-dessous permet de déplacer notre décor suivant les flèches appuyées
 
-*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
@@ -130,7 +119,6 @@ Nous allons donc déclarer 3 variables
 *   decor\_debut aura pour valeur la coordonnée X du début du décor. On la calculera par rapport à décor largeur.
 *   et enfin decor\_fin qui aura pour valeur la coordonnée X de la fin du décor.
 
-*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 
@@ -144,7 +132,6 @@ Utilisé dans un structure conditionnelle SI, les instructions contenues ne sero
 
 Ainsi, pour le déplacement par la droite la condition sera : Si la flèche de droite est pressée ET si la position de la valeur de X doit être supérieur à la valeur de la variable decor\_fin.
 
-*[ - illustration indisponible]*
 
 *Pas de fichier .mblock — recopiez les blocs de la capture ci-dessus.*
 

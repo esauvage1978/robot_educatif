@@ -11,7 +11,7 @@ To control Zigbee devices from **Home Assistant**, you need a **Zigbee coordinat
 
 | Model | Chip | Antenna | Thread / Matter | ZHA | Zigbee2MQTT | Best for |
 |---|---|---|---|---|---|---|
-| **SONOFF ZBDongle-E** | Silicon Labs EFR32MG21 | external | not by default (Zigbee firmware) | yes | yes | most people: well documented |
+| **[SONOFF](/en/sonoff-brand/) ZBDongle-E** | Silicon Labs EFR32MG21 | external | not by default (Zigbee firmware) | yes | yes | most people: well documented |
 | **Home Assistant Connect ZBT-2** | Silicon Labs MG24 | internal, in an optimised case | yes (Thread firmware option) | yes | yes | official Nabu Casa support, Thread-ready |
 | **SONOFF Dongle Lite MG21** | Silicon Labs EFR32MG21 | internal | not by default | yes | yes | smallest budget, small homes |
 | **ConBee II** (dresden elektronik) | deCONZ firmware | internal | no | yes | yes | users already on deCONZ / Phoscon |
@@ -36,3 +36,5 @@ All four dongles above work with both.
 SONOFF and Home Assistant hardware are sold by official resellers and large marketplaces in both countries. Check availability on the official pages above before ordering.
 
 Choosing a hub? See [Home Assistant Green vs Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/).
+
+[All smart-home guides](/en/smart-home/)

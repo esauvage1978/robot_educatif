@@ -23,7 +23,7 @@ An **Arduino robot kit** is a box of parts (a controller board, motors, sensors,
 | 12–14 | Arduino car kit with growing independence |
 | 14+ | Car kit plus extensions (camera, more sensors) |
 
-For reference, ELEGOO rates its [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) **13+** (manufacturer page, checked 21 October 2026).
+For reference, [ELEGOO](/en/elegoo-brand/) rates its [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) **13+** (manufacturer page, checked 21 October 2026).
 
 ## 3. Arduino vs mBot vs Raspberry Pi
 

@@ -50,3 +50,5 @@ Ein Smart Home muss nicht mit einer großen Zentrale und einem Wochenende voller
 - Lichtschalter ohne entsprechende Qualifikation selbst umverdrahten.
 
 **Weiter:** [Smarte Steckdosen (Schuko)](/de/smart-home/smarte-steckdosen/).
+
+[Alle Smart-Home-Ratgeber](/de/smart-home/)

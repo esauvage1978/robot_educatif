@@ -103,3 +103,5 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 ---
 
 **À retenir** : installez l’**application** sur la machine principale du projet robot ; gardez le **Web** pour les postes verrouillés ou les démos rapides ; n’ouvrez le **Python** que quand la **logique des blocs** est solide — le logiciel n’est qu’un outil, le **projet** et la **compréhension** restent au centre.
+
+**À lire aussi** : [mBlock ou Scratch ?](/mblock-vs-scratch-lequel-choisir/)

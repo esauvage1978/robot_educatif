@@ -9,7 +9,7 @@ categories:
   - "Robotique éducative"
   - "Entreprise"
 ---
-**Matatalab** est une entreprise qui se spécialise dans la **conception et la production de jouets éducatifs pour les enfants**. Fondée en 2017, la société a rapidement connu un succès international grâce à son approche innovante de l’apprentissage des sciences, de la technologie, de l’ingénierie et des mathématiques (STEM).
+**[Matatalab](/marque-matatalab/)** est une entreprise qui se spécialise dans la **conception et la production de jouets éducatifs pour les enfants**. Fondée en 2017, la société a rapidement connu un succès international grâce à son approche innovante de l’apprentissage des sciences, de la technologie, de l’ingénierie et des mathématiques (STEM).
 
 La philosophie de Matatalab est de fournir des **outils éducatifs** qui encouragent la **créativité**, la **curiosité** et **l’exploration** chez les enfants. Leur gamme de produits comprend des robots programmables, des kits de construction et des jeux d’apprentissage qui permettent aux enfants de découvrir les concepts STEM de manière ludique et interactive.
 
@@ -25,7 +25,7 @@ Le robot [Tale-bot de chez Matatalab](/le-robot-tale-bot-de-chez-matatalab-un-ou
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-[*[Boutique en ligne de Matatalab - illustration indisponible]*](https://shop.matatalab.com/collections/matatalab-coding-kits/products/matatalab-tale-bot-pro)
+Pour en savoir plus : le [site officiel de Matatalab](https://www.matatalab.com/).
 
 Boutique en ligne de Matatalab Tale-bot pro
 
@@ -37,7 +37,6 @@ Le Matatalab Pro est un robot programmable plus avancé destiné **aux enfants d
 
 Vous pouvez le retrouver directement sur la boutique de l’entreprise :
 
-*[Matatalab pro set - illustration indisponible]*
 
 Boutique en ligne pour acheter le Matatalab Pro Set
 

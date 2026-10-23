@@ -21,7 +21,7 @@ relatedLinks:
     href: "/mbot2-vs-cyberpi-comparatif/"
 ---
 
-Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable** type **Raspberry Pi** (projets variés, Linux, Python « pur ») et le **robot éducatif** (motivation immédiate, mouvement, capteurs). Ce n’est pas le même investissement en **temps adulte** ni le même **niveau d’autonomie** — et ce n’est pas non plus « l’un mieux que l’autre » : ça dépend de ce que l’ado veut **montrer** en premier.
+Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable** type **[Raspberry Pi](/marque-raspberry-pi/)** (projets variés, Linux, Python « pur ») et le **robot éducatif** (motivation immédiate, mouvement, capteurs). Ce n’est pas le même investissement en **temps adulte** ni le même **niveau d’autonomie** — et ce n’est pas non plus « l’un mieux que l’autre » : ça dépend de ce que l’ado veut **montrer** en premier.
 
 ![Plateforme large versus produit robot prêt à l’emploi](/images/blog/guides-2026/raspberry-vs-kit-robot.svg)
 
@@ -68,3 +68,5 @@ Non : la CyberPi est une **carte Makeblock** avec écosystème mBlock — proche
 ---
 
 **En résumé** : **Raspberry Pi** = **plateforme** large ; **robot éducatif** = **produit** focalisé sur la mécanique et les défis mobiles. Les deux peuvent cohabiter plus tard si le projet dure.
+
+**À lire aussi** : [projet station météo](/domotique/raspberry-pi-station-meteo-bme280-historique/)

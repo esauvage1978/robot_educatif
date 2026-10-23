@@ -61,8 +61,8 @@ export const AMAZON_SIDEBAR_PRESETS = {
 		{ label: 'Livres — programmation & robotique', query: 'livre programmation robotique enfant' },
 	],
 	lego: [
-		{ label: 'LEGO SPIKE Prime', query: 'LEGO SPIKE Prime robot éducation' },
-		{ label: 'LEGO SPIKE Essential', query: 'LEGO Education SPIKE Essential' },
+		{ label: 'LEGO SPIKE Prime (stocks revendeurs)', query: 'LEGO SPIKE Prime robot éducation' },
+		{ label: 'LEGO SPIKE Essential (stocks revendeurs)', query: 'LEGO Education SPIKE Essential' },
 		{ label: 'mBot Makeblock (alternative STEM)', asin: 'B07XR98YYQ' },
 	],
 } as const satisfies Record<string, AmazonSidebarLink[]>;

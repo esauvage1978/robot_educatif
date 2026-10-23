@@ -5,7 +5,7 @@ description: "mBlock 5, die kostenlose Block-Programmier-App von Makeblock, unte
 updated: "22. Oktober 2026"
 ---
 
-**mBlock 5 ist kostenlos** auf der offiziellen Website [mblock.cc](https://www.mblock.cc/en-us/download/) erhältlich. Es ist die auf Scratch basierende App von Makeblock zum Programmieren von Robotern wie **mBot** und **mBot2** und kann auch auf Python umschalten. Diese Anleitung führt Sie durch die Installation unter Windows 10 oder 11.
+**mBlock 5 ist kostenlos** auf der offiziellen Website [mblock.cc](https://www.mblock.cc/en-us/download/) erhältlich. Es ist die auf Scratch basierende App von [Makeblock](/de/marke-makeblock/) zum Programmieren von Robotern wie **mBot** und **mBot2** und kann auch auf Python umschalten. Diese Anleitung führt Sie durch die Installation unter Windows 10 oder 11.
 
 ## Bevor Sie beginnen
 

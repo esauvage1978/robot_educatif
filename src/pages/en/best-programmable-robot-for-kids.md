@@ -17,7 +17,7 @@ There is no single "best" robot for every family. What matters is your child's *
 
 ## 2. The three criteria that really matter
 
-**Well-maintained software.** Without up-to-date tutorials and an active community, you are on your own at the first Bluetooth failure or Windows update. If you go with Makeblock, start with our guide to [installing mBlock 5 on Windows](/en/install-mblock-5-windows/).
+**Well-maintained software.** Without up-to-date tutorials and an active community, you are on your own at the first Bluetooth failure or Windows update. If you go with [Makeblock](/en/makeblock-brand/), start with our guide to [installing mBlock 5 on Windows](/en/install-mblock-5-windows/).
 
 **Sensors and variety of challenges.** A robot that only drives in a straight line gets boring fast. Look for at least two kinds of challenge (distance, line, light, sound, display).
 
@@ -27,7 +27,7 @@ There is no single "best" robot for every family. What matters is your child's *
 
 Figures taken on 21 October 2026 from the official pages: [Makeblock mBot](https://www.makeblock.com/products/buy-mbot), [Makeblock mBot2](https://www.makeblock.com/pages/mbot2-coding-robot), [ELEGOO Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). Not measured by us.
 
-| | mBot | mBot2 | ELEGOO Robot Car V4.0 |
+| | mBot | mBot2 | [ELEGOO](/en/elegoo-brand/) Robot Car V4.0 |
 |---|---|---|---|
 | Age stated by the maker | 6+ | primary to high school (Makeblock K-12 pathway) | 13+ (with an adult if no electronics background) |
 | Controller | mCore, 16 MHz | CyberPi, dual-core 240 MHz, colour screen | Arduino UNO-compatible board |

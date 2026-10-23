@@ -49,3 +49,5 @@ Shelly sells its plugs in **local versions** (UK Type G, US Type A/B, EU), with 
 - **Kill standby at night**: switch off the TV corner at midnight, back on at 7 am.
 
 Getting started from scratch? Read [smart home for beginners](/en/smart-home/getting-started/).
+
+[All smart-home guides](/en/smart-home/)

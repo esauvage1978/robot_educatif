@@ -5,7 +5,7 @@ description: "Raspberry Pi 3 Model B, Pi 4 Model B und Pi 5 im Vergleich: CPU, R
 updated: "22. Oktober 2026"
 ---
 
-Zwischen **Raspberry Pi 3 Model B**, **Pi 4 Model B** und **Pi 5** liegt nicht nur ein Preisunterschied: **USB 3**, **echtes Gigabit-Ethernet**, **zwei Bildschirmausgänge**, dann **PCIe** und bis zu **16 GB RAM** beim Pi 5 verändern, was ein Projekt leisten kann. Die Daten stammen von den offiziellen Produktseiten von Raspberry Pi ([Pi 3 B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/), [Pi 4 B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/), [Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/)).
+Zwischen **[Raspberry Pi](/de/marke-raspberry-pi/) 3 Model B**, **Pi 4 Model B** und **Pi 5** liegt nicht nur ein Preisunterschied: **USB 3**, **echtes Gigabit-Ethernet**, **zwei Bildschirmausgänge**, dann **PCIe** und bis zu **16 GB RAM** beim Pi 5 verändern, was ein Projekt leisten kann. Die Daten stammen von den offiziellen Produktseiten von Raspberry Pi ([Pi 3 B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/), [Pi 4 B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/), [Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/)).
 
 ## 1. Datentabelle
 

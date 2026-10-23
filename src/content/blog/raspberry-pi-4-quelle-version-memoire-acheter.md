@@ -21,7 +21,7 @@ relatedLinks:
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
 ---
 
-Le **Raspberry Pi 4 Modèle B** (2019, révisions ultérieures) se distingue du Pi 3 surtout par **deux ports USB 3.0**, un **Ethernet Gigabit** indépendant, **jusqu’à 8 Go de RAM** en LPDDR4-3200 et **deux sorties micro-HDMI** capables de pousser des définitions bien plus élevées qu’un simple écran de bureau 1080p — selon usage et refroidissement.
+Le **[Raspberry Pi](/marque-raspberry-pi/) 4 Modèle B** (2019, révisions ultérieures) se distingue du Pi 3 surtout par **deux ports USB 3.0**, un **Ethernet Gigabit** indépendant, **jusqu’à 8 Go de RAM** en LPDDR4-3200 et **deux sorties micro-HDMI** capables de pousser des définitions bien plus élevées qu’un simple écran de bureau 1080p — selon usage et refroidissement.
 
 Ce guide détaille les **quatre déclinaisons mémoire** courantes, **quand choisir l’une ou l’autre**, et ce qu’il faut prévoir au **panier** (alim, câbles, dissipation).
 

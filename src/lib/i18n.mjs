@@ -11,6 +11,13 @@ export const LANG_PAIRS = [
 	{ fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', en: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', de: '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/' },
 	{ fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', en: '/en/smart-home/best-zigbee-dongle-home-assistant/', de: '/de/smart-home/bester-zigbee-stick-home-assistant/' },
 	{ fr: '/domotique/prise-connectee-zigbee-home-assistant/', en: '/en/smart-home/smart-plugs-uk-us/', de: '/de/smart-home/smarte-steckdosen/' },
+	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/' },
+	{ fr: '/marque-matatalab/', en: '/en/matatalab-brand/', de: '/de/marke-matatalab/' },
+	{ fr: '/marque-elegoo/', en: '/en/elegoo-brand/', de: '/de/marke-elegoo/' },
+	{ fr: '/marque-lego/', en: '/en/lego-education-brand/', de: '/de/marke-lego-education/' },
+	{ fr: '/marque-raspberry-pi/', en: '/en/raspberry-pi-brand/', de: '/de/marke-raspberry-pi/' },
+	{ fr: '/marque-sonoff/', en: '/en/sonoff-brand/', de: '/de/marke-sonoff/' },
+	{ fr: '/marques/', en: '/en/brands/', de: '/de/marken/' },
 ];
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
@@ -23,6 +30,7 @@ export const EN_PAGES = [
 	{ href: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
 	{ href: '/en/smart-home/best-zigbee-dongle-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Best Zigbee dongle for Home Assistant' },
 	{ href: '/en/smart-home/smart-plugs-uk-us/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Smart plugs for the UK and US' },
+	{ href: '/en/brands/', fr: '/marques/', title: 'Our brand pages' },
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
 export const DE_PAGES = [
@@ -35,6 +43,7 @@ export const DE_PAGES = [
 	{ href: '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
 	{ href: '/de/smart-home/bester-zigbee-stick-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Bester Zigbee-Stick für Home Assistant' },
 	{ href: '/de/smart-home/smarte-steckdosen/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Smarte Steckdosen (Schuko) für Home Assistant' },
+	{ href: '/de/marken/', fr: '/marques/', title: 'Unsere Markenseiten' },
 ];
 export const langOf = (p) => (p === '/en' || p.startsWith('/en/') ? 'en' : p === '/de' || p.startsWith('/de/') ? 'de' : 'fr');
 export const slugOf = (p) => p.replace(/\/$/, '').split('/').pop();

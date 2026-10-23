@@ -5,7 +5,7 @@ description: "Welche Speichergröße beim Raspberry Pi 5? Wofür jede RAM-Varian
 updated: "22. Oktober 2026"
 ---
 
-Der **Raspberry Pi 5** basiert auf dem Broadcom **BCM2712**: vier **Cortex-A76**-Kerne mit **2,4 GHz**, eine **VideoCore VII**-GPU und der I/O-Controller **RP1**. Er ist außerdem der erste Raspberry Pi in Standardgröße mit einer **PCIe 2.0 ×1**-Schnittstelle, über die sich mit einer Erweiterungsplatine **NVMe-SSDs** anschließen lassen. Daten von der [offiziellen Raspberry-Pi-5-Seite](https://www.raspberrypi.com/products/raspberry-pi-5/).
+Der **[Raspberry Pi](/de/marke-raspberry-pi/) 5** basiert auf dem Broadcom **BCM2712**: vier **Cortex-A76**-Kerne mit **2,4 GHz**, eine **VideoCore VII**-GPU und der I/O-Controller **RP1**. Er ist außerdem der erste Raspberry Pi in Standardgröße mit einer **PCIe 2.0 ×1**-Schnittstelle, über die sich mit einer Erweiterungsplatine **NVMe-SSDs** anschließen lassen. Daten von der [offiziellen Raspberry-Pi-5-Seite](https://www.raspberrypi.com/products/raspberry-pi-5/).
 
 Dieser Ratgeber erklärt die **Speichervarianten** (Verfügbarkeit je nach Land), was Sie für **Kühlung** und **Stromversorgung** einplanen müssen und wie Sie wählen.
 

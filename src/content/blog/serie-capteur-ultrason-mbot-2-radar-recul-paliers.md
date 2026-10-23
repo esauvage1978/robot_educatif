@@ -138,3 +138,5 @@ Blocs typiques nécessaires :
 ## Étape suivante
 
 Dans l’activité 3, on va garder l’idée du radar, mais au lieu de 2 cadences fixes (1 s / 0,25 s), on fera une **cadence qui dépend de la distance** : plus on est proche, plus ça bip vite.
+
+[← Épisode précédent](/serie-capteur-ultrason-mbot-1-mesurer-distance/) · [Épisode suivant →](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)

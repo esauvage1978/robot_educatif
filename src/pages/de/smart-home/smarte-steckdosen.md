@@ -49,3 +49,5 @@ Shelly verkauft seine Steckdosen in **Länderversionen** (EU-Schuko, UK, US), mi
 - **Standby nachts abschalten**: die TV-Ecke um Mitternacht aus- und um 7 Uhr wieder einschalten.
 
 Ganz am Anfang? Lesen Sie [Smart Home für Einsteiger](/de/smart-home/einstieg/).
+
+[Alle Smart-Home-Ratgeber](/de/smart-home/)
