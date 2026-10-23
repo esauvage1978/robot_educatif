@@ -21,7 +21,7 @@ No existe un robot «mejor» para todas las familias. Cuentan la **edad** del ni
 
 **Sensores y actividades variadas.** Un robot que solo va recto aburre pronto. Busca al menos dos tipos de actividad (distancia, línea, luz, sonido, pantalla).
 
-**Coste total, no solo el precio de compra.** Ten en cuenta pilas, almacenamiento y un posible paquete de ampliación. Los precios cambian a menudo, por eso no damos ninguno: consulta el precio en la tienda.
+**Coste total, no solo el precio de compra.** Ten en cuenta pilas, almacenamiento y un posible paquete de ampliación. Los precios cambian a menudo: consulta el precio en la tienda.
 
 ## 3. Datos de los fabricantes comparados
 
@@ -47,7 +47,7 @@ Datos del 21 de octubre de 2026 de las páginas oficiales: [Makeblock mBot](http
 
 ## 5. ¿Dónde comprar en España?
 
-Los tres kits se venden en las tiendas oficiales de los fabricantes y en los grandes marketplaces en línea. El stock y el contenido de la caja varían según el país: **consulta el precio** y la disponibilidad en las páginas oficiales enlazadas arriba antes de pedir. Elige un cargador con **enchufe europeo** y marcado CE (en España las tomas son de tipo F/C).
+Los tres kits se venden en las tiendas oficiales de los fabricantes y en los grandes marketplaces en línea. El stock y el contenido de la caja varían según el país: **consulta el precio** y la disponibilidad en las páginas oficiales enlazadas arriba antes de pedir. En España, el mBot2 también está en Amazon: <a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21" rel="sponsored nofollow">Makeblock mBot2 en Amazon.es</a> (enlace de afiliado). Elige un cargador con **enchufe europeo** y marcado CE (en España las tomas son de tipo F/C).
 
 ## 6. Errores frecuentes
 

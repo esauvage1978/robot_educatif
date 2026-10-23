@@ -31,6 +31,8 @@ updated: "23 ottobre 2026"
 <p><strong>In breve</strong></p>
 <p>Per i progetti di domotica il Raspberry Pi 5 da 4 GB è la nostra scelta più conveniente.</p>
 </aside>
+<h2 id="dove-acquistare">Dove acquistare</h2>
+<p>Su Amazon.it: <a href="https://www.amazon.it/dp/B0CK3L9WD3?tag=roboteducat0f-21" rel="sponsored nofollow">Raspberry Pi 5 4 GB</a> (link di affiliazione).</p>
 <h2 id="vedi-anche">Vedi anche</h2>
 <ul>
 <li><a href="/it/marchio-makeblock/">Makeblock: il nostro parere sul marchio</a></li>

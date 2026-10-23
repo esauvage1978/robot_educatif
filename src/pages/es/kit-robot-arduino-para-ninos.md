@@ -41,7 +41,7 @@ Los robots de bloques se comparan en la guía [mejor robot programable para niñ
 - **Documentación**: un manual en PDF o vídeo claro y código de ejemplo descargable importan más que el número de sensores.
 - **Piezas estándar**: una placa compatible UNO de verdad permite reutilizar después sensores de otros kits.
 - **Recambios**: comprueba que los motores y sensores se venden también por separado.
-- **Precio**: varía mucho según la tienda y el país, así que **consulta el precio**.
+- **Precio**: varía mucho según la tienda y el país, así que **consulta el precio**. En Amazon.es: <a href="https://www.amazon.es/dp/B07474MMB5?tag=roboteducat07-21" rel="sponsored nofollow">ELEGOO Smart Robot Car Kit V4.0</a> (enlace de afiliado).
 
 ## 5. ¿Dónde comprar?
 

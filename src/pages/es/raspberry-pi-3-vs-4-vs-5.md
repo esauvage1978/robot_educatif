@@ -30,7 +30,7 @@ Entre la **Raspberry Pi 3 Model B**, la **Pi 4 Model B** y la **Pi 5** no solo c
 
 ## 3. Precios
 
-Los precios de las Raspberry Pi cambian a menudo (stock, márgenes de las tiendas, IVA). No damos cifras: **consulta el precio** en un [distribuidor autorizado](https://www.raspberrypi.com/resellers/). Comprueba siempre la revisión de la placa y el contenido de la caja (fuente de alimentación, disipador).
+Los precios de las Raspberry Pi cambian a menudo (stock, márgenes de las tiendas, IVA). **Consulta el precio** en un [distribuidor autorizado](https://www.raspberrypi.com/resellers/) o en Amazon.es: <a href="https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21" rel="sponsored nofollow">Raspberry Pi 5 4 GB</a> o <a href="https://www.amazon.es/dp/B0CK2FCG1K?tag=roboteducat07-21" rel="sponsored nofollow">Raspberry Pi 5 8 GB</a> (enlaces de afiliado). Comprueba siempre la revisión de la placa y el contenido de la caja (fuente de alimentación, disipador).
 
 ## 4. ¿Qué Raspberry Pi para cada uso?
 

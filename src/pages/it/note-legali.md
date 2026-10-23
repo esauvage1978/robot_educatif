@@ -27,7 +27,7 @@ Marchi, loghi e prodotti citati restano di proprietà dei rispettivi titolari. L
 
 ## 4. Link di affiliazione
 
-Alcuni link del sito sono link di affiliazione: se effettuate un acquisto idoneo tramite questi link, l'editore può ricevere una commissione, senza costi aggiuntivi per voi. Questi introiti contribuiscono a finanziare il sito. Nelle guide in italiano i link di affiliazione sono indicati come tali. Per le pagine francesi il sito partecipa al Programma Affiliazione Amazon (amazon.fr); i dettagli si trovano nelle mentions légales francesi.
+Alcuni link del sito sono link di affiliazione: se effettuate un acquisto idoneo tramite questi link, l'editore può ricevere una commissione, senza costi aggiuntivi per voi. Questi introiti contribuiscono a finanziare il sito. Nelle guide in italiano i link di affiliazione sono indicati come tali. Il sito partecipa al Programma Affiliazione Amazon EU (amazon.it), un programma di affiliazione che consente ai siti di percepire una commissione pubblicitaria pubblicizzando e fornendo link al sito Amazon.it. In qualità di Affiliato Amazon, l'editore riceve un guadagno dagli acquisti idonei. Le pagine francesi rimandano ad amazon.fr.
 
 ## 5. Dati personali
 

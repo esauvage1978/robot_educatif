@@ -31,6 +31,8 @@ updated: "23 de octubre de 2026"
 <p><strong>En resumen</strong></p>
 <p>Para proyectos de domótica, la Raspberry Pi 5 de 4 GB es nuestra opción con mejor relación calidad-precio.</p>
 </aside>
+<h2 id="donde-comprar">Dónde comprar</h2>
+<p>En Amazon.es: <a href="https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21" rel="sponsored nofollow">Raspberry Pi 5 4 GB</a> (enlace de afiliado).</p>
 <h2 id="ver-tambien">Ver también</h2>
 <ul>
 <li><a href="/es/marca-makeblock/">Makeblock: nuestra opinión sobre la marca</a></li>

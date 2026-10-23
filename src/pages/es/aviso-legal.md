@@ -27,7 +27,7 @@ Las marcas, logotipos y productos citados pertenecen a sus respectivos titulares
 
 ## 4. Enlaces de afiliación
 
-Algunos enlaces del sitio son enlaces de afiliación: si realizas una compra válida a través de ellos, el editor puede recibir una comisión, sin coste adicional para ti. Estos ingresos ayudan a financiar el sitio. En las guías en español los enlaces de afiliación se indican como tales. Para las páginas francesas, el sitio participa en el Programa de Afiliados de Amazon (amazon.fr); los detalles figuran en las mentions légales francesas.
+Algunos enlaces del sitio son enlaces de afiliación: si realizas una compra válida a través de ellos, el editor puede recibir una comisión, sin coste adicional para ti. Estos ingresos ayudan a financiar el sitio. En las guías en español los enlaces de afiliación se indican como tales. El sitio participa en el Programa de Afiliados de Amazon EU (amazon.es), un programa de publicidad para afiliados diseñado para ofrecer a sitios web un modo de obtener comisiones por publicidad, publicitando e incluyendo enlaces a Amazon.es. Como Afiliado de Amazon, el editor obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables. Las páginas francesas enlazan a amazon.fr.
 
 ## 5. Datos personales
 

@@ -30,6 +30,8 @@ updated: "23 ottobre 2026"
 <p><strong>In breve</strong></p>
 <p>ELEGOO è il modo più conveniente per imparare Arduino dai 12–13 anni. I più piccoli dovrebbero iniziare con un robot a blocchi come l'mBot.</p>
 </aside>
+<h2 id="dove-acquistare">Dove acquistare</h2>
+<p>Su Amazon.it: <a href="https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21" rel="sponsored nofollow">Smart Robot Car Kit V4.0</a> (link di affiliazione).</p>
 <h2 id="vedi-anche">Vedi anche</h2>
 <ul>
 <li><a href="/it/marchio-makeblock/">Makeblock: il nostro parere sul marchio</a></li>

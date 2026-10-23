@@ -31,6 +31,8 @@ updated: "23 de octubre de 2026"
 <p><strong>En resumen</strong></p>
 <p>Makeblock es nuestra opción por defecto para un primer robot programable serio desde unos 8 años, con algo de ayuda adulta al principio: mBot para un presupuesto ajustado, mBot2 para un proyecto más largo con Python.</p>
 </aside>
+<h2 id="donde-comprar">Dónde comprar</h2>
+<p>En Amazon.es: <a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21" rel="sponsored nofollow">mBot2</a> · <a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21" rel="sponsored nofollow">mBot</a> (enlaces de afiliado).</p>
 <h2 id="ver-tambien">Ver también</h2>
 <ul>
 <li><a href="/es/marca-elegoo/">ELEGOO: nuestra opinión sobre la marca</a></li>

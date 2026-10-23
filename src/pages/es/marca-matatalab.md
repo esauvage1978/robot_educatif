@@ -29,6 +29,8 @@ updated: "23 de octubre de 2026"
 <p><strong>En resumen</strong></p>
 <p>El Tale-Bot Pro es un excelente primer robot de 3 a 5 años: los niños lo usan solos y durante mucho rato. Cuidado con los disfraces.</p>
 </aside>
+<h2 id="donde-comprar">Dónde comprar</h2>
+<p>En Amazon.es: <a href="https://www.amazon.es/dp/B09LYTM5BC?tag=roboteducat07-21" rel="sponsored nofollow">Tale-Bot Pro</a> (enlace de afiliado).</p>
 <h2 id="ver-tambien">Ver también</h2>
 <ul>
 <li><a href="/es/mejor-robot-programable-para-ninos/">Mejor robot programable para niños (desde 6–8 años)</a></li>

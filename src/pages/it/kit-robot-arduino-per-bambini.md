@@ -41,7 +41,7 @@ I robot a blocchi sono confrontati nella guida [miglior robot programmabile per 
 - **Documentazione**: un manuale PDF o video chiaro e codice di esempio scaricabile contano più del numero di sensori.
 - **Componenti standard**: una vera scheda compatibile UNO permette di riutilizzare in seguito sensori di altri kit.
 - **Ricambi**: verificate che motori e sensori si trovino anche singolarmente.
-- **Prezzo**: varia molto secondo rivenditore e paese, quindi **verificate il prezzo**.
+- **Prezzo**: varia molto secondo rivenditore e paese, quindi **verificate il prezzo**. Su Amazon.it: <a href="https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21" rel="sponsored nofollow">ELEGOO Smart Robot Car Kit V4.0</a> (link di affiliazione).
 
 ## 5. Dove comprare?
 

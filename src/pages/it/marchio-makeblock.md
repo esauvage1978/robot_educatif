@@ -31,6 +31,8 @@ updated: "23 ottobre 2026"
 <p><strong>In breve</strong></p>
 <p>Makeblock è la nostra scelta di base per un primo vero robot programmabile dagli 8 anni circa, con un po' di aiuto adulto all'inizio: mBot per un budget ridotto, mBot2 per un progetto più lungo con Python.</p>
 </aside>
+<h2 id="dove-acquistare">Dove acquistare</h2>
+<p>Su Amazon.it: <a href="https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21" rel="sponsored nofollow">mBot2</a> · <a href="https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21" rel="sponsored nofollow">mBot</a> (link di affiliazione).</p>
 <h2 id="vedi-anche">Vedi anche</h2>
 <ul>
 <li><a href="/it/marchio-elegoo/">ELEGOO: il nostro parere sul marchio</a></li>

@@ -21,7 +21,7 @@ Non esiste un robot "migliore" per tutte le famiglie. Contano l'**età** del bam
 
 **Sensori e attività varie.** Un robot che va solo dritto stanca presto. Cercate almeno due tipi di attività (distanza, linea, luce, suono, display).
 
-**Costo totale, non solo il prezzo d'acquisto.** Mettete in conto batterie, contenitore ed eventuale pacchetto di espansione. I prezzi cambiano spesso, per questo non ne indichiamo: verificate il prezzo presso il rivenditore.
+**Costo totale, non solo il prezzo d'acquisto.** Mettete in conto batterie, contenitore ed eventuale pacchetto di espansione. I prezzi cambiano spesso: verificate il prezzo presso il rivenditore.
 
 ## 3. Dati dei produttori a confronto
 
@@ -47,7 +47,7 @@ Dati del 21 ottobre 2026 dalle pagine ufficiali: [Makeblock mBot](https://www.ma
 
 ## 5. Dove comprare in Italia?
 
-I tre kit sono venduti dai negozi ufficiali dei produttori e dai grandi marketplace online. Disponibilità e contenuto della confezione variano da paese a paese: **verificate il prezzo** e la disponibilità sulle pagine ufficiali linkate sopra prima di ordinare. Scegliete un caricatore con **spina europea** e marcatura CE; in Italia la spina Europlug (tipo C) entra nelle prese Schuko e nella maggior parte delle prese bivalenti.
+I tre kit sono venduti dai negozi ufficiali dei produttori e dai grandi marketplace online. Disponibilità e contenuto della confezione variano da paese a paese: **verificate il prezzo** e la disponibilità sulle pagine ufficiali linkate sopra prima di ordinare. In Italia l'mBot2 si trova anche su Amazon: <a href="https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21" rel="sponsored nofollow">Makeblock mBot2 su Amazon.it</a> (link di affiliazione). Scegliete un caricatore con **spina europea** e marcatura CE; in Italia la spina Europlug (tipo C) entra nelle prese Schuko e nella maggior parte delle prese bivalenti.
 
 ## 6. Errori frequenti
 
