@@ -24,6 +24,9 @@ const ages = [
 	{ badge: 'Ages 13+', title: 'Arduino robot kits', text: 'Wiring, C/C++ in the Arduino IDE, longer projects', href: '/en/arduino-robot-kit-for-kids/' },
 	{ badge: 'Ages 12+', title: 'Raspberry Pi', text: 'A real Linux computer for Python, cameras and home projects', href: '/en/raspberry-pi-3-vs-4-vs-5/' },
 ];
+
+const popularProducts = [{"name":"Makeblock mBot Neo","asin":"B0CQXKX64J","href":"https://www.amazon.co.uk/s?k=Makeblock+mBot+Neo&tag=roboteducatif-21","rel":"sponsored nofollow noopener"},{"name":"Makeblock mBot2","asin":"B09BYYMF7R","href":"https://www.amazon.co.uk/s?k=Makeblock+mBot2&tag=roboteducatif-21","rel":"sponsored nofollow noopener"},{"name":"LEGO Education SPIKE Essential","asin":"B08W2JHFDB","href":"https://www.amazon.co.uk/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-21","rel":"sponsored nofollow noopener"},{"name":"Arduino Starter Kit","asin":"B009UKZV0A","href":"https://www.amazon.co.uk/s?k=Arduino+Starter+Kit&tag=roboteducatif-21","rel":"sponsored nofollow noopener"}];
+import { getProductImage } from '../../lib/amazonImage';
 ---
 
 <!doctype html>
@@ -597,7 +600,7 @@ const ages = [
 						<span class="badge">New: our guides in English</span>
 						<h1>The right <em>coding robot</em> for your child, explained clearly</h1>
 						<p class="hero-lead">
-							mBot, Arduino robot kits, Raspberry Pi: independent guides for parents and teachers in the UK and the US, built on manufacturers' official specifications.
+							mBot, Arduino robot kits, Raspberry Pi: independent guides for parents and teachers in the UK and the US.
 						</p>
 						<div class="hero-ctas">
 							<a href={withBase('/en/best-programmable-robot-for-kids/')} class="btn btn-primary">Choose by age →</a>
@@ -605,7 +608,7 @@ const ages = [
 						</div>
 						<div class="trust-signals">
 							<span>📚 <b>{EN_PAGES.length} guides</b> in English</span>
-							<span>🔎 Specs sourced and dated</span>
+							<span>🧒 Advice for every age</span>
 						</div>
 					</div>
 					<a class="hero-card" href={withBase(hero.href)} style="text-decoration:none;color:inherit;">
@@ -640,6 +643,24 @@ const ages = [
 				</div>
 			</section>
 
+			<section class="section">
+				<div class="container">
+					<div class="best-sellers">
+						<h2>🔥 Popular picks</h2>
+						<div class="product-grid">
+							{popularProducts.map((product) => (
+								<div class="product-card">
+									<a href={product.href} rel={product.rel} target="_blank" class="product-card-link">
+										<img src={getProductImage(product.asin, product.name, 200, 200)} alt={product.name} width="200" height="200" loading="lazy" class="product-card-img" />
+										<h3>{product.name}</h3>
+										<span class="product-card-cta">See on Amazon →</span>
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="section" style="background: var(--surface-2); padding: 4rem 0;">
 				<div class="container">
 					<div class="section-header">

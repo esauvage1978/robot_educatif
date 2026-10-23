@@ -5,7 +5,7 @@ description: "mBot, mBot2 or an ELEGOO Arduino car? Manufacturer specs compared 
 updated: "21 October 2026"
 ---
 
-Looking for a **coding robot for a child**? This guide compares three widely sold kits (Makeblock mBot, Makeblock mBot2 and the ELEGOO Smart Robot Car V4.0) using the **manufacturers' official spec sheets**, then helps you match one to your child's age. We have not lab-tested these robots: the figures below are the makers' own.
+Looking for a **coding robot for a child**? This guide compares three widely sold kits (Makeblock mBot, Makeblock mBot2 and the ELEGOO Smart Robot Car V4.0) using the **manufacturers' official spec sheets**, then helps you match one to your child's age.
 
 There is no single "best" robot for every family. What matters is your child's **age**, how much **adult time** you can give to the first set-up, the **computer** you have at home, and whether you want to stay with **blocks** (Scratch / mBlock) or move to **typed code** (Python, Arduino C++).
 

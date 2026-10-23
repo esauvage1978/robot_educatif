@@ -21,7 +21,7 @@ relatedLinks:
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
 ---
 
-Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, propose des **fourchettes de prix** observées en France **à la fin mars 2026** (toujours à **recroiser** au moment de l’achat), et aide à **trancher** selon votre scénario.
+Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, donne des **fourchettes de prix** indicatives et aide à **trancher** selon votre scénario.
 
 ## 1. La gamme en un clin d’œil
 

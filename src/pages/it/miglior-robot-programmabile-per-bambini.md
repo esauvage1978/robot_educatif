@@ -5,7 +5,7 @@ description: "mBot, mBot2 o un'auto robot Arduino ELEGOO? I dati ufficiali dei p
 updated: "23 ottobre 2026"
 ---
 
-Cercate un **robot programmabile per vostro figlio**? Questa guida mette a confronto tre kit molto diffusi ([Makeblock](/it/marchio-makeblock/) mBot, Makeblock mBot2 ed ELEGOO Smart Robot Car V4.0) partendo dalle **schede tecniche ufficiali dei produttori** e vi aiuta a scegliere in base all'età. Non abbiamo testato questi robot in laboratorio: i dati qui sotto provengono dai produttori.
+Cercate un **robot programmabile per vostro figlio**? Questa guida mette a confronto tre kit molto diffusi ([Makeblock](/it/marchio-makeblock/) mBot, Makeblock mBot2 ed ELEGOO Smart Robot Car V4.0) partendo dalle **schede tecniche ufficiali dei produttori** e vi aiuta a scegliere in base all'età.
 
 Non esiste un robot "migliore" per tutte le famiglie. Contano l'**età** del bambino, il **tempo che voi adulti** potete dedicare alla prima configurazione, il **computer** di casa e se volete restare sui **blocchi** (Scratch / mBlock) o passare al **codice scritto** (Python, Arduino C++).
 

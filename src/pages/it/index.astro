@@ -25,6 +25,9 @@ const ages = [
 	{ badge: 'Dai 13 anni', title: 'Kit robot Arduino', text: "Cablaggio, C/C++ nell'Arduino IDE, progetti più lunghi", href: '/it/kit-robot-arduino-per-bambini/' },
 	{ badge: 'Dai 12 anni', title: 'Raspberry Pi', text: 'Un vero computer Linux per Python, fotocamere e progetti a casa', href: '/it/raspberry-pi-3-vs-4-vs-5/' },
 ];
+
+const popularProducts = [{"name":"Makeblock mBot Neo","asin":"B0CQXKX64J","href":"https://www.amazon.it/s?k=Makeblock+mBot+Neo&tag=roboteducat0f-21","rel":"sponsored nofollow noopener"},{"name":"Makeblock mBot2","asin":"B09BYYMF7R","href":"https://www.amazon.it/s?k=Makeblock+mBot2&tag=roboteducat0f-21","rel":"sponsored nofollow noopener"},{"name":"LEGO Education SPIKE Essential","asin":"B08W2JHFDB","href":"https://www.amazon.it/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducat0f-21","rel":"sponsored nofollow noopener"},{"name":"Arduino Starter Kit","asin":"B009UKZV0A","href":"https://www.amazon.it/s?k=Arduino+Starter+Kit&tag=roboteducat0f-21","rel":"sponsored nofollow noopener"}];
+import { getProductImage } from '../../lib/amazonImage';
 ---
 
 <!doctype html>
@@ -598,7 +601,7 @@ const ages = [
 						<span class="badge">Novità: le nostre guide in italiano</span>
 						<h1>Il <em>robot programmabile</em> giusto per vostro figlio, spiegato con chiarezza</h1>
 						<p class="hero-lead">
-							mBot, kit robot Arduino, Raspberry Pi e domotica: guide indipendenti per genitori e insegnanti, basate sui dati ufficiali dei produttori.
+							mBot, kit robot Arduino, Raspberry Pi e domotica: guide indipendenti per genitori e insegnanti.
 						</p>
 						<div class="hero-ctas">
 							<a href={withBase('/it/miglior-robot-programmabile-per-bambini/')} class="btn btn-primary">Scegli per età →</a>
@@ -606,7 +609,7 @@ const ages = [
 						</div>
 						<div class="trust-signals">
 							<span>📚 <b>{IT_PAGES.length} guide</b> in italiano</span>
-							<span>🔎 Dati con fonte e data</span>
+							<span>🧒 Consigli per ogni età</span>
 						</div>
 					</div>
 					<a class="hero-card" href={withBase(hero.href)} style="text-decoration:none;color:inherit;">
@@ -641,6 +644,24 @@ const ages = [
 				</div>
 			</section>
 
+			<section class="section">
+				<div class="container">
+					<div class="best-sellers">
+						<h2>🔥 I più popolari</h2>
+						<div class="product-grid">
+							{popularProducts.map((product) => (
+								<div class="product-card">
+									<a href={product.href} rel={product.rel} target="_blank" class="product-card-link">
+										<img src={getProductImage(product.asin, product.name, 200, 200)} alt={product.name} width="200" height="200" loading="lazy" class="product-card-img" />
+										<h3>{product.name}</h3>
+										<span class="product-card-cta">Vedi su Amazon →</span>
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="section" style="background: var(--surface-2); padding: 4rem 0;">
 				<div class="container">
 					<div class="section-header">
@@ -662,7 +683,7 @@ const ages = [
 				<div class="container">
 					<div class="section-header">
 						<h2>Kit e marchi</h2>
-						<p>Kit Arduino e schede dei marchi con dati ufficiali</p>
+						<p>Kit Arduino e schede dei marchi</p>
 					</div>
 					<div class="articles-grid">
 						{tutorials.map((c) => (
