@@ -97,3 +97,5 @@ Pour conclure, dans ces 3 activités, nos avons vu comment jouer avec les LEDS e
 ## 5\. Apprendre le développement
 
 Je vous ai sélectionné une série de livre pour vous former avec le mBot et l’algorithme
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

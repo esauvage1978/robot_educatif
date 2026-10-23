@@ -82,3 +82,5 @@ Quand l’enfant maîtrise les blocs et veut du **texte**, des **données** ou d
 ---
 
 **En résumé** : vers **7–8 ans**, visez un robot **documenté**, avec **Scratch / mBlock**, des **capteurs** pour varier les défis, et un budget réaliste pour **accessoires et piles**. Les liens Amazon ci-dessus servent à **comparer** offres et avis au moment où vous lisez cet article.
+
+**Comparer les âges** : notre [guide du robot programmable pour enfant](/meilleur-robot-programmable-enfant-2026/) met côte à côte mBot, mBot2 et ELEGOO et renvoie vers chaque guide par âge, avec nos conseils pour un cadeau de Noël réussi.

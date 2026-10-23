@@ -117,3 +117,5 @@ Pour aller plus loin : faites **répéter** la mélodie tant que le bouton est m
 ## Aller plus loin avec Scratch
 
 Pour progresser en **Scratch** et en **logique de programme**, des ouvrages grand public ou pédagogiques sur Scratch et la robotique peuvent compléter les tutoriels du site ; commencez par les activités mBot et Scratch déjà publiées sur le blog.
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

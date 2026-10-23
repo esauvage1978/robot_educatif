@@ -114,3 +114,5 @@ Ici, `data` est la variable qui contient la distance lue ; on forme une **chaîn
 ## 6. Aller plus loin
 
 Pour prolonger avec le **mBot**, la **robotique** et l’**algorithmique**, poursuivez avec les autres fiches du site : [activités mBot](/categorie/mbot/), [détecteur d’intrusion](/activite-mbot-detecteur-dintrusion/) (même famille de capteur), et les guides **mBlock** dans la colonne « À lire aussi ».
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

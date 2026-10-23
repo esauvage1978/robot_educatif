@@ -269,3 +269,5 @@ Si tu veux progresser, voici une progression “facile” :
 - puis passer à d’autres activités mBot du site (capteurs, moteurs, petits défis).
 
 Et si tu veux aller plus loin en programmation, Scratch/mBlock sont une très bonne porte d’entrée : le plus important, c’est de comprendre **variables + conditions + boucles**.
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.
