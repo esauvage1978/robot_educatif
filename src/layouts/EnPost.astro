@@ -1,4 +1,5 @@
 ---
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -251,6 +252,7 @@ const others = EN_PAGES.filter((x) => x.href !== _n && x.href.startsWith('/en/sm
 					<div class="prose">
 						<slot />
 					</div>
+					<ArticleQuestionForm lang="en" pageTitle={title} />
 				</article>
 				<aside class="en-aside">
 					<div class="en-aside-card">
