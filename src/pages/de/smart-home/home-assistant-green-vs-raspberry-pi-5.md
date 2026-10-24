@@ -5,7 +5,7 @@ description: "Home Assistant Green oder Raspberry Pi 5 als Smart-Home-Zentrale? 
 updated: "22. Oktober 2026"
 ---
 
-Beide laufen mit **Home Assistant OS** und beide sind eine ausgezeichnete lokale Smart-Home-Zentrale. Der Unterschied: **Einrichtungsaufwand gegen Flexibilität**. Die Daten stammen von den offiziellen Seiten: [Home Assistant Green](https://www.home-assistant.io/green/) und [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) (geprüft am 21. Oktober 2026). Wir haben keine eigenen Benchmarks durchgeführt.
+Beide laufen mit **Home Assistant OS** und beide sind eine ausgezeichnete lokale Smart-Home-Zentrale. Der Unterschied: **Einrichtungsaufwand gegen Flexibilität**. Die Daten stammen von den offiziellen Seiten: [Home Assistant Green](https://www.home-assistant.io/green/) und [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) (geprüft am 21. Oktober 2026). Wir haben keine eigenen Benchmarks durchgeführt. Preise vergleichen: [Home Assistant Green bei Amazon.de](https://www.amazon.de/s?k=Home+Assistant+Green&tag=roboteducat00-21) und [Raspberry Pi 5 bei Amazon.de](https://www.amazon.de/s?k=Raspberry+Pi+5&tag=roboteducat00-21) (Werbelinks).
 
 ## 1. Daten im Vergleich
 

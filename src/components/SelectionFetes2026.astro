@@ -1,0 +1,37 @@
+---
+import { withBase } from '../lib/siteUrl';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const items = [
+	{ age: '6-8 ans', titre: 'Premiers robots à coder', texte: 'Blocs simples, montage rapide, robots solides.', href: '/cadeau-robot-enfant-8-ans/' },
+	{ age: '8-10 ans', titre: 'Robots programmables avec capteurs', texte: 'Scratch, suivi de ligne, premiers défis.', href: '/quel-robot-acheter-enfant-10-ans-guide-achat/' },
+	{ age: '10-12 ans', titre: 'Kits à construire', texte: 'Passage vers Python et Arduino.', href: '/quel-robot-acheter-enfant-12-ans-guide-achat/' },
+	{ age: 'Ado', titre: 'Cadeaux geek et makers', texte: 'Raspberry Pi, Arduino, projets plus ambitieux.', href: '/cadeau-geek-ado-programmation/' },
+	{ age: 'Maison', titre: 'Domotique et maison connectée', texte: 'Box, capteurs Zigbee, robots aspirateurs.', href: '/domotique/' },
+];
+---
+<section class="fetes26" aria-labelledby="fetes26-t">
+	<div class="fetes26-head">
+		<h2 id="fetes26-t">Black Friday et Noël 2026 : nos sélections par âge</h2>
+		{!compact && <p>Pour comparer avant les promos de fin novembre et trouver le bon cadeau sans se tromper d'âge. Les prix bougent beaucoup à cette période : vérifiez toujours le tarif affiché chez le marchand au moment de commander.</p>}
+	</div>
+	<ul class="fetes26-grid">
+		{items.map((i) => (
+			<li><a href={withBase(i.href)}><span class="fetes26-age">{i.age}</span><strong>{i.titre}</strong><small>{i.texte}</small></a></li>
+		))}
+	</ul>
+	<p class="fetes26-all"><a href={withBase('/robot-educatif-cadeau-noel-2026/')}>Voir le guide cadeaux Noël 2026 complet →</a></p>
+</section>
+<style>
+	.fetes26 { max-width: 1100px; margin: 2rem auto; padding: 1.5rem; border-radius: 16px; background: linear-gradient(135deg, #fff4e6, #fdecec); color: #1f2430; }
+	.fetes26 h2 { margin: 0 0 .4rem; font-size: 1.45rem; }
+	.fetes26-head p { margin: 0 0 1rem; color: #4a5160; }
+	.fetes26-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .8rem; }
+	.fetes26-grid a { display: flex; flex-direction: column; gap: .25rem; height: 100%; padding: .9rem 1rem; border-radius: 12px; background: #fff; color: #1f2430; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+	.fetes26-grid a:hover { box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+	.fetes26-age { align-self: flex-start; font-size: .75rem; font-weight: 700; color: #fff; background: #c0392b; padding: .1rem .55rem; border-radius: 99px; }
+	.fetes26-grid small { color: #5b6470; }
+	.fetes26-all { margin: 1rem 0 0; font-weight: 600; }
+	.fetes26-all a { color: #b03a2e; }
+	@media (max-width: 600px) { .fetes26 { margin: 1.2rem .8rem; padding: 1rem; } .fetes26 h2 { font-size: 1.2rem; } }
+</style>

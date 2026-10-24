@@ -1,6 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import SelectionFetes2026 from '../components/SelectionFetes2026.astro';
 import Header from '../components/Header.astro';
 import { withBase } from '../lib/siteUrl';
 import promos from '../data/promos.json';
@@ -42,6 +43,7 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 			<h1>Codes promo et bons plans</h1>
 			<p class="promo-intro">Imprimantes 3D, graveurs laser, piles : voici les réductions en cours chez nos partenaires. Chaque offre affiche sa période de validité, et nous retirons celles qui ont expiré.</p>
 			<p class="promo-note">Liens affiliés : si vous achetez via ces liens, ROBOT Éducatif peut toucher une commission, sans surcoût pour vous. Les conditions (montant minimum, produits exclus, cumul) sont fixées par chaque marchand : relisez-les sur sa boutique avant de payer.</p>
+			<SelectionFetes2026 compact />
 			{groups.map((g) => (
 				<section class="promo-group">
 					<h2>{g} <small style="font-weight:400;color:#5b6470">· {offers.find((o) => o.merchant === g)?.topic}</small></h2>

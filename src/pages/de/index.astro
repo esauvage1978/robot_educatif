@@ -25,7 +25,7 @@ const ages = [
 	{ badge: 'Ab 12 Jahren', title: 'Raspberry Pi', text: 'Ein echter Linux-Computer für Python, Kameras und Projekte zu Hause', href: '/de/raspberry-pi-3-vs-4-vs-5/' },
 ];
 
-const popularProducts = [{"name":"Makeblock mBot Neo","asin":"B0CQXKX64J","href":"https://www.makeblock.com/products/mbot-neo","rel":"nofollow noopener"},{"name":"Makeblock mBot2","asin":"B09BYYMF7R","href":"https://www.makeblock.com/products/buy-mbot2","rel":"nofollow noopener"},{"name":"LEGO Education SPIKE Essential","asin":"B08W2JHFDB","href":"https://education.lego.com/de-de/products/lego-education-spike-essential-set/45345/","rel":"nofollow noopener"},{"name":"Arduino Starter Kit","asin":"B009UKZV0A","href":"https://store.arduino.cc/products/arduino-starter-kit-multi-language","rel":"nofollow noopener"}];
+const popularProducts = [{"name":"Makeblock mBot Neo","asin":"B0CQXKX64J","href":"https://www.amazon.de/s?k=Makeblock+mBot+Neo&tag=roboteducat00-21","rel":"sponsored nofollow noopener"},{"name":"Makeblock mBot2","asin":"B09BYYMF7R","href":"https://www.amazon.de/s?k=Makeblock+mBot2&tag=roboteducat00-21","rel":"sponsored nofollow noopener"},{"name":"LEGO Education SPIKE Essential","asin":"B08W2JHFDB","href":"https://www.amazon.de/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducat00-21","rel":"sponsored nofollow noopener"},{"name":"Arduino Starter Kit","asin":"B009UKZV0A","href":"https://www.amazon.de/s?k=Arduino+Starter+Kit&tag=roboteducat00-21","rel":"sponsored nofollow noopener"}];
 import { getProductImage } from '../../lib/amazonImage';
 ---
 
@@ -647,13 +647,14 @@ import { getProductImage } from '../../lib/amazonImage';
 				<div class="container">
 					<div class="best-sellers">
 						<h2>🔥 Beliebte Modelle</h2>
+						<p style="font-size:.85rem;opacity:.75;margin:-.4rem 0 1rem;">Werbelinks: Bei einem Kauf über Amazon.de erhalten wir eine Provision, für Sie ändert sich der Preis nicht.</p>
 						<div class="product-grid">
 							{popularProducts.map((product) => (
 								<div class="product-card">
 									<a href={product.href} rel={product.rel} target="_blank" class="product-card-link">
 										<img src={getProductImage(product.asin, product.name, 200, 200)} alt={product.name} width="200" height="200" loading="lazy" class="product-card-img" />
 										<h3>{product.name}</h3>
-										<span class="product-card-cta">Beim Hersteller ansehen →</span>
+										<span class="product-card-cta">Bei Amazon.de ansehen →</span>
 									</a>
 								</div>
 							))}

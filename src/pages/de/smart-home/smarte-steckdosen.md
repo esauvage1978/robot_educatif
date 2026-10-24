@@ -35,7 +35,7 @@ Die smarte Steckdose ist das einfachste erste Smart-Home-Gerät, aber auch das, 
 
 ## 4. Beispiel: Shelly-Steckdosen
 
-Shelly verkauft seine Steckdosen in **Länderversionen** (EU-Schuko, UK, US), mit WLAN, lokaler Steuerung und Home-Assistant-Integration. Wählen Sie Ihre Länderversion im [Shelly-Steckdosensortiment](https://www.shelly.com/collections/smart-plugs). Für fest verdrahtete Beleuchtung akzeptiert das Relais [Shelly 1 Gen4](https://www.shelly.com/products/shelly-1-gen4) **110–240 V AC** und schaltet bis zu **16 A bei 240 V** ([Shelly Knowledge Base](https://kb.shelly.cloud/knowledge-base/shelly-1-gen4)). Es wird hinter einem Schalter eingebaut, und das ist Sache einer Elektrofachkraft.
+Shelly verkauft seine Steckdosen in **Länderversionen** (EU-Schuko, UK, US), mit WLAN, lokaler Steuerung und Home-Assistant-Integration. Wählen Sie Ihre Länderversion im [Shelly-Steckdosensortiment](https://www.shelly.com/collections/smart-plugs). Zigbee-Steckdosen mit Energiemessung finden Sie auch [bei Amazon.de](https://www.amazon.de/s?k=Zigbee+Steckdose+Strommessung&tag=roboteducat00-21) (Werbelink). Für fest verdrahtete Beleuchtung akzeptiert das Relais [Shelly 1 Gen4](https://www.shelly.com/products/shelly-1-gen4) **110–240 V AC** und schaltet bis zu **16 A bei 240 V** ([Shelly Knowledge Base](https://kb.shelly.cloud/knowledge-base/shelly-1-gen4)). Es wird hinter einem Schalter eingebaut, und das ist Sache einer Elektrofachkraft.
 
 ## 5. Eine Steckdose in Home Assistant einbinden
 

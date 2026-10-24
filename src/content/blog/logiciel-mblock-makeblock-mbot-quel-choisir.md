@@ -1,6 +1,6 @@
 ---
-title: "mBlock en ligne (ide.mblock.cc) : coder sans rien installer"
-description: "mBlock en ligne sur ide.mblock.cc : programmer en blocs dans le navigateur sans installation, limites du Bluetooth, et quand préférer l'appli ou Python."
+title: "mBlock en ligne (ide.mblock.cc) : coder le mBot sans rien installer"
+description: "mBlock en ligne sur ide.mblock.cc : programmer le mBot en blocs dans le navigateur, gratuitement et sans installation. Limites du Bluetooth et quand préférer mBlock 5 ou Python."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-19"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"

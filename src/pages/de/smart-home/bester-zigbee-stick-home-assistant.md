@@ -16,7 +16,7 @@ Um Zigbee-Geräte aus **Home Assistant** zu steuern, brauchen Sie einen **Zigbee
 | **SONOFF Dongle Lite MG21** | Silicon Labs EFR32MG21 | intern | nicht standardmäßig | ja | ja | kleinstes Budget, kleine Wohnungen |
 | **ConBee II** (dresden elektronik) | deCONZ-Firmware | intern | nein | ja | ja | wer bereits deCONZ / Phoscon nutzt |
 
-Offizielle Seiten: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2) (dresden elektronik ist ein Hersteller aus Dresden). Preise ändern sich oft: Preis prüfen beim Händler.
+Offizielle Seiten: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2) (dresden elektronik ist ein Hersteller aus Dresden). Preise ändern sich oft: Preis prüfen beim Händler. Aktuelle Angebote: [SONOFF ZBDongle-E bei Amazon.de](https://www.amazon.de/s?k=SONOFF+ZBDongle-E&tag=roboteducat00-21) und [ConBee II bei Amazon.de](https://www.amazon.de/s?k=ConBee+II&tag=roboteducat00-21) (Werbelinks).
 
 ## 2. ZHA oder Zigbee2MQTT?
 

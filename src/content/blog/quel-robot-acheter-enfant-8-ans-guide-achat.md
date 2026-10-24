@@ -1,6 +1,6 @@
 ---
-title: "Robot enfant 7-8 ans : meilleurs robots éducatifs 2026"
-description: "Meilleurs robots programmables pour enfants de 7-8 ans : Scratch, capteurs, montage simple. Guide 2026 pour débuter la robotique."
+title: "Robot enfant 8 ans : quel robot programmable offrir en 2026 ?"
+description: "Quel robot programmable pour un enfant de 7-8 ans ? Scratch, capteurs, montage simple : les critères qui comptent et les modèles adaptés pour débuter la robotique."
 pubDate: "2026-03-18"
 updatedDate: "2026-10-13"
 heroImage: "../../assets/mbot/mbot-hero.png"

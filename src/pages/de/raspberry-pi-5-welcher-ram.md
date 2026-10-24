@@ -46,7 +46,7 @@ Preise ändern sich oft und unterscheiden sich je nach Land: **Preis prüfen** b
 
 ## 5. Wo kaufen?
 
-Der Pi 5 wird über die [zugelassenen Händler](https://www.raspberrypi.com/resellers/) von Raspberry Pi in jedem Land verkauft, auch in Deutschland, Österreich und der Schweiz.
+Der Pi 5 wird über die [zugelassenen Händler](https://www.raspberrypi.com/resellers/) von Raspberry Pi in jedem Land verkauft, auch in Deutschland, Österreich und der Schweiz. Aktuelle Preise für beide Varianten: [Raspberry Pi 5 bei Amazon.de](https://www.amazon.de/s?k=Raspberry+Pi+5&tag=roboteducat00-21) (Werbelink).
 
 **Raspberry Pi OS** spielen Sie mit dem **Raspberry Pi Imager** auf, genau wie bei früheren Modellen.
 
