@@ -14,8 +14,9 @@ const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
 const ill = frSlug ? getIllustration(frSlug) : null;
 const ogImage = ill ? ill.src : undefined;
 const _n = _p.endsWith('/') ? _p : _p + '/';
-const isSmart = false;
-const others = ES_PAGES.filter((x) => x.href !== _n && true);
+const smartOf = (h) => h.startsWith('/es/domotica/') || h.includes('/shelly-gen4-');
+const isSmart = smartOf(_n);
+const others = ES_PAGES.filter((x) => x.href !== _n && smartOf(x.href) === isSmart);
 ---
 <!doctype html>
 <html lang="es">
