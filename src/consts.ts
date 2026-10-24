@@ -15,7 +15,7 @@ export const GA_MEASUREMENT_ID = 'G-PST9T1NFNX';
  * Développement local : défaut ci-dessous. Production : définir `PUBLIC_CONTACT_FORM_WEBHOOK_URL` (build / hébergeur).
  */
 const DEFAULT_CONTACT_FORM_WEBHOOK_URL =
-	'https://webhooky.builders/webhook/form/d0a7b357-6d27-4652-95f5-3aa3e74da565';
+	'https://webhooky.builders/webhook/form/0b40160efaa3d0a7b357-6d27-4652-95f5-3aa3e74da565';
 
 const fromEnv = import.meta.env.PUBLIC_CONTACT_FORM_WEBHOOK_URL;
 export const CONTACT_FORM_WEBHOOK_URL =
