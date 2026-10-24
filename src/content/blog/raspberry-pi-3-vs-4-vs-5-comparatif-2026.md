@@ -1,6 +1,6 @@
 ---
-title: "Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter en 2026 ?"
-description: "Comparatif Raspberry Pi 3 vs 4 vs 5 : performances, prix, RAM. Tableau détaillé, verdict 2026 et FAQ pour choisir le bon modèle."
+title: "Raspberry Pi 3 vs 4 vs 5 : lequel acheter en 2026 ? Comparatif et tableau"
+description: "Raspberry Pi 3, 4 ou 5 : tableau comparatif (processeur, RAM jusqu'à 16 Go, USB 3, PCIe, alimentation), quel modèle pour quel projet et lequel acheter en 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
@@ -22,6 +22,8 @@ relatedLinks:
 ---
 
 Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, donne des **fourchettes de prix** indicatives et aide à **trancher** selon votre scénario.
+
+**En bref :** le **Pi 5** est le meilleur choix pour un nouveau projet (bien plus rapide, PCIe, jusqu'à 16 Go de RAM), le **Pi 4** reste valable si vous le trouvez moins cher, et le **Pi 3** ne se justifie que pour des projets très légers ou si vous en avez déjà un. Voir les prix du moment : [Raspberry Pi 5](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21), [Raspberry Pi 4](https://www.amazon.fr/s?k=Raspberry+Pi+4&tag=manuso06-21), [kits Raspberry Pi 5](https://www.amazon.fr/s?k=kit+Raspberry+Pi+5&tag=manuso06-21) (liens affiliés Amazon). Pour un premier projet d'enfant, un [kit robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/) est souvent plus simple ; voir aussi nos guides [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/) et [robot pour 12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/).
 
 ## 1. La gamme en un clin d’œil
 

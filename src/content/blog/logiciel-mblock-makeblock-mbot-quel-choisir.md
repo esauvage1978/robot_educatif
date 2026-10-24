@@ -1,6 +1,6 @@
 ---
-title: "mBlock en ligne (ide.mblock.cc) : coder le mBot sans rien installer"
-description: "mBlock en ligne sur ide.mblock.cc : programmer le mBot en blocs dans le navigateur, gratuitement et sans installation. Limites du Bluetooth et quand préférer mBlock 5 ou Python."
+title: "mBlock 5 en ligne (ide.mblock.cc) : coder sans installer, ou télécharger gratuitement"
+description: "mBlock 5 en ligne sur ide.mblock.cc : programmer le mBot en blocs dans le navigateur, gratuitement. Limites du Bluetooth et quand télécharger l'application gratuite pour PC."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-19"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
@@ -20,6 +20,18 @@ relatedLinks:
   - title: "Installer les blocs du mBot"
     href: "/installer-les-blocs-du-mbot/"
 ---
+
+<div class="callout-quick" style="border:2px solid #2b7de9;border-radius:12px;padding:1rem 1.2rem;margin:1rem 0 1.5rem;background:#f2f7ff;color:#1f2430;">
+
+**Accès rapide à mBlock 5**
+
+- **En ligne, sans installation :** ouvrez [ide.mblock.cc](https://ide.mblock.cc/) dans Chrome ou Edge et commencez à coder tout de suite.
+- **Sur PC :** téléchargez gratuitement l'application sur [mblock.cc](https://www.mblock.cc/en-us/download/) ([guide d'installation Windows](/installer-mblock-5-sous-windows-10/)).
+- **Premier projet en 2 minutes :** choisissez le Panda, glissez « quand le drapeau vert est cliqué » puis « dire Bonjour ! », et cliquez sur le drapeau vert.
+
+**Le robot le plus simple à piloter avec mBlock :** le [Makeblock mBot2 avec sa carte CyberPi](https://www.amazon.fr/dp/B09BYYMF7R?tag=manuso06-21) (lien affilié Amazon), programmable en blocs puis en Python. Pour choisir selon l'âge : [robot pour 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/), [kits robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/).
+
+</div>
 
 **mBlock en ligne** s’ouvre directement dans le navigateur à l’adresse **[ide.mblock.cc](https://ide.mblock.cc/)** : rien à installer, pratique sur un poste d’école verrouillé. Pour connecter un robot de façon fiable (USB, Bluetooth, firmware), l’**application** reste préférable — le comparatif ci-dessous vous aide à choisir.
 
