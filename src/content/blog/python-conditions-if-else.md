@@ -1,9 +1,9 @@
 ---
 title: "Python — conditions (if, elif, else)"
-description: "Comparer des valeurs, and / or / not, blocs indentés, enchaîner if / elif / else et cas pratiques (note, parité, menus) ; 20 exercices avec solutions repliables."
+description: "Conditions Python : if/elif/else, and/or/not, cas pratiques. 20 exercices avec solutions."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 4
 tags: ["Python", "Programmation"]

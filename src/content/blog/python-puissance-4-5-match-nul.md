@@ -3,7 +3,7 @@ title: "Puissance 4 en Python (5/6) — match nul et messages"
 description: "Console, grille_pleine apres chaque coup ; partie complete deux humains ; .py telechargeable."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 5
 tags: ["Python", "Programmation", "Projet"]

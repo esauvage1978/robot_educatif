@@ -2,7 +2,7 @@
 title: "Activité facile avec scratch : le carré"
 description: "Aujourd’hui je vous propose votre première activité pour découvrir scratch. Le but sera de déplacer le lutin autour d’un carré"
 pubDate: "2020-04-10"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 updatedDate: "2026-03-29"
 categories:
   - "Activité"

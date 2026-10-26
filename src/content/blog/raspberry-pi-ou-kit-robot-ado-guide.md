@@ -1,9 +1,9 @@
 ---
 title: "Raspberry Pi ou kit robot pour ado : comment trancher ?"
-description: "Aider un ado à choisir entre Raspberry Pi (Linux, Python, objets connectés) et un robot éducatif tout-en-un : critères, temps, budget, schéma Pi vs robot et prolongations."
+description: "Raspberry Pi vs robot ado : Linux/Python ou robot tout-en-un. Critères, budget, prolongations."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
@@ -21,7 +21,7 @@ relatedLinks:
     href: "/mbot2-vs-cyberpi-comparatif/"
 ---
 
-Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable** type **Raspberry Pi** (projets variés, Linux, Python « pur ») et le **robot éducatif** (motivation immédiate, mouvement, capteurs). Ce n’est pas le même investissement en **temps adulte** ni le même **niveau d’autonomie** — et ce n’est pas non plus « l’un mieux que l’autre » : ça dépend de ce que l’ado veut **montrer** en premier.
+Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable** type **[Raspberry Pi](/marque-raspberry-pi/)** (projets variés, Linux, Python « pur ») et le **robot éducatif** (motivation immédiate, mouvement, capteurs). Ce n’est pas le même investissement en **temps adulte** ni le même **niveau d’autonomie** — et ce n’est pas non plus « l’un mieux que l’autre » : ça dépend de ce que l’ado veut **montrer** en premier.
 
 ![Plateforme large versus produit robot prêt à l’emploi](/images/blog/guides-2026/raspberry-vs-kit-robot.svg)
 
@@ -59,12 +59,14 @@ Non : la CyberPi est une **carte Makeblock** avec écosystème mBlock — proche
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi kit débutant](https://www.amazon.fr/s?k=Raspberry+Pi+kit+d%C3%A9butant&tag=manuso06-21)
+- [Raspberry Pi kit débutant](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 - [Robot kit programmable Python ado](https://www.amazon.fr/s?k=robot+kit+programmable+Python+ado&tag=manuso06-21)
-- [Carte micro SD Raspberry Pi](https://www.amazon.fr/s?k=carte+micro+SD+Raspberry+Pi+32+Go&tag=manuso06-21)
+- [Carte micro SD Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 
 ---
 
 **En résumé** : **Raspberry Pi** = **plateforme** large ; **robot éducatif** = **produit** focalisé sur la mécanique et les défis mobiles. Les deux peuvent cohabiter plus tard si le projet dure.
+
+**À lire aussi** : [projet station météo](/domotique/raspberry-pi-station-meteo-bme280-historique/)

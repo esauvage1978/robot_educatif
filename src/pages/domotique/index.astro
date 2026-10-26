@@ -1,0 +1,264 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import DomotiqueSubNav from '../../components/DomotiqueSubNav.astro';
+import { withBase } from '../../lib/siteUrl';
+import { getDomotiqueThumbnail, getDomotiqueHubThumbnail } from '../../lib/domotiqueThumbnail';
+import { withImageVersion } from '../../lib/imageVersion';
+import { getIllustration } from '../../lib/illustration';
+
+const title = 'Domotique : la maison connectée version famille et makers';
+const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien acheter. Guides pratiques pour débuter en domotique.';
+const ogImage = withImageVersion('/images/blog-thumbnails/domotique-hub.png');
+
+const domotiquePosts = (await getCollection('domotique')).sort((a, b) => 
+	(a.data.priority ?? 99) - (b.data.priority ?? 99)
+);
+
+// Await all thumbnails in frontmatter
+const postsWithThumbnails = await Promise.all(
+	domotiquePosts.slice(0, 6).map(async (post) => ({
+		...post,
+		illustration: getIllustration(post.id),
+		thumbnail: await getDomotiqueThumbnail(post.id.replace(/\.mdx?$/, ''))
+	}))
+);
+const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCompare(b.data.title, 'fr'));
+---
+
+<!doctype html>
+<html lang="fr">
+<head>
+	<BaseHead {title} {description} image={ogImage} />
+	<style>
+		.hero-domotique {
+			background: linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%);
+			color: white;
+			padding: 4rem 2rem;
+			text-align: center;
+		}
+		.hero-domotique h1 {
+			font-size: 2.5rem;
+			margin-bottom: 1rem;
+			color: white;
+		}
+		.hero-buttons {
+			display: flex;
+			gap: 1rem;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin-top: 2rem;
+		}
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			white-space: nowrap;
+			padding: 0.75rem 1.5rem;
+			border-radius: 8px;
+			text-decoration: none;
+			font-weight: 600;
+			transition: transform 0.2s;
+		}
+		.btn:hover {
+			transform: translateY(-2px);
+		}
+		.btn-primary {
+			background: #C2410C;
+			color: white;
+		}
+		.btn-secondary {
+			background: white;
+			color: #0F766E;
+		}
+		@media (max-width: 480px) {
+			.hero-domotique {
+				padding: 2.5rem 1.25rem;
+			}
+			.hero-domotique h1 {
+				font-size: 1.75rem;
+			}
+			.hero-buttons {
+				flex-direction: column;
+				align-items: stretch;
+				gap: 0.75rem;
+			}
+		}
+		.section {
+			max-width: 1200px;
+			margin: 3rem auto;
+			padding: 0 2rem;
+		}
+		.cards-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+			margin-top: 2rem;
+		}
+		.card {
+			background: var(--surface);
+			border: 1px solid var(--surface-border);
+			border-radius: 12px;
+			overflow: hidden;
+			transition: transform 0.2s, box-shadow 0.2s;
+			padding: 1.5rem;
+		}
+		.card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+		}
+		.card:has(.card-image) {
+			padding: 0;
+		}
+		.card-image {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 16/9;
+			object-fit: contain;
+			background: var(--surface, #f1f5f9);
+		}
+		.card-content {
+			padding: 1.5rem;
+		}
+		.card h3 {
+			color: var(--accent);
+			margin-bottom: 0.5rem;
+		}
+		.all-guides {
+			list-style: none;
+			padding: 0;
+			margin-top: 1.5rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: 1rem 2rem;
+		}
+		.all-guides li {
+			background: var(--surface);
+			border: 1px solid var(--surface-border);
+			border-radius: 10px;
+			padding: 1rem 1.25rem;
+		}
+		.all-guides a {
+			font-weight: 600;
+			color: var(--accent);
+		}
+		.all-guides p {
+			margin: 0.35rem 0 0;
+			font-size: 0.95rem;
+		}
+		.faq {
+			margin-top: 3rem;
+		}
+		.faq-item {
+			margin-bottom: 1.5rem;
+		}
+		.faq-item h3 {
+			font-size: 1.1rem;
+			margin-bottom: 0.5rem;
+		}
+	</style>
+</head>
+<body>
+	<Header />
+	<DomotiqueSubNav />
+	<main>
+		<section class="hero-domotique">
+			<h1>🏠 La maison connectée, version famille et makers</h1>
+			<p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+				Home Assistant sur Raspberry Pi, capteurs Zigbee, projets ESP32, robots aspirateurs : 
+				nos guides pratiques pour débuter en domotique sans se ruiner.
+			</p>
+			<div class="hero-buttons">
+				<a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')} class="btn btn-primary">
+					Je débute
+				</a>
+				<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')} class="btn btn-secondary">
+					Je bricole (HA / ESP32)
+				</a>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Par où commencer ?</h2>
+			<div class="cards-grid">
+				<div class="card">
+					<h3>🎯 Débuter</h3>
+					<p>Comprendre la domotique, choisir son protocole (Zigbee, Matter, Wi-Fi), budget de départ.</p>
+					<a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')}>→ Guide débutant</a>
+					<br /><a href={withBase('/domotique/rubrique/debuter/')}>→ Toute la rubrique</a>
+				</div>
+				<div class="card">
+					<h3>🏠 Home Assistant</h3>
+					<p>Installation sur Raspberry Pi 5, choix de box, dongles Zigbee, automatisations.</p>
+					<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>→ Installer HA</a>
+					<br /><a href={withBase('/domotique/rubrique/home-assistant/')}>→ Toute la rubrique</a>
+				</div>
+				<div class="card">
+					<h3>🔧 Projets ESP32</h3>
+					<p>Capteurs DIY avec ESPHome, température, présence, intégration Home Assistant.</p>
+					<a href={withBase('/domotique/projets-esp32-domotique/')}>→ Idées de projets</a>
+					<br /><a href={withBase('/domotique/rubrique/esp32/')}>→ Toute la rubrique</a>
+				</div>
+				<div class="card">
+					<h3>🤖 Robots aspirateurs</h3>
+					<p>Sélection par budget, compatibilité Home Assistant, familles avec animaux.</p>
+					<a href={withBase('/domotique/robot-aspirateur-moins-de-200-euros/')}>→ Moins de 200 €</a>
+					<br /><a href={withBase('/domotique/rubrique/robots-aspirateurs/')}>→ Toute la rubrique</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2>Derniers guides</h2>
+			<div class="cards-grid">
+				{postsWithThumbnails.map(post => (
+					<div class="card">
+						{post.illustration ? <img src={withImageVersion(withBase(post.illustration.src))} alt={post.illustration.alt} width="960" height="540" loading="lazy" decoding="async" class="card-image" /> : post.thumbnail && <img src={post.thumbnail.src} alt={post.data.title} class="card-image" />}
+						<div class="card-content">
+							<h3><a href={withBase(`/domotique/${post.id.replace(/\.mdx?$/, '')}/`)}>{post.data.title}</a></h3>
+							<p>{post.data.description}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		{otherPosts.length > 0 && (
+			<section class="section">
+				<h2>Tous les guides et tutoriels domotique</h2>
+				<ul class="all-guides">
+					{otherPosts.map(post => (
+						<li>
+							<a href={withBase(`/domotique/${post.id.replace(/\.mdx?$/, '')}/`)}>{post.data.title}</a>
+							<p>{post.data.description}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
+		<section class="section faq">
+			<h2>Questions fréquentes</h2>
+			<div class="faq-item">
+				<h3>C'est quoi la domotique ?</h3>
+				<p>La domotique, c'est l'ensemble des technologies qui permettent d'automatiser et de contrôler sa maison : éclairage, chauffage, volets, prises électriques, caméras, etc. Avec un smartphone ou des automatisations, on peut piloter ces équipements à distance ou selon des scénarios (« éteindre toutes les lumières à 23h »).</p>
+			</div>
+			<div class="faq-item">
+				<h3>Zigbee, Matter, Wi-Fi : lequel choisir ?</h3>
+				<p><strong>Zigbee</strong> : protocole sans fil basse consommation, idéal pour capteurs et prises. Nécessite un hub (dongle USB + Home Assistant ou box dédiée). <strong>Matter</strong> : nouveau standard universel, encore jeune. <strong>Wi-Fi</strong> : simple mais gourmand en réseau, parfait pour débuter sans box.</p>
+			</div>
+			<div class="faq-item">
+				<h3>Faut-il une box domotique ?</h3>
+				<p>Ça dépend ! Pour du Wi-Fi simple (prises Tapo, ampoules), pas besoin de box. Pour du Zigbee ou des automatisations avancées, Home Assistant sur Raspberry Pi 5 (120–150 € avec accessoires) ou Home Assistant Green (110–125 € seul, 180–215 € avec dongle Zigbee et capteurs) sont les solutions recommandées.</p>
+			</div>
+			<div class="faq-item">
+				<h3>C'est sûr pour les enfants ?</h3>
+				<p>Oui, si on évite le cloud public et qu'on privilégie Home Assistant en local. Pas de données personnelles envoyées à l'étranger, pas de risque de fuite. Les automatisations « heure de lever », veilleuse et surveillance de température sont même très utiles en famille.</p>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</body>
+</html>

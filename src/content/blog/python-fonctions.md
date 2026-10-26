@@ -1,9 +1,9 @@
 ---
 title: "Python — fonctions (def, return, paramètres)"
-description: "def, arguments, return et None ; paramètres par défaut ; portée locale ; découper un script en petites fonctions claires ; 20 exercices avec solutions repliables."
+description: "Fonctions Python : def, return, arguments, portée locale. 20 exercices avec solutions."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 6
 tags: ["Python", "Programmation"]

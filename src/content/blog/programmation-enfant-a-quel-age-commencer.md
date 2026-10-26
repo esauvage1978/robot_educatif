@@ -1,6 +1,6 @@
 ---
-title: "Programmation pour enfant : à quel âge commencer (repères réalistes)"
-description: "Repères par âge : jeu débranché, robots sans écran, Scratch, robots éducatifs, Python et cartes. Signes de maturité, erreurs des parents et schéma récapitulatif."
+title: "Programmation enfant : à quel âge commencer ?"
+description: "Programmation enfants par âge : jeu débranché, Scratch, robots, Python. Signes maturité, erreurs parents."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
@@ -33,7 +33,7 @@ Jeux **débranchés** (tuiles, parcours au sol), **robots sans écran** ou avec 
 
 ### 7–9 ans : blocs et premières boucles
 
-Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [activité carré](/activite-scratch-le-carre/).
+Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide robot 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/), [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [quel robot programmer avec Scratch](/robot-programmable-scratch-lequel-choisir/), [activité carré](/activite-scratch-le-carre/).
 
 ### 10–12 ans : capteurs, projets plus longs, pont vers le texte
 
@@ -61,7 +61,7 @@ Un enfant peut être **rapide sur YouTube ou un jeu** sans être prêt pour **d�
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif enfant par âge](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+enfant&tag=manuso06-21)
+- [Robot éducatif enfant par âge](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Livre initiation programmation enfant](https://www.amazon.fr/s?k=livre+initiation+programmation+enfant&tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*

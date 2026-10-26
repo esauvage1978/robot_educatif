@@ -1,0 +1,49 @@
+---
+title: "Home Assistant, Jeedom, Homey ou box du commerce : quel cerveau pour sa domotique ?"
+description: "Home Assistant, Jeedom, Homey Pro, Google Home, Alexa ou Apple Maison : fonctionnement local ou cloud, protocoles pris en charge, difficulté et profil conseillé. Tableau comparatif pour débuter."
+pubDate: 2026-10-23T00:00:00Z
+category: "debuter"
+priority: 4
+---
+
+Une maison connectée a besoin d'un **cerveau** : le logiciel ou le boîtier qui reçoit les informations des capteurs et déclenche les automatisations. Le choix conditionne tout le reste : les protocoles utilisables, le fonctionnement sans Internet, la difficulté au quotidien. Voici les principales options, d'après leurs documentations officielles ([Home Assistant](https://www.home-assistant.io/installation/), [Jeedom](https://doc.jeedom.com/fr_FR/), [Homey Pro](https://homey.app/fr-fr/homey-pro/)).
+
+## L'essentiel en un tableau
+
+| Système | Type | Fonctionne sans Internet | Protocoles en natif | Difficulté | Pour qui |
+|---|---|---|---|---|---|
+| **Home Assistant** | logiciel libre (licence Apache 2.0) sur Raspberry Pi, mini-PC ou boîtier officiel | oui | Wi-Fi, Matter ; Zigbee, Z-Wave, Thread avec une clé radio | moyenne | celui qui veut tout piloter en local |
+| **Jeedom** | logiciel français, cœur sous licence GPL, boîtiers officiels | oui | via plugins (dont des plugins payants) | moyenne | utilisateur francophone, écosystème de plugins |
+| **Homey Pro** | boîtier tout-en-un | oui, pour les appareils locaux | Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, 433 MHz, infrarouge | faible | qui veut un boîtier prêt à l'emploi |
+| **Google Home / Alexa / Apple Maison** | écosystème d'assistant vocal | partiellement | Wi-Fi, Matter, Thread selon l'enceinte ou la box | très faible | quelques prises et ampoules, commande vocale |
+
+**Notre meilleur choix : Home Assistant**, sur un boîtier [Home Assistant Green ou un Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/). C'est gratuit, local, et compatible avec presque toutes les marques. C'est aussi le système que nous utilisons dans tous nos tutoriels.
+
+## Home Assistant : le plus ouvert
+
+Home Assistant est un projet open source soutenu par la société Nabu Casa. Il s'installe sur un [Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/), un mini-PC ou un boîtier officiel (Green). Le site officiel annonce plus de 1 500 intégrations, de Philips Hue aux [robots aspirateurs Roborock](/domotique/robot-aspirateur-compatible-home-assistant/). Une clé USB ajoute Zigbee ou Thread ([quelle clé choisir](/domotique/meilleur-dongle-zigbee-home-assistant/)).
+
+Le revers : il faut accepter de mettre les mains dans la configuration de temps en temps, et les mises à jour mensuelles demandent un peu d'attention. L'accès à distance passe soit par votre propre configuration, soit par l'abonnement optionnel Home Assistant Cloud.
+
+## Jeedom : l'alternative francophone
+
+Jeedom est développé en France, avec une documentation et une communauté francophones. Le cœur est libre (licence GPL) et s'installe sur un Raspberry Pi ou sur les boîtiers vendus par l'éditeur. Les fonctions s'ajoutent par **plugins** : beaucoup sont gratuits, certains sont payants sur le Market Jeedom. Bon choix si vous préférez une communauté en français et un fonctionnement à base de plugins.
+
+## Homey Pro : le boîtier tout compris
+
+Homey Pro réunit dans un seul boîtier la plupart des radios domestiques : Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, mais aussi le 433 MHz et l'infrarouge pour les vieux appareils. L'application est soignée et l'automatisation se fait par des « Flows » visuels. C'est le moins technique des systèmes locaux, mais c'est un matériel propriétaire : vous dépendez des applications publiées pour Homey.
+
+Nous avons commencé à tester la version compacte : [Homey Pro mini, déballage et installation](/domotique/test-homey-pro-mini-deballage-installation/).
+
+## Google Home, Alexa, Apple Maison : pratique mais limité
+
+Les assistants vocaux gèrent très bien quelques prises, ampoules et thermostats, et ils s'ouvrent progressivement à **Matter** (voir notre article sur les [protocoles](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/)). Pour des automatisations avancées ou un fonctionnement sans Internet, ils montrent vite leurs limites. Ils restent un bon complément : Home Assistant peut leur exposer ses appareils pour la commande vocale.
+
+## Comment décider
+
+1. **Je veux juste commander quelques lampes à la voix** : un assistant vocal suffit.
+2. **Je veux une maison qui fonctionne en local, sans abonnement** : Home Assistant.
+3. **Je veux du local mais sans configuration** : Homey Pro.
+4. **Je préfère une communauté et des plugins en français** : Jeedom.
+
+Pour la suite, notre guide [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/) propose un premier équipement, et [Domotique en location](/domotique/domotique-location-sans-travaux/) liste ce qu'on peut installer sans percer.

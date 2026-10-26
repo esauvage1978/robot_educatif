@@ -1,7 +1,8 @@
 ---
-title: "Quel robot acheter pour un enfant de 7 ou 8 ans ? Guide d’achat détaillé"
-description: "Comment choisir un robot éducatif vers 7–8 ans : Scratch, premiers capteurs, montage du kit, autonomie à l’école ou à la maison. Critères, idées de produits et liens Amazon pour affiner votre budget."
+title: "Robot enfant 8 ans : quel robot programmable offrir en 2026 ?"
+description: "Quel robot programmable pour un enfant de 7-8 ans ? Scratch, capteurs, montage simple : les critères qui comptent et les modèles adaptés pour débuter la robotique."
 pubDate: "2026-03-18"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: "mbot"
 categories:
@@ -10,6 +11,10 @@ categories:
   - "Robot éducatif"
   - "Scratch"
 relatedLinks:
+  - title: "Cadeau robot enfant 8 ans (Noël)"
+    href: "/cadeau-robot-enfant-8-ans/"
+  - title: "Guide cadeaux Noël 2026"
+    href: "/robot-educatif-cadeau-noel-2026/"
   - title: "Quel robot pour un enfant de 5 ans ?"
     href: "/quel-robot-acheter-enfant-5-ans-guide-achat/"
   - title: "Quel robot pour un enfant de 10 ans ?"
@@ -23,6 +28,8 @@ relatedLinks:
 > **Note** : ce guide couvre **7 et 8 ans** dans la continuité de notre catégorie **« À partir de 8 ans »** sur le site — les repères pédagogiques se chevauchent : adaptez selon l’expérience de votre enfant (déjà baigné dans les jeux de logique ou vraiment novice).
 
 ## Repères par rapport à 5–6 ans
+
+Votre enfant a plutôt 6 ans ? Lisez d'abord notre **[guide robot enfant 6 ans](/robot-enfant-6-ans/)**, pensé pour les lecteurs débutants. Pour un enfant de 7 ans (CE1), notre **[guide robot enfant 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/)** aide à choisir entre robot sans écran et premier robot Scratch.
 
 - **Scratch** (ou équivalent blocs) devient accessible : l’enfant accepte de **déboguer** (« ça ne marche pas, je change l’ordre des blocs »).
 - **Montage** : kits avec vis et notice illustrée sont envisageables si un adulte est disponible les premières fois.
@@ -54,7 +61,7 @@ Prévoyez parfois **piles rechargeables**, **tapis de jeu** ou **extensions** (p
 
 ## Liens Amazon pour comparer (recherches affiliées)
 
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/s?k=mBot+Makeblock+robot+%C3%A9ducatif&tag=manuso06-21)
+- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Robot programmable Scratch enfant capteur](https://www.amazon.fr/s?k=robot+programmable+scratch+capteur+enfant&tag=manuso06-21)
 - [Kit robotique école STEM 8-12 ans](https://www.amazon.fr/s?k=kit+robotique+STEM+8+12+ans&tag=manuso06-21)
 - [Accessoires capteurs mBot](https://www.amazon.fr/s?k=mBot+accessoires+capteur&tag=manuso06-21)
@@ -75,3 +82,5 @@ Quand l’enfant maîtrise les blocs et veut du **texte**, des **données** ou d
 ---
 
 **En résumé** : vers **7–8 ans**, visez un robot **documenté**, avec **Scratch / mBlock**, des **capteurs** pour varier les défis, et un budget réaliste pour **accessoires et piles**. Les liens Amazon ci-dessus servent à **comparer** offres et avis au moment où vous lisez cet article.
+
+**Comparer les âges** : notre [guide du robot programmable pour enfant](/meilleur-robot-programmable-enfant-2026/) met côte à côte mBot, mBot2 et ELEGOO et renvoie vers chaque guide par âge, avec nos conseils pour un cadeau de Noël réussi.

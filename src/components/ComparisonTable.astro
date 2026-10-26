@@ -1,0 +1,385 @@
+---
+import { amazonProductUrl } from '../lib/amazon';
+import { getProductImage } from '../lib/amazonImage';
+import productsData from '../data/products.json';
+
+interface ProductEntry {
+	id: string;
+	badge?: string;
+}
+
+interface Props {
+	products: ProductEntry[];
+	title?: string;
+}
+
+const { products, title = 'Notre sélection rapide' } = Astro.props;
+
+const productDetails = products.map((entry) => {
+	const data = productsData[entry.id as keyof typeof productsData];
+	if (!data) return null;
+	const imageUrl = getProductImage(data.asin, data.name, 80, 80);
+	return {
+		...data,
+		...entry,
+		url: data.asin
+			? amazonProductUrl(data.asin, null)
+			: amazonProductUrl(null, data.searchQuery || data.name),
+		imageUrl,
+	};
+}).filter(Boolean);
+
+/** Colonne photo seulement si au moins un produit a une vraie photo (pas le SVG générique). */
+const hasPhotos = productDetails.some((p) => p && !String(p.imageUrl).startsWith('data:'));
+---
+
+{productDetails.length > 0 && (
+	<div class="comparison-table-wrapper" id="selection">
+		<h2 class="comparison-title">{title}</h2>
+		<div class="comparison-table-scroll">
+			<table class:list={['comparison-table', { 'no-photos': !hasPhotos }]}>
+				<thead>
+					<tr>
+						{hasPhotos && <th class="image-col"><span class="sr-only">Photo</span></th>}
+						<th>Robot</th>
+						<th>Âge</th>
+						<th>Langages</th>
+						<th class="cta-col"><span class="sr-only">Lien</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{productDetails.map((product) => (
+						<tr>
+							{hasPhotos && (
+								<td class="product-image-cell">
+									<a
+										href={product.url}
+										target="_blank"
+										rel="sponsored nofollow noopener"
+										class="table-image-link"
+										tabindex="-1"
+										aria-hidden="true"
+									>
+										<img
+											src={product.imageUrl}
+											alt=""
+											width="64"
+											height="64"
+											loading="lazy"
+											decoding="async"
+											class="table-img"
+										/>
+									</a>
+									{product.imageCaption && <span class="ai-illustration-caption" style="display:block;text-align:center;font-size:0.62rem;line-height:1.15;max-width:72px;margin:0.25rem auto 0;">{product.imageCaption}</span>}
+								</td>
+							)}
+							<td class="product-name-cell">
+								<strong>{product.name}</strong>
+								{product.badge && <span class="table-badge">{product.badge}</span>}
+							</td>
+							<td class="ages-cell" data-label="Âge">{product.ages}</td>
+							<td class="languages-cell" data-label="Langages">
+								{Array.isArray(product.languages) ? product.languages.join(', ') : product.languages}
+							</td>
+							<td class="cta-cell">
+								<a
+									href={product.url}
+									target="_blank"
+									rel="sponsored nofollow noopener"
+									class="table-btn affiliate-link"
+									data-product-id={product.id}
+									data-product={product.name}
+								>
+									Voir sur Amazon
+								</a>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+		<p class="comparison-note">
+			<strong>Note :</strong> Liens affiliés Amazon. En tant que partenaire, ce site peut percevoir une commission sur des achats éligibles, sans surcoût pour vous.
+		</p>
+	</div>
+)}
+
+<style>
+	.comparison-table-wrapper {
+		background: linear-gradient(
+			135deg,
+			color-mix(in oklab, var(--accent) 8%, var(--surface-2)) 0%,
+			var(--surface-2) 100%
+		);
+		border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--surface-border));
+		border-radius: 12px;
+		padding: 1.5rem 1.25rem;
+		margin: 2rem 0 2.5rem 0;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+	}
+
+	.comparison-title {
+		margin: 0 0 1rem 0;
+		font-size: 1.4rem;
+		font-weight: 800;
+		color: rgb(var(--black));
+		text-align: center;
+		/* neutralise le style h2 « carte » global des articles (pas de boîte dans la boîte) */
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		box-shadow: none !important; /* bat html[data-theme='light'] .prose h2 */
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	/* :global(.prose) : neutralise la règle générique des tableaux d'article (display:block, nowrap, bordure gauche) */
+	.comparison-table-scroll {
+		width: 100%;
+	}
+
+	:global(.prose) .comparison-table,
+	.comparison-table {
+		display: table;
+		table-layout: auto;
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		border-collapse: separate;
+		border-spacing: 0;
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		overflow: hidden;
+		white-space: normal;
+		font-size: 0.95rem;
+		line-height: 1.4;
+		background: var(--page-bg);
+		box-shadow: none;
+	}
+
+	:global(.prose) .comparison-table thead,
+	:global(.prose) .comparison-table tbody {
+		display: table-header-group;
+		width: auto;
+	}
+
+	:global(.prose) .comparison-table tbody {
+		display: table-row-group;
+	}
+
+	:global(.prose) .comparison-table th {
+		padding: 0.7rem 0.75rem;
+		text-align: left;
+		font-weight: 700;
+		font-size: 0.85rem;
+		white-space: nowrap;
+		background: color-mix(in oklab, var(--accent) 16%, var(--surface-2));
+		color: rgb(var(--black));
+		border-bottom: 1px solid var(--surface-border);
+	}
+
+	:global(.prose) .comparison-table td {
+		padding: 0.6rem 0.75rem;
+		vertical-align: middle;
+		border-bottom: 1px solid var(--surface-border);
+	}
+
+	:global(.prose) .comparison-table tbody tr:last-child td {
+		border-bottom: none;
+	}
+
+	:global(.prose) .comparison-table tbody tr:nth-child(even) {
+		background: color-mix(in oklab, var(--surface-2) 55%, transparent);
+	}
+
+	.comparison-table th.image-col,
+	.product-image-cell {
+		width: 80px;
+		min-width: 80px;
+		text-align: center;
+	}
+
+	.table-image-link {
+		display: inline-block;
+		line-height: 0;
+	}
+
+	:global(.prose) .comparison-table .table-img {
+		display: block;
+		width: 64px;
+		height: 64px;
+		min-width: 64px;
+		max-width: none;
+		box-sizing: border-box;
+		object-fit: contain;
+		background: #fff;
+		border-radius: 6px;
+		border: 1px solid var(--surface-border);
+		margin: 0;
+	}
+
+	.product-name-cell {
+		min-width: 0;
+	}
+
+	.product-name-cell strong {
+		display: block;
+		font-weight: 700;
+		color: rgb(var(--black));
+		margin-bottom: 0.3rem;
+	}
+
+	.table-badge {
+		display: inline-block;
+		background: #0f766e;
+		color: #fff;
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+		font-size: 0.72rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.ages-cell {
+		white-space: nowrap;
+	}
+
+	.languages-cell {
+		color: rgb(var(--gray-dark));
+		font-size: 0.9rem;
+	}
+
+	.cta-col,
+	.cta-cell {
+		width: 1%;
+		text-align: right;
+	}
+
+	.table-btn {
+		box-sizing: border-box;
+		max-width: 100%;
+		display: inline-block;
+		padding: 0.55rem 0.9rem;
+		background: #c2410c;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.85rem;
+		line-height: 1.2;
+		border-radius: 6px;
+		white-space: nowrap;
+		transition: background 0.15s ease, transform 0.15s ease;
+	}
+
+	.table-btn:hover,
+	.table-btn:focus-visible {
+		background: #9a3412;
+		color: #fff;
+		transform: translateY(-1px);
+	}
+
+	.comparison-note {
+		margin: 0.9rem 0 0 0;
+		font-size: 0.82rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	.comparison-note strong {
+		font-weight: 700;
+		color: rgb(var(--black));
+	}
+
+	/* Mobile : chaque produit devient une carte (photo, nom, âge/langages, bouton pleine largeur), sans scroll horizontal */
+	@media (max-width: 640px) {
+		.comparison-table-wrapper {
+			padding: 1.1rem 0.85rem;
+		}
+
+		:global(.prose) .comparison-table,
+		:global(.prose) .comparison-table tbody,
+		:global(.prose) .comparison-table tr,
+		:global(.prose) .comparison-table td {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			min-width: 0;
+		}
+
+		:global(.prose) .comparison-table {
+			border: none;
+			background: transparent;
+		}
+
+		:global(.prose) .comparison-table thead {
+			display: none;
+		}
+
+		:global(.prose) .comparison-table tbody tr {
+			display: grid;
+			grid-template-columns: 64px minmax(0, 1fr);
+			width: auto;
+			column-gap: 0.85rem;
+			row-gap: 0.35rem;
+			align-items: center;
+			padding: 0.85rem;
+			margin-bottom: 0.75rem;
+			background: var(--page-bg);
+			border: 1px solid var(--surface-border);
+			border-radius: 10px;
+		}
+
+		:global(.prose) .comparison-table.no-photos tbody tr {
+			grid-template-columns: 1fr;
+		}
+
+		:global(.prose) .comparison-table td {
+			padding: 0;
+			border: none;
+		}
+
+		:global(.prose) .comparison-table .product-image-cell {
+			grid-row: span 3;
+			width: 64px;
+			min-width: 64px;
+			align-self: start;
+		}
+
+		.ages-cell,
+		.languages-cell {
+			font-size: 0.85rem;
+			white-space: normal;
+		}
+
+		.ages-cell::before,
+		.languages-cell::before {
+			content: attr(data-label) ' : ';
+			font-weight: 600;
+			color: rgb(var(--black));
+		}
+
+		:global(.prose) .comparison-table .cta-cell {
+			grid-column: 1 / -1;
+			width: 100%;
+			text-align: center;
+			margin-top: 0.4rem;
+		}
+
+		.table-btn {
+			display: block;
+			width: 100%;
+			text-align: center;
+			padding: 0.65rem 1rem;
+		}
+	}
+</style>

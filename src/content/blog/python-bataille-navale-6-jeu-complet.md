@@ -3,7 +3,7 @@ title: "Bataille navale en Python (6/6) — jeu complet au terminal"
 description: "Boucle principale, alternance des joueurs, masquer l’écran entre les tours ; variante contre une IA aléatoire."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 6
 tags: ["Python", "Programmation", "Projet"]

@@ -1,0 +1,10 @@
+---
+import DomotiquePost from './DomotiquePost.astro';
+const fm = Astro.props.frontmatter ?? Astro.props;
+const { title, description, category } = fm;
+const pubDate = new Date(fm.pubDate ?? '2026-10-23');
+const updatedDate = fm.updatedDate ? new Date(fm.updatedDate) : undefined;
+---
+<DomotiquePost title={title} description={description} pubDate={pubDate} updatedDate={updatedDate} category={category} articleSlug="domotique-hub">
+	<slot />
+</DomotiquePost>

@@ -1,0 +1,250 @@
+---
+title: "Capteur d'ouverture de porte (reed) sur Raspberry Pi avec notification smartphone"
+description: "Un interrupteur reed sur Raspberry Pi 4 ou 5 pour savoir si une porte est ouverte : notification push gratuite avec ntfy et entité Home Assistant via MQTT. Code gpiozero complet."
+pubDate: 2026-10-19T00:00:00Z
+category: "home-assistant"
+priority: 6
+---
+
+Être prévenu quand la porte d'entrée, l'abri de jardin ou un placard s'ouvre : un **interrupteur reed** (contact magnétique) suffit. Il ne consomme rien, n'a besoin d'aucune alimentation et se câble directement sur le Raspberry Pi. Le script envoie une notification sur votre téléphone via **ntfy** (service open source, application Android et iOS) et peut aussi publier l'état dans **Home Assistant**.
+
+## Objectif
+
+- Détecter ouverture et fermeture d'une porte.
+- Recevoir une notification push à chaque ouverture.
+- Optionnel : capteur « Porte » dans Home Assistant via MQTT.
+
+## Durée, niveau et budget
+
+| Durée | Niveau | Budget |
+|---|---|---|
+| 45 min | débutant | un contact reed filaire est très bon marché (prix à vérifier) ; ntfy est gratuit et peut être auto-hébergé |
+
+Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
+
+## Les étapes en un coup d'œil
+
+1. Choisir un sujet ntfy long et secret, installer l'application
+2. Fixer aimant et contact sur la porte
+3. Câbler le reed entre GPIO17 et GND
+4. Créer le venv
+5. Lancer le script, ouvrir et fermer la porte
+6. Activer MQTT si vous utilisez Home Assistant
+7. Installer le service systemd
+
+## Matériel
+
+- Raspberry Pi 4 ou 5, Raspberry Pi OS Bookworm.
+- Un **contact reed de porte** à deux fils, de type « normalement ouvert » (contact fermé quand l'aimant est en face) (<a href="https://www.amazon.fr/s?k=capteur+magnétique+porte+reed+filaire&tag=manuso06-21" rel="sponsored nofollow" target="_blank">contacts reed filaires sur Amazon</a>).
+- Du câble deux conducteurs jusqu'au Pi.
+
+## Câblage
+
+Aucune résistance externe : le script active la résistance de rappel interne du GPIO.
+
+| Contact reed | Raspberry Pi (broche physique) | Rôle |
+|---|---|---|
+| fil 1 | broche 11 (GPIO17) | entrée |
+| fil 2 | broche 9 (GND) | masse |
+
+Porte fermée : l'aimant ferme le contact, GPIO17 lit 0. Porte ouverte : le contact s'ouvre, le pull-up ramène GPIO17 à 3,3 V. N'appliquez **jamais** de tension externe sur ce fil.
+
+## Préparer le Raspberry Pi (commun à tous les tutoriels)
+
+Système visé : **Raspberry Pi OS Bookworm** (Pi 4 ou Pi 5). Sur Bookworm, `pip install` hors environnement virtuel est bloqué : on crée donc un venv. On y donne accès aux paquets système (`--system-site-packages`) pour profiter de `gpiozero` et `lgpio` installés par apt, qui fonctionnent sur Pi 4 **et** Pi 5 (la bibliothèque RPi.GPIO ne gère pas le GPIO du Pi 5).
+
+```bash
+sudo apt update
+sudo apt install -y python3-venv python3-gpiozero python3-lgpio i2c-tools
+mkdir -p ~/capteurs && cd ~/capteurs
+python3 -m venv --system-site-packages venv
+source venv/bin/activate
+```
+
+```bash
+pip install paho-mqtt      # seulement si vous utilisez Home Assistant
+```
+
+### Notifications ntfy
+
+Installez l'application ntfy, abonnez-vous à un sujet au nom **long et difficile à deviner** (tout le monde peut lire un sujet public de ntfy.sh si le nom est connu), puis passez son URL au script : `NTFY_URL=https://ntfy.sh/porte-maison-8f3k2q`. Vous pouvez aussi héberger votre propre serveur ntfy.
+
+## Code complet
+
+<p><a href="/code/raspberry-pi/porte_reed_notification.py" download>Télécharger porte_reed_notification.py</a> (même code que ci-dessous).</p>
+
+```python title="porte_reed_notification.py"
+#!/usr/bin/env python3
+"""Capteur d'ouverture de porte (interrupteur reed) sur Raspberry Pi -> notification ntfy + MQTT.
+
+Câblage : reed entre GPIO17 (broche 11) et GND (broche 9) ; la résistance de tirage
+interne du Pi est activée par gpiozero (pull_up=True). Aucune tension externe.
+Compatible Pi 4 et Pi 5 : gpiozero + lgpio, pas de RPi.GPIO.
+Dépendances (dans un venv) : gpiozero, lgpio, paho-mqtt (MQTT facultatif).
+Source : robot-educatif.info - tutoriel « Capteur d'ouverture de porte avec notification ».
+"""
+import json
+import os
+import signal
+import urllib.request
+from datetime import datetime
+
+from gpiozero import Button
+
+REED_GPIO = int(os.getenv("REED_GPIO", "17"))
+NTFY_URL = os.getenv("NTFY_URL", "")            # ex. https://ntfy.sh/mon-sujet-secret-123 (vide = désactivé)
+MQTT_HOST = os.getenv("MQTT_HOST", "")          # vide = pas de MQTT
+MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
+MQTT_USER = os.getenv("MQTT_USER", "")
+MQTT_PASS = os.getenv("MQTT_PASS", "")
+DEVICE_ID = os.getenv("DEVICE_ID", "pi_porte_entree")
+STATE_TOPIC = f"robotedu/{DEVICE_ID}/door"
+
+
+def notifier(message):
+    """Envoie une notification push via ntfy (POST HTTP simple)."""
+    if not NTFY_URL:
+        return
+    req = urllib.request.Request(NTFY_URL, data=message.encode("utf-8"),
+                                 headers={"Title": "Porte", "Tags": "door"}, method="POST")
+    try:
+        urllib.request.urlopen(req, timeout=10).close()
+    except OSError as e:                         # pas de réseau : on n'arrête pas le script
+        print("Notification impossible :", e, flush=True)
+
+
+def creer_client_mqtt():
+    if not MQTT_HOST:
+        return None
+    import paho.mqtt.client as mqtt
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=DEVICE_ID)
+    if MQTT_USER:
+        client.username_pw_set(MQTT_USER, MQTT_PASS)
+    client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
+    client.loop_start()
+    cfg = {"name": "Porte", "unique_id": f"{DEVICE_ID}_door", "state_topic": STATE_TOPIC,
+           "device_class": "door", "payload_on": "ON", "payload_off": "OFF",
+           "device": {"identifiers": [DEVICE_ID], "name": f"Raspberry Pi porte ({DEVICE_ID})"}}
+    client.publish(f"homeassistant/binary_sensor/{DEVICE_ID}/config", json.dumps(cfg), retain=True)
+    return client
+
+
+def main():
+    client = creer_client_mqtt()
+    # Porte fermée = aimant proche = contact fermé = GPIO relié à GND = "pressed".
+    # bounce_time filtre les rebonds mécaniques du contact.
+    reed = Button(REED_GPIO, pull_up=True, bounce_time=0.1)
+
+    def publier(etat):
+        if client:
+            client.publish(STATE_TOPIC, etat, retain=True)
+
+    def ouverte():
+        heure = datetime.now().strftime("%H:%M:%S")
+        print(heure, "porte OUVERTE", flush=True)
+        publier("ON")                        # pour HA, ON = ouverte
+        notifier(f"Porte ouverte à {heure}")
+
+    def fermee():
+        print(datetime.now().strftime("%H:%M:%S"), "porte fermée", flush=True)
+        publier("OFF")
+
+    reed.when_released = ouverte             # contact qui s'ouvre = aimant éloigné
+    reed.when_pressed = fermee
+    publier("OFF" if reed.is_pressed else "ON")   # état initial
+
+    def stop(*_):
+        reed.close()
+        if client:
+            client.loop_stop()
+            client.disconnect()
+        raise SystemExit(0)
+
+    signal.signal(signal.SIGTERM, stop)
+    signal.signal(signal.SIGINT, stop)
+    print(f"Reed sur GPIO{REED_GPIO}, porte {'fermée' if reed.is_pressed else 'ouverte'}", flush=True)
+    signal.pause()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### Côté Home Assistant
+
+Il faut un broker MQTT (par exemple le module complémentaire **Mosquitto broker** de Home Assistant) et l'intégration **MQTT**. Le script publie une configuration « MQTT discovery » sur `homeassistant/…/config` : les entités apparaissent seules dans *Paramètres → Appareils et services → MQTT*. Créez un utilisateur Home Assistant dédié pour le Pi et passez ses identifiants via `MQTT_USER` / `MQTT_PASS`.
+
+## Lancement automatique avec systemd
+
+Créez le fichier `/etc/systemd/system/porte-reed.service` (adaptez l'utilisateur `pi` et le chemin) :
+
+```ini
+[Unit]
+Description=porte-reed (robot-educatif.info)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/capteurs
+Environment=NTFY_URL=https://ntfy.sh/porte-maison-8f3k2q
+Environment=MQTT_HOST=192.168.1.10
+Environment=MQTT_USER=pi
+Environment=MQTT_PASS=change-moi
+ExecStart=/home/pi/capteurs/venv/bin/python /home/pi/capteurs/porte_reed_notification.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now porte-reed.service
+journalctl -u porte-reed.service -f    # suivre les messages du script
+```
+
+## L'astuce de ce tutoriel : « porte restée ouverte » plutôt qu'à chaque ouverture
+
+Une notification à chaque passage devient vite pénible. Avec Home Assistant, ne soyez prévenu que si la porte **reste** ouverte :
+
+```yaml
+alias: Porte restée ouverte
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.raspberry_pi_porte_pi_porte_entree_porte
+    to: "on"
+    for: "00:05:00"
+actions:
+  - action: notify.notify
+    data:
+      message: "La porte d'entrée est ouverte depuis 5 minutes."
+```
+
+Lancez alors le script sans `NTFY_URL` pour ne garder que cette alerte.
+
+## Erreurs fréquentes
+
+- Écarter l'aimant de plus de la distance prévue par le fabricant : état instable.
+- Choisir un sujet ntfy court et devinable.
+- Contact « normalement fermé » câblé comme un « normalement ouvert ».
+- Mettre une tension externe sur le fil du reed.
+
+## Dépannage
+
+- **État inversé** : votre contact est « normalement fermé » ; échangez `when_pressed` et `when_released` dans le code.
+- **Plusieurs notifications par ouverture** : augmentez `bounce_time` (0,2 ou 0,3 s).
+- **Aucune notification** : testez `curl -d "test" https://ntfy.sh/votre-sujet` depuis le Pi.
+- **Fil long (plus de quelques mètres)** : des parasites peuvent apparaître ; utilisez du câble torsadé et gardez le `bounce_time`.
+
+> **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
+
+## Sources vérifiées
+
+- gpiozero, `Button` (pull_up, bounce_time, when_pressed/when_released) : https://gpiozero.readthedocs.io/en/stable/api_input.html#button
+- ntfy, publier un message en HTTP : https://docs.ntfy.sh/publish/
+- Raspberry Pi, brochage et niveaux GPIO 3,3 V : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- Home Assistant, MQTT binary sensor : https://www.home-assistant.io/integrations/binary_sensor.mqtt/
+
+À lire aussi : [ouvrir sa porte de garage depuis son smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/) et [détecteur de présence PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/).

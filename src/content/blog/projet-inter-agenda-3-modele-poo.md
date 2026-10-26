@@ -3,7 +3,7 @@ title: "Projet Agenda CLI (3/6) — modèle métier et classes"
 description: "Classe Event, validation des dates avec datetime, service AgendaService ; séparation storage ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 3
 tags: ["Python", "Projet", "POO"]

@@ -3,7 +3,7 @@ title: "Projet Agenda CLI (1/6) — cahier des charges et arborescence"
 description: "Objectifs fonctionnels, structure de dossiers src/, format JSON des événements, critères de réussite ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 1
 tags: ["Python", "Projet", "CLI"]

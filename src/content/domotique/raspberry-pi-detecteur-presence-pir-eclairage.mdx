@@ -1,0 +1,252 @@
+---
+title: "Détecteur de présence PIR sur Raspberry Pi pour allumer la lumière avec Home Assistant"
+description: "Câbler un capteur PIR HC-SR501 sur un Raspberry Pi 4 ou 5, publier la présence en MQTT et allumer l'éclairage via Home Assistant. Code gpiozero complet, compatible Pi 5."
+pubDate: 2026-10-19T00:00:00Z
+category: "home-assistant"
+priority: 6
+---
+
+Allumer le couloir ou le cellier quand quelqu'un passe, sans interrupteur : c'est l'usage le plus simple d'un **capteur PIR** (infrarouge passif). Ici le Raspberry Pi ne commande **aucun appareil en 230 V** : il signale la présence à **Home Assistant**, qui allume vos lampes connectées existantes. C'est plus sûr et plus souple.
+
+## Objectif
+
+- Détecter un mouvement avec un PIR HC-SR501 sur un GPIO.
+- Publier un capteur « Présence » dans Home Assistant via MQTT.
+- Allumer une lumière à la détection et l'éteindre après 2 minutes sans mouvement.
+
+## Durée, niveau et budget
+
+| Durée | Niveau | Budget |
+|---|---|---|
+| 45 min | débutant | un HC-SR501 fait partie des capteurs les moins chers (prix à vérifier) ; la lampe connectée est celle que vous possédez déjà |
+
+Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
+
+## Les étapes en un coup d'œil
+
+1. Régler le HC-SR501 (cavalier H, temporisation au minimum)
+2. Câbler VCC, OUT, GND
+3. Créer le venv avec accès à gpiozero/lgpio
+4. Lancer le script et passer la main devant
+5. Vérifier le capteur Présence dans Home Assistant
+6. Créer l'automatisation d'éclairage
+7. Installer le service systemd
+
+## Matériel
+
+- Raspberry Pi 4 ou 5, Raspberry Pi OS Bookworm.
+- Un module **HC-SR501** (<a href="https://www.amazon.fr/s?k=HC-SR501+PIR&tag=manuso06-21" rel="sponsored nofollow" target="_blank">HC-SR501 sur Amazon</a>). Il s'alimente en 5 V mais sa sortie est en **3,3 V**, donc directement compatible avec un GPIO du Pi.
+- 3 fils Dupont femelle-femelle.
+- Une lampe ou prise déjà intégrée à Home Assistant, et un broker MQTT.
+
+## Câblage
+
+| HC-SR501 | Raspberry Pi (broche physique) | Rôle |
+|---|---|---|
+| VCC | broche 2 (5V) | alimentation du module |
+| OUT | broche 7 (GPIO4) | signal 3,3 V |
+| GND | broche 6 (GND) | masse |
+
+Réglages du module : mettez le cavalier en mode **répétition (H)** et le potentiomètre de temporisation au minimum ; c'est Home Assistant qui gère la durée d'éclairage. Le second potentiomètre règle la sensibilité.
+
+## Préparer le Raspberry Pi (commun à tous les tutoriels)
+
+Système visé : **Raspberry Pi OS Bookworm** (Pi 4 ou Pi 5). Sur Bookworm, `pip install` hors environnement virtuel est bloqué : on crée donc un venv. On y donne accès aux paquets système (`--system-site-packages`) pour profiter de `gpiozero` et `lgpio` installés par apt, qui fonctionnent sur Pi 4 **et** Pi 5 (la bibliothèque RPi.GPIO ne gère pas le GPIO du Pi 5).
+
+```bash
+sudo apt update
+sudo apt install -y python3-venv python3-gpiozero python3-lgpio i2c-tools
+mkdir -p ~/capteurs && cd ~/capteurs
+python3 -m venv --system-site-packages venv
+source venv/bin/activate
+```
+
+```bash
+pip install paho-mqtt
+```
+
+## Code complet
+
+<p><a href="/code/raspberry-pi/presence_pir_mqtt.py" download>Télécharger presence_pir_mqtt.py</a> (même code que ci-dessous).</p>
+
+```python title="presence_pir_mqtt.py"
+#!/usr/bin/env python3
+"""Détection de présence PIR (HC-SR501 ou AM312) sur Raspberry Pi -> Home Assistant via MQTT.
+
+Le Pi publie un binary_sensor "occupancy" ; c'est Home Assistant qui allume la lumière
+(aucun câblage 230 V côté Raspberry Pi).
+Compatible Pi 4 et Pi 5 : gpiozero (backend lgpio sous Bookworm), pas de RPi.GPIO.
+Dépendances (dans un venv) : gpiozero, lgpio, paho-mqtt.
+Source : robot-educatif.info - tutoriel « Détecteur de présence PIR + Home Assistant ».
+"""
+import json
+import os
+import signal
+
+from gpiozero import MotionSensor
+import paho.mqtt.client as mqtt
+
+PIR_GPIO = int(os.getenv("PIR_GPIO", "4"))          # numérotation BCM : GPIO4 = broche physique 7
+MQTT_HOST = os.getenv("MQTT_HOST", "localhost")
+MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
+MQTT_USER = os.getenv("MQTT_USER", "")
+MQTT_PASS = os.getenv("MQTT_PASS", "")
+DEVICE_ID = os.getenv("DEVICE_ID", "pi_pir_couloir")
+STATE_TOPIC = f"robotedu/{DEVICE_ID}/occupancy"
+AVAIL_TOPIC = f"robotedu/{DEVICE_ID}/availability"
+
+
+def creer_client():
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=DEVICE_ID)
+    if MQTT_USER:
+        client.username_pw_set(MQTT_USER, MQTT_PASS)
+    client.will_set(AVAIL_TOPIC, "offline", retain=True)
+    client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
+    client.loop_start()
+    client.publish(AVAIL_TOPIC, "online", retain=True)
+    cfg = {
+        "name": "Présence",
+        "unique_id": f"{DEVICE_ID}_occupancy",
+        "state_topic": STATE_TOPIC,
+        "device_class": "occupancy",
+        "payload_on": "ON",
+        "payload_off": "OFF",
+        "availability_topic": AVAIL_TOPIC,
+        "device": {"identifiers": [DEVICE_ID], "name": f"Raspberry Pi PIR ({DEVICE_ID})"},
+    }
+    client.publish(f"homeassistant/binary_sensor/{DEVICE_ID}/config", json.dumps(cfg), retain=True)
+    return client
+
+
+def main():
+    client = creer_client()
+    # queue_len=1 : réaction immédiate ; le module PIR fait déjà son propre filtrage.
+    pir = MotionSensor(PIR_GPIO, queue_len=1)
+
+    def mouvement():
+        print("Mouvement détecté", flush=True)
+        client.publish(STATE_TOPIC, "ON", retain=True)
+
+    def calme():
+        print("Plus de mouvement", flush=True)
+        client.publish(STATE_TOPIC, "OFF", retain=True)
+
+    pir.when_motion = mouvement
+    pir.when_no_motion = calme
+
+    def stop(*_):
+        client.publish(AVAIL_TOPIC, "offline", retain=True)
+        client.loop_stop()
+        client.disconnect()
+        pir.close()
+        raise SystemExit(0)
+
+    signal.signal(signal.SIGTERM, stop)
+    signal.signal(signal.SIGINT, stop)
+    print(f"PIR sur GPIO{PIR_GPIO}, en attente…", flush=True)
+    signal.pause()                         # gpiozero gère les événements en arrière-plan
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### Côté Home Assistant
+
+Il faut un broker MQTT (par exemple le module complémentaire **Mosquitto broker** de Home Assistant) et l'intégration **MQTT**. Le script publie une configuration « MQTT discovery » sur `homeassistant/…/config` : les entités apparaissent seules dans *Paramètres → Appareils et services → MQTT*. Créez un utilisateur Home Assistant dédié pour le Pi et passez ses identifiants via `MQTT_USER` / `MQTT_PASS`.
+
+Automatisation conseillée, en mode `restart` pour relancer le délai à chaque passage :
+
+```yaml
+alias: Lumière couloir sur présence
+mode: restart
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.raspberry_pi_pir_pi_pir_couloir_presence
+    to: "on"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.couloir
+  - wait_for_trigger:
+      - trigger: state
+        entity_id: binary_sensor.raspberry_pi_pir_pi_pir_couloir_presence
+        to: "off"
+        for: "00:02:00"
+  - action: light.turn_off
+    target:
+      entity_id: light.couloir
+```
+
+Remplacez `light.couloir` et l'identifiant du capteur par les vôtres.
+
+## Lancement automatique avec systemd
+
+Créez le fichier `/etc/systemd/system/presence-pir.service` (adaptez l'utilisateur `pi` et le chemin) :
+
+```ini
+[Unit]
+Description=presence-pir (robot-educatif.info)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/capteurs
+Environment=MQTT_HOST=192.168.1.10
+Environment=MQTT_USER=pi
+Environment=MQTT_PASS=change-moi
+ExecStart=/home/pi/capteurs/venv/bin/python /home/pi/capteurs/presence_pir_mqtt.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now presence-pir.service
+journalctl -u presence-pir.service -f    # suivre les messages du script
+```
+
+## L'astuce de ce tutoriel : un éclairage de nuit atténué
+
+La nuit, une lumière pleine puissance réveille tout le monde. Remplacez l'action `light.turn_on` de l'automatisation par ce choix horaire :
+
+```yaml
+  - action: light.turn_on
+    target:
+      entity_id: light.couloir
+    data:
+      brightness_pct: "{{ 15 if now().hour >= 23 or now().hour < 6 else 100 }}"
+```
+
+La même automatisation fonctionne avec n'importe quel détecteur de présence déjà présent dans Home Assistant : utile même sans ce montage.
+
+Pour ce mode nuit, mieux vaut une ampoule réellement dimmable, sinon elle passe de 0 à 100 % sans palier. Le guide des [ampoules connectées de 1piece1ampoule.fr](https://1piece1ampoule.fr) aide à choisir le culot, la puissance et le protocole (Zigbee, Wi-Fi ou Matter) avant d'acheter.
+
+## Erreurs fréquentes
+
+- Utiliser RPi.GPIO sur un Pi 5 : il ne gère pas son GPIO.
+- Laisser la temporisation du module au maximum : la lumière reste allumée plusieurs minutes.
+- Viser une fenêtre ou un radiateur.
+- Tester dans la première minute après mise sous tension.
+
+## Dépannage
+
+- **Fausses détections au démarrage** : le HC-SR501 a besoin d'environ une minute pour se stabiliser après mise sous tension.
+- **Détections sans personne** : source de chaleur ou courant d'air chaud dans le champ (radiateur, fenêtre au soleil) ; baissez la sensibilité.
+- **`RuntimeError`/erreur de GPIO sur Pi 5** : n'utilisez pas RPi.GPIO ; vérifiez que `python3-lgpio` est installé et que le venv a été créé avec `--system-site-packages`.
+- **`GPIO busy`** : un autre programme utilise déjà GPIO4 (ex. 1-Wire activé) ; changez `PIR_GPIO`.
+
+> **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
+
+## Sources vérifiées
+
+- Adafruit, *PIR Motion Sensor* (alimentation 5 V, sortie 3,3 V, mode répétition) : https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor
+- gpiozero, `MotionSensor` : https://gpiozero.readthedocs.io/en/stable/api_input.html#motionsensor-d-sun-pir
+- Raspberry Pi, brochage GPIO : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
+- Home Assistant, MQTT binary sensor et automatisations : https://www.home-assistant.io/integrations/binary_sensor.mqtt/
+
+À lire aussi : [capteur d'ouverture de porte avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/) et [débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/).

@@ -3,7 +3,7 @@ title: "Projet Journal CLI (6/6) — package, pyproject et livraison"
 description: "pyproject.toml, setuptools, entrée journal-stats, README, tests et publication ; 12 exercices."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python avancé — Journal CLI
 seriesOrder: 6
 tags: ["Python", "Projet", "packaging"]

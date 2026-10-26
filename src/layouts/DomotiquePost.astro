@@ -1,0 +1,172 @@
+---
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import DomotiqueSubNav from '../components/DomotiqueSubNav.astro';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import StructuredDataFaq from '../components/StructuredDataFaq.astro';
+import { ARTICLE_AUTHOR } from '../consts';
+import { withBase } from '../lib/siteUrl';
+import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
+import { withImageVersion } from '../lib/imageVersion';
+import { getIllustration } from '../lib/illustration';
+import FallbackImage from '../assets/blog-placeholder-1.jpg';
+
+type Props = CollectionEntry<'domotique'>['data'] & {
+	articleSlug: string;
+	faqSchema?: { question: string; answer: string }[];
+};
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	category = 'home-assistant',
+	articleSlug,
+	faqSchema = [],
+} = Astro.props;
+
+// Charger le thumbnail généré pour cet article
+// Note: getDomotiqueThumbnail uses import.meta.glob which doesn't work well with /public/
+// So we construct the path directly and let Astro handle it
+const illustration = getIllustration(articleSlug);
+const thumbnailPath = illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`;
+const thumbnailImage = withImageVersion(thumbnailPath);
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<html lang="fr">
+	<head>
+		<BaseHead 
+			title={title} 
+			description={description} 
+			image={thumbnailImage}
+			ogType="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+		/>
+		<StructuredDataArticle
+			title={title}
+			description={description}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			heroImage={thumbnailImage}
+			articleSlug={articleSlug}
+		/>
+		<StructuredDataBreadcrumb
+			items={[
+				{ name: 'Accueil', url: withBase('/') },
+				{ name: 'Domotique', url: withBase('/domotique/') },
+				{ name: title, url: withBase(`/domotique/${articleSlug}/`) },
+			]}
+		/>
+		<StructuredDataFaq items={faqSchema} />
+		<style>
+			main {
+				width: 100%;
+				padding-top: 0;
+			}
+			
+			.article-header {
+				max-width: 900px;
+				width: 100%;
+				margin: 0 auto;
+				padding: 2rem 1.5rem 1.5rem;
+				box-sizing: border-box;
+				min-width: 0;
+			}
+			
+			.article-header h1 {
+				font-size: clamp(1.75rem, 5vw, 2.5rem);
+				line-height: 1.2;
+				margin-bottom: 1rem;
+				color: rgb(var(--black));
+			}
+			
+			.article-meta {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+				color: rgb(var(--gray-dark));
+				font-size: 0.9rem;
+				margin-top: 1rem;
+			}
+			
+			.category-badge {
+				display: inline-block;
+				padding: 0.25rem 0.75rem;
+				background: var(--accent);
+				color: white;
+				border-radius: 999px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			
+			.domotique-illustration { max-width: 900px; margin: 0 auto 1.5rem; padding: 0 1.5rem; box-sizing: border-box; }
+			.domotique-illustration img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; border-radius: 12px; background: var(--surface, #f1f5f9); }
+			.article-content {
+				max-width: 900px;
+				width: 100%;
+				margin: 0 auto;
+				padding: 0 1.5rem 3rem;
+				box-sizing: border-box;
+				min-width: 0;
+				--prose-width: 100%;
+			}
+			
+			@media (max-width: 768px) {
+				.article-header,
+				.article-content {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<DomotiqueSubNav currentCategory={category} />
+		
+		<main>
+			<article>
+				<header class="article-header">
+					<span class="category-badge">{category === 'home-assistant' ? 'Home Assistant' : category === 'esp32' ? 'ESP32' : category === 'guides-achat' ? 'Guide d\'achat' : category === 'debuter' ? 'Débuter' : 'Domotique'}</span>
+					<h1>{title}</h1>
+					<p style="font-size: 1.1rem; color: rgb(var(--gray-dark)); margin-top: 0.5rem;">{description}</p>
+					<div class="article-meta">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<>
+								<span>•</span>
+								<span>Mis à jour le <FormattedDate date={updatedDate} /></span>
+							</>
+						)}
+						<span>•</span>
+						<span>Par {ARTICLE_AUTHOR}</span>
+					</div>
+				</header>
+				{illustration && (
+					<figure class="domotique-illustration">
+						<img src={thumbnailImage} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+						<figcaption class="ai-illustration-caption">Illustration générée par IA</figcaption>
+					</figure>
+				)}
+				
+				<div class="article-content prose">
+					<slot />
+				</div>
+				<ArticleQuestionForm lang="fr" pageTitle={title} />
+			</article>
+		</main>
+		
+		<Footer />
+	</body>
+</html>

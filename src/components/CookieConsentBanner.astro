@@ -3,10 +3,61 @@ import { COOKIE_CONSENT_STORAGE_KEY } from '../lib/cookieConsent';
 import { withBase } from '../lib/siteUrl';
 
 const cookiesPageUrl = withBase('/gestion-des-cookies/');
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const isEn = _p === '/en' || _p.startsWith('/en/');
+const isDe = _p === '/de' || _p.startsWith('/de/');
+const isIt = _p === '/it' || _p.startsWith('/it/');
+const isEs = _p === '/es' || _p.startsWith('/es/');
 ---
 
 <div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc" hidden>
 	<div class="cookie-consent__inner">
+		{isIt ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookie e statistiche</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Usiamo Google Analytics 4 per capire come viene usato il sito (pagine viste, navigazione). Viene attivato solo se accettate. Rifiutare non impedisce di consultare il sito. Per saperne di più: <a href={cookiesPageUrl} hreflang="fr">gestione dei cookie</a> e <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">informativa sulla privacy</a> (in francese).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Rifiuta</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accetta</button>
+			</div>
+		</>
+		) : isEs ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies y estadísticas</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Usamos Google Analytics 4 para entender cómo se usa el sitio (páginas vistas, navegación). Solo se activa si aceptas. Rechazar no impide consultar el sitio. Más información: <a href={cookiesPageUrl} hreflang="fr">gestión de cookies</a> y <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">política de privacidad</a> (en francés).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Rechazar</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Aceptar</button>
+			</div>
+		</>
+		) : isDe ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies und Statistik</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				Wir nutzen Google Analytics 4, um zu verstehen, wie die Website genutzt wird (Seitenaufrufe, Navigation). Es wird nur aktiviert, wenn Sie zustimmen. Eine Ablehnung schränkt die Nutzung der Website nicht ein. Mehr: <a href={cookiesPageUrl} hreflang="fr">Cookie-Einstellungen</a> und <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Datenschutzerklärung</a> (auf Französisch).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Ablehnen</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Akzeptieren</button>
+			</div>
+		</>
+		) : isEn ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies and analytics</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				We use Google Analytics 4 to understand how the site is used (page views, navigation). It is only switched on if you accept. Declining does not stop you using the site. More: <a href={cookiesPageUrl} hreflang="fr">cookie settings</a> and <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">privacy policy</a> (in French).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Decline</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accept</button>
+			</div>
+		</>
+	) : (
+		<>
 		<p id="cookie-consent-title" class="cookie-consent__title">Cookies et mesure d&apos;audience</p>
 		<p id="cookie-consent-desc" class="cookie-consent__text">
 			Nous utilisons Google Analytics 4 pour comprendre comment le site est utilisé (pages vues, navigation). Ces données sont
@@ -18,6 +69,9 @@ const cookiesPageUrl = withBase('/gestion-des-cookies/');
 			<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Refuser</button>
 			<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accepter</button>
 		</div>
+
+		</>
+	)}
 	</div>
 </div>
 
@@ -95,16 +149,48 @@ const cookiesPageUrl = withBase('/gestion-des-cookies/');
 		font-weight: 700;
 		color: var(--accent-dark);
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__title {
+			color: #5EEAD4;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__title {
+		color: #5EEAD4;
+	}
+	
 	.cookie-consent__text {
 		margin: 0 0 1rem;
 		font-size: 0.92rem;
 		line-height: 1.5;
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__text {
+			color: #E2E8F0;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__text {
+		color: #E2E8F0;
+	}
+	
 	.cookie-consent__text a {
 		color: var(--accent-dark);
 		font-weight: 600;
 		text-decoration: underline;
 		text-underline-offset: 2px;
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.cookie-consent__text a {
+			color: #5EEAD4;
+		}
+	}
+	
+	html[data-theme="dark"] .cookie-consent__text a {
+		color: #5EEAD4;
 	}
 	.cookie-consent__actions {
 		display: flex;
@@ -135,11 +221,32 @@ const cookiesPageUrl = withBase('/gestion-des-cookies/');
 		color: var(--accent-dark);
 	}
 	@media (max-width: 520px) {
+		.cookie-consent {
+			padding: 4px 6px !important;
+		}
+		.cookie-consent__inner {
+			padding: 5px 8px !important;
+			max-height: 125px !important;
+		}
+		.cookie-consent__title {
+			font-size: 0.78rem !important;
+			margin-bottom: 0.15rem !important;
+			line-height: 1.15 !important;
+		}
+		.cookie-consent__text {
+			font-size: 0.68rem !important;
+			line-height: 1.25 !important;
+			margin-bottom: 0.4rem !important;
+		}
 		.cookie-consent__actions {
-			flex-direction: column;
+			flex-direction: row;
+			gap: 0.28rem !important;
+			justify-content: center;
 		}
 		.cookie-consent__btn {
-			width: 100%;
+			flex: 1;
+			padding: 0.3rem 0.55rem !important;
+			font-size: 0.74rem !important;
 		}
 	}
 </style>

@@ -2,7 +2,7 @@
 title: "S’inscrire sur mBlock 5"
 description: "Mettre l’interface en français, puis créer un compte mBlock : menu compte, e-mail, âge, mot de passe et confirmation — avec captures en français."
 pubDate: "2020-04-07"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: scratch
 updatedDate: "2026-03-30"
 categories:
@@ -99,3 +99,5 @@ Après validation, **consultez votre messagerie** : Makeblock envoie en principe
 | 6 | **Confirmer** via le lien reçu par mail |
 
 Une fois connecté, vous pourrez enchaîner sur un [premier programme pour le mBot](/mon-premier-programme-mbot/) ou continuer à apprendre les bases de l’[interface mBlock 5](/premier-pas-avec-mblock-5/).
+
+**À lire aussi** : [mBlock ou Scratch ?](/mblock-vs-scratch-lequel-choisir/)

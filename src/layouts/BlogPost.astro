@@ -1,4 +1,5 @@
 ---
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
 import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
@@ -7,14 +8,30 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ArticleEngagement from '../components/ArticleEngagement.astro';
 import Sidebar from '../components/Sidebar.astro';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import StructuredDataFaq from '../components/StructuredDataFaq.astro';
+import TutorialProductBox from '../components/TutorialProductBox.astro';
+import ChooseRobotBox from '../components/ChooseRobotBox.astro';
+import { CHOOSE_ROBOT_SLUGS } from '../lib/chooseRobotLinks';
+import ChristmasBanner from '../components/ChristmasBanner.astro';
+import PinterestShare from '../components/PinterestShare.astro';
+import FollowBlock from '../components/FollowBlock.astro';
+import ShareButtons from '../components/ShareButtons.astro';
 import { categoryToSlug, topCategoriesByCount } from '../lib/categories';
 import { resolveHeroImage } from '../lib/contentHeroImage';
+import { resolveArticleImage } from '../lib/articleThumbnail';
+import { getIllustration } from '../lib/illustration';
+import { withImageVersion } from '../lib/imageVersion';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
+import { findPair } from '../lib/i18n.mjs';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
 	articleSlug?: string;
+	/** Questions/réponses de la FAQ visible (rehype-faq-schema) → JSON-LD FAQPage */
+	faqSchema?: { question: string; answer: string }[];
 };
 
 const {
@@ -27,20 +44,101 @@ const {
 	relatedLinks,
 	categories = [],
 	articleSlug = '',
+	faqSchema = [],
 } = Astro.props;
 
-const resolvedHero = resolveHeroImage(heroImage);
+// Résoudre l'image pour la bannière et og:image selon les mêmes priorités
+// 1. heroImage si spécifique (pas générique)
+// 2. Vignette générée avec photo produit intégrée
+const resolvedImageForMeta = resolveArticleImage(articleSlug, heroImage);
+const illustration = articleSlug ? getIllustration(articleSlug) : null;
+
+// Pour la bannière, on affiche soit ImageMetadata, soit le string path vers vignette
+const heroIsImageMetadata = resolvedImageForMeta && typeof resolvedImageForMeta !== 'string';
+const heroImagePath = typeof resolvedImageForMeta === 'string' ? resolvedImageForMeta : null;
+
+// Versionner les images pour le cache
+const heroImagePathWithVersion = heroImagePath ? withImageVersion(heroImagePath.replace('.png', '.webp')) : null;
+const ogImagePath = typeof resolvedImageForMeta === 'string' ? withImageVersion(resolvedImageForMeta) : resolvedImageForMeta;
+const enPair = findPair(Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, ''));
 const allPosts = await getCollection('blog');
 const topCategories = topCategoriesByCount(allPosts, 15);
 
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL?.replace(/\/$/, '') ?? '';
 const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
 const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug);
+
+// URL de la page pour Pinterest
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Vérifier si l'image Pinterest existe avant de l'afficher
+let pinterestMediaUrl = '';
+if (articleSlug) {
+	try {
+		const pinterestImagePath = `/pinterest/${articleSlug}-1.jpg`;
+		const fs = await import('node:fs');
+		const path = await import('node:path');
+		const publicPath = path.join(process.cwd(), 'public', pinterestImagePath);
+		if (fs.existsSync(publicPath)) {
+			pinterestMediaUrl = new URL(pinterestImagePath, Astro.site).toString();
+		}
+	} catch (e) {
+		// Image Pinterest non disponible, on n'affiche pas
+	}
+}
+
+const chooseRobotAges = articleSlug ? CHOOSE_ROBOT_SLUGS[articleSlug] : undefined;
+
+// Détection automatique du TutorialProductBox selon les catégories
+const categoryLower = categories.map(c => c.toLowerCase());
+let tutorialProducts: string[] | null = null;
+let tutorialGuide: { url: string; title: string } | null = null;
+
+if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
+	tutorialProducts = ['mbot2', 'mbot'];
+	tutorialGuide = { url: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Guide complet : quel robot mBot choisir ?' };
+} else if (categoryLower.some(c => c.includes('python'))) {
+	tutorialProducts = ['mbot2', 'raspberry-pi-5-8gb', 'cyberpi'];
+	tutorialGuide = { url: '/robot-programmable-python/', title: 'Guide : robots programmables Python' };
+} else if (categoryLower.some(c => c.includes('arduino'))) {
+	tutorialProducts = ['elegoo-robot-car', 'elegoo-penguin'];
+	tutorialGuide = { url: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Guide : kits robot Arduino pour enfants' };
+} else if (categoryLower.some(c => c.includes('raspberry'))) {
+	tutorialProducts = ['raspberry-pi-5-8gb', 'raspberry-pi-5-4gb'];
+	tutorialGuide = { url: '/kit-raspberry-pi-5-complet/', title: 'Guide : kit Raspberry Pi 5 complet' };
+}
 ---
 
 <html lang="fr">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead 
+			title={title} 
+			description={description} 
+			image={ogImagePath}
+			ogType="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+		/>
+		{articleSlug && (
+			<>
+				<StructuredDataArticle
+					title={title}
+					description={description}
+					pubDate={pubDate}
+					updatedDate={updatedDate}
+					heroImage={heroIsImageMetadata ? resolvedImageForMeta : (ogImagePath ?? undefined)}
+					articleSlug={articleSlug}
+				/>
+				<StructuredDataBreadcrumb
+					items={[
+						{ name: 'Accueil', url: withBase('/') },
+						{ name: 'Blog', url: withBase('/blog/') },
+						{ name: title, url: withBase(`/${articleSlug}/`) },
+					]}
+				/>
+				<StructuredDataFaq items={faqSchema} />
+			</>
+		)}
 		<style>
 			main {
 				width: 100%;
@@ -61,16 +159,23 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				box-shadow: none;
 			}
 			.hero-article-media {
-				max-height: min(52vh, 560px);
-				overflow: hidden;
+				max-width: 900px;
+				margin: 0 auto;
 				background: var(--page-bg-elevated);
 			}
 			.hero-article-media img {
 				display: block;
 				width: 100%;
-				height: min(52vh, 560px);
-				object-fit: cover;
+				height: auto;
+				aspect-ratio: 16 / 9;
+				object-fit: contain;
 				border-radius: 0;
+			}
+			
+			@media (max-width: 768px) {
+				.hero-article-media {
+					max-width: 100%;
+				}
 			}
 			.hero-article-content {
 				width: min(1140px, calc(100% - 2.5rem));
@@ -127,6 +232,9 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				margin-left: 0;
 				max-width: 100%;
 			}
+			.hero-article-toolbar .pinterest-hero-button {
+				flex-shrink: 0;
+			}
 			.hero-categories {
 				display: flex;
 				flex-wrap: wrap;
@@ -139,25 +247,28 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 			.hero-categories li {
 				margin: 0;
 			}
-			.hero-categories a {
-				display: inline-block;
-				padding: 0.28rem 0.65rem;
-				font-size: 0.82rem;
-				font-weight: 600;
-				font-family: var(--font-body, system-ui);
-				text-decoration: none;
-				color: var(--accent-dark);
-				background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
-				border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
-				border-radius: 999px;
-				transition: background 0.12s ease, color 0.12s ease;
-			}
-			.hero-categories a:hover {
-				background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
-			}
-			html:not([data-theme='light']) .hero-categories a:hover {
-				color: var(--accent);
-			}
+		.hero-categories a {
+			display: inline-block;
+			padding: 0.28rem 0.65rem;
+			font-size: 0.82rem;
+			font-weight: 600;
+			font-family: var(--font-body, system-ui);
+			text-decoration: none;
+			color: var(--accent-dark);
+			background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
+			border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
+			border-radius: 999px;
+			transition: background 0.12s ease, color 0.12s ease;
+		}
+		html:not([data-theme='light']) .hero-categories a {
+			color: #2DD4BF;
+		}
+		.hero-categories a:hover {
+			background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
+		}
+		html:not([data-theme='light']) .hero-categories a:hover {
+			color: #5EEAD4;
+		}
 			.page-layout {
 				width: min(1200px, calc(100% - 2em));
 				margin: 0 auto;
@@ -178,31 +289,74 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				font-weight: 600;
 				color: rgb(var(--gray-dark));
 			}
-			@media (max-width: 720px) {
-				.hero-article-media,
-				.hero-article-media img {
-					max-height: 42vh;
-					height: 42vh;
-				}
-				.hero-article-content {
-					padding: 1.25rem 1rem 1.5rem;
-					width: 100%;
-					box-sizing: border-box;
-				}
-				.page-layout {
-					grid-template-columns: 1fr;
-				}
+		@media (max-width: 720px) {
+			.hero-article {
+				margin-bottom: 1rem !important;
 			}
+			.hero-article-media {
+				max-width: 100% !important;
+			}
+			.hero-article-media img {
+				object-fit: contain !important;
+			}
+			.hero-article-content {
+				padding: 0 0.9rem 0.9rem !important;
+				width: 100%;
+				box-sizing: border-box;
+			}
+			.hero-meta {
+				margin-bottom: 0.15rem !important;
+				font-size: 0.76rem !important;
+				gap: 0.2rem 0.45rem !important;
+			}
+			.hero-article-toolbar {
+				margin-bottom: 0.3rem !important;
+				gap: 0.25rem 0.5rem !important;
+			}
+			.hero-categories {
+				margin-bottom: 0.4rem !important;
+				gap: 0.3rem !important;
+			}
+			.hero-categories a {
+				padding: 0.2rem 0.5rem !important;
+				font-size: 0.78rem !important;
+			}
+			.hero-article-content h1 {
+				margin-top: 0 !important;
+				margin-bottom: 0.3rem !important;
+				font-size: clamp(1.35rem, 4vw, 1.75rem) !important;
+			}
+			.hero-article-content .hero-desc {
+				font-size: 0.95rem !important;
+				line-height: 1.4 !important;
+			}
+			.page-layout {
+				grid-template-columns: 1fr;
+			}
+		}
 		</style>
 	</head>
 
 	<body>
 		<Header />
+		<ChristmasBanner />
 		<main>
 			<section class="hero-article">
-				{resolvedHero && (
+				{heroIsImageMetadata && (
 					<div class="hero-article-media">
-						<Image width={1600} height={760} src={resolvedHero} alt={title} />
+						<Image width={1600} height={760} src={resolvedImageForMeta} alt={title} />
+					</div>
+				)}
+				{heroImagePathWithVersion && (
+					<div class="hero-article-media">
+						{illustration ? (
+							<>
+								<img src={heroImagePathWithVersion} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+								<p class="ai-illustration-caption">Illustration générée par IA</p>
+							</>
+						) : (
+							<img src={heroImagePathWithVersion} alt={title} width="1200" height="630" loading="lazy" />
+						)}
 					</div>
 				)}
 				<div class="hero-article-content">
@@ -221,8 +375,17 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 							)
 						}
 					</div>
+					{articleSlug && pinterestMediaUrl && (
+						<img 
+							src={pinterestMediaUrl} 
+							alt={title}
+							data-pin-media={pinterestMediaUrl}
+							style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+							aria-hidden="true"
+						/>
+					)}
 					{
-						(categories.length > 0 || showArticleEngagement) && (
+						(categories.length > 0 || showArticleEngagement || articleSlug) && (
 							<div class="hero-article-toolbar">
 								{
 									categories.length > 0 && (
@@ -238,6 +401,15 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 								{showArticleEngagement ? (
 									<ArticleEngagement articleSlug={articleSlug!} variant="hero" />
 								) : null}
+								{articleSlug && (
+									<PinterestShare
+										url={pageUrl}
+										description={`${title} - ${description}`}
+										media={pinterestMediaUrl}
+										variant="button"
+										class="pinterest-hero-button"
+									/>
+								)}
 							</div>
 						)
 					}
@@ -249,7 +421,26 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 				<article>
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
+						{chooseRobotAges && <ChooseRobotBox ages={chooseRobotAges} />}
+						{tutorialProducts && tutorialProducts.length > 0 && (
+							<TutorialProductBox
+								productIds={tutorialProducts}
+								guideUrl={tutorialGuide?.url}
+								guideTitle={tutorialGuide?.title}
+							/>
+						)}
 					</div>
+					{articleSlug && (
+						<>
+							<ShareButtons 
+								url={withBase(`/${articleSlug}/`)}
+								title={title}
+								description={description}
+							/>
+							<FollowBlock />
+						</>
+					)}
+					<ArticleQuestionForm lang="fr" pageTitle={title} />
 				</article>
 				<Sidebar
 					articleSlug={articleSlug}
@@ -261,5 +452,39 @@ const showArticleEngagement = Boolean(supabaseUrl && supabaseKey && articleSlug)
 			</div>
 		</main>
 		<Footer suppressPagePathTracking={Boolean(articleSlug)} />
+		
+		{articleSlug && (
+			<script define:vars={{ currentUrl: withBase(`/${articleSlug}/`), pageTitle: title }}>
+				// Add Pinterest overlay to article images (no third-party JS, no CLS)
+				document.addEventListener('DOMContentLoaded', () => {
+					const figures = document.querySelectorAll('.prose figure');
+					figures.forEach((figure) => {
+						const img = figure.querySelector('img');
+						if (!img) return;
+						
+						// Get image URL (prefer data-pin-media if set, otherwise src)
+						const imageUrl = img.getAttribute('data-pin-media') || img.src;
+						const description = img.alt || pageTitle;
+						
+						// Create Pinterest overlay button
+						const overlay = document.createElement('div');
+						overlay.className = 'pinterest-img-overlay';
+						
+						const pinterestUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(currentUrl)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(description)}`;
+						
+						overlay.innerHTML = `
+							<a href="${pinterestUrl}" target="_blank" rel="noopener noreferrer" class="pinterest-img-overlay-btn" aria-label="Épingler cette image sur Pinterest">
+								<svg class="pinterest-img-overlay-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+								</svg>
+								Enregistrer
+							</a>
+						`;
+						
+						figure.appendChild(overlay);
+					});
+				});
+			</script>
+		)}
 	</body>
 </html>

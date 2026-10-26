@@ -21,14 +21,14 @@ const posts = all
 	<head>
 		<BaseHead
 			title="Arduino C — parcours débutant (robotique)"
-			description="Série de cours Arduino C pour débutant orientée robotique : variables, conditions, boucles, timing (millis), modularité et bonnes pratiques, avec 20 exercices par leçon."
+			description="Cours Arduino C robotique : variables, conditions, boucles, timing, modularité. 20 exercices par leçon."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="py-series">
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
-				<a href={withBase('/programmation')}>Programmation</a>
+				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
 				<span>Arduino C</span>
 			</nav>
@@ -52,6 +52,10 @@ const posts = all
 					rel="noopener noreferrer sponsored">Amazon.fr</a>{' '}
 				(partenaire).
 			</p>
+			<div style="background: #F8FAFC; padding: 1rem; border-left: 4px solid #0F766E; margin: 1.5rem 0;">
+				💡 <strong>Prolongement domotique</strong> : après Arduino, découvrez l'<strong>ESP32</strong> pour créer des capteurs connectés à Home Assistant. 
+				→ <a href={withBase('/domotique/projets-esp32-domotique/')}>10 projets ESP32 pour la maison connectée</a>
+			</div>
 
 			<ol class="lesson-list">
 				{

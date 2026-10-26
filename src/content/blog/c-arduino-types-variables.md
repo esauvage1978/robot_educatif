@@ -1,9 +1,8 @@
 ---
 title: "Arduino C — types, variables et constantes (20 exercices)"
-description: "Types utiles en robotique (int, unsigned long, float, bool, char, const char*), variables globales/locales, constantes, conversions et bonnes pratiques. 20 exercices corrigés."
+description: "Types Arduino : int, unsigned long, float. 20 exercices."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
 series: "Arduino C"
 seriesOrder: 2
 tags: ["C", "Arduino", "Robotique", "Programmation"]

@@ -1,9 +1,9 @@
 ---
-title: "Raspberry Pi 3 vs 4 vs 5 : comparatif technique, prix et quel modèle choisir (2026)"
-description: "Tableau comparatif Pi 3 / Pi 4 / Pi 5 : CPU, RAM, USB, réseau, vidéo, PCIe. Déclinaisons mémoire, fourchettes de prix en France (mars 2026), cas d’usage et liens vers les guides détaillés."
+title: "Raspberry Pi 3 vs 4 vs 5 : lequel acheter en 2026 ? Comparatif et tableau"
+description: "Raspberry Pi 3, 4 ou 5 : tableau comparatif (processeur, RAM jusqu'à 16 Go, USB 3, PCIe, alimentation), quel modèle pour quel projet et lequel acheter en 2026."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-30"
-heroImage: "../../assets/blog-heroes/hero-raspberry.png"
+updatedDate: "2026-10-13"
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 amazonPreset: raspberry
 categories:
   - "Raspberry Pi"
@@ -11,17 +11,19 @@ categories:
   - "Guide"
   - "À partir de 12 ans"
 relatedLinks:
-  - title: "Raspberry Pi 4 : quelle mémoire acheter ?"
-    href: "/raspberry-pi-4-quelle-version-memoire-acheter/"
-  - title: "Raspberry Pi 5 : quelle mémoire acheter ?"
+  - title: "Raspberry Pi 5 : 4 Go ou 8 Go ?"
     href: "/raspberry-pi-5-quelle-version-memoire-acheter/"
+  - title: "Kit Raspberry Pi 5 complet"
+    href: "/kit-raspberry-pi-5-complet/"
   - title: "Mise en route Raspberry Pi 3"
     href: "/mise-en-route-raspberry-pi-3-modele-b/"
   - title: "Raspberry Pi ou kit robot pour ado"
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
 ---
 
-Entre le **Raspberry Pi 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, propose des **fourchettes de prix** observées en France **à la fin mars 2026** (toujours à **recroiser** au moment de l’achat), et aide à **trancher** selon votre scénario.
+Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, donne des **fourchettes de prix** indicatives et aide à **trancher** selon votre scénario.
+
+**En bref :** le **Pi 5** est le meilleur choix pour un nouveau projet (bien plus rapide, PCIe, jusqu'à 16 Go de RAM), le **Pi 4** reste valable si vous le trouvez moins cher, et le **Pi 3** ne se justifie que pour des projets très légers ou si vous en avez déjà un. Voir les prix du moment : [Raspberry Pi 5](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21), [Raspberry Pi 4](https://www.amazon.fr/s?k=Raspberry+Pi+4&tag=manuso06-21), [kits Raspberry Pi 5](https://www.amazon.fr/s?k=kit+Raspberry+Pi+5&tag=manuso06-21) (liens affiliés Amazon). Pour un premier projet d'enfant, un [kit robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/) est souvent plus simple ; voir aussi nos guides [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/) et [robot pour 12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/).
 
 ## 1. La gamme en un clin d’œil
 
@@ -63,19 +65,19 @@ Les valeurs ci-dessous correspondent aux **références courantes** publiées pa
 - **Pi 4 B** : **1, 2, 4 et 8 Go** — voir [Raspberry Pi 4 : quelle mémoire acheter ?](/raspberry-pi-4-quelle-version-memoire-acheter/).
 - **Pi 5** : **1, 2, 4, 8 et 16 Go** (le **16 Go** s’appuie sur des révisions SoC / DRAM plus récentes) — voir [Raspberry Pi 5 : quelle mémoire acheter ?](/raspberry-pi-5-quelle-version-memoire-acheter/).
 
-## 4. Prix indicatifs en France (fin mars 2026)
+## 4. Prix : à vérifier chez le vendeur
 
-Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promotions). Pour établir une **fourchette**, nous nous appuyons sur des **agrégateurs et guides d’achat** consultés autour du **30 mars 2026** (ex. idealo.fr, Les Numériques, offres marketplaces).
+Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, promotions) : comparez le prix chez le vendeur au moment de l'achat. Quelques repères pour comparer les offres :
 
-| Modèle | Fourchette indicative TTC (France, mars 2026) | Commentaire |
-|--------|-----------------------------------------------|------------|
-| **Pi 3 B** (neuf / stock résiduel) | environ **35–55 €** | Souvent **moins** en occasion ; attention aux arnaques « trop belles ». |
-| **Pi 4 B** (2 / 4 / 8 Go typiques) | **~55–100+ €** selon barrette | Le **1 Go** existe au catalogue historique mais **peut être introuvable** ou peu pertinent neuf. |
-| **Pi 5** **1 Go** | d’environ **65–75 €** | Entrée de gamme « officielle » quand disponible. |
-| **Pi 5** **2 Go** | **~75–92 €** | Bon compromis **serveur léger** / **petit desktop**. |
-| **Pi 5** **4 Go** | **~95–110 €** | Usage **bureau** / dev **standard**. |
-| **Pi 5** **8 Go** | **~145–155 €** | Multi-tâches, **VM légères**, compilation. |
-| **Pi 5** **16 Go** | **~205–275 €** | Modèles récents ; prix **très volatil** selon stock. |
+| Modèle | Commentaire |
+|--------|------------|
+| **Pi 3 B** (neuf / stock résiduel) | Souvent **moins cher** d'occasion ; attention aux arnaques « trop belles ». |
+| **Pi 4 B** (2 / 4 / 8 Go typiques) | Prix selon la quantité de mémoire. Le **1 Go** existe au catalogue historique mais **peut être introuvable** ou peu pertinent neuf. |
+| **Pi 5** **1 Go** | Entrée de gamme « officielle » quand disponible. |
+| **Pi 5** **2 Go** | Bon compromis **serveur léger** / **petit desktop**. |
+| **Pi 5** **4 Go** | Usage **bureau** / dev **standard**. |
+| **Pi 5** **8 Go** | Multi-tâches, **VM légères**, compilation. |
+| **Pi 5** **16 Go** | Modèles récents ; prix **très volatil** selon stock. |
 
 *Vérifiez toujours la **fiche vendeur**, la **révision** de la carte et les **accessoires** inclus (absence d’alimentation officielle, coût du dissipateur sur Pi 5, etc.).*
 
@@ -87,6 +89,8 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 **Monter au Pi 5** quand : vous avez besoin de **marge CPU**, de **8 Go ou plus** (idéalement **16 Go** pour certains workloads « edge »), ou du **bus PCIe** ; prévoir **refroidissement actif** et **bonne alimentation**.
 
+**Pour la domotique Home Assistant** : le **Pi 5 4 Go** est idéal avec un dongle Zigbee. Alternative clé en main : **Home Assistant Green**. Voir notre [guide complet domotique](/domotique/) et le [tuto installation Home Assistant sur Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+
 **Pour un ado hésitant entre « carte nue » et robot** : reprenez aussi [Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/) — la question est souvent **pédagogie** / **motivation**, pas seulement le brut MIPS.
 
 ## 6. Prolongements
@@ -97,9 +101,9 @@ Les montants **bougent chaque semaine** (ruptures, marges revendeur, TVA, promot
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21)
-- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/s?k=Raspberry+Pi+4+Model+B&tag=manuso06-21)
-- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/s?k=Raspberry+Pi+5+dissipateur+alimentation&tag=manuso06-21)
+- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

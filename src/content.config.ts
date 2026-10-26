@@ -53,4 +53,20 @@ const blog = defineCollection({
 		}),
 });
 
-export const collections = { blog };
+const domotiqueContentDir = new URL('./content/domotique', import.meta.url);
+
+const domotique = defineCollection({
+	loader: glob({ base: domotiqueContentDir, pattern: '**/*.{md,mdx}' }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+		heroImage: z.string().optional(),
+		category: z.enum(['debuter', 'home-assistant', 'esp32', 'guides-achat', 'robots-aspirateurs']),
+		products: z.array(z.string()).optional(),
+		priority: z.number().optional(),
+	}),
+});
+
+export const collections = { blog, domotique };

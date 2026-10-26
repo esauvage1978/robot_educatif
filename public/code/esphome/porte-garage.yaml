@@ -1,0 +1,95 @@
+# Porte de garage pilotée depuis Home Assistant : ESP32 + module relais (contact sec) + capteur reed
+# Source : robot-educatif.info - tutoriel « Ouvrir sa porte de garage depuis son smartphone »
+# Le relais est câblé EN PARALLÈLE du bouton poussoir de la motorisation (entrée contact sec, basse tension).
+substitutions:
+  nom: porte-garage
+  gpio_relais: GPIO26      # sortie vers l'entrée IN du module relais
+  gpio_reed: GPIO27        # capteur reed vers GND (pull-up interne)
+  duree_impulsion: 700ms   # entre 0,5 et 1 s : vérifier la valeur dans la notice de la motorisation
+
+esphome:
+  name: ${nom}
+  friendly_name: Porte de garage
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_key          # clé générée par ESPHome, stockée dans secrets.yaml
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:                              # point d'accès de secours si le Wi-Fi tombe
+    ssid: "Porte-Garage-Secours"
+    password: !secret ap_password
+
+captive_portal:
+
+# --- Capteur reed : ON = porte fermée (aimant en face du capteur) ---------------
+binary_sensor:
+  - platform: gpio
+    id: reed_fermee
+    name: "Porte fermée (capteur)"
+    pin:
+      number: ${gpio_reed}
+      mode:
+        input: true
+        pullup: true
+      inverted: true               # contact fermé -> GPIO à GND -> état ON
+    filters:
+      - delayed_on_off: 200ms      # anti-rebond
+
+# --- Relais : impulsion courte, jamais maintenu --------------------------------
+switch:
+  - platform: gpio
+    id: relais
+    pin: ${gpio_relais}
+    restore_mode: ALWAYS_OFF       # au démarrage, le relais reste ouvert
+    internal: true                 # non exposé seul dans Home Assistant
+    on_turn_on:
+      - delay: ${duree_impulsion}
+      - switch.turn_off: relais
+
+script:
+  - id: impulsion
+    mode: single                   # ignore un 2e appui pendant l'impulsion
+    then:
+      - switch.turn_on: relais
+      - delay: 2s                  # pause minimale entre deux commandes
+
+# --- Entité "cover" affichée dans l'application Home Assistant ------------------
+cover:
+  - platform: template
+    id: garage
+    name: "Porte de garage"
+    device_class: garage
+    lambda: |-
+      return id(reed_fermee).state ? COVER_CLOSED : COVER_OPEN;
+    open_action:
+      - if:
+          condition:
+            binary_sensor.is_on: reed_fermee    # n'impulse que si la porte est fermée
+          then:
+            - script.execute: impulsion
+    close_action:
+      - if:
+          condition:
+            binary_sensor.is_off: reed_fermee   # n'impulse que si la porte est ouverte
+          then:
+            - script.execute: impulsion
+    stop_action:
+      - script.execute: impulsion               # sur la plupart des moteurs à 1 bouton, une impulsion arrête la course
+
+button:
+  - platform: restart
+    name: "Redémarrer le module"

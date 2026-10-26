@@ -1,9 +1,9 @@
 ---
-title: "Activité mBot : faire clignoter les leds"
+title: "Programme mBot : faire clignoter les LED (mBlock)"
 description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS au travers de 3 activités. 2 simples et une un peu plus complexe."
 pubDate: "2020-04-18"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2020-04-21"
+updatedDate: "2026-10-13"
 amazonPreset: mbot
 categories:
   - "Activité"
@@ -11,7 +11,7 @@ categories:
   - "Makeblock"
   - "À partir de 8 ans"
 ---
-le [mBot](https://amzn.to/3eAmt2m?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
+le [mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
 
 ## Matériel et logiciel
 
@@ -38,11 +38,9 @@ Une LED une fois allumée ne s’éteint pas seule, il faut donc lui affecter la
 
 Pour se faire, vous aller utiliser les blocs suivants :
 
-![image représentant les Blocs à utiliser pour cette activité](https://robot-educatif.info/wp-content/uploads/2020/04/led1.png)
 
 Voici une des solutions possibles :
 
-![image représentant la solution de l'activité sur les LED pour le mBot](https://robot-educatif.info/wp-content/uploads/2020/04/led2.png)
 
 *Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5 (voir [Programmes mBlock](/programmes/)).*
 
@@ -52,11 +50,9 @@ L’objectif de ce second programme est d’afficher les couleurs rouge, vert et
 
 Ci dessous les blocs à utiliser
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/led3.png)
 
 Pour avoir une solution qui peut être celle ci
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/led4.png)
 
 *Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5.*
 
@@ -72,7 +68,6 @@ Pour faire évoluer la valeur de la variable de 1, il faut utiliser le bloc **ch
 
 Je vous présente une solution possible
 
-![activité d'affichage des leds du mBot](https://robot-educatif.info/wp-content/uploads/2020/04/led5.png)
 
 et si vous ne souhaitez pas le reproduire, exportez votre propre projet depuis mBlock une fois les blocs en place (*fichier .mblock d’origine non fourni*).
 
@@ -86,17 +81,14 @@ La seconde raison est que mes constantes sont elle aussi dupliquées. Dans ce pr
 
 Je vous propose de réfléchir à une solution et je vous en donnerai une utilisant un bloc personnalisé avec 3 paramètres.
 
-![](https://robot-educatif.info/wp-content/uploads/2020/04/led6.png)
 
 Les premiers paramètres correspondent à mes deux constantes. Le dernier paramètre sera une variable pouvant contenir les valeurs 0,1 et 2. Si sa valeur est 0 alors j’afficherai le rouge, le 1 pour le vert et le 2 pour le bleu.
 
 Le contenu du bloc est le suivant
 
-![Image représentant un bloc personnalisé avec 3 paramètres en entrée](https://robot-educatif.info/wp-content/uploads/2020/04/blocks.png)
 
 et le programme principal sera le suivant
 
-![Image représentant le programme principal modifié](https://robot-educatif.info/wp-content/uploads/2020/04/blocks2.png)
 
 En terme de nombre de ligne de code, ce programme n’est pas plus court. Cependant il est plus simple à faire évoluer et à paramétrer. Dans le cas d’un projet plus gros, il est indispensable de mettre en oeuvre ces mécanismes.
 
@@ -105,3 +97,5 @@ Pour conclure, dans ces 3 activités, nos avons vu comment jouer avec les LEDS e
 ## 5\. Apprendre le développement
 
 Je vous ai sélectionné une série de livre pour vous former avec le mBot et l’algorithme
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

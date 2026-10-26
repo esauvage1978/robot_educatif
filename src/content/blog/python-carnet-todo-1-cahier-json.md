@@ -2,7 +2,7 @@
 title: "Carnet Todo en Python (1/6) — cahier des charges et JSON"
 description: "Pourquoi JSON ; structure du fichier : liste de tâches avec id, titre, fait ; objectifs du menu en ligne de commande."
 pubDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.png"
+heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo
 seriesOrder: 1
 tags: ["Python", "Programmation", "Projet"]

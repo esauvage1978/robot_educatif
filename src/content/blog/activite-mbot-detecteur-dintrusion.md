@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : Détecteur d’intrusion"
-description: "Créer un détecteur d’intrusion avec le mBot : le capteur à ultrason surveille une zone, le robot alerte (LED + visage + son) et compte le nombre d’intrusions. Activité pas à pas, accessible aux plus jeunes."
+description: "Détecteur d'intrusion avec mBot : capteur ultrason surveille un seuil, LED et buzzer alertent. Variables et conditions."
 pubDate: "2020-04-28"
 heroImage: "../../assets/mbot/mbot-hero.png"
 updatedDate: "2026-03-31"
@@ -91,11 +91,11 @@ Si ça change beaucoup, il crie “intrusion !”.
 
 ### Illustrations (captures)
 
-![Image représentant le robot mBot en attente de détection](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20en%20attente%20de%20d%C3%A9tection.png)
+![Image représentant le robot mBot en attente de détection](/capture/activite-mbot-detecteur-dintrusion/robot-mbot-attente-detection.png)
 
-![Image représentant le robot mBot détectant une intrusion](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20robot%20mBot%20d%C3%A9tectant%20une%20intrusion.png)
+![Image représentant le robot mBot détectant une intrusion](/capture/activite-mbot-detecteur-dintrusion/robot-mbot-detectant-intrusion.png)
 
-![Image représentant le programme de détection basique](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20basique.png)
+![Image représentant le programme de détection basique](/capture/activite-mbot-detecteur-dintrusion/programme-detection-basique.png)
 
 #### Pourquoi on attend 3 secondes au début ?
 
@@ -160,7 +160,7 @@ On va donc :
 - l’incrémenter à chaque intrusion,
 - afficher le nombre sur la matrice LED (ou le faire défiler).
 
-![Image représentant le programme de détection avec compteur intrusion](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion.png)
+![Image représentant le programme de détection avec compteur intrusion](/capture/activite-mbot-detecteur-dintrusion/programme-detection-compteur-intrusion.png)
 
 #### À ajouter dans les blocs (version simple)
 
@@ -179,7 +179,7 @@ On va donc ranger les actions dans des “petites fonctions” (dans mBlock : **
 
 **But** : que le programme principal reste court et clair.
 
-![Image représentant le programme de détection avec compteur intrusion sous-programme](/capture/activite-mbot-detecteur-dintrusion/Image%20repr%C3%A9sentant%20le%20programme%20de%20d%C3%A9tection%20avec%20compteur%20intrusion%20sous%20programme.png)
+![Image représentant le programme de détection avec compteur intrusion sous-programme](/capture/activite-mbot-detecteur-dintrusion/programme-detection-compteur-intrusion-sous-programme.png)
 
 #### Idée de découpage (très simple)
 
@@ -221,7 +221,7 @@ Donc, pour **État veille**, on *pourrait* tout à fait utiliser directement `in
 
 Quand mBlock **génère** le programme en **C** (Arduino), on voit souvent ça sous forme de **fonctions** avec des **paramètres**. La capture ci-dessous illustre cette idée de portée et la façon dont le bloc personnalisé reçoit `nbr_intrusion` :
 
-![Extrait de code C : portée de la variable intrusions et paramètre nbr_intrusion du bloc État veille](/capture/activite-mbot-detecteur-dintrusion/code_c_port%C3%A9e_variable.png)
+![Extrait de code C : portée de la variable intrusions et paramètre nbr_intrusion du bloc État veille](/capture/activite-mbot-detecteur-dintrusion/code-c-portee-variable.png)
 
 ## 3.4 Optimisation d’affichage
 
@@ -269,3 +269,5 @@ Si tu veux progresser, voici une progression “facile” :
 - puis passer à d’autres activités mBot du site (capteurs, moteurs, petits défis).
 
 Et si tu veux aller plus loin en programmation, Scratch/mBlock sont une très bonne porte d’entrée : le plus important, c’est de comprendre **variables + conditions + boucles**.
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

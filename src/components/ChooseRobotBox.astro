@@ -1,0 +1,47 @@
+---
+/** Encart sobre « Quel robot choisir ? » : comparatif général, guides par âge, guide de Noël. */
+import { AGE_GUIDES, type AgeGuide } from '../lib/chooseRobotLinks';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	ages: AgeGuide[];
+}
+const { ages } = Astro.props;
+const guides = ages.map((a) => AGE_GUIDES[a]).filter(Boolean);
+---
+
+<aside class="choose-robot-box" aria-labelledby="choose-robot-title">
+	<p class="choose-robot-title" id="choose-robot-title">Quel robot choisir ?</p>
+	<ul>
+		<li><a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>Le comparatif des meilleurs robots programmables 2026</a></li>
+		{guides.map((g) => <li><a href={withBase(g.href)}>{g.label}</a></li>)}
+		<li><a href={withBase('/robot-educatif-cadeau-noel-2026/')}>Guide cadeaux de Noël 2026</a></li>
+	</ul>
+</aside>
+
+<style>
+	.choose-robot-box {
+		margin: 2rem 0 1.5rem;
+		padding: 1rem 1.25rem;
+		border-left: 4px solid #14b8a6;
+		background: rgba(20, 184, 166, 0.08);
+		border-radius: 8px;
+	}
+	.choose-robot-title {
+		margin: 0 0 0.5rem;
+		font-weight: 700;
+		font-size: 1.05rem;
+		color: var(--accent);
+	}
+	.choose-robot-box ul {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+	.choose-robot-box li {
+		margin: 0.25rem 0;
+	}
+	.choose-robot-box a {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>

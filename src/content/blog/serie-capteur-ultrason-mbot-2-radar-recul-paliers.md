@@ -1,6 +1,6 @@
 ---
-title: "Capteur ultrason mBot (2/4) : radar de recul (bips par paliers)"
-description: "Deuxième activité capteur ultrason du mBot : créer un radar de recul simple avec 3 zones (>=70 cm, 35–70 cm, <35 cm) et des bips à cadence fixe (1 s puis 0,25 s)."
+title: "Capteur ultrason mBot (2/4) : radar de recul (paliers)"
+description: "Radar de recul mBot : 3 zones ultrason, bips cadence fixe (1s puis 0,25s). Activité guidée."
 pubDate: "2026-03-31"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/mbot/mbot-hero.png"
@@ -138,3 +138,5 @@ Blocs typiques nécessaires :
 ## Étape suivante
 
 Dans l’activité 3, on va garder l’idée du radar, mais au lieu de 2 cadences fixes (1 s / 0,25 s), on fera une **cadence qui dépend de la distance** : plus on est proche, plus ça bip vite.
+
+[← Épisode précédent](/serie-capteur-ultrason-mbot-1-mesurer-distance/) · [Épisode suivant →](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)

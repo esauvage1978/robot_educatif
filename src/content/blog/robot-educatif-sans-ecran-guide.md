@@ -1,6 +1,6 @@
 ---
-title: "Robot éducatif sans écran : lesquels choisir et pour quels âges ?"
-description: "Guide des robots sans écran ou avec usage d’écran limité : logique, sécurité, prolongements Scratch, exemples Tale-Bot / Matatalab. Schéma parcours au sol et liens Amazon."
+title: "Robot éducatif sans écran : lesquels choisir par âge ?"
+description: "Robots sans écran : logique, sécurité, Scratch, Tale-Bot, Matatalab."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
@@ -41,7 +41,7 @@ Sur ce site, la gamme **Matatalab** et le **Tale-Bot** illustrent cette approche
 
 ## 3. Quand passer à Scratch / mBlock
 
-Quand l’enfant **lit** les consignes avec fluidité et **tient** 30–40 minutes sur une tâche, les environnements **blocs** (Scratch, mBlock) deviennent pertinent — voir [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/) puis, côté robot, [mBot](/mbot-mon-premier-robot-educatif/).
+Quand l’enfant **lit** les consignes avec fluidité et **tient** 30–40 minutes sur une tâche, les environnements **blocs** (Scratch, mBlock) deviennent pertinent — voir [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/) puis, côté robot, [mBot](/mbot-mon-premier-robot-educatif/). Cette bascule se fait souvent vers 7 ans : notre [guide robot enfant 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/) compare les robots sans écran et les premiers robots Scratch, et le comparatif [robot programmable avec Scratch](/robot-programmable-scratch-lequel-choisir/) aide à choisir la suite.
 
 La continuité pédagogique : **décomposer** une tâche sur le sol, puis **décomposer** sur l’écran — **même compétence**, autre support.
 
@@ -53,7 +53,7 @@ La continuité pédagogique : **décomposer** une tâche sur le sol, puis **déc
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif sans écran enfant](https://www.amazon.fr/s?k=robot+%C3%A9ducatif+sans+%C3%A9cran+enfant&tag=manuso06-21)
+- [Robot éducatif sans écran enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Tale-Bot Pro Matatalab](https://www.amazon.fr/s?k=Tale-Bot+Pro+Matatalab&tag=manuso06-21)
 - [Jeu logique programmation sans écran](https://www.amazon.fr/s?k=jeu+logique+programmation+sans+%C3%A9cran&tag=manuso06-21)
 

@@ -1,8 +1,8 @@
 ---
-title: "mbot vs mbot2 : Comparaison des robots éducatifs pour enfants"
-description: "mBot vs mBot 2 (comparatif) : prix indicatifs, tableau des fonctionnalités, accessoires, Python et CyberPi. Choisir entre le robot Makeblock classique et le mBot2 pour enfants ou collège."
+title: "mBot vs mBot2 : différences, prix et lequel choisir ?"
+description: "mBot vs mBot2 : tableau comparatif, différences prix, CyberPi, Python. Lequel choisir en 2026 selon l'âge et budget ?"
 pubDate: "2023-04-09"
-updatedDate: "2026-03-29"
+updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
 amazonPreset: mbotVs
 categories:
@@ -24,7 +24,7 @@ La robotique et la programmation sont des compétences de plus en plus utiles po
 
 Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous aider à trancher — sans remplacer la fiche technique officielle du fabricant, que vous devriez toujours vérifier avant d’acheter (révision de kit, couleur du châssis, présence ou non du module Bluetooth, etc.).
 
-![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.png)
+![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.webp)
 
 *Illustration générée pour l’article — schéma conceptuel, sans reproduire des produits commerciaux précis.*
 
@@ -45,7 +45,7 @@ Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous a
 
 - **Même univers logiciel** : programmation par blocs avec **mBlock** (proche de Scratch), tutoriels et communauté nombreuse.
 - **Même idée pédagogique** : assembler un châssis, brancher des capteurs, faire des **parcours** et des petits défis.
-- **Makeblock** : pièces, documentations et **accessoires** officiels — attention toutefois à la **compatibilité** génération par génération (voir plus bas).
+- **[Makeblock](/marque-makeblock/)** : pièces, documentations et **accessoires** officiels — attention toutefois à la **compatibilité** génération par génération (voir plus bas).
 
 ## Fonctionnalités : tableau comparatif
 
@@ -57,12 +57,12 @@ Les détails peuvent légèrement varier selon la **révision** du kit ; le tabl
 | **Programmation** | Blocs **mBlock** ; possibilité d’approfondir selon niveau | Blocs **mBlock** + **Python** intégré de façon naturelle pour monter en niveau |
 | **Moteurs** | Deux moteurs pour se déplacer | Moteurs avec **codeurs** (meilleure précision de déplacement pour les projets avancés) |
 | **Capteurs courants** | Suivi de **ligne**, **ultrason** (distance), usage **IR** (télécommande selon kit) | **Ultrason**, suivi de **ligne**, **lumière** ambiante, **gyroscope** |
-| **Retour visuel / son** | LED RGB, **buzzer** | **Matrice LED** (affichages, visages, petites animations), **haut-parleur** et **micro** |
+| **Retour visuel / son** | LED RGB, **buzzer** | **Écran couleur 1,44"** (128 × 128) sur la CyberPi, **haut-parleur** et **micro** |
 | **Connectivité** | Souvent **Bluetooth** selon pack (vérifier la fiche produit) | **Bluetooth** et **Wi-Fi** (téléchargement de programmes, usages connectés) |
-| **Châssis** | Plastique, pédagogique, léger | Châssis **métallique**, construction plus « pro » |
+| **Châssis** | Alliage d'aluminium | Alliage d'aluminium, batterie 2 500 mAh intégrée |
 | **Public conseillé** | Découverte, clubs, familles qui veulent un **prix maîtrisé** | Collège / lycée, passionnés, projets qui durent et **montée en compétence** |
 
-**En résumé** : le **mBot** couvre très bien **découverte et premiers défis** (ligne, obstacle, lumière). Le **mBot2** ajoute une **vraie couche « projet »** : précision des mouvements, richesse des interactions (écran LED, son, micro), et une carte pensée pour **Scratch → Python** sans changer de robot.
+**En résumé** : le **mBot** couvre très bien **découverte et premiers défis** (ligne, obstacle, lumière). Le **mBot2** ajoute une **vraie couche « projet »** : précision des mouvements, richesse des interactions (écran couleur, son, micro), et une carte pensée pour **Scratch → Python** sans changer de robot.
 
 ## Accessoires et évolutivité
 
@@ -95,8 +95,8 @@ En conclusion, le choix entre le **mBot** et le **mBot2** dépend du **budget**,
 
 ## Acheter sur Amazon
 
-- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21)
-- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21)
-- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/s?k=mBot+Makeblock+accessoires+capteur&tag=manuso06-21)
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 
 *Liens affiliés — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*

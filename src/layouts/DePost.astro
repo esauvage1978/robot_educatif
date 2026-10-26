@@ -1,0 +1,276 @@
+---
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { findPair, DE_PAGES, slugOf } from '../lib/i18n.mjs';
+import { getIllustration } from '../lib/illustration';
+import { withBase } from '../lib/siteUrl';
+import { ARTICLE_AUTHOR } from '../consts';
+const fm = Astro.props.frontmatter ?? Astro.props;
+const { title, description, updated } = fm;
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const pair = findPair(_p);
+const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
+const ill = frSlug ? getIllustration(frSlug) : null;
+const ogImage = ill ? ill.src : undefined;
+const _n = _p.endsWith('/') ? _p : _p + '/';
+const isSmart = _n.startsWith('/de/smart-home/');
+const others = DE_PAGES.filter((x) => x.href !== _n && x.href.startsWith('/de/smart-home/') === isSmart);
+---
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title={title} description={description} image={ogImage} ogType="article" />
+		<style>
+			main {
+				width: 100%;
+				padding-top: 0;
+			}
+			.hero-article {
+				width: 100vw;
+				max-width: 100vw;
+				position: relative;
+				margin-left: calc(50% - 50vw);
+				margin-right: calc(50% - 50vw);
+				margin-bottom: 2rem;
+				border-radius: 0;
+				overflow: hidden;
+				border: none;
+				border-bottom: 1px solid var(--surface-border);
+				background: var(--page-bg);
+				box-shadow: none;
+			}
+			.hero-article-media {
+				max-width: 900px;
+				margin: 0 auto;
+				background: var(--page-bg-elevated);
+			}
+			.hero-article-media img {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 16 / 9;
+				object-fit: contain;
+				border-radius: 0;
+			}
+			
+			@media (max-width: 768px) {
+				.hero-article-media {
+					max-width: 100%;
+				}
+			}
+			.hero-article-content {
+				width: min(1140px, calc(100% - 2.5rem));
+				margin: 0 auto;
+				padding: 1.75rem 0 2rem 0;
+				background: transparent;
+			}
+			.hero-article:not(:has(.hero-article-media)) .hero-article-content {
+				padding-top: 2.5rem;
+			}
+			.hero-article-content h1 {
+				margin: 0 0 0.6rem 0;
+				font-size: clamp(1.65rem, 3.2vw, 2.65rem);
+				max-width: 100%;
+				line-height: 1.14;
+			}
+			.hero-article-content .hero-desc {
+				margin: 0;
+				color: rgb(var(--gray));
+				font-size: 1.125rem;
+				line-height: 1.55;
+				max-width: 100%;
+				font-family: var(--font-body, system-ui);
+			}
+			.hero-meta {
+				display: inline-flex;
+				flex-wrap: wrap;
+				gap: 0.65rem 1rem;
+				align-items: center;
+				margin-bottom: 0.75rem;
+				color: rgb(var(--gray));
+				font-size: 0.88rem;
+				font-family: var(--font-body, system-ui);
+				font-weight: 600;
+				letter-spacing: 0.02em;
+			}
+			.hero-article-toolbar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-start;
+				justify-content: flex-start;
+				gap: 0.65rem 1rem;
+				margin: 0 0 0.85rem 0;
+			}
+			.hero-article-toolbar .hero-categories {
+				flex: 1 1 auto;
+				min-width: 0;
+				margin: 0;
+			}
+			.hero-article-toolbar .article-engagement--hero {
+				margin-left: auto;
+			}
+			.hero-article-toolbar .article-engagement--hero:only-child {
+				margin-left: 0;
+				max-width: 100%;
+			}
+			.hero-article-toolbar .pinterest-hero-button {
+				flex-shrink: 0;
+			}
+			.hero-categories {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem 0.5rem;
+				align-items: center;
+				margin: 0 0 0.85rem 0;
+				padding: 0;
+				list-style: none;
+			}
+			.hero-categories li {
+				margin: 0;
+			}
+		.hero-categories a {
+			display: inline-block;
+			padding: 0.28rem 0.65rem;
+			font-size: 0.82rem;
+			font-weight: 600;
+			font-family: var(--font-body, system-ui);
+			text-decoration: none;
+			color: var(--accent-dark);
+			background: color-mix(in oklab, var(--accent-dark) 12%, transparent);
+			border: 1px solid color-mix(in oklab, var(--accent-dark) 28%, var(--surface-border));
+			border-radius: 999px;
+			transition: background 0.12s ease, color 0.12s ease;
+		}
+		html:not([data-theme='light']) .hero-categories a {
+			color: #2DD4BF;
+		}
+		.hero-categories a:hover {
+			background: color-mix(in oklab, var(--accent-dark) 22%, transparent);
+		}
+		html:not([data-theme='light']) .hero-categories a:hover {
+			color: #5EEAD4;
+		}
+			.page-layout {
+				width: min(1200px, calc(100% - 2em));
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+				gap: 2rem;
+				align-items: start;
+				min-width: 0;
+			}
+			.page-layout > article {
+				min-width: 0;
+			}
+			/* Typo et images du corps d’article : src/styles/global.css (.prose) */
+			.last-updated-on {
+				font-style: italic;
+			}
+			.hero-author {
+				font-weight: 600;
+				color: rgb(var(--gray-dark));
+			}
+		@media (max-width: 720px) {
+			.hero-article {
+				margin-bottom: 1rem !important;
+			}
+			.hero-article-media {
+				max-width: 100% !important;
+			}
+			.hero-article-media img {
+				object-fit: contain !important;
+			}
+			.hero-article-content {
+				padding: 0 0.9rem 0.9rem !important;
+				width: 100%;
+				box-sizing: border-box;
+			}
+			.hero-meta {
+				margin-bottom: 0.15rem !important;
+				font-size: 0.76rem !important;
+				gap: 0.2rem 0.45rem !important;
+			}
+			.hero-article-toolbar {
+				margin-bottom: 0.3rem !important;
+				gap: 0.25rem 0.5rem !important;
+			}
+			.hero-categories {
+				margin-bottom: 0.4rem !important;
+				gap: 0.3rem !important;
+			}
+			.hero-categories a {
+				padding: 0.2rem 0.5rem !important;
+				font-size: 0.78rem !important;
+			}
+			.hero-article-content h1 {
+				margin-top: 0 !important;
+				margin-bottom: 0.3rem !important;
+				font-size: clamp(1.35rem, 4vw, 1.75rem) !important;
+			}
+			.hero-article-content .hero-desc {
+				font-size: 0.95rem !important;
+				line-height: 1.4 !important;
+			}
+			.page-layout {
+				grid-template-columns: 1fr;
+			}
+		}
+		</style>
+		<style>
+			.de-aside { display: flex; flex-direction: column; gap: 1rem; }
+			.de-aside-card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 1.1rem 1.2rem; }
+			.de-aside-card h2 { font-size: 1.05rem; margin: 0 0 .75rem; }
+			.de-aside-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .7rem; }
+			.de-aside-card li a { display: flex; gap: .6rem; align-items: center; text-decoration: none; color: var(--ink); font-weight: 600; font-size: .92rem; line-height: 1.3; }
+			.de-aside-card li img { width: 72px; height: 40px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+			.de-aside-card p { font-size: .88rem; margin: 0; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero-article">
+				{ill && (
+					<div class="hero-article-media">
+						<img src={withBase(ill.src)} alt={`Illustration: ${title}`} width="960" height="540" fetchpriority="high" decoding="async" />
+						<p class="ai-illustration-caption">KI-generierte Illustration</p>
+					</div>
+				)}
+				<div class="hero-article-content">
+					<div class="hero-meta">
+						{updated && <span class="last-updated-on">Aktualisiert am {updated}</span>}
+						<span class="hero-author">Von {ARTICLE_AUTHOR}</span>
+					</div>
+					<h1>{title}</h1>
+					<p class="hero-desc">{description}</p>
+				</div>
+			</section>
+			<div class="page-layout">
+				<article>
+					<div class="prose">
+						<slot />
+					</div>
+					<ArticleQuestionForm lang="de" pageTitle={title} />
+				</article>
+				<aside class="de-aside">
+					<div class="de-aside-card">
+						<h2>{isSmart ? 'Weitere Smart-Home-Ratgeber' : 'Weitere Ratgeber auf Deutsch'}</h2>
+						<ul>
+							{others.map((o) => {
+								const i = getIllustration(slugOf(o.fr));
+								return <li><a href={withBase(o.href)}>{i && <img src={withBase(i.src)} alt="" width="72" height="40" loading="lazy" />}<span>{o.title}</span></a></li>;
+							})}
+						</ul>
+					</div>
+					<div class="de-aside-card">
+						<h2>Über diese Ratgeber</h2>
+						<p>Technische Daten stammen von den offiziellen Herstellerseiten und sind datiert. Preise ändern sich oft: Prüfen Sie den aktuellen Preis beim Händler.</p>
+					</div>
+				</aside>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
