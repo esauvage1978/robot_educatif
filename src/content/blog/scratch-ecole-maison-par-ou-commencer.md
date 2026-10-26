@@ -75,7 +75,7 @@ Si la semaine 1 est déjà difficile, **raccourcissez** l’objectif (moins de b
 
 ## 6. Passer à un robot (mBot) quand ?
 
-Quand l’enfant **explique** les blocs (boucle, événement, capteur) sans seulement les déplacer au hasard, vous pouvez enchaîner vers [premier programme mBot](/mon-premier-programme-mbot/) — les **concepts** sont les mêmes ; seul change le **support** (lutin à l’écran vs robot physique). Voir aussi [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+Quand l’enfant **explique** les blocs (boucle, événement, capteur) sans seulement les déplacer au hasard, vous pouvez enchaîner vers [premier programme mBot](/mon-premier-programme-mbot/) — les **concepts** sont les mêmes ; seul change le **support** (lutin à l’écran vs robot physique). Voir aussi [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/) et notre comparatif [robot programmable avec Scratch : lequel choisir ?](/robot-programmable-scratch-lequel-choisir/).
 
 ## 7. Erreurs fréquentes (et comment les éviter)
 

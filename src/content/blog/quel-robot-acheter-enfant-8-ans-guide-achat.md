@@ -29,7 +29,7 @@ relatedLinks:
 
 ## Repères par rapport à 5–6 ans
 
-Votre enfant a plutôt 6 ans ? Lisez d'abord notre **[guide robot enfant 6 ans](/robot-enfant-6-ans/)**, pensé pour les lecteurs débutants.
+Votre enfant a plutôt 6 ans ? Lisez d'abord notre **[guide robot enfant 6 ans](/robot-enfant-6-ans/)**, pensé pour les lecteurs débutants. Pour un enfant de 7 ans (CE1), notre **[guide robot enfant 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/)** aide à choisir entre robot sans écran et premier robot Scratch.
 
 - **Scratch** (ou équivalent blocs) devient accessible : l’enfant accepte de **déboguer** (« ça ne marche pas, je change l’ordre des blocs »).
 - **Montage** : kits avec vis et notice illustrée sont envisageables si un adulte est disponible les premières fois.

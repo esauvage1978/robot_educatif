@@ -33,7 +33,7 @@ Jeux **débranchés** (tuiles, parcours au sol), **robots sans écran** ou avec 
 
 ### 7–9 ans : blocs et premières boucles
 
-Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [activité carré](/activite-scratch-le-carre/).
+Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide robot 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/), [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [quel robot programmer avec Scratch](/robot-programmable-scratch-lequel-choisir/), [activité carré](/activite-scratch-le-carre/).
 
 ### 10–12 ans : capteurs, projets plus longs, pont vers le texte
 

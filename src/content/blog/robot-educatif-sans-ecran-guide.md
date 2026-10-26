@@ -41,7 +41,7 @@ Sur ce site, la gamme **Matatalab** et le **Tale-Bot** illustrent cette approche
 
 ## 3. Quand passer à Scratch / mBlock
 
-Quand l’enfant **lit** les consignes avec fluidité et **tient** 30–40 minutes sur une tâche, les environnements **blocs** (Scratch, mBlock) deviennent pertinent — voir [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/) puis, côté robot, [mBot](/mbot-mon-premier-robot-educatif/).
+Quand l’enfant **lit** les consignes avec fluidité et **tient** 30–40 minutes sur une tâche, les environnements **blocs** (Scratch, mBlock) deviennent pertinent — voir [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/) puis, côté robot, [mBot](/mbot-mon-premier-robot-educatif/). Cette bascule se fait souvent vers 7 ans : notre [guide robot enfant 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/) compare les robots sans écran et les premiers robots Scratch, et le comparatif [robot programmable avec Scratch](/robot-programmable-scratch-lequel-choisir/) aide à choisir la suite.
 
 La continuité pédagogique : **décomposer** une tâche sur le sol, puis **décomposer** sur l’écran — **même compétence**, autre support.
 
