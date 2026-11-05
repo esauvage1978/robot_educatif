@@ -1,0 +1,2 @@
+eabce2791a433ad832f59d85df73ffaa4c60d471a7ae187fe60e5689ed990121  /opt/cursor/artifacts/noel-nav-20261105-v2/index.html
+40cd9210b49c0e96c8df4f28d2d4706fbf7815c9bf7a65a5bd4d9d9267aa7480  /opt/cursor/artifacts/noel-nav-20261105-v2/noel-nav-20261105-v2-output.tgz
