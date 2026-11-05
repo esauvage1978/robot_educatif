@@ -1,0 +1,6 @@
+PRECHECK_AGENT_OK noel-nav-20261105
+Page: robot-educatif-cadeau-noel-2026/index.html
+SHA256: e3781e7a6cac24e3d8f84f350fea2e9b43e404508f4f93380fb870b0c3714c27
+Header CID: lv5sydnc
+/go/ count: 23 (unchanged vs input live)
+Note: contrôle TRUITE officiel à lancer sur la box via precheck_truite.sh
