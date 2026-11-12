@@ -2326,10 +2326,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-1ccfdcd2f7": {
-   "url": "https://www.amazon.ca/s?k=9%20V%202%20A%20mains%20adapter%20for%20Elegoo%20UNO%20R3&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=9%20V%202%20A%20mains%20adapter%20for%20Elegoo%20UNO%20R3&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-2241137745": {
    "url": "https://www.amazon.ca/dp/B09LYTM5BC?tag=roboteducat03-20",
@@ -2356,9 +2356,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-2b68e245c7": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse",
+   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-2ebd092a09": {
    "url": "https://www.amazon.ca/s?k=Makeblock%20mBot2%20Rover&tag=roboteducat03-20",
@@ -2379,9 +2380,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-3f442d89b5": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot%20Ranger",
+   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot%20Ranger&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-48dfba72c1": {
    "url": "https://www.amazon.ca/s?k=Home%20Assistant%20Green&tag=roboteducat03-20",
@@ -2402,10 +2404,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-656d1a49b7": {
-   "url": "https://www.amazon.ca/dp/B0B6P22YJC?tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/dp/B0B6P22YJC?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-69a314920e": {
    "url": "https://www.amazon.ca/s?k=Makeblock%20mBot&tag=roboteducat03-20",
@@ -2414,9 +2416,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-6bc0e18afb": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot%20Bluetooth",
+   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot%20Bluetooth&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-800c12188b": {
    "url": "https://www.amazon.ca/dp/B01A5YMCH4?tag=roboteducat03-20",
@@ -2443,9 +2446,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-8fa8bafaea": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot2",
+   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot2&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-a26799b6e0": {
    "url": "https://www.amazon.ca/dp/B0CK2FCG1K?tag=roboteducat03-20",
@@ -2466,10 +2470,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-a9ab184c91": {
-   "url": "https://www.amazon.ca/s?k=Official%2027%20W%20power%20supply%20for%20Raspberry%20Pi%205&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Official%2027%20W%20power%20supply%20for%20Raspberry%20Pi%205&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-b153161c8f": {
    "url": "https://www.amazon.ca/s?k=Codey%20Rocky&tag=roboteducat03-20",
@@ -2478,10 +2482,10 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-b45d1ae323": {
-   "url": "https://www.amazon.ca/s?k=robot+vacuum+mop+dock&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=robot+vacuum+mop+dock&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-b6092cfed4": {
    "url": "https://www.amazon.ca/dp/B07GVD6GQH?tag=roboteducat03-20",
@@ -2490,36 +2494,40 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-b83a02bb0a": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0",
+   "url": "https://www.amazon.ca/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-bb07f85854": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Botley%202.0",
+   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-bdf61c5dff": {
-   "url": "https://www.amazon.ca/s?k=Geekworm%20case%20for%20Raspberry%20Pi%205%20with%20active%20cooler&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Geekworm%20case%20for%20Raspberry%20Pi%205%20with%20active%20cooler&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
   },
   "az-ca-ceed9a7cca": {
-   "url": "https://www.amazon.ca/s?k=Matatalab%20Tale-Bot",
-   "merchant": "amazon",
-   "country": "CA"
-  },
-  "az-ca-d360b1c8d3": {
-   "url": "https://www.amazon.ca/s?k=ieGeek+solar+security+camera&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Matatalab%20Tale-Bot&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-d360b1c8d3": {
+   "url": "https://www.amazon.ca/s?k=ieGeek+solar+security+camera&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-d5c47cb209": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO%20Penguin%20Bot",
+   "url": "https://www.amazon.ca/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducat03-20",
    "merchant": "amazon",
-   "country": "CA"
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-ca-d82d8c8350": {
    "url": "https://www.amazon.ca/dp/B078Y9RYM2?tag=roboteducat03-20",
@@ -2528,20 +2536,22 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-e49bfd4fa3": {
-   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%205",
-   "merchant": "amazon",
-   "country": "CA"
-  },
-  "az-ca-e50f04cb77": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20Codey%20Rocky",
-   "merchant": "amazon",
-   "country": "CA"
-  },
-  "az-ca-ecfbaf8edc": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20Bluetooth%20adapter%20for%20Codey%20Rocky&tag=roboteducatif-20",
+   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%205&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
-   "tag": "roboteducatif-20"
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-e50f04cb77": {
+   "url": "https://www.amazon.ca/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ecfbaf8edc": {
+   "url": "https://www.amazon.ca/s?k=Makeblock%20Bluetooth%20adapter%20for%20Codey%20Rocky&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
   },
   "az-de-0160127f24": {
    "url": "https://www.amazon.de/dp/B0F966SCT6?tag=roboteducat00-21",
@@ -4554,10 +4564,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-03bbe7f3f8": {
-   "url": "https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":10,\"batteryPackEur\":0},\"note\":\"Carte",
+   "url": "https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":10,\"batteryPackEur\":0},\"note\":\"Carte"
+   "tag": "manuso06-21"
   },
   "az-fr-04c84d7039": {
    "url": "https://www.amazon.fr/s?k=bo%C3%AEte+rangement+compartiments+petites+pi%C3%A8ces&tag=manuso06-21",
@@ -4578,10 +4588,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-051fc1178c": {
-   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":5,\"batteryPackEur\":10},\"note\":\"Pr%C3%A9voir",
+   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":5,\"batteryPackEur\":10},\"note\":\"Prévoir"
+   "tag": "manuso06-21"
   },
   "az-fr-05851fb3f2": {
    "url": "https://www.amazon.fr/s?k=rideau%20tringle%20rail%20switchbot%20curtain%203%20hub%20sans%20c%C3%A2blage&tag=manuso06-21",
@@ -4662,10 +4672,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-0af9717331": {
-   "url": "https://www.amazon.fr/s?k=chargeur+piles+AA+USB+8+slots&tag=manuso06-21\"},{\"id\":\"storage-box\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs",
+   "url": "https://www.amazon.fr/s?k=chargeur+piles+AA+USB+8+slots&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"storage-box\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs"
+   "tag": "manuso06-21"
   },
   "az-fr-0b15bc9655": {
    "url": "https://www.amazon.fr/s?k=makeblock+mbot+accessoire&tag=manuso06-21",
@@ -4680,10 +4690,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-0b76a34c70": {
-   "url": "https://www.amazon.fr/dp/B083T5G5ZK?tag=manuso06-21\"},\"codey-rocky\":{\"productId\":\"codey-rocky\",\"name\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B083T5G5ZK?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"codey-rocky\":{\"productId\":\"codey-rocky\",\"name\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-0bd6bd3059": {
    "url": "https://www.amazon.fr/s?k=sonnette%20portier%20carillon%20filaire%20tapo%20c220%20iegeek%20photo%20alerte&tag=manuso06-21",
@@ -4926,10 +4936,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-1d10774f85": {
-   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21\"},\"mbot2\":{\"productId\":\"mbot2\",\"name\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"mbot2\":{\"productId\":\"mbot2\",\"name\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-1e19bc476d": {
    "url": "https://www.amazon.fr/s?k=hors%20gel%20r%C3%A9sidence%20secondaire%20surveillance%20temp%C3%A9rature%20distance&tag=manuso06-21",
@@ -5406,10 +5416,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-412c79d16e": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+RJ25+cable&tag=manuso06-21\"},{\"id\":\"spare-screws\",\"category\":\"spares\",\"catLabel\":\"Pi%C3%A8ces",
+   "url": "https://www.amazon.fr/s?k=Makeblock+RJ25+cable&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"spare-screws\",\"category\":\"spares\",\"catLabel\":\"Pièces"
+   "tag": "manuso06-21"
   },
   "az-fr-42232458e8": {
    "url": "https://www.amazon.fr/s?k=station+soudure+d%C3%A9butant&tag=manuso06-21",
@@ -5448,10 +5458,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-47343b301f": {
-   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":8,\"batteryPackEur\":14},\"note\":\"\"},{\"id\":\"mbot\",\"label\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":8,\"batteryPackEur\":14},\"note\":\"\"},{\"id\":\"mbot\",\"label\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-47c449c443": {
    "url": "https://www.amazon.fr/s?k=recharge%20voiture%20%C3%A9lectrique%20heures%20creuses%20green%20up%20shelly&tag=manuso06-21",
@@ -5562,16 +5572,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-501904de2c": {
-   "url": "https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21\"},\"rpi5\":{\"productId\":\"raspberry-pi-5-4gb\",\"name\":\"Raspberry",
+   "url": "https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"rpi5\":{\"productId\":\"raspberry-pi-5-4gb\",\"name\":\"Raspberry"
+   "tag": "manuso06-21"
   },
   "az-fr-52463a422c": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+rechargeable+battery+mBot2&tag=manuso06-21\"},{\"id\":\"multi-charger\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs",
+   "url": "https://www.amazon.fr/s?k=Makeblock+rechargeable+battery+mBot2&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"multi-charger\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs"
+   "tag": "manuso06-21"
   },
   "az-fr-52910c69ac": {
    "url": "https://www.amazon.fr/s?k=carte+micro+SD+Raspberry+Pi+32+Go&tag=manuso06-21",
@@ -5610,10 +5620,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-57450aab25": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+mBuild+hub&tag=manuso06-21\"},{\"id\":\"track-makeblock\",\"category\":\"track\",\"catLabel\":\"Tapis",
+   "url": "https://www.amazon.fr/s?k=Makeblock+mBuild+hub&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"track-makeblock\",\"category\":\"track\",\"catLabel\":\"Tapis"
+   "tag": "manuso06-21"
   },
   "az-fr-5758dba9d3": {
    "url": "https://www.amazon.fr/s?k=Shelly+1+Mini+Gen3+diode+1N4007&tag=manuso06-21",
@@ -5640,10 +5650,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-58ecb54195": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+mBuild+sensor+pack&tag=manuso06-21\"},{\"id\":\"rj25-pack\",\"category\":\"sensors\",\"catLabel\":\"Packs",
+   "url": "https://www.amazon.fr/s?k=Makeblock+mBuild+sensor+pack&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"rj25-pack\",\"category\":\"sensors\",\"catLabel\":\"Packs"
+   "tag": "manuso06-21"
   },
   "az-fr-5908ac171d": {
    "url": "https://www.amazon.fr/s?k=mesure%20consommation%20pompe%20%C3%A0%20chaleur%20shelly%20pince%20amp%C3%A8re&tag=manuso06-21",
@@ -5688,10 +5698,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-5baf9d0011": {
-   "url": "https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21\"},\"code-and-go\":{\"productId\":\"code-and-go-souris\",\"name\":\"Code",
+   "url": "https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"code-and-go\":{\"productId\":\"code-and-go-souris\",\"name\":\"Code"
+   "tag": "manuso06-21"
   },
   "az-fr-5e3e615355": {
    "url": "https://www.amazon.fr/s?k=Homey+Pro+2023&tag=manuso06-21",
@@ -5784,10 +5794,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-6777d6c1fb": {
-   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21\"},\"elegoo-car\":{\"productId\":\"elegoo-robot-car\",\"name\":\"ELEGOO",
+   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"elegoo-car\":{\"productId\":\"elegoo-robot-car\",\"name\":\"ELEGOO"
+   "tag": "manuso06-21"
   },
   "az-fr-682ee2cbaf": {
    "url": "https://www.amazon.fr/s?k=Home+Assistant+Green+Mini+PC+N100&tag=manuso06-21",
@@ -5820,16 +5830,16 @@
    "tag": "manuso06-21"
   },
   "az-fr-6d395552a7": {
-   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21\"},\"cyberpi\":{\"productId\":\"cyberpi\",\"name\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"cyberpi\":{\"productId\":\"cyberpi\",\"name\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-6e19a9c01a": {
-   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21\"},{\"id\":\"mbuild-starter\",\"category\":\"sensors\",\"catLabel\":\"Packs",
+   "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"mbuild-starter\",\"category\":\"sensors\",\"catLabel\":\"Packs"
+   "tag": "manuso06-21"
   },
   "az-fr-6e9ae2994c": {
    "url": "https://www.amazon.fr/s?k=Scratch+programmation+livre+enfant&tag=manuso06-21",
@@ -5910,10 +5920,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-748e689345": {
-   "url": "https://www.amazon.fr/s?k=ruban+adh%C3%A9sif+piste+robot+noir+blanc&tag=manuso06-21\"},{\"id\":\"spare-wheels\",\"category\":\"spares\",\"catLabel\":\"Pi%C3%A8ces",
+   "url": "https://www.amazon.fr/s?k=ruban+adh%C3%A9sif+piste+robot+noir+blanc&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"spare-wheels\",\"category\":\"spares\",\"catLabel\":\"Pièces"
+   "tag": "manuso06-21"
   },
   "az-fr-749e04b674": {
    "url": "https://www.amazon.fr/s?k=po%C3%AAle%20granul%C3%A9s%20pellets%20contact%20sec%20shelly%20thermostat&tag=manuso06-21",
@@ -6060,10 +6070,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-8283f153bf": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+line+follower+track+mat&tag=manuso06-21\"},{\"id\":\"track-tape\",\"category\":\"track\",\"catLabel\":\"Tapis",
+   "url": "https://www.amazon.fr/s?k=Makeblock+line+follower+track+mat&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"track-tape\",\"category\":\"track\",\"catLabel\":\"Tapis"
+   "tag": "manuso06-21"
   },
   "az-fr-82eacb145f": {
    "url": "https://www.amazon.fr/s?k=kit+capteurs+Arduino&tag=manuso06-21",
@@ -6198,10 +6208,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-8ea1698c2f": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+RJ25+sensor+pack+mBot&tag=manuso06-21\"},{\"id\":\"mbuild-hub\",\"category\":\"sensors\",\"catLabel\":\"Packs",
+   "url": "https://www.amazon.fr/s?k=Makeblock+RJ25+sensor+pack+mBot&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"mbuild-hub\",\"category\":\"sensors\",\"catLabel\":\"Packs"
+   "tag": "manuso06-21"
   },
   "az-fr-8eda7036cb": {
    "url": "https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21",
@@ -6264,10 +6274,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-96a2dee32d": {
-   "url": "https://www.amazon.fr/dp/B01A5YMCH4?tag=manuso06-21\"},\"botley\":{\"productId\":\"botley-2\",\"name\":\"Botley",
+   "url": "https://www.amazon.fr/dp/B01A5YMCH4?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"botley\":{\"productId\":\"botley-2\",\"name\":\"Botley"
+   "tag": "manuso06-21"
   },
   "az-fr-96d183faf9": {
    "url": "https://www.amazon.fr/s?k=robotique+Python&tag=manuso06-21",
@@ -6282,10 +6292,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-991c545d99": {
-   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":6,\"batteryPackEur\":12},\"note\":\"\"},{\"id\":\"cyberpi\",\"label\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":6,\"batteryPackEur\":12},\"note\":\"\"},{\"id\":\"cyberpi\",\"label\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-99348c1cf6": {
    "url": "https://www.amazon.fr/s?k=Shelly+Pro+3EM&tag=manuso06-21",
@@ -6372,10 +6382,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-a225295451": {
-   "url": "https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21\"},\"mbot\":{\"productId\":\"mbot\",\"name\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"mbot\":{\"productId\":\"mbot\",\"name\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-a2edec932f": {
    "url": "https://www.amazon.fr/s?k=Arduino+projet&tag=manuso06-21",
@@ -6426,10 +6436,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-a7f91aab25": {
-   "url": "https://www.amazon.fr/dp/B083T58PKM?tag=manuso06-21\"},\"codey-rocky\":{\"productId\":\"codey-rocky\",\"name\":\"Makeblock",
+   "url": "https://www.amazon.fr/dp/B083T58PKM?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},\"codey-rocky\":{\"productId\":\"codey-rocky\",\"name\":\"Makeblock"
+   "tag": "manuso06-21"
   },
   "az-fr-a85d9eda22": {
    "url": "https://www.amazon.fr/s?k=Robots+%C3%A9ducatifs+sans+%C3%A9cran+enfant&tag=manuso06-21",
@@ -6576,10 +6586,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-b7aabaf21a": {
-   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21\"},{\"id\":\"mbot\",\"category\":\"base\",\"catLabel\":\"Robots",
+   "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"mbot\",\"category\":\"base\",\"catLabel\":\"Robots"
+   "tag": "manuso06-21"
   },
   "az-fr-b7af802c83": {
    "url": "https://www.amazon.fr/s?k=piles+rechargeables+AA+2800mAh&tag=manuso06-21",
@@ -6606,10 +6616,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-b8be8138dc": {
-   "url": "https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21\"}}",
+   "url": "https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"}}"
+   "tag": "manuso06-21"
   },
   "az-fr-b92dc64326": {
    "url": "https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21",
@@ -6732,10 +6742,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-c51be33920": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+screw+kit+mBot&tag=manuso06-21\"},{\"id\":\"battery-pack\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs",
+   "url": "https://www.amazon.fr/s?k=Makeblock+screw+kit+mBot&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"battery-pack\",\"category\":\"chargers\",\"catLabel\":\"Chargeurs"
+   "tag": "manuso06-21"
   },
   "az-fr-c55f2c7dae": {
    "url": "https://www.amazon.fr/s?k=Shelly%20Plus%201PM&tag=manuso06-21",
@@ -6744,10 +6754,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-c7160344fa": {
-   "url": "https://www.amazon.fr/s?k=Makeblock+mBot+replacement+wheel&tag=manuso06-21\"},{\"id\":\"spare-rj25-cable\",\"category\":\"spares\",\"catLabel\":\"Pi%C3%A8ces",
+   "url": "https://www.amazon.fr/s?k=Makeblock+mBot+replacement+wheel&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"spare-rj25-cable\",\"category\":\"spares\",\"catLabel\":\"Pièces"
+   "tag": "manuso06-21"
   },
   "az-fr-c79961ea49": {
    "url": "https://www.amazon.fr/s?k=d%C3%A9tecteur%20fum%C3%A9e%20zigbee%20interconnect%C3%A9%20home%20assistant%20alerte&tag=manuso06-21",
@@ -6792,10 +6802,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-c9d502a6f4": {
-   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21\"},{\"id\":\"cyberpi\",\"category\":\"base\",\"catLabel\":\"Robots",
+   "url": "https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"},{\"id\":\"cyberpi\",\"category\":\"base\",\"catLabel\":\"Robots"
+   "tag": "manuso06-21"
   },
   "az-fr-ca826144e7": {
    "url": "https://www.amazon.fr/s?k=robot+programmation+sans+%C3%A9cran+enfant&tag=manuso06-21",
@@ -7194,10 +7204,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-f1a18939f1": {
-   "url": "https://www.amazon.fr/s?k=mallette+rangement+robot+%C3%A9ducatif&tag=manuso06-21\"}",
+   "url": "https://www.amazon.fr/s?k=mallette+rangement+robot+%C3%A9ducatif&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\"}"
+   "tag": "manuso06-21"
   },
   "az-fr-f26a0e40e4": {
    "url": "https://www.amazon.fr/s?k=SONOFF%20SNZB-03P%20capteur%20mouvement%20Zigbee&tag=manuso06-21",
@@ -7218,10 +7228,10 @@
    "tag": "manuso06-21"
   },
   "az-fr-f2f27af4ae": {
-   "url": "https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":7,\"batteryPackEur\":0},\"note\":\"\"}",
+   "url": "https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
-   "tag": "manuso06-21\",\"perRobotExtras\":{\"sparePartsEur\":7,\"batteryPackEur\":0},\"note\":\"\"}"
+   "tag": "manuso06-21"
   },
   "az-fr-f369e6e960": {
    "url": "https://www.amazon.fr/s?k=jeu+logique+programmation+enfant+6+ans&tag=manuso06-21",
@@ -9450,9 +9460,10 @@
    "tag": "roboteducatif-20"
   },
   "az-us-4c9d9be40e": {
-   "url": "https://www.amazon.com/s?k=Learning%20Resources%20Code%20%26%20Go",
+   "url": "https://www.amazon.com/s?k=Learning%20Resources%20Code%20%26%20Go&tag=roboteducatif-20",
    "merchant": "amazon",
-   "country": "US"
+   "country": "US",
+   "tag": "roboteducatif-20"
   },
   "az-us-4cdad687d4": {
    "url": "https://www.amazon.com/s?k=USB+Bluetooth+5.0+adapter&tag=roboteducatif-20",

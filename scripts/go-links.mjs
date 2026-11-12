@@ -44,6 +44,22 @@ function decodeEntities(s) {
 }
 const escAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
+// Amazon (12/11/2026) : tag partenaire obligatoire et tag propre à la boutique.
+// amazon.ca utilise roboteducat03-20 (et non le tag US) ; un lien sans tag reçoit celui de sa boutique.
+const AMAZON_TAGS = { fr: 'manuso06-21', 'co.uk': 'roboteducatif-21', com: 'roboteducatif-20', ca: 'roboteducat03-20', de: 'roboteducat00-21', it: 'roboteducat0f-21', es: 'roboteducat07-21', nl: 'manuso0607-21' };
+function normalizeAmazon(url) {
+  let u;
+  try { u = new URL(url); } catch { return url; }
+  const m = u.hostname.toLowerCase().match(/(^|\.)amazon\.(fr|co\.uk|com|ca|de|it|es|nl)$/);
+  if (!m) return url;
+  const want = AMAZON_TAGS[m[2]];
+  const cur = u.searchParams.get('tag');
+  if (cur === want) return url;
+  if (cur && m[2] !== 'ca') return url; // autre tag volontaire : inchangé (seul amazon.ca est forcé)
+  if (cur) return url.replace(/([?&]tag=)[^&#]*/, '$1' + want);
+  return url.replace(/^([^#]*?)(#.*)?$/, (_, a, h) => a + (a.includes('?') ? '&' : '?') + 'tag=' + want + (h || ''));
+}
+
 function classify(url) {
   let u;
   try { u = new URL(url); } catch { return null; }
@@ -88,9 +104,10 @@ const stats = { files: 0, filesChanged: 0, amazon: 0, awin: 0, repaired: 0, relF
 const A_TAG = /<a\b[^>]*>/gi;
 const HREF = /(\shref\s*=\s*)(["'])(.*?)\2/i;
 // Toute URL Amazon/Awin encore présente hors <a href> (JSON-LD, script, autre attribut).
-const LOOSE = /https?:(?:\\\/|\/){2}(?:[^"'\\\s<>]|\\\/)+/g;
+const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>]|\\\/)+/g;
 
 function take(url, repaired) {
+  url = normalizeAmazon(url);
   const c = classify(url);
   if (!c) return null;
   const id = urlToId.get(url) || idFor(c.prefix, url);

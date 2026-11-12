@@ -120,7 +120,7 @@ function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: strin
   return entree.prix;
 }
 const hote = lang === 'de' ? 'www.amazon.de' : lang === 'it' ? 'www.amazon.it' : lang === 'es' ? 'www.amazon.es' : lang === 'ca' ? 'www.amazon.ca' : lang === 'fr' ? 'www.amazon.fr' : 'www.amazon.co.uk';
-const tg = lang === 'de' ? 'roboteducat00-21' : lang === 'it' ? 'roboteducat0f-21' : lang === 'es' ? 'roboteducat07-21' : lang === 'ca' ? 'roboteducatif-20' : lang === 'fr' ? 'manuso06-21' : 'roboteducatif-21';
+const tg = lang === 'de' ? 'roboteducat00-21' : lang === 'it' ? 'roboteducat0f-21' : lang === 'es' ? 'roboteducat07-21' : lang === 'ca' ? 'roboteducat03-20' : lang === 'fr' ? 'manuso06-21' : 'roboteducatif-21';
 const recherche = (nom: string) => `https://${hote}/s?k=${encodeURIComponent(nom)}&tag=${tg}`;
 const cartes = catalogue.items.flatMap((a) => {
   const fiche = fiches[a.asin];

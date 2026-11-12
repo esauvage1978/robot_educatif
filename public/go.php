@@ -27,6 +27,45 @@ function go_is_internal_ip($ip) {
     return false;
 }
 
+/**
+ * Boutique Amazon selon le pays du visiteur (12/11/2026).
+ * Pays lu dans CF-IPCountry (Cloudflare) ou GEOIP_COUNTRY_CODE (mod_geoip du serveur).
+ * Sans pays connu, ou pour un pays autre que GB, CA ou US : comportement inchangé.
+ */
+function go_visitor_country() {
+    foreach (['HTTP_CF_IPCOUNTRY', 'GEOIP_COUNTRY_CODE', 'REDIRECT_GEOIP_COUNTRY_CODE'] as $k) {
+        $v = strtoupper(trim((string)($_SERVER[$k] ?? '')));
+        if (preg_match('/^[A-Z]{2}$/', $v) && $v !== 'XX' && $v !== 'T1') return $v;
+    }
+    return '';
+}
+function go_geo_amazon_url($url, $cc) {
+    $stores = [
+        'GB' => ['www.amazon.co.uk', 'roboteducatif-21'],
+        'CA' => ['www.amazon.ca', 'roboteducat03-20'],
+        'US' => ['www.amazon.com', 'roboteducatif-20'],
+    ];
+    if (!isset($stores[$cc])) return $url;
+    $p = parse_url($url);
+    if (!is_array($p) || empty($p['host']) || !preg_match('/(^|\.)amazon\.(fr|de|it|es|nl|se|pl|com\.be|co\.uk|com|ca)$/i', $p['host'])) return $url;
+    list($host, $tag) = $stores[$cc];
+    $q = [];
+    if (!empty($p['query'])) parse_str($p['query'], $q);
+    $path = isset($p['path']) && $p['path'] !== '' ? $p['path'] : '/';
+    if (strtolower(preg_replace('/^www\./', '', $p['host'])) === substr($host, 4)) {
+        // même boutique : on garde la page, on impose le bon tag
+        $q['tag'] = $tag;
+        return 'https://' . $host . $path . '?' . http_build_query($q);
+    }
+    // autre boutique : recherche (un ASIN peut ne pas exister d'une boutique à l'autre)
+    $kw = '';
+    if (!empty($q['k']) && is_string($q['k'])) $kw = $q['k'];
+    elseif (!empty($q['field-keywords']) && is_string($q['field-keywords'])) $kw = $q['field-keywords'];
+    elseif (preg_match('#/(?:dp|gp/product|gp/aw/d|exec/obidos/ASIN)/([A-Z0-9]{10})#i', $path, $m)) $kw = strtoupper($m[1]);
+    if ($kw === '') return 'https://' . $host . '/?tag=' . $tag;
+    return 'https://' . $host . '/s?k=' . rawurlencode($kw) . '&tag=' . $tag;
+}
+
 $id = isset($_GET['id']) ? strtolower((string)$_GET['id']) : '';
 if (!preg_match('/^[a-z0-9-]{4,40}$/', $id)) $id = '';
 $table = @include __DIR__ . '/go-table.php';
@@ -40,6 +79,12 @@ if ($ref !== '') {
     $rh = strtolower(preg_replace('/^www\./', '', (string)parse_url($ref, PHP_URL_HOST)));
     $rp = parse_url($ref, PHP_URL_PATH);
     if ($rh === $host && is_string($rp) && $rp !== '' && $rp[0] === '/' && strpos($rp, '/go/') !== 0) $ref_path = $rp;
+}
+
+// --- Boutique Amazon selon le pays du visiteur (12/11/2026) ---
+if ($link !== null && (string)($link['merchant'] ?? '') === 'amazon') {
+    $go_cc = go_visitor_country();
+    if ($go_cc !== '') $link['url'] = go_geo_amazon_url((string)$link['url'], $go_cc);
 }
 
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
