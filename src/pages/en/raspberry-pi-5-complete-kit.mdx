@@ -1,0 +1,205 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "Raspberry Pi 5 complete kit: which kit should you buy in 2026?"
+description: "A Raspberry Pi 5 kit: 4GB or 8GB board, 27W power, microSD, and a case. Dated euro board prices. Power, storage, and the case are priced apart."
+updated: "6 November 2026"
+faqSchema:
+  - question: "Is a Pi 5 worth it compared with a Pi 4 already on the shelf?"
+    answer: "If you are buying a new board, the Pi 5 is the one with headroom for a camera or several programs. The gain the Foundation quotes is real on paper, but the extra cost always includes the 27W power supply: a Pi 4 supply does not finish the order. If a Pi 4 is already running at home, replacing it only makes sense when memory or the processor is what limits the project."
+  - question: "Can you keep the Pi 4 power supply?"
+    answer: "It often boots the board, then shows its limits as soon as a USB port draws current. The supply meant for the Pi 5 is the official 27W unit, or a quality USB-C charger that really negotiates 5V at 5A. Check the price. It is not in this reading."
+  - question: "4GB or 8GB for a first robot?"
+    answer: "The 4GB, at 145.22 euros on the Amazon.fr reading of 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at 209.09 euros saves you buying the board again six months later. Power, a microSD card, and a case are still added in both cases."
+  - question: "Do you need a screen?"
+    answer: "Not all the time. A screen, a keyboard, and a mouse are for the first day. After that, SSH gives you a remote terminal, and a remote desktop shows the interface on the computer at home. Tick SSH in Imager before you write the card, or the first contact still happens on a screen."
+  - question: "What are GPIO and I2C?"
+    answer: "GPIO pins are the board’s general-purpose inputs and outputs. You connect an LED, a button, or, more often, an add-on board that drives motors. I2C is a two-wire bus, SDA and SCL, that lets several sensors share the same pins."
+  - question: "Does the Pi 5 replace a computer?"
+    answer: "For the web, code, and light office work, yes, provided you have power, a microSD card, and a way to display the image. For a recent game or heavy video editing, no. Without the accessories, the board alone is not a workstation yet."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" locale="en" />
+
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> · <a href="/en/raspberry-pi-brand/">Raspberry Pi</a> · Pi 5 kit guide</nav>
+
+<ComparisonTable
+  locale="en"
+  products={[
+    { id: 'raspberry-pi-5-8gb', badge: 'Our pick (AI and vision)' },
+    { id: 'raspberry-pi-5-4gb', badge: 'Strong value' },
+  ]}
+  title="Raspberry Pi 5: which version?"
+/>
+
+A bare [Raspberry Pi 5](/en/raspberry-pi-brand/) board does not boot. It needs power, a microSD card, and, as soon as the project lasts, a case that moves the heat. On the Amazon.fr reading of 6 November 2026, the 4GB board was 145.22 euros and the 8GB board was 209.09 euros. Those are euro readings, not converted dollar prices. Neither amount covers the rest of the kit: power, microSD, case, cable, and a possible camera are not in the reading. Their price is checked on the day’s listing, and this guide does not add them to the board. The buttons on this page open today’s listing.
+
+The Raspberry Pi Foundation presents the Pi 5 as clearly faster than the Pi 4, on the order of two to three times in its own measurements. That is not a test run for this article. The processor is a Broadcom BCM2712, four Cortex-A76 cores at 2.4 GHz, with a VideoCore VII graphics processor at 800 MHz (OpenGL ES 3.1 and Vulkan 1.2). The memory is LPDDR4X, in 4GB, 8GB, or 16GB. You get two USB 3.0 ports, two USB 2.0 ports, two micro-HDMI outputs up to 4K at 60 frames per second, gigabit Ethernet, Wi-Fi 5, and Bluetooth 5.0. The 40-pin header follows the layout of the Pi 4 and Pi 3, with a PCIe 2.0 link, a power button, and a real-time clock. That clock keeps time with the power off only if you add a battery, which does not come with the board.
+
+To place the board in the range, the [Pi 3, 4, and 5 comparison](/en/raspberry-pi-3-vs-4-vs-5/) and the guide [which memory to choose](/en/raspberry-pi-5-which-ram/) go into the uses. A teen still hesitating between a computer and a robot that is already built should read [Raspberry Pi or a robot kit](/en/raspberry-pi-or-robot-kit-for-teens/).
+
+## Which memory to choose
+
+<ProductBox
+  lang="en"
+  ctaText="Check today's price"
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 (4GB)"
+  asin="B0CK3L9WD3"
+  ages="14+ years"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    'ARM Cortex-A76 processor at 2.4 GHz',
+    'About 2–3× the performance of a Pi 4',
+    'Dual 4K output',
+    'A good fit for advanced projects'
+  ]}
+  badge="Strong value"
+  position={1}
+/>
+
+The 4GB board is enough when the project fits in one program and a few sensors: a robot with motors, a light server such as Pi-hole, learning Python and Linux, or modest office work. At 145.22 euros on 6 November 2026, it is the less expensive of the two listings in the reading. It gets tight as soon as a browser, a development environment, and a camera run together. A console for old games is not an automatic argument: the distribution has to announce Pi 5 support. That is not true of every image built for the Pi 4.
+
+<ProductBox
+  lang="en"
+  ctaText="Check today's price"
+  productId="raspberry-pi-5-8gb"
+  name="Raspberry Pi 5 (8GB)"
+  asin="B0CK2FCG1K"
+  ages="14+ years"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    '8 GB of RAM for multitasking',
+    'A strong fit for computer vision',
+    'Works with many HATs',
+    'A very large community'
+  ]}
+  badge="Our pick (AI and vision)"
+  position={2}
+/>
+
+The 8GB board is the one you take for a camera, a small computer-vision model, or a desktop with several programs open. The gap with the 4GB, on the two listings of 6 November 2026, is 63.87 euros (209.09 euros minus 145.22 euros). That is only the gap between the boards. The same accessories are added to both. Many add-on boards made for the Pi 4 still plug onto the 40 pins, but the case and the port positions have changed. A case that enclosed a Pi 4 is not reused without checking.
+
+The 16GB version is for heavy compiling, several containers, or a larger model. It is not in the price reading for this page: check the price on the listing, and do not reuse the 8GB amount. For a first robot or a first year of Python, it is more than you need.
+
+If the project includes a camera or several programs at once, start with the 8GB. If the budget stops at the board and motors are enough, the 4GB starts the project. In both cases, order the power supply and the microSD card at the same time, or the board stays in its bag.
+
+## Power, memory card, and case
+
+The official Pi 5 power supply is a 27W USB-C unit, that is 5V at 5A, with the USB Power Delivery handshake the board expects. The Pi 5 sometimes starts on a Pi 4 supply, but the current left for the USB ports drops, and an under-voltage warning appears as soon as a disk or a camera is plugged in. The price of that 27W unit is not in the reading: check it on a power-supply listing, not on the board’s listing.
+
+The microSD card holds the system. Aim for 64GB or 128GB, A2 class, rather than a 32GB card that fills up on the first project. A named card (SanDisk, Samsung, Kingston) avoids counterfeits that corrupt the system after a few weeks. The price is not in this reading: check it, and refuse a no-name card whose stated capacity is implausible.
+
+The Pi 5 runs hotter than a Pi 4 as soon as the processor stays busy. A case with an active fan is the safe choice for vision or for a server that does not stop. Passive heatsinks are enough for light, intermittent use. A decorative fan does nothing more than a plain fan. Again, check the price: no case is in the reading.
+
+To work comfortably you also need a micro-HDMI to HDMI cable. The second cable is only useful if you connect two screens. A keyboard and a mouse, USB or Bluetooth, get you through the first day. You can do without them later if the card is prepared for remote access. A card already flashed with Raspberry Pi OS saves the quarter-hour of installation, for an extra that you verify on the listing.
+
+In robotics, the board does not drive a chassis by itself. You need a motor add-on board or a driver such as the L298N, then the project’s sensors (distance, line, an inertial unit). An official camera is worth it only if the program has to see something. An external battery is chosen from the real consumption of the build. None of these accessories has a price in the reading.
+
+The PCIe connector is mainly for an NVMe SSD, through an adapter board made for the Pi 5. A PoE+ module powers the board over the Ethernet cable, if the switch provides PoE. A 4G or 5G modem only makes sense for an object that leaves the home network. Each of these additions has its own price to check, and none of them is deducted from the price of the board.
+
+If the screen is far from the board, in a workshop or a rack, an HDMI extender replaces a long, fragile active cable. AV Access sells this kind of gear ([avaccess.com](https://www.avaccess.com/)). No promo code was verified for this program (Awin, homepage of 5 November 2026).
+
+<p><a href="https://www.awin1.com/cread.php?awinmid=73121&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.avaccess.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="73121">Browse AV Access →</a></p>
+
+## A kit sold together, or separate parts
+
+A kit a reseller calls “complete” in principle brings together a board, a compatible power supply, a microSD card, and a case. The advantage is one order and parts that are supposed to fit. The drawback is paying for parts you already own, or a case with no fan when your project needs one. No all-in-one kit is in the reading of 6 November 2026. The listings linked from the buttons on this page are the boards alone. For a kit, check the price of an offer whose title really lists the power supply, the microSD card, and the case.
+
+Buying the parts one by one lets you skip the keyboard if the house already has one, and lets you choose a ventilated case. You then have to check Pi 5 compatibility for each part, and accept several parcels. That is the clearest path while the reading covers only the boards.
+
+### A first workstation, without a camera
+
+Around a 4GB board at 145.22 euros, plan on the 27W supply, a 64GB microSD card, a ventilated case, and a micro-HDMI cable. The total is not calculated here, because only the board price is in the reading.
+
+### A robot or a camera
+
+Around an 8GB board at 209.09 euros, the same base (power, a microSD card of 128GB rather than 64GB, a ventilated case) then receives the motor board, the sensors, and, if the program has to see, a camera. A battery is added only for a robot that leaves the wall outlet. Each of those lines is priced separately.
+
+### A slightly busy Linux desktop
+
+The same 8GB board, the same base, plus a keyboard and a mouse if you do not have them. A higher-resolution camera and a lens are only for an image project. They are not part of the minimum for learning Python.
+
+## Install and boot
+
+These steps assume a microSD card, a computer to prepare it, then a screen, a keyboard, and a mouse for the first desktop. Allow a quarter of an hour to write the card, the time of the first boot, then a few minutes of updates. This path was not replayed on a Pi 5 for the present update: the labels follow Raspberry Pi Imager as it appears in the versions that ask you to customize before writing.
+
+### Prepare the microSD card
+
+1. Download Raspberry Pi Imager from [raspberrypi.com/software](https://www.raspberrypi.com/software/). The shortcut rptl.io/imager opens the same tool.
+2. Choose the Raspberry Pi 5 device, then the 64-bit Raspberry Pi OS, then the microSD card plugged into the computer. Check the drive letter: writing erases everything on it.
+3. When the tool offers to customize the system, save a username, a password, the Wi-Fi network, and, if you want to do without a screen later, SSH access. Language and keyboard layout are set in the same place. A French classroom chooses French and AZERTY. Without this step, the first boot asks for those settings again on a local screen.
+4. Start the write and wait for verification to finish. The tool confirms that the card is ready. Remove it then. Do not unplug it in the middle of the progress bar.
+
+### First connection
+
+1. Slide the microSD card into the Pi’s slot, the screen on a micro-HDMI output, keyboard and mouse on the USB ports.
+2. Plug in power last. The power LED lights. The desktop appears after a few tens of seconds, longer if the system is finishing a configuration.
+3. If the assistant still opens, set the language, the keyboard layout, and the time zone, then wait for it to finish. If everything was entered in Imager, you arrive straight at the desktop.
+4. An under-voltage message at this stage means the USB-C supply is not giving the Pi 5 what it expects. Replace it with the 27W supply meant for this board before you add peripherals.
+
+### Update the system
+
+In a terminal:
+
+```bash
+sudo apt update && sudo apt full-upgrade -y
+```
+
+The command finishes with no error message. If the kernel was updated, reboot, then check that the desktop comes back and that Wi-Fi is still there.
+
+### Light an LED in Python
+
+The program below uses gpiozero, which is present on Raspberry Pi OS, and BCM numbering. BCM pin 17 is physical pin 11. A nearby ground, for example physical pin 6 or 9, closes the circuit. Put a resistor in series with the LED, commonly 330 ohms for a standard LED: connecting it bare to a pin can damage it. This fragment follows the usual gpiozero example. It was not run on a Pi 5 for this article.
+
+```python
+from gpiozero import LED
+from time import sleep
+
+led = LED(17)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
+```
+
+Run it from Thonny. The LED should change state every second. Ctrl+C in the terminal, or Thonny’s stop button, stops the loop. Older RPi.GPIO examples targeted earlier boards. On the Pi 5, the input-output controller has changed, and that library is no longer the path described by the current documentation.
+
+## Where to go next
+
+Up-to-date documentation is on raspberrypi.com. The MagPi magazine (magpi.cc) publishes projects as PDFs. On the French-language side, Framboise 314 (framboise314.fr) relays tutorials. Books exist in bookstores. No specific edition is in the reading, so this page does not put a buy button on a title, and still less on the board’s listing.
+
+Two builds on this site start from this base: the [presence detector](/en/smart-home/raspberry-pi-pir-motion-lighting/) and the [BME280 weather station](/en/smart-home/raspberry-pi-weather-station-bme280/). They assume the board is already booted, not merely ordered.
+
+## Frequently asked questions
+
+### Is the Pi 5 worth the price compared with a Pi 4 already on the shelf?
+
+If you are buying a new board, the Pi 5 is the one that still has margin for a camera or several programs. The gain announced by the Foundation is real on paper, but the extra cost always includes the 27W supply: a Pi 4 unit does not complete the order. If a Pi 4 is already running at home, replacing it is justified only when memory or the processor limits the project.
+
+### Can you keep the Pi 4 power supply?
+
+It often boots the board, then shows its limits as soon as a USB port draws current. The unit meant for the Pi 5 is the official 27W supply, or a quality USB-C charger that really negotiates 5V and 5A. Check the price: it is not in the reading.
+
+### 4GB or 8GB for a first robot?
+
+The 4GB, at 145.22 euros on 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at 209.09 euros saves you buying the board again six months later. Power, the microSD card, and the case are still added in both cases.
+
+### Do you need a screen?
+
+Not permanently. A screen, a keyboard, and a mouse serve the first day. After that, SSH gives a remote terminal, and a remote desktop shows the interface on the computer at home. Tick SSH in Imager before you write the card, or the first contact still happens on a screen.
+
+### What are GPIO and I2C?
+
+The GPIO pins are the board’s general-purpose inputs and outputs: you connect an LED, a button, or, more often, an add-on board that drives motors. I2C is a two-wire bus, SDA and SCL, that lets several sensors share the same pins. The [BME280](/en/smart-home/raspberry-pi-weather-station-bme280/) station connects that way.
+
+### Does the Pi 5 replace a computer?
+
+For the web, code, and light office work, yes, as long as you have the power supply, the microSD card, and a way to display the image. For a recent game or heavy video editing, no. And without the accessories, the board alone is not a workstation yet.
+
+The useful order, on the day you place it, is therefore the board that matches the project, 4GB at 145.22 euros or 8GB at 209.09 euros in the reading of 6 November 2026, plus a 27W supply, an A2 microSD card, and a ventilated case whose prices are read on their own listings.

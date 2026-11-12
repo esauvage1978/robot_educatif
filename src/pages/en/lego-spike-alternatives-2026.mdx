@@ -1,0 +1,631 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "LEGO SPIKE alternatives: educational robots compared for 2026"
+description: "LEGO SPIKE left direct sale on 30 June 2026. mBot, mBot2, ELEGOO, and Fischertechnik compared on price, school fit, and equivalent projects."
+updated: "23 October 2026"
+faqSchema:
+  - question: "Are the alternatives worse than LEGO SPIKE?"
+    answer: "No. The mBot2 has Wi-Fi, which SPIKE does not have natively, and the ELEGOO car has a camera, which SPIKE does not. They are different, not lesser."
+  - question: "Can you still buy LEGO SPIKE?"
+    answer: "Not direct from LEGO. LEGO Education stopped direct sales of SPIKE Essential and SPIKE Prime on 30 June 2026. Some resellers are still selling remaining stock, at varying prices. For a new purchase, this page presents the mBot (elementary), the mBot2 (Python, middle school), and the ELEGOO Robot Car V4.0 (Arduino, high school)."
+  - question: "Can you mix LEGO and these alternatives?"
+    answer: "Yes, as separate projects. No, if you mean the bricks: LEGO bricks do not fit an mBot mechanically."
+  - question: "What warranty do you get?"
+    answer: "LEGO: 2 years, with free part replacement. mBot: 1 year from the maker plus 2 years through Amazon, depending on the seller. ELEGOO: 1 year, plus the Arduino community for standard parts."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/lego-education-brand/">LEGO Education</a> · SPIKE alternatives</nav>
+
+> **Update of 23 October 2026**: LEGO Education removed SPIKE Essential and SPIKE Prime from direct sale on 30 June 2026. Only resellers are still selling remaining stock. The SPIKE prices on this page (289 euros and 379 euros) are the last LEGO catalog prices, not guaranteed current prices. Details are on [our LEGO Education page](/en/lego-education-brand/).
+
+
+<AffiliateDisclosure variant="full" locale="en" />
+
+<ComparisonTable
+  locale="en"
+  products={[
+    { id: 'mbot', badge: 'Best value' },
+    { id: 'mbot2', badge: 'Full Python alternative' },
+    { id: 'elegoo-robot-car', badge: 'Budget Arduino option' },
+  ]}
+  title="Top 3 alternatives to LEGO SPIKE"
+/>
+
+**[LEGO](/en/lego-education-brand/) Spike Prime** and **Spike Essential** were reference kits, but **LEGO Education stopped selling them direct on 30 June 2026**. You now find them only at resellers clearing stock, at varying prices. Their last catalog prices (379 euros and 289 euros) are used here as a **comparison point**, not as a current offer. Euro amounts below are not converted to dollars. This guide compares the **strongest alternatives**: **mBot** (90 euros), **mBot2** (168 euros), **[ELEGOO](/en/elegoo-brand/)** (80 euros), **Fischertechnik** (150–300 euros). Savings, curriculum fit, equivalent projects. The buttons on this page open today’s listing.
+
+## 1. Why look for an alternative?
+
+### Last LEGO SPIKE catalog prices (before the stop on 30 June 2026)
+
+- **Spike Prime**: 379 euros (high school or club) — no longer sold by LEGO direct
+- **Spike Essential**: 289 euros (elementary or middle school) — no longer sold by LEGO direct
+- **Extension**: 90–120 euros each
+
+➜ **A class of 6 Spike Prime robots** at the last catalog price: 2,274 euros (extensions excluded)  
+➜ **A class of 8 mBots**: 720 euros (a saving of **1,554 euros**)
+
+### Other LEGO limits
+
+- **Closed ecosystem**: LEGO-only extensions
+- **Fragile bricks**: small parts go missing often
+- **Proprietary software**: no transition to standard Arduino or Python
+- **Renewal**: you have to follow the LEGO range
+
+### What LEGO does well (worth keeping)
+
+✅ Compatibility with household LEGO bricks  
+✅ Solid complete sets  
+✅ A polished Scratch interface  
+✅ Recognition in schools
+
+➜ **The stake**: find an alternative that is **just as educational** and **easier to afford**.
+
+## 2. Detailed comparison of the alternatives
+
+### mBot (Makeblock)
+
+<ProductBox
+  lang="en"
+  ctaText="Check today's price"
+  productId="mbot"
+  name="Makeblock mBot"
+  asin="B07XR98YYQ"
+  ages="8–12 years"
+  languages={['Scratch', 'Arduino']}
+  pros={[
+    'About a third of the price of Spike Essential',
+    'A 15-minute build (against 45 minutes for LEGO)',
+    'Scratch, as with LEGO',
+    'Many tutorials, including French ones',
+    'A wide range of mBuild extensions'
+  ]}
+  badge="Best value"
+  position={1}
+/>
+
+**Against LEGO Spike Essential (last catalog price: 289 euros)**:
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Criterion</th>
+<th scope="col">mBot</th>
+<th scope="col">Spike Essential</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Build</strong></span></td>
+<td data-label="mBot"><span class="td-val">15 minutes of screws</span></td>
+<td data-label="Spike Essential"><span class="td-val">30–45 minutes of bricks</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Programming</strong></span></td>
+<td data-label="mBot"><span class="td-val">Scratch + Arduino</span></td>
+<td data-label="Spike Essential"><span class="td-val">Scratch + Python</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Sensors included</strong></span></td>
+<td data-label="mBot"><span class="td-val">Ultrasonic, line, IR</span></td>
+<td data-label="Spike Essential"><span class="td-val">Ultrasonic, color, force</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Extensions</strong></span></td>
+<td data-label="mBot"><span class="td-val">mBuild, about 15–50 euros</span></td>
+<td data-label="Spike Essential"><span class="td-val">LEGO, 90–120 euros</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Power</strong></span></td>
+<td data-label="mBot"><span class="td-val">AA cells (rechargeable)</span></td>
+<td data-label="Spike Essential"><span class="td-val">Li-ion battery</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Winner**: **mBot** on **price** and **access**. Spike on the **LEGO ecosystem** if you are already equipped.
+
+### mBot2 (Makeblock)
+
+<ProductBox
+  lang="en"
+  ctaText="Check today's price"
+  productId="mbot2"
+  name="Makeblock mBot2"
+  asin="B0919F9CKS"
+  ages="10–14 years"
+  languages={['Scratch', 'Python']}
+  pros={[
+    'About half the price of Spike Prime',
+    'Native Python (as with Spike)',
+    'Wi-Fi and IoT (not on LEGO)',
+    'CyberPi as the onboard computer',
+    'Color LCD screen'
+  ]}
+  badge="Full Python alternative"
+  position={1}
+/>
+
+**Against LEGO Spike Prime (last catalog price: 379 euros)**:
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Criterion</th>
+<th scope="col">mBot2</th>
+<th scope="col">Spike Prime</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Python</strong></span></td>
+<td data-label="mBot2"><span class="td-val">Native, and approachable</span></td>
+<td data-label="Spike Prime"><span class="td-val">Native LEGO</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>IoT / Wi-Fi</strong></span></td>
+<td data-label="mBot2"><span class="td-val">✅ Built in</span></td>
+<td data-label="Spike Prime"><span class="td-val">❌ Not native</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Screen</strong></span></td>
+<td data-label="mBot2"><span class="td-val">Color LCD</span></td>
+<td data-label="Spike Prime"><span class="td-val">5×5 LED matrix</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Construction</strong></span></td>
+<td data-label="mBot2"><span class="td-val">Fixed (upgrades possible)</span></td>
+<td data-label="Spike Prime"><span class="td-val">Modular LEGO</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Sensors</strong></span></td>
+<td data-label="mBot2"><span class="td-val">Standard, plus separate purchases</span></td>
+<td data-label="Spike Prime"><span class="td-val">Hub + 4 ports</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Winner**: **mBot2** on **price**, **IoT**, and **Python**. Spike on **LEGO brick modularity**.
+
+### ELEGOO Robot Car V4.0
+
+<ProductBox
+  lang="en"
+  ctaText="Check today's price"
+  productId="elegoo-robot-car"
+  name="ELEGOO Smart Robot Car Kit V4.0"
+  asin="B078Y9RYM2"
+  ages="12+ years"
+  languages={['Arduino C']}
+  pros={[
+    'About a fifth of the price of Spike Prime',
+    'Arduino UNO R3 included',
+    'FPV camera (not on LEGO)',
+    'Video tutorials, including French ones',
+    'A very large Arduino community'
+  ]}
+  badge="Economical Arduino option"
+  position={1}
+/>
+
+**Against LEGO Spike Prime**:
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Criterion</th>
+<th scope="col">ELEGOO</th>
+<th scope="col">Spike Prime</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Language</strong></span></td>
+<td data-label="ELEGOO"><span class="td-val">Arduino C/C++</span></td>
+<td data-label="Spike Prime"><span class="td-val">Scratch + Python</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Audience</strong></span></td>
+<td data-label="ELEGOO"><span class="td-val">High school and teens</span></td>
+<td data-label="Spike Prime"><span class="td-val">Middle school and high school</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Camera</strong></span></td>
+<td data-label="ELEGOO"><span class="td-val">✅ Included</span></td>
+<td data-label="Spike Prime"><span class="td-val">❌ Not available</span></td>
+</tr>
+<tr>
+<td data-label="Criterion"><span class="td-val"><strong>Build</strong></span></td>
+<td data-label="ELEGOO"><span class="td-val">Screws (1 hour)</span></td>
+<td data-label="Spike Prime"><span class="td-val">Bricks (30 minutes)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Winner**: **ELEGOO** on **price** and **Arduino** (STI2D, the French engineering high-school track). Spike on **access for younger children**.
+
+## 3. Full summary table
+
+The mBot and mBot2 figures in this table are the Amazon.fr unit readings used on this site (89.99 euros and 167.95 euros). The 150 euro Codey Rocky figure, the 80 euro ELEGOO figure, and the SPIKE catalog prices are the comparison amounts written in the source guide. They are not a fresh quote.
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Model</th>
+<th scope="col">Price</th>
+<th scope="col">Age</th>
+<th scope="col">Languages</th>
+<th scope="col">Sensors</th>
+<th scope="col">Strengths</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>mBot</strong></span></td>
+<td data-label="Price"><span class="td-val">89.99 euros</span></td>
+<td data-label="Age"><span class="td-val">8–12</span></td>
+<td data-label="Languages"><span class="td-val">Scratch, Arduino</span></td>
+<td data-label="Sensors"><span class="td-val">Ultrasonic, line</span></td>
+<td data-label="Strengths"><span class="td-val">Price, simplicity</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>mBot2</strong></span></td>
+<td data-label="Price"><span class="td-val">167.95 euros</span></td>
+<td data-label="Age"><span class="td-val">10–14</span></td>
+<td data-label="Languages"><span class="td-val">Scratch, Python</span></td>
+<td data-label="Sensors"><span class="td-val">Ultrasonic, accelerometer</span></td>
+<td data-label="Strengths"><span class="td-val">IoT, native Python</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>ELEGOO</strong></span></td>
+<td data-label="Price"><span class="td-val">80 euros</span></td>
+<td data-label="Age"><span class="td-val">12+</span></td>
+<td data-label="Languages"><span class="td-val">Arduino C</span></td>
+<td data-label="Sensors"><span class="td-val">Ultrasonic, camera</span></td>
+<td data-label="Strengths"><span class="td-val">Arduino, camera</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>Codey Rocky</strong></span></td>
+<td data-label="Price"><span class="td-val">150 euros</span></td>
+<td data-label="Age"><span class="td-val">6–12</span></td>
+<td data-label="Languages"><span class="td-val">Scratch, Python</span></td>
+<td data-label="Sensors"><span class="td-val">10+ sensors</span></td>
+<td data-label="Strengths"><span class="td-val">Playful design, AI</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>Spike Essential</strong></span></td>
+<td data-label="Price"><span class="td-val">No longer sold direct (last price: 289 euros)</span></td>
+<td data-label="Age"><span class="td-val">6–11</span></td>
+<td data-label="Languages"><span class="td-val">Scratch, Python</span></td>
+<td data-label="Sensors"><span class="td-val">Color, force</span></td>
+<td data-label="Strengths"><span class="td-val">LEGO bricks</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>Spike Prime</strong></span></td>
+<td data-label="Price"><span class="td-val">No longer sold direct (last price: 379 euros)</span></td>
+<td data-label="Age"><span class="td-val">10+</span></td>
+<td data-label="Languages"><span class="td-val">Scratch, Python</span></td>
+<td data-label="Sensors"><span class="td-val">6-port hub</span></td>
+<td data-label="Strengths"><span class="td-val">LEGO ecosystem</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+## 4. LEGO SPIKE projects, mapped to alternatives
+
+*The LEGO amounts below are the last SPIKE catalog prices, before direct sales stopped on 30 June 2026.*
+
+### Spike Essential: sort bricks by color
+
+**LEGO**: color sensor + motor + arm  
+**mBot**: mBuild color sensor (about 20 euros) + a servo  
+**Result**: equivalent at 110 euros against 289 euros
+
+### Spike Prime: line-following robot
+
+**LEGO**: color sensor on the ground  
+**mBot**: line follower built in  
+**Result**: 90 euros against 379 euros
+
+### Spike Prime: remote-control car
+
+**LEGO**: hub + Bluetooth remote  
+**mBot2**: Wi-Fi + phone app (included)  
+**Result**: 168 euros against 379 euros
+
+### Spike Prime: fall detector
+
+**LEGO**: hub gyroscope + LED  
+**mBot Ranger**: gyroscope + a balancing robot (included)  
+**Result**: 190 euros against 379 euros
+
+➜ **Typical saving**: **50–70%** per equivalent project.
+
+## 5. Fit with the school curriculum
+
+French grade names are kept, with an age note, because the sequences below follow the French curriculum.
+
+### Elementary school (CE2–CM2, about ages 8–10)
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Curriculum</th>
+<th scope="col">LEGO</th>
+<th scope="col">Alternative</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Scratch</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Spike Essential</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Sensors</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Color, distance</span></td>
+<td data-label="Alternative"><span class="td-val">✅ Distance, line</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Construction</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Bricks</span></td>
+<td data-label="Alternative"><span class="td-val">⚠️ Screws (15 minutes)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Recommendation**: **mBot** (a saving of about 200 euros per robot).
+
+### Middle school, 6e–5e (about ages 11–12)
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Curriculum</th>
+<th scope="col">LEGO</th>
+<th scope="col">Alternative</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Algorithms</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Scratch</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot (Scratch)</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">A range of sensors</span></td>
+<td data-label="LEGO"><span class="td-val">✅ 4-port hub</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBuild extensions</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Long projects</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Modular</span></td>
+<td data-label="Alternative"><span class="td-val">⚠️ Less flexible</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Recommendation**: **mBot** or **Spike Essential**, depending on the budget.
+
+### Middle school, 4e–3e (about ages 13–14)
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Curriculum</th>
+<th scope="col">LEGO</th>
+<th scope="col">Alternative</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Python</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Spike Prime</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot2 (native)</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">IoT</span></td>
+<td data-label="LEGO"><span class="td-val">❌ Not native</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot2 (Wi-Fi)</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Arduino</span></td>
+<td data-label="LEGO"><span class="td-val">❌ Not available</span></td>
+<td data-label="Alternative"><span class="td-val">✅ ELEGOO (Arduino)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Recommendation**: **mBot2** (a saving of 211 euros, plus IoT).
+
+### High school, NSI / STI2D
+
+NSI is Numérique et sciences informatiques, the French computer-science track. STI2D is the engineering track.
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Curriculum</th>
+<th scope="col">LEGO</th>
+<th scope="col">Alternative</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Advanced Python</span></td>
+<td data-label="LEGO"><span class="td-val">✅ Spike Prime</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot2</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">Arduino C</span></td>
+<td data-label="LEGO"><span class="td-val">❌ Not available</span></td>
+<td data-label="Alternative"><span class="td-val">✅ ELEGOO (80 euros)</span></td>
+</tr>
+<tr>
+<td data-label="Curriculum"><span class="td-val">AI projects</span></td>
+<td data-label="LEGO"><span class="td-val">⚠️ Limited</span></td>
+<td data-label="Alternative"><span class="td-val">✅ mBot2 + camera</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+**Recommendation**: **ELEGOO** (Arduino) or **mBot2** (Python).
+
+## 6. Hidden advantages of the alternatives
+
+### Repair
+
+**LEGO**: lost bricks mean ordering parts (delay, cost)  
+**mBot**: standard screws, replaceable motors, often from a parts listing within a day
+
+### Room to grow
+
+**LEGO**: locked into the ecosystem (LEGO extensions only)  
+**mBot**: works with Arduino, Raspberry Pi, and third-party sensors
+
+### A path forward
+
+**LEGO**: Spike, then what? (no clear next step after middle school)  
+**mBot**: mBot, then mBot2, then Arduino, then Raspberry Pi (a natural progression)
+
+### Community
+
+**LEGO**: LEGO Education forums (mostly in English)  
+**mBot**: the [Makeblock](/en/makeblock-brand/) community, including French-language help, plus Arduino (millions of users)
+
+## 7. When is LEGO SPIKE still the better choice?
+
+**Important**: since 30 June 2026, LEGO no longer sells SPIKE direct. For **new equipment**, check real availability at resellers before you decide. The cases below are mainly for schools **already equipped** with LEGO.
+
+### Cases where LEGO still wins
+
+✅ **A school already equipped with LEGO** (compatible bricks)  
+✅ **Budget is not the constraint** (private school, a dedicated grant)  
+✅ **Children under 8** (bricks are more intuitive than screws)  
+✅ **The teacher has no technical background** (the LEGO interface is very guided)  
+✅ **A LEGO contest** (FIRST LEGO League requires LEGO)
+
+### Cases where the alternatives win
+
+✅ **A tight budget** (equipping a class with 6–10 robots)  
+✅ **Python or Arduino** is a clear goal  
+✅ **IoT projects** (weather, notifications, home automation)  
+✅ **Middle school or high school** (screws are fine, and you need room to grow)  
+✅ **You maintain the fleet yourselves** (repairs by the teacher or the pupils)
+
+## 8. Classroom budgets compared
+
+### Scenario: a class of 24 pupils (8 robots)
+
+Each total is eight times the unit figure in that row. The Spike Essential baseline is the last catalog price, 8 × 289 euros = 2,312 euros. Savings are that baseline minus the row total. The mBot and mBot2 unit figures are 89.99 euros and 167.95 euros.
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Option</th>
+<th scope="col">Unit price</th>
+<th scope="col">Total for 8 robots</th>
+<th scope="col">Saving against LEGO</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Option"><span class="td-val"><strong>mBot</strong></span></td>
+<td data-label="Unit price"><span class="td-val">89.99 euros</span></td>
+<td data-label="Total for 8 robots"><span class="td-val">719.92 euros</span></td>
+<td data-label="Saving against LEGO"><span class="td-val">1,592.08 euros</span></td>
+</tr>
+<tr>
+<td data-label="Option"><span class="td-val"><strong>mBot2</strong></span></td>
+<td data-label="Unit price"><span class="td-val">167.95 euros</span></td>
+<td data-label="Total for 8 robots"><span class="td-val">1,343.60 euros</span></td>
+<td data-label="Saving against LEGO"><span class="td-val">968.40 euros</span></td>
+</tr>
+<tr>
+<td data-label="Option"><span class="td-val"><strong>ELEGOO</strong></span></td>
+<td data-label="Unit price"><span class="td-val">80 euros</span></td>
+<td data-label="Total for 8 robots"><span class="td-val">640 euros</span></td>
+<td data-label="Saving against LEGO"><span class="td-val"><strong>1,672 euros</strong></span></td>
+</tr>
+<tr>
+<td data-label="Option"><span class="td-val"><strong>Spike Essential</strong> (last catalog price)</span></td>
+<td data-label="Unit price"><span class="td-val">289 euros</span></td>
+<td data-label="Total for 8 robots"><span class="td-val">2,312 euros</span></td>
+<td data-label="Saving against LEGO"><span class="td-val">—</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+➜ **Where the saving goes**: 5–10 extra robots, OR 2 years of maintenance, OR teacher training.
+
+## 9. Our recommendation by situation
+
+### Elementary school, tight budget
+
+➜ **8× mBot (720 euros)** instead of 4× Spike Essential (1,156 euros at the last catalog price)
+
+**Gain**: twice as many robots for a similar budget
+
+### Middle-school Python
+
+➜ **6× mBot2 (1,008 euros)** instead of 3× Spike Prime (1,137 euros at the last catalog price)
+
+**Gain**: twice as many robots, plus IoT included
+
+### STI2D high school
+
+➜ **10× ELEGOO (800 euros)** instead of 2× Spike Prime (758 euros at the last catalog price)
+
+**Gain**: five times as many robots, plus Arduino
+
+### A school that already has LEGO
+
+➜ **Keep Spike** and add 2–3 mBot2 robots (a Python demo for the teacher)
+
+**Gain**: compatibility, plus variety
+
+## 10. Where to buy the alternatives
+
+The product buttons on this page open today’s listing. They are affiliate links. A commission is possible on an eligible purchase, at no extra cost to you.
+
+### mBot and mBot2
+
+- Makeblock mBot, ASIN B07XR98YYQ
+- Makeblock mBot2, ASIN B0919F9CKS
+- Makeblock mBot Ranger: see the dated prices in [mBot, mBot2, and Ranger prices](/en/mbot-mbot2-ranger-prices-2026/)
+
+### ELEGOO
+
+- ELEGOO Smart Robot Car Kit V4.0, ASIN B078Y9RYM2
+
+### Shared accessories
+
+Order rechargeable AA cells and a line-follower mat from a listing that names the exact reference. This page does not send you through a general search.
+
+### Approved education resellers
+
+- **Génération Robots**: a school quote, often a 10–15% discount
+- **Technologie Services**: payment by mandat administratif (a French school purchase order)
+- **Amazon Business**: a school invoice
+
+## 11. Frequently asked questions
+
+### Are the alternatives worse?
+
+**No**. The mBot2 has **Wi-Fi** (LEGO does not). ELEGOO has a **camera** (LEGO does not). They are **different**, not lesser.
+
+### Can you still buy LEGO SPIKE?
+
+**Not direct**. LEGO Education stopped direct sales of SPIKE Essential and SPIKE Prime on 30 June 2026. Only resellers are still clearing stock, at varying prices. For a new purchase, the **mBot** (elementary), the **mBot2** (Python, middle school), and the **ELEGOO Robot Car V4.0** (Arduino, high school) are the available alternatives presented on this page. See also our [LEGO Education page](/en/lego-education-brand/).
+
+### Can you mix LEGO and the alternatives?
+
+**Yes**: as separate projects. **No**: LEGO bricks do not fit an mBot mechanically.
+
+### Do teachers know the alternatives?
+
+**More and more of them**. The mBot has been in PAF training (the French in-service plan) since 2018. The académies of Créteil, Versailles, and Lyon (regional education authorities) have equipped schools with it.
+
+### Warranty and support?
+
+- **LEGO**: 2 years, free part replacement
+- **mBot**: 1 year from the maker, plus 2 years through Amazon (depending on the seller)
+- **ELEGOO**: 1 year, plus the Arduino community (standard parts)
+
+---
+
+**In short**: the **mBot** (90 euros) replaces **Spike Essential** (last catalog price 289 euros) for **elementary and middle school**, with a **69% saving**. The **mBot2** (168 euros) replaces **Spike Prime** (last catalog price 379 euros) for **Python**, with a **56% saving plus IoT**. **ELEGOO** (80 euros) fits **high-school Arduino**, with a **79% saving**. A class budget is **divided by 2 or 3** for an equivalent teaching result.

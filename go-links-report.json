@@ -1,13 +1,13 @@
 {
  "site": "robot-educatif.info",
- "generated": "2026-11-12T22:09:53.745Z",
+ "generated": "2026-11-12T22:20:23.721Z",
  "stats": {
-  "files": 1607,
-  "filesChanged": 991,
-  "amazon": 5609,
-  "awin": 985,
+  "files": 1661,
+  "filesChanged": 1018,
+  "amazon": 6229,
+  "awin": 1047,
   "repaired": 0,
-  "relFixed": 106,
+  "relFixed": 109,
   "collisions": 0,
   "invalid": 0
  },

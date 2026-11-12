@@ -1,0 +1,211 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "Equip a classroom with robots: budget and packs for 2026"
+description: "How many classroom robots, then mBot, mBot2, or ELEGOO. Unit prices from 6 November 2026, licenses, upkeep, and funding. Accessories are not added in."
+updated: "6 November 2026"
+faqSchema:
+  - question: "How many mBots for a class of 24 to 28 pupils?"
+    answer: "Six mBots put children in groups of four: 6 times 89.99 euros is 539.94 euros of robots alone on the Amazon.fr reading of 6 November 2026. Eight is the simplest set to store, at 719.92 euros. Twelve allows pairs, at 1,079.88 euros. Batteries, bins, and mats are not in those totals."
+  - question: "What did six mBot2 robots cost in that reading?"
+    answer: "Six times 167.95 euros is 1,007.70 euros of robots alone. The rechargeable battery ships with each mBot2. Extensions, a cupboard, and teacher training are not in the reading."
+  - question: "Does mBlock add a classroom license to the budget?"
+    answer: "For the mBot and the mBot2, mBlock runs in the browser or as a desktop app, with no classroom license to pay for the ordinary use Makeblock describes. The Arduino IDE, for the ELEGOO car, is open source. Check the terms when you install in a lab: a tool that is free for a person can have a separate school offer."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+<AffiliateDisclosure variant="full" locale="en" />
+
+Equipping a class starts with how many pupils touch a robot at the same time, then which model lasts through the cycle, and only then what the robots themselves cost. Batteries, bins, and mats matter, but their prices are not in the reading of 6 November 2026. This page no longer adds them to the machines. It gives the Amazon.fr unit price of three robots, in euros, and the product of count times price. Those euro figures are not converted.
+
+That day, the mBot was 89.99 euros, the mBot2 was 167.95 euros, and the ELEGOO car V4.0 was 79.99 euros. None of those amounts is a bundle price. The buttons on this page open today’s listing. The teaching choice by level is in the [middle-school technology guide](/en/robots-for-middle-school-technology/) and in [classroom robots for school](/en/robots-for-school/).
+
+## How many robots for the class
+
+In elementary school, for 24 to 28 pupils, six mBots put the children in groups of four. At the unit price of 6 November 2026, that is 6 × 89.99 euros, or 539.94 euros of robots alone. Not everyone programs at once, and the turn-taking has to be explicit. Twelve mBots allow pairs: 12 × 89.99 euros, or 1,079.88 euros, with more cables to count at the end of the hour.
+
+Eight mBots leave three or four pupils per robot. That is the simplest compromise to store for a class of this size: 8 × 89.99 euros, or 719.92 euros. Spread across 24 pupils, 719.92 ÷ 24 is a little under 30 euros per pupil, robots alone. That is not the cost of the year.
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Number of mBots</th>
+<th scope="col">Organization</th>
+<th scope="col">Robots alone</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Number of mBots"><span class="td-val">6</span></td>
+<td data-label="Organization"><span class="td-val">Groups of 4</span></td>
+<td data-label="Robots alone"><span class="td-val">539.94 euros</span></td>
+</tr>
+<tr>
+<td data-label="Number of mBots"><span class="td-val">8</span></td>
+<td data-label="Organization"><span class="td-val">3 or 4 pupils per robot</span></td>
+<td data-label="Robots alone"><span class="td-val">719.92 euros</span></td>
+</tr>
+<tr>
+<td data-label="Number of mBots"><span class="td-val">10</span></td>
+<td data-label="Organization"><span class="td-val">A little over two pupils per robot</span></td>
+<td data-label="Robots alone"><span class="td-val">899.90 euros</span></td>
+</tr>
+<tr>
+<td data-label="Number of mBots"><span class="td-val">12</span></td>
+<td data-label="Organization"><span class="td-val">Pairs</span></td>
+<td data-label="Robots alone"><span class="td-val">1,079.88 euros</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Each row multiplies the unit price of 89.99 euros, read on 6 November 2026, by the number of robots. In collège (French middle school, about ages 11–15), eight to ten robots are enough for islands of three in technology class. A club of twelve to fifteen members runs on four to six machines, which, in mBots, is 359.96 euros (4 × 89.99 euros) or 539.94 euros (6 × 89.99 euros). A lycée class (French high school) working in pairs on a long project aims for twelve to fifteen stations, on the model chosen further down, not necessarily the mBot.
+
+## Which model for which cycle
+
+<ComparisonTable
+  locale="en"
+  products={[
+    { id: 'mbot', badge: 'Elementary and early middle school' },
+    { id: 'mbot2', badge: 'Middle-school Python' },
+    { id: 'elegoo-robot-car', badge: 'High-school Arduino' },
+  ]}
+  title="Robots by school level"
+/>
+
+From CE2 (about age 8–9) through 5e (about age 12), the mBot is enough. mBlock uses blocks close to Scratch, the build fits a short session, the screws are visible when something needs repair, and French instructions are plentiful. Eight robots of this model are the 719.92 euro row in the table. Rechargeable batteries, two bins, and a line mat are quoted on top, and they are not added to that amount.
+
+In 4e and 3e (about ages 13–14) and in NSI (Numérique et sciences informatiques, the French high-school computer-science track), the mBot2 moves from blocks to Python on the same CyberPi board, with Wi-Fi for a connected project if the school network allows it. Six mBot2 robots are 6 × 167.95 euros, or 1,007.70 euros of robots alone. Two extra mBot2 robots on top of eight mBots, so the teacher can show the text without equipping the whole room, are 8 × 89.99 euros + 2 × 167.95 euros, or 719.92 euros + 335.90 euros = 1,055.82 euros. Again, accessories excluded.
+
+In high school, in NSI or in STI2D (the French engineering track), the [ELEGOO](/en/elegoo-brand/) car V4.0 programs in C on an Arduino-compatible board, with a camera and several sensors to wire. Twelve cars are 12 × 79.99 euros, or 959.88 euros. A Raspberry Pi 5 is another path, board by board: the 8GB was 209.09 euros and the 4GB was 145.22 euros the same day, without a power supply or a chassis. The detail is in the [Raspberry Pi 5 kit](/en/raspberry-pi-5-complete-kit/).
+
+## Three packs, without a fake total
+
+### Elementary school, eight mBots
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Line</th>
+<th scope="col">Detail</th>
+<th scope="col">Amount</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Line"><span class="td-val">8 mBots</span></td>
+<td data-label="Detail"><span class="td-val">8 × 89.99 euros, reading of 6 November 2026</span></td>
+<td data-label="Amount"><span class="td-val">719.92 euros</span></td>
+</tr>
+<tr>
+<td data-label="Line"><span class="td-val">Batteries, bins, mat, guide</span></td>
+<td data-label="Detail"><span class="td-val">Not in the reading</span></td>
+<td data-label="Amount"><span class="td-val">Check the price</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+The mBot does not carry a lithium battery. Plan on AA cells, the count printed in the manual, and a charger, without pricing them here. One bin per group of robots and a black-line mat change the session. Their price is on the supplier’s listing or quote.
+
+### Middle school, six mBot2 robots
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Line</th>
+<th scope="col">Detail</th>
+<th scope="col">Amount</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Line"><span class="td-val">6 mBot2 robots</span></td>
+<td data-label="Detail"><span class="td-val">6 × 167.95 euros, reading of 6 November 2026</span></td>
+<td data-label="Amount"><span class="td-val">1,007.70 euros</span></td>
+</tr>
+<tr>
+<td data-label="Line"><span class="td-val">Battery</span></td>
+<td data-label="Detail"><span class="td-val">Supplied with each mBot2</span></td>
+<td data-label="Amount"><span class="td-val">No separate purchase</span></td>
+</tr>
+<tr>
+<td data-label="Line"><span class="td-val">Extensions, cupboard, training</span></td>
+<td data-label="Detail"><span class="td-val">Not in the reading</span></td>
+<td data-label="Amount"><span class="td-val">Check the price</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+A few hours of training are often offered in the académie’s in-service plan (the regional education authority). When that training is paid, the trainer’s quote is the one that counts.
+
+### High school, twelve ELEGOO cars
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Line</th>
+<th scope="col">Detail</th>
+<th scope="col">Amount</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Line"><span class="td-val">12 ELEGOO V4.0</span></td>
+<td data-label="Detail"><span class="td-val">12 × 79.99 euros, reading of 6 November 2026</span></td>
+<td data-label="Amount"><span class="td-val">959.88 euros</span></td>
+</tr>
+<tr>
+<td data-label="Line"><span class="td-val">Batteries, memory cards, cables, parts</span></td>
+<td data-label="Detail"><span class="td-val">Not in the reading</span></td>
+<td data-label="Amount"><span class="td-val">Check the price</span></td>
+</tr>
+<tr>
+<td data-label="Line"><span class="td-val">Computers</span></td>
+<td data-label="Detail"><span class="td-val">Computer room already in place</span></td>
+<td data-label="Amount"><span class="td-val">No purchase in this pack</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+The Arduino IDE is free. The hidden cost is wiring time, not a license.
+
+## Funding, without inventing the size of the grant
+
+Regions, the CARDIE (the French academic network for educational innovation), corporate foundations, and some town halls publish calls, often filed in the autumn for an answer early in the calendar year. The ceiling is the one in the call’s text. This page does not copy one from memory. The coopérative scolaire (the school fund) or the foyer socio-éducatif (the student social fund) can top up with an action already planned (class photos, a sale), listing earmarked gifts. Some académies and Canopé (the public education resource network) lend a kit for a few weeks: book several months before the sequence, and do not count that loan as a purchase.
+
+## After delivery
+
+In the first year, the long job is getting started: firmware, the wireless link, a trial of the sample program on every robot. Allow half a day for eight to twelve machines if nobody has done it yet. Teacher training is extra, on the académie plan or by quote. School-furniture insurance sometimes covers breakage. Ask the school manager. Do not assume it.
+
+In later years, the mBot’s batteries and wear parts (wheels, screws, a sensor) come back. Their price is checked when you restock. Replacing an mBot at the price in the reading costs 89.99 euros again, an mBot2 167.95 euros, an ELEGOO car 79.99 euros. That is not an average annual budget. It is the price of one machine, on the day you need one more. No end date for software maintenance is stated here. The warranty is on the listing. A fleet that is charged at the end of the session and stored dry outlasts that warranty in many rooms, and that is not a promise from the maker.
+
+mBlock, for the mBot and the mBot2, runs in the browser or as a desktop app, with no classroom license to pay for the ordinary use Makeblock describes. The Arduino IDE, for the ELEGOO, is open source. Still check the terms when you install in the lab: a tool that is free for one person can have a separate school offer. On the date of this page, these two environments do not add a line to the robot budget.
+
+## Storage
+
+Two or three robots fit in a bin with a lid. The price of a bin, a shelf, or a carrying case is not in the reading: check it, including a rigid case if the kit travels from room to room. A number on each robot, the same color as the group’s card, and a return list (cable, screws, remote) saves the June inventory. A locked cupboard only helps if the room is always the same one.
+
+## Which formula for which school
+
+A school with one class to equip starts with eight mBots, or 719.92 euros of robots on 6 November 2026, then the batteries. Scratch in mBlock covers the cycle, and teacher setup stays short if you follow [mBlock 5](/en/first-steps-mblock-5/).
+
+A collège that runs 6e (about age 11) and 3e (about age 14) on the same fleet can buy ten mBots and four mBot2 robots: 10 × 89.99 euros + 4 × 167.95 euros = 899.90 euros + 671.80 euros = 1,571.70 euros of robots alone. The mBots carry cycle 3 (the end of elementary school and the first year of middle school) and 5e. The mBot2 robots carry 4e and 3e. That is the layout of the [middle-school guide](/en/robots-for-middle-school-technology/), with a slightly wider fleet than “eight plus four.”
+
+An NSI group can stay on twelve ELEGOO cars, at 959.88 euros of robots alone, if the year’s project is C and the camera. That is not the right pack for 6e.
+
+## Placing the order
+
+Sellers who invoice schools, such as Génération Robots or Technologie Services, issue a quote. Amazon Business does too, with an account separate from a personal purchase. A quantity discount is not promised here: it is on the quote, or it does not exist. Payment by mandat administratif (a French school purchase order) is confirmed with the seller before you write it into the internal procedure.
+
+The purchase file is built in this order.
+
+1. Ask for a quote that names the model, the reference (the seller’s ASIN or SKU), the number of pieces, and what is or is not included (cells, battery, cable).
+2. Have the head of the school sign the purchase order against that quote, not against an older screenshot.
+3. Attach the bank details if the school pays by transfer.
+4. Write down the stated lead time. Two to four weeks is common, longer before the end-of-year holidays. Do not promise a session on a date the carrier has not confirmed.
+
+Two traps come back in classrooms. A clone with no spare parts saves a few euros on the order and stops the class at the first broken wheel. A “school kit” that only adds a case to the same robot is compared line by line with the bare listing. Splitting the order into three small purchases often loses a grouped quote, and the percentage is not the same everywhere.
+
+The calendar that holds: in the autumn, file the requests and compare the quotes, then have them approved. Before the winter break, place the order and book the training. At the January return, receive the kits, update every robot, and only then bring in the pupils. From February to June, the sessions show which parts are missing. In the summer, clean, count, and order what broke, at the price of that moment.
+
+The listings used for the prices on this page are the mBot (ASIN B07XR98YYQ), the mBot2 (ASIN B0919F9CKS), and the ELEGOO V4.0 (ASIN B078Y9RYM2), from the Amazon.fr reading of 6 November 2026. The buttons above are affiliate links. AA cells are ordered from a listing that names the reference, not through a general search.
+
+Eight mBots for an elementary class is 719.92 euros of robots in the reading of 6 November 2026. Six mBot2 robots for middle-school Python is 1,007.70 euros. Twelve ELEGOO cars for a high-school group is 959.88 euros. Storage, batteries, and training are quoted beside those three numbers, not inside them.
+
+**See also**: [cheaper alternatives to LEGO SPIKE](/en/lego-spike-alternatives-2026/) · [choosing a classroom robot](/en/robots-for-school/)

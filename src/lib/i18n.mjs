@@ -384,6 +384,25 @@ const EN_RATTACHEES = [
 	{ fr: '/robot-moins-de-50-euros/', en: '/en/educational-robot-under-50/' },
 	{ fr: '/robot-pedagogique-ecole/', en: '/en/robots-for-school/' },
 	{ fr: '/kit-robotique-adulte-debutant/', en: '/en/robotics-kit-for-adult-beginners/' },
+	// Lot EN 5 : derniers guides du blog + parcours.
+	{ fr: '/robot-programmable-python/', en: '/en/best-python-programmable-robot/' },
+	{ fr: '/equiper-classe-robots-budget-packs-2026/', en: '/en/equip-a-classroom-robot-packs-2026/' },
+	{ fr: '/python-inter-modules-imports/', en: '/en/python-intermediate-modules/' },
+	{ fr: '/alternatives-lego-spike-comparatif-2026/', en: '/en/lego-spike-alternatives-2026/' },
+	{ fr: '/kit-raspberry-pi-5-complet/', en: '/en/raspberry-pi-5-complete-kit/' },
+	{ fr: '/cadeau-robot-enfant-8-ans/', en: '/en/robot-gift-for-an-8-year-old/' },
+	{ fr: '/robots-technologie-college-guide/', en: '/en/robots-for-middle-school-technology/' },
+	{ fr: '/cadeau-robot-enfant-10-ans/', en: '/en/robot-gift-for-a-10-year-old/' },
+	{ fr: '/cadeau-geek-ado-programmation/', en: '/en/programming-gifts-for-teens/' },
+	{ fr: '/programmation/', en: '/en/learn-to-code/' },
+	{ fr: '/programmation/python/', en: '/en/python-course/' },
+	{ fr: '/programmation/python-intermediaire/', en: '/en/python-intermediate-course/' },
+	{ fr: '/programmation/python-avance/', en: '/en/python-advanced-course/' },
+	{ fr: '/programmation/pendu/', en: '/en/python-hangman-course/' },
+	{ fr: '/programmation/bataille-navale/', en: '/en/python-battleship-course/' },
+	{ fr: '/programmation/carnet-todo/', en: '/en/python-todo-course/' },
+	{ fr: '/programmation/projet-python-avance-journal/', en: '/en/python-journal-course/' },
+	{ fr: '/programmation/projet-python-intermediaire-agenda/', en: '/en/python-planner-course/' },
 ];
 
 function fusionnerPaires(paires, ajouts) {

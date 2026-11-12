@@ -1,0 +1,227 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "Robots for middle school technology: 2026 guide"
+description: "Middle school technology robots for about ages 11–15: mBot, mBot2, and ELEGOO, with session plans and unit prices from the 6 November 2026 reading."
+updated: "6 November 2026"
+faqSchema:
+  - question: "Which robot fits the first years of middle school?"
+    answer: "For ages about 11–12 (French 6e and 5e), the Makeblock mBot at €89.99 (Amazon.fr reading, 6 November 2026) covers block programming for movement, a simple sensor, and the difference between a sequence and a loop. Eight mBots are 8 × €89.99, so €719.92 for the robots alone."
+  - question: "When should a class move to the mBot2 and Python?"
+    answer: "Around ages 13–15 (French 4e and 3e), the mBot2 at €167.95 on the same reading keeps the blocks and adds Python in mBlock, a color screen, and Wi-Fi. Six mBot2 units are €1,007.70 for the robots alone. Python is a useful bridge toward high school. A class that stays on blocks can still assess the skills if the algorithm is visible."
+  - question: "What does a shared classroom set cost in robots alone?"
+    answer: "Eight mBots plus four mBot2 units, at the 6 November 2026 unit prices, come to €719.92 + €671.80 = €1,391.72. That is a multiplication of unit prices, not a bundle, and it excludes batteries, mats, and a cupboard. Split across four classes for five years, the robot share is about €69.59 per class per year, or about €2.90 per pupil per year for a class of 24."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ProductBox from '../../components/ProductBox.astro';
+
+<AffiliateDisclosure variant="compact" locale="en" />
+
+<ComparisonTable
+  locale="en"
+  products={[
+    { id: 'mbot', badge: 'Ages 11–12, Scratch' },
+    { id: 'mbot2', badge: 'Ages 13–15, Python' },
+    { id: 'elegoo-robot-car', badge: 'Arduino option' },
+  ]}
+  title="Robots by middle school stage"
+/>
+
+In technology class, from about age 11 to about age 15, students have to write a program, test it, and fix it when the robot does not complete the course. In France that span is collège, or middle school, in four years: 6e (about 11), 5e (about 12), 4e (about 13), and 3e (about 14–15). This guide suggests machines and sessions for that expectation. It does not replace the landmarks on Éduscol, the official French curriculum site, and it does not turn a teaching choice into a requirement of the official bulletin.
+
+Three unit prices were read on Amazon.fr on 6 November 2026. The mBot is €89.99, the mBot2 is €167.95, and the ELEGOO car V4.0 is €79.99. Eight mBots are therefore €719.92, and six mBot2 units are €1,007.70. Those are multiplications of the unit price, not bundles sold that way, and they include neither the batteries, nor the mats, nor the cupboard. Pack costing is in [equipping a classroom](/en/equip-a-classroom-robot-packs-2026/).
+
+## What the curriculum actually asks for
+
+In cycle 3, which for technology means the 6e year (about age 11), the student programs movements, uses a simple sensor, and tells a sequence from a loop. They have to be able to say whether their program succeeded. Blocks, in Scratch or in mBlock, are enough. The official text does not set a number of sessions. A progression you can hold uses six to eight of them in the year, inside technology time, not in place of the whole curriculum. Cycle 3 in France also reaches back into the end of elementary school; this guide starts at the middle-school year.
+
+In cycle 4, the rest of middle school (about ages 12–15), you expect a structured program, with conditions and variables, then a project where sensors and actuators interact. In 5e (about 12), blocks remain the clearest medium. In 4e and 3e (about 13–15), Python becomes a good bridge toward high school (lycée). It is not written as the only language allowed. A class that stays on blocks can still assess the skills, as long as the algorithm is visible. Count rather on eight to twelve sessions if a 3e project fills the end of the year. That volume is this guide's, not a national timetable.
+
+## Which robot at which level
+
+### Ages 11–12 (6e and 5e): the mBot
+
+<ProductBox
+  productId="mbot"
+  name="Makeblock mBot"
+  asin="B07XR98YYQ"
+  ages="11–13 years (6e–5e)"
+  languages={['Scratch', 'Arduino']}
+  lang="en"
+  ctaText="Check today's price"
+  pros={[
+    'Blocks for the movements expected around age 11',
+    '15-minute build (discovery session)',
+    'mBlock, blocks close to Scratch',
+    'A range of sensors (ultrasonic, line, light)',
+    'Simple to repair'
+  ]}
+  badge="Reference for ages 11–12"
+  position={1}
+/>
+
+mBlock takes up Scratch's ideas: sequence, loop, and condition. It is not the editor published by the Scratch Foundation. In class, what matters is that the robot starts during the session. Ultrasonic, line following, and light are already on the chassis. The screws stay reachable, so you can replace a wheel without sending the whole robot back.
+
+In 6e (about age 11), four activities are enough. A set course (forward, turn, wait) makes a sequence clear. Avoiding an obstacle adds a condition on distance. Following a black line adds a loop. Playing a tune on the buzzer reuses the sequence without the motors. The first program, step by step, is in [my first mBot program](/en/first-mbot-program/).
+
+In 5e (about age 12), you reuse the same sensors with variables. A reversing radar changes the sound by distance bands. An intrusion counter increments a variable. A maze nests a loop and conditions. Eight mBots for a class, in groups of three, are 8 × €89.99, so €719.92 in robots alone at the 6 November 2026 rate. The classic mBot needs AA batteries, whose price you check separately.
+
+### Ages 13–15 (4e and 3e): the mBot2
+
+<ProductBox
+  productId="mbot2"
+  name="Makeblock mBot2"
+  asin="B0919F9CKS"
+  ages="13–15 years (4e–3e)"
+  languages={['Scratch', 'Python']}
+  lang="en"
+  ctaText="Check today's price"
+  pros={[
+    'Python in mBlock, blocks kept',
+    'CyberPi as the onboard computer',
+    'Wi-Fi for IoT projects',
+    'A natural path from Scratch to Python',
+    'Color screen (graphic display)'
+  ]}
+  badge="Recommended for ages 13–15"
+  position={2}
+/>
+
+The mBot2's CyberPi board has a color screen and Wi-Fi, and it runs Python in mBlock while keeping the blocks. That Python is for writing a program. An official text does not impose it as the only possible language. In 4e (about age 13), you take a challenge already done in blocks and rewrite it in text, then you display a temperature, send a notification if the school network allows it, and read the accelerometer. In 3e (about 14–15), the long project can be a station that displays a measurement, a space counter, a small exchange between two robots, or a messenger. Each of those subjects fits a specification, not a single manual.
+
+Six mBot2 units are 6 × €167.95, so €1,007.70 in robots alone on the 6 November 2026 reading. The battery is in the robot. Extra mBuild sensors are not priced here.
+
+### When the ELEGOO car makes sense
+
+<ProductBox
+  productId="elegoo-robot-car"
+  name="ELEGOO Robot Car Kit V4.0"
+  asin="B078Y9RYM2"
+  ages="14+ years (3e)"
+  languages={['Arduino C']}
+  lang="en"
+  ctaText="Check today's price"
+  pros={[
+    'Arduino C/C++ (close to industry)',
+    'Built-in FPV camera',
+    'Detailed tutorials',
+    'Strong value for the price',
+    'A huge Arduino ecosystem'
+  ]}
+  badge="High-school / STI2D option"
+  position={3}
+/>
+
+The ELEGOO car, at €79.99 on 6 November 2026, speaks Arduino in C. It has line following, obstacle avoidance, and a camera. It fits in 3e (about 14–15) if mBots already fill 6e and 5e, if the project looks at an image, or if the team is preparing a path toward STI2D, the French high-school track in industry and sustainable development. The gap with the mBot2 is on the listings: €79.99 on one side, €167.95 on the other. It is not the same language or the same time to get started.
+
+C reads less quickly than blocks. There is no screen on the robot: messages go through the computer's serial link. Sensors are plugged in. They are not all pre-mounted the way they are on an mBot. Plan longer sessions, or reserve this kit for the group that has already programmed.
+
+## A four-year progression
+
+The durations are class hours, to be fitted to the real timetable. The assessment suggested here judges the program and the demonstration, not the robot's brand.
+
+In 6e (about age 11), eight hours are enough for a first contact. The first hour is the build: screws, motors, cables, and a robot that drives straight with the example program. The next hour fixes forward, turn, and stop. Two hours go to the ultrasonic sensor: read a distance, choose a threshold, trigger an alert. Two hours follow the black line, with a loop that corrects the path. The last two leave a challenge to a pair, starting from what has already worked. You assess by watching the session and with a short self-assessment: does the robot do the course that was announced?
+
+In 5e (about age 12), ten hours structure the algorithm. One hour recovers the reflexes from 6e. Two hours introduce a variable: a counter, a score, a time. Two hours nest conditions, including an “and” and an “or.” Two hours pull out a reusable piece of program, the equivalent of a function. The last three build a maze the robot crosses without someone driving it by hand. The grade is on the program and on a demonstration, not on an oral.
+
+In 4e (about age 13), ten hours move to text. Two hours show Python syntax and indentation, in mBlock, next to the equivalent block. Three hours retranslate a challenge already done in 5e. Two hours connect a sensor that had not been used, temperature or light. One hour displays the measurement on the CyberPi screen. The last two send information further, only if the middle school's network allows it. You can assess with a short questionnaire on the syntax and with a commented program.
+
+In 3e (about 14–15), twelve hours hold a project. The first writes the need and the constraints. Two hours set the algorithm, on paper or as a flowchart, before the code. Six hours build, test, and fix. One hour writes instructions another group can follow. Two hours are for showing the robot and talking about it for five minutes. That oral practices speaking in public. It can feed the brevet oral, the French end-of-middle-school exam, if the teaching team keeps the project. On its own, it is not the exam.
+
+## Four activities ready to launch
+
+### At about age 11, a two-color light
+
+The robot lights a red LED, waits, then a green LED, and starts again. In blocks, the structure is: on the flag, repeat forever, turn red on, wait three seconds, turn red off, turn green on, wait two seconds, turn green off. You assess the sequence, the loop, and the timing. Allow one hour, half of it to write and half to notice that the times are not the ones you expected. Block names in mBlock follow the mBot extension you installed. If they differ from this paragraph, the [mBlock 5 guide](/en/first-steps-mblock-5/) shows where to load that extension.
+
+### At about age 12, a reversing radar
+
+The ultrasonic sensor measures the distance. Beyond 50 cm, a green LED stays on and the buzzer is silent. Between 20 and 50 cm, an orange LED turns on and the beep is slow. Below 20 cm, the red LED turns on and the beep speeds up. The thresholds belong to the activity, not to a car standard. You assess multiple conditions and the use of a variable for the distance. Allow two hours, time to discover the sensor before you set the bands. What you should see: the behavior changes when you bring a hand closer, and it does not change if the sensor looks at the ceiling.
+
+### At about age 13, the temperature on the screen
+
+The program displays the temperature read by the CyberPi, then waits one second. The example below follows the API often shown in Makeblock examples. It was not replayed on an mBot2 for this update. If `get_temperature` or `show_label` is rejected, open mBlock's Python help for the version installed in the room. Function names move from one version to another.
+
+```python
+import cyberpi
+import time
+
+while True:
+    temp = cyberpi.get_temperature()
+    cyberpi.display.show_label(str(temp) + "°C", 16)
+    time.sleep(1)
+```
+
+You assess importing a library, the loop, and the display. Allow two hours, especially if this is the group's first Python file. What you should observe: a number that changes when you warm the sensor with a hand, not a frozen piece of text.
+
+### At about ages 14–15, a parking lot that counts
+
+Two ultrasonic sensors, one at the entrance and one at the exit, increment or decrement a variable `places_occupees`, without going past `places_totales` or below zero. The screen shows the spaces left. A green or red LED repeats the same information for anyone who does not read the screen. This is a state program, not a one-hour exercise. Allow about six hours: a specification, trials with a single sensor, then both, then the display. You can see success when a person who did not write the code goes in and out, and the counter follows.
+
+## Organizing 24 students and eight robots
+
+Islands of three work: one student writes, another dictates or checks, the third places the robot on the course. Rotate the roles every 15 minutes, otherwise the same student keeps the keyboard. A color mark on the robot and on the group's sheet avoids the “first one there” argument. A visible timer beats a negotiation. The tracking sheet notes who completed the course. It is not a punishment. At the end of the hour, a laminated sheet (cable, remote, screws) and two students in charge of the equipment for the week are enough. Forgetting to put things away can cost five minutes of sorting at the start of the next session, announced in advance.
+
+## Around the robots
+
+The mBot needs rechargeable AA batteries, in enough sets that one lot charges while the other is on the robots. The charger and battery price is not in the reading. Check it. Do not replace that with a search for “batteries” that names no product. A black-line mat saves you from taping the classroom floor. Check that price too. Cardboard or book obstacles cost nothing.
+
+mBuild extensions, for the mBot or the mBot2, are worth it only if the session already names them. One computer for two students is enough when the computer room is not free, and a projector is for showing a block before everyone clicks. An arena, a ramp, or mission scenery is comfort. They do not unlock the skill.
+
+## Train yourself before the first session
+
+Three hours let you avoid discovering the robot with the students. Half an hour to build it, half an hour in mBlock, an hour and a half on five challenges (forward, ultrasonic, line, and two variants), half an hour for Bluetooth that does not see the robot and for a firmware update. You have checked the troubleshooting when you find the robot in the device list, then see the example program start.
+
+A two-day course, often offered in the regional training plan (in France, through the académie, the regional education authority), covers 6e and 5e first, then Python in 4e–3e. Enrollment is usually between June and September. Whether the course is free for the teacher depends on the académie. Check it. Do not enter it as zero in the budget automatically. Online, follow [mBlock 5](/en/first-steps-mblock-5/) and [the first mBot program](/en/first-mbot-program/). Makeblock tutorials and technology forums fill in, as long as you cross-check them with the curriculum, rather than copying a session that is too long for the class hour.
+
+## What a room costs, robots alone
+
+The example below equips a shared room: eight mBots for ages 11–12, four mBot2 units for ages 13–15. The amounts date from the unit price of 6 November 2026.
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Item</th>
+<th scope="col">Detail</th>
+<th scope="col">Amount</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Item"><span class="td-val">8 mBots</span></td>
+<td data-label="Detail"><span class="td-val">8 × €89.99, ages 11–12</span></td>
+<td data-label="Amount"><span class="td-val">€719.92</span></td>
+</tr>
+<tr>
+<td data-label="Item"><span class="td-val">4 mBot2</span></td>
+<td data-label="Detail"><span class="td-val">4 × €167.95, ages 13–15</span></td>
+<td data-label="Amount"><span class="td-val">€671.80</span></td>
+</tr>
+<tr>
+<td data-label="Item"><span class="td-val">Robots alone</span></td>
+<td data-label="Detail"><span class="td-val">€719.92 + €671.80, not a bundle</span></td>
+<td data-label="Amount"><span class="td-val">€1,391.72</span></td>
+</tr>
+<tr>
+<td data-label="Item"><span class="td-val">Batteries, mats, cupboard</span></td>
+<td data-label="Detail"><span class="td-val">Absent from the reading</span></td>
+<td data-label="Amount"><span class="td-val">Check the price</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+If that €1,391.72 is shared by four classes over five years, the robots' share is €1,391.72 ÷ 5 ÷ 4, so €69.59 per class per year. For 24 students, that is €69.59 ÷ 24, or about €2.90 per pupil per year. This calculation pays neither for batteries, nor for a mat, nor for a broken wheel. Price those items separately, on a quote.
+
+Replacing batteries and parts is budgeted as you go, on a quote. The maker's warranty is on the listing. A well-kept fleet lasts longer than that warranty, and that longer life cannot be announced as a contractual duration.
+
+## Grants, purchases, sessions
+
+Regions, CARDIE (the French network that supports classroom innovation), and foundations such as CGénial open calls, often in the fall for an answer in winter. Amounts and calendars are those of that year's call, not a fixed range. A robotics contest can offer equipment. The lot depends on the rules. It is not something to guess.
+
+To order the three robots in this guide, use the buttons on the product cards above. Those buttons are affiliate links. They support the site at no extra cost shown on the listing. Choose batteries on a specific product listing. A general search does not say which batteries arrive in the box.
+
+Sessions you can reuse are the [ten mBot projects](/en/10-free-mbot-classroom-projects/) and the [one-hour activities](/en/mbot-one-hour-project-ideas/), plus Makeblock Education's resources in French. Regional education authorities also publish technology sequences. Cross-check them with the school's real timetable.
+
+In 6e and 5e (about ages 11–12), eight mBots at €719.92 cover the blocks. In 4e and 3e (about ages 13–15), six mBot2 units at €1,007.70 open Python, or four mBot2 units at €671.80 if the room is shared with the mBots. The ELEGOO car at €79.99 each waits for a group that is already comfortable and ready to read C. All of these amounts start from the 6 November 2026 reading and leave accessories out of the total.
+
+Unit prices for mBot, mBot2, and Ranger are compared in [mBot, mBot2, and Ranger prices](/en/mbot-mbot2-ranger-prices-2026/). For the age question before middle school, see [when to start coding with kids](/en/when-to-start-coding-with-kids/).
