@@ -1,0 +1,125 @@
+---
+layout: ../../layouts/ItPost.astro
+title: "Unboxing OSOYOO Sport Car V1.0: tutto nella confezione, batteria ricaricabile inclusa, 6 lezioni gratuite (Wi-Fi, ostacoli, seguito linea)"
+description: "Apertura del kit OSOYOO Sport Car V1.0 per Arduino: contenuto reale della scatola, batteria 9 V ricaricabile via USB, libretto con una sezione in francese e 6 lezioni online gratuite."
+updated: "12 novembre 2026"
+shareTitle: "Unboxing OSOYOO Sport Car V1.0: batteria inclusa e 6 lezioni gratuite"
+shareDescription: "Auto robot Arduino con sterzo a servomotore: cosa c’è nella scatola, la batteria ricaricabile in dotazione e il programma delle 6 lezioni."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Informativa: i link Amazon in questa pagina possono generare una commissione senza costi aggiuntivi. I prezzi cambiano spesso — verificate sul sito del rivenditore prima dell'acquisto.*
+
+> **Risposta diretta** — L’**OSOYOO Sport Car V1.0** è un’auto robot da montare da soli, guidata da una scheda **compatibile Arduino UNO**. Nella scatola c’è tutto il necessario, compresa una **batteria 9 V ricaricabile via USB**: niente pile da comprare prima. Sei **lezioni online gratuite** portano dal montaggio alla **guida Wi-Fi**, all’**evitamento degli ostacoli** e al **seguito di linea**. Sulla confezione è indicato **dai 14 anni**, o più piccoli con un adulto.
+
+Questo articolo è un **primo contatto**: ho aperto la scatola, controllato il contenuto e letto la documentazione. **Montaggio e prove** saranno oggetto di un secondo articolo.
+
+Il 12 novembre 2026, la scheda [OSOYOO Sport Car V1.0](https://www.amazon.it/dp/B098T6527G?tag=roboteducat0f-21) su Amazon.it mostrava **74,40 €** (link affiliato). Fa fede il prezzo visibile sulla scheda al momento dell’acquisto.
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-unboxing/boite-osoyoo-sport-car-v1.webp"
+  ages="dai 14 anni"
+  languages={['C Arduino']}
+  priceRange="74,40 €"
+  description="Auto robot Arduino con sterzo a servomotore, batteria 9 V ricaricabile e sei lezioni online gratuite."
+  lang="it"
+  pros={[
+    'Tutto è nella scatola, batteria ricaricabile inclusa',
+    'Sterzo come in un’auto vera',
+    'Wi-Fi, evitamento ostacoli e seguito di linea',
+  ]}
+/>
+
+## Prima impressione: un imballo curato
+
+![Scatola del kit OSOYOO Sport Car V1.0 per Arduino nel cartone di spedizione, con i pittogrammi Wi-Fi Control, Ultrasonic Detection, Obstacle Avoidance e Line Tracking](/images/blog/osoyoo-sport-car-v1-unboxing/boite-osoyoo-sport-car-v1.webp)
+
+La scatola è chiara: **«OSOYOO SPORT CAR V1.0»**, modello **2021001900**, **dai 14 anni**, e quattro pittogrammi che riassumono il programma: **controllo Wi-Fi**, **rilevamento a ultrasuoni**, **evitamento ostacoli** e **seguito di linea**. Un collegamento al tutorial online è stampato direttamente sulla confezione.
+
+All’apertura l’impressione è buona: **l’imballo sembra fatto bene, ogni pezzo è etichettato e protetto con cura. Si respira qualità.** Per un kit da montare conta: si ritrova ogni pezzo senza cercare, e si evita di perdere una vite subito.
+
+## Cosa c’è nella scatola
+
+![Vassoio in schiuma del kit OSOYOO Sport Car: sensore di seguito linea a 5 canali infrarossi, shield motore OSOYOO in formato UNO, motore, quattro ruote con cerchi blu e supporto del sensore a ultrasuoni](/images/blog/osoyoo-sport-car-v1-unboxing/plateau-composants-osoyoo-sport-car.webp)
+
+Il primo livello è un **vassoio in schiuma** che tiene i componenti principali:
+
+- un **sensore di seguito linea a 5 canali infrarossi** (OSOYOO 5-Channel IR Tracker): «vede» una linea nera sul pavimento;
+- lo **shield motore OSOYOO**, una scheda che si innesta sulla scheda principale in formato **Arduino UNO** e alimenta il motore;
+- il **motore** che fa avanzare l’auto;
+- **4 ruote** con cerchi blu;
+- il **supporto del sensore a ultrasuoni**, il sensore che misura la distanza dagli ostacoli.
+
+![Accessori del kit OSOYOO Sport Car: cavo USB blu, cavi jumper, bustine di viteria, batteria al litio 9 V ricaricabile USB da 650 mAh, steering cups e nastro isolante](/images/blog/osoyoo-sport-car-v1-unboxing/accessoires-batterie-osoyoo-sport-car.webp)
+
+Il secondo gruppo raccoglie gli accessori: **cavo USB** (per collegare la scheda al computer), **cavi jumper** (per collegare i sensori senza saldare), **bustine di viti e dadi**, gli **steering cups** (i pezzi dello sterzo anteriore), **nastro isolante**… e soprattutto la batteria.
+
+Secondo l’elenco ufficiale OSOYOO, il kit comprende anche la **scheda OSOYOO compatibile Arduino UNO R3**, un **servomotore MG90S** per lo sterzo, un secondo servo per orientare il sensore a ultrasuoni, un **voltmetro**, un **modulo Wi-Fi ESP8266**, un **modulo Bluetooth HC**, il **telaio** in due piastre e gli **attrezzi** (cacciavite a croce, brugola, chiave a L). Controllerò ogni pezzo al momento del montaggio.
+
+### Il punto a favore: la batteria ricaricabile è inclusa
+
+È il dettaglio che cambia l’uso quotidiano: il kit consegna una **batteria al litio 9 V ricaricabile via USB** (650 mAh, riferimento OSOYOO 2020001400), **con i cavi**. **Non servono pile da comprare** prima di iniziare, né da sostituire dopo ogni sessione. In famiglia o in un circolo è più economico e produce meno rifiuti.
+
+Un richiamo utile di OSOYOO: la tensione deve restare sufficiente (sopra **7,2 V** secondo le lezioni) perché l’auto corra bene; il voltmetro in dotazione serve proprio a controllarla.
+
+## Perché «Sport Car»? Lo sterzo come in un’auto vera
+
+La maggior parte dei piccoli robot Arduino gira facendo ruotare le ruote sinistra e destra a velocità diverse (sterzo differenziale). La Sport Car usa una **cremagliera di sterzo mossa da un servomotore**: le ruote anteriori ruotano, **come in un’auto vera**, mentre un motore trascina le ruote posteriori.
+
+Dal punto di vista didattico è interessante: si scopre la **meccanica** (tiranti, angolo di sterzo) oltre all’elettronica e al codice. Le lezioni spiegano, per esempio, di non superare circa **35°** di sterzo, altrimenti le ruote anteriori frenano troppo l’auto.
+
+## Il libretto: una sezione in francese e lezioni online
+
+![Pagine in francese del libretto OSOYOO Sport Car: norme di sicurezza, presentazione di OSOYOO e collegamenti alle 6 lezioni online](/images/blog/osoyoo-sport-car-v1-unboxing/notice-francais-osoyoo-sport-car.webp)
+
+Il libretto cartaceo, **«Sport Car Kit for Arduino – Safety instructions and quick start guide»**, contiene una **sezione in francese**: norme di sicurezza, breve presentazione del marchio e collegamenti alle lezioni. Il montaggio dettagliato **non è sulla carta**: sta **online**. Il mio giudizio: **è piuttosto riuscito**, perché le pagine web sono illustrate e si possono aggiornare.
+
+![Copertina della guida Sport Car Kit for Arduino – Safety instructions and quick start guide](/images/blog/osoyoo-sport-car-v1-unboxing/guide-demarrage-osoyoo-sport-car.webp)
+
+Cosa si impara:
+
+- **OSOYOO** è un marchio di **Pinetree Electronics Ltd**, società canadese con sede a **Vancouver** dal **2009**;
+- le **norme di sicurezza** sono chiare: staccare la batteria quando la scheda è collegata al PC, non collegare nulla sotto tensione, rispettare il segno + / −;
+- il **supporto** avviene con un commento sotto il tutorial o per e-mail (support@osoyoo.info), con una risposta annunciata **entro 24 ore**.
+
+Ho aperto i collegamenti stampati sul libretto per verificare cosa contengono davvero:
+
+- la **pagina iniziale del tutorial** ([osoyoo.com/?p=40040](https://osoyoo.com/?p=40040)): presentazione del kit, elenco dei pezzi e accesso alle 6 lezioni e ai relativi codici;
+- un **manuale PDF** completo di circa 67 pagine ([sportcarkit.pdf](https://osoyoo.com/manual/sportcarkit.pdf)) che riprende le 6 lezioni, utile da stampare o da usare offline;
+- un **video di presentazione** ([osoyoo.com/sport_car_kit.html](http://osoyoo.com/sport_car_kit.html)) che rimanda a una playlist YouTube.
+
+Da sapere: le lezioni sono **gratuite** ma scritte **in inglese** (il sito ha un selettore di lingua). La programmazione si fa con l’**Arduino IDE** sul computer.
+
+## Il programma delle 6 lezioni gratuite
+
+| Lezione | Cosa si impara | Cosa si usa |
+|---|---|---|
+| **1. Montaggio e prova del servo** | Montare il telaio, cablare, poi allineare lo sterzo perché le ruote guardino dritto | Servomotore, Arduino IDE |
+| **2. Movimenti di base** | Avanti, indietro, sterzate; regolare velocità e angolo di sterzo nel codice | Libreria PWMServo |
+| **3. Seguito di linea** | Far seguire una linea nera (larga 2-3 cm) regolando la sensibilità del sensore | Sensore IR a 5 canali |
+| **4. Evitamento ostacoli** | Misurare la distanza, fermarsi, «guardare» a sinistra e a destra e scegliere la strada | Sensore a ultrasuoni su un servo |
+| **5. Guida Wi-Fi** | Comandare l’auto da uno smartphone, tramite il router (modo STA) o come punto di accesso autonomo (modo AP) | Modulo ESP8266, app «OSOYOO IoT UDP Robot Car» |
+| **6. Guida Bluetooth** | Guidare inclinando il telefono come un volante, con marcia avanti e indietro | Modulo HC, app «OSOYOO imitation driving» |
+
+La progressione è logica: ogni lezione si appoggia al montaggio della lezione 1, e si conserva lo stesso valore di taratura dello sterzo (`FRONT`) da una lezione all’altra. È un buon modo per avvicinarsi al **C Arduino** a piccoli passi: si modificano poche righe (velocità, angolo) e si vede subito l’effetto sull’auto. Per iniziare con il codice, vedi la nostra serie [C per Arduino](/it/arduino-c/).
+
+## A chi è destinato questo kit?
+
+- **Adolescenti dai 14 anni** (età indicata sulla scatola) che vogliono passare dal gioco a un vero progetto di elettronica;
+- **più piccoli accompagnati da un adulto**, soprattutto per i cablaggi e per l’installazione dell’Arduino IDE;
+- **adulti principianti** e **circoli / laboratori** che cercano un progetto completo, con più sensori e due modi di guida da smartphone.
+
+Serve un **computer** per caricare i programmi e uno **smartphone** per le lezioni 5 e 6. Le lezioni sono in inglese, quindi è utile un adulto o un ragazzo a suo agio con l’inglese tecnico. Per confrontare altri kit, consulta la guida [kit robot Arduino per bambini](/it/kit-robot-arduino-per-bambini/).
+
+## Da costruire
+
+**Non ho ancora montato** l’auto: oggi non c’è stato il tempo. Sarà l’oggetto del **prossimo articolo: montaggio e prove**, seguendo le **lezioni 1-6** come filo conduttore. Racconterò il tempo di montaggio reale, eventuali difficoltà (allineamento dello sterzo, regolazione del sensore di linea, connessione Wi-Fi) e come si comporta l’auto una volta in pista.
+
+Nel frattempo, se avete già il kit, cominciate dalla [lezione 1 su osoyoo.com](https://osoyoo.com/?p=39565): è la base di tutte le altre.
+
+Le istruzioni di montaggio sono affidabili, ma è fornita una biella in più: ne servono due e nella scatola ce ne sono tre. Per le ruote anteriori, lasciare un piccolo gioco in corrispondenza del manicotto metallico: se si serra troppo, la ruota non gira più. Emmanuel consiglia di avere a portata di mano un cacciavite vero, in aggiunta al piccolo cacciavite in dotazione, più comodo per le viti a testa piatta. Per il montaggio ha usato la [lezione 1 su osoyoo.com](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/), perché il video non indica i riferimenti dei pezzi.
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.it/dp/B098T6527G?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>Vedi il kit OSOYOO Sport Car su Amazon →</strong></a> <small>(link affiliato)</small></p>
