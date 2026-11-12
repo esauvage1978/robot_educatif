@@ -38,3 +38,6 @@ prive/
 
 # Sauvegardes locales
 *.bak-*
+
+# Copies locales avant modification
+*.avant-*
