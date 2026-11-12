@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/DePost.astro
+title: "OSOYOO Sport Car V1.0: Zusammenbau und Anschluss (Lektion 1, Montagetipps)"
+description: "Zusammenbau und Verkabelung des OSOYOO Sport Car V1.0: Emmanuel ist der OSOYOO-Lektion 1 gefolgt, mit einer extra Spurstange, einem richtigen Schraubendreher und etwas Spiel an den Vorderrädern."
+updated: "12. November 2026"
+shareTitle: "OSOYOO Sport Car V1.0: Zusammenbau und Anschluss"
+shareDescription: "Arduino-Bausatz nach Lektion 1: zuverlässige Anleitung, eine Spurstange extra, Spiel an der Metallhülse der Vorderräder, danach der Anschluss."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Hinweis: Amazon-Links auf dieser Seite können uns eine Provision einbringen, ohne Mehrkosten für Sie. Preise ändern sich häufig — bitte vor dem Kauf auf der Produktseite prüfen.*
+
+> **Kurzantwort** — Nach dem [Auspacken](/de/osoyoo-sport-car-v1-auspacken/) habe ich den **OSOYOO Sport Car V1.0 zusammengebaut und angeschlossen**. Ich habe mit dem offiziellen Video begonnen, aber es gibt die Teilenummern nicht an: deshalb bin ich zur [Lektion 1 auf osoyoo.com](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/) gewechselt, die die Hardware-Installation, die Verkabelung und den Test des SG90-Servos beschreibt. Die Anleitung ist zuverlässig. Ein dritter Artikel folgt, zur **Nutzung** (Programmierung und Lektionen).
+
+Am 12. November 2026 zeigte das Angebot [OSOYOO Sport Car V1.0](https://www.amazon.de/dp/B098T6527G?tag=roboteducat00-21) bei Amazon.de **71,90 €** (Affiliate-Link). Maßgeblich ist der Preis auf der Produktseite am Kauftag.
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-assemblage/voiture-cablee-osoyoo-sport-car-v1.webp"
+  ages="ab 14 Jahren"
+  languages={['Arduino-C']}
+  priceRange="71,90 €"
+  description="Arduino-Roboterauto mit Servolenkung, ladbarem 9-V-Akku und sechs kostenlosen Online-Lektionen."
+  lang="de"
+  pros={[
+    'Alles in der Box, inklusive ladbarem Akku',
+    'Lenkung wie bei einem echten Auto',
+    'WLAN, Hindernisvermeidung und Linienfolge',
+  ]}
+/>
+
+## Welcher Anleitung folgen?
+
+Zuerst habe ich das **offizielle Video** angesehen. Es vermittelt einen Eindruck vom fertigen Auto, aber **es gibt die Teilenummern nicht an**. Für den Zusammenbau habe ich mich deshalb auf die [Lektion 1: Hardware-Installation und Servotest](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/) auf osoyoo.com gestützt.
+
+Diese Lektion ist die Grundlage der späteren. Sie behandelt der Reihe nach:
+
+- die **Hardware-Installation** (Fahrgestell, Motor, Spurstangen, Räder, Platinen, Servos, Sensoren, Akku);
+- den **Anschluss** (Motor, Batteriehalter, Voltmeter, Servos und Sensoren am Motor-Shield);
+- die **Software-Installation** (Arduino IDE) und das **Ausrichten des Lenkservos** (`steering.ino`, Wert `FRONT`).
+
+Die einzelnen Schrauben und Stecker stehen auf dieser Seite: ich erfinde hier keine Teilenummern. Den Lieferumfang habe ich im [Auspack-Artikel](/de/osoyoo-sport-car-v1-auspacken/) beschrieben.
+
+## Was mir beim Zusammenbau aufgefallen ist
+
+Die Montageanleitung ist **zuverlässig**, aber **eine Spurstange liegt extra bei**: man braucht **zwei**, und in der Box sind **drei**.
+
+Bei den **Vorderrädern** ein **kleines Spiel an der Metallhülse** lassen: wenn man zu fest anzieht, dreht das Rad nicht mehr.
+
+Ich rate, zusätzlich zu dem kleinen mitgelieferten Schraubendreher einen **richtigen** bereitzulegen, der für die Schlitzschrauben bequemer ist.
+
+## Bis zu den Vorderrädern, dann der Anschluss
+
+Laut Lektion 1 ist **Schritt 8** die Montage der **Vorderräder** auf der Metallstange (der nächste Schritt befestigt diese Räder mit der Metallhülse — deshalb ist etwas Spiel wichtig). Der Zusammenbau war **bei Schritt 8 fertig**, danach bin ich zum **Anschluss** übergegangen.
+
+## Die Servos und das Shield
+
+![Shield auf seinem schwarzen Träger an der Vorderseite des OSOYOO Sport Car, blauer SG90-Servo für den Ultraschallkopf darunter, oranger Lenkservo auf dem Fahrgestell, und orange, rote und braune Servokabel](/images/blog/osoyoo-sport-car-v1-assemblage/servos-shield-osoyoo-sport-car.webp)
+
+Auf diesem Foto ist das **Shield** auf seinem **schwarzen Träger vorne** montiert, der **blaue SG90-Servo** für den Ultraschallkopf sitzt darunter, und der **orange Lenkservo** ist auf dem Fahrgestell befestigt, mit seinen **orangefarbenen, roten und braunen Kabeln**.
+
+Lektion 1 nennt den offiziellen Anschluss dieser Servos am Motor-Shield: der **MG90S**-Lenkservo (orange) an **D9**, der (blaue) Servo an **D10**.
+
+## Das Auto nach dem Anschluss
+
+![OSOYOO Sport Car V1.0 verkabelt, Seitenansicht: Arduino-Platine und Motor-Shield, gelber Akku, 4-stelliges Display, oranger Servo und Kabelbäume nach vorne zu den Sensoren](/images/blog/osoyoo-sport-car-v1-assemblage/voiture-cablee-osoyoo-sport-car-v1.webp)
+
+Nach dem Anschluss erkennt man von der Seite: die **Arduino-Platine** und das **Motor-Shield**, den **gelben Akku**, das **4-stellige Display**, den **orangen Servo** und die **Kabelbäume nach vorne** (zu den Sensoren).
+
+Dieselbe Lektion beschreibt auch die übrigen offiziellen Verbindungen: die Jumper-Kappen auf **ENB-D6**, **IN3-D9** und **IN4-D10** entfernen; den Motor an **K1** oder **K2** anschließen; Batteriehalter, Voltmeter, Ultraschallsensor und Liniensensor mit dem Shield verbinden. Die bebilderte Anleitung steht auf der [Seite der Lektion 1](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/).
+
+## Als Nächstes: der Servotest, dann die Nutzung
+
+Lektion 1 endet nicht bei der Verkabelung: sie geht weiter mit der **Arduino IDE** und dem **Ausrichten des Lenkservos**, mit dem Sketch `steering.ino`, damit die Vorderräder geradeaus zeigen (den Wert `FRONT` für die späteren Lektionen notieren).
+
+Die **Nutzung** des Kits — Programmierung und Lektionen — wird ein **dritter Artikel**.
+
+Zum Lieferumfang und zum Programm der sechs Lektionen siehe das [Auspacken des OSOYOO Sport Car V1.0](/de/osoyoo-sport-car-v1-auspacken/).
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.de/dp/B098T6527G?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>OSOYOO Sport Car bei Amazon ansehen →</strong></a> <small>(Affiliate-Link)</small></p>
