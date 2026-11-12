@@ -1,0 +1,140 @@
+---
+import DomotiqueToolLayout from '../../../../layouts/DomotiqueToolLayout.astro';
+import {
+	BRANDS,
+	DEVICE_CATEGORIES,
+	PRODUCTS,
+	getAllCatalogEntries,
+} from '../../../../data/unifiedErrorCatalog.mjs';
+import { withBase } from '../../../../lib/siteUrl';
+
+export function getStaticPaths() {
+	return getAllCatalogEntries().map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const lang = 'en';
+const productBySlug = Object.fromEntries(PRODUCTS.map((p) => [p.slug, p]));
+const brandBySlug = Object.fromEntries(BRANDS.map((b) => [b.slug, b]));
+const categoryBySlug = Object.fromEntries(DEVICE_CATEGORIES.map((c) => [c.slug, c]));
+const primary = entry.product_slug ? productBySlug[entry.product_slug] : null;
+const brand = brandBySlug[entry.brand_slug];
+const category = categoryBySlug[entry.category_slug];
+const productLabel = primary?.name ?? entry.product_slug ?? brand?.name ?? 'this device';
+const articlePath = `/en/smart-home/error/${entry.slug}/`;
+const title = entry.title.en || entry.title.fr;
+const symptoms = entry.symptoms.en || entry.symptoms.fr;
+const fix = entry.fix.en || entry.fix.fr;
+const caution = entry.caution?.en || entry.caution?.fr || '';
+const savNote = entry.savNote?.en || entry.savNote?.fr || '';
+const pick = (value) => (value && typeof value === 'object' ? value.en || value.fr || '' : value || '');
+const tools = pick(entry.tools);
+const time = pick(entry.time);
+const cost = pick(entry.cost);
+const description = symptoms.slice(0, 158).trim();
+const pubDate = new Date('2026-10-24T00:00:00Z');
+const related = getAllCatalogEntries()
+	.filter((e) => e.brand_slug === entry.brand_slug && e.slug !== entry.slug)
+	.slice(0, 5);
+const searchName = primary?.name || brand?.name || entry.error_code;
+const amazonHref = `https://www.amazon.com/s?k=${encodeURIComponent(searchName)}&tag=roboteducatif-20`;
+const mains = entry.category_slug === 'micromodules-relais';
+const hub = '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/';
+---
+
+<DomotiqueToolLayout
+	title={`${entry.error_code} — ${title}`}
+	description={description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Smart home"
+	repairGuide={true}
+	contentProvidesH1={true}
+	skipDefaultBreadcrumb={true}
+	breadcrumbItems={[
+		{ name: 'Home', url: withBase('/en/') },
+		{ name: 'Smart home', url: withBase('/en/smart-home/') },
+		{ name: 'Error codes', url: withBase(hub) },
+		{ name: entry.error_code, url: withBase(articlePath) },
+	]}
+>
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href={withBase('/en/')}>Home</a> · <a href={withBase('/en/smart-home/')}>Smart home</a> · <a href={withBase(hub)}>Error codes</a> · {entry.error_code}
+	</nav>
+	<h1>{title}</h1>
+	<p class="error-hero__code"><code>{entry.error_code}</code></p>
+	<p>
+		<strong>Brand:</strong> {brand?.name ?? entry.brand_slug}
+		{primary ? <> · <strong>Product:</strong> {primary.name}</> : null}
+		{category ? <> · <strong>Family:</strong> {category.name_en}</> : null}
+	</p>
+	<ul>
+		<li><strong>Time:</strong> {time}</li>
+		<li><strong>Typical cost:</strong> {cost}</li>
+		<li><strong>Difficulty:</strong> {entry.difficulty} / 5</li>
+		{tools ? <li><strong>What you need:</strong> {tools}</li> : null}
+	</ul>
+
+	{mains && (
+		<p>
+			<strong>Mains power.</strong> A relay behind a switch can sit on live wiring. Turn the breaker off and confirm the circuit is dead before you open a box. If you are not confident with household wiring, stop and call an electrician. This page does not replace the manufacturer’s manual.
+		</p>
+	)}
+
+	<h2>What you see</h2>
+	<p>{symptoms}</p>
+
+	<h2>What to do</h2>
+	<p>{fix}</p>
+
+	{caution && (
+		<>
+			<h2>Before you go further</h2>
+			<p>{caution}</p>
+		</>
+	)}
+	{savNote && (
+		<>
+			<h2>Warranty and support</h2>
+			<p>{savNote}</p>
+		</>
+	)}
+
+	<p>
+		Some links on this page are affiliate links. The button opens Amazon so you can check today’s price. We do not invent a local dollar or pound amount.
+	</p>
+	<p>
+		<a href={amazonHref} rel="sponsored nofollow noopener" target="_blank">Check today’s price on Amazon</a>
+		{' '}for {productLabel}. The same steps are on the <a href={withBase(`/domotique/code-erreur/${entry.slug}/`)}>French page</a>, which also carries the longer notes for a few codes.
+	</p>
+
+	{related.length > 0 && (
+		<>
+			<h2>Other {brand?.name ?? 'related'} codes</h2>
+			<ul>
+				{related.map((e) => (
+					<li>
+						<a href={withBase(`/en/smart-home/error/${e.slug}/`)}>{e.error_code}</a>
+						{' — '}
+						{e.title.en || e.title.fr}
+					</li>
+				))}
+			</ul>
+		</>
+	)}
+	<p><a href={withBase(hub)}>All error codes</a></p>
+</DomotiqueToolLayout>
+
+<style>
+	.breadcrumb {
+		font-size: 0.9rem;
+		margin: 0 0 1rem;
+	}
+	.error-hero__code {
+		font-size: 1.05rem;
+	}
+</style>
