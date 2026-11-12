@@ -1,6 +1,6 @@
 ---
 title: "Puissance 4 en Python (2/6) — affichage et gravité"
-description: "Console, SYM et afficher_grille ; jouer_colonne et gravite ; script complet telechargeable."
+description: "Puissance 4 en Python, partie 2 : afficher la grille dans la console, poser un jeton et appliquer la gravité. Script complet à télécharger et à relancer."
 pubDate: 2026-03-29
 updatedDate: 2026-03-28
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
@@ -19,8 +19,6 @@ categories:
   - "Projet"
 ---
 Tu reprends la grille du [chapitre 1](/python-puissance-4-1-cahier-grille/). Ce chapitre ajoute l’**affichage** lisible dans le terminal et la fonction **`jouer_colonne`** : le pion tombe à la **plus basse** case libre de la colonne.
-
-![Console Python](../../assets/programmation/python-terminal.svg)
 
 ## 1. Affichage ASCII
 
@@ -139,7 +137,3 @@ if __name__ == "__main__":
 ## Suite
 
 [Partie 3 — Alterner les joueurs et lire une colonne valide](/python-puissance-4-3-coup-alternance/).
-
-## Amazon (partenaire)
-
-- [Algorithmique Python](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)

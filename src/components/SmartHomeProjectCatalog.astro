@@ -1,0 +1,479 @@
+---
+import {
+	USE_CASES,
+	USE_CASE_CATEGORIES,
+	computeBudgetRange,
+} from '../data/smartHomeUseCaseConfigurator.mjs';
+import { slugForUseCase, projectPagePath, USE_CASE_ID_TO_SLUG } from '../data/smartHomeProjectSlugs.mjs';
+import { withBase } from '../lib/siteUrl';
+import DomotiqueEssentials2026 from './DomotiqueEssentials2026.astro';
+
+const useCaseCount = USE_CASES.length;
+
+const cards = USE_CASES.map((uc) => {
+	const slug = slugForUseCase(uc.id);
+	const budget = computeBudgetRange(uc.id);
+	return {
+		id: uc.id,
+		slug,
+		path: withBase(projectPagePath(slug)),
+		emoji: uc.emoji,
+		title: uc.title,
+		shortDesc: uc.shortDesc,
+		category: uc.category,
+		difficulty: uc.meta.difficulty,
+		time: uc.meta.time,
+		budgetMin: budget.min,
+		budgetMax: budget.max,
+		keywords: `${uc.title} ${uc.shortDesc} ${uc.keywords ?? ''}`.toLowerCase(),
+		beginner: uc.meta.difficulty <= 2,
+		techs: ['wifi-sans-box', 'ha-zigbee', 'maker-esp32'].filter((eco) => uc.recipes[eco]),
+	};
+});
+
+const cardsJson = JSON.stringify(cards);
+const categoriesJson = JSON.stringify(USE_CASE_CATEGORIES);
+const slugMapJson = JSON.stringify(USE_CASE_ID_TO_SLUG);
+---
+
+<section class="shpc-hero" aria-labelledby="shpc-hero-title">
+	<p class="shpc-kicker">{useCaseCount} projets domotiques documentés</p>
+	<h1 id="shpc-hero-title">Quel projet domotique souhaitez-vous réaliser ?</h1>
+	<p class="shpc-lead">
+		Éclairage intelligent, volets connectés, chauffage automatisé, sécurité ou économies d'énergie : choisissez votre
+		projet et découvrez le matériel nécessaire, le budget et toutes les étapes pour le réaliser.
+	</p>
+</section>
+
+<section class="shpc-beginner" aria-labelledby="shpc-beginner-title">
+	<h2 id="shpc-beginner-title">Projets pour débuter (sans travaux 230 V complexes)</h2>
+	<p class="shpc-muted">
+		Prises connectées, capteurs Zigbee sur pile, notifications ou box Home Assistant Green : idéal pour un premier
+		succès avant d'ouvrir un boîtier d'encastrement.
+	</p>
+	<ul class="shpc-quick-links" data-shpc-beginner-links></ul>
+</section>
+
+<DomotiqueEssentials2026 />
+
+<div
+	class="shpc-catalog"
+	data-shpc-catalog
+	data-cards={cardsJson}
+	data-categories={categoriesJson}
+	data-slug-map={slugMapJson}
+>
+	<div class="shpc-toolbar">
+		<label class="shpc-search-wrap">
+			<span class="visually-hidden">Rechercher un projet</span>
+			<input
+				type="search"
+				class="shpc-search"
+				data-shpc-search
+				placeholder="Ex. garage, fil pilote, volet, lave-linge, Home Assistant…"
+				autocomplete="off"
+			/>
+		</label>
+		<div class="shpc-filter-row">
+			<label>
+				Catégorie
+				<select data-shpc-filter-cat>
+					{USE_CASE_CATEGORIES.map((c) => (
+						<option value={c.id}>{c.label}</option>
+					))}
+				</select>
+			</label>
+			<label>
+				Difficulté
+				<select data-shpc-filter-diff>
+					<option value="all">Toutes</option>
+					<option value="1-2">Facile (1–2)</option>
+					<option value="3">Moyen (3)</option>
+					<option value="4-5">Difficile (4–5)</option>
+				</select>
+			</label>
+			<label>
+				Budget indicatif
+				<select data-shpc-filter-budget>
+					<option value="all">Tous</option>
+					<option value="0-80">Moins de 80 €</option>
+					<option value="80-200">80–200 €</option>
+					<option value="200-9999">Plus de 200 €</option>
+				</select>
+			</label>
+			<label>
+				Écosystème
+				<select data-shpc-filter-eco>
+					<option value="all">Tous</option>
+					<option value="wifi-sans-box">Wi-Fi sans box</option>
+					<option value="ha-zigbee">Home Assistant + Zigbee</option>
+					<option value="maker-esp32">Maker ESP32</option>
+				</select>
+			</label>
+			<button type="button" class="shpc-reset" data-shpc-reset>Réinitialiser les filtres</button>
+		</div>
+		<p class="shpc-meta" data-shpc-meta aria-live="polite"></p>
+	</div>
+
+	<div class="shpc-grid" data-shpc-grid>
+		{cards.map((c) => (
+			<article
+				class="shpc-card"
+				data-shpc-card
+				data-id={c.id}
+				data-category={c.category}
+				data-difficulty={String(c.difficulty)}
+				data-budget-min={String(c.budgetMin)}
+				data-budget-max={String(c.budgetMax)}
+				data-ecos={c.techs.join(',')}
+				data-keywords={c.keywords}
+				data-beginner={c.beginner ? '1' : '0'}
+			>
+				<span class="shpc-card-emoji" aria-hidden="true">{c.emoji}</span>
+				<span class="shpc-badge">{USE_CASE_CATEGORIES.find((x) => x.id === c.category)?.label ?? c.category}</span>
+				<h2 class="shpc-card-title">
+					<a href={c.path}>{c.title}</a>
+				</h2>
+				<p class="shpc-card-desc">{c.shortDesc}</p>
+				<ul class="shpc-card-meta">
+					<li><strong>Difficulté</strong> {c.difficulty}/5</li>
+					<li><strong>Budget</strong> {c.budgetMin}–{c.budgetMax} €</li>
+					<li><strong>Durée</strong> {c.time}</li>
+				</ul>
+				<div class="shpc-tech-badges">
+					{c.techs.includes('wifi-sans-box') && <span class="shpc-tech">Wi-Fi</span>}
+					{c.techs.includes('ha-zigbee') && <span class="shpc-tech">Zigbee / HA</span>}
+					{c.techs.includes('maker-esp32') && <span class="shpc-tech">ESPHome</span>}
+				</div>
+				<div class="shpc-card-actions">
+					<a class="shpc-cta" href={c.path}>Voir le tutoriel &amp; schéma →</a>
+					<a class="shpc-kit" href={`${c.path}#materiel`} data-placement="shpc_kit_materiel">🛒 Kit matériel</a>
+				</div>
+			</article>
+		))}
+	</div>
+</div>
+
+<section class="shpc-editorial" aria-labelledby="shpc-choose-title">
+	<h2 id="shpc-choose-title">Comment choisir son premier projet domotique ?</h2>
+	<p>
+		Commencez par un besoin concret (notification de courrier, fin de cycle lave-linge, veilleuses éteintes la nuit) plutôt
+		que par la marque d'une box. Vérifiez si le projet touche au <strong>230 V encastré</strong> : si oui, prévoyez VAT,
+		boîte 50 mm et éventuellement un électricien. Sinon, une prise ou un capteur Zigbee suffit souvent.
+	</p>
+	<h2>Quel budget prévoir ?</h2>
+	<table class="tableau empile">
+		<thead>
+			<tr><th scope="col">Type de projet</th><th scope="col">Fourchette typique</th><th scope="col">Exemple</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Capteur / prise seule</td><td>15–60 €</td><td>Alerte lave-linge, boîte aux lettres</td></tr>
+			<tr><td>Module encastré + capteur</td><td>40–120 €</td><td>Éclairage sans neutre, présence couloir</td></tr>
+			<tr><td>Motorisation / fil pilote</td><td>80–250 €</td><td>Volet roulant, radiateur fil pilote</td></tr>
+			<tr><td>Tableau / box locale</td><td>150–450 €</td><td>Home Assistant Green, suivi conso Linky</td></tr>
+		</tbody>
+	</table>
+	<h2>Zigbee, Wi-Fi ou Matter : quelles différences ?</h2>
+	<p>
+		<strong>Wi-Fi</strong> (Shelly, Tapo) : simple, pas de coordinateur, idéal pour 1–5 actionneurs. <strong>Zigbee</strong> :
+		capteurs sur pile, mesh, 100 % local avec Home Assistant. <strong>Matter</strong> : couche d'unification encore jeune ;
+		nos fiches privilégient Zigbee et Wi-Fi local éprouvés en octobre 2026.
+	</p>
+	<h2>Faut-il une box Home Assistant ?</h2>
+	<p>
+		Non pour un premier projet Wi-Fi isolé. Oui dès que vous combinez capteurs Zigbee, automatisations croisées ou
+		confidentialité sans cloud. Le projet <a href={withBase(projectPagePath('installer-home-assistant'))}>Installer Home Assistant</a> détaille Green vs Raspberry Pi 5.
+	</p>
+	<h2 id="shpc-faq-catalog">Questions fréquentes (catalogue)</h2>
+	<div class="shpc-faq">
+		<details><summary>Les prix affichés incluent-ils la main-d'œuvre ?</summary><p>Non : budgets matériel indicatifs (octobre 2026), hors câbles, Wago et électricien.</p></details>
+		<details><summary>Puis-je mélanger Shelly Wi-Fi et capteurs Zigbee ?</summary><p>Oui avec Home Assistant comme hub local ; sans HA, gardez un écosystème cohérent par pièce.</p></details>
+		<details><summary>Où sont les schémas de câblage ?</summary><p>Sur chaque fiche projet : SVG orthogonal NFC 15-100, tableau bornier et tutoriel en 8 étapes.</p></details>
+		<details><summary>Comment retrouver l'ancien configurateur ?</summary><p>Le paramètre <code>?project=</code> ou les ancres <code>#shuc-ref-…</code> redirigent vers la fiche projet dédiée.</p></details>
+	</div>
+</section>
+
+<script>
+	function initShpcCatalog(root) {
+		const cards = JSON.parse(root.dataset.cards || '[]');
+		const slugMap = JSON.parse(root.dataset.slugMap || '{}');
+		const searchEl = root.querySelector('[data-shpc-search]');
+		const catEl = root.querySelector('[data-shpc-filter-cat]');
+		const diffEl = root.querySelector('[data-shpc-filter-diff]');
+		const budgetEl = root.querySelector('[data-shpc-filter-budget]');
+		const ecoEl = root.querySelector('[data-shpc-filter-eco]');
+		const metaEl = root.querySelector('[data-shpc-meta]');
+		const cardEls = root.querySelectorAll('[data-shpc-card]');
+		const beginnerLinks = document.querySelector('[data-shpc-beginner-links]');
+
+		if (beginnerLinks) {
+			beginnerLinks.innerHTML = cards
+				.filter((c) => c.beginner)
+				.slice(0, 6)
+				.map(
+					(c) =>
+						`<li><a href="${c.path}">${c.emoji} ${c.title.replace(/</g, '&lt;')}</a></li>`,
+				)
+				.join('');
+		}
+
+		function normalize(s) {
+			return s
+				.toLowerCase()
+				.normalize('NFD')
+				.replace(/\p{M}/gu, '')
+				.trim();
+		}
+
+		function apply() {
+			const q = normalize(searchEl?.value || '');
+			const cat = catEl?.value || 'all';
+			const diff = diffEl?.value || 'all';
+			const budget = budgetEl?.value || 'all';
+			const eco = ecoEl?.value || 'all';
+			let visible = 0;
+			cardEls.forEach((el) => {
+				const d = Number(el.dataset.difficulty);
+				const bMin = Number(el.dataset.budgetMin);
+				const bMax = Number(el.dataset.budgetMax);
+				const ecos = (el.dataset.ecos || '').split(',');
+				const hay = el.dataset.keywords || '';
+				let ok = true;
+				if (cat !== 'all' && el.dataset.category !== cat) ok = false;
+				if (q && !hay.includes(q)) ok = false;
+				if (diff === '1-2' && d > 2) ok = false;
+				if (diff === '3' && d !== 3) ok = false;
+				if (diff === '4-5' && d < 4) ok = false;
+				if (budget === '0-80' && bMin > 80) ok = false;
+				if (budget === '80-200' && (bMax < 80 || bMin > 200)) ok = false;
+				if (budget === '200-9999' && bMax < 200) ok = false;
+				if (eco !== 'all' && !ecos.includes(eco)) ok = false;
+				el.hidden = !ok;
+				if (ok) visible += 1;
+			});
+			if (metaEl) metaEl.textContent = `${visible} projet${visible > 1 ? 's' : ''} affiché${visible > 1 ? 's' : ''} sur ${cards.length}`;
+		}
+
+		[searchEl, catEl, diffEl, budgetEl, ecoEl].forEach((el) => el?.addEventListener('input', apply));
+		[catEl, diffEl, budgetEl, ecoEl].forEach((el) => el?.addEventListener('change', apply));
+		root.querySelector('[data-shpc-reset]')?.addEventListener('click', () => {
+			if (searchEl) searchEl.value = '';
+			if (catEl) catEl.value = 'all';
+			if (diffEl) diffEl.value = 'all';
+			if (budgetEl) budgetEl.value = 'all';
+			if (ecoEl) ecoEl.value = 'all';
+			apply();
+		});
+		apply();
+	}
+
+	function legacyRedirect(slugMap) {
+		const params = new URLSearchParams(window.location.search);
+		const project = params.get('project');
+		if (project && slugMap[project]) {
+			const base = document.querySelector('[data-shpc-catalog]')?.dataset.base || '';
+			window.location.replace(`${base}/domotique/projets/${slugMap[project]}/`);
+			return;
+		}
+		const hash = window.location.hash.replace(/^#/, '');
+		if (hash.startsWith('shuc-ref-')) {
+			const id = hash.replace('shuc-ref-', '');
+			if (slugMap[id]) {
+				window.location.replace(`/domotique/projets/${slugMap[id]}/`);
+			}
+		}
+	}
+
+	document.querySelectorAll('[data-shpc-catalog]').forEach((root) => {
+		initShpcCatalog(root);
+		const slugMap = JSON.parse(root.dataset.slugMap || '{}');
+		legacyRedirect(slugMap);
+	});
+</script>
+
+<style is:global>
+	.shpc-hero {
+		margin: 0 0 2rem;
+		padding: 1.75rem 1.25rem;
+		border-radius: 14px;
+		background: linear-gradient(135deg, #0f766e 0%, #0b1f2a 100%);
+		color: #f8fafc;
+	}
+	.shpc-hero h1 {
+		color: #f8fafc;
+	}
+	.shpc-kicker {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #f8fafc;
+		margin: 0 0 0.5rem;
+	}
+	.shpc-lead {
+		max-width: 52rem;
+		line-height: 1.55;
+		margin: 0;
+		color: #f8fafc;
+	}
+	.shpc-beginner {
+		margin-bottom: 2rem;
+	}
+	.shpc-quick-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		list-style: none;
+		padding: 0;
+	}
+	.shpc-quick-links a {
+		font-weight: 600;
+	}
+	.shpc-toolbar {
+		margin-bottom: 1.25rem;
+	}
+	.shpc-search {
+		width: 100%;
+		max-width: 36rem;
+		padding: 0.65rem 0.85rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border, #cbd5e1);
+		margin-bottom: 0.75rem;
+	}
+	.shpc-filter-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1rem;
+		align-items: flex-end;
+	}
+	.shpc-filter-row label {
+		display: flex;
+		flex-direction: column;
+		font-size: 0.82rem;
+		font-weight: 600;
+		gap: 0.25rem;
+	}
+	.shpc-filter-row select {
+		padding: 0.4rem 0.5rem;
+		border-radius: 6px;
+	}
+	.shpc-reset {
+		padding: 0.45rem 0.85rem;
+		border-radius: 8px;
+		border: 1px solid #0f766e;
+		background: transparent;
+		color: #0f766e;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	
+	.shpc-meta {
+		font-size: 0.9rem;
+		margin: 0.75rem 0 0;
+	}
+	.shpc-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1.25rem;
+	}
+	.shpc-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1.15rem;
+		border-radius: 12px;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		background: var(--surface, #fff);
+	}
+	.shpc-card[hidden] {
+		display: none !important;
+	}
+	.shpc-card-emoji {
+		font-size: 1.75rem;
+	}
+	.shpc-badge {
+		align-self: flex-start;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding: 0.2rem 0.5rem;
+		border-radius: 999px;
+		background: #ccfbf1;
+		color: #0f766e;
+	}
+	
+	.shpc-card-title {
+		font-size: 1.05rem;
+		margin: 0;
+		line-height: 1.3;
+	}
+	.shpc-card-desc {
+		font-size: 0.92rem;
+		margin: 0;
+		flex: 1;
+	}
+	.shpc-card-meta {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		font-size: 0.85rem;
+	}
+	.shpc-tech-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+	.shpc-tech {
+		font-size: 0.72rem;
+		padding: 0.15rem 0.45rem;
+		border-radius: 6px;
+		background: #f1f5f9;
+	}
+	
+	.shpc-cta {
+		display: inline-block;
+		margin-top: 0.35rem;
+		padding: 0.55rem 0.9rem;
+		border-radius: 8px;
+		background: #0f766e;
+		color: #fff !important;
+		font-weight: 700;
+		text-align: center;
+		text-decoration: none;
+	}
+	.shpc-cta:hover {
+		filter: brightness(1.08);
+	}
+	.shpc-card-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		align-items: center;
+		margin-top: 0.35rem;
+	}
+	.shpc-kit {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.45rem 0.75rem;
+		border-radius: 8px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-decoration: none;
+		border: 1.5px solid #c2410c;
+		color: #c2410c !important;
+		background: transparent;
+	}
+	.shpc-kit:hover {
+		background: rgba(194, 65, 12, 0.08);
+	}
+	
+	.shpc-editorial {
+		margin-top: 3rem;
+	}
+	.shpc-faq details {
+		margin-bottom: 0.75rem;
+	}
+	.shpc-muted {
+		color: rgb(var(--gray-dark, 100 116 139));
+	}
+</style>

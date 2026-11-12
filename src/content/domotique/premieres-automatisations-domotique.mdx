@@ -1,0 +1,167 @@
+---
+title: "Premières automatisations domotique utiles"
+description: "Dix premières automatisations simples pour votre maison : lumière, chauffage, machine à laver, absence… expliquées pour Home Assistant et pour Homey, sans obligation de coder."
+pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+priority: 2
+---
+
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
+
+Votre box est branchée, vos premiers capteurs sont reconnus, et maintenant ? C'est le moment où la domotique devient vraiment utile : quand la maison agit toute seule. Une bonne automatisation répond à un besoin réel (« je ne veux pas chauffer avec les fenêtres ouvertes »), pas à l'envie d'un gadget.
+
+Cette page vous donne dix idées simples. Pour chacune, vous saurez à quoi elle sert, de quoi vous avez besoin, et comment la créer dans Home Assistant (un logiciel gratuit qui réunit tous vos appareils) comme dans Homey (un boîtier du commerce prêt à l'emploi). Pas besoin de savoir coder. Le matériel nécessaire est présenté dans les [premiers appareils à acheter](/domotique/premiers-appareils-domotique-acheter/), et les mots inconnus sont dans le [glossaire](/domotique/glossaire-domotique/).
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  links={[
+    { href: '/domotique/premiers-appareils-domotique-acheter/', label: 'Les premiers appareils à acheter' },
+    { href: '/domotique/glossaire-domotique/', label: 'Glossaire de la domotique' },
+    { href: '/domotique/test-homey-pro-mini-deballage-installation/', label: 'Homey Pro mini : déballage et installation' },
+    { href: '/domotique/home-assistant-raspberry-pi-5-installation/', label: 'Installer Home Assistant sur Raspberry Pi 5' },
+  ]}
+/>
+
+## Le principe, en trois mots
+
+Toute automatisation suit le même schéma : un événement la déclenche, éventuellement une condition précise dans quel cas elle doit agir, et une action fait ce qui est demandé. Les deux logiciels utilisent des mots différents pour la même idée.
+
+| Ce qu'on veut dire | Dans Home Assistant | Dans Homey |
+|---|---|---|
+| L'événement qui lance la règle (le déclencheur) | Déclencheur | « Quand… » |
+| Le filtre qui précise dans quel cas agir (la condition) | Condition | « Et… » |
+| Ce que la maison fait (l'action) | Action | « Alors… » |
+
+Dans Home Assistant, vous créez une règle depuis le menu Paramètres, puis Automatisations et scènes, avec un éditeur visuel : les intitulés peuvent varier un peu selon la version. Dans Homey, vous assemblez des cartes dans la section des Flows. Aucune ligne de code n'est nécessaire pour ces dix cas. Le petit exemple en YAML (un format de texte pour écrire une règle à la main) plus bas sert seulement d'illustration.
+
+## 1. Allumer la lumière quand on passe
+
+**À quoi ça sert :** le couloir s'éclaire la nuit sans que vous cherchiez l'interrupteur, puis s'éteint quand plus personne ne bouge.  
+**De quoi vous avez besoin :** un détecteur de mouvement et une lumière (ampoule connectée, prise ou relais).
+
+Dans Home Assistant, choisissez le détecteur de mouvement comme déclencheur, ajoutez une condition « il fait nuit » (soleil sous l'horizon, ou luminosité faible), puis l'action d'allumer la lumière. Pour l'extinction, créez une seconde règle avec un délai après la dernière détection.
+
+Dans Homey, assemblez une carte « Quand le mouvement est détecté », « Et il fait nuit », « Alors allumer la lumière ». Un second Flow, avec une carte de délai, éteint la lumière.
+
+## 2. Être prévenu quand une fenêtre reste ouverte avec le chauffage allumé
+
+**À quoi ça sert :** éviter de chauffer pour rien.  
+**De quoi vous avez besoin :** un capteur d'ouverture et un appareil de chauffage connecté (vanne de radiateur, prise ou thermostat).
+
+Dans Home Assistant, déclenchez la règle quand le capteur indique « ouvert », ajoutez la condition « le chauffage est actif », puis envoyez une notification sur votre téléphone. Vous pouvez aussi abaisser la température ou couper le chauffage.
+
+Dans Homey, c'est le même enchaînement avec une carte « Quand le contact s'ouvre », « Et le chauffage est allumé », « Alors envoyer une notification », et si votre appareil le permet, une carte pour baisser la consigne.
+
+## 3. Savoir quand la machine à laver a terminé
+
+**À quoi ça sert :** recevoir un message dès la fin du cycle, pour ne pas laisser le linge humide.  
+**De quoi vous avez besoin :** une prise qui mesure la consommation d'électricité.
+
+Dans Home Assistant, la règle se déclenche quand la puissance repasse sous un seuil bas après avoir dépassé un seuil haut. Il existe pour cela des modèles de règle proposés par la communauté, appelés blueprints, qui évitent de tout construire à la main. Dans Homey, une carte sur la puissance consommée (selon l'application de votre prise) suffit, avec une notification comme action.
+
+Les bons seuils dépendent de votre machine : observez sa courbe de consommation une fois avant de régler les valeurs.
+
+## 4. Mode « absent » : tout éteindre en partant
+
+**À quoi ça sert :** un seul geste, ou votre départ de la maison, coupe les lumières et certaines prises.  
+**De quoi vous avez besoin :** un bouton sans fil, ou la détection de présence de votre téléphone.
+
+Dans Home Assistant, déclenchez la règle quand la personne quitte la maison (ou quand un interrupteur virtuel « absent » est activé), puis éteignez les lumières et les prises choisies, ou lancez une scène (un ensemble d'états rappelés d'un coup). Dans Homey, utilisez « Quand je quitte la maison » (localisation du téléphone) ou la pression d'un bouton, puis éteignez les lumières de la zone.
+
+La localisation par téléphone n'est jamais parfaite. Gardez toujours un bouton physique en secours.
+
+## 5. Une veilleuse à heure fixe pour les enfants
+
+**À quoi ça sert :** une lumière douce qui s'allume au coucher.  
+**De quoi vous avez besoin :** une ampoule qui permet de régler l'intensité.
+
+Dans Home Assistant, choisissez une heure comme déclencheur et allumez la lumière à faible luminosité. Dans Homey, « Quand l'heure est… », « Alors allumer la lumière à tel pourcentage ».
+
+## 6. Une alerte si la température devient trop basse
+
+**À quoi ça sert :** détecter un risque de gel pour les canalisations, ou un manque de chauffage.  
+**De quoi vous avez besoin :** un capteur de température.
+
+Dans Home Assistant, déclenchez la règle quand la température passe sous un seuil (par exemple cinq degrés) et envoyez une notification, éventuellement en allumant un chauffage. Dans Homey, « Quand la température devient inférieure à… », « Alors envoyer une alerte ».
+
+## 7. Allumer une lampe au coucher du soleil
+
+**À quoi ça sert :** une ambiance chaleureuse en fin de journée.  
+**De quoi vous avez besoin :** une lumière connectée.
+
+Dans Home Assistant, utilisez le déclencheur « coucher du soleil » (vous pouvez le décaler de quelques minutes) puis allumez la lumière. Dans Homey, « Quand le soleil se couche », « Alors allumer ».
+
+## 8. Couper les veilles la nuit
+
+**À quoi ça sert :** économiser l'électricité d'appareils qui restent allumés pour rien, comme une télévision et sa box.  
+**De quoi vous avez besoin :** des prises commandables à distance.
+
+Dans Home Assistant, coupez les prises à 23 h 30 et rallumez-les à 7 h si besoin. Dans Homey, reprenez la même idée avec « Quand l'heure est… ».
+
+Vérifiez d'abord que l'appareil supporte d'être coupé sèchement : un disque dur réseau (NAS) ou certains décodeurs n'aiment pas du tout.
+
+## 9. Être prévenu quand la porte d'entrée s'ouvre
+
+**À quoi ça sert :** savoir qui rentre, par exemple quand les enfants rentrent seuls.  
+**De quoi vous avez besoin :** un capteur d'ouverture.
+
+Dans Home Assistant, envoyez une notification dès que le capteur s'ouvre, avec en option la condition « personne n'est à la maison ». Dans Homey, « Quand la porte s'ouvre », « Alors envoyer une notification ».
+
+## 10. Penser à aérer
+
+**À quoi ça sert :** un rappel pour ouvrir les fenêtres dix minutes, à heure fixe ou quand l'air est trop chargé.  
+**De quoi vous avez besoin :** soit rien, juste l'heure ; soit un capteur de CO₂, le gaz que l'on respire en excès dans une pièce fermée (voir [ce projet avec un Raspberry Pi et un capteur SCD41](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)).
+
+Dans Home Assistant, déclenchez la règle à heure régulière, ou quand le taux de CO₂ dépasse un seuil, puis envoyez une notification. Dans Homey, « Quand l'heure arrive » ou « Quand le CO₂ est élevé », puis « Alors notifier ».
+
+## Un exemple en YAML pour Home Assistant
+
+Voici la première automatisation (la lumière du couloir) écrite sous forme de texte. Vous pouvez la copier dans l'éditeur en mode YAML, après avoir remplacé les noms par ceux de vos appareils.
+
+```yaml
+# Illustratif — remplacer les entity_id par les vôtres
+automation:
+  - alias: "Couloir — mouvement la nuit"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.couloir_mouvement
+        to: "on"
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+    action:
+      - service: light.turn_on
+        target:
+          entity_id: light.couloir
+```
+
+Cet exemple n'a pas été exécuté sur votre installation. Après l'avoir adapté, utilisez l'outil de vérification de l'éditeur Home Assistant avant de l'enregistrer.
+
+## Quelques conseils pour ne pas se noyer
+
+Une automatisation doit répondre à un seul besoin, pas à trois. Donnez-lui un nom parlant, du genre « Alerte fenêtre salon avec radiateur », pour la retrouver dans six mois. Testez-la d'abord avec une simple notification avant de lui confier une action plus lourde, comme couper le chauffage. Et pour les seuils de consommation de la machine à laver, mesurez avant de régler.
+
+Pour la suite du parcours, passez aux [erreurs de débutant](/domotique/erreurs-debutant-domotique-faq/) ou reprenez le [guide complet](/domotique/debuter-en-domotique-guide-complet/).
+
+<ParcoursDebutantNav lang="fr" frSlug="premieres-automatisations-domotique" position="bottom" />
+
+## FAQ
+
+**Faut-il apprendre le YAML ?**
+Non pour débuter. L'éditeur visuel de Home Assistant couvre ces dix cas. Le YAML devient utile plus tard, pour garder une copie de ses règles ou pour des besoins avancés.
+
+**Les Flows de Homey et Home Assistant sont-ils équivalents ?**
+Pour ces dix exemples, oui : ils produisent le même résultat. Les détails changent pour la localisation du téléphone, les modèles de règles ou les scripts. Partez de la box que vous avez, ou aidez-vous du [choix de la box](/domotique/quelle-box-domotique-choisir-debutant/).
+
+**Pourquoi mon automatisation ne marche qu'une fois sur deux ?**
+Les causes les plus fréquentes sont un capteur trop éloigné du reste de votre réseau radio, une pile faible, ou une condition trop stricte. Regardez l'historique des états de l'appareil et la qualité du lien radio.
+
+**Où trouver d'autres idées de projets ?**
+Dans notre [configurateur de projet](/domotique/configurateur-projet-domotique/) et dans les [projets ESP32](/domotique/projets-esp32-domotique/).
+
+---
+
+*Auteur : Emmanuel Sauvage. Exemples pédagogiques : adaptez les noms d'appareils et les seuils à votre installation.*

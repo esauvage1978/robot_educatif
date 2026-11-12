@@ -1,0 +1,219 @@
+---
+import RepairComplianceSections from './RepairComplianceSections.astro';
+import { SYMPTOM_ROOTS, DIAG_NODES } from '../data/smartHomeSymptomDiagnostic.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const rootsJson = JSON.stringify(SYMPTOM_ROOTS);
+const nodesJson = JSON.stringify(DIAG_NODES);
+const siteBase = withBase('');
+---
+
+<div class="sdt" data-sdt data-roots={rootsJson} data-nodes={nodesJson} data-base={siteBase}>
+	<div class="sdt-start" data-sdt-start>
+		<p class="sdt-prompt">Quel symptôme décrit le mieux votre situation ?</p>
+		<div class="sdt-roots">
+			{SYMPTOM_ROOTS.map((r) => (
+				<button type="button" class="sdt-root-btn" data-sdt-root={r.id} data-sdt-start-node={r.start}>
+					{r.label}
+				</button>
+			))}
+		</div>
+	</div>
+
+	<div class="sdt-wizard" data-sdt-wizard hidden>
+		<button type="button" class="sdt-back" data-sdt-back>← Changer de symptôme</button>
+		<div data-sdt-step></div>
+	</div>
+
+	<div class="sdt-solution" data-sdt-solution hidden>
+		<button type="button" class="sdt-back" data-sdt-back-sol>← Recommencer</button>
+		<div data-sdt-solution-body></div>
+	</div>
+</div>
+
+<RepairComplianceSections lang="fr" variant="smart-home" />
+
+<p class="sdt-assist">
+	En cas de doute, contactez l'assistance officielle ou faites réparer par le constructeur.
+</p>
+
+<style is:global>
+	.sdt {
+		margin: 1.5rem 0;
+	}
+	.sdt-prompt {
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+	.sdt-roots {
+		display: grid;
+		gap: 0.65rem;
+	}
+	.sdt-root-btn,
+	.sdt-choice-btn {
+		text-align: left;
+		padding: 0.85rem 1rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+	.sdt-root-btn:hover,
+	.sdt-choice-btn:hover {
+		border-color: var(--accent);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	}
+	.sdt-question {
+		font-size: 1.05rem;
+		font-weight: 700;
+		margin: 0 0 1rem;
+	}
+	.sdt-choices {
+		display: grid;
+		gap: 0.5rem;
+	}
+	.sdt-back {
+		margin-bottom: 1rem;
+		padding: 0.35rem 0;
+		border: 0;
+		background: none;
+		color: var(--accent);
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.sdt-solution h3 {
+		margin-top: 0;
+	}
+	.sdt-steps {
+		padding-left: 1.2rem;
+		margin: 1rem 0;
+	}
+	.sdt-links {
+		margin: 1rem 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.sdt-links a {
+		font-weight: 600;
+	}
+	.sdt-assist {
+		margin: 1rem 0 0;
+		padding: 0.85rem 1rem;
+		background: #f0fdfa;
+		border-left: 4px solid #0f766e;
+		border-radius: 0 8px 8px 0;
+		font-size: 0.95rem;
+	}
+	.sdt-indicators .repair-indicators {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 0.65rem 1rem;
+		padding: 1rem 1.15rem;
+		margin: 0.5rem 0 0;
+		background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+		border: 1px solid #99f6e4;
+		border-radius: 10px;
+		font-size: 0.92rem;
+	}
+	.sdt-indicators .repair-indicators__label {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #0f766e;
+		margin-bottom: 0.2rem;
+	}
+	.sdt-indicators .repair-indicators__value {
+		font-weight: 600;
+		line-height: 1.35;
+	}
+</style>
+
+<script>
+	function initSdt(root) {
+		const base = root.dataset.base || '';
+		const nodes = JSON.parse(root.dataset.nodes || '{}');
+		const startEl = root.querySelector('[data-sdt-start]');
+		const wizardEl = root.querySelector('[data-sdt-wizard]');
+		const stepEl = root.querySelector('[data-sdt-step]');
+		const solEl = root.querySelector('[data-sdt-solution]');
+		const solBody = root.querySelector('[data-sdt-solution-body]');
+
+		function reset() {
+			startEl.hidden = false;
+			wizardEl.hidden = true;
+			solEl.hidden = true;
+			stepEl.innerHTML = '';
+			solBody.innerHTML = '';
+		}
+
+		function showNode(nodeId) {
+			const node = nodes[nodeId];
+			if (!node) return;
+			if (node.kind === 'question') {
+				startEl.hidden = true;
+				solEl.hidden = true;
+				wizardEl.hidden = false;
+				stepEl.innerHTML = `
+					<p class="sdt-question">${node.text}</p>
+					<div class="sdt-choices">
+						${node.choices
+							.map(
+								(c) =>
+									`<button type="button" class="sdt-choice-btn" data-sdt-next="${c.next}">${c.label}</button>`,
+							)
+							.join('')}
+					</div>
+				`;
+				stepEl.querySelectorAll('[data-sdt-next]').forEach((btn) => {
+					btn.addEventListener('click', () => showNode(btn.dataset.sdtNext));
+				});
+				return;
+			}
+			if (node.kind === 'solution') {
+				wizardEl.hidden = true;
+				startEl.hidden = true;
+				solEl.hidden = false;
+				const links =
+					node.links
+						?.map((l) => {
+							const path = l.href.startsWith('/') ? l.href : `/${l.href}`;
+							const prefix = base.endsWith('/') ? base.slice(0, -1) : base;
+							const href = prefix && prefix !== '/' ? `${prefix}${path}` : path;
+							return `<li><a href="${href}">${l.label}</a></li>`;
+						})
+						.join('') || '';
+				solBody.innerHTML = `
+					<h3>${node.title}</h3>
+					<div class="sdt-indicators" data-sdt-ind-slot></div>
+					<ol class="sdt-steps">${node.steps.map((s) => `<li>${s}</li>`).join('')}</ol>
+					${node.caution ? `<p class="sdt-caution"><strong>Prudence :</strong> ${node.caution}</p>` : ''}
+					${links ? `<ul class="sdt-links">${links}</ul>` : ''}
+				`;
+				const slot = solBody.querySelector('[data-sdt-ind-slot]');
+				if (slot) {
+					slot.innerHTML = `
+						<div class="repair-indicators" role="group">
+							<div class="repair-indicators__item"><span class="repair-indicators__label">Difficulté</span><span class="repair-indicators__value">${node.difficulty}/5</span></div>
+							<div class="repair-indicators__item"><span class="repair-indicators__label">Temps</span><span class="repair-indicators__value">⏱️ ${node.time}</span></div>
+							<div class="repair-indicators__item"><span class="repair-indicators__label">Coût</span><span class="repair-indicators__value">💶 ${node.cost}</span></div>
+							<div class="repair-indicators__item"><span class="repair-indicators__label">Outils</span><span class="repair-indicators__value">🧰 ${node.tools}</span></div>
+						</div>
+					`;
+				}
+			}
+		}
+
+		root.querySelectorAll('[data-sdt-root]').forEach((btn) => {
+			btn.addEventListener('click', () => showNode(btn.dataset.sdtStartNode));
+		});
+		root.querySelector('[data-sdt-back]')?.addEventListener('click', reset);
+		root.querySelector('[data-sdt-back-sol]')?.addEventListener('click', reset);
+	}
+	document.querySelectorAll('[data-sdt]').forEach(initSdt);
+</script>

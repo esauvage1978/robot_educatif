@@ -7,11 +7,30 @@ updated: "23. Oktober 2026"
 
 Sie schwanken zwischen zwei Modellen? Diese Vergleiche zeigen die Unterschiede, auf die es beim Kauf ankommt.
 
-| Artikel | Thema |
-|---|---|
-| [mBot vs mBot2](/de/mbot-vs-mbot2/) | mCore oder CyberPi, Python, WLAN |
-| [mBot vs Codey Rocky](/de/mbot-vs-codey-rocky/) | Bausatz oder ausdrucksstarker Begleiter |
-| [Raspberry Pi 3 vs 4 vs 5](/de/raspberry-pi-3-vs-4-vs-5/) | Leistung, Anschlüsse, Stromversorgung |
-| [Home Assistant Green vs Raspberry Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/) | Fertigbox oder Eigenbau |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Artikel</th>
+<th scope="col">Thema</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Artikel"><span class="td-val"><a href="/de/mbot-vs-mbot2/">mBot vs mBot2</a></span></td>
+<td data-label="Thema"><span class="td-val">mCore oder CyberPi, Python, WLAN</span></td>
+</tr>
+<tr>
+<td data-label="Artikel"><span class="td-val"><a href="/de/mbot-vs-codey-rocky/">mBot vs Codey Rocky</a></span></td>
+<td data-label="Thema"><span class="td-val">Bausatz oder ausdrucksstarker Begleiter</span></td>
+</tr>
+<tr>
+<td data-label="Artikel"><span class="td-val"><a href="/de/raspberry-pi-3-vs-4-vs-5/">Raspberry Pi 3 vs 4 vs 5</a></span></td>
+<td data-label="Thema"><span class="td-val">Leistung, Anschlüsse, Stromversorgung</span></td>
+</tr>
+<tr>
+<td data-label="Artikel"><span class="td-val"><a href="/de/smart-home/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a></span></td>
+<td data-label="Thema"><span class="td-val">Fertigbox oder Eigenbau</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Unsere Empfehlung:** Für den ersten Lernroboter lesen Sie [mBot vs mBot2](/de/mbot-vs-mbot2/): Er beantwortet die häufigste Frage zur Makeblock-Reihe.

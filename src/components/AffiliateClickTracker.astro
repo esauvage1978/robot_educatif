@@ -52,8 +52,33 @@
 			if (a.closest('.tutorial-product-box')) return 'tutorial_box';
 			if (a.closest('.product-box')) return 'product_box';
 			if (a.closest('.promo-code')) return 'promo_code';
+			if (a.closest('.editorial-verdict-offer, .editorial-selection-bref')) return 'editorial_block';
 			if (a.closest('aside, .sidebar, .widget')) return 'sidebar';
 			return 'content';
+		}
+		function pageTypeOf() {
+			var p = location.pathname;
+			if (/\/code-erreur\//.test(p) || /codes-erreurs|depannage|mblock-depannage/.test(p)) return 'error_code';
+			if (/\/domotique\//.test(p) || /smart-home|domotica/.test(p)) return 'domotique';
+			if (/\/categorie\//.test(p)) return 'category';
+			if (p === '/' || /^\/(en|uk|ca|de|it|es)\/?$/.test(p)) return 'home';
+			if (/\/marque|brand|marchio|marca/.test(p)) return 'brand';
+			if (/comparatif|vs-|guide-achat|meilleur|best-|vergleich/.test(p)) return 'buying_guide';
+			return 'article';
+		}
+		function linkIdOf(a, url) {
+			if (a.id) return clean(a.id);
+			if (a.dataset.linkId) return clean(a.dataset.linkId);
+			var asin = url.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
+			if (asin) return 'amz-' + asin[1].toUpperCase();
+			return (
+				'lnk-' +
+				(url.hostname + url.pathname)
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '-')
+					.replace(/^-|-$/g, '')
+					.slice(0, 48)
+			);
 		}
 		function onClick(e) {
 			if (e.type === 'auxclick' && e.button !== 1) return;
@@ -70,14 +95,24 @@
 			if (!isAffiliate(a, url, merchant)) return;
 			if (a.dataset.merchant) merchant = clean(a.dataset.merchant);
 			if (typeof window.gtag !== 'function') return;
+			var productName = productOf(a, url);
+			var asinMatch = url.pathname.match(/\/(?:dp|gp\/product|exec\/obidos\/ASIN)\/([A-Z0-9]{10})/i);
+			var productId =
+				a.dataset.productId ||
+				a.dataset.asin ||
+				(asinMatch ? asinMatch[1].toUpperCase() : '') ||
+				undefined;
 			var params = {
 				link_url: url.href.slice(0, 500),
 				merchant: merchant,
-				product: productOf(a, url),
+				product: productName,
+				product_name: productName,
 				placement: placementOf(a),
 				page_path: location.pathname,
+				page_type: pageTypeOf(),
+				link_id: linkIdOf(a, url),
 			};
-			if (a.dataset.productId) params.product_id = a.dataset.productId;
+			if (productId) params.product_id = clean(String(productId));
 			if (a.dataset.position) params.position = parseInt(a.dataset.position, 10) || 0;
 			window.gtag('event', 'affiliate_click', params);
 		}

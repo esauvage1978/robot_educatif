@@ -1,6 +1,6 @@
 ---
 title: "Python — erreurs, exceptions et débogage"
-description: "Erreurs Python : try/except, traceback, debug. 20 exercices."
+description: "Erreurs Python : lire un traceback, isoler le cas avec try et except, puis déboguer sans masquer la cause. Vingt exercices corrigés sur des cas concrets."
 pubDate: 2026-03-28
 updatedDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
@@ -22,14 +22,39 @@ Un **bug** est un comportement non voulu ; une **exception** est le mécanisme p
 
 ## 1. Erreurs fréquentes au début
 
-| Type                 | Cause typique                                      |
-|----------------------|----------------------------------------------------|
-| **SyntaxError**      | `:` ou parenthèse oublié, guillemet mal fermé      |
-| **IndentationError** | blocs `if` / `for` mal alignés (mélange onglets / espaces) |
-| **TypeError**        | `"3" + 5`, appel de fonction avec mauvais types    |
-| **ValueError**       | `int("abc")`, `int("3.5")` si tu voulais un entier |
-| **NameError**        | variable utilisée avant affectation, faute de frappe |
-| **ZeroDivisionError**| division par zéro                                  |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Type</th>
+<th scope="col">Cause typique</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>SyntaxError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val"><code>:</code> ou parenthèse oublié, guillemet mal fermé</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>IndentationError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val">blocs <code>if</code> / <code>for</code> mal alignés (mélange onglets / espaces)</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>TypeError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val"><code>"3" + 5</code>, appel de fonction avec mauvais types</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>ValueError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val"><code>int("abc")</code>, <code>int("3.5")</code> si tu voulais un entier</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>NameError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val">variable utilisée avant affectation, faute de frappe</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>ZeroDivisionError</strong></span></td>
+<td data-label="Cause typique"><span class="td-val">division par zéro</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. `try` / `except` ciblé
 

@@ -1,0 +1,262 @@
+{
+  "releve": "2026-11-11T14:24:13.882Z",
+  "releveAffichage": "11/11/2026 15:24",
+  "marketplace": "www.amazon.fr",
+  "market": "FR",
+  "partnerTag": "manuso06-21",
+  "nbAsin": 36,
+  "items": {
+    "B009UKZV0A": {
+      "titre": "Arduino Official Starter Kit for Beginners [K000007] (Manuel en Anglais) - Kit Complet pour Apprendre l'électronique et la Programmation, idéal pour débutants.",
+      "prix": 81.9,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51fPv6DsjQL._SL500_.jpg"
+    },
+    "B01A5YMCH4": {
+      "titre": "Learning Resources Kit Souris Robot Code & Go, Codage pour Enfant, 4+ Ans | Guidez une souris robot à travers des défis de parcours pour développer la codage, la logique et la pensée séquentielle",
+      "prix": 68.06,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41a8CIPkL0L._SL500_.jpg"
+    },
+    "B01B14XK00": {
+      "titre": "Learning Resources Robot Programmable Enfant Souris Code & Go, 4 Ans+ | Créez les parcours, programmez chaque déplacement et guidez la souris pour développer la codage, la logique et la séquençage",
+      "prix": 40.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51HXclW2nTL._SL500_.jpg"
+    },
+    "B01CO1HZJ6": {
+      "titre": "Official 5V 2.5A Power Adapter for The Raspberry Pi 3 (White)",
+      "prix": 20.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41k+CLna20L._SL500_.jpg"
+    },
+    "B01JD2Z5XW": {
+      "titre": "ELEGOO UNO R3 Carte Starter Kit de Démarrage Super | avec Guide d'Utilisation Français pour Débutants et Professionnels Compatible avec Arduino IDE.",
+      "prix": 45.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51XTA1UIvWL._SL500_.jpg"
+    },
+    "B07474MMB5": {
+      "titre": "ELEGOO UNO R3 Kit de Voiture Robot Intelligent V4.0 Compatible avec Arduino IDE avec Module de Suivi de Ligne, Capteur Ultrasonique, Module IR, Kit Robotique Voiture Éducative STEM pour Enfant, Adulte",
+      "prix": null,
+      "devise": "EUR",
+      "dispo": false,
+      "image": "https://m.media-amazon.com/images/I/61j1BK7HVbL._SL500_.jpg"
+    },
+    "B078Y9RYM2": {
+      "titre": "ELEGOO Kit Robotique de Voiture Intelligent Automatique 4.0 avec UNO R3, Module de Suivi Linéaire, Capteur à Ultrasons, Télécommande IR, Jouet Éducatif pour l'Apprenant Arduino",
+      "prix": 79.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51HWb2FqOwL._SL500_.jpg"
+    },
+    "B07CGH8NZ7": {
+      "titre": "Makeblock Codey Rocky Robot Programmable Enfant, Jouet Robot de Codage Compatible avec Scratch et Python, Jouets Stem Robots Éducatifs pour Garçons et Filles de 6 Ans+",
+      "prix": 115,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51Kv5QjKw8L._SL500_.jpg"
+    },
+    "B07GVD6GQH": {
+      "titre": "ELEGOO Kit de Robot Bipède Penguin Bot Blanc V2.0 pour Projet Arduino | avec Tutoriel d'assemblage, Robotique STEM pour Amateurs, Jouet Électronique pour Enfants et Adultes",
+      "prix": 39.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41Xp5it2fmL._SL500_.jpg"
+    },
+    "B07HH4SLZN": {
+      "titre": "Matatalab Pro Set Robot de Programmation pour Enfants (4 Ans et Plus), Jouet éducatif STEM pour Enfants, Programmation D'entrée de Gamme, Robot de Construction Mécanique, Jeu et Jeu de Programmation",
+      "prix": null,
+      "devise": "EUR",
+      "dispo": false,
+      "image": "https://m.media-amazon.com/images/I/418xMj8tCyL._SL500_.jpg"
+    },
+    "B07KG4JHBH": {
+      "titre": "Makeblock mBot Ranger Kit Robot Programmable, Jouets Robotiques d'apprentissage de Codage Avancé, Jouets Éducatifs STEM, 3 Formulaires Prédéfinis, Bâtiment de Bricolage, Bluetooth",
+      "prix": 143.3,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51-AYbHKBoL._SL500_.jpg"
+    },
+    "B07N38NFZC": {
+      "titre": "Makeblock Adaptateur Bluetooth, Dongle pour Ordinateur/Portable, Paire avec mBot/Starter/Ranger/Ultimate/Codey Rocky/Neuron",
+      "prix": 19.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/31Cwefqg1BL._SL500_.jpg"
+    },
+    "B07XR98YYQ": {
+      "titre": "Makeblock mBot Robot Programmable Enfant, Robots Électroniques pour Enfants Apprenez à Coder avec Scratch et Arduino, Jouet pour Enfant 8 Ans+",
+      "prix": 68,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/51efkM7oo8L._SL500_.jpg"
+    },
+    "B07YD2LT9D": {
+      "titre": "Freenove 4WD Smart Car Kit for Raspberry Pi 5 4 B 3 B+ Zero 2 W, Face Tracking, Line Tracking, Light Tracing, Obstacle Avoidance, App Control, Camera, Servo (Raspberry Pi Not Included)",
+      "prix": 69.95,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/417x1duoSzL._SL500_.jpg"
+    },
+    "B083T58PKM": {
+      "titre": "Learning Resources Botley 2.0 Robot Programmable Enfant Rechargeable 5+ Ans | Programmez Botley pour contourner les obstacles, suivre des parcours et relever des défis de codage sans écran et ludique",
+      "prix": 103.2,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41VTU2qbudL._SL500_.jpg"
+    },
+    "B08BTJFYT3": {
+      "titre": "TTS Bee-Bot Robot de Sol Programmable",
+      "prix": 80,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/411WCUY7XhL._SL500_.jpg"
+    },
+    "B08X6PTQFM": {
+      "titre": "Freenove 4WD Car Kit for ESP32 WROVER CAM (Included), Dual-Core 32-bit 240 MHz Microcontroller, Camera, Dot Matrix, Obstacle Avoidance, Line Tracking, Light Tracing, Colorful Light, App",
+      "prix": 69.95,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41EMt+aj4bL._SL500_.jpg"
+    },
+    "B0919F9CKS": {
+      "titre": "Makeblock mBot2 Robot Programmable Compatible Avec Scratch et Python, Codage pour Enfants, Support WiFi, IoT, Technologie AI, Jouet pour Enfants 10 Ans+",
+      "prix": 127.48,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/518nKZVN9sL._SL500_.jpg"
+    },
+    "B09LYTM5BC": {
+      "titre": "Matatalab Tale-Bot Pro Robot Programmable pour Enfants (3 à 5 Ans) et Activity Set for Tale-Bot Pro Programmable Robot Kit,Jouets éducatifs, Jouets STEM Interactifs",
+      "prix": null,
+      "devise": "EUR",
+      "dispo": false,
+      "image": "https://m.media-amazon.com/images/I/41PG5x5p3aL._SL500_.jpg"
+    },
+    "B0B6P22YJC": {
+      "titre": "SONOFF Zigbee USB Dongle Plus (ZBDongle-E) | Coordinateur/Routeur EFR32MG21 Adaptateur ZigBee pour Home Assistant, Zigbee2MQTT et autres plateformes open source",
+      "prix": 17.72,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41V+giWTXXL._SL500_.jpg"
+    },
+    "B0BB949JCP": {
+      "titre": "GeeekPi BBC Micro:bit V2 Go Kit de Démarrage Original, Avec Carte de Développement Microbit, Support de Batterie, 2 Piles AAA, Câble Micro USB pour Codage et Programmation",
+      "prix": null,
+      "devise": "EUR",
+      "dispo": false,
+      "image": "https://m.media-amazon.com/images/I/5108YkEhYRL._SL500_.jpg"
+    },
+    "B0BBZY9L59": {
+      "titre": "Makeblock CyberPi Kit d'apprentissage du codage et de la programmation Python et Scratch, kit STEM avec support IoT, technologie avec module WiFi intégré, projets STEM pour enfants de plus de 8 ans",
+      "prix": 45.58,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41+xT8XzP0L._SL500_.jpg"
+    },
+    "B0BYZP8NK2": {
+      "titre": "SONOFF SNZB-02D Mini Capteur ZigBee de Température et d'humidité Intelligent, Thermomètre Hygrometre Intérieur, écran LCD, Actualisation 5S, Compatible avec Alexa/Google Home/Home Assistant",
+      "prix": 16.03,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/31XyiSlPwqL._SL500_.jpg"
+    },
+    "B0BZCV658S": {
+      "titre": "SONOFF SNZB-02D Mini Capteur ZigBee de Température et d'humidité, Thermomètre Hygrometre Intérieur, Affichage sur écran LCD, Compatible avec Alexa/Google Home, 2 Pack",
+      "prix": 29.24,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41qLXhwdmhL._SL500_.jpg"
+    },
+    "B0CGLPF29H": {
+      "titre": "SunFounder Kit robotique vidéo Picar-X AI pour Raspberry Pi 5/4/3B+/Zero 2w, LLMs ChatGPT-4o/Gemini/Grok, Reconnaissance vocale et vidéo, Python, Scratch, caméra (RPI Non Inclus)",
+      "prix": 89.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41ptc+fHxaL._SL500_.jpg"
+    },
+    "B0CJC8WMXV": {
+      "titre": "Tapo Prise Connectée WiFi, Suivi de consommation, 16A Type E, compatible avec Alexa et Google Home, Contrôler le radiateur, le chauffage, Économie d'énergie, Commande vocale, Tapo P110(4-pack)(FR)",
+      "prix": 36.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41U2ua8NW-L._SL500_.jpg"
+    },
+    "B0CK2FCG1K": {
+      "titre": "Raspberry Pi 5 8 GB Quad-Core ARMA76 (64 Bits - 2,4 GHz) | Modèle SC1112, processeur Cortex A76 quadricœur 64 bits, 2,4 GHz, processeur graphique VideoCore VII 800 MHz",
+      "prix": 209.33,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41UfoxQnTDL._SL500_.jpg"
+    },
+    "B0CK3L9WD3": {
+      "titre": "Raspberry Pi 5 Model B - Einplatinenrechner - Broadcom Bcm2712 / 2,4 Ghz - Ram 4gb - 802,11a/b/g/n/ac, Bluetooth 5,0 (sc1111)",
+      "prix": 145.47,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41WpP-0tXnL._SL500_.jpg"
+    },
+    "B0CM46P7MC": {
+      "titre": "Bloc d'alimentation Officiel Raspberry Pi 5 USB-C 27 W, USB-C Power Supply, Blanc",
+      "prix": 18.92,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41QVqmEiExL._SL500_.jpg"
+    },
+    "B0CT4P893Q": {
+      "titre": "Geekworm Raspberry Pi 5 Case with Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+      "prix": 23.8,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41Mf8LXgRCL._SL500_.jpg"
+    },
+    "B0CXVKSG19": {
+      "titre": "Nabu CASA Assistant Domestique, Vert",
+      "prix": 325.24,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41RSSYTqdVL._SL500_.jpg"
+    },
+    "B0CZ6R182M": {
+      "titre": "MatataStudio Robot Programmable Enfant 3-5 Ans, Tale-Bot Pro Robots Jouets de Codage Intelligent pour l'apprentissage précoce de Programmation Kit Robot électronique Interactif Jouets éducatifs STEM",
+      "prix": 121.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/414q+6JdfvL._SL500_.jpg"
+    },
+    "B0DT4FJJXM": {
+      "titre": "roborock Q7 M5 Aspirateur Robot Laveur 10 000 Pa, Noir | Double Conception Anti-Enchevêtrement, Durée de Nettoyage Prolongée, Navigation Intelligente avec LiDAR Précis, Roborock APP,",
+      "prix": 234.96,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41amQBTe8aL._SL500_.jpg"
+    },
+    "B0F966SCT6": {
+      "titre": "9V 2A Adaptateur Secteur Alimentation Chargeur pour Arduino UNO REV/REV 3 | pour Arduino Nano/Mega 2560 R3/Elegoo UNO R3/IEIK UNOR3 Routeurs Imprimante Scanner Commutateur Mobile DVD",
+      "prix": 18.99,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/41giPNqMVBL._SL500_.jpg"
+    },
+    "B0G1ZKHX1W": {
+      "titre": "Homey Pro mini | Hub domotique pour la maison connectée – Compatible avec Zigbee, Ethernet, Matter et Thread. Compatible avec Apple Siri, Amazon Alexa et Google Home.",
+      "prix": 279,
+      "devise": "EUR",
+      "dispo": true,
+      "image": "https://m.media-amazon.com/images/I/21W5x5wkcnL._SL500_.jpg"
+    },
+    "B0G34ZTW51": {
+      "titre": "Assistant domotique Connecter ZBT-2 | Connectez des appareils Zigbee, filaires ou Matter aux assistants domestiques | Matériel officiel",
+      "prix": null,
+      "devise": "EUR",
+      "dispo": false,
+      "image": "https://m.media-amazon.com/images/I/2160WoKFhdL._SL500_.jpg"
+    }
+  }
+}

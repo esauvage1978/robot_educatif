@@ -1,6 +1,6 @@
 ---
 title: "Robot éducatif pas cher : ce qu’il faut accepter (et éviter)"
-description: "Robot programmable pas cher : solidité, logiciel, communauté. Conseils et liens guides."
+description: "Robot éducatif pas cher : ce que l’on accepte sur la solidité, le logiciel et la communauté, et ce qu’il vaut mieux refuser avant d’acheter un modèle."
 pubDate: "2026-03-30"
 updatedDate: "2026-04-01"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
@@ -23,7 +23,9 @@ relatedLinks:
 
 Un **prix bas** n’est pas un problème en soi : le risque est d’acheter un produit **sans communauté**, **sans mises à jour**, ou avec une **application abandonnée**. Le bon compromis n’est pas « le moins cher du comparateur », c’est un **équilibre** entre **coût**, **documentation** et **vivier de tutoriels** — sinon vous payez en **temps** et en **frustration**.
 
-![Triangle : prix bas, doc claire, communauté active — difficile d’avoir les trois au maximum](/images/blog/guides-2026/pas-cher-triangle.svg)
+![mBot Makeblock — entrée de gamme avec communauté mBlock](/images/products/mbot.webp)
+
+*Photo : fiche produit mBot (Makeblock), ressource locale `/images/products/mbot.webp`.*
 
 ## 1. Ce qu’on peut accepter à budget serré
 
@@ -65,7 +67,7 @@ Oui — en français, les deux **formules** courantes désignent la même idée 
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif programmable pas cher](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [Robot éducatif programmable pas cher](https://www.amazon.fr/s?k=Robot+%C3%A9ducatif+programmable+pas+cher&tag=manuso06-21)
 - [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [Kit robotique STEM enfant](https://www.amazon.fr/s?k=kit+robotique+STEM+enfant&tag=manuso06-21)
 

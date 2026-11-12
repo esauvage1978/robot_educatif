@@ -2,7 +2,7 @@
 title: "Capteur ultrason mBot (2/4) : radar de recul (paliers)"
 description: "Radar de recul mBot : 3 zones ultrason, bips cadence fixe (1s puis 0,25s). Activité guidée."
 pubDate: "2026-03-31"
-updatedDate: "2026-03-31"
+updatedDate: "2026-11-02"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -20,6 +20,20 @@ relatedLinks:
   - title: "Dépannage Bluetooth / mBlock"
     href: "/mblock-bluetooth-erreurs-frequentes-depannage/"
 ---
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/categorie/mbot/">Activités mBot</a> · Série capteur ultrason (2/4)</nav>
+
+> **Réponse directe (novembre 2026)** — Avec le **capteur ultrason** branché sur le port **RJ25** du mBot, programme **trois zones** : au-delà de **70 cm** silence, entre **35 et 70 cm** un bip toutes les **1 s**, en dessous de **35 cm** un bip toutes les **0,25 s**. Tu réutilises la variable `distance_cm` de la [partie 1](/serie-capteur-ultrason-mbot-1-mesurer-distance/) et tu ajoutes des blocs **`attendre`** pour respecter la cadence.
+
+Cette leçon fait partie du hub [activités mBot](/categorie/mbot/) et de la [série capteur ultrason](/serie-capteur-ultrason-mbot-1-mesurer-distance/) (épisode 2 sur 4). Si tu débutes sur mBlock, vois [Mon premier robot mBot](/mbot-mon-premier-robot-educatif/) et le [comparatif mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
+
+![mBot Makeblock avec capteur ultrason sur le port avant](/images/products/mbot.webp)
+
+*Photo produit : le capteur ultrason se branche sur le connecteur ultrason du châssis mBot (câble fourni dans le kit).*
+
+![Interface mBlock — blocs capteur ultrason et conditions](/images/products/mbot2.webp)
+
+*Repère dans mBlock 5 les blocs « distance (capteur ultrason) en cm », « si … alors » et « jouer la note » dans la catégorie mBot.*
 
 <aside class="article-callout" role="note">
 <p><strong>Objectif pédagogique</strong></p>
@@ -138,5 +152,15 @@ Blocs typiques nécessaires :
 ## Étape suivante
 
 Dans l’activité 3, on va garder l’idée du radar, mais au lieu de 2 cadences fixes (1 s / 0,25 s), on fera une **cadence qui dépend de la distance** : plus on est proche, plus ça bip vite.
+
+## FAQ rapide
+
+**Le capteur affiche 0 cm en permanence** — Vérifie le branchement RJ25, retire les obstacles collés à la « trompe », teste en [Live mBlock](/mblock-bluetooth-erreurs-frequentes-depannage/) puis retéléverse.
+
+**Les bips ne changent jamais de rythme** — Contrôle que tu compares bien `distance_cm` aux seuils **70** et **35**, et que chaque branche « bip » contient un bloc **`attendre`** (sinon la boucle enchaîne trop vite).
+
+**mBot ou mBot2 ?** — L’activité fonctionne sur les deux avec le capteur ultrason Makeblock ; voir [mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
+
+**Suite de la série** — [Activités mBot en une heure](/idees-projets-mbot-rapides-une-heure/) pour d’autres défis une fois les quatre épisodes ultrason terminés.
 
 [← Épisode précédent](/serie-capteur-ultrason-mbot-1-mesurer-distance/) · [Épisode suivant →](/serie-capteur-ultrason-mbot-3-radar-recul-cadence-distance/)

@@ -1,6 +1,6 @@
 ---
 title: "mBlock Bluetooth : mBot ne se connecte pas ? Solutions"
-description: "Dépanner Bluetooth mBlock : pilotes, appairage, portée, versions. Schéma et liens installation."
+description: "mBlock ne voit pas le mBot en Bluetooth : USB, pilotes, appairage, portée et version du logiciel, dans l’ordre. Schéma de dépannage inclus pour la classe."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
@@ -56,11 +56,27 @@ Le **Bluetooth** entre **mBlock** et un robot (**mBot**, **mBot2**, **Codey Rock
 
 ## 6. USB plutôt que Bluetooth pour quoi ?
 
-| Situation | Recommandation |
-|-----------|----------------|
-| Atelier scolaire, **30 élèves** | USB pour **téléverser** ; Bluetooth pour **tests** si la salle le permet. |
-| **Compétition** ou démo | USB ou configuration **éprouvée** la veille — pas de première connexion BT le jour J. |
-| Dépannage | **Toujours** valider en USB avant d’accuser le robot. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Situation</th>
+<th scope="col">Recommandation</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Situation"><span class="td-val">Atelier scolaire, <strong>30 élèves</strong></span></td>
+<td data-label="Recommandation"><span class="td-val">USB pour <strong>téléverser</strong> ; Bluetooth pour <strong>tests</strong> si la salle le permet.</span></td>
+</tr>
+<tr>
+<td data-label="Situation"><span class="td-val"><strong>Compétition</strong> ou démo</span></td>
+<td data-label="Recommandation"><span class="td-val">USB ou configuration <strong>éprouvée</strong> la veille — pas de première connexion BT le jour J.</span></td>
+</tr>
+<tr>
+<td data-label="Situation"><span class="td-val">Dépannage</span></td>
+<td data-label="Recommandation"><span class="td-val"><strong>Toujours</strong> valider en USB avant d’accuser le robot.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 7. Lien avec le choix du logiciel
 
@@ -68,9 +84,7 @@ La version **navigateur** de mBlock peut se heurter à des **limitations Bluetoo
 
 ## Liens Amazon (affiliation)
 
-- [Adaptateur Bluetooth USB PC](https://www.amazon.fr/s?k=adaptateur+Bluetooth+USB+5.0+PC&tag=manuso06-21)
-- [Câble USB robot éducatif](https://www.amazon.fr/s?k=c%C3%A2ble+USB+micro+robot&tag=manuso06-21)
-- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) — 89,99 € sur Amazon.fr le 9 novembre 2026. Le dépannage ci-dessus se fait d'abord avec le câble USB déjà fourni dans le kit.
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

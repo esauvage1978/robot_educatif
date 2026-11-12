@@ -1,0 +1,242 @@
+---
+import { withBase } from '../lib/siteUrl';
+import { buildQuickAccessSearchIndex, HOME_QUICK_LINKS } from '../data/siteQuickAccess.mjs';
+
+interface Props {
+	/** home : sous le hero ; compact : 404 */
+	layout?: 'home' | 'compact';
+}
+
+const { layout = 'home' } = Astro.props;
+const searchIndex = buildQuickAccessSearchIndex();
+const title =
+	layout === 'home'
+		? 'Accès rapide en 1 clic — Configurateurs, Outils & Codes erreurs'
+		: 'Retrouver un outil ou un code erreur';
+const searchId = layout === 'home' ? 'home-quick-access-search' : 'not-found-quick-search';
+const listId = layout === 'home' ? 'home-quick-access-results' : 'not-found-quick-results';
+---
+
+<section class="site-quick-access" aria-labelledby={`${searchId}-heading`}>
+	<div class="site-quick-access__inner">
+		<h2 id={`${searchId}-heading`} class="site-quick-access__title">{title}</h2>
+		<label class="site-quick-access__search-wrap">
+			<span class="visually-hidden">Rechercher un configurateur, un guide ou un code erreur</span>
+			<input
+				type="search"
+				id={searchId}
+				class="site-quick-access__search"
+				placeholder="Rechercher un configurateur, un modèle ou un code erreur…"
+				autocomplete="off"
+				spellcheck="false"
+				enterkeyhint="search"
+			/>
+		</label>
+		<ul class="site-quick-access__chips" aria-label="Accès directs">
+			{HOME_QUICK_LINKS.map((link) => (
+				<li>
+					<a
+						class:list={['site-quick-access__chip', `site-quick-access__chip--${link.accent}`]}
+						href={withBase(link.href)}
+					>
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+		<ul class="site-quick-access__results" id={listId} hidden aria-live="polite"></ul>
+	</div>
+</section>
+
+<script define:vars={{ searchIndex, listId, searchId, baseUrl: import.meta.env.BASE_URL ?? '/' }}>
+	(function () {
+		const input = document.getElementById(searchId);
+		const list = document.getElementById(listId);
+		if (!input || !list || ! Array.isArray(searchIndex)) return;
+
+		const maxResults = 12;
+
+		function withBasePath(href) {
+			const b = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+			if (b === '/' || b === '//') return href;
+			const path = href.startsWith('/') ? href.slice(1) : href;
+			return b + path;
+		}
+
+		function normalize(q) {
+			return (q || '')
+				.trim()
+				.toLowerCase()
+				.normalize('NFD')
+				.replace(/\p{M}/gu, '');
+		}
+
+		function scoreItem(item, tokens) {
+			const hay = item.searchText || '';
+			let score = 0;
+			for (const t of tokens) {
+				if (!t) continue;
+				if (hay.includes(t)) score += 2;
+				if (item.title.toLowerCase().includes(t)) score += 3;
+			}
+			return score;
+		}
+
+		function renderResults(query) {
+			const q = normalize(query);
+			list.innerHTML = '';
+			if (!q) {
+				list.hidden = true;
+				return;
+			}
+			const tokens = q.split(/\s+/).filter(Boolean);
+			const ranked = searchIndex
+				.map((item) => ({ item, score: scoreItem(item, tokens) }))
+				.filter((r) => r.score > 0)
+				.sort((a, b) => b.score - a.score)
+				.slice(0, maxResults);
+
+			if (!ranked.length) {
+				list.hidden = true;
+				return;
+			}
+
+			for (const { item } of ranked) {
+				const li = document.createElement('li');
+				const a = document.createElement('a');
+				a.href = withBasePath(item.href);
+				a.className = 'site-quick-access__result-link';
+				const kind = document.createElement('span');
+				kind.className = 'site-quick-access__result-kind';
+				kind.textContent = item.kind;
+				const title = document.createElement('span');
+				title.className = 'site-quick-access__result-title';
+				title.textContent = item.title;
+				a.append(kind, title);
+				li.append(a);
+				list.append(li);
+			}
+			list.hidden = false;
+		}
+
+		input.addEventListener('input', () => renderResults(input.value));
+		input.addEventListener('search', () => renderResults(input.value));
+	})();
+</script>
+
+<style is:global>
+	.site-quick-access {
+		background: var(--surface);
+		border-bottom: 1px solid var(--surface-border);
+		padding: 1.35rem clamp(1rem, 5vw, 2rem) 1.5rem;
+	}
+	.site-quick-access__inner {
+		max-width: 1320px;
+		margin: 0 auto;
+	}
+	.site-quick-access__title {
+		margin: 0 0 0.85rem;
+		font-family: var(--font-heading);
+		font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+		font-weight: 800;
+		color: rgb(var(--black));
+	}
+	.site-quick-access__search {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0.85rem 1rem;
+		border-radius: 12px;
+		border: 2px solid var(--surface-border);
+		font-size: 1rem;
+		background: var(--page-bg);
+		color: rgb(var(--black));
+		margin-bottom: 0.85rem;
+	}
+	.site-quick-access__search:focus {
+		outline: none;
+		border-color: var(--primary);
+		box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 25%, transparent);
+	}
+	.site-quick-access__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.site-quick-access__chip {
+		display: inline-block;
+		padding: 0.45rem 0.85rem;
+		border-radius: 999px;
+		font-weight: 700;
+		font-size: 0.88rem;
+		text-decoration: none;
+		border: 1px solid var(--surface-border);
+		background: var(--surface-2);
+		color: rgb(var(--black));
+		transition: border-color 0.15s ease, background 0.15s ease;
+	}
+	.site-quick-access__chip--primary {
+		border-color: color-mix(in oklab, var(--primary) 50%, var(--surface-border));
+		background: color-mix(in oklab, var(--primary) 12%, var(--surface-2));
+	}
+	.site-quick-access__chip--warm {
+		border-color: color-mix(in oklab, #c2410c 45%, var(--surface-border));
+		background: color-mix(in oklab, #c2410c 10%, var(--surface-2));
+	}
+	.site-quick-access__chip:hover {
+		border-color: var(--primary);
+		background: color-mix(in oklab, var(--primary) 15%, var(--surface-2));
+	}
+	.site-quick-access__results {
+		list-style: none;
+		margin: 0.75rem 0 0;
+		padding: 0;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		overflow: hidden;
+		background: var(--page-bg);
+	}
+	.site-quick-access__results[hidden] {
+		display: none;
+	}
+	.site-quick-access__result-link {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 0.65rem;
+		padding: 0.65rem 0.9rem;
+		text-decoration: none;
+		color: rgb(var(--black));
+		border-bottom: 1px solid var(--surface-border);
+	}
+	.site-quick-access__result-link:last-child {
+		border-bottom: none;
+	}
+	.site-quick-access__result-link:hover {
+		background: var(--surface-2);
+	}
+	.site-quick-access__result-kind {
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: var(--primary);
+	}
+	.site-quick-access__result-title {
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>

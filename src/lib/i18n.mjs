@@ -1,16 +1,206 @@
+import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n.mjs';
+import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
+
+/** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
+export const OMIT_US_HREFLANG = true;
+
+const DOMOTIQUE_LANG_PAIRS = Object.entries(DOMOTIQUE_SLUGS).map(([frSlug]) => ({
+	fr: frDomotiquePath(frSlug),
+	en: domotiquePath('en', frSlug),
+	de: domotiquePath('de', frSlug),
+	it: domotiquePath('it', frSlug),
+	es: domotiquePath('es', frSlug),
+}));
+
 // Paires FR/EN pour hreflang et sélecteur de langue (chemins sans base).
-export const LANG_PAIRS = [
-	{ fr: '/', en: '/en/', de: '/de/', it: '/it/', es: '/es/' },
+const STATIC_LANG_PAIRS = [
+	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/' },
+	{ fr: '/accessoires/', en: '/en/accessories/', uk: '/uk/accessories/', ca: '/ca/accessories/', de: '/de/zubehoer/', it: '/it/accessori/', es: '/es/accesorios/' },
 	{ fr: '/meilleur-robot-programmable-enfant-2026/', en: '/en/best-programmable-robot-for-kids/', de: '/de/bester-programmierbarer-roboter-fuer-kinder/', it: '/it/miglior-robot-programmabile-per-bambini/', es: '/es/mejor-robot-programable-para-ninos/' },
-	{ fr: '/installer-mblock-5-sous-windows-10/', en: '/en/install-mblock-5-windows/', de: '/de/mblock-5-installieren-windows/' },
-	{ fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', en: '/en/raspberry-pi-5-which-ram/', de: '/de/raspberry-pi-5-welcher-ram/' },
+	{
+		fr: '/black-friday/',
+		en: '/en/black-friday/',
+		uk: '/uk/black-friday/',
+		ca: '/ca/black-friday/',
+		de: '/de/black-friday/',
+		it: '/it/black-friday/',
+		es: '/es/black-friday/',
+	},
+	{
+		fr: '/baisses-de-prix/',
+		en: '/en/price-drops/',
+		uk: '/uk/price-drops/',
+		ca: '/ca/price-drops/',
+		de: '/de/preissenkungen/',
+		it: '/it/ribassi-prezzo/',
+		es: '/es/bajadas-de-precio/',
+	},
+	{
+		fr: '/baisses-de-prix/comment-nous-mesurons/',
+		en: '/en/price-drops/how-we-measure/',
+		uk: '/uk/price-drops/how-we-measure/',
+		ca: '/ca/price-drops/how-we-measure/',
+		de: '/de/preissenkungen/wie-wir-messen/',
+		it: '/it/ribassi-prezzo/come-misuriamo/',
+		es: '/es/bajadas-de-precio/como-medimos/',
+	},
+	{
+		fr: '/robot-educatif-cadeau-noel-2026/',
+		en: '/en/educational-robot-christmas-gifts-2026/',
+		uk: '/uk/educational-robot-christmas-gifts-2026/',
+		ca: '/ca/educational-robot-christmas-gifts-2026/',
+		de: '/de/lernroboter-weihnachtsgeschenke-2026/',
+		it: '/it/regalo-natale-robot-educativo-2026/',
+		es: '/es/regalo-navidad-robot-educativo-2026/',
+	},
+	{
+		fr: '/robot-enfant-4-ans/',
+		en: '/en/best-robot-for-a-4-year-old/',
+		uk: '/uk/best-robot-for-a-4-year-old/',
+		ca: '/ca/best-robot-for-a-4-year-old/',
+		de: '/de/lernroboter-4-jahre/',
+		it: '/it/robot-programmabile-4-anni/',
+		es: '/es/robot-programable-4-anos/',
+	},
+	{
+		fr: '/quel-robot-acheter-enfant-5-ans-guide-achat/',
+		en: '/en/best-robot-for-a-5-year-old/',
+		uk: '/uk/best-robot-for-a-5-year-old/',
+		ca: '/ca/best-robot-for-a-5-year-old/',
+		de: '/de/lernroboter-5-jahre/',
+		it: '/it/robot-programmabile-5-anni/',
+		es: '/es/robot-programable-5-anos/',
+	},
+	{
+		fr: '/quel-robot-educatif-entre-200-et-500-euros-guide-2026/',
+		en: '/en/educational-robot-200-500-guide/',
+		uk: '/uk/educational-robot-200-500-guide/',
+		ca: '/ca/educational-robot-200-500-guide/',
+		de: '/de/lernroboter-200-500-euro/',
+		it: '/it/robot-educativo-200-500-euro/',
+		es: '/es/robot-educativo-200-500-euros/',
+	},
+	{
+		fr: '/installer-les-blocs-du-mbot/',
+		en: '/en/install-mbot-blocks/',
+		uk: '/uk/install-mbot-blocks/',
+		ca: '/ca/install-mbot-blocks/',
+		de: '/de/mbot-bloecke-installieren/',
+		it: '/it/installare-blocchi-mbot/',
+		es: '/es/instalar-bloques-mbot/',
+	},
+	{
+		fr: '/10-projets-mbot-gratuits-classe-faciles/',
+		en: '/en/10-free-mbot-classroom-projects/',
+		de: '/de/10-kostenlose-mbot-klassenprojekte/',
+		it: '/it/10-progetti-mbot-gratis-classe/',
+		es: '/es/10-proyectos-mbot-gratis-clase/',
+	},
+	{
+		fr: '/installer-mblock-5-sous-windows-10/',
+		en: '/en/install-mblock-5-windows/',
+		de: '/de/mblock-5-installieren-windows/',
+		it: '/it/installare-mblock-5-windows/',
+		es: '/es/instalar-mblock-5-windows/',
+	},
+	{
+		fr: '/premier-pas-avec-mblock-5/',
+		en: '/en/first-steps-mblock-5/',
+		de: '/de/erste-schritte-mblock-5/',
+		it: '/it/primi-passi-mblock-5/',
+		es: '/es/primeros-pasos-mblock-5/',
+	},
+	{
+		fr: '/activite-scratch-le-carre/',
+		en: '/en/scratch-activity-square/',
+		de: '/de/scratch-aktivitaet-quadrat/',
+		it: '/it/attivita-scratch-il-quadrato/',
+		es: '/es/actividad-scratch-el-cuadrado/',
+	},
+	{
+		fr: '/programmation/puissance-4/',
+		en: '/en/connect-four-python/',
+		de: '/de/vier-gewinnt-python/',
+		it: '/it/forza-quattro-python/',
+		es: '/es/conecta-4-python/',
+	},
+	{
+		fr: '/python-puissance-4-1-cahier-grille/',
+		en: '/en/connect-four-python-1-grid/',
+		de: '/de/vier-gewinnt-python-1-raster/',
+		it: '/it/forza-quattro-python-1-griglia/',
+		es: '/es/conecta-4-python-1-tablero/',
+	},
+	{
+		fr: '/python-puissance-4-2-affichage-gravite/',
+		en: '/en/connect-four-python-2-display/',
+		de: '/de/vier-gewinnt-python-2-anzeige/',
+		it: '/it/forza-quattro-python-2-visualizzazione/',
+		es: '/es/conecta-4-python-2-gravedad/',
+	},
+	{
+		fr: '/python-puissance-4-3-coup-alternance/',
+		en: '/en/connect-four-python-3-turns/',
+		de: '/de/vier-gewinnt-python-3-zuege/',
+		it: '/it/forza-quattro-python-3-turni/',
+		es: '/es/conecta-4-python-3-turnos/',
+	},
+	{
+		fr: '/python-puissance-4-4-quatre-alignes/',
+		en: '/en/connect-four-python-4-four-in-a-row/',
+		de: '/de/vier-gewinnt-python-4-vier-in-einer-reihe/',
+		it: '/it/forza-quattro-python-4-quattro-in-fila/',
+		es: '/es/conecta-4-python-4-cuatro-en-linea/',
+	},
+	{
+		fr: '/python-puissance-4-5-match-nul/',
+		en: '/en/connect-four-python-5-draw/',
+		de: '/de/vier-gewinnt-python-5-unentschieden/',
+		it: '/it/forza-quattro-python-5-pareggio/',
+		es: '/es/conecta-4-python-5-tablas/',
+	},
+	{
+		fr: '/python-puissance-4-6-jeu-complet/',
+		en: '/en/connect-four-python-6-full-game/',
+		de: '/de/vier-gewinnt-python-6-komplettes-spiel/',
+		it: '/it/forza-quattro-python-6-partita-completa/',
+		es: '/es/conecta-4-python-6-partida-completa/',
+	},
+	{
+		fr: '/accessoires-mbot-par-ou-commencer/',
+		en: '/en/mbot-accessories-where-to-start/',
+		de: '/de/mbot-zubehoer-einstieg/',
+		it: '/it/accessori-mbot-da-dove-iniziare/',
+		es: '/es/accesorios-mbot-por-donde-empezar/',
+	},
+	{
+		fr: '/mblock-vs-scratch-lequel-choisir/',
+		en: '/en/mblock-vs-scratch/',
+		de: '/de/mblock-vs-scratch/',
+		it: '/it/mblock-vs-scratch/',
+		es: '/es/mblock-vs-scratch/',
+	},
+	{
+		fr: '/idees-projets-mbot-rapides-une-heure/',
+		en: '/en/mbot-one-hour-project-ideas/',
+		de: '/de/mbot-ein-stunden-projekte/',
+		it: '/it/progetti-mbot-un-ora/',
+		es: '/es/proyectos-mbot-una-hora/',
+	},
+	{
+		fr: '/scratch-ecole-maison-par-ou-commencer/',
+		en: '/en/scratch-school-home-getting-started/',
+		uk: '/uk/scratch-school-home-getting-started/',
+		ca: '/ca/scratch-school-home-getting-started/',
+		de: '/de/scratch-schule-zuhause-einstieg/',
+		it: '/it/scratch-scuola-casa-inizio/',
+		es: '/es/scratch-escuela-casa-empezar/',
+	},
+	{ fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', en: '/en/raspberry-pi-5-which-ram/', de: '/de/raspberry-pi-5-welcher-ram/', it: '/it/raspberry-pi-5-quale-ram/', es: '/es/raspberry-pi-5-que-ram/' },
 	{ fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', en: '/en/raspberry-pi-3-vs-4-vs-5/', de: '/de/raspberry-pi-3-vs-4-vs-5/', it: '/it/raspberry-pi-3-vs-4-vs-5/', es: '/es/raspberry-pi-3-vs-4-vs-5/' },
 	{ fr: '/meilleur-robot-educatif-arduino-kit-choisir/', en: '/en/arduino-robot-kit-for-kids/', de: '/de/arduino-roboter-bausatz-fuer-kinder/', it: '/it/kit-robot-arduino-per-bambini/', es: '/es/kit-robot-arduino-para-ninos/' },
-	{ fr: '/domotique/', en: '/en/smart-home/', de: '/de/smart-home/' },
-	{ fr: '/domotique/debuter-domotique-par-ou-commencer/', en: '/en/smart-home/getting-started/', de: '/de/smart-home/einstieg/' },
-	{ fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', en: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', de: '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/' },
-	{ fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', en: '/en/smart-home/best-zigbee-dongle-home-assistant/', de: '/de/smart-home/bester-zigbee-stick-home-assistant/' },
-	{ fr: '/domotique/prise-connectee-zigbee-home-assistant/', en: '/en/smart-home/smart-plugs-uk-us/', de: '/de/smart-home/smarte-steckdosen/' },
+	{ fr: '/equipement-robotique-locataire/', en: '/en/robotics-equipment-for-renters/', de: '/de/robotik-ausruestung-fuer-mieter/', it: '/it/attrezzatura-robotica-per-inquilini/', es: '/es/equipo-robotica-para-inquilinos/' },
+	{ fr: '/domotique/', en: '/en/smart-home/', de: '/de/smart-home/', it: '/it/domotica/', es: '/es/domotica/' },
 	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/', it: '/it/marchio-makeblock/', es: '/es/marca-makeblock/' },
 	{ fr: '/marque-matatalab/', en: '/en/matatalab-brand/', de: '/de/marke-matatalab/', it: '/it/marchio-matatalab/', es: '/es/marca-matatalab/' },
 	{ fr: '/marque-elegoo/', en: '/en/elegoo-brand/', de: '/de/marke-elegoo/', it: '/it/marchio-elegoo/', es: '/es/marca-elegoo/' },
@@ -20,10 +210,29 @@ export const LANG_PAIRS = [
 	{ it: '/it/shelly-gen4-quale-modulo-scegliere/', es: '/es/shelly-gen4-que-modulo-elegir/' },
 	{ fr: '/mentions-legales/', it: '/it/note-legali/', es: '/es/aviso-legal/' },
 	{ fr: '/marques/', en: '/en/brands/', de: '/de/marken/', it: '/it/marchi/', es: '/es/marcas/' },
-	{ fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', en: '/en/mbot-vs-mbot2/', de: '/de/mbot-vs-mbot2/' },
+	{ fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', en: '/en/mbot-vs-mbot2/', de: '/de/mbot-vs-mbot2/', it: '/it/mbot-vs-mbot2/', es: '/es/mbot-vs-mbot2/' },
+	{
+		fr: '/activite-mbot-detecteur-dintrusion/',
+		en: '/en/mbot-activity-intrusion-detector/',
+		uk: '/uk/mbot-activity-intrusion-detector/',
+		ca: '/ca/mbot-activity-intrusion-detector/',
+		de: '/de/mbot-aktivitaet-einbruchmelder/',
+		it: '/it/attivita-mbot-rilevatore-intrusione/',
+		es: '/es/actividad-mbot-detector-intrusion/',
+	},
+	{ fr: '/thymio-3-nouveautes-prix-avis-comparatif-mbot2/', en: '/en/thymio-3-review-price-vs-mbot2/', de: '/de/thymio-3-test-preis-vs-mbot2/', it: '/it/thymio-3-recensione-prezzo-vs-mbot2/', es: '/es/thymio-3-opinion-precio-vs-mbot2/' },
+	{ fr: '/mbot3-date-sortie-rumeurs-mbot2-rover-alternatives/', en: '/en/mbot3-release-date-rumors-mbot2-rover-alternatives/', de: '/de/mbot3-erscheinungstermin-geruechte-mbot2-rover-alternativen/', it: '/it/mbot3-data-uscita-voci-mbot2-rover-alternative/', es: '/es/mbot3-fecha-lanzamiento-rumores-mbot2-rover-alternativas/' },
+	{ fr: '/sphero-blueprint-robotics-presentation-avis-robot-modulaire/', en: '/en/sphero-blueprint-robotics-review-modular-robot/', de: '/de/sphero-blueprint-robotics-test-modularer-roboter/', it: '/it/sphero-blueprint-robotics-recensione-robot-modulare/', es: '/es/sphero-blueprint-robotics-opinion-robot-modular/' },
+	{ fr: '/lego-education-computer-science-ai-2026-alternatives-spike-prime/', en: '/en/lego-education-computer-science-ai-2026-spike-prime-alternatives/', de: '/de/lego-education-computer-science-ai-2026-spike-prime-alternativen/', it: '/it/lego-education-computer-science-ai-2026-alternative-spike-prime/', es: '/es/lego-education-computer-science-ai-2026-alternativas-spike-prime/' },
+	{ fr: '/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/', en: '/en/educational-robots-2026-2027-calendar-buying-guide/', de: '/de/bildungsroboter-2026-2027-kalender-kaufberater/', it: '/it/robot-educativi-2026-2027-calendario-guida-acquisto/', es: '/es/robots-educativos-2026-2027-calendario-guia-compra/' },
 	{ fr: '/mbot-vs-codey-rocky-comparatif/', en: '/en/mbot-vs-codey-rocky/', de: '/de/mbot-vs-codey-rocky/' },
 	{ fr: '/mon-premier-programme-mbot/', en: '/en/first-mbot-program/', de: '/de/erstes-mbot-programm/' },
-	{ fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', en: '/en/mblock-bluetooth-troubleshooting/', de: '/de/mblock-bluetooth-probleme/' },
+	{ fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', en: '/en/mblock-bluetooth-troubleshooting/', de: '/de/mblock-bluetooth-probleme/', es: '/es/mblock-bluetooth-solucion/', it: '/it/mblock-bluetooth-problemi/' },
+	{ fr: '/sinscrire-sur-mblock/', en: '/en/create-mblock-account/', de: '/de/mblock-konto-erstellen/', it: '/it/creare-account-mblock/', es: '/es/crear-cuenta-mblock/' },
+	{ fr: '/logiciel-mblock-makeblock-mbot-quel-choisir/', en: '/en/mblock-software-which-to-choose/', de: '/de/mblock-software-welche-waehlen/', it: '/it/mblock-quale-software/', es: '/es/mblock-que-software/' },
+	{ fr: '/scratch-creer-un-jeu-video-premiere-partie/', en: '/en/scratch-video-game-scrolling-backdrop/', de: '/de/scratch-spiel-hintergrund-verschieben/', it: '/it/scratch-gioco-scorrere-lo-sfondo/', es: '/es/scratch-juego-desplazar-el-fondo/' },
+	{ fr: '/robot-educatif-eilik-compagnon/', en: '/en/eilik-desktop-companion/', de: '/de/eilik-tischroboter/', it: '/it/eilik-robot-da-tavolo/', es: '/es/eilik-robot-de-mesa/' },
+	{ fr: '/idees-cadeaux-robotique-noel-rentree-anniversaire/', en: '/en/robotics-gift-ideas-by-age/', de: '/de/robotik-geschenkideen-nach-alter/', it: '/it/idee-regalo-robotica-per-eta/', es: '/es/ideas-regalo-robotica-por-edad/' },
 	{ fr: '/c-arduino-environnement-structure-sketch/', en: '/en/arduino-c-sketch-structure-serial/', de: '/de/arduino-c-sketch-aufbau-serial/' },
 	{ fr: '/c-arduino-types-variables/', en: '/en/arduino-c-types-variables/', de: '/de/arduino-c-datentypen-variablen/' },
 	{ fr: '/c-arduino-conditions-capteurs-actionneurs/', en: '/en/arduino-c-conditions-sensors/', de: '/de/arduino-c-bedingungen-sensoren/' },
@@ -32,13 +241,20 @@ export const LANG_PAIRS = [
 	{ fr: null, en: '/en/tutorials/', de: '/de/anleitungen/' },
 	{ fr: null, en: '/en/arduino/', de: '/de/arduino/' },
 ];
+
+export const LANG_PAIRS = [...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS];
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
+	{ href: '/en/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: educational robots and smart home' },
+	{ href: '/en/educational-robot-christmas-gifts-2026/', fr: '/robot-educatif-cadeau-noel-2026/', title: 'Educational robot Christmas gifts 2026' },
 	{ href: '/en/best-programmable-robot-for-kids/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Best programmable robot for kids: how to choose by age' },
+	{ href: '/en/robotics-equipment-for-renters/', fr: '/equipement-robotique-locataire/', title: 'Robotics equipment for renters, without a workshop' },
 	{ href: '/en/arduino-robot-kit-for-kids/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Arduino robot kit for kids: how to choose' },
 	{ href: '/en/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: which one to buy' },
 	{ href: '/en/raspberry-pi-5-which-ram/', fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', title: 'Raspberry Pi 5: 2GB, 4GB, 8GB or 16GB?' },
 	{ href: '/en/install-mblock-5-windows/', fr: '/installer-mblock-5-sous-windows-10/', title: 'How to install mBlock 5 on Windows 10 and 11' },
+	{ href: '/en/scratch-activity-square/', fr: '/activite-scratch-le-carre/', title: 'How to draw a square in Scratch' },
+	{ href: '/en/connect-four-python/', fr: '/programmation/puissance-4/', title: 'Connect Four in Python, six chapters' },
 	{ href: '/en/smart-home/getting-started/', fr: '/domotique/debuter-domotique-par-ou-commencer/', title: 'Smart home for beginners (UK & US): where to start' },
 	{ href: '/en/smart-home/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
 	{ href: '/en/smart-home/best-zigbee-dongle-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Best Zigbee dongle for Home Assistant' },
@@ -49,10 +265,20 @@ export const EN_PAGES = [
 	{ href: '/en/mblock-bluetooth-troubleshooting/', fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', title: 'mBlock Bluetooth troubleshooting' },
 	{ href: '/en/arduino/', fr: '/c-arduino-environnement-structure-sketch/', title: 'Arduino C course (3 lessons)' },
 	{ href: '/en/brands/', fr: '/marques/', title: 'Our brand pages' },
+	{ href: '/en/smart-home/matter-1-6-new-features-nfc-setup/', fr: '/domotique/matter-1-6-nouveautes-nfc-maison-connectee/', title: 'Matter 1.6 (17 June 2026): NFC pairing, multi-admin and your smart home' },
+	{ href: '/en/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/', fr: '/domotique/home-assistant-2026-10-nouveautes-matter-reolink-tuya-batteries/', title: 'Home Assistant 2026.10 (7 Oct 2026): Matter, Reolink, Tuya local and batteries' },
+	{ href: '/en/smart-home/smart-home-2027-home-assistant-homey-jeedom-alexa/', fr: '/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/', title: 'Smart home 2027: Home Assistant vs Homey vs Jeedom vs Alexa' },
+	{ href: '/en/smart-home/matter-thread-zigbee-wifi-which-protocol-2027/', fr: '/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/', title: 'Matter, Thread, Zigbee or Wi-Fi in 2027: differences and which to choose' },
+	{ href: '/en/smart-home/smart-home-trends-2027-ces-mmwave-local-ai-energy/', fr: '/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/', title: 'Smart home trends 2027: CES, mmWave, local AI and energy without subscriptions' },
+	{ href: '/en/smart-home/homey-pro-unboxing-setup/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Homey Pro review: unboxing and setup (part 1)' },
+
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
 export const DE_PAGES = [
+	{ href: '/de/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: Lernroboter und Smart Home' },
+	{ href: '/de/lernroboter-weihnachtsgeschenke-2026/', fr: '/robot-educatif-cadeau-noel-2026/', title: 'Lernroboter zu Weihnachten 2026: Geschenk-Tipps' },
 	{ href: '/de/bester-programmierbarer-roboter-fuer-kinder/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Bester programmierbarer Roboter für Kinder: Auswahl nach Alter' },
+	{ href: '/de/robotik-ausruestung-fuer-mieter/', fr: '/equipement-robotique-locataire/', title: 'Robotik-Ausrüstung für Mieter, ohne Werkstatt' },
 	{ href: '/de/arduino-roboter-bausatz-fuer-kinder/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Arduino-Roboterbausatz für Kinder: so wählen Sie' },
 	{ href: '/de/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: welchen kaufen?' },
 	{ href: '/de/raspberry-pi-5-welcher-ram/', fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', title: 'Raspberry Pi 5: 2 GB, 4 GB, 8 GB oder 16 GB?' },
@@ -67,27 +293,240 @@ export const DE_PAGES = [
 	{ href: '/de/mblock-bluetooth-probleme/', fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', title: 'mBlock-Bluetooth-Probleme lösen' },
 	{ href: '/de/arduino/', fr: '/c-arduino-environnement-structure-sketch/', title: 'Arduino-C-Kurs (3 Lektionen)' },
 	{ href: '/de/marken/', fr: '/marques/', title: 'Unsere Markenseiten' },
+	{ href: '/de/smart-home/matter-1-6-neue-funktionen-nfc-einrichtung/', fr: '/domotique/matter-1-6-nouveautes-nfc-maison-connectee/', title: 'Matter 1.6 (17. Juni 2026): NFC, Multi-Admin und Auswirkungen auf Smart Home' },
+	{ href: '/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/', fr: '/domotique/home-assistant-2026-10-nouveautes-matter-reolink-tuya-batteries/', title: 'Home Assistant 2026.10 (7. Okt. 2026): Matter, Reolink, Tuya lokal, Batterien' },
+	{ href: '/de/smart-home/smart-home-2027-home-assistant-homey-jeedom-alexa/', fr: '/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/', title: 'Smart Home 2027: Home Assistant, Homey, Jeedom oder Alexa im Vergleich' },
+	{ href: '/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/', fr: '/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/', title: 'Matter, Thread, Zigbee oder Wi-Fi 2027: Unterschiede und Protokollwahl' },
+	{ href: '/de/smart-home/smart-home-trends-2027-ces-mmwave-lokale-ki-energie/', fr: '/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/', title: 'Smart-Home-Trends 2027: CES, mmWave, lokale KI und Energie ohne Abo' },
+	{ href: '/de/smart-home/homey-pro-auspacken-einrichtung/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Homey Pro im Test: Auspacken und Einrichtung (Teil 1)' },
+	{ href: '/de/smart-home/erste-smart-home-automatisierungen/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Erste Smart-Home-Automatisierungen' },
+	{ href: '/de/smart-home/erste-smart-home-geraete-kaufen/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Erste Smart-Home-Geräte kaufen' },
+	{ href: '/de/smart-home/garagentor-vernetzt/', fr: '/domotique/porte-garage-connectee/', title: 'Garagentor vernetzen' },
+	{ href: '/de/smart-home/smart-home-anfaengerfehler-faq/', fr: '/domotique/erreurs-debutant-domotique-faq/', title: 'Smart-Home-Anfängerfehler (FAQ)' },
+	{ href: '/de/smart-home/smart-home-einstieg-kompletter-leitfaden/', fr: '/domotique/debuter-en-domotique-guide-complet/', title: 'Smart Home Einstieg: kompletter Leitfaden' },
+	{ href: '/de/smart-home/smart-home-glossar/', fr: '/domotique/glossaire-domotique/', title: 'Smart-Home-Glossar' },
+	{ href: '/de/smart-home/welche-smart-home-zentrale-fuer-einsteiger/', fr: '/domotique/quelle-box-domotique-choisir-debutant/', title: 'Welche Smart-Home-Zentrale für Einsteiger?' },
+	{ href: '/de/lernroboter-4-jahre/', fr: '/robot-enfant-4-ans/', title: 'Lernroboter ab 4 Jahren' },
+	{ href: '/de/lernroboter-5-jahre/', fr: '/quel-robot-acheter-enfant-5-ans-guide-achat/', title: 'Lernroboter ab 5 Jahren' },
+	{ href: '/de/lernroboter-6-jahre/', fr: '/quel-robot-acheter-enfant-6-ans-guide-achat/', title: 'Lernroboter ab 6 Jahren' },
+	{ href: '/de/lernroboter-7-jahre/', fr: '/quel-robot-acheter-enfant-7-ans-guide-achat/', title: 'Lernroboter ab 7 Jahren' },
+	{ href: '/de/lernroboter-8-jahre/', fr: '/quel-robot-acheter-enfant-8-ans-guide-achat/', title: 'Lernroboter ab 8 Jahren' },
+	{ href: '/de/lernroboter-10-jahre/', fr: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Lernroboter ab 10 Jahren' },
+	{ href: '/de/lernroboter-12-jahre/', fr: '/quel-robot-acheter-enfant-12-ans-guide-achat/', title: 'Lernroboter ab 12 Jahren' },
+	{ href: '/de/lernroboter-14-jahre/', fr: '/robot-programmable-14-ans-ado/', title: 'Lernroboter ab 14 Jahren' },
+	{ href: '/de/bildungsroboter-2026-2027-kalender-kaufberater/', fr: '/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/', title: 'Bildungsroboter 2026–2027' },
+	{ href: '/de/lego-education-computer-science-ai-2026-spike-prime-alternativen/', fr: '/lego-education-computer-science-ai-2026-alternatives-spike-prime/', title: 'LEGO SPIKE Alternativen' },
+	{ href: '/de/sphero-blueprint-robotics-test-modularer-roboter/', fr: '/sphero-blueprint-robotics-presentation-avis-robot-modulaire/', title: 'Sphero Blueprint Test' },
+	{ href: '/de/thymio-3-test-preis-vs-mbot2/', fr: '/thymio-3-avis-prix-vs-mbot2/', title: 'Thymio 3 vs mBot2' },
+	{ href: '/de/mbot3-erscheinungstermin-geruechte-mbot2-rover-alternativen/', fr: '/mbot3-date-sortie-rumeurs-mbot2-rover-alternatives/', title: 'mBot3 Gerüchte' },
+
+	{ href: '/de/scratch-schule-zuhause-einstieg/', fr: '/scratch-ecole-maison-par-ou-commencer/', title: 'Scratch Schule und Zuhause: Einstieg' },
+	{ href: '/de/10-kostenlose-mbot-klassenprojekte/', fr: '', title: '10 kostenlose mBot-Klassenprojekte' },
+	{ href: '/de/arduino-c-funktionen-best-practices/', fr: '', title: 'Arduino C: Funktionen und Best Practices' },
+	{ href: '/de/arduino-c/', fr: '', title: 'Arduino C für Einsteiger' },
+	{ href: '/de/bester-lernroboter-2026/', fr: '', title: 'Bester Lernroboter 2026' },
+	{ href: '/de/erste-schritte-mblock-5/', fr: '', title: 'Erste Schritte mit mBlock 5' },
+	{ href: '/de/lernroboter-200-500-euro/', fr: '', title: 'Lernroboter zwischen 200 und 500 €' },
+	{ href: '/de/makeblock-cyberpi-ueberblick/', fr: '', title: 'Makeblock CyberPi im Überblick' },
+	{ href: '/de/matatalab-tale-bot-lernroboter/', fr: '', title: 'Matatalab Tale-Bot Lernroboter' },
+	{ href: '/de/mblock-5-kostenlos-herunterladen/', fr: '', title: 'mBlock 5 kostenlos herunterladen' },
+	{ href: '/de/mblock-online-ohne-installation/', fr: '', title: 'mBlock online ohne Installation' },
+	{ href: '/de/mblock-software-welche-waehlen/', fr: '', title: 'mBlock-Software: welche Version wählen?' },
+	{ href: '/de/mblock-vs-scratch/', fr: '', title: 'mBlock vs Scratch' },
+	{ href: '/de/mbot-aktivitaet-einbruchmelder/', fr: '', title: 'mBot-Aktivität: Einbruchmelder' },
+	{ href: '/de/mbot-aktivitaet-entfernung-messen/', fr: '', title: 'mBot-Aktivität: Entfernung messen' },
+	{ href: '/de/mbot-aktivitaet-leds-blinken/', fr: '', title: 'mBot-Aktivität: LEDs blinken lassen' },
+	{ href: '/de/mbot-aktivitaet-text-scrollen/', fr: '', title: 'mBot-Aktivität: Text scrollen' },
+	{ href: '/de/mbot-bloecke-installieren/', fr: '', title: 'Zusatzblöcke für mBot installieren' },
+	{ href: '/de/mbot-ein-stunden-projekte/', fr: '', title: 'mBot-Projekte für eine Stunde' },
+	{ href: '/de/mbot-mein-erster-lernroboter/', fr: '', title: 'mBot: mein erster Lernroboter' },
+	{ href: '/de/mbot-test-kaufen/', fr: '', title: 'mBot kaufen: Testbericht' },
+	{ href: '/de/mbot-ultraschall-4-langsamer-stopp/', fr: '', title: 'mBot Ultraschall: langsamer Stopp' },
+	{ href: '/de/mbot-vs-lego-roboter/', fr: '', title: 'mBot vs LEGO-Roboter' },
+	{ href: '/de/mbot-zubehoer-einstieg/', fr: '', title: 'mBot-Zubehör für Einsteiger' },
+	{ href: '/de/python-datentypen-eingabe/', fr: '', title: 'Python: Datentypen und Eingabe' },
+	{ href: '/de/python-mini-terminalspiel/', fr: '', title: 'Python-Mini-Terminalspiel' },
+	{ href: '/de/python-packaging-pyproject/', fr: '', title: 'Python-Packaging mit pyproject.toml' },
+	{ href: '/de/python-pathlib/', fr: '', title: 'Python pathlib' },
+	{ href: '/de/raspberry-pi-3-erste-schritte/', fr: '', title: 'Raspberry Pi 3: erste Schritte' },
+	{ href: '/de/raspberry-pi-4-welcher-ram/', fr: '', title: 'Raspberry Pi 4: welcher RAM?' },
+	{ href: '/de/scratch-aktivitaet-quadrat/', fr: '/activite-scratch-le-carre/', title: 'Scratch-Aktivität: Quadrat zeichnen' },
+	{ href: '/de/vier-gewinnt-python/', fr: '/programmation/puissance-4/', title: 'Vier gewinnt in Python, sechs Kapitel' },
 ];
 // Pages /it/ publiées.
 export const IT_PAGES = [
+	{ href: '/it/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: robot educativi e domotica' },
+	{ href: '/it/regalo-natale-robot-educativo-2026/', fr: '/robot-educatif-cadeau-noel-2026/', title: 'Regalo Natale 2026: robot educativi programmabili' },
 	{ href: '/it/miglior-robot-programmabile-per-bambini/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Miglior robot programmabile per bambini: come scegliere per età' },
+	{ href: '/it/attrezzatura-robotica-per-inquilini/', fr: '/equipement-robotique-locataire/', title: 'Attrezzatura robotica per inquilini, senza laboratorio' },
 	{ href: '/it/kit-robot-arduino-per-bambini/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit robot Arduino per bambini: come sceglierlo' },
 	{ href: '/it/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: quale comprare?' },
+	{ href: '/it/domotica/come-iniziare/', fr: '/domotique/debuter-domotique-par-ou-commencer/', title: 'Domotica per principianti: da dove iniziare' },
+	{ href: '/it/domotica/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
+	{ href: '/it/domotica/miglior-chiavetta-zigbee-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Miglior chiavetta Zigbee per Home Assistant' },
+	{ href: '/it/domotica/prese-smart/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: "Prese smart per Home Assistant in Italia" },
 	{ href: '/it/shelly-gen4-quale-modulo-scegliere/', fr: '', title: 'Shelly Gen4: quale modulo scegliere per la domotica' },
 	{ href: '/it/marchi/', fr: '/marques/', title: 'Le nostre pagine marchio' },
+	{ href: '/it/domotica/matter-1-6-novita-nfc-smart-home/', fr: '/domotique/matter-1-6-nouveautes-nfc-maison-connectee/', title: 'Matter 1.6 (17 giugno 2026): NFC, multi-admin e casa intelligente' },
+	{ href: '/it/domotica/home-assistant-2026-10-matter-reolink-tuya-batterie/', fr: '/domotique/home-assistant-2026-10-nouveautes-matter-reolink-tuya-batteries/', title: 'Home Assistant 2026.10 (7 ott 2026): Matter, Reolink, Tuya locale e batterie' },
+	{ href: '/it/domotica/casa-intelligente-2027-home-assistant-homey-jeedom-alexa/', fr: '/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/', title: 'Casa intelligente 2027: confronto Home Assistant, Homey, Jeedom e Alexa' },
+	{ href: '/it/domotica/matter-thread-zigbee-wifi-quale-protocollo-2027/', fr: '/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/', title: 'Matter, Thread, Zigbee o Wi-Fi nel 2027: differenze e quale protocollo scegliere' },
+	{ href: '/it/domotica/tendenze-domotica-2027-ces-mmwave-ia-locale-energia/', fr: '/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/', title: 'Tendenze domotica 2027: CES, mmWave, IA locale ed energia senza abbonamento' },
+	{ href: '/it/domotica/test-homey-pro-unboxing-installazione/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Prova Homey Pro: unboxing e installazione (parte 1)' },
+	{ href: '/it/domotica/errori-principianti-domotica-faq/', fr: '/domotique/erreurs-debutant-domotique-faq/', title: 'Errori principianti domotica (FAQ)' },
+	{ href: '/it/domotica/glossario-domotica/', fr: '/domotique/glossaire-domotique/', title: 'Glossario domotica' },
+	{ href: '/it/domotica/iniziare-domotica-guida-completa/', fr: '/domotique/debuter-en-domotique-guide-complet/', title: 'Iniziare domotica: guida completa' },
+	{ href: '/it/domotica/porta-garage-connessa/', fr: '/domotique/porte-garage-connectee/', title: 'Porta garage connessa' },
+	{ href: '/it/domotica/prime-automazioni-domotica/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Prime automazioni domotica' },
+	{ href: '/it/domotica/primi-dispositivi-domotica-da-comprare/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Primi dispositivi domotica da comprare' },
+	{ href: '/it/domotica/quale-box-domotica-per-principianti/', fr: '/domotique/quelle-box-domotique-choisir-debutant/', title: 'Quale box domotica per principianti' },
+	{ href: '/it/domotica/robot-lavapavimenti-stazione-autopulente/', fr: '/domotique/robot-laveur-serpilliere-station-autonettoyante/', title: 'Robot lavapavimenti e stazioni' },
+	{ href: '/it/robot-programmabile-4-anni/', fr: '/robot-enfant-4-ans/', title: 'Robot programmabile 4 anni' },
+	{ href: '/it/robot-programmabile-5-anni/', fr: '/quel-robot-acheter-enfant-5-ans-guide-achat/', title: 'Robot programmabile 5 anni' },
+	{ href: '/it/robot-programmabile-6-anni/', fr: '/quel-robot-acheter-enfant-6-ans-guide-achat/', title: 'Robot programmabile 6 anni' },
+	{ href: '/it/robot-programmabile-7-anni/', fr: '/quel-robot-acheter-enfant-7-ans-guide-achat/', title: 'Robot programmabile 7 anni' },
+	{ href: '/it/robot-programmabile-8-anni/', fr: '/quel-robot-acheter-enfant-8-ans-guide-achat/', title: 'Robot programmabile 8 anni' },
+	{ href: '/it/robot-programmabile-10-anni/', fr: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Robot programmabile 10 anni' },
+	{ href: '/it/robot-programmabile-12-anni/', fr: '/quel-robot-acheter-enfant-12-ans-guide-achat/', title: 'Robot programmabile 12 anni' },
+	{ href: '/it/robot-programmabile-14-anni/', fr: '/robot-programmable-14-ans-ado/', title: 'Robot programmabile 14 anni' },
+	{ href: '/it/lego-education-computer-science-ai-2026-alternative-spike-prime/', fr: '/lego-education-computer-science-ai-2026-alternatives-spike-prime/', title: 'LEGO SPIKE alternative' },
+	{ href: '/it/sphero-blueprint-robotics-recensione-robot-modulare/', fr: '/sphero-blueprint-robotics-presentation-avis-robot-modulaire/', title: 'Sphero Blueprint recensione' },
+	{ href: '/it/thymio-3-recensione-prezzo-vs-mbot2/', fr: '/thymio-3-avis-prix-vs-mbot2/', title: 'Thymio 3 vs mBot2' },
+	{ href: '/it/mbot3-data-uscita-voci-mbot2-rover-alternative/', fr: '/mbot3-date-sortie-rumeurs-mbot2-rover-alternatives/', title: 'mBot3: voci e alternative' },
+	{ href: '/it/robot-educativi-2026-2027-calendario-guida-acquisto/', fr: '/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/', title: 'Robot educativi 2026–2027' },
+
+	{ href: '/it/10-progetti-mbot-gratis-classe/', fr: '', title: '10 progetti mbot gratis classe' },
+	{ href: '/it/accessori-mbot-da-dove-iniziare/', fr: '', title: 'Accessori mbot da dove iniziare' },
+	{ href: '/it/arduino-c-funzioni-buone-pratiche/', fr: '', title: 'Arduino c funzioni buone pratiche' },
+	{ href: '/it/arduino-c/', fr: '', title: 'Arduino c' },
+	{ href: '/it/attivita-mbot-far-lampeggiare-led/', fr: '', title: 'Attività mBot: far lampeggiare i LED' },
+	{ href: '/it/attivita-mbot-far-scorrere-testo/', fr: '', title: 'Attività mBot: testo scorrevole' },
+	{ href: '/it/attivita-mbot-misurare-distanze/', fr: '', title: 'Attività mBot: misurare le distanze' },
+	{ href: '/it/attivita-mbot-rilevatore-intrusione/', fr: '', title: 'Attività mBot: rilevatore di intrusione' },
+	{ href: '/it/attivita-scratch-il-quadrato/', fr: '/activite-scratch-le-carre/', title: 'Attività Scratch: disegnare un quadrato' },
+	{ href: '/it/forza-quattro-python/', fr: '/programmation/puissance-4/', title: 'Forza Quattro in Python, sei capitoli' },
+	{ href: '/it/installare-blocchi-mbot/', fr: '', title: 'Installare blocchi mbot' },
+	{ href: '/it/installare-mblock-5-windows/', fr: '', title: 'Installare mblock 5 windows' },
+	{ href: '/it/makeblock-cyberpi-panoramica/', fr: '', title: 'Makeblock cyberpi panoramica' },
+	{ href: '/it/matatalab-tale-bot-robot-educativo/', fr: '', title: 'Matatalab tale bot robot educativo' },
+	{ href: '/it/mblock-bluetooth-problemi/', fr: '/mblock-bluetooth-erreurs-frequentes-depannage/', title: 'mBlock Bluetooth: il mBot non si connette' },
+	{ href: '/it/mblock-online-senza-installazione/', fr: '', title: 'Mblock online senza installazione' },
+	{ href: '/it/mblock-vs-scratch/', fr: '', title: 'Mblock vs scratch' },
+	{ href: '/it/mbot-il-mio-primo-robot-educativo/', fr: '', title: 'Mbot il mio primo robot educativo' },
+	{ href: '/it/mbot-recensione-vale-la-pena/', fr: '', title: 'Mbot recensione vale la pena' },
+	{ href: '/it/mbot-ultrasuoni-4-rallentare-ostacolo/', fr: '', title: 'Mbot ultrasuoni 4 rallentare ostacolo' },
+	{ href: '/it/mbot-vs-lego-robot/', fr: '', title: 'mBot vs robot LEGO' },
+	{ href: '/it/mbot-vs-mbot2/', fr: '/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/', title: 'mBot vs mBot2: differenze e quale comprare' },
+	{ href: '/it/miglior-robot-educativo-2026/', fr: '', title: 'Miglior robot educativo 2026' },
+	{ href: '/it/primi-passi-mblock-5/', fr: '', title: 'Primi passi mblock 5' },
+	{ href: '/it/primo-programma-mbot/', fr: '', title: 'Primo programma mbot' },
+	{ href: '/it/progetti-mbot-un-ora/', fr: '', title: 'Progetti mbot un ora' },
+	{ href: '/it/python-mini-gioco-terminale/', fr: '', title: 'Python mini gioco terminale' },
+	{ href: '/it/python-packaging-pyproject/', fr: '', title: 'Python packaging pyproject' },
+	{ href: '/it/python-pathlib/', fr: '', title: 'Python pathlib' },
+	{ href: '/it/python-tipi-e-input/', fr: '', title: 'Python tipi e input' },
+	{ href: '/it/raspberry-pi-3-primi-passi/', fr: '', title: 'Raspberry pi 3 primi passi' },
+	{ href: '/it/raspberry-pi-4-quale-ram/', fr: '', title: 'Raspberry Pi 4: quale RAM' },
+	{ href: '/it/raspberry-pi-5-quale-ram/', fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', title: 'Raspberry Pi 5: quale RAM' },
+	{ href: '/it/robot-educativo-200-500-euro/', fr: '/quel-robot-educatif-entre-200-et-500-euros-guide-2026/', title: 'Robot educativi 200–500 €' },
+	{ href: '/it/scaricare-mblock-5-gratis/', fr: '/telecharger-mblock-5-gratuit-guide-2026/', title: 'Scaricare mBlock 5 gratis' },
+	{ href: '/it/scratch-scuola-casa-inizio/', fr: '/scratch-ecole-maison-par-ou-commencer/', title: 'Scratch scuola e casa' },
+	{ href: '/it/software-mblock-quale-scegliere/', fr: '/mblock-5-quel-logiciel-choisir/', title: 'Software mBlock: quale scegliere' },
 ];
 // Pages /es/ publiées.
 export const ES_PAGES = [
+	{ href: '/es/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: robots educativos y domótica' },
+	{ href: '/es/regalo-navidad-robot-educativo-2026/', fr: '/robot-educatif-cadeau-noel-2026/', title: 'Regalo Navidad 2026: robots educativos programables' },
 	{ href: '/es/mejor-robot-programable-para-ninos/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Mejor robot programable para niños: cómo elegir según la edad' },
+	{ href: '/es/equipo-robotica-para-inquilinos/', fr: '/equipement-robotique-locataire/', title: 'Equipo de robótica para inquilinos: qué elegir sin taller' },
 	{ href: '/es/kit-robot-arduino-para-ninos/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit de robot Arduino para niños: cómo elegirlo' },
 	{ href: '/es/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: ¿cuál comprar?' },
+	{ href: '/es/actividad-scratch-el-cuadrado/', fr: '/activite-scratch-le-carre/', title: 'Actividad Scratch: dibujar un cuadrado' },
+	{ href: '/es/conecta-4-python/', fr: '/programmation/puissance-4/', title: 'Conecta 4 en Python, seis capítulos' },
+	{ href: '/es/domotica/como-empezar/', fr: '/domotique/debuter-domotique-par-ou-commencer/', title: 'Domótica para principiantes: por dónde empezar' },
+	{ href: '/es/domotica/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
+	{ href: '/es/domotica/mejor-dongle-zigbee-home-assistant/', fr: '/domotique/meilleur-dongle-zigbee-home-assistant/', title: 'Mejor dongle Zigbee para Home Assistant' },
+	{ href: '/es/domotica/enchufes-inteligentes/', fr: '/domotique/prise-connectee-zigbee-home-assistant/', title: 'Enchufes inteligentes para Home Assistant en España' },
 	{ href: '/es/shelly-gen4-que-modulo-elegir/', fr: '', title: 'Shelly Gen4: qué módulo elegir para domótica' },
 	{ href: '/es/marcas/', fr: '/marques/', title: 'Nuestras páginas de marca' },
+	{ href: '/es/domotica/matter-1-6-novedades-nfc-casa-inteligente/', fr: '/domotique/matter-1-6-nouveautes-nfc-maison-connectee/', title: 'Matter 1.6 (17 junio 2026): NFC, multi-admin y hogar inteligente' },
+	{ href: '/es/domotica/home-assistant-2026-10-matter-reolink-tuya-baterias/', fr: '/domotique/home-assistant-2026-10-nouveautes-matter-reolink-tuya-batteries/', title: 'Home Assistant 2026.10 (7 oct 2026): Matter, Reolink, Tuya local y baterías' },
+	{ href: '/es/domotica/hogar-inteligente-2027-home-assistant-homey-jeedom-alexa/', fr: '/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/', title: 'Hogar inteligente 2027: comparativa Home Assistant, Homey, Jeedom y Alexa' },
+	{ href: '/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/', fr: '/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/', title: 'Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir' },
+	{ href: '/es/domotica/tendencias-domotica-2027-ces-mmwave-ia-local-energia/', fr: '/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/', title: 'Tendencias domótica 2027: CES, mmWave, IA local y energía sin suscripción' },
+	{ href: '/es/domotica/test-homey-pro-unboxing-instalacion/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Prueba del Homey Pro: unboxing e instalación (parte 1)' },
+	{ href: '/es/domotica/test-homey-pro-unboxing-instalacion/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Prueba del Homey Pro: unboxing e instalación (parte 1)' },
+	{ href: '/es/lego-education-computer-science-ai-2026-alternativas-spike-prime/', fr: '/lego-education-computer-science-ai-2026-alternatives-spike-prime/', title: 'LEGO Education CS & AI 2026: alternativas a SPIKE Prime' },
+	{ href: '/es/robots-educativos-2026-2027-calendario-guia-compra/', fr: '/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/', title: 'Robots educativos 2026–2027: calendario y guía de compra' },
+	{ href: '/es/sphero-blueprint-robotics-opinion-robot-modular/', fr: '/sphero-blueprint-robotics-presentation-avis-robot-modulaire/', title: 'Sphero Blueprint Robotics: opinión' },
+	{ href: '/es/thymio-3-opinion-precio-vs-mbot2/', fr: '/thymio-3-avis-prix-vs-mbot2/', title: 'Thymio 3: opinión y precio vs mBot2' },
+	{ href: '/es/mbot3-fecha-lanzamiento-rumores-mbot2-rover-alternativas/', fr: '/mbot3-date-sortie-rumeurs-mbot2-rover-alternatives/', title: 'mBot3: rumores de lanzamiento y alternativas' },
+	{ href: '/es/domotica/empezar-domotica-guia-completa/', fr: '/domotique/debuter-en-domotique-guide-complet/', title: 'Empezar en domótica: guía completa' },
+	{ href: '/es/domotica/errores-principiante-domotica-faq/', fr: '/domotique/erreurs-debutant-domotique-faq/', title: 'Errores de principiante en domótica (FAQ)' },
+	{ href: '/es/domotica/glosario-domotica/', fr: '/domotique/glossaire-domotique/', title: 'Glosario domótica' },
+	{ href: '/es/domotica/primeras-automatizaciones-domotica/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Primeras automatizaciones domótica' },
+	{ href: '/es/domotica/primeros-dispositivos-domotica-comprar/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Primeros dispositivos domótica a comprar' },
+	{ href: '/es/domotica/puerta-garaje-conectada/', fr: '/domotique/porte-garage-connectee/', title: 'Puerta de garaje conectada' },
+	{ href: '/es/domotica/que-box-domotica-elegir-principiante/', fr: '/domotique/quelle-box-domotique-choisir-debutant/', title: 'Qué hub domótica elegir (principiante)' },
+	{ href: '/es/robot-programable-4-anos/', fr: '/robot-enfant-4-ans/', title: 'Robot programable para 4 años' },
+	{ href: '/es/robot-programable-5-anos/', fr: '/quel-robot-acheter-enfant-5-ans-guide-achat/', title: 'Robot programable para 5 años' },
+	{ href: '/es/robot-programable-6-anos/', fr: '/quel-robot-acheter-enfant-6-ans-guide-achat/', title: 'Robot programable para 6 años' },
+	{ href: '/es/robot-programable-7-anos/', fr: '/quel-robot-acheter-enfant-7-ans-guide-achat/', title: 'Robot programable para 7 años' },
+	{ href: '/es/robot-programable-8-anos/', fr: '/quel-robot-acheter-enfant-8-ans-guide-achat/', title: 'Robot programable para 8 años' },
+	{ href: '/es/robot-programable-10-anos/', fr: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Robot programable para 10 años' },
+	{ href: '/es/robot-programable-12-anos/', fr: '/quel-robot-acheter-enfant-12-ans-guide-achat/', title: 'Robot programable para 12 años' },
+	{ href: '/es/robot-programable-14-anos/', fr: '/quel-robot-acheter-enfant-14-ans-guide-achat/', title: 'Robot programable para 14 años' },
+	{ href: '/es/domotica/', fr: '/domotique/', title: 'Hub domótica' },
+	{ href: '/es/aviso-legal/', fr: '/mentions-legales/', title: 'Aviso legal' },
+
 ];
-export const langOf = (p) => { for (const l of ['en', 'de', 'it', 'es']) if (p === '/' + l || p.startsWith('/' + l + '/')) return l; return 'fr'; };
+export const langOf = (p) => {
+	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es']) {
+		if (p === `/${l}` || p.startsWith(`/${l}/`)) return l;
+	}
+	return 'fr';
+};
 export const slugOf = (p) => p.replace(/\/$/, '').split('/').pop();
 const norm = (p) => (p.endsWith('/') ? p : p + '/');
+
+/** Ajoute les chemins UK/CA dérivés de la version EN quand ils existent en production. */
+export function expandLangPair(pair) {
+	if (!pair) return null;
+	const x = { ...pair };
+	if (x.en && !x.uk) x.uk = x.en.replace(/^\/en\//, '/uk/');
+	if (x.en && !x.ca) x.ca = x.en.replace(/^\/en\//, '/ca/');
+	if (!OMIT_US_HREFLANG && x.en && !x.us) x.us = x.en.replace(/^\/en\//, '/us/');
+	return x;
+}
+
 export function findPair(pathname) {
 	const p = norm(pathname);
-	return LANG_PAIRS.find((x) => x.fr === p || x.en === p || x.de === p || x.it === p || x.es === p) || null;
+	const direct = LANG_PAIRS.find(
+		(x) =>
+			x.fr === p ||
+			x.en === p ||
+			x.de === p ||
+			x.it === p ||
+			x.es === p ||
+			x.uk === p ||
+			x.ca === p ||
+			x.us === p,
+	);
+	if (direct) return direct;
+	if (p.startsWith('/uk/') || p === '/uk/') {
+		const enP = p.replace(/^\/uk(\/|$)/, '/en$1');
+		const found = LANG_PAIRS.find((x) => x.en === enP);
+		if (found) return expandLangPair(found);
+	}
+	if (p.startsWith('/ca/') || p === '/ca/') {
+		const enP = p.replace(/^\/ca(\/|$)/, '/en$1');
+		const found = LANG_PAIRS.find((x) => x.en === enP);
+		if (found) return expandLangPair(found);
+	}
+	if (p.startsWith('/us/') || p === '/us/') {
+		const enP = p.replace(/^\/us(\/|$)/, '/en$1');
+		const found = LANG_PAIRS.find((x) => x.en === enP);
+		if (found) return expandLangPair(found);
+	}
+	return null;
 }

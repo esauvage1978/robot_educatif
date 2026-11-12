@@ -3,15 +3,16 @@ title: "Mon premier programme mBot"
 description: "Premier programme mBlock 5 pour mBot : bouton capteur, LED RGB, boucle, connexion Bluetooth. Guide débutant avec captures."
 pubDate: "2020-04-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
-updatedDate: "2026-03-29"
+updatedDate: "2026-10-28"
 categories:
   - "mBot"
   - "mBlock"
   - "Scratch"
   - "À partir de 8 ans"
 ---
+> **Réponse directe (octobre 2026)** — Ouvrez mBlock, ajoutez **mBot**, connectez USB, glissez « avancer » sous « drapeau vert », **téléversez**, débranchez : le robot doit avancer. Sinon : port COM / mode Upload — [premiers pas](/premier-pas-avec-mblock-5/).
 
-Ce tutoriel vous guide **pas à pas** : du premier bloc dans mBlock 5 jusqu’au **téléversement** dans le robot. Le programme reste volontairement **simple** : au démarrage, le mBot attend que vous appuyiez sur le **bouton de la carte** ; il joue alors une **note (mélodie courte)**. L’objectif est surtout de comprendre le **enchaînement** (ouvrir le logiciel → empiler les blocs → enregistrer → connecter → tester → envoyer dans le robot), pas encore d’algorithmique avancée.
+Ce tutoriel vous guide **pas à pas** : du premier bloc dans mBlock 5 jusqu’au **téléversement** dans le robot. Le programme reste volontairement **simple** : au démarrage, le mBot attend que vous appuyiez sur le **bouton de la carte** ; il joue alors une **note (mélodie courte)**. L’objectif est surtout de comprendre le **enchaînement** (ouvrir le logiciel → empiler les blocs → enregistrer → connecter → tester → envoyer dans le robot), pas encore d’algorithmique avancée. Si vous hésitez encore sur le kit à acheter, notre [comparatif robots programmables 2026](/meilleur-robot-programmable-enfant-2026/) résume mBot, mBot2 et alternatives par âge.
 
 ## Prérequis
 
@@ -19,6 +20,8 @@ Ce tutoriel vous guide **pas à pas** : du premier bloc dans mBlock 5 jusqu’au
 - [Installer mBlock 5](/installer-mblock-5-sous-windows-10/) sur l’ordinateur.
 - Avoir parcouru l’[interface de mBlock 5](/premier-pas-avec-mblock-5/) (lutins, appareil, zone de script).
 - [Ajouter les blocs mBot](/installer-les-blocs-du-mbot/) si ce n’est pas déjà fait.
+
+Pour un préado qui dépasse le simple Scratch, le [guide robot programmable 12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/) détaille aussi mBot2, Arduino et Raspberry Pi.
 
 Dans mBlock 5, passez en mode **Appareil** et sélectionnez le **mBot** (carte mCore) comme cible, pour voir les blocs orange « mBot ».
 

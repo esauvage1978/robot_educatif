@@ -1,8 +1,8 @@
 ---
-title: "Robots éducatifs 500-1000€ : comparatif 2026"
-description: "Budget premium : robots éducatifs 500-1000€ avec mBot2, fischertechnik TXT 4.0, quadrupède Go2, HuskyLens IA. Projets avancés et écosystèmes complets."
+title: "Robots éducatifs 500-1000 € : comparatif 2026"
+description: "Entre 500 et 1 000 € au 6 novembre 2026 : le mBot2 à 167,95 € sort de la tranche. fischertechnik, Ultimate, Unitree et HuskyLens : consulter le prix, sans additionner les accessoires."
 pubDate: "2026-04-08"
-updatedDate: "2026-04-08"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: general
 categories:
@@ -11,9 +11,9 @@ categories:
   - "Comparatif"
   - "STEM"
 relatedLinks:
-  - title: "Robots plus de 1000 € — guide expert (2026)"
+  - title: "Robots plus de 1000 € — guide expert (2026)"
     href: "/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/"
-  - title: "Robots 200–500 € — kits intermédiaires"
+  - title: "Robots 200–500 € — kits intermédiaires"
     href: "/quel-robot-educatif-entre-200-et-500-euros-guide-2026/"
   - title: "mBot vs mBot2"
     href: "/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/"
@@ -27,221 +27,131 @@ tags:
   - "500-1000 euros"
 ---
 
-Si tu es prêt à investir **entre 500 € et 1000 €**, tu changes de registre : on entre dans des **kits avancés**, parfois proches des usages **lycée / prépa / makers**, avec des **capteurs sérieux**, des **projets longs** et des logiciels qui **ne sont plus des gadgets**.
+Entre 500 et 1 000 €, on quitte le robot de salon pour des kits plus longs : mécanique, capteurs, parfois de la vision. Le relevé Amazon.fr du 6 novembre 2026, 11 h 23, ne place aucun de ces ensembles dans la tranche. Le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) seul était à **167,95 €**. La [carte CyberPi](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21) en kit d’apprentissage était à **59,99 €**. Additionner des accessoires non relevés pour « atteindre » 500 € donnerait un total inventé : ce guide ne le fait pas. Le fischertechnik TXT 4.0, le mBot Ultimate, un châssis DFRobot avec HuskyLens et la famille Unitree Go n’ont pas de prix dans ce relevé. Consulter le prix, et ne les compter ici que si la fiche du jour est entre 500 et 1 000 €.
 
-Dans cette gamme, un bon choix permet en général de :
+## Ce que cette tranche demande
 
-- **programmer** au-delà du simple « tout droit / tourne » (logique, états, **Python**…)
-- **construire** des **systèmes** (méca + capteurs + asservissement)
-- **explorer** la **vision**, l’**IA légère**, la **donnée capteur** — selon le kit
+De 10 à 12 ans, il faut encore des séances guidées et beaucoup de blocs. De 12 à 16 ans, plusieurs capteurs, un peu de C ou d’Arduino, ou Python, tiennent si le projet dure. À partir de 16 ans, ou pour un adulte, on peut viser Linux embarqué ou une logique plus proche de l’ingénieur, à condition que le prix réel suive. L’âge de départ se cale aussi avec [à quel âge commencer la programmation](/programmation-enfant-a-quel-age-commencer/).
 
-**Voici des modèles / approches solides** selon le niveau et l’objectif, avec une **lecture honnête des prix** (certaines références « catalogue » gonflent ou au contraire oublient les bundles).
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Type</th>
+<th scope="col">Ce que ça entraîne</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Construction lourde</strong></span></td>
+<td data-label="Ce que ça entraîne"><span class="td-val">Mécanique, rigidité, conception d’un modèle</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Programmation avancée</strong></span></td>
+<td data-label="Ce que ça entraîne"><span class="td-val">Arduino, Python, algorithmes sur des capteurs</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Vision</strong></span></td>
+<td data-label="Ce que ça entraîne"><span class="td-val">Une caméra ou un capteur qui décide, puis un moteur qui agit</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-> **Images** : visuels promotionnels **Makeblock**, **fischertechnik**, **DFRobot**, **Unitree** (téléchargés depuis sites officiels, avril 2026) — droits marques, usage éditorial.
+Un loisir exigeant cherche le plaisir de faire fonctionner quelque chose. Une préparation d’études cherche la patience et la lecture d’une documentation. Un usage maker cherche un outil pour des prototypes, pas seulement la fin du manuel.
 
----
-
-## 🧠 Comment choisir (valeur ajoutée)
-
-### 1. Niveau technique (critère n°1)
-
-- **10–12 ans** : encore des **cadres guidés**, beaucoup de **blocs**, expériences **pas trop longues** seules.
-- **12–16 ans** : **robotique avancée** pour le grand public — capteurs multiples, intégration, parfois **C / Arduino** ou **Python**.
-- **16 ans et + / adultes** : logique **ingénieur**, **ROS**, **Linux embarqué** ou plateformes **recherche** (selon budget réel).
-
-### 2. Type d’apprentissage
-
-| Symbole | Type | Ce que ça favorise |
-|--------|------|-------------------|
-| 🧩 | **Construction complexe** | Mécanique, rigidité, conception |
-| 💻 | **Programmation avancée** | **Arduino**, **Python**, algo |
-| 🤖 | **Robot « intelligent »** | Vision, **IA**, comportement |
-
-### 3. Objectif
-
-- **Loisir exigeant** : plaisir **tech**, projets maison.
-- **Préparation études STEM** : habituer à la **persistence** et à la **doc**.
-- **Passion / maker** : outil pour **prototypes**, pas seulement pour « finir le manuel ».
-
----
-
-## 🏆 Meilleurs robots / approches (500 € → 1000 €)
-
-### 🥇 Le plus « moderne » et évolutif — **Makeblock mBot2**
+## Hors tranche : le mBot2 à 167,95 €
 
 ![Makeblock mBot2, robot STEM programmable](/images/blog/robots-educatif-500-1000-euros-2026/makeblock-mbot2.jpg)
 
-*Visuel Makeblock — mBot2.*
+Le mBot2 était à **167,95 €** le 6 novembre 2026. Il sort de la sélection principale. C’est pourtant la plateforme Makeblock la plus actuelle de cette page : la carte CyberPi (écran, micro, haut-parleur, capteurs, matrice de LED), les blocs mBlock puis Python, et les modules mBuild. Le kit CyberPi seul, dans le même relevé, était à **59,99 €**. Ce second prix est celui du kit d’apprentissage, pas un accessoire à ajouter au mBot2 pour fabriquer un budget de 500 €. Le premier branchement (compte, connexion, mises à jour) est décrit dans [installer mBlock](/installer-mblock-5-sous-windows-10/). Le face-à-face avec le mBot est dans [mBot ou mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/), et la présentation dans le [guide mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/). Pour un parent qui veut un robot documenté, c’est le bon modèle, dans un guide de budget plus bas : [autour de 200 €](/quel-robot-educatif-autour-de-200-euros-guide-2026/) ou [200 à 500 €](/quel-robot-educatif-entre-200-et-500-euros-guide-2026/).
 
-| | |
-|--|--|
-| **Prix (réalité 2026)** | Le **kit mBot2 seul** est en pratique souvent **autour de 160–220 €** neuf en France. **Dans une enveloppe 500–1000 €**, tu peux viser un **panier complet** : mBot2 + **Coding box** / **extensions** / **capteurs** / **accessoires**, voire un **pack multi-élèves** côté association — d’où des **totaux** sur le **haut de la fourchette** évoqués sur certaines boutiques. |
-| **Pour qui ?** | **10 à 16 ans** |
+## Sans prix dans le relevé
 
-**Points forts**
-
-- **CyberPi** : capteurs **riches** (lumière, **gyro**, etc.), **matrice LED**, **micro**, **haut-parleur** — terrain de jeu pour **IA légère** et interactions.
-- **Scratch** (mBlock) + **Python** : bonne **courbe** sans changer de marque.
-- **Évolutif** via l’univers **mBuild** / accessoires documentés Makeblock.
-
-**Limites**
-
-- **Accompagnement** au début (compte, connexion, mises à jour) — voir nos guides [mBlock](/installer-mblock-5-sous-windows-10/).
-
-👉 **Meilleur compromis « robot éducatif actuel »** si tu veux **une plateforme vivante** et documentée en français / anglais.
-
-**Amazon** : [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-
----
-
-### 🥈 Le plus pédagogique (école / STEM) — **fischertechnik — Robotics TXT 4.0 Base Set** (logiciel **ROBO Pro Coding**)
+### fischertechnik Robotics TXT 4.0 Base Set
 
 ![fischertechnik Robotics TXT 4.0 Base Set](/images/blog/robots-educatif-500-1000-euros-2026/fischertechnik-robotics-txt-4-base-set.jpg)
 
-*Visuel fischertechnik — Robotics TXT 4.0 Base Set (réf. 559888), programmation via **ROBO Pro Coding**.*
+Le Robotics TXT 4.0 Base Set (référence 559888) s’adresse plutôt à 12–16 ans, et aux enseignants : la documentation produit parle d’activités à deux à quatre élèves par kit. Le contrôleur TXT 4.0, la caméra et les capteurs servent des modèles de cours. On programme avec ROBO Pro Coding, en blocs ou en Python selon le niveau. Le nom « Robo Pro » désigne surtout ce logiciel, pas un second robot. L’ensemble est moins spectaculaire au déballage qu’un jouet grand public, ce qui convient à un club.
 
-| | |
-|--|--|
-| **Prix indicatif** | **~500–750 €** selon revendeur et campagne (import, TVA, pack) |
-| **Pour qui ?** | **12 à 16 ans** (et enseignants — activités **2–4 élèves** par kit selon la doc produit) |
+Il n’est pas dans le relevé Amazon.fr. Consulter le prix sur [fischertechnik TXT 4.0 robotics base set](https://www.amazon.fr/s?k=fischertechnik+TXT+4.0+robotics+base+set&tag=manuso06-21), en vérifiant la référence du set. Ne le rangez entre 500 et 1 000 € que si la fiche du jour le confirme.
 
-**Points forts**
-
-- **Structuration** STEM très **pro** : modèles et **expériences** fournis, logique **collège / lycée**.
-- **Contrôleur TXT 4.0**, caméra et capteurs **orientés cours** ; **ROBO Pro Coding** (blocs / Python selon niveau).
-- Très ancré **enseignement** (Allemagne / Europe).
-
-**Limites**
-
-- Moins « **wahou immédiat** » qu’un jouet grand public — le **sérieux** se voit vite (ce qui est un **plus** pour l’école).
-
-👉 **Parfait pour un apprentissage cadré** ou un **club** qui veut une **ligne éducative** claire.
-
-**Amazon** : [fischertechnik TXT 4.0 robotics](https://www.amazon.fr/s?k=fischertechnik+TXT+4.0+robotics+base+set&tag=manuso06-21)
-
-*Note* : la gamme « **Robo Pro** » chez fischertechnik désigne surtout **l’écosystème logiciel** (**ROBO Pro Coding**) ; le set cité est un **repère matériel** courant pour ce logiciel.
-
----
-
-### 🥉 Le plus « maker » (construction lourde) — **Makeblock mBot Ultimate**
+### mBot Ultimate
 
 ![Makeblock mBot Ultimate](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ultimate.jpg)
 
-*Visuel Makeblock — mBot Ultimate.*
+Le mBot Ultimate est un grand coffret de pièces, souvent présenté en 10-en-1, blocs et Arduino, pour un ado de 12 à 18 ans qui aime la mécanique. La courbe est longue. Pas de prix dans le relevé. Consulter le prix. L’ancien bouton ouvrait le mBot à 89,99 € : ce n’est pas l’Ultimate, le lien est retiré. Sans prix daté, il ne fait pas partie de la sélection principale de cette tranche.
 
-| | |
-|--|--|
-| **Prix indicatif** | **~400–500 €** (plancher de **cette page premium** — intéressant en **complément** d’un budget plus haut si tu prends aussi capteurs / autre contrôleur) |
-| **Pour qui ?** | **12 à 18 ans** |
-
-**Points forts**
-
-- **Volume de pièces** et **multi-modèles** (positionnement souvent **10-en-1**).
-- **Arduino** / écosystème Makeblock — excellent pour **ingénierie** « mains dans le cambouis ».
-
-**Limites**
-
-- **Courbe d’apprentissage** élevée : temps, **doc**, et **frustration** si l’enfant veut du résultat **trop vite**.
-
-👉 **Passionné maker** plutôt que premier robot à 9 ans sans adulte.
-
-**Amazon** : [mBot Ultimate](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-
----
-
-### 🤖 Quadrupède type « chien robot » — **Unitree (famille Go)**
+### Unitree, famille Go
 
 ![Unitree quadrupède (visuel Go2, boutique officielle)](/images/blog/robots-educatif-500-1000-euros-2026/unitree-quadruped-go.jpg)
 
-*Visuel Unitree — modèle **Go2** (boutique officielle) ; la famille **Go** couvre plusieurs niveaux de prix et usages.*
+La photo montre un Go2. La famille Go couvre plusieurs modèles, du grand public à des versions Edu ou recherche, avec de la locomotion, et côté labo du Python ou ROS. Ce n’est pas un premier robot. Aucun prix Unitree n’est dans le relevé du 6 novembre 2026. Consulter le prix sur [Unitree Go](https://www.amazon.fr/s?k=Unitree+Go+robot&tag=manuso06-21) seulement pour identifier une annonce, puis la référence exacte, le SAV et le SDK. Tant que cette fiche n’est pas entre 500 et 1 000 €, le quadrupède ne compte pas dans cette page. Au-dessus, voir le [guide au-delà de 1 000 €](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/).
 
-| | |
-|--|--|
-| **Prix — à lire absolument** | Les versions **Edu / recherche** type **Go1 Edu** sont en pratique facturées **plusieurs milliers de dollars ou d’euros** chez les distributeurs spécialisés, **pas** une simple fourchette **900–1000 €** pour du **neuf** en 2026. Certaines **entrées de gamme** ou **occasions** peuvent changer la donne, mais **vérifie** toujours **référence**, **SAV** et **SDK**. |
-| **Pour qui ?** | **15 ans +**, **adultes**, **labos** — pas un **premier robot** pour débuter seul. |
-
-**Points forts**
-
-- **Effet « wahou »** et compétences **ROS / Linux / Python** côté recherche.
-- Capteurs et locomotion **niveau pro**.
-
-**Limites**
-
-- **Peu pédagogique** si tu n’as pas déjà des bases ; **budget** et **maintenance** réels souvent **au-delà** de cette page.
-
-👉 À traiter comme **projet long** ou **orientation pro**, pas comme cadeau « plug and play ».
-
----
-
-### ⚙️ Alternative IA « maker » — **DFRobot : robot mobile + vision (ex. HuskyLens)**
+### DFRobot et HuskyLens
 
 ![DFRobot HuskyLens, capteur de vision IA pour Arduino / micro:bit](/images/blog/robots-educatif-500-1000-euros-2026/dfrobot-huskylens-ai-vision.jpg)
 
-*Visuel DFRobot — **HuskyLens** (capteur vision IA pour monter sur un robot).*
+HuskyLens est un capteur de vision (couleur, objet ou visage selon le mode) qui se monte sur un châssis, sans obliger un service en ligne. DFRobot documente par exemple le [Devastator](https://www.dfrobot.com/product-1477.html) et le [HCR](https://www.dfrobot.com/product-63.html). On choisit le châssis, le capteur, le contrôleur et les batteries. Ce n’est pas un coffret unique comme le mBot2 : le parcours pédagogique se construit avec les tutoriels, souvent en anglais, plutôt à partir de 12 ans.
 
-| | |
-|--|--|
-| **Prix indicatif** | **Panier type 600–800 €** : plateforme mobile (ex. [Devastator](https://www.dfrobot.com/product-1477.html), [HCR](https://www.dfrobot.com/product-63.html) selon montage) + **HuskyLens** + contrôleur / batteries — les prix USD du site **DFRobot** doivent être **convertis** et **douanés** ; en Europe, cherche aussi [revendeurs Amazon](https://www.amazon.fr/s?k=HuskyLens+DFRobot&tag=manuso06-21). |
-| **Pour qui ?** | **12 ans et +** (autonomie, lecture d’anglais utile sur la doc) |
+Le relevé Amazon.fr ne donne pas le prix de ce panier, et cette page n’additionne pas des pièces non relevées. Consulter le prix de chaque fiche, à commencer par la recherche [HuskyLens DFRobot](https://www.amazon.fr/s?k=HuskyLens+DFRobot&tag=manuso06-21). Les tarifs en dollars du site DFRobot ne sont pas convertis ici en euros.
 
-**Points forts**
+## Tableau
 
-- **IA embarquée** (reconnaissance couleur / objet / visages selon modes) **sans** cloud obligatoire.
-- Tu choisis le **châssis** : plus **flexible** qu’un coffret tout-en-un.
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Approche</th>
+<th scope="col">Prix le 6 novembre 2026</th>
+<th scope="col">Âge</th>
+<th scope="col">Programmation</th>
+<th scope="col">Place ici</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>mBot2</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">167,95 €</span></td>
+<td data-label="Âge"><span class="td-val">10–16 ans</span></td>
+<td data-label="Programmation"><span class="td-val">Blocs et Python</span></td>
+<td data-label="Place ici"><span class="td-val">Hors tranche</span></td>
+</tr>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>CyberPi, kit d’apprentissage</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">59,99 €</span></td>
+<td data-label="Âge"><span class="td-val">À partir de 8 ans, selon Makeblock</span></td>
+<td data-label="Programmation"><span class="td-val">Blocs et Python</span></td>
+<td data-label="Place ici"><span class="td-val">Carte, pas un budget de 500 €</span></td>
+</tr>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>fischertechnik TXT 4.0 Base</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">Consulter le prix</span></td>
+<td data-label="Âge"><span class="td-val">12–16 ans</span></td>
+<td data-label="Programmation"><span class="td-val">ROBO Pro Coding</span></td>
+<td data-label="Place ici"><span class="td-val">Si la fiche du jour est dans la tranche</span></td>
+</tr>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>mBot Ultimate</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">Consulter le prix</span></td>
+<td data-label="Âge"><span class="td-val">12–18 ans</span></td>
+<td data-label="Programmation"><span class="td-val">Arduino</span></td>
+<td data-label="Place ici"><span class="td-val">Si la fiche du jour est dans la tranche</span></td>
+</tr>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>Unitree Go</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">Consulter le prix</span></td>
+<td data-label="Âge"><span class="td-val">15 ans et plus</span></td>
+<td data-label="Programmation"><span class="td-val">Python ou ROS, selon le modèle</span></td>
+<td data-label="Place ici"><span class="td-val">Pas confirmé dans la tranche</span></td>
+</tr>
+<tr>
+<td data-label="Approche"><span class="td-val"><strong>Châssis DFRobot et HuskyLens</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">Consulter le prix, pièce par pièce</span></td>
+<td data-label="Âge"><span class="td-val">12 ans et plus</span></td>
+<td data-label="Programmation"><span class="td-val">Arduino ou Python</span></td>
+<td data-label="Place ici"><span class="td-val">Pas de total relevé</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Limites**
+## Selon le profil
 
-- Moins **standardisé** qu’un mBot2 : il faut **assembler** le **récit pédagogique** (tutos, mini-projets).
+Un parent qui veut un robot éducatif large et documenté prend le mBot2, en sachant qu’il coûte 167,95 €, pas 500. Un collège, un lycée ou un club qui veut une ligne de cours regarde le TXT 4.0, après le prix du jour. Un passionné de construction regarde l’Ultimate ou un montage DFRobot, chacun à son prix réel, sans les additionner de tête. Un quadrupède Unitree ne se choisit que si la référence, le SAV et le prix du jour sont acceptés, et souvent ce n’est plus cette page.
 
-👉 Pour un **passionné** qui veut **comprendre la chaîne** « capteur → décision → moteur ».
-
----
-
-## 📊 Comparatif (SEO)
-
-| Robot / approche | Prix (ordre de grandeur) | Âge | Niveau | Programmation | Spécificité |
-|------------------|-------------------------|-----|--------|----------------|-------------|
-| **mBot2** (+ pack selon besoin) | **~180–800+ €** selon **nu vs bundle** | 10–16 | Avancé | Scratch + Python | Plateforme Makeblock moderne |
-| **fischertechnik TXT 4.0 Base** | **~500–750 €** | 12–16 | Avancé | ROBO Pro Coding | Très **scolaire** |
-| **mBot Ultimate** | **~400–500 €** | 12–18 | Avancé | Arduino | **Kit** multi-modèles |
-| **Unitree Go** (famille) | **Souvent >> 1000 €** neuf Edu | 15+ | Expert | Python / ROS | Quadrupède |
-| **DFRobot mobile + HuskyLens** | **~600–800 €** (panier) | 12+ | Avancé | Arduino / Python | **Vision IA** DIY |
-
----
-
-## 🧠 Quelle recommandation selon ton profil ?
-
-| Profil | Recommandation |
-|--------|----------------|
-| 👨‍👩‍👧 **Parent (objectif éducatif large)** | **Makeblock mBot2** (+ extensions si budget le permet) |
-| 🧑‍🎓 **Collège / lycée / club** | **fischertechnik Robotics TXT 4.0 Base Set** |
-| 🧑‍💻 **Passionné / maker** | **Makeblock Ultimate** ou stack **DFRobot** |
-| 🤖 **Geek orienté recherche / quadrupède** | **Unitree** seulement si tu **acceptes** budget et complexité **réels** (voir encadré prix ci-dessus) |
-
-Guides budget : [**plus de 1000 €**](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/), [200–500 €](/quel-robot-educatif-entre-200-et-500-euros-guide-2026/), [~200 €](/quel-robot-educatif-autour-de-200-euros-guide-2026/).
-
----
-
-## 🔥 Conclusion
-
-Entre **500 € et 1000 €**, tu achètes surtout du **temps de cerveau** disponible : des kits qui **récompensent la patience** et des logiciels qui **ressemblent** à ceux des **cursus sérieux**.
-
-**En pratique** :
-
-- **Polyvalence et doc** → **mBot2** (éventuellement **montée en gamme** avec accessoires).
-- **Cours structurés** → **fischertechnik** + **TXT 4.0**.
-- **Construction maximaliste** → **mBot Ultimate**.
-
-**Si tu ne dois en choisir qu’un** pour un jeune **motivé** avec soutien adulte : le **mBot2** reste le **compromis le plus actuel** dans l’univers **grand public éducatif** — à condition d’être honnête sur le **prix du seul robot** vs **panier complet** (voir section 🥇).
-
----
-
-## Liens Amazon (recherche — affiliation)
-
-- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [fischertechnik TXT 4.0](https://www.amazon.fr/s?k=fischertechnik+TXT+4.0+robotics&tag=manuso06-21)
-- [mBot Ultimate](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [HuskyLens DFRobot](https://www.amazon.fr/s?k=HuskyLens+DFRobot&tag=manuso06-21)
-- [Unitree Go robot](https://www.amazon.fr/s?k=Unitree+Go+robot&tag=manuso06-21)
-
-*Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
+Entre 500 et 1 000 €, le relevé du 6 novembre 2026 ne désigne pas de robot gagnant. Il écarte le mBot2 et la CyberPi, trop bas pour être le cœur de la tranche, et il laisse les autres en « consulter le prix ».

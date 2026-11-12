@@ -1,0 +1,39 @@
+---
+import DomotiqueToolLayout from '../../../../layouts/DomotiqueToolLayout.astro';
+import ProjectGuidePage from '../../../../components/ProjectGuidePage.astro';
+import { getProjectGuideBySlug, projectGuideSlugs } from '../../../../data/projectGuides/registry.mjs';
+import { USE_CASES } from '../../../../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../../../../lib/siteUrl';
+
+export function getStaticPaths() {
+	return projectGuideSlugs('en').map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const pack = getProjectGuideBySlug('en', slug);
+if (!pack) {
+	return Astro.redirect(withBase('/404'));
+}
+const guide = pack.en;
+const useCase = USE_CASES.find((u) => u.id === pack.id);
+const articlePath = pack.paths.en;
+const articleUrl = `https://robot-educatif.info${articlePath}`;
+const pubDate = new Date('2026-10-29T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={guide.title}
+	description={guide.description}
+	lang="en"
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Smart home"
+	repairGuide={false}
+	breadcrumbItems={[
+		{ name: 'Home', url: withBase('/en/') },
+		{ name: 'Smart home', url: withBase('/en/smart-home/') },
+		{ name: guide.title, url: withBase(articlePath) },
+	]}
+>
+	<ProjectGuidePage guide={guide} articleUrl={articleUrl} useCase={useCase} showConfigurator={Boolean(useCase)} lang="en" />
+</DomotiqueToolLayout>

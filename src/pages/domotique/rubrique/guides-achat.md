@@ -10,12 +10,36 @@ Clé Zigbee, prise connectée, capteur ou caméra : voici nos comparatifs pour b
 
 ## L'essentiel en un tableau
 
-| Comparatif | Produits comparés | Notre choix |
-|---|---|---|
-| [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/) | SONOFF, Home Assistant Connect, ConBee | SONOFF ZBDongle-E |
-| [Prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) | prises Zigbee et Wi-Fi, avec mesure de consommation | NOUS A1Z (Zigbee 3.0, 16 A, mesure W/kWh) |
-| [Capteur de température Zigbee](/domotique/capteur-temperature-zigbee/) | SONOFF SNZB-02D, Aqara | SNZB-02D, avec écran |
-| [Caméra extérieure solaire](/domotique/camera-surveillance-exterieure-solaire-iegeek/) | ieGeek S7, ZY-C2, ZS-GX4S, ZY-G4 | selon l'usage, détaillé dans l'article |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Comparatif</th>
+<th scope="col">Produits comparés</th>
+<th scope="col">Notre choix</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Comparatif"><span class="td-val"><a href="/domotique/meilleur-dongle-zigbee-home-assistant/">Meilleure clé Zigbee pour Home Assistant</a></span></td>
+<td data-label="Produits comparés"><span class="td-val">SONOFF, Home Assistant Connect, ConBee</span></td>
+<td data-label="Notre choix"><span class="td-val">SONOFF ZBDongle-E</span></td>
+</tr>
+<tr>
+<td data-label="Comparatif"><span class="td-val"><a href="/domotique/prise-connectee-zigbee-home-assistant/">Prise connectée Zigbee</a></span></td>
+<td data-label="Produits comparés"><span class="td-val">prises Zigbee et Wi-Fi, avec mesure de consommation</span></td>
+<td data-label="Notre choix"><span class="td-val">NOUS A1Z (Zigbee 3.0, 16 A, mesure W/kWh)</span></td>
+</tr>
+<tr>
+<td data-label="Comparatif"><span class="td-val"><a href="/domotique/capteur-temperature-zigbee/">Capteur de température Zigbee</a></span></td>
+<td data-label="Produits comparés"><span class="td-val">SONOFF SNZB-02D, Aqara</span></td>
+<td data-label="Notre choix"><span class="td-val">SNZB-02D, avec écran</span></td>
+</tr>
+<tr>
+<td data-label="Comparatif"><span class="td-val"><a href="/domotique/camera-surveillance-exterieure-solaire-iegeek/">Caméra extérieure solaire</a></span></td>
+<td data-label="Produits comparés"><span class="td-val">ieGeek S7, ZY-C2, ZS-GX4S, ZY-G4</span></td>
+<td data-label="Notre choix"><span class="td-val">selon l'usage, détaillé dans l'article</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Notre meilleur choix pour s'équiper
 

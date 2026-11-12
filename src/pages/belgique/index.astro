@@ -1,0 +1,63 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageColumns from '../../components/PageColumns.astro';
+const title = 'Robot éducatif Belgique : PECA, compteur P1 RJ12 et Shelly';
+const description = 'Robots mBot Makeblock et domotique Home Assistant en Belgique : programme PECA Fédération Wallonie-Bruxelles, port P1 RJ12 Fluvius ORES, prises Type E.';
+const canonical = '/belgique/';
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="canonical" href={`https://robot-educatif.info${canonical}`} />
+</head>
+<body>
+  <Header />
+  <main id="main-content">
+<PageColumns>
+    <article class="prose">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a>
+        <span aria-hidden="true"> / </span>
+        <span>Belgique</span>
+      </nav>
+      <h1>Robotique scolaire et domotique en Belgique</h1>
+      <Fragment set:html={`<aside class="encart-affilie-haut" data-above-fold-cta="" data-fr-hub="BE"><p><strong>Achat Belgique :</strong> <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=67904&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">Boutique partenaire Awin (ID 67904)</a> · <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=12648&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">FNAC BE</a> · <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=86417&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">tink BE</a> · <a class="cta-aff" href="https://www.amazon.com.be/s?k=Makeblock+mBot2&tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Rechercher sur Amazon.be</a></p><p class="encart-note">Liens partenaires · prix et stock à vérifier chez le marchand.</p></aside>
+<p class="chapo"><strong>En bref</strong> — En Belgique francophone, les écoles s’appuient souvent sur le volet <strong>PECa / numérique</strong> pour acheter des robots unplugged ou des kits Scratch. Côté maison, le compteur digital expose un port <strong>P1 RJ12</strong> (lecture consommation) compatible avec Home Assistant ; prises domotiques en <strong>Type E</strong> (230 V belge).</p>
+
+<h2>Programmes PECA et numérique à l’école</h2>
+<p>En <strong>Fédération Wallonie-Bruxelles</strong>, le programme <strong>PECa</strong> (Parcours et Enseignement par Compétences adapté) inclut un volet numérique : robots sans écran, initiation Scratch, parfois kits Makeblock en technologie. Nos guides restent rédigés en français « France » mais s’appliquent tel quel en classe belge :</p>
+<ul>
+<li><a href="/scratch-ecole-maison-par-ou-commencer/">Scratch école et maison : par où commencer</a></li>
+<li><a href="/installer-mblock-5-sous-windows-10/">Installer mBlock 5 sous Windows</a></li>
+<li><a href="/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/">mBot vs mBot2 : lequel choisir pour un budget communal</a></li>
+<li><a href="/equiper-classe-robots-budget-packs-2026/">Équiper une classe : budget et packs 2026</a></li>
+<li><a href="/robots-technologie-college-guide/">Robots et technologie au collège</a></li>
+</ul>
+<p>Les marchés publics belges exigent souvent une facture avec TVA BE : vérifiez la livraison depuis un entrepôt UE avant la date limite de dépense.</p>
+
+<h2>Compteur digital et port P1 RJ12</h2>
+<p>Les gestionnaires de réseau (<strong>Fluvius</strong>, <strong>ORES</strong>, <strong>Resa</strong>, <strong>Sibelga</strong>) activent gratuitement le port <strong>P1</strong> sur compteur digital moderne. Un câble RJ12 relie le compteur à un module (Shelly Pro 3EM, P1 Monitor sur Raspberry Pi, etc.) pour remonter consommation et injection solaire dans <a href="/domotique/debuter-domotique-par-ou-commencer/">Home Assistant</a>.</p>
+<ul>
+<li><a href="/domotique/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a> — choisir une box sans bricoler</li>
+<li><a href="/kit-raspberry-pi-5-complet/">Kit Raspberry Pi 5 complet</a> — si vous montez le serveur vous-même</li>
+<li><a href="/marque-sonoff/">SONOFF</a> et prises Zigbee : voir <a href="/domotique/prise-connectee-zigbee-home-assistant/">prises connectées Zigbee</a></li>
+</ul>
+
+<h2>Prises, tension et modules Shelly</h2>
+<p>La Belgique utilise des prises <strong>Type E</strong> (230 V, 50 Hz). Les modules <strong>Shelly</strong>, <strong>NOUS</strong> ou <strong>SONOFF</strong> certifiés CE conviennent lorsqu’ils supportent 230 V et le neutre local. Pour un volet filaire existant, lisez notre guide <a href="/domotique/projets/volet-roulant-connecte/">volet roulant sans neutre</a> avant d’acheter un relais.</p>
+
+<h2>FAQ Belgique</h2>
+<p><strong>Amazon.fr ou Amazon.com.be ?</strong> Pour la TVA et le SAV belge, privilégiez <strong>Amazon.com.be</strong> ou un revendeur BE (FNAC, tink) lorsque le budget école le permet.</p>
+<p><strong>Le site couvre-t-il les robots en néerlandais ?</strong> Nos articles sont en français ; les fiches techniques Makeblock restent multilingues sur le site constructeur.</p>
+
+<h2>Autres guides francophones limitrophes</h2>
+<p><a href="/suisse/">Suisse</a> · <a href="/luxembourg/">Luxembourg</a> · <a href="/monaco/">Monaco</a> · <a href="/">France (accueil)</a> · <a href="/about/">À propos de l’équipe</a></p>`} />
+    </article>
+  </PageColumns>
+</main>
+  <Footer />
+</body>
+</html>

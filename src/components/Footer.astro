@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import CookieConsentBanner from './CookieConsentBanner.astro';
 import GoogleAnalytics from './GoogleAnalytics.astro';
 import AffiliateClickTracker from './AffiliateClickTracker.astro';
+import ManusoOutboundClickTracker from './ManusoOutboundClickTracker.astro';
+import ManusoAmazonChoice from './ManusoAmazonChoice.astro';
 import PagePathViewTracker from './PagePathViewTracker.astro';
 import { withBase } from '../lib/siteUrl';
 import logoA from '../assets/logo-a.svg';
@@ -15,10 +17,28 @@ interface Props {
 const { suppressPagePathTracking = false } = Astro.props;
 const today = new Date();
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-const isEn = _p === '/en' || _p.startsWith('/en/');
+const isUk = _p === '/uk' || _p.startsWith('/uk/');
+const isCa = _p === '/ca' || _p.startsWith('/ca/');
+const isUs = _p === '/us' || _p.startsWith('/us/');
+const isEn = (_p === '/en' || _p.startsWith('/en/')) && !isUk && !isCa && !isUs;
+const isAnglo = isEn || isUk || isCa || isUs;
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
+const isFr = !isAnglo && !isDe && !isIt && !isEs;
+const bfHref = isDe
+	? '/de/black-friday/'
+	: isIt
+		? '/it/black-friday/'
+		: isEs
+			? '/es/black-friday/'
+			: isCa
+				? '/ca/black-friday/'
+				: isUk
+					? '/uk/black-friday/'
+					: isAnglo
+						? '/en/black-friday/'
+						: '/black-friday/';
 ---
 
 <footer>
@@ -32,20 +52,20 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">{isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isEn ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
+			<p class="footer-tagline">{isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isAnglo ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
 						<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
 					</svg>
 				</a>
 				<a href="https://www.pinterest.fr/roboteducatif/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
 						<path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
 					</svg>
 				</a>
 				<a href="https://www.facebook.com/roboteducatif.info" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
 						<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
 					</svg>
 				</a>
@@ -57,6 +77,7 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 			<div class="footer-col">
 				<h3>Guide all'acquisto</h3>
 				<ul>
+					<li><a href={withBase(bfHref)}>Black Friday 2026</a></li>
 					<li><a href={withBase('/it/miglior-robot-programmabile-per-bambini/')}>Robot programmabili per età</a></li>
 					<li><a href={withBase('/it/kit-robot-arduino-per-bambini/')}>Kit robot Arduino</a></li>
 					<li><a href={withBase('/it/')}>Tutte le guide in italiano</a></li>
@@ -66,6 +87,7 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 				<h3>Confronti</h3>
 				<ul>
 					<li><a href={withBase('/it/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/it/domotica/')}>Guide alla domotica</a></li>
 					<li><a href={withBase('/it/shelly-gen4-quale-modulo-scegliere/')}>Moduli Shelly Gen4</a></li>
 					<li><a href={withBase('/it/marchi/')}>Pagine marchio</a></li>
 				</ul>
@@ -83,8 +105,23 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 			<div class="footer-col">
 				<h3>Guías de compra</h3>
 				<ul>
-					<li><a href={withBase('/es/mejor-robot-programable-para-ninos/')}>Robots programables por edad</a></li>
-					<li><a href={withBase('/es/kit-robot-arduino-para-ninos/')}>Kits de robot Arduino</a></li>
+					<li><a href={withBase(bfHref)}>Black Friday 2026</a></li>
+					<li class="footer-guide-label">Por edad</li>
+					<li><a href={withBase('/es/robot-programable-4-anos/')}>4 años — Sin pantalla</a></li>
+					<li><a href={withBase('/es/robot-programable-5-anos/')}>5 años — Primeros robots</a></li>
+					<li><a href={withBase('/es/robot-programable-6-anos/')}>6 años — Flechas</a></li>
+					<li><a href={withBase('/es/robot-programable-7-anos/')}>7 años — Flechas o bloques</a></li>
+					<li><a href={withBase('/es/robot-programable-8-anos/')}>8 años — Bloques tipo Scratch</a></li>
+					<li><a href={withBase('/es/robot-programable-10-anos/')}>10 años — Bloques y Python</a></li>
+					<li><a href={withBase('/es/robot-programable-12-anos/')}>12 años — Kits para montar</a></li>
+					<li><a href={withBase('/es/robot-programable-14-anos/')}>14 años — Arduino y Python</a></li>
+					<li class="footer-guide-label">Para comparar</li>
+					<li><a href={withBase('/es/mejor-robot-programable-para-ninos/')}>Los robots principales</a></li>
+					<li><a href={withBase('/es/thymio-3-opinion-precio-vs-mbot2/')}>Thymio 3 vs mBot2</a></li>
+					<li><a href={withBase('/es/lego-education-computer-science-ai-2026-alternativas-spike-prime/')}>Alternativas a LEGO SPIKE</a></li>
+					<li><a href={withBase('/es/sphero-blueprint-robotics-opinion-robot-modular/')}>Sphero Blueprint</a></li>
+					<li><a href={withBase('/es/mbot3-fecha-lanzamiento-rumores-mbot2-rover-alternativas/')}>mBot3 y alternativas</a></li>
+					<li><a href={withBase('/es/robots-educativos-2026-2027-calendario-guia-compra/')}>Novedades 2026–2027</a></li>
 					<li><a href={withBase('/es/')}>Todas las guías en español</a></li>
 				</ul>
 			</div>
@@ -92,6 +129,7 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 				<h3>Comparativas</h3>
 				<ul>
 					<li><a href={withBase('/es/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/es/domotica/')}>Guías de domótica</a></li>
 					<li><a href={withBase('/es/shelly-gen4-que-modulo-elegir/')}>Módulos Shelly Gen4</a></li>
 					<li><a href={withBase('/es/marcas/')}>Páginas de marca</a></li>
 				</ul>
@@ -109,6 +147,7 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 			<div class="footer-col">
 				<h3>Kaufberater</h3>
 				<ul>
+					<li><a href={withBase(bfHref)}>Black Friday 2026</a></li>
 					<li><a href={withBase('/de/bester-programmierbarer-roboter-fuer-kinder/')}>Programmierbare Roboter nach Alter</a></li>
 					<li><a href={withBase('/de/arduino-roboter-bausatz-fuer-kinder/')}>Arduino-Roboterbausätze</a></li>
 					<li><a href={withBase('/de/')}>Alle deutschen Ratgeber</a></li>
@@ -137,10 +176,11 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
 				</ul>
 			</div>
-</>) : isEn ? (<>
+</>) : isAnglo ? (<>
 			<div class="footer-col">
 				<h3>Buying guides</h3>
 				<ul>
+					<li><a href={withBase(bfHref)}>Black Friday 2026</a></li>
 					<li><a href={withBase('/en/best-programmable-robot-for-kids/')}>Programmable robots by age</a></li>
 					<li><a href={withBase('/en/arduino-robot-kit-for-kids/')}>Arduino robot kits</a></li>
 					<li><a href={withBase('/en/')}>All English guides</a></li>
@@ -173,38 +213,47 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 			<div class="footer-col">
 				<h3>Guides d'achat</h3>
 				<ul>
-					<li><a href={withBase('/robot-educatif-cadeau-noel-2026/')}>Guide Noël 2026</a></li>
 					<li><a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>Par âge</a></li>
 					<li><a href={withBase('/robot-enfant-4-ans/')}>4-5 ans</a></li>
 					<li><a href={withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')}>10-12 ans</a></li>
+					<li><a href={withBase('/outil-quel-robot-enfant/')}>Quiz robot enfant</a></li>
+					<li><a href={withBase('/robot-educatif-cadeau-noel-2026/')}>Guide Noël 2026</a></li>
+					<li><a href={withBase(bfHref)}>Black Friday 2026</a></li>
 					<li><a href={withBase('/blog/')}>Tous les articles</a></li>
 				</ul>
 			</div>
-			
+
+			<div class="footer-col">
+				<h3>Pour la classe</h3>
+				<ul>
+					<li><a href={withBase('/calculateur-budget-robot-classe/')}>Budget classe</a></li>
+					<li><a href={withBase('/configurateur-kit-robotique-classe/')}>Configurateur kit classe</a></li>
+					<li><a href={withBase('/generateur-fiche-seance-robotique-pdf/')}>Fiche séance robotique</a></li>
+					<li><a href={withBase('/tableau-reglages-capteurs-mbot2-depannage/')}>Capteurs mBot2</a></li>
+					<li><a href={withBase('/ressources-svg-schemas-mbot-capteurs/')}>Schémas SVG mBot</a></li>
+				</ul>
+			</div>
+
 			<div class="footer-col">
 				<h3>Programmation</h3>
 				<ul>
 					<li><a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>Projets mBot</a></li>
+					<li><a href={withBase('/parcours-scratch-python-6-semaines/')}>Scratch → Python (6 sem.)</a></li>
 					<li><a href={withBase('/programmation/')}>Tutoriels Python</a></li>
-					<li><a href={withBase('/domotique/')}>Domotique</a></li>
 					<li><a href={withBase('/installer-mblock-5-sous-windows-10/')}>Installer mBlock</a></li>
+					<li><a href={withBase('/domotique/')}>Domotique</a></li>
+					<li><a href={withBase('/domotique/configurateur-projet-domotique/')}>Configurateur projet domotique</a></li>
 					<li><a href={withBase('/categorie/')}>Catégories</a></li>
 				</ul>
 			</div>
-			
+
 			<div class="footer-col">
-				<h3>À propos</h3>
+				<h3>Le site</h3>
 				<ul>
 					<li><a href={withBase('/about/')}>À propos</a></li>
 					<li><a href={withBase('/partenariat/')}>Partenariat</a></li>
 					<li><a href={withBase('/codes-promo/')}>Codes promo et bons plans</a></li>
 					<li><a href={withBase('/contact/')}>Contact</a></li>
-				</ul>
-			</div>
-			
-			<div class="footer-col">
-				<h3>Légal</h3>
-				<ul>
 					<li><a href={withBase('/mentions-legales/')}>Mentions légales</a></li>
 					<li><a href={withBase('/politique-de-confidentialite/')}>Confidentialité</a></li>
 					<li><a href={withBase('/gestion-des-cookies/')}>Cookies</a></li>
@@ -215,141 +264,253 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 	</div>
 	
 	<div class="footer-bottom">
-		<p class="affiliate-notice">
-			{isIt ? "Alcuni link sono link di affiliazione: in caso di acquisto potremmo ricevere una commissione, senza costi aggiuntivi per voi. I dati tecnici provengono dalle pagine ufficiali dei produttori; dichiariamo una prova solo dove è indicata espressamente. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei." : isEs ? "Algunos enlaces son de afiliación: si compras, podemos recibir una comisión sin coste adicional para ti. Los datos técnicos proceden de las páginas oficiales de los fabricantes; solo afirmamos haber probado un producto cuando se indica expresamente. Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables." : isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isEn ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
-		</p>
-		<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isIt ? "Sviluppato da" : isEs ? "Desarrollado por" : isDe ? "Entwickelt von" : isEn ? "Built by" : "Développé par"} Emmanuel SAUVAGE</p>
+		<div class="footer-bottom-inner">
+			<p class="affiliate-notice">
+				{isIt ? "Alcuni link sono link di affiliazione: in caso di acquisto potremmo ricevere una commissione, senza costi aggiuntivi per voi. I dati tecnici provengono dalle pagine ufficiali dei produttori; dichiariamo una prova solo dove è indicata espressamente. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei." : isEs ? "Algunos enlaces son de afiliación: si compras, podemos recibir una comisión sin coste adicional para ti. Los datos técnicos proceden de las páginas oficiales de los fabricantes; solo afirmamos haber probado un producto cuando se indica expresamente. Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables." : isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isAnglo ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
+			</p>
+			<div class="footer-meta">
+				<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isIt ? "Sviluppato da" : isEs ? "Desarrollado por" : isDe ? "Entwickelt von" : isAnglo ? "Built by" : "Développé par"} Emmanuel&nbsp;SAUVAGE</p>
+				{isFr && (
+					<nav class="footer-francophonie" aria-label="Éditions francophones">
+						<!-- francophone-limitrophe-hubs -->
+						<p class="etiquette">Éditions locales</p>
+						<ul>
+							<li><a href={withBase('/belgique/')}>Belgique</a></li>
+							<li><a href={withBase('/suisse/')}>Suisse</a></li>
+							<li><a href={withBase('/luxembourg/')}>Luxembourg</a></li>
+							<li><a href={withBase('/monaco/')}>Monaco</a></li>
+						</ul>
+					</nav>
+				)}
+			</div>
+		</div>
 	</div>
 </footer>
 <style>
 	footer {
-		background: var(--surface);
-		border-top: 1px solid var(--surface-border);
+		background: color-mix(in oklab, var(--primary) 5%, var(--page-bg));
+		border-top: 3px solid var(--primary);
 		color: rgb(var(--gray));
 	}
-	
+
 	.footer-inner {
-		max-width: 1320px;
+		max-width: 1280px;
 		margin: 0 auto;
-		padding: 3rem clamp(1rem, 5vw, 2rem) 2rem;
+		padding: 2.25rem clamp(1rem, 4vw, 2rem) 1.75rem;
 		display: grid;
-		grid-template-columns: 1.2fr 2fr;
-		gap: 3rem;
+		grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+		gap: 2.5rem 3rem;
+		align-items: start;
 	}
-	
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.85rem;
+	}
+
 	.footer-brand img {
-		height: 45px;
+		height: 40px;
 		width: auto;
-		margin-bottom: 1rem;
+		margin: 0;
 	}
-	
+
 	.footer-tagline {
 		color: rgb(var(--gray-dark));
-		font-size: 0.95rem;
-		line-height: 1.5;
-		margin: 0 0 1.5rem 0;
-		max-width: 280px;
+		font-size: 0.92rem;
+		line-height: 1.45;
+		margin: 0;
+		max-width: 16rem;
 	}
-	
+
 	.social-links {
 		display: flex;
-		gap: 1rem;
+		gap: 0.5rem;
 	}
-	
+
 	.social-links a {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 40px;
-		height: 40px;
+		width: 36px;
+		height: 36px;
 		border-radius: 50%;
-		background: var(--surface-2);
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
 		color: rgb(var(--gray-dark));
-		transition: all 0.2s ease;
+		transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 	}
-	
+
+	.social-links a svg {
+		width: 16px;
+		height: 16px;
+	}
+
 	.social-links a:hover {
 		background: var(--primary);
+		border-color: var(--primary);
 		color: white;
-		transform: translateY(-2px);
 	}
-	
+
+	.social-links a:focus-visible,
+	.footer-col a:focus-visible,
+	.footer-francophonie a:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 2px;
+	}
+
 	.footer-columns {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 2rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.75rem 1.5rem;
 	}
-	
+
 	.footer-col h3 {
-		font-size: 0.9rem;
-		font-weight: 700;
+		font-family: var(--font-heading);
+		font-size: 0.95rem;
+		font-weight: 800;
 		color: rgb(var(--black));
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		margin: 0 0 1rem 0;
+		margin: 0 0 0.75rem;
+		padding-bottom: 0.4rem;
+		border-bottom: 2px solid color-mix(in oklab, var(--primary) 70%, white);
+		line-height: 1.2;
 	}
-	
+
 	.footer-col ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
 	}
-	
+
 	.footer-col li {
-		margin-bottom: 0.65rem;
+		margin: 0;
 	}
-	
+
+	.footer-guide-label {
+		margin-top: 0.55rem;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+
 	.footer-col a {
 		color: rgb(var(--gray-dark));
 		text-decoration: none;
-		font-size: 0.94rem;
+		font-size: 0.9rem;
+		line-height: 1.35;
 		transition: color 0.2s ease;
 	}
-	
+
 	.footer-col a:hover {
 		color: var(--primary);
 	}
-	
+
 	.footer-bottom {
-		max-width: 1320px;
-		margin: 0 auto;
-		padding: 2rem clamp(1rem, 5vw, 2rem);
+		background: var(--surface);
 		border-top: 1px solid var(--surface-border);
-		text-align: center;
+		padding: 1.1rem clamp(1rem, 4vw, 2rem) 1.35rem;
 	}
-	
+
+	.footer-bottom-inner {
+		max-width: 1280px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+	}
+
 	.affiliate-notice {
-		font-size: 0.85rem;
+		font-size: 0.78rem;
+		line-height: 1.5;
 		color: rgb(var(--gray));
-		margin: 0 0 0.75rem 0;
-		font-style: italic;
+		margin: 0;
+		max-width: 72ch;
+		font-style: normal;
 	}
-	
+
+	.footer-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem 1.5rem;
+	}
+
 	.copyright {
-		font-size: 0.9rem;
+		font-size: 0.82rem;
 		color: rgb(var(--gray));
 		margin: 0;
 	}
-	
+
+	.footer-francophonie {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35rem 0.85rem;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.footer-francophonie .etiquette {
+		margin: 0;
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0;
+		text-transform: none;
+		color: rgb(var(--gray));
+	}
+
+	.footer-francophonie ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.85rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.footer-francophonie a {
+		color: var(--primary);
+		font-size: 0.88rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.footer-francophonie a:hover {
+		text-decoration: underline;
+	}
+
 	@media (max-width: 1024px) {
 		.footer-inner {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
+			gap: 1.75rem;
 		}
-		
+
 		.footer-columns {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
-	
+
 	@media (max-width: 640px) {
-		.footer-columns {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-		}
-		
 		.footer-inner {
-			padding: 2rem 1rem 1.5rem;
+			padding: 1.75rem 1rem 1.35rem;
+		}
+
+		.footer-columns {
+			grid-template-columns: 1fr 1fr;
+			gap: 1.35rem 1rem;
+		}
+
+		.footer-meta {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 </style>
@@ -357,3 +518,5 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 <CookieConsentBanner />
 <GoogleAnalytics />
 <AffiliateClickTracker />
+<ManusoOutboundClickTracker />
+<ManusoAmazonChoice />

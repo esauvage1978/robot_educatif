@@ -1,0 +1,160 @@
+/* dark-mobile-surfaces-fix-2026-10-28 — espacement mobile et lisibilité des cartes */
+
+/* 1. Parcours accueil : grille mobile fiable */
+.home-intents__grid {
+	display: grid !important;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+	gap: 1.25rem !important;
+}
+.home-intents__grid > li {
+	margin: 0 !important;
+	list-style: none;
+}
+.home-intents__card {
+	box-sizing: border-box;
+	padding: 1.35rem 1.25rem 1.55rem !important;
+}
+.home-intents__card em {
+	margin-top: auto;
+	padding-top: 0.45rem;
+}
+@media (max-width: 640px) {
+	.home-intents__grid {
+		grid-template-columns: 1fr !important;
+		gap: 1.25rem !important;
+	}
+	.home-intents__card {
+		margin-bottom: 0 !important;
+	}
+}
+
+/* 2. Surfaces claires explicites — texte lisible si fond reste blanc */
+.product-box,
+.comparison-container,
+.noel26-selection,
+.noel26-card,
+.fetes26-grid a,
+.tutorial-product-box,
+.tutorial-product-card {
+	--light-surface-ink: #0f172a;
+	--light-surface-muted: #334155;
+	--light-surface-link: #0f766e;
+}
+
+.product-box .product-title,
+.product-box .product-title-link,
+.product-box .product-desc,
+.product-box .pros h4,
+.product-box .cons h4,
+.product-box .pros li,
+.product-box .cons li,
+.comparison-container,
+.comparison-title,
+.comparison-table th,
+.comparison-table td,
+.comparison-table .model-link,
+.comparison-table .model-link strong,
+.comparison-table .pros-cell,
+.comparison-table tbody tr,
+.product-box strong {
+	color: var(--light-surface-ink) !important;
+}
+
+.product-box .product-desc,
+.comparison-table .pros-cell {
+	color: var(--light-surface-muted) !important;
+}
+
+.comparison-table .model-link,
+.comparison-table .price-link {
+	color: var(--light-surface-link) !important;
+}
+
+.product-box .product-title-link {
+	text-decoration-color: rgba(15, 118, 110, 0.55) !important;
+}
+
+/* Comparatif mobile : colonnes visibles sans troncature */
+@media (max-width: 720px) {
+	.comparison-table {
+		font-size: 0.78rem !important;
+	}
+
+	.comparison-table th,
+	.comparison-table td {
+		padding: 0.45rem 0.35rem !important;
+		white-space: normal !important;
+		word-break: break-word !important;
+		overflow-wrap: anywhere !important;
+	}
+
+	.comparison-table th {
+		font-size: 0.72rem !important;
+		line-height: 1.25 !important;
+	}
+
+	.table-responsive {
+		overflow-x: auto !important;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.comparison-table .table-img {
+		width: 36px !important;
+		height: 36px !important;
+	}
+
+	.comparison-table .model-link {
+		gap: 0.35rem !important;
+	}
+
+	.comparison-table .age-pill,
+	.comparison-table .table-btn {
+		font-size: 0.68rem !important;
+		padding: 0.2rem 0.35rem !important;
+		white-space: normal !important;
+	}
+
+	.comparison-table .pros-cell {
+		max-width: none !important;
+	}
+}
+
+/* 5. CTA Amazon plein dans les cartes produit */
+.product-box .product-cta-group .ui-btn,
+.product-box .product-cta-group a.ui-btn {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 100%;
+	max-width: 100%;
+	flex: 1 1 100%;
+	background: #f59e0b !important;
+	background-image: none !important;
+	color: #0f172a !important;
+	font-weight: 700 !important;
+	border: 1px solid #d97706 !important;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08) !important;
+	text-decoration: none !important;
+}
+
+.product-box .product-cta-group .ui-btn:hover,
+.product-box .product-cta-group a.ui-btn:hover {
+	background: #d97706 !important;
+	color: #0f172a !important;
+}
+
+@media (min-width: 641px) {
+	.product-box .product-cta-group .ui-btn,
+	.product-box .product-cta-group a.ui-btn {
+		width: auto;
+		flex: 1 1 auto;
+		min-width: 160px;
+	}
+	.product-box.is-stack .product-cta-group .ui-btn,
+	.product-box.is-stack .product-cta-group a.ui-btn {
+		width: 100%;
+		flex: 1 1 100%;
+	}
+}
+
+

@@ -17,8 +17,14 @@ type Props = {
 const { entry } = Astro.props as Props;
 const { Content, remarkPluginFrontmatter } = await render(entry);
 const articleSlug = entry.id.replace(/\.mdx?$/, '');
+const fromRemark = Number(remarkPluginFrontmatter?.minutesRead);
+const rawBody = typeof entry.body === 'string' ? entry.body : '';
+const fromBody = rawBody
+	? Math.max(1, Math.round(rawBody.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length / 200))
+	: NaN;
+const minutesRead = Number.isFinite(fromRemark) && fromRemark > 0 ? fromRemark : fromBody;
 ---
 
-<DomotiquePost {...entry.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema}>
+<DomotiquePost {...entry.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema} minutes={Number.isFinite(minutesRead) ? minutesRead : undefined}>
 	<Content />
 </DomotiquePost>

@@ -1,0 +1,101 @@
+---
+import RepairComplianceSections from '../RepairComplianceSections.astro';
+import TroubleshootingCatalog from '../TroubleshootingCatalog.astro';
+import { TROUBLE_PAGE_META } from '../../data/smartHomeTroubleshooting.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang } = Astro.props;
+const meta = TROUBLE_PAGE_META[lang];
+const links =
+	lang === 'fr'
+		? [
+				{ href: '/domotique/home-assistant-zigbee2mqtt-ou-zha/', t: 'Zigbee2MQTT ou ZHA' },
+				{ href: '/domotique/meilleur-dongle-zigbee-home-assistant/', t: 'Choisir un dongle Zigbee' },
+				{ href: '/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/', t: 'Matrice compatibilité' },
+			]
+		: lang === 'en'
+			? [
+					{ href: '/en/smart-home/zigbee2mqtt-vs-zha-home-assistant/', t: 'Zigbee2MQTT vs ZHA' },
+					{ href: '/en/smart-home/best-zigbee-dongle-home-assistant/', t: 'Best Zigbee dongle' },
+					{ href: '/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/', t: 'Compatibility matrix' },
+				]
+			: lang === 'de'
+				? [
+						{ href: '/de/smart-home/zigbee2mqtt-oder-zha-home-assistant/', t: 'Zigbee2MQTT oder ZHA' },
+						{ href: '/de/smart-home/bester-zigbee-stick-home-assistant/', t: 'Zigbee-Stick' },
+						{ href: '/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/', t: 'Kompatibilitätsmatrix' },
+					]
+				: lang === 'it'
+					? [
+							{ href: '/it/domotica/zigbee2mqtt-o-zha-home-assistant/', t: 'Zigbee2MQTT o ZHA' },
+							{ href: '/it/domotica/miglior-chiavetta-zigbee-home-assistant/', t: 'Chiavetta Zigbee' },
+							{ href: '/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/', t: 'Matrice compatibilità' },
+						]
+					: [
+							{ href: '/es/domotica/zigbee2mqtt-o-zha-home-assistant/', t: 'Zigbee2MQTT o ZHA' },
+							{ href: '/es/domotica/mejor-dongle-zigbee-home-assistant/', t: 'Dongle Zigbee' },
+							{ href: '/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/', t: 'Matriz compatibilidad' },
+						];
+---
+
+<p>{meta.intro}</p>
+
+{lang === 'en' && (
+	<nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:1rem;">
+		<a href={withBase('/en/')}>Educational robots</a> · <a href={withBase('/en/smart-home/')}>Smart home</a> · Error codes hub
+	</nav>
+)}
+
+{lang === 'en' && (
+	<p>
+		Browse the rest of the journey in our{' '}
+		<a href={withBase('/en/smart-home/')}>smart home hub</a> (Zigbee dongles, Green vs Pi 5, beginner path).
+		On <strong>/uk/</strong>, <strong>/ca/</strong> and <strong>/us/</strong> URLs, affiliate buttons use Amazon.co.uk, Amazon.ca or Amazon.com; troubleshooting steps and filter labels stay in English.
+	</p>
+)}
+
+{lang === 'en' && (
+	<p>
+		<strong>Acronyms on this hub:</strong> <abbr title="Link Quality Indicator">LQI</abbr> (Zigbee signal strength),{' '}
+		<abbr title="Zigbee Device Object">ZDO</abbr> (pairing handshake), <abbr title="EmberZNet Serial Protocol">EZSP</abbr>{' '}
+		(Sonoff dongle driver), and a <strong>ZHA quirk</strong> (device-specific fix in Home Assistant’s Zigbee stack).
+	</p>
+)}
+
+<p>
+	<img src={withBase('/images/illustrations/home-assistant-zigbee2mqtt-ou-zha.webp')} alt="Home Assistant and Zigbee diagram" width="640" height="360" loading="lazy" decoding="async" />
+</p>
+<p><em>Credit: site illustration — Zigbee stack choice (ZHA vs Zigbee2MQTT).</em></p>
+
+<p>
+	<img src={withBase('/images/illustrations/capteur-temperature-zigbee.webp')} alt="Zigbee temperature sensor on a shelf" width="640" height="360" loading="lazy" decoding="async" />
+</p>
+<p><em>Credit: site illustration — typical Zigbee sensor pairing scenario.</em></p>
+
+<p>
+	<img src={withBase('/images/products/sonoff-zbdongle-e.webp')} alt="Sonoff ZBDongle-E USB coordinator" width="480" height="320" loading="lazy" decoding="async" />
+</p>
+<p><em>Credit: product reference photo (Sonoff ZBDongle-E).</em></p>
+
+<RepairComplianceSections lang={lang} variant="smart-home" showAssist={false} showSupport={false} />
+
+<TroubleshootingCatalog lang={lang} />
+
+<RepairComplianceSections
+	lang={lang}
+	variant="smart-home"
+	showDisclaimer={false}
+	showAssist={false}
+	showSav={false}
+/>
+
+<h2>{lang === 'fr' ? 'Guides liés' : lang === 'de' ? 'Verwandte Ratgeber' : lang === 'it' ? 'Guide collegati' : lang === 'es' ? 'Guías relacionadas' : 'Related guides'}</h2>
+<ul>
+	{links.map((l) => (
+		<li><a href={withBase(l.href)}>{l.t}</a></li>
+	))}
+</ul>

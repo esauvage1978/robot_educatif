@@ -1,0 +1,99 @@
+---
+/** Widget satisfaction page (Manuso rating API) — libellés par langue. */
+type Lang = 'fr' | 'en' | 'de' | 'it' | 'es';
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang = 'fr' } = Astro.props;
+
+const COPY: Record<
+	Lang,
+	{
+		title: string;
+		thx: string;
+		improve: string;
+		reasons: [string, string, string];
+		placeholder: string;
+		send: string;
+		avgLabel: string;
+		starsAria: string;
+	}
+> = {
+	fr: {
+		title: 'Cette page vous a-t-elle été utile ?',
+		thx: 'Merci !',
+		improve: 'Que devons-nous améliorer ?',
+		reasons: ['Info incomplète', 'Lien / prix à jour', 'Outil / tableau à corriger'],
+		placeholder: 'Commentaire optionnel (180 car.)',
+		send: 'Envoyer',
+		avgLabel: 'Note moyenne',
+		starsAria: 'Note',
+	},
+	en: {
+		title: 'Was this page helpful?',
+		thx: 'Thank you!',
+		improve: 'What should we improve?',
+		reasons: ['Missing information', 'Outdated link or price', 'Fix a tool or table'],
+		placeholder: 'Optional comment (180 chars)',
+		send: 'Send',
+		avgLabel: 'Average rating',
+		starsAria: 'Rating',
+	},
+	de: {
+		title: 'War diese Seite hilfreich?',
+		thx: 'Danke!',
+		improve: 'Was sollen wir verbessern?',
+		reasons: ['Unvollständige Infos', 'Link / Preis veraltet', 'Tool / Tabelle korrigieren'],
+		placeholder: 'Optionaler Kommentar (180 Zeichen)',
+		send: 'Senden',
+		avgLabel: 'Durchschnittsnote',
+		starsAria: 'Bewertung',
+	},
+	it: {
+		title: 'Questa pagina ti è stata utile?',
+		thx: 'Grazie!',
+		improve: 'Cosa possiamo migliorare?',
+		reasons: ['Informazioni incomplete', 'Link / prezzo non aggiornato', 'Correggere strumento o tabella'],
+		placeholder: 'Commento facoltativo (180 caratteri)',
+		send: 'Invia',
+		avgLabel: 'Voto medio',
+		starsAria: 'Valutazione',
+	},
+	es: {
+		title: '¿Te ha resultado útil esta página?',
+		thx: '¡Gracias!',
+		improve: '¿Qué debemos mejorar?',
+		reasons: ['Información incompleta', 'Enlace o precio desactualizado', 'Corregir herramienta o tabla'],
+		placeholder: 'Comentario opcional (180 caracteres)',
+		send: 'Enviar',
+		avgLabel: 'Nota media',
+		starsAria: 'Valoración',
+	},
+};
+
+const s = COPY[lang] || COPY.fr;
+const scriptI = JSON.stringify([s.thx, s.avgLabel]);
+---
+
+<!-- page-rating-v1 -->
+<section id="pr-widget" class="pr-widget" aria-labelledby="pr-title">
+<style>#pr-widget{margin:1.6rem 0 1rem;padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(43,125,233,.22);background:linear-gradient(135deg,rgba(43,125,233,.07),rgba(43,125,233,.02));max-width:100%;box-sizing:border-box}#pr-title{margin:0 0 .55rem;font-size:1.05rem;line-height:1.35;font-weight:700}#pr-stars{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem}.pr-star{font:inherit;cursor:pointer;border:1px solid rgba(0,0,0,.12);background:#fff;border-radius:8px;padding:.25rem .45rem;line-height:1;font-size:1.35rem;color:#c4c9d4;transition:transform .12s,color .12s}.pr-star.on{color:#f5b301;border-color:rgba(245,179,1,.45)}.pr-star:focus-visible{outline:2px solid #2b7de9;outline-offset:2px}#pr-avg{font-size:.88rem;opacity:.85;margin-left:.25rem}#pr-thx,#pr-feed{margin-top:.65rem;font-size:.92rem}#pr-feed[hidden],#pr-thx[hidden],#pr-stars[hidden]{display:none!important}.pr-reasons{display:flex;flex-wrap:wrap;gap:.4rem;margin:.45rem 0}.pr-reasons button{font:inherit;font-size:.82rem;padding:.35rem .55rem;border-radius:999px;border:1px solid rgba(0,0,0,.14);background:#fff;cursor:pointer}.pr-reasons button.on{background:#2b7de9;color:#fff;border-color:#2b7de9}#pr-txt{width:100%;max-width:420px;margin:.45rem 0;padding:.45rem .55rem;border-radius:8px;border:1px solid rgba(0,0,0,.15);font:inherit;font-size:.88rem}#pr-send{font:inherit;font-size:.88rem;padding:.4rem .75rem;border-radius:8px;border:0;background:#2b7de9;color:#fff;cursor:pointer}@media(max-width:600px){.pr-star{font-size:1.55rem;padding:.35rem .55rem}#pr-txt{max-width:100%}}</style>
+<p id="pr-title">{s.title}</p>
+<div id="pr-stars" role="group" aria-label={s.starsAria}>
+<button type="button" class="pr-star" data-v="1" aria-label="1">★</button><button type="button" class="pr-star" data-v="2" aria-label="2">★</button><button type="button" class="pr-star" data-v="3" aria-label="3">★</button><button type="button" class="pr-star" data-v="4" aria-label="4">★</button><button type="button" class="pr-star" data-v="5" aria-label="5">★</button>
+<span id="pr-avg" class="mut"></span></div>
+<p id="pr-thx" hidden>{s.thx}</p>
+<div id="pr-feed" hidden>
+<p id="pr-im">{s.improve}</p>
+<div class="pr-reasons">
+<button type="button" data-reason={s.reasons[0]}>{s.reasons[0]}</button><button type="button" data-reason={s.reasons[1]}>{s.reasons[1]}</button><button type="button" data-reason={s.reasons[2]}>{s.reasons[2]}</button></div>
+<textarea id="pr-txt" maxlength="180" rows="2" placeholder={s.placeholder}></textarea>
+<button type="button" id="pr-send">{s.send}</button></div>
+<input type="text" id="pr-hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" />
+</section>
+<script define:vars={{ scriptI }}>
+(function(){/*mnz-click-v1*/var A="https://manuso.fr/rating_api.php",B="https://manuso.fr/realtime_api.php";var site=location.hostname.replace(/^www\./,""),path=location.pathname||"/";if(!/\/$/.test(path))path+="/";var lc=0;function tc(ev){if(ev.type==="auxclick"&&ev.button!==1)return;var a=ev.target&&ev.target.closest?ev.target.closest("a"):null;if(!a)return;var h=a.href||"";if(!/^https?:\/\//i.test(h))return;var hn="";try{hn=new URL(h).hostname.replace(/^www\./,"")}catch(e){}if((hn===site||hn==="manuso.fr")&&!/\/go\/|\/r\.php/i.test(h))return;if(Date.now()-lc<400)return;lc=Date.now();var lb=((a.innerText||a.getAttribute("aria-label")||a.title||"").replace(/\s+/g," ").trim()).slice(0,80);var u=B+"?track_click=1&site="+encodeURIComponent(site)+"&page="+encodeURIComponent(path)+"&label="+encodeURIComponent(lb)+"&url="+encodeURIComponent(h);var ok=0;try{if(navigator.sendBeacon)ok=navigator.sendBeacon(u)?1:0}catch(e){}if(!ok){try{fetch(u,{mode:"no-cors",keepalive:1})}catch(e){}try{(new Image()).src=u}catch(e){}}}document.addEventListener("click",tc,1);document.addEventListener("auxclick",tc,1);var w=document.getElementById("pr-widget");if(!w)return;var i=JSON.parse(scriptI),$=function(id){return document.getElementById(id)};var ls="pr_voted_"+site+"_"+path.replace(/\//g,"_"),tok="",t0=Date.now(),tm=0,sc=0,rs="";function avg(n,c){var e=$("pr-avg");e.textContent=c?i[1]+" "+n.toFixed(1).replace(".",",")+"/5 ("+c+")":""}function paint(n){w.querySelectorAll(".pr-star").forEach(function(b){var v=+b.dataset.v;b.classList.toggle("on",v<=n);});}function post(n,o){o=o||{};if(!tok)return Promise.resolve();return fetch(A,{method:"POST",headers:{"Content-Type":"application/json"},keepalive:1,body:JSON.stringify({action:"vote",site:site,path:path,score:n,token:tok,hp:($("pr-hp")||{}).value||"",reason:o.reason!==undefined?o.reason:rs,comment:o.comment||""})}).then(function(r){return r.json()}).then(function(d){if(d&&d.ok&&!d.ignored){avg(+d.avg||n,+d.count||1);try{localStorage.setItem(ls,n)}catch(e){}}})}function queue(n,o,cb){clearTimeout(tm);var wms=Math.max(350,3200-(Date.now()-t0));tm=setTimeout(function(){post(n,o).then(function(){if(cb)cb()})},wms)}fetch(A+"?action=token&site="+encodeURIComponent(site)+"&path="+encodeURIComponent(path)).then(function(r){return r.json()}).then(function(d){if(!d||!d.ok)return;tok=d.token;t0=Date.now();avg(+d.avg,+d.count);var o=0;try{o=+localStorage.getItem(ls)||0}catch(e){}if(o>0&&o<6){paint(o);sc=o}});w.querySelectorAll(".pr-star").forEach(function(b){b.onclick=function(){var n=+b.dataset.v;paint(n);sc=n;if(n>3){$("pr-feed").hidden=1;$("pr-thx").hidden=0;queue(n)}else{$("pr-thx").hidden=1;$("pr-feed").hidden=0;queue(n)}}});$("pr-feed").onclick=function(ev){var t=ev.target.closest("[data-reason]");if(!t||!sc)return;rs=t.dataset.reason;w.querySelectorAll("[data-reason]").forEach(function(x){x.classList.toggle("on",x===t)});queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)})};$("pr-send").onclick=function(){if(!sc)return;queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)},function(){$("pr-feed").hidden=1;$("pr-thx").hidden=0})};})();
+</script>
+<!-- /page-rating-v1 -->

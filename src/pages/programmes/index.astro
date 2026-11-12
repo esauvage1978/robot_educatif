@@ -3,54 +3,147 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { withBase } from '../../lib/siteUrl';
+import PageColumns from '../../components/PageColumns.astro';
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Programmes mBlock (.mblock)"
-			description="Fichiers projets mBlock : pourquoi les liens de téléchargement ont été retirés et comment refaire les activités à partir des tutoriels."
+			title="Programmes mBlock (.mblock) — téléchargements"
+			description="Index des fichiers .mblock publiés sur Robot Éducatif : activités mBot, Scratch, capteurs — avec l’article associé et le niveau."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="programmes-hub">
+<PageColumns>
+			<nav class="breadcrumb" aria-label="Fil d'Ariane">
+				<a href={withBase('/')}>Accueil</a> · <a href={withBase('/programmation/')}>Programmation</a> · Programmes mBlock
+			</nav>
 			<h1>Programmes mBlock (.mblock)</h1>
+			<figure>
+				<img
+					src={withBase('/images/models/makeblock-mbot-mcore.webp')}
+					alt="mBot Makeblock à carte mCore, châssis bleu et capteur ultrason, robot des fichiers .mblock de cette page"
+					width="800"
+					height="600"
+				/>
+			</figure>
 			<p class="lead">
-				La plupart des tutoriels se suivent en <strong>reproduisant les blocs</strong> à partir des captures d’écran.
-				Quelques fichiers projet <strong>.mblock</strong> sont aussi proposés en téléchargement lorsqu’ils sont
-				disponibles.
+				<strong>Réponse directe :</strong> la plupart de nos tutoriels se suivent en <strong>reproduisant les blocs</strong> à
+				partir des captures d’écran — c’est la méthode prévue. Quand un fichier projet <strong>.mblock</strong> existe, il est
+				listé ci-dessous avec l’article correspondant.
 			</p>
 			<p>
-				Exemples :{' '}
-				<a href={withBase('/programmes/premier_programme.mblock')}>premier_programme.mblock</a> (article{' '}
-				<a href={withBase('/mon-premier-programme-mbot/')}>Mon premier programme mBot</a>) ·{' '}
-				<a href={withBase('/capture/carre/carre.mblock')}>carre.mblock</a> (article{' '}
-				<a href={withBase('/activite-scratch-le-carre/')}>Activité Scratch : le carré</a>).
+				Parcours pédagogique : hub <a href={withBase('/programmation/python/')}>Python</a>, cours{' '}
+				<a href={withBase('/programmation/')}>programmation</a>,{' '}
+				<a href={withBase('/premier-pas-avec-mblock-5/')}>premiers pas mBlock 5</a>,{' '}
+				<a href={withBase('/installer-mblock-5-sous-windows-10/')}>installation mBlock</a>,{' '}
+				<a href={withBase('/telecharger-mblock-5-gratuit-guide-2026/')}>télécharger mBlock</a>.
 			</p>
-			<p>
-				Sinon, ouvrez <strong>mBlock 5</strong> et recréez le script bloc par bloc comme sur les illustrations —
-				c’est la méthode prévue par le pas à pas.
-			</p>
-			<p>
-				Pour installer l’environnement : <a href={withBase('/installer-mblock-5-sous-windows-10/')}>Installer mBlock 5</a>
-				· <a href={withBase('/premier-pas-avec-mblock-5/')}>Premiers pas avec mBlock 5</a>.
-			</p>
-		</main>
+
+			<h2>Index des fichiers .mblock</h2>
+			<table class="mblock-table">
+				<thead>
+					<tr>
+						<th>Fichier</th>
+						<th>Article lié</th>
+						<th>Contenu (résumé)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href={withBase('/programmes/premier_programme.mblock')}>premier_programme.mblock</a></td>
+						<td><a href={withBase('/mon-premier-programme-mbot/')}>Mon premier programme mBot</a></td>
+						<td>Premier script blocs sur mBot</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/premier_programme/premier_programme.mblock')}>capture/…/premier_programme.mblock</a></td>
+						<td><a href={withBase('/mon-premier-programme-mbot/')}>Mon premier programme mBot</a></td>
+						<td>Variante liée aux captures de l’article</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/carre/carre.mblock')}>carre.mblock</a></td>
+						<td><a href={withBase('/activite-scratch-le-carre/')}>Activité Scratch : le carré</a></td>
+						<td>Dessiner un carré (Scratch / mBlock)</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/programmes/scratch_carre_simple.mblock')}>scratch_carre_simple.mblock</a></td>
+						<td><a href={withBase('/activite-scratch-le-carre/')}>Activité Scratch : le carré</a></td>
+						<td>Version simplifiée du carré</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/programmes/scratch_carre_initial.mblock')}>scratch_carre_initial.mblock</a></td>
+						<td><a href={withBase('/activite-scratch-le-carre/')}>Activité Scratch : le carré</a></td>
+						<td>Point de départ carré</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/capteur/distance_sans_affichage.mblock')}>distance_sans_affichage.mblock</a></td>
+						<td><a href={withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/')}>Série ultrason mBot (1)</a></td>
+						<td>Lecture ultrason sans affichage</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-detecteur-dintrusion/programme_detection_basique.mblock')}>programme_detection_basique.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-detecteur-dintrusion/')}>Détecteur d’intrusion mBot</a></td>
+						<td>Détection basique</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-detecteur-dintrusion/programme_detection_compteur%20intrusion.mblock')}>programme_detection_compteur intrusion.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-detecteur-dintrusion/')}>Détecteur d’intrusion mBot</a></td>
+						<td>Compteur d’intrusions</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-detecteur-dintrusion/programme_detection_compteur_intrusion_sous_programme.mblock')}>…_sous_programme.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-detecteur-dintrusion/')}>Détecteur d’intrusion mBot</a></td>
+						<td>Version avec sous-programmes</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-faire-defiler-un-texte/2.1/afficher_1_mot.mblock')}>afficher_1_mot.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-faire-defiler-un-texte/')}>Faire défiler un texte (mBot)</a></td>
+						<td>Étape 2.1 — un mot</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-faire-defiler-un-texte/2.2/afficher_1_mot_x_vaut_10.mblock')}>afficher_1_mot_x_vaut_10.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-faire-defiler-un-texte/')}>Faire défiler un texte (mBot)</a></td>
+						<td>Étape 2.2 — variable X</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-faire-defiler-un-texte/4/boucle.mblock')}>boucle.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-faire-defiler-un-texte/')}>Faire défiler un texte (mBot)</a></td>
+						<td>Étape 4 — boucle</td>
+					</tr>
+					<tr>
+						<td><a href={withBase('/capture/activite-mbot-faire-defiler-un-texte/5.2/defiler52.mblock')}>defiler52.mblock</a></td>
+						<td><a href={withBase('/activite-mbot-faire-defiler-un-texte/')}>Faire défiler un texte (mBot)</a></td>
+						<td>Étape 5.2 — défilement complet</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2>FAQ</h2>
+			<p><strong>Le .mblock ne s’ouvre pas ?</strong> Utilisez <a href={withBase('/telecharger-mblock-5-gratuit-guide-2026/')}>mBlock 5</a> (bureau ou <a href="https://ide.mblock.cc/" rel="noopener noreferrer" target="_blank">ide.mblock.cc</a>) — Fichier → Ouvrir.</p>
+			<p><strong>Pas de fichier pour mon article ?</strong> Recopiez les blocs des illustrations : c’est volontaire sur les leçons Python ou Scratch longues.</p>
+			<p><strong>Robots concernés :</strong> surtout <a href={withBase('/mbot-avis-faut-il-acheter-pour-un-enfant/')}>mBot</a> et activités Makeblock ; voir aussi <a href={withBase('/programmes/')}>cette page</a> depuis le menu Programmes.</p>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>
 
 <style>
 	.programmes-hub {
-		width: min(720px, calc(100% - 2.5rem));
+		width: min(900px, calc(100% - 2.5rem));
 		margin: 0 auto;
 		padding: 2rem 0 3rem;
 	}
 	.programmes-hub h1 {
 		margin: 0 0 1rem;
 		font-size: 1.75rem;
+	}
+	.programmes-hub h2 {
+		margin: 2rem 0 0.75rem;
+		font-size: 1.25rem;
 	}
 	.programmes-hub .lead {
 		font-size: 1.05rem;
@@ -60,5 +153,27 @@ import { withBase } from '../../lib/siteUrl';
 	.programmes-hub p {
 		line-height: 1.65;
 		margin: 0 0 1rem;
+	}
+	.mblock-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+		display: block;
+		overflow-x: auto;
+		max-width: 100%;
+	}
+	.mblock-table th,
+	.mblock-table td {
+		border: 1px solid #e2e8f0;
+		padding: 0.5rem 0.65rem;
+		text-align: left;
+		vertical-align: top;
+	}
+	.mblock-table th {
+		background: #f8fafc;
+	}
+	.breadcrumb {
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
 	}
 </style>

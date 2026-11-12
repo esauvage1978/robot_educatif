@@ -1,0 +1,136 @@
+---
+layout: ../../layouts/ItPost.astro
+title: "Raspberry Pi 4: quale versione di RAM comprare?"
+description: "Pi 4: 2, 4 o 8 GB di RAM per progetto, accessori, risoluzione problemi e prezzi indicativi IT (ott. 2026)."
+updated: "31 ottobre 2026"
+schemaUpdated: "2026-10-31"
+faqSchema:
+  - question: "2 GB o 4 GB per un primo Raspberry Pi 4?"
+    answer: "Nel 2026, 4 GB per desktop Raspberry Pi OS, Python o robotica con sensori. 2 GB per server headless (Pi-hole, API leggere) se conoscete già Linux."
+  - question: "Si può aumentare la RAM del Pi 4 in seguito?"
+    answer: "No. La memoria è saldata sulla scheda. Scegliete la variante all'acquisto; in dubbio, 4 GB o 8 GB."
+  - question: "Quale alimentatore per Raspberry Pi 4?"
+    answer: "Ingresso USB-C 5 V; Raspberry Pi consiglia circa 3 A (15 W) per scheda e periferiche USB modeste. Un caricatore da telefono debole causa avviso di sottotensione e throttling."
+  - question: "Serve un case ventilato sul Pi 4?"
+    answer: "Per sessioni lunghe (compilazione, server, desktop carico), case con ventola o dissipatori seri riducono il throttling termico. Per script headless leggeri spesso basta raffreddamento passivo."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+
+<AffiliateDisclosure variant="compact" lang="it" />
+
+> **Risposta diretta (ottobre 2026)** — Per un **primo Pi 4** a casa, a scuola o in **robotica** con **Python**, scegliete in genere **4 GB**. Passate a **8 GB** se avete più **servizi** in parallelo — ad esempio **Docker** (software che esegue app in «contenitori» isolati), compilate spesso o tenete aperti molti tab del browser. **2 GB** per uso **headless** di rete. La variante **1 GB** non è prioritaria nel 2026: valutate un [Pi 5](/it/raspberry-pi-5-quale-ram/) o un **usato** 2/4 GB.
+
+**In sintesi:**
+
+| Variante | Progetti tipici |
+| --- | --- |
+| **Pi 4 2 GB** | Pi-hole, server leggero, kiosk, monitoring |
+| **Pi 4 4 GB** | Desktop Linux, Python, robotica, uso quotidiano |
+| **Pi 4 8 GB** | Docker, compilazione, IDE grande, molte schede |
+
+**Prezzi indicativi (Amazon.it, ottobre 2026)** — **4 GB** spesso **~50–70 €**; **8 GB** di solito **+10–20 €**. Verificate sempre l’inserzione. Confronto generazioni: [confronto Pi 3 / 4 / 5](/it/raspberry-pi-3-vs-4-vs-5/) — hub della rubrica Raspberry Pi su Robot Éducatif.
+
+Il **[Raspberry Pi](/it/marchio-raspberry-pi/) 4 Model B** (2019, revisioni successive) è un **single-board computer** grande quanto una carta di credito. Si distingue dal Pi 3 per **due porte USB 3.0**, **Ethernet Gigabit** indipendente, **fino a 8 GB di RAM** in **LPDDR4-3200** (memoria saldata) e **due uscite micro-HDMI**. Questa guida copre le **quattro SKU di memoria**, **scelta**, **accessori**, **software** e **risoluzione problemi**.
+
+![Diverse schede Raspberry Pi allineate per confronto](/images/blog/raspberry-pi-comparatif-2026/gamme-pi-opt.jpg)
+
+*Foto: [SimonWaldherr](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_1,_Pi_5,_Pi_400,_Zero_2_and_Pico.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
+
+## Disponibilità 1 GB (2026)
+
+La variante **1 GB** è rara nei negozi nuovi: privilegiate **2–4 GB**, un [Raspberry Pi 5](/it/raspberry-pi-5-quale-ram/) o l’usato controllato.
+
+## 1. Le quattro varianti «RAM»
+
+Sulla stessa scheda **Pi 4 Model B** cambia solo la **quantità di memoria**; il **SoC** (System-on-Chip — processore integrato) **BCM2711** (quad **Cortex-A72** ~**1,8 GHz**, 64 bit) è **identico**.
+
+| Variante | RAM | Profilo tipico |
+|----------|-----|----------------|
+| **1 GB** | 1 GB LPDDR4 | Progetti **minimalisti**. **Poco disponibile** nuovo nel 2026. |
+| **2 GB** | 2 GB | **Server leggero**, **kiosk**, **monitoring**; desktop **stretto**. |
+| **4 GB** | 4 GB | **Sweet spot**: desktop Raspberry Pi OS, **Python**, uso quotidiano. |
+| **8 GB** | 8 GB | **Docker**, compilazione, **IDE** remota, database modesti. |
+
+Tutte le varianti offrono **GPIO** a 40 pin (General Purpose Input/Output — pin per sensori), **CSI / DSI** (interfacce camera e display), **Wi‑Fi ac**, **Bluetooth 5.0**, **microSD** principale.
+
+## 2. Specifiche utili
+
+- **Video**: due **micro-HDMI** — cavi o adattatori.
+- **USB**: **2 × USB 3** + **2 × USB 2**.
+- **Alimentazione**: **USB-C 5 V**, alimentatore **3 A (15 W)** di qualità.
+- **Termica**: senza ventola la **CPU** fa **throttle** (rallenta per calore) in fretta.
+
+## 3. Quale memoria per quale uso?
+
+**1 GB** — **systemd**, **MQTT** (Message Queuing Telemetry Transport — messaggistica leggera per sensori / domotica), **Python** senza GUI. Evitate desktop con browser moderno. Ne acquisto: [Pi 5 quale RAM](/it/raspberry-pi-5-quale-ram/).
+
+**2 GB** — **Pi-hole**, **AdGuard**, **reverse proxy**, **Git** casalingo, piccole API. Per un **robot pronto** invece della scheda nuda: [kit robot Arduino](/it/kit-robot-arduino-per-bambini/).
+
+**4 GB** — raccomandazione **predefinita** per postazione **Linux**, robotica, apprendimento.
+
+**8 GB** — **Rust** / **C++**, **Docker**, **SQLite** / **PostgreSQL** home lab, molte schede browser.
+
+## 4. Albero decisionale rapido
+
+1. **Senza monitor**, rete: **2 GB**.
+2. **Primo Pi 4** famiglia / scuola: **4 GB**.
+3. **Più app** o **Docker**: **8 GB**.
+4. **Budget stretto**: confrontate **Pi 4 8 GB** e **Pi 5 4 GB** nel [confronto Pi 3 / 4 / 5](/it/raspberry-pi-3-vs-4-vs-5/).
+
+## 5. Pi 4 o Pi 5?
+
+Con budget per **Pi 5**, **raffreddamento attivo** e caricatore **5 A (27 W)**: **CPU** più veloce, **RAM fino a 16 GB**, **PCIe**. Altrimenti **Pi 4 4 GB** / **8 GB** resta molto pertinente — [confronto Pi 3 / 4 / 5](/it/raspberry-pi-3-vs-4-vs-5/).
+
+## 6. Accessori nel carrello
+
+- Alimentatore **15 W USB-C (3 A)**.
+- **Case ventilato** o dissipatori.
+- **microSD A2** — <a href="/go/az-it-169b8d5456/" rel="sponsored nofollow noopener">microSD A2 per Raspberry Pi</a>.
+- Cavi **micro-HDMI**.
+
+## 7. Prezzo
+
+Verificate memoria (2, 4 o 8 GB), venditore e contenuto (SD, case, alimentatore). Rivenditori: [raspberrypi.com](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/).
+
+## 8. Installazione software
+
+**Raspberry Pi Imager**, **Raspberry Pi OS**, opzioni **SSH / Wi‑Fi / utente** — [Raspberry Pi 3 primi passi](/it/raspberry-pi-3-primi-passi/) (identico sul Pi 4).
+
+## 9. Risoluzione problemi
+
+| Sintomo | Causa probabile | Cosa fare |
+| --- | --- | --- |
+| Lentezza, tab che si chiudono | **RAM** satura | Chiudere app; prossimo acquisto **4 GB** / **8 GB** |
+| Termometro / CPU lenta | **Raffreddamento** insufficiente | Case ventilato |
+| Fulmine giallo | Alimentatore **&lt; 3 A** | **15 W** documentato per Pi 4 |
+| «Out of memory» | Variante piccola | Meno container; **8 GB** |
+| Non avvia | microSD usurata | Reflash **Imager**; **A2** nuova |
+
+Comando `free -h` — colonna **available**.
+
+## Domande frequenti
+
+**2 GB o 4 GB?** — **4 GB** desktop/apprendimento; **2 GB** headless leggero.
+
+**Ventola obbligatoria?** — Sì in pratica a carico lungo.
+
+**RAM espandibile?** — **No**, saldata.
+
+## Link Amazon (affiliazione)
+
+Confermate quantità RAM nell’inserzione:
+
+- <a href="/go/az-it-36c59970f9/" rel="sponsored nofollow noopener">Raspberry Pi 4 Model B — Amazon.it</a>
+- <a href="/go/az-it-cc6a76a741/" rel="sponsored nofollow noopener">Raspberry Pi 4 8 GB — ricerca Amazon.it</a>
+- <a href="/go/az-it-6d9b6e55b3/" rel="sponsored nofollow noopener">Case ventola Pi 4</a>
+- <a href="/go/az-it-d25a16c0d2/" rel="sponsored nofollow noopener">Alimentatore USB-C 15 W Pi 4</a>
+- <a href="/go/az-it-169b8d5456/" rel="sponsored nofollow noopener">microSD A2</a>
+
+*Partner Amazon — commissione possibile. Fascia prezzi verificata: ottobre 2026.*
+
+---
+
+**In sintesi**: **4 GB** per iniziare o uso misto; **8 GB** con più app o compilazioni; **2 GB** rete / headless; **1 GB** solo se bisogno e prezzo minimali.
+
+*Emmanuel Sauvage*

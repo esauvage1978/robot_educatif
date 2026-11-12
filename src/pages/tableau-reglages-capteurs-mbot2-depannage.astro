@@ -1,0 +1,30 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import MbotSensorCalibrationTable from '../components/MbotSensorCalibrationTable.astro';
+import { SENSOR_CALIB_PAGE } from '../data/mbotSensorCalibration.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={SENSOR_CALIB_PAGE.title}
+	description={SENSOR_CALIB_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/tableau-reglages-capteurs-mbot2-depannage/"
+	hubLabel="mBot & capteurs"
+	hubPath="/accessoires-mbot-par-ou-commencer/"
+>
+	<p>{SENSOR_CALIB_PAGE.intro}</p>
+	<figure>
+		<img src={withBase('/images/schemas/mbot2-capteurs.svg')} alt="Quatre capteurs du tableau : suiveur de ligne Quad RGB, ultrason, gyroscope CyberPi, capteur de lumière" width="780" height="440" />
+		<figcaption>Les quatre familles du tableau : ligne, distance, orientation et lumière. Les seuils se règlent dans mBlock, puis se vérifient sur tapis propre.</figcaption>
+	</figure>
+	<MbotSensorCalibrationTable />
+	<p>
+		Codes erreurs fréquents :{' '}
+		<a href={withBase('/domotique/code-erreur/mbot-ultrasonic-stuck/')}>ultrason bloqué</a>
+		· <a href={withBase('/mblock-depannage-codes-erreurs-mbot-arduino/')}>dépannage mBlock mBot</a>
+		· <a href={withBase('/compatibilite-makeblock/')}>compatibilité accessoires</a>.
+	</p>
+</RobotToolLayout>

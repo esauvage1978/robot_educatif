@@ -1,0 +1,67 @@
+---
+import DomotiqueToolLayout from '../../../../layouts/DomotiqueToolLayout.astro';
+import ProjectGuidePage from '../../../../components/ProjectGuidePage.astro';
+import Esp32ProjectDetail from '../../../../components/Esp32ProjectDetail.astro';
+import { getProjectGuideBySlug, projectGuideSlugs } from '../../../../data/projectGuides/registry.mjs';
+import { ESP32_HUB_PATHS, getProjectBySlug, projectSlugs } from '../../../../data/esp32Projects/index.mjs';
+import { PROJECTS_DATE, SITE_ORIGIN } from '../../../../data/esp32Projects/shared.mjs';
+import { UI } from '../../../../data/esp32Projects/ui.mjs';
+import { USE_CASES } from '../../../../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../../../../lib/siteUrl';
+
+const lang = 'it';
+
+/** Ce dossier sert les guides projet (configurateur) ET les projets ESP32 (src/data/esp32Projects). */
+export function getStaticPaths() {
+	const slugs = new Set([...projectGuideSlugs('it'), ...projectSlugs('it')]);
+	return [...slugs].map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const pack = getProjectGuideBySlug(lang, slug);
+const esp32 = pack ? null : getProjectBySlug(lang, slug);
+if (!pack && !esp32) {
+	return Astro.redirect(withBase('/404'));
+}
+const ui = UI[lang];
+const guide = pack ? pack[lang] : null;
+const loc = esp32 ? esp32.locales[lang] : null;
+const useCase = pack ? USE_CASES.find((u) => u.id === pack.id) : undefined;
+const articlePath = pack ? pack.paths[lang] : esp32.paths[lang];
+const articleUrl = `${SITE_ORIGIN}${articlePath}`;
+const pubDate = new Date(pack ? '2026-10-29T00:00:00Z' : `${PROJECTS_DATE}T00:00:00Z`);
+const pageTitle = guide ? guide.title : loc.title;
+const pageDescription = guide ? guide.description : loc.description;
+const breadcrumbItems = esp32
+	? [
+			{ name: ui.home, url: withBase('/it/') },
+			{ name: ui.section, url: withBase('/it/domotica/') },
+			{ name: ui.hubName, url: withBase(ESP32_HUB_PATHS[lang]) },
+			{ name: loc.h1, url: withBase(articlePath) },
+		]
+	: [
+			{ name: 'Home', url: withBase('/it/') },
+			{ name: 'Domotica', url: withBase('/it/domotica/') },
+			{ name: pageTitle, url: withBase(articlePath) },
+		];
+---
+
+<DomotiqueToolLayout
+	title={pageTitle}
+	description={pageDescription}
+	heading={esp32 ? loc.h1 : pageTitle}
+	lang="it"
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Domotica"
+	repairGuide={false}
+	breadcrumbItems={breadcrumbItems}
+>
+	{
+		esp32 ? (
+			<Esp32ProjectDetail project={esp32} lang={lang} articleUrl={articleUrl} />
+		) : (
+			<ProjectGuidePage guide={guide} articleUrl={articleUrl} useCase={useCase} showConfigurator={Boolean(useCase)} lang="it" />
+		)
+	}
+</DomotiqueToolLayout>

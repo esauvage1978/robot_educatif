@@ -1,0 +1,490 @@
+---
+import BaseHead from './BaseHead.astro';
+import PageColumns from './PageColumns.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import { withBase } from '../lib/siteUrl';
+import { amazonDpUrl, marketFromPathname, priceMentionForLocale } from '../lib/amazonMarket.mjs';
+import { amazonOffer, amazonSnapshot } from '../lib/amazonPriceStore.mjs';
+import { CHECK_PRICE } from '../lib/amazonPriceMatch.mjs';
+import promos from '../data/promos.json';
+
+const path = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const market = marketFromPathname(path);
+const locale =
+	market === 'de' ? 'de' : market === 'it' ? 'it' : market === 'es' ? 'es' : 'en';
+const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Paris' });
+const pageUpdated = today.split('-').reverse().join('/');
+const offers = promos.filter((p) => p.lang === locale && p.start <= today && p.end >= today);
+const fmt = (d: string) => d.split('-').reverse().join('/');
+const snap = amazonSnapshot(market);
+const mention = priceMentionForLocale(snap?.releveAffichage || '', locale);
+
+const PRODUCTS = [
+	{ asin: 'B083T5G5ZK', query: 'Learning Resources Botley 2.0', key: 'botley' },
+	{ asin: 'B07XR98YYQ', query: 'Makeblock mBot', key: 'mbot' },
+	{ asin: 'B0919F9CKS', query: 'Makeblock mBot2', key: 'mbot2' },
+	{ asin: 'B078Y9RYM2', query: 'ELEGOO Smart Robot Car V4.0', key: 'elegoo' },
+	{ asin: 'B0B6P22YJC', query: 'SONOFF ZBDongle-E', key: 'dongle' },
+	{ asin: 'B0BYZP8NK2', query: 'SONOFF SNZB-02D', key: 'sensor' },
+];
+
+const copy = {
+	en: {
+		html: 'en',
+		home: 'Home',
+		crumb: 'Black Friday 2026',
+		title: 'Black Friday 2026: educational robots and smart home',
+		description:
+			'Black Friday is Friday 27 November 2026. Checked offers for Makeblock, Botley, ELEGOO and Zigbee gear, plus the Amazon price snapshot for this market.',
+		h1: 'Black Friday 2026: educational robots and smart home',
+		lead: 'Black Friday 2026 falls on Friday 27 November. Christmas deals usually continue until 31 December. This page lists voucher codes we have actually checked for this language, then the robots and Zigbee devices readers compare most often. A figure below is the Amazon snapshot of that exact model. It is not a promised sale price: the discount, if there is one, is the price on the shop page that day.',
+		emptyCodes:
+			'No voucher code is stored for this language on this date. A French code is not reused here, and none has been invented.',
+		codesTitle: 'Checked voucher codes',
+		valid: 'Valid from',
+		to: 'to',
+		verified: 'checked on',
+		direct: 'No code, open offer',
+		seeOffer: 'View the offer →',
+		robotsTitle: 'Robots readers compare before Black Friday',
+		homeTitle: 'Smart home: two Zigbee devices, and Shelly',
+		shellyName: 'Shelly micromodules',
+		shellyDesc: 'Wi-Fi or Zigbee relays. The price is on the Shelly shop, not in the Amazon snapshot.',
+		shellyPrice: 'Price on Shelly',
+		shellyCta: 'Shelly shop →',
+		priceLabel: 'Snapshot price',
+		amazonCta: 'View on Amazon →',
+		guidesTitle: 'Choose by age before you buy',
+		guidesLead: 'The gift only works if the robot matches the age. These guides stay the reference during the sales.',
+		more: 'Full Christmas gift guide →',
+		compare: 'Compare the main programmable robots →',
+		hub: 'Smart home hub →',
+		faqTitle: 'Questions before ordering',
+		note: 'Affiliate links: if you buy through them, ROBOT éducatif may earn a commission, at no extra cost to you. Each shop sets the minimum spend, excluded products and whether codes can be combined. Read those conditions on the shop before you pay.',
+		caNote:
+			'This Canada page does not show a British or euro price as if it were Canadian. There is no Canadian-dollar snapshot: use the price Amazon.ca displays for the named model.',
+		ukNote: mention
+			? `Amazon.co.uk prices below were read on ${snap?.releveAffichage} (Europe/Paris). ${mention}`
+			: 'Amazon.co.uk prices are shown only when the latest snapshot includes a pound price for that model.',
+		ages: [
+			{ href: '/en/best-robot-for-a-6-year-old/', age: 'Age 6', label: 'Arrow robots' },
+			{ href: '/en/best-robot-for-an-8-year-old/', age: 'Age 8', label: 'Scratch-style blocks' },
+			{ href: '/en/best-robot-for-a-10-year-old/', age: 'Age 10', label: 'Blocks and Python' },
+			{ href: '/en/best-robot-for-a-14-year-old/', age: 'Age 14', label: 'Arduino and Python' },
+		],
+		xmas: '/en/educational-robot-christmas-gifts-2026/',
+		compareHref: '/en/best-programmable-robot-for-kids/',
+		hubHref: '/en/smart-home/',
+		cards: {
+			botley: { badge: 'Ages 5–8', name: 'Learning Resources Botley 2.0', desc: 'Screen-free robot programmed with arrow cards. The 46-piece kit is the usual set.' },
+			mbot: { badge: 'Ages 8–12', name: 'Makeblock mBot', desc: 'The classroom robot: about 15 minutes to build, then mBlock 5 and Arduino C.' },
+			mbot2: { badge: 'Ages 10–14', name: 'Makeblock mBot2', desc: 'CyberPi board, colour screen, Wi-Fi and Python. It is a different robot from the mBot, not a colour option.' },
+			elegoo: { badge: 'Ages 12+', name: 'ELEGOO Smart Robot Car V4.0', desc: 'Arduino Uno robot car with a Wi-Fi camera, line tracking and ultrasonic sensor.' },
+			dongle: { badge: 'Smart home', name: 'SONOFF ZBDongle-E', desc: 'USB Zigbee coordinator used with Home Assistant. It is not required to display a dashboard.' },
+			sensor: { badge: 'Smart home', name: 'SONOFF SNZB-02D', desc: 'Zigbee temperature and humidity sensor with an LCD. A wall tablet is a separate purchase.' },
+		},
+		faq: [
+			{
+				q: 'When is Black Friday 2026?',
+				a: 'Friday 27 November 2026. Cyber Monday is Monday 30 November. Shops often start earlier in the week and keep Christmas prices until 31 December. The date alone does not mean every robot is discounted.',
+			},
+			{
+				q: 'Is the price on this page the Black Friday price?',
+				a: 'No. It is the last Amazon snapshot for that ASIN and this market. During the sale, check the shop page. If the snapshot has no price in the local currency, the card says to see today’s price.',
+			},
+			{
+				q: 'Can I use a code from the French page?',
+				a: 'Only if the shop states that the code works in your country. This page does not copy French codes onto other markets.',
+			},
+		],
+	},
+	de: {
+		html: 'de',
+		home: 'Start',
+		crumb: 'Black Friday 2026',
+		title: 'Black Friday 2026: Lernroboter und Smart Home',
+		description:
+			'Black Friday ist Freitag, der 27. November 2026. Geprüfte Angebote für Makeblock, Botley, ELEGOO und Zigbee, plus der Amazon.de-Preisstand.',
+		h1: 'Black Friday 2026: Lernroboter und Smart Home',
+		lead: 'Der Black Friday 2026 ist Freitag, der 27. November. Weihnachtsaktionen laufen oft bis zum 31. Dezember. Diese Seite zeigt nur Gutscheine, die für Deutsch geprüft sind, und die Roboter sowie Zigbee-Geräte, die am häufigsten verglichen werden. Eine Zahl ist der Amazon-Preisstand genau dieses Modells, kein versprochener Aktionspreis.',
+		emptyCodes:
+			'Für diese Sprache ist an diesem Datum kein Gutscheincode hinterlegt. Ein französischer Code wird hier nicht übernommen, und es wird keiner erfunden.',
+		codesTitle: 'Geprüfte Gutscheincodes',
+		valid: 'Gültig vom',
+		to: 'bis',
+		verified: 'geprüft am',
+		direct: 'Ohne Code, direktes Angebot',
+		seeOffer: 'Angebot ansehen →',
+		robotsTitle: 'Roboter, die vor dem Black Friday verglichen werden',
+		homeTitle: 'Smart Home: zwei Zigbee-Geräte und Shelly',
+		shellyName: 'Shelly-Module',
+		shellyDesc: 'WLAN- oder Zigbee-Relais. Der Preis steht im Shelly-Shop, nicht im Amazon-Preisstand.',
+		shellyPrice: 'Preis bei Shelly',
+		shellyCta: 'Shelly-Shop →',
+		priceLabel: 'Preisstand',
+		amazonCta: 'Bei Amazon ansehen →',
+		guidesTitle: 'Zuerst das Alter, dann der Preis',
+		guidesLead: 'Der Rabatt nützt wenig, wenn der Roboter nicht zum Alter passt. Diese Kaufberater bleiben die Referenz.',
+		more: 'Geschenkeguide Weihnachten 2026 →',
+		compare: 'Die wichtigsten programmierbaren Roboter vergleichen →',
+		hub: 'Smart-Home-Überblick →',
+		faqTitle: 'Fragen vor der Bestellung',
+		note: 'Affiliate-Links: wenn Sie darüber kaufen, kann ROBOT éducatif eine Provision erhalten, ohne Mehrpreis für Sie. Mindestbestellwert, Ausschlüsse und Kombinierbarkeit legt der Händler fest. Lesen Sie die Bedingungen im Shop vor dem Bezahlen.',
+		extraTitle: 'Creality, offizieller Shop Deutschland',
+		extraText: '3D-Drucker. Für diesen Shop ist hier kein Gutscheincode hinterlegt.',
+		extraCta: 'Creality DE →',
+		extraUrl:
+			'https://www.awin1.com/cread.php?awinmid=32419&awinaffid=3126073&ued=https%3A%2F%2Fstore.creality.com%2Fde%2F',
+		priceNote: mention
+			? `Die Amazon.de-Preise unten wurden am ${snap?.releveAffichage} gelesen (Europe/Paris). ${mention}`
+			: 'Ein Amazon.de-Preis erscheint nur, wenn der letzte Preisstand einen Euro-Preis für dieses Modell enthält.',
+		ages: [
+			{ href: '/de/lernroboter-6-jahre/', age: '6 Jahre', label: 'Pfeiltasten' },
+			{ href: '/de/lernroboter-8-jahre/', age: '8 Jahre', label: 'Blöcke wie Scratch' },
+			{ href: '/de/lernroboter-10-jahre/', age: '10 Jahre', label: 'Blöcke und Python' },
+			{ href: '/de/lernroboter-14-jahre/', age: '14 Jahre', label: 'Arduino und Python' },
+		],
+		xmas: '/de/lernroboter-weihnachtsgeschenke-2026/',
+		compareHref: '/de/bester-programmierbarer-roboter-fuer-kinder/',
+		hubHref: '/de/smart-home/',
+		cards: {
+			botley: { badge: '5–8 Jahre', name: 'Learning Resources Botley 2.0', desc: 'Roboter ohne Bildschirm, programmiert mit Pfeilkarten. Üblich ist das Set mit 46 Teilen.' },
+			mbot: { badge: '8–12 Jahre', name: 'Makeblock mBot', desc: 'Der Klassenzimmer-Roboter: etwa 15 Minuten Aufbau, danach mBlock 5 und Arduino-C.' },
+			mbot2: { badge: '10–14 Jahre', name: 'Makeblock mBot2', desc: 'CyberPi, Farbdisplay, WLAN und Python. Ein anderer Roboter als der mBot, keine Farbvariante.' },
+			elegoo: { badge: 'Ab 12 Jahren', name: 'ELEGOO Smart Robot Car V4.0', desc: 'Arduino-Uno-Roboterauto mit WLAN-Kamera, Linienverfolgung und Ultraschall.' },
+			dongle: { badge: 'Smart Home', name: 'SONOFF ZBDongle-E', desc: 'USB-Zigbee-Koordinator für Home Assistant. Für ein Dashboard ist er nicht nötig.' },
+			sensor: { badge: 'Smart Home', name: 'SONOFF SNZB-02D', desc: 'Zigbee-Sensor für Temperatur und Luftfeuchte mit LCD. Ein Wandtablet ist ein anderes Gerät.' },
+		},
+		faq: [
+			{
+				q: 'Wann ist Black Friday 2026?',
+				a: 'Freitag, 27. November 2026. Der Cyber Monday ist Montag, 30. November. Viele Shops starten früher in der Woche und halten Weihnachtspreise bis zum 31. Dezember. Das Datum allein heißt nicht, dass jeder Roboter reduziert ist.',
+			},
+			{
+				q: 'Ist der Preis auf dieser Seite der Black-Friday-Preis?',
+				a: 'Nein. Es ist der letzte Amazon-Preisstand für diese ASIN und diesen Markt. Während der Aktion zählt die Shop-Seite. Fehlt ein Preis in Euro, steht auf der Karte „Tagespreis ansehen“.',
+			},
+			{
+				q: 'Gilt ein Code von der französischen Seite?',
+				a: 'Nur wenn der Händler schreibt, dass der Code in Deutschland gilt. Diese Seite übernimmt französische Codes nicht.',
+			},
+		],
+	},
+	it: {
+		html: 'it',
+		home: 'Home',
+		crumb: 'Black Friday 2026',
+		title: 'Black Friday 2026: robot educativi e domotica',
+		description:
+			'Il Black Friday 2026 è venerdì 27 novembre. Offerte verificate per Makeblock, Botley, ELEGOO e Zigbee, con il prezzo Amazon.it del rilevamento.',
+		h1: 'Black Friday 2026: robot educativi e domotica',
+		lead: 'Il Black Friday 2026 cade venerdì 27 novembre. Le promozioni di Natale proseguono spesso fino al 31 dicembre. Qui compaiono solo i codici verificati per l’italiano e i robot o i dispositivi Zigbee che si confrontano di più. Una cifra è il rilevamento Amazon di quel modello preciso, non uno sconto promesso.',
+		emptyCodes:
+			'Per questa lingua, in questa data, non c’è nessun codice sconto registrato. Un codice francese non viene ricopiato, e non ne viene inventato uno.',
+		codesTitle: 'Codici sconto verificati',
+		valid: 'Valido dal',
+		to: 'al',
+		verified: 'verificato il',
+		direct: 'Senza codice, offerta diretta',
+		seeOffer: 'Vedi l’offerta →',
+		robotsTitle: 'Robot da confrontare prima del Black Friday',
+		homeTitle: 'Domotica: due dispositivi Zigbee e Shelly',
+		shellyName: 'Moduli Shelly',
+		shellyDesc: 'Relè Wi-Fi o Zigbee. Il prezzo è sul negozio Shelly, non nel rilevamento Amazon.',
+		shellyPrice: 'Prezzo su Shelly',
+		shellyCta: 'Negozio Shelly →',
+		priceLabel: 'Prezzo rilevato',
+		amazonCta: 'Vedi su Amazon →',
+		guidesTitle: 'Prima l’età, poi il prezzo',
+		guidesLead: 'Lo sconto serve poco se il robot non è adatto all’età. Queste guide restano il riferimento.',
+		more: 'Guida regali Natale 2026 →',
+		compare: 'Confronta i robot programmabili principali →',
+		hub: 'Hub domotica →',
+		faqTitle: 'Domande prima dell’ordine',
+		note: 'Link affiliati: se acquisti tramite questi link, ROBOT éducatif può ricevere una commissione, senza costo aggiuntivo per te. Soglia, esclusioni e cumulo li decide il negozio. Rileggili prima di pagare.',
+		priceNote: mention
+			? `I prezzi Amazon.it qui sotto sono stati letti il ${snap?.releveAffichage} (Europe/Paris). ${mention}`
+			: 'Un prezzo Amazon.it compare solo se l’ultimo rilevamento contiene un prezzo in euro per quel modello.',
+		ages: [
+			{ href: '/it/robot-programmabile-6-anni/', age: '6 anni', label: 'Frecce' },
+			{ href: '/it/robot-programmabile-8-anni/', age: '8 anni', label: 'Blocchi tipo Scratch' },
+			{ href: '/it/robot-programmabile-10-anni/', age: '10 anni', label: 'Blocchi e Python' },
+			{ href: '/it/robot-programmabile-14-anni/', age: '14 anni', label: 'Arduino e Python' },
+		],
+		xmas: '/it/regalo-natale-robot-educativo-2026/',
+		compareHref: '/it/miglior-robot-programmabile-per-bambini/',
+		hubHref: '/it/domotica/',
+		cards: {
+			botley: { badge: '5–8 anni', name: 'Learning Resources Botley 2.0', desc: 'Robot senza schermo, programmato con tessere a frecce. Il kit abituale ha 46 pezzi.' },
+			mbot: { badge: '8–12 anni', name: 'Makeblock mBot', desc: 'Il robot più usato in classe: circa 15 minuti di montaggio, poi mBlock 5 e C Arduino.' },
+			mbot2: { badge: '10–14 anni', name: 'Makeblock mBot2', desc: 'Scheda CyberPi, schermo a colori, Wi-Fi e Python. È un altro robot rispetto all’mBot, non una variante di colore.' },
+			elegoo: { badge: 'Da 12 anni', name: 'ELEGOO Smart Robot Car V4.0', desc: 'Auto robot Arduino Uno con camera Wi-Fi, seguilinea e ultrasuoni.' },
+			dongle: { badge: 'Domotica', name: 'SONOFF ZBDongle-E', desc: 'Coordinatore Zigbee USB per Home Assistant. Non serve per mostrare una dashboard.' },
+			sensor: { badge: 'Domotica', name: 'SONOFF SNZB-02D', desc: 'Sensore Zigbee di temperatura e umidità con LCD. Un tablet a muro è un altro acquisto.' },
+		},
+		faq: [
+			{
+				q: 'Quando è il Black Friday 2026?',
+				a: 'Venerdì 27 novembre 2026. Il Cyber Monday è lunedì 30 novembre. Molti negozi partono prima nella settimana e tengono i prezzi di Natale fino al 31 dicembre. La data non significa che ogni robot sia scontato.',
+			},
+			{
+				q: 'Il prezzo in pagina è il prezzo del Black Friday?',
+				a: 'No. È l’ultimo rilevamento Amazon per quell’ASIN e questo mercato. Durante l’offerta conta la pagina del negozio. Se manca un prezzo in euro, la scheda dice di vedere il prezzo del giorno.',
+			},
+			{
+				q: 'Posso usare un codice della pagina francese?',
+				a: 'Solo se il negozio scrive che il codice vale in Italia. Questa pagina non copia i codici francesi.',
+			},
+		],
+	},
+	es: {
+		html: 'es',
+		home: 'Inicio',
+		crumb: 'Black Friday 2026',
+		title: 'Black Friday 2026: robots educativos y domótica',
+		description:
+			'El Black Friday 2026 es el viernes 27 de noviembre. Ofertas comprobadas de Makeblock, Botley, ELEGOO y Zigbee, con el precio de Amazon.es del relevo.',
+		h1: 'Black Friday 2026: robots educativos y domótica',
+		lead: 'El Black Friday 2026 es el viernes 27 de noviembre. Las promociones de Navidad suelen seguir hasta el 31 de diciembre. Esta página muestra solo cupones comprobados para el español y los robots o aparatos Zigbee que más se comparan. Una cifra es el relevo de Amazon de ese modelo exacto, no un descuento prometido.',
+		emptyCodes:
+			'Para este idioma, en esta fecha, no hay ningún código promocional registrado. No se reutiliza un código francés ni se inventa uno.',
+		codesTitle: 'Cupones comprobados',
+		valid: 'Válido del',
+		to: 'al',
+		verified: 'comprobado el',
+		direct: 'Sin código, oferta directa',
+		seeOffer: 'Ver la oferta →',
+		robotsTitle: 'Robots que se comparan antes del Black Friday',
+		homeTitle: 'Domótica: dos aparatos Zigbee y Shelly',
+		shellyName: 'Módulos Shelly',
+		shellyDesc: 'Relés Wi-Fi o Zigbee. El precio está en la tienda Shelly, no en el relevo de Amazon.',
+		shellyPrice: 'Precio en Shelly',
+		shellyCta: 'Tienda Shelly →',
+		priceLabel: 'Precio relevado',
+		amazonCta: 'Ver en Amazon →',
+		guidesTitle: 'Primero la edad, luego el precio',
+		guidesLead: 'El descuento sirve poco si el robot no corresponde a la edad. Estas guías siguen siendo la referencia.',
+		more: 'Guía de regalos Navidad 2026 →',
+		compare: 'Comparar los robots programables principales →',
+		hub: 'Hub de domótica →',
+		faqTitle: 'Preguntas antes de pedir',
+		note: 'Enlaces de afiliación: si compras a través de ellos, ROBOT éducatif puede recibir una comisión, sin coste extra para ti. El mínimo, las exclusiones y la acumulación los fija la tienda. Léelos antes de pagar.',
+		extraTitle: 'Powerplanet, España',
+		extraText: 'Tienda de electrónica. Aquí no hay un cupón comprobado para esta tienda.',
+		extraCta: 'Powerplanet →',
+		extraUrl:
+			'https://www.awin1.com/cread.php?awinmid=77138&awinaffid=3126073&ued=https%3A%2F%2Fwww.powerplanetonline.com%2F',
+		priceNote: mention
+			? `Los precios de Amazon.es de abajo se leyeron el ${snap?.releveAffichage} (Europe/Paris). ${mention}`
+			: 'Un precio de Amazon.es solo aparece si el último relevo incluye un precio en euros para ese modelo.',
+		ages: [
+			{ href: '/es/robot-programable-6-anos/', age: '6 años', label: 'Flechas' },
+			{ href: '/es/robot-programable-8-anos/', age: '8 años', label: 'Bloques tipo Scratch' },
+			{ href: '/es/robot-programable-10-anos/', age: '10 años', label: 'Bloques y Python' },
+			{ href: '/es/robot-programable-14-anos/', age: '14 años', label: 'Arduino y Python' },
+		],
+		xmas: '/es/regalo-navidad-robot-educativo-2026/',
+		compareHref: '/es/mejor-robot-programable-para-ninos/',
+		hubHref: '/es/domotica/',
+		cards: {
+			botley: { badge: '5–8 años', name: 'Learning Resources Botley 2.0', desc: 'Robot sin pantalla, programado con tarjetas de flechas. El kit habitual trae 46 piezas.' },
+			mbot: { badge: '8–12 años', name: 'Makeblock mBot', desc: 'El robot de aula: unos 15 minutos de montaje, luego mBlock 5 y C de Arduino.' },
+			mbot2: { badge: '10–14 años', name: 'Makeblock mBot2', desc: 'Placa CyberPi, pantalla a color, Wi-Fi y Python. Es otro robot, no una variante de color del mBot.' },
+			elegoo: { badge: 'Desde 12 años', name: 'ELEGOO Smart Robot Car V4.0', desc: 'Coche robot Arduino Uno con cámara Wi-Fi, sigue-líneas y ultrasonidos.' },
+			dongle: { badge: 'Domótica', name: 'SONOFF ZBDongle-E', desc: 'Coordinador Zigbee USB para Home Assistant. No hace falta para mostrar un panel.' },
+			sensor: { badge: 'Domótica', name: 'SONOFF SNZB-02D', desc: 'Sensor Zigbee de temperatura y humedad con LCD. Una tableta de pared es otro producto.' },
+		},
+		faq: [
+			{
+				q: '¿Cuándo es el Black Friday 2026?',
+				a: 'El viernes 27 de noviembre de 2026. El Cyber Monday es el lunes 30 de noviembre. Muchas tiendas empiezan antes en la semana y mantienen precios de Navidad hasta el 31 de diciembre. La fecha no significa que cada robot esté rebajado.',
+			},
+			{
+				q: '¿El precio de esta página es el del Black Friday?',
+				a: 'No. Es el último relevo de Amazon para ese ASIN y este mercado. Durante la promoción manda la ficha de la tienda. Si no hay precio en euros, la ficha dice ver el precio del día.',
+			},
+			{
+				q: '¿Puedo usar un código de la página francesa?',
+				a: 'Solo si la tienda indica que el código vale en España. Esta página no copia los códigos franceses.',
+			},
+		],
+	},
+};
+
+const c = copy[locale];
+const prefix = market === 'ca' ? '/ca/' : path.startsWith('/uk/') ? '/uk/' : null;
+const hrefFor = (href: string) => (prefix && href.startsWith('/en/') ? href.replace(/^\/en\//, prefix) : href);
+const shellyShop =
+	locale === 'de'
+		? 'https://www.shelly.com/de'
+		: locale === 'it'
+			? 'https://www.shelly.com/it'
+			: locale === 'es'
+				? 'https://www.shelly.com/es'
+				: 'https://www.shelly.com/en';
+const shellyUrl = `https://www.awin1.com/cread.php?awinmid=114660&awinaffid=3126073&ued=${encodeURIComponent(shellyShop)}`;
+const priceNote = market === 'ca' ? c.caNote : market === 'uk' || locale === 'en' ? c.ukNote : c.priceNote;
+
+const cards = PRODUCTS.map((p) => {
+	const offer = amazonOffer(market, p.asin);
+	const meta = c.cards[p.key];
+	return {
+		...meta,
+		asin: p.asin,
+		query: p.query,
+		price: offer ? offer.label : CHECK_PRICE[locale],
+		url: amazonDpUrl(p.asin, market),
+		group: p.key === 'dongle' || p.key === 'sensor' ? 'home' : 'robot',
+	};
+});
+const robotCards = cards.filter((card) => card.group === 'robot');
+const homeCards = cards.filter((card) => card.group === 'home');
+
+const faqJson = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: c.faq.map((item) => ({
+		'@type': 'Question',
+		name: item.q,
+		acceptedAnswer: { '@type': 'Answer', text: item.a },
+	})),
+};
+---
+
+<!doctype html>
+<html lang={c.html}>
+	<head>
+		<BaseHead title={c.title} description={c.description} />
+		<script type="application/ld+json" set:html={JSON.stringify(faqJson)} />
+		<style>
+			.bf-wrap { max-width: 960px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 3rem; }
+			.bf-wrap h1 { font-family: var(--font-heading); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 .75rem; }
+			.bf-lead, .bf-note { color: var(--text-muted, #444); }
+			.bf-note { background: #fff8e6; border-left: 4px solid #f5a623; padding: .75rem 1rem; border-radius: 6px; }
+			.bf-wrap h2 { font-size: 1.35rem; margin: 2rem 0 .75rem; }
+			.bf-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
+			.bf-grid a, .bf-card { display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: 1rem; border-radius: 12px; background: #fff; border: 1px solid #e3e6ea; color: inherit; text-decoration: none; }
+			.bf-age { align-self: flex-start; font-size: .75rem; font-weight: 700; color: #fff; background: #111827; padding: .12rem .55rem; border-radius: 99px; }
+			.bf-price { font-weight: 800; margin: .2rem 0; }
+			.bf-price a { color: #1d4ed8; }
+			.bf-btn { display: inline-flex; justify-content: center; margin-top: auto; padding: .5rem .75rem; border-radius: 8px; font-weight: 700; text-decoration: none !important; background: #ff9900; color: #111 !important; }
+			.bf-links { display: flex; flex-direction: column; gap: .35rem; font-weight: 700; }
+			.bf-links a { color: #1d4ed8; }
+			.bf-faq details { border-top: 1px solid #e3e6ea; padding: .7rem 0; }
+			.bf-faq summary { font-weight: 700; cursor: pointer; }
+			.promo-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; }
+			.promo-card { background: #fff; border: 1px solid #e3e6ea; border-radius: 10px; padding: 1rem 1.1rem; display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: center; justify-content: space-between; }
+			.promo-code { font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; background: #eef4ff; border: 1px dashed #4a7bd0; border-radius: 6px; padding: .3rem .6rem; }
+			.promo-cta { display: inline-block; background: var(--primary, #1f5fbf); color: #fff !important; text-decoration: none; font-weight: 700; padding: .55rem 1rem; border-radius: 8px; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main class="bf-wrap">
+			<PageColumns>
+			<nav class="breadcrumb" aria-label={c.crumb}>
+				<a href={withBase(locale === 'en' ? (prefix || '/en/') : `/${locale}/`)}>{c.home}</a>
+				<span aria-hidden="true"> / </span>
+				<span>{c.crumb}</span>
+			</nav>
+			<h1>{c.h1}</h1>
+			<p class="bf-lead">{c.lead}</p>
+			<p class="bf-note">{c.note}</p>
+			<p>{priceNote}</p>
+
+			<h2>{c.guidesTitle}</h2>
+			<p>{c.guidesLead}</p>
+			<ul class="bf-grid">
+				{c.ages.map((age) => (
+					<li><a href={withBase(hrefFor(age.href))}><span class="bf-age">{age.age}</span><strong>{age.label}</strong></a></li>
+				))}
+			</ul>
+			<p class="bf-links">
+				<a href={withBase(hrefFor(c.xmas))}>{c.more}</a>
+				<a href={withBase(hrefFor(c.compareHref))}>{c.compare}</a>
+			</p>
+
+			<h2>{c.robotsTitle}</h2>
+			<ul class="bf-grid">
+				{robotCards.map((card) => (
+					<li class="bf-card">
+						<span class="bf-age">{card.badge}</span>
+						<strong>{card.name}</strong>
+						<p>{card.desc}</p>
+						<p class="bf-price" data-amazon-price="1">
+							<a href={card.url} data-amazon-query={card.query} target="_blank" rel="sponsored nofollow noopener">{c.priceLabel}: {card.price}</a>
+						</p>
+						<a class="bf-btn" href={card.url} data-amazon-query={card.query} target="_blank" rel="sponsored nofollow noopener">{c.amazonCta}</a>
+					</li>
+				))}
+			</ul>
+
+			<h2>{c.homeTitle}</h2>
+			<ul class="bf-grid">
+				{homeCards.map((card) => (
+					<li class="bf-card">
+						<span class="bf-age">{card.badge}</span>
+						<strong>{card.name}</strong>
+						<p>{card.desc}</p>
+						<p class="bf-price" data-amazon-price="1">
+							<a href={card.url} data-amazon-query={card.query} target="_blank" rel="sponsored nofollow noopener">{c.priceLabel}: {card.price}</a>
+						</p>
+						<a class="bf-btn" href={card.url} data-amazon-query={card.query} target="_blank" rel="sponsored nofollow noopener">{c.amazonCta}</a>
+					</li>
+				))}
+				<li class="bf-card">
+					<span class="bf-age">{homeCards[0]?.badge}</span>
+					<strong>{c.shellyName}</strong>
+					<p>{c.shellyDesc}</p>
+					<p class="bf-price">{c.shellyPrice}</p>
+					<a class="bf-btn" href={shellyUrl} target="_blank" rel="sponsored nofollow noopener">{c.shellyCta}</a>
+				</li>
+			</ul>
+			<p class="bf-links"><a href={withBase(hrefFor(c.hubHref))}>{c.hub}</a></p>
+
+			<h2>{c.codesTitle}</h2>
+			{offers.length === 0 ? (
+				<p>{c.emptyCodes}</p>
+			) : (
+				<ul class="promo-list">
+					{offers.map((o) => (
+						<li class="promo-card">
+							<div>
+								<p><a href={o.url} rel="sponsored nofollow noopener" target="_blank">{o.title}</a></p>
+								<p>{c.valid} {fmt(o.start)} {c.to} {fmt(o.end)} · {c.verified} {fmt(o.verified)}</p>
+							</div>
+							<div>
+								{o.code ? <span class="promo-code">{o.code}</span> : <span>{c.direct}</span>}
+								<a class="promo-cta" href={o.url} rel="sponsored nofollow noopener" target="_blank">{c.seeOffer}</a>
+							</div>
+						</li>
+					))}
+				</ul>
+			)}
+			{c.extraUrl && (
+				<ul class="promo-list">
+					<li class="promo-card">
+						<div>
+							<p><strong>{c.extraTitle}</strong></p>
+							<p>{c.extraText}</p>
+						</div>
+						<a class="promo-cta" href={c.extraUrl} rel="sponsored nofollow noopener" target="_blank">{c.extraCta}</a>
+					</li>
+				</ul>
+			)}
+
+			<section class="bf-faq">
+				<h2>{c.faqTitle}</h2>
+				{c.faq.map((item) => (
+					<details>
+						<summary>{item.q}</summary>
+						<p>{item.a}</p>
+					</details>
+				))}
+			</section>
+			</PageColumns>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,201 @@
+---
+layout: ../../../layouts/EsPost.astro
+title: "Qué box domótica elegir (principiante)"
+description: "Home Assistant, Homey, Jeedom o ninguna central: encuentra la solución que encaja con tu objetivo, tu casa y tu presupuesto, y evita las suscripciones ocultas."
+updated: "6 de noviembre de 2026"
+faqSchema:
+  - question: "¿Home Assistant es gratuito?"
+    answer: "El programa Home Assistant es gratuito. El equipo (una caja Green o una Raspberry Pi, un dongle Zigbee) se paga aparte. Una suscripción opcional, llamada Nabu Casa, facilita el acceso remoto, pero nada te obliga a contratarla para un uso íntegramente doméstico."
+  - question: "¿Homey sustituye a Home Assistant?"
+    answer: "Para muchos usos domésticos, sí. Home Assistant sigue siendo más abierto para el bricolaje, ESPHome y las integraciones poco habituales. Lo más seguro es comparar la lista de tus dispositivos con el catálogo de apps de Homey y con la lista de integraciones de Home Assistant."
+  - question: "¿Puedo cambiar de caja más adelante?"
+    answer: "Sí, sobre todo si has elegido dispositivos que hablan lenguajes abiertos como Zigbee o Matter. Los dispositivos que dependen por completo de los servidores de su marca son más difíciles de migrar. La tabla de compatibilidad ayuda a comprobarlo antes de comprar."
+  - question: "¿SmartThings es adecuado para España?"
+    answer: "Las centrales y los dispositivos se venden país por país, y Matter mejora la compatibilidad. Comprueba la disponibilidad donde vives, el tipo de enchufe y la tensión, y qué sigue funcionando sin internet."
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+Quieres automatizar tu casa, pero te preguntas si hace falta una central y cuál. Esa caja se llama box domótica (o hub). Hace de director de orquesta: recibe lo que dicen los sensores y decide qué hacer, por ejemplo encender una lámpara o apagar un radiador.
+
+Dos nombres aparecen sin parar: Home Assistant, un programa gratuito que reúne todos tus dispositivos en un solo sitio, y Homey, una caja ya preparada que se compra en tienda. También encontrarás Zigbee, una radio de bajo consumo que usan los sensores de pila, y Matter, un lenguaje común que cada vez más marcas entienden.
+
+Al final de esta página sabrás qué solución encaja con tu proyecto, cuánto prever para empezar y qué trampas evitar. No existe una box «mejor» para todos: existe la que se ajusta a tu objetivo, a tu casa y a tus ganas de trastear.
+
+![Una mano toca una tableta fijada a la pared de una cocina, que muestra una temperatura de 21,5 grados](/images/debutant/smart-home-control.webp)
+
+*Una tableta fijada a la pared de una cocina, que muestra la temperatura y controla la casa: una box domótica permite reunir todos los dispositivos en un panel de este tipo. Foto: Jakub Zerdzicki, Pexels, licencia libre.*
+
+## Para ir más lejos
+
+- [Comparativa entre Home Assistant, Jeedom y Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/)
+- [Home Assistant Green o Raspberry Pi 5](/es/domotica/home-assistant-green-vs-raspberry-pi-5/)
+- [Homey Pro mini: unboxing e instalación](/es/domotica/test-homey-pro-mini-unboxing-instalacion/)
+- [Los primeros dispositivos que comprar](/es/domotica/primeros-dispositivos-domotica-comprar/)
+- [Tabla de compatibilidad de dispositivos](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/)
+- [Los protocolos domóticos explicados](/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/)
+
+## La respuesta de un vistazo
+
+| Quieres... | La solución más realista |
+|---|---|
+| Empezar en local, poder crecer, sin pagar el programa | **Home Assistant**, en una caja Green o en una Raspberry Pi 5 |
+| Una caja que funciona casi al instante, con pocos ajustes | **Homey Pro** o **Homey Pro mini** |
+| Un programa de código abierto con un catálogo de plugins | **Jeedom** |
+| Controlar algunos objetos por voz, sin instalar nada | **Ninguna box**, solo las apps de las marcas o el asistente de voz que ya usas |
+| Quedarte en el mundo Samsung | **SmartThings**, que a menudo se apoya en internet y en un hub |
+
+Para la mayoría de los lectores que quieren automatizar sin suscripción obligatoria, Home Assistant es la opción más completa. Para algo que «funciona y punto», Homey es más sencillo. Y para probar sin invertir en una caja, se puede empezar con enchufes y bombillas Wi-Fi, y pasar a una caja más adelante.
+
+## Elegir según el objetivo
+
+### Calefacción y ahorro de energía
+
+Hacen falta dos familias de dispositivos: los sensores, que miden la temperatura (y a veces el consumo), y los dispositivos que actúan, como las válvulas termostáticas, pequeños cabezales que se enroscan en el radiador para regular el calor. Home Assistant destaca aquí: guarda el historial de temperaturas y permite reglas muy finas. Homey también gestiona las válvulas mediante sus apps.
+
+Sin caja, los termostatos de marca (tado, Netatmo y otros) funcionan bien, pero a menudo te atan a su ecosistema.
+
+### Seguridad y alarmas
+
+Hacen falta sensores de apertura para puertas y ventanas, detectores de movimiento y, si quieres, una cámara. Una caja local tiene una ventaja: puede hacer sonar una sirena o encender las luces en cuanto se abre la puerta, aunque internet no funcione. Antes de comprar una cámara, comprueba que sepa trabajar en local con tu caja; algunos modelos de Reolink lo hacen, por ejemplo.
+
+### Iluminación
+
+Sin caja, bombillas o enchufes Wi-Fi, o compatibles con Matter, hacen el trabajo. Con una caja, puedes usar bombillas Zigbee, como las de IKEA o Philips Hue, o módulos Shelly Wi-Fi que se controlan en local. Empieza con sencillez: cinco apps distintas para cinco lámparas son la mejor forma de cansarse.
+
+### Persianas
+
+Suelen requerir un módulo que se instala tras el interruptor o en el cajón de la persiana. Es una obra de propietarios, con un electricista si no tienes la cualificación. Si vives de alquiler, elige otro objetivo para empezar.
+
+### Confort: presencia y ambientes
+
+Un detector de presencia puede encender la luz cuando llegas o poner música. Existen dos tipos: el detector clásico de infrarrojos (PIR), que reacciona al calor de una persona en movimiento, y el de ondas de radio (mmWave), que detecta incluso a quien está quieto en el sofá. Home Assistant y Homey se las arreglan muy bien con ambos.
+
+### De alquiler, sin obras
+
+Enchufes, sensores de pila, pulsadores y cabezales termostáticos no requieren ninguna herramienta. Nuestra página sobre [domótica de alquiler sin obras](/es/domotica/domotica-alquiler-sin-obras/) lo explica todo. Una caja como Home Assistant Green u Homey se conecta sin taladrar nada.
+
+### Bricolaje y proyectos personales
+
+Home Assistant en una Raspberry Pi o en un miniPC, combinado con placas ESP32 (pequeñas placas electrónicas programables con Wi-Fi) y el programa ESPHome (que sirve para programarlas), ofrece la máxima libertad. La otra cara: más mantenimiento. Encontrarás ideas en nuestros [proyectos ESP32](/es/domotica/proyectos-esp32-domotica/).
+
+## Comparar las soluciones
+
+La tabla de abajo es ancha: en el móvil, desplázala hacia la derecha. No incluye precios fijos a propósito, porque cambian de un vendedor a otro y de un país a otro.
+
+| Solución | ¿Para quién? | ¿Funciona sin internet?* | Dificultad | Trampa frecuente | Presupuesto de partida |
+|---|---|---|---|---|---|
+| **Home Assistant Green** | Principiante que quiere una caja lista para conectar | Sí, todo se queda en tu casa | De baja a media | Olvidar comprar el dongle Zigbee para los sensores de pila | La caja sola es de gama media; más con dongle y sensores. A comprobar con el vendedor |
+| **Home Assistant en Raspberry Pi 5** | Aficionado al bricolaje que quiere entender | Sí | Media | Fuente de alimentación insuficiente, tarjeta de memoria poco fiable | Depende del kit (Pi, fuente, memoria), más el dongle Zigbee |
+| **Home Assistant en miniPC** | Quien recicla un equipo o quiere más potencia | Sí | Media | Consumo eléctrico, ruido, elección del disco | Muy variable, del ordenador reciclado al equipo nuevo |
+| **Homey Pro o Pro mini** | Quien quiere una caja todo en uno, sin trastear | Sí, para los dispositivos compatibles en local | Baja | Catálogo de apps por comprobar, hardware propietario | A menudo la partida más cara de la lista; a comprobar localmente |
+| **Jeedom** | Quien quiere un programa de código abierto con plugins | Sí | Media | Algunos plugins son de pago, curva de aprendizaje | Depende de la caja o la Raspberry Pi elegida, más el presupuesto de plugins |
+| **SmartThings** | Usuario de Samsung | En parte | Baja | Dependencia de la cuenta y de los servidores de Samsung | A comprobar según el hub y las ofertas |
+| **Ninguna box** | Curioso que solo quiere probar | A menudo no | Muy baja | Más apps, pocas reglas entre marcas | Unos enchufes y una bombilla |
+
+\*«Funciona sin internet» significa que los dispositivos gestionados en local siguen funcionando, mientras que los servicios en línea, como el control por voz, se detienen.
+
+Son órdenes de magnitud, tomados de vendedores y de la documentación de los fabricantes, sin ningún precio fijo. Comprueba siempre el precio actualizado con el vendedor el día de la compra.
+
+## Home Assistant: ¿Green, Pi o miniPC?
+
+<ProductBox
+  lang="es"
+  productId="home-assistant-green"
+  name="Home Assistant Green"
+  asin="B0CXVKSG19"
+  image="/images/products/home-assistant-green.webp"
+  description="La caja más sencilla: Home Assistant ya viene instalado y las automatizaciones se quedan en casa."
+  pros={['Se enchufa y listo', 'Funciona en local', 'Sin suscripción obligatoria', 'Dongle Zigbee solo si hace falta']}
+  badge="Para empezar sin trastear"
+  officialUrl="https://www.home-assistant.io/green/"
+/>
+
+<ProductBox
+  lang="es"
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 (4 GB)"
+  asin="B0CK3L9WD3"
+  ages=""
+  languages={[]}
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  description="Un presupuesto parecido cuando se suman alimentación y memoria. Home Assistant se instala uno mismo."
+  pros={['Versátil', 'Comunidad enorme', 'Pines GPIO para proyectos', 'Se puede ampliar']}
+  badge="Si te gusta entenderlo"
+  partnerUrl=""
+/>
+
+El **Green** es el más sencillo para empezar: llega con Home Assistant ya instalado. Para compararlo con la Raspberry Pi, lee nuestro [Green contra Pi 5](/es/domotica/home-assistant-green-vs-raspberry-pi-5/).
+
+La **Raspberry Pi 5** cuesta aproximadamente lo mismo que el Green una vez equipada, pero hay que instalarla uno mismo: sigue nuestro [tutorial de instalación](/es/domotica/instalar-home-assistant-raspberry-pi-5/). También hacen falta una fuente de alimentación oficial adecuada y una memoria fiable. A cambio, sus pines GPIO (conectores que permiten enchufar directamente pequeños componentes electrónicos) abren la puerta a los proyectos de bricolaje.
+
+El **miniPC** resulta interesante si ya tienes un equipo guardado o si prevés muchas cámaras e integraciones.
+
+En cualquier caso, para los sensores Zigbee tendrás que añadir un dongle de radio. El modelo de abajo es un coordinador USB habitual con Home Assistant. El resto está en el [mejor dongle Zigbee](/es/domotica/mejor-dongle-zigbee-home-assistant/).
+
+<ProductBox
+  lang="es"
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  description="Llave USB para el Green o la Raspberry Pi. Crea la red de los sensores de pila."
+  pros={['Coordinador Zigbee', 'ZHA y Zigbee2MQTT', 'Antena externa']}
+  badge="Para añadir si usas Zigbee"
+/>
+
+## Homey Pro y Pro mini
+
+Homey reúne varias radios en una sola caja. Tus reglas se construyen con los «Flows», tarjetas que se ensamblan de forma visual, sin escribir código. Las marcas aportan sus propias apps, lo que simplifica la configuración. El precio del día está en Amazon. Un precio convertido desde otro país no es un precio local.
+
+<ProductBox
+  lang="es"
+  productId="homey-pro-mini"
+  name="Homey Pro mini"
+  asin="B0G1ZKHX1W"
+  image="/images/products/homey-pro-mini.webp"
+  description="Caja lista para usar. Zigbee, Thread y Matter ya van dentro, sin programa que instalar."
+  pros={['App sencilla', 'Radios integradas', 'Funciona en local', 'Sin suscripción obligatoria']}
+  badge="Si no quieres instalar nada"
+  officialUrl="https://homey.app/es-es/homey-pro-mini/"
+/>
+
+Para el modelo mini, nuestro artículo describe el [unboxing y la instalación de Homey Pro mini](/es/domotica/test-homey-pro-mini-unboxing-instalacion/). El Homey Pro grande añade más radios. La prueba en curso: [unboxing e instalación del Homey Pro](/es/domotica/test-homey-pro-unboxing-instalacion/). La ficha está en [homey.app](https://homey.app/es-es/homey-pro/).
+
+## Jeedom
+
+Jeedom es un programa de código abierto con una comunidad activa. Funciona con módulos adicionales llamados plugins, algunos de los cuales son de pago en la tienda oficial. Es una buena opción si te gusta un sistema de plugins bien documentado. Antes de comprar una caja Jeedom, lee la documentación oficial para identificar los plugins que necesitarás.
+
+## SmartThings y asistentes de voz
+
+SmartThings (Samsung) y los asistentes de voz de Google, Amazon (Alexa) y Apple facilitan el control por voz y la compatibilidad con Matter. Sin embargo, para escenarios avanzados, o para que todo siga funcionando sin internet, son más limitados que un Home Assistant o un Homey que funcionan en tu casa. Por eso muchas familias los mantienen como complemento: Home Assistant puede «presentarles» sus dispositivos para que se controlen por voz.
+
+## Domótica sin box
+
+Es posible, y muy útil para probar: uno o dos enchufes Wi-Fi que miden el consumo, una bombilla compatible con Matter, y a empezar. El límite es que los dispositivos de marcas distintas no dialogan entre sí y a menudo dependen de internet. Cuando le cojas el gusto, reúne todo en Home Assistant u Homey en lugar de acumular apps.
+
+## Por dónde empezar y qué elegir para crecer
+
+Si quieres empezar mañana sin trastear, coge Homey o Home Assistant Green. Si quieres empezar en local y aprender, coge Home Assistant Green, o una Raspberry Pi 5 con un dongle Zigbee. Para la máxima capacidad de crecimiento, Home Assistant es el más abierto: acepta muchísimas marcas, las placas ESPHome y el sistema de mensajes MQTT que tanto usan los aficionados.
+
+Tres trampas se repiten. La primera es la nube obligatoria (es decir, un funcionamiento que requiere los servidores del fabricante) sin anunciarse con claridad: lee la ficha del producto antes de comprar. La segunda es la suscripción exigida para funciones básicas: comprueba qué funciona en local. La tercera es la incompatibilidad entre un dispositivo y tu caja: cruza la [tabla de compatibilidad](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/) con la documentación del fabricante.
+
+Para seguir, pasa a los [primeros dispositivos que comprar](/es/domotica/primeros-dispositivos-domotica-comprar/) o vuelve a la [guía completa para empezar](/es/domotica/empezar-domotica-guia-completa/).
+
+## Preguntas frecuentes
+
+**¿Home Assistant es gratuito?**
+El programa Home Assistant es gratuito. El equipo (una caja Green o una Raspberry Pi, un dongle Zigbee) se paga aparte. Una suscripción opcional, llamada Nabu Casa, facilita el acceso remoto, pero nada te obliga a contratarla para un uso íntegramente doméstico.
+
+**¿Homey sustituye a Home Assistant?**
+Para muchos usos domésticos, sí. Home Assistant sigue siendo más abierto para el bricolaje, ESPHome y las integraciones poco habituales. Lo más seguro es comparar la lista de tus dispositivos con el catálogo de apps de Homey y con la lista de integraciones de Home Assistant.
+
+**¿Puedo cambiar de caja más adelante?**
+Sí, sobre todo si has elegido dispositivos que hablan lenguajes abiertos como Zigbee o Matter. Los dispositivos que dependen por completo de los servidores de su marca son más difíciles de migrar. La [tabla de compatibilidad](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/) ayuda a comprobarlo antes de comprar.
+
+**¿SmartThings es adecuado para España?**
+Las centrales y los dispositivos se venden país por país, y Matter mejora la compatibilidad. Comprueba la disponibilidad donde vives, el tipo de enchufe y la tensión, y qué sigue funcionando sin internet.
+
+---
+
+*Aviso de afiliación: los enlaces a Amazon.es llevan el identificador del sitio (roboteducat07-21). Si compras a través de ellos, puede recibirse una comisión, sin coste adicional para ti. Comprueba los precios con el vendedor. Autor: Emmanuel Sauvage.*

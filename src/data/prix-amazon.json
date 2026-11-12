@@ -1,0 +1,153 @@
+{
+  "releve": "2026-11-11",
+  "source": "Amazon Creators API getItems",
+  "items": {
+    "B0CM46P7MC": {
+      "image": "/images/amazon/B0CM46P7MC.jpg",
+      "w": 500,
+      "h": 500,
+      "marches": {
+        "fr": {
+          "url": "https://www.amazon.fr/dp/B0CM46P7MC?tag=manuso06-21",
+          "titre": "Bloc d'alimentation Officiel Raspberry Pi 5 USB-C 27 W, USB-C Power Supply, Blanc",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "18,92 €"
+        },
+        "de": {
+          "url": "https://www.amazon.de/dp/B0CM46P7MC?tag=roboteducat00-21",
+          "titre": "offizieller Raspberry Pi 5 USB-C Netzteil 27W, USB-C Power Supply, weiß",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "16,37 €"
+        },
+        "it": {
+          "url": "https://www.amazon.it/dp/B0CM46P7MC?tag=roboteducat0f-21",
+          "titre": "27W USB-C Power Supply",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "17,92 €"
+        },
+        "es": {
+          "url": "https://www.amazon.es/dp/B0CM46P7MC?tag=roboteducat07-21",
+          "titre": "Fuente de alimentación Oficial Raspberry Pi 5 USB-C de 27 W, Fuente de alimentación USB-C, Color Blanco",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "19,19 €"
+        }
+      }
+    },
+    "B0CT4P893Q": {
+      "image": "/images/amazon/B0CT4P893Q.jpg",
+      "w": 500,
+      "h": 500,
+      "marches": {
+        "fr": {
+          "url": "https://www.amazon.fr/dp/B0CT4P893Q?tag=manuso06-21",
+          "titre": "Geekworm Raspberry Pi 5 Case with Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "23,80 €"
+        },
+        "uk": {
+          "url": "https://www.amazon.co.uk/dp/B0CT4P893Q?tag=roboteducatif-21",
+          "titre": "Geekworm Raspberry Pi 5 Case with Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "£18.99"
+        },
+        "de": {
+          "url": "https://www.amazon.de/dp/B0CT4P893Q?tag=roboteducat00-21",
+          "titre": "Geekworm Raspberry Pi 5 Gehäuse mit Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "24,90 €"
+        },
+        "it": {
+          "url": "https://www.amazon.it/dp/B0CT4P893Q?tag=roboteducat0f-21",
+          "titre": "Geekworm Raspberry Pi 5 Case with Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "24,50 €"
+        },
+        "es": {
+          "url": "https://www.amazon.es/dp/B0CT4P893Q?tag=roboteducat07-21",
+          "titre": "Geekworm Raspberry Pi 5 Case with Official Active Cooler Kit (P579-H500) | Support Top PCIe M.2 NVMe SSD HAT Shield X1001 / X1003 / X1004 / X1012 / X1015 / X1000 / X1015, Wall Mountable",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "24,89 €"
+        }
+      }
+    },
+    "B0F966SCT6": {
+      "image": "/images/amazon/B0F966SCT6.jpg",
+      "w": 500,
+      "h": 500,
+      "marches": {
+        "fr": {
+          "url": "https://www.amazon.fr/dp/B0F966SCT6?tag=manuso06-21",
+          "titre": "9V 2A Adaptateur Secteur Alimentation Chargeur pour Arduino UNO REV/REV 3 | pour Arduino Nano/Mega 2560 R3/Elegoo UNO R3/IEIK UNOR3 Routeurs Imprimante Scanner Commutateur Mobile DVD",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "18,99 €"
+        },
+        "de": {
+          "url": "https://www.amazon.de/dp/B0F966SCT6?tag=roboteducat00-21",
+          "titre": "9V 2A Netzteil Netzadapter Ladekabel Ladegerät für Arduino UNO REV/REV 3 | für Arduino Nano/Mega 2560 R3/Elegoo UNO R3/IEIK UNO R3 Router Drucker Scanner Schalter Mobile DVD Stecker",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "13,59 €"
+        },
+        "it": {
+          "url": "https://www.amazon.it/dp/B0F966SCT6?tag=roboteducat0f-21",
+          "titre": "Carbosing Adattatore di alimentazione da 9 V 2 A, compatibile con Arduino UNO REV/REV 3/Arduino Nano/Mega 2560 R3/Elegoo UNO R3/IEIK UNO R3 Router Stampante Scanner Switch Mobile DVD",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "19,00 €"
+        }
+      }
+    },
+    "B07N38NFZC": {
+      "image": "/images/amazon/B07N38NFZC.jpg",
+      "w": 500,
+      "h": 500,
+      "marches": {
+        "fr": {
+          "url": "https://www.amazon.fr/dp/B07N38NFZC?tag=manuso06-21",
+          "titre": "Makeblock Adaptateur Bluetooth, Dongle pour Ordinateur/Portable, Paire avec mBot/Starter/Ranger/Ultimate/Codey Rocky/Neuron",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "19,99 €"
+        },
+        "uk": {
+          "url": "https://www.amazon.co.uk/dp/B07N38NFZC?tag=roboteducatif-21",
+          "titre": "Makeblock Bluetooth dongle, Bluetooth Adapter for Computer/Laptop, | Pair with mBot/Starter/Ranger/Ultimate/Codey Rocky/Neuron",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "£19.99"
+        },
+        "de": {
+          "url": "https://www.amazon.de/dp/B07N38NFZC?tag=roboteducat00-21",
+          "titre": "Makeblock Bluetooth Adapter, USB 2.0 für mBot/Ranger/Ultimate/Codey Rocky/Airblock/Neuron",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "15,98 €"
+        },
+        "it": {
+          "url": "https://www.amazon.it/dp/B07N38NFZC?tag=roboteducat0f-21",
+          "titre": "Makeblock Chiavetta Bluetooth, Adattatore Bluetooth per Computer/Laptop, Coppia con mBot/Starter/Ranger/Ultimate/Codey Rocky/Neuron",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "19,99 €"
+        },
+        "es": {
+          "url": "https://www.amazon.es/dp/B07N38NFZC?tag=roboteducat07-21",
+          "titre": "Makeblock Adaptador Bluetooth, Adaptador Bluetooth para Computadora/Computadora portátil, Emparejar con mBot/Starter/Ranger/Ultimate/Codey Rocky/Neuron",
+          "releve": "2026-11-11",
+          "releveIso": "2026-11-11T14:24:13.882Z",
+          "prix": "19,99 €"
+        }
+      }
+    }
+  }
+}

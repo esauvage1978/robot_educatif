@@ -34,13 +34,35 @@ mBlock 5 öffnen und im Bereich **Geräte** Ihr Gerät wählen (zum Beispiel **m
 
 ## Schnelle Lösungen
 
-| Problem | Was Sie versuchen können |
-|---|---|
-| Die `.exe` startet nicht | Rechtsklick → **Eigenschaften** → **Zulassen** anhaken, falls angezeigt; als Administrator ausführen; erneut herunterladen. |
-| „Der Computer wurde durch Windows geschützt“ (SmartScreen) | **Weitere Informationen** → **Trotzdem ausführen**, nur wenn die Datei von mblock.cc stammt. |
-| Installation bricht mit Fehler ab | Ihr Virenschutz blockiert eventuell: Installationsprogramm zulassen und erneut versuchen. |
-| Keine Administratorrechte (Schul-PC) | Die IT-Abteilung fragen oder die Browserversion nutzen. |
-| Roboter wird nicht erkannt | Zuerst per USB anschließen; für Bluetooth beim mBot die Hilfeseiten von Makeblock lesen. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Problem</th>
+<th scope="col">Was Sie versuchen können</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Problem"><span class="td-val">Die <code>.exe</code> startet nicht</span></td>
+<td data-label="Was Sie versuchen können"><span class="td-val">Rechtsklick → <strong>Eigenschaften</strong> → <strong>Zulassen</strong> anhaken, falls angezeigt; als Administrator ausführen; erneut herunterladen.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">„Der Computer wurde durch Windows geschützt“ (SmartScreen)</span></td>
+<td data-label="Was Sie versuchen können"><span class="td-val"><strong>Weitere Informationen</strong> → <strong>Trotzdem ausführen</strong>, nur wenn die Datei von mblock.cc stammt.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">Installation bricht mit Fehler ab</span></td>
+<td data-label="Was Sie versuchen können"><span class="td-val">Ihr Virenschutz blockiert eventuell: Installationsprogramm zulassen und erneut versuchen.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">Keine Administratorrechte (Schul-PC)</span></td>
+<td data-label="Was Sie versuchen können"><span class="td-val">Die IT-Abteilung fragen oder die Browserversion nutzen.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">Roboter wird nicht erkannt</span></td>
+<td data-label="Was Sie versuchen können"><span class="td-val">Zuerst per USB anschließen; für Bluetooth beim mBot die Hilfeseiten von Makeblock lesen.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Häufige Fragen
 

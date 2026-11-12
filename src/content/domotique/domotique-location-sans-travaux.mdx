@@ -10,17 +10,81 @@ priority: 5
 
 ## L'essentiel en un tableau
 
-| Équipement | Installation | Accord du propriétaire | Récupérable au départ | Protocole courant |
-|---|---|---|---|---|
-| Prise connectée | se branche | non | oui | Wi-Fi, Zigbee, Matter |
-| Capteur température / humidité | posé ou collé | non | oui | Zigbee, Bluetooth |
-| Capteur d'ouverture | adhésif | non | oui (adhésif à retirer) | Zigbee |
-| Ampoule connectée | se visse | non | oui (remettre l'ancienne) | Zigbee, Wi-Fi, Matter |
-| Bouton / interrupteur sans fil | adhésif | non | oui | Zigbee |
-| Tête thermostatique connectée | remplace la tête du radiateur à eau | à vérifier (radiateur équipé d'un corps thermostatique) | oui (remettre l'ancienne tête) | Zigbee, Thread |
-| Caméra intérieure | posée | non (respecter la vie privée des visiteurs) | oui | Wi-Fi |
-| Interrupteur encastré, module derrière interrupteur | travaux électriques | **oui** | non conseillé | — |
-| Thermostat de chaudière | câblage | **oui** | — | — |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Équipement</th>
+<th scope="col">Installation</th>
+<th scope="col">Accord du propriétaire</th>
+<th scope="col">Récupérable au départ</th>
+<th scope="col">Protocole courant</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Équipement"><span class="td-val">Prise connectée</span></td>
+<td data-label="Installation"><span class="td-val">se branche</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui</span></td>
+<td data-label="Protocole courant"><span class="td-val">Wi-Fi, Zigbee, Matter</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Capteur température / humidité</span></td>
+<td data-label="Installation"><span class="td-val">posé ou collé</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui</span></td>
+<td data-label="Protocole courant"><span class="td-val">Zigbee, Bluetooth</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Capteur d'ouverture</span></td>
+<td data-label="Installation"><span class="td-val">adhésif</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui (adhésif à retirer)</span></td>
+<td data-label="Protocole courant"><span class="td-val">Zigbee</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Ampoule connectée</span></td>
+<td data-label="Installation"><span class="td-val">se visse</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui (remettre l'ancienne)</span></td>
+<td data-label="Protocole courant"><span class="td-val">Zigbee, Wi-Fi, Matter</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Bouton / interrupteur sans fil</span></td>
+<td data-label="Installation"><span class="td-val">adhésif</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui</span></td>
+<td data-label="Protocole courant"><span class="td-val">Zigbee</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Tête thermostatique connectée</span></td>
+<td data-label="Installation"><span class="td-val">remplace la tête du radiateur à eau</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">à vérifier (radiateur équipé d'un corps thermostatique)</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui (remettre l'ancienne tête)</span></td>
+<td data-label="Protocole courant"><span class="td-val">Zigbee, Thread</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Caméra intérieure</span></td>
+<td data-label="Installation"><span class="td-val">posée</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val">non (respecter la vie privée des visiteurs)</span></td>
+<td data-label="Récupérable au départ"><span class="td-val">oui</span></td>
+<td data-label="Protocole courant"><span class="td-val">Wi-Fi</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Interrupteur encastré, module derrière interrupteur</span></td>
+<td data-label="Installation"><span class="td-val">travaux électriques</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val"><strong>oui</strong></span></td>
+<td data-label="Récupérable au départ"><span class="td-val">non conseillé</span></td>
+<td data-label="Protocole courant"><span class="td-val">—</span></td>
+</tr>
+<tr>
+<td data-label="Équipement"><span class="td-val">Thermostat de chaudière</span></td>
+<td data-label="Installation"><span class="td-val">câblage</span></td>
+<td data-label="Accord du propriétaire"><span class="td-val"><strong>oui</strong></span></td>
+<td data-label="Récupérable au départ"><span class="td-val">—</span></td>
+<td data-label="Protocole courant"><span class="td-val">—</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Notre meilleur choix pour commencer en location : une clé Zigbee sur Home Assistant, plus des prises et capteurs Zigbee.** Rien n'est fixé au mur, et le jour du déménagement le système entier tient dans un carton. Le détail des clés est dans notre [comparatif des clés Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
 
@@ -45,3 +109,5 @@ Modules encastrés derrière les interrupteurs, volets roulants, tableau électr
 ## Le cerveau : discret et transportable
 
 Un [Home Assistant Green ou un Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) se branche sur la box Internet par un câble réseau. Au déménagement, vous le rebranchez chez vous : les automatisations et l'historique suivent. Pour choisir le système, lisez [Home Assistant, Jeedom, Homey ou box du commerce](/domotique/home-assistant-jeedom-homey-quel-systeme-choisir/), et pour le parcours complet, [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/).
+
+Un robot éducatif dans le même logement se choisit sur la place au sol, le bruit des moteurs et une seule boîte le jour du départ : [équipement de robotique pour locataire](/equipement-robotique-locataire/).

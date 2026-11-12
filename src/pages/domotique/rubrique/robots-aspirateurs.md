@@ -10,12 +10,36 @@ Un robot aspirateur s'achète sur trois critères : la navigation, le système d
 
 ## L'essentiel en un tableau
 
-| Guide | La question traitée | Notre réponse courte |
-|---|---|---|
-| [Robot aspirateur à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/) | quel modèle à petit budget | Roborock Q7 M5 (LiDAR, 4200 Pa selon le fabricant) |
-| [Robots compatibles Home Assistant](/domotique/robot-aspirateur-compatible-home-assistant/) | quelles marques s'intègrent, en local ou en cloud | Roborock (intégration officielle, pilotage local) |
-| [LiDAR, caméra ou gyroscope](/domotique/robot-aspirateur-navigation-lidar-camera-gyroscope/) | quelle navigation | le LiDAR |
-| [Robot laveur : serpillières et stations](/domotique/robot-aspirateur-laveur-serpilliere-station/) | quel système de lavage | serpillières rotatives avec relevage automatique |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Guide</th>
+<th scope="col">La question traitée</th>
+<th scope="col">Notre réponse courte</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/robot-aspirateur-moins-de-200-euros/">Robot aspirateur à moins de 200 €</a></span></td>
+<td data-label="La question traitée"><span class="td-val">quel modèle à petit budget</span></td>
+<td data-label="Notre réponse courte"><span class="td-val">Roborock Q7 M5 (LiDAR, 4200 Pa selon le fabricant)</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/robot-aspirateur-compatible-home-assistant/">Robots compatibles Home Assistant</a></span></td>
+<td data-label="La question traitée"><span class="td-val">quelles marques s'intègrent, en local ou en cloud</span></td>
+<td data-label="Notre réponse courte"><span class="td-val">Roborock (intégration officielle, pilotage local)</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/robot-aspirateur-navigation-lidar-camera-gyroscope/">LiDAR, caméra ou gyroscope</a></span></td>
+<td data-label="La question traitée"><span class="td-val">quelle navigation</span></td>
+<td data-label="Notre réponse courte"><span class="td-val">le LiDAR</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/robot-aspirateur-laveur-serpilliere-station/">Robot laveur : serpillières et stations</a></span></td>
+<td data-label="La question traitée"><span class="td-val">quel système de lavage</span></td>
+<td data-label="Notre réponse courte"><span class="td-val">serpillières rotatives avec relevage automatique</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Notre meilleur choix
 

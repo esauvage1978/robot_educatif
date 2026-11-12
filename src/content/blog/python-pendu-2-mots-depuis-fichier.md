@@ -10,6 +10,10 @@ tags: ["Python", "Programmation", "Projet"]
 relatedLinks:
   - title: "Partie 1 — cahier des charges"
     href: "/python-pendu-1-cahier-mot-masque/"
+  - title: "Hub pendu (série 6 parties)"
+    href: "/programmation/pendu/"
+  - title: "Parcours Python"
+    href: "/programmation/python/"
   - title: "Partie 3 — affichage et lettres"
     href: "/python-pendu-3-affichage-lettres/"
 categories:
@@ -18,9 +22,11 @@ categories:
   - "Pendu"
   - "Projet"
 ---
-Tu maîtrises le principe du [masque](/python-pendu-1-cahier-mot-masque/). Pour varier les parties, les mots viennent d’un **fichier** : une **ligne** = un **mot** (sans espaces). Tu réutilises la lecture de fichiers vue dans le [parcours](/python-fichiers-texte/).
+Tu maîtrises le principe du [masque](/python-pendu-1-cahier-mot-masque/). Pour varier les parties, les mots viennent d’un **fichier** : une **ligne** = un **mot** (sans espaces). Tu réutilises la lecture de fichiers vue dans le [parcours fichiers](/python-fichiers-texte/) et le hub [pendu](/programmation/pendu/).
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Réponse rapide** — Crée `mots.txt` (un mot par ligne), charge-le en **UTF-8**, filtre les lignes vides, puis `random.choice` pour tirer le mot secret. Fichier d’exemple : **`/examples/mots-pendu.txt`**.
+
+![Terminal Python — illustration](/images/illustrations/python-pendu-2-mots-depuis-fichier.webp)
 
 ## 1. Format du fichier
 
@@ -67,6 +73,17 @@ Si le fichier **n’existe pas**, `FileNotFoundError` : entoure avec `try` / `ex
 1. Compte le nombre de mots dans ton fichier après chargement.
 2. Filtre les mots de moins de **3** lettres avant `random.choice`.
 3. Demande le **chemin** du fichier avec `input()` au lancement.
+
+## FAQ fichiers & pendu
+
+**Pourquoi `encoding="utf-8"` ?**  
+Pour lire des mots accentués plus tard ; au début, mots sans accents = moins de surprises.
+
+**Chemin relatif ou absolu ?**  
+En classe, place `mots.txt` dans le même dossier que le script ; voir [chemins de fichiers](/python-fichiers-texte/).
+
+**Lien avec le carnet Todo ?**  
+Même logique JSON/fichiers : [Carnet Todo partie 1](/python-carnet-todo-1-cahier-json/).
 
 ## Suite
 

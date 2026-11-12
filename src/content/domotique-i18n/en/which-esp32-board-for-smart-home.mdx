@@ -1,0 +1,48 @@
+---
+title: "Which ESP32 card to choose for smart home: ESP32, S3, C3, C6 or H2?"
+description: "The ESP32 chips compared according to the Espressive plugs: core, frequency, Wi-Fi, Bluetooth, Thread/Zigbee, USB and GPIO. Which one to choose for an ESPHome sensor, a camera or a Thread device."
+pubDate: 2026-10-23T00:00:00Z
+category: "esp32"
+priority: 4
+lang: "en"
+frSlug: "quelle-carte-esp32-choisir-domotique"
+---
+
+"ESP32" means today a whole family of Espressive chips. For a project [ESPHome](https://esphome.io/) in Home Assistant, the choice changes what the card can do: Bluetooth or not, Thread or not, USB native or not. Here are the five chips that can be found on the development cards, with the data of the [Espressif product pages](https://www.espressif.com/en/products/socs).
+
+## The essentials in a picture
+
+| Chip | Hearts / Max Frequency | Wi - Fi | Bluetooth | IEEE 802.15.4 (Thread, Zigbee) | Native USB | SRAM |
+|---|---|---|---|---|---|---|
+| **ESP32** (classic) | 2  Xtensa LX6, 240 MHz | Wi-Fi 4, 2.4 GHz | Classic + BLE 4.2 | No | No | 520 Ko |
+| **ESP32-S3** | 2  Xtensa LX7, 240 MHz | Wi-Fi 4, 2.4 GHz | BLE 5 | No | Yes (OTG) | 512 Ko |
+| **ESP32-C3** | 1  RISC-V, 160 MHz | Wi-Fi 4, 2.4 GHz | BLE 5 | No | Series/JTAG | 400 KB |
+| **ESP32-C6** | 1  RISC-V 160 MHz + low-core conso | **Wi - Fi 6**2.4 GHz | BLE 5 | **yes** | Series/JTAG | 512 Ko |
+| **ESP32-H2** | 1  RISC-V, 96 MHz | **No** | BLE 5 | **yes** | Series/JTAG | 320 KB |
+
+**Our best choice to get started: a classic ESP32 card (DevKitC type).** This is the best documented in ESPHome and in the forums, and it is enough for almost all the projects on our page [10 ESP32 projects](/en/smart-home/esp32-smart-home-projects/). Take one **ESP32-S3** if you want a camera or more pins, a **ESP32-C6** if you want to prepare Thread.
+
+## ESP32 classic: the safe bet
+
+Two cores, Wi-Fi and Bluetooth (including Bluetooth "Classic"), about thirty pins usable: this is the chip of our tutorials [ESPHome temperature sensor](/en/smart-home/esp32-esphome-temperature-sensor/) and [Garage Door](/en/smart-home/garage-door-smartphone-esp32-esphome/). Bluetooth sound also serves as **Bluetooth Proxy** for Home Assistant: the card relays BLE sensors away from the server.
+
+## ESP32-S3: more pins and USB
+
+The S3 keeps two cores at 240 MHz, adds native USB OTG, more GPIO and useful vector instructions to signal processing. It is the chip of many camera and display cards. It no longer has Bluetooth Classic, only the BLE 5.
+
+## ESP32-C3: small and economical
+
+A single RISC-V core at 160 MHz, Wi-Fi and BLE 5: enough for a sensor or a relay. The C3 cards are often tiny, convenient to slip into a case. Fewer pins than the classic ESP32.
+
+## ESP32-C6 and H2: Thread and Zigbee radio
+
+The **C6** is the first chip in the family to be reunited **Wi - Fi 6**, BLE 5 and a radio **IEEE 802.15.4**, that of Thread and Zigbee. The **H2** does not have Wi-Fi: it is designed for Thread or Zigbee battery powered devices. The support of these radios in ESPHome is still evolving: check the [ESPHome documentation](https://esphome.io/components/esp32/) of your chip before you start. To understand Thread and Zigbee, see our page [Home Automation Protocols](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/).
+
+## Buying advice
+
+- **Development map** rather than bare module: USB port, regulator and reset button already present.
+- **Check the connector** (USB-C or micro-USB) and the presence of a USB-serial chip if the chip does not have a native USB.
+- **Flash memory**: 4 MB is sufficient for ESPHome; 8 MB or more and PSRAM for a camera.
+- **Food** : 5 V per USB; for permanent use, a quality AC block.
+
+Once the card is selected, follow [our complete ESPHome tutorial](/en/smart-home/esp32-esphome-temperature-sensor/) and then draw an idea in the [10 ESP32 projects](/en/smart-home/esp32-smart-home-projects/).

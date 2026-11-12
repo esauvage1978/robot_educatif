@@ -1,0 +1,57 @@
+{
+  "releve": "2026-11-08",
+  "items": [
+    {
+      "id": "rpi5-alim",
+      "cat": "alimentation",
+      "produit": "raspberry-pi-5",
+      "asin": "B0CM46P7MC",
+      "nom": {
+        "fr": "Alimentation officielle 27 W pour Raspberry Pi 5",
+        "en": "Official 27 W power supply for Raspberry Pi 5",
+        "de": "Offizielles 27-W-Netzteil für den Raspberry Pi 5",
+        "it": "Alimentatore ufficiale da 27 W per Raspberry Pi 5",
+        "es": "Fuente oficial de 27 W para Raspberry Pi 5"
+      }
+    },
+    {
+      "id": "rpi5-boitier",
+      "cat": "boitier",
+      "produit": "raspberry-pi-5",
+      "asin": "B0CT4P893Q",
+      "nom": {
+        "fr": "Boîtier Geekworm pour Raspberry Pi 5 avec ventilateur actif",
+        "en": "Geekworm case for Raspberry Pi 5 with active cooler",
+        "de": "Geekworm-Gehäuse für Raspberry Pi 5 mit Aktivkühler",
+        "it": "Case Geekworm per Raspberry Pi 5 con ventola attiva",
+        "es": "Caja Geekworm para Raspberry Pi 5 con ventilador activo"
+      }
+    },
+    {
+      "id": "uno-alim",
+      "cat": "alimentation",
+      "produit": "elegoo-uno",
+      "asin": "B0F966SCT6",
+      "nom": {
+        "fr": "Adaptateur secteur 9 V 2 A pour Elegoo UNO R3",
+        "en": "9 V 2 A mains adapter for Elegoo UNO R3",
+        "de": "9-V-2-A-Netzteil für Elegoo UNO R3",
+        "it": "Alimentatore di rete 9 V 2 A per Elegoo UNO R3",
+        "es": "Adaptador de red de 9 V 2 A para Elegoo UNO R3"
+      }
+    },
+    {
+      "id": "codey-bt",
+      "cat": "connectique",
+      "produit": "codey-rocky",
+      "asin": "B07N38NFZC",
+      "nom": {
+        "fr": "Adaptateur Bluetooth Makeblock pour Codey Rocky",
+        "en": "Makeblock Bluetooth adapter for Codey Rocky",
+        "de": "Makeblock-Bluetooth-Adapter für Codey Rocky",
+        "it": "Adattatore Bluetooth Makeblock per Codey Rocky",
+        "es": "Adaptador Bluetooth Makeblock para Codey Rocky"
+      }
+    }
+  ]
+}

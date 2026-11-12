@@ -1,0 +1,236 @@
+---
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import PageColumns from './PageColumns.astro';
+import catalogue from '../data/accessoires-catalogue.json';
+import prix from '../data/prix-amazon.json';
+
+const p = Astro.url.pathname;
+const lang = p.startsWith('/uk/') ? 'uk' : p.startsWith('/ca/') ? 'ca' : p.startsWith('/de/') ? 'de' : p.startsWith('/it/') ? 'it' : p.startsWith('/es/') ? 'es' : p.startsWith('/en/') ? 'en' : 'fr';
+const ui = lang === 'uk' || lang === 'ca' ? 'en' : lang;
+const htmlLang = lang === 'uk' ? 'en-GB' : lang === 'ca' ? 'en-CA' : lang === 'en' ? 'en' : lang === 'de' ? 'de' : lang === 'it' ? 'it' : lang === 'es' ? 'es' : 'fr';
+const marcheId = lang === 'ca' ? '' : lang === 'en' || lang === 'uk' ? 'uk' : lang;
+
+const CAT = {
+  alimentation: { fr: 'Alimentation', en: 'Power', de: 'Stromversorgung', it: 'Alimentazione', es: 'Alimentación' },
+  boitier: { fr: 'Boîtier', en: 'Case', de: 'Gehäuse', it: 'Case', es: 'Caja' },
+  connectique: { fr: 'Connectique', en: 'Connectivity', de: 'Verbindung', it: 'Connettività', es: 'Conectividad' },
+};
+const PROD = {
+  'raspberry-pi-5': { fr: 'Raspberry Pi 5', en: 'Raspberry Pi 5', de: 'Raspberry Pi 5', it: 'Raspberry Pi 5', es: 'Raspberry Pi 5' },
+  'elegoo-uno': { fr: 'Elegoo UNO', en: 'Elegoo UNO', de: 'Elegoo UNO', it: 'Elegoo UNO', es: 'Elegoo UNO' },
+  'codey-rocky': { fr: 'Codey Rocky', en: 'Codey Rocky', de: 'Codey Rocky', it: 'Codey Rocky', es: 'Codey Rocky' },
+};
+const UI = {
+  fr: {
+    title: 'Accessoires des robots et cartes déjà présentés',
+    description: 'Alimentation 27 W et boîtier du Raspberry Pi 5, adaptateur 9 V pour Elegoo UNO R3, dongle Bluetooth Makeblock : ASIN et prix Amazon.fr du 8 novembre 2026.',
+    home: 'Accueil', homeUrl: '/', crumb: 'Accessoires', cat: 'Catégorie', produit: 'Produit', tous: 'Toutes les catégories', tousP: 'Tous les produits',
+    prix: 'Consulter le prix', chercher: 'Chercher cette pièce', photo: 'Photo : Amazon',
+    note: 'Prix Amazon relevé le {date} pour cette fiche. Le stock peut avoir changé.',
+    noteFiche: 'Le bouton ouvre la fiche Amazon.',
+    noteRecherche: 'Le bouton ouvre une recherche au nom de la pièce.',
+    intro: 'Ces pièces accompagnent le Raspberry Pi 5, la carte Elegoo UNO et le Codey Rocky déjà présentés. Le montant est celui d’Amazon.fr à la date indiquée. Le titre de l’annonce est recopié sous le prix.',
+    compte: '{n} pièces',
+  },
+  en: {
+    title: 'Accessories for the boards and robots already covered',
+    description: 'Raspberry Pi 5 27 W supply and case, 9 V adapter for the Elegoo UNO R3, Makeblock Bluetooth dongle: ASIN and the Amazon price when a listing exists.',
+    home: 'Home', homeUrl: '/en/', crumb: 'Accessories', cat: 'Category', produit: 'Product', tous: 'All categories', tousP: 'All products',
+    prix: 'Check the price', chercher: 'Search this part', photo: 'Photo: Amazon',
+    note: 'Amazon price read on {date} for this listing. Stock may have changed.',
+    noteFiche: 'The button opens the Amazon listing.',
+    noteRecherche: 'The button opens a search in the part’s name.',
+    intro: 'These parts go with the Raspberry Pi 5, the Elegoo UNO board and the Codey Rocky already covered. The amount is the Amazon.co.uk reading on the date shown.',
+    compte: '{n} parts',
+  },
+  de: {
+    title: 'Zubehör für die bereits vorgestellten Roboter und Boards',
+    description: '27-W-Netzteil und Gehäuse für den Raspberry Pi 5, 9-V-Netzteil für das Elegoo UNO R3, Makeblock-Bluetooth-Dongle: ASIN und Amazon.de-Preis.',
+    home: 'Start', homeUrl: '/de/', crumb: 'Zubehör', cat: 'Kategorie', produit: 'Produkt', tous: 'Alle Kategorien', tousP: 'Alle Produkte',
+    prix: 'Preis ansehen', chercher: 'Dieses Teil suchen', photo: 'Foto: Amazon',
+    note: 'Amazon-Preis vom {date} für dieses Angebot. Der Bestand kann sich geändert haben.',
+    noteFiche: 'Der Button öffnet das Amazon-Angebot.',
+    noteRecherche: 'Der Button öffnet eine Suche mit dem Namen des Teils.',
+    intro: 'Diese Teile gehören zum Raspberry Pi 5, zum Elegoo-UNO-Board und zum Codey Rocky. Der Betrag ist der Amazon.de-Preis am genannten Datum.',
+    compte: '{n} Teile',
+  },
+  it: {
+    title: 'Accessori per i robot e le schede già presentati',
+    description: 'Alimentatore da 27 W e case per Raspberry Pi 5, adattatore da 9 V per Elegoo UNO R3, dongle Bluetooth Makeblock: ASIN e prezzo Amazon.it.',
+    home: 'Home', homeUrl: '/it/', crumb: 'Accessori', cat: 'Categoria', produit: 'Prodotto', tous: 'Tutte le categorie', tousP: 'Tutti i prodotti',
+    prix: 'Vedi il prezzo', chercher: 'Cerca questo pezzo', photo: 'Foto: Amazon',
+    note: 'Prezzo Amazon del {date} per questa scheda. La disponibilità può essere cambiata.',
+    noteFiche: 'Il pulsante apre la scheda Amazon.',
+    noteRecherche: 'Il pulsante apre una ricerca con il nome del pezzo.',
+    intro: 'Questi pezzi accompagnano il Raspberry Pi 5, la scheda Elegoo UNO e il Codey Rocky. L’importo è il prezzo Amazon.it alla data indicata.',
+    compte: '{n} pezzi',
+  },
+  es: {
+    title: 'Accesorios de los robots y placas ya presentados',
+    description: 'Fuente de 27 W y caja para Raspberry Pi 5, adaptador de 9 V para Elegoo UNO R3, adaptador Bluetooth Makeblock: ASIN y precio de Amazon.es.',
+    home: 'Inicio', homeUrl: '/es/', crumb: 'Accesorios', cat: 'Categoría', produit: 'Producto', tous: 'Todas las categorías', tousP: 'Todos los productos',
+    prix: 'Consultar el precio', chercher: 'Buscar esta pieza', photo: 'Foto: Amazon',
+    note: 'Precio de Amazon del {date} para este anuncio. El stock puede haber cambiado.',
+    noteFiche: 'El botón abre la ficha de Amazon.',
+    noteRecherche: 'El botón abre una búsqueda con el nombre de la pieza.',
+    intro: 'Estas piezas acompañan a la Raspberry Pi 5, a la placa Elegoo UNO y al Codey Rocky. El importe es el precio de Amazon.es en la fecha indicada.',
+    compte: '{n} piezas',
+  },
+} as const;
+const t = UI[ui];
+const intro = lang === 'ca'
+  ? 'These parts go with the Raspberry Pi 5, the Elegoo UNO board and the Codey Rocky already covered. The button searches Amazon.ca in the part’s name.'
+  : t.intro;
+const homeUrl = lang === 'uk' ? '/uk/' : lang === 'ca' ? '/ca/' : t.homeUrl;
+const LIENS = {
+  fr: [
+    ['/raspberry-pi-5-quelle-version-memoire-acheter/', 'Quelle mémoire pour le Raspberry Pi 5'],
+    ['/marque-makeblock/', 'La marque Makeblock'],
+  ],
+  en: [
+    ['/en/raspberry-pi-5-which-ram/', 'Which RAM for the Raspberry Pi 5'],
+    ['/en/makeblock-brand/', 'The Makeblock brand'],
+  ],
+  de: [
+    ['/de/raspberry-pi-5-welcher-ram/', 'Welcher RAM für den Raspberry Pi 5'],
+    ['/de/marke-makeblock/', 'Die Marke Makeblock'],
+  ],
+  it: [
+    ['/it/raspberry-pi-5-quale-ram/', 'Quale RAM per il Raspberry Pi 5'],
+    ['/it/marchio-makeblock/', 'Il marchio Makeblock'],
+  ],
+  es: [
+    ['/es/raspberry-pi-5-que-ram/', 'Qué RAM para la Raspberry Pi 5'],
+    ['/es/marca-makeblock/', 'La marca Makeblock'],
+  ],
+} as const;
+const liens = LIENS[ui];
+type Fiche = { image?: string; w?: number; h?: number; marches?: Record<string, { url?: string; prix?: string; titre?: string; releve?: string }> };
+const fiches = (prix as { items: Record<string, Fiche> }).items;
+const localeDate = { fr: 'fr-FR', en: 'en-GB', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', it: 'it-IT', es: 'es-ES' }[lang];
+const dateDe = (iso?: string) => (!iso || !/^\d{4}-\d{2}-\d{2}$/.test(iso) ? '' : new Intl.DateTimeFormat(localeDate, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${iso}T12:00:00Z`)));
+const PRIX_JOUR_MS = 24 * 60 * 60 * 1000;
+function prixDuJour(entree?: { prix?: string; releve?: string; releveIso?: string }) {
+  if (!entree?.prix) return '';
+  const iso = entree.releveIso || (entree.releve && /^\d{4}-\d{2}-\d{2}$/.test(entree.releve) ? `${entree.releve}T05:10:00Z` : '');
+  const age = Date.now() - Date.parse(iso);
+  if (!Number.isFinite(age) || age < 0 || age > PRIX_JOUR_MS) return '';
+  return entree.prix;
+}
+const hote = lang === 'de' ? 'www.amazon.de' : lang === 'it' ? 'www.amazon.it' : lang === 'es' ? 'www.amazon.es' : lang === 'ca' ? 'www.amazon.ca' : lang === 'fr' ? 'www.amazon.fr' : 'www.amazon.co.uk';
+const tg = lang === 'de' ? 'roboteducat00-21' : lang === 'it' ? 'roboteducat0f-21' : lang === 'es' ? 'roboteducat07-21' : lang === 'ca' ? 'roboteducatif-20' : lang === 'fr' ? 'manuso06-21' : 'roboteducatif-21';
+const recherche = (nom: string) => `https://${hote}/s?k=${encodeURIComponent(nom)}&tag=${tg}`;
+const cartes = catalogue.items.flatMap((a) => {
+  const fiche = fiches[a.asin];
+  const marche = marcheId ? fiche?.marches?.[marcheId] : undefined;
+  if (marcheId && lang !== 'fr' && !marche?.url) return [];
+  return [{ ...a, fiche, marche, nomCourt: a.nom[ui], nomAffiche: lang === 'fr' ? a.nom.fr : (marche?.titre || a.nom[ui]) }];
+});
+const cats = [...new Set(cartes.map((c) => c.cat))];
+const produits = [...new Set(cartes.map((c) => c.produit))];
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <BaseHead title={t.title} description={t.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <PageColumns sommaire={false}>
+        <p class="acc-fil"><a href={homeUrl}>{t.home}</a> · {t.crumb}</p>
+        <h1>{t.title}</h1>
+        <p>{intro}</p>
+        <ul class="acc-liens">
+          {liens.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+        </ul>
+        <form class="acc-filtres">
+          <label>{t.cat}
+            <select id="acc-cat">
+              <option value="tous">{t.tous}</option>
+              {cats.map((id) => <option value={id}>{CAT[id][ui]}</option>)}
+            </select>
+          </label>
+          <label>{t.produit}
+            <select id="acc-produit">
+              <option value="tous">{t.tousP}</option>
+              {produits.map((id) => <option value={id}>{PROD[id][ui]}</option>)}
+            </select>
+          </label>
+          <p id="acc-compte"></p>
+        </form>
+        <ul class="acc-grille">
+          {cartes.map((c) => {
+            const date = dateDe(c.marche?.releve);
+            const montant = prixDuJour(c.marche);
+            const ficheLien = Boolean(c.marche?.url);
+            const href = c.marche?.url || recherche(c.nomCourt);
+            return (
+              <li data-cat={c.cat} data-produit={c.produit}>
+                <article class="acc-carte">
+                  <p class="acc-kicker">{CAT[c.cat][ui]} · {PROD[c.produit][ui]}</p>
+                  {c.fiche?.image && ficheLien && (
+                    <figure>
+                      <img src={c.fiche.image} alt={c.nomAffiche} width={c.fiche.w || 500} height={c.fiche.h || 500} loading="lazy" decoding="async" />
+                      <figcaption>{t.photo} — ASIN {c.asin}</figcaption>
+                    </figure>
+                  )}
+                  <h2>{c.nomAffiche}</h2>
+                  {montant && <p class="acc-prix">{montant}{date && <span>{date}</span>}</p>}
+                  {lang === 'fr' && c.marche?.titre && <p class="acc-titre">{c.marche.titre}</p>}
+                  <p><a class="acc-btn" href={href} target="_blank" rel="sponsored nofollow noopener">{ficheLien ? t.prix : t.chercher}</a></p>
+                  <p class="acc-note">{montant ? t.note.replace('{date}', date || '') : ficheLien ? t.noteFiche : t.noteRecherche}</p>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
+      </PageColumns>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .acc-fil, .acc-liens { font-size: .85rem; }
+  .acc-liens { display: flex; flex-wrap: wrap; gap: .35rem 1rem; padding: 0; list-style: none; }
+  .acc-filtres { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; margin: 1.5rem 0; }
+  .acc-filtres label { display: grid; gap: .35rem; font-size: .85rem; font-weight: 700; }
+  .acc-filtres select { font: inherit; min-width: 14rem; padding: .45rem .6rem; }
+  .acc-grille { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .acc-grille > li[hidden] { display: none !important; }
+  .acc-carte { border: 1px solid #e7e5e4; border-radius: 16px; padding: 1rem; background: #fff; }
+  .acc-kicker { margin: 0 0 .4rem; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; }
+  .acc-carte img { width: 100%; height: 180px; object-fit: contain; background: #f8fafc; }
+  .acc-carte figcaption, .acc-titre, .acc-note { font-size: .75rem; color: #57534e; }
+  .acc-carte h2 { font-size: 1.05rem; }
+  .acc-prix { font-size: 1.25rem; font-weight: 800; }
+  .acc-prix span { display: block; font-size: .75rem; font-weight: 500; color: #57534e; }
+  .acc-btn { display: inline-block; background: #111827; color: #fff; text-decoration: none; border-radius: 999px; padding: .55rem 1rem; font-weight: 700; }
+  .acc-btn:focus-visible, .acc-filtres select:focus-visible { outline: 2px solid #111827; outline-offset: 2px; }
+</style>
+<script>
+  const cat = document.querySelector<HTMLSelectElement>('#acc-cat');
+  const prod = document.querySelector<HTMLSelectElement>('#acc-produit');
+  const compte = document.querySelector('#acc-compte');
+  const cartes = [...document.querySelectorAll<HTMLElement>('.acc-grille > li')];
+  const modele = document.documentElement.lang.startsWith('de') ? '{n} Teile' : document.documentElement.lang.startsWith('it') ? '{n} pezzi' : document.documentElement.lang.startsWith('es') ? '{n} piezas' : document.documentElement.lang.startsWith('fr') ? '{n} pièces' : '{n} parts';
+  const appliquer = () => {
+    let n = 0;
+    for (const li of cartes) {
+      const ok = (cat?.value === 'tous' || li.dataset.cat === cat?.value) && (prod?.value === 'tous' || li.dataset.produit === prod?.value);
+      li.hidden = !ok;
+      if (ok) n += 1;
+    }
+    const singulier = { parts: 'part', pièces: 'pièce', Teile: 'Teil', pezzi: 'pezzo', piezas: 'pieza' };
+    const texte = modele.replace('{n}', String(n));
+    if (compte) compte.textContent = n === 1 ? texte.replace(/parts|pièces|Teile|pezzi|piezas/, (mot) => singulier[mot] || mot) : texte;
+  };
+  cat?.addEventListener('change', appliquer);
+  prod?.addEventListener('change', appliquer);
+  const q = new URLSearchParams(location.search);
+  if (cat && q.get('categorie') && [...cat.options].some((o) => o.value === q.get('categorie'))) cat.value = q.get('categorie') || 'tous';
+  if (prod && q.get('produit') && [...prod.options].some((o) => o.value === q.get('produit'))) prod.value = q.get('produit') || 'tous';
+  appliquer();
+</script>

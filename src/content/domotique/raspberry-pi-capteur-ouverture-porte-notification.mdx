@@ -1,12 +1,12 @@
 ---
-title: "Capteur d'ouverture de porte (reed) sur Raspberry Pi avec notification smartphone"
-description: "Un interrupteur reed sur Raspberry Pi 4 ou 5 pour savoir si une porte est ouverte : notification push gratuite avec ntfy et entité Home Assistant via MQTT. Code gpiozero complet."
+title: "Contact reed sur Raspberry Pi : ntfy, MQTT et Home Assistant"
+description: "Un interrupteur magnétique (reed) sur Raspberry Pi 4 ou 5 pour détecter une porte ouverte : notification push gratuite avec ntfy et capteur binaire Home Assistant via MQTT. Code gpiozero commenté par blocs."
 pubDate: 2026-10-19T00:00:00Z
 category: "home-assistant"
 priority: 6
 ---
 
-Être prévenu quand la porte d'entrée, l'abri de jardin ou un placard s'ouvre : un **interrupteur reed** (contact magnétique) suffit. Il ne consomme rien, n'a besoin d'aucune alimentation et se câble directement sur le Raspberry Pi. Le script envoie une notification sur votre téléphone via **ntfy** (service open source, application Android et iOS) et peut aussi publier l'état dans **Home Assistant**.
+Être prévenu quand la porte d'entrée, l'abri de jardin ou un placard s'ouvre : un **contact magnétique (interrupteur reed)** suffit. Il ne consomme rien, n'a besoin d'aucune alimentation et se câble directement sur le Raspberry Pi. Le script envoie une notification sur votre téléphone via **ntfy** (service open source, applications Android et iOS) et peut aussi publier l'état dans **Home Assistant** via **MQTT** (Message Queuing Telemetry Transport, messagerie légère entre le Pi et votre broker). Ce montage s'inscrit dans la [rubrique domotique](/domotique/) du site, aux côtés d'autres tutoriels Raspberry Pi ([détecteur PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/), [station météo BME280](/domotique/raspberry-pi-station-meteo-bme280-historique/), [secours électrique pour Home Assistant](/domotique/secours-electrique-home-assistant-onduleur-station/)) et du guide [Zigbee2MQTT (passerelle Zigbee vers MQTT) ou ZHA (Zigbee Home Automation, intégration Zigbee native de Home Assistant)](/domotique/home-assistant-zigbee2mqtt-ou-zha/) si vous publiez aussi l'état du capteur.
 
 ## Objectif
 
@@ -16,9 +16,21 @@ priority: 6
 
 ## Durée, niveau et budget
 
-| Durée | Niveau | Budget |
-|---|---|---|
-| 45 min | débutant | un contact reed filaire est très bon marché (prix à vérifier) ; ntfy est gratuit et peut être auto-hébergé |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val">45 min</span></td>
+<td data-label="Niveau"><span class="td-val">débutant</span></td>
+<td data-label="Budget"><span class="td-val">un contact reed filaire est très bon marché (prix à vérifier) ; ntfy est gratuit et peut être auto-hébergé</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
 
@@ -35,19 +47,35 @@ Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. 
 ## Matériel
 
 - Raspberry Pi 4 ou 5, Raspberry Pi OS Bookworm.
-- Un **contact reed de porte** à deux fils, de type « normalement ouvert » (contact fermé quand l'aimant est en face) (<a href="https://www.amazon.fr/s?k=capteur+magnétique+porte+reed+filaire&tag=manuso06-21" rel="sponsored nofollow" target="_blank">contacts reed filaires sur Amazon</a>).
+- Un **contact magnétique (interrupteur reed)** à deux fils, de type « normalement ouvert » (contact fermé quand l'aimant est en face) (<a href="/go/az-fr-15efa3f318/" rel="sponsored nofollow noopener" target="_blank">contacts reed filaires sur Amazon</a>, lien affilié — vérifiez le prix au moment de l'achat).
 - Du câble deux conducteurs jusqu'au Pi.
 
 ## Câblage
 
 Aucune résistance externe : le script active la résistance de rappel interne du GPIO.
 
-| Contact reed | Raspberry Pi (broche physique) | Rôle |
-|---|---|---|
-| fil 1 | broche 11 (GPIO17) | entrée |
-| fil 2 | broche 9 (GND) | masse |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Contact reed</th>
+<th scope="col">Raspberry Pi (broche physique)</th>
+<th scope="col">Rôle</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Contact reed"><span class="td-val">fil 1</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 11 (GPIO17)</span></td>
+<td data-label="Rôle"><span class="td-val">entrée</span></td>
+</tr>
+<tr>
+<td data-label="Contact reed"><span class="td-val">fil 2</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 9 (GND)</span></td>
+<td data-label="Rôle"><span class="td-val">masse</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-Porte fermée : l'aimant ferme le contact, GPIO17 lit 0. Porte ouverte : le contact s'ouvre, le pull-up ramène GPIO17 à 3,3 V. N'appliquez **jamais** de tension externe sur ce fil.
+Porte fermée : l'aimant ferme le contact, GPIO17 lit 0. Porte ouverte : le contact s'ouvre, la résistance de tirage interne (pull-up) ramène GPIO17 à 3,3 V. N'appliquez **jamais** de tension externe sur ce fil.
 
 ## Préparer le Raspberry Pi (commun à tous les tutoriels)
 
@@ -71,9 +99,13 @@ Installez l'application ntfy, abonnez-vous à un sujet au nom **long et difficil
 
 ## Code complet
 
-<p><a href="/code/raspberry-pi/porte_reed_notification.py" download>Télécharger porte_reed_notification.py</a> (même code que ci-dessous).</p>
+Le script fait quatre choses : lire le reed sur GPIO17, envoyer une notification ntfy à l'ouverture, publier l'état en MQTT (optionnel) et tourner en boucle jusqu'à arrêt propre.
 
-```python title="porte_reed_notification.py"
+<p><a href="/code/raspberry-pi/porte_reed_notification.py" download>Télécharger porte_reed_notification.py</a> — fichier unique à copier sur le Pi. Ci-dessous, le même script découpé par rôle pour faciliter la lecture.</p>
+
+### Configuration (variables et imports)
+
+```python title="porte_reed_notification.py — début"
 #!/usr/bin/env python3
 """Capteur d'ouverture de porte (interrupteur reed) sur Raspberry Pi -> notification ntfy + MQTT.
 
@@ -98,9 +130,12 @@ MQTT_PORT = int(os.getenv("MQTT_PORT", "1883"))
 MQTT_USER = os.getenv("MQTT_USER", "")
 MQTT_PASS = os.getenv("MQTT_PASS", "")
 DEVICE_ID = os.getenv("DEVICE_ID", "pi_porte_entree")
-STATE_TOPIC = f"robotedu/{DEVICE_ID}/door"
+STATE_TOPIC = f"robot-educatif/{DEVICE_ID}/door"
+```
 
+### Notifications ntfy et client MQTT (optionnel)
 
+```python title="porte_reed_notification.py — ntfy et MQTT"
 def notifier(message):
     """Envoie une notification push via ntfy (POST HTTP simple)."""
     if not NTFY_URL:
@@ -127,8 +162,11 @@ def creer_client_mqtt():
            "device": {"identifiers": [DEVICE_ID], "name": f"Raspberry Pi porte ({DEVICE_ID})"}}
     client.publish(f"homeassistant/binary_sensor/{DEVICE_ID}/config", json.dumps(cfg), retain=True)
     return client
+```
 
+### Boucle reed (GPIO) et arrêt propre
 
+```python title="porte_reed_notification.py — boucle principale"
 def main():
     client = creer_client_mqtt()
     # Porte fermée = aimant proche = contact fermé = GPIO relié à GND = "pressed".
@@ -172,11 +210,11 @@ if __name__ == "__main__":
 
 ### Côté Home Assistant
 
-Il faut un broker MQTT (par exemple le module complémentaire **Mosquitto broker** de Home Assistant) et l'intégration **MQTT**. Le script publie une configuration « MQTT discovery » sur `homeassistant/…/config` : les entités apparaissent seules dans *Paramètres → Appareils et services → MQTT*. Créez un utilisateur Home Assistant dédié pour le Pi et passez ses identifiants via `MQTT_USER` / `MQTT_PASS`.
+Il faut un broker MQTT (par exemple le module complémentaire **Mosquitto broker** de Home Assistant) et l'intégration **MQTT**. Le script publie une configuration de **découverte automatique MQTT** sur `homeassistant/…/config` : les entités apparaissent seules dans *Paramètres → Appareils et services → MQTT*. Créez un utilisateur Home Assistant dédié pour le Pi et passez ses identifiants via `MQTT_USER` / `MQTT_PASS`.
 
 ## Lancement automatique avec systemd
 
-Créez le fichier `/etc/systemd/system/porte-reed.service` (adaptez l'utilisateur `pi` et le chemin) :
+Créez `/etc/default/porte-reed` (droits root, non versionné) avec `MQTT_HOST`, `MQTT_USER` et `MQTT_PASS`, puis le unit file `/etc/systemd/system/porte-reed.service` (adaptez l'utilisateur `pi` et le chemin) :
 
 ```ini
 [Unit]
@@ -188,9 +226,7 @@ Wants=network-online.target
 User=pi
 WorkingDirectory=/home/pi/capteurs
 Environment=NTFY_URL=https://ntfy.sh/porte-maison-8f3k2q
-Environment=MQTT_HOST=192.168.1.10
-Environment=MQTT_USER=pi
-Environment=MQTT_PASS=change-moi
+EnvironmentFile=-/etc/default/porte-reed
 ExecStart=/home/pi/capteurs/venv/bin/python /home/pi/capteurs/porte_reed_notification.py
 Restart=on-failure
 RestartSec=10
@@ -238,6 +274,20 @@ Lancez alors le script sans `NTFY_URL` pour ne garder que cette alerte.
 - **Aucune notification** : testez `curl -d "test" https://ntfy.sh/votre-sujet` depuis le Pi.
 - **Fil long (plus de quelques mètres)** : des parasites peuvent apparaître ; utilisez du câble torsadé et gardez le `bounce_time`.
 
+## Questions fréquentes
+
+### Faut-il un Raspberry Pi dédié ?
+
+Non : le même Pi qui fait tourner le broker MQTT ou d'autres scripts ([station météo](/domotique/raspberry-pi-station-meteo-bme280-historique/), [capteur CO2](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)) peut héberger ce script, à condition de ne pas saturer les GPIO. Si vous débutez, lisez [par où commencer en domotique](/domotique/debuter-domotique-par-ou-commencer/).
+
+### Reed filaire ou capteur Zigbee ?
+
+Le filaire coûte moins cher et ne dépend d'aucune pile ; le Zigbee évite de tirer un câble jusqu'à la porte. Pour comparer les stacks, voir [Home Assistant Green vs Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) selon votre serveur.
+
+### ntfy ou notification Home Assistant uniquement ?
+
+Les deux sont possibles : ntfy fonctionne sans HA ; la découverte automatique MQTT crée l'entité « porte » pour des scènes plus riches (alarme, lumière couloir via [détecteur PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/)).
+
 > **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
 
 ## Sources vérifiées
@@ -247,4 +297,4 @@ Lancez alors le script sans `NTFY_URL` pour ne garder que cette alerte.
 - Raspberry Pi, brochage et niveaux GPIO 3,3 V : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
 - Home Assistant, MQTT binary sensor : https://www.home-assistant.io/integrations/binary_sensor.mqtt/
 
-À lire aussi : [ouvrir sa porte de garage depuis son smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/) et [détecteur de présence PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/).
+À lire aussi : [ouvrir sa porte de garage depuis son smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/), [détecteur de présence PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/) et [retour à la rubrique domotique](/domotique/).

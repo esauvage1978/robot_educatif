@@ -1,6 +1,6 @@
 ---
 title: "Mise en route Raspberry Pi 3 : installation complète"
-description: "Raspberry Pi 3 : matériel, Imager, WiFi, SSH, premier boot, accès distant. Schémas et photos."
+description: "Mise en route d’un Raspberry Pi 3 modèle B : carte, Imager, Wi-Fi, SSH, premier démarrage et accès à distance. Photos du montage, du carton au premier boot."
 pubDate: "2020-05-01"
 updatedDate: "2026-03-30"
 heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
@@ -27,15 +27,43 @@ Ce tutoriel vous guide **pas à pas** ; il met à jour l’ancienne dénominatio
 
 ## 1. Rappel : ce qu’est un Raspberry Pi 3 Modèle B
 
-| Élément | Détail utile |
-|--------|----------------|
-| **Processeur** | Broadcom BCM2837, quadricœur **~1,2 GHz** (ARMv8, mode 32 bits courant) |
-| **Mémoire** | **1 Go** de RAM LPDDR2 |
-| **Réseau** | Ethernet **100 Mbit/s**, Wi‑Fi **802.11n**, **Bluetooth 4.1** |
-| **USB** | 4 ports USB 2.0 |
-| **Vidéo** | HDMI **pleine taille** (pas de micro-HDMI comme sur Pi 4/5) |
-| **Stockage** | **Carte microSD** (système d’exploitation) |
-| **GPIO** | 40 broches (compatible nombre de châssis et « HAT ») |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Élément</th>
+<th scope="col">Détail utile</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>Processeur</strong></span></td>
+<td data-label="Détail utile"><span class="td-val">Broadcom BCM2837, quadricœur <strong>~1,2 GHz</strong> (ARMv8, mode 32 bits courant)</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>Mémoire</strong></span></td>
+<td data-label="Détail utile"><span class="td-val"><strong>1 Go</strong> de RAM LPDDR2</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>Réseau</strong></span></td>
+<td data-label="Détail utile"><span class="td-val">Ethernet <strong>100 Mbit/s</strong>, Wi‑Fi <strong>802.11n</strong>, <strong>Bluetooth 4.1</strong></span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>USB</strong></span></td>
+<td data-label="Détail utile"><span class="td-val">4 ports USB 2.0</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>Vidéo</strong></span></td>
+<td data-label="Détail utile"><span class="td-val">HDMI <strong>pleine taille</strong> (pas de micro-HDMI comme sur Pi 4/5)</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>Stockage</strong></span></td>
+<td data-label="Détail utile"><span class="td-val"><strong>Carte microSD</strong> (système d’exploitation)</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val"><strong>GPIO</strong></span></td>
+<td data-label="Détail utile"><span class="td-val">40 broches (compatible nombre de châssis et « HAT »)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *En pratique* : pour du **multimédia 4K**, du **desktop** très fluide ou du **USB 3**, un **Pi 4** ou **Pi 5** est plus confortable ; pour **apprendre**, **domotique légère**, **serveur** modeste ou **robotique** à petite échelle, un Pi 3 peut encore suffire — surtout si vous l’avez déjà sous la main.
 
@@ -141,27 +169,44 @@ Avec **SSH** activé, vous avez déjà **SFTP** (SSH File Transfer Protocol) : m
 
 ## 9. Dépannage express
 
-| Symptôme | piste |
-|----------|--------|
-| **Éclair jaune** (éclair sur fond couleur) en coin d’écran | Souvent **sous-alimentation** ou câble micro-USB trop fin — tester une **alim 5 V / 2,5 A** de qualité. |
-| Écran noir au boot | Vérifier **HDMI**, parfois brancher **après** l’allumage ; essayer une autre résolution dans `raspi-config`. |
-| Pas d’IP / pas de Wi‑Fi | Câble Ethernet pour le test ; vérifier SSID / mot de passe saisis dans **Imager** ; routeur qui accepte le Pi. |
-| SSH « connection refused » | SSH non activé : brancher un écran une fois ou remonter la carte avec Imager (options avancées). |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Symptôme</th>
+<th scope="col">piste</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Symptôme"><span class="td-val"><strong>Éclair jaune</strong> (éclair sur fond couleur) en coin d’écran</span></td>
+<td data-label="piste"><span class="td-val">Souvent <strong>sous-alimentation</strong> ou câble micro-USB trop fin — tester une <strong>alim 5 V / 2,5 A</strong> de qualité.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme"><span class="td-val">Écran noir au boot</span></td>
+<td data-label="piste"><span class="td-val">Vérifier <strong>HDMI</strong>, parfois brancher <strong>après</strong> l’allumage ; essayer une autre résolution dans <code>raspi-config</code>.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme"><span class="td-val">Pas d’IP / pas de Wi‑Fi</span></td>
+<td data-label="piste"><span class="td-val">Câble Ethernet pour le test ; vérifier SSID / mot de passe saisis dans <strong>Imager</strong> ; routeur qui accepte le Pi.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme"><span class="td-val">SSH « connection refused »</span></td>
+<td data-label="piste"><span class="td-val">SSH non activé : brancher un écran une fois ou remonter la carte avec Imager (options avancées).</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 10. Pi 3 et suite du projet
 
 Une fois la **base système** stable, vous pouvez enchaîner vers des **projets code** (Python, GPIO), des **serveurs** (web, petit NAS, VPN maison), ou comparer avec un **robot éducatif tout-en-un** si l’objectif est surtout la **mécanique** et un parcours **guidé** — voir notre [comparatif Raspberry Pi ou kit robot pour ado](/raspberry-pi-ou-kit-robot-ado-guide/).
 
-## Liens Amazon (affiliation)
+## Si la carte n'est pas déjà sur le bureau
 
-Recherches indicatives (prix et vendeurs à vérifier sur la fiche) :
+Le tutoriel ci-dessus part d'un **Raspberry Pi 3 Modèle B** déjà en main. Deux fiches du relevé Amazon.fr du 9 novembre 2026, 6 h 14 :
 
-- [Raspberry Pi kit débutant](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Carte micro SD Raspberry Pi 32 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Alimentation 5V 2.5A micro USB Raspberry](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Livre Raspberry Pi débutant français](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 5 4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21) — 140,82 €. C'est la carte actuelle si vous partez de zéro, pas un Pi 3 et pas une carte mémoire. Le choix 4 Go ou 8 Go est dans [quelle mémoire pour le Pi 5](/raspberry-pi-5-quelle-version-memoire-acheter/).
+- [Alimentation officielle 5 V 2,5 A micro-USB pour le Raspberry Pi 3](https://www.amazon.fr/dp/B01CO1HZJ6?tag=manuso06-21) — 20,99 €. Elle sert au Pi 3 de ce tutoriel. Le Pi 5 utilise une autre alimentation, 27 W en USB-C, décrite sur [la page Raspberry Pi](https://www.raspberrypi.com/products/27w-power-supply/).
 
-*Partenaire Amazon — commission possible sur achats éligibles.*
+Aucune carte microSD ni aucun livre n'a de fiche vérifiée ici. *Partenaire Amazon — commission possible sur un achat éligible.*
 
 ---
 

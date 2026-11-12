@@ -16,7 +16,13 @@
       "Nombreux capteurs inclus"
     ],
     "description": "Robot éducatif parfait pour débuter la programmation",
-    "badge": "Meilleur choix 8 ans"
+    "badge": "Meilleur choix 8 ans",
+    "priceRange": "89,99 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dmbot%2Bmakeblock",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/51efkM7oo8L._SL500_.jpg"
   },
   "mbot2": {
     "id": "mbot2",
@@ -35,7 +41,13 @@
       "Très évolutif avec extensions mBuild"
     ],
     "description": "Version avancée avec support Python et fonctions IA",
-    "badge": "Meilleur choix 10 ans"
+    "badge": "Meilleur choix 10 ans",
+    "priceRange": "167,95 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dmbot2%2Bmakeblock",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/518nKZVN9sL._SL500_.jpg"
   },
   "cyberpi": {
     "id": "cyberpi",
@@ -54,7 +66,13 @@
       "Idéale pour projets IoT"
     ],
     "description": "Carte de développement éducative pour projets avancés",
-    "badge": "Choix polyvalent"
+    "badge": "Choix polyvalent",
+    "priceRange": "60 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dcyberpi%2Bmakeblock",
+    "partnerLabel": "Voir chez SparkBlocks",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=130419&awinaffid=3126073&ued=https%3A%2F%2Fsparkblocks.ca%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41+xT8XzP0L._SL500_.jpg"
   },
   "elegoo-robot-car": {
     "id": "elegoo-robot-car",
@@ -68,11 +86,17 @@
     "pros": [
       "Kit complet avec UNO R3",
       "Tutoriels détaillés en français",
-      "Contrôle Wi-Fi et caméra FPV",
+      "Suivi de ligne, ultrason et télécommande infrarouge",
       "Excellent rapport qualité-prix"
     ],
     "description": "Kit Arduino complet pour apprendre la robotique",
-    "badge": "Meilleur rapport qualité-prix"
+    "badge": "Meilleur rapport qualité-prix",
+    "priceRange": "79,99 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dkit%2Brobot%2Bprogrammable%2Barduino",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/51HWb2FqOwL._SL500_.jpg"
   },
   "elegoo-penguin": {
     "id": "elegoo-penguin",
@@ -90,7 +114,13 @@
       "Prix très accessible"
     ],
     "description": "Robot bipède ludique pour découvrir Arduino",
-    "badge": "Petit budget"
+    "badge": "Petit budget",
+    "priceRange": "40 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Drobot%2Bprogrammable%2Benfant",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41Xp5it2fmL._SL500_.jpg"
   },
   "raspberry-pi-5-4gb": {
     "id": "raspberry-pi-5-4gb",
@@ -110,7 +140,13 @@
       "Idéal pour projets avancés"
     ],
     "description": "Nano-ordinateur puissant pour robotique avancée",
-    "badge": "Recommandé"
+    "badge": "Recommandé",
+    "priceRange": "139,23 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Draspberry%2Bpi%2B5",
+    "partnerLabel": "Voir chez SparkFun",
+    "partnerUrl": "https://www.sparkfun.com/?aff=WRBz4h1uMN",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41WpP-0tXnL._SL500_.jpg"
   },
   "raspberry-pi-5-8gb": {
     "id": "raspberry-pi-5-8gb",
@@ -130,7 +166,13 @@
       "Communauté immense"
     ],
     "description": "Version 8GB pour projets gourmands en mémoire",
-    "badge": "Version avancée"
+    "badge": "Version avancée",
+    "priceRange": "209,09 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Draspberry%2Bpi%2B5",
+    "partnerLabel": "Voir chez SparkFun",
+    "partnerUrl": "https://www.sparkfun.com/?aff=WRBz4h1uMN",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41UfoxQnTDL._SL500_.jpg"
   },
   "mbot-ranger": {
     "id": "mbot-ranger",
@@ -149,7 +191,14 @@
       "Nombreux capteurs"
     ],
     "description": "Version tout-terrain du mBot avec 3 modes",
-    "badge": "Version avancée"
+    "badge": "Version avancée",
+    "priceRange": "189,99 €",
+    "prixReleveLe": "06/11/2026 11:23",
+    "amazonSearchQuery": "Makeblock mBot Ranger",
+    "modelGo": "/go/az-fr-56025dcab5/",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dmbot%2Branger%2Bmakeblock",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F"
   },
   "codey-rocky": {
     "id": "codey-rocky",
@@ -168,15 +217,22 @@
       "Parfait pour débutants"
     ],
     "description": "Robot éducatif ludique avec IA intégrée",
-    "badge": "Plus ludique"
+    "badge": "Plus ludique",
+    "priceRange": "150 €",
+    "modelGo": "/go/az-fr-8eda7036cb/",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dcodey%2Brocky%2Bmakeblock",
+    "partnerLabel": "Voir chez Eurekakids",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/51Kv5QjKw8L._SL500_.jpg"
   },
   "botley-2": {
     "id": "botley-2",
     "image": "/images/products/botley-2.webp",
     "imageAlt": "Illustration d'un petit robot de codage sans écran pour enfant, à côté d'une télécommande à flèches et de cartes de codage colorées",
-    "imageCaption": "Illustration générée par IA",
+    "imageCaption": "Botley 2.0, télécommande et cartes fléchées.",
     "name": "Learning Resources Botley 2.0",
-    "asin": "B083T5G5ZK",
+    "asin": "B083T58PKM",
     "ages": "5-9 ans",
     "languages": [
       "Télécommande à flèches",
@@ -187,7 +243,13 @@
       "Prêt à jouer",
       "Suivi de ligne et détection d'obstacle"
     ],
-    "description": "Robot de codage sans écran pour débuter dès 5 ans"
+    "description": "Robot de codage sans écran pour débuter dès 5 ans",
+    "amazonIndispo": false,
+    "priceRange": "103,20 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dbotley%2Brobot%2Bprogrammable",
+    "partnerLabel": "Voir chez Eurekakids",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F",
+    "prixReleveLe": "09/11/2026 06:14"
   },
   "code-and-go-souris": {
     "id": "code-and-go-souris",
@@ -206,7 +268,13 @@
       "Labyrinthe modulable",
       "Cartes de défis progressifs"
     ],
-    "description": "Jeu de logique avec souris robot programmable"
+    "description": "Jeu de logique avec souris robot programmable",
+    "priceRange": "68,06 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dsouris%2Brobot%2Bprogrammable",
+    "partnerLabel": "Voir chez Eurekakids",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41a8CIPkL0L._SL500_.jpg"
   },
   "elegoo-uno-super-starter": {
     "id": "elegoo-uno-super-starter",
@@ -221,7 +289,13 @@
       "Sans soudure",
       "Composants réutilisables"
     ],
-    "description": "Kit pour apprendre l'électronique Arduino"
+    "description": "Kit pour apprendre l'électronique Arduino",
+    "priceRange": "46 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dkit%2Barduino%2Bdebutant",
+    "partnerLabel": "Voir chez SparkBlocks",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=130419&awinaffid=3126073&ued=https%3A%2F%2Fsparkblocks.ca%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/51XTA1UIvWL._SL500_.jpg"
   },
   "freenove-esp32-car": {
     "id": "freenove-esp32-car",
@@ -236,7 +310,13 @@
       "Pilotage Wi-Fi par appli",
       "Suivi de ligne et évitement"
     ],
-    "description": "Voiture robot connectée à base d'ESP32"
+    "description": "Voiture robot connectée à base d'ESP32",
+    "priceRange": "69,95 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dkit%2Brobot%2Bprogrammable",
+    "partnerLabel": "Voir chez Makerfire",
+    "partnerUrl": "https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41EMt+aj4bL._SL500_.jpg"
   },
   "freenove-4wd-rpi": {
     "id": "freenove-4wd-rpi",
@@ -251,7 +331,13 @@
       "Caméra et suivi de visage",
       "Compatible Pi 5, 4, 3 B+, Zero 2 W"
     ],
-    "description": "Voiture robot Python pour Raspberry Pi (carte non incluse)"
+    "description": "Voiture robot Python pour Raspberry Pi (carte non incluse)",
+    "priceRange": "69,95 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Drobot%2Braspberry%2Bpi",
+    "partnerLabel": "Voir chez SunFounder",
+    "partnerUrl": "https://www.sunfounder.com/?ref=acxklqal",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/417x1duoSzL._SL500_.jpg"
   },
   "sunfounder-picar-x": {
     "id": "sunfounder-picar-x",
@@ -267,6 +353,12 @@
       "Projets IA et LLM",
       "Compatible Pi 5, 4, 3 B+, Zero 2 W"
     ],
-    "description": "Robot voiture IA pour Raspberry Pi (carte non incluse)"
+    "description": "Robot voiture IA pour Raspberry Pi (carte non incluse)",
+    "priceRange": "89,99 €",
+    "culturaUrl": "https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Drobot%2Braspberry%2Bpi",
+    "partnerLabel": "Voir chez SunFounder",
+    "partnerUrl": "https://www.sunfounder.com/?ref=acxklqal",
+    "prixReleveLe": "04/11/2026 14:02",
+    "imageAmazon": "https://m.media-amazon.com/images/I/41ptc+fHxaL._SL500_.jpg"
   }
 }

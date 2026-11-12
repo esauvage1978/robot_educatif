@@ -1,0 +1,244 @@
+---
+import { SVG_SCHEMES } from '../data/mbotSensorSvgSchemes.mjs';
+
+const schemesJson = JSON.stringify(SVG_SCHEMES.map((s) => ({ id: s.id, title: s.title, tags: s.tags, description: s.description })));
+const svgById = JSON.stringify(Object.fromEntries(SVG_SCHEMES.map((s) => [s.id, s.svg])));
+---
+
+<div class="msvg" data-msvg data-schemes={schemesJson} data-svgs={svgById}>
+	<div class="msvg-toolbar no-print">
+		<label>
+			Rechercher
+			<input type="search" data-msvg-search placeholder="RJ25, ultrason, mBuild…" />
+		</label>
+	</div>
+	<ul class="msvg-grid" data-msvg-grid>
+		{SVG_SCHEMES.map((s) => (
+			<li>
+				<article class="msvg-card" data-msvg-id={s.id} tabindex="0" role="button">
+					<div class="msvg-thumb" set:html={s.svg} />
+					<div class="msvg-card-body">
+						<h4>{s.title}</h4>
+						<ul class="msvg-tags">
+							{s.tags.map((t) => (
+								<li>{t}</li>
+							))}
+						</ul>
+					</div>
+				</article>
+			</li>
+		))}
+	</ul>
+	<dialog class="msvg-modal" data-msvg-dialog>
+		<div class="msvg-modal-inner">
+			<button type="button" class="msvg-close" data-msvg-close aria-label="Fermer">×</button>
+			<h3 data-msvg-modal-title></h3>
+			<p data-msvg-modal-desc></p>
+			<div class="msvg-preview" data-msvg-preview></div>
+			<button type="button" class="msvg-dl" data-msvg-download>Télécharger le SVG</button>
+		</div>
+	</dialog>
+</div>
+
+<style is:global>
+	.msvg-toolbar {
+		margin: 1rem 0;
+	}
+	.msvg-toolbar label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+		max-width: 320px;
+	}
+	.msvg-toolbar input {
+		padding: 0.5rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		font: inherit;
+		font-weight: 400;
+	}
+	.msvg-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+	.msvg-card {
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+		overflow: hidden;
+		cursor: pointer;
+		transition: box-shadow 0.15s ease;
+	}
+	.msvg-card:hover {
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+	}
+	.msvg-thumb {
+		background: #f8fafc;
+		aspect-ratio: 16 / 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem;
+	}
+	.msvg-thumb svg {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	.msvg-card-body {
+		padding: 0.75rem 1rem 1rem;
+	}
+	.msvg-card-body h4 {
+		margin: 0 0 0.35rem;
+		font-size: 0.95rem;
+	}
+	.msvg-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.msvg-tags li {
+		font-size: 0.7rem;
+		padding: 0.15rem 0.45rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #fff;
+	}
+	.msvg-modal {
+		border: none;
+		border-radius: 12px;
+		padding: 0;
+		max-width: min(92vw, 720px);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+	}
+	.msvg-modal::backdrop {
+		background: rgba(15, 23, 42, 0.55);
+	}
+	.msvg-modal-inner {
+		padding: 1.25rem 1.5rem 1.5rem;
+		position: relative;
+	}
+	.msvg-close {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.75rem;
+		border: none;
+		background: transparent;
+		font-size: 1.5rem;
+		cursor: pointer;
+		line-height: 1;
+	}
+	.msvg-preview {
+		background: #f8fafc;
+		border-radius: 8px;
+		padding: 0.75rem;
+		margin: 0.75rem 0 1rem;
+		overflow: auto;
+	}
+	.msvg-preview svg {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.msvg-dl {
+		padding: 0.55rem 1rem;
+		border-radius: 8px;
+		border: 0;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	@media print {
+		.msvg-toolbar,
+		.msvg-modal,
+		.msvg-dl {
+			display: none !important;
+		}
+	}
+</style>
+
+<script>
+	function initMsvg(root) {
+		const schemes = JSON.parse(root.dataset.schemes || '[]');
+		const svgs = JSON.parse(root.dataset.svgs || '{}');
+		const grid = root.querySelector('[data-msvg-grid]');
+		const dialog = root.querySelector('[data-msvg-dialog]');
+		const search = root.querySelector('[data-msvg-search]');
+		let currentId = '';
+
+		function renderList(filter) {
+			const q = (filter || '').toLowerCase().trim();
+			const list = schemes.filter((s) => {
+				if (!q) return true;
+				const hay = `${s.title} ${s.tags.join(' ')} ${s.description}`.toLowerCase();
+				return hay.includes(q);
+			});
+			grid.innerHTML = list
+				.map(
+					(s) => `
+				<li>
+					<article class="msvg-card" data-msvg-id="${s.id}" tabindex="0" role="button">
+						<div class="msvg-thumb">${svgs[s.id] || ''}</div>
+						<div class="msvg-card-body">
+							<h4>${s.title}</h4>
+							<ul class="msvg-tags">${s.tags.map((t) => `<li>${t}</li>`).join('')}</ul>
+						</div>
+					</article>
+				</li>`,
+				)
+				.join('');
+
+			grid.querySelectorAll('[data-msvg-id]').forEach((card) => {
+				const open = () => openModal(card.getAttribute('data-msvg-id'));
+				card.addEventListener('click', open);
+				card.addEventListener('keydown', (e) => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault();
+						open();
+					}
+				});
+			});
+		}
+
+		function openModal(id) {
+			if (!id || !svgs[id]) return;
+			currentId = id;
+			const meta = schemes.find((s) => s.id === id);
+			root.querySelector('[data-msvg-modal-title]').textContent = meta?.title || '';
+			root.querySelector('[data-msvg-modal-desc]').textContent = meta?.description || '';
+			root.querySelector('[data-msvg-preview]').innerHTML = svgs[id];
+			dialog.showModal();
+		}
+
+		root.querySelector('[data-msvg-close]')?.addEventListener('click', () => dialog.close());
+		dialog?.addEventListener('click', (e) => {
+			if (e.target === dialog) dialog.close();
+		});
+		root.querySelector('[data-msvg-download]')?.addEventListener('click', () => {
+			const svg = svgs[currentId];
+			if (!svg) return;
+			const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = `schema-mbot-${currentId}.svg`;
+			a.click();
+			URL.revokeObjectURL(url);
+		});
+
+		search?.addEventListener('input', () => renderList(search.value));
+		renderList('');
+	}
+
+	document.querySelectorAll('[data-msvg]').forEach(initMsvg);
+</script>

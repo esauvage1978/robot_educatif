@@ -1,0 +1,66 @@
+---
+/** Encadré « Notre choix » en haut des pages les plus lues depuis Google : liste choisie à la main, chaque bouton réutilise un lien marchand déjà présent dans la page (aucun prix affiché). */
+const PAGES: Record<string, [string, string][]> = {"/domotique/projets-esp32-domotique/": [["Carte ESP32-C6 DevKitC", "ESP32-C6%20DevKitC"], ["Shelly 1 Gen4 (relais Wi-Fi compatible Home Assistant)", "awinmid=121790"]], "/meilleur-robot-programmable-enfant-2026/": [["Learning Resources Botley 2.0", "B083T58PKM"], ["Makeblock mBot", "B07XR98YYQ"], ["Makeblock mBot2", "B0919F9CKS"]], "/quel-robot-acheter-enfant-12-ans-guide-achat/": [["Makeblock mBot2", "B0919F9CKS"], ["ELEGOO Smart Robot Car V4.0", "B078Y9RYM2"]], "/quel-robot-acheter-enfant-10-ans-guide-achat/": [["Makeblock mBot2", "B0919F9CKS"], ["ELEGOO Smart Robot Car V4.0", "B078Y9RYM2"]], "/quel-robot-acheter-enfant-5-ans-guide-achat/": [["Learning Resources Botley 2.0", "B083T58PKM"], ["Makeblock Codey Rocky", "B07CGH8NZ7"]], "/mbot-avis-faut-il-acheter-pour-un-enfant/": [["Makeblock mBot", "B07XR98YYQ"], ["Makeblock mBot2", "B0919F9CKS"]]};
+---
+
+<script is:inline define:vars={{ PAGES }}>
+	(function () {
+		var path = location.pathname || '/';
+		if (!/\/$/.test(path)) path += '/';
+		try { path = decodeURI(path); } catch (e) {}
+		var CFG = PAGES[path];
+		if (!CFG) return;
+		function run() {
+			if (document.querySelector('.mnz-choix')) return;
+			var root = document.querySelector('main') || document.body;
+			var h1 = root.querySelector('h1') || document.querySelector('h1');
+			if (!h1) return;
+			var items = [], links = root.querySelectorAll('a[href]');
+			CFG.forEach(function (c) {
+				for (var i = 0; i < links.length; i++) {
+					var a = links[i];
+					if (a.closest('header, nav, footer, .mnz-choix')) continue;
+					if ((a.getAttribute('href') || '').indexOf(c[1]) !== -1) {
+						items.push({ n: c[0], h: a.href, rel: a.getAttribute('rel') || 'sponsored nofollow noopener' });
+						return;
+					}
+				}
+			});
+			if (!items.length) return;
+			var lang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
+			var T = {
+				fr: ['Notre choix', 'Voir l’offre', 'Lien partenaire : le prix ne change pas pour vous.'],
+				en: ['Our pick', 'See the offer', 'Partner link: the price is the same for you.'],
+				de: ['Unsere Wahl', 'Zum Angebot', 'Partnerlink: Für Sie ändert sich der Preis nicht.'],
+				it: ['La nostra scelta', 'Vedi l’offerta', 'Link partner: il prezzo per te non cambia.'],
+				es: ['Nuestra elección', 'Ver la oferta', 'Enlace de socio: el precio no cambia para ti.'],
+				nl: ['Onze keuze', 'Bekijk het aanbod', 'Partnerlink: de prijs verandert niet voor jou.']
+			}[lang] || null;
+			if (!T) T = ['Notre choix', 'Voir l’offre', 'Lien partenaire : le prix ne change pas pour vous.'];
+			var box = document.createElement('aside');
+			box.className = 'mnz-choix';
+			box.setAttribute('aria-label', T[0]);
+			var html = '<p class="mnz-choix-t">' + T[0] + '</p><ul>';
+			items.forEach(function (it) {
+				var n = it.n.replace(/[<>&"]/g, '');
+				html += '<li><span>' + n + '</span><a href="' + it.h.replace(/"/g, '&quot;') + '" target="_blank" rel="' + it.rel.replace(/"/g, '') + '">' + T[1] + ' →</a></li>';
+			});
+			html += '</ul><p class="mnz-choix-n">' + T[2] + '</p>';
+			box.innerHTML = html;
+			h1.insertAdjacentElement('afterend', box);
+		}
+		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+		else run();
+	})();
+</script>
+<style is:global>
+	.mnz-choix{margin:.8rem 0 1rem;padding:.7rem .9rem;border:2px solid #f0a500;border-radius:10px;background:#fffaf0;color:#222;font-size:.95rem;line-height:1.35;max-width:100%;box-sizing:border-box}
+	.mnz-choix-t{margin:0 0 .4rem;font-weight:700;font-size:1rem}
+	.mnz-choix ul{list-style:none;margin:0;padding:0}
+	.mnz-choix li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .8rem;padding:.35rem 0;border-top:1px solid #f3e2bd}
+	.mnz-choix li:first-child{border-top:0}
+	.mnz-choix li span{font-weight:600;flex:1 1 12rem;min-width:0}
+	.mnz-choix li a{display:inline-block;padding:.35rem .8rem;border-radius:6px;background:#f0a500;color:#111 !important;font-weight:700;text-decoration:none;white-space:nowrap}
+	.mnz-choix li a:hover{background:#d89400}
+	.mnz-choix-n{margin:.4rem 0 0;font-size:.78rem;color:#666}
+</style>

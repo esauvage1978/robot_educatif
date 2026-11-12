@@ -1,0 +1,668 @@
+---
+title: "Temperature sensor ESP32 + ESPHome for Home Assistant: complete tutorial"
+description: "Complete tutorial: create a temperature sensor DHT22 or BME280 with ESP32 and ESPHome. Wiring, YAML code, automations, troubleshooting. DIY project step by step."
+pubDate: 2026-10-18T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 8
+lang: "en"
+frSlug: "esp32-esphome-capteur-temperature"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+Create your own **temperature sensor ESP32 + ESPHome** This step-by-step tutorial guides you from the wiring to the first automation, with explanations to understand each step and customize your sensor.
+
+## Equipment required
+
+<ProductBox
+  lang="en"
+  productId="esp32-c6-devkitc"
+  name="ESP32-C6 DevKitC"
+  searchQuery="ESP32-C6 DevKitC-1"
+  image="/images/products/esp32-c6-devkitc.webp"
+  priceRange="to check with the seller"
+  pros={[
+    'WiFi 6 + Zigbee/Thread',
+    'Compatible with ESPHome',
+    'USB-C Direct',
+    'Very economical'
+  ]}
+  badge="Recommended"
+  position={1}
+/>
+
+## Complete list of required equipment
+
+*Prices are not indicated: they vary according to shops and promotions, to be checked with the seller.*
+
+### Essential components
+
+**ESP32 DevKit**
+- **ESP32-C6-DevKitC-1** (recommended) Zigbee/Thread native, WiFi 6, low power
+- **XIAO ESP32-C6** (compact) same chip, mini size (21 17.5 mm)
+- **ESP32-S3-DevKitC-1** (alternative) no Zigbee/Thread, but WiFi stable
+
+*Why the ESP32-C6?* RISC-V chip with WiFi 6, Zigbee 3.0 and Thread native. Future-proof for Matter. Consumption 50% lower than S3 in deep sleep.
+
+*Amazon links: [ESP32-C6 DevKit](https://www.amazon.co.uk/s?k=ESP32-C6+DevKit&tag=roboteducatif-21), [XIAO ESP32-C6](https://www.amazon.co.uk/s?k=XIAO+ESP32-C6&tag=roboteducatif-21).*
+
+**Temperature + Humidity Sensor**
+- **DHT22 (AM2302)** 0.5 °C, 2% RH, 1-wire simple protocol
+- **BME280** 0.5 °C, 3% RH, **+ atmospheric pressure**, I2C, more accurate
+
+*Recommendation: BME280* for serious projects (pressure  local weather detection). DHT22 OK to start.
+
+*Amazon links: [DHT22 AM2302](https://www.amazon.co.uk/s?k=DHT22&tag=roboteducatif-21), [BME280 module](https://www.amazon.co.uk/s?k=BME280+module&tag=roboteducatif-21).*
+
+**Wiring Accessories**
+- **Breadboard 400 points** seamless prototyping
+- **Male - Male Dupont Cables** (1020 threads)
+- **Resistance 4.7 k** (optional DHT22, pull-up data) improves long-distance signal stability
+
+*Amazon link: [Breadboard + Cables Kit](https://www.amazon.co.uk/s?k=breadboard+cable+kit&tag=roboteducatif-21).*
+
+**Food**
+- **USB-C cable** (ESP32-C6) or **Micro-USB** (ESP32-S3) for flashing and 5V power
+- **USB power supply 5V 1A** if permanent connection (no PC required)
+
+### Optional material (case and advanced power supplies)
+
+**3D housing**
+- Home 3D Printing (Free Thingiverse/Printables STL)
+- ABS housing 70  50  30 mm with cutouts (available on Amazon)
+
+**Battery Power Supply** (for outdoor/nomadic sensor)
+- **Battery Li-ion 18650 3.7V** + module TP4056 (load/protection)
+- **Solar panel 6V 1W** + regulator total autonomy
+
+**Budget**: price to check at the seller. The minimum version is limited to an ESP32, a DHT22 and a few cables; case and battery are optional.
+
+## Step 1: Install ESPHome in Home Assistant
+
+**ESPHome** is a firmware system for ESP32 that automatically generates C++ code from a YAML file and integrates it with Home Assistant via native API.
+
+1. **Open Home Assistant  Settings  Add-ons  Add-ons Shop**
+2. Search for **ESPHome**
+3. Click **Install** (23 minutes)
+4. Tick **Automatic start** and **Show in sidebar**
+5. **Start**
+
+ESPHome now appears in the left sidebar of Home Assistant.
+
+**Recommended version**: ESPHome 2024.10+ (October 2026). Checks for ESP32-C6 compatibility.
+
+## Step 2: DHT22 or BME280 wiring
+
+### Variant A: DHT22 (1-wire, 3 wires)
+
+**Wiring scheme:**
+
+```
+DHT22              ESP32-C6 DevKit
+─────              ───────────────
+VCC (rouge)   →    3.3V (ou 5V)
+DATA (jaune)  →    GPIO4
+GND (noir)    →    GND
+```
+
+**Details pins ESP32-C6 DevKitC-1**:
+- **3.3V**: physical pin 1 (top left corner if USB at the bottom)
+- **GPIO4**: physical pine 5 (check on the pinout some boards vary)
+- **GND**: physical pine 2 or any GND
+
+**Pull-up resistance 4.7 k** (optional but recommended):
+- Between VCC (3.3V) and DATA (GPIO4) improves reading if cable > 20 cm
+
+**3.3V or 5V power supply?**
+- DHT22 works with both
+- **3.3V recommended**: no logic level conversion required (ESP32  3.3V logic)
+
+### Variant B: BME280 (I2C, 4 wires)
+
+**Wiring scheme:**
+
+```
+BME280             ESP32-C6 DevKit
+──────             ───────────────
+VCC (rouge)   →    3.3V
+GND (noir)    →    GND
+SDA (bleu)    →    GPIO6 (ou GPIO21 selon pinout)
+SCL (jaune)   →    GPIO7 (ou GPIO22)
+```
+
+**I2C on ESP32-C6**:
+- Default pins: SDA  GPIO6, SCL  GPIO7
+- Check your DevKit (some use GPIO21/22)
+
+**I2C address of the BME280** : `0x76` (default) or `0x77` (if SDO connected to VCC)
+- Check with an I2C scan if problem (see Troubleshooting section)
+
+**No external pull-up resistance required**: the BME280 module already includes them (10 k).
+
+### Editing on Breadboard
+
+1. **Insert ESP32** on the columns of the breadboard (allows access to both sides of the pins)
+2. **Sensor** on another area of the breadboard
+3. **Dupont Cables** to connect according to the above diagram
+
+**Security tip**: plug all wires first **except VCC**, then VCC last (avoid accidental short circuit).
+
+## Step 3: Create the ESPHome device
+
+1. **ESPHome  + New device**
+2. **Name of the device** : `capteur-salon` (minuscules, dashes, no spaces or accents)
+3. **Type of device** : select **ESP32-C6** (or ESP32-S3 depending on your card)
+4. **WiFi configuration**:
+   - SSID: name of your 2.4 GHz WiFi network (ESP32 does not support 5 GHz)
+   - Wi-Fi password
+5. **API key**: generated automatically (encryption communication HA  ESP32)
+
+**WiFi Board** : use the **2.4 GHz** only (range 50 m vs 15 m for 5 GHz). Temporarily disable AP client isolation (guest mode) if ESP32 does not connect.
+
+## Step 4: First USB flashing
+
+1. **Connecting the ESP32** USB-C to PC (the one that runs the Home Assistant browser)
+2. **ESPHome  Install  Plug into this computer**
+3. The browser asks for USB permission: **select** serial port (COM3 on Windows, /dev/ttyUSB0 on Linux)
+4. **Install**: ESPHome compiles (23 min) and flashes the firmware (30 seconds)
+
+**Status LED** (on ESP32):
+- Flashes quickly  WiFi connection in progress
+- Fixed  connected to Home Assistant
+
+**If "Failed to connect" error**:
+- Hold the button **BOOT** (on the ESP32) for 5 seconds while plugging in the USB
+- Some USB-C cables are "charge-only": test with another
+
+**Serial port not detected (Windows)**:
+- Install CP210x or CH340 driver (depending on your DevKit's USB chip): see manufacturer's website
+
+Once flashed, the ESP32 appears in **Settings Devices and Services** (Automatic ESPHome integration).
+
+## Step 5: Add the DHT22 sensor to the YAML
+
+**Return to ESPHome click on EDIT** (pencil button) of your device `capteur-salon`.
+
+**Complete YAML code DHT22**:
+
+```yaml
+# Configuration générée automatiquement
+esphome:
+  name: capteur-salon
+  friendly_name: Capteur Salon
+
+esp32:
+  board: esp32-c6-devkitc-1
+  variant: ESP32C6
+  framework:
+    type: esp-idf
+
+# WiFi
+wifi:
+  ssid: "VotreSSID"
+  password: "VotreMotDePasse"
+  
+  # Si connexion échoue, active point d'accès de secours
+  ap:
+    ssid: "Capteur-Salon"
+    password: "12345678"
+
+# API Home Assistant (chiffrée)
+api:
+  encryption:
+    key: "votre-clé-générée-automatiquement"
+
+# OTA (mise à jour sans fil)
+ota:
+  - platform: esphome
+    password: "mot-de-passe-ota-généré"
+
+# Logs via WiFi (debug)
+logger:
+  level: INFO
+
+# Capteur DHT22
+sensor:
+  - platform: dht
+    pin: GPIO4
+    model: DHT22
+    temperature:
+      name: "Température Salon"
+      id: temp_salon
+      accuracy_decimals: 1
+      filters:
+        - offset: -0.5  # Calibration si nécessaire
+        - sliding_window_moving_average:
+            window_size: 3
+            send_every: 1
+    humidity:
+      name: "Humidité Salon"
+      id: hum_salon
+      accuracy_decimals: 0
+      filters:
+        - offset: 0
+    update_interval: 60s
+
+# Signal WiFi (optionnel, utile pour diagnostiquer portée)
+  - platform: wifi_signal
+    name: "Signal WiFi Capteur Salon"
+    update_interval: 120s
+
+# Uptime (temps depuis dernier redémarrage)
+  - platform: uptime
+    name: "Uptime Capteur Salon"
+    update_interval: 300s
+
+# Bouton redémarrage (depuis HA)
+button:
+  - platform: restart
+    name: "Redémarrer Capteur Salon"
+```
+
+**Explanations of the code**:
+
+- **`pin: GPIO4`** DHT22 DATA pin
+- **`model: DHT22`** Changed to `DHT11` if you have a DHT11 (less accurate)
+- **`accuracy_decimals: 1`** : displays 21.4 °C (1 decimal place)
+- **`filters: offset`** : adjustment calibration (+/- value if deviation noted)
+- **`sliding_window_moving_average`** : sliding average over 3 measurements (smooth sudden variations)
+- **`update_interval: 60s`** : playback every 60 seconds (do not go down under 2 seconds for DHT22, risk freeze)
+
+**Save** and **Install Wirelessly** (OTA): The firmware is updated without a cable (30 seconds).
+
+## Step 6: BME280 (I2C) variant
+
+If you use a BME280, **Replace the section `sensor:`** from YAML by:
+
+```yaml
+# I2C
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: true  # Affiche l'adresse I2C détectée dans les logs
+
+sensor:
+  - platform: bme280_i2c
+    temperature:
+      name: "Température Salon"
+      id: temp_salon
+      oversampling: 16x
+      accuracy_decimals: 1
+    humidity:
+      name: "Humidité Salon"
+      id: hum_salon
+      oversampling: 16x
+      accuracy_decimals: 0
+    pressure:
+      name: "Pression Atmosphérique Salon"
+      id: pression_salon
+      accuracy_decimals: 1
+    address: 0x76
+    update_interval: 60s
+```
+
+**Differences BME280**:
+- `oversampling: 16x`: better accuracy (0.5 °C  0.2 °C on average)
+- `pressure`: pressure in hPa (hectopascals) drop  probable rain, rise  good weather
+- `address: 0x76`: change to `0x77` if your module uses this address
+
+**Test the I2C address** : see the ESPHome logs after installation (the `scan: true` displays the detected devices).
+
+## Step 7: Integration into Home Assistant
+
+After OTA installation, the ESP32 automatically creates:
+
+**Entities** (Visible in **Parameters Devices ESPHome Living room sensor**) :
+- `sensor.temperature_salon` (°C)
+- `sensor.humidite_salon` (%)
+- `sensor.signal_wifi_capteur_salon` (dBm)
+- `sensor.uptime_capteur_salon` (seconds)
+
+**Add to Dashboard**:
+
+1. **Overview  Change the dashboard**
+2. **+ Add a card  Entities**
+3. Select `sensor.temperature_salon` and `sensor.humidite_salon`
+4. Customize icons: `mdi:thermometer` (temperature), `mdi:water-percent` (humidity)
+
+**Historical graphic card**:
+
+```yaml
+type: history-graph
+entities:
+  - sensor.temperature_salon
+  - sensor.humidite_salon
+hours_to_show: 24
+refresh_interval: 0
+```
+
+## Step 8: Automation with the sensor
+
+### Automation 1: Heating if temperature  19 °C
+
+**Scenario**: turn on a connected radiator (Zigbee socket) when the temperature drops below 19 °C between 6am and 10pm.
+
+```yaml
+automation:
+  - alias: "Chauffage salon automatique"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_salon
+        below: 19
+    condition:
+      - condition: time
+        after: "06:00:00"
+        before: "22:00:00"
+      - condition: state
+        entity_id: binary_sensor.presence_salon
+        state: "on"  # Optionnel : ne chauffer que si présence
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.prise_radiateur_salon
+      - service: notify.mobile_app_mon_telephone
+        data:
+          title: "🔥 Chauffage activé"
+          message: "Température salon : {{ states('sensor.temperature_salon') }}°C"
+```
+
+**Automatic shutdown at 21 °C**:
+
+```yaml
+automation:
+  - alias: "Arrêt chauffage salon 21°C"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_salon
+        above: 21
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.prise_radiateur_salon
+```
+
+### Automation 2: Excessive Humidity Alert (>70%)
+
+**Scenario**: notification if humidity > 70% for 1 hour (mould risk).
+
+```yaml
+automation:
+  - alias: "Alerte humidité salon"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.humidite_salon
+        above: 70
+        for: "01:00:00"
+    action:
+      - service: notify.mobile_app_mon_telephone
+        data:
+          title: "💧 Humidité excessive"
+          message: "Salon : {{ states('sensor.humidite_salon') }}% — aérer 10 minutes"
+```
+
+### Automation 3: Save min/max daily
+
+Create template sensors that retain the extreme values of the day.
+
+```yaml
+template:
+  - sensor:
+      - name: "Living room min temperature today"
+        state: >
+          {{ state_attr('sensor.temperature_salon', 'min_value') | default(99) | round(1) }}
+        unit_of_measurement: "°C"
+      - name: "Living room max temperature today"
+        state: >
+          {{ state_attr('sensor.temperature_salon', 'max_value') | default(-99) | round(1) }}
+        unit_of_measurement: "°C"
+
+automation:
+  - alias: "Reset min/max température 00:00"
+    trigger:
+      - platform: time
+        at: "00:00:00"
+    action:
+      - service: input_number.set_value
+        target:
+          entity_id: input_number.temp_min_reset
+        data:
+          value: 99
+```
+
+*(Advanced configuration: use Min/Max or History Stats integration for accurate data.)*
+
+## Step 9: Dashboard and visualization
+
+**Custom Thermostat Card** (Gauge type):
+
+```yaml
+type: gauge
+entity: sensor.temperature_salon
+name: Température Salon
+min: 10
+max: 30
+severity:
+  green: 18
+  yellow: 15
+  red: 10
+```
+
+**Temperature + Humidity combo card** (type entities):
+
+```yaml
+type: entities
+title: Climat Salon
+entities:
+  - entity: sensor.temperature_salon
+    name: Température
+    icon: mdi:thermometer
+  - entity: sensor.humidite_salon
+    name: Humidité
+    icon: mdi:water-percent
+  - entity: sensor.pression_atmospherique_salon  # Si BME280
+    name: Pression
+    icon: mdi:gauge
+```
+
+## Troubleshooting: 5 Common Problems
+
+### Problem 1: ESP32 does not connect to WiFi
+
+**Symptoms**:
+- LED flashes quickly indefinitely
+- ESPHome logs: `WiFi connection failed` or `Authentication timeout`
+
+**Causes**:
+- WiFi 5 GHz instead of 2.4 GHz
+- SSID or incorrect password (spaces, capitals)
+- AP Client Insulation Enabled (Guest Mode)
+- Router too far (> 50 m or 3 thick walls)
+
+**Solutions**:
+1. Verify that the router is transmitting a network **2.4 GHz** (not just 5 GHz)
+2. **Retype manually** SSID and password in the YAML (copy-paste can add invisible characters)
+3. Disable **AP Insulation / Guest Mode** temporarily on the router
+4. Connect the ESP32 to the router ( 10 m) for the initial test
+5. If failed: activate the emergency access point (section `ap:` in the YAML) and connect to WiFi `Capteur-Salon` with password `12345678` ESPHome config portal appears
+
+### Problem 2: DHT22 returns "NaN" (no value)
+
+**Symptoms**:
+- Home Assistant displays `unknown` or `unavailable`
+- Logs ESPHome: `Invalid reading from DHT sensor`
+
+**Causes**:
+- Incorrect wiring (DATA not on inverted GPIO4 or VCC/GND)
+- Defective DHT22 (5% of AliExpress cheap DHT22 are DOA)
+- No pull-up resistance on cable > 50 cm
+- `update_interval` too short ( 2 seconds)
+
+**Solutions**:
+1. **Check cabling** : DATA GPIO4, VCC 3.3V, GND GND
+2. **Test with another pin** : change `pin: GPIO4` in `pin: GPIO5` in the YAML
+3. **Add resistance 4.7 k** between VCC and DATA (or 10 k)
+4. **Increase `update_interval`** : go from 60s to 120s (DHT22 does not like frequent readings)
+5. **Measuring voltage VCC** : must be 3.23.4V (if 2.8V ESP32 underpowered, change USB cable)
+
+### Problem 3: BME280 not detected (I2C)
+
+**Symptoms**:
+- Logs: `I2C device not found at address 0x76`
+- Absent temperature/humidity entities
+
+**Causes**:
+- Bad pinout SDA/SCL (confusion GPIO6/GPIO21)
+- Incorrect I2C address (0x76 vs 0x77)
+- Defective short circuit or cable
+
+**Solutions**:
+1. **Enable I2C Scan** : add `scan: true` in the section `i2c:` and check the logs (displays detected addresses)
+2. **Test address 0x77**: change `address: 0x76` to `address: 0x77` in the YAML
+3. **Check pinout**: Some ESP32-C6s use GPIO21 (SDA) and GPIO22 (SCL) instead of GPIO6/7
+4. **Measuring Signals** : with a multimeter, check that SDA and SCL have 3.3V at rest (pull-up active)
+5. **Test module BME280 separately**: plug into an Arduino Uno with Adafruit_BME280 library (removes ESP32 doubt)
+
+### Problem 4: Incorrect temperature values (+5 °C difference)
+
+**Symptoms**:
+- Sensor displays 25 °C, thermometer reference indicates 20 °C
+- Constant deviation (not fluctuating)
+
+**Causes**:
+- Self-heating ESP32 (Active Wi-Fi  +2 °C)
+- Sensor too close to a heat source (ESP32, power supply)
+- Calibration Approximate Factory
+
+**Solutions**:
+1. **Move DHT22 away from ESP32**: use 2030 cm Dupont cables (or extension cord)
+2. **Add deep sleep** (advanced): ESP32 wakes up 10 seconds to read sensor, renders 5 minutes economy + no warm-up
+3. **Calibrate with offset**: in the YAML, adjust `filters: - offset: -2.0` (if sensor reads 2 °C too much)
+4. **Compare with medical thermometer** (precise 0.1 °C) in a glass of water at room temperature
+
+### Problem 5: OTA Updates Fail
+
+**Symptoms**:
+- ESPHome: `Failed to connect to capteur-salon.local`
+- Unable to install new version without USB cable
+
+**Causes**:
+- mDNS blocked (some routers filter Hello/Avahi)
+- Firewall blocks OTA port (6053)
+- ESP32 crashed (infinite loop in custom code)
+
+**Solutions**:
+1. **Using Direct IP** : in ESPHome, edit the device and replace `capteur-salon.local` by `192.168.1.42` (your ESP32 IP)
+2. **Disable firewall temporarily**: test with Windows Firewall off
+3. **Add `use_address`** in the YAML (fixed IP force):
+   yaml
+   Wi-Fi:
+     use_address: 192.168.1.42
+   ```
+4. **USB Flasher as a last resort**: reconnect the ESP32 and install via "Plug into this computer"
+
+## Advanced options: case and battery power supply
+
+### 3D printed housing
+
+**Recommended models (Printables/Thingiverse)**:
+- "ESP32 DHT22 enclosure": box 80  60  40 mm with vents
+- "BME280 weather station case": IP44 outdoor enclosure (PLA+)
+
+**Printing Tips** :
+- Material: **PETG** (UV and heat resistant > PLA)
+- Infill 20%, supports on cutouts
+- Leave **23 ventilation holes** for air circulation (if not self-heating +3 °C)
+
+### Li-ion battery power supply
+
+**For mobile or outdoor sensors with no nearby WiFi**.
+
+**Additional equipment**:
+- Battery 18650 (3.7V 3000 mAh)
+- TP4056 module (load + protection)
+- 3.3V regulator (AMS1117 or LDO)
+- Solar panel 6V 1W (optional)
+
+**Wiring battery ESP32** :
+```
+Batterie 18650 → TP4056 OUT+ → AMS1117 IN → AMS1117 OUT → ESP32 3.3V
+                 TP4056 OUT- → GND → ESP32 GND
+Panneau solaire → TP4056 IN+ / IN-
+```
+
+**Autonomy** : 3000 mAh 80 mA (ESP32-C6 WiFi active) **37 hours continuously**.
+
+**Improve autonomy with deep sleep**:
+
+```yaml
+deep_sleep:
+  id: deep_sleep_capteur
+  run_duration: 10s  # Réveil 10 secondes
+  sleep_duration: 5min  # Dort 5 minutes
+
+# Lire capteur au réveil
+sensor:
+  - platform: dht
+    # ... config DHT22 ...
+    on_value:
+      then:
+        - deep_sleep.enter: deep_sleep_capteur
+```
+
+**Autonomy with deep sleep** : 3000 mAh (80 mA 10s + 0.01 mA 290s) / 300s **34 months** (!).
+
+### Outdoor use (garden, greenhouse)
+
+**DHT22 is not waterproof** (IP20) **Add Protection** :
+
+- **Case Stevenson screen DIY** : white box with louvers (air circulation, shade)
+- **Module BME280 IP65**: exists in protected version (Gore-Tex membrane)
+- **Waterproof cable**: heat-shrinkable sheath on connections
+
+**Temperature limits**:
+- DHT22: -40 to +80 °C (OK winter France)
+- BME280: -40 to +85 °C
+- ESP32-C6: -40 to +105 °C (resistant chip)
+
+## FAQ
+
+**What is the difference between ESP32-C6, S3 and original ESP32?**
+**ESP32-C6**: RISC-V chip, WiFi 6, Zigbee/Thread, 20 mA standby (2026, better). **ESP32-S3**: dual-core Xtensa, not Zigbee, 40 mA standby, more GPIO (2022). **ESP32 original**: 2016, WiFi 4, 80 mA standby (obsolete). For smart home 2026: **C6 recommended**.
+
+**DHT22 or BME280, which one to choose?**
+****DHT22****: easy (1-wire), accuracy OK (0.5 °C). ****BME280****: I2C, accuracy  (0.2 °C with oversampling), atmospheric pressure bonus. For serious project: BME280. To test: DHT22.
+
+**Does the ESP32 consume a lot on standby?**
+**ESP32-C6 Active WiFi**: 80 mA  3.3V  260 mW. On 3000 mAh battery: 37h. **With deep sleep**: 0.01 mA  3 months. On USB: negligible (2 kWh/year  0.40 ). Pure beginner Zigbee: battery  1 year.
+
+**Can multiple ESP32 sensors be used in the same house?**
+Yes, create an ESPHome device by ESP32 (different names: `capteur-salon`, `capteur-chambre`, etc.). Limit: WiFi (50 clients on conventional router). Tip: 1 ESP32 with **Multiple sensors Dallas DS18B20** (1-wire bus) 10 sensors on 1 ESP32.
+
+**Does ESPHome work without Home Assistant?**
+Yes (API standalone), but **Recommended with HA** for dashboard and automation. Alternative: MQTT Node-RED / Domoticz. ESPHome firmware ESP32, HA interface.
+
+**How to secure the ESPHome API (prevent external access)?**
+L'**`encryption: key`** already encrypts HA communications ESP32. To block LAN access: add **`password: "secret"`** in Section `api:`. Router firewall: block external port 6053 (do not expose to the Internet, no port-forwarding).
+
+<div class="shelly-encart">
+<p><strong>In addition to your montages</strong> To control lighting from an undercarriage box: <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fproducts%2Fshelly-1-mini-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1 Mini Gen4" data-placement="encart_esphome">Shelly 1 Mini Gen4, small relay module</a> ; with power measurement: <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fproducts%2Fshelly-1pm-mini-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1PM Mini Gen4" data-placement="encart_esphome">Shelly 1PM Mini Gen4</a>.</p>
+<p class="shelly-encart-note">Affiliate link: if you buy via this link, the site may collect a commission, at no extra cost to you.</p>
+</div>
+
+## To go further
+
+- [10 projects ESP32 smart home](/en/smart-home/esp32-smart-home-projects/): relay, RGB LED, OLED screen, PIR
+- [Zigbee temperature sensor](/en/smart-home/zigbee-temperature-sensor/): alternative without wiring (battery, plug & play)
+- [Install Home Assistant on Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/): create the smart home controller
+- [Connected plug Zigbee](/en/smart-home/smart-plugs-uk-us/): automate radiator with this sensor
+- [Home automation hub](/en/smart-home/): back home section
+
+---
+
+*Affiliation: Amazon links with tag manuso06-21, commission 3% category Electronics. Price October 2026, indicative. Our selection based on research, without physical tests.*
+
+## To go further
+
+- [Open your garage door from your smartphone with an ESP32 and ESPHome](/en/smart-home/garage-door-smartphone-esp32-esphome/)
+- [BME280 weather station on Raspberry Pi with history](/en/smart-home/raspberry-pi-weather-station-bme280/)

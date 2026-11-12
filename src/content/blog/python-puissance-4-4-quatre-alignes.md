@@ -2,25 +2,29 @@
 title: "Puissance 4 en Python (4/6) — détecter quatre alignés"
 description: "Console, compte_direction et victoire ; test automatique + partie avec arret sur gagnant ; .py telechargeable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 4
 tags: ["Python", "Programmation", "Projet"]
 relatedLinks:
+  - title: "Hub Puissance 4 (6 parties)"
+    href: "/programmation/puissance-4/"
   - title: "Partie 3 — alternance"
     href: "/python-puissance-4-3-coup-alternance/"
   - title: "Partie 5 — match nul"
     href: "/python-puissance-4-5-match-nul/"
+  - title: "Parcours Python"
+    href: "/programmation/python/"
 categories:
   - "Python"
   - "Programmation"
   - "Puissance 4"
   - "Projet"
 ---
-On teste les **quatre directions** (horizontal, vertical, deux diagonales) à partir de la **dernière case jouée** : on compte les pions consécutifs du même joueur dans chaque sens sur un axe.
+On teste les **quatre directions** (horizontal, vertical, deux diagonales) à partir de la **dernière case jouée** : on compte les pions consécutifs du même joueur dans chaque sens sur un axe. Ce chapitre appartient au [projet Puissance 4](/programmation/puissance-4/) (six parties) ; prérequis : [partie 3 — alternance](/python-puissance-4-3-coup-alternance/).
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Réponse rapide** — Ajoute `compte_direction` puis `victoire` : pour chaque axe, additionne les pions dans les deux sens et soustrais 1 (double compte du dernier pion). Si `total >= 4`, la partie s’arrête.
 
 ## 1. Compter dans une direction
 
@@ -203,7 +207,3 @@ if __name__ == "__main__":
 ## Suite
 
 [Partie 5 — Match nul, messages et fin de partie](/python-puissance-4-5-match-nul/).
-
-## Amazon (partenaire)
-
-- [Structures de données Python](https://www.amazon.fr/s?k=structures+de+donn%C3%A9es+python&tag=manuso06-21)

@@ -1,0 +1,188 @@
+---
+/**
+ * Grille des projets ESP32 (cartes cliquables : titre, niveau, durée, budget, mini schéma de principe).
+ * Alimentée par src/data/esp32Projects : ajouter un projet au registre suffit à le faire apparaître.
+ */
+import { withBase } from '../lib/siteUrl';
+import { ESP32_TUTORIALS, listProjects } from '../data/esp32Projects/index.mjs';
+import { UI } from '../data/esp32Projects/ui.mjs';
+import { principleSvg } from '../data/esp32Projects/wiring.mjs';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+	/** Affiche aussi la liste des 4 tutos transverses sous la grille. */
+	showTutorials?: boolean;
+}
+
+const { lang, showTutorials = true } = Astro.props;
+const ui = UI[lang];
+
+const cards = listProjects().map((project) => {
+	const loc = project.locales[lang];
+	return {
+		id: project.id,
+		href: withBase(project.paths[lang]),
+		title: loc.h1,
+		level: ui.levels[project.level],
+		levelKey: project.level,
+		duration: `${project.durationHours} ${ui.hoursUnit}`,
+		budget: project.budgetRange[lang],
+		svg: principleSvg({ boxes: project.wiring.principleBoxes[lang], caption: `${ui.principleTitle} : ${loc.h1}`, compact: true }),
+	};
+});
+---
+
+<section class="esp-hub" aria-labelledby="esp-hub-grid-title">
+	<h2 id="esp-hub-grid-title">{ui.hubGridTitle}</h2>
+	<ul class="esp-hub-grid">
+		{
+			cards.map((card) => (
+				<li class={`esp-card esp-card--${card.levelKey}`}>
+					<div class="esp-card-svg"><Fragment set:html={card.svg} /></div>
+					<h3>
+						<a href={card.href}>{card.title}</a>
+					</h3>
+					<dl class="esp-card-meta">
+						<div>
+							<dt>{ui.metaLevel}</dt>
+							<dd>{card.level}</dd>
+						</div>
+						<div>
+							<dt>{ui.metaDuration}</dt>
+							<dd>{card.duration}</dd>
+						</div>
+						<div>
+							<dt>{ui.metaBudget}</dt>
+							<dd>{card.budget}</dd>
+						</div>
+					</dl>
+					<span class="esp-card-cta" aria-hidden="true">{ui.cardCta} →</span>
+				</li>
+			))
+		}
+	</ul>
+	<p class="esp-hub-note">{ui.budgetNote}</p>
+
+	{
+		showTutorials && (
+			<>
+				<h2 id="tutos-esp32">{ui.hubTutorialsTitle}</h2>
+				<p>{ui.hubTutorialsLead}</p>
+				<ul class="esp-hub-tutos">
+					{ESP32_TUTORIALS.map((tuto) => (
+						<li>
+							<a href={withBase(tuto.paths[lang])}>{tuto.title[lang]}</a>
+							<span>{tuto.short[lang]}</span>
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+</section>
+
+<style>
+	.esp-hub-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+		list-style: none;
+		margin: 1rem 0;
+		padding: 0;
+	}
+	.esp-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		padding: 0.8rem;
+		border: 1px solid #cbd5e1;
+		border-top: 4px solid #0f766e;
+		border-radius: 12px;
+		background: #fff;
+		color: #0f172a;
+		transition: box-shadow 0.15s ease, transform 0.15s ease;
+	}
+	.esp-card--intermediate {
+		border-top-color: #1d4ed8;
+	}
+	.esp-card--advanced {
+		border-top-color: #b45309;
+	}
+	.esp-card:hover,
+	.esp-card:focus-within {
+		box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+		transform: translateY(-2px);
+	}
+	.esp-card-svg :global(svg) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.esp-card h3 {
+		margin: 0;
+		font-size: 1.05rem;
+		line-height: 1.3;
+	}
+	.esp-card h3 a {
+		color: inherit;
+		text-decoration: none;
+	}
+	.esp-card h3 a::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 12px;
+	}
+	.esp-card h3 a:focus-visible::after {
+		outline: 3px solid #0f766e;
+		outline-offset: 2px;
+	}
+	.esp-card-meta {
+		display: grid;
+		gap: 0.2rem;
+		margin: 0;
+		font-size: 0.9rem;
+	}
+	.esp-card-meta div {
+		display: flex;
+		gap: 0.4rem;
+	}
+	.esp-card-meta dt {
+		font-weight: 700;
+		min-width: 5.2rem;
+	}
+	.esp-card-meta dd {
+		margin: 0;
+	}
+	.esp-card-cta {
+		margin-top: auto;
+		font-weight: 700;
+		color: #0f766e;
+	}
+	.esp-hub-note {
+		font-size: 0.9rem;
+		color: #475569;
+	}
+	.esp-hub-tutos {
+		list-style: none;
+		margin: 0.5rem 0 1rem;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	.esp-hub-tutos li {
+		display: flex;
+		flex-direction: column;
+		padding: 0.65rem 0.9rem;
+		border: 1px solid #cbd5e1;
+		border-radius: 10px;
+	}
+	.esp-hub-tutos span {
+		font-size: 0.9rem;
+		color: #475569;
+	}
+	
+	
+	
+</style>

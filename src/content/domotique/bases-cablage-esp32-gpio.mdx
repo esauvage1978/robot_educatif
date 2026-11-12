@@ -1,0 +1,98 @@
+---
+title: "Câblage ESP32 : GPIO, 3,3 V et pull-up"
+description: "Câbler un ESP32-C6 sans l’abîmer : 3,3 V, broches à éviter, pull-up, résistance LED, masse commune et test. Matériel, schéma GPIO, YAML ESPHome et Home Ass"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+---
+
+Câbler un ESP32, une petite carte électronique équipée du Wi-Fi, demande de respecter quelques règles simples, mais en ignorer une seule suffit à griller une broche ou à obtenir des mesures instables. Ce tutoriel rassemble les bases utiles aux [projets ESP32 du site](/domotique/projets-esp32-domotique/), avec l'ESP32-C6-DevKitC-1 comme carte de référence. Vous y apprendrez ce que sont les GPIO, les broches métalliques alignées sur le bord de la carte, comment choisir la bonne, et comment brancher en sécurité un bouton et une LED.
+
+**Résultat attendu :** savoir choisir une broche, brancher un bouton et une LED sans risque, et tester le montage avec ESPHome. **Durée :** 30 minutes. **Difficulté :** débutant.
+
+## Règle n°1 : les broches fonctionnent en 3,3 V
+
+Les broches GPIO de l'ESP32-C6 travaillent en **3,3 V** et ne tolèrent pas 5 V. Brancher la sortie 5 V d'un capteur directement sur une entrée peut l'endommager. Deux solutions : alimenter le capteur en 3,3 V s'il l'accepte, ou abaisser son signal avec un **convertisseur de niveau** ou un **diviseur de tension** (deux résistances, par exemple 10 kΩ et 20 kΩ pour passer de 5 V à environ 3,3 V).
+
+Chaque broche ne fournit qu'un courant limité : visez au plus **une dizaine de milliampères** et ne dépassez jamais les valeurs de la fiche technique Espressif. Pour une charge plus importante (relais, bande LED, moteur), utilisez un module prévu pour cela alimenté séparément, avec une **masse commune** au microcontrôleur.
+
+## Quelles broches utiliser sur l'ESP32-C6-DevKitC-1 ?
+
+| Broches | Remarque | Usage conseillé |
+|---|---|---|
+| GPIO0 à GPIO3, GPIO6, GPIO7, GPIO10, GPIO11, GPIO18 à GPIO23 | Libres au démarrage | Entrées, sorties, I²C, UART |
+| GPIO0 à GPIO6 | Peuvent lire une tension analogique (ADC) | Sondes analogiques |
+| GPIO4, GPIO5, GPIO8, GPIO9, GPIO15 | Broches de configuration au démarrage ; GPIO8 pilote la LED RVB de la carte, GPIO9 est le bouton BOOT | À éviter, ou à utiliser avec précaution |
+| GPIO12, GPIO13 | Liaison USB native | À laisser libres |
+| GPIO16, GPIO17 | Console série (UART0) | À laisser libres |
+
+Cette liste suit la documentation Espressif de la carte ; vérifiez-la pour une autre carte (XIAO ESP32C6 par exemple), dont les broches portent d'autres numéros.
+
+## Résistances de rappel (pull-up) et entrées
+
+Une entrée qui n'est reliée à rien « flotte » et lit des valeurs aléatoires. Une **résistance de rappel** la fixe à un niveau connu. L'ESP32 possède des résistances internes activables dans ESPHome :
+
+```yaml
+binary_sensor:
+  - platform: gpio
+    name: "Bouton test"
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP      # niveau haut au repos
+      inverted: true          # appui = ON
+    filters:
+      - delayed_on: 50ms      # antirebond
+      - delayed_off: 50ms
+```
+
+Le bouton est branché entre GPIO10 et GND : au repos la broche lit 3,3 V, à l'appui elle lit 0 V. Les résistances internes sont assez faibles ; pour un câble de plus de quelques mètres, ajoutez une résistance externe de 10 kΩ vers 3V3.
+
+## Brancher une LED avec sa résistance
+
+Une LED sans résistance tire trop de courant. Le calcul est simple : R = (3,3 V − tension de la LED) ÷ courant voulu. Pour une LED rouge d'environ 2 V à 5 mA : (3,3 − 2) ÷ 0,005 = 260 Ω, donc une **résistance de 330 Ω** convient. Montez GPIO18 → résistance → anode (patte longue) → cathode → GND.
+
+```yaml
+output:
+  - platform: gpio
+    pin: GPIO18
+    id: led_out
+
+light:
+  - platform: binary
+    name: "LED test"
+    output: led_out
+```
+
+Ces deux extraits n'ont pas été exécutés sur une carte pour cet article ; ils reprennent la syntaxe standard de la documentation ESPHome.
+
+## Les autres règles à connaître
+
+- **Masse commune** : tous les modules reliés au microcontrôleur doivent partager le GND, sinon les signaux n'ont pas de référence.
+- **Polarité** : une inversion de + et − détruit souvent le composant. Contrôlez avec le marquage ou la fiche.
+- **Bus I²C** : SDA et SCL reçoivent des résistances de rappel (déjà présentes sur la plupart des modules) ; chaque appareil a une adresse. L'option `scan: true` les liste.
+- **Charges inductives** (relais, électrovannes, moteurs) : ajoutez une diode de roue libre pour les charges en courant continu.
+- **230 V** : ne reliez jamais le secteur à une broche, à une carte d'essai ou à un module sans protection. Les montages secteur relèvent d'un électricien.
+
+## Méthode de test en quatre étapes
+
+1. **Montez sur plaque d'essai** avant de souder.
+2. **Contrôlez au multimètre** : continuité des liaisons, absence de court-circuit entre 3V3 et GND, hors tension.
+3. **Branchez un seul composant à la fois** et testez-le avant d'ajouter le suivant.
+4. **Lisez les journaux ESPHome** si un composant ne répond pas.
+
+**Vérification :** dans Home Assistant, « Bouton test » passe à « on » quand vous appuyez, et « LED test » allume la LED.
+
+## Problèmes fréquents
+
+| Symptôme | Cause probable | Solution |
+|---|---|---|
+| La carte ne démarre plus après un branchement | Un composant tire une broche de configuration | Débranchez GPIO4, 5, 8, 9 ou 15, ou changez de broche |
+| Entrée qui change toute seule | Broche flottante ou câble long | Pull-up interne ou externe, câble plus court |
+| LED très faible ou éteinte | Polarité inversée ou résistance trop forte | Inversez la LED, essayez 220 à 330 Ω |
+| Valeurs analogiques instables | Alimentation bruitée ou broche non ADC | Utilisez GPIO0 à GPIO6, ajoutez un filtre `median` |
+| Composant chaud | Court-circuit ou mauvaise polarité | Débranchez immédiatement et revérifiez |
+
+Pour aller plus loin : [flasher une carte](/domotique/flasher-code-esp32-esphome/) et [mettre à jour sans câble](/domotique/mises-a-jour-ota-esphome/). Documentation officielle : [ESP32-C6-DevKitC-1, Espressif](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html).
+
+<small>Mis à jour le 30 octobre 2026. Vérifiez les numéros de broches de votre carte avant tout câblage.</small>

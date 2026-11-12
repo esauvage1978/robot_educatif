@@ -1,0 +1,23 @@
+---
+/** Bandeau pays francophones limitrophes (BE, CH, LU, MC). */
+const path = Astro.url.pathname;
+const onHub = /^\/(belgique|suisse|luxembourg|monaco)\/?/.test(path);
+---
+{onHub && (
+  <div class="francophone-bandeau" role="navigation" aria-label="Guides francophones limitrophes">
+    <div class="wrap">
+      <span>Guides :</span>
+      <a href="/belgique/" aria-current={path.startsWith('/belgique') ? 'page' : undefined}>🇧🇪 Belgique</a>
+      <a href="/suisse/" aria-current={path.startsWith('/suisse') ? 'page' : undefined}>🇨🇭 Suisse</a>
+      <a href="/luxembourg/" aria-current={path.startsWith('/luxembourg') ? 'page' : undefined}>🇱🇺 Luxembourg</a>
+      <a href="/monaco/" aria-current={path.startsWith('/monaco') ? 'page' : undefined}>🇲🇨 Monaco</a>
+      <a href="/">🇫🇷 France</a>
+    </div>
+  </div>
+)}
+<style>
+  .francophone-bandeau { background: var(--surface-2, #f4f4f5); border-bottom: 1px solid rgba(0,0,0,.08); font-size: .88rem; }
+  .francophone-bandeau .wrap { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; padding: .45rem 1rem; max-width: 72rem; margin: 0 auto; }
+  .francophone-bandeau a { color: inherit; text-decoration: none; font-weight: 600; }
+  .francophone-bandeau a[aria-current="page"] { text-decoration: underline; }
+</style>

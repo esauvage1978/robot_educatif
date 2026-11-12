@@ -28,3 +28,13 @@ pnpm-debug.log*
 
 # Installateur mBlock (binaire > limite GitHub 100 Mo — déploiement manuel / hébergement externe)
 public/capture/installer-mblock-5-sous-windows-10/*.exe
+
+# Local Node toolchain for builds
+.tools/
+
+public/cron/historique.json
+public/cron/*.tmp
+prive/
+
+# Sauvegardes locales
+*.bak-*

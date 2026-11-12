@@ -1,0 +1,338 @@
+---
+import { withBase } from '../lib/siteUrl';
+import { domotiquePath } from '../lib/domotiqueI18n.mjs';
+import { SMART_HOME_TOOL_PATHS } from '../lib/smartHomeToolPaths.mjs';
+
+interface Props {
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang = 'fr' } = Astro.props;
+
+const installHref =
+	lang === 'fr'
+		? '/domotique/home-assistant-raspberry-pi-5-installation/'
+		: domotiquePath(lang, 'home-assistant-raspberry-pi-5-installation');
+
+const projectHref =
+	lang === 'fr'
+		? '/domotique/configurateur-projet-domotique/'
+		: domotiquePath(lang, 'ouvrir-porte-garage-smartphone-esp32-esphome');
+
+const copy = {
+	fr: {
+		title: 'La maison connectée',
+		lead: 'Quatre entrées pour démarrer, installer, lancer un projet ou dépanner.',
+		all: 'Tous les guides domotique',
+		hub: '/domotique/',
+		cards: [
+			{
+				kicker: 'Débuter',
+				title: 'Comprendre avant d’acheter',
+				text: 'Zigbee, Wi-Fi et un budget de départ, avant de choisir une box.',
+				cta: 'Guide débutant',
+				href: '/domotique/debuter-domotique-par-ou-commencer/',
+			},
+			{
+				kicker: 'Installer',
+				title: 'Home Assistant sur Raspberry Pi 5',
+				text: 'Image à flasher, alimentation et premier tableau de bord.',
+				cta: 'Voir l’installation',
+				href: installHref,
+			},
+			{
+				kicker: 'Un projet',
+				title: 'Garage, volets ou éclairage',
+				text: 'Le configurateur dresse la liste de matériel et ouvre le tutoriel.',
+				cta: 'Ouvrir le configurateur',
+				href: projectHref,
+			},
+			{
+				kicker: 'Dépanner',
+				title: 'Codes erreurs Zigbee et Shelly',
+				text: 'Zigbee2MQTT, ZHA, Shelly et Sonoff : la piste de contrôle selon le symptôme.',
+				cta: 'Codes erreurs',
+				href: SMART_HOME_TOOL_PATHS.troubleshooting.fr,
+			},
+		],
+	},
+	en: {
+		title: 'Smart home',
+		lead: 'Four ways in: start, install, run a project, or fix a fault. The guides note UK mains (230 V, Type G) and US mains (120 V, Type A/B).',
+		all: 'All smart home guides',
+		hub: '/en/smart-home/',
+		cards: [
+			{
+				kicker: 'Start',
+				title: 'Understand it before you buy',
+				text: 'Zigbee, Wi-Fi and a first budget, before you choose a hub.',
+				cta: 'Beginner guide',
+				href: '/en/smart-home/getting-started/',
+			},
+			{
+				kicker: 'Install',
+				title: 'Home Assistant on a Raspberry Pi 5',
+				text: 'Which image to flash, the power supply, and a first dashboard.',
+				cta: 'See the install',
+				href: installHref,
+			},
+			{
+				kicker: 'A project',
+				title: 'Open the garage from your phone',
+				text: 'ESP32 and ESPHome: the parts, the steps, and how to check the door.',
+				cta: 'Open the project',
+				href: projectHref,
+			},
+			{
+				kicker: 'Fix',
+				title: 'Zigbee and Shelly error codes',
+				text: 'Zigbee2MQTT, ZHA, Shelly and Sonoff: what to check for each symptom.',
+				cta: 'Error codes',
+				href: SMART_HOME_TOOL_PATHS.troubleshooting.en,
+			},
+		],
+	},
+	de: {
+		title: 'Das vernetzte Zuhause',
+		lead: 'Vier Einstiege: anfangen, installieren, ein Projekt umsetzen oder eine Störung eingrenzen. Die Ratgeber gelten für Schuko (230 V, Typ F) und die Schweiz (Typ J).',
+		all: 'Alle Smart-Home-Ratgeber',
+		hub: '/de/smart-home/',
+		cards: [
+			{
+				kicker: 'Einstieg',
+				title: 'Verstehen, bevor Sie kaufen',
+				text: 'Zigbee, WLAN und ein erstes Budget, bevor Sie eine Zentrale wählen.',
+				cta: 'Ratgeber für Einsteiger',
+				href: '/de/smart-home/einstieg/',
+			},
+			{
+				kicker: 'Installieren',
+				title: 'Home Assistant auf dem Raspberry Pi 5',
+				text: 'Welches Image, welches Netzteil, und ein erstes Dashboard.',
+				cta: 'Zur Installation',
+				href: installHref,
+			},
+			{
+				kicker: 'Ein Projekt',
+				title: 'Das Garagentor vom Smartphone',
+				text: 'ESP32 und ESPHome: Teile, Schritte und die Kontrolle, dass das Tor wirklich fährt.',
+				cta: 'Zum Projekt',
+				href: projectHref,
+			},
+			{
+				kicker: 'Störung',
+				title: 'Fehlercodes für Zigbee und Shelly',
+				text: 'Zigbee2MQTT, ZHA, Shelly und Sonoff: was je nach Symptom zu prüfen ist.',
+				cta: 'Fehlercodes',
+				href: SMART_HOME_TOOL_PATHS.troubleshooting.de,
+			},
+		],
+	},
+	it: {
+		title: 'La casa connessa',
+		lead: 'Quattro ingressi: iniziare, installare, avviare un progetto o isolare un guasto.',
+		all: 'Tutte le guide di domotica',
+		hub: '/it/domotica/',
+		cards: [
+			{
+				kicker: 'Iniziare',
+				title: 'Capire prima di acquistare',
+				text: 'Zigbee, Wi-Fi e un primo budget, prima di scegliere una centrale.',
+				cta: 'Guida per principianti',
+				href: '/it/domotica/come-iniziare/',
+			},
+			{
+				kicker: 'Installare',
+				title: 'Home Assistant su Raspberry Pi 5',
+				text: 'Quale immagine flashare, l’alimentazione e una prima plancia.',
+				cta: 'Vedere l’installazione',
+				href: installHref,
+			},
+			{
+				kicker: 'Un progetto',
+				title: 'Il garage dal telefono',
+				text: 'ESP32 ed ESPHome: i pezzi, i passi e il controllo che la porta si muova davvero.',
+				cta: 'Aprire il progetto',
+				href: projectHref,
+			},
+			{
+				kicker: 'Guasto',
+				title: 'Codici errore Zigbee e Shelly',
+				text: 'Zigbee2MQTT, ZHA, Shelly e Sonoff: che cosa controllare secondo il sintomo.',
+				cta: 'Codici errore',
+				href: SMART_HOME_TOOL_PATHS.troubleshooting.it,
+			},
+		],
+	},
+	es: {
+		title: 'La casa conectada',
+		lead: 'Cuatro entradas: empezar, instalar, lanzar un proyecto o aislar una avería.',
+		all: 'Todas las guías de domótica',
+		hub: '/es/domotica/',
+		cards: [
+			{
+				kicker: 'Empezar',
+				title: 'Entender antes de comprar',
+				text: 'Zigbee, Wi-Fi y un primer presupuesto, antes de elegir una central.',
+				cta: 'Guía para principiantes',
+				href: '/es/domotica/como-empezar/',
+			},
+			{
+				kicker: 'Instalar',
+				title: 'Home Assistant en una Raspberry Pi 5',
+				text: 'Qué imagen flashear, la alimentación y un primer panel.',
+				cta: 'Ver la instalación',
+				href: installHref,
+			},
+			{
+				kicker: 'Un proyecto',
+				title: 'El garaje desde el móvil',
+				text: 'ESP32 y ESPHome: las piezas, los pasos y la comprobación de que la puerta se mueve.',
+				cta: 'Abrir el proyecto',
+				href: projectHref,
+			},
+			{
+				kicker: 'Avería',
+				title: 'Códigos de error Zigbee y Shelly',
+				text: 'Zigbee2MQTT, ZHA, Shelly y Sonoff: qué comprobar según el síntoma.',
+				cta: 'Códigos de error',
+				href: SMART_HOME_TOOL_PATHS.troubleshooting.es,
+			},
+		],
+	},
+} as const;
+
+const t = copy[lang];
+---
+
+<section class="home-smart" aria-labelledby="home-smart-title">
+	<div class="home-smart__inner">
+		<div class="home-smart__head">
+			<h2 id="home-smart-title">{t.title}</h2>
+			<p>{t.lead}</p>
+		</div>
+		<ul class="home-smart__grid">
+			{t.cards.map((card) => (
+				<li>
+					<a class="home-smart__card" href={withBase(card.href)}>
+						<span class="home-smart__kicker">{card.kicker}</span>
+						<strong>{card.title}</strong>
+						<span>{card.text}</span>
+						<em>{card.cta}</em>
+					</a>
+				</li>
+			))}
+		</ul>
+		<p class="home-smart__all">
+			<a href={withBase(t.hub)}>{t.all}</a>
+		</p>
+	</div>
+</section>
+
+<style>
+	.home-smart {
+		padding: 4rem clamp(1rem, 5vw, 2rem);
+		background: var(--surface-2);
+		border-top: 1px solid var(--surface-border);
+		border-bottom: 1px solid var(--surface-border);
+	}
+	.home-smart__inner {
+		max-width: 1320px;
+		margin: 0 auto;
+	}
+	.home-smart__head {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.home-smart__head h2 {
+		font-family: var(--font-heading);
+		font-weight: 800;
+		font-size: clamp(1.8rem, 3vw, 2.5rem);
+		margin: 0 0 0.75rem;
+		color: rgb(var(--black));
+	}
+	.home-smart__head p {
+		margin: 0 auto;
+		max-width: 42rem;
+		color: rgb(var(--gray-dark));
+		font-size: 1.05rem;
+		line-height: 1.5;
+	}
+	.home-smart__grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+		gap: 1.25rem;
+	}
+	.home-smart__grid > li {
+		margin: 0;
+		min-height: 0;
+	}
+	.home-smart__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 1.35rem 1.2rem 1.45rem;
+		background: var(--surface);
+		border: 2px solid var(--surface-border);
+		border-top: 4px solid var(--primary, #0f766e);
+		border-radius: 16px;
+		text-decoration: none;
+		color: inherit;
+		transition:
+			border-color 0.2s,
+			box-shadow 0.2s,
+			transform 0.2s;
+	}
+	.home-smart__card:hover {
+		border-color: var(--primary);
+		box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+		transform: translateY(-2px);
+	}
+	.home-smart__kicker {
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--primary, #0f766e);
+	}
+	.home-smart__card strong {
+		font-family: var(--font-heading);
+		font-size: 1.15rem;
+		font-weight: 800;
+		color: rgb(var(--black));
+		line-height: 1.3;
+	}
+	.home-smart__card span {
+		flex: 1;
+		font-size: 0.95rem;
+		line-height: 1.45;
+		color: rgb(var(--gray-dark));
+	}
+	.home-smart__card .home-smart__kicker {
+		flex: none;
+	}
+	.home-smart__card em {
+		font-style: normal;
+		font-weight: 700;
+		color: var(--primary);
+		margin-top: auto;
+		padding-top: 0.55rem;
+	}
+	.home-smart__all {
+		text-align: center;
+		margin: 1.75rem 0 0;
+	}
+	.home-smart__all a {
+		font-weight: 700;
+		color: var(--primary);
+		text-decoration: none;
+	}
+	.home-smart__all a:hover {
+		text-decoration: underline;
+	}
+</style>

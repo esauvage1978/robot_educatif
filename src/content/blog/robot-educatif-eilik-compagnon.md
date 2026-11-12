@@ -3,7 +3,6 @@ title: "Eilik : robot de bureau interactif pour découvrir tech"
 description: "Eilik : robot compagnon de bureau avec jeux et réactions tactiles. Différence avec robots éducatifs programmables."
 pubDate: "2026-03-28"
 updatedDate: "2026-03-27"
-heroImage: "../../assets/eilik/eilik-hero.webp"
 amazonPreset: eilik
 relatedLinks:
   - title: "Tale-Bot Pro Matatalab : déballage et premiers pas"
@@ -26,18 +25,33 @@ categories:
 
 ## En bref : à quoi ça sert en pédagogie ?
 
-| Objectif | Ce qu’Eilik aide souvent à faire |
-| --- | --- |
-| **Accrocher** | Donner envie de parler tech sans lancer tout de suite un IDE |
-| **Nommer** | Entrées (toucher, choix), sorties (sons, lumières, visages), **boucle** d’interaction |
-| **Comparer** | Opposer « robot qui **réagit** comme un personnage » et « projet où on **conçoit** la logique pas à pas » |
-| **Rythmer** | Ateliers courts (15–20 min) avant une suite sur le **code** ([Scratch](/scratch-creer-un-jeu-video-premiere-partie/), [mBlock](/premier-pas-avec-mblock-5/), ou un autre robot éducatif de ton choix) |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Objectif</th>
+<th scope="col">Ce qu’Eilik aide souvent à faire</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Objectif"><span class="td-val"><strong>Accrocher</strong></span></td>
+<td data-label="Ce qu’Eilik aide souvent à faire"><span class="td-val">Donner envie de parler tech sans lancer tout de suite un IDE</span></td>
+</tr>
+<tr>
+<td data-label="Objectif"><span class="td-val"><strong>Nommer</strong></span></td>
+<td data-label="Ce qu’Eilik aide souvent à faire"><span class="td-val">Entrées (toucher, choix), sorties (sons, lumières, visages), <strong>boucle</strong> d’interaction</span></td>
+</tr>
+<tr>
+<td data-label="Objectif"><span class="td-val"><strong>Comparer</strong></span></td>
+<td data-label="Ce qu’Eilik aide souvent à faire"><span class="td-val">Opposer « robot qui <strong>réagit</strong> comme un personnage » et « projet où on <strong>conçoit</strong> la logique pas à pas »</span></td>
+</tr>
+<tr>
+<td data-label="Objectif"><span class="td-val"><strong>Rythmer</strong></span></td>
+<td data-label="Ce qu’Eilik aide souvent à faire"><span class="td-val">Ateliers courts (15–20 min) avant une suite sur le <strong>code</strong> (<a href="/scratch-creer-un-jeu-video-premiere-partie/">Scratch</a>, <a href="/premier-pas-avec-mblock-5/">mBlock</a>, ou un autre robot éducatif de ton choix)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Ce tableau parle d’**Eilik** ; les liens du site vers d’autres articles servent seulement de **pistes** si tu enseignes aussi la programmation ailleurs.
-
-![Illustration : atelier en groupe autour d’un petit robot sur la table](/images/eilik/eilik-atelier.webp)
-
-*Illustrations d’ambiance (générées pour l’article) : compagnon de bureau, sans reproduire un produit commercial précis.*
 
 ## Pour qui ? Quels contextes ?
 
@@ -60,10 +74,6 @@ Ce tableau parle d’**Eilik** ; les liens du site vers d’autres articles serv
 
 ## Limites : ce qu’Eilik ne remplace pas
 
-![Schéma illustratif : compagnon interactif (gauche) et robot éducatif programmable (droite)](/images/eilik/eilik-vs-programmable.webp)
-
-*À gauche : logique « interaction / personnage ». À droite : logique « on programme capteurs et déplacements » — ce sont des **familles d’outils** différentes, pas des concurrents directs.*
-
 - **Programmation ouverte** : l’objectif d’Eilik est souvent **ludique et d’interaction**, pas la préparation à une **compétition** ou un **parcours d’obstacles** entièrement conçu par les élèves.
 - **Parcours code long** : pour un trimestre dédié au **code** et aux **capteurs** avec briefs précis, il faudra d’autres ressources (ateliers [Scratch](/scratch-creer-un-jeu-video-premiere-partie/), [mBlock](/premier-pas-avec-mblock-5/), robots éducatifs que **tu** choisis pour ta classe, etc.).
 - **Budget club** : un seul Eilik peut servir en **démonstration** ou en **tour de table** ; complète avec du matériel **reproductible** (fiches, vidéos, ordinateurs).
@@ -78,10 +88,6 @@ En général **non** comme outil unique — il n’est pas pensé pour ça. En r
 
 **En quoi c’est différent d’un robot qu’on programme à l’école ?**  
 Souvent : Eilik met l’accent sur **personnage, réactions toutes faites et jeu** ; un robot pédagogique « classique » met l’accent sur **écrire** soi-même les comportements (blocs ou texte). Les deux peuvent coexister dans un parcours, mais ce ne sont **pas les mêmes usages**.
-
-## Lien Amazon.fr
-
-- Voir **Eilik** sur [Amazon.fr](https://www.amazon.fr/s?k=eilik+robot&tag=manuso06-21) (recherche ; vérifier fiche, avis et **prix** au moment de l’achat).
 
 ## Conclusion
 

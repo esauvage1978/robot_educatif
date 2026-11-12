@@ -4,40 +4,71 @@ import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
+import StructuredDataBreadcrumb from '../../../components/StructuredDataBreadcrumb.astro';
 import { withBase } from '../../../lib/siteUrl';
-import { AMAZON_AFFILIATE_TAG } from '../../../consts';
-
-const tag = AMAZON_AFFILIATE_TAG;
+import PageColumns from '../../../components/PageColumns.astro';
 const all = await getCollection('blog');
 const posts = all
 	.filter((p) => p.data.series === 'Python')
 	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const itemListLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Parcours Python débutant — robot-educatif.info',
+	description: 'Dix leçons Python 3 progressives avec exercices.',
+	numberOfItems: posts.length,
+	itemListElement: posts.map((post, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		name: post.data.title,
+		url: new URL(`/${articleSlugFromId(post.id)}/`, Astro.site).href,
+	})),
+};
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Python — parcours débutant"
-			description="Série de 10 articles Python : installation, syntaxe, exercices progressifs et mini-projet."
+			title="Python débutant — parcours gratuit en 10 leçons (2026)"
+			description="Parcours Python 3 débutant : variables, conditions, boucles, listes, fonctions et un mini-projet. Exercices corrigés, puis le niveau intermédiaire, à la maison."
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+		<StructuredDataBreadcrumb
+			items={[
+				{ name: 'Accueil', url: withBase('/') },
+				{ name: 'Programmation', url: withBase('/programmation/') },
+				{ name: 'Python', url: withBase('/programmation/python/') },
+			]}
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="py-series">
+<PageColumns>
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
 				<span>Python</span>
 			</nav>
 			<h1>Python — parcours progressif</h1>
+			<h2 class="visually-hidden">Sommaire des 10 leçons</h2>
+			<blockquote class="geo-direct" style="margin: 0 0 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #0d9488; background: #f0fdfa; line-height: 1.55;">
+				<strong>Réponse directe (novembre 2026)</strong> — Ce parcours propose <strong>10 leçons Python 3</strong> gratuites : variables, conditions, boucles, fonctions (<a href={withBase('/python-fonctions/')}>return</a>), listes, fichiers, puis mini-projet. Installez <strong>Python 3.10 ou plus récent</strong> et un éditeur (Thonny ou VS Code). Suite logique : <a href={withBase('/programmation/python-intermediaire/')}>Python intermédiaire</a> (venv, pip, POO).
+			</blockquote>
+			<h2 id="objectifs">Objectifs du parcours</h2>
 			<p class="lead">
-				Dix leçons du choix de l’éditeur au mini-projet. Chaque article propose des <strong>exemples</strong>, du{' '}
-				<strong>code</strong> à taper ou modifier et des <strong>exercices</strong>. Ressources complémentaires sur{' '}
-				<a
-					href={`https://www.amazon.fr/s?k=python+3+apprendre+livre&tag=${tag}`}
-					target="_blank"
-					rel="noopener noreferrer sponsored">Amazon.fr</a> (partenaire).
+				Chaque leçon propose des <strong>exemples</strong> à taper, du <strong>code</strong> commenté et des <strong>exercices</strong> avec solutions masquées.
+				Vous apprenez à lire une erreur Python, structurer un petit programme et préparer des projets guidés (pendu, bataille navale, carnet todo).
+			</p>
+			<h2 id="prerequis">Matériel et prérequis</h2>
+			<p class="lead">
+				Un ordinateur Windows, macOS ou Linux suffit. Aucune expérience en programmation n’est requise ; une bonne lecture du clavier et de l’écran est utile. Aucun livre n’est lié : une recherche « python 3 apprendre » ne désigne pas un titre.
+			</p>
+			<h2 id="suite">Après le parcours débutant</h2>
+			<p class="lead">
+				<img src={withBase('/images/blog-thumbnails/python-variables-affichage.webp')} alt="Leçon Python : variables et affichage" width="320" height="180" loading="lazy" style="max-width:100%;height:auto;border-radius:10px;margin:0 0 1rem;" />
 			</p>
 			<p class="extra-series">
 				Bloc suivant :{' '}
@@ -69,7 +100,8 @@ const posts = all
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>
@@ -94,6 +126,21 @@ const posts = all
 		font-size: clamp(1.65rem, 3vw, 2rem);
 		margin: 0 0 0.75rem;
 		color: color-mix(in oklab, var(--accent) 78%, var(--accent-warm) 22%);
+	}
+	.py-series h2 {
+		font-size: 1.2rem;
+		margin: 1.5rem 0 0.65rem;
+		color: rgb(var(--gray-dark));
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
 	}
 	.lead {
 		margin: 0 0 1.75rem;

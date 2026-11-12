@@ -1,0 +1,27 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PageColumns from '../../components/PageColumns.astro';
+import PageBaisses from '../../components/promos/PageBaisses.astro';
+import { langueDe, metaPage } from '../../components/promos/meta.mjs';
+const explication = /comment-nous-mesurons|how-we-measure|wie-wir-messen|come-misuriamo|como-medimos|hoe-we-meten/.test(Astro.url.pathname);
+const meta = metaPage(Astro.url.pathname, explication);
+const { geo, lang } = langueDe(Astro.url.pathname);
+const htmlLang = geo === 'uk' ? 'en-GB' : geo === 'ca' ? 'en-CA' : lang;
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <BaseHead title={meta.titre} description={meta.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <PageColumns sommaire={false}>
+        <PageBaisses />
+      </PageColumns>
+    </main>
+    <Footer />
+  </body>
+</html>

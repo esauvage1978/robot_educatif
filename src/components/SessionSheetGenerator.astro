@@ -1,0 +1,666 @@
+---
+import {
+	CYCLES,
+	ROBOTS,
+	DURATION_OPTIONS,
+	LESSON_PHASES,
+	RUBRIC_CRITERIA,
+	DEFAULT_SESSION_TITLES,
+} from '../data/sessionSheetRobot.mjs';
+
+const payload = JSON.stringify({
+	cycles: CYCLES,
+	robots: ROBOTS,
+	durations: DURATION_OPTIONS,
+	phases: LESSON_PHASES,
+	rubric: RUBRIC_CRITERIA,
+	defaultTitles: DEFAULT_SESSION_TITLES,
+});
+---
+
+<div class="ssg" data-ssg data-payload={payload}>
+	<div class="ssg-controls no-print">
+		<form class="ssg-form" data-ssg-form>
+			<div class="ssg-form-head">
+				<p class="ssg-form-kicker">Composer la séance</p>
+				<p class="ssg-form-lead">Le cycle, le robot et la durée recalculent la fiche. Le titre et l’objectif restent les vôtres s’ils sont remplis.</p>
+			</div>
+			<div class="ssg-grid">
+				<label>
+					Cycle
+					<select name="cycle" required>
+						{CYCLES.map((c) => (
+							<option value={c.id}>{c.label}</option>
+						))}
+					</select>
+				</label>
+				<label>
+					Robot / matériel
+					<select name="robot" required>
+						{ROBOTS.map((r) => (
+							<option value={r.id}>{r.label}</option>
+						))}
+					</select>
+				</label>
+				<label>
+					Durée
+					<select name="duration">
+						{DURATION_OPTIONS.map((d) => (
+							<option value={d}>{d} minutes</option>
+						))}
+					</select>
+				</label>
+				<label>
+					Enseignant·e
+					<input name="teacher" type="text" placeholder="Nom (optionnel)" autocomplete="name" />
+				</label>
+				<label>
+					Classe / groupe
+					<input name="className" type="text" placeholder="ex. 5e B" />
+				</label>
+				<label>
+					Date
+					<input name="date" type="date" />
+				</label>
+				<label class="ssg-span">
+					Titre de la séance
+					<input data-ssg-title name="title" type="text" placeholder="Généré selon le robot si vide" />
+				</label>
+				<label class="ssg-span">
+					Objectif pédagogique
+					<input name="objective" type="text" placeholder="ex. Programmer un évitement d’obstacle avec l’ultrason" />
+				</label>
+			</div>
+			<div class="ssg-actions">
+				<button class="ssg-btn" data-ssg-refresh type="button">Mettre à jour la fiche</button>
+				<button class="ssg-btn ssg-btn--ghost" data-ssg-print type="button">Imprimer / PDF</button>
+			</div>
+		</form>
+	</div>
+	<p class="ssg-caption no-print">Aperçu de la fiche imprimable</p>
+	<div class="ssg-sheet print-area" data-ssg-sheet aria-live="polite"></div>
+</div>
+
+<style is:global>
+	.ssg-form {
+		display: grid;
+		gap: 1rem;
+		margin: 0 0 1.25rem;
+		padding: 1.15rem 1.2rem 1.2rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 16px;
+		background: var(--surface);
+		box-shadow: 0 10px 28px rgba(11, 31, 42, 0.06);
+	}
+	.ssg-form-head {
+		display: grid;
+		gap: 0.2rem;
+	}
+	.ssg-form-kicker {
+		margin: 0;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+	.ssg-form-lead {
+		margin: 0;
+		max-width: 42rem;
+		font-size: 0.95rem;
+		line-height: 1.45;
+		font-weight: 400;
+		color: rgb(var(--gray));
+	}
+	.ssg-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.85rem 1rem;
+	}
+	.ssg-span {
+		grid-column: 1 / -1;
+	}
+	.ssg-form label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		min-width: 0;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.01em;
+		color: rgb(var(--black));
+	}
+	.ssg-form input,
+	.ssg-form select {
+		width: 100%;
+		box-sizing: border-box;
+		min-height: 2.65rem;
+		padding: 0.45rem 0.7rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border);
+		background: var(--page-bg);
+		color: rgb(var(--black));
+		font: inherit;
+		font-size: 0.98rem;
+		font-weight: 600;
+		accent-color: var(--accent);
+	}
+	.ssg-form input::placeholder {
+		font-weight: 500;
+		color: rgb(var(--gray));
+	}
+	.ssg-form input:focus,
+	.ssg-form select:focus {
+		outline: 2px solid color-mix(in oklab, var(--accent) 45%, white);
+		outline-offset: 1px;
+		border-color: var(--accent);
+	}
+	.ssg-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+	}
+	.ssg-btn {
+		min-height: 2.65rem;
+		padding: 0.55rem 1.15rem;
+		border-radius: 10px;
+		border: 2px solid var(--accent);
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 800;
+		cursor: pointer;
+	}
+	.ssg-btn:hover {
+		background: color-mix(in oklab, var(--accent) 86%, #000);
+	}
+	.ssg-btn:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.ssg-btn--ghost {
+		background: transparent;
+		color: var(--accent);
+	}
+	.ssg-btn--ghost:hover {
+		background: color-mix(in oklab, var(--accent) 10%, transparent);
+	}
+	.ssg-caption {
+		margin: 0 0 0.55rem;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+
+	.prose .ssg-sheet {
+		margin: 0 0 1.75rem;
+		padding: 0;
+		border: 1px solid #d5dde6;
+		border-radius: 16px;
+		background: #fff;
+		color: #14212b;
+		box-shadow: 0 16px 40px rgba(11, 31, 42, 0.08);
+		overflow: hidden;
+	}
+	.prose .ssg-paper {
+		padding: 1.35rem 1.35rem 1.15rem;
+	}
+	.prose .ssg-banner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.35rem 1rem;
+		margin: -1.35rem -1.35rem 1.1rem;
+		padding: 0.85rem 1.35rem;
+		background: #0f766e;
+		color: #f8fffd;
+		font-size: 0.75rem;
+		font-weight: 800;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+	.prose .ssg-sheet h2 {
+		margin: 0 0 0.85rem;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		color: #0b1f2a;
+		font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+		line-height: 1.25;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+	.prose .ssg-facts {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.55rem;
+		margin: 0 0 0.35rem;
+	}
+	.prose .ssg-fact {
+		min-width: 0;
+		padding: 0.5rem 0.65rem 0.55rem;
+		border-radius: 10px;
+		background: #f0fdfa;
+		border: 1px solid #ccebe6;
+	}
+	.prose .ssg-fact dt {
+		margin: 0;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #0f766e;
+	}
+	.prose .ssg-fact dd {
+		margin: 0.15rem 0 0;
+		font-size: 0.92rem;
+		font-weight: 700;
+		line-height: 1.3;
+		color: #14212b;
+	}
+	.prose .ssg-goal {
+		margin: 0.9rem 0 0.2rem;
+		padding: 0.75rem 0.85rem;
+		border-radius: 10px;
+		background: #f8fafc;
+		border-left: 4px solid #f97316;
+	}
+	.prose .ssg-goal p {
+		margin: 0;
+		max-width: none;
+		font-size: 0.98rem;
+		line-height: 1.45;
+		color: #14212b;
+	}
+	.prose .ssg-sheet h3 {
+		margin: 1.15rem 0 0.45rem;
+		padding: 0 0 0.28rem;
+		border: 0;
+		border-bottom: 2px solid #0f766e;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		color: #0f766e;
+		font-size: 0.92rem;
+		line-height: 1.3;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+	.prose .ssg-cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.25rem 1.4rem;
+		align-items: start;
+	}
+	.prose .ssg-sheet p {
+		max-width: none;
+		margin: 0;
+		color: #14212b;
+	}
+	.prose .ssg-sheet ul {
+		margin: 0.15rem 0 0;
+		padding-left: 1.15rem;
+	}
+	.prose .ssg-sheet li {
+		margin: 0.22rem 0;
+		font-size: 0.9rem;
+		line-height: 1.4;
+		color: #14212b;
+	}
+	.prose .ssg-sheet li code {
+		font-family: ui-monospace, Consolas, monospace;
+		font-size: 0.82rem;
+		background: #f1f5f9;
+		color: #0b1f2a;
+		padding: 0.05rem 0.32rem;
+		border-radius: 4px;
+	}
+	.prose .ssg-timeline {
+		list-style: none;
+		margin: 0.2rem 0 0;
+		padding: 0;
+		display: grid;
+		gap: 0.55rem;
+	}
+	.prose .ssg-phase {
+		display: grid;
+		grid-template-columns: 4.6rem 1fr;
+		gap: 0.7rem;
+		align-items: start;
+		break-inside: avoid;
+	}
+	.prose .ssg-min {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 1.8rem;
+		padding: 0.15rem 0.35rem;
+		border-radius: 999px;
+		background: #0f766e;
+		color: #fff;
+		font-size: 0.78rem;
+		font-weight: 800;
+		line-height: 1;
+	}
+	.prose .ssg-phase strong {
+		display: block;
+		font-size: 0.92rem;
+		color: #0b1f2a;
+	}
+	.prose .ssg-track {
+		height: 6px;
+		margin: 0.35rem 0 0.28rem;
+		border-radius: 999px;
+		background: #e2e8f0;
+		overflow: hidden;
+	}
+	.prose .ssg-track span {
+		display: block;
+		height: 100%;
+		border-radius: inherit;
+		background: #14b8a6;
+	}
+	.prose .ssg-phase p {
+		font-size: 0.86rem;
+		line-height: 1.4;
+		color: #334155;
+	}
+	.prose .ssg-table-wrap {
+		overflow-x: auto;
+		margin-top: 0.35rem;
+	}
+	.prose .ssg-sheet table {
+		width: 100%;
+		min-width: 36rem;
+		margin: 0;
+		border-collapse: collapse;
+		border: 1px solid #d5dde6;
+		border-left: 1px solid #d5dde6;
+		border-radius: 0;
+		box-shadow: none;
+		overflow: visible;
+		font-size: 0.78rem;
+		line-height: 1.35;
+		background: #fff;
+	}
+	.prose .ssg-sheet thead th,
+	.prose .ssg-sheet th {
+		text-align: left;
+		font-weight: 800;
+		font-family: inherit;
+		padding: 0.45rem 0.5rem;
+		background: #f0fdfa;
+		color: #0b1f2a;
+		border-bottom: 1px solid #d5dde6;
+	}
+	.prose .ssg-sheet tbody td,
+	.prose .ssg-sheet td {
+		padding: 0.45rem 0.5rem;
+		vertical-align: top;
+		border-bottom: 1px solid #e6edf3;
+		background: #fff;
+		color: #14212b;
+	}
+	.prose .ssg-sheet tbody tr:nth-child(even) td {
+		background: #f8fafc;
+	}
+	.prose .ssg-sheet tbody tr:last-child td {
+		border-bottom: none;
+	}
+	.prose .ssg-foot {
+		margin: 1rem 0 0;
+		font-size: 0.75rem;
+		line-height: 1.4;
+		color: #64748b;
+	}
+
+	@media (max-width: 760px) {
+		.ssg-grid,
+		.prose .ssg-facts,
+		.prose .ssg-cols {
+			grid-template-columns: 1fr;
+		}
+		.prose .ssg-phase {
+			grid-template-columns: 4.2rem 1fr;
+		}
+	}
+
+	@media print {
+		header,
+		footer,
+		nav,
+		.aqf,
+		.no-print,
+		.pr-widget,
+		.tool-resolution-banner,
+		.encart-affilie,
+		.domotique-subnav,
+		.cookie-consent,
+		.category-badge,
+		.article-header {
+			display: none !important;
+		}
+		.article-content {
+			max-width: none;
+			padding: 0;
+		}
+		.prose .ssg-sheet {
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
+			margin: 0;
+			overflow: visible;
+		}
+		.prose .ssg-paper {
+			padding: 0;
+		}
+		.prose .ssg-banner {
+			margin: 0 0 0.8rem;
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
+		.prose .ssg-cols,
+		.prose .ssg-facts {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+		.prose .ssg-cols {
+			grid-template-columns: 1fr 1fr;
+		}
+		.prose .ssg-sheet table {
+			min-width: 0;
+		}
+		.prose .ssg-phase,
+		.prose .ssg-sheet tr,
+		.prose .ssg-fact {
+			break-inside: avoid;
+		}
+		body {
+			background: #fff !important;
+		}
+		@page {
+			margin: 12mm;
+		}
+	}
+</style>
+
+<script>
+	function esc(s) {
+		return String(s ?? '')
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;');
+	}
+
+	function formatDate(iso) {
+		const [y, m, d] = String(iso || '').split('-');
+		if (!y || !m || !d) return '—';
+		return `${d}/${m}/${y}`;
+	}
+
+	function initSsg(root) {
+		let data;
+		try {
+			data = JSON.parse(root.dataset.payload || '{}');
+		} catch {
+			return;
+		}
+		if (!data.cycles || !data.robots) return;
+
+		const form = root.querySelector('[data-ssg-form]');
+		const sheet = root.querySelector('[data-ssg-sheet]');
+		const titleInput = root.querySelector('[data-ssg-title]');
+		const dateInput = form?.querySelector('[name="date"]');
+		if (dateInput && !dateInput.value) {
+			dateInput.value = new Date().toISOString().slice(0, 10);
+		}
+
+		function getVals() {
+			const fd = new FormData(form);
+			return {
+				teacher: fd.get('teacher')?.toString().trim() || '',
+				className: fd.get('className')?.toString().trim() || '',
+				date: fd.get('date')?.toString() || '',
+				cycle: fd.get('cycle')?.toString() || 'c3',
+				robot: fd.get('robot')?.toString() || 'mbot2',
+				duration: Number(fd.get('duration') || 60),
+				title: fd.get('title')?.toString().trim() || '',
+				objective: fd.get('objective')?.toString().trim() || '',
+			};
+		}
+
+		function syncTitlePlaceholder() {
+			const id = form?.querySelector('[name="robot"]')?.value;
+			if (titleInput && !titleInput.value.trim()) {
+				titleInput.placeholder = data.defaultTitles[id] || 'Titre de la séance';
+			}
+		}
+
+		function render() {
+			const v = getVals();
+			const cycle = data.cycles.find((c) => c.id === v.cycle) || data.cycles[0];
+			const robot = data.robots.find((r) => r.id === v.robot) || data.robots[0];
+			const title = v.title || data.defaultTitles[v.robot] || `Séance robotique — ${robot.label}`;
+			const objective =
+				v.objective ||
+				`Les élèves programment le robot ${robot.label} pour atteindre un objectif mesurable en fin de séance.`;
+
+			const phases = data.phases
+				.map((p) => ({
+					...p,
+					minutes: Math.max(1, Math.round(v.duration * p.ratio)),
+				}))
+				.map((p, i, arr) => {
+					const sum = arr.reduce((a, x) => a + x.minutes, 0);
+					if (i === arr.length - 1 && sum !== v.duration) {
+						return { ...p, minutes: p.minutes + (v.duration - sum) };
+					}
+					return p;
+				});
+
+			const fact = (label, value) => `
+				<div class="ssg-fact">
+					<dt>${esc(label)}</dt>
+					<dd>${esc(value || '—')}</dd>
+				</div>`;
+
+			const rubricRows = data.rubric
+				.map(
+					(row) => `
+				<tr>
+					<th scope="row">${esc(row.label)}</th>
+					${row.levels.map((lv) => `<td>${esc(lv)}</td>`).join('')}
+				</tr>`,
+				)
+				.join('');
+
+			sheet.innerHTML = `
+				<article class="ssg-paper">
+					<p class="ssg-banner"><span>Fiche de séance</span><span>Robotique et programmation</span></p>
+					<h2>${esc(title)}</h2>
+					<dl class="ssg-facts">
+						${fact('Cycle', cycle.label)}
+						${fact('Classe', v.className)}
+						${fact('Date', formatDate(v.date))}
+						${fact('Durée', `${v.duration} min`)}
+						${fact('Robot', robot.label)}
+						${fact('Logiciel', robot.software)}
+						${v.teacher ? fact('Enseignant·e', v.teacher) : ''}
+					</dl>
+					<div class="ssg-goal">
+						<p><strong>Objectif.</strong> ${esc(objective)}</p>
+					</div>
+					<div class="ssg-cols">
+						<section>
+							<h3>Matériel</h3>
+							<ul>${robot.material.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>
+						</section>
+						<section>
+							<h3>Compétences visées</h3>
+							<ul>${cycle.competencies.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+						</section>
+					</div>
+					<h3>Déroulé minuté</h3>
+					<ol class="ssg-timeline">
+						${phases
+							.map((p) => {
+								const pct = Math.max(8, Math.round((p.minutes / v.duration) * 100));
+								return `
+							<li class="ssg-phase">
+								<span class="ssg-min">${p.minutes} min</span>
+								<div>
+									<strong>${esc(p.label)}</strong>
+									<div class="ssg-track" aria-hidden="true"><span style="width:${pct}%"></span></div>
+									<p>${esc(p.detail)}</p>
+								</div>
+							</li>`;
+							})
+							.join('')}
+					</ol>
+					<div class="ssg-cols">
+						<section>
+							<h3>Blocs attendus</h3>
+							<ul>${robot.scratchBlocks.map((b) => `<li><code>${esc(b)}</code></li>`).join('')}</ul>
+						</section>
+						<section>
+							<h3>Python</h3>
+							<ul>${robot.pythonHints.map((b) => `<li><code>${esc(b)}</code></li>`).join('')}</ul>
+						</section>
+					</div>
+					<h3>Grille d’évaluation</h3>
+					<div class="ssg-table-wrap">
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">Critère</th>
+									<th scope="col">1 — Insuffisant</th>
+									<th scope="col">2 — Fragile</th>
+									<th scope="col">3 — Satisfaisant</th>
+									<th scope="col">4 — Très bon</th>
+								</tr>
+							</thead>
+							<tbody>${rubricRows}</tbody>
+						</table>
+					</div>
+					<p class="ssg-foot">Fiche générée sur robot-educatif.info — à adapter à l’établissement et au projet. Les compétences suivent les attendus du socle et des programmes de technologie / NSI.</p>
+				</article>`;
+		}
+
+		form?.querySelector('[name="robot"]')?.addEventListener('change', syncTitlePlaceholder);
+		root.querySelector('[data-ssg-refresh]')?.addEventListener('click', render);
+		root.querySelector('[data-ssg-print]')?.addEventListener('click', () => {
+			render();
+			window.print();
+		});
+		form?.addEventListener('input', render);
+		syncTitlePlaceholder();
+		render();
+	}
+
+	document.querySelectorAll('[data-ssg]').forEach(initSsg);
+</script>

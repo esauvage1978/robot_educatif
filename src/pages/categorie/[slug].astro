@@ -6,7 +6,9 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import StructuredDataBreadcrumb from '../../components/StructuredDataBreadcrumb.astro';
 import { buildCategoryIndex } from '../../lib/categories';
+import { buildCategoryMetaDescription } from '../../lib/metaDescription';
 import { withBase } from '../../lib/siteUrl';
+import PageColumns from '../../components/PageColumns.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -18,9 +20,32 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const pageTitle = `${entry.label} : guides et tutoriels — ROBOT éducatif`;
-const pageDesc = `Découvrez tous nos articles sur ${entry.label} : tutoriels, comparatifs, guides d'achat et conseils pour la robotique et la programmation éducatives.`;
+const pageTitle = `${entry.label} — guides robotique`;
+const pageDesc = buildCategoryMetaDescription(entry.label, entry.posts.length);
 const shouldNoIndex = entry.posts.length < 3;
+
+const POST_BLURBS: Record<string, string> = {
+	'mbot-mon-premier-robot-educatif': 'Premier montage et connexion mBlock — idéal après le choix du kit.',
+	'activite-mbot-faire-clignoter-les-leds': 'Première activité capteurs : faire clignoter les LED en blocs.',
+	'activite-mbot-mesurer-des-distances': 'Capteur ultrason : mesurer une distance et afficher la valeur.',
+	'serie-capteur-ultrason-mbot-1-mesurer-distance': 'Série ultrason (1/4) — base pour radar et obstacles.',
+	'installer-les-blocs-du-mbot': 'Ajouter les blocs mBot dans mBlock 5 sur PC.',
+	'mbot-vs-codey-rocky-comparatif': 'Comparer mBot et Codey Rocky avant achat.',
+	'mblock-vs-scratch-lequel-choisir': 'Scratch en ligne vs mBlock pour robots Makeblock.',
+	'scratch-ecole-maison-par-ou-commencer': 'Premier parcours Scratch école ou maison.',
+	'activite-scratch-le-carre': 'Première boucle : dessiner un carré.',
+	'robot-programmable-scratch-lequel-choisir': 'Robot physique compatible Scratch.',
+	'scratch-creer-un-jeu-video-premiere-partie': 'Jeu Scratch : déplacer le décor au clavier.',
+	'premier-pas-avec-mblock-5': 'Premiers blocs mBlock après Scratch.',
+	'mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants': 'mBot classique vs mBot2 / CyberPi.',
+	'idees-cadeaux-robotique-noel-rentree-anniversaire': 'Grille cadeaux par âge et budget.',
+	'robot-educatif-cadeau-noel-2026': 'Hub cadeaux robotique Noël 2026.',
+	'cadeau-robot-enfant-8-ans': 'Idées cadeau robot pour 8 ans.',
+	'cadeau-robot-enfant-10-ans': 'Idées cadeau robot pour 10 ans.',
+	'mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique': 'Présentation complète du mBot2.',
+	'mbot2-vs-cyberpi-comparatif': 'Carte CyberPi vs robot mBot2.',
+	'quel-robot-acheter-enfant-10-ans-guide-achat': 'Guide achat 10 ans incluant mBot2.',
+};
 ---
 
 <!doctype html>
@@ -127,25 +152,205 @@ const shouldNoIndex = entry.posts.length < 3;
 	<body>
 		<Header />
 		<main>
+<PageColumns>
 			<section class="hero-cat">
 				<div class="hero-cat-inner">
 					<p class="kicker">Catégorie</p>
 					<h1>{entry.label}</h1>
 					<p class="intro">
-						Retrouvez ici tous nos articles sur <strong>{entry.label}</strong> : tutoriels pratiques, guides d'achat, 
-						comparatifs de robots éducatifs et conseils pour l'apprentissage de la robotique et de la programmation.
+						{entry.slug === 'mbot' && (
+							<>
+								Tous nos tutoriels <strong>mBot</strong> Makeblock : montage,{' '}
+								<strong>mBlock</strong> (logiciel de programmation Makeblock), capteurs et activités pour la classe.
+								Parcours débutant : <a href={withBase('/mbot-mon-premier-robot-educatif/')}>premier robot</a> (robot monté et connecté), puis{' '}
+								<a href={withBase('/activite-mbot-faire-clignoter-les-leds/')}>première LED</a> et{' '}
+								<a href={withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/')}>première mesure ultrason</a>. Hub marque{' '}
+								<a href={withBase('/marque-makeblock/')}>Makeblock</a> · comparatif{' '}
+								<a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a>.
+							</>
+						)}
+						{entry.slug === 'cadeaux' && (
+							<>
+								Guides <strong>cadeaux robotique</strong> (Noël, anniversaire, rentrée) avec grilles par âge et liens vers nos{' '}
+								<a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>comparatifs robots</a>,{' '}
+								<a href={withBase('/robot-educatif-cadeau-noel-2026/')}>hub Noël 2026</a> et budgets{' '}
+								<a href={withBase('/robot-moins-de-100-euros/')}>moins de 100 €</a> /{' '}
+								<a href={withBase('/quel-robot-educatif-entre-200-et-500-euros-guide-2026/')}>200–500 €</a>.
+							</>
+						)}
+						{entry.slug === 'mbot-2' && (
+							<>
+								Articles sur le <strong>mBot2</strong> et la carte <strong>CyberPi</strong> : choix, comparatifs et logiciel.
+								Lie aussi <a href={withBase('/categorie/mbot/')}>activités mBot v1</a>,{' '}
+								<a href={withBase('/compatibilite-makeblock/')}>compatibilité accessoires</a> et{' '}
+								<a href={withBase('/mbot2-vs-cyberpi-comparatif/')}>mBot2 vs CyberPi</a>.
+							</>
+						)}
+						{entry.slug === 'scratch' && (
+							<>
+								Guides <strong>Scratch</strong> (programmation visuelle par blocs sur <strong>scratch.mit.edu</strong>) et liens vers <strong>mBlock</strong> pour piloter un robot Makeblock. Hub :{' '}
+								<a href={withBase('/scratch-ecole-maison-par-ou-commencer/')}>Scratch école / maison</a> ·{' '}
+								<a href={withBase('/mblock-vs-scratch-lequel-choisir/')}>mBlock ou Scratch ?</a> ·{' '}
+								<a href={withBase('/programmation-enfant-a-quel-age-commencer/')}>âge pour programmer</a>.
+							</>
+						)}
+						{!['mbot', 'cadeaux', 'mbot-2', 'scratch'].includes(entry.slug) && (
+							<>
+								Retrouvez ici tous nos articles sur <strong>{entry.label}</strong> : tutoriels pratiques, guides d'achat,
+								comparatifs de robots éducatifs et conseils pour l'apprentissage de la robotique et de la programmation.
+							</>
+						)}
 					</p>
 					<p class="count">{entry.posts.length} article{entry.posts.length > 1 ? 's' : ''} dans cette catégorie.</p>
 				</div>
 			</section>
 			<div class="list-wrap">
 				<a class="back" href={withBase('/categorie/')}>← Toutes les catégories</a>
+				{
+					entry.slug === 'guide' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Par où commencer ?</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								Les articles « guide » regroupent des <strong>tutoriels pas à pas</strong>, des <strong>comparatifs d’achat</strong> et des
+								<strong>parcours pédagogiques</strong>. Voici trois entrées fréquentes selon votre objectif (robotique, Python, domotique).
+							</p>
+							<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
+								<img src={withBase('/images/blog-thumbnails/mbot-mon-premier-robot-educatif.webp')} alt="Premier robot mBot" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog-thumbnails/python-variables-affichage.webp')} alt="Leçon Python variables" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/illustrations/esp32-esphome-capteur-temperature.webp')} alt="Capteur température ESP32" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+							</div>
+							<h3 style="margin:0 0 0.5rem 0;font-size:1rem;">Robotique et programmation visuelle</h3>
+							<ul style="margin:0 0 0.85rem 0;padding-left:1.2rem;">
+								<li><a href={withBase('/quel-robot-educatif-choisir-2026/')}>Quel robot éducatif choisir en 2026 ?</a></li>
+								<li><a href={withBase('/programmation-enfant-a-quel-age-commencer/')}>Programmation enfant : à quel âge commencer ?</a></li>
+								<li><a href={withBase('/premier-pas-avec-mblock-5/')}>Premiers pas avec mBlock 5</a></li>
+								<li><a href={withBase('/programmation/python/')}>Parcours Python débutant (10 leçons)</a></li>
+							</ul>
+							<h3 style="margin:0 0 0.5rem 0;font-size:1rem;">Guides d’achat par budget</h3>
+							<ul style="margin:0 0 0.85rem 0;padding-left:1.2rem;">
+								<li><a href={withBase('/robot-moins-de-100-euros/')}>Robots éducatifs à moins de 100 €</a></li>
+								<li><a href={withBase('/quel-robot-educatif-entre-200-et-500-euros-guide-2026/')}>Robots entre 200 et 500 €</a></li>
+								<li><a href={withBase('/kit-raspberry-pi-5-complet/')}>Kit Raspberry Pi 5 complet</a></li>
+							</ul>
+							<h3 style="margin:0 0 0.5rem 0;font-size:1rem;">Domotique DIY</h3>
+							<ul style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')}>Débuter la domotique : par où commencer ?</a></li>
+								<li><a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>Meilleur dongle Zigbee pour Home Assistant</a></li>
+								<li><a href={withBase('/domotique/projets-esp32-domotique/')}>10 projets ESP32 domotique</a></li>
+							</ul>
+						</section>
+					)
+				}
+				{
+					entry.slug === 'scratch' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Premiers pas Scratch</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								<strong>Scratch</strong> coûte <strong>0 €</strong> : créez un compte, fixez un créneau de <strong>30–45 min</strong>, terminez <strong>un</strong> mini-projet. Ensuite seulement, un robot (mBot) devient utile.
+							</p>
+							<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
+								<img src={withBase('/images/blog/premier-pas-mblock/scratch_i1.png')} alt="Planifier coder tester partager sur Scratch" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog-thumbnails/activite-scratch-le-carre.webp')} alt="Activité Scratch le carré" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog-thumbnails/scratch-ecole-maison-par-ou-commencer.webp')} alt="Scratch école maison" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+							</div>
+							<ol style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/scratch-ecole-maison-par-ou-commencer/')}>Scratch école / maison : par où commencer</a></li>
+								<li><a href={withBase('/activite-scratch-le-carre/')}>Activité : le carré</a> — première boucle.</li>
+								<li><a href={withBase('/scratch-creer-un-jeu-video-premiere-partie/')}>Jeu vidéo Scratch (partie 1)</a></li>
+							</ol>
+							<h3 style="margin:1rem 0 0.5rem 0;font-size:1rem;">Vers un robot (optionnel)</h3>
+							<ul style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/robot-programmable-scratch-lequel-choisir/')}>Robot programmable Scratch : lequel choisir ?</a></li>
+								<li><a href={withBase('/mblock-vs-scratch-lequel-choisir/')}>mBlock vs Scratch</a></li>
+								<li><a href={withBase('/programmation/')}>Hub programmation</a></li>
+							</ul>
+						</section>
+					)
+				}
+				{
+					entry.slug === 'mbot' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Parcours débutant mBot</h2>
+							<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
+								<img src={withBase('/images/blog-thumbnails/mbot-mon-premier-robot-educatif.webp')} alt="Premier robot mBot" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ranger.jpg')} alt="Makeblock mBot" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog/codey-rocky-mblock-atelier.webp')} alt="Atelier mBlock" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+							</div>
+							<ol style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/mbot-mon-premier-robot-educatif/')}>Mon premier robot mBot</a> — châssis monté, Bluetooth ou USB testé.</li>
+								<li><a href={withBase('/installer-mblock-5-sous-windows-10/')}>Installer mBlock 5</a> — logiciel prêt sur PC ou tablette.</li>
+								<li><a href={withBase('/activite-mbot-faire-clignoter-les-leds/')}>Faire clignoter les LED</a> — premier programme visible.</li>
+								<li><a href={withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/')}>Série capteur ultrason (1/4)</a> — première distance en centimètres.</li>
+							</ol>
+							<h3 style="margin:1rem 0 0.5rem 0;font-size:1rem;">Guides achat et comparatifs</h3>
+							<ul style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>Meilleur robot programmable 2026</a></li>
+								<li><a href={withBase('/mbot-vs-codey-rocky-comparatif/')}>mBot vs Codey Rocky</a></li>
+								<li><a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a></li>
+							</ul>
+						</section>
+					)
+				}
+				{
+					entry.slug === 'cadeaux' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Choisir un cadeau robotique</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								Croisez <strong>âge</strong>, <strong>budget</strong> et <strong>temps adulte</strong> disponible. Nos hubs :
+								<a href={withBase('/robot-educatif-cadeau-noel-2026/')}> cadeau Noël 2026</a>,
+								<a href={withBase('/meilleur-robot-programmable-enfant-2026/')}> robots programmables</a>,
+								<a href={withBase('/programmation-enfant-a-quel-age-commencer/')}> âge pour programmer</a>.
+							</p>
+							<img src={withBase('/images/illustrations/idees-cadeaux-robotique-noel-rentree-anniversaire.webp')} alt="Idées cadeaux robotique" width="320" height="180" loading="lazy" style="border-radius:8px;margin-bottom:0.85rem;" />
+						</section>
+					)
+				}
+				{
+					entry.slug === 'mbot-2' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">L'écosystème mBot2</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								Le <strong>mBot2</strong> s'appuie sur la carte <strong>CyberPi</strong> (Python et blocs avancés). Comparez avant achat avec le{' '}
+								<a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot classique</a> et la{' '}
+								<a href={withBase('/marque-makeblock/')}>fiche Makeblock</a>.
+							</p>
+							<img src={withBase('/images/blog/robots-educatif-500-1000-euros-2026/makeblock-mbot2.jpg')} alt="Makeblock mBot2" width="320" height="180" loading="lazy" style="border-radius:8px;" />
+						</section>
+					)
+				}
+				{
+					entry.slug === 'comparatif' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:40rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Comparatifs essentiels</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								Vous ne savez pas par où commencer ? Ces guides comparent des modèles ou des gammes avec des tableaux
+								et des critères d'achat clairs — avant de parcourir toute la liste ci-dessous.
+							</p>
+							<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
+								<img src={withBase('/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ranger.jpg')} alt="Makeblock mBot Ranger" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog/robots-educatif-200-500-euros-2026/elegoo-smart-robot-car-kit-v4.jpg')} alt="Kit robot ELEGOO" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+								<img src={withBase('/images/blog-thumbnails/raspberry-pi-3-vs-4-vs-5-comparatif-2026.webp')} alt="Comparatif Raspberry Pi" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+							</div>
+							<ul style="margin:0;padding-left:1.2rem;">
+								<li><a href={withBase('/quel-robot-educatif-choisir-2026/')}>Quel robot éducatif choisir en 2026 ?</a></li>
+								<li><a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a></li>
+								<li><a href={withBase('/quel-robot-educatif-entre-200-et-500-euros-guide-2026/')}>Robots éducatifs 200–500 €</a></li>
+								<li><a href={withBase('/raspberry-pi-3-vs-4-vs-5-comparatif-2026/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+							</ul>
+						</section>
+					)
+				}
 				<ul class="post-list">
 					{
 						entry.posts.map((p) => (
 							<li>
 								<a href={withBase(`/${p.slug}/`)}>
 									<h2>{p.title}</h2>
+									{POST_BLURBS[p.slug] && (
+										<p class="date" style="color:rgb(var(--gray-dark));font-size:0.95rem;line-height:1.45;">
+											{POST_BLURBS[p.slug]}
+										</p>
+									)}
 									<p class="date">
 										<FormattedDate date={p.pubDate} />
 									</p>
@@ -155,7 +360,8 @@ const shouldNoIndex = entry.posts.length < 3;
 					}
 				</ul>
 			</div>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

@@ -1,0 +1,83 @@
+---
+title: "Home Assistant 2026.10 (7 oct. 2026) : Matter, Reolink, Tuya local et batteries"
+description: "Home Assistant 2026.10 du 7 octobre 2026 : correctifs Matter 1.6, intégrations Reolink et Tuya local, capteurs batterie plus fiables. Matériel conseillé et…"
+pubDate: 2026-10-28T00:00:00Z
+category: "home-assistant"
+priority: 1
+---
+
+import DomotiqueGearOffers202627 from '../../components/DomotiqueGearOffers202627.astro';
+
+<DomotiqueGearOffers202627 lang="fr" />
+
+Sortie le **7 octobre 2026**, **Home Assistant 2026.10** consolide Matter 1.6, améliore les intégrations **Reolink** (flux RTSP, détection IA locale) et **Tuya Local** (moins de cloud), et corrige la remontée **batterie** sur capteurs Zigbee/Matter. C’est la mise à jour à planifier si vous visez une [installation 100 % locale](/domotique/debuter-en-domotique-guide-complet/).
+
+## Nouveautés Matter dans 2026.10
+
+- **Diagnostics Thread** et journalisation réseau pour déboguer les commissions Matter-over-Thread.
+- **Mises à jour OTA Matter** depuis Home Assistant (selon appareil certifié).
+- Commissions plus tolérantes aux border routers multiples.
+- Entités **battery** et **device_power** mieux typées pour les automatisations « pile faible ».
+
+## Batteries domestiques et énergie (intégration native)
+
+2026.10 ajoute une intégration **native** pour batteries domestiques et systèmes énergétiques : pilotage **heures creuses**, **surplus solaire** et préparation **V2H** (vehicle-to-home) via entités standardisées (Sigenergy / mySigen, Zendure, EcoFlow, Anker Solix — selon compatibilité fabricant).
+
+## Reolink : IA locale et WebRTC
+
+L’intégration Reolink est poussée : **détection personne / véhicule / animal / colis** sur caméra compatible, **sans abonnement cloud**, flux **WebRTC** fluide dans le dashboard HA et enregistrement local NAS.
+
+## Guide de mise à jour sans casser YAML / add-ons
+
+1. **Sauvegarde complète** (snapshot Supervisor ou copie `/config`).
+2. Mettre à jour le **core** puis les **add-ons** un par un (Zigbee2MQTT, Mosquitto, etc.).
+3. Vérifier les **custom components** : attendre la compatibilité 2026.10 sur GitHub.
+4. Matériel conseillé : [Home Assistant Green](/domotique/home-assistant-green-vs-raspberry-pi-5/), **mini PC N100** (16 Go RAM, SSD NVMe) ou **Raspberry Pi 5 + NVMe** pour Frigate et IA locale.
+
+## Tuya : local vs cloud
+
+Tuya Local 2026.10 réduit les timeouts ; gardez des prises **ESP ou Matter** pour les fonctions critiques (chauffage, portail). Référez-vous au comparatif [Zigbee2MQTT ou ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/) si vous mixez marques.
+
+## Batteries et capteurs
+
+Les capteurs Aqara, Sonoff et Shelly BLU remontent désormais un pourcentage plus stable ; créez une alerte sous 20 % avant l’hiver pour éviter les « capteurs fantômes ».
+
+## Accessoires testés avec Home Assistant 2026.10
+
+<div class="tableau empile">
+<table>
+<thead><tr><th>Produit</th><th>Usage</th><th>Prix indicatif</th><th></th></tr></thead>
+<tbody>
+<tr>
+<td data-label="Produit"><span class="td-val">Reolink RLC-810A PoE</span></td>
+<td data-label="Usage">Caméra 4K locale + IA</td>
+<td data-label="Prix indicatif"><span class="td-val">≈ 80–120 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/s?k=Reolink+RLC-810A+PoE&tag=manuso06-21" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit"><span class="td-val">SONOFF SNZB-03P</span></td>
+<td data-label="Usage">Capteur mouvement Zigbee 3.0</td>
+<td data-label="Prix indicatif"><span class="td-val">≈ 12–18 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/s?k=SONOFF+SNZB-03P+Zigbee&tag=manuso06-21" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit"><span class="td-val">Shelly BLU Door/Window</span></td>
+<td data-label="Usage">Capteur BLE + Zigbee</td>
+<td data-label="Prix indicatif"><span class="td-val">≈ 15–22 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/s?k=Shelly+BLU+Door+Window&tag=manuso06-21" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+## Suite logique
+
+- [Matter 1.6 : NFC et multi-admin](/domotique/matter-1-6-nouveautes-nfc-maison-connectee/)
+- [Tendances domotique 2027 (CES, mmWave, IA locale)](/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/)

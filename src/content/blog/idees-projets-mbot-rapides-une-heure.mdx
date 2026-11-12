@@ -1,8 +1,8 @@
 ---
 title: "Idées de projets mBot rapides (environ une heure)"
-description: "Défis mBot rapides : LED, ultrason, ligne, compteur. Liens activités et Amazon."
+description: "Défis mBot d’environ une heure : LED, ultrason, suivi de ligne et compteur. Chaque idée renvoie vers le tutoriel détaillé, prêt pour la séance en classe."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-11-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -31,7 +31,7 @@ import ProductBox from '../../components/ProductBox.astro';
   ages="8-12 ans"
   languages={['Scratch', 'Arduino']}
   pros={[
-    'Facile à assembler en 15 minutes',
+    'Châssis, carte et capteurs dans le même carton',
     'Programmation par blocs intuitive',
     'Compatible Scratch et Arduino',
     'Nombreux capteurs inclus'
@@ -63,18 +63,37 @@ Voici une **liste de défis** compatibles avec une **séance d’environ une heu
 
 ## 1. Découper l’heure (méthode qui marche)
 
-| Minutes | Activité |
-|---------|----------|
-| 0–5 | Rappel objectif + **critère de réussite** (« on arrête quand… »). |
-| 5–35 | Code et **tests courts** (pas de monstre de 80 blocs). |
-| 35–50 | **Robustesse** : que se passe-t-il si on déplace le robot ou l’obstacle ? |
-| 50–60 | **Démo** 2 minutes + une phrase « ce qu’on ferait la prochaine fois ». |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Minutes</th>
+<th scope="col">Activité</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Minutes"><span class="td-val">0–5</span></td>
+<td data-label="Activité"><span class="td-val">Rappel objectif + <strong>critère de réussite</strong> (« on arrête quand… »).</span></td>
+</tr>
+<tr>
+<td data-label="Minutes"><span class="td-val">5–35</span></td>
+<td data-label="Activité"><span class="td-val">Code et <strong>tests courts</strong> (pas de monstre de 80 blocs).</span></td>
+</tr>
+<tr>
+<td data-label="Minutes"><span class="td-val">35–50</span></td>
+<td data-label="Activité"><span class="td-val"><strong>Robustesse</strong> : que se passe-t-il si on déplace le robot ou l’obstacle ?</span></td>
+</tr>
+<tr>
+<td data-label="Minutes"><span class="td-val">50–60</span></td>
+<td data-label="Activité"><span class="td-val"><strong>Démo</strong> 2 minutes + une phrase « ce qu’on ferait la prochaine fois ».</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Idées de défis
 
 ### Feu tricolore express
 
-Alterner **rouge / vert** (puis orange si dispo) sur les LED avec temporisations — base de [clignotement LED](/activite-mbot-faire-clignoter-les-leds/).
+Alterner **rouge / vert** (puis orange si dispo) sur les LED avec temporisations — base de [clignotement LED](/activite-mbot-faire-clignoter-les-leds/). C'est réussi quand la LED passe du rouge au vert toute seule, puis revient au rouge après la temporisation, sans appui sur le robot.
 
 ### Radar « stop »
 
@@ -106,12 +125,15 @@ Programmer **avance / tourne / recule** avec des durées fixes pour sortir d’u
 - Objectif **trop large** (« qu’on fasse tout ») — préférez **une** fonctionnalité bien finie.
 - Oublier la **démo finale** : c’est elle qui ancre l’apprentissage.
 
-## Liens Amazon (affiliation)
+## Le robot de ces défis
 
-- [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Kit piles rechargeables](https://www.amazon.fr/s?k=piles+rechargeables+AA+eneloop&tag=manuso06-21)
+Le mBot (fiche B07XR98YYQ) affichait **89,99 €** sur Amazon.fr le 9 novembre 2026. Le carton contient déjà les LED, l'ultrason et le suiveur de ligne utilisés ci-dessus.
 
-*Partenaire Amazon — commission possible sur achats éligibles.*
+![mBot Makeblock](/images/products/mbot.webp)
+
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+
+*Lien affilié. Le prix change : ouvrez la fiche le jour de l'achat. Des piles AA rechargeables, au format indiqué par Makeblock pour votre révision, évitent de racheter des piles jetables ; aucune fiche de piles n'est proposée ici.*
 
 ---
 

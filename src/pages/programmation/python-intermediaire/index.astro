@@ -6,7 +6,9 @@ import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
 import { withBase } from '../../../lib/siteUrl';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
-import bandeauPythonUrl from '../../../assets/programmation/bandeau-python.svg?url';
+import PageColumns from '../../../components/PageColumns.astro';
+
+const bandeauPythonUrl = withBase('/images/blog/lot15/pendu-console-exemple.png');
 
 const tag = AMAZON_AFFILIATE_TAG;
 const SERIE = 'Python intermédiaire';
@@ -27,6 +29,7 @@ const posts = all
 	<body>
 		<Header />
 		<main class="py-series">
+<PageColumns>
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
@@ -85,7 +88,8 @@ const posts = all
 				{' · '}
 				<a href={withBase('/programmation/python-avance/')}>Python avancé</a>
 			</p>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

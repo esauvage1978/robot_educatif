@@ -9,14 +9,58 @@ To control Zigbee devices from **Home Assistant**, you need a **Zigbee coordinat
 
 ## 1. Comparison table
 
-| Model | Chip | Antenna | Thread / Matter | ZHA | Zigbee2MQTT | Best for |
-|---|---|---|---|---|---|---|
-| **[SONOFF](/en/sonoff-brand/) ZBDongle-E** | Silicon Labs EFR32MG21 | external | not by default (Zigbee firmware) | yes | yes | most people: well documented |
-| **Home Assistant Connect ZBT-2** | Silicon Labs MG24 | internal, in an optimised case | yes (Thread firmware option) | yes | yes | official Nabu Casa support, Thread-ready |
-| **SONOFF Dongle Lite MG21** | Silicon Labs EFR32MG21 | internal | not by default | yes | yes | smallest budget, small homes |
-| **ConBee II** (dresden elektronik) | deCONZ firmware | internal | no | yes | yes | users already on deCONZ / Phoscon |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Model</th>
+<th scope="col">Chip</th>
+<th scope="col">Antenna</th>
+<th scope="col">Thread / Matter</th>
+<th scope="col">ZHA</th>
+<th scope="col">Zigbee2MQTT</th>
+<th scope="col">Best for</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Model"><span class="td-val"><strong><a href="/en/sonoff-brand/">SONOFF</a> ZBDongle-E</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs EFR32MG21</span></td>
+<td data-label="Antenna"><span class="td-val">external</span></td>
+<td data-label="Thread / Matter"><span class="td-val">not by default (Zigbee firmware)</span></td>
+<td data-label="ZHA"><span class="td-val">yes</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">yes</span></td>
+<td data-label="Best for"><span class="td-val">most people: well documented</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>Home Assistant Connect ZBT-2</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs MG24</span></td>
+<td data-label="Antenna"><span class="td-val">internal, in an optimised case</span></td>
+<td data-label="Thread / Matter"><span class="td-val">yes (Thread firmware option)</span></td>
+<td data-label="ZHA"><span class="td-val">yes</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">yes</span></td>
+<td data-label="Best for"><span class="td-val">official Nabu Casa support, Thread-ready</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>SONOFF Dongle Lite MG21</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs EFR32MG21</span></td>
+<td data-label="Antenna"><span class="td-val">internal</span></td>
+<td data-label="Thread / Matter"><span class="td-val">not by default</span></td>
+<td data-label="ZHA"><span class="td-val">yes</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">yes</span></td>
+<td data-label="Best for"><span class="td-val">smallest budget, small homes</span></td>
+</tr>
+<tr>
+<td data-label="Model"><span class="td-val"><strong>ConBee II</strong> (dresden elektronik)</span></td>
+<td data-label="Chip"><span class="td-val">deCONZ firmware</span></td>
+<td data-label="Antenna"><span class="td-val">internal</span></td>
+<td data-label="Thread / Matter"><span class="td-val">no</span></td>
+<td data-label="ZHA"><span class="td-val">yes</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">yes</span></td>
+<td data-label="Best for"><span class="td-val">users already on deCONZ / Phoscon</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-Official pages: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2). Prices change often: check the current price at the retailer. US/UK: <a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="nofollow sponsored">SONOFF ZBDongle-E (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0B6P22YJC?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a>, <a href="https://www.amazon.com/dp/B0G34ZTW51?tag=roboteducatif-20" rel="nofollow sponsored">Home Assistant Connect ZBT-2 (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0G34ZTW51?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> (affiliate links).
+Official pages: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2). The price is on the shop page of the chosen country.
 
 ## 2. ZHA or Zigbee2MQTT?
 

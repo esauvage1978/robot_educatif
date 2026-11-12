@@ -1,0 +1,58 @@
+---
+/** Encart « Notre choix » + script mnz-choix (aligné prod) — nécessaire pour parité des href avec TRUITE. */
+import { MANUSO_AMAZON_CHOICE_PAGES } from '../data/manusoAmazonChoicePages.js';
+---
+
+<script is:inline define:vars={{ pagesJson: JSON.stringify(MANUSO_AMAZON_CHOICE_PAGES) }}>
+	(function () {
+		const PAGES = JSON.parse(pagesJson);
+		var path = location.pathname || '/';
+		if (!/\/$/.test(path)) path += '/';
+		try {
+			path = decodeURI(path);
+		} catch (e) {}
+		var CFG = PAGES[path];
+		if (!CFG) return;
+		function run() {
+			if (document.querySelector('.mnz-choix')) return;
+			var root = document.querySelector('main') || document.body;
+			var h1 = root.querySelector('h1') || document.querySelector('h1');
+			if (!h1) return;
+			var items = [],
+				links = root.querySelectorAll('a[href]');
+			CFG.forEach(function (c) {
+				for (var i = 0; i < links.length; i++) {
+					var a = links[i];
+					if (a.closest('header, nav, footer, .mnz-choix')) continue;
+					if ((a.getAttribute('href') || '').indexOf(c[1]) !== -1) {
+						items.push({ n: c[0], h: a.href, rel: a.getAttribute('rel') || 'sponsored nofollow noopener' });
+						return;
+					}
+				}
+			});
+			if (!items.length) return;
+			var lang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
+			var T =
+				{
+					fr: ['Notre choix', 'Voir l’offre', 'Lien partenaire : le prix ne change pas pour vous.'],
+					en: ['Our pick', 'See the offer', 'Partner link: the price is the same for you.'],
+					de: ['Unsere Wahl', 'Zum Angebot', 'Partnerlink: Für Sie ändert sich der Preis nicht.'],
+					it: ['La nostra scelta', 'Vedi l’offerta', 'Link partner: il prezzo per te non cambia.'],
+					es: ['Nuestra elección', 'Ver la oferta', 'Enlace de socio: el precio no cambia para ti.'],
+				}[lang] || ['Notre choix', 'Voir l’offre', 'Lien partenaire : le prix ne change pas pour vous.'];
+			var box = document.createElement('aside');
+			box.className = 'mnz-choix';
+			box.setAttribute('aria-label', T[0]);
+			var html = '<p class="mnz-choix-t">' + T[0] + '</p><ul>';
+			items.forEach(function (it) {
+				var n = it.n.replace(/[<>&"]/g, '');
+				html += '<li><span>' + n + '</span><a href="' + it.h.replace(/"/g, '&quot;') + '" target="_blank" rel="' + it.rel.replace(/"/g, '') + '">' + T[1] + ' →</a></li>';
+			});
+			html += '</ul><p class="mnz-choix-n">' + T[2] + '</p>';
+			box.innerHTML = html;
+			h1.insertAdjacentElement('afterend', box);
+		}
+		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+		else run();
+	})();
+</script>

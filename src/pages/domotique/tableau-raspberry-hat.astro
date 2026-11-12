@@ -1,0 +1,42 @@
+---
+import DomotiqueToolLayout from '../../layouts/DomotiqueToolLayout.astro';
+import RaspberryPiHatMatrix from '../../components/RaspberryPiHatMatrix.astro';
+import { HAT_PAGE } from '../../data/raspberryPiHatCompat.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+const lang = 'fr';
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={HAT_PAGE.title}
+	description={HAT_PAGE.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/domotique/tableau-raspberry-hat/"
+	hubLabel="Domotique"
+>
+	<p>{HAT_PAGE.intro}</p>
+	<p>
+		Contexte : <a href={withBase('/domotique/')}>hub domotique</a> ·{' '}
+		<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>installer Home Assistant sur Pi 5</a>.
+	</p>
+	<RaspberryPiHatMatrix />
+	<p>
+		Installation complète :{' '}
+		<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>Home Assistant sur Raspberry Pi 5</a>
+		· <a href={withBase('/raspberry-pi-3-vs-4-vs-5-comparatif-2026/')}>comparatif Pi 3 / 4 / 5</a>
+		· <a href={withBase('/domotique/rubrique/debuter/')}>démarrer en domotique</a>
+		· <a href={withBase('/domotique/raspberry-pi-detecteur-presence-pir-eclairage/')}>capteur PIR sur GPIO</a>.
+	</p>
+	<h2>Comment lire le tableau</h2>
+	<ul>
+		<li><strong>ok</strong> : usage courant documenté sur le site ou la communauté Home Assistant.</li>
+		<li><strong>warn</strong> : fonctionne mais alimentation ou GPIO limités (souvent Pi Zero).</li>
+		<li><strong>no</strong> : incompatible mécanique ou alimentation insuffisante — ne pas forcer.</li>
+	</ul>
+	<p>
+		Après le choix du matériel, ajoutez un coordinateur Zigbee USB : voir{' '}
+		<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif dongles Zigbee</a>.
+	</p>
+</DomotiqueToolLayout>

@@ -1,0 +1,196 @@
+---
+title: "Zigbee2MQTT or ZHA: which one to choose for Home Assistant?"
+description: "ZHA or Zigbee2MQTT to control your Zigbee devices in Home Assistant: differences, step-by-step installation, compatible dongles and traps to avoid."
+pubDate: 2026-10-20T00:00:00Z
+category: "home-assistant"
+products: ["sonoff-zbdongle-e"]
+priority: 7
+lang: "en"
+frSlug: "home-assistant-zigbee2mqtt-ou-zha"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+You have connected an **Zigbee Dongle** on your Raspberry Pi or your Home Assistant Green, and Home Assistant offers you two paths: **ZHA** or **Zigbee2MQTT**. Both do the same thing on the bottom (talk to your sensors, plugs and Zigbee bulbs), but not in the same way. This guide explains the differences based on the official documentation of the two projects, and then gives the procedure to install one or the other.
+
+*Method: This comparison is based on the [ZHA integration documentation](https://www.home-assistant.io/integrations/zha/) and [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/guide/getting-started/), consulted in October 2026. We did not measure performance on a test bench, so you will not find any invented speed or range figures here.*
+
+## The short answer
+
+- **Are you just starting out and want it to work fast?** Take **ZHA**. It is an integration delivered with Home Assistant: no software to add, no MQTT server, everything is settled in the usual interface.
+- **Do you like to tinker, have exotic devices or want to reuse your sensors elsewhere than in Home Assistant?** Take **Zigbee2MQTT**. It runs next to Home Assistant, publishes everything on an MQTT server and offers its own web interface, very detailed.
+- **In any case: only one of the two at the same time on the same key.** A Zigbee network has only one coordinator, and the key can only be used by one software.
+
+## How it works, in two sentences
+
+A Zigbee network needs a **coordinator**: this is your USB dongle (SONOFF ZBdongle-E, Home Assistant Connect ZBT-2...). The software that drives this coordinator is either **ZHA**, directly in Home Assistant, or **Zigbee2**MQTT****, a separate program that translates Zigbee messages into MQTT messages (a very lightweight messaging protocol) that Home Assistant then reads.
+
+```
+ZHA :          capteur Zigbee → clé USB → Home Assistant (intégration ZHA)
+Zigbee2MQTT :  capteur Zigbee → clé USB → Zigbee2MQTT → serveur MQTT (Mosquitto) → Home Assistant
+```
+
+## Comparative table
+
+|  | **ZHA** | **Zigbee2MQTT** |
+|---|---|---|
+| Where it turns | Integration included in Home Assistant | Separate program (an "app" from Home Assistant OS, or installed on another machine) |
+| MQTT Server | Unnecessary | Mandatory (Mosquitto recommended) |
+| Installation | A few clicks, the key is often detected automatically | Install Mosquitto, add the repository, install the app, and then the startup wizard |
+| Interface | In the Home Assistant settings | Dedicated web interface, more detailed |
+| Recognised keys (chip family) | Silicon Labs (EZSP), Texas Instruments (ZNP), deCONZ, ZiGate | Texas Instruments (zStack) and Silicon Labs (EmberZNet) recommended; deCONZ supported; ZiGate not recommended |
+| Non-standard devices | Fixed by "quirks" (small compatibility modules) | Fixed by "converters" |
+| OTA device updates | Yes, for a limited list of manufacturers who publish their firmwares | Yes, from a repository that gathers the firmwares published by the manufacturers |
+| Network backup | Automatic backups; migration to another expected key | Backup the coordinator with the zStack and EmberZNet keys |
+| Using sensors outside of Home Assistant | No | Yes, any software that speaks MQTT |
+| Minimum equipment | The Home Assistant | The app requires a 64-bit system; developers recommend at least a Raspberry Pi 4 |
+
+*Sources: ZHA and Zigbee2MQTT official documentation, October 2026.*
+
+## ZHA: Strengths and Limitations
+
+**Highlights**
+
+- **Nothing else to install.** ZHA is part of Home Assistant, which reduces the number of parts that can break down.
+- **Automatic detection** many USB dongles, which shortens the setup.
+- **Automatic backups of the Zigbee network.** The official documentation provides for the migration to a new key (Silicon Labs chips, Texas Instruments or ConBee/RaspBee) without re-pairing the devices, provided that the backup was made from ZHA.
+- **Map of the network** built-in: *Settings Connectivity Zigbee*, then *Show map*.
+
+**Limits**
+
+- A device that does not meet the standard well may display only part of its functions, waiting for a "quirk" to be written for it.
+- The sensors are only visible in Home Assistant.
+
+## Zigbee2MQTT: strengths and limitations
+
+**Highlights**
+
+- **A very complete web interface**: list of devices, fine settings, log, network map, OTA updates.
+- **A catalogue of supported devices available online**, with for each model the way to pair it: convenient to check a sensor **before** to buy it.
+- **Independent Home Assistant** : the data passes through MQTT, so another software (Node-RED, a Python script on Raspberry Pi...) can read them.
+
+**Limits**
+
+- **Two more bricks** to run and update: the MQTT server and Zigbee2MQTT.
+- Developers report that an **Raspberry Pi 3 may be unstable** with the Zigbee2MQTT app and recommend at least a Raspberry Pi 4.
+
+## What Zigbee dongle for one or the other?
+
+The smart keys **Silicon Labs** and **Texas Instruments** They work with both. The **[SONOFF](/en/sonoff-brand/) ZBDongle - E** (Silicon Labs chip EFR32MG21) is mentioned in the list of ZHA compatible keys, and Zigbee2MQTT the driver with its driver `ember`. The **Home Assistant Connect ZBT-2** is the official key to Home Assistant (Silicon Labs MG24 chip): it runs either a Zigbee network or a Thread network, of your choice. [Zigbee dongle comparison for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/).
+
+<ProductBox
+  lang="en"
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  pros={[
+    'Compatible with ZHA and Zigbee2MQTT',
+    'Silicon Labs Chip EFR32MG21',
+    'Demountable external antenna',
+    'Price content'
+  ]}
+  badge="Versatile key"
+  position={1}
+/>
+
+<ProductBox
+  lang="en"
+  productId="home-assistant-connect-zbt-2"
+  name="Home Assistant Connect ZBT-2"
+  asin="B0G34ZTW51"
+  pros={[
+    'Official Key Home Assistant',
+    'Zigbee or Thread, your choice',
+    'Network migration planned by ZHA',
+    'Often out of stock: check the stock'
+  ]}
+  badge="Official"
+  position={2}
+/>
+
+**Zigbee2MQTT documentation tip:** plug the key at the end of a **USB Extender** This is the first thing to do in the case of devices that disconnect or refuse to pair, due to interference.
+
+## Install ZHA step by step
+
+1. Connect the Zigbee dongle to the Raspberry Pi or Home Assistant Green, preferably via a USB extension cord.
+2. If Home Assistant detects the key, it appears as a device discovered in *Settings  Devices and Services*: click **Configure**.
+3. If not, click on **Add an integration**, search **Zigbee Home Automation** and choose the serial port of the key from the list.
+4. Let ZHA create the network. It chooses a channel; you can change it later.
+5. To add a device: *Settings Connectivity Zigbee*, then **Adding a device** Put the sensor back to zero according to the manufacturer’s instructions (often a long press of the button): it appears after a few seconds and can be renamed and stored in a room.
+
+## Install Zigbee2MQTT step by step (Home Assistant OS)
+
+These steps follow the official instructions of the Zigbee2MQTT app. If ZHA already uses your key, **Remove the ZHA integration first** : both cannot open the key at the same time.
+
+1. **Install the MQTT server.** In *Settings Apps App store* (the "add-on modules" for older versions of Home Assistant), install **Mosquitto broker** and start it.
+2. **Add the Zigbee2MQTT repository.** In the app store, menu **Deposits**, paste `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt`, then **Add** and **Close**.
+3. **Install the app "Zigbee2MQTT"** (the stable version, recommended to most users, and not the *Edge* version that follows the development branch), then click **Start**.
+4. **Open the web interface**. A configuration home page appears on the first boot. Choose your key in *Found Devices*: the port and key type fill up on their own. Specify the nearest Wi-Fi channel for Zigbee2MQTT to choose a suitable Zigbee channel.
+5. **Validate**, wait a few seconds and reload the page. An error `502: Bad Gateway` at the beginning is normal: wait. Beyond two minutes approximately, consult the tab **Journal** from the app.
+6. **Pair your devices** from the Zigbee2MQTT interface by allowing pairings, then resetting each device to zero, and then appearing in Home Assistant using MQTT.
+
+If the key is not detected (message `No valid USB adapter found`), enter the port and type by hand in the app configuration. For a ZBDongle-E SONOFF, this looks like this (the exact port name is read with the command `ha hardware info` or `ls -l /dev/serial/by-id`):
+
+```yaml
+adapter: ember
+port: /dev/serial/by-id/usb-…-if00-port0
+```
+
+For a Texas Instruments smart key, the type is `zstack` instead of `ember`.
+
+## Moving from one to the other: What you need to know
+
+- **From ZHA to Zigbee2MQTT (or vice versa)** : the official documentation only describes a migration without re-pairing**Inside of ZHA** (from one key to another). Switching software in practice returns to **re-pair your devices**. So it is better to choose before installing twenty sensors.
+- **Switching keys with Zigbee2MQTT** : its documentation warns that this may require all devices to be re-paired in some cases.
+- **Before any manipulation** Make a full backup of Home Assistant (*Settings System Backups*) and write down the name and location of each device.
+
+## The Most Common Mistakes
+
+**"The key is already in use" or impossible startup**
+ZHA and Zigbee2MQTT (or deCONZ) try to open the same key. Keep only one of the two.
+
+**Devices that fall off the network**
+The Zigbee uses the same 2.4 GHz band as Wi-Fi. The ZHA documentation recommends first **fix the channel of your box or your Wi-Fi terminals** rather than changing the Zigbee channel, and then adding **Router Devices** : most devices connected to the mains (connected sockets, bulbs) relay the signal. A bulb often cut on the switch, on the other hand, weakens the mesh.
+
+**Changing the Zigbee Channel**
+Possible in ZHA, but devices can take up to an hour to return to the new channel, according to official documentation. To be avoided for no reason.
+
+**ZHA does not start on a traditional Linux server**
+On a containerized Home Assistant installation running Debian or Ubuntu, the `modemmanager` service can take over the USB dongle. The ZHA documentation recommends uninstalling it.
+
+## Our advice according to your profile
+
+- **Starting family, 5 to 20 common devices** (temperature sensors, sockets, aperture detectors): **ZHA**. Fewer parts, fewer updates, and built-in backups.
+- **Maker or Teen DIYer** who also wants to read his sensors from a Python script, as in our [Sensor tutorials on Raspberry Pi](/en/smart-home/raspberry-pi-door-sensor-notification/) : **Zigbee2MQTT**. MQTT messages are exactly what these scripts already know how to read and write.
+- **You have a specific device in mind.** : Look for its model in the Zigbee2MQTT supported device list and in the ZHA compatibility database **before** to choose.
+
+## FAQ
+
+**Can ZHA and Zigbee2MQTT be used at the same time?**
+Not on the same key. It would take two keys, so two separate Zigbee networks, which complicates the installation without real interest for a house.
+
+**Is Zigbee2MQTT more "pro" than ZHA?**
+It is more detailed and open, but not necessarily better for you. ZHA is the integration put forward by Home Assistant and is very suitable for a family home.
+
+**Do I need an MQTT server for ZHA?**
+No, only Zigbee2MQTT needs it.
+
+**My key is an old Conbee II: does it work?**
+It is supported by ZHA (CONZ protocol) and Zigbee2MQTT (`deconz` driver), but Zigbee2MQTT recommends Texas Instruments and Silicon Labs as a priority.
+
+**Is a Raspberry Pi 3 enough?**
+For Zigbee2MQTT, developers advise at least a Raspberry Pi 4. To choose the hardware of Home Assistant, see our comparison [Home Assistant Green or Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/).
+
+## To go further
+
+- [Install Home Assistant on Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/)
+- [What Zigbee dongle for Home Assistant?](/en/smart-home/best-zigbee-dongle-home-assistant/)
+- [Zigbee temperature sensor](/en/smart-home/zigbee-temperature-sensor/): the first device to pair
+- [Connected plug Zigbee](/en/smart-home/smart-plugs-uk-us/): measuring consumption and strengthening the mesh
+- [PIR presence detector on Raspberry Pi](/en/smart-home/raspberry-pi-pir-motion-sensor-lighting/), a tutorial that already publishes its data in MQTT
+- [Welcome to the smart home section](/en/smart-home/)
+
+---
+
+*Affiliation: Amazon links on this page contain our identifier (manuso06-21); a purchase can earn us a commission, at no extra cost to you. Comparison written from official documentation, without physical testing.*

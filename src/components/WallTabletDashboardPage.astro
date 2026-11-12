@@ -1,0 +1,762 @@
+---
+import SmartHomeProjectInlineConfigurator from './SmartHomeProjectInlineConfigurator.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import {
+	DASHBOARD_YAML,
+	WAKE_YAML,
+	WALL_TABLET_FAQ,
+	WALL_TABLET_STEPS,
+} from '../data/wallTabletDashboardContent.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	useCase: { id: string };
+	articleUrl: string;
+}
+
+const { useCase, articleUrl } = Astro.props;
+const useCaseJson = JSON.stringify(useCase);
+
+const howTo = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: 'Installer une tablette murale pour Home Assistant',
+	description:
+		'Vérifier le serveur, préparer la tablette, créer un tableau de bord, choisir l’affichage, fixer et alimenter en 5 V, puis tester les commandes.',
+	step: WALL_TABLET_STEPS.map((step, index) => ({
+		'@type': 'HowToStep',
+		position: index + 1,
+		name: step.title,
+		text: [step.why, ...step.actions, step.observe, step.check].join(' '),
+	})),
+};
+
+const techArticle = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: 'Tablette murale Home Assistant : dashboard au mur',
+	description:
+		'La tablette affiche Home Assistant. Le serveur exécute les commandes. Le Zigbee n’est pas nécessaire pour le dashboard.',
+	datePublished: '2026-10-28',
+	dateModified: '2026-10-29',
+	inLanguage: 'fr-FR',
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+
+const toc = [
+	['a-quoi-ca-sert', 'À quoi sert l’écran'],
+	['ce-que-vous-obtenez', 'Ce que vous obtenez'],
+	['avant-de-commencer', 'Avant de commencer'],
+	['trois-situations', 'Trois situations'],
+	['architecture', 'Comment ça communique'],
+	['quel-materiel', 'Quel matériel'],
+	['tutoriel', 'Pas à pas'],
+	['verifier', 'Vérifier'],
+	['depannage', 'Dépannage'],
+	['aller-plus-loin', 'Aller plus loin'],
+	['questions', 'Questions fréquentes'],
+	['sources', 'Sources'],
+];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howTo)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticle)} />
+<StructuredDataFaq items={WALL_TABLET_FAQ} />
+
+<div class="wt-guide">
+	<nav class="wt-toc" aria-label="Sommaire">
+		{
+			toc.map(([id, label]) => (
+				<a href={`#${id}`}>{label}</a>
+			))
+		}
+	</nav>
+
+	<p>
+		Le matin, dans l’entrée, l’écran montre ce que la maison sait déjà : une lumière, un volet, la température du séjour,
+		parfois un scénario « départ ». La tablette ne décide rien. Elle affiche Home Assistant et renvoie vos appuis au
+		serveur, sur le réseau de la maison. Ce guide sert à choisir l’écran, à construire le tableau de bord, à le laisser
+		allumé proprement, et à vérifier qu’une commande part vraiment jusqu’à l’appareil.
+	</p>
+	<p>
+		Texte revu le 29 octobre 2026. Les chemins de menus suivent la documentation Home Assistant en anglais et l’interface
+		française actuelle (Paramètres, Tableaux de bord, Appareils et services). Les exemples YAML n’ont pas été chargés sur
+		une installation de test du site.
+	</p>
+
+	<h2 id="a-quoi-ca-sert">À quoi sert un écran au mur</h2>
+	<p>
+		Le téléphone reste dans une poche, se verrouille, et n’est pas pratique pour un invité. Un écran fixe rend les
+		commandes visibles pour tout le foyer : allumer le couloir, voir si une fenêtre est ouverte, lancer « bonne nuit »
+		sans expliquer quelle application ouvrir. Le serveur, lui, continue de faire tourner les automatisations même quand
+		la tablette est éteinte.
+	</p>
+	<p>
+		Ce n’est utile que pour des équipements déjà présents dans Home Assistant. Le tableau de bord n’ajoute ni une ampoule,
+		ni un volet, ni un compteur. S’ils n’existent pas comme entités, la carte correspondante n’aura rien à montrer.
+	</p>
+
+	<h2 id="ce-que-vous-obtenez">Ce que vous allez obtenir</h2>
+	<p>
+		Une page locale, ouverte sur la tablette, avec les commandes que vous aurez choisies. L’écran se fixe au mur. Le
+		câble d’alimentation sort derrière le support : il faut le prévoir avant de percer.
+	</p>
+
+	<figure class="wt-photo">
+		<img
+			src={withBase('/images/domotique/tablette-murale/ecran-tactile-mural-cuisine.webp')}
+			width="1600"
+			height="1130"
+			alt="Écran tactile fixé sur un mur de cuisine. Un doigt règle un cadran de température, et un câble sort derrière le support."
+			loading="lazy"
+			decoding="async"
+		/>
+		<figcaption>
+			Fixation murale et câble qui sort du support.
+			Photo :
+			<a href="https://www.pexels.com/photo/smart-home-control-16423103/">Jakub Zerdzicki</a>, Pexels.
+		</figcaption>
+	</figure>
+	<p>
+		Sur une page d’entrée dans Home Assistant, un appui allume ou éteint une lumière déjà intégrée, ouvre ou ferme un
+		volet déjà motorisé et connecté, affiche une température déjà mesurée, et lance une scène déjà créée. Rien de tout
+		cela n’apparaît tout seul le jour où vous vissez la tablette. Une page de séjour reprend les mêmes appuis, avec d’autres
+		cartes.
+	</p>
+	<p>
+		Le chauffage ne se règle que si une entité climate existe. La puissance électrique n’apparaît que si un compteur ou
+		une prise de mesure remonte déjà des watts. L’état d’une porte ou d’une fenêtre vient d’un capteur d’ouverture. Les
+		scénarios « bonne nuit » ou « départ » sont des scènes ou des scripts que vous écrivez dans Home Assistant : la
+		tablette ne fait que les déclencher.
+	</p>
+
+	<h2 id="avant-de-commencer">Avant de commencer</h2>
+	<table class="wt-table">
+		<thead>
+			<tr><th>Point</th><th>Ce qu’il faut savoir</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Point">Objectif</td>
+				<td data-label="Détail">Afficher et commander Home Assistant depuis un écran fixé au mur.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Difficulté</td>
+				<td data-label="Détail">Débutant si le serveur tourne déjà. Le mode kiosque Android demande un peu plus de soin. Partir de zéro ajoute l’installation du serveur, traitée dans un autre guide.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Temps</td>
+				<td data-label="Détail">Comptez une soirée si Home Assistant répond déjà et si la tablette est à jour. Ce n’est pas une durée chronométrée sur un chantier.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Budget</td>
+				<td data-label="Détail">Indicatif catalogue : environ 33 à 353 € selon ce que vous possédez déjà (support et câble seuls, ou tablette et serveur en plus). Le configurateur détaille la liste.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Logiciels</td>
+				<td data-label="Détail">Home Assistant, son application Companion, et éventuellement Fully Kiosk Browser sur Android. Navigateur à jour.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Prérequis</td>
+				<td data-label="Détail">Un serveur Home Assistant joignable en local, le Wi-Fi de la maison, une prise murale accessible, et les entités que vous voulez afficher.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Risques</td>
+				<td data-label="Détail">Ne pas ouvrir le port 8123 sur Internet. Ne pas encastrer un chargeur 230 V. Ne pas laisser un compte administrateur sur un écran accessible à tous.</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2 id="trois-situations">Trois façons d’arriver au même écran</h2>
+	<p>
+		Le résultat visuel est le même. Ce qui change, c’est ce que vous possédez déjà. Les boutons plus bas reprennent ces
+		trois situations. L’adresse de cette page peut contenir <code>tier</code>, <code>eco</code>, <code>qty</code> et
+		<code>tech</code> : ce sont des réglages d’affichage, pas des pages différentes. L’URL canonique reste celle sans
+		paramètres.
+	</p>
+	<p data-wt-summary>
+		Réglage décrit par défaut : profil Recommandé, situation A, une tablette, variante « Home Assistant déjà en place ».
+		Le serveur n’est pas dans les achats. Le Zigbee n’est pas nécessaire pour le dashboard.
+	</p>
+
+	<section class="wt-sit" data-wt-situation="a">
+		<h3>Situation A — Home Assistant tourne déjà</h3>
+		<p>
+			C’est le cas du profil Recommandé (<code>eco=ha-zigbee</code>). Vous n’achetez pas un deuxième serveur. La variante
+			<code>plug-play-green</code> veut dire la même chose : Green, Raspberry Pi ou mini-PC, peu importe, tant que
+			l’interface s’ouvre déjà. Vous ajoutez l’écran, le support et le câble. Un capteur pour réveiller l’écran est
+			facultatif. Il n’est pas ce qui affiche le dashboard.
+		</p>
+	</section>
+	<section class="wt-sit" data-wt-situation="b">
+		<h3>Situation B — Vous partez de zéro</h3>
+		<p>
+			Le profil Évolutif (<code>eco=maker-esp32</code>) ajoute un Home Assistant Green, en un seul exemplaire, parce que
+			sans serveur la tablette n’a rien à afficher. Si vous préférez un Raspberry Pi, suivez plutôt
+			<a href={withBase('/domotique/home-assistant-green-vs-raspberry-pi-5/')}>Green ou Raspberry Pi 5</a>
+			et
+			<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>l’installation sur Pi 5</a>.
+			Ne comptez le serveur qu’une fois : il ne se multiplie pas quand vous prévoyez deux tablettes. Le dongle Zigbee
+			n’entre pas dans cette liste. Il ne sert que le jour où vous ajoutez des appareils Zigbee.
+		</p>
+	</section>
+	<section class="wt-sit" data-wt-situation="c">
+		<h3>Situation C — La tablette est déjà dans un tiroir</h3>
+		<p>
+			Le profil Économique (<code>eco=wifi-sans-box</code>) n’achète ni tablette ni serveur. Il part du principe que les
+			deux existent. Le nom historique de ce profil parle de Wi-Fi sans box domotique : ici, cela veut seulement dire
+			« réutiliser l’existant ». Vérifiez trois choses avant de percer : le système reçoit encore des mises à jour, le
+			navigateur affiche la page Home Assistant, la batterie accepte une charge sans gonfler, et le connecteur (USB-C,
+			Micro-USB ou Lightning) peut recevoir un câble qui sort sur le côté. Un iPad de cette réserve se fixe aussi, avec
+			les limites d’iPadOS décrites plus loin.
+		</p>
+	</section>
+
+	<h3>Ce que les variantes changent</h3>
+	<table class="wt-table">
+		<thead>
+			<tr><th>Variante <code>tech</code></th><th>Effet sur la liste</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Variante">plug-play-green</td>
+				<td data-label="Effet">Le serveur est déjà en place, il n’est pas acheté. En profil Recommandé ou Évolutif : tablette 11 pouces, plus un capteur de mouvement Zigbee facultatif pour le réveil (coordinateur déjà installé, non vendu ici). En profil Économique : support et câble seulement.</td>
+			</tr>
+			<tr>
+				<td data-label="Variante">tablette-recyclee</td>
+				<td data-label="Effet">Pas d’achat de tablette. Support et câble. En départ de zéro, le serveur reste proposé.</td>
+			</tr>
+			<tr>
+				<td data-label="Variante">tablette-android-neuve</td>
+				<td data-label="Effet">En profil Recommandé ou Évolutif : une tablette Android, sans capteur de présence. En profil Économique, la tablette n’est pas rachetée : vous en avez déjà une. On rallume l’écran en le touchant.</td>
+			</tr>
+			<tr>
+				<td data-label="Variante">reveil-mmwave</td>
+				<td data-label="Effet">Ajoute un radar Aqara FP2 pour le réveil. Ce n’est pas du Zigbee, et le dashboard n’en a pas besoin.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		La quantité multiplie les tablettes, les supports, les câbles et les capteurs de la variante. Elle ne multiplie pas
+		le serveur.
+	</p>
+
+	<SmartHomeProjectInlineConfigurator useCaseId={useCase.id} useCaseJson={useCaseJson} lang="fr" />
+	<noscript>
+		<p>Sans JavaScript, les boutons ne mettent pas la liste à jour. Les trois situations ci-dessus restent valables.</p>
+	</noscript>
+	<p>
+		Les vignettes sont des visuels fabricant, pas des photos de tests faits pour cet article. La tablette vient du dossier
+		presse Samsung (Galaxy Tab A9+). Le support est le Barkan T50, publié sur barkanmounts.com : il convient aux tablettes
+		de 7 à 12 pouces et laisse environ 2,7 cm entre le mur et l’appareil. Le câble est le modèle coudé 90° de la boutique
+		officielle UGREEN ; le chargeur USB 5 V demandé en plus n’est pas sur cette image. Les
+		liens d’achat ouvrent une recherche Amazon.fr avec l’identifiant partenaire du site, ou la fiche déjà référencée pour
+		le Green : une recherche ne garantit pas le modèle exact ni le stock du jour. Le Galaxy Tab A9+ 11 pouces Wi-Fi est cité
+		comme exemple d’Android courant, pas comme un modèle testé par le site. Une Lenovo Tab de taille proche joue le même
+		rôle si elle a encore un navigateur à jour.
+	</p>
+
+	<h2 id="architecture">Comment la tablette, le réseau et les appareils se parlent</h2>
+	<p>
+		Retenez une phrase : la tablette est un écran, le serveur est le cerveau, le routeur transporte les deux. Les
+		ampoules et les capteurs parlent au serveur, jamais à la tablette.
+	</p>
+	<figure class="wt-schema">
+		<figcaption>
+			Schéma de principe. Les flèches vertes sont des données sur le réseau. Les flèches orange sont l’alimentation 5 V,
+			séparée.
+		</figcaption>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 710" role="img" aria-labelledby="wt-arch-title wt-arch-desc">
+			<title id="wt-arch-title">Architecture d’une tablette murale Home Assistant</title>
+			<desc id="wt-arch-desc">
+				La tablette rejoint le routeur en Wi-Fi. Le serveur Home Assistant rejoint le routeur en Ethernet. Les appareils
+				déjà intégrés et, s’il existe, le coordinateur Zigbee sont reliés au serveur. L’alimentation USB est une chaîne à part.
+			</desc>
+			<defs>
+				<marker id="wt-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0f766e"></path></marker>
+				<marker id="wt-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c2410c"></path></marker>
+			</defs>
+			<rect width="360" height="710" rx="12" fill="#f8fafc"/>
+			<rect x="16" y="16" width="328" height="78" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="40" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">1. Tablette murale</text>
+			<text x="28" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Affiche le dashboard, envoie les appuis</text>
+			<text x="28" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Ne parle pas aux ampoules</text>
+			<line x1="180" y1="94" x2="180" y2="116" stroke="#0f766e" stroke-width="2" marker-end="url(#wt-g)"/>
+			<text x="188" y="110" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">Wi-Fi</text>
+			<rect x="16" y="122" width="328" height="64" rx="8" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+			<text x="28" y="146" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">2. Box ou routeur</text>
+			<text x="28" y="166" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Même réseau. Pas le Wi-Fi invité.</text>
+			<line x1="180" y1="186" x2="180" y2="208" stroke="#0f766e" stroke-width="2" marker-end="url(#wt-g)"/>
+			<text x="188" y="204" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">Ethernet</text>
+			<rect x="16" y="214" width="328" height="84" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="238" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">3. Serveur Home Assistant</text>
+			<text x="28" y="258" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Green, Pi ou mini-PC</text>
+			<text x="28" y="276" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Scènes, états, intégrations</text>
+			<path d="M180 298 V316 H95 V334" fill="none" stroke="#0f766e" stroke-width="2" marker-end="url(#wt-g)"/>
+			<path d="M180 316 H265 V334" fill="none" stroke="#0f766e" stroke-width="2" marker-end="url(#wt-g)"/>
+			<rect x="16" y="340" width="158" height="120" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="26" y="364" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">4. Déjà intégrés</text>
+			<text x="26" y="386" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Lumières, volets</text>
+			<text x="26" y="404" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Chauffage, prises</text>
+			<text x="26" y="428" font-family="system-ui,sans-serif" font-size="13" fill="#0f766e">Vers le serveur</text>
+			<rect x="186" y="340" width="158" height="120" rx="8" fill="#fff" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4"/>
+			<text x="196" y="364" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">5. Zigbee</text>
+			<text x="196" y="384" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Facultatif</text>
+			<text x="196" y="404" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Coordinateur, puis</text>
+			<text x="196" y="422" font-family="system-ui,sans-serif" font-size="13" fill="#334155">capteurs</text>
+			<text x="196" y="444" font-family="system-ui,sans-serif" font-size="13" fill="#64748b">Pas la tablette</text>
+			<text x="16" y="488" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#9a3412">Alimentation, à part</text>
+			<rect x="16" y="500" width="328" height="48" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+			<text x="28" y="530" font-family="system-ui,sans-serif" font-size="14" fill="#7c2d12">6. Prise murale déjà en place</text>
+			<line x1="40" y1="548" x2="40" y2="566" stroke="#c2410c" stroke-width="2" marker-end="url(#wt-o)"/>
+			<rect x="16" y="572" width="328" height="48" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+			<text x="28" y="602" font-family="system-ui,sans-serif" font-size="14" fill="#7c2d12">7. Chargeur USB 5 V, hors du mur</text>
+			<line x1="40" y1="620" x2="40" y2="638" stroke="#c2410c" stroke-width="2" marker-end="url(#wt-o)"/>
+			<rect x="16" y="644" width="328" height="48" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+			<text x="28" y="674" font-family="system-ui,sans-serif" font-size="14" fill="#7c2d12">8. Câble coudé vers la tablette</text>
+		</svg>
+	</figure>
+	<p>
+		Le Wi-Fi ne transporte que la page et les appuis, en HTTP sur le port 8123, entre la tablette et le serveur. Le serveur
+		gagne à être en Ethernet sur la box : sa liaison ne dépend alors pas du même Wi-Fi que l’écran. Les équipements du
+		bloc 4 sont ceux que Home Assistant connaît déjà, quel que soit leur protocole. Le bloc 5 n’existe que si vous avez un
+		coordinateur Zigbee branché au serveur, en USB ou en réseau. Les capteurs Zigbee s’y associent. Ils ne s’associent pas
+		à la tablette. L’alimentation est une deuxième chaîne : 230 V uniquement dans la prise existante, 5 V ensuite, jusqu’au
+		port de la tablette.
+	</p>
+	<p>
+		Pour le détail du Zigbee, voir le
+		<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>choix d’un dongle</a>
+		et
+		<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>ZHA ou Zigbee2MQTT</a>.
+		Pour comparer Zigbee, Wi-Fi, Matter et Thread :
+		<a href={withBase('/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/')}>quel protocole pour quel appareil</a>.
+	</p>
+
+	<h2 id="quel-materiel">Quel écran choisir</h2>
+	<table class="wt-table">
+		<thead>
+			<tr><th>Approche</th><th>Elle convient si</th><th>Limite principale</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Approche">Tablette Android déjà possédée</td>
+				<td data-label="Convient si">Elle affiche encore la page Home Assistant et tient une charge.</td>
+				<td data-label="Limite">Navigateur plus mis à jour, batterie fatiguée, connecteur fragile.</td>
+			</tr>
+			<tr>
+				<td data-label="Approche">Tablette Android neuve, environ 10 à 11 pouces</td>
+				<td data-label="Convient si">Vous voulez Fully Kiosk et, plus tard, le réveil d’écran depuis Home Assistant.</td>
+				<td data-label="Limite">Prix à consulter. Vérifiez la fiche Android et la taille du support avant d’acheter.</td>
+			</tr>
+			<tr>
+				<td data-label="Approche">iPad déjà possédé</td>
+				<td data-label="Convient si">L’application Companion s’installe et l’accès guidé suffit.</td>
+				<td data-label="Limite">Pas de Fully Kiosk. Home Assistant ne réveille pas l’écran tout seul.</td>
+			</tr>
+			<tr>
+				<td data-label="Approche">Écran tactile branché au mini-ordinateur</td>
+				<td data-label="Convient si">Le serveur est déjà contre ce mur et vous refusez une batterie au lithium.</td>
+				<td data-label="Limite">Câble HDMI, épaisseur, et la veille se règle dans le système, pas dans Fully Kiosk. Ce n’est plus une tablette Wi-Fi.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Le mode kiosque le plus complet, aujourd’hui, est Fully Kiosk Browser sur Android. L’intégration Home Assistant qui
+		allume l’écran, règle la luminosité et lit la batterie exige la fonction Remote Admin, réservée à la licence payante
+		Fully Plus. Sans cette licence, l’application peut encore afficher la page, avec un filigrane indiqué par Home
+		Assistant. Le tarif de la licence se lit sur fully-kiosk.com : il n’est pas recopié ici.
+	</p>
+	<p>
+		Côté fixation, un support à pinces se démonte si vous changez de tablette. Un cadre fermé est plus discret, à
+		condition de pouvoir encore extraire l’appareil et de ne pas masquer la caméra. L’aimant permet de décrocher l’écran
+		pour s’en servir dans le canapé, si le câble suit. Dans les trois cas, le chargeur reste accessible.
+	</p>
+
+	<h2 id="tutoriel">Installer le dashboard, pas à pas</h2>
+	<p>
+		Faites les étapes dans l’ordre. Chaque fois, l’observation attendue est dans le dernier paragraphe du bloc. Si elle
+		n’a pas lieu, passez au dépannage avant d’enchaîner.
+	</p>
+	{
+		WALL_TABLET_STEPS.map((step, index) => (
+			<section class="wt-step">
+				<h3>
+					Étape {index + 1}. {step.title}
+				</h3>
+				<p>{step.why}</p>
+				<p>
+					<strong>Où :</strong> {step.where}
+				</p>
+				<ol>
+					{step.actions.map((action) => (
+						<li>{action}</li>
+					))}
+				</ol>
+				<p>{step.observe}</p>
+				<p>
+					<strong>Contrôle :</strong> {step.check}
+				</p>
+			</section>
+		))
+	}
+
+	<h3>Exemple de tableau de bord à adapter</h3>
+	<p>
+		L’éditeur visuel suffit. Le YAML suivant reprend une vue Sections, une carte Tuile, une carte Thermostat et une scène.
+		Remplacez chaque <code>remplacer_</code> par une entité lue dans Outils de développement, États. Si votre version
+		refuse <code>perform-action</code>, recréez la carte dans l’éditeur plutôt que de forcer le fichier. Cet exemple n’a
+		pas été exécuté ici.
+	</p>
+	<pre><code>{DASHBOARD_YAML}</code></pre>
+	<p>
+		Documentation utilisée :
+		<a href="https://www.home-assistant.io/dashboards/dashboards">créer un tableau de bord</a>,
+		<a href="https://www.home-assistant.io/dashboards/views/">les vues</a>,
+		<a href="https://www.home-assistant.io/dashboards/sections/">les sections</a>,
+		<a href="https://www.home-assistant.io/dashboards/cards/">les cartes</a>.
+	</p>
+
+	<h3>Exemple d’allumage d’écran, non exécuté</h3>
+	<p>
+		Créez d’abord l’automatisation dans l’éditeur : quand le capteur de présence passe à « on », allumer l’entité écran
+		copiée depuis la page de l’appareil Fully Kiosk. Le YAML ne sert que si vous êtes à l’aise. Le domaine
+		<code>light</code> est un emplacement : l’intégration officielle expose un contrôle d’écran, pas forcément sous ce
+		domaine.
+	</p>
+	<pre><code>{WAKE_YAML}</code></pre>
+	<p>
+		Intégration :
+		<a href="https://www.home-assistant.io/integrations/fully_kiosk/">Fully Kiosk Browser</a>.
+		Remote Admin :
+		<a href="https://www.fully-kiosk.com/docs/en/configuration/remote-administration">documentation Fully</a>.
+		Accès guidé iPad :
+		<a href="https://support.apple.com/guide/ipad/use-guided-access-ipad9a2467e7/ipados">guide Apple</a>.
+		Application officielle :
+		<a href="https://companion.home-assistant.io/">Home Assistant Companion</a>.
+	</p>
+
+	<h2 id="verifier">Vérifier que l’ensemble tient</h2>
+	<ul class="wt-check">
+		<li>La tablette ouvre l’adresse IP du serveur sur le port 8123, sur le Wi-Fi principal.</li>
+		<li>Le compte utilisé n’est pas administrateur.</li>
+		<li>Le tableau de bord Tablette s’affiche sans défilement gênant.</li>
+		<li>Une lumière réelle change d’état quand vous touchez sa carte.</li>
+		<li>Un volet, un thermostat ou une scène, s’ils sont sur la page, répondent de la même façon.</li>
+		<li>Après une coupure courte du Wi-Fi, les cartes se mettent à jour de nouveau.</li>
+		<li>Après un redémarrage de la tablette, le dashboard revient.</li>
+		<li>L’écran s’éteint ou se rallume comme vous l’avez décidé à l’étape 6.</li>
+		<li>Le chargeur est débranchable sans outil, et le dos de la tablette ne devient pas très chaud.</li>
+		<li>Le port 8123 n’est pas redirigé depuis la box vers Internet.</li>
+	</ul>
+
+	<h2 id="depannage">Quand ça ne marche pas</h2>
+	<h3>Home Assistant ne s’ouvre pas sur la tablette</h3>
+	<p>
+		La page tourne, ou le navigateur dit que le serveur ne répond pas. Causes fréquentes : Wi-Fi invité, adresse IP qui a
+		changé, serveur éteint, ou mauvaise adresse (oubli du port 8123). Vérifiez d’abord depuis l’ordinateur sur le même
+		Wi-Fi. S’il voit la page et pas la tablette, comparez les réseaux. S’il ne la voit pas non plus, le problème n’est pas
+		la tablette. Limite : certaines box isolent le Wi-Fi du port Ethernet. Dans ce cas, il faut autoriser ce trafic dans
+		la box, pas changer de tablette.
+	</p>
+	<h3>Le dashboard reste blanc ou incomplet</h3>
+	<p>
+		Le compte est peut-être sur un autre tableau de bord, ou le navigateur est trop ancien. Ouvrez l’URL complète du
+		tableau de bord Tablette. Mettez à jour le navigateur ou Android System WebView. Essayez l’application Companion. Si
+		une seule carte manque, l’entité a été renommée ou n’est pas visible pour cet utilisateur.
+	</p>
+	<h3>L’écran s’éteint et ne revient pas</h3>
+	<p>
+		La veille de la tablette, un économiseur, ou un code de verrouillage reprend la main. Fully Kiosk doit être autorisé
+		à ignorer l’optimisation de batterie : l’emplacement de ce réglage change selon le constructeur, cherchez la fiche de
+		l’application dans les paramètres de batterie. Sur iPad, prévoyez de toucher l’écran. Aucune automatisation Zigbee ne
+		contourne cette limite d’iPadOS.
+	</p>
+	<h3>La tablette perd le Wi-Fi</h3>
+	<p>
+		Mur porteur, baie métallique, ou point d’accès trop loin. Le test se fait avant de percer, tablette à l’emplacement
+		final. Si la page ne charge pas là, déplacez l’écran ou ajoutez un point d’accès. Une réservation DHCP évite en plus
+		qu’une autre adresse soit attribuée après une coupure.
+	</p>
+	<h3>Les cartes ne se mettent plus à jour</h3>
+	<p>
+		La connexion websocket s’est coupée pendant une veille. Rechargez la page. Dans Fully Kiosk, la documentation de
+		l’application prévoit un rechargement après reconnexion réseau : activez-le si vous utilisez cette application. Si
+		une seule entité gèle, regardez son état dans Outils de développement : le blocage est alors dans l’intégration de
+		l’appareil, pas dans la tablette.
+	</p>
+	<h3>Tout est trop petit, ou ça défile</h3>
+	<p>
+		Trop de cartes pour la dalle. Passez à deux colonnes, retirez une rangée, ou créez une deuxième vue (le bouton + dans
+		l’édition) plutôt que d’allonger la page. Les tuiles sont prévues pour cet usage dans une vue Sections.
+	</p>
+	<h3>Le mode kiosque ne démarre pas</h3>
+	<p>
+		Sur Android, Fully Kiosk doit être lancé au démarrage et le mode kiosque activé dans ses réglages. Une mise à jour du
+		constructeur peut révoquer l’autorisation. Sur iPad, l’accès guidé se relance à la main après beaucoup de
+		redémarrages. Fully Kiosk n’est pas une solution iPad.
+	</p>
+	<h3>Le dos chauffe, ou la batterie gonfle</h3>
+	<p>
+		Écran trop longtemps allumé, dos collé au mur, charge permanente à 100 %. Baissez la luminosité, laissez de l’air,
+		activez la limite de charge du constructeur si elle existe. Si la batterie est déjà bombée, cessez de charger
+		l’appareil et ne le laissez pas fixé au mur. Ce guide ne donne pas de délai type : le gonflement se constate, il ne se
+		prévoit pas au mois près.
+	</p>
+	<h3>La tablette semble incompatible</h3>
+	<p>
+		Si, après les mises à jour encore proposées, la page Home Assistant ne s’affiche pas dans le navigateur ni dans
+		Companion, arrêtez. Acheter un support ne réparera pas un système abandonné par son fabricant. Regardez les exigences
+		indiquées sur la fiche Play Store ou App Store de l’application, plutôt qu’un millésime Android inventé.
+	</p>
+
+	<h2 id="aller-plus-loin">Aller plus loin, quand la base fonctionne</h2>
+	<p>
+		Un tableau de bord par pièce se fait avec plusieurs vues, ou plusieurs tableaux de bord. Le profil utilisateur,
+		Apparence, choisit celui qui s’ouvre au démarrage. Un compte « enfants » sans droit d’administrateur, et l’onglet
+		Visibilité des vues documenté par Home Assistant, retirent les commandes que vous ne voulez pas sur cet écran. Ce
+		n’est pas un contrôle parental du téléphone : c’est seulement le contenu de Home Assistant.
+	</p>
+	<p>
+		Le tableau Énergie intégré ne se modifie pas comme un tableau de bord vide : la documentation indique qu’on ne lui
+		ajoute pas de vues. Si les capteurs d’énergie sont configurés, ouvrez ce tableau depuis la barre latérale, ou copiez
+		une carte statistique sur votre tableau Tablette. Sans capteur d’énergie, il n’y a rien à dessiner.
+	</p>
+	<p>
+		Réveiller l’écran par une présence demande un binary_sensor fiable et, sur Android, l’intégration Fully Kiosk. Un
+		radar mmWave reste « occupé » quand une personne est immobile. Un détecteur infrarouge classique retombe souvent dès
+		que l’on ne bouge plus. Ce n’est pas un défaut de la tablette. La luminosité peut suivre le même principe, en
+		s’appuyant sur le contrôle de luminosité exposé par l’intégration : réglez-la bas la nuit pour ne pas éclairer le
+		couloir. Ne copiez pas un numéro de 0 à 255 sans l’avoir lu sur votre appareil.
+	</p>
+	<p>
+		Plusieurs caméras en haute définition sur la tablette la rendent lente. Préférez un flux secondaire, déjà prévu par
+		beaucoup de caméras, et une seule vue « caméras » plutôt que quatre flux sur l’accueil. Les droits restent ceux du
+		compte Home Assistant : un écran dans l’entrée ne doit pas afficher le code d’alarme en clair.
+	</p>
+
+	<h2 id="questions">Questions fréquentes</h2>
+	{
+		WALL_TABLET_FAQ.map((item) => (
+			<section>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</section>
+		))
+	}
+
+	<h2 id="sources">Pour continuer</h2>
+	<p>Pages du site qui traitent le serveur, le Zigbee ou l’accès distant, pas un deuxième tutoriel de tablette :</p>
+	<ul>
+		<li><a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')}>Par où commencer en domotique</a></li>
+		<li><a href={withBase('/domotique/projets/installer-home-assistant/')}>Installer Home Assistant</a></li>
+		<li><a href={withBase('/domotique/home-assistant-green-vs-raspberry-pi-5/')}>Green ou Raspberry Pi 5</a></li>
+		<li><a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>Installation sur Raspberry Pi 5</a></li>
+		<li><a href={withBase('/domotique/projets/acces-distance-securise-home-assistant-vpn/')}>Accès distant sans ouvrir le port 8123</a></li>
+		<li><a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>Dongle Zigbee</a></li>
+		<li><a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>ZHA ou Zigbee2MQTT</a></li>
+		<li><a href={withBase('/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/')}>Matter, Thread, Zigbee ou Wi-Fi</a></li>
+		<li><a href={withBase('/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/')}>Home Assistant, Homey, Jeedom ou Alexa</a></li>
+	</ul>
+	<p>
+		Accès hors du domicile, côté éditeur du logiciel :
+		<a href="https://www.home-assistant.io/docs/configuration/remote/">Remote access</a>.
+		Ne remplacez pas cette page par une redirection de port.
+	</p>
+</div>
+
+<script>
+	function wtSituation(eco) {
+		if (eco === 'maker-esp32') return 'b';
+		if (eco === 'wifi-sans-box') return 'c';
+		return 'a';
+	}
+
+	function wtSummary(eco, tech, qty) {
+		const q =
+			qty === '2'
+				? 'deux tablettes'
+				: qty === '3-5'
+					? 'le palier 3 à 5 tablettes'
+					: qty === '6+'
+						? 'le palier 6 tablettes ou plus'
+						: 'une tablette';
+		if (eco === 'wifi-sans-box') {
+			const radar =
+				tech === 'reveil-mmwave'
+					? ' Un radar de réveil est ajouté. Il ne sert pas à afficher le dashboard.'
+					: ' Aucun capteur de présence n’est ajouté.';
+			return (
+				'Situation C, profil Économique. La tablette et Home Assistant sont supposés déjà possédés. Achats : support et câble, pour ' +
+				q +
+				'.' +
+				radar +
+				' Le serveur n’est pas dans la liste.'
+			);
+		}
+		if (eco === 'maker-esp32') {
+			const tablet =
+				tech === 'tablette-recyclee'
+					? 'La tablette n’est pas rachetée.'
+					: 'Une tablette d’affichage est ajoutée, distincte du serveur.';
+			const extra =
+				tech === 'reveil-mmwave'
+					? ' Radar de réveil en plus.'
+					: tech === 'plug-play-green'
+						? ' Un capteur de mouvement Zigbee facultatif est listé pour le réveil, pas pour l’affichage.'
+						: ' Pas de capteur de présence.';
+			return (
+				'Situation B, profil Évolutif. Un Home Assistant Green est listé en un seul exemplaire, seulement si vous n’avez pas encore de serveur. ' +
+				tablet +
+				' Support et câble pour ' +
+				q +
+				'.' +
+				extra +
+				' Pas de dongle Zigbee.'
+			);
+		}
+		const owned =
+			tech === 'plug-play-green'
+				? 'La variante Green signifie que le serveur (Green ou un équivalent) est déjà en place : il n’est pas acheté.'
+				: 'Le serveur Home Assistant est supposé déjà en place et n’est pas dans les achats.';
+		const buy =
+			tech === 'tablette-recyclee'
+				? 'Achats : support et câble, pour ' + q + '.'
+				: 'Achats : tablette, support et câble, pour ' + q + '.';
+		const extra =
+			tech === 'plug-play-green'
+				? ' Un capteur PIR est facultatif, pour le réveil uniquement, et seulement si un coordinateur Zigbee existe déjà.'
+				: tech === 'reveil-mmwave'
+					? ' Un radar mmWave est ajouté pour le réveil. Ce n’est pas du Zigbee.'
+					: ' Pas de capteur de présence : on touche l’écran pour le rallumer.';
+		return 'Situation A, profil Recommandé. ' + owned + ' ' + buy + extra;
+	}
+
+	function wtApply(detail) {
+		const params = new URLSearchParams(window.location.search);
+		const eco = detail?.ecosystem || params.get('eco') || 'ha-zigbee';
+		const tech = detail?.techId || params.get('tech') || 'plug-play-green';
+		const qty = detail?.qtyId || params.get('qty') || '1';
+		const summary = document.querySelector('[data-wt-summary]');
+		if (summary) summary.textContent = wtSummary(eco, tech, qty);
+		const current = wtSituation(eco);
+		document.querySelectorAll('[data-wt-situation]').forEach((node) => {
+			node.classList.toggle('is-current', node.getAttribute('data-wt-situation') === current);
+		});
+	}
+
+	document.addEventListener('shpp-config-change', (event) => {
+		wtApply(event.detail);
+	});
+	wtApply();
+</script>
+
+<style>
+	.wt-guide {
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+	.wt-toc {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin: 0 0 1.5rem;
+	}
+	.wt-toc a {
+		font-size: 0.92rem;
+	}
+	.wt-sit,
+	.wt-step {
+		margin: 1.25rem 0;
+	}
+	.wt-sit.is-current {
+		border-left: 4px solid #0f766e;
+		padding-left: 0.8rem;
+	}
+	.wt-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1rem 0 1.25rem;
+		font-size: 0.98rem;
+	}
+	.wt-table th,
+	.wt-table td {
+		border: 1px solid #cbd5e1;
+		padding: 0.55rem 0.7rem;
+		text-align: left;
+		vertical-align: top;
+		color: #0f172a;
+		background: #fff;
+	}
+	.wt-table th {
+		background: #f1f5f9;
+	}
+	
+	.wt-schema {
+		margin: 1.25rem 0;
+	}
+	.wt-schema svg {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+	}
+	.wt-schema figcaption {
+		margin-bottom: 0.4rem;
+		font-size: 0.95rem;
+	}
+	.wt-photo {
+		margin: 1.25rem 0 1.5rem;
+	}
+	.wt-photo img {
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		border-radius: 12px;
+		display: block;
+	}
+	.wt-photo figcaption {
+		margin-top: 0.45rem;
+		max-width: 720px;
+		font-size: 0.92rem;
+	}
+	.wt-guide pre {
+		overflow-x: auto;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	.wt-check {
+		padding-left: 1.2rem;
+	}
+	@media (max-width: 720px) {
+		.wt-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+		}
+		.wt-table tr {
+			display: block;
+			margin-bottom: 0.8rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 8px;
+			padding: 0.4rem 0.7rem;
+		}
+		.wt-table td {
+			display: block;
+			border: 0;
+			padding: 0.28rem 0;
+		}
+		.wt-table td::before {
+			content: attr(data-label);
+			display: block;
+			font-weight: 700;
+			font-size: 0.82rem;
+		}
+	}
+</style>

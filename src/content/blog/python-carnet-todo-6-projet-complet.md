@@ -1,6 +1,6 @@
 ---
 title: "Carnet Todo en Python (6/6) — projet complet et extensions"
-description: "main() avec chemin par défaut ou argument ; récapitulatif ; priorités, dates, export CSV."
+description: "Carnet Todo en Python, partie 6 : fonction main, chemin par défaut ou argument, puis pistes d’extensions, priorités, dates et export CSV, pour clore le projet."
 pubDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo

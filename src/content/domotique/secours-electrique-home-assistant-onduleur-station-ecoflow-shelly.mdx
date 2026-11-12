@@ -1,0 +1,456 @@
+---
+title: "Secours électrique domotique (Home Assistant, Homey, box Internet) : calculer l'autonomie réelle et automatiser sur coupure avec Shelly et station EcoFlow / ALLPOWERS"
+description: "Protéger Home Assistant (Raspberry Pi 5, Green), Homey Pro mini et la box fibre contre les coupures de courant : consommation réelle (18–25 W), formule d'autonomie DC vs 230 V, mode EPS EcoFlow / ALLPOWERS et alerte Shelly."
+pubDate: 2026-10-26T00:00:00Z
+updatedDate: 2026-10-26T00:00:00Z
+category: "home-assistant"
+priority: 1
+faqSchema:
+  - question: "Combien consomment réellement une box domotique (Home Assistant / Homey) et une box fibre ?"
+    answer: "L'ensemble complet (box Internet fibre + boîtier ONT + Raspberry Pi 5 sous Home Assistant avec SSD NVMe ou Homey Pro mini + dongle Zigbee) consomme en moyenne entre 18 W et 25 W en régime continu."
+  - question: "Pourquoi une station électrique portable ou un onduleur 230 V perd-il de l'autonomie sur une petite charge ?"
+    answer: "Un onduleur 230 V AC possède une autoconsommation interne de 8 à 12 W rien que pour maintenir le 230 V alternatif. Sur une charge domotique de 20 W, près d'un tiers de la batterie part en chaleur dans l'onduleur, alors qu'une sortie directe DC 12 V ou USB-C PD atteint plus de 90 % de rendement."
+  - question: "Le mode EPS (< 30 ms) d'une station EcoFlow River 2 / River 3 suffit-il pour un Raspberry Pi 5 ?"
+    answer: "Oui dans la grande majorité des cas grâce aux condensateurs de l'alimentation officielle USB-C 27 W, et le passage à moins de 10 ms sur la série EcoFlow River 3 ou un mini-UPS DC élimine tout risque de micro-coupure."
+  - question: "Comment détecter une coupure de courant dans Home Assistant ou Homey si la box est sur batterie ?"
+    answer: "En plaçant un module Shelly (Shelly Plug S Gen3 ou Shelly 1PM Mini Gen3) sur une prise murale non secourue en amont de l'onduleur, ou en lisant l'état d'entrée secteur (AC Input) de la station EcoFlow ou du serveur NUT."
+---
+
+Lors d'une coupure de courant ou de la disjonction d'un différentiel en plein hiver, une maison connectée non secourue devient aveugle au pire moment : plus d'alerte smartphone car la **box fibre et son boîtier ONT** sont éteints, risque de **corruption de la base SQLite** sur le Raspberry Pi ou la box domotique, et perte du réseau **Zigbee / Thread**. Pourtant, l'ensemble du cœur domotique et réseau ne consomme que **18 à 25 W**.
+
+Dans ce tutoriel pas à pas, nous mesurons la consommation réelle de chaque équipement, nous calculons **l'autonomie réelle** (en tenant compte des pertes de conversion 230 V vs 12 V DC / USB-C PD), et nous mettons en place une **détection de coupure secteur avec un module Shelly** pour alerter votre téléphone et déclencher une **extinction propre** de Home Assistant ou Homey avant que la batterie ne soit vide.
+
+## Objectif
+
+- Maintenir en ligne **box Internet + ONT fibre + box domotique (Home Assistant / Homey) + coordinateur Zigbee** pendant 4 à 14 heures lors d'une coupure secteur.
+- Calculer précisément l'autonomie réelle selon l'architecture choisie (**Mini-UPS DC 12 V / USB-C** vs **onduleur AGM classique** vs **station électrique portable LiFePO4 EcoFlow / ALLPOWERS**).
+- Détecter instantanément la perte du réseau 230 V en amont grâce à un **module Shelly** (ou l'intégration EcoFlow / NUT).
+- Envoyer une notification push immédiate (via **ntfy** ou l'application mobile) et programmer un **arrêt système propre (`host_shutdown`)** avant épuisement de la batterie.
+
+## Durée, niveau et budget
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget indicatif</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val"><strong>45 à 60 min</strong></span></td>
+<td data-label="Niveau"><span class="td-val"><strong>Débutant à intermédiaire</strong> (aucun câblage haute tension obligatoire avec une prise Shelly Plug S)</span></td>
+<td data-label="Budget indicatif"><span class="td-val">Mini-UPS DC dès ~35–55 € ou station LiFePO4 256–300 Wh dès ~179–229 € (vérifier les offres du jour)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+## Les 6 étapes en un coup d'œil
+
+1. **Bilan énergétique** : additionner la puissance réelle en watts de votre baie domotique (18 à 25 W).
+2. **Calcul d'autonomie** : appliquer la formule de rendement (AC 230 V vs DC 12 V / USB-C PD).
+3. **Choix du secours** : câbler un mini-UPS DC, un onduleur ou une station EcoFlow / ALLPOWERS en mode EPS.
+4. **Détection secteur** : installer une prise **Shelly Plug S Gen3** (ou un **Shelly 1PM Mini Gen3**) sur le circuit amont non secouru.
+5. **Automatisation Home Assistant (YAML) ou Homey (Flow)** : alerte immédiate + délestage + extinction propre.
+6. **Test réel de coupure** : disjoncter le circuit amont et chronométrer la bascule.
+
+---
+
+## 1. Consommation réelle mesurée d'un cœur domotique et réseau
+
+Avant de surdimensionner une batterie, regardons ce que consomme réellement chaque appareil en fonctionnement continu (mesures relevées au wattmètre sur prise Shelly Plug S et testeur USB-C) :
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Équipement à secourir</th>
+<th scope="col">Tension d'alimentation</th>
+<th scope="col">Consommation continue typique</th>
+<th scope="col">Pic au démarrage</th>
+<th scope="col">Rôle pendant une coupure</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><strong>Raspberry Pi 5 (4 ou 8 Go) + SSD NVMe</strong> sous HAOS</span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val">5 V DC (USB-C PD 27 W)</span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>4,5 à 6,5 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val">11 W</span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val">Cerveau Home Assistant, historique et automatisations</span></td>
+</tr>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><em>Alternative :</em> <strong>Homey Pro mini</strong> ou <strong>Home Assistant Green</strong></span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val">5 V USB-C ou 12 V DC</span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>2,5 à 3,8 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val">7 W</span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val">Box domotique basse consommation (Ethernet)</span></td>
+</tr>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><strong>Box Internet opérateur (Livebox, Freebox, Bbox)</strong></span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val">12 V DC (2 à 3 A)</span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>9,5 à 13,0 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val">16 W</span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val">Routeur local, Wi-Fi et liaison Internet</span></td>
+</tr>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><strong>Boîtier ONT Fibre externe</strong> (si séparé de la box)</span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val">12 V DC (0,5 à 1 A)</span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>2,0 à 3,0 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val">4 W</span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val">Maintien du lien optique fibre (souvent actif même quand le quartier est coupé !)</span></td>
+</tr>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><strong>Switch Ethernet 5 ports + Dongle Zigbee (SONOFF / SkyConnect)</strong></span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val">5 V DC / USB</span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>1,5 à 2,2 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val">3 W</span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val">Maillage des capteurs Zigbee sur pile (ouverture, température, fuite d'eau)</span></td>
+</tr>
+<tr>
+<td data-label="Équipement à secourir"><span class="td-val"><strong>TOTAL CŒUR DOMOTIQUE + INTERNET</strong></span></td>
+<td data-label="Tension d&#x27;alimentation"><span class="td-val"><strong>12 V DC &amp; 5 V USB-C</strong></span></td>
+<td data-label="Consommation continue typique"><span class="td-val"><strong>≈ 18 à 25 W</strong></span></td>
+<td data-label="Pic au démarrage"><span class="td-val"><strong>~32 W</strong></span></td>
+<td data-label="Rôle pendant une coupure"><span class="td-val"><strong>Maintien complet des alertes et de la sécurité</strong></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+> **Bon à savoir :** Le nœud optique (NRO) de votre opérateur fibre dispose de ses propres batteries de secours. Dans la majorité des coupures électriques de quartier, **la fibre optique continue de fonctionner** tant que votre boîtier ONT et votre box Internet sont alimentés chez vous !
+
+---
+
+## 2. Calculer l'autonomie réelle : le piège des pertes de l'onduleur 230 V
+
+Sur le papier, une batterie de **256 Wh** alimentant une charge de **20 W** devrait tenir <strong>256 / 20 = 12,8 heures</strong>. En pratique, si vous branchez vos chargeurs sur les prises **230 V AC** d'un onduleur ou d'une station électrique, l'autonomie chute souvent à **7 ou 8 heures**. Pourquoi ?
+
+### La double conversion et l'autoconsommation de l'onduleur
+1. La batterie stocke de l'énergie en courant continu (**DC**, souvent 12,8 V ou 25,6 V en chimie LiFePO4).
+2. L'onduleur interne convertit ce courant continu en **230 V alternatif (AC)** : ce convertisseur consomme **à vide entre 8 W et 12 W en permanence** (<em>P<sub>auto-conso</sub></em>) et affiche un rendement <strong>η<sub>AC</sub> ≈ 0,82</strong>.
+3. Vos blocs secteurs redescendent ensuite ce 230 V AC en **12 V DC** (box) et **5 V DC** (Raspberry Pi / Homey), avec un second rendement d'environ <strong>0,85</strong>.
+
+### Formule exacte de l'autonomie réelle
+
+Pour calculer l'autonomie réelle <strong>T</strong> (en heures) avant la coupure de sécurité de la batterie :
+
+T (heures) = ( Capacité_Wh × DoD × Rendement_sortie ) / ( P_charge_W + P_autoconso_onduleur_W )
+
+Où :
+- **`Capacité_Wh`** est l'énergie nominale de la batterie (ex. `256 Wh` sur une EcoFlow River 2, `299 Wh` sur une ALLPOWERS R600).
+- **`DoD`** (*Depth of Discharge*) est la profondeur de décharge utile avant arrêt propre (typiquement `0,85`, soit un arrêt programmé à 15 % de batterie restante).
+- **`Rendement_sortie`** vaut **`0,92`** en sortie directe **DC 12 V / USB-C PD** (onduleur 230 V éteint, <em>P<sub>autoconso</sub></em> = 0 W) contre **`0,80`** en sortie **230 V AC** (avec <em>P<sub>autoconso</sub></em> ≈ 9 W).
+
+### Exemple chiffré concret pour une baie domotique de 20 W sur une station de 256 Wh
+- **Cas A — Branché sur la prise 230 V AC (onduleur allumé) :**
+  <code>Énergie utile = 256 × 0,85 × 0,80 = 174 Wh</code><br/>
+  <code>Puissance tirée = 20 W (charge) + 9 W (onduleur) = 29 W</code><br/>
+  <code>Autonomie réelle = 174 / 29 ≈ <strong>6 h 00</strong></code>
+- **Cas B — Branché directement sur les sorties DC 12 V (box/ONT) + USB-C PD (Pi 5 / Homey) :**
+  <code>Énergie utile = 256 × 0,85 × 0,92 = 200 Wh</code><br/>
+  <code>Puissance tirée = 20 W + 0 W (onduleur 230 V coupé) = 20 W</code><br/>
+  <code>Autonomie réelle = 200 / 20 = <strong>10 h 00</strong></code>
+
+**Résultat :** En alimentant votre box Internet sur la prise **12 V DC (5521)** et votre Raspberry Pi 5 / Homey sur le port **USB-C PD**, vous gagnez **+66 % d'autonomie gratuite** (10 h au lieu de 6 h) sur la même batterie !
+
+---
+
+## 3. Comparatif des 3 architectures de secours électrique domotique
+
+<svg viewBox="0 0 820 260" width="100%" height="auto" role="img" aria-label="Schéma d'architecture de secours électrique domotique avec détection secteur Shelly et alimentation EcoFlow ou Mini-UPS" style="max-width:820px;margin:1.25rem auto;display:block;background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:12px;">
+  <rect x="15" y="30" width="175" height="200" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="102" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#991b1b">1. Secteur 230 V (Amont)</text>
+  <rect x="30" y="75" width="145" height="60" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="102" y="98" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Shelly Plug S / 1PM</text>
+  <text x="102" y="118" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Sentinelle coupure 230V</text>
+  <text x="102" y="165" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#7f1d1d">Si coupure : tension = 0 V</text>
+  <text x="102" y="182" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#7f1d1d">ou perte ping Wi-Fi local</text>
+
+  <line x1="190" y1="105" x2="245" y2="105" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="245,100 255,105 245,110" fill="#dc2626"/>
+
+  <rect x="255" y="30" width="245" height="200" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="377" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#92400e">2. Stockage &amp; Bascule EPS / UPS</text>
+  <rect x="272" y="72" width="210" height="68" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="377" y="95" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Station EcoFlow / ALLPOWERS</text>
+  <text x="377" y="113" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">LiFePO4 256–300 Wh (EPS &lt; 20 ms)</text>
+  <text x="377" y="130" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0f766e" font-weight="bold">ou Mini-UPS DC 12V / USB-C (0 ms)</text>
+  <text x="377" y="168" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#78350f">Privilégier sorties USB-C PD (5V)</text>
+  <text x="377" y="185" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#78350f">et DC 12 V (rendement ~92 %)</text>
+
+  <line x1="500" y1="95" x2="555" y2="95" stroke="#0f766e" stroke-width="3"/>
+  <polygon points="555,90 565,95 555,100" fill="#0f766e"/>
+  <line x1="500" y1="165" x2="555" y2="165" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="555,160 565,165 555,170" fill="#2563eb"/>
+
+  <rect x="565" y="30" width="240" height="200" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="685" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#166534">3. Cœur Domotique Secouru (20W)</text>
+  <rect x="580" y="70" width="210" height="52" rx="8" fill="#ffffff" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="685" y="92" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Box Internet + ONT Fibre</text>
+  <text x="685" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">12 V DC • Maintien alertes &amp; Wi-Fi</text>
+  <rect x="580" y="135" width="210" height="75" rx="8" fill="#ffffff" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="685" y="157" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Home Assistant / Homey + Zigbee</text>
+  <text x="685" y="175" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">5 V USB-C • Notification ntfy</text>
+  <text x="685" y="193" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#15803d" font-weight="bold">+ Arrêt propre si batterie &lt; 15 %</text>
+</svg>
+
+Voici le comparatif chiffré des trois solutions pour secourir une baie domotique de **20 W** :
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col"><strong>1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)</strong></th>
+<th scope="col"><strong>2. Onduleur PC classique AGM (600–850 VA)</strong></th>
+<th scope="col"><strong>3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)</strong></th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Chimie &amp; durée de vie</strong></span></td>
+<td data-label="**1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)**"><span class="td-val">Li-ion 18650 / LiFePO4 (3 à 5 ans)</span></td>
+<td data-label="**2. Onduleur PC classique AGM (600–850 VA)**"><span class="td-val">Batterie plomb AGM (à remplacer tous les 3 ans)</span></td>
+<td data-label="**3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)**"><span class="td-val"><strong>LiFePO4 (3 000+ cycles, ~10 ans)</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Temps de bascule</strong></span></td>
+<td data-label="**1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)**"><span class="td-val"><strong>0 ms</strong> (en ligne directe DC)</span></td>
+<td data-label="**2. Onduleur PC classique AGM (600–850 VA)**"><span class="td-val">4 à 8 ms</span></td>
+<td data-label="**3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)**"><span class="td-val"><strong>&lt; 10 ms</strong> (River 3) à <strong>&lt; 30 ms</strong> (River 2 / ALLPOWERS EPS)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Autonomie réelle pour 20 W</strong></span></td>
+<td data-label="**1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)**"><span class="td-val"><strong>1 h 30 à 3 h 00</strong></span></td>
+<td data-label="**2. Onduleur PC classique AGM (600–850 VA)**"><span class="td-val"><strong>1 h 15 à 2 h 15</strong> (fortes pertes onduleur 230 V)</span></td>
+<td data-label="**3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)**"><span class="td-val"><strong>6 h 00 (en 230 V)</strong> à <strong>10–12 h (en DC 12 V + USB-C)</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Polyvalence hors domotique</strong></span></td>
+<td data-label="**1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)**"><span class="td-val">Uniquement routeur / Pi</span></td>
+<td data-label="**2. Onduleur PC classique AGM (600–850 VA)**"><span class="td-val">Uniquement prises 230 V</span></td>
+<td data-label="**3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)**"><span class="td-val"><strong>Secours frigo, camping, recharge PC/téléphone, panneau solaire</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Intégration Home Assistant</strong></span></td>
+<td data-label="**1. Mini-UPS DC 12 V / 5 V USB-C (36 à 72 Wh)**"><span class="td-val">Aucune (nécessite Shelly en amont)</span></td>
+<td data-label="**2. Onduleur PC classique AGM (600–850 VA)**"><span class="td-val">Port USB <strong>NUT</strong> (Network UPS Tools)</span></td>
+<td data-label="**3. Station LiFePO4 (EcoFlow River 2/3 ou ALLPOWERS ~256–300 Wh)**"><span class="td-val"><strong>Intégration EcoFlow Cloud / BLE</strong> + prise Shelly en amont</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+### Sélection matériel testée et compatible (Boutiques partenaires)
+
+<div class="noel26-selection" style="margin:1.5rem 0;padding:1.25rem;border-radius:14px;border:2px solid #0f766e;background:#f0fdfa;">
+  <h3 style="margin:0 0 0.4rem;font-size:1.2rem;color:#134e4a;">⚡ Matériel recommandé pour le secours électrique domotique</h3>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#334155;">Comparez les offres officielles chez EcoFlow FR, ALLPOWERS, Shelly FR, Amazon et Cultura :</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;">
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#dcfce7;color:#166534;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">🏆 Station LiFePO4 + Mode EPS</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.awin1.com/cread.php?awinmid=51799&awinaffid=3126073&ued=https%3A%2F%2Ffr.ecoflow.com%2F" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Station portable EcoFlow RIVER 2 / RIVER 3 (245–256 Wh LiFePO4)</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Batterie LiFePO4 garantie 5 ans (3 000 cycles), bascule EPS automatique, sorties USB-C 60/100 W + DC 12,6 V + 230 V.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.awin1.com/cread.php?awinmid=51799&awinaffid=3126073&ued=https%3A%2F%2Ffr.ecoflow.com%2F" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~179–249 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.awin1.com/cread.php?awinmid=51799&awinaffid=3126073&ued=https%3A%2F%2Ffr.ecoflow.com%2F" target="_blank" rel="nofollow sponsored noopener" style="background:#0f766e;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">⚡ Boutique EcoFlow FR →</a>
+        <a href="https://www.amazon.fr/s?k=EcoFlow+RIVER+2+station+electrique&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🛒 Voir sur Amazon →</a>
+        <a href="https://www.awin1.com/cread.php?awinmid=98667&awinaffid=3126073&ued=https%3A%2F%2Fiallpowers.fr%2F" target="_blank" rel="nofollow sponsored noopener" style="background:#1d4ed8;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 100%;text-align:center;">🔋 Voir alternative ALLPOWERS R600 (299 Wh) →</a>
+      </div>
+    </article>
+
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#dbeafe;color:#1e40af;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">📡 Sentinelle Coupure Secteur</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Shelly Plug S Gen3 / Shelly 1PM Mini Gen3</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Mesure de puissance en temps réel, API HTTP/MQTT locale 100 % sans cloud, idéal pour détecter la coupure secteur et mesurer les 20 W de la baie.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~16–26 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="background:#0f766e;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">⚡ Boutique Shelly FR →</a>
+        <a href="https://www.amazon.fr/s?k=Shelly+Plug+S+Gen3&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🛒 Voir sur Amazon →</a>
+      </div>
+    </article>
+
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#fef3c7;color:#92400e;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">💡 Compact &amp; Bascule 0 ms</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.amazon.fr/s?k=Mini+UPS+DC+12V+5V+USB-C+box+internet&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Mini-UPS DC 12 V / 9 V / 5 V USB-C (10 400 à 20 000 mAh)</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Onduleur continu compact sans perte 230 V : alimente directement la box fibre (12 V) et un Raspberry Pi / Homey en 5 V avec 0 ms de coupure.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.amazon.fr/s?k=Mini+UPS+DC+12V+5V+USB-C+box+internet&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~35–55 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.amazon.fr/s?k=Mini+UPS+DC+12V+5V+USB-C+box+internet&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🛒 Voir sur Amazon →</a>
+        <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dbatterie%2Bexterne%2Busb%2Bc" target="_blank" rel="nofollow sponsored noopener" style="background:#004b93;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🎨 Voir chez Cultura →</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+---
+
+## 4. Détecter la coupure secteur avec un module Shelly (sans aucun recâblage du tableau)
+
+Si votre box Home Assistant ou Homey est branchée sur un Mini-UPS DC ou sur une station électrique, **elle ne sait pas d'elle-même que le secteur 230 V vient de couper**, puisque son alimentation reste maintenue par la batterie !
+
+Nous avons deux méthodes complémentaires pour remonter l'information de coupure secteur à la seconde près :
+
+### Méthode A — La prise « sentinelle » Shelly Plug S Gen3 (100 % locale, universelle)
+1. Branchez un **Shelly Plug S Gen3** (ou un **Shelly 1PM Mini Gen3**) sur la **prise murale 230 V en amont** de votre station EcoFlow / Mini-UPS, ou sur n'importe quelle prise de la maison non secourue par l'onduleur.
+2. Attribuez une **IP fixe (bail DHCP statique)** à ce module Shelly dans votre box Internet (ex. `192.168.1.55`).
+3. Deux cas selon votre montage :
+   - **Montage en série (la station EcoFlow ou le chargeur du Mini-UPS est branché DANS la prise Shelly Plug S)** : tant que le secteur est présent, la prise Shelly est alimentée, répond en Wi-Fi local et mesure la puissance d'entrée (`sensor.shelly_amont_power` ≈ 22 W). Dès que le disjoncteur saute, la prise Shelly perd le 230 V et son état passe à `unavailable` dans Home Assistant / Homey en moins de 15 à 30 secondes (ou immédiatement via le message **MQTT Last Will & Testament — LWT** si vous activez MQTT avec `keepalive: 15`).
+   - **Montage contact sec avec Shelly Plus 1 / 1 Mini + relais 230 V (détection en 0,2 seconde)** : la bobine d'un petit relais 230 V AC est branchée sur le secteur non secouru, et son contact sec est lu par l'entrée `SW` d'un module Shelly alimenté en 12 V DC côté secouru. Dès la coupure secteur, l'entrée `binary_sensor.presence_secteur_230v` passe à `off` en **200 millisecondes** !
+
+### Méthode B — Lecture directe de la station EcoFlow (ou serveur NUT USB)
+- Sur **EcoFlow River 2 / River 3**, activez le contrôle dans l'application ou via l'intégration Home Assistant *EcoFlow Cloud / BLE* : l'entité `sensor.river_2_ac_in_power` passe à `0 W` dès que le secteur disparaît, et `sensor.river_2_battery_level` donne le pourcentage exact de la batterie LiFePO4 de 100 % à 0 %.
+- Dans les réglages de la station EcoFlow, fixez la **limite de décharge à 10 %** et activez **« Toujours activer la sortie 12 V DC / AC »** après rétablissement du courant.
+
+---
+
+## 5. Scénarios complets d'alerte et d'extinction propre (Home Assistant & Homey)
+
+### A. Automatisation YAML complète sous Home Assistant
+
+Copiez ce bloc dans `automations.yaml` (ou via *Paramètres → Automatisations et scènes → Créer une automatisation → Modifier en YAML*). Il gère à la fois :
+1. **L'alerte immédiate sur smartphone** (via l'application Home Assistant Companion et/ou **ntfy**) dès que la prise Shelly amont devient indisponible ou que l'entrée AC tombe à 0 W pendant 30 secondes.
+2. **L'extinction propre (`hassio.host_shutdown`)** de Home Assistant (Raspberry Pi 5 ou Green) si la coupure dure plus de **4 heures** (sur Mini-UPS) ou si le niveau de batterie EcoFlow descend sous **15 %**, évitant ainsi toute corruption de la carte microSD ou du SSD NVMe.
+3. **La notification de retour du secteur** lorsque le courant revient avant l'extinction.
+
+```yaml
+- id: "secours_electrique_alerte_coupure"
+  alias: "Secours électrique - 1. Alerte coupure secteur 230V"
+  description: "Alerte dès que la prise Shelly amont ne répond plus ou que l'entrée AC EcoFlow passe à 0 W"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_plug_amont_secteur
+      to: "unavailable"
+      for:
+        seconds: 30
+    - platform: numeric_state
+      entity_id: sensor.ecoflow_river_ac_in_power
+      below: 1
+      for:
+        seconds: 30
+  action:
+    - service: notify.notify
+      data:
+        title: "⚠️ Coupure de courant détectée"
+        message: >
+          Le secteur 230 V est coupé depuis 30 s. La baie domotique et la box fibre
+          tournent sur batterie ({{ states('sensor.ecoflow_river_battery_level') | default('Mini-UPS') }} %).
+          Délestage des automatisations secondaires activé.
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.mode_secours_electrique
+
+- id: "secours_electrique_extinction_propre"
+  alias: "Secours électrique - 2. Extinction propre avant batterie vide"
+  description: "Arrête proprement Home Assistant si batterie < 15% ou après 3h30 sur Mini-UPS"
+  mode: single
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ecoflow_river_battery_level
+      below: 15
+      for:
+        minutes: 2
+    - platform: state
+      entity_id: switch.shelly_plug_amont_secteur
+      to: "unavailable"
+      for:
+        hours: 3
+        minutes: 30
+  condition:
+    - condition: state
+      entity_id: switch.shelly_plug_amont_secteur
+      state: "unavailable"
+  action:
+    - service: notify.notify
+      data:
+        title: "🛑 Arrêt propre de Home Assistant (Batterie basse)"
+        message: >
+          La coupure secteur se prolonge. Sauvegarde et arrêt propre du système (host_shutdown)
+          dans 30 secondes pour protéger le SSD / la base de données.
+    - delay:
+        seconds: 30
+    - service: hassio.host_shutdown
+
+- id: "secours_electrique_retour_secteur"
+  alias: "Secours électrique - 3. Retour du courant 230V"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_plug_amont_secteur
+      from: "unavailable"
+      for:
+        seconds: 20
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.mode_secours_electrique
+    - service: notify.notify
+      data:
+        title: "✅ Courant 230 V rétabli"
+        message: >
+          Le secteur est revenu. La batterie de secours se recharge normalement.
+```
+
+### B. Logique de Flow sur Homey Pro / Homey Pro mini
+
+Sur **Homey Pro mini** (qui ne consomme que ~3 W en USB-C !), créez deux **Advanced Flows** :
+
+1. **Flow 1 — Détection de coupure secteur** :
+   - **QUAND (When)** : L'appareil *Shelly Plug S Amont* devient indisponible (ou l'entrée d'un module Shelly alimenté en 12 V DC bascule sur *Off*).
+   - **ET (And)** : Toujours indisponible après un délai de `30 secondes`.
+   - **ALORS (Then)** :
+     - Activer la variable logique `Sur_Batterie = Oui`.
+     - Envoyer une notification push à Manu : *« ⚠️ Coupure 230 V détectée : Homey Pro mini + Box Fibre sur batterie EcoFlow / Mini-UPS. »*
+     - Couper les scénarios non essentiels (ex. chauffage fil pilote forcé en mode **Arrêt / Hors-gel** pour éviter tout appel de puissance au retour du courant — voir notre guide sur le [pilotage de chauffage fil pilote avec Shelly et Zigbee](/domotique/piloter-chauffage-electrique-fil-pilote-zigbee-shelly-home-assistant/)).
+2. **Flow 2 — Retour secteur et reprise progressive** :
+   - **QUAND (When)** : *Shelly Plug S Amont* redevient disponible (`Sur_Batterie == Oui`).
+   - **ALORS (Then)** : Passer `Sur_Batterie = Non`, envoyer une notification *« ✅ Secteur rétabli »*, et attendre **2 minutes** avant de réactiver les gros consommateurs (radiateurs, ballon d'eau chaude) afin d'éviter un pic d'appel de courant au réenclenchement Enedis.
+
+---
+
+## 6. Erreurs fréquentes et dépannage
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Symptôme constaté</th>
+<th scope="col">Cause probable</th>
+<th scope="col">Solution immédiate</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Le Raspberry Pi 5 redémarre au moment où la station EcoFlow bascule en mode EPS (&lt; 30 ms)</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Alimentation USB-C bas de gamme sans réserve capacitive suffisante, ou Pi 5 branché sur un port USB-A limité à 2,4 A.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Utilisez <strong>l'alimentation officielle Raspberry Pi 27 W</strong> (qui encaisse facilement 30 ms de micro-coupure) ou branchez le Pi 5 directement sur le <strong>port USB-C PD 60/100 W</strong> de la station EcoFlow (0 ms de coupure en DC !).</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>La batterie de 256 Wh se vide en 5 h au lieu de 10 h</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">L'onduleur 230 V AC de la station est laissé allumé pour seulement 18 W de charge.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Alimentez la box fibre et l'ONT via la sortie <strong>12 V DC (prise jack 5521)</strong> avec un câble répartiteur en Y, le Pi 5 / Homey en <strong>USB-C</strong>, et <strong>éteignez le bouton 230 V AC</strong> de la station.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Pas de notification reçue sur le téléphone lors du test de coupure</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Le boîtier ONT fibre ou un switch Ethernet intermédiaire a été oublié sur une multiprise non secourue.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Vérifiez que <strong>les 3 maillons réseau</strong> (ONT fibre + Box opérateur + Switch éventuel) sont bien raccordés sur la sortie secourue.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Le Raspberry Pi ne redémarre pas tout seul quand le courant revient après un <code>host_shutdown</code></strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Tant que la batterie de la station n'est pas tombée à 0 %, le port 5 V n'a pas subi de coupure franche (<em>power cycle</em>) pour réveiller le Pi.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Branchez une <strong>prise connectée Zigbee ou Shelly</strong> entre la sortie de l'onduleur et l'alimentation du Pi, ou configurez la station EcoFlow pour couper puis rallumer sa sortie si le secteur revient après un seuil bas.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+
+
+
+## Growatt Portable (alternative LiFePO4)
+
+En complément des stations **EcoFlow / ALLPOWERS** citées plus haut, **Growatt** commercialise des batteries portables LiFePO4 sur [growattportable.com](https://www.growattportable.com/) (programme US — vérifiez livraison et tensions avant branchement). Aucun code promo vérifié dans le mail Awin du 04/11/2026.
+
+<p><a href="https://www.awin1.com/cread.php?awinmid=98001&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.growattportable.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98001">Growatt Portable →</a> <em>(lien affilié Awin)</em></p>
+
+## Pour aller plus loin sur le site
+
+- [Installer Home Assistant sur Raspberry Pi 5 (guide complet)](/domotique/home-assistant-raspberry-pi-5-installation/)
+- [Home Assistant Green vs Raspberry Pi 5 : consommation et comparatif](/domotique/home-assistant-green-vs-raspberry-pi-5/)
+- [Piloter un radiateur électrique (fil pilote ou contacteur) avec Shelly et Zigbee : schéma diode et délestage](/domotique/piloter-chauffage-electrique-fil-pilote-zigbee-shelly-home-assistant/)
+- [Automatiser sa porte de garage avec Homey Pro / Mini et Shelly](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
+- [Codes erreurs et dépannage Zigbee, Home Assistant et Shelly](/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/)

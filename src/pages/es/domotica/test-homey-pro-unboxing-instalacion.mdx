@@ -1,0 +1,141 @@
+---
+layout: ../../../layouts/EsPost.astro
+title: "Prueba del Homey Pro: unboxing e instalación (parte 1)"
+description: "Homey Pro probado en casa: qué hay de verdad en la caja, el adaptador Ethernet que se compra aparte, un tropiezo de Wi-Fi con la Freebox francesa y la casa en la app. Parte 1, antes de la puerta del garaje."
+updated: "7 de noviembre de 2026"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*También en [francés](/domotique/test-homey-pro-deballage-installation/).*
+
+<div class="shelly-encart" style="margin-bottom:1.25rem;">
+<p><strong>Producto recibido gratis para esta prueba</strong></p>
+<p>Athom me envió este Homey Pro sin cobrármelo para que lo probara en casa. Escribo lo que encuentro. No es un anuncio.</p>
+</div>
+
+*Prueba empezada el 3 de noviembre de 2026.*
+
+Me llamo Emmanuel. Tengo formación en electrónica e informática, y desarrollo software desde hace más de veinte años. En casa ya uso Home Assistant en una Raspberry Pi para bastantes cosas. Quiero ver si el **Homey Pro** me ayuda en tareas concretas, empezando por **abrir la puerta del garaje** sin rehacerlo todo.
+
+Esta dirección es la **parte 1** (unboxing e instalación). La parte 2 — aparatos, flujos, garaje — se publicará en la misma página cuando avance. Las demás guías de la sección están en el [hub de domótica](/es/domotica/).
+
+El Homey Pro de Athom es una central que reúne varias radios de casa (Zigbee, Matter, Thread, Z-Wave, Wi-Fi, Bluetooth, 433 MHz, infrarrojos). Si estas siglas no te dicen nada, la guía [Zigbee, Wi-Fi, Thread o Matter](/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/) resume lo esencial. Para comparar esta central con Home Assistant o Jeedom: [Home Assistant, Jeedom, Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/). Ya había seguido la [prueba del Homey Pro mini](/es/domotica/test-homey-pro-mini-unboxing-instalacion/). Aquí hablo del **modelo grande**. A diferencia del mini, no tiene toma de red: el adaptador Ethernet se compra aparte.
+
+## El unboxing
+
+<Photo portrait src="/images/domotique/homey/homey-pro-boite.webp" alt="Caja negra del Homey Pro con el nombre del producto y una foto de la central redonda" caption="La caja del Homey Pro, sobria y cuadrada." />
+
+Dentro, el embalaje está ordenado. Hay:
+
+1. la central Homey Pro;
+2. la **guía de inicio rápido** (una hoja con código QR hacia setup.homey.app);
+3. la alimentación de red y su cable.
+
+El adaptador Ethernet no está en esta caja. El modelo grande no tiene toma **RJ45** (la clavija de red por cable). Para conectarlo con un cable hace falta el Homey Pro Ethernet Adapter, que se vende aparte. El Wi-Fi basta para empezar.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-guide-demarrage.webp" alt="Guía de inicio del Homey Pro con los textos Welcome home y Quick Start Guide" caption="La guía de inicio, arriba de la caja." />
+
+<Photo portrait src="/images/domotique/homey/homey-pro-appareil-dans-boite.webp" alt="Homey Pro negro brillante en su hueco de espuma dentro de la caja" caption="La central en su hueco." />
+
+<Photo portrait src="/images/domotique/homey/homey-pro-alimentation-boite.webp" alt="Compartimento con el cargador de red y el cable de alimentación enrollado" caption="Alimentación y cable, debajo de la central." />
+
+La central es un disco negro bastante pesado, con el logo Homey arriba y un anillo LED en la cara. En la foto ya está enchufada al adaptador Ethernet, junto a la alimentación y la hoja. Ese adaptador lo pedí aparte: referencia **HOMEY-ETH-01**, un cuerpo USB-C con toma RJ45. El 7 de noviembre de 2026 el nuevo estaba a **29,00 €** en Amazon.es, vendido por Homey Official Store, y a **29 €** en la [tienda española de Athom](https://homey.app/es-es/homey-pro-ethernet-adapter/). En la ficha del Homey Pro, Athom precisa que los adaptadores USB-C Ethernet de otras marcas no están soportados de forma oficial. En el [Homey Pro mini](/es/domotica/test-homey-pro-mini-unboxing-instalacion/) la toma RJ45 ya está en el aparato: este accesorio no sirve.
+
+<ProductBox
+  productId="homey-pro-ethernet-adapter"
+  name="Homey Pro Ethernet Adapter"
+  asin="B0CDY2962D"
+  image="/images/domotique/homey/homey-pro-mini-adaptateur.webp"
+  description="Adaptador oficial de USB-C a RJ45 para el Homey Pro grande. No viene en la caja de la central."
+  pros={['Referencia HOMEY-ETH-01', 'De USB-C a RJ45', 'Para el Homey Pro sin toma de red']}
+  cons={['No está en la caja del Homey Pro', 'Inútil en el Homey Pro mini, que ya tiene RJ45']}
+  badge="Se compra aparte"
+  priceRange="29,00 €"
+  officialUrl="https://homey.app/es-es/homey-pro-ethernet-adapter/"
+/>
+
+<Photo src="/images/domotique/homey/homey-pro-contenu-adaptateur-ethernet.webp" alt="Homey Pro conectado al adaptador Ethernet, junto a la caja, la guía y la alimentación" caption="Central conectada al adaptador Ethernet, con la alimentación y la hoja." />
+
+## Conectar la central
+
+Enchufé el adaptador Ethernet comprado aparte al Homey Pro, luego el cable de red a mi **switch Netgear GS108**, y por último la alimentación. La central queda con el resto de mi pequeña red cableada.
+
+<Photo src="/images/domotique/homey/homey-pro-installation-switch-netgear.webp" alt="Homey Pro junto a un switch Netgear GS108, con cables Ethernet y la alimentación conectados" caption="En mi casa, el Homey Pro está junto al switch Netgear GS108." />
+
+Al principio la toma **RJ45** me pareció **no reconocida**: la app insistía en el Wi-Fi. No pude saber si era un mal contacto o un fallo de la pantalla. Acabé por el Wi-Fi de mi Freebox, con el lío de más abajo. Una Freebox es un router de un operador francés. El mismo error de contraseña puede salir en otros routers.
+
+## Wi-Fi rechazado, luego conexión correcta
+
+La app me pidió la red Wi-Fi del router. Escribí la contraseña varias veces. Cada vez, el mismo mensaje:
+
+<Photo portrait src="/images/domotique/homey/homey-pro-echec-wifi-freebox.webp" alt="Captura de la app Homey: fallo de conexión Wi-Fi, preguntando si la contraseña es correcta" caption="El mensaje de error en la app (el nombre de la red está difuminado en la foto)." />
+
+*¿Es de verdad la contraseña correcta?* — y la contraseña lo era.
+
+Lo que desbloqueó la situación en mi casa:
+
+1. **reiniciar la Freebox**;
+2. pasar la seguridad Wi-Fi del router a **WPA2/WPA3** (modos de cifrado Wi-Fi habituales) en lugar del ajuste que me fallaba;
+3. volver a lanzar la conexión en la app Homey.
+
+<div class="shelly-encart">
+<p><strong>Si rechaza la contraseña</strong></p>
+<p>Si Homey rechaza una contraseña Wi-Fi que sabes que es correcta, reinicia el router y prueba <strong>WPA2/WPA3</strong> en los ajustes de seguridad Wi-Fi. Es lo que me sirvió en la Freebox. Otro router puede comportarse de otra forma.</p>
+</div>
+
+Después, el Homey Pro se conectó y la instalación siguió con normalidad.
+
+## La casa en la app
+
+Como en la prueba del Homey Pro mini publicada en este sitio, la app pide la **estructura de la casa** desde el principio. Mi casa tiene **dos niveles**: planta baja y primera planta.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-app-config-nombre-niveaux.webp" alt="Pantalla de la app Homey: número de niveles de la casa, ajustado a 2" caption="Dos niveles para mi casa." />
+
+Luego marco qué plantas existen de verdad (planta baja, primera planta, etc.).
+
+<Photo portrait src="/images/domotique/homey/homey-pro-app-config-niveaux.webp" alt="Pantalla Homey: planta baja y primera planta seleccionadas entre sótano, desván, garaje y otras" caption="Planta baja y primera planta, en mi caso." />
+
+Después nombro las **estancias** de cada nivel y elijo un **icono** para cada una (salón, cocina, dormitorio, despacho…).
+
+<Photo portrait src="/images/domotique/homey/homey-pro-app-config-icone-piece.webp" alt="Pantalla Homey para elegir el icono de una estancia, con una cuadrícula de iconos de casa" caption="Iconos y nombres de estancias." />
+
+No es un paso decorativo. Más adelante, los **flujos** de la app Homey (cadenas del tipo «si el sensor ve movimiento, enciende la luz») se apoyan en ese árbol. Conviene rellenarlo en serio desde el principio.
+
+Cuando la central está lista, la guía [Zigbee, Wi-Fi, Thread o Matter](/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/) sigue siendo una buena base para los protocolos.
+
+Ficha del fabricante (precio del día en Athom): [Homey Pro en homey.app](https://homey.app/es-es/homey-pro/).
+
+## Preguntas frecuentes
+
+**¿Por qué el Homey Pro rechaza la contraseña Wi-Fi?**
+En mi casa apareció «¿Es de verdad la contraseña correcta?» aunque la contraseña era la buena. Reiniciar el router y el modo WPA2/WPA3 lo arreglaron (ver el recuadro de arriba). El router era una Freebox francesa; la misma comprobación merece la pena en otros routers.
+
+**¿Hace falta el adaptador Ethernet?**
+Solo para un enlace por cable en el Homey Pro grande: la central no tiene toma RJ45, y el adaptador USB-C (HOMEY-ETH-01) se compra aparte. El Wi-Fi de 2,4 GHz y 5 GHz basta para la instalación. En el Homey Pro mini la toma ya viene integrada.
+
+**¿Ethernet o Wi-Fi?**
+Los dos valen. Yo acabé en Wi-Fi después del lío con la Freebox. La central se quedó junto al switch, lista para volver al cable si hace falta.
+
+## La continuación de la prueba
+
+<div class="shelly-encart">
+<p><strong>La parte 2 llegará a esta página</strong></p>
+<p>El Homey Pro está instalado y la casa está dibujada en la app, pero todavía no he emparejado ningún aparato. Siguiente paso: sensores, flujos y mi <a href="/es/domotica/puerta-garaje-smartphone-esp32-esphome/">puerta del garaje</a>. Completaré el mismo artículo (parte 2) en cuanto avance la prueba.</p>
+</div>
+
+**También puedes leer**
+
+- [Domótica: por dónde empezar](/es/domotica/como-empezar/)
+- [Hogar inteligente 2027: Home Assistant, Homey, Jeedom, Alexa](/es/domotica/hogar-inteligente-2027-home-assistant-homey-jeedom-alexa/)
+- [Matriz de compatibilidad Home Assistant / Homey / Matter](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/)
+- [Matter, Thread, Zigbee: qué protocolo en 2027](/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/)
+
+A la sección: [domótica](/es/domotica/).

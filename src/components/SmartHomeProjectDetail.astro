@@ -1,0 +1,964 @@
+---
+import SmartHomeProjectInlineConfigurator from './SmartHomeProjectInlineConfigurator.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import {
+	computeBill,
+	BUDGET_TIERS,
+	PRODUCTS,
+	USE_CASE_CATEGORIES,
+	ECOSYSTEMS,
+} from '../data/smartHomeUseCaseConfigurator.mjs';
+import { getWiringGuide } from '../data/smartHomeWiringGuides.mjs';
+import { getRelatedProjectIds } from '../data/smartHomeProjectContent.mjs';
+import { projectPagePath, slugForUseCase } from '../data/smartHomeProjectSlugs.mjs';
+import { USE_CASES } from '../data/smartHomeUseCases.mjs';
+import { withBase } from '../lib/siteUrl';
+import { amazonSearchUrl } from '../lib/amazonAffiliate.mjs';
+import { LOT42_PRESERVED_LINKS } from '../data/lot42PreservedLinks.mjs';
+import { LOT42_USE_CASE_IDS } from '../data/lot42SmartHomeContent.mjs';
+
+interface Props {
+	useCase: (typeof USE_CASES)[number];
+	content: NonNullable<ReturnType<typeof import('../data/smartHomeProjectContent.mjs').getProjectPageContent>>;
+	slug: string;
+	articleUrl: string;
+}
+
+const { useCase, content, slug, articleUrl } = Astro.props;
+const useCaseJson = JSON.stringify(useCase);
+
+const techDefault = useCase.techOptions?.[0]?.id ?? null;
+const defaultEco = 'wifi-sans-box';
+const guide = getWiringGuide({
+	useCaseId: useCase.id,
+	ecosystem: defaultEco,
+	techId: techDefault,
+	useCaseTitle: useCase.title,
+});
+
+const guidesByEco = Object.fromEntries(
+	ECOSYSTEMS.map((e) => [
+		e.id,
+		{
+			functionalSvg: getWiringGuide({
+				useCaseId: useCase.id,
+				ecosystem: e.id,
+				techId: techDefault,
+				useCaseTitle: useCase.title,
+			}).functionalSvg,
+			functionalPoints: getWiringGuide({
+				useCaseId: useCase.id,
+				ecosystem: e.id,
+				techId: techDefault,
+				useCaseTitle: useCase.title,
+			}).functionalPoints,
+			functionalLegend: getWiringGuide({
+				useCaseId: useCase.id,
+				ecosystem: e.id,
+				techId: techDefault,
+				useCaseTitle: useCase.title,
+			}).functionalLegend,
+			yaml: getWiringGuide({
+				useCaseId: useCase.id,
+				ecosystem: e.id,
+				techId: techDefault,
+				useCaseTitle: useCase.title,
+			}).yaml,
+		},
+	]),
+);
+const guidesJson = JSON.stringify(guidesByEco);
+
+const preservedLinks = LOT42_PRESERVED_LINKS[useCase.id] ?? [];
+const lot42Project = LOT42_USE_CASE_IDS.includes(useCase.id);
+const wiringSteps =
+	typeof useCase.wiring === 'function'
+		? (() => {
+				try {
+					return useCase.wiring({
+						eco: 'ha-zigbee',
+						tech: useCase.techOptions?.[0]?.id ?? null,
+					});
+				} catch {
+					return [];
+				}
+			})()
+		: [];
+const intro = content.introduction;
+const recommandBill = computeBill({
+	useCaseId: useCase.id,
+	ecosystem: 'ha-zigbee',
+	qtyId: '1',
+	techId: techDefault,
+});
+
+const tierBills = BUDGET_TIERS.map((tier) => ({
+	tier,
+	bill: computeBill({
+		useCaseId: useCase.id,
+		ecosystem: tier.ecosystem,
+		qtyId: '1',
+		techId: techDefault,
+	}),
+})).filter((x) => x.bill);
+
+const relatedIds = getRelatedProjectIds(useCase.id, 4);
+const related = relatedIds
+	.map((id) => USE_CASES.find((u) => u.id === id))
+	.filter(Boolean);
+
+const amazonFallbackUrl = amazonSearchUrl('fr', useCase.keywords ?? useCase.title);
+const catLabel = USE_CASE_CATEGORIES.find((c) => c.id === useCase.category)?.label ?? useCase.category;
+
+const recommandTierBill = tierBills.find((t) => t.tier.id === 'recommande')?.bill ?? tierBills[0]?.bill;
+const topMaterielLines = (() => {
+	if (!recommandTierBill) return [];
+	const mains = recommandTierBill.lines.filter((l) => l.role === 'main');
+	const pool = mains.length >= 3 ? mains : recommandTierBill.lines;
+	return pool.slice(0, 3);
+})();
+
+function materielCtaLabel(buyUrl: string, buyLabel: string) {
+	if (/awin1\.com|shelly\.com/i.test(buyUrl)) return 'Voir sur Shelly →';
+	if (/amazon\./i.test(buyUrl)) return '🛒 Voir le prix sur Amazon →';
+	return buyLabel || 'Voir ce produit →';
+}
+
+const howToJson = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: content.h1,
+	description: content.geoAnswer,
+	step: content.tutorialSteps.map((s, i) => ({
+		'@type': 'HowToStep',
+		position: i + 1,
+		name: s.title,
+		text: [s.intro ?? s.objective, ...(Array.isArray(s.actions) ? s.actions : [s.actions])]
+			.filter(Boolean)
+			.join(' '),
+	})),
+};
+
+const techArticleJson = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: content.h1,
+	description: content.geoAnswer,
+	datePublished: '2026-10-24',
+	dateModified: '2026-10-28',
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howToJson)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticleJson)} />
+<StructuredDataFaq items={content.faq} />
+
+<div class="shpp-shell">
+<div class="shpp-main">
+<div class="shpp-header" id="section-presentation">
+	<nav class="breadcrumb" aria-label="Fil d'Ariane">
+		<a href={withBase('/')}>Accueil</a>
+		<span aria-hidden="true"> · </span>
+		<a href={withBase('/domotique/')}>Domotique</a>
+		<span aria-hidden="true"> · </span>
+		<a href={withBase('/domotique/configurateur-projet-domotique/')}>Projets domotiques</a>
+		<span aria-hidden="true"> · </span>
+		<span>{useCase.title}</span>
+	</nav>
+	<h1>{content.h1}</h1>
+	<p class="shpp-geo">
+		{content.geoAnswer} Retrouvez d’autres scénarios dans le{' '}
+		<a href={withBase('/domotique/configurateur-projet-domotique/')}>configurateur de projets domotiques</a> et le hub{' '}
+		<a href={withBase('/domotique/')}>domotique</a>.
+	</p>
+
+	{intro && (
+		<div class="shpp-intro-block">
+			<h2 class="shpp-intro-h2">Comprendre le projet avant de commencer</h2>
+			<ul class="shpp-intro-qa">
+				<li><strong>Pourquoi ?</strong> {intro.why}</li>
+				<li><strong>Smartphone ?</strong> {intro.smartphone}</li>
+				<li><strong>Commandes d’origine ?</strong> {intro.manualControls}</li>
+				<li><strong>Abonnement / cloud ?</strong> {intro.subscription}</li>
+				<li><strong>Home Assistant obligatoire ?</strong> {intro.homeAssistant}</li>
+				<li><strong>État réel ?</strong> {intro.stateFeedback}</li>
+				<li><strong>Sécurité ?</strong> {intro.safety}</li>
+			</ul>
+			<aside class="shpp-daily-case">
+				<strong>Cas concret du quotidien</strong>
+				<p>{intro.dailyCase}</p>
+			</aside>
+		</div>
+	)}
+
+	<div class="shpp-summary-panel" data-shpp-summary-panel aria-live="polite">
+		<h2 class="shpp-summary-title">Résumé de votre configuration</h2>
+		<ul class="shpp-badges">
+			<li><strong>Difficulté</strong> {useCase.meta.difficulty}/5</li>
+			<li><strong>Temps</strong> {useCase.meta.time}</li>
+			<li><strong>Compétences</strong> {useCase.meta.tools}</li>
+			<li data-shpp-dynamic-budget>
+				<strong>Budget estimé</strong> {recommandBill?.meta.budgetText ?? '—'} (profil Recommandé)
+			</li>
+			<li data-shpp-dynamic-eco><strong>Écosystème</strong> Wi-Fi sans box (ajustez ci-dessous)</li>
+			<li data-shpp-dynamic-tech><strong>Variante technique</strong> {useCase.techOptions?.[0]?.label ?? 'Standard'}</li>
+			<li data-shpp-dynamic-box><strong>Box domotique</strong> Facultative</li>
+			<li><strong>Fonctionnement</strong> Local Wi-Fi / Zigbee selon profil</li>
+			<li><strong>Vérification</strong> Octobre 2026</li>
+		</ul>
+	</div>
+</div>
+
+{topMaterielLines.length > 0 && (
+	<section class="shpp-top-materiel" id="re-top-aff-cta" aria-labelledby="shpp-top-materiel-title">
+		<h2 id="shpp-top-materiel-title">⚡ Matériel clé pour réaliser ce projet</h2>
+		<p class="shpp-top-materiel-lead">
+			Les 3 composants principaux du profil <strong>Recommandé</strong> — prix Amazon relevés quand la fiche a un ASIN, sinon estimation.
+		</p>
+		<ul class="shpp-top-materiel-grid">
+			{topMaterielLines.map((line) => (
+				<li class="shpp-top-materiel-item">
+					<h3>{line.label}</h3>
+					<p class="shpp-top-materiel-role">{line.note || useCase.mainRole}</p>
+					<p class="shpp-top-materiel-price" data-amazon-price={line.priceExact ? '1' : undefined}>{line.unitText}</p>
+					<a
+						class="shpp-top-materiel-btn"
+						href={line.buyUrl}
+						target="_blank"
+						rel="sponsored nofollow noopener"
+						data-placement="shpp_top_materiel"
+					>
+						{materielCtaLabel(line.buyUrl, line.buyLabel)}
+					</a>
+				</li>
+			))}
+		</ul>
+		<p class="shpp-top-materiel-anchor">
+			<a href="#materiel">{content.materielAnchor ?? '↓ Voir la liste complète du matériel et le câblage'}</a>
+		</p>
+	</section>
+)}
+
+<section class="shpp-section" id="section-resultat">
+	<h2>Résultat attendu</h2>
+	<ul>
+		{content.expectedOutcomes.map((o) => (
+			<li>{o}</li>
+		))}
+	</ul>
+	<h3>Limites</h3>
+	<ul>
+		{content.limits.map((l) => (
+			<li>{l}</li>
+		))}
+	</ul>
+	<h3>Exemples de scénarios</h3>
+	{content.scenarios.map((s) => (
+		<article class="shpp-scenario">
+			<h4>{s.title}</h4>
+			<p>{s.description}</p>
+		</article>
+	))}
+</section>
+
+<section class="shpp-section" id="section-prerequis">
+	<h2>Prérequis et compatibilité</h2>
+	<table class="tableau empile">
+		<tbody>
+			{content.prerequisites.map((p) => (
+				<tr><th scope="row">{p.label}</th><td>{p.detail}</td></tr>
+			))}
+		</tbody>
+	</table>
+	<h3>Incompatibilités connues</h3>
+	<ul>{content.incompatibilities.map((i) => <li>{i}</li>)}</ul>
+	<h3>{content.prePurchaseTitle ?? 'Avant achat (multimètre / visuel)'}</h3>
+	<ul>{content.prePurchaseChecks.map((c) => <li>{c}</li>)}</ul>
+</section>
+
+<SmartHomeProjectInlineConfigurator useCaseId={useCase.id} useCaseJson={useCaseJson} />
+
+<p class="shpp-editorial-bridge">
+	{content.bridgeAfterConfig
+		? content.bridgeAfterConfig
+		: lot42Project
+		? `Vous avez choisi le matériel adapté à « ${useCase.title} » : voici la chaîne de fonctionnement (capteur → box → notification), puis le câblage ou la configuration logicielle étape par étape.`
+		: 'Maintenant que vous avez identifié les composants adaptés à votre installation, voyons comment la commande circule depuis votre smartphone jusqu’à l’équipement, puis comment raccorder chaque borne en sécurité.'}
+</p>
+
+<section class="shpp-section" id="section-fonctionnement">
+	<h2>Comment fonctionne ce système ?</h2>
+	<ol class="shpp-func-points" data-shpp-func-points>
+		{guide.functionalPoints.map((pt) => (
+			<li>{pt}</li>
+		))}
+	</ol>
+	<h3>Schéma fonctionnel</h3>
+	<p class="shpp-schema-lead">{guide.functionalLegend}</p>
+	<div class="shpp-schema-wrap">
+		<div class="shpp-ref-svg-wrap" data-shpp-functional-svg set:html={guide.functionalSvg} />
+		<button type="button" class="shpp-btn" data-shpp-zoom-functional>Agrandir le schéma</button>
+	</div>
+</section>
+
+<script type="application/json" id="shpp-guides-json" set:html={guidesJson} />
+
+<section class="shpp-section" id="materiel">
+	<h2>Matériel nécessaire — 3 profils budget</h2>
+	{tierBills.map(({ tier, bill }) => (
+		<div class="shpp-tier-block">
+			<h3>{tier.label}</h3>
+			<table class="tableau empile">
+				<thead>
+					<tr><th>Matériel</th><th>Utilité</th><th>Qté</th><th>Prix indicatif</th><th>Action</th></tr>
+				</thead>
+				<tbody>
+					{bill!.lines.map((line) => (
+						<tr>
+							<td>{line.label}</td>
+							<td>{line.note}</td>
+							<td>{line.qty}</td>
+							<td data-amazon-price={line.priceExact ? '1' : undefined}>{line.lineText}</td>
+							<td>
+								<a href={line.buyUrl} rel="sponsored nofollow noopener" target="_blank">{line.buyLabel}</a>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+			<p class="shpp-tier-total">Total {tier.label} : {bill!.meta.budgetText}</p>
+		</div>
+	))}
+	<h3>Fiches produits clés</h3>
+	<p class="shpp-amazon-fallback">
+		<a href={amazonFallbackUrl} rel="sponsored nofollow noopener" target="_blank">
+			Vérifier les prix du jour sur Amazon (recherche « {useCase.title.slice(0, 40)}… »)
+		</a>
+	</p>
+	{tierBills[0]?.bill?.lines.slice(0, 3).map((line) => {
+		const p = PRODUCTS[line.productId];
+		return (
+			<article class="shpp-product-card">
+				<h4>{line.label}</h4>
+				<p>{line.note || useCase.mainRole}</p>
+				<p><strong>{line.priceExact ? 'Prix Amazon' : 'Estimation'} :</strong> {line.unitText} / u.</p>
+				<p>Compatibilité vérifiée pour ce cas d'usage ({catLabel}).</p>
+				<a class="shpp-buy" href={line.buyUrl} rel="sponsored nofollow noopener" target="_blank">
+					{line.buyUrl.includes('amazon') ? 'Vérifier le prix sur Amazon' : 'Voir ce produit'}
+				</a>
+			</article>
+		);
+	})}
+</section>
+
+<section class="shpp-section shpp-budget" id="section-budget">
+	<h2>Budget du projet</h2>
+	<p>Récapitulatif pour le profil <strong>Recommandé</strong> (1 unité) :</p>
+	<ul class="shpp-budget-lines" data-shpp-budget-static>
+		{tierBills.find((t) => t.tier.id === 'recommande')?.bill && (
+			<>
+				<li>Matériel principal : {tierBills.find((t) => t.tier.id === 'recommande')!.bill!.meta.mainText}</li>
+				<li>Accessoires : {tierBills.find((t) => t.tier.id === 'recommande')!.bill!.meta.accText}</li>
+				<li><strong>Total : {tierBills.find((t) => t.tier.id === 'recommande')!.bill!.meta.budgetText}</strong></li>
+			</>
+		)}
+	</ul>
+	<div class="shpp-budget-actions">
+		<button type="button" class="shpp-btn" data-shpp-copy-list>Copier ma liste de matériel</button>
+		<button type="button" class="shpp-btn shpp-btn--secondary" data-shpp-print>Imprimer / Export PDF</button>
+	</div>
+</section>
+
+<section class="shpp-section" id="section-schema">
+	<h2>{content.schemaHeading ?? 'Schéma électrique & tableau bornier'}</h2>
+	<p>{content.safetyNote}</p>
+	<p class="shpp-schema-lead">
+		{content.schemaLead ??
+			'Le schéma ci-dessous montre le raccordement fil à fil (230 V module séparé du contact sec I/O). Comparez avec votre notice motorisation ou éclairage avant serrage définitif.'}
+	</p>
+	<div class="shpp-schema-wrap">
+		<div class="shpp-ref-svg-wrap" set:html={guide.svg} />
+		<button type="button" class="shpp-btn" data-shpp-zoom-schema>Agrandir le schéma</button>
+	</div>
+	<dialog class="shpp-schema-dialog" data-shpp-schema-dialog>
+		<button type="button" class="shpp-dialog-close" data-shpp-close-schema aria-label="Fermer">×</button>
+		<div class="shpp-ref-svg-wrap shpp-ref-svg-wrap--zoom" set:html={guide.svg} />
+	</dialog>
+	<table class="tableau empile shpp-bornier">
+		<thead>
+			<tr>
+				<th>{content.bornierHeaders?.[0] ?? 'Borne'}</th>
+				<th>{content.bornierHeaders?.[1] ?? 'Fil'}</th>
+				<th>{content.bornierHeaders?.[2] ?? 'Rôle & contrôle'}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{guide.bornier.map((r) => (
+				<tr><td><code>{r.terminal}</code></td><td>{r.wire}</td><td>{r.role}</td></tr>
+			))}
+		</tbody>
+	</table>
+</section>
+
+<section class="shpp-section" id="section-tutoriel">
+	<h2>Tutoriel étape par étape (8 étapes)</h2>
+	<p class="shpp-editorial-bridge">
+		{content.tutorialBridge ??
+			'Vous avez visualisé les schémas : enchaînons avec la mise en œuvre concrète, étape par étape, avec contrôles et points de vigilance à chaque fois.'}
+	</p>
+	{content.tutorialSteps.map((s, idx) => (
+		<article class="shpp-tutorial-step">
+			<header class="shpp-step-header">
+				<span class="shpp-step-badge">Étape {idx + 1}</span>
+				<h3>{s.title}</h3>
+				{(s.duration || s.level) && (
+					<div class="shpp-step-badges">
+						{s.duration && <span class="shpp-step-meta">{s.duration}</span>}
+						{s.level && <span class="shpp-step-meta shpp-step-meta--level">{s.level}</span>}
+					</div>
+				)}
+			</header>
+			<p class="shpp-step-intro">{s.intro ?? s.objective}</p>
+			{(s.outcome ?? s.expectedResult) && (
+				<aside class="shpp-callout shpp-callout--outcome">
+					<strong>Ce que vous allez obtenir</strong>
+					<p>{s.outcome ?? s.expectedResult}</p>
+				</aside>
+			)}
+			{(s.beforeStart ?? s.prerequisites) && (
+				<aside class="shpp-callout shpp-callout--before">
+					<strong>Avant de commencer</strong>
+					<p>
+						{Array.isArray(s.beforeStart)
+							? s.beforeStart.join(' · ')
+							: s.beforeStart ?? (Array.isArray(s.prerequisites) ? s.prerequisites.join(' · ') : s.prerequisites)}
+					</p>
+				</aside>
+			)}
+			<h4>Actions</h4>
+			<ol class="shpp-step-actions">
+				{(Array.isArray(s.actions) ? s.actions : [s.actions]).map((a) => (
+					<li>{a}</li>
+				))}
+			</ol>
+			{(s.verify || s.expectedResult) && (
+				<aside class="shpp-callout shpp-callout--verify">
+					<strong>Comment vérifier que cela fonctionne ?</strong>
+					<p>{s.verify ?? s.expectedResult}</p>
+				</aside>
+			)}
+			{(s.tip ?? s.errors) && (
+				<aside class="shpp-callout shpp-callout--tip">
+					<strong>À savoir / Erreur fréquente à éviter</strong>
+					<p>{s.tip ?? s.errors}</p>
+				</aside>
+			)}
+		</article>
+	))}
+</section>
+
+<section class="shpp-section" id="section-logiciel">
+	<h2>Configuration smartphone &amp; logiciel</h2>
+	{content.softwarePaths ? (
+		<div class="shpp-sw-paths">
+			{content.softwarePaths.map((path) => (
+				<article class="shpp-sw-path" data-shpp-path={path.id}>
+					<h3>{path.title}</h3>
+					<ol>
+						{path.steps.map((step) => (
+							<li>{step}</li>
+						))}
+					</ol>
+				</article>
+			))}
+		</div>
+	) : lot42Project && intro ? (
+		<>
+			<p>{intro.smartphone}</p>
+			<p>{intro.homeAssistant}</p>
+			{wiringSteps.length > 0 && (
+				<>
+					<h3>Étapes de mise en service (résumé)</h3>
+					<ol>
+						{wiringSteps.map((w) => (
+							<li>{w}</li>
+						))}
+					</ol>
+				</>
+			)}
+			<p>
+				Hub domotique : <a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')}>débuter en domotique</a> ·{' '}
+				<a href={withBase('/domotique/home-assistant-green-vs-raspberry-pi-5/')}>Home Assistant Green vs Raspberry Pi 5</a>
+			</p>
+		</>
+	) : (
+		<>
+	<p>
+		Deux parcours coexistent : commencez par le parcours simple sans box si vous avez choisi Wi-Fi direct ; Home Assistant
+		reste le parcours évolutif pour croiser plusieurs capteurs.
+	</p>
+	<div class="shpp-sw-paths">
+		<article class="shpp-sw-path" data-shpp-path="wifi-sans-box">
+			<h3>Parcours A — Application mobile sans box (Wi-Fi Shelly / fabricant)</h3>
+			<ol>
+				<li>Installez Shelly Smart Control (ou l’app du constructeur) et créez un compte local si demandé.</li>
+				<li>Ajoutez le module en Wi-Fi 2,4 GHz ; vérifiez qu’il reste « Online » sur le réseau domestique.</li>
+				<li>Réglez le relais en mode Impulsion / Auto-Off 0,5 à 1 s pour les portes, volets ou poussoirs.</li>
+				<li>Testez une commande avec l’équipement visible ; partagez l’accès en lecture seule à la famille.</li>
+				<li>Limites : pas de scénarios multi-pièces avancés sans box ; notifications selon l’app fabricant.</li>
+			</ol>
+		</article>
+		<article class="shpp-sw-path" data-shpp-path="ha-zigbee">
+			<h3>Parcours B — Home Assistant (local, évolutif)</h3>
+			<ol>
+				<li>Intégration Shelly native ou ZHA/Zigbee2MQTT selon le module ; renommez les entity_id clairement.</li>
+				<li>Créez un dashboard avec bouton impulsion et tuile état capteur (reed, contact, puissance).</li>
+				<li>Utilisez le YAML commenté ci-dessous : alertes d’oubli uniquement, jamais moteur sur capteur seul.</li>
+				<li>Automatisations : mode single, conditions horaires, notify.mobile_app ou persistent_notification.</li>
+			</ol>
+		</article>
+	</div>
+		</>
+	)}
+</section>
+
+<section class="shpp-section" id="section-home-assistant">
+	<h2>YAML sécurisé (Home Assistant)</h2>
+	<h3>Intégrations</h3>
+	<ul>{content.haIntegrations.map((i) => <li>{i}</li>)}</ul>
+	<h3>Exemple d’automatisation commentée</h3>
+	<pre class="shpp-yaml" data-shuc-yaml><code>{guide.yaml}</code></pre>
+	<button type="button" class="shpp-btn" data-shpp-copy-yaml>Copier le YAML</button>
+	<h3>Paramètres expliqués</h3>
+	<ul>{content.yamlNotes.map((n) => <li>{n}</li>)}</ul>
+</section>
+
+<section class="shpp-section" id="section-automatisations">
+	<h2>Automatisations utiles</h2>
+	{content.automations.map((a) => (
+		<article class="shpp-auto">
+			<h3>{a.title}</h3>
+			<p><strong>Objectif :</strong> {a.goal}</p>
+			<p><strong>Déclencheur :</strong> {a.trigger}</p>
+			<p><strong>Capteurs / actionneurs :</strong> {a.devices}</p>
+		</article>
+	))}
+</section>
+
+<section class="shpp-section" id="section-depannage">
+	<h2>Problèmes fréquents</h2>
+	<table class="tableau empile">
+		<thead><tr><th>Symptôme</th><th>Causes</th><th>Vérifications</th><th>Solution</th></tr></thead>
+		<tbody>
+			{content.troubleshooting.map((r) => (
+				<tr>
+					<td>{r.symptom}</td>
+					<td>{r.causes}</td>
+					<td>{r.checks}</td>
+					<td>{r.solution}</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+	<p>
+		Guides associés :{' '}
+		{content.helpLinks ? (
+			content.helpLinks.map((lk, i) => (
+				<>
+					{i > 0 ? ' · ' : ''}
+					<a href={withBase(lk.href)}>{lk.label}</a>
+				</>
+			))
+		) : (
+			<>
+				<a href={withBase('/domotique/diagnostic-par-symptome/')}>diagnostic par symptôme</a> ·{' '}
+				<a href={withBase('/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/')}>codes erreurs Zigbee / Shelly</a>
+			</>
+		)}
+	</p>
+</section>
+
+<section class="shpp-section" id="section-faq">
+	<h2>FAQ spécifique</h2>
+	<div class="shpp-faq-list">
+		{content.faq.map((item) => (
+			<div class="shpp-faq-item">
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</div>
+		))}
+	</div>
+</section>
+
+<section class="shpp-section" id="section-glossaire">
+	<h2>Glossaire du projet</h2>
+	<dl class="shpp-glossary">
+		{content.glossary ? (
+			content.glossary.map((g) => (
+				<>
+					<dt>{g.term}</dt>
+					<dd>{g.def}</dd>
+				</>
+			))
+		) : (
+			<>
+		<dt>Contact sec</dt><dd>Circuit libre de potentiel (souvent 0 V) qui simule un bouton poussoir sans mélanger le 230 V moteur.</dd>
+		<dt>Impulsion / Auto-Off</dt><dd>Le relais se ferme brièvement (0,5–1 s) puis rouvre, comme un appui du doigt.</dd>
+		<dt>Capteur Reed</dt><dd>Contact magnétique indiquant surtout la position fermée du battant.</dd>
+		<dt>VAT</dt><dd>Vérification d’absence de tension avant toucher aux bornes.</dd>
+		<dt>Wago 221</dt><dd>Connecteur rapide pour jonctions propres en boîtier.</dd>
+		<dt>Zigbee / Coordinateur</dt><dd>Réseau radio capteurs ; le dongle USB (ZBDongle-E…) fait office de coordinateur vers Home Assistant.</dd>
+		<dt>Entité Home Assistant</dt><dd>Identifiant technique (switch.*, binary_sensor.*) utilisé dans automatisations et dashboards.</dd>
+			</>
+		)}
+	</dl>
+</section>
+
+<section class="shpp-section" id="section-maillage">
+	<h2>Projets complémentaires</h2>
+	{preservedLinks.length > 0 && (
+		<p class="shpp-preserved-links">
+			Guides associés (historique éditorial) :{' '}
+			{preservedLinks.map((lk, i) => (
+				<>
+					{i > 0 ? ' · ' : ''}
+					<a href={withBase(lk.href)}>{lk.label}</a>
+				</>
+			))}
+		</p>
+	)}
+	<div class="shpp-related">
+		{related.map((uc) => (
+			<article class="shpp-related-card">
+				<span aria-hidden="true">{uc!.emoji}</span>
+				<h3><a href={withBase(projectPagePath(slugForUseCase(uc!.id)))}>{uc!.title}</a></h3>
+				<p>{uc!.shortDesc}</p>
+			</article>
+		))}
+	</div>
+	<p>
+		Tutoriel détaillé :{' '}
+		<a href={withBase(useCase.tutorialHref)}>{useCase.tutorialLabel}</a>
+	</p>
+</section>
+</div>
+</div>
+
+<script>
+	document.querySelectorAll('[data-shpp-copy-yaml]').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const code = document.querySelector('[data-shuc-yaml] code')?.textContent;
+			if (code) navigator.clipboard?.writeText(code);
+		});
+	});
+	document.querySelectorAll('[data-shpp-copy-list]').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const cfg = document.querySelector('[data-shpp-config]');
+			const billRaw = cfg?.dataset.shppBill;
+			if (!billRaw) return;
+			const bill = JSON.parse(billRaw);
+			let t = `${bill.useCaseTitle}\n\n`;
+			for (const line of bill.lines) t += `- ${line.label} × ${line.qty}\n`;
+			t += `\nBudget : ~${bill.meta.budgetEur} €\n`;
+			navigator.clipboard?.writeText(t);
+		});
+	});
+	document.querySelectorAll('[data-shpp-print]').forEach((btn) => {
+		btn.addEventListener('click', () => window.print());
+	});
+	document.querySelectorAll('[data-shpp-zoom-schema]').forEach((btn) => {
+		const dlg = document.querySelector('[data-shpp-schema-dialog]');
+		btn.addEventListener('click', () => dlg?.showModal?.());
+	});
+	document.querySelectorAll('[data-shpp-zoom-functional]').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const dlg = document.querySelector('[data-shpp-schema-dialog]');
+			const src = document.querySelector('[data-shpp-functional-svg]');
+			const zoom = dlg?.querySelector('.shpp-ref-svg-wrap--zoom');
+			if (dlg && zoom && src) {
+				zoom.innerHTML = src.innerHTML;
+				dlg.showModal?.();
+			}
+		});
+	});
+	document.querySelectorAll('[data-shpp-close-schema]').forEach((btn) => {
+		btn.addEventListener('click', () => btn.closest('dialog')?.close());
+	});
+</script>
+
+<style is:global>
+	.shpp-shell,
+	.shpp-main {
+		display: block;
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.shpp-shell [id] {
+		scroll-margin-top: 5.5rem;
+	}
+	.shpp-header .shpp-ref-svg-wrap {
+		max-width: 100%;
+		margin: 1rem 0;
+		border-radius: 12px;
+		overflow: auto;
+		border: 1px solid var(--surface-border, #e2e8f0);
+	}
+	.shpp-ref-svg-wrap svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.shuc-svg-bg {
+		fill: #f8fafc;
+		stroke: #cbd5e1;
+		stroke-width: 1.5;
+	}
+	.shuc-svg-module {
+		fill: #ffffff;
+		stroke: #475569;
+		stroke-width: 2;
+	}
+	.shuc-svg-header {
+		fill: #0f766e;
+	}
+	.shuc-svg-title {
+		fill: #0f172a;
+	}
+	.shuc-svg-module-text {
+		fill: #0f172a;
+	}
+	.shuc-svg-header + .shuc-svg-module-text,
+	.shuc-svg-header ~ text.shuc-svg-module-text:first-of-type {
+		fill: #ffffff;
+	}
+	.shuc-svg-muted {
+		fill: #475569;
+	}
+	.shuc-svg-pill {
+		fill: #ffffff;
+		stroke: #94a3b8;
+		stroke-width: 1.2;
+	}
+	.shuc-svg-wire-label {
+		fill: #0f172a;
+	}
+	.shuc-svg-note-box {
+		fill: #ecfdf5;
+		stroke: #99f6e4;
+		stroke-width: 1.5;
+	}
+	.shuc-svg-note {
+		fill: #0f766e;
+		font-weight: 600;
+	}
+	.shuc-svg-label {
+		fill: #334155;
+	}
+	.shpp-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.35rem;
+		margin: 0.5rem 0.35rem 0.5rem 0;
+		padding: 0.55rem 1.1rem;
+		font: 600 0.9rem/1.2 system-ui, sans-serif;
+		color: #fff;
+		background: #0f766e;
+		border: none;
+		border-radius: 10px;
+		cursor: pointer;
+		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+	}
+	.shpp-btn:hover {
+		background: #115e59;
+	}
+	.shpp-btn--secondary {
+		background: #fff;
+		color: #0f766e;
+		border: 1.5px solid #0f766e;
+	}
+	.shpp-btn--secondary:hover {
+		background: #f0fdfa;
+	}
+	.shpp-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+		font-size: 0.85rem;
+	}
+	.shpp-badges li {
+		padding: 0.35rem 0.65rem;
+		border-radius: 999px;
+		background: var(--surface, #f1f5f9);
+	}
+	.shpp-tutorial-step {
+		margin-bottom: 2rem;
+		padding: 1.25rem;
+		border-radius: 12px;
+		border: 1px solid var(--surface-border, #e2e8f0);
+	}
+	.shpp-step-header h3 {
+		margin: 0.35rem 0;
+	}
+	.shpp-step-badge {
+		display: inline-block;
+		padding: 0.2rem 0.55rem;
+		border-radius: 6px;
+		background: #0f766e;
+		color: #fff;
+		font-size: 0.78rem;
+		font-weight: 700;
+	}
+	.shpp-step-meta {
+		display: inline-block;
+		margin-right: 0.35rem;
+		padding: 0.2rem 0.5rem;
+		border-radius: 999px;
+		background: var(--surface, #f1f5f9);
+		font-size: 0.78rem;
+	}
+	.shpp-callout {
+		margin: 1rem 0;
+		padding: 0.85rem 1rem;
+		border-radius: 8px;
+		border-left: 4px solid #0f766e;
+		background: var(--surface, #f8fafc);
+	}
+	.shpp-callout--tip {
+		border-left-color: #d97706;
+	}
+	.shpp-intro-block,
+	.shpp-daily-case {
+		margin: 1.25rem 0;
+		padding: 1rem;
+		border-radius: 12px;
+		background: var(--surface, #f8fafc);
+	}
+	.shpp-editorial-bridge {
+		font-style: italic;
+		color: var(--muted, #475569);
+		margin: 1.5rem 0;
+	}
+	.shpp-sw-path.is-primary {
+		outline: 2px solid #0f766e;
+	}
+	.shpp-role-badge {
+		font-size: 0.72rem;
+		font-weight: 700;
+		margin-right: 0.35rem;
+	}
+	.shpp-glossary dt {
+		font-weight: 700;
+		margin-top: 0.75rem;
+	}
+	.shpp-section {
+		margin: 2.5rem 0;
+	}
+	.shpp-yaml {
+		background: #0f172a;
+		color: #e2e8f0;
+		padding: 1rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		font-size: 0.82rem;
+	}
+	.shpp-schema-dialog {
+		max-width: min(96vw, 900px);
+		border: none;
+		border-radius: 12px;
+		padding: 1rem;
+	}
+	.shpp-ref-svg-wrap--zoom svg {
+		min-width: 720px;
+	}
+	.shpp-related {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+	@media print {
+		header nav,
+		.shpp-budget-actions,
+		[data-shpp-config] .shpp-choices {
+			display: none !important;
+		}
+	}
+	.shpp-top-materiel {
+		margin: 1.5rem 0 2rem;
+		padding: 1.15rem 1.1rem;
+		border-radius: 14px;
+		border: 2px solid #0f766e;
+		background: linear-gradient(180deg, rgba(15, 118, 110, 0.1), rgba(255, 255, 255, 0.02));
+	}
+	.shpp-top-materiel h2 {
+		margin: 0 0 0.4rem;
+		font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+	}
+	.shpp-top-materiel-lead {
+		margin: 0 0 1rem;
+		font-size: 0.9rem;
+	}
+	.shpp-top-materiel-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+	.shpp-top-materiel-item {
+		padding: 0.75rem 0.85rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		background: var(--surface, #fff);
+	}
+	.shpp-top-materiel-item h3 {
+		margin: 0 0 0.35rem;
+		font-size: 0.92rem;
+		line-height: 1.25;
+	}
+	.shpp-top-materiel-role {
+		margin: 0;
+		font-size: 0.8rem;
+		line-height: 1.35;
+		min-height: 2.5em;
+	}
+	.shpp-top-materiel-price {
+		margin: 0.35rem 0;
+		font-weight: 800;
+		font-size: 0.95rem;
+		white-space: nowrap;
+	}
+	.shpp-top-materiel-btn {
+		display: inline-flex;
+		width: 100%;
+		justify-content: center;
+		box-sizing: border-box;
+		padding: 0.5rem 0.65rem;
+		border-radius: 8px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-decoration: none;
+		background: #c2410c;
+		color: #fff !important;
+	}
+	.shpp-top-materiel-btn:hover {
+		filter: brightness(1.05);
+	}
+	.shpp-top-materiel-anchor {
+		margin: 0.85rem 0 0;
+		text-align: center;
+		font-weight: 600;
+	}
+	
+	
+</style>

@@ -2,7 +2,7 @@
 title: "Le pendu en Python (1/6) — cahier des charges et mot masqué"
 description: "Règles du jeu, choisir un mot en dur, construire la chaîne affichée avec des tirets et mettre à jour quand une lettre est trouvée."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Le pendu
 seriesOrder: 1
@@ -22,7 +22,17 @@ Le **pendu** est un jeu de lettres : l’ordinateur choisit un **mot secret** ; 
 
 Cette série comporte **six articles** ; celui-ci pose les règles et le **noyau** sans fichier : mot fixe dans le code.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Série Le pendu (1/6)** — [Sommaire](/programmation/pendu/) · suite : [Partie 2 — mots depuis un fichier](/python-pendu-2-mots-depuis-fichier/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/pendu/">Série Pendu</a> · <a href="/programmation/python/">Parcours Python</a></nav>
+
+Tu travailles dans un **terminal** (PowerShell, invite de commandes, ou terminal intégré de VS Code / Thonny) : tu lances chaque script avec `python nom_du_fichier.py`.
+
+Exemple après une lettre trouvée :
+
+![Exemple de sortie console — pendu chapitre 1](/images/blog/lot15/pendu-console-exemple.png)
+
+*Capture pédagogique du rendu terminal pour ce tutoriel (exécution locale).*
 
 ## 1. Règles qu’on code
 

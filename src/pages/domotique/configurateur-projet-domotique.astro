@@ -1,0 +1,60 @@
+---
+import DomotiqueToolLayout from '../../layouts/DomotiqueToolLayout.astro';
+import SmartHomeProjectCatalog from '../../components/SmartHomeProjectCatalog.astro';
+import { PAGE } from '../../data/smartHomeUseCaseConfigurator.mjs';
+import { USE_CASES } from '../../data/smartHomeUseCases.mjs';
+import { projectPagePath } from '../../data/smartHomeProjectSlugs.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+const lang = 'fr';
+const pubDate = new Date('2026-10-28T00:00:00Z');
+const useCaseCount = USE_CASES.length;
+
+const catalogFaq = [
+	{
+		question: 'Combien de projets domotiques sont disponibles ?',
+		answer: `${useCaseCount} fiches complètes avec schéma SVG, bornier, tutoriel Home Assistant et listes matériel sur robot-educatif.info.`,
+	},
+	{
+		question: 'Dois-je utiliser le configurateur ou une fiche projet ?',
+		answer: `Le catalogue filtre les ${useCaseCount} projets ; chaque fiche /domotique/projets/<slug>/ contient le configurateur interactif et tout le contenu technique.`,
+	},
+];
+---
+
+<DomotiqueToolLayout
+	title={`${useCaseCount} projets domotique — catalogue tutoriels`}
+	description={`Bibliothèque de ${useCaseCount} projets domotiques : accès, volets, éclairage, chauffage, énergie Linky, sécurité. Budget, schémas NFC 15-100, Home Assistant.`}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/domotique/configurateur-projet-domotique/"
+	hubLabel="Domotique"
+	repairGuide={true}
+	contentProvidesH1={true}
+>
+	<SmartHomeProjectCatalog />
+	<p class="shpc-outro">
+		Projets phares :{' '}
+		<a href={withBase(projectPagePath('porte-garage-connectee'))}>porte de garage connectée</a> ·{' '}
+		<a href={withBase(projectPagePath('eclairage-sans-neutre'))}>éclairage sans neutre</a> ·{' '}
+		<a href={withBase(projectPagePath('installer-home-assistant'))}>installer Home Assistant</a> ·{' '}
+		<a href={withBase('/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/')}>matrice compatibilité</a>.
+	</p>
+</DomotiqueToolLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: catalogFaq.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: { '@type': 'Answer', text: item.answer },
+	})),
+})} />
+
+<style>
+	.shpc-outro {
+		margin-top: 2rem;
+		font-size: 0.95rem;
+	}
+</style>

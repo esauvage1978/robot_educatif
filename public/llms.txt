@@ -1,65 +1,56 @@
-# ROBOT éducatif (robot-educatif.info)
+# robot-educatif.info
+> Pages stratégiques pour crawlers IA et moteurs (Brave Search, GPTBot, Perplexity, Claude, Google-Extended).
 
-> Site francophone d'Emmanuel SAUVAGE pour apprendre la robotique et la programmation en s'amusant : guides d'achat de robots éducatifs par âge et par budget, tutoriels mBot et mBlock, cours de Python et d'Arduino (C), Raspberry Pi et domotique (Home Assistant, Zigbee, ESP32). Public : parents, enseignants, ados et débutants.
+## Documentation
+- [Sitemap](https://robot-educatif.info/sitemap-index.xml): index complet du site
 
-Informations importantes :
-- Affiliation : en tant que Partenaire Amazon, le site réalise un bénéfice sur les achats remplissant les conditions requises (liens Amazon.fr marqués, tag manuso06-21). Les prix changent : les vérifier sur Amazon au moment de l'achat.
-- Toutes les pages sont en français ; le plan complet du site est dans https://robot-educatif.info/sitemap-index.xml
+## Pages stratégiques
 
-## Sections principales
-
-- [Accueil](https://robot-educatif.info/): présentation du site et derniers articles
-- [Blog](https://robot-educatif.info/blog/): tous les articles (guides d'achat, comparatifs, tutoriels)
-- [Programmation](https://robot-educatif.info/programmation/): parcours Python (débutant, intermédiaire, avancé), Arduino C et projets guidés
-- [Domotique](https://robot-educatif.info/domotique/): Home Assistant, Zigbee, ESP32/ESPHome et guides d'achat domotique
-- [Catégories](https://robot-educatif.info/categorie/): articles classés par thème
-
-## Guides d'achat robots éducatifs
-
-- [Quel robot éducatif choisir en 2026 ?](https://robot-educatif.info/quel-robot-educatif-choisir-2026/)
-- [Robot programmable enfant 2026 : top 10 par âge et prix](https://robot-educatif.info/meilleur-robot-programmable-enfant-2026/)
-- [Robot enfant 5 ans : meilleurs robots éducatifs](https://robot-educatif.info/quel-robot-acheter-enfant-5-ans-guide-achat/)
-- [Robot enfant 7-8 ans : meilleurs robots éducatifs](https://robot-educatif.info/quel-robot-acheter-enfant-8-ans-guide-achat/)
-- [Robot enfant 10 ans : kits à construire et programmer](https://robot-educatif.info/quel-robot-acheter-enfant-10-ans-guide-achat/)
-- [Robot programmable 12 ans : kits à construire](https://robot-educatif.info/quel-robot-acheter-enfant-12-ans-guide-achat/)
-- [Robot éducatif à moins de 100 euros](https://robot-educatif.info/robot-moins-de-100-euros/)
-- [Robot éducatif autour de 200 €](https://robot-educatif.info/quel-robot-educatif-autour-de-200-euros-guide-2026/)
-- [Robot pédagogique pour l'école : guide enseignants](https://robot-educatif.info/robot-pedagogique-ecole/)
-- [Robots pour la technologie au collège](https://robot-educatif.info/robots-technologie-college-guide/)
-
-## mBot et mBlock (Makeblock)
-
-- [mBot avis et prix : faut-il l'acheter pour un enfant ?](https://robot-educatif.info/mbot-avis-faut-il-acheter-pour-un-enfant/)
-- [mBot vs mBot2 : différences, prix et lequel choisir](https://robot-educatif.info/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/)
-- [Prix mBot, mBot2, Ranger : quel kit acheter ?](https://robot-educatif.info/prix-mbot-mbot2-ranger-comparatif-2026/)
-- [10 projets mBot gratuits pour la classe (PDF)](https://robot-educatif.info/10-projets-mbot-gratuits-classe-faciles/)
-- [Télécharger mBlock 5 gratuit : installation Windows 10/11](https://robot-educatif.info/installer-mblock-5-sous-windows-10/)
-- [mBlock vs Scratch : lequel choisir ?](https://robot-educatif.info/mblock-vs-scratch-lequel-choisir/)
-- [mBlock Bluetooth : dépannage quand le mBot ne se connecte pas](https://robot-educatif.info/mblock-bluetooth-erreurs-frequentes-depannage/)
-
-## Arduino et Python
-
-- [Kit robot Arduino : meilleur choix pour enfant](https://robot-educatif.info/meilleur-robot-educatif-arduino-kit-choisir/)
-- [Cours Arduino C](https://robot-educatif.info/programmation/arduino-c/)
-- [Meilleur robot programmable en Python](https://robot-educatif.info/robot-programmable-python/)
-- [Cours Python débutant](https://robot-educatif.info/programmation/python/)
-
-## Raspberry Pi
-
-- [Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter ?](https://robot-educatif.info/raspberry-pi-3-vs-4-vs-5-comparatif-2026/)
-- [Raspberry Pi 5 : 4 Go ou 8 Go de RAM ?](https://robot-educatif.info/raspberry-pi-5-quelle-version-memoire-acheter/)
-- [Kit Raspberry Pi 5 complet : quel kit choisir ?](https://robot-educatif.info/kit-raspberry-pi-5-complet/)
-
-## Domotique
-
-- [Débuter en domotique : par où commencer ?](https://robot-educatif.info/domotique/debuter-domotique-par-ou-commencer/)
-- [Home Assistant Green vs Raspberry Pi 5](https://robot-educatif.info/domotique/home-assistant-green-vs-raspberry-pi-5/)
-- [Installer Home Assistant sur Raspberry Pi 5](https://robot-educatif.info/domotique/home-assistant-raspberry-pi-5-installation/)
-- [Meilleure clé Zigbee pour Home Assistant](https://robot-educatif.info/domotique/meilleur-dongle-zigbee-home-assistant/)
-- [10 projets ESP32 pour la domotique](https://robot-educatif.info/domotique/projets-esp32-domotique/)
-
-## Optional
-
-- [À propos](https://robot-educatif.info/about/)
-- [Contact](https://robot-educatif.info/contact/)
-- [Mentions légales](https://robot-educatif.info/mentions-legales/)
+- [Robot programmable enfant : guides d&#39;achat, mBlock et tutos 2026](https://robot-educatif.info/): Quel robot programmable offrir à un enfant ? Guides par âge (5, 8, 10, 12 ans), mBlock 5 en ligne ou à télécharger, mBot, Arduino et programmation pour la
+- [Robot Éducatif: coding robots, Arduino and Raspberry Pi guides for kids](https://robot-educatif.info/en/): Independent guides for parents and teachers in the UK and US: choosing a coding robot by age, Arduino kits, Raspberry Pi comparisons and mBlock tutorials.
+- [Robot Éducatif: coding robots, Arduino and Raspberry Pi guides for kids](https://robot-educatif.info/en/index.html): Independent guides for parents and teachers in the UK and US: choosing a coding robot by age, Arduino kits, Raspberry Pi comparisons and mBlock tutorials.
+- [Robot Éducatif: coding robots, Arduino and Raspberry Pi guides for kids](https://robot-educatif.info/en/index.html): Independent guides for parents and teachers in the UK and US: choosing a coding robot by age, Arduino kits, Raspberry Pi comparisons and mBlock tutorials.
+- [Robot Éducatif: Ratgeber zu Programmierrobotern, Arduino und Raspberry Pi für Kinder](https://robot-educatif.info/de/): Unabhängige Ratgeber für Eltern und Lehrkräfte in Deutschland, Österreich und de. mBot, Arduino-Roboterbausätze, Raspberry Pi: unabhängige Ratgeber für Eltern
+- [Robot Éducatif: guide ai robot programmabili, Arduino e Raspberry Pi per bambini](https://robot-educatif.info/it/): Guide indipendenti per genitori e insegnanti in Italia: robot programmabili per . mBot, kit robot Arduino, Raspberry Pi e domotica: guide indipendenti per
+- [Robot Éducatif: guías de robots programables, Arduino y Raspberry Pi para niños](https://robot-educatif.info/es/): Guías independientes para familias y docentes en España: robots programables por. mBot, kits de robot Arduino, Raspberry Pi y domótica: guías independientes
+- [Black Friday 2026 : offres par catégorie](https://robot-educatif.info/codes-promo/): Page stratégique du site.
+- [Codes promo et bons plans Noël 2026 : robotique, Cultura, Amazon, 3D et domotique](https://robot-educatif.info/codes-promo/): Codes promo et sélections Noël 2026 (Cultura FR, Amazon, Creality, EcoFlow, Shelly, Makerfire, Batterie-Boutique) : offres vérifiées et comparatif Tutoriels
+- [Blog ROBOT éducatif](https://robot-educatif.info/blog/): Blog robotique éducative : tutoriels mBlock et Scratch, parcours Python, compara. Publications Guides, comparatifs et conseils pratiques sur Guides, comparatifs
+- [Catégories — ROBOT éducatif](https://robot-educatif.info/categorie/): Parcourez toutes les catégories du blog : mBlock, Scratch, Python, robots Makeblock et guides pratiques pour enseigner la robotique à la maison ou en classe.
+- [Comparisons: robots and boards side by side](https://robot-educatif.info/en/comparisons/index.html): Comparisons: robots and boards side by side. Affiliate links (Amazon CA) — indicative prices. Practical guides and comparisons on robot-educatif.info.
+- [Calculateur budget robotique pour la classe](https://robot-educatif.info/calculateur-budget-robot-classe/): Estimez le coût pour équiper une classe (5 à 30 élèves) : nombre de robots, piles, rangement et coût par élève selon mBot2, mBot, CyberPi, Raspberry Pi 5 ou
+- [À partir de 10 ans : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/a-partir-de-10-ans/): Retrouvez 6 articles sur À partir de 10 ans : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [À partir de 12 ans : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/a-partir-de-12-ans/): Retrouvez 8 articles sur À partir de 12 ans : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [À partir de 5 ans : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/a-partir-de-5-ans/): Retrouvez 7 articles sur À partir de 5 ans : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [À partir de 8 ans : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/a-partir-de-8-ans/): Retrouvez 13 articles sur À partir de 8 ans : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Activité : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/activite/): Retrouvez 12 articles sur Activité : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Arduino : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/arduino/): Retrouvez 9 articles sur Arduino : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Avancé : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/avance/): Retrouvez 12 articles sur Avancé : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Bataille navale : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/bataille-navale/): Retrouvez 6 articles sur Bataille navale : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Budget : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/budget/): Retrouvez 4 articles sur Budget : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [C : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/c/): Retrouvez 5 articles sur C : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Cadeaux : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/cadeaux/): Retrouvez 6 articles sur Cadeaux : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Capteur : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/capteur/): Retrouvez 4 articles sur Capteur : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Carnet Todo : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/carnet-todo/): Retrouvez 6 articles sur Carnet Todo : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Comparatif : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/comparatif/): Retrouvez 25 articles sur Comparatif : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Débutant : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/debutant/): Retrouvez 14 articles sur Débutant : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [École : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/ecole/): Retrouvez 4 articles sur École : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [FAQ : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/faq/): Retrouvez 3 articles sur FAQ : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Guide : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/guide/): Retrouvez 56 articles sur Guide : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Installation : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/installation/): Retrouvez 3 articles sur Installation : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Intermédiaire : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/intermediaire/): Retrouvez 16 articles sur Intermédiaire : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Linux : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/linux/): Retrouvez 3 articles sur Linux : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Makeblock : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/makeblock/): Retrouvez 16 articles sur Makeblock : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Marques : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/marques/): Retrouvez 8 articles sur Marques : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Matatalab : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/matatalab/): Retrouvez 5 articles sur Matatalab : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [mBlock : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/mblock/): Retrouvez 16 articles sur mBlock : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [mBot 2 : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/mbot-2/): Retrouvez 3 articles sur mBot 2 : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [mBot : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/mbot/): Retrouvez 20 articles sur mBot : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Pendu : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/pendu/): Retrouvez 6 articles sur Pendu : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école. Tutoriels
+- [Programmation : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/programmation/): Retrouvez 77 articles sur Programmation : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Projet : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/projet/): Retrouvez 36 articles sur Projet : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Puissance 4 : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/puissance-4/): Retrouvez 6 articles sur Puissance 4 : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Python : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/python/): Retrouvez 60 articles sur Python : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Raspberry Pi : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/raspberry-pi/): Retrouvez 9 articles sur Raspberry Pi : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Robot éducatif : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/robot-educatif/): Retrouvez 37 articles sur Robot éducatif : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.
+- [Scratch : guides et tutoriels — ROBOT éducatif](https://robot-educatif.info/categorie/scratch/): Retrouvez 13 articles sur Scratch : tutoriels Scratch et mBlock, comparatifs de robots éducatifs et conseils programmation pour la maison et l’école.

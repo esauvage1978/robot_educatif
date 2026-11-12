@@ -1,0 +1,12 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import bodyHtml from '../../partials/lot41-en-age/best-robot-for-an-8-year-old.html?raw';
+
+const title = 'Best coding robot for an 8-year-old (2026)';
+const description = 'At 8, move from arrow sequences to Scratch-style blocks, sensors and a short build. mBot, Codey Rocky or the ELEGOO Penguin Bot: criteria, budget, setup';
+const updated = '5 November 2026';
+---
+
+<EnPost title={title} description={description} updated={updated}>
+  <Fragment set:html={bodyHtml} />
+</EnPost>

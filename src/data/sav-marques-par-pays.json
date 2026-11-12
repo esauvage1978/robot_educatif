@@ -1,0 +1,2693 @@
+{
+  "version": "2026-10-25",
+  "countries": [
+    "FR",
+    "UK",
+    "US",
+    "CA",
+    "DE",
+    "IT",
+    "ES"
+  ],
+  "marques": {
+    "petkit": {
+      "name": "PETKIT",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.petkit.com/fr/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.petkit.com/uk/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://support.petkit.com",
+          "email": "support@petkit.com",
+          "telephone": "+1 (800) 664-0284",
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.petkit.com/ca/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.petkit.com/de/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.petkit.com/it/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.petkit.com/es/support",
+          "email": "support@petkit.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "litter-robot": {
+      "name": "Whisker / Litter-Robot",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.litter-robot.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.litter-robot.com/uk/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.litter-robot.com/support/",
+          "email": null,
+          "telephone": "+1 (877) 250-7729",
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.litter-robot.com/ca/support.html",
+          "email": null,
+          "telephone": "+1 (877) 250-7729",
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.litter-robot.com/de/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.litter-robot.com/it/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.litter-robot.com/es/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "whisker": {
+      "name": "Whisker / Litter-Robot",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.litter-robot.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.litter-robot.com/uk/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.litter-robot.com/support/",
+          "email": null,
+          "telephone": "+1 (877) 250-7729",
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.litter-robot.com/ca/support.html",
+          "email": null,
+          "telephone": "+1 (877) 250-7729",
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.litter-robot.com/de/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.litter-robot.com/it/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.litter-robot.com/es/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "neakasa": {
+      "name": "Neakasa",
+      "countries": {
+        "FR": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://neakasa.com/pages/contact-us",
+          "email": "support@neakasa.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "petlibro": {
+      "name": "Petlibro",
+      "countries": {
+        "FR": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://petlibro.com/pages/contact-us",
+          "email": "help@petlibro.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "catlink": {
+      "name": "CATLINK",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.catlinkus.com/support",
+          "email": "support@catlinkus.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "surefeed": {
+      "name": "SureFeed / Sure Petcare",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sure-petcare": {
+      "name": "SureFeed / Sure Petcare",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.surepetcare.com/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "tractive": {
+      "name": "Tractive",
+      "countries": {
+        "FR": {
+          "support_url": "https://help.tractive.com/hc/fr",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://help.tractive.com/hc/en-gb",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://help.tractive.com/hc/en-us",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://help.tractive.com/hc/en-us",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://help.tractive.com/hc/de",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://help.tractive.com/hc/it",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://help.tractive.com/hc/es",
+          "email": "support@tractive.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "furbo": {
+      "name": "Furbo",
+      "countries": {
+        "FR": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://help.furbo.com",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "petcube": {
+      "name": "Petcube",
+      "countries": {
+        "FR": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://petcube.com/pages/contact",
+          "email": "support@petcube.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "fidelis": {
+      "name": "Fidelis",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.fidelis-nutrition.com/contact",
+          "email": "contact@fidelis-nutrition.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "fressnapf": {
+      "name": "Fressnapf",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.fressnapf.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "bambu-lab": {
+      "name": "Bambu Lab",
+      "countries": {
+        "FR": {
+          "support_url": "https://bambulab.com/fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "bambu": {
+      "name": "Bambu Lab",
+      "countries": {
+        "FR": {
+          "support_url": "https://bambulab.com/fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://bambulab.com/en/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "creality": {
+      "name": "Creality",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.creality.com/pages/service-center",
+          "email": "service@creality.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "anycubic": {
+      "name": "Anycubic",
+      "countries": {
+        "FR": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://store.anycubic.com/pages/contact-us",
+          "email": "official@anycubic.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "elegoo": {
+      "name": "Elegoo",
+      "countries": {
+        "FR": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://eu.elegoo.com/pages/contact-us",
+          "email": "service@elegoo.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sovol": {
+      "name": "Sovol",
+      "countries": {
+        "FR": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://sovol3d.com/pages/contact-us",
+          "email": "support@sovol3d.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "3dmakerpro": {
+      "name": "3DMakerpro",
+      "countries": {
+        "FR": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://store.3dmakerpro.com/pages/contact-us",
+          "email": "support@3dmakerpro.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "longer": {
+      "name": "Longer",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.longer3d.com/pages/contact-us",
+          "email": "support@longer3d.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "xtool": {
+      "name": "xTool",
+      "countries": {
+        "FR": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": "+1 (888) 888-4210",
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": "+1 (888) 888-4210",
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://support.xtool.com",
+          "email": "support@xtool.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sunlu": {
+      "name": "Sunlu",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.sunlu.com/pages/contact-us",
+          "email": "support@sunlu.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "hoymiles": {
+      "name": "Hoymiles",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.hoymiles.com/support/",
+          "email": "service@hoymiles.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "zendure": {
+      "name": "Zendure",
+      "countries": {
+        "FR": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://zendure.com/pages/contact",
+          "email": "support@zendure.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "ecoflow": {
+      "name": "EcoFlow",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.ecoflow.com/fr/support",
+          "email": "support@ecoflow.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "anker-solix": {
+      "name": "Anker SOLIX",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.ankersolix.com/fr/support",
+          "email": "support@anker.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "apsystems": {
+      "name": "APsystems",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.apsystems.com/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "dolphin": {
+      "name": "Dolphin / Maytronics",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "maytronics": {
+      "name": "Dolphin / Maytronics",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.maytronics.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "zodiac": {
+      "name": "Zodiac",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.zodiac-pool.com/fr/support.html",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "beatbot": {
+      "name": "Beatbot",
+      "countries": {
+        "FR": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://beatbot.com/support",
+          "email": "support@beatbot.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "aiper": {
+      "name": "Aiper",
+      "countries": {
+        "FR": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://aiper.com/pages/contact",
+          "email": "support@aiper.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "intex": {
+      "name": "Intex",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.intex.fr/service-client",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "bwt": {
+      "name": "BWT",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.bwt.com/fr-fr/service-client/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "harvia": {
+      "name": "Harvia",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.harvia.com/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "huum": {
+      "name": "HUUM",
+      "countries": {
+        "FR": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://huum.com/pages/contact",
+          "email": "info@huum.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "karibu": {
+      "name": "Karibu",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.karibu.de/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sentiotec": {
+      "name": "Sentiotec",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.sentiotec.com/fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "red-cedar": {
+      "name": "Red Cedar",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.redcedar.fr/contact/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "philips-hue": {
+      "name": "Philips Hue",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.philips-hue.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "legrand": {
+      "name": "Legrand",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.legrand.fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "schneider-electric": {
+      "name": "Schneider Electric",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.se.com/fr/fr/support/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "aqara": {
+      "name": "Aqara",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.aqara.com/fr/support",
+          "email": "support@aqara.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "govee": {
+      "name": "Govee",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.govee.com/support",
+          "email": "support@govee.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "shelly": {
+      "name": "Shelly",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.shelly.com/en/support",
+          "email": "info@shelly.cloud",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "osram": {
+      "name": "Osram/Ledvance",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "ledvance": {
+      "name": "Osram/Ledvance",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.ledvance.fr/fr_fr/service/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "makeblock": {
+      "name": "Makeblock",
+      "countries": {
+        "FR": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://support.makeblock.com",
+          "email": "support@makeblock.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sphero": {
+      "name": "Sphero",
+      "countries": {
+        "FR": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://sphero.com/pages/support",
+          "email": "support@sphero.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "lego-education": {
+      "name": "LEGO Education",
+      "countries": {
+        "FR": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://education.lego.com/fr-fr/support",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "elecfreaks": {
+      "name": "Elecfreaks",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.elecfreaks.com/support",
+          "email": "support@elecfreaks.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "arduino": {
+      "name": "Arduino",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.arduino.cc/en/contact-us/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "raspberry-pi": {
+      "name": "Raspberry Pi",
+      "countries": {
+        "FR": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://www.raspberrypi.com/documentation/",
+          "email": null,
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "homey": {
+      "name": "Homey/Athom",
+      "countries": {
+        "FR": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "athom": {
+      "name": "Homey/Athom",
+      "countries": {
+        "FR": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://support.homey.app",
+          "email": "support@athom.com",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    },
+    "sonoff": {
+      "name": "Sonoff",
+      "countries": {
+        "FR": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Garantie légale de conformité 2 ans (UE) + garantie commerciale constructeur. Préparez le numéro de série, la preuve d’achat, des photos ou une courte vidéo du défaut. Ouvrez un ticket sur le portail SAV officiel ou écrivez au support. Si achat chez Amazon ou un revendeur tiers, passez d’abord par la plateforme ou le magasin conformément à leurs conditions de retour."
+        },
+        "UK": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "UK consumer rights apply alongside the manufacturer warranty (typically 1–2 years on pet tech). Have your serial number, proof of purchase, and photos or a short video of the fault ready. Open a ticket on the official UK support page or email support. If you bought from Amazon.co.uk or another retailer, contact the seller first for returns."
+        },
+        "US": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in the US. Gather serial number, proof of purchase, and photos or video of the issue. Contact official US support via their portal or email. Purchases from Amazon.com or other retailers: start with the seller’s return policy."
+        },
+        "CA": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Manufacturer warranty is typically 1 year in Canada. Have serial number, proof of purchase, and photos or video ready. Use the official Canadian support page or email. For Amazon.ca or third-party purchases, contact the retailer first."
+        },
+        "DE": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Gesetzliche Gewährleistung 2 Jahre (EU) plus Herstellergarantie. Seriennummer, Kaufbeleg und Fotos/Video des Fehlers bereithalten. Ticket im offiziellen Support-Portal oder E-Mail an den Hersteller. Bei Kauf über Amazon oder Händler: zuerst Verkäufer/Händler gemäß Rückgaberichtlinie."
+        },
+        "IT": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Garanzia legale di conformità 2 anni (UE) più garanzia del produttore. Numero di serie, prova d’acquisto, foto o breve video del difetto. Apri un ticket sul portale assistenza ufficiale o scrivi al supporto. Se acquistato su Amazon o da rivenditore, contatta prima il venditore."
+        },
+        "ES": {
+          "support_url": "https://help.sonoff.tech",
+          "email": "support@itead.cc",
+          "telephone": null,
+          "procedure": "Garantía legal de conformidad 2 años (UE) más garantía del fabricante. Número de serie, justificante de compra, fotos o vídeo del fallo. Abre un ticket en el soporte oficial o escribe al servicio técnico. Si compraste en Amazon o en tienda, contacta primero con el vendedor."
+        }
+      }
+    }
+  }
+}

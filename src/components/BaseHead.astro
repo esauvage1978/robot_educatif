@@ -1,13 +1,27 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+// Feuilles globales : import ?inline pour garantir le bloc <style is:global> sur
+// toutes les pages (dont src/pages/**/*.md + layouts *Post.astro).
+import globalCss from '../styles/global.css?inline';
+import darkMobileFix from '../styles/dark-mobile-surfaces-fix.css?inline';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE, PINTEREST_ENABLED, PINTEREST_DOMAIN_VERIFY, ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import GoogleConsentDefault from './GoogleConsentDefault.astro';
-import { findPair } from '../lib/i18n.mjs';
+import { expandLangPair, findPair, OMIT_US_HREFLANG } from '../lib/i18n.mjs';
+import { ensureMetaDescription } from '../lib/metaDescription';
+import { fitPageTitle } from '../lib/pageTitle';
+
+const HREFLANG_CODES = {
+	fr: 'fr',
+	en: 'en',
+	us: 'en-US',
+	uk: 'en-GB',
+	ca: 'en-CA',
+	de: 'de',
+	it: 'it',
+	es: 'es',
+};
 
 interface Props {
 	title: string;
@@ -26,7 +40,9 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, image = FallbackImage, preloadLcpImage, noIndex = false, ogType = 'website', pubDate, updatedDate } = Astro.props;
+const { title: rawTitle, description: rawDescription, image = FallbackImage, preloadLcpImage, noIndex = false, ogType = 'website', pubDate, updatedDate } = Astro.props;
+const title = fitPageTitle(rawTitle);
+const description = ensureMetaDescription(rawDescription, { title: rawTitle, pathname: Astro.url.pathname });
 // Handle both ImageMetadata objects and plain string paths
 const imagePath = typeof image === 'string' ? image : (image?.src || FallbackImage.src);
 const ogImageUrl = new URL(imagePath, Astro.site).toString();
@@ -34,17 +50,21 @@ const isIllustration = imagePath.includes('/images/illustrations/');
 const ogW = isIllustration ? '960' : '1200';
 const ogH = isIllustration ? '540' : '630';
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-const langPair = findPair(_p);
-const isEn = _p.startsWith('/en/');
-const isDe = _p.startsWith('/de/');
+const langPair = expandLangPair(findPair(_p));
+const isUk = _p === '/uk' || _p.startsWith('/uk/');
+const isCa = _p === '/ca' || _p.startsWith('/ca/');
+const isUs = _p === '/us' || _p.startsWith('/us/');
+const isEn = (_p === '/en' || _p.startsWith('/en/')) && !isUk && !isCa && !isUs;
+const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it/' || _p.startsWith('/it/');
 const isEs = _p === '/es/' || _p.startsWith('/es/');
-const hrefLangs = langPair ? ['fr', 'en', 'de', 'it', 'es'].filter((l) => langPair[l]) : [];
 const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
+<meta name="color-scheme" content="light" />
+<style is:global set:html={globalCss + darkMobileFix} />
 <GoogleConsentDefault />
 {preloadLcpImage && (
 	<link rel="preload" as="image" href={preloadLcpImage} type="image/webp" fetchpriority="high" />
@@ -73,7 +93,11 @@ const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 <link rel="canonical" href={canonicalURL} />
 {langPair && (
 	<>
-		{hrefLangs.map((l) => <link rel="alternate" hreflang={l} href={new URL(langPair[l], Astro.site).toString()} />)}
+		{Object.entries(HREFLANG_CODES).map(([loc, code]) =>
+			langPair[loc] && !(OMIT_US_HREFLANG && loc === 'us') ? (
+				<link rel="alternate" hreflang={code} href={new URL(langPair[loc], Astro.site).toString()} />
+			) : null,
+		)}
 		<link rel="alternate" hreflang="x-default" href={new URL(xDefault, Astro.site).toString()} />
 	</>
 )}
@@ -86,7 +110,7 @@ const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:locale" content={isEn ? "en_GB" : isDe ? "de_DE" : isIt ? "it_IT" : isEs ? "es_ES" : "fr_FR"} />
+<meta property="og:locale" content={isUk ? "en_GB" : isCa ? "en_CA" : isEn || isUs ? "en_US" : isDe ? "de_DE" : isIt ? "it_IT" : isEs ? "es_ES" : "fr_FR"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -120,11 +144,8 @@ const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 	</>
 )}
 
-<!-- Theme initialization (respects prefers-color-scheme by default) -->
 <script is:inline>
-	(() => {
-		const stored = localStorage.getItem('robot-educatif-theme');
-		const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-		document.documentElement.dataset.theme = theme;
-	})();
+	document.documentElement.dataset.theme = 'light';
+	document.documentElement.style.colorScheme = 'light';
+	try { localStorage.removeItem('robot-educatif-theme'); } catch (e) {}
 </script>

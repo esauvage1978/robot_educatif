@@ -1,6 +1,6 @@
 ---
 title: "Carnet Todo Python (3/6) : modèle de données"
-description: "ajouter_tache, trouver par id, basculer fait, supprimer ; garder prochain_id cohérent."
+description: "Carnet Todo en Python, partie 3 : ajouter une tâche, la retrouver par id, basculer fait et supprimer, en gardant prochain_id cohérent, dans un seul fichier."
 pubDate: 2026-03-29
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Carnet Todo

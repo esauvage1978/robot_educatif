@@ -1,0 +1,136 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageColumns from '../../components/PageColumns.astro';
+
+const title = 'Robot éducatif en Suisse romande : PER, prise T13 et données';
+const description =
+	'Éducation numérique du Plan d’études romand, robots Thymio et mBot, prises Type J T13 (10 A) et ce que la nLPD change pour une famille ou une école privée.';
+const canonical = '/suisse/';
+
+const elvCh =
+	'https://www.awin1.com/cread.php?awinmid=12513&awinaffid=3126073&ued=' +
+	encodeURIComponent('https://www.elv.ch/');
+const mediaMarktCh =
+	'https://www.awin1.com/cread.php?awinmid=14040&awinaffid=3126073&ued=' +
+	encodeURIComponent('https://www.mediamarkt.ch/');
+const mbot2De = 'https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21';
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="canonical" href={`https://robot-educatif.info${canonical}`} />
+</head>
+<body>
+  <Header />
+  <main id="main-content">
+<PageColumns>
+    <article class="prose">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a>
+        <span aria-hidden="true"> / </span>
+        <span>Suisse</span>
+      </nav>
+      <h1>Robots et domotique en Suisse romande</h1>
+      <p class="chapo"><strong>Réponse directe</strong> — En Suisse romande, le cadre scolaire est le <strong>Plan d’études romand</strong> (domaine Éducation numérique), la prise murale courante est la <strong>T13</strong> (Type J, 10 A) et non la prise française Type E, et la <strong>nouvelle loi fédérale sur la protection des données</strong> (nLPD, en vigueur le 1<sup>er</sup> septembre 2023) vise les personnes privées et les écoles privées. Les écoles publiques restent sous la loi cantonale. Les guides du site sur Scratch, mBot et Home Assistant s’utilisent tels quels pour le logiciel ; le choix de la prise et de la facture, lui, change.</p>
+
+      <aside class="encart-affilie-haut" data-above-fold-cta="" data-fr-hub="CH">
+        <p><strong>Acheter depuis la Suisse :</strong> <a class="cta-aff" href={elvCh} rel="sponsored nofollow noopener" target="_blank">ELV.ch</a> · <a class="cta-aff" href={mediaMarktCh} rel="sponsored nofollow noopener" target="_blank">MediaMarkt.ch</a> · <a class="cta-aff" href={mbot2De} rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 sur Amazon.de</a> · <a href="https://mystrom.ch/fr/wifi-switch/" rel="noopener noreferrer" target="_blank">myStrom WiFi Switch (fiche fabricant)</a></p>
+        <p class="encart-note">ELV, MediaMarkt et Amazon.de sont des liens partenaires. myStrom est un lien direct, sans commission. Les prix et la livraison vers la Suisse se vérifient chez le marchand. Amazon.de affiche des euros, pas des francs.</p>
+      </aside>
+
+      <h2>Ce qui change par rapport à un guide écrit pour la France</h2>
+      <p>La tension du secteur est la même : <strong>230 V, 50 Hz</strong>. Ce n’est pas elle qui bloque un module prévu pour l’Union européenne. Ce qui change, c’est la forme de la prise, le programme scolaire, la monnaie de la facture et la loi applicable aux données.</p>
+      <div class="tableau empile">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Sujet</th>
+              <th scope="col">En Suisse romande</th>
+              <th scope="col">Conséquence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Sujet"><span class="td-val">École</span></td>
+              <td data-label="En Suisse romande"><span class="td-val">Plan d’études romand, domaine Éducation numérique (CIIP)</span></td>
+              <td data-label="Conséquence"><span class="td-val">Les cycles et les objectifs ne sont pas ceux du programme français</span></td>
+            </tr>
+            <tr>
+              <td data-label="Sujet"><span class="td-val">Prise</span></td>
+              <td data-label="En Suisse romande"><span class="td-val">T13, 10 A, broches rondes encastrées (Type J). La T23, 16 A, a des broches rectangulaires</span></td>
+              <td data-label="Conséquence"><span class="td-val">Une fiche Type E ou Schuko ne rentre pas dans une T13</span></td>
+            </tr>
+            <tr>
+              <td data-label="Sujet"><span class="td-val">Données</span></td>
+              <td data-label="En Suisse romande"><span class="td-val">nLPD pour les privés et le fédéral ; loi cantonale pour l’école publique</span></td>
+              <td data-label="Conséquence"><span class="td-val">Un compte cloud grand public n’est pas anodin dans une classe</span></td>
+            </tr>
+            <tr>
+              <td data-label="Sujet"><span class="td-val">Achat</span></td>
+              <td data-label="En Suisse romande"><span class="td-val">Facture en francs, TVA suisse, marchands .ch</span></td>
+              <td data-label="Conséquence"><span class="td-val">Un prix en euros sur ce site n’est pas un prix suisse</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>La même prise T13 est aussi la norme au Liechtenstein. Cette page, elle, vise les cantons romands qui partagent le PER : Genève, Vaud, Neuchâtel, Jura, Fribourg, Valais et la partie francophone de Berne. Le calendrier exact de mise en classe dépend de chaque canton.</p>
+
+      <h2>Éducation numérique dans le PER</h2>
+      <p>La Conférence intercantonale de l’instruction publique de la Suisse romande et du Tessin (CIIP) a ajouté au PER un domaine <strong>Éducation numérique</strong>, organisé en trois axes qui se travaillent ensemble : <strong>Médias</strong>, <strong>Science informatique</strong> et <strong>Usages</strong>. La science informatique couvre, dès le cycle 1 (années 1 à 4), les algorithmes, l’information et les machines. Au cycle 1, une grande partie du travail se fait sans écran : une consigne orale, un déplacement sur un quadrillage, puis seulement un robot ou ScratchJr. Le cycle 2 (années 5 à 8) et le cycle 3 (années 9 à 11) allongent la programmation et l’analyse des médias.</p>
+      <p>Ce n’est pas une liste d’achat imposée. Le canton de Vaud publie un moyen d’enseignement, <a href="https://decodage.edu-vd.ch/" rel="noopener noreferrer" target="_blank">DÉCODAGE</a>, qui montre une façon de couvrir ces objectifs. En 1<sup>re</sup>-2<sup>e</sup>, les scénarios prévoient l’algorithmique débranchée et le robot de sol Blue-Bot. En 3<sup>e</sup>-4<sup>e</sup>, ils ajoutent ScratchJr. En 5<sup>e</sup>-6<sup>e</sup>, un scénario s’appelle « L’aventure Thymio ». Un autre canton peut choisir un autre matériel pour les mêmes objectifs du PER. Avant une commande de classe, on lit la progression du canton.</p>
+      <p><strong>Thymio</strong> est conçu en Suisse (Mobsya, dans la lignée des travaux de l’EPFL). Il se programme en langage visuel, en Scratch, puis en MicroPython, avec une documentation en français. <strong>Makeblock mBot2</strong> convient quand la classe veut enchaîner blocs et Python sur un seul robot, avec le logiciel mBlock : ce n’est pas le robot nommé dans le scénario vaudois de 5<sup>e</sup>. Le comparatif du site donne des prix <em>en euros</em>, relevés pour la France : <a href="/thymio-3-nouveautes-prix-avis-comparatif-mbot2/">Thymio 3 et mBot2</a>. Ce ne sont pas des prix en francs.</p>
+      <p>Pour préparer la séance elle-même, les modes d’emploi français restent valables sur un ordinateur Windows de la classe :</p>
+      <ul>
+        <li><a href="/scratch-ecole-maison-par-ou-commencer/">Scratch à l’école et à la maison</a>, une fois que le cycle a quitté ScratchJr.</li>
+        <li><a href="/mblock-vs-scratch-lequel-choisir/">mBlock ou Scratch</a>, selon que le robot est un mBot ou un outil qui parle Scratch.</li>
+        <li><a href="/installer-mblock-5-sous-windows-10/">Installer mBlock 5 sous Windows</a>.</li>
+        <li><a href="/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/">mBot ou mBot2</a>.</li>
+        <li><a href="/equiper-classe-robots-budget-packs-2026/">Équiper une classe</a> et le <a href="/calculateur-budget-robot-classe/">calculateur de budget</a> : les montants sont en euros. Une école romande les relit sur le devis en francs du fournisseur suisse.</li>
+        <li><a href="/robots-technologie-college-guide/">Robots et technologie au collège</a>, à replacer dans le cycle 3 du PER plutôt que dans le collège français.</li>
+      </ul>
+
+      <h2>Prises T13 : ce qui se branche, et ce qui ne se branche pas</h2>
+      <p>La norme suisse <strong>SN 441011</strong> (anciennement SEV 1011) définit la prise domestique. La <strong>T13</strong> est une prise encastrée à trois contacts, prévue pour <strong>10 A</strong>. La <strong>T23</strong> monte à <strong>16 A</strong> ; ses alvéoles sont rectangulaires, si bien qu’une fiche 16 A ne peut pas entrer dans une T13, alors qu’une fiche 10 A entre dans une T23. C’est une sécurité, pas un détail de voyage.</p>
+      <p>Une fiche française <strong>Type E</strong> ou allemande <strong>Schuko (Type F)</strong> ne rentre pas dans une T13. Un europlug plat (Type C, deux broches) entre souvent, mais il n’a pas de terre : il ne remplace pas une fiche d’appareil qui exige une terre. Shelly ne publie pas, à la date de cette page, de prise nomade au format suisse. Le <strong>Shelly Plug S Gen3</strong> est une prise Schuko, annoncée par le fabricant jusqu’à <strong>12 A / 2 500 W</strong>. Même avec un adaptateur, le plafond qui compte sur une T13 reste <strong>10 A</strong>. Un adaptateur de voyage n’est pas une installation permanente : il doit être prévu pour le courant réel de l’appareil, et il ne doit pas servir à empiler une seconde prise.</p>
+      <p>Pour une prise que l’on déplace, le produit au format suisse relevé ici est le <strong>myStrom WiFi Switch (CH)</strong>. Sur <a href="https://mystrom.ch/fr/wifi-switch/" rel="noopener noreferrer" target="_blank">la fiche fabricant</a>, le 6 novembre 2026, il est affiché à <strong>33 CHF TTC</strong>, pour les prises suisses, avec une limite de <strong>10 A</strong> et une sortie annoncée à <strong>9,9 A</strong>. Il mesure la puissance, parle en Wi-Fi 2,4 GHz et demande un <strong>compte myStrom</strong>, l’application, et une connexion Internet permanente. Ce site ne l’a pas essayé. La version Schuko du même fabricant est un autre produit : elle ne se branche pas non plus directement sur une T13.</p>
+      <p>Les modules Shelly ou Sonoff qui se logent <em>derrière</em> un interrupteur ne dépendent pas de la forme de la fiche, puisque le 230 V est le même. Les poser dans un boîtier mural suisse relève d’un <strong>installateur électricien</strong>, selon les règles d’installation en vigueur (NIBT). Cette page ne décrit aucun branchement. Le guide <a href="/domotique/prise-connectee-zigbee-home-assistant/">prises connectées Zigbee</a> explique le choix du protocole pour Home Assistant ; la partie « prise murale » y est écrite pour la France (Type E). La page <a href="/marque-sonoff/">SONOFF</a> présente la marque, pas une fiche T13.</p>
+
+      <h2>Home Assistant, et ce que la nLPD couvre vraiment</h2>
+      <p>Home Assistant tourne chez vous : les automatisations n’ont pas besoin d’un abonnement pour allumer une lampe sur le réseau local. C’est le point utile en Suisse comme en France. Le boîtier prêt à l’emploi et le Raspberry Pi 5 sont comparés dans <a href="/domotique/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green ou Raspberry Pi 5</a>. Le coordinateur Zigbee, s’il en faut un, se choisit dans <a href="/domotique/meilleur-dongle-zigbee-home-assistant/">le guide des dongles Zigbee</a>. Le parcours général est <a href="/domotique/debuter-domotique-par-ou-commencer/">débuter en domotique</a>.</p>
+      <p>La nLPD est entrée en vigueur le <strong>1<sup>er</sup> septembre 2023</strong>. Elle s’applique aux <strong>personnes privées</strong> (donc à une famille, à une association, à une entreprise) et aux autorités fédérales. <a href="https://www.educa.ch/fr/news/2023/consequences-de-la-nouvelle-loi-sur-la-protection-des-donnees-pour-les-ecoles" rel="noopener noreferrer" target="_blank">Educa</a> le précise pour l’école : une <strong>école publique</strong>, cantonale ou communale, reste soumise à la <strong>loi cantonale</strong> (par exemple la LPrD dans le canton de Vaud). Une <strong>école privée</strong> et un fournisseur de logiciel, eux, entrent dans le champ de la nLPD. Ceci n’est pas un avis juridique : le texte à lire pour une classe est celui du canton, ou le règlement de l’établissement.</p>
+      <p>Dans la pratique, la différence se voit au moment du compte. Une prise myStrom, telle que le fabricant la décrit, passe par un compte et Internet. Une prise Zigbee appariée à Home Assistant en local ne crée pas ce compte. Un accès à la maison depuis l’extérieur (abonnement Nabu Casa, VPN ou autre) fait sortir des données du logement : on le décide à part, une fois que les commandes marchent déjà sur place.</p>
+
+      <h2>Où passer commande</h2>
+      <p>Pour une facture suisse, les vitrines partenaires déjà branchées sur le site sont <a href={elvCh} rel="sponsored nofollow noopener" target="_blank">ELV.ch</a> et <a href={mediaMarktCh} rel="sponsored nofollow noopener" target="_blank">MediaMarkt.ch</a>. Ce sont des pages d’accueil de boutique, pas une fiche d’un modèle précis : le stock et le prix du jour s’y vérifient. Le <a href={mbot2De} rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 sur Amazon.de</a> est la fiche du modèle (ASIN B0919F9CKS), en euros, avec le tag partenaire allemand. La livraison et d’éventuels frais vers la Suisse ne sont pas garantis par cette page. Il n’existe pas, dans la configuration du site, de tag pour une boutique Amazon suisse : ne pas réutiliser le tag français sur un autre domaine.</p>
+      <p>Le <a href="https://mystrom.ch/fr/wifi-switch/" rel="noopener noreferrer" target="_blank">WiFi Switch CH</a> s’achète chez le fabricant. Le prix de 33 CHF TTC cité plus haut est celui affiché sur cette page le 6 novembre 2026, frais de port en sus selon les conditions myStrom. Aucune promotion n’est annoncée ici.</p>
+
+      <h2>Questions qui restent ouvertes</h2>
+      <h3>Un guide français sur mBot est-il faux en Suisse ?</h3>
+      <p>Non pour le logiciel, le câble USB et les blocs mBlock. Oui s’il affiche un prix en euros, une prise Type E ou une référence au programme de l’Éducation nationale. On garde la procédure, on change la facture et, pour la domotique, la prise.</p>
+      <h3>Puis-je encastrer un Shelly moi-même pour éviter l’adaptateur ?</h3>
+      <p>Non. Le module voit bien le 230 V, mais le travail dans le boîtier est réservé à une personne qualifiée. Un adaptateur permanent mal choisi, ou un appareil au-dessus de 10 A sur une T13, est le risque concret à éviter.</p>
+      <h3>La page couvre-t-elle la Suisse alémanique ?</h3>
+      <p>Le PER décrit ici est romand. La prise T13, elle, est la même outre-Sarine. Le rappel électrique en allemand est sur <a href="/de/smart-home/smarte-steckdosen/">les prises connectées (guide allemand)</a>.</p>
+
+      <h2>Autres guides francophones</h2>
+      <p><a href="/belgique/">Belgique</a> · <a href="/luxembourg/">Luxembourg</a> · <a href="/monaco/">Monaco</a> · <a href="/">France (accueil)</a> · <a href="/about/">À propos de l’équipe</a></p>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.ciip.ch/" rel="noopener noreferrer" target="_blank">CIIP</a> — Plan d’études romand. Le domaine Éducation numérique est en ligne sur le <a href="https://portail.ciip.ch/per/disciplines/23" rel="noopener noreferrer" target="_blank">portail PER</a> et dans le <a href="https://per.ciip.ch/api/files/280" rel="noopener noreferrer" target="_blank">document CIIP</a> (axes Médias, Science informatique, Usages).</li>
+        <li><a href="https://decodage.edu-vd.ch/" rel="noopener noreferrer" target="_blank">DÉCODAGE (Vaud)</a> — Blue-Bot en 1<sup>re</sup>-2<sup>e</sup>, ScratchJr en 3<sup>e</sup>-4<sup>e</sup>, scénario Thymio en 5<sup>e</sup>-6<sup>e</sup>. Moyen cantonal, pas une obligation des autres cantons.</li>
+        <li><a href="https://www.admin.ch/fr/nsb?id=97592" rel="noopener noreferrer" target="_blank">Conseil fédéral, 1<sup>er</sup> septembre 2023</a> — entrée en vigueur de la nLPD.</li>
+        <li><a href="https://www.educa.ch/fr/news/2023/consequences-de-la-nouvelle-loi-sur-la-protection-des-donnees-pour-les-ecoles" rel="noopener noreferrer" target="_blank">Educa, 25 mai 2023</a> — écoles publiques (droit cantonal) et écoles privées (nLPD).</li>
+        <li><a href="https://www.shelly.com/fr/pages/shelly-smart-plugs" rel="noopener noreferrer" target="_blank">Shelly, prises intelligentes</a> — Plug S Gen3 annoncé en Schuko, 12 A / 2 500 W. Pas de fiche T13 sur cette page.</li>
+        <li><a href="https://mystrom.ch/fr/wifi-switch/" rel="noopener noreferrer" target="_blank">myStrom WiFi Switch</a> — prix, 10 A et compte myStrom, relevés le 6 novembre 2026.</li>
+      </ul>
+      <p><em>Page mise à jour le 6 novembre 2026. Les prix robots en francs n’ont pas été relevés. Le matériel domotique cité n’a pas été essayé pour cet article.</em></p>
+    </article>
+  </PageColumns>
+</main>
+  <Footer />
+</body>
+</html>

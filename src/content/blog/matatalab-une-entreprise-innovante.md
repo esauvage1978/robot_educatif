@@ -29,7 +29,7 @@ Pour en savoir plus : le [site officiel de Matatalab](https://www.matatalab.com/
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B0CZ6R182M?tag=manuso06-21)
 
 ### Matatalab Pro Set
 

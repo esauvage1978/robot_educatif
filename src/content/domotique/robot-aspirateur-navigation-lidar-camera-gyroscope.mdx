@@ -10,14 +10,53 @@ Sur une fiche produit, la puissance d'aspiration attire l'œil. Pourtant c'est l
 
 ## L'essentiel en un tableau
 
-| Navigation | Principe | Carte de la maison | Nettoyage par pièce | Fonctionne dans le noir | Gamme |
-|---|---|---|---|---|---|
-| **Aléatoire** | rebondit sur les obstacles | non | non | oui | premier prix |
-| **Gyroscope** | trajectoires en lignes grâce à des capteurs de mouvement | approximative ou aucune | rarement | oui | entrée de gamme |
-| **Caméra (vSLAM)** | reconnaît des repères visuels (plafond, meubles) | oui | oui | dépend de l'éclairage | moyen et haut de gamme |
-| **LiDAR (laser)** | un laser rotatif mesure les distances à 360° | oui, précise | oui | oui | dès l'entrée de gamme récente |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Navigation</th>
+<th scope="col">Principe</th>
+<th scope="col">Carte de la maison</th>
+<th scope="col">Nettoyage par pièce</th>
+<th scope="col">Fonctionne dans le noir</th>
+<th scope="col">Gamme</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Navigation"><span class="td-val"><strong>Aléatoire</strong></span></td>
+<td data-label="Principe"><span class="td-val">rebondit sur les obstacles</span></td>
+<td data-label="Carte de la maison"><span class="td-val">non</span></td>
+<td data-label="Nettoyage par pièce"><span class="td-val">non</span></td>
+<td data-label="Fonctionne dans le noir"><span class="td-val">oui</span></td>
+<td data-label="Gamme"><span class="td-val">premier prix</span></td>
+</tr>
+<tr>
+<td data-label="Navigation"><span class="td-val"><strong>Gyroscope</strong></span></td>
+<td data-label="Principe"><span class="td-val">trajectoires en lignes grâce à des capteurs de mouvement</span></td>
+<td data-label="Carte de la maison"><span class="td-val">approximative ou aucune</span></td>
+<td data-label="Nettoyage par pièce"><span class="td-val">rarement</span></td>
+<td data-label="Fonctionne dans le noir"><span class="td-val">oui</span></td>
+<td data-label="Gamme"><span class="td-val">entrée de gamme</span></td>
+</tr>
+<tr>
+<td data-label="Navigation"><span class="td-val"><strong>Caméra (vSLAM)</strong></span></td>
+<td data-label="Principe"><span class="td-val">reconnaît des repères visuels (plafond, meubles)</span></td>
+<td data-label="Carte de la maison"><span class="td-val">oui</span></td>
+<td data-label="Nettoyage par pièce"><span class="td-val">oui</span></td>
+<td data-label="Fonctionne dans le noir"><span class="td-val">dépend de l'éclairage</span></td>
+<td data-label="Gamme"><span class="td-val">moyen et haut de gamme</span></td>
+</tr>
+<tr>
+<td data-label="Navigation"><span class="td-val"><strong>LiDAR (laser)</strong></span></td>
+<td data-label="Principe"><span class="td-val">un laser rotatif mesure les distances à 360°</span></td>
+<td data-label="Carte de la maison"><span class="td-val">oui, précise</span></td>
+<td data-label="Nettoyage par pièce"><span class="td-val">oui</span></td>
+<td data-label="Fonctionne dans le noir"><span class="td-val">oui</span></td>
+<td data-label="Gamme"><span class="td-val">dès l'entrée de gamme récente</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Notre meilleur choix : le LiDAR.** Il produit une carte précise dès le premier passage, fonctionne dans le noir et permet le nettoyage pièce par pièce, également depuis Home Assistant. On le trouve désormais sur des modèles abordables : voir notre sélection [à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
+**Notre meilleur choix : le LiDAR.** Il produit une carte précise dès le premier passage, fonctionne dans le noir et permet le nettoyage pièce par pièce, également depuis Home Assistant. On le trouve désormais sur des modèles abordables : voir notre sélection [à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
 
 ## Aléatoire et gyroscope : à éviter si possible
 

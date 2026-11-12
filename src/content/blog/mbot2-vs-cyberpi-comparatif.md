@@ -2,9 +2,8 @@
 title: "mBot2 vs CyberPi : robot ou carte programmable Makeblock ?"
 description: "mBot2 vs CyberPi : robot roulant ou carte WiFi. Prix, usages, schéma récapitulatif."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-31"
+updatedDate: "2026-11-10"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
-amazonPreset: mbot2
 categories:
   - "Comparatif"
   - "mBot 2"
@@ -23,11 +22,9 @@ relatedLinks:
 
 **mBot2** est avant tout un **robot mobile** : on pense **parcours**, **capteurs au sol**, **démo** en quelques minutes. **CyberPi** est une **carte de développement** : on pense **console**, **objets connectés**, **projet sans roues** si on le souhaite. Les deux sont [Makeblock](/marque-makeblock/) et **mBlock**, mais le **geste pédagogique** n’est pas le même.
 
-## Prix indicatifs (France, mars 2026)
+## Prix du 10 novembre 2026 (Amazon.fr)
 
-À titre indicatif au **29 mars 2026**, sur des offres courantes en ligne (Amazon et autres vendeurs) : le **mBot2** se situe souvent **autour de 167,95 €** ; la **CyberPi** (carte seule ou selon le pack) **autour de 59,99 €**. Les montants **varient** selon les promotions, la TVA affichée, le vendeur et les accessoires inclus — vérifiez toujours le **prix au moment de l’achat**.
-
-![Robot roulant versus carte programmable](../../assets/blog/guides-2026/mbot2-vs-cyberpi-schema.svg)
+Relevé du 10 novembre 2026, 06:14. Le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est à **127,48 €** (ASIN B0919F9CKS, fiche « 10 ans et plus »). Le [kit CyberPi](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21) de ce même relevé est à **45,58 €** (ASIN B0BBZY9L59) : le titre de la fiche est un kit d'apprentissage, pas une carte nue isolée. Un autre pack peut afficher un autre montant.
 
 ## 1. Ce que le mBot2 fait particulièrement bien
 
@@ -51,9 +48,8 @@ Si l’ado veut surtout **Linux**, **serveur**, **Python hors robot**, lisez [Ra
 
 ## Liens Amazon (affiliation)
 
-- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
-- [Kit électronique programmable enfant](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+programmable+ado&tag=manuso06-21)
+- [mBot2 Makeblock — 127,48 € le 10 novembre 2026](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
+- [Kit CyberPi — 45,58 € le 10 novembre 2026](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

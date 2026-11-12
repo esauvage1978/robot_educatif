@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture simple : box, protocoles et appareils</title>
+  <desc id="desc">La box (cerveau) parle aux appareils via Zigbee, Wi-Fi ou Matter. Les automatisations relient capteurs et actionneurs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#fff7ed"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <rect width="920" height="420" fill="url(#bg)" rx="12"/>
+  <text x="460" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f766e">De la box aux appareils</text>
+  <text x="460" y="58" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">Cerveau local ’ radios / réseau ’ capteurs et actionneurs ’ automatisations</text>
+
+  <rect x="320" y="90" width="280" height="70" rx="10" fill="#0b1f2a"/>
+  <text x="460" y="120" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#5eead4">Box / hub / Home Assistant</text>
+  <text x="460" y="142" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">Décisions, historique, interface</text>
+
+  <line x1="460" y1="160" x2="460" y2="195" stroke="#0f766e" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="60" y="200" width="240" height="64" rx="10" fill="#6366f1"/>
+  <text x="180" y="228" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fff">Zigbee / Z-Wave</text>
+  <text x="180" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#e0e7ff">Dongle USB + maillage</text>
+
+  <rect x="340" y="200" width="240" height="64" rx="10" fill="#f97316"/>
+  <text x="460" y="228" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fff">Wi-Fi / Ethernet</text>
+  <text x="460" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#fff7ed">Box Internet, pas de dongle</text>
+
+  <rect x="620" y="200" width="240" height="64" rx="10" fill="#14b8a6"/>
+  <text x="740" y="228" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#042f2e">Matter / Thread</text>
+  <text x="740" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#042f2e">Border router si Thread</text>
+
+  <line x1="180" y1="264" x2="180" y2="300" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="460" y1="264" x2="460" y2="300" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="740" y1="264" x2="740" y2="300" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="40" y="305" width="280" height="72" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <text x="180" y="335" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#0f172a">Capteurs (temp., ouverture&)</text>
+  <text x="180" y="355" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">Souvent à pile, faible portée seule</text>
+
+  <rect x="320" y="305" width="280" height="72" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <text x="460" y="335" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#0f172a">Prises, ampoules, relais</text>
+  <text x="460" y="355" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">Sur secteur : agissent + relaient</text>
+
+  <rect x="600" y="305" width="280" height="72" rx="10" fill="#fff" stroke="#cbd5e1"/>
+  <text x="740" y="335" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#0f172a">Volets, chauffage, alarme</text>
+  <text x="740" y="355" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">Actionneurs / scénarios</text>
+
+  <text x="460" y="405" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">robot-educatif.info  pilier Débuter en domotique</text>
+</svg>

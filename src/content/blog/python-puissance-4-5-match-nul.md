@@ -20,8 +20,6 @@ categories:
 ---
 Après chaque coup réussi : d’abord **`victoire`**, sinon **`grille_pleine`** → **match nul** (42 coups maximum sans 4 alignés). L’ordre est important : on teste la victoire **avant** de changer de joueur.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
-
 ## 1. Grille pleine
 
 ```python
@@ -170,7 +168,3 @@ if __name__ == "__main__":
 ## Suite
 
 [Partie 6 — Jeu complet et IA aléatoire](/python-puissance-4-6-jeu-complet/).
-
-## Amazon (partenaire)
-
-- [Python programmation structurée](https://www.amazon.fr/s?k=python+programmation+structur%C3%A9e&tag=manuso06-21)

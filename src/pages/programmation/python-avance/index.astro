@@ -5,7 +5,9 @@ import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
 import { withBase } from '../../../lib/siteUrl';
-import bandeauPythonUrl from '../../../assets/programmation/bandeau-python.svg?url';
+import PageColumns from '../../../components/PageColumns.astro';
+
+const bandeauPythonUrl = withBase('/images/blog/lot15/pendu-console-exemple.png');
 
 /** Comparaison robuste (YAML / CRLF / espaces / Unicode). */
 function normSeries(value: unknown): string {
@@ -69,12 +71,13 @@ const useFallback = posts.length === 0;
 	<head>
 		<BaseHead
 			title="Python avancé — générateurs, async, typage, packaging"
-			description="Python avancé : générateurs, décorateurs, context managers, asyncio, typage statique. 20 exercices par cours."
+			description="Python avancé : générateurs, décorateurs, context managers, asyncio, typage stat. Après le parcours intermédiaire (modules, venv, pathlib, POO, tests, regex)"
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="py-series">
+<PageColumns>
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
@@ -139,7 +142,8 @@ const useFallback = posts.length === 0;
 				{' · '}
 				<a href={withBase('/programmation/python-intermediaire/')}>Python intermédiaire</a>
 			</p>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

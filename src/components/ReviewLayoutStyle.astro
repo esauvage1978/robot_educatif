@@ -1,0 +1,65 @@
+<style is:global>
+	.page-layout.page-layout--with-sidebar.page-layout--review {
+		align-items: stretch;
+		grid-template-columns: minmax(0, 1fr) 320px;
+		gap: 2.5rem;
+	}
+	.hero-article.hero-article--review {
+		background: #fff;
+		border-bottom-color: #e7edf5;
+	}
+	.hero-article.hero-article--review .hero-article-content h1,
+	.article-header.article-header--review h1 {
+		color: #0a0f1c;
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		font-size: clamp(2rem, 4vw, 3.2rem);
+		line-height: 1.05;
+	}
+	.hero-article.hero-article--review .hero-desc,
+	.article-header.article-header--review > p {
+		color: #5a6883;
+		max-width: 42rem;
+	}
+	.hero-article.hero-article--review .hero-meta,
+	.hero-article.hero-article--review .hero-author,
+	.article-header.article-header--review .hero-meta,
+	.article-header.article-header--review .hero-author {
+		color: #5a6883;
+		font-weight: 500;
+		font-style: normal;
+	}
+	.page-layout--review > article > .article-header--review {
+		margin-bottom: 1.25rem;
+	}
+	.article-header.article-header--review .hero-categories {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		list-style: none;
+		margin: 0 0 0.85rem;
+		padding: 0;
+	}
+	.hero-article.hero-article--review .hero-categories a,
+	.article-header.article-header--review .hero-categories a,
+	.article-header.article-header--review .category-badge {
+		color: #3a4761;
+		background: #eef1f6;
+		border-color: transparent;
+		text-transform: none;
+		letter-spacing: 0;
+	}
+	.hero-article.hero-article--review .hero-categories li:first-child a,
+	.article-header.article-header--review .hero-categories li:first-child a {
+		color: #1d4ed8;
+		background: #eff4ff;
+	}
+	
+	
+	
+	@media (max-width: 1023px) {
+		.page-layout.page-layout--with-sidebar.page-layout--review {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

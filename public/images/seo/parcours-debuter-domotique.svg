@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 280" role="img" aria-labelledby="title desc">
+  <title id="title">Parcours débuter en domotique en cinq étapes</title>
+  <desc id="desc">Comprendre, choisir sa box, premiers appareils, premières automatisations, aller plus loin.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#f0fdfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="280" fill="url(#bg)" rx="12"/>
+  <text x="460" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f766e">Parcours en 5 étapes</text>
+
+  <!-- steps -->
+  <rect x="24" y="70" width="160" height="150" rx="10" fill="#0f766e"/>
+  <text x="104" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#99f6e4">1</text>
+  <text x="104" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">Comprendre</text>
+  <text x="104" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ccfbf1">Besoin, budget,</text>
+  <text x="104" y="186" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ccfbf1">protocoles</text>
+
+  <rect x="200" y="70" width="160" height="150" rx="10" fill="#0d9488"/>
+  <text x="280" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#99f6e4">2</text>
+  <text x="280" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">Choisir sa box</text>
+  <text x="280" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ccfbf1">HA, Homey,</text>
+  <text x="280" y="186" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#ccfbf1">ou sans box</text>
+
+  <rect x="376" y="70" width="160" height="150" rx="10" fill="#14b8a6"/>
+  <text x="456" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#042f2e">3</text>
+  <text x="456" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#042f2e">Appareils</text>
+  <text x="456" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#134e4a">Kit de départ</text>
+  <text x="456" y="186" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#134e4a">par objectif</text>
+
+  <rect x="552" y="70" width="160" height="150" rx="10" fill="#f97316"/>
+  <text x="632" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#fff">4</text>
+  <text x="632" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">Automatiser</text>
+  <text x="632" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#fff7ed">10 exemples</text>
+  <text x="632" y="186" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#fff7ed">HA et Homey</text>
+
+  <rect x="728" y="70" width="168" height="150" rx="10" fill="#0b1f2a"/>
+  <text x="812" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#5eead4">5</text>
+  <text x="812" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">Aller plus loin</text>
+  <text x="812" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">ESP32, matrice,</text>
+  <text x="812" y="186" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8">configurateur</text>
+
+  <text x="460" y="255" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">robot-educatif.info  guide complet débuter en domotique</text>
+</svg>

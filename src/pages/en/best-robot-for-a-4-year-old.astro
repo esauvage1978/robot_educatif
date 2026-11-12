@@ -1,0 +1,12 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import bodyHtml from '../../partials/lot41-en-age/best-robot-for-a-4-year-old.html?raw';
+
+const title = 'Best coding robot for a 4-year-old (2026)';
+const description = 'What to buy at 4: a sturdy screen-free robot with big buttons or picture cards, short sessions, and no build kit. What to leave for later. Tutoriels';
+const updated = '5 November 2026';
+---
+
+<EnPost title={title} description={description} updated={updated}>
+  <Fragment set:html={bodyHtml} />
+</EnPost>

@@ -1,24 +1,36 @@
 ---
+import '../styles/global.css';
+import ArticleQuestionForm from '../components/ArticleQuestionForm.astro';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import DomotiqueSubNav from '../components/DomotiqueSubNav.astro';
+import Sidebar from '../components/Sidebar.astro';
+import GuideOfferRail from '../components/GuideOfferRail.astro';
+import ReviewLayoutStyle from '../components/ReviewLayoutStyle.astro';
+import { reviewPageForPath } from '../lib/reviewOffers.mjs';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
+import DomotiqueBreadcrumbNav from '../components/DomotiqueBreadcrumbNav.astro';
 import StructuredDataFaq from '../components/StructuredDataFaq.astro';
-import { ARTICLE_AUTHOR } from '../consts';
+import ArticleByline from '../components/ArticleByline.astro';
 import { withBase } from '../lib/siteUrl';
-import { getDomotiqueThumbnail } from '../lib/domotiqueThumbnail';
 import { withImageVersion } from '../lib/imageVersion';
 import { getIllustration } from '../lib/illustration';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
 	articleSlug: string;
 	faqSchema?: { question: string; answer: string }[];
+	minutes?: number;
 };
+
+const DOMOTIQUE_READ_ALSO = [
+	{ title: 'Débuter en domotique', href: '/domotique/debuter-domotique-par-ou-commencer/' },
+	{ title: 'Meilleur dongle Zigbee', href: '/domotique/meilleur-dongle-zigbee-home-assistant/' },
+	{ title: 'Prise connectée Zigbee', href: '/domotique/prise-connectee-zigbee-home-assistant/' },
+	{ title: 'Home Assistant Green vs Pi 5', href: '/domotique/home-assistant-green-vs-raspberry-pi-5/' },
+];
 
 const {
 	title,
@@ -28,16 +40,21 @@ const {
 	category = 'home-assistant',
 	articleSlug,
 	faqSchema = [],
+	minutes,
 } = Astro.props;
 
-// Charger le thumbnail généré pour cet article
-// Note: getDomotiqueThumbnail uses import.meta.glob which doesn't work well with /public/
-// So we construct the path directly and let Astro handle it
+const subnavCategory = articleSlug === 'debuter-en-domotique-guide-complet' ? 'guide-debuter' : category;
+const selfPath = `/domotique/${articleSlug}/`;
+const guideRelated = DOMOTIQUE_READ_ALSO.filter((l) => l.href !== selfPath).slice(0, 4);
+
 const illustration = getIllustration(articleSlug);
 const thumbnailPath = illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`;
 const thumbnailImage = withImageVersion(thumbnailPath);
 
-const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const breadcrumbLabel = title.includes(':') ? title.split(':')[0].trim() : title;
+const reviewPage = reviewPageForPath(`/domotique/${articleSlug}/`);
+const isReviewLayout = Boolean(reviewPage?.review);
+const reviewOffer = reviewPage?.offer ?? null;
 ---
 
 <html lang="fr">
@@ -73,10 +90,10 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 			}
 			
 			.article-header {
-				max-width: 900px;
+				max-width: none;
 				width: 100%;
-				margin: 0 auto;
-				padding: 2rem 1.5rem 1.5rem;
+				margin: 0;
+				padding: 0 0 1.5rem;
 				box-sizing: border-box;
 				min-width: 0;
 			}
@@ -109,16 +126,38 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 				letter-spacing: 0.05em;
 			}
 			
-			.domotique-illustration { max-width: 900px; margin: 0 auto 1.5rem; padding: 0 1.5rem; box-sizing: border-box; }
-			.domotique-illustration img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; border-radius: 12px; background: var(--surface, #f1f5f9); }
+			.domotique-illustration { max-width: none; width: 100%; margin: 0.4rem 0 1.5rem; padding: 0; box-sizing: border-box; }
+			.domotique-illustration img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; border-radius: 1.35rem; box-shadow: 0 10px 28px rgba(11, 31, 42, 0.08); background: var(--surface, #f1f5f9); }
 			.article-content {
-				max-width: 900px;
 				width: 100%;
-				margin: 0 auto;
-				padding: 0 1.5rem 3rem;
+				margin: 0;
+				padding: 0 0 3rem;
 				box-sizing: border-box;
 				min-width: 0;
 				--prose-width: 100%;
+			}
+			.page-layout {
+				width: min(1200px, calc(100% - 2em));
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+				gap: 2rem;
+				align-items: start;
+				min-width: 0;
+				padding: 0 0 2rem;
+				box-sizing: border-box;
+			}
+			.page-layout > article {
+				min-width: 0;
+			}
+			@media (max-width: 1023px) {
+				.page-layout--with-sidebar {
+					grid-template-columns: 1fr;
+				}
+				.page-layout--with-sidebar > :global(.guide-rail),
+				.page-layout--with-sidebar > :global(.guide-sidebar) {
+					order: -1;
+				}
 			}
 			
 			@media (max-width: 768px) {
@@ -132,37 +171,59 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 	</head>
 	<body>
 		<Header />
-		<DomotiqueSubNav currentCategory={category} />
+		<DomotiqueSubNav currentCategory={subnavCategory} />
 		
 		<main>
+			<div class:list={['page-layout page-layout--with-sidebar', isReviewLayout && 'page-layout--review']}>
 			<article>
-				<header class="article-header">
+				<header class:list={['article-header', isReviewLayout && 'article-header--review']}>
+					<DomotiqueBreadcrumbNav currentLabel={breadcrumbLabel} />
 					<span class="category-badge">{category === 'home-assistant' ? 'Home Assistant' : category === 'esp32' ? 'ESP32' : category === 'guides-achat' ? 'Guide d\'achat' : category === 'debuter' ? 'Débuter' : 'Domotique'}</span>
 					<h1>{title}</h1>
-					<p style="font-size: 1.1rem; color: rgb(var(--gray-dark)); margin-top: 0.5rem;">{description}</p>
-					<div class="article-meta">
-						<FormattedDate date={pubDate} />
-						{updatedDate && (
-							<>
-								<span>•</span>
-								<span>Mis à jour le <FormattedDate date={updatedDate} /></span>
-							</>
-						)}
-						<span>•</span>
-						<span>Par {ARTICLE_AUTHOR}</span>
-					</div>
+<p style="font-size: 1.1rem; color: rgb(var(--gray-dark)); margin-top: 0.5rem;">{description}</p>
+					<ArticleByline
+						lang="fr"
+						date={updatedDate ?? pubDate}
+						updated={Boolean(updatedDate)}
+						minutes={minutes}
+					/>
 				</header>
-				{illustration && (
+				{illustration && !isReviewLayout && (
 					<figure class="domotique-illustration">
 						<img src={thumbnailImage} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
 						<figcaption class="ai-illustration-caption">Illustration générée par IA</figcaption>
 					</figure>
 				)}
-				
+
 				<div class="article-content prose">
-					<slot />
-				</div>
+								<slot />
+							</div>
+							<!-- page-rating-v1 -->
+							<section id="pr-widget" class="pr-widget" aria-labelledby="pr-title">
+							<style>#pr-widget{margin:1.6rem 0 1rem;padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(43,125,233,.22);background:linear-gradient(135deg,rgba(43,125,233,.07),rgba(43,125,233,.02));max-width:100%;box-sizing:border-box}#pr-title{margin:0 0 .55rem;font-size:1.05rem;line-height:1.35;font-weight:700}#pr-stars{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .5rem}.pr-star{font:inherit;cursor:pointer;border:1px solid rgba(0,0,0,.12);background:#fff;border-radius:8px;padding:.25rem .45rem;line-height:1;font-size:1.35rem;color:#c4c9d4;transition:transform .12s,color .12s}.pr-star.on{color:#f5b301;border-color:rgba(245,179,1,.45)}.pr-star:focus-visible{outline:2px solid #2b7de9;outline-offset:2px}#pr-avg{font-size:.88rem;opacity:.85;margin-left:.25rem}#pr-thx,#pr-feed{margin-top:.65rem;font-size:.92rem}#pr-feed[hidden],#pr-thx[hidden],#pr-stars[hidden]{display:none!important}.pr-reasons{display:flex;flex-wrap:wrap;gap:.4rem;margin:.45rem 0}.pr-reasons button{font:inherit;font-size:.82rem;padding:.35rem .55rem;border-radius:999px;border:1px solid rgba(0,0,0,.14);background:#fff;cursor:pointer}.pr-reasons button.on{background:#2b7de9;color:#fff;border-color:#2b7de9}#pr-txt{width:100%;max-width:420px;margin:.45rem 0;padding:.45rem .55rem;border-radius:8px;border:1px solid rgba(0,0,0,.15);font:inherit;font-size:.88rem}#pr-send{font:inherit;font-size:.88rem;padding:.4rem .75rem;border-radius:8px;border:0;background:#2b7de9;color:#fff;cursor:pointer}@media(max-width:600px){.pr-star{font-size:1.55rem;padding:.35rem .55rem}#pr-txt{max-width:100%}}</style>
+							<p id="pr-title">Cette page vous a-t-elle été utile ?</p>
+							<div id="pr-stars" role="group" aria-label="Rating">
+							<button type="button" class="pr-star" data-v="1" aria-label="1">★</button><button type="button" class="pr-star" data-v="2" aria-label="2">★</button><button type="button" class="pr-star" data-v="3" aria-label="3">★</button><button type="button" class="pr-star" data-v="4" aria-label="4">★</button><button type="button" class="pr-star" data-v="5" aria-label="5">★</button>
+							<span id="pr-avg" class="mut"></span></div>
+							<p id="pr-thx" hidden>Merci !</p>
+							<div id="pr-feed" hidden>
+							<p id="pr-im">Que devons-nous améliorer ?</p>
+							<div class="pr-reasons">
+							<button type="button" data-reason="Info incomplète">Info incomplète</button><button type="button" data-reason="Lien / prix à jour">Lien / prix à jour</button><button type="button" data-reason="Outil / tableau à corriger">Outil / tableau à corriger</button></div>
+							<textarea id="pr-txt" maxlength="180" rows="2" placeholder="Commentaire optionnel (180 car.)"></textarea>
+							<button type="button" id="pr-send">Envoyer</button></div>
+							<input type="text" id="pr-hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" />
+							</section>
+							<script>(function(){/*mnz-click-v1*/var A="https://manuso.fr/rating_api.php",B="https://manuso.fr/realtime_api.php";var site=location.hostname.replace(/^www\./,""),path=location.pathname||"/";if(!/\/$/.test(path))path+="/";var lc=0;function tc(ev){if(ev.type==="auxclick"&&ev.button!==1)return;var a=ev.target&&ev.target.closest?ev.target.closest("a"):null;if(!a)return;var h=a.href||"";if(!/^https?:\/\//i.test(h))return;var hn="";try{hn=new URL(h).hostname.replace(/^www\./,"")}catch(e){}if((hn===site||hn==="manuso.fr")&&!/\/go\/|\/r\.php/i.test(h))return;if(Date.now()-lc<400)return;lc=Date.now();var lb=((a.innerText||a.getAttribute("aria-label")||a.title||"").replace(/\s+/g," ").trim()).slice(0,80);var u=B+"?track_click=1&site="+encodeURIComponent(site)+"&page="+encodeURIComponent(path)+"&label="+encodeURIComponent(lb)+"&url="+encodeURIComponent(h);var ok=0;try{if(navigator.sendBeacon)ok=navigator.sendBeacon(u)?1:0}catch(e){}if(!ok){try{fetch(u,{mode:"no-cors",keepalive:1})}catch(e){}try{(new Image()).src=u}catch(e){}}}document.addEventListener("click",tc,1);document.addEventListener("auxclick",tc,1);var w=document.getElementById("pr-widget");if(!w)return;var i=["Merci !","Note moyenne"],$=function(id){return document.getElementById(id)};var ls="pr_voted_"+site+"_"+path.replace(/\//g,"_"),tok="",t0=Date.now(),tm=0,sc=0,rs="";function avg(n,c){var e=$("pr-avg");e.textContent=c?i[1]+" "+n.toFixed(1).replace(".",",")+"/5 ("+c+")":""}function paint(n){w.querySelectorAll(".pr-star").forEach(function(b){var v=+b.dataset.v;b.classList.toggle("on",v<=n);});}function post(n,o){o=o||{};if(!tok)return Promise.resolve();return fetch(A,{method:"POST",headers:{"Content-Type":"application/json"},keepalive:1,body:JSON.stringify({action:"vote",site:site,path:path,score:n,token:tok,hp:($("pr-hp")||{}).value||"",reason:o.reason!==undefined?o.reason:rs,comment:o.comment||""})}).then(function(r){return r.json()}).then(function(d){if(d&&d.ok&&!d.ignored){avg(+d.avg||n,+d.count||1);try{localStorage.setItem(ls,n)}catch(e){}}})}function queue(n,o,cb){clearTimeout(tm);var wms=Math.max(350,3200-(Date.now()-t0));tm=setTimeout(function(){post(n,o).then(function(){if(cb)cb()})},wms)}fetch(A+"?action=token&site="+encodeURIComponent(site)+"&path="+encodeURIComponent(path)).then(function(r){return r.json()}).then(function(d){if(!d||!d.ok)return;tok=d.token;t0=Date.now();avg(+d.avg,+d.count);var o=0;try{o=+localStorage.getItem(ls)||0}catch(e){}if(o>0&&o<6){paint(o);sc=o}});w.querySelectorAll(".pr-star").forEach(function(b){b.onclick=function(){var n=+b.dataset.v;paint(n);sc=n;if(n>3){$("pr-feed").hidden=1;$("pr-thx").hidden=0;queue(n)}else{$("pr-thx").hidden=1;$("pr-feed").hidden=0;queue(n)}}});$("pr-feed").onclick=function(ev){var t=ev.target.closest("[data-reason]");if(!t||!sc)return;rs=t.dataset.reason;w.querySelectorAll("[data-reason]").forEach(function(x){x.classList.toggle("on",x===t)});queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)})};$("pr-send").onclick=function(){if(!sc)return;queue(sc,{reason:rs,comment:($("pr-txt").value||"").slice(0,180)},function(){$("pr-feed").hidden=1;$("pr-thx").hidden=0})};})();</script>
+							<!-- /page-rating-v1 -->
+							<ArticleQuestionForm lang="fr" pageTitle={title} />
 			</article>
+			<div class="guide-rail">
+				{isReviewLayout && <ReviewLayoutStyle />}
+				{reviewOffer && <GuideOfferRail offer={reviewOffer} />}
+				<Sidebar variant="guide" relatedLinks={guideRelated} />
+			</div>
+			</div>
 		</main>
 		
 		<Footer />

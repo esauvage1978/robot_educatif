@@ -1,0 +1,12 @@
+---
+import Sidebar from './Sidebar.astro';
+
+const { sommaire = true } = Astro.props;
+---
+
+<div class:list={['page-layout', sommaire ? 'page-layout--with-sidebar' : 'page-layout--sans-sommaire']}>
+	<article>
+		<slot />
+	</article>
+	{sommaire && <Sidebar variant="guide" />}
+</div>

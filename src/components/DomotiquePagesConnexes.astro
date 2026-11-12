@@ -1,0 +1,89 @@
+---
+/**
+ * Encadré « Pour aller plus loin » du parcours Débuter en domotique.
+ * Liens manuels (pas d’invention d’URL) : passer les href déjà publiés.
+ */
+import { withBase } from '../lib/siteUrl';
+import { domotiquePath, frDomotiquePath } from '../lib/domotiqueI18n.mjs';
+import { PARCOURS_LABELS } from '../data/debuterDomotique/parcours.mjs';
+import { PILIER_FR_SLUG } from '../data/debuterDomotique/slugs.mjs';
+
+interface LinkItem {
+	href: string;
+	label: string;
+}
+
+interface Props {
+	links: LinkItem[];
+	pillarHref?: string;
+	pillarLabel?: string;
+	title?: string;
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	pillarPrefix?: string;
+}
+
+const lang = Astro.props.lang ?? 'fr';
+const L = PARCOURS_LABELS[lang] ?? PARCOURS_LABELS.fr;
+
+const {
+	links,
+	pillarLabel = lang === 'fr'
+		? 'Débuter en domotique : le guide complet'
+		: 'Begin smart home — complete guide',
+	title = L.relatedTitle,
+	pillarPrefix = L.pillarPrefix,
+} = Astro.props;
+
+const defaultPillarHref =
+	lang === 'fr'
+		? frDomotiquePath(PILIER_FR_SLUG)
+		: domotiquePath(lang, PILIER_FR_SLUG) ?? frDomotiquePath(PILIER_FR_SLUG);
+
+const pillarHref = Astro.props.pillarHref ?? defaultPillarHref;
+---
+
+<aside class="pages-connexes" aria-label={title}>
+	<p class="pages-connexes__title">{title}</p>
+	<ul>
+		<li>
+			<a href={withBase(pillarHref)}><strong>{pillarPrefix}</strong> — {pillarLabel}</a>
+		</li>
+		{links.map((l) => (
+			<li>
+				<a href={withBase(l.href)}>{l.label}</a>
+			</li>
+		))}
+	</ul>
+</aside>
+
+<style>
+	.pages-connexes {
+		margin: 1.75rem 0;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-left: 4px solid var(--accent, #0f766e);
+		border-radius: 8px;
+		background: var(--surface, #f8fafc);
+	}
+	.pages-connexes__title {
+		margin: 0 0 0.5rem;
+		font-weight: 700;
+		font-size: 0.95rem;
+		color: rgb(var(--black, 15 23 42));
+	}
+	.pages-connexes ul {
+		margin: 0;
+		padding-left: 1.1rem;
+	}
+	.pages-connexes li {
+		margin: 0.35rem 0;
+	}
+	.pages-connexes a {
+		color: var(--accent, #0f766e);
+		text-decoration: none;
+		font-weight: 500;
+	}
+	.pages-connexes a:hover {
+		text-decoration: underline;
+	}
+</style>

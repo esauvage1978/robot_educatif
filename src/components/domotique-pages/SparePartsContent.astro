@@ -1,0 +1,64 @@
+---
+import RepairComplianceSections from '../RepairComplianceSections.astro';
+import RepairIndicators from '../RepairIndicators.astro';
+import { sparePartsRows, SPARE_PARTS_META } from '../../data/smartHomeSpareParts.mjs';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang } = Astro.props;
+const meta = SPARE_PARTS_META[lang];
+const rows = sparePartsRows(lang);
+const shopLabel =
+	lang === 'fr' ? 'Boutiques' : lang === 'de' ? 'Shops' : lang === 'it' ? 'Negozi' : lang === 'es' ? 'Tiendas' : 'Shops';
+---
+
+<p>{meta.intro}</p>
+<repaircompliancesections lang="{lang}" showsupport="{false}" variant="smart-home"></repaircompliancesections>
+<repairindicators 'navigateur'="" 'web="" :="" =="fr" ?="" browser'}="" cost="0 €" difficulty="{1}" lang="{lang}" time="5 min (lecture)" tools="{lang"></repairindicators>
+<table>
+<thead>
+<tr>
+<th>{meta.table.cat}</th>
+<th>{meta.table.official}</th>
+<th>{meta.table.compat}</th>
+<th>{meta.table.note}</th>
+<th>{shopLabel}</th>
+</tr>
+</thead>
+<tbody>
+		{rows.map((row) => (
+			<tr>
+<td><strong>{row.category[lang]}</strong></td>
+<td>{row.official[lang]}</td>
+<td>{row.compat[lang]}</td>
+<td>{row.note[lang]}</td>
+<td>
+<ul>
+						{row.links.map((link) => (
+							<li>
+<a href="{link.url}" rel="sponsored noopener noreferrer" target="_blank">{link.label[lang]}</a>
+</li>
+						))}
+					</ul>
+</td>
+</tr>
+		))}
+	</tbody>
+</table>
+<p>
+	{lang === 'fr'
+		? 'Robotique : pour les erreurs de téléversement mBlock / Arduino, voir aussi '
+		: lang === 'en'
+			? 'Robotics: for mBlock / Arduino upload errors, see '
+			: lang === 'de'
+				? 'Robotik: Upload-Fehler mBlock / Arduino: '
+				: lang === 'it'
+					? 'Robotica: errori upload mBlock / Arduino: '
+					: 'Robótica educativa: errores de carga mBlock / Arduino: '}
+	<a '="" '}="" :="" =="fr" ?="" href="{lang" mblock-depannage-codes-erreurs-mbot-arduino="">
+		{lang === 'fr' ? 'dépannage mBlock & mBot' : 'mBlock & mBot troubleshooting'}
+	</a>.
+</p>
+<repaircompliancesections lang="{lang}" showassist="{false}" showdisclaimer="{false}" showsav="{false}" variant="smart-home"></repaircompliancesections>

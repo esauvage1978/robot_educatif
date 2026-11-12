@@ -17,7 +17,7 @@ categories:
   - "Bataille navale"
   - "Projet"
 ---
-Ce projet s’étale sur **six articles**. Tu vas coder une **bataille navale** jouable au **terminal**, en réutilisant ce que tu as vu dans le [parcours Python](/programmation/python/) : listes, boucles, `input`, fonctions, conditions.
+Ce projet s’étale sur **six articles**. Tu vas coder une **bataille navale** jouable au **terminal**, en réutilisant ce que tu as vu dans le [parcours Python](/programmation/python/) : listes, boucles, `input`, fonctions, conditions. Quand le jeu tourne, tu peux le porter sur un [mBot2 Makeblock](/go/az-fr-10aa727b99/) ou un [Raspberry Pi 5](/go/az-fr-7dc730fd5d/) pour afficher la grille sur un écran ou piloter des LEDs.
 
 **Niveau conseillé** : à l’aise jusqu’aux articles sur les [listes](/python-listes-et-chaines/) et idéalement les [fichiers](/python-fichiers-texte/) (optionnel pour sauvegarder une partie plus tard).
 
@@ -44,18 +44,53 @@ Pour l’apprentissage, on représente les deux par des **listes de listes** (ma
 
 ## 3. Symboles (convention du projet)
 
-| Symbole | Grille défense (mes bateaux)        |
-|---------|-------------------------------------|
-| `.`     | eau vide                            |
-| `#`     | partie de navire **non touchée**  |
-| `X`     | navire **touché**                   |
-| `o`     | tir adverse dans l’**eau** (manqué) |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Symbole</th>
+<th scope="col">Grille défense (mes bateaux)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>.</code></span></td>
+<td data-label="Grille défense (mes bateaux)"><span class="td-val">eau vide</span></td>
+</tr>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>#</code></span></td>
+<td data-label="Grille défense (mes bateaux)"><span class="td-val">partie de navire <strong>non touchée</strong></span></td>
+</tr>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>X</code></span></td>
+<td data-label="Grille défense (mes bateaux)"><span class="td-val">navire <strong>touché</strong></span></td>
+</tr>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>o</code></span></td>
+<td data-label="Grille défense (mes bateaux)"><span class="td-val">tir adverse dans l’<strong>eau</strong> (manqué)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-| Symbole | Grille radar (ce que je sais chez l’ennemi) |
-|---------|-----------------------------------------------|
-| `?`     | case non encore ciblée                        |
-| `O`     | tir **manqué** (confirmé)                     |
-| `X`     | tir **touché** (au moins une partie de navire)|
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Symbole</th>
+<th scope="col">Grille radar (ce que je sais chez l’ennemi)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>?</code></span></td>
+<td data-label="Grille radar (ce que je sais chez l’ennemi)"><span class="td-val">case non encore ciblée</span></td>
+</tr>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>O</code></span></td>
+<td data-label="Grille radar (ce que je sais chez l’ennemi)"><span class="td-val">tir <strong>manqué</strong> (confirmé)</span></td>
+</tr>
+<tr>
+<td data-label="Symbole"><span class="td-val"><code>X</code></span></td>
+<td data-label="Grille radar (ce que je sais chez l’ennemi)"><span class="td-val">tir <strong>touché</strong> (au moins une partie de navire)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Le radar ne montre pas où sont les `#` cachés : seulement tes propres tirs.
 

@@ -14,75 +14,171 @@ Vous hésitez entre **Home Assistant Green** et **[Raspberry Pi](/marque-raspber
 ## Les deux options principales
 
 <ProductBox
-  productId="home-assistant-green"
   name="Home Assistant Green"
-  asin="B0CXVKSG19"
+  officialUrl="https://www.home-assistant.io/green/"
   image="/images/products/home-assistant-green.webp"
   priceRange="à vérifier chez le vendeur"
   pros={[
-    'Plug & play total (0 config)',
-    'Boîtier + alimentation inclus',
+    'Boîtier déjà assemblé',
+    'Boîtier et alimentation inclus',
     'Support officiel Nabu Casa',
-    'Silencieux (0 dB, fanless)'
+    'Sans ventilateur'
   ]}
   badge="Clé en main"
   position={1}
 />
 
 <ProductBox
-  productId="raspberry-pi-5-4gb"
   name="Raspberry Pi 5 4 Go"
-  searchQuery="Raspberry Pi 5 4gb"
+  officialUrl="https://www.raspberrypi.com/products/raspberry-pi-5/"
   image="/images/products/raspberry-pi-5-4gb.webp"
   priceRange="à vérifier chez le vendeur"
   pros={[
-    'Prix accessible avec accessoires',
-    '25% plus rapide que Green',
-    'Évolutif (NVMe, HAT, GPIO)',
-    'Communauté massive'
+    'Carte seule : alimentation, boîtier et stockage en plus',
+    'Cortex-A76 à 2,4 GHz, d’après la fiche Raspberry Pi',
+    'NVMe possible avec un HAT',
+    'GPIO accessibles'
   ]}
-  badge="Meilleur rapport qualité/prix"
+  badge="À assembler"
   position={2}
 />
 
 <ProductBox
-  productId="raspberry-pi-5-8gb"
   name="Raspberry Pi 5 8 Go"
-  searchQuery="Raspberry Pi 5 8gb"
+  officialUrl="https://www.raspberrypi.com/products/raspberry-pi-5/"
   image="/images/products/raspberry-pi-5-8gb.webp"
   priceRange="à vérifier chez le vendeur"
   pros={[
-    '8 Go RAM (Frigate, NAS)',
-    'Boot NVMe direct (500 MB/s)',
-    'Multi-caméras + IA',
-    'Performances pro'
+    '8 Go de RAM',
+    'Démarrage possible sur NVMe',
+    'Même carte, plus de mémoire que le 4 Go',
+    'Alimentation, boîtier et stockage à ajouter'
   ]}
-  badge="Power user"
+  badge="Plus de mémoire"
   position={3}
 />
 
 ## Tableau comparatif : Home Assistant Green vs Raspberry Pi 5
 
-| Critère | Home Assistant Green | Raspberry Pi 5 4 Go | Raspberry Pi 5 8 Go |
-|---------|----------------------|----------------------|----------------------|
-| **Ce qui est inclus** | Boîtier, alimentation, stockage eMMC | Carte seule (alimentation, boîtier et stockage en plus) | Idem |
-| **Prix** | À vérifier chez le vendeur | À vérifier chez le vendeur | À vérifier chez le vendeur |
-| **Processeur** | ARM Cortex-A55 quad 1,8 GHz | ARM Cortex-A76 quad 2,4 GHz | Idem |
-| **RAM** | 4 Go LPDDR4 | 4 Go LPDDR4X | 8 Go LPDDR4X |
-| **Stockage** | 16 Go eMMC (soudé) | microSD ou NVMe M.2 | microSD ou NVMe M.2 |
-| **Vitesse stockage** | 100 MB/s (eMMC) | 90 MB/s (SD) / 500 MB/s (NVMe) | Idem |
-| **Config initiale** | **0 min** (brancher + naviguer) | 30 min (flash SD + boot) | Idem |
-| **Ports USB** | 2× USB 2.0 | 2× USB 3.0 + 2× USB 2.0 | Idem |
-| **Ethernet** | Gigabit (1000 Mbps) | Gigabit (1000 Mbps) | Idem |
-| **GPIO** | 8 pins (limitées) | 40 pins (tous accessibles) | Idem |
-| **Évolutivité** | Limitée (eMMC fixe, pas HAT) | Excellente (SSD, HAT, GPIO) | Idem |
-| **Boîtier** | Inclus (aluminium) | Non (à acheter en plus) | Idem |
-| **Alimentation** | Incluse (USB-C 15W) | Non (à acheter en plus, 27W) | Idem |
-| **Consommation idle** | 2,5 W (spec fabricant) | 3,5 W (communauté) | 4,0 W (communauté) |
-| **Consommation charge** | 8 W (spec max) | 12 W (CPU + SSD NVMe) | 14 W (8 Go + SSD) |
-| **Garantie/SAV** | Nabu Casa (support officiel) | Communauté (forums) | Idem |
-| **Silencieux** | Oui (fanless) | Ventilateur requis (30+ dB) | Idem |
-| **Pour qui ?** | Clé en main, débutant | Bricoleur, budget serré | Multi-caméras, NAS |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">Home Assistant Green</th>
+<th scope="col">Raspberry Pi 5 4 Go</th>
+<th scope="col">Raspberry Pi 5 8 Go</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Ce qui est inclus</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Boîtier, alimentation, stockage eMMC</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Carte seule (alimentation, boîtier et stockage en plus)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Prix</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">À vérifier chez le vendeur</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">À vérifier chez le vendeur</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">À vérifier chez le vendeur</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Processeur</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">ARM Cortex-A55 quad 1,8 GHz</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">ARM Cortex-A76 quad 2,4 GHz</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>RAM</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">4 Go LPDDR4</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">4 Go LPDDR4X</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">8 Go LPDDR4X</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Stockage</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">16 Go eMMC (soudé)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">microSD ou NVMe M.2</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">microSD ou NVMe M.2</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Vitesse stockage</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">eMMC soudé, débit non mesuré ici</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">microSD ou NVMe, débit selon le support</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Config initiale</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">brancher, puis ouvrir la page</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">flasher une carte, durée non chronométrée ici</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Ports USB</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">2× USB 2.0</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">2× USB 3.0 + 2× USB 2.0</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Ethernet</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Gigabit (1000 Mbps)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Gigabit (1000 Mbps)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>GPIO</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">8 pins (limitées)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">40 pins (tous accessibles)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Évolutivité</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Limitée (eMMC fixe, pas HAT)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Excellente (SSD, HAT, GPIO)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Boîtier</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Inclus (aluminium)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Non (à acheter en plus)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Alimentation</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Incluse (USB-C 15W)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Non (à acheter en plus, 27W)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Consommation idle</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">2,5 W (spec fabricant)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">3,5 W (communauté)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">4,0 W (communauté)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Consommation charge</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">8 W (spec max)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">12 W (CPU + SSD NVMe)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">14 W (8 Go + SSD)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Garantie/SAV</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Nabu Casa (support officiel)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Communauté (forums)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Silencieux</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Oui (fanless)</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Ventilateur requis (30+ dB)</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Idem</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Pour qui ?</strong></span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Clé en main, débutant</span></td>
+<td data-label="Raspberry Pi 5 4 Go"><span class="td-val">Bricoleur, budget serré</span></td>
+<td data-label="Raspberry Pi 5 8 Go"><span class="td-val">Multi-caméras, NAS</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Prix : à vérifier chez le vendeur, ils varient selon les stocks. Liens Amazon avec tag manuso06-21.*
 
@@ -92,17 +188,17 @@ Vous hésitez entre **Home Assistant Green** et **[Raspberry Pi](/marque-raspber
 
 **Avantages indéniables**
 
-✅ **Plug & play total** : déballer, brancher Ethernet + alimentation, naviguer vers `homeassistant.local:8123`, c'est prêt (5 minutes chrono)
+✅ **Prêt à brancher** : déballer, brancher Ethernet et l’alimentation, ouvrir `homeassistant.local:8123`. Cette page ne chronomètre pas l’installation.
 
 ✅ **Boîtier inclus** : aluminium anodisé vert foncé, 110 × 110 × 32 mm, compact et sobre. Design soigné (logo Home Assistant gravé).
 
 ✅ **Support officiel Nabu Casa** : mises à jour garanties, documentation exhaustive, forum dédié avec équipe Nabu Casa active
 
-✅ **eMMC intégré** : 16 Go soudés, plus fiables qu'une microSD (10 ans de durée de vie vs 2–3 ans pour SD bas de gamme). Vitesse 100 MB/s lecture/écriture.
+✅ **eMMC intégré** : 16 Go soudés, à la place d’une microSD amovible. Cette page ne donne ni un débit ni une durée de vie en années.
 
-✅ **Silencieux** : dissipation passive (boîtier aluminium = radiateur), 0 dB. Parfait chambre ou salon.
+✅ **Sans ventilateur** : le boîtier en aluminium sert de radiateur. Le niveau sonore n’a pas été mesuré.
 
-✅ **Consommation** : 2,5 W idle selon specs Nabu Casa, 8 W charge max typique. Sur 1 an : 22 kWh ≈ 4,40 € (0,20 €/kWh).
+✅ **Consommation** : 2,5 W idle selon specs Nabu Casa, 8 W charge max typique. Sur 1 an : 22 kWh ≈ 4,40 € (0,20 €/kWh).
 
 **Limites à connaître**
 
@@ -131,7 +227,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 **Profil 2 — Location** : vous êtes locataire, installation temporaire (2–3 ans), vous ne voulez pas investir temps et argent dans un Pi 5 + boîtier + SSD que vous démonteriez. **→ Green (portable, facile à revendre)**.
 
-**Profil 3 — Bureau/salon** : silence obligatoire (enfants, télétravail, streaming). Ventilateur Pi 5 = 30 dB sous charge. **→ Green (0 dB, fanless)**.
+**Profil 3 — Bureau ou salon** : vous voulez éviter un ventilateur. Le Green n’en a pas. Le Pi 5 en a un dans le refroidisseur actif. Le niveau sonore n’est pas mesuré ici.
 
 *Lien Amazon : [Home Assistant Green](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21) ou boutique Nabu Casa.*
 
@@ -143,11 +239,11 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ✅ **Achat à la carte** : vous ne payez que les accessoires nécessaires (prix à vérifier chez le vendeur) et pouvez réutiliser une alimentation ou une carte SD existante.
 
-✅ **Processeur 25 % plus rapide** : Cortex-A76 2,4 GHz (vs A55 1,8 GHz Green). Boot HAOS : 35 secondes (vs 55 secondes Green). Reconstruction dashboard complexe : 1,2 s (vs 2,5 s Green).
+✅ **Processeur** : la fiche Raspberry Pi 5 indique un Cortex-A76 à 2,4 GHz. Cette page n’a pas chronométré le démarrage ni l’affichage d’un tableau de bord.
 
 ✅ **4 ports USB** (2× USB 3.0, 2× USB 2.0) : brancher dongle Zigbee + clé Z-Wave + disque externe + clavier. Green = 2× USB 2.0 uniquement.
 
-✅ **Boot NVMe direct** : depuis firmware 2024+, le Pi 5 démarre sur SSD M.2 NVMe (500 MB/s) sans carte SD. Durée de vie SSD : 10 ans à écriture intensive (vs 2–3 ans SD). [Guide installation Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+✅ **Démarrage sur NVMe** : le Pi 5 peut démarrer sur un SSD M.2, selon le firmware et le HAT. Le débit et la durée de vie ne sont pas mesurés ici. [Guide installation Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
 
 ✅ **GPIO 40 pins** : accès total pour HAT (RTC, UPS, ventilateur PWM, écran tactile). Projets DIY infinis (LED strip, relais, capteurs Dallas).
 
@@ -166,7 +262,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ❌ **MicroSD fragile** : cartes SD bas de gamme = corruption après 6–12 mois (écritures HA = 10 Go/jour). **Recommandation forte** : migrer vers NVMe après 3 mois. [Tutoriel migration SD → NVMe](/domotique/home-assistant-raspberry-pi-5-installation/#bonus--migrer-vers-ssd-nvme-optionnel).
 
-❌ **Ventilateur audible** : 30 dB sous charge (CPU 60–70 °C), 20 dB idle. Modèles Noctua plus silencieux (12 dB) mais plus chers.
+❌ **Ventilateur** : le refroidisseur actif du Pi 5 s’entend. Un boîtier passif existe. Cette page ne donne pas de décibels ni une température mesurée.
 
 ❌ **Support communautaire** : pas de SAV officiel Nabu Casa. Forums (Reddit, Home Assistant Community) = réponses en 2–24h selon urgence.
 
@@ -193,9 +289,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 - Dongle Zigbee
 - 2 capteurs
 
-**Avantage** : performance pro (500 MB/s SSD), 8 Go RAM (Frigate IA, NAS), 10 ans durée de vie.
-
-*Liens Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [Raspberry Pi 5 8 Go](https://www.amazon.fr/s?k=raspberry+pi+5+8gb&tag=manuso06-21), [HAT M.2 NVMe](https://www.amazon.fr/s?k=raspberry+pi+m.2+hat&tag=manuso06-21).*
+**Avantage** : un SSD NVMe et 8 Go de RAM, utiles si vous ajoutez Frigate ou d’autres services. Cette page ne mesure ni le débit du SSD ni sa durée de vie. Le prix du Pi 5, de l’alimentation et du HAT se lit sur la fiche du modèle exact.
 
 ### Pour qui ?
 
@@ -205,18 +299,42 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 **Profil 3 — Power user** : 10+ caméras, Frigate (détection IA personne/voiture), Jellyfin (NAS 2 To), 50+ appareils Zigbee, historique 6 mois. **→ Pi 5 8 Go + NVMe 512 Go**.
 
-**Profil 4 — Maison 150+ m²** : installation permanente (10 ans), gros investissement capteurs/caméras prévu, vous voulez la base la plus solide. **→ Pi 5 8 Go + NVMe + UPS (batterie secours)**.
+**Profil 4 — Grande maison** : beaucoup de capteurs ou de caméras, et une installation que vous comptez garder. **→ Pi 5 8 Go, NVMe, et un onduleur si la coupure secteur vous concerne.** Cette page ne fixe ni une surface ni une durée.
 
 ## Performances comparées (données fabricant et communauté)
 
 ### Temps de boot Home Assistant OS
 
-| Matériel | Temps boot (ordre de grandeur) | Temps accès WebUI |
-|----------|------------------|-------------------|
-| Green (eMMC 16 Go) | ~55 secondes | ~58 secondes |
-| Pi 5 4 Go (SD SanDisk Extreme) | ~48 secondes | ~52 secondes |
-| Pi 5 4 Go (NVMe Crucial P3) | **~35 secondes** | **~38 secondes** |
-| Pi 5 8 Go (NVMe Samsung 980) | **~32 secondes** | **~35 secondes** |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">Temps boot (ordre de grandeur)</th>
+<th scope="col">Temps accès WebUI</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green (eMMC 16 Go)</span></td>
+<td data-label="Temps boot (ordre de grandeur)"><span class="td-val">~55 secondes</span></td>
+<td data-label="Temps accès WebUI"><span class="td-val">~58 secondes</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (SD SanDisk Extreme)</span></td>
+<td data-label="Temps boot (ordre de grandeur)"><span class="td-val">~48 secondes</span></td>
+<td data-label="Temps accès WebUI"><span class="td-val">~52 secondes</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (NVMe Crucial P3)</span></td>
+<td data-label="Temps boot (ordre de grandeur)"><span class="td-val"><strong>~35 secondes</strong></span></td>
+<td data-label="Temps accès WebUI"><span class="td-val"><strong>~38 secondes</strong></span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go (NVMe Samsung 980)</span></td>
+<td data-label="Temps boot (ordre de grandeur)"><span class="td-val"><strong>~32 secondes</strong></span></td>
+<td data-label="Temps accès WebUI"><span class="td-val"><strong>~35 secondes</strong></span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Source : retours communauté Home Assistant forums, Reddit r/homeassistant.*
 
@@ -224,12 +342,31 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ### Chargement dashboard complexe (50 entités, 10 graphiques)
 
-| Matériel | Temps chargement (typique) |
-|----------|------------------|
-| Green | ~2,5 secondes |
-| Pi 5 4 Go (SD) | ~1,8 secondes |
-| Pi 5 4 Go (NVMe) | **~1,2 secondes** |
-| Pi 5 8 Go (NVMe) | **~1,1 secondes** |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">Temps chargement (typique)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green</span></td>
+<td data-label="Temps chargement (typique)"><span class="td-val">~2,5 secondes</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (SD)</span></td>
+<td data-label="Temps chargement (typique)"><span class="td-val">~1,8 secondes</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (NVMe)</span></td>
+<td data-label="Temps chargement (typique)"><span class="td-val"><strong>~1,2 secondes</strong></span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go (NVMe)</span></td>
+<td data-label="Temps chargement (typique)"><span class="td-val"><strong>~1,1 secondes</strong></span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Source : benchmarks communauté.*
 
@@ -237,11 +374,35 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ### Frigate (analyse vidéo IA, 4 caméras 1080p)
 
-| Matériel | FPS (ordre de grandeur) | Latence détection | CPU usage (typique) |
-|----------|-----------|-------------------|-----------|
-| Green | **Non recommandé** (4 Go RAM limite) | N/A | N/A |
-| Pi 5 4 Go | ~8 FPS (saccadé) | ~800 ms | ~85 % |
-| Pi 5 8 Go | **~15 FPS** (fluide) | ~400 ms | ~65 % |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">FPS (ordre de grandeur)</th>
+<th scope="col">Latence détection</th>
+<th scope="col">CPU usage (typique)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green</span></td>
+<td data-label="FPS (ordre de grandeur)"><span class="td-val"><strong>Non recommandé</strong> (4 Go RAM limite)</span></td>
+<td data-label="Latence détection"><span class="td-val">N/A</span></td>
+<td data-label="CPU usage (typique)"><span class="td-val">N/A</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go</span></td>
+<td data-label="FPS (ordre de grandeur)"><span class="td-val">~8 FPS (saccadé)</span></td>
+<td data-label="Latence détection"><span class="td-val">~800 ms</span></td>
+<td data-label="CPU usage (typique)"><span class="td-val">~85 %</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go</span></td>
+<td data-label="FPS (ordre de grandeur)"><span class="td-val"><strong>~15 FPS</strong> (fluide)</span></td>
+<td data-label="Latence détection"><span class="td-val">~400 ms</span></td>
+<td data-label="CPU usage (typique)"><span class="td-val">~65 %</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Source : documentation Frigate et retours communauté ([Frigate docs](https://docs.frigate.video)).*
 
@@ -249,11 +410,31 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ### Gestion réseau Zigbee (50 appareils)
 
-| Matériel | Latence commande (typique) | Stabilité |
-|----------|------------------|---------------|
-| Green | ~180 ms | Excellente |
-| Pi 5 4 Go | ~160 ms | Excellente |
-| Pi 5 8 Go | ~155 ms | Excellente |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">Latence commande (typique)</th>
+<th scope="col">Stabilité</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green</span></td>
+<td data-label="Latence commande (typique)"><span class="td-val">~180 ms</span></td>
+<td data-label="Stabilité"><span class="td-val">Excellente</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go</span></td>
+<td data-label="Latence commande (typique)"><span class="td-val">~160 ms</span></td>
+<td data-label="Stabilité"><span class="td-val">Excellente</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go</span></td>
+<td data-label="Latence commande (typique)"><span class="td-val">~155 ms</span></td>
+<td data-label="Stabilité"><span class="td-val">Excellente</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Interprétation** : aucune différence notable selon retours communauté. Le dongle Zigbee (ZBDongle-E) fait le travail, pas le CPU.
 
@@ -261,21 +442,65 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ### Idle (veille, 10 appareils Zigbee, aucune caméra)
 
-| Matériel | Consommation (typique communauté) | kWh/an | Coût/an (0,20 €/kWh) |
-|----------|--------------|--------|---------------------|
-| Green | 2,5 W | 22 kWh | 4,40 € |
-| Pi 5 4 Go (SD) | 3,5 W | 31 kWh | 6,20 € |
-| Pi 5 8 Go (NVMe) | 4,0 W | 35 kWh | 7,00 € |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">Consommation (typique communauté)</th>
+<th scope="col">kWh/an</th>
+<th scope="col">Coût/an (0,20 €/kWh)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green</span></td>
+<td data-label="Consommation (typique communauté)"><span class="td-val">2,5 W</span></td>
+<td data-label="kWh/an"><span class="td-val">22 kWh</span></td>
+<td data-label="Coût/an (0,20 €/kWh)"><span class="td-val">4,40 €</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (SD)</span></td>
+<td data-label="Consommation (typique communauté)"><span class="td-val">3,5 W</span></td>
+<td data-label="kWh/an"><span class="td-val">31 kWh</span></td>
+<td data-label="Coût/an (0,20 €/kWh)"><span class="td-val">6,20 €</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go (NVMe)</span></td>
+<td data-label="Consommation (typique communauté)"><span class="td-val">4,0 W</span></td>
+<td data-label="kWh/an"><span class="td-val">35 kWh</span></td>
+<td data-label="Coût/an (0,20 €/kWh)"><span class="td-val">7,00 €</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Différence annuelle** : 2,60 € (Green vs Pi 5 8 Go). Négligeable. Sur 5 ans : 13 €.
+**Différence annuelle** : 2,60 € (Green vs Pi 5 8 Go). Négligeable. Sur 5 ans : 13 €.
 
 ### Charge (40 appareils Zigbee, 3 caméras, dashboard ouvert)
 
-| Matériel | Consommation (ordre de grandeur) | Interprétation |
-|----------|--------------|----------------|
-| Green | 8 W | CPU A55 + eMMC basse conso |
-| Pi 5 4 Go (SD) | 10 W | CPU A76 + SD actif |
-| Pi 5 8 Go (NVMe) | 14 W | 8 Go RAM + SSD NVMe + ventilateur |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Matériel</th>
+<th scope="col">Consommation (ordre de grandeur)</th>
+<th scope="col">Interprétation</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Matériel"><span class="td-val">Green</span></td>
+<td data-label="Consommation (ordre de grandeur)"><span class="td-val">8 W</span></td>
+<td data-label="Interprétation"><span class="td-val">CPU A55 + eMMC basse conso</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 4 Go (SD)</span></td>
+<td data-label="Consommation (ordre de grandeur)"><span class="td-val">10 W</span></td>
+<td data-label="Interprétation"><span class="td-val">CPU A76 + SD actif</span></td>
+</tr>
+<tr>
+<td data-label="Matériel"><span class="td-val">Pi 5 8 Go (NVMe)</span></td>
+<td data-label="Consommation (ordre de grandeur)"><span class="td-val">14 W</span></td>
+<td data-label="Interprétation"><span class="td-val">8 Go RAM + SSD NVMe + ventilateur</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Pic max (Frigate 4 caméras, 100 % CPU)** : Pi 5 8 Go = 22 W selon retours communauté. Green : inadapté selon specs RAM.
 
@@ -292,7 +517,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 6. Créer compte (local, pas de cloud obligatoire)
 7. Installer dongles USB (Zigbee, Z-Wave) : brancher = détecté
 
-**Temps total** : **5 minutes**. Niveau technique : **0/10** (un enfant de 10 ans peut le faire).
+Le temps dépend de la box et du premier démarrage. Cette page ne le chiffre pas.
 
 **Pièges évités** :
 - Pas de flashage SD (source 50 % des échecs débutants)
@@ -311,7 +536,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
    - Écrire (10 minutes)
 3. **Insérer SD** dans Pi 5
 4. **Brancher** : Ethernet + alimentation 27W
-5. **Attendre boot** : 5 minutes (premier boot = téléchargement conteneurs Docker)
+5. **Attendre le premier démarrage** : Home Assistant OS télécharge des conteneurs. La durée dépend du réseau. Elle n’est pas chronométrée ici.
 6. **Trouver IP** : `homeassistant.local:8123` (ou via interface box Internet si mDNS bloqué)
 7. **Créer compte** Home Assistant
 8. **Installer dongles USB** (détection auto)
@@ -389,11 +614,11 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 **Besoin** : automatisation classique + 4 caméras (enregistrement NAS Synology externe), salon (silence requis).
 
-**Dilemme** : Green = silencieux mais 4 Go RAM limite. Pi 5 8 Go = ventilateur 30 dB.
+**Dilemme** : le Green n’a pas de ventilateur, et 4 Go de RAM. Le Pi 5 8 Go a plus de mémoire, et un ventilateur si vous gardez le refroidisseur actif.
 
 **Matériel recommandé** : **Raspberry Pi 5 8 Go** + NVMe + **boîtier aluminium passif** (dissipation sans ventilateur) + ZBDongle-E (+ caméras).
 
-**Astuce** : boîtier passif (Flirc, Argon NEO 5) maintient CPU < 65 °C sans ventilateur (0 dB). Caméras enregistrent sur NAS (pas sur Pi 5 = pas de Frigate).
+**Piste** : un boîtier passif (Flirc, Argon NEO 5) retire le ventilateur. Cette page n’a pas mesuré la température. Les caméras peuvent enregistrer sur un NAS plutôt que sur le Pi.
 
 ### Scénario 5 : Premier test domotique, pas sûr de continuer
 
@@ -426,7 +651,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 **Solutions** :
 1. Débrancher Ethernet, rebrancher alimentation : LED verte doit s'allumer
 2. Tester avec autre alimentation USB-C 15W+ (smartphone)
-3. Si LED reste éteinte : SAV Nabu Casa (formulaire sur site officiel, RMA sous 7 jours)
+3. Si la LED reste éteinte : formulaire SAV sur le site Nabu Casa
 
 ### Problème 2 : Raspberry Pi 5 freeze aléatoires (écran noir, LED rouge fixe)
 
@@ -436,9 +661,9 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 - Surchauffe CPU (> 80 °C sans ventilateur)
 
 **Solutions** :
-1. **Remplacer par alimentation officielle 27W** Raspberry Pi : [lien Amazon](https://www.amazon.fr/s?k=raspberry+pi+power+supply+27w&tag=manuso06-21)
-2. **Vérifier température** : SSH → `vcgencmd measure_temp` (doit être < 70 °C idle). Si > 75 °C : ajouter ventilateur.
-3. **Migrer vers NVMe** : SD corrompue = reflasher ou passer SSD (10 ans durée de vie vs 2 ans SD)
+1. **Remplacer par l’alimentation officielle 27 W** du Raspberry Pi 5. Le prix se lit sur la fiche de cette alimentation, pas sur une recherche.
+2. **Vérifier la température** : en SSH, `vcgencmd measure_temp`. Au repos, rester sous 70 °C. Au-dessus de 75 °C, ajouter un ventilateur.
+3. **Migrer vers un NVMe** si la carte SD est corrompue : la reflasher, ou passer sur un SSD. Cette page ne donne pas une durée de vie en années.
 
 ### Problème 3 : `homeassistant.local` ne fonctionne pas (page introuvable)
 
@@ -489,13 +714,13 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 
 ### Meilleur sans prise de tête : **Home Assistant Green**
 
-**Pourquoi ?** Plug & play total, silence (0 dB), support officiel Nabu Casa, design sobre. Parfait pour personnes allergiques aux tutoriels ou aux tournevis.
+**Pourquoi ?** Boîtier déjà monté, sans ventilateur, et support Nabu Casa. Le silence n’a pas été mesuré en décibels.
 
 **Pour qui ?** Parents, débutants, locataires, bureaux/salons (silence requis), personnes qui valorisent le temps plus que l'argent.
 
 ### Meilleur long terme : **Raspberry Pi 5 8 Go + NVMe 512 Go**
 
-**Pourquoi ?** Performances pro (500 MB/s), 8 Go RAM (Frigate, NAS, 50+ caméras), durée de vie 10 ans, aucune limite technique.
+**Pourquoi ?** 8 Go de RAM et la possibilité d’un SSD. Le nombre de caméras et la durée de vie dépendent du reste de l’installation. Cette page ne les chiffre pas.
 
 **Pour qui ?** Power users, installations permanentes (maison > 150 m²), caméras multiples, NAS Jellyfin/Plex, historique long terme.
 
@@ -508,7 +733,7 @@ Prix : à vérifier chez le vendeur. Aucun tournevis, aucun flashage, aucune con
 **Pi 3** : trop lent pour HA en 2026 (1 Go RAM, CPU vieillissant ARM Cortex-A53). OK pour tester, pas pour usage quotidien. **Pi 4 4 Go** : encore correct (utilisation 2024–2026). Garder pour HA, upgrader vers Pi 5 uniquement si > 30 appareils Zigbee ou besoin boot NVMe direct (Pi 4 nécessite boot SD puis pivot root = plus lent).
 
 **Peut-on installer Home Assistant sur un vieux PC ?**
-Oui (HAOS x86-64), mais **consommation** : 30–80W idle (vs 2,5W Green). Sur 1 an : 260–700 kWh = 52–140 € (vs 4,40 € Green). Rentable uniquement si PC déjà allumé 24/7 (serveur Plex existant). [Guide installation sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+Oui, avec HAOS x86-64. Un PC de bureau consomme en général plus qu’un Green ou qu’un Pi 5, mais cette page n’a pas mesuré les watts ni converti ça en euros. L’intérêt apparaît surtout si la machine tourne déjà en permanence. [Guide installation sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
 
 **Home Assistant Green vs Yellow (ancien modèle) ?**
 **Yellow** = 2023, Raspberry Pi Compute Module 4, 4 Go RAM, eMMC 16 Go, Zigbee/Z-Wave intégrés. **Green** = 2024, moins cher, plus compact, mais Zigbee/Z-Wave en USB (pas intégré). **Verdict** : Green meilleur rapport qualité/prix octobre 2026 (Yellow discontinué en 2025).
@@ -517,7 +742,7 @@ Oui (HAOS x86-64), mais **consommation** : 30–80W idle (vs 2,5W Green). Sur 1 
 **Green** : non (HAOS uniquement, pas d'OS alternatif). **Pi 5** : oui, installer Raspberry Pi OS → Docker → Home Assistant Container + Plex + Pi-hole + Jellyfin. Mais **pas recommandé** : HAOS = optimisé HA, OS générique = complexité × 5.
 
 **Quelle durée de vie pour Green et Pi 5 ?**
-**Green eMMC** : 10 ans (spécification fabricant, 3000 cycles écriture). **Pi 5 microSD** : 2–3 ans (cartes bas de gamme), 5 ans (SanDisk Extreme). **Pi 5 NVMe** : 10 ans (SSD TLC/MLC). **Électronique** : 10+ ans (Pi 3 de 2016 fonctionne encore). **Limite** : obsolescence logicielle (support HAOS arrêté après 8–10 ans typiquement).
+Cette page ne donne pas une durée en années. L’eMMC du Green est soudé, la microSD du Pi se change, un SSD s’use selon les écritures réelles. Le support logiciel de Home Assistant OS a sa propre durée, indiquée par le projet, pas par un chiffre fixe ici.
 
 **Puis-je utiliser Green et Pi 5 ensemble ?**
 Oui : Green = instance principale (salon), Pi 5 = instance secondaire (garage, test). Les deux peuvent communiquer via intégrations HA (partage entités). Intérêt : séparer réseaux Zigbee (coordinateur principal + coordinateur secondaire = 200+ appareils possibles).

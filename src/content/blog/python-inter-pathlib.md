@@ -301,6 +301,4 @@ def copier_texte(src, dst):
 
 [Classes et POO](/python-inter-poo-classes/) : structurer les données et le comportement avec des classes.
 
-## Amazon (partenaire)
-
-- [Python systèmes fichiers](https://www.amazon.fr/s?k=python+syst%C3%A8me+fichiers&tag=manuso06-21)
+Aucun livre n’est recommandé ici : la recherche Amazon « python système fichiers » ne désigne pas un titre précis. La suite du cours est [les environnements virtuels](/python-inter-venv-pip/) et [les classes](/python-inter-poo-classes/).

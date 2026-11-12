@@ -1,24 +1,36 @@
 ---
-title: "Détecteur de présence PIR sur Raspberry Pi pour allumer la lumière avec Home Assistant"
-description: "Câbler un capteur PIR HC-SR501 sur un Raspberry Pi 4 ou 5, publier la présence en MQTT et allumer l'éclairage via Home Assistant. Code gpiozero complet, compatible Pi 5."
+title: "Capteur PIR HC-SR501 sur Raspberry Pi : éclairage via MQTT"
+description: "Câbler un PIR HC-SR501 sur Raspberry Pi 4 ou 5, publier la présence en MQTT (Message Queuing Telemetry Transport) et piloter vos lampes dans Home Assistant. Code gpiozero par étapes, compatible Pi 5."
 pubDate: 2026-10-19T00:00:00Z
 category: "home-assistant"
 priority: 6
 ---
 
-Allumer le couloir ou le cellier quand quelqu'un passe, sans interrupteur : c'est l'usage le plus simple d'un **capteur PIR** (infrarouge passif). Ici le Raspberry Pi ne commande **aucun appareil en 230 V** : il signale la présence à **Home Assistant**, qui allume vos lampes connectées existantes. C'est plus sûr et plus souple.
+Allumer le couloir ou le cellier quand quelqu'un passe, sans interrupteur : c'est l'usage le plus simple d'un **capteur PIR** (infrarouge passif). Ici le Raspberry Pi ne commande **aucun appareil en 230 V** : il signale la présence à Home Assistant, qui allume vos lampes connectées existantes. C'est plus sûr et plus souple. Les messages passent par **MQTT** (Message Queuing Telemetry Transport, messagerie légère entre le Pi et Home Assistant). Retrouvez d'autres idées dans la [rubrique domotique](/domotique/) et le guide [Zigbee2MQTT ou ZHA (Zigbee Home Automation)](/domotique/home-assistant-zigbee2mqtt-ou-zha/) si vos lampes sont Zigbee. Le lien matériel ci-dessous est un **lien partenaire Amazon** (prix à vérifier au moment de l'achat).
 
 ## Objectif
 
 - Détecter un mouvement avec un PIR HC-SR501 sur un GPIO.
-- Publier un capteur « Présence » dans Home Assistant via MQTT.
+- Publier un capteur « Présence » dans Home Assistant via **MQTT** (messagerie légère Pi ↔ serveur, voir intro).
 - Allumer une lumière à la détection et l'éteindre après 2 minutes sans mouvement.
 
 ## Durée, niveau et budget
 
-| Durée | Niveau | Budget |
-|---|---|---|
-| 45 min | débutant | un HC-SR501 fait partie des capteurs les moins chers (prix à vérifier) ; la lampe connectée est celle que vous possédez déjà |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val">45 min</span></td>
+<td data-label="Niveau"><span class="td-val">débutant</span></td>
+<td data-label="Budget"><span class="td-val">un HC-SR501 coûte en général quelques euros (vérifiez le prix sur Amazon.fr au moment de l'achat) ; la lampe connectée est celle que vous possédez déjà</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
 
@@ -35,17 +47,37 @@ Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. 
 ## Matériel
 
 - Raspberry Pi 4 ou 5, Raspberry Pi OS Bookworm.
-- Un module **HC-SR501** (<a href="https://www.amazon.fr/s?k=HC-SR501+PIR&tag=manuso06-21" rel="sponsored nofollow" target="_blank">HC-SR501 sur Amazon</a>). Il s'alimente en 5 V mais sa sortie est en **3,3 V**, donc directement compatible avec un GPIO du Pi.
+- Un module **HC-SR501** (<a href="/go/az-fr-7fea9543ad/" rel="sponsored nofollow noopener" target="_blank">HC-SR501 sur Amazon</a>, lien affilié). Il s'alimente en 5 V mais sa sortie est en **3,3 V**, donc directement compatible avec un GPIO du Pi.
 - 3 fils Dupont femelle-femelle.
 - Une lampe ou prise déjà intégrée à Home Assistant, et un broker MQTT.
 
 ## Câblage
 
-| HC-SR501 | Raspberry Pi (broche physique) | Rôle |
-|---|---|---|
-| VCC | broche 2 (5V) | alimentation du module |
-| OUT | broche 7 (GPIO4) | signal 3,3 V |
-| GND | broche 6 (GND) | masse |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">HC-SR501</th>
+<th scope="col">Raspberry Pi (broche physique)</th>
+<th scope="col">Rôle</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="HC-SR501"><span class="td-val">VCC</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 2 (5V)</span></td>
+<td data-label="Rôle"><span class="td-val">alimentation du module</span></td>
+</tr>
+<tr>
+<td data-label="HC-SR501"><span class="td-val">OUT</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 7 (GPIO4)</span></td>
+<td data-label="Rôle"><span class="td-val">signal 3,3 V</span></td>
+</tr>
+<tr>
+<td data-label="HC-SR501"><span class="td-val">GND</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 6 (GND)</span></td>
+<td data-label="Rôle"><span class="td-val">masse</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Réglages du module : mettez le cavalier en mode **répétition (H)** et le potentiomètre de temporisation au minimum ; c'est Home Assistant qui gère la durée d'éclairage. Le second potentiomètre règle la sensibilité.
 
@@ -182,7 +214,7 @@ Remplacez `light.couloir` et l'identifiant du capteur par les vôtres.
 
 ## Lancement automatique avec systemd
 
-Créez le fichier `/etc/systemd/system/presence-pir.service` (adaptez l'utilisateur `pi` et le chemin) :
+Créez `/etc/default/presence-pir` (droits root, non versionné) avec `MQTT_HOST`, `MQTT_USER` et `MQTT_PASS`, puis le unit file `/etc/systemd/system/presence-pir.service` (adaptez l'utilisateur `pi` et le chemin) :
 
 ```ini
 [Unit]
@@ -193,9 +225,7 @@ Wants=network-online.target
 [Service]
 User=pi
 WorkingDirectory=/home/pi/capteurs
-Environment=MQTT_HOST=192.168.1.10
-Environment=MQTT_USER=pi
-Environment=MQTT_PASS=change-moi
+EnvironmentFile=-/etc/default/presence-pir
 ExecStart=/home/pi/capteurs/venv/bin/python /home/pi/capteurs/presence_pir_mqtt.py
 Restart=on-failure
 RestartSec=10
@@ -224,6 +254,8 @@ La nuit, une lumière pleine puissance réveille tout le monde. Remplacez l'acti
 
 La même automatisation fonctionne avec n'importe quel détecteur de présence déjà présent dans Home Assistant : utile même sans ce montage.
 
+Pour ce mode nuit, mieux vaut une ampoule réellement dimmable, sinon elle passe de 0 à 100 % sans palier. Le [guide ampoules connectées de 1piece1ampoule.fr](https://1piece1ampoule.fr) (site indépendant, non affilié robot-educatif.info) aide à choisir le culot, la puissance et le protocole (Zigbee, Wi-Fi ou Matter) avant d'acheter.
+
 ## Erreurs fréquentes
 
 - Utiliser RPi.GPIO sur un Pi 5 : il ne gère pas son GPIO.
@@ -238,6 +270,20 @@ La même automatisation fonctionne avec n'importe quel détecteur de présence d
 - **`RuntimeError`/erreur de GPIO sur Pi 5** : n'utilisez pas RPi.GPIO ; vérifiez que `python3-lgpio` est installé et que le venv a été créé avec `--system-site-packages`.
 - **`GPIO busy`** : un autre programme utilise déjà GPIO4 (ex. 1-Wire activé) ; changez `PIR_GPIO`.
 
+## Questions fréquentes
+
+### Peut-on remplacer le HC-SR501 par un PIR Zigbee ?
+
+Oui, et c'est souvent plus simple si le Pi est déjà en MQTT : ce tutoriel reste utile pour comprendre la logique « présence → lumière ». Pour un reed ou une porte, voir [capteur d'ouverture avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/).
+
+### Le script peut-il allumer la lumière sans Home Assistant ?
+
+Ce guide cible HA pour la sécurité (pas de relais 230 V sur le GPIO). Pour un premier montage domotique, [débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/) résume les autres options.
+
+### Quelle prise ou ampoule choisir ?
+
+Une entité `light.*` déjà intégrée (Zigbee, Wi-Fi) suffit ; évitez les modules non dimmables si vous utilisez la variation nocturne ci-dessus. Comparez aussi [prise connectée Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) et [station météo sur le même Pi](/domotique/raspberry-pi-station-meteo-bme280-historique/).
+
 > **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
 
 ## Sources vérifiées
@@ -247,4 +293,4 @@ La même automatisation fonctionne avec n'importe quel détecteur de présence d
 - Raspberry Pi, brochage GPIO : https://www.raspberrypi.com/documentation/computers/raspberry-pi.html
 - Home Assistant, MQTT binary sensor et automatisations : https://www.home-assistant.io/integrations/binary_sensor.mqtt/
 
-À lire aussi : [capteur d'ouverture de porte avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/) et [débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/).
+À lire aussi : [capteur d'ouverture de porte avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/), [débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/) et [rubrique domotique](/domotique/).

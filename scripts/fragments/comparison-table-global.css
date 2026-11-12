@@ -1,0 +1,227 @@
+/* Styles globaux ComparisonTable (injectés post build — parité prod + cartes mobile) */
+.comparison-container {
+	margin: 2rem 0;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgb(var(--gray-light));
+	overflow: hidden;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+.comparison-title {
+	margin: 0;
+	padding: 1rem 1.5rem;
+	background: rgb(var(--gray-light), 0.3);
+	border-bottom: 1px solid rgb(var(--gray-light));
+	font-size: 1.25rem;
+}
+.comparison-cards {
+	display: none;
+}
+.comparison-container--cards {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	overflow: visible;
+}
+.comparison-container--cards .comparison-title {
+	padding: 0 0 0.85rem;
+	background: none;
+	border: 0;
+}
+.comparison-container--cards .comparison-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+	gap: 1rem;
+	padding: 0;
+	align-items: stretch;
+}
+.comparison-container--cards .amazon-price-mention {
+	border: 0;
+	padding: 0.85rem 0 0;
+}
+.table-responsive {
+	overflow-x: clip;
+	max-width: 100%;
+}
+.comparison-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: left;
+	font-size: 0.85rem;
+	table-layout: fixed;
+}
+.comparison-table .col-model {
+	width: 24%;
+}
+.comparison-table .col-age {
+	width: 11%;
+}
+.comparison-table .col-langs {
+	width: 13%;
+}
+.comparison-table .col-price {
+	width: 11%;
+}
+.comparison-table .col-pros {
+	width: 23%;
+}
+.comparison-table .col-offers {
+	width: 18%;
+}
+.comparison-table th,
+.comparison-table td {
+	padding: 0.65rem 0.5rem;
+	border-bottom: 1px solid rgb(var(--gray-light));
+	vertical-align: middle;
+	overflow-wrap: anywhere;
+	word-break: normal;
+}
+.comparison-table th {
+	background: rgb(var(--gray-light), 0.1);
+	font-weight: 700;
+	color: #334155;
+	white-space: normal;
+	font-size: 0.8rem;
+	line-height: 1.25;
+}
+.comparison-table tr:last-child td {
+	border-bottom: none;
+}
+.comparison-table tr:hover {
+	background: rgb(var(--gray-light), 0.1);
+}
+.model-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.45rem;
+	color: #0f172a;
+	text-decoration: none;
+	text-align: center;
+}
+.model-link:hover .model-name {
+	color: #0f766e;
+	text-decoration: underline;
+	text-decoration-color: rgba(15, 118, 110, 0.45);
+}
+.model-text {
+	width: 100%;
+	min-width: 0;
+}
+.model-name {
+	display: block;
+	font-size: 0.88rem;
+	line-height: 1.3;
+	font-weight: 700;
+	overflow-wrap: anywhere;
+}
+.table-badge {
+	font-size: 0.72rem;
+	color: #0f766e;
+	font-weight: 700;
+	margin-top: 0.2rem;
+	line-height: 1.25;
+}
+.table-img {
+	width: 108px;
+	height: 108px;
+	max-width: 100%;
+	object-fit: contain;
+	background: #fff;
+	border-radius: 6px;
+	padding: 4px;
+	border: 1px solid rgb(var(--gray-light));
+	flex-shrink: 0;
+	box-sizing: border-box;
+}
+.age-pill {
+	background: #e3f2fd;
+	color: #0d47a1;
+	padding: 0.2rem 0.45rem;
+	border-radius: 12px;
+	font-weight: 700;
+	font-size: 0.75rem;
+	white-space: normal;
+	display: inline-block;
+	line-height: 1.25;
+}
+.price-cell {
+	font-weight: 700;
+	white-space: nowrap;
+}
+.price-link {
+	color: #1b5e20;
+	background: #e8f5e9;
+	padding: 0.25rem 0.55rem;
+	border-radius: 8px;
+	text-decoration: underline;
+	font-size: 0.85rem;
+	white-space: nowrap;
+}
+.pros-cell {
+	font-size: 0.8rem;
+	color: #334155;
+	line-height: 1.4;
+	overflow-wrap: anywhere;
+	word-break: normal;
+}
+.table-btn-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.35rem;
+	width: 100%;
+}
+.table-btn {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.4rem 0.45rem;
+	font-weight: 700;
+	border-radius: 6px;
+	text-decoration: none !important;
+	font-size: 0.75rem;
+	white-space: normal;
+	text-align: center;
+	line-height: 1.25;
+	transition: opacity 0.15s;
+}
+.table-btn:hover {
+	opacity: 0.9;
+}
+.amz-btn {
+	background: #ff9900;
+	color: #111 !important;
+}
+.cult-btn {
+	background: #004b93;
+	color: #fff !important;
+}
+.part-btn {
+	background: #0f766e;
+	color: #fff !important;
+}
+.amazon-price-mention {
+	margin: 0;
+	padding: 0.75rem 1.25rem 1rem;
+	font-size: 0.82rem;
+	color: #64748b;
+	border-top: 1px solid rgb(var(--gray-light));
+	line-height: 1.5;
+}
+@media (max-width: 640px) {
+	.comparison-cards {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 1rem;
+	}
+	.comparison-container--cards .comparison-cards {
+		padding: 0;
+	}
+	.table-responsive {
+		display: none;
+	}
+}

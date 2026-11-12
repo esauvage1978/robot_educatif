@@ -1,9 +1,9 @@
 ---
 title: "Codey Rocky (Makeblock) : robot éducatif Scratch et Python"
-description: "Codey Rocky : capteurs, mBlock, Scratch, Python. Public 6+."
+description: "Codey Rocky de Makeblock : capteurs intégrés, programmation mBlock, Scratch puis Python. Pour les 6 ans et plus, sans montage à visser, à la maison ou en cours."
 pubDate: "2026-03-28"
-updatedDate: "2026-03-27"
-heroImage: "../../assets/codey-rocky/codey-rocky-hero.webp"
+updatedDate: "2026-11-04"
+heroImage: "../../assets/codey-rocky/codey-rocky-hero.png"
 amazonPreset: codeyRocky
 relatedLinks:
   - title: "Installer mBlock 5 sous Windows 10"
@@ -20,9 +20,17 @@ categories:
   - "Makeblock"
   - "Programmation"
 ---
-**Codey Rocky** est un robot éducatif **[Makeblock](/marque-makeblock/)** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre naturellement dans l’écosystème **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
+**Codey Rocky** est un robot éducatif **[Makeblock](/marque-makeblock/)** en deux parties : un **module « tête » programmable (Codey)** avec écran et capteurs, et une **base mobile (Rocky)** pour se déplacer. Il s’adresse souvent aux **6 ans et plus** et s’intègre dans **mBlock 5**, comme le [mBot2](/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/).
 
-> Cet article contient des **liens affiliés Amazon** (identifiant `manuso06-21`). En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, **sans surcoût** pour vous.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <a href="/marque-makeblock/">Makeblock</a> · Codey Rocky</nav>
+
+> **Réponse directe** — **Codey Rocky** convient aux **6–10 ans** pour Scratch/mBlock puis une montée Python légère ; il est **prêt à l’emploi** (peu de montage) vs un **mBot** à visser. Hub marque : [Makeblock](/marque-makeblock/) · comparatif : [mBot vs Codey Rocky](/mbot-vs-codey-rocky-comparatif/) · [CyberPi](/decouvrez-makeblock-cyberpi-une-carte-de-developpement-electronique-polyvalente/) · [robots Python](/robot-programmable-python/).
+
+![Codey Rocky — photo produit Makeblock](/images/products/codey-rocky.webp)
+
+*Photo produit — vérifiez la référence et le contenu de la boîte chez le vendeur.*
+
+> Cet article contient des **liens affiliés Amazon** (identifiant `manuso06-21`). En tant que Partenaire Amazon, je peux percevoir une commission sur des achats éligibles, **sans surcoût** pour vous. — **Emmanuel Sauvage**
 
 ## Points forts pédagogiques
 
@@ -87,3 +95,5 @@ Pour comparer avec d’autres approches Makeblock, voir [CyberPi](/decouvrez-mak
 ## Conclusion
 
 **Codey Rocky** est un bon candidat pour une **classe ou une famille** qui veut un robot **mignon**, **capteuriel** et **aligné sur mBlock**, avec une montée possible vers **Python**. Les logiciels et le Bluetooth demandent un minimum de **rigueur** au démarrage, mais le potentiel pédagogique est net pour le **cycle primaire / début collège**. Les ressources ci-dessus donnent des **exemples de programmes** réutilisables ou adaptables pour vos séquences.
+
+<span class="visually-hidden" aria-hidden="true">Liens Pinterest archivés : <a href="https://www.pinterest.com/pin/create/button/?url=%2Frobot-educatif-codey-rocky-makeblock%2F&amp;description=Codey%20Rocky%20Makeblock%20%3A%20capteurs%2C%20mBlock%2C%20Scratch%20puis%20Python.%20Public%206%20ans%20et%20plus%2C%20sans%20montage%20%C3%A0%20faire.">Pinterest A</a> · <a href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Frobot-educatif.info%2Frobot-educatif-codey-rocky-makeblock%2F&amp;description=Codey+Rocky+%28Makeblock%29+%3A+robot+%C3%A9ducatif+Scratch+et+Python+-+Codey+Rocky+Makeblock+%3A+capteurs%2C+mBlock%2C+Scratch+puis+Python.+Public+6+ans+et+plus%2C+sans+montage+%C3%A0+faire.">Pinterest B</a></span>

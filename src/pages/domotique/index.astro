@@ -8,9 +8,13 @@ import { withBase } from '../../lib/siteUrl';
 import { getDomotiqueThumbnail, getDomotiqueHubThumbnail } from '../../lib/domotiqueThumbnail';
 import { withImageVersion } from '../../lib/imageVersion';
 import { getIllustration } from '../../lib/illustration';
+import DomotiqueEssentials2026 from '../../components/DomotiqueEssentials2026.astro';
+import StructuredDataBreadcrumb from '../../components/StructuredDataBreadcrumb.astro';
+import DomotiqueBreadcrumbNav from '../../components/DomotiqueBreadcrumbNav.astro';
+import PageColumns from '../../components/PageColumns.astro';
 
 const title = 'Domotique : la maison connectée version famille et makers';
-const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien acheter. Guides pratiques pour débuter en domotique.';
+const description = 'Home Assistant, Zigbee, ESP32, robots aspirateurs : comprendre, bricoler, bien a. Garage, volets, éclairage, chauffage, conso, sécurité : fiches SEO avec';
 const ogImage = withImageVersion('/images/blog-thumbnails/domotique-hub.png');
 
 const domotiquePosts = (await getCollection('domotique')).sort((a, b) => 
@@ -32,6 +36,12 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 <html lang="fr">
 <head>
 	<BaseHead {title} {description} image={ogImage} />
+	<StructuredDataBreadcrumb
+		items={[
+			{ name: 'Accueil', url: withBase('/') },
+			{ name: 'Domotique', url: withBase('/domotique/') },
+		]}
+	/>
 	<style>
 		.hero-domotique {
 			background: linear-gradient(135deg, #0B1F2A 0%, #0F766E 100%);
@@ -126,6 +136,10 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 			color: var(--accent);
 			margin-bottom: 0.5rem;
 		}
+		.card p {
+			color: rgb(var(--gray-dark));
+			line-height: 1.5;
+		}
 		.all-guides {
 			list-style: none;
 			padding: 0;
@@ -164,6 +178,50 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 	<Header />
 	<DomotiqueSubNav />
 	<main>
+<PageColumns>
+		<section class="section" style="margin-top: 1.25rem; margin-bottom: 0;">
+			<DomotiqueBreadcrumbNav currentLabel="Domotique" hubIndex={true} />
+		</section>
+		<section class="section" style="margin-top: 2rem;">
+			<DomotiqueEssentials2026 />
+		</section>
+		<section class="section" style="margin-top: 2rem;">
+			<h2>Référence dépannage & compatibilité</h2>
+			<div class="cards-grid">
+				<div class="card">
+					<h3>⚡ Bibliothèque 100 projets</h3>
+					<p>Garage, volets, éclairage, chauffage, conso, sécurité : fiches SEO avec schémas SVG, budget et tutoriel Home Assistant.</p>
+					<a href={withBase('/domotique/configurateur-projet-domotique/')}>→ Catalogue des projets</a>
+					<br /><a href={withBase('/domotique/projets/porte-garage-connectee/')}>→ Ex. porte de garage</a>
+				</div>
+				<div class="card">
+					<h3>🔧 Codes erreurs</h3>
+					<p>Zigbee2MQTT, ZHA, Shelly, Sonoff, Homey : répertoire filtrable avec indicateurs difficulté, temps et coût.</p>
+					<a href={withBase('/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/')}>→ Dépannage domotique</a>
+				</div>
+				<div class="card">
+					<h3>🧩 Matrice compatibilité</h3>
+					<p>Protocole × box × module : Shelly, Sonoff, Aqara, Tuya avec statuts natif / plugin / non supporté.</p>
+					<a href={withBase('/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/')}>→ Grille interactive</a>
+				</div>
+				<div class="card">
+					<h3>🛒 Pièces & capteurs</h3>
+					<p>Officiel vs compatible : alim Pi 5 27 W, dongles Zigbee, DS18B20, câbles mBot, Shelly.</p>
+					<a href={withBase('/domotique/pieces-detachees-capteurs-compatibles-moins-cher/')}>→ Comparatif prix</a>
+				</div>
+				<div class="card">
+					<h3>🍓 Raspberry Pi × HAT</h3>
+					<p>Pi 3, 4, 5 et Zero 2 W : capteurs GPIO, dongles Zigbee, alimentation 27 W et boîtiers.</p>
+					<a href={withBase('/domotique/tableau-raspberry-hat/')}>→ Tableau interactif</a>
+				</div>
+				<div class="card">
+					<h3>🩺 Diagnostic par symptôme</h3>
+					<p>Déconnexions Wi-Fi/Zigbee, latence, mesure de conso, appairage : arbre interactif Shelly, Aqara, Sonoff, Home Assistant.</p>
+					<a href={withBase('/domotique/diagnostic-par-symptome/')}>→ Lancer le diagnostic</a>
+				</div>
+			</div>
+		</section>
+
 		<section class="hero-domotique">
 			<h1>🏠 La maison connectée, version famille et makers</h1>
 			<p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
@@ -171,7 +229,10 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 				nos guides pratiques pour débuter en domotique sans se ruiner.
 			</p>
 			<div class="hero-buttons">
-				<a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')} class="btn btn-primary">
+				<a href={withBase('/domotique/configurateur-projet-domotique/')} class="btn btn-primary">
+					Configurateur projet domotique
+				</a>
+				<a href={withBase('/domotique/debuter-domotique-par-ou-commencer/')} class="btn btn-secondary">
 					Je débute
 				</a>
 				<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')} class="btn btn-secondary">
@@ -204,7 +265,7 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 				<div class="card">
 					<h3>🤖 Robots aspirateurs</h3>
 					<p>Sélection par budget, compatibilité Home Assistant, familles avec animaux.</p>
-					<a href={withBase('/domotique/robot-aspirateur-moins-de-200-euros/')}>→ Moins de 200 €</a>
+					<a href={withBase('/domotique/robot-aspirateur-moins-de-200-euros/')}>→ Moins de 200 €</a>
 					<br /><a href={withBase('/domotique/rubrique/robots-aspirateurs/')}>→ Toute la rubrique</a>
 				</div>
 			</div>
@@ -251,14 +312,15 @@ const otherPosts = domotiquePosts.slice(6).sort((a, b) => a.data.title.localeCom
 			</div>
 			<div class="faq-item">
 				<h3>Faut-il une box domotique ?</h3>
-				<p>Ça dépend ! Pour du Wi-Fi simple (prises Tapo, ampoules), pas besoin de box. Pour du Zigbee ou des automatisations avancées, Home Assistant sur Raspberry Pi 5 (120–150 € avec accessoires) ou Home Assistant Green (110–125 € seul, 180–215 € avec dongle Zigbee et capteurs) sont les solutions recommandées.</p>
+				<p>Ça dépend ! Pour du Wi-Fi simple (prises Tapo, ampoules), pas besoin de box. Pour du Zigbee ou des automatisations avancées, Home Assistant sur Raspberry Pi 5 (120–150 € avec accessoires) ou Home Assistant Green (110–125 € seul, 180–215 € avec dongle Zigbee et capteurs) sont les solutions recommandées.</p>
 			</div>
 			<div class="faq-item">
 				<h3>C'est sûr pour les enfants ?</h3>
 				<p>Oui, si on évite le cloud public et qu'on privilégie Home Assistant en local. Pas de données personnelles envoyées à l'étranger, pas de risque de fuite. Les automatisations « heure de lever », veilleuse et surveillance de température sont même très utiles en famille.</p>
 			</div>
 		</section>
-	</main>
+	</PageColumns>
+</main>
 	<Footer />
 </body>
 </html>

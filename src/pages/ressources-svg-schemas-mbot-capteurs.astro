@@ -1,0 +1,26 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import MbotSensorSvgLibrary from '../components/MbotSensorSvgLibrary.astro';
+import { SVG_LIBRARY_PAGE } from '../data/mbotSensorSvgSchemes.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={SVG_LIBRARY_PAGE.title}
+	description={SVG_LIBRARY_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/ressources-svg-schemas-mbot-capteurs/"
+	hubLabel="mBot & capteurs"
+	hubPath="/accessoires-mbot-par-ou-commencer/"
+>
+	<p>{SVG_LIBRARY_PAGE.intro}</p>
+	<MbotSensorSvgLibrary />
+	<p>
+		Réglages et dépannage :{' '}
+		<a href={withBase('/tableau-reglages-capteurs-mbot2-depannage/')}>tableau capteurs mBot2</a>
+		· <a href={withBase('/compatibilite-makeblock/')}>matrice compatibilité Makeblock</a>
+		· <a href={withBase('/generateur-fiche-seance-robotique-pdf/')}>générateur de fiche de séance</a>.
+	</p>
+</RobotToolLayout>

@@ -6,6 +6,8 @@ interface Props {
 const { currentCategory = '' } = Astro.props;
 
 const categories = [
+	{ label: '⚡ Configurateur projet', slug: 'configurateur', href: '/domotique/configurateur-projet-domotique/' },
+	{ label: 'Guide débuter', slug: 'guide-debuter', href: '/domotique/debuter-en-domotique-guide-complet/' },
 	{ label: 'Débuter', slug: 'debuter', href: '/domotique/rubrique/debuter/' },
 	{ label: 'Home Assistant', slug: 'home-assistant', href: '/domotique/rubrique/home-assistant/' },
 	{ label: 'Projets ESP32', slug: 'esp32', href: '/domotique/rubrique/esp32/' },
@@ -32,18 +34,22 @@ const categories = [
 		background: var(--surface);
 		border-bottom: 1px solid var(--surface-border);
 		margin-bottom: 2rem;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		scrollbar-width: thin;
 		box-sizing: border-box;
 		width: 100%;
 		max-width: 100%;
+		min-width: 0;
+		overflow: hidden;
 	}
 	
 	.subnav-scroll {
 		display: flex;
 		gap: 0;
-		min-width: min-content;
+		width: 100%;
+		min-width: 0;
+		max-width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: thin;
 		padding: 0 1rem;
 		box-sizing: border-box;
 	}
@@ -83,12 +89,11 @@ const categories = [
 		}
 	}
 	
-	/* Hide scrollbar but keep functionality */
-	.domotique-subnav::-webkit-scrollbar {
+	.subnav-scroll::-webkit-scrollbar {
 		height: 3px;
 	}
 	
-	.domotique-subnav::-webkit-scrollbar-thumb {
+	.subnav-scroll::-webkit-scrollbar-thumb {
 		background: var(--surface-border);
 		border-radius: 3px;
 	}

@@ -1,0 +1,61 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageColumns from '../../components/PageColumns.astro';
+const title = 'Robot éducatif Monaco : écoles, fablab et domotique locale';
+const description =
+	'Robots éducatifs et Home Assistant à Monaco : livraison depuis la France, filières numériques au lycée, ateliers mBot et domotique Zigbee pour familles de la Principauté.';
+const canonical = '/monaco/';
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="canonical" href={`https://robot-educatif.info${canonical}`} />
+  <style is:global>#main-content,.prose{max-width:100%;overflow-x:hidden;box-sizing:border-box}.encart-affilie-haut p{overflow-wrap:anywhere}</style>
+</head>
+<body>
+  <Header />
+  <main id="main-content">
+<PageColumns>
+    <article class="prose">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a>
+        <span aria-hidden="true"> / </span>
+        <span>Monaco</span>
+      </nav>
+      <h1>Monaco : robots éducatifs et domotique pour familles</h1>
+      <Fragment set:html={`<aside class="encart-affilie-haut" data-above-fold-cta="" data-fr-hub="MC" style="overflow-wrap:anywhere;word-break:break-word"><p><strong>Achat depuis Monaco :</strong> <a class="cta-aff" href="https://www.amazon.fr/s?k=robot+programmable+enfant&tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Amazon.fr robots</a> · <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=11447&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">ELV</a> · <a class="cta-aff" href="/go/aw-51799-3bde5ae247/" rel="sponsored nofollow noopener">EcoFlow</a> · <a class="cta-aff" href="https://www.nabucasa.com" rel="noopener noreferrer" target="_blank">Nabu Casa</a></p><p class="encart-note">Liens partenaires · prix et stock à vérifier · livraison souvent depuis la France.</p></aside>
+<p class="chapo"><strong>Réponse directe</strong> — En Principauté, la plupart des familles commandent des kits <strong>Makeblock mBot</strong>, <strong>LEGO Education</strong> (via revendeurs) ou des modules domotiques <strong>Zigbee / Home Assistant (HA)</strong> avec livraison <strong>Amazon.fr</strong> ou transporteurs vers Monaco (98000). Les établissements du <strong>DENJS</strong> (Direction de l’Éducation Nationale, de la Jeunesse et des Sports) intègrent la pensée computationnelle ; nos guides détaillent budgets, programmes et projets compatibles.</p>
+<p><img src="/images/illustrations/equiper-classe-robots-budget-packs-2026.webp" alt="Atelier robots en classe — illustration éditoriale" width="720" height="405" loading="lazy" style="max-width:100%;height:auto" /></p>
+<p><em>Illustration : équiper une classe — Emmanuel Sauvage / robot-educatif.info.</em></p>
+<h2>Écoles et filières numériques</h2>
+<p>Le réseau monégasque (cycles 1 à 3, lycée technique et général) s’aligne sur les référentiels français pour l’<strong>enseignement numérique</strong> : algorithmes, <strong>Scratch</strong>, puis <strong>Python</strong> ou <strong>Arduino</strong> selon les options. Pour équiper une classe ou un club associatif, comparez les packs documentés sur <a href="/equiper-classe-robots-budget-packs-2026/">équiper une classe en robots (budget 2026)</a> et le <a href="/calculateur-budget-robot-classe/">calculateur budget robotique classe</a>.</p>
+<p>Pour débuter à la maison : <a href="/quel-robot-acheter-enfant-6-ans-guide-achat/">robot éducatif 6 ans</a>, <a href="/programmation/arduino-c/">hub Arduino C</a>, ou la série <a href="/c-arduino-environnement-structure-sketch/">leçons C Arduino</a>.</p>
+<h2>Domotique locale sans abonnement obligatoire</h2>
+<p>Les appartements monégasques (densité élevée, parfois peu de neutre en boîtier) se prêtent bien aux capteurs sur pile et à une <strong>box Home Assistant</strong> en local. Commencez par <a href="/domotique/debuter-domotique-par-ou-commencer/">débuter en domotique</a>, choisissez un <a href="/domotique/meilleur-dongle-zigbee-home-assistant/">dongle Zigbee</a>, puis un projet concret via le <a href="/domotique/configurateur-projet-domotique/">configurateur de projets domotiques</a> (100 scénarios avec tutoriels).</p>
+<p><img src="/images/models/home-assistant-green.webp" alt="Home Assistant Green — box domotique locale" width="480" height="320" loading="lazy" /></p>
+<p><em>Home Assistant Green — photo produit (usage éditorial).</em></p>
+<h2>Livraison et clubs</h2>
+<p>La livraison depuis la France métropolitaine vers Monaco (code postal 98000) est habituelle via Amazon.fr et certains marchands EU ; vérifiez les frais de port avant commande. Les clubs de robotique locaux utilisent souvent <strong>mBot2</strong> ou des alternatives LEGO documentées dans <a href="/alternatives-lego-spike-comparatif-2026/">alternatives LEGO Spike</a>.</p>
+<p><img src="/images/blog-thumbnails/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants.webp" alt="Robots mBot en atelier — vignette comparatif" width="640" height="360" loading="lazy" /></p>
+<p><em>Comparatif mBot — vignette éditoriale.</em></p>
+<h2>Repères budget (usage familial)</h2>
+<ul>
+<li><strong>Initiation 6–10 ans</strong> — <a href="/quel-robot-acheter-enfant-6-ans-guide-achat/">robot programmable sans écran</a> · budget indicatif 80–150 €</li>
+<li><strong>Collège / lycée</strong> — <a href="/meilleur-robot-educatif-arduino-kit-choisir/">kit robot Arduino</a> · 120–250 €</li>
+<li><strong>Domotique Zigbee</strong> — <a href="/domotique/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green ou Pi 5</a> · 115–200 € (serveur seul)</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Faut-il un abonnement cloud pour Home Assistant ?</strong> Non : HA fonctionne en local (LAN). Seul l’accès distant (hors domicile) peut passer par <strong>Nabu Casa</strong>, <strong>Tailscale</strong> ou un VPN — voir le projet <a href="/domotique/projets/acces-distance-securise-home-assistant-vpn/">accès distance sécurisé à Home Assistant</a>.</p>
+<p><strong>Quelle prise pour modules Shelly / Sonoff ?</strong> Monaco utilise le type <strong>E</strong> (comme la France) ; vérifiez neutre et section disjoncteur avant tout module en boîtier murale.</p>
+<h2>Autres guides francophones limitrophes</h2>
+<p><a href="/belgique/">Belgique</a> · <a href="/suisse/">Suisse</a> · <a href="/luxembourg/">Luxembourg</a> · <a href="/">France (accueil)</a> · <a href="/about/">À propos de l’équipe</a></p>
+<p><em>Page mise à jour par Emmanuel Sauvage — novembre 2026.</em></p>`} />
+    </article>
+  </PageColumns>
+</main>
+  <Footer />
+</body>
+</html>

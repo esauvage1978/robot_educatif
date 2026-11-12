@@ -1,0 +1,114 @@
+<?php
+/**
+ * go-links v1 — redirection /go/<id>/ comptée côté serveur (PHP 7.3+).
+ * Fichier partagé : /workspace/shared/go-links/go.php. Seules les 2 constantes GO_SITE et GO_SECRET changent d'un site à l'autre.
+ * Table (liste blanche) : go-table.php, générée par go-links.mjs à chaque build.
+ */
+define('GO_LINKS', 1);
+date_default_timezone_set('Europe/Paris');
+define('GO_SITE', 'robot-educatif.info');
+define('GO_SECRET', '3af54345b4f5a26880a775cbe7d894dbdae16d7bf7bf6540d887974e3e4a95fb');
+define('GO_ENDPOINT', 'https://manuso.fr/realtime_api.php');
+
+function go_is_bot_ua($ua) {
+    $ua_trim = trim((string)$ua);
+    if ($ua_trim === '' || $ua_trim === '-' || strlen($ua_trim) < 25) return true;
+    if (strtolower($ua_trim) === 'mozilla/5.0') return true;
+    // Copie exacte du regex is_bot_ua() de manuso.fr/realtime_api.php (31/10/2026)
+    $bot_regex = '/(bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot|bytespider|gptbot|claudebot|anthropic|chatgpt|oai-searchbot|perplexity|petalbot|yandex|baiduspider|facebookexternalhit|meta-externalagent|meta-externalads|facebot|twitterbot|pinterestbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|amazonbot|curl\/|python-requests|python-urllib|python-httpx|aiohttp|go-http-client|axios|node-fetch|undici|headlesschrome|headless|phantomjs|electron|playwright|puppeteer|selenium|webdriver|lighthouse|pagespeed|gtmetrix|uptimerobot|pingdom|statuscake|censys|zgrab|wp-login|xmlrpc|wget\/|libwww|java\/|apache-httpclient|httpclient|okhttp|scrapy|http\.rb|dataprovider|barkrowler|bingpreview|googleother|google-inspectiontool|google-read-aloud|duplexweb-google|google-safety|googleproducer|google-site-verification|apis-google|feedfetcher-google|adsbot|mediapartners|rootevidence|palo alto|cortex-xpanse|internetmeasurement|leakix|netcraft|ivre-masscan|masscan|nmap|manusortinternal|dataforseo|serpstat|seokicks|sogou|aliyun|prerender|prefetch)/i';
+    if (preg_match($bot_regex, $ua_trim)) return true;
+    if (preg_match('/Chrome\/(\d+)/i', $ua_trim, $cm) && (int)$cm[1] < 108) return true;
+    if (preg_match('/Firefox\/(\d+)/i', $ua_trim, $fm) && (int)$fm[1] < 105) return true;
+    if (strpos($ua_trim, 'Windows NT 5.') !== false || strpos($ua_trim, 'Windows NT 6.0') !== false || strpos($ua_trim, 'Windows NT 6.1') !== false) return true;
+    return false;
+}
+function go_is_internal_ip($ip) {
+    foreach (['109.234.164.12', '104.28.211.192', '127.0.0.1', '::1', '82.65.88.26', '2a01:e0a:965:1ac0:88b:b3e9:dea1:92d7', '2a09:bac5:3261:26be::3dc:25', '104.28.211.186', '104.28.211.187', '104.28.211.189', '104.28.211.196', '104.28.243.186', '104.28.243.187', '104.28.243.190', '104.28.243.192', '104.28.243.195', '104.28.243.196', '104.28.243.198', '104.28.211.197'] as $p) if ($ip === $p) return true;
+    return false;
+}
+
+$id = isset($_GET['id']) ? strtolower((string)$_GET['id']) : '';
+if (!preg_match('/^[a-z0-9-]{4,40}$/', $id)) $id = '';
+$table = @include __DIR__ . '/go-table.php';
+if (!is_array($table)) $table = [];
+$link = ($id !== '' && isset($table[$id]) && is_array($table[$id])) ? $table[$id] : null;
+
+$ref = isset($_SERVER['HTTP_REFERER']) ? (string)$_SERVER['HTTP_REFERER'] : '';
+$host = strtolower(preg_replace('/^www\./', '', (string)($_SERVER['HTTP_HOST'] ?? GO_SITE)));
+$ref_path = '/';
+if ($ref !== '') {
+    $rh = strtolower(preg_replace('/^www\./', '', (string)parse_url($ref, PHP_URL_HOST)));
+    $rp = parse_url($ref, PHP_URL_PATH);
+    if ($rh === $host && is_string($rp) && $rp !== '' && $rp[0] === '/' && strpos($rp, '/go/') !== 0) $ref_path = $rp;
+}
+
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('X-Robots-Tag: noindex, nofollow');
+header('Referrer-Policy: no-referrer-when-downgrade');
+if ($link === null || !preg_match('#^https://#i', (string)$link['url'])) {
+    // id inconnu : pas de redirection ouverte, retour à la page d'origine (même site) ou à l'accueil
+    header('Location: ' . $ref_path, true, 302);
+    exit;
+}
+header('Location: ' . $link['url'], true, 302);
+header('Content-Length: 0');
+header('Connection: close');
+
+// --- La redirection est envoyée ; enregistrement après coup ---
+if (function_exists('fastcgi_finish_request')) { @fastcgi_finish_request(); }
+elseif (function_exists('litespeed_finish_request')) { @litespeed_finish_request(); }
+else { while (ob_get_level() > 0) @ob_end_flush(); @flush(); }
+ignore_user_abort(true);
+
+$ip = (string)($_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? '');
+$ua = (string)($_SERVER['HTTP_USER_AGENT'] ?? '');
+$is_bot = go_is_bot_ua($ua) ? 1 : 0;
+$internal = go_is_internal_ip($ip) ? 1 : 0;
+$now = time();
+$rec = [
+    'ts'       => $now,
+    'date'     => date('Y-m-d H:i:s', $now),
+    'site'     => GO_SITE,
+    'page'     => substr($ref_path, 0, 240),
+    'go_id'    => $id,
+    'merchant' => (string)($link['merchant'] ?? ''),
+    'country'  => (string)($link['country'] ?? ''),
+    'mid'      => (string)($link['mid'] ?? ''),
+    'url'      => substr((string)$link['url'], 0, 500),
+    'ua'       => substr($ua, 0, 300),
+    'ip_h'     => substr(hash('sha256', GO_SECRET . '|' . $ip), 0, 16),
+    'vid'      => sha1($ip . '|' . $ua), // même empreinte que le tracker JS (dédoublonnage)
+    'bot'      => $is_bot,
+    'internal' => $internal,
+    'test'     => (stripos($ref_path, '/test-') !== false) ? 1 : 0,
+    'via'      => 'srv',
+];
+$json = json_encode($rec, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+// 1) Journal local (toujours) : ~/logs/ hors webroot si possible, sinon go-data/ protégé
+$dirs = [dirname(__DIR__) . '/logs', __DIR__ . '/go-data'];
+foreach ($dirs as $d) {
+    if (!is_dir($d)) @mkdir($d, 0750, true);
+    if (is_dir($d) && is_writable($d)) {
+        if (substr($d, -8) === '/go-data' && !file_exists($d . '/.htaccess')) @file_put_contents($d . '/.htaccess', "Require all denied\n");
+        if (@file_put_contents($d . '/go_clicks_' . GO_SITE . '.jsonl', $json . "\n", FILE_APPEND | LOCK_EX) !== false) break;
+    }
+}
+
+// 2) Envoi à manuso.fr (signé HMAC, timeout 1 s, n'affecte pas la redirection déjà partie)
+if (function_exists('curl_init')) {
+    $sig = hash_hmac('sha256', $json, GO_SECRET);
+    $ch = curl_init(GO_ENDPOINT . '?track_go=1');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => http_build_query(['track_go' => 1, 'rec' => $json, 'sig' => $sig]),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CONNECTTIMEOUT_MS => 700,
+        CURLOPT_TIMEOUT_MS => 1000,
+        CURLOPT_NOSIGNAL => 1,
+        CURLOPT_USERAGENT => 'go-links/1 (' . GO_SITE . ')',
+    ]);
+    @curl_exec($ch);
+    @curl_close($ch);
+}
+exit;

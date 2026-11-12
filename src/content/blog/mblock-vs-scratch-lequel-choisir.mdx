@@ -1,8 +1,8 @@
 ---
-title: "mBlock vs Scratch : lequel choisir en 2026 ?"
-description: "mBlock vs Scratch : différences, avantages, compatibilité robots. Guide pour choisir entre Scratch et mBlock selon l'âge et les objectifs."
+title: "mBlock vs Scratch : lequel choisir ? (mBlock 5 en ligne et gratuit)"
+description: "mBlock ou Scratch ? Différences, robots compatibles et âge conseillé. mBlock 5 s'utilise en ligne sur ide.mblock.cc ou se télécharge gratuitement : notre guide pour choisir."
 pubDate: "2026-03-10"
-updatedDate: "2026-10-13"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 amazonPreset: "mbot"
 categories:
@@ -26,258 +26,170 @@ import ProductBox from '../../components/ProductBox.astro';
 
 <AffiliateDisclosure variant="compact" />
 
-**mBlock** et **Scratch** sont tous deux des environnements de programmation **par blocs**, parfaits pour les **enfants** et **débutants**. Mais lequel choisir ? Ce guide compare leurs **différences**, leurs **avantages** et vous aide à décider selon votre **contexte** (école, maison, robotique).
+mBlock et Scratch sont deux environnements de programmation par blocs, pensés pour les enfants et les débutants. Scratch sert à inventer un jeu, une animation ou une histoire sur l’ordinateur. mBlock reprend la même logique de blocs et l’envoie à un robot ou à une carte électronique. Le choix dépend du contexte : école, maison ou robotique.
 
 ## Résumé rapide : mBlock vs Scratch
 
-| Critère | Scratch | mBlock |
-|---------|---------|--------|
-| **Usage principal** | Jeux vidéo, animations, histoires | Robotique, IoT, projets électroniques |
-| **Matériel** | 100% logiciel (ordinateur seul) | Compatible robots (mBot, Arduino, micro:bit...) |
-| **Âge cible** | 6-14 ans | 8-16 ans |
-| **Communauté** | ★★★ Immense (30+ millions) | ★★ Moyenne (liée aux robots Makeblock) |
-| **Gratuit** | ✅ Oui, 100% | ✅ Oui (compte optionnel) |
-| **En ligne** | ✅ scratch.mit.edu | ✅ ide.mblock.cc |
-| **Application** | ✅ Windows, Mac, Linux, tablettes | ✅ Windows, Mac, Linux, iOS, Android |
-| **Export code** | ❌ Non (blocs uniquement) | ✅ Oui (Arduino C, Python) |
-| **Langage suivant** | Python, JavaScript | Arduino C, Python |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">Scratch</th>
+<th scope="col">mBlock</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Usage principal</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Jeux vidéo, animations, histoires</span></td>
+<td data-label="mBlock"><span class="td-val">Robotique, IoT, projets électroniques</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Matériel</strong></span></td>
+<td data-label="Scratch"><span class="td-val">100 % logiciel (ordinateur seul)</span></td>
+<td data-label="mBlock"><span class="td-val">Compatible robots (mBot, Arduino, micro:bit…)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Âge cible</strong></span></td>
+<td data-label="Scratch"><span class="td-val">6-14 ans</span></td>
+<td data-label="mBlock"><span class="td-val">8-16 ans</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Communauté</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Très large (projets publics sur scratch.mit.edu)</span></td>
+<td data-label="mBlock"><span class="td-val">Moyenne, liée aux robots Makeblock</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Gratuit</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Oui, entièrement</span></td>
+<td data-label="mBlock"><span class="td-val">Oui, compte optionnel</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>En ligne</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Oui, scratch.mit.edu</span></td>
+<td data-label="mBlock"><span class="td-val">Oui, ide.mblock.cc</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Application</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Oui : Windows, Mac, Linux, tablettes</span></td>
+<td data-label="mBlock"><span class="td-val">Oui : Windows, Mac, Linux, iOS, Android</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Export code</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Non, blocs uniquement</span></td>
+<td data-label="mBlock"><span class="td-val">Oui : Arduino C et Python</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Langage suivant</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Python, JavaScript</span></td>
+<td data-label="mBlock"><span class="td-val">Arduino C, Python</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**En une phrase** :
-- **Scratch** = créer des **jeux et animations** sur ordinateur
-- **mBlock** = programmer des **robots et objets connectés**
+En une phrase : Scratch crée des jeux et des animations sur ordinateur, mBlock programme des robots et des objets connectés.
 
 ## Qu'est-ce que Scratch ?
 
 ![Logo Scratch](/images/logos/scratch-logo.svg)
 
-**Scratch** est un langage de programmation visuel créé par le **MIT** (Massachusetts Institute of Technology) en 2007. Il permet aux enfants de créer des jeux, des animations et des histoires interactives en empilant des **blocs de code** colorés.
+Scratch est un langage de programmation visuel créé par le MIT (Massachusetts Institute of Technology) en 2007. L’enfant empile des blocs de code colorés pour construire un jeu, une animation ou une histoire interactive.
 
-### Points forts de Scratch
+La prise en main est directe : rien d’autre qu’un navigateur, et le programme démarre tout de suite. La communauté est très large, les projets publics de scratch.mit.edu peuvent s’ouvrir et se modifier. Les tutoriels, les cours en ligne et les livres en français sont nombreux. Un ordinateur suffit, ce qui convient bien à l’école. Les projets habituels sont des jeux de plateforme, des quiz et des histoires animées.
 
-✅ **Simplicité absolue** : Aucune installation complexe, fonctionne dans le navigateur  
-✅ **Communauté gigantesque** : 30 millions d'utilisateurs, millions de projets partagés  
-✅ **Ressources illimitées** : Tutoriels, cours en ligne, livres en français  
-✅ **Pas de matériel** : Un ordinateur suffit, idéal pour l'école  
-✅ **Projets créatifs** : Jeux de plateforme, quiz, histoires animées  
+Les limites sont du même ordre. Le programme reste virtuel : Scratch ne se connecte pas, en standard, à un robot ou à un capteur physique. On reste dans les blocs, sans passage intégré vers du code texte, et un projet ne devient pas une application exportée. Les jeux complexes se heurtent aussi assez vite aux performances.
 
-### Limites de Scratch
-
-❌ **Uniquement virtuel** : Pas de connexion à des robots ou capteurs physiques  
-❌ **Pas de transition vers le code texte** : On reste dans les blocs  
-❌ **Performances limitées** : Jeux complexes difficiles à créer  
-❌ **Pas d'export** : Impossible de transformer en vraie application  
-
-### Pour qui est Scratch ?
-
-- **Enfants de 6 à 12 ans** qui découvrent la programmation
-- **Écoles primaires** (cycles 2 et 3)
-- **Projets créatifs** : histoires, jeux, animations
-- **Pas besoin de matériel** : ordinateur ou tablette suffisent
-
-Ressource : [Scratch à l'école et à la maison : par où commencer](/scratch-ecole-maison-par-ou-commencer/)
+Scratch convient aux enfants de 6 à 12 ans qui découvrent la programmation, et il reste utilisable jusqu’à environ 14 ans. C’est l’outil des écoles primaires, en cycles 2 et 3, quand le projet est une histoire, un jeu ou une animation, et qu’un ordinateur ou une tablette suffit. Le point de départ est dans [Scratch à l’école et à la maison](/scratch-ecole-maison-par-ou-commencer/).
 
 ## Qu'est-ce que mBlock ?
 
 ![Logo mBlock](/images/logos/mblock-logo.svg)
 
-**mBlock** est un environnement de programmation développé par **Makeblock** (entreprise chinoise de robotique éducative). Il est **basé sur Scratch** mais étendu pour programmer des **robots physiques** comme le mBot, l'Arduino, le micro:bit, etc.
+mBlock est l’environnement de Makeblock, entreprise chinoise de robotique éducative. Il est basé sur Scratch, avec des blocs en plus pour piloter des robots physiques : mBot, Arduino, micro:bit, et d’autres cartes.
 
-### Points forts de mBlock
+Il parle aux robots Makeblock (mBot, mBot2), à Arduino, au micro:bit et au CyberPi. Les blocs peuvent s’exporter en Arduino C ou en Python, ce qui montre la traduction vers le texte. Les projets peuvent utiliser le Wi-Fi, le Bluetooth et des capteurs connectés. Le logiciel est gratuit, sur Windows, Mac, Linux, iOS et Android. Deux modes coexistent : le mode « en direct », pour tester pendant que le robot reste relié à l’ordinateur, et le mode « téléverser », qui copie le programme dans le robot pour qu’il tourne seul.
 
-✅ **Compatible robots** : mBot, mBot2, Arduino, micro:bit, CyberPi...  
-✅ **Transition vers le texte** : Export en Arduino C ou Python  
-✅ **Projets IoT** : Wi-Fi, Bluetooth, capteurs connectés  
-✅ **Gratuit et multiplateforme** : Windows, Mac, Linux, iOS, Android  
-✅ **Double mode** : Mode « en direct » (test) et mode « téléverser » (autonome)  
+La communauté est plus petite que celle de Scratch, et les projets partagés sont moins nombreux. La documentation est souvent en anglais, avec moins de ressources en français. Pour en utiliser toute l’étendue, il faut du matériel. L’installation peut coincer : pilotes, Bluetooth, câble USB.
 
-### Limites de mBlock
-
-❌ **Moins de projets partagés** : Communauté plus petite que Scratch  
-❌ **Documentation parfois en anglais** : Ressources en français limitées  
-❌ **Nécessite du matériel** : Pour exploiter 100%, il faut un robot  
-❌ **Installation parfois capricieuse** : Drivers, Bluetooth, connexions USB  
-
-### Pour qui est mBlock ?
-
-- **Enfants de 8 à 16 ans** qui veulent programmer des robots
-- **Collèges** (technologie, clubs robotique)
-- **Projets physiques** : robots, capteurs, LEDs, moteurs
-- **Transition vers Arduino** : préparer à la programmation embarquée
-
-Ressources :
-- [Installer mBlock 5 sous Windows](/installer-mblock-5-sous-windows-10/)
-- [Premiers pas avec mBlock 5](/premier-pas-avec-mblock-5/)
-- [mBot : mon premier robot éducatif](/mbot-mon-premier-robot-educatif/)
+mBlock s’adresse aux 8-16 ans qui veulent programmer un objet qui bouge. Au collège, en technologie ou en club robotique, il sert aux robots, capteurs, LED et moteurs, et il prépare la programmation embarquée sur Arduino. Pour installer et démarrer : [Installer mBlock 5 sous Windows](/installer-mblock-5-sous-windows-10/), [Premiers pas avec mBlock 5](/premier-pas-avec-mblock-5/), [mBot : mon premier robot éducatif](/mbot-mon-premier-robot-educatif/) et [Robot programmable avec Scratch : lequel choisir ?](/robot-programmable-scratch-lequel-choisir/).
 
 ## Comparaison détaillée
 
 ### 1. Interface et prise en main
 
-**Scratch** :
-- Interface épurée, colorée, intuitive
-- Palette de blocs à gauche, scène au centre, code à droite
-- **Très rapide** à prendre en main (5 minutes)
+Scratch est épuré, coloré, et l’écran se lit vite : la palette de blocs à gauche, la scène au centre, le programme à droite. Comptez environ cinq minutes pour lancer un premier script.
 
-**mBlock** :
-- Interface similaire à Scratch (volontairement)
-- Palette de blocs + **extensions matériel** (sprites + robots)
-- Prise en main : **10-15 minutes** (connexion robot en plus)
+mBlock reprend cette disposition volontairement. La palette reste là, avec en plus les extensions matériel : les lutins d’un côté, le robot de l’autre. La prise en main demande plutôt dix à quinze minutes, le temps de connecter le robot.
 
-**Verdict** : Scratch plus simple pour débuter, mBlock demande une phase d'installation.
+Scratch est donc plus simple pour débuter. mBlock ajoute une phase d’installation.
 
 ### 2. Projets possibles
 
-**Scratch** :
-- Jeux vidéo : plateforme, labyrinthe, quiz
-- Animations : histoires, dessins animés
-- Simulations : système solaire, écosystème
-- Arts génératifs : fractales, spirographes
+Avec Scratch, on fait des jeux (plateforme, labyrinthe, quiz), des animations et des dessins animés, des simulations comme un système solaire ou un écosystème, et des arts génératifs (fractales, spirographes).
 
-**mBlock** :
-- Robots suiveurs de ligne
-- Évitement d'obstacles
-- Détecteurs d'intrusion
-- Affichages LED matriciels
-- Projets IoT (température, météo, domotique)
+Avec mBlock, le programme sort de l’écran : robot suiveur de ligne, évitement d’obstacles, détecteur d’intrusion, matrice de LED, ou petit projet connecté (température, météo, domotique).
 
-**Verdict** : Deux univers différents. Choisir selon l'objectif (virtuel vs physique).
+Ce sont deux univers. On choisit selon l’objectif, virtuel ou physique.
 
 ### 3. Apprentissage de la programmation
 
-**Scratch** :
-- **Concepts fondamentaux** : boucles, conditions, variables, événements
-- **Idéal pour débuter** : logique de base sans distraction
-- **Créativité** : les enfants inventent leurs règles
-- **Pas de transition** : difficile de passer ensuite à Python ou JavaScript
+Scratch couvre les concepts de base : boucles, conditions, variables, événements. La logique se voit sans la distraction du matériel, et l’enfant invente ses propres règles. Le passage ensuite vers Python ou JavaScript n’est pas préparé par l’outil : on reste dans les blocs.
 
-**mBlock** :
-- **Mêmes concepts** que Scratch + capteurs/actionneurs
-- **Export code** : voir comment les blocs se traduisent en C ou Python
-- **Lien avec le réel** : comprendre que le code pilote des objets physiques
-- **Transition facilitée** : vers Arduino C ou Python
+mBlock reprend ces concepts et y ajoute capteurs et actionneurs. L’export montre comment un bloc devient du C ou du Python. Le code pilote un objet réel, et la suite naturelle est Arduino C ou Python.
 
-**Verdict** : mBlock prépare mieux à la programmation « pro ».
+mBlock prépare donc mieux une programmation plus technique.
 
 ### 4. Matériel requis
 
-**Scratch** :
-- Ordinateur ou tablette avec navigateur web
-- Connexion internet (ou version offline)
-- **Rien d'autre**
+Scratch demande un ordinateur ou une tablette avec un navigateur, une connexion internet ou la version hors ligne, et rien d’autre.
 
-**mBlock** :
-- Ordinateur Windows, Mac ou Linux
-- **Robot compatible** : mBot (80-100€), Arduino (30€), micro:bit (20€)
-- Câble USB, parfois Bluetooth
-- Piles ou alimentation
-
-**Verdict** : Scratch = zéro coût matériel. mBlock = investissement dans un robot.
+mBlock demande un ordinateur Windows, Mac ou Linux, un câble USB (parfois le Bluetooth) et des piles ou une alimentation. Le robot le plus direct est le Makeblock mBot : 89,99 € sur Amazon.fr au relevé du 6 novembre 2026. Une carte Arduino ou un micro:bit peuvent remplacer le robot complet. Consulter le prix : ce relevé ne donne pas de montant actuel pour ces cartes. Scratch ne coûte donc rien en matériel. mBlock suppose d’acheter un robot ou une carte.
 
 ### 5. Ressources et communauté
 
-**Scratch** :
-- **30 millions d'utilisateurs** dans le monde
-- **Millions de projets** consultables et modifiables
-- **Forums** actifs, support officiel MIT
-- **Livres, cours, MOOC** en français
+Scratch publie les projets sur scratch.mit.edu : on peut les consulter et les modifier. Les forums sont actifs, le support vient du MIT, et les livres, cours et MOOC en français sont nombreux.
 
-**mBlock** :
-- Communauté plus restreinte (liée aux produits Makeblock)
-- **Tutoriels officiels** Makeblock (qualité variable)
-- **Forums** moins actifs qu'Arduino ou Scratch
-- **Ressources françaises** : ce site, quelques YouTubeurs
+mBlock reste lié aux produits Makeblock. Les tutoriels officiels existent, avec une qualité inégale. Les forums sont moins actifs que ceux d’Arduino ou de Scratch. En français, on s’appuie surtout sur ce site et sur quelques chaînes YouTube.
 
-**Verdict** : Scratch écrase mBlock en termes de communauté.
+Sur la taille de la communauté, Scratch l’emporte nettement.
 
 ### 6. Évolution et durée de vie
 
-**Scratch** :
-- Utilisable de 6 à 14 ans environ
-- Après : transition vers **Python** (pygame), **JavaScript** (p5.js)
-- Projets **toujours accessibles** en ligne
+Scratch accompagne à peu près de 6 à 14 ans. Ensuite, les suites habituelles sont Python avec pygame, ou JavaScript avec p5.js. Les projets restent accessibles en ligne.
 
-**mBlock** :
-- Utilisable de 8 à 16 ans
-- Après : transition vers **Arduino C** ou **Python**
-- Projets **sauvegardés** localement (.mblock) ou dans le cloud
+mBlock couvre plutôt 8 à 16 ans, puis Arduino C ou Python. Les projets sont enregistrés en local au format .mblock, ou dans le cloud.
 
-**Verdict** : mBlock a une durée de vie plus longue grâce à l'export de code.
+Grâce à l’export de code, mBlock se prolonge plus longtemps.
 
 ## Cas d'usage : quand choisir quoi ?
 
-### Choisir Scratch si...
+Scratch est le bon premier contact entre 6 et 8 ans, surtout s’il n’y a pas de budget matériel. Il convient à une école primaire qui a des ordinateurs mais pas de robots, quand la priorité est un jeu, une histoire ou des arts visuels, et qu’aucune suite robotique n’est prévue. Une classe de CM1 qui découvre les algorithmes est exactement ce cas.
 
-✅ **Premier contact avec la programmation** (6-8 ans)  
-✅ **Pas de budget** pour acheter du matériel  
-✅ **École primaire** : ordinateurs disponibles mais pas de robots  
-✅ **Créativité avant tout** : jeux, histoires, arts visuels  
-✅ **Pas de transition prévue** vers la robotique  
+mBlock s’impose quand le robot est déjà là, ou qu’il va être acheté, en général à partir de 8 ans, quand l’enfant peut mener un projet physique. C’est l’outil du collège et du club de robotique, de la préparation à Arduino, et des capteurs connectés ou de la domotique. Une classe de 5e en technologie équipée de mBot en est l’exemple type.
 
-**Exemple** : Classe de CM1 qui découvre les algorithmes → Scratch est parfait.
-
-### Choisir mBlock si...
-
-✅ **Objectif robotique** : vous avez ou allez acheter un robot  
-✅ **8 ans et plus** : l'enfant est prêt pour des projets physiques  
-✅ **Collège / club robotique** : matériel disponible  
-✅ **Transition vers Arduino** : préparer à la programmation embarquée  
-✅ **Projets IoT** : capteurs connectés, domotique  
-
-**Exemple** : Classe de 5ᵉ en technologie avec des mBot → mBlock est idéal.
-
-### Utiliser les deux ?
-
-Oui ! **Commencer par Scratch** (6-8 ans) puis **passer à mBlock** (8-10 ans) est une excellente progression.
-
-1. **Scratch** : Apprendre les bases de la logique (1-2 ans)
-2. **mBlock** : Appliquer ces bases sur un robot (1-2 ans)
-3. **Arduino C** ou **Python** : Passer au code texte (12+ ans)
+Les deux se succèdent très bien. On commence par Scratch vers 6-8 ans, le temps d’apprendre la logique pendant un à deux ans. Vers 8-10 ans, mBlock réutilise ces bases sur un robot, encore un à deux ans. À partir de 12 ans, Arduino C ou Python passent au code texte.
 
 ## Différences techniques
 
 ### Blocs disponibles
 
-**Scratch** :
-- Mouvement (sprites uniquement)
-- Apparence (costumes, bulles, effets)
-- Son (notes, enregistrements)
-- Événements (clics, touches clavier)
-- Contrôle (boucles, conditions)
-- Capteurs (souris, micro, horloge)
-- Opérateurs (maths, logique, chaînes)
-- Variables et listes
+Scratch propose le mouvement des lutins, l’apparence (costumes, bulles, effets), le son (notes et enregistrements), les événements (clics et touches), le contrôle (boucles et conditions), les capteurs de la souris, du micro et de l’horloge, les opérateurs mathématiques, logiques et textuels, puis les variables et les listes.
 
-**mBlock** :
-- **Tous les blocs Scratch** +
-- **Moteurs** (avancer, reculer, vitesse)
-- **Capteurs** (ultrason, ligne, lumière, température)
-- **Actionneurs** (LEDs RGB, buzzer, servomoteurs)
-- **Communication** (Bluetooth, Wi-Fi, série)
-- **Extensions** (Arduino, micro:bit, CyberPi, IA)
+mBlock garde tous ces blocs. Il ajoute les moteurs (avancer, reculer, régler la vitesse), les capteurs (ultrason, ligne, lumière, température), les actionneurs (LED RGB, buzzer, servomoteurs), la communication (Bluetooth, Wi-Fi, liaison série) et des extensions pour Arduino, micro:bit, CyberPi et l’IA.
 
 ### Modes d'exécution
 
-**Scratch** :
-- Mode **en ligne** uniquement (sauf version offline)
-- Exécution **en temps réel** dans le navigateur
+Scratch s’exécute en ligne, en temps réel dans le navigateur. L’application hors ligne est l’exception.
 
-**mBlock** :
-- **Mode « En direct »** : test instantané, robot connecté à l'ordinateur
-- **Mode « Téléverser »** : programme copié dans le robot, fonctionne sans PC
-- **Mode « Scratch »** : comme Scratch, sans robot
+mBlock a trois modes. « En direct » teste tout de suite, robot branché à l’ordinateur. « Téléverser » copie le programme dans le robot, qui fonctionne ensuite sans PC. « Scratch » se comporte comme Scratch, sans robot.
 
 ### Export de code
 
-**Scratch** :
-- ❌ Aucun export possible
-- Projets lisibles uniquement dans Scratch
+Scratch n’exporte pas. Le projet ne se relit que dans Scratch.
 
-**mBlock** :
-- ✅ **Export Arduino C** : voir le code généré, le modifier dans Arduino IDE
-- ✅ **Export Python** : pour robots compatibles (CyberPi, micro:bit)
-- Utile pour **comprendre** ce que font les blocs
+mBlock exporte en Arduino C : on voit le code généré et on peut le modifier dans l’IDE Arduino. L’export Python concerne les robots compatibles, notamment CyberPi et micro:bit. L’intérêt est de comprendre ce que le bloc fait réellement.
 
 Exemple :
+
 ```cpp
 // Bloc mBlock : "Avancer à vitesse 100"
 // devient en Arduino C :
@@ -287,27 +199,13 @@ mBot.motor.rightWheel.setSpeed(100);
 
 ## Installation et prise en main
 
-### Installer Scratch
+Pour Scratch, ouvrez [scratch.mit.edu](https://scratch.mit.edu) et cliquez sur « Créer ». Le projet démarre dans le navigateur. L’application hors ligne existe aussi pour Windows, Mac et Linux.
 
-1. Aller sur [scratch.mit.edu](https://scratch.mit.edu)
-2. Cliquer sur **« Créer »**
-3. Commencer à programmer !
-
-**Ou** : Télécharger l'application offline (Windows, Mac, Linux)
-
-### Installer mBlock
-
-1. Télécharger mBlock 5 sur [mblock.cc](https://mblock.cc/)
-2. Installer l'application (suivre l'assistant)
-3. Connecter le robot en USB ou Bluetooth
-4. Ajouter l'extension du robot (par ex. « mBot »)
-5. Tester la connexion
-
-Guide complet : [Installer mBlock 5 sous Windows](/installer-mblock-5-sous-windows-10/)
+Pour mBlock, l’éditeur en ligne est sur [ide.mblock.cc](https://ide.mblock.cc). Pour la version installée, téléchargez mBlock 5 sur [mblock.cc](https://mblock.cc/), suivez l’assistant, connectez le robot en USB ou en Bluetooth, ajoutez son extension (par exemple « mBot ») et testez la connexion. Le détail sous Windows est dans [Installer mBlock 5 sous Windows](/installer-mblock-5-sous-windows-10/).
 
 ## Projets d'exemple
 
-### Projet Scratch : Jeu de Pong
+### Projet Scratch : jeu de Pong
 
 ```
 Quand drapeau vert cliqué
@@ -318,9 +216,9 @@ Répéter indéfiniment
     Rebondir
 ```
 
-→ Jeu complet en 20-30 blocs, jouable dans le navigateur.
+Un jeu complet tient en 20 à 30 blocs et se joue dans le navigateur.
 
-### Projet mBlock : Robot suiveur de ligne
+### Projet mBlock : robot suiveur de ligne
 
 ```
 Quand programme démarre
@@ -333,26 +231,13 @@ Répéter indéfiniment
     Avancer tout droit
 ```
 
-→ Robot autonome qui suit une ligne noire sur fond blanc.
+Le robot autonome suit une ligne noire sur fond blanc.
 
 ## Compatibilité matérielle
 
-### Scratch
+Scratch n’a pas de robot compatible en natif. Des extensions non officielles existent, ScratchX et Snap!, mais elles sont peu fiables.
 
-- **Aucun robot** compatible nativement
-- Extensions non officielles existent (ScratchX, Snap!) mais peu fiables
-
-### mBlock
-
-Robots et cartes compatibles :
-- **mBot** (robot roulant Makeblock)
-- **mBot2** (version avancée avec CyberPi)
-- **Codey Rocky** (robot ludique Makeblock)
-- **Arduino UNO / Nano / Mega**
-- **micro:bit** (carte BBC)
-- **Raspberry Pi Pico**
-- **CyberPi** (carte Makeblock standalone)
-- **Capteurs Grove** (écosystème Seeed Studio)
+mBlock reconnaît le mBot (robot roulant Makeblock), le mBot2 (version avancée avec CyberPi), Codey Rocky, les cartes Arduino UNO, Nano et Mega, le micro:bit de la BBC, le Raspberry Pi Pico, le CyberPi utilisé seul, et les capteurs Grove de Seeed Studio.
 
 <ProductBox
   productId="mbot"
@@ -370,59 +255,86 @@ Robots et cartes compatibles :
   position={1}
 />
 
+Au relevé du 6 novembre 2026, ce mBot est à 89,99 € sur Amazon.fr. L’assemblage annoncé tient en une quinzaine de minutes, les blocs restent proches de Scratch, et le kit inclut déjà plusieurs capteurs. Il se poursuit ensuite en Arduino.
+
 ## FAQ - mBlock vs Scratch
 
 ### mBlock est-il plus difficile que Scratch ?
 
-**Pas vraiment**. L'interface est quasi identique. La **difficulté supplémentaire** vient de la **connexion du robot** (USB, Bluetooth, drivers) et de la **compréhension du matériel** (capteurs, moteurs). Une fois connecté, programmer est aussi simple.
+Pas vraiment. L’interface est presque la même. La difficulté en plus vient de la connexion du robot (USB, Bluetooth, pilotes) et de la lecture du matériel : capteurs et moteurs. Une fois le lien établi, programmer est du même ordre.
 
 ### Peut-on passer de Scratch à mBlock facilement ?
 
-**Oui, très facilement**. Si vous maîtrisez Scratch, vous maîtriserez mBlock en **30 minutes**. Les blocs sont les mêmes, seule la partie « matériel » change.
+Oui. Quelqu’un qui maîtrise Scratch s’y retrouve en une trentaine de minutes. Les blocs sont les mêmes. Seule la partie matériel change.
 
 ### Faut-il obligatoirement un robot pour utiliser mBlock ?
 
-**Non**. mBlock a un **mode « Scratch »** qui fonctionne sans robot, exactement comme Scratch. Mais l'intérêt principal de mBlock est justement de programmer du matériel.
+Non. Le mode « Scratch » fonctionne sans robot, comme Scratch. L’intérêt principal de mBlock reste toutefois de programmer du matériel.
 
 ### mBlock fonctionne-t-il avec des robots LEGO ?
 
-**Non**. Les robots LEGO Mindstorms / Spike ont leur propre logiciel. Pour LEGO, utilisez **LEGO Education** ou des alternatives comme **EV3 Classroom**.
+Non. Mindstorms et SPIKE ont leur propre logiciel. Pour LEGO, il faut LEGO Education, ou une alternative comme EV3 Classroom.
 
 ### Scratch est-il vraiment gratuit ? Et mBlock ?
 
-**Oui, les deux sont 100% gratuits**. Scratch est un projet du MIT (éducatif et sans pub). mBlock est gratuit pour l'usage personnel et éducatif (Makeblock gagne de l'argent en vendant des robots, pas le logiciel).
+Oui, les deux sont entièrement gratuits. Scratch est un projet du MIT, éducatif et sans publicité. mBlock est gratuit pour un usage personnel et éducatif : Makeblock se rémunère en vendant des robots, pas le logiciel.
 
 ### Peut-on utiliser mBlock hors ligne ?
 
-**Oui**. L'application mBlock fonctionne **sans connexion internet** une fois installée. Vous pouvez programmer et téléverser des codes sur le robot même sans Wi-Fi.
+Oui. Une fois l’application installée, elle fonctionne sans connexion. On peut programmer et téléverser vers le robot même sans Wi-Fi.
 
 ### mBlock remplace-t-il Arduino IDE ?
 
-**Non, mais il le complète**. mBlock génère du code Arduino C que vous pouvez exporter et modifier dans Arduino IDE. C'est une **passerelle** vers Arduino, pas un remplacement.
-
----
+Non, il le complète. mBlock produit du code Arduino C que l’on peut exporter puis modifier dans l’IDE Arduino. C’est une passerelle, pas un remplacement.
 
 ## Tableau récapitulatif final
 
-| Critère | Scratch ⭐⭐⭐ | mBlock ⭐⭐ |
-|---------|-------------|-----------|
-| **Facilité** | ★★★ Imbattable | ★★ Facile avec un peu d'aide |
-| **Créativité** | ★★★ Jeux, animations | ★★ Projets robotiques |
-| **Communauté** | ★★★ 30M utilisateurs | ★★ Moyenne |
-| **Matériel** | ★★★ Rien à acheter | ★ Robot requis (80-100€) |
-| **Évolutivité** | ★ Blocs uniquement | ★★★ Export Arduino C, Python |
-| **Âge** | 6-14 ans | 8-16 ans |
-| **Contexte** | École, maison, créativité | Robotique, techno collège, IoT |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">Scratch</th>
+<th scope="col">mBlock</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Facilité</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Imbattable</span></td>
+<td data-label="mBlock"><span class="td-val">Facile avec un peu d’aide</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Créativité</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Jeux et animations</span></td>
+<td data-label="mBlock"><span class="td-val">Projets robotiques</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Communauté</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Très large, projets publics sur scratch.mit.edu</span></td>
+<td data-label="mBlock"><span class="td-val">Moyenne</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Matériel</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Rien à acheter</span></td>
+<td data-label="mBlock"><span class="td-val">mBot 89,99 € (Amazon.fr, 6 novembre 2026). Arduino et micro:bit : consulter le prix</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Évolutivité</strong></span></td>
+<td data-label="Scratch"><span class="td-val">Blocs uniquement</span></td>
+<td data-label="mBlock"><span class="td-val">Export Arduino C et Python</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Âge</strong></span></td>
+<td data-label="Scratch"><span class="td-val">6-14 ans</span></td>
+<td data-label="mBlock"><span class="td-val">8-16 ans</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Contexte</strong></span></td>
+<td data-label="Scratch"><span class="td-val">École, maison, créativité</span></td>
+<td data-label="mBlock"><span class="td-val">Robotique, techno collège, IoT</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Notre recommandation** :
-- **6-10 ans, premier contact** → **Scratch**
-- **8-14 ans, avec robot ou projet robotique** → **mBlock**
-- **10-14 ans, transition vers Arduino** → **mBlock**
-- **Classe sans matériel** → **Scratch**
-- **Club robotique** → **mBlock**
+De 6 à 10 ans, pour un premier contact, partez sur Scratch. De 8 à 14 ans, avec un robot ou un projet robotique, prenez mBlock, y compris entre 10 et 14 ans si la suite visée est Arduino. Une classe sans matériel reste sur Scratch. Un club de robotique passe à mBlock.
 
----
-
-**En conclusion** : **Scratch** et **mBlock** sont **complémentaires**, pas concurrents. Scratch excelle pour **apprendre à penser** en programmation. mBlock excelle pour **appliquer** cette pensée à des **objets réels**. Selon votre objectif (créatif ou technique), l'un sera plus adapté que l'autre.
-
-**Commencez par Scratch**, puis **évoluez vers mBlock** si la robotique vous intéresse !
+Scratch et mBlock sont complémentaires. Scratch apprend à penser un programme. mBlock applique cette pensée à des objets réels. Selon que le but est créatif ou technique, l’un ira plus loin que l’autre. On peut commencer par Scratch, puis passer à mBlock quand la robotique devient le sujet.

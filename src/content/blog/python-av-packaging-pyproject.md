@@ -1,6 +1,6 @@
 ---
 title: "Python avancé — packaging moderne avec pyproject.toml"
-description: "Packaging Python : pyproject.toml, PEP 621, wheel, entrée console. 20 exercices."
+description: "Packaging Python moderne : pyproject.toml, métadonnées PEP 621, wheel et commande console. Vingt exercices pour livrer un petit outil utilisable en console."
 pubDate: 2026-03-29
 updatedDate: 2026-03-29
 series: Python avancé

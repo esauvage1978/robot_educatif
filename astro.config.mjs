@@ -5,10 +5,12 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 import { rehypeAmazonExternalLinks } from './src/rehype/rehype-amazon-external-links.mjs';
+import { rehypeRepairMarkdownLinks } from './src/rehype/rehype-repair-markdown-links.mjs';
 import { rehypePrependBaseForInternalLinks } from './src/rehype/rehype-prepend-base-internal-links.mjs';
 import { rehypePrependBaseForPublicImages } from './src/rehype/rehype-prepend-base-public-images.mjs';
 import { rehypeImageSize } from './src/lib/rehype-image-size.mjs';
 import { rehypeFaqSchema } from './src/rehype/rehype-faq-schema.mjs';
+import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
 import { normalizeAstroBase } from './src/lib/astroBase.mjs';
 import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
@@ -20,9 +22,7 @@ const { articleDates, thinCategories, latestDate, domotiqueLatest } = buildSitem
 const redirectedPaths = new Set([
 	'/activite-mbot-mesure-des-distances/',
 	'/meilleur-robot-programmable-enfants-2026/',
-	'/telecharger-mblock-5-gratuit-guide-2026/',
 	'/installer-mblock-windows-11-guide-facile/',
-	'/mblock-en-ligne-programmer-sans-installer/',
 	'/projets-mbot-classe/',
 	'/robot-par-age/',
 	'/robots-budget/',
@@ -33,17 +33,63 @@ const redirectedPaths = new Set([
 	'/mbot-vs-mbot2-comparaison-des-robots-educatifs-for-enfants/',
 	'/activite-mbot-faire-colignoter-les-leds/',
 	'/kit-robot-arduino-enfant/',
+	'/domotique/codes-erreurs-domotique/',
+	'/domotique/pieces-detachees-sav-domotique/',
+	'/outils/quel-robot-educatif-choisir/',
+	'/domotique/100-projets-domotique-utiles-2026/',
+	'/domotique/maison-connectee-sans-cloud-100-pourcent-locale/',
+	'/domotique/automatiser-porte-garage-homey/',
+	'/domotique/suivre-consommation-electrique-prise-connectee/',
+	'/domotique/volet-roulant-sans-neutral/',
+	'/python-listes-et-boucles-for/',
+	'/meilleur-robot-educatif-6-ans/',
+	'/en/robot-for-8-year-old/',
+	'/en/robot-for-10-year-old/',
+	'/en/robot-for-12-year-old/',
+	'/en/best-screen-free-coding-toys/',
+	'/uk/educational-robot-christmas-gifts-2026/',
+	'/en/smart-home/esp32-smart-home-projects/',
+	'/uk/smart-home/esp32-smart-home-projects/',
+	'/ca/smart-home/esp32-smart-home-projects/',
 ]);
 
 // https://astro.build/config
 // ASTRO_BASE : sous-dossier WAMP uniquement (npm run dev:wamp / build:wamp).
 // Production (robot-educatif.info) : `npm run build` force base = / (voir package.json).
+const outDir = process.env.ASTRO_OUT_DIR || 'dist';
+
 export default defineConfig({
 	site: 'https://robot-educatif.info',
+	// Port fixe : un `npm run dev` par site, sans se marcher dessus.
+	server: { port: 4321 },
 	base: normalizeAstroBase(process.env.ASTRO_BASE),
+	outDir,
+	// Une seule clé par chemin (avec slash final) : Astro traite /x et /x/ comme la même
+	// route statique — déclarer les deux provoque les collisions de build.
+	redirects: {
+		'/domotique/codes-erreurs-domotique/': '/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/',
+		'/domotique/pieces-detachees-sav-domotique/': '/domotique/pieces-detachees-capteurs-compatibles-moins-cher/',
+		'/outils/quel-robot-educatif-choisir/': '/outil-quel-robot-enfant/',
+		'/domotique/100-projets-domotique-utiles-2026/': '/domotique/configurateur-projet-domotique/',
+		'/domotique/maison-connectee-sans-cloud-100-pourcent-locale/': '/domotique/debuter-en-domotique-guide-complet/',
+		'/domotique/automatiser-porte-garage-homey/': '/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/',
+		'/domotique/suivre-consommation-electrique-prise-connectee/': '/domotique/projets/suivi-consommation-electrique/',
+		'/domotique/volet-roulant-sans-neutral/': '/domotique/projets/volet-roulant-connecte/',
+		'/python-listes-et-boucles-for/': '/python-boucles-for-while/',
+		'/meilleur-robot-educatif-6-ans/': '/quel-robot-acheter-enfant-6-ans-guide-achat/',
+		'/en/robot-for-8-year-old/': '/en/best-robot-for-an-8-year-old/',
+		'/en/robot-for-10-year-old/': '/en/best-robot-for-a-10-year-old/',
+		'/en/robot-for-12-year-old/': '/en/best-robot-for-a-12-year-old/',
+		'/en/best-screen-free-coding-toys/': '/en/best-robot-for-a-6-year-old/',
+		'/uk/educational-robot-christmas-gifts-2026/': '/en/educational-robot-christmas-gifts-2026/',
+	},
 	integrations: [
 		mdx(),
 		sitemap({
+			customPages: [
+				'https://robot-educatif.info/downloads/mbot/10-projets-mbot-classe.pdf',
+				'https://robot-educatif.info/downloads/mbot/corriges-diagrammes.pdf',
+			],
 			filter: (page) => {
 				const url = new URL(page);
 				const path = url.pathname;
@@ -112,9 +158,12 @@ export default defineConfig({
 		inlineStylesheets: 'always',
 	},
 	markdown: {
-		rehypePlugins: [rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks, rehypeImageSize, rehypeFaqSchema],
+		remarkPlugins: [remarkReadingTime],
+		rehypePlugins: [rehypeRepairMarkdownLinks, rehypeAmazonExternalLinks, rehypePrependBaseForPublicImages, rehypePrependBaseForInternalLinks, rehypeImageSize, rehypeFaqSchema],
 	},
 	vite: {
 		plugins: [vitePluginDevWampUrlMirror()],
+		server: { strictPort: true },
+		preview: { strictPort: true },
 	},
 });

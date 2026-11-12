@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import { ARTICLE_AUTHOR, CONTACT_EMAIL } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import { getCollection } from 'astro:content';
+import PageColumns from '../components/PageColumns.astro';
 
 const allPosts = await getCollection('blog');
 const guideCount = allPosts.length;
@@ -306,6 +307,12 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 	<body>
 		<Header />
 		<main>
+<PageColumns>
+			<nav class="container" aria-label="Fil d'Ariane" style="padding:1rem clamp(1rem,5vw,2rem) 0;font-size:0.95rem;">
+				<a href={withBase('/')}>Accueil</a>
+				<span aria-hidden="true"> › </span>
+				<span>Partenariat</span>
+			</nav>
 			<section class="hero">
 				<h1>Partenariat marques</h1>
 				<p>
@@ -323,17 +330,61 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 					
 					<div class="stats-grid">
 						<div class="stat-card">
-							<span class="stat-value">{guideCount}</span>
-							<span class="stat-label">Guides détaillés</span>
+							<span class="stat-value">{guideCount}+</span>
+							<span class="stat-label">Guides &amp; comparatifs publiés</span>
 						</div>
 						<div class="stat-card">
-							<span class="stat-value">6-15</span>
-							<span class="stat-label">Tranches d'âge couvertes</span>
+							<span class="stat-value">GA4</span>
+							<span class="stat-label">Audience FR + EN + DE + ES + IT (mesure agrégée, consentement cookies)</span>
 						</div>
 						<div class="stat-card">
-							<span class="stat-value">100%</span>
-							<span class="stat-label">Tests en conditions réelles</span>
+							<span class="stat-value">6–15 ans</span>
+							<span class="stat-label">Tranches d'âge couvertes (robots &amp; code)</span>
 						</div>
+						<div class="stat-card">
+							<span class="stat-value">2026</span>
+							<span class="stat-label">Tests terrain documentés (date dans chaque article)</span>
+						</div>
+					</div>
+
+					<div class="section-header" style="margin-top:2.5rem;">
+						<h2>Exemples de collaborations publiées</h2>
+						<p>Cas vérifiables sur le site — pas de logo « client » sans contenu associé.</p>
+					</div>
+					<div class="offerings-grid">
+						<div class="offering-card">
+							<h3>Makeblock (mBot / mBot2)</h3>
+							<p>
+								Série d’activités classe, comparatifs <a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a>,
+								dépannage <a href={withBase('/mblock-depannage-codes-erreurs-mbot-arduino/')}>codes erreurs mBlock</a> — contenus cités par les enseignants depuis 2024–2026.
+							</p>
+						</div>
+						<div class="offering-card">
+							<h3>Matatalab / MatataStudio</h3>
+							<p>
+								Test famille Tale-Bot Pro : <a href={withBase('/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab/')}>déballage et premiers pas</a>,
+								page marque <a href={withBase('/marque-matatalab/')}>Matatalab</a> (limites et garantie recoupées avec le shop officiel).
+							</p>
+						</div>
+						<div class="offering-card">
+							<h3>Domotique (Shelly, Sonoff, Home Assistant)</h3>
+							<p>
+								Guides d’achat et fiches dépannage : <a href={withBase('/domotique/')}>hub domotique</a>,
+								<a href={withBase('/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/')}>répertoire codes erreurs</a> — trafic qualifié « installateurs bricoleurs » + enseignement STIM.
+							</p>
+						</div>
+					</div>
+					<p style="text-align:center;margin-top:1.5rem;color:rgb(var(--gray-dark));max-width:720px;margin-left:auto;margin-right:auto;">
+						Chiffres d’audience détaillés (sessions, pays, pages d’entrée) communiqués sur demande sérieuse —
+						<a href={mailtoHref}>e-mail partenariat</a>. Dernière consolidation interne : <strong>novembre 2026</strong>.
+					</p>
+					<p style="text-align:center;margin-top:1rem;">
+						Qui sommes-nous : voir la page <a href={withBase('/about/')}>À propos</a> (fil éditorial du site).
+					</p>
+					<div class="stats-grid" style="margin-top:2rem;">
+						<img src={withBase('/images/products/mbot.webp')} alt="Robot mBot Makeblock testé en classe" width="280" height="210" loading="lazy" style="border-radius:12px;width:100%;height:auto;" />
+						<img src={withBase('/images/illustrations/mbot-vs-codey-rocky-comparatif.webp')} alt="Comparatif robots éducatifs Makeblock" width="280" height="210" loading="lazy" style="border-radius:12px;width:100%;height:auto;" />
+						<img src={withBase('/images/products/codey-rocky.webp')} alt="Robot Codey Rocky Makeblock" width="280" height="210" loading="lazy" style="border-radius:12px;width:100%;height:auto;" />
 					</div>
 					
 					<div class="channels">
@@ -400,8 +451,8 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 							<div class="offering-icon">📝</div>
 							<h3>Tests produits détaillés</h3>
 							<p>
-								Articles approfondis avec installation, utilisation en conditions réelles, points forts 
-								et limites. Pas de complaisance : nous testons vraiment.
+								Articles approfondis : installation et usage lorsque nous avons le produit en main,
+								sinon comparatif documentaire clairement indiqué. Points forts et limites sans complaisance.
 							</p>
 						</div>
 						
@@ -481,7 +532,8 @@ const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Parten
 					</div>
 				</div>
 			</section>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

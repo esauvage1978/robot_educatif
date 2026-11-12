@@ -1,0 +1,379 @@
+---
+import InlineParts from './InlineParts.astro';
+import SmartHomeProjectInlineConfigurator from './SmartHomeProjectInlineConfigurator.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import { withBase } from '../lib/siteUrl';
+
+interface Guide {
+	lang: string;
+	inLanguage: string;
+	title: string;
+	howToDescription: string;
+	articleDescription: string;
+	tocAria: string;
+	stepWord: string;
+	whereWord: string;
+	checkWord: string;
+	steps: { title: string; why: string; where: string; actions: string[]; observe: string; check: string }[];
+	faq: { question: string; answer: string }[];
+	blocks: Record<string, unknown>[];
+}
+
+interface Props {
+	guide: Guide;
+	articleUrl: string;
+	useCase?: { id: string };
+	lang?: 'en' | 'de' | 'it' | 'es';
+}
+
+const { guide, articleUrl, useCase, lang = 'en' } = Astro.props;
+const useCaseJson = useCase ? JSON.stringify(useCase) : '';
+const noscriptByLang = {
+	en: 'Without JavaScript, the buttons do not refresh the parts list. The three cases above still apply.',
+	de: 'Ohne JavaScript aktualisieren die Schaltflächen die Materialliste nicht. Die drei Fälle oben gelten weiterhin.',
+	it: 'Senza JavaScript, i pulsanti non aggiornano l’elenco materiale. I tre casi sopra restano validi.',
+	es: 'Sin JavaScript, los botones no actualizan la lista de material. Los tres casos de arriba siguen valiendo.',
+};
+
+const howTo = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: guide.title,
+	description: guide.howToDescription,
+	inLanguage: guide.inLanguage,
+	step: guide.steps.map((step, index) => ({
+		'@type': 'HowToStep',
+		position: index + 1,
+		name: step.title,
+		text: [step.why, ...step.actions, step.observe, step.check].join(' '),
+	})),
+};
+
+const techArticle = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: guide.title,
+	description: guide.articleDescription,
+	datePublished: '2026-10-29',
+	dateModified: '2026-10-29',
+	inLanguage: guide.inLanguage,
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howTo)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticle)} />
+<StructuredDataFaq items={guide.faq} />
+
+<div class="gd-guide">
+	<nav class="gd-toc" aria-label={guide.tocAria}>
+		{guide.blocks
+			.filter((block) => block.type === 'h2')
+			.map((block) => (
+				<a href={`#${block.id}`}>{block.toc || block.text}</a>
+			))}
+	</nav>
+
+	{
+		guide.blocks.map((block) => {
+			if (block.type === 'p') {
+				return (
+					<p>
+						<InlineParts parts={block.parts} />
+					</p>
+				);
+			}
+			if (block.type === 'h2') return <h2 id={block.id}>{block.text}</h2>;
+			if (block.type === 'h3') return <h3>{block.text}</h3>;
+			if (block.type === 'sit') {
+				return (
+					<section class:list={['gd-sit', { 'is-current': block.current }]}>
+						<h3>{block.title}</h3>
+						<p>
+							<InlineParts parts={block.parts} />
+						</p>
+					</section>
+				);
+			}
+			if (block.type === 'config' && useCase) {
+				return (
+					<>
+						<SmartHomeProjectInlineConfigurator useCaseId={useCase.id} useCaseJson={useCaseJson} lang={lang} />
+						<noscript>
+							<p>{(block.noscript as string) || noscriptByLang[lang]}</p>
+						</noscript>
+					</>
+				);
+			}
+			if (block.type === 'table') {
+				const headers = block.headers as string[];
+				const rows = block.rows as string[][];
+				return (
+					<table class="gd-table">
+						<thead>
+							<tr>
+								{headers.map((header) => (
+									<th>{header}</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{rows.map((row) => (
+								<tr>
+									{row.map((cell, index) => (
+										<td data-label={headers[index]}>{cell}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				);
+			}
+			if (block.type === 'photo') {
+				return (
+					<figure class="gd-photo">
+						<img
+							src={withBase(block.src)}
+							width={block.width}
+							height={block.height}
+							alt={block.alt}
+							loading="lazy"
+							decoding="async"
+						/>
+						<figcaption>
+							<InlineParts parts={block.caption} />
+						</figcaption>
+					</figure>
+				);
+			}
+			if (block.type === 'schema') {
+				const s = block;
+				return (
+					<figure class="gd-schema">
+						<figcaption>{s.caption}</figcaption>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 760" role="img" aria-labelledby="gd-arch-title gd-arch-desc">
+							<title id="gd-arch-title">{s.title}</title>
+							<desc id="gd-arch-desc">{s.desc}</desc>
+							<defs>
+								<marker id="gd-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+									<path d="M0,0 L8,4 L0,8 Z" fill="#0f766e" />
+								</marker>
+								<marker id="gd-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+									<path d="M0,0 L8,4 L0,8 Z" fill="#c2410c" />
+								</marker>
+							</defs>
+							<rect width="360" height="760" rx="12" fill="#f8fafc" />
+							<rect x="16" y="16" width="328" height="70" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2" />
+							<text x="28" y="42" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.phoneTitle}</text>
+							<text x="28" y="64" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.phoneLine}</text>
+							<line x1="180" y1="86" x2="180" y2="108" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)" />
+							<text x="188" y="104" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">{s.net}</text>
+							<rect x="16" y="114" width="328" height="70" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2" />
+							<text x="28" y="140" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.haTitle}</text>
+							<text x="28" y="162" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.haLine}</text>
+							<line x1="180" y1="184" x2="180" y2="206" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)" />
+							<text x="188" y="202" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">{s.wifi}</text>
+							<rect x="16" y="212" width="328" height="92" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2" />
+							<text x="28" y="236" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.shellyTitle}</text>
+							<text x="28" y="258" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.shellyA}</text>
+							<text x="28" y="278" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.shellyB}</text>
+							<line x1="180" y1="304" x2="180" y2="326" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)" />
+							<text x="188" y="322" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">{s.ioOnly}</text>
+							<rect x="16" y="332" width="328" height="78" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2" />
+							<text x="28" y="356" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.btnTitle}</text>
+							<text x="28" y="378" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.btnA}</text>
+							<text x="28" y="396" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.btnB}</text>
+							<line x1="180" y1="410" x2="180" y2="432" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)" />
+							<rect x="16" y="438" width="328" height="78" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2" />
+							<text x="28" y="462" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.motorTitle}</text>
+							<text x="28" y="484" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.motorA}</text>
+							<text x="28" y="502" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.motorB}</text>
+							<text x="16" y="546" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#9a3412">{s.powerTitle}</text>
+							<rect x="16" y="556" width="328" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2" />
+							<text x="28" y="588" font-family="system-ui,sans-serif" font-size="14" fill="#7c2d12">{s.powerLine}</text>
+							<rect x="16" y="626" width="328" height="112" rx="8" fill="#fff" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4" />
+							<text x="28" y="652" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">{s.sensorTitle}</text>
+							<text x="28" y="674" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.sensorA}</text>
+							<text x="28" y="694" font-family="system-ui,sans-serif" font-size="13" fill="#334155">{s.sensorB}</text>
+							<text x="28" y="716" font-family="system-ui,sans-serif" font-size="13" fill="#64748b">{s.sensorC}</text>
+						</svg>
+					</figure>
+				);
+			}
+			if (block.type === 'steps') {
+				return guide.steps.map((step, index) => (
+					<section class="gd-step">
+						<h3>
+							{guide.stepWord} {index + 1}. {step.title}
+						</h3>
+						<p>{step.why}</p>
+						<p>
+							<strong>{guide.whereWord}</strong> {step.where}
+						</p>
+						<ol>
+							{step.actions.map((action) => (
+								<li>{action}</li>
+							))}
+						</ol>
+						<p>{step.observe}</p>
+						<p>
+							<strong>{guide.checkWord}</strong> {step.check}
+						</p>
+					</section>
+				));
+			}
+			if (block.type === 'pre') return <pre><code>{block.code}</code></pre>;
+			if (block.type === 'ul') {
+				const items = block.items as string[];
+				return (
+					<ul class="gd-check">
+						{items.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				);
+			}
+			if (block.type === 'faq') {
+				return guide.faq.map((item) => (
+					<section>
+						<h3>{item.question}</h3>
+						<p>{item.answer}</p>
+					</section>
+				));
+			}
+			if (block.type === 'sources') {
+				const items = block.items as { href: string; text: string; note?: string; sponsored?: boolean }[];
+				return (
+					<ul>
+						{items.map((item) => {
+							const external = item.href.startsWith('http');
+							return (
+								<li>
+									<a
+										href={external ? item.href : withBase(item.href)}
+										rel={item.sponsored ? 'sponsored nofollow noopener' : external ? 'noopener noreferrer' : undefined}
+										target={external ? '_blank' : undefined}
+									>
+										{item.text}
+									</a>
+									{item.note ? ` ${item.note}` : ''}
+								</li>
+							);
+						})}
+					</ul>
+				);
+			}
+			return null;
+		})
+	}
+</div>
+
+<style>
+	.gd-guide {
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+	.gd-toc {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin: 0 0 1.5rem;
+	}
+	.gd-toc a {
+		font-size: 0.92rem;
+	}
+	.gd-sit,
+	.gd-step {
+		margin: 1.25rem 0;
+	}
+	.gd-sit.is-current {
+		border-left: 4px solid #0f766e;
+		padding-left: 0.8rem;
+	}
+	.gd-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1rem 0 1.25rem;
+		font-size: 0.98rem;
+	}
+	.gd-table th,
+	.gd-table td {
+		border: 1px solid #cbd5e1;
+		padding: 0.55rem 0.7rem;
+		text-align: left;
+		vertical-align: top;
+		color: #0f172a;
+		background: #fff;
+	}
+	.gd-table th {
+		background: #f1f5f9;
+	}
+	
+	.gd-schema {
+		margin: 1.25rem 0;
+	}
+	.gd-schema svg {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+	}
+	.gd-schema figcaption {
+		margin-bottom: 0.4rem;
+		font-size: 0.95rem;
+	}
+	.gd-photo {
+		margin: 1.25rem 0 1.5rem;
+	}
+	.gd-photo img {
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		border-radius: 12px;
+		display: block;
+	}
+	.gd-photo figcaption {
+		margin-top: 0.45rem;
+		max-width: 720px;
+		font-size: 0.92rem;
+	}
+	.gd-guide pre {
+		overflow-x: auto;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	.gd-check {
+		padding-left: 1.2rem;
+	}
+	@media (max-width: 720px) {
+		.gd-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+		}
+		.gd-table tr {
+			display: block;
+			margin-bottom: 0.8rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 8px;
+			padding: 0.4rem 0.7rem;
+		}
+		.gd-table td {
+			display: block;
+			border: 0;
+			padding: 0.28rem 0;
+		}
+		.gd-table td::before {
+			content: attr(data-label);
+			display: block;
+			font-weight: 700;
+			font-size: 0.82rem;
+		}
+	}
+</style>

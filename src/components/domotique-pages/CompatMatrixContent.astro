@@ -1,0 +1,62 @@
+---
+import SmartHomeCompatMatrix from '../SmartHomeCompatMatrix.astro';
+import { COMPAT_PAGE_META } from '../../data/smartHomeCompat.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang } = Astro.props;
+const meta = COMPAT_PAGE_META[lang];
+---
+
+<p>{meta.intro}</p>
+
+<p class="cmx-legend" style="font-size:0.92rem;color:rgb(var(--gray-dark));margin:0 0 1rem 0;max-width:42rem;line-height:1.55;">
+	{lang === 'fr' ? (
+		<>
+			<strong>Légende :</strong> <em>Natif</em> = intégration officielle ou très stable ; <em>Plugin</em> = extension ou pont (Zigbee2MQTT, HACS…) ;
+			<em> Non</em> = non prévu ou cloud obligatoire. Avant d’acheter un capteur, croisez avec notre{' '}
+			<a href={withBase('/domotique/capteur-temperature-zigbee/')}>comparatif capteur température Zigbee</a> et le{' '}
+			<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>choix du dongle Zigbee</a>.
+		</>
+	) : (
+		meta.intro
+	)}
+</p>
+
+<SmartHomeCompatMatrix lang={lang} />
+
+<p>
+	{lang === 'fr'
+		? 'Besoin d’aide sur une erreur précise ? Consultez notre '
+		: lang === 'de'
+			? 'Konkreter Fehler? Siehe '
+			: lang === 'it'
+				? 'Errore specifico? Vedi '
+				: lang === 'es'
+					? '¿Un error concreto? Consulta '
+					: 'Need help with a specific error? See our '}
+	<a href={withBase(
+		lang === 'fr'
+			? '/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/'
+			: lang === 'en'
+				? '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/'
+				: lang === 'de'
+					? '/de/smart-home/fehlercodes-stoerungen-zigbee-home-assistant-shelly/'
+					: lang === 'it'
+						? '/it/domotica/codici-errore-risoluzione-zigbee-home-assistant-shelly/'
+						: '/es/domotica/codigos-error-solucion-zigbee-home-assistant-shelly/',
+	)}>
+		{lang === 'fr'
+			? 'répertoire codes erreurs & dépannage'
+			: lang === 'de'
+				? 'Fehlercode-Verzeichnis'
+				: lang === 'it'
+					? 'elenco codici errore'
+					: lang === 'es'
+						? 'directorio de códigos de error'
+						: 'error codes & troubleshooting hub'}
+	</a>.
+</p>

@@ -1,0 +1,416 @@
+---
+title: "Temperature sensor Zigbee Home Assistant: comparative SNZB-02D, Aqara"
+description: "Comparison of temperature and humidity sensors Zigbee 2026: SONOFF SNZB-02D, Aqara T1, Tuya. Precision, autonomy, placement, automations heating Home Assistant."
+pubDate: 2026-10-18T00:00:00Z
+category: "guides-achat"
+products: ["sonoff-snzb-02d"]
+priority: 7
+lang: "en"
+frSlug: "capteur-temperature-zigbee"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+A **Zigbee Temperature Sensor** This guide compares 5 popular Zigbee 3.0 sensors in 2026 for Home Assistant, with precision, autonomy and use cases.
+
+## Our quick selection
+
+<ProductBox
+  lang="en"
+  productId="sonoff-snzb-02d"
+  name="SONOFF SNZB-02D"
+  asin="B0BYZP8NK2"
+  image="/images/products/sonoff-snzb-02d.webp"
+  priceRange="to check with the seller"
+  pros={[
+    'Built-in LCD display',
+    'Accuracy 0.2 °C (better)',
+    'Autonomy 2 years (CR2450)',
+    'Historical min/max 24h'
+  ]}
+  badge="Our choice"
+  position={1}
+/>
+
+## Comparison table: 5 Zigbee temperature sensors
+
+| Model | Measures | Screen | Accuracy | Autonomy | Battery | Size | For whom? |
+|--------|---------|-------|-----------|-----------|------|--------|------------|
+| **[SONOFF](/en/sonoff-brand/) SNZB-02D** | Temp, Hum | LCD | 0.2 °C, 2% RH | 2 years | CR2450 | 4.3 cm | **Best choice** LCD display, accurate, excellent battery life |
+| **Aqara T1 (WSDCGQ11LM)** | Temp, Hum, Pressure | e-ink | 0.3 °C, 3% RH | 12 years | CR2032 | 3.6 cm | Premium design, atmospheric pressure |
+| **SONOFF SNZB-02P** | Temp, Hum | ❌ | 0.4 °C, 4% RH | 1.5 years | CR2477 | 4 cm | Version without screen, budget |
+| **Tuya TS0201** | Temp, Hum | ❌ | 0.5 °C, 5% RH | 1 year | AAA 2 | 6 cm | Mini budget, AAA batteries |
+| **Aqara FP2 (mmWave)** | Temp, Hum, **Presence** | ❌ | ±0,5 °C | USB-C | Sector | 8 cm | Sensor presence mmWave + temperature |
+
+*Price: to be checked at the seller.*
+
+## Our detailed selection
+
+### 1. SONOFF SNZB-02D Our choice
+
+**Why is it the best** :
+- **Built-in LCD display**: temperature and humidity display without opening Home Assistant
+- **Accuracy**: 0.2 °C (temperature), 2% RH (humidity) best in class
+- **Autonomy 2 years** : CR2450 battery (thick, large capacity)
+- **Compact**: 4.3  4.3  1.4 cm, discreet on shelf or wall
+- **Background** : store min/max last 24h on LCD screen
+
+**Compatible**: ZHA and Zigbee2MQTT, instantly recognized.
+
+**Use**:
+- Monitor temperature baby room (alert if < 18 °C ou > 24 °C)
+- Automate living room heating (light radiator if  19 °C)
+- Detect excessive humidity in the bathroom (> 70%  mold)
+
+*Amazon link: [SONOFF SNZB-02D](https://www.amazon.co.uk/dp/B0BYZP8NK2?tag=roboteducatif-21) or [lot of 2](https://www.amazon.co.uk/dp/B0BZCV658S?tag=roboteducatif-21).*
+
+### 2. Aqara T1 Premium design
+
+**Benefits** :
+- **Elegant e-ink screen** : Apple-like design, permanent display without backlighting
+- **Atmospheric pressure**: predict local weather (low pressure  likely rain)
+- **Small**: 3.6 cm, the most compact
+- **HomeKit** compatible (via Aqara Hub M3)
+
+**Limits**:
+- Slightly lower accuracy: 0.3 °C (vs 0.2 °C SONOFF)
+- Battery life 12 years (CR2032 battery less capacitive than CR2450)
+- Price to compare with the SONOFF at the seller
+
+**For whom?** Important design, existing Aqara ecosystem, interest in atmo pressure.
+
+### 3. SONOFF SNZB-02P Without screen
+
+**Benefits** :
+- **SONOFF version without screen**, in principle cheaper than the SNZB-02D
+- Compact, 1.5 years battery life
+- Same reliable brand as SNZB-02D
+
+**Limits**:
+- **No screen**: see temperature only via Home Assistant
+- Accuracy 0.4 °C (vs 0.2 °C version D)
+
+**For whom?** Minimum budget, no need screen (temperature check only via HA app).
+
+### 4. Tuya TS0201 AAA Budget
+
+**Benefits** :
+- **Low price** (to be checked at the seller)
+- **AAA batteries**: easy to find, replace everywhere
+
+**Limits**:
+- Poor accuracy: 0.5 °C (acceptable but not excellent)
+- Autonomy 1 year only
+- Larger: 6 cm (AAAA batteries)
+- Generic Tuya (Random SAV)
+
+**For whom?** Extreme budget, large AAA batteries stock, 0.5 °C accuracy acceptable.
+
+### 5. Aqara FP2 Presence + temperature
+
+**Benefits** :
+- **mmWave presence sensor**: detects even motionless (desktop, bed)
+- Temperature + bonus humidity
+- USB-C power supply (no batteries)
+
+**Limits**:
+- **Significantly higher price** than a simple temperature sensor
+- **Accuracy average temperature**: 0.5 °C (this is not its main function)
+- Requires USB connection nearby
+
+**For whom?** Main need presence detection. Temperature bonus.
+
+## How to choose your temperature sensor?
+
+### Criterion 1: Need a built-in screen?
+
+**Yeah.** (see temperature without smartphone):
+- SONOFF SNZB-02D (LCD, historical 24h)
+- Aqara T1 (e-ink design)
+
+**No** (Check via Home Assistant is enough):
+- SONOFF SNZB-02P
+- Tuya TS0201
+
+### Criterion 2: Accuracy required
+
+**High precision 0.2 °C** (heating, baby room):
+- SONOFF SNZB-02D
+
+**Normal accuracy 0.30.5 °C** (general surveillance):
+- Aqara T1, SNZB-02P, Tuya
+
+**Practical difference**:
+- Actual 18 °C: SNZB-02D is 17.818.2 °C. Tuya is 17.518.5 °C.
+- For automations 1 °C: no noticeable difference.
+
+### Criterion 3: Autonomy
+
+**Long autonomy 2 years** :
+- SONOFF SNZB-02D (CR2450)
+
+**Normal autonomy 12 years**:
+- Aqara T1 (CR2032), SNZB-02P (CR2477), Tuya (AAA)
+
+**Permanent sector**:
+- Aqara FP2 (USB-C)
+
+### Criterion 4: Number of sensors required
+
+**Recommendations**:
+- **Studio 30 m2**: 1 sensor (living room/single room)
+- **Apartment 50 m2**: 2 sensors (living room, bedroom)
+- **Apartment 80 m2**: 3 sensors (living room, 2 bedrooms)
+- **House 120 m2**: 45 sensors (living room, 3 bedrooms, office or cellar)
+
+**Rule**: 1 sensor per heated room or room to be monitored. No need in toilet, hallways, dressing room.
+
+## Optimal placement of sensors
+
+### Where to place?
+
+**Recommended**:
+- Room center (not against outside wall)
+- Height 1.21.8 m from the ground (breathing area)
+- Shelf, furniture, office
+- In the shade (not direct sunlight)
+
+**To avoid**:
+- Close Window (False Air Currents Measure)
+- Above radiator (local temperature  piece)
+- Behind thick curtain (stagnant air)
+- Kitchen near plate (steam, heat)
+- Bathroom (humidity > 80%  sensor condensation)
+
+### Distance from Zigbee dongle
+
+**Direct range**: 1015 m indoor (23 walls)
+
+**If > 15 m** : add Zigbee repeaters (plugs) between dongle and sensor. [Zigbee Takes Guide](/en/smart-home/smart-plugs-uk-us/).
+
+## Installation and configuration
+
+### Pairing with ZHA
+
+1. Open Home Assistant  **Zigbee Devices (ZHA)  Add**
+2. Remove tab battery SNZB-02D
+3. Maintain **Button** Sensor **5 seconds**
+4. LED flashes (red/blue)
+5. Sensor appears: "SONOFF SNZB-02D"
+
+**Entities created**:
+- `sensor.snzb_02d_salon_temperature` (°C)
+- `sensor.snzb_02d_salon_humidity` (%)
+- `sensor.snzb_02d_salon_battery` (%)
+
+### Calibration (optional)
+
+If deviation (1 °C vs. reference thermometer):
+
+```yaml
+# configuration.yaml
+sensor:
+  - platform: template
+    sensors:
+      temperature_salon_calibree:
+        friendly_name: "Température salon (calibrée)"
+        unit_of_measurement: "°C"
+        value_template: "{{ states('sensor.snzb_02d_salon_temperature')|float - 0.5 }}"
+```
+
+Adjust `-0,5` according to measured deviation.
+
+## Useful automations
+
+### 1. Automatic heating  19 °C
+
+```yaml
+automation:
+  - alias: "Chauffage salon < 19°C"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_salon
+        below: 19
+    condition:
+      - condition: time
+        after: "06:00"
+        before: "22:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.prise_radiateur_salon
+```
+
+### 2. Alert baby room off limits
+
+```yaml
+automation:
+  - alias: "Alerte température chambre bébé"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.temperature_chambre_bebe
+        below: 17
+      - platform: numeric_state
+        entity_id: sensor.temperature_chambre_bebe
+        above: 24
+    action:
+      - service: notify.mobile_app
+        data:
+          title: "Température chambre bébé anormale"
+          message: "{{ states('sensor.temperature_chambre_bebe') }}°C"
+```
+
+### 3. Excessive humidity alert (> 70%)
+
+```yaml
+automation:
+  - alias: "Humidité cave excessive"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.humidity_cave
+        above: 70
+        for: "01:00:00"
+    action:
+      - service: notify.mobile_app
+        data:
+          message: "Risque moisissure cave ({{ states('sensor.humidity_cave') }}%)"
+```
+
+### 4. Temperature chart 7 days
+
+Add historical map in Lovelace:
+
+```yaml
+type: history-graph
+entities:
+  - sensor.temperature_salon
+  - sensor.temperature_chambre
+hours_to_show: 168
+refresh_interval: 0
+```
+
+## Common Errors and Troubleshooting
+
+### Problem: Sensor does not pair
+
+**Solutions**:
+1. Remove tab stack completely (check contact stack)
+2. Move closer to the Zigbee dongle ( 3 m)
+3. Reset: hold button 10 seconds (orange LED  reset)
+4. New battery (some new batteries are low after 1 year of storage)
+
+### Problem: Incorrect temperature (deviation > 2 °C)
+
+**Causes**:
+- Sensor in full sun (local temperature  ambient)
+- Too close to radiator or window
+- Defective sensor
+
+**Solutions**:
+1. Move sensor (room center, shadow)
+2. Wait for stabilization (30 min after travel)
+3. Compare with medical thermometer (reliable reference)
+4. Calibrate via template sensor (see Calibration section)
+
+### Problem: Low battery after 6 months
+
+**Causes**:
+- Low-end battery (actual capacity  announced)
+- Defective sensor (current leakage)
+- Old firmware (excessive consumption)
+
+**Solutions**:
+1. Replace with battery **Duracell or Energizer** (duration 2 no-name batteries)
+2. Check firmware sensor (ZHA  Device  Firmware OTA)
+3. If recurring: defective sensor, after-sales return
+
+### Problem: Humidity blocked at 99%
+
+**Cause**: condensation on sensor (bathroom, cellar very humid).
+
+**Solutions**:
+1. Remove battery, allow to dry 24h (rice or dehumidifier)
+2. Avoid parts > 80% humidity (sensor limits)
+3. Use waterproof IP65 sensor (more expensive, rare in Zigbee)
+
+## Interpretation of measures
+
+### Ideal temperature per room
+
+| Exhibit | Recommended temperature | Night |
+|-------|-------------------------|------|
+| **Salon** | 19–21 °C | 18–19 °C |
+| **Adult Room** | 18–20 °C | 16–18 °C |
+| **Baby/Child Room** | 18–20 °C | 18–19 °C |
+| **Kitchen** | 18–19 °C | — |
+| **Bathroom** | 2224 °C (usage) | 18 °C |
+| **Office** | 19–21 °C | — |
+| **Cellar/garage** | > 5 °C (freeze-free) | — |
+
+### Ideal Humidity
+
+**WHO Recommendations**:
+- **4060% RH**: optimal comfort zone
+- 30%: too dry air (irritation, static electricity)
+- > 70%: risk of mold, dust mites
+
+**Actions according to humidity**:
+- 30%: humidifier or water bowls on radiator
+- > 70%: ventilate 10 min 2/day, dehumidifier if recurrent
+
+## Maintenance and service life
+
+### Battery Replacement
+
+**Frequency**:
+- SNZB-02D (CR2450): every 2 years
+- Aqara T1 (CR2032): every 12 years
+- Tuya (AAA): every 12 months
+
+**Alert HA** : automatic notification when battery 20%.
+
+### Cleaning
+
+**Every 6 months**:
+- Dust off with dry microfiber cloth
+- Avoid liquid products (risk of sensor infiltration)
+
+### Total life
+
+**Electronics**: 510 years (very reliable Zigbee sensors)
+**Limits**: battery + plastic case (yellowing after 5 years sun exposure)
+
+
+**Read also** : [Zigbee2MQTT or ZHA](/en/smart-home/zigbee2mqtt-vs-zha-home-assistant/) · [PIR Presence Detector](/en/smart-home/raspberry-pi-pir-motion-sensor-lighting/)
+
+## FAQ
+
+**How accurate is it to automate heating?**
+0.5 °C is enough. Same sensor Tuya 0.5 °C allows to "light radiator if 19 °C" without problem. Accuracy 0.2 °C (SNZB-02D) is a comfort bonus.
+
+**How many sensors for a 100 m2 house?**
+45 sensors: living room, 23 bedrooms, office or cellar. No need in toilet, hallways, dressing room (identical temperature adjacent rooms).
+
+**Is temperature sensor enough for VMC?**
+No, VMC requires sensor **CO2** (air quality). Temperature + humidity detect overheating/humidity, but not air pollution. [CO2 sensor project ESP32](/en/smart-home/esp32-smart-home-projects/).
+
+**Difference Between Zigbee and ESP32 DIY Sensor?**
+**Zigbee** : battery, no cable, plug & play, 12 year battery life. **ESP32** : 5V USB power supply, customizable, often cheaper (an ESP32 and a DHT22 are enough). [Tuto ESP32 Temperature](/en/smart-home/esp32-esphome-temperature-sensor/).
+
+**Can I use the sensor outside?**
+No (IP20 only). For outdoor use: waterproof IP65 sensor (Aqara IP55, rare) or ESP32 + DHT22 in DIY waterproof housing.
+
+**Do we need to calibrate all the sensors?**
+Not if spread < 1 °C. Calibrer uniquement si écart > 1.5 °C vs medical thermometer reference.
+
+## To go further
+
+- [Connected plug Zigbee](/en/smart-home/smart-plugs-uk-us/): automate heating
+- [Best Zigbee dongle](/en/smart-home/best-zigbee-dongle-home-assistant/): create a network
+- [Install Home Assistant](/en/smart-home/install-home-assistant-raspberry-pi-5/)
+- [Projects ESP32 temperature DIY](/en/smart-home/esp32-esphome-temperature-sensor/): customizable alternative
+- [Home automation hub](/en/smart-home/): return home
+
+---
+
+*Affiliation: Amazon links tag manuso06-21, 3% commission. Price October 2026. Our selection based on search, without tests.*

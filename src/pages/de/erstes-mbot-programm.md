@@ -15,12 +15,36 @@ Diese Anleitung führt **Schritt für Schritt** vom ersten Block in mBlock 5 bis
 
 ## 1. Das Programm im Überblick
 
-| Schritt | Block (Kategorie) | Wirkung |
-|---|---|---|
-| 1 | Startblock des mBot, englisch *when mBot(mcore) starts up* (mBot / Ereignisse) | Einstieg, wenn die Platine eingeschaltet oder zurückgesetzt wird |
-| 2 | *warte bis ⟨ ⟩* (Steuerung) | hält an, bis die Bedingung wahr wird |
-| 3 | Abfrage des Platinen-Tasters, englisch *when on-board button pressed?* (Fühlen) | wird wahr, wenn Sie den Taster drücken |
-| 4 | Tonblock, englisch *play note C4 for 0.25 beats* (Aussehen / Klang) | spielt einen kurzen Ton |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Schritt</th>
+<th scope="col">Block (Kategorie)</th>
+<th scope="col">Wirkung</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Schritt"><span class="td-val">1</span></td>
+<td data-label="Block (Kategorie)"><span class="td-val">Startblock des mBot, englisch <em>when mBot(mcore) starts up</em> (mBot / Ereignisse)</span></td>
+<td data-label="Wirkung"><span class="td-val">Einstieg, wenn die Platine eingeschaltet oder zurückgesetzt wird</span></td>
+</tr>
+<tr>
+<td data-label="Schritt"><span class="td-val">2</span></td>
+<td data-label="Block (Kategorie)"><span class="td-val"><em>warte bis ⟨ ⟩</em> (Steuerung)</span></td>
+<td data-label="Wirkung"><span class="td-val">hält an, bis die Bedingung wahr wird</span></td>
+</tr>
+<tr>
+<td data-label="Schritt"><span class="td-val">3</span></td>
+<td data-label="Block (Kategorie)"><span class="td-val">Abfrage des Platinen-Tasters, englisch <em>when on-board button pressed?</em> (Fühlen)</span></td>
+<td data-label="Wirkung"><span class="td-val">wird wahr, wenn Sie den Taster drücken</span></td>
+</tr>
+<tr>
+<td data-label="Schritt"><span class="td-val">4</span></td>
+<td data-label="Block (Kategorie)"><span class="td-val">Tonblock, englisch <em>play note C4 for 0.25 beats</em> (Aussehen / Klang)</span></td>
+<td data-label="Wirkung"><span class="td-val">spielt einen kurzen Ton</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Die Beschriftungen der Blöcke hängen von der mBlock-Version und der eingestellten Sprache ab; die englischen Bezeichnungen helfen beim Wiederfinden.
 

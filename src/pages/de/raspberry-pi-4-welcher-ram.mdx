@@ -1,0 +1,132 @@
+---
+layout: ../../layouts/DePost.astro
+title: "Raspberry Pi 4: welche RAM-Version kaufen?"
+description: "Pi 4: 2, 4 oder 8 GB RAM nach Projekt, Zubehör, Fehlerbehebung und DE-Preisorientierung (Okt. 2026)."
+updated: "31. Oktober 2026"
+schemaUpdated: "2026-10-31"
+faqSchema:
+  - question: "2 GB oder 4 GB für den ersten Raspberry Pi 4?"
+    answer: "2026: 4 GB für Raspberry Pi OS Desktop, Python-Lernen oder Robotik mit Sensoren. 2 GB reicht für Headless-Server (Pi-hole, leichte API), wenn Sie Linux bereits kennen."
+  - question: "Kann man die RAM des Pi 4 später erweitern?"
+    answer: "Nein. Der Speicher ist verlötet. Wählen Sie die Variante beim Kauf; im Zweifel 4 GB oder 8 GB."
+  - question: "Welches Netzteil für Raspberry Pi 4?"
+    answer: "USB-C 5 V; Raspberry Pi empfiehlt etwa 3 A (15 W) für die Platine plus moderate USB-Geräte. Ein schwaches Handy-Ladegerät löst Unterspannungswarnung und Drosselung aus."
+  - question: "Braucht der Pi 4 ein Lüftergehäuse?"
+    answer: "Bei langen Lasten (Kompilieren, Server, voller Desktop) reduziert ein Lüftergehäuse oder gute Kühlkörper thermische Drosselung. Für leichte Headless-Skripte reicht oft passive Kühlung."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+
+<AffiliateDisclosure variant="compact" lang="de" />
+
+> **Kurzantwort (Oktober 2026)** — Für einen **ersten Pi 4** zu Hause, in der Schule oder für **Python**-Robotik: meist **4 GB**. **8 GB**, wenn Sie mehrere **Dienste** parallel betreiben — z. B. **Docker** (Software, die Apps in isolierten „Containern“ startet), oft kompilieren oder viele Browser-Tabs offen haben. **2 GB** vor allem für **Headless**-Netzwerk. **1 GB** neu 2026 selten sinnvoll — vergleichen Sie einen [Pi 5](/de/raspberry-pi-5-welcher-ram/) oder **gebrauchten** 2/4-GB-Pi.
+
+**Auf einen Blick:**
+
+| Variante | Typische Projekte |
+| --- | --- |
+| **Pi 4 2 GB** | Pi-hole, leichter Server, Kiosk, Monitoring |
+| **Pi 4 4 GB** | Linux-Desktop, Python, Robotik, Alltag |
+| **Pi 4 8 GB** | Docker, Kompilieren, große IDE, viele Tabs |
+
+**Preisorientierung (Amazon.de, Oktober 2026, indikativ)** — **4 GB** oft **~50–70 €**; **8 GB** meist **+10–20 €**. Immer Angebot prüfen. Generationen vergleichen: [Vergleich Pi 3 / 4 / 5](/de/raspberry-pi-3-vs-4-vs-5/) — Hub der Raspberry-Pi-Rubrik auf Robot Éducatif.
+
+Der **[Raspberry Pi](/de/marke-raspberry-pi/) 4 Model B** (2019, spätere Revisionen) ist ein **Einplatinencomputer** in Kreditkartengröße. Er unterscheidet sich vom Pi 3 durch **zwei USB-3.0-Ports**, unabhängiges **Gigabit-Ethernet**, **bis 8 GB RAM** in **LPDDR4-3200** (verlöteter Arbeitsspeicher) und **zwei micro-HDMI-Ausgänge**. Dieser Guide beschreibt die **vier Speicher-SKUs**, **Wahl**, **Zubehör**, **Software** und **Fehlerbehebung**.
+
+![Mehrere Raspberry-Pi-Platinen zum Größenvergleich](/images/blog/raspberry-pi-comparatif-2026/gamme-pi-opt.jpg)
+
+*Foto: [SimonWaldherr](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_1,_Pi_5,_Pi_400,_Zero_2_and_Pico.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
+
+## 1. Die vier „RAM“-Varianten
+
+Auf derselben **Pi-4-Model-B**-Platine ändert sich nur die **Speichermenge**; der **System-on-Chip (SoC) BCM2711** (Quad-**Cortex-A72** ~**1,8 GHz**, 64 Bit) ist **identisch**.
+
+| Variante | RAM | Typisches Käuferprofil |
+|----------|-----|---------------------------|
+| **1 GB** | 1 GB LPDDR4 | **Minimale** Projekte. **Niedrige Priorität** neu 2026 — siehe [Pi 5 RAM](/de/raspberry-pi-5-welcher-ram/). |
+| **2 GB** | 2 GB | **Leichter Server**, **Kiosk**, **Monitoring**; **enges** Desktop. |
+| **4 GB** | 4 GB | **Sweet Spot**: Raspberry Pi OS Desktop, **Python**, sinnvoller Alltag. |
+| **8 GB** | 8 GB | **Docker**, Kompilieren, große Remote-**IDE** (integrierte Entwicklungsumgebung), bescheidene Datenbanken. |
+
+Alle Varianten bieten **40-Pin-GPIO** (General Purpose Input/Output — Pins für Sensoren), **CSI / DSI** (Camera / Display Serial Interface), **Wi‑Fi ac**, **Bluetooth 5.0**, **microSD** als Hauptspeicher.
+
+## 2. Specs, die falsche Projekte verhindern
+
+- **Video**: zwei **micro-HDMI** — **Kabel oder Adapter** einplanen.
+- **USB**: **2 × USB 3** + **2 × USB 2**.
+- **Strom**: **USB-C 5 V**, gutes **3-A- (15-W-)** Netzteil bei hungrigen USB-Geräten.
+- **Kühlung**: ohne Lüftergehäuse **drosselt** die **CPU** (Prozessor) bei Dauerlast.
+
+## 3. Welcher Speicher für welchen Einsatz?
+
+**1 GB** — **systemd**, **MQTT** (Message Queuing Telemetry Transport — leichtes Nachrichtenprotokoll für Sensoren / **IoT** = Internet der Dinge), kleines **Python** ohne GUI. Kein Desktop mit modernem Browser. Neukauf: [Pi 5 RAM-Wahl](/de/raspberry-pi-5-welcher-ram/).
+
+**2 GB** — **Pi-hole**, **AdGuard**, leichter **Reverse-Proxy**, Home-**Git**, kleine APIs. Für einen **fertigen Lernroboter** statt nackter Platine: [Arduino-Roboter-Bausatz](/de/arduino-roboter-bausatz-fuer-kinder/).
+
+**4 GB** — **Standardempfehlung** für vielseitigen **Linux**-Arbeitsplatz, Robotik, Lernen.
+
+**8 GB** — **Rust** / **C++**, **Docker**-Container, **SQLite** / **PostgreSQL**-Homelab, viele Tabs.
+
+## 4. Schnelle Entscheidung
+
+1. **Ohne Monitor**, Netzwerk: **2 GB**.
+2. **Erster Pi 4** Familie / Schule: **4 GB**.
+3. **Mehrere Apps** / **Docker**: **8 GB**.
+4. **Knappes Budget**, anspruchsvolles Neuprojekt: **Pi 4 8 GB** vs **Pi 5 4 GB** im [Vergleich Pi 3 / 4 / 5](/de/raspberry-pi-3-vs-4-vs-5/).
+
+## 5. Pi 4 oder Pi 5?
+
+Budget für **Pi 5** mit **aktiver Kühlung** und **5-A- (27-W-)** Netzteil? Schnellere **CPU**, **RAM bis 16 GB**, **PCIe** (Schnellbus zu NVMe-SSD). Sonst bleibt **Pi 4 4 GB** / **8 GB** sehr relevant — [Vergleich Pi 3 / 4 / 5](/de/raspberry-pi-3-vs-4-vs-5/).
+
+## 6. Zubehör im Warenkorb
+
+- **15-W-USB-C-Netzteil (3 A)** für Pi 4.
+- **Lüftergehäuse** oder Kühlkörper bei Dauerlast.
+- Schnelle **A2-microSD** — <a href="/go/az-de-e2f66b1c1f/" rel="sponsored nofollow noopener">microSD A2 für Raspberry Pi</a>.
+- **Micro-HDMI-Kabel** für einen oder zwei Bildschirme.
+
+## 7. Preis: beim Händler prüfen
+
+Der **Pi-4**-Preis hängt von Speicher (2, 4 oder 8 GB), Händler und Lager ab. Prüfen Sie, ob **SD-Karte**, **Gehäuse** und **Netzteil** enthalten sind. Händlerliste: [raspberrypi.com](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/).
+
+## 8. Software-Installation
+
+**Raspberry Pi Imager** am PC, **Raspberry Pi OS** (Desktop oder Lite), Optionen **SSH / Wi‑Fi / Benutzer** im Zahnrad — Schritt für Schritt: [Raspberry Pi 3 Erste Schritte](/de/raspberry-pi-3-erste-schritte/) (identisch auf Pi 4).
+
+## 9. Fehlerbehebung
+
+| Symptom | Wahrscheinliche Ursache | Maßnahme |
+| --- | --- | --- |
+| Sehr langsam, Tabs schließen sich | **RAM** voll (oft 2 GB) | Apps schließen; nächster Kauf **4 GB** / **8 GB** (nicht erweiterbar) |
+| Thermometer-Symbol, CPU gedrosselt | **Kühlung** unzureichend | Lüftergehäuse; Pi nicht in geschlossenem Schrank |
+| Gelbes Blitz-Symbol | Netzteil **&lt; 3 A** | **15-W-** Netzteil für Pi 4 |
+| „Out of memory“ | Variante zu klein | Weniger Container; **8 GB** wählen |
+| Bootet nicht | microSD abgenutzt | Mit **Imager** neu flashen; **A2**-Karte testen |
+
+Terminal: `free -h` — Spalte **available** zeigt freie **RAM**.
+
+## Häufige Fragen
+
+**2 GB oder 4 GB zum Start?** — **4 GB** für Desktop/Lernen; **2 GB** für leichtes Headless.
+
+**Lüfter Pflicht?** — Bei Dauerlast praktisch **ja**.
+
+**RAM später erweitern?** — **Nein**, verlötet.
+
+## Amazon-Links (Affiliate)
+
+Speichermenge in der Angebotsliste prüfen:
+
+- <a href="/go/az-de-aedc690c3e/" rel="sponsored nofollow noopener">Raspberry Pi 4 Model B — Amazon.de</a>
+- <a href="/go/az-de-d586a3ab50/" rel="sponsored nofollow noopener">Raspberry Pi 4 8 GB — Suche Amazon.de</a>
+- <a href="/go/az-de-46213ba070/" rel="sponsored nofollow noopener">Lüftergehäuse Pi 4</a>
+- <a href="/go/az-de-3a246106ea/" rel="sponsored nofollow noopener">USB-C-Netzteil 15 W Pi 4</a>
+- <a href="/go/az-de-e2f66b1c1f/" rel="sponsored nofollow noopener">microSD A2</a>
+
+*Amazon-Partner — Provision bei berechtigten Käufen möglich. Preisfenster zuletzt geprüft: Oktober 2026.*
+
+---
+
+**Kurz**: zum **Start** oder **Mischbetrieb** **4 GB**; **8 GB** bei mehreren Apps / Kompilieren; **2 GB** für **Netzwerk / Headless**; **1 GB** nur bei minimalem Bedarf.
+
+*Emmanuel Sauvage*

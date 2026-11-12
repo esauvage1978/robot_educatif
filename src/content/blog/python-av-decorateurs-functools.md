@@ -2,7 +2,7 @@
 title: "Python avancé — décorateurs, functools et fermetures"
 description: "Fermetures, décorateurs simples, @wraps, partial, lru_cache ; ordre d’application ; ressources ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-11-02
 series: Python avancé
 seriesOrder: 2
 tags: ["Python", "Programmation", "Avancé"]
@@ -18,7 +18,15 @@ categories:
   - "Avancé"
 ---
 
-Un **décorateur** est une **fonction qui prend une fonction** (ou une classe) et renvoie un **substitut** en général enrichi d’un comportement transversal : journalisation, mesure du temps, validation des arguments, mise en cache, etc. C’est du **sucre syntaxique** : `@decor` au-dessus de `def f` équivaut à **`f = decor(f)`** (en première approximation). Combiné au module **`functools`**, tu obtiens des patterns **réutilisables** sans copier-coller.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python-avance/">Python avancé</a> · Leçon 2 — décorateurs</nav>
+
+> **Réponse directe (novembre 2026)** — Un **décorateur** est une fonction qui **enveloppe** une autre fonction pour y ajouter un comportement (trace, cache, validation). La syntaxe **`@decor`** au-dessus de **`def`** équivaut à **`f = decor(f)`**. Utilise **`functools.wraps`** pour conserver le nom et la doc de la fonction d’origine.
+
+Cette leçon suit le [parcours Python avancé](/programmation/python-avance/) après [générateurs](/python-av-generateurs-iterateurs/) et avant [context managers](/python-av-context-managers/). Hub : [programmation](/programmation/).
+
+![Illustration décorateurs Python — enveloppe autour d'une fonction](/images/illustrations/python-av-decorateurs-functools.webp)
+
+Un **décorateur** est une **fonction qui prend une fonction** (ou une classe) et renvoie un **substitut** enrichi : journalisation, mesure du temps, validation des arguments, mise en cache, etc. C’est du **sucre syntaxique** : `@decor` au-dessus de `def f` équivaut à **`f = decor(f)`** (en première approximation). Combiné au module **`functools`** (bibliothèque standard Python), tu obtiens des patterns **réutilisables** sans copier-coller.
 
 ## 1. Fermetures (closures)
 
@@ -350,4 +358,16 @@ fib.cache_clear()</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python design patterns](https://www.amazon.fr/s?k=python+design+patterns+livre&tag=manuso06-21)
+- [Livres Python design patterns](https://www.amazon.fr/s?k=python+design+patterns+livre&tag=manuso06-21)
+
+## FAQ
+
+**Un décorateur peut-il prendre des arguments ?** Oui : `@retry(tries=3)` demande souvent **trois niveaux** de fonctions (fabrique → décorateur → wrapper).
+
+**`lru_cache` sur une méthode d’instance ?** Déconseillé : le cache vit sur la fonction, pas par objet — préfère cache explicite ou **`functools.cached_property`**.
+
+**Ordre de plusieurs `@` ?** Appliqués **de bas en haut** : `@a @b def f` → `f = a(b(f))`.
+
+**Différence avec un simple appel `f()` ?** Le décorateur s’exécute **à la définition** de la fonction, pas à chaque appel — idéal pour enregistrer `f` dans un routeur Flask/FastAPI ou ajouter un wrapper une seule fois.
+
+**Suite du parcours** — [asyncio](/python-av-asyncio/) · [typage avancé](/python-av-typing-avance/) · [journal de projet décorateurs](/projet-av-journal-3-decorateurs/) · [hub programmation](/programmation/).

@@ -2,7 +2,7 @@
 title: "Bataille navale Python (4/6) : tirs et marques grilles"
 description: "Appliquer un tir sur la grille défense adverse, mettre à jour radar et défense ; interdire de rejouer la même case."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-02
 series: Bataille navale
 seriesOrder: 4
 tags: ["Python", "Programmation", "Projet"]
@@ -17,9 +17,14 @@ categories:
   - "Bataille navale"
   - "Projet"
 ---
-Tu as une **flotte** posée sur une grille défense ([partie 3](/python-bataille-navale-3-placement-bateaux/)). Cet article décrit ce qui se passe quand un joueur **tire** sur une case `(ligne, colonne)`.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/bataille-navale/">Série Bataille navale</a> · Partie 4/6</nav>
+
+> **Série Bataille navale (4/6)** — [Sommaire de la série](/programmation/bataille-navale/) · [Partie 3](/python-bataille-navale-3-placement-bateaux/) · [Partie 5](/python-bataille-navale-5-coule-et-victoire/)
+
+Tu as une **flotte** posée sur une grille défense ([partie 3](/python-bataille-navale-3-placement-bateaux/)). Cet article décrit ce qui se passe quand un joueur **tire** sur une case `(ligne, colonne)`. Si tu débutes en Python, revois d’abord [listes et chaînes](/python-listes-et-chaines/) et [conditions if/else](/python-conditions-if-else/).
+
+![Grille radar et défense après plusieurs tirs](/images/illustrations/python-bataille-navale-4-tirs-et-marques.webp)
 
 ## 1. Côté défenseur : mettre à jour *ma* grille
 
@@ -107,6 +112,19 @@ Version classique : après un **touché**, le même joueur **rejoue** jusqu’à
 ## Suite
 
 [Partie 5 — Détecter « coulé » et la fin de partie](/python-bataille-navale-5-coule-et-victoire/).
+
+## FAQ
+
+**Pourquoi deux grilles (défense et radar) ?**  
+Le **défenseur** voit ses `#` cachés ; le **tireur** ne voit que `?`, `O` et `X` sur son radar.
+
+**Que faire si un joueur retape la même case ?**  
+Retourne `"deja"` ou `"case_deja_jouee"` **sans** modifier la grille — c’est une règle anti-triche.
+
+**Et après un touché, qui rejoue ?**  
+En règle classique, le même joueur continue jusqu’à un manqué ([partie 6](/python-bataille-navale-6-jeu-complet/)).
+
+![Exemple de partie en cours dans le terminal](/images/blog/lot15/bataille-navale-partie-finie.png)
 
 ## Script complet du chapitre
 

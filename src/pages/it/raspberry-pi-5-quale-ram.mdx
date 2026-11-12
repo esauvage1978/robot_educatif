@@ -1,0 +1,152 @@
+---
+layout: ../../layouts/ItPost.astro
+title: "Raspberry Pi 5: 4, 8 o 16 GB? La scelta giusta (2026)"
+description: "Quanta RAM per Raspberry Pi 5 nel 2026? 4, 8 o 16 GB per robotica, Home Assistant o desktop — prezzi indicativi, accessori e risoluzione problemi."
+updated: "31 ottobre 2026"
+schemaUpdated: "2026-10-31"
+faqSchema:
+  - question: "4 GB o 8 GB per un primo Raspberry Pi 5?"
+    answer: "Per la maggior parte di famiglie, scuole e robotica Python, 4 GB bastano. Scegliete 8 GB se avete più servizi in parallelo (Docker, database) o un desktop Linux molto carico."
+  - question: "Serve obbligatoriamente un ventilatore sul Pi 5?"
+    answer: "Per sessioni lunghe (compilazione, server, desktop), un dissipatore attivo o un case con ventola serio è fortemente consigliato. Senza raffreddamento la CPU rallenta per limitare il calore."
+  - question: "Quale alimentatore per Raspberry Pi 5?"
+    answer: "Raspberry Pi consiglia un alimentatore USB-C 5 V / 5 A (27 W) ufficiale o equivalente documentato. Un caricatore da telefono debole provoca avvisi o throttling."
+  - question: "Il modello da 16 GB vale il sovrapprezzo?"
+    answer: "Solo se sapete già di saturare 8 GB (build grandi, molti container, modelli IA locali leggeri). Per Home Assistant o apprendimento, 4 GB resta la scelta più comune."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+
+<AffiliateDisclosure variant="compact" lang="it" />
+
+> **Risposta diretta (ottobre 2026)** — Per un **primo Pi 5** a casa, a scuola o per robotica con **Python**, in genere scegliete **4 GB**. Passate a **8 GB** se avete più **servizi** in parallelo — ad esempio **Docker** (software che esegue app in «contenitori» isolati), database o un desktop Linux molto carico. **16 GB** solo se conoscete già il fabbisogno di **RAM** (memoria di lavoro del processore, distinta dallo storage su microSD o SSD).
+
+**In sintesi:**
+
+| Versione | Per quali progetti? |
+| --- | --- |
+| **Pi 5 4 GB** | Robotica, sensori, Home Assistant, imparare Python |
+| **Pi 5 8 GB** | Desktop Linux fluido, più servizi in parallelo, visione artificiale |
+| **Pi 5 16 GB** | Modelli di IA in locale, tanti container, progetti pesanti |
+
+**Fasce di prezzo (Amazon.it, ottobre 2026, indicative)** — scheda **4 GB** spesso circa **75–95 €**; **8 GB** di solito **+15–25 €**; **16 GB** nettamente più costoso. Controllate sempre la scheda: [Pi 5 4 GB](https://www.amazon.it/s?k=Raspberry+Pi+5+4GB&tag=roboteducat0f-21), [8 GB](https://www.amazon.it/s?k=Raspberry+Pi+5+8GB&tag=roboteducat0f-21), [16 GB](https://www.amazon.it/s?k=Raspberry+Pi+5+16GB&tag=roboteducat0f-21), [kit completi](https://www.amazon.it/s?k=kit+Raspberry+Pi+5&tag=roboteducat0f-21) (link affiliati). Lista componenti: [guida kit Pi 5](/kit-raspberry-pi-5-complet/) (in francese, elenco hardware universale) e [Pi 3 vs 4 vs 5](/it/raspberry-pi-3-vs-4-vs-5/).
+
+<ProductBox
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 (4 GB)"
+  asin="B0CK3L9WD3"
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  priceRange="~75–95 € (ott. 2026)"
+  ages="12+"
+  languages={['Python', 'C++', 'JavaScript']}
+  pros={[
+    'ARM Cortex-A76 a 2,4 GHz',
+    'Prestazioni circa 2–3× superiori al Pi 4',
+    'Doppia uscita 4K',
+    'Scelta di riferimento per robotica e Home Assistant'
+  ]}
+  badge="Consigliato"
+  lang="it"
+  partnerUrl=""
+  partnerLabel=""
+/>
+
+Il **[Raspberry Pi](/it/marchio-raspberry-pi/) 5** (fine 2023, SKU memoria ampliati 2024–2025) è un **SBC** (*single-board computer*: computer completo su una sola scheda). Si basa sul **BCM2712** con quattro core **Cortex-A76** a **2,4 GHz**, una GPU **VideoCore VII** e il controller **RP1** che gestisce **I/O** (ingressi/uscite: USB, Ethernet, ecc.) così il **SoC** (System-on-Chip — processore principale e periferiche su un unico chip) esegue i vostri programmi. I **GPIO** (General Purpose Input/Output — pin per sensori e moduli) restano compatibili con la maggior parte dei progetti Pi 3/4.
+
+È anche la prima scheda «grande» Raspberry Pi di consumo con bus **PCIe** **2.0 ×1**, che permette un **SSD NVMe** (memoria flash veloce tramite scheda di espansione **HAT** certificata) oltre alla consueta **microSD**.
+
+Questa guida elenca le **cinque varianti di memoria** (disponibilità regionale), budget per **raffreddamento** e **alimentazione**, come scegliere la RAM e **risolvere i problemi più comuni**. Confronto generazioni: [Pi 3 vs 4 vs 5](/it/raspberry-pi-3-vs-4-vs-5/); domotica: [Home Assistant Green vs Raspberry Pi 5](/it/domotica/home-assistant-green-vs-raspberry-pi-5/) e [installare Home Assistant su Pi 5](/it/domotica/installare-home-assistant-raspberry-pi-5/).
+
+<figure>
+  <img src="/images/blog/raspberry-pi-comparatif-2026/pi-5-sbc-opt.jpg" alt="Raspberry Pi 5 — scheda nuda con porte USB e HDMI" width="1200" height="675" loading="lazy" />
+  <figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Raspberry_Pi_5_SBC.jpg">SimonWaldherr</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Wikimedia Commons.</figcaption>
+</figure>
+
+![Raspberry Pi 5 (4 GB) — foto prodotto](/images/products/raspberry-pi-5-4gb.webp)
+
+*Foto prodotto: Emmanuel Sauvage, ottobre 2026 — variante 4 GB.*
+
+## 1. Le varianti RAM del Pi 5
+
+| Variante | Uso tipico |
+|----------|---------------|
+| **1 GB** | **Edge** ultra-economico: script leggeri, gateway; poco margine per browser o **IDE** (ambiente di sviluppo integrato). |
+| **2 GB** | Server minimalisti, display, bot; non ideale per desktop «famiglia» con molte schede. |
+| **4 GB** | **Scelta di riferimento** 2026: desktop Raspberry Pi OS, sviluppo, stack web moderati, [Home Assistant](/it/domotica/installare-home-assistant-raspberry-pi-5/) confortevole. |
+| **8 GB** | **Multi-container** (**Docker**: applicazioni isolate), database, compilazioni serie, desktop con molti servizi in background. |
+| **16 GB** | Carico RAM raro su SBC: modelli IA locali leggeri, build grandi, **VM** (macchine virtuali) molto limitate; compratelo solo se sapete perché. |
+
+Memoria **LPDDR4X-4267** sul Pi 5 (**LPDDR4-3200** sul Pi 4) — **RAM** saldata. Ancora tra Pi 4 e Pi 5? Vedi [Raspberry Pi 4: quale RAM](/it/raspberry-pi-4-quale-ram/).
+
+## 2. Cosa cambia davvero rispetto al Pi 4
+
+- **CPU**: nettamente più veloce in compilazione e encoding video.
+- **PCIe / NVMe**: storage più rapido della sola microSD, con HAT compatibile e alimentazione adeguata.
+- **Video**: pipeline **HDMI** modernizzata — aggiornate **Raspberry Pi OS**.
+- **Termica**: il Pi 5 **scalda in fretta**; dissipatore attivo ufficiale quasi obbligatorio a lungo carico.
+- **Alimentazione**: **5 V / 5 A** (27 W); caricatori deboli → **throttling** (rallentamento automatico per calore).
+
+## 3. Quale versione scegliere? Albero decisionale rapido
+
+1. **Budget stretto**, niente desktop: **2 GB** (o **1 GB** con RAM misurata).
+2. **Primo acquisto** famiglia / scuola / maker: **4 GB** — se l’obiettivo è soprattutto robotica: [robot programmabili per bambini](/it/miglior-robot-programmabile-per-bambini/) e [robot 12 anni](/it/miglior-robot-educativo-2026/).
+3. **Home lab** con **Docker** o più stack: **8 GB**.
+4. **Progetti grandi**, modelli esigenti: **16 GB**, dopo aver verificato storage e raffreddamento.
+
+Scarto prezzi: [confronto Pi 3 / 4 / 5](/it/raspberry-pi-3-vs-4-vs-5/) — tra **4 GB** e **16 GB** il prezzo può **raddoppiare o triplicare**.
+
+## 4. Accessori da non dimenticare
+
+- **Dissipazione attiva** (Active Cooler ufficiale o case equivalente).
+- **Alimentatore** **5 V / 5 A** ufficiale o documentato.
+- **microSD veloce**: classe **A2** (norma per alte velocità di lettura/scrittura per sistema e file temporanei) o **NVMe** con estensione PCIe — <a href="/go/az-it-169b8d5456/" rel="sponsored nofollow noopener">microSD A2 per Pi</a>.
+- **Cavi micro-HDMI** per uno o due schermi.
+
+## 5. Software e prima installazione
+
+Flash di **Raspberry Pi OS** con **Imager** — stesse opzioni avanzate (SSH, Wi‑Fi, utente). Guida: [primi passi Raspberry Pi](/it/raspberry-pi-3-primi-passi/) (stessi passi su Pi 4 e Pi 5).
+
+## 6. Risoluzione problemi: RAM, alimentazione, lentezza
+
+| Sintomo | Causa probabile | Cosa fare |
+| --- | --- | --- |
+| Sistema lentissimo, schede che si chiudono | **RAM** satura (spesso 2 o 4 GB con troppi servizi) | Chiudere app; al prossimo acquisto **8 GB** (RAM **saldata**); evitare swap permanente su microSD lenta |
+| Icona termometro o CPU limitata | **Raffreddamento** insufficiente | Montare **Active Cooler** o case ventilato |
+| Fulmine giallo | Alimentatore **&lt; 5 A** o cavo USB-C scadente | Alimentatore **5 V / 5 A** documentato per Pi 5 |
+| Non avvia dopo aggiornamento | microSD usurata o corrotta | Reflash con **Imager**; provare **A2** nuova; **NVMe** se avete HAT |
+| «Out of memory» con Docker/compilazione | Carico eccessivo per la variante | Meno container, compilare altrove, **8 GB** / **16 GB** |
+
+Su Raspberry Pi OS: `free -h` nel terminale — colonna **available** = memoria libera.
+
+## Domande frequenti
+
+**4 GB o 8 GB per un primo Pi 5?**  
+Nel 2026, **4 GB** coprono robotica, sensori, Home Assistant modesto e desktop ragionevole. **8 GB** per container, compilazioni pesanti o molti servizi.
+
+**Ventola obbligatoria?**  
+Per carichi oltre pochi minuti, di fatto sì — senza raffreddamento attivo il Pi 5 **rallenta**.
+
+**Si può aumentare la RAM dopo?**  
+No, memoria **saldata**. In dubbio: **4 GB** o **8 GB**.
+
+**Cos’è lo «swap NVMe veloce»?**  
+Lo **swap** è spazio disco usato come memoria di emergenza. Un **NVMe** rapido attenua il problema ma **non** sostituisce RAM sufficiente.
+
+## Dove comprare (affiliazione)
+
+- <a href="/go/az-it-fbb4c0ea8a/" rel="sponsored nofollow noopener">Raspberry Pi 5 4 GB</a>
+- [Pi 5 8 GB — ricerca](https://www.amazon.it/s?k=Raspberry+Pi+5+8GB&tag=roboteducat0f-21)
+- [Dissipatore attivo Pi 5](https://www.amazon.it/s?k=dissipatore+attivo+Raspberry+Pi+5&tag=roboteducat0f-21)
+- [Alimentatore 5 V 5 A](https://www.amazon.it/s?k=alimentatore+5V+5A+Raspberry+Pi+5&tag=roboteducat0f-21)
+- <a href="/go/az-it-169b8d5456/" rel="sponsored nofollow noopener">microSD A2</a>
+
+Rivenditori approvati: [raspberrypi.com/resellers](https://www.raspberrypi.com/resellers/).
+
+*Partner Amazon — commissione possibile su acquisti idonei. Fasce verificate: ottobre 2026.*
+
+---
+
+**Da ricordare**: scegliete prima la **RAM** (4 o 8 GB per la maggioranza), poi **alimentazione 5 A** e **raffreddamento attivo**; **16 GB** solo se saturate davvero la memoria.
+
+*Emmanuel Sauvage*

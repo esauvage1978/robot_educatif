@@ -30,6 +30,12 @@ export const AMAZON_SIDEBAR_PRESETS = {
 		{ label: 'Accessoires Matatalab', query: 'Matatalab Tale-Bot accessoires' },
 		{ label: 'Livres — robotique sans écran, 3-8 ans', query: 'robotique enfant sans écran livre' },
 	],
+	sansEcran: [
+		{ label: 'Tale-Bot Pro — cartes, 3 à 5 ans', asin: 'B0CZ6R182M' },
+		{ label: 'Botley 2.0 — télécommande, dès 5 ans', asin: 'B083T58PKM' },
+		{ label: 'Bee-Bot — robot de sol', asin: 'B08BTJFYT3' },
+		{ label: 'Code & Go — kit souris, dès 4 ans', asin: 'B01A5YMCH4' },
+	],
 	codeyRocky: [
 		{ label: 'Codey Rocky — Makeblock', asin: 'B07CGH8NZ7' },
 		{ label: 'Robots Makeblock mBlock', asin: 'B07XR98YYQ' },
@@ -52,8 +58,12 @@ export const AMAZON_SIDEBAR_PRESETS = {
 	],
 	scratch: [
 		{ label: 'Livres Scratch — enfants & débutants', query: 'Scratch programmation livre enfant' },
-		{ label: 'Robots compatibles Scratch', asin: 'B07XR98YYQ' },
+		{ label: 'Robots compatibles Scratch', query: 'robot éducatif Scratch programmable Makeblock' },
 		{ label: 'Kits découverte codage', asin: 'B078Y9RYM2' },
+	],
+	pythonTests: [
+		{ label: 'Livres — tests Python et pytest', query: 'pytest python tests livre' },
+		{ label: 'Livres — qualité de code Python', query: 'python qualité code tests unitaires livre' },
 	],
 	general: [
 		{ label: 'Robots éducatifs programmables', asin: 'B0919F9CKS' },

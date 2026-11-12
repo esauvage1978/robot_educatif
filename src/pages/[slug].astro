@@ -18,8 +18,14 @@ type Props = {
 const { post } = Astro.props as Props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 const articleSlug = articleSlugFromId(post.id);
+const fromRemark = Number(remarkPluginFrontmatter?.minutesRead);
+const rawBody = typeof post.body === 'string' ? post.body : '';
+const fromBody = rawBody
+	? Math.max(1, Math.round(rawBody.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length / 200))
+	: NaN;
+const minutesRead = Number.isFinite(fromRemark) && fromRemark > 0 ? fromRemark : fromBody;
 ---
 
-<BlogPost {...post.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema}>
+<BlogPost {...post.data} articleSlug={articleSlug} faqSchema={remarkPluginFrontmatter?.faqSchema} minutes={Number.isFinite(minutesRead) ? minutesRead : undefined}>
 	<Content />
 </BlogPost>

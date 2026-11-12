@@ -1,17 +1,39 @@
 ---
-title: "10 projets ESP32 pour la domotique avec ESPHome et Home Assistant"
-description: "Idées de projets ESP32 + ESPHome : capteurs, relais, LED, station météo, assistant vocal, écran. De débutant à avancé. Intégration Home Assistant."
+title: Projets ESP32 domotique (ESPHome)
+description: "Projets ESP32 + ESPHome pour Home Assistant : température, garage, présence, compteur, fuite, météo, arrosage, sonnette, ouvertures, LED, niveau de sel adoucisseur."
 pubDate: 2026-10-18T00:00:00Z
+updatedDate: 2026-10-31T00:00:00Z
 category: "esp32"
 products: ["esp32-c6-devkitc", "xiao-esp32c6"]
 priority: 9
 ---
 
 import ProductBox from '../../components/ProductBox.astro';
+import Esp32ProjectsHubGrid from '../../components/Esp32ProjectsHubGrid.astro';
 
-L'**ESP32 + ESPHome** transforme un petit microcontrôleur Wi-Fi en capteur, relais ou écran connecté Home Assistant. Voici 10 projets classés par difficulté. Les prix du matériel bougent souvent : vérifiez-les chez le vendeur avant de commander.
+Un **ESP32 flashé avec ESPHome** est une petite carte électronique équipée du Wi-Fi (l'ESP32) à laquelle ESPHome, un logiciel qui prépare son programme à partir d'un simple fichier de configuration, donne un rôle précis. Selon ce que vous lui branchez, elle devient un capteur, un relais, un détecteur ou une lumière visible dans Home Assistant, le logiciel libre qui réunit vos appareils connectés. Chacun des projets ci-dessous a sa propre page : matériel avec quantités, schéma de câblage, fichier YAML complet, étapes avec vérification, intégration Home Assistant et dépannage. Si vous débutez, commencez par un projet de niveau Débutant et lisez d'abord les quatre guides de base, qui expliquent les mots et les gestes communs à tous les montages.
 
-## Matériel recommandé
+Les prix du matériel changent souvent : les budgets indiqués sont des **estimations à vérifier chez le vendeur**, jamais des prix constatés.
+
+## Quel projet pour quel besoin ?
+
+| Vous voulez… | Projet | Niveau |
+|---|---|---|
+| Mesurer la température et l'humidité d'une pièce | [Capteur de température et d'humidité](/domotique/projets-esp32/capteur-temperature-humidite/) | Débutant |
+| Être prévenu quand quelqu'un sonne | [Sonnette connectée](/domotique/projets-esp32/sonnette-connectee/) | Débutant |
+| Savoir si une porte ou une fenêtre est ouverte | [Capteur d'ouverture de porte et fenêtre](/domotique/projets-esp32/capteur-ouverture-porte-fenetre/) | Débutant |
+| Piloter une porte de garage depuis le téléphone | [Porte de garage](/domotique/projets-esp32/porte-garage/) | Intermédiaire |
+| Détecter une présence même sans mouvement | [Détecteur de présence mmWave LD2410](/domotique/projets-esp32/detecteur-presence-mmwave-ld2410/) | Intermédiaire |
+| Surveiller une fuite sous un appareil | [Détecteur de fuite d'eau](/domotique/projets-esp32/detecteur-fuite-eau/) | Intermédiaire |
+| Mesurer météo, pression et luminosité | [Station météo BME280 + BH1750](/domotique/projets-esp32/station-meteo-bme280-bh1750/) | Intermédiaire |
+| Allumer une bande LED colorée | [Éclairage LED WS2812](/domotique/projets-esp32/eclairage-led-ws2812/) | Intermédiaire |
+| Suivre sa consommation électrique | [Compteur Linky](/domotique/projets-esp32/compteur-linky-tic/) | Avancé |
+| Arroser un jardin selon l'humidité du sol | [Arrosage automatique](/domotique/projets-esp32/arrosage-automatique/) | Avancé |
+| Savoir quand recharger le sel de l'adoucisseur | [Niveau de sel de l'adoucisseur](/domotique/projets-esp32/niveau-sel-adoucisseur-capteur-connecte/) | Intermédiaire |
+
+## Le matériel de base : une carte ESP32-C6
+
+Tous les projets utilisent la même carte de commande. Le choix de la carte est détaillé dans [quelle carte ESP32 choisir pour la domotique](/domotique/quelle-carte-esp32-choisir-domotique/).
 
 <ProductBox
   productId="esp32-c6-devkitc"
@@ -20,190 +42,43 @@ L'**ESP32 + ESPHome** transforme un petit microcontrôleur Wi-Fi en capteur, rel
   image="/images/products/esp32-c6-devkitc.webp"
   priceRange="à vérifier chez le vendeur"
   pros={[
-    'WiFi 6 + Zigbee/Thread',
-    'Compatible ESPHome',
+    'Wi-Fi 6 (2,4 GHz) + Bluetooth LE',
+    'Compatible ESPHome (framework ESP-IDF)',
     'USB-C direct',
-    'Parfait pour débuter'
+    'Une seule carte pour tous les projets'
   ]}
   badge="Recommandé"
   position={1}
 />
 
-## Projets débutants (1–2 heures)
+<Esp32ProjectsHubGrid lang="fr" />
 
-### 1. Capteur température DHT22
+## Avant de commencer : ESP32 ou Zigbee ?
 
-**Matériel** : ESP32-C6 + DHT22  
-**Utilité** : surveiller chaque pièce sans Zigbee  
-[Tuto complet ici](/domotique/esp32-esphome-capteur-temperature/)
+Le choix dépend de ce que vous cherchez. Un capteur ESP32 se personnalise à l'infini (n'importe quel capteur I²C, SPI ou GPIO) et se connecte directement au Wi-Fi sans coordinateur. Un capteur Zigbee fonctionne sur pile et se pose n'importe où, à condition de posséder un coordinateur. Pour un capteur sur pile à coller sur une vitre, le Zigbee est souvent plus pratique ; pour un projet sur mesure alimenté en USB, l'ESP32 est plus souple. La comparaison de prix dépend du vendeur : vérifiez-la au moment de l'achat.
 
-### 2. Bouton d'urgence
+## Sécurité : le secteur 230 V n'est pas un projet de bricolage
 
-**Matériel** : ESP32 + bouton poussoir  
-**Code** :
-```yaml
-binary_sensor:
-  - platform: gpio
-    pin: GPIO4
-    name: "Bouton SOS"
-    on_press:
-      - homeassistant.event:
-          event: bouton_sos
-```
-
-**Utilité** : déclencher alarme, appeler téléphone, couper tout (panique).
-
-### 3. LED de statut
-
-**Matériel** : ESP32 + LED RGB WS2812  
-**Utilité** : afficher état maison (vert = OK, rouge = fenêtre ouverte, bleu = absent).
-
-## Projets intermédiaires (2–4 heures)
-
-### 4. Station météo complète
-
-**Matériel** : ESP32 + BME280 (temp/hum/pression) + BH1750 (luminosité)  
-**Utilité** : météo locale, prédire pluie, automatiser stores selon luminosité.
-
-### 5. Relais 4 canaux
-
-**Matériel** : ESP32 + module relais 4 canaux  
-**Utilité** : piloter chauffage, ventilateur, pompe, portail.
+Aucun des projets ci-dessus ne demande de toucher au 230 V : les capteurs fonctionnent en 3,3 V, les vannes et les LED sont alimentées par des blocs certifiés CE en basse tension. Une prise, un tableau ou un circuit d'éclairage relèvent d'un électricien. Si vous préférez un module prêt à l'emploi pour piloter un circuit, un relais certifié est une option plus sûre qu'un montage maison.
 
 <div class="shelly-encart">
 <p><strong>Module prêt à l'emploi</strong> — Si vous préférez un relais déjà assemblé plutôt qu'un montage maison : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-1-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1 Gen4" data-placement="encart_esp32_relais">Shelly 1 Gen4, relais Wi-Fi prêt à intégrer dans Home Assistant</a>.</p>
 <p class="shelly-encart-note">Lien affilié : si vous achetez via ce lien, le site peut percevoir une commission, sans surcoût pour vous.</p>
 </div>
 
-### 6. Détecteur de présence mmWave
+## Autres idées à explorer
 
-**Matériel** : ESP32 + LD2410 mmWave  
-**Utilité** : détection présence même immobile (bureau, chambre). Meilleur que PIR.
+Ces projets n'ont pas encore leur page détaillée :
 
-## Projets avancés (4–8 heures)
-
-### 7. Écran e-paper météo
-
-**Matériel** : ESP32 + écran e-paper 2,9"  
-**Utilité** : affichage météo, calendrier, température sans écran allumé en permanence.
-
-**Code ESPHome** :
-```yaml
-display:
-  - platform: waveshare_epaper
-    model: 2.90in
-    cs_pin: GPIO5
-    dc_pin: GPIO17
-    lambda: |-
-      it.printf(10, 10, id(font1), "Salon: %.1f°C", id(temp_salon).state);
-      it.printf(10, 50, id(font1), "Météo: %s", id(meteo).state.c_str());
-```
-
-### 8. Capteur CO2 (qualité air)
-
-**Matériel** : ESP32 + MH-Z19B  
-**Utilité** : surveiller qualité de l'air, alerte si CO2 > 1000 ppm (aérer), automatiser VMC.
-
-**Seuils recommandés** :
-- < 800 ppm : excellent
-- 800-1000 ppm : bon
-- 1000-1500 ppm : aérer
-- \> 1500 ppm : très mauvais (maux de tête, concentration difficile)
-
-**Automatisation HA** :
-```yaml
-automation:
-  - alias: "VMC boost si CO2 élevé"
-    trigger:
-      platform: numeric_state
-      entity_id: sensor.co2_bureau
-      above: 1200
-    action:
-      - service: fan.set_speed
-        target:
-          entity_id: fan.vmc
-        data:
-          speed: "high"
-```
-
-### 9. Assistant vocal local (Atom Echo)
-
-**Matériel** : M5Stack Atom Echo ou HA Voice Preview Edition  
-**Utilité** : commandes vocales "Allume salon" sans cloud Google/Alexa. 100 % local.
-
-**Installation** :
-1. Flasher Atom Echo avec ESPHome Voice Assistant
-2. Ajouter dans HA : **Paramètres → Voice Assistants**
-3. Configurer pipeline : Wake Word (OK Nabu) → Whisper (speech-to-text) → conversation → TTS
-
-**Commandes exemples** :
-- "Allume le salon"
-- "Quelle est la température de la chambre ?"
-- "Lance l'aspirateur"
-
-### 10. Compteur d'eau/électricité
-
-**Matériel** : ESP32 + capteur effet Hall  
-**Utilité** : lire les impulsions du compteur Linky ou d'eau, suivre consommation réelle.
-
-**Linky** : sortie télé-info (RX via ESP32 UART)  
-**Eau** : capteur Hall qui détecte rotation de l'aiguille
-
-**Code ESPHome compteur eau** :
-```yaml
-sensor:
-  - platform: pulse_counter
-    pin: GPIO4
-    name: "Débit eau"
-    unit_of_measurement: 'L/min'
-    filters:
-      - multiply: 0.5
-    total:
-      name: "Volume eau total"
-      unit_of_measurement: 'L'
-```
-
-## Projets bonus (niveau expert)
-
-### 11. Portail connecté avec caméra
-
-**Matériel** : ESP32-CAM + relais  
-**Utilité** : Ouvrir portail depuis HA, photo de qui sonne, reconnaissance faciale.
-
-### 12. Irrigation automatique jardin
-
-**Matériel** : ESP32 + capteur humidité sol + électrovanne  
-**Utilité** : arroser uniquement si sol sec, économie d'eau.
-
-### 13. Alarme DIY avec sirène
-
-**Matériel** : ESP32 + détecteurs PIR + sirène 12V  
-**Utilité** : alarme locale sans abonnement, notification HA.
-
-### 14. Sonnette vidéo DIY
-
-**Matériel** : ESP32-CAM + bouton + haut-parleur  
-**Utilité** : alternative Ring/Nest, 100 % local, enregistrement HA.
-
-### 15. Mesure qualité air complète
-
-**Matériel** : ESP32 + BME680 (temp/hum/pression/VOC) + PMS5003 (particules)  
-**Utilité** : surveiller pollution intérieure (COV, PM2.5, PM10).
-
-## Pourquoi ESP32 plutôt que Zigbee ?
-
-✅ **Personnalisable** : ajouter n'importe quel capteur I2C, SPI, GPIO  
-✅ **WiFi direct** : pas de dongle  
-✅ **Souvent moins cher** : un ESP32 et un capteur reviennent généralement moins cher qu'un capteur Zigbee du commerce (prix à vérifier chez le vendeur)
-
-❌ **Alimentation secteur** : USB 5V (sauf batterie externe)  
-❌ **Plus technique** : souder, câbler
+- **Écran e-paper météo** : affiche météo et température sans écran allumé en permanence (composants `waveshare_epaper` d'ESPHome).
+- **Capteur de CO₂** : un MH-Z19B lit le CO₂ ; au-delà d'environ 1 000 ppm, une aération s'impose.
+- **Assistant vocal local** : M5Stack Atom Echo ou Home Assistant Voice Preview Edition, avec traitement local de la voix.
+- **Qualité de l'air complète** : BME680 pour les composés organiques volatils et capteur de particules PMS5003.
 
 ## Ressources
 
-**ESPHome** : [esphome.io](https://esphome.io)  
-**Composants** : AliExpress, Amazon  
-**Forum** : [community.home-assistant.io](https://community.home-assistant.io)
+- [Documentation ESPHome](https://esphome.io/)
+- [Communauté Home Assistant](https://community.home-assistant.io/)
 
 <div class="shelly-encart">
 <p><strong>Mesure au tableau électrique</strong> — Pour suivre la consommation directement sur le tableau, sans montage : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-pro-3em-v2" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly Pro 3EM" data-placement="encart_esp32_mesure">Shelly Pro 3EM, suivi de consommation sur le tableau électrique</a>. Pour piloter un volet ou deux circuits d'éclairage : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-2pm-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 2PM Gen4" data-placement="encart_esp32_mesure">Shelly 2PM Gen4</a>.</p>
@@ -212,14 +87,11 @@ sensor:
 
 ## Pour aller plus loin
 
-- [Tuto capteur température ESP32](/domotique/esp32-esphome-capteur-temperature/)
+- [Tuto complet : capteur de température ESP32 + ESPHome](/domotique/esp32-esphome-capteur-temperature/)
+- [Ouvrir sa porte de garage depuis son smartphone (ESP32 + ESPHome)](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
 - [Installer Home Assistant](/domotique/home-assistant-raspberry-pi-5-installation/)
 - [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/)
 
----
+Les liens Amazon et Shelly de cette page sont des liens affiliés : le site peut percevoir une commission sans surcoût pour vous.
 
-*Affiliation Amazon tag manuso06-21, ~3 % commission.*
-
-## Pour aller plus loin
-
-- [Ouvrir sa porte de garage depuis son smartphone (ESP32 + ESPHome)](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
+<small>Mis à jour le 31 octobre 2026.</small>

@@ -9,6 +9,7 @@ function inferPresetFromSlug(slug: string): AmazonSidebarPreset | null {
 	if (s.includes('eilik')) return 'eilik';
 	if (s.includes('scratch')) return 'scratch';
 	if (s.includes('lego')) return 'lego';
+	if (s.includes('sans-ecran')) return 'sansEcran';
 	if (s.includes('tale-bot') || s.includes('matatalab')) return 'matatalab';
 	if (s.includes('mbot-vs')) return 'mbotVs';
 	if (s.includes('mbot2')) return 'mbot2';

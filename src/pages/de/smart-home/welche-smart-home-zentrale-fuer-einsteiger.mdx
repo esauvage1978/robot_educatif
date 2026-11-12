@@ -1,0 +1,201 @@
+---
+layout: ../../../layouts/DePost.astro
+title: "Welche Smart-Home-Zentrale für Einsteiger?"
+description: "Home Assistant, Homey, Jeedom oder gar keine Zentrale: Finden Sie die Lösung, die zu Ziel, Wohnung und Budget passt, und vermeiden Sie versteckte Abos."
+updated: "6. November 2026"
+faqSchema:
+  - question: "Ist Home Assistant kostenlos?"
+    answer: "Die Software Home Assistant ist kostenlos. Die Hardware (ein Green oder ein Raspberry Pi, ein Zigbee-Stick) kostet extra. Ein optionales Abo namens Nabu Casa erleichtert den Fernzugriff, aber nichts zwingt Sie dazu, wenn alles zu Hause bleibt."
+  - question: "Ersetzt Homey Home Assistant?"
+    answer: "Für viele Alltagsfälle im Haushalt ja. Home Assistant bleibt offener für DIY, ESPHome und seltene Integrationen. Am sichersten vergleichen Sie Ihre Geräteliste mit dem Homey-App-Katalog und mit der Liste der Home-Assistant-Integrationen."
+  - question: "Kann ich später die Zentrale wechseln?"
+    answer: "Ja, besonders wenn Sie Geräte gewählt haben, die offene Sprachen wie Zigbee oder Matter sprechen. Geräte, die ganz von den Servern ihrer Marke abhängen, lassen sich schwerer umziehen. Die Kompatibilitätstabelle hilft Ihnen, das vor dem Kauf zu prüfen."
+  - question: "Ist SmartThings in Deutschland, Österreich und der Schweiz sinnvoll?"
+    answer: "Zentralen und Geräte werden länderweise verkauft, und Matter verbessert die Kompatibilität. Prüfen Sie die Verfügbarkeit bei Ihnen, den Steckertyp und was ohne Internet weiterläuft."
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+Sie wollen Ihr Zuhause automatisieren, fragen sich aber, ob Sie eine zentrale Box brauchen und welche. Diese Box heißt Smart-Home-Zentrale (oder Hub). Sie spielt die Rolle des Dirigenten: Sie empfängt, was Ihre Sensoren melden, und entscheidet, was zu tun ist, etwa eine Lampe einzuschalten oder einen Heizkörper abzudrehen.
+
+Zwei Namen fallen ständig: Home Assistant, eine kostenlose Software, die alle Ihre Geräte an einem Ort vereint, und Homey, eine fertige Zentrale aus dem Handel. Außerdem begegnen Ihnen Zigbee, ein sparsamer Funk für Batteriesensoren, und Matter, eine gemeinsame Sprache, die immer mehr Marken verstehen.
+
+Am Ende dieser Seite wissen Sie, welche Lösung zu Ihrem Vorhaben passt, was Sie für den Start einplanen sollten und welche Fallen Sie meiden. Die „beste“ Zentrale für alle gibt es nicht: Es gibt die, die zu Ihrem Ziel, Ihrer Wohnung und Ihrer Lust am Basteln passt.
+
+![Eine Hand berührt ein an einer Küchenwand befestigtes Tablet, das eine Temperatur von 21,5 Grad anzeigt](/images/debutant/smart-home-control.webp)
+
+*Ein an der Küchenwand befestigtes Tablet, das die Temperatur anzeigt und das Haus steuert: Mit einer Zentrale führen Sie alle Ihre Geräte auf einem solchen Dashboard zusammen. Foto: Jakub Zerdzicki, Pexels, freie Lizenz.*
+
+## Weiterlesen
+
+- [Home Assistant, Jeedom und Homey im Vergleich](/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/)
+- [Home Assistant Green oder Raspberry Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/)
+- [Homey Pro mini: Auspacken und Einrichtung](/de/smart-home/homey-pro-mini-auspacken-einrichtung/)
+- [Erste Smart-Home-Geräte kaufen](/de/smart-home/erste-smart-home-geraete-kaufen/)
+- [Kompatibilitätstabelle der Geräte](/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/)
+- [Smart-Home-Protokolle erklärt](/de/smart-home/smart-home-protokolle-zigbee-wifi-thread-matter/)
+
+## Die Antwort auf einen Blick
+
+| Sie wollen… | Die realistischste Lösung |
+|---|---|
+| Lokal starten, wachsen können und die Software nicht bezahlen | **Home Assistant**, auf einem Green oder einem Raspberry Pi 5 |
+| Eine Zentrale, die fast sofort läuft, mit wenigen Einstellungen | **Homey Pro** oder **Homey Pro mini** |
+| Open-Source-Software mit einem Plugin-Katalog | **Jeedom** |
+| Ein paar Geräte per Sprache steuern, ohne etwas zu installieren | **Keine Zentrale**, nur die Apps der Marken oder den Sprachassistenten, den Sie schon nutzen |
+| In der Samsung-Welt bleiben | **SmartThings**, das oft auf Internet und eine Zentrale setzt |
+
+Für die meisten Leser, die ohne Pflicht-Abo automatisieren wollen, ist Home Assistant die vollständigste Wahl. Für „es funktioniert einfach“ ist Homey einfacher. Und um ohne Investition in eine Zentrale zu testen, können Sie mit WLAN-Steckdosen und -Lampen anfangen und später zu einer Zentrale wechseln.
+
+## Nach Ziel wählen
+
+### Heizung und Energiesparen
+
+Sie brauchen zwei Gerätefamilien: Sensoren, die die Temperatur (und manchmal den Verbrauch) messen, und Geräte, die handeln, etwa Heizkörperthermostate, kleine Köpfe, die Sie auf den Heizkörper schrauben, um die Wärme zu regeln. Home Assistant ist hier stark: Es speichert den Temperaturverlauf und erlaubt sehr feine Regeln. Auch Homey steuert Thermostate über seine Apps.
+
+Ohne Zentrale funktionieren die Thermostate der Marken (tado, Netatmo und andere) gut, binden Sie aber oft an ihr Ökosystem.
+
+### Sicherheit und Alarme
+
+Sie brauchen Kontaktsensoren für Türen und Fenster, Bewegungsmelder und eventuell eine Kamera. Eine lokale Zentrale hat einen Vorteil: Sie kann eine Sirene auslösen oder das Licht einschalten, sobald die Tür aufgeht, selbst wenn das Internet ausgefallen ist. Prüfen Sie vor dem Kauf einer Kamera, ob sie lokal mit Ihrer Zentrale arbeiten kann; einige Reolink-Modelle tun das zum Beispiel.
+
+### Beleuchtung
+
+Ohne Zentrale erledigen WLAN-Lampen oder -Steckdosen oder Matter-kompatible Geräte die Arbeit. Mit einer Zentrale können Sie Zigbee-Lampen nutzen, etwa von IKEA oder Philips Hue, oder Shelly-WLAN-Module, die lokal gesteuert werden. Fangen Sie einfach an: Fünf verschiedene Apps für fünf Lampen sind der sicherste Weg, die Lust zu verlieren.
+
+### Rollläden
+
+Sie brauchen oft ein Modul hinter dem Schalter oder im Rollladenkasten. Das ist Arbeit für Eigentümer, mit einer Elektrofachkraft, wenn Sie selbst keine sind. Wenn Sie zur Miete wohnen, wählen Sie für den Anfang lieber ein anderes Ziel.
+
+### Komfort: Anwesenheit und Stimmungen
+
+Ein Anwesenheitsmelder kann das Licht einschalten, wenn Sie ankommen, oder Musik starten. Es gibt zwei Arten: den klassischen Infrarotmelder (PIR), der auf die Wärme einer bewegten Person reagiert, und den Funkwellenmelder (mmWave), der selbst jemanden erkennt, der regungslos auf dem Sofa sitzt. Home Assistant und Homey kommen mit beiden sehr gut zurecht.
+
+### Miete, ohne Bohren
+
+Steckdosen, Batteriesensoren, Taster und Heizkörperthermostate brauchen kein Werkzeug. Unsere Seite zum Thema [Smart Home zur Miete ohne Bohren](/de/smart-home/smart-home-mietwohnung-ohne-bohren/) erklärt das ausführlich. Eine Zentrale wie der Home Assistant Green oder Homey wird eingesteckt, ohne dass Sie bohren müssen.
+
+### Basteln und eigene Projekte
+
+Home Assistant auf einem Raspberry Pi oder Mini-PC, kombiniert mit ESP32-Platinen (kleinen programmierbaren Elektronikplatinen mit WLAN) und der Software ESPHome (mit der man sie programmiert), bietet maximale Freiheit. Die Kehrseite: mehr Wartung. Ideen finden Sie in unseren [ESP32-Projektideen](/de/smart-home/esp32-smart-home-projektideen/).
+
+## Die Lösungen im Vergleich
+
+Die Tabelle ist breit: Auf dem Smartphone scrollen Sie sie nach rechts. Sie nennt bewusst keine Festpreise, weil sich diese von Händler zu Händler und von Land zu Land ändern.
+
+| Lösung | Für wen? | Läuft ohne Internet?* | Schwierigkeit | Häufige Falle | Startbudget |
+|---|---|---|---|---|---|
+| **Home Assistant Green** | Einsteiger, der eine Zentrale zum Einstecken will | Ja, alles bleibt bei Ihnen | Gering bis mittel | Den Zigbee-Stick für Batteriesensoren zu vergessen | Die Box allein liegt im mittleren Bereich; mehr mit Stick und Sensoren. Beim Händler prüfen |
+| **Home Assistant auf Raspberry Pi 5** | Bastler, der gern versteht, wie es funktioniert | Ja | Mittel | Zu schwaches Netzteil, unzuverlässiger Speicher | Hängt vom Set ab (Pi, Netzteil, Speicher), plus Zigbee-Stick |
+| **Home Assistant auf Mini-PC** | Wer einen Rechner weiterverwendet oder mehr Leistung will | Ja | Mittel | Stromverbrauch, Lärm, Wahl des Laufwerks | Sehr unterschiedlich, vom ausgedienten Rechner bis zur neuen Maschine |
+| **Homey Pro oder Pro mini** | Wer eine Alles-in-einem-Zentrale ohne Basteln will | Ja, bei lokal unterstützten Geräten | Gering | App-Katalog prüfen, proprietäre Hardware | Oft das teuerste Angebot der Liste; vor Ort prüfen |
+| **Jeedom** | Wer Open-Source-Software mit Plugins will | Ja | Mittel | Einige Plugins kosten Geld, Lernkurve | Je nach Box oder Raspberry Pi, plus Plugin-Budget |
+| **SmartThings** | Samsung-Nutzer | Teilweise | Gering | Abhängigkeit vom Konto und von Samsungs Servern | Je nach Zentrale und Angebot prüfen |
+| **Keine Zentrale** | Neugierige, die nur testen wollen | Oft nein | Sehr gering | Mehrere Apps, wenige Regeln über Marken hinweg | Ein paar Steckdosen und Lampen |
+
+\*„Läuft ohne Internet“ heißt: Lokal gesteuerte Geräte funktionieren weiter, Online-Dienste wie die Sprachsteuerung fallen aus.
+
+Das sind Größenordnungen aus Händlerangeboten und Herstellerdokumentationen, ohne Festpreise. Prüfen Sie den aktuellen Preis am Tag Ihres Kaufs immer beim Händler.
+
+## Home Assistant: Green, Pi oder Mini-PC?
+
+<ProductBox
+  lang="de"
+  productId="home-assistant-green"
+  name="Home Assistant Green"
+  asin="B0CXVKSG19"
+  image="/images/products/home-assistant-green.webp"
+  description="Die einfachste Zentrale: Home Assistant ist schon installiert, die Automatisierungen bleiben im Haus."
+  pros={['Einstecken und loslegen', 'Läuft lokal', 'Kein Pflichtabo', 'Zigbee-Stick nur bei Bedarf']}
+  badge="Start ohne Basteln"
+  officialUrl="https://www.home-assistant.io/green/"
+/>
+
+<ProductBox
+  lang="de"
+  productId="raspberry-pi-5-4gb"
+  name="Raspberry Pi 5 (4 GB)"
+  asin="B0CK3L9WD3"
+  ages=""
+  languages={[]}
+  image="/images/products/raspberry-pi-5-4gb.webp"
+  description="Ähnliches Budget, sobald Netzteil und Speicher dazukommen. Home Assistant installieren Sie selbst."
+  pros={['Vielseitig', 'Große Community', 'GPIO-Pins für eigene Projekte', 'Ausbaufähig']}
+  badge="Wenn Sie verstehen wollen"
+  partnerUrl=""
+/>
+
+Der **Green** ist der einfachste Einstieg: Er kommt mit bereits installiertem Home Assistant. Für den Vergleich mit dem Raspberry Pi lesen Sie unseren [Green gegen Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/).
+
+Der **Raspberry Pi 5** kostet ausgestattet ungefähr ähnlich viel, muss aber selbst eingerichtet werden: Folgen Sie unserer [Installationsanleitung](/de/smart-home/home-assistant-raspberry-pi-5-installation/). Sie brauchen außerdem ein passendes offizielles Netzteil und einen zuverlässigen Speicher. Dafür öffnen die GPIO-Pins (Anschlüsse, an denen man kleine Elektronikbauteile direkt einstecken kann) die Tür zu Bastelprojekten.
+
+Der **Mini-PC** lohnt sich, wenn Sie schon einen Rechner übrig haben oder viele Kameras und Integrationen planen.
+
+In jedem Fall müssen Sie für Zigbee-Sensoren einen Funkstick ergänzen. Das Modell unten ist ein gängiger USB-Koordinator für Home Assistant. Andere Sticks stehen im Vergleich [bester Zigbee-Stick](/de/smart-home/bester-zigbee-stick-home-assistant/).
+
+<ProductBox
+  lang="de"
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  description="USB-Stick für den Green oder den Raspberry Pi. Er baut das Netz für batteriebetriebene Sensoren auf."
+  pros={['Zigbee-Koordinator', 'ZHA und Zigbee2MQTT', 'Externe Antenne']}
+  badge="Für Zigbee ergänzen"
+/>
+
+## Homey Pro und Pro mini
+
+Homey vereint mehrere Funkstandards in einer Box. Ihre Regeln bauen Sie mit „Flows“, Karten, die Sie visuell zusammensetzen, ohne Code zu schreiben. Die Marken liefern eigene Apps, was die Einrichtung vereinfacht. Der Tagespreis steht bei Amazon. Ein aus einem anderen Land umgerechneter Preis ist kein lokaler Preis.
+
+<ProductBox
+  lang="de"
+  productId="homey-pro-mini"
+  name="Homey Pro mini"
+  asin="B0G1ZKHX1W"
+  image="/images/products/homey-pro-mini.webp"
+  description="Fertige Zentrale. Zigbee, Thread und Matter sind schon im Gerät, ohne Software-Installation."
+  pros={['Einfache App', 'Funk schon eingebaut', 'Läuft lokal', 'Kein Pflichtabo']}
+  badge="Wenn Sie nichts installieren wollen"
+  officialUrl="https://homey.app/de-de/homey-pro-mini/"
+/>
+
+Zum Mini-Modell beschreibt unser Artikel [Homey Pro mini: Auspacken und Einrichtung](/de/smart-home/homey-pro-mini-auspacken-einrichtung/). Der größere Homey Pro bringt weitere Funkstandards mit. Der laufende Test: [Homey Pro: Auspacken und Einrichtung](/de/smart-home/homey-pro-auspacken-einrichtung/). Die Herstellerseite steht auf [homey.app](https://homey.app/de-de/homey-pro/).
+
+## Jeedom
+
+Jeedom ist eine Open-Source-Software mit aktiver Community. Sie arbeitet mit Zusatzmodulen, den Plugins, von denen einige im offiziellen Store kostenpflichtig sind. Das ist eine gute Wahl, wenn Sie ein dokumentiertes, pluginbasiertes System mögen. Lesen Sie vor dem Kauf einer Jeedom-Box die offizielle Dokumentation, um die Plugins zu erkennen, die Sie brauchen werden.
+
+## SmartThings und Sprachassistenten
+
+SmartThings (Samsung) und die Sprachassistenten von Google, Amazon (Alexa) und Apple erleichtern Sprachsteuerung und Matter-Kompatibilität. Für fortgeschrittene Szenarien oder dafür, dass alles ohne Internet weiterläuft, sind sie jedoch eingeschränkter als ein Home Assistant oder ein Homey, die bei Ihnen zu Hause laufen. Viele Haushalte behalten sie deshalb als Ergänzung: Home Assistant kann ihnen seine Geräte „vorstellen“, damit man sie per Sprache steuert.
+
+## Smart Home ohne Zentrale
+
+Das ist möglich und zum Testen sehr nützlich: ein oder zwei WLAN-Steckdosen, die den Verbrauch messen, eine Matter-kompatible Lampe, und los. Die Grenze: Geräte verschiedener Marken sprechen nicht miteinander und hängen oft vom Internet ab. Wenn Sie Geschmack daran finden, führen Sie alles in Home Assistant oder Homey zusammen, statt Apps anzuhäufen.
+
+## Wo anfangen, und was wählen, um zu wachsen?
+
+Wenn Sie morgen ohne Basteln starten wollen, nehmen Sie Homey oder den Home Assistant Green. Wenn Sie lokal starten und lernen wollen, nehmen Sie den Home Assistant Green oder einen Raspberry Pi 5 mit Zigbee-Stick. Für maximalen Spielraum ist Home Assistant am offensten: Es akzeptiert unzählige Marken, ESPHome-Platinen und das Nachrichtensystem MQTT, das Bastler gern nutzen.
+
+Drei Fallen kommen oft vor. Die erste ist ein Cloud-Zwang (ein Betrieb, der die Server des Herstellers verlangt), der nicht klar angekündigt wird: Lesen Sie das Datenblatt vor dem Kauf. Die zweite ist ein Abo, das für Grundfunktionen verlangt wird: Prüfen Sie, was lokal funktioniert. Die dritte ist die Inkompatibilität zwischen einem Gerät und Ihrer Zentrale: Gleichen Sie die [Kompatibilitätstabelle](/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/) mit der Dokumentation des Herstellers ab.
+
+Für den nächsten Schritt gehen Sie zu den [ersten Geräten zum Kaufen](/de/smart-home/erste-smart-home-geraete-kaufen/) oder zurück zum [kompletten Einsteiger-Leitfaden](/de/smart-home/smart-home-einstieg-kompletter-leitfaden/).
+
+## Häufige Fragen
+
+**Ist Home Assistant kostenlos?**
+Die Software Home Assistant ist kostenlos. Die Hardware (ein Green oder ein Raspberry Pi, ein Zigbee-Stick) kostet extra. Ein optionales Abo namens Nabu Casa erleichtert den Fernzugriff, aber nichts zwingt Sie dazu, wenn alles zu Hause bleibt.
+
+**Ersetzt Homey Home Assistant?**
+Für viele Alltagsfälle im Haushalt ja. Home Assistant bleibt offener für DIY, ESPHome und seltene Integrationen. Am sichersten vergleichen Sie Ihre Geräteliste mit dem Homey-App-Katalog und mit der Liste der Home-Assistant-Integrationen.
+
+**Kann ich später die Zentrale wechseln?**
+Ja, besonders wenn Sie Geräte gewählt haben, die offene Sprachen wie Zigbee oder Matter sprechen. Geräte, die ganz von den Servern ihrer Marke abhängen, lassen sich schwerer umziehen. Die [Kompatibilitätstabelle](/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/) hilft Ihnen, das vor dem Kauf zu prüfen.
+
+**Ist SmartThings in Deutschland, Österreich und der Schweiz sinnvoll?**
+Zentralen und Geräte werden länderweise verkauft, und Matter verbessert die Kompatibilität. Prüfen Sie die Verfügbarkeit bei Ihnen, den Steckertyp und was ohne Internet weiterläuft.
+
+---
+
+*Hinweis zu Affiliate-Links: Die Amazon.de-Links tragen die Kennung der Website (roboteducat00-21). Wenn Sie darüber kaufen, kann eine Provision gezahlt werden, ohne Mehrkosten für Sie. Preise beim Händler prüfen. Autor: Emmanuel Sauvage.*

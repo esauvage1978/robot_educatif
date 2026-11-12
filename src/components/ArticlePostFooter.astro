@@ -1,0 +1,116 @@
+---
+import ChooseRobotBox from './ChooseRobotBox.astro';
+import FollowBlock from './FollowBlock.astro';
+import ShareButtons from './ShareButtons.astro';
+import TutorialProductBox from './TutorialProductBox.astro';
+import { CHOOSE_ROBOT_BUYING_GUIDE_SLUGS, CHOOSE_ROBOT_SLUGS } from '../lib/chooseRobotLinks';
+import type { ChooseRobotLang } from '../lib/chooseRobotLinks';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	frSlug?: string;
+	pagePath: string;
+	title: string;
+	description?: string;
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	/** blog = partage seul (encarts déjà dans BlogPost) ; i18n = robots + choix + partage */
+	variant?: 'blog' | 'i18n';
+}
+
+const {
+	frSlug = '',
+	pagePath,
+	title,
+	description = '',
+	lang = 'fr',
+	variant = 'blog',
+} = Astro.props;
+
+const PYTHON_LESSON_SLUGS = new Set([
+	'python-types-et-saisie',
+	'python-inter-pathlib',
+	'python-boucles-for-while',
+]);
+
+const showPythonTutorialBox =
+	variant === 'i18n' && frSlug && PYTHON_LESSON_SLUGS.has(frSlug);
+const showMbotTutorialBox =
+	variant === 'i18n' &&
+	frSlug &&
+	CHOOSE_ROBOT_SLUGS[frSlug] &&
+	!CHOOSE_ROBOT_BUYING_GUIDE_SLUGS.has(frSlug) &&
+	!PYTHON_LESSON_SLUGS.has(frSlug);
+const chooseAges =
+	variant === 'i18n' && frSlug ? CHOOSE_ROBOT_SLUGS[frSlug] : undefined;
+
+const mbotGuideByLang: Record<ChooseRobotLang, { url: string; title: string; boxTitle: string }> = {
+	fr: {
+		url: '/quel-robot-acheter-enfant-10-ans-guide-achat/',
+		title: 'Guide complet : quel robot mBot choisir ?',
+		boxTitle: 'Quel robot pour suivre ce tutoriel ?',
+	},
+	en: {
+		url: '/en/best-robot-for-a-10-year-old/',
+		title: 'Guide: best coding robot for a 10-year-old',
+		boxTitle: 'Which robot for this tutorial?',
+	},
+	de: {
+		url: '/de/lernroboter-10-jahre/',
+		title: 'Ratgeber: Lernroboter ab 10 Jahren',
+		boxTitle: 'Welcher Roboter für dieses Tutorial?',
+	},
+	it: {
+		url: '/it/robot-programmabile-10-anni/',
+		title: 'Guida: robot programmabile per 10 anni',
+		boxTitle: 'Quale robot per questo tutorial?',
+	},
+	es: {
+		url: '/es/robot-programable-10-anos/',
+		title: 'Guía: robot programable para 10 años',
+		boxTitle: '¿Qué robot para este tutorial?',
+	},
+};
+
+const guideByLang: Record<ChooseRobotLang, { url: string; title: string }> = {
+	fr: { url: '/robot-programmable-python/', title: 'Guide : robots programmables Python' },
+	en: { url: '/en/best-programmable-robot-for-kids/', title: 'Guide: programmable robots for kids' },
+	de: { url: '/de/lernroboter-10-jahre/', title: 'Ratgeber: Lernroboter ab 10 Jahren' },
+	it: { url: '/it/miglior-robot-programmabile-per-bambini/', title: 'Guida: robot programmabili per bambini' },
+	es: { url: '/es/mejor-robot-programable-para-ninos/', title: 'Guía: robots programables para niños' },
+};
+
+const tutorialGuide = guideByLang[lang] ?? guideByLang.fr;
+const mbotGuide = mbotGuideByLang[lang] ?? mbotGuideByLang.fr;
+const siteOrigin = Astro.site?.origin ?? 'https://robot-educatif.info';
+const pathNorm = pagePath.endsWith('/') ? pagePath : `${pagePath}/`;
+const shareUrl = new URL(withBase(pathNorm), siteOrigin).href;
+---
+
+{showPythonTutorialBox && (
+	<TutorialProductBox
+		lang={lang}
+		productIds={['mbot2', 'raspberry-pi-5-8gb', 'cyberpi']}
+		guideUrl={withBase(tutorialGuide.url)}
+		guideTitle={tutorialGuide.title}
+	/>
+)}
+{showMbotTutorialBox && (
+	<TutorialProductBox
+		lang={lang}
+		productIds={
+			frSlug === 'activite-mbot-faire-clignoter-les-leds' ||
+			frSlug === 'activite-mbot-mesurer-des-distances'
+				? ['mbot']
+				: frSlug === 'mon-premier-programme-mbot' ||
+					  frSlug === 'serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle'
+					? ['mbot', 'mbot2']
+					: ['mbot2', 'mbot']
+		}
+		guideUrl={withBase(mbotGuide.url)}
+		guideTitle={mbotGuide.title}
+		title={mbotGuide.boxTitle}
+	/>
+)}
+{chooseAges && chooseAges.length > 0 && <ChooseRobotBox ages={chooseAges} lang={lang} />}
+<ShareButtons url={shareUrl} title={title} description={description} lang={lang} />
+<FollowBlock lang={lang} />

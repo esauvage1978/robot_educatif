@@ -4,7 +4,12 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import SelectionFetes2026 from '../components/SelectionFetes2026.astro';
 import Header from '../components/Header.astro';
+import HomeIntentPaths from '../components/HomeIntentPaths.astro';
+import HomeSmartHome from '../components/HomeSmartHome.astro';
+import { getIllustration } from '../lib/illustration';
+import SiteQuickAccess from '../components/SiteQuickAccess.astro';
 import StructuredDataWebsite from '../components/StructuredDataWebsite.astro';
 import { SITE_TITLE, AMAZON_AFFILIATE_TAG } from '../consts';
 import { articleSlugFromId } from '../lib/articleSlug';
@@ -14,22 +19,24 @@ import { compareBlogPostsByPublicationDesc } from '../lib/sortBlogPosts';
 import { withBase } from '../lib/siteUrl';
 import { getProductImage } from '../lib/amazonImage';
 import { withImageVersion } from '../lib/imageVersion';
+import { catalogForMarket } from '../lib/marketProducts.mjs';
+import { buildHomePopularProducts } from '../lib/homePopularProducts.mjs';
+
+const { catalog } = await catalogForMarket('fr', 'fr');
+const heroMbot2 = catalog.mbot2;
+const popularProducts = await buildHomePopularProducts('fr', 'fr');
+const heroMbot2Price = heroMbot2 && !heroMbot2.amazonIndispo ? heroMbot2.priceRange : '';
 
 const allPosts = await getCollection('blog');
 const latestPosts = [...allPosts].sort(compareBlogPostsByPublicationDesc).slice(0, 4);
+const domotiqueLatest = (await getCollection('domotique'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id))
+	.slice(0, 2);
 
-const HOME_TITLE = "Robot Éducatif : guides d'achat et tutos robots pour enfants";
+const HOME_TITLE = "Robot programmable enfant : guides d'achat, mBlock et tutos 2026";
 
 const HOME_DESCRIPTION =
-	'Robots éducatifs pour enfants, ados et écoles : guides d\'achat par âge, comparatifs mBot/LEGO, tutoriels mBlock, Scratch et Python.';
-
-// Popular products for homepage
-const popularProducts = [
-	{ name: 'Makeblock mBot Neo', asin: 'B0CQXKX64J' },
-	{ name: 'Makeblock mBot2', asin: 'B09BYYMF7R' },
-	{ name: 'LEGO Education SPIKE Essential', asin: 'B08W2JHFDB' },
-	{ name: 'Arduino Starter Kit Officiel', asin: 'B009UKZV0A' },
-];
+	'Quel robot programmable offrir à un enfant ? Guides par âge (5, 8, 10, 12 ans), mBlock 5 en ligne ou à télécharger, mBot, Arduino et programmation pour la maison et la classe.';
 
 const guideCount = allPosts.length;
 ---
@@ -37,6 +44,7 @@ const guideCount = allPosts.length;
 <!doctype html>
 <html lang="fr">
 	<head>
+		<Fragment set:html={'<meta name="fo-verify" content="e4b7801e-8207-4fc7-9e89-688ae147b550" />'} />
 		<BaseHead title={HOME_TITLE} description={HOME_DESCRIPTION} />
 		<StructuredDataWebsite />
 		<style>
@@ -74,17 +82,9 @@ const guideCount = allPosts.length;
 		color: #9A3412;
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.hero-content .badge {
-			background: #C2410C;
-			color: #FFFFFF;
-		}
-	}
+	
 
-	html[data-theme="dark"] .hero-content .badge {
-		background: #C2410C;
-		color: #FFFFFF;
-	}
+	
 			
 			.hero-content h1 {
 				font-family: var(--font-heading);
@@ -135,15 +135,9 @@ const guideCount = allPosts.length;
 			background: #C2410C;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.btn-primary {
-				background: #C2410C;
-			}
-		}
 		
-		html[data-theme="dark"] .btn-primary {
-			background: #C2410C;
-		}
+		
+		
 		
 		.btn-primary:hover {
 			background: #ea580c;
@@ -151,15 +145,9 @@ const guideCount = allPosts.length;
 			box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.btn-primary:hover {
-				background: #9A3412;
-			}
-		}
 		
-		html[data-theme="dark"] .btn-primary:hover {
-			background: #9A3412;
-		}
+		
+		
 			
 			.btn-secondary {
 				border: 2px solid var(--primary);
@@ -200,15 +188,7 @@ const guideCount = allPosts.length;
 			box-shadow: 0 20px 40px rgba(11, 31, 42, 0.12);
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card {
-				background: #ffffff;
-			}
-			.hero-card .card-info strong,
-			.hero-card .card-info small {
-				color: #0B1F2A;
-			}
-		}
+		
 			
 			.hero-card img {
 				width: 100%;
@@ -230,12 +210,7 @@ const guideCount = allPosts.length;
 			font-size: 0.9rem;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card .card-tag {
-				background: #0F766E;
-				color: white;
-			}
-		}
+		
 			
 			.card-footer {
 				display: flex;
@@ -271,15 +246,7 @@ const guideCount = allPosts.length;
 			transition: all 0.2s ease;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card .card-cta {
-				background: #0B1F2A;
-				color: white;
-			}
-			.hero-card .card-cta:hover {
-				background: #0F766E;
-			}
-		}
+		
 		
 		.card-cta:hover {
 			background: var(--primary);
@@ -388,10 +355,12 @@ const guideCount = allPosts.length;
 			}
 			
 			.product-card {
-				background: var(--page-bg);
-				border: 1px solid var(--surface-border);
-				border-radius: 12px;
-				transition: all 0.2s ease;
+				background: #fff;
+				border: 1px solid #e5edf3;
+				border-left: 4px solid #0f766e;
+				border-radius: 18px;
+				box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+				transition: box-shadow 0.2s ease;
 				overflow: hidden;
 			}
 			
@@ -414,31 +383,49 @@ const guideCount = allPosts.length;
 				aspect-ratio: 1;
 				object-fit: contain;
 				margin: 0 auto 1rem;
-				background: white;
-				border-radius: 8px;
-				border: 1px solid var(--surface-border);
+				background: #f4f7fb;
+				border-radius: 14px;
+				border: 0;
+				padding: 0.65rem;
 			}
 			
 			.product-card h3 {
 				font-weight: 700;
 				font-size: 1.05rem;
-				margin: 0 0 0.75rem 0;
+				margin: 0 0 0.35rem 0;
 				color: rgb(var(--black));
+			}
+
+			.product-card-price {
+				display: block;
+				margin: 0 0 0.65rem;
+				font-weight: 800;
+				font-size: 1.35rem;
+				letter-spacing: -0.02em;
+				color: #0f172a;
+			}
+			.product-card-price .price-eur,
+			.card-info .price-eur {
+				white-space: nowrap;
 			}
 			
 			.product-card-cta {
-				display: inline-block;
-				background: var(--accent-warm);
-				color: white;
-				padding: 10px 18px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background: #f59e0b;
+				color: #0f172a;
+				padding: 0.65rem 1.15rem;
 				border-radius: 8px;
+				border: 1px solid #d97706;
 				font-weight: 700;
-				font-size: 0.9rem;
-				transition: all 0.2s ease;
+				font-size: 0.95rem;
+				transition: background 0.15s ease;
 			}
 			
 			.product-card-link:hover .product-card-cta {
-				background: #ea580c;
+				background: #d97706;
+				color: #0f172a;
 			}
 			
 		.articles-grid {
@@ -497,8 +484,9 @@ const guideCount = allPosts.length;
 			}
 			
 			.cta-banner {
-				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-				color: white;
+				/* #134e4a → #0f766e : le blanc reste ≥ 5,3:1 sur toute la surface (le dégradé #14b8a6 tombait à ~2,5:1). */
+				background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
+				color: #f8fafc;
 				border-radius: 20px;
 				padding: 3rem 2.5rem;
 				text-align: center;
@@ -510,24 +498,40 @@ const guideCount = allPosts.length;
 				font-weight: 800;
 				font-size: clamp(1.8rem, 3vw, 2.25rem);
 				margin: 0 0 1rem 0;
+				color: #f8fafc;
 			}
 			
 			.cta-banner p {
 				font-size: 1.15rem;
 				margin: 0 0 2rem 0;
-				opacity: 0.95;
+				color: #f8fafc;
 				max-width: 600px;
 				margin-left: auto;
 				margin-right: auto;
 			}
-			
-			.cta-banner .btn {
-				background: white;
-				color: var(--primary);
+
+			.cta-banner a:not(.btn) {
+				color: #ffffff;
+				font-weight: 700;
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 3px;
+			}
+
+			.cta-banner a:not(.btn):hover,
+			.cta-banner a:not(.btn):focus-visible {
+				color: #ccfbf1;
 			}
 			
-			.cta-banner .btn:hover {
-				background: var(--page-bg);
+			.cta-banner .btn {
+				background: #ffffff;
+				color: #115e59;
+			}
+			
+			.cta-banner .btn:hover,
+			.cta-banner .btn:focus-visible {
+				background: #f0fdfa;
+				color: #134e4a;
 				transform: translateY(-2px);
 				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 			}
@@ -593,12 +597,12 @@ const guideCount = allPosts.length;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="home">
 			<section class="hero">
 				<div class="hero-inner">
 					<div class="hero-content">
 						<span class="badge">🎄 Guide Noël 2026 mis à jour</span>
-						<h1>Le bon robot éducatif, <em>choisi et testé</em> pour votre enfant</h1>
+						<h1>Le bon robot éducatif, <em>choisi selon l'âge</em> pour votre enfant</h1>
 						<p class="hero-lead">
 							mBot, robots programmables, kits Arduino : nos comparatifs par âge (6 à 15 ans) pour offrir un cadeau qui apprend vraiment à coder.
 						</p>
@@ -621,14 +625,22 @@ const guideCount = allPosts.length;
 							<div class="card-info">
 								<strong>Makeblock mBot2</strong>
 								<small>Scratch puis Python · idéal dès 8 ans</small>
+								{heroMbot2Price && (
+									<small class="product-card-price">
+										<span class="price-eur">{heroMbot2Price}</span>
+									</small>
+								)}
 							</div>
-							<a href={`https://www.amazon.fr/s?k=mbot2&tag=${AMAZON_AFFILIATE_TAG}`} class="card-cta" rel="sponsored nofollow noopener" target="_blank">
-								Voir le prix
+							<a href={`https://www.amazon.fr/dp/B0919F9CKS?tag=${AMAZON_AFFILIATE_TAG}`} class="card-cta" rel="sponsored nofollow noopener" target="_blank">
+								Voir sur Amazon
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
+			<HomeIntentPaths />
+			<SiteQuickAccess layout="home" />
+			<SelectionFetes2026 />
 			
 			<section class="section">
 				<div class="container">
@@ -671,22 +683,24 @@ const guideCount = allPosts.length;
 					</div>
 				</div>
 			</section>
+
+			<HomeSmartHome lang="fr" />
 			
 			<section class="section" style="background: var(--surface-2); padding: 4rem 0;">
 				<div class="container">
 					<div class="best-sellers">
 						<h2>🔥 Les plus populaires</h2>
 						<div class="product-grid">
-							{popularProducts.map(product => (
+							{popularProducts.map((product) => (
 								<div class="product-card">
 									<a 
-										href={`https://www.amazon.fr/dp/${product.asin}?tag=${AMAZON_AFFILIATE_TAG}`}
-										rel="sponsored nofollow noopener"
+										href={product.href}
+										rel={product.rel}
 										target="_blank"
 										class="product-card-link"
 									>
 										<img 
-											src={getProductImage(product.asin, product.name, 200, 200)} 
+											src={product.imageAmazon || getProductImage(product.asin, product.name, 200, 200)} 
 											alt={product.name}
 											width="200"
 											height="200"
@@ -694,6 +708,9 @@ const guideCount = allPosts.length;
 											class="product-card-img"
 										/>
 										<h3>{product.name}</h3>
+										{product.price && (
+											<span class="product-card-price"><span class="price-eur">{product.price}</span></span>
+										)}
 										<span class="product-card-cta">Voir sur Amazon →</span>
 									</a>
 								</div>
@@ -701,6 +718,18 @@ const guideCount = allPosts.length;
 						</div>
 					</div>
 					
+					<div class="cta-banner">
+						<h2>Nouveautés robots 2026–2027</h2>
+						<p>
+							<a href={withBase('/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/')}>Calendrier complet</a>
+							{' · '}
+							<a href={withBase('/thymio-3-nouveautes-prix-avis-comparatif-mbot2/')}>Thymio 3 vs mBot2</a>
+							{' · '}
+							<a href={withBase('/mbot3-date-sortie-rumeurs-mbot2-rover-alternatives/')}>mBot3 et alternatives</a>
+							{' · '}
+							<a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a>
+						</p>
+					</div>
 					<div class="cta-banner">
 						<h2>Besoin d'aide pour choisir ?</h2>
 						<p>Découvrez <a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>notre guide complet</a> pour trouver le robot idéal selon l'âge, le budget et les objectifs pédagogiques.</p>
@@ -711,6 +740,62 @@ const guideCount = allPosts.length;
 				</div>
 			</section>
 			
+			<section class="section">
+				<div class="container">
+					<div class="section-header">
+						<h2>Outils interactifs</h2>
+						<p>Devis classe, diagnostic domotique, compatibilité Makeblock et réglages capteurs</p>
+					</div>
+					<div class="age-grid">
+						<a href={withBase('/configurateur-kit-robotique-classe/')} class="age-card">
+							<span class="age-badge">Établissement</span>
+							<h3>Configurateur kit robotique</h3>
+							<p>mBot2, capteurs, tapis, chargeurs — devis exportable pour AO / CSE</p>
+						</a>
+						<a href={withBase('/calculateur-budget-robot-classe/')} class="age-card">
+							<span class="age-badge">Budget</span>
+							<h3>Calculateur budget classe</h3>
+							<p>Coût par élève selon effectif et modèle de robot</p>
+						</a>
+						<a href={withBase('/domotique/configurateur-projet-domotique/')} class="age-card">
+							<span class="age-badge">Domotique</span>
+							<h3>Configurateur projet domotique</h3>
+							<p>Garage, volets, éclairage, box HA — liste matériel & tutoriel en 3 étapes</p>
+						</a>
+						<a href={withBase('/domotique/diagnostic-par-symptome/')} class="age-card">
+							<span class="age-badge">Domotique</span>
+							<h3>Diagnostic par symptôme</h3>
+							<p>Home Assistant, Shelly, Aqara, Sonoff — Wi-Fi, Zigbee, consommation</p>
+						</a>
+						<a href={withBase('/tableau-reglages-capteurs-mbot2-depannage/')} class="age-card">
+							<span class="age-badge">mBot2</span>
+							<h3>Capteurs mBot / mBot2</h3>
+							<p>Ligne, ultrason, gyro, lumière — étalonnage et dépannage</p>
+						</a>
+						<a href={withBase('/compatibilite-makeblock/')} class="age-card">
+							<span class="age-badge">Makeblock</span>
+							<h3>Matrice compatibilité</h3>
+							<p>Accessoires RJ25 et mBuild × robots Makeblock</p>
+						</a>
+						<a href={withBase('/outil-quel-robot-enfant/')} class="age-card">
+							<span class="age-badge">Famille</span>
+							<h3>Quiz robot enfant</h3>
+							<p>Recommandation selon l’âge et le niveau</p>
+						</a>
+						<a href={withBase('/generateur-fiche-seance-robotique-pdf/')} class="age-card">
+							<span class="age-badge">Enseignant</span>
+							<h3>Fiche de séance PDF</h3>
+							<p>Cycle 2 à lycée : déroulé minuté, compétences, grille d’évaluation</p>
+						</a>
+						<a href={withBase('/ressources-svg-schemas-mbot-capteurs/')} class="age-card">
+							<span class="age-badge">Schémas</span>
+							<h3>SVG capteurs mBot</h3>
+							<p>RJ25, mBuild, ultrason, ligne, servo — téléchargement vectoriel</p>
+						</a>
+					</div>
+				</div>
+			</section>
+
 			<section class="section">
 				<div class="container">
 					<div class="section-header">
@@ -768,6 +853,23 @@ const guideCount = allPosts.length;
 							</a>
 						);
 					})}
+					{domotiqueLatest.map((post) => {
+						const slug = post.id.replace(/\.mdx?$/, '');
+						const ill = getIllustration(slug);
+						return (
+							<a href={withBase(`/domotique/${slug}/`)} class="article-card">
+								{ill && (
+									<img src={withImageVersion(withBase(ill.src))} alt={ill.alt} width="448" height="252" loading="lazy" decoding="async" />
+								)}
+								<div class="article-content">
+									<div class="article-date">
+										<FormattedDate date={post.data.pubDate} />
+									</div>
+									<h3>{post.data.title}</h3>
+								</div>
+							</a>
+						);
+					})}
 				</div>
 					
 					<div style="text-align: center; margin-top: 2.5rem;">
@@ -791,7 +893,7 @@ const guideCount = allPosts.length;
 					</div>
 				</div>
 			</section>
-		</main>
+</main>
 		<Footer />
 	</body>
 </html>

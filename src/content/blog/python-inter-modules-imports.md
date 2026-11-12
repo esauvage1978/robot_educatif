@@ -1,8 +1,8 @@
 ---
 title: "Python intermédiaire — modules, packages et imports"
-description: "Modules Python : import, from, __main__, PEP 8. 20 exercices avec solutions."
+description: "Modules et imports Python : import, from, le rôle de __main__ et l’ordre conseillé par PEP 8. Vingt exercices corrigés pour structurer un programme clair."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-11-02
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python intermédiaire
 seriesOrder: 1
@@ -18,6 +18,12 @@ categories:
   - "Tutoriel"
   - "Intermédiaire"
 ---
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python-intermediaire/">Python intermédiaire</a> · Leçon 1 — modules et imports</nav>
+
+> **Réponse directe (novembre 2026)** — Découpez votre code en **fichiers `.py`**, importez avec **`import module`** ou **`from module import symbole`**, et placez le code « lancé seulement en script » sous **`if __name__ == "__main__":`**.
+
+Cette leçon ouvre le parcours [Python intermédiaire](/programmation/python-intermediaire/) : après les bases, vous structurez un vrai petit projet avant [venv et pip](/python-inter-venv-pip/) et les leçons suivantes ([regex](/python-inter-regex-re/), [tests](/python-inter-tests-qualite/)).
+
 Quand un script dépasse quelques dizaines de lignes, tout garder dans un seul fichier devient difficile à lire et à faire évoluer. Le **découper en modules** (fichiers `.py` qui regroupent des fonctions, constantes ou classes liées) sert deux objectifs : **clarifier les responsabilités** (chaque fichier a un rôle identifiable) et **réutiliser** le même code depuis plusieurs endroits sans copier-coller. En Python, le mécanisme central pour charger du code depuis un autre fichier est l’instruction **`import`** ; il s’appuie sur un **système d’import** (chemins, packages, cache) que tu peux approfondir via les ressources en fin de page.
 
 Cette leçon pose les bases : comment importer la **bibliothèque standard** ou ton **propre code**, comment un fichier peut servir à la fois de **module** et de **script** grâce à **`__main__`**, et comment structurer un **package** (dossier de modules). Tu verras aussi comment la **PEP 8** t’aide à écrire un code **lisible et cohérent** avec le reste de l’écosystème Python.
@@ -224,9 +230,7 @@ print(os.getcwd())</code></pre>
 <summary class="exercise-solution__summary">Afficher la solution</summary>
 <div class="exercise-solution__body">
 <pre class="exercise-solution__pre"><code class="language-python">import math
-
 # import requests  # exemple tiers
-
 # import monoutil  # projet (fichier à côté)
 </code></pre>
 </div>
@@ -351,6 +355,17 @@ from constants import TAILLE_MAX
 print(TAILLE_MAX)</code></pre>
 </div>
 </details>
+
+## FAQ
+
+**Quelle différence entre `import math` et `from math import sqrt` ?**  
+La première garde le **préfixe** `math.` (plus explicite) ; la seconde importe un **symbole** dans l’espace courant (plus court si très utilisé).
+
+**Pourquoi éviter `from module import *` ?**  
+Vous ne contrôlez pas la liste des noms importés, vous risquez d’**écraser** des variables et les linters perdent le fil.
+
+**Où mettre les imports ?**  
+En **tête de fichier** après le docstring du module, groupés : bibliothèque standard, tiers, puis votre projet (PEP 8).
 
 ## Suite du parcours
 

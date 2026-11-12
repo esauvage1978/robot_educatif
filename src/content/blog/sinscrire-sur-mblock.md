@@ -89,14 +89,39 @@ Après validation, **consultez votre messagerie** : Makeblock envoie en principe
 
 ## 8. Récapitulatif rapide
 
-| Étape | Action |
-| --- | --- |
-| 1 | Régler la **langue** sur **français** dans mBlock |
-| 2 | Menu **compte** (en haut à droite) |
-| 3 | Saisir l’**e-mail** → **Suivant** |
-| 4 | Indiquer si vous avez **16 ans ou plus** ; lire les messages si **mineur** |
-| 5 | Définir un **mot de passe** → **Créer un compte** |
-| 6 | **Confirmer** via le lien reçu par mail |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Étape</th>
+<th scope="col">Action</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Étape"><span class="td-val">1</span></td>
+<td data-label="Action"><span class="td-val">Régler la <strong>langue</strong> sur <strong>français</strong> dans mBlock</span></td>
+</tr>
+<tr>
+<td data-label="Étape"><span class="td-val">2</span></td>
+<td data-label="Action"><span class="td-val">Menu <strong>compte</strong> (en haut à droite)</span></td>
+</tr>
+<tr>
+<td data-label="Étape"><span class="td-val">3</span></td>
+<td data-label="Action"><span class="td-val">Saisir l’<strong>e-mail</strong> → <strong>Suivant</strong></span></td>
+</tr>
+<tr>
+<td data-label="Étape"><span class="td-val">4</span></td>
+<td data-label="Action"><span class="td-val">Indiquer si vous avez <strong>16 ans ou plus</strong> ; lire les messages si <strong>mineur</strong></span></td>
+</tr>
+<tr>
+<td data-label="Étape"><span class="td-val">5</span></td>
+<td data-label="Action"><span class="td-val">Définir un <strong>mot de passe</strong> → <strong>Créer un compte</strong></span></td>
+</tr>
+<tr>
+<td data-label="Étape"><span class="td-val">6</span></td>
+<td data-label="Action"><span class="td-val"><strong>Confirmer</strong> via le lien reçu par mail</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Une fois connecté, vous pourrez enchaîner sur un [premier programme pour le mBot](/mon-premier-programme-mbot/) ou continuer à apprendre les bases de l’[interface mBlock 5](/premier-pas-avec-mblock-5/).
 

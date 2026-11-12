@@ -1,12 +1,14 @@
 ---
 title: "Arduino C : structure sketch, setup/loop, Serial Monitor"
-description: "Structure sketch Arduino : setup/loop, Serial. 20 exercices."
+description: "Structure d’un sketch Arduino : setup une fois, loop en continu et Serial Monitor pour vérifier. Vingt exercices corrigés pour ce premier cours de robot."
 pubDate: 2026-04-02
-updatedDate: 2026-04-02
+updatedDate: "2026-11-04"
 series: "Arduino C"
 seriesOrder: 1
 tags: ["C", "Arduino", "Robotique", "Programmation"]
 relatedLinks:
+  - title: "Hub Arduino C"
+    href: "/programmation/arduino-c/"
   - title: "Leçon 2 — types et variables"
     href: "/c-arduino-types-variables/"
 categories:
@@ -15,17 +17,19 @@ categories:
   - "Programmation"
   - "Débutant"
 ---
+> **Réponse directe (novembre 2026)** — Un sketch Arduino = fichier `.ino` avec **`setup()`** (une fois) et **`loop()`** (infini). L’IDE ajoute les `#include` Arduino et le `main()` caché ; vous ne l’écrivez pas à la main.
+
+Leçon **1** du [parcours Arduino C](/programmation/arduino-c/) : structure, compilation et **Serial** (moniteur série = fenêtre texte sur le PC pour déboguer).
+
+![Montage Arduino UNO — photo produit](/images/models/arduino-uno-r3.webp)
+
+<p><em>Carte Arduino UNO R3 — support des exemples de cette leçon.</em></p>
+
+![Kit robot Arduino pour débuter](/images/products/arduino-starter-kit.webp)
+
+<p><em>Kit Starter — utile si vous enseignez la robotique après les bases du sketch.</em></p>
 
 Arduino C (souvent appelé « Arduino C ») est du **C/C++** adapté à des microcontrôleurs. En robotique, l’idée est simple : ton programme tourne **en boucle** sur la carte et lit des **capteurs** / commande des **actionneurs** (LED, moteurs, buzzer…).
-
-Dans cette leçon, tu apprends :
-
-- la structure d’un **sketch** (`setup()` / `loop()`),
-- comment vérifier que ça compile,
-- comment utiliser **Serial** (très utile pour déboguer),
-- quelques bonnes pratiques dès le début.
-
-> Les exemples fonctionnent sur Arduino “classique”. Sur mBot/mCore via mBlock en mode Arduino C, tu as la même logique, avec en plus des bibliothèques Makeblock.
 
 ## 1) La structure d’un sketch : `setup()` et `loop()`
 
@@ -431,4 +435,19 @@ void loop() {
 }</code></pre>
 </div>
 </details>
+
+## Suite
+
+→ [Leçon 2 — types, variables et constantes](/c-arduino-types-variables/) · [Leçon 4 — fonctions et modularité](/c-arduino-fonctions-modularite-bonnes-pratiques/) · [Hub Arduino C](/programmation/arduino-c/) · [Meilleur kit robot Arduino enfant](/meilleur-robot-educatif-arduino-kit-choisir/)
+
+## FAQ
+
+**Pourquoi mon sketch ne compile pas ?**  
+Vérifiez chaque `;` manquant, une `{` non fermée, ou une broche mal nommée — le message d’erreur de l’IDE Arduino indique la ligne.
+
+**Serial ne montre rien :**  
+Même vitesse (**9600** bauds) dans `Serial.begin(9600)` et dans le menu Moniteur série, bon port USB sélectionné.
+
+**Suite pédagogique :**  
+Après cette leçon, enchaînez sur [les types et variables](/c-arduino-types-variables/) avant les capteurs.
 

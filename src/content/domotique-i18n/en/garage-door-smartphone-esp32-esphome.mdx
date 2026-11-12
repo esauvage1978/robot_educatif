@@ -1,0 +1,249 @@
+---
+title: "Open your garage door from your smartphone with an ESP32, ESPHome and Home Assistant"
+description: "Complete and secure tutorial: dry contact relay on the push button input of the engine, reed sensor open/closed, Home Assistant cover on mobile, YAML ESPHome complete."
+pubDate: 2026-10-19T00:00:00Z
+category: "esp32"
+priority: 6
+lang: "en"
+frSlug: "ouvrir-porte-garage-smartphone-esp32-esphome"
+---
+
+Open the garage from the phone, in addition to the remote control, and especially **Find out if he's been open.** : it is one of the most useful smart home projects. The principle is simple and does not modify the motorization: a **Relay** Trendy **parallel to the wall push button** gives a short pulse, just like pressing this button. A **Reed Sensor** indicates if the door is closed, and Home Assistant displays a garage door in its mobile app.
+
+## Safety: to read first
+
+- **Check in the leaflet of your engine** that she owns a **input "push button" / "dry contact" / "step-by-step control"** (low voltage terminal block). If the package leaflet does not mention it, do not go further.
+- **Never touch the 230 V.** without skill: turn off the power supply to the engine before opening its hood. This assembly can only be connected to the low voltage terminal block.
+- **Keep all the security**: obstacle detection, photocells, force adjustment. Never bridge them.
+- **Secure remote access**: Home Assistant Cloud or VPN (WireGuard, for example), accounts with two-factor authentication. Never open a Home Assistant port on the Internet without protection.
+- **Confirmation before opening** : Set up a confirmation request in the application (see below), to avoid accidental press in the pocket.
+- Activate the door remotely **only if you are sure that no one is under it**.
+
+## Objective
+
+- Order the door from Home Assistant (mobile app), with confirmation.
+- Display the actual open/closed state thanks to the reed sensor.
+- Be alerted if the door remains open.
+
+## Duration, level and budget
+
+| Duration | Level | Budget |
+|---|---|---|
+| 2 to 3 h (including reading of instructions and installation) | Intermediate | ESP32, relay module and contact reed are common and affordable components (price to check on the links); neither subscription nor replacement of the motorization |
+
+No price is indicated here because it varies: check it at the time of purchase. If you already own the material, this tutorial does not require any purchase.
+
+## Steps at a glance
+
+1. Read the Package Leaflet: Spot the Push Button/Dry Contact Input
+2. Switch off the power supply to the engine
+3. Prepare Secrets.yaml and the YAML ESPHOME
+4. Flash the ESP32 via USB
+5. Relay cable (COM/NO) in parallel with the wall button
+6. Put the reed in the "closed door" position
+7. Power up and test the wall button and then the relay
+8. Add the device to Home Assistant
+9. Create the map with confirmation and the "stay open" alert
+10. Configuring Secure Remote Access
+
+## Equipment
+
+- A Map **ESP32 DevKit** (ESP32-WROOM-32) (<a href="https://www.amazon.co.uk/s?k=ESP32+DevKit&tag=roboteducatif-21" rel="sponsored nofollow" target="_blank">ESP32 cards on Amazon</a>).
+- A **1 Channel Relay Module** whose entry accepts an order **3,3 V** (check the module plug; many "5V" modules do not reliably switch to the 3.3V output of an ESP32) (<a href="https://www.amazon.co.uk/s?k=module+relais+1+canal+3.3V&tag=roboteducatif-21" rel="sponsored nofollow" target="_blank">3.3 V relay modules on Amazon</a>).
+- A **Contact Reed** Wired for garage door or door (<a href="https://www.amazon.co.uk/s?k=capteur+magnétique+porte+garage+filaire&tag=roboteducatif-21" rel="sponsored nofollow" target="_blank">contacts reed on Amazon</a>).
+- A 5 V USB power supply for the ESP32 and two-conductor cable.
+
+Seamless variant: a Shelly module capable of operating in **Dry Contact** can also play the role of relay, following the same wiring rule on the push button input and applying the instruction manual of this module.
+
+## Wiring
+
+| Element | Brooch | Vers |
+|---|---|---|
+| Relais VCC | – | ESP32 3V3 (or 5V depending on module plug) |
+| Relais GND | – | GND of the ESP32 |
+| Relay IN | – | **GPIO26** the ESP32 |
+| Relay COM | Dry Contact | terminal 1 of the "pusher button" input of the engine |
+| Relay NO | Dry Contact | 2 of the same entry. |
+| Reed Wire 1 | – | **GPIO27** the ESP32 |
+| Reed Wire 2 | – | GND of the ESP32 |
+
+The relay is **In parallel** the existing wall button, which continues to work. Place the reed so that it is closed (magnet in front) **When the door is completely closed**.
+
+## Installation of ESPHome
+
+In Home Assistant, install the add-on **ESPHome Device Builder**Or on a PC: `pip install esphome`. Create a file `secrets.yaml` (Wi-Fi, API key, OTA password), then the file below.
+
+## Complete ESPHome code
+
+<p><a href="/code/esphome/porte-garage.yaml" download>Download garage.yaml</a> (same code as below).</p>
+
+```yaml title="porte-garage.yaml"
+# Porte de garage pilotée depuis Home Assistant : ESP32 + module relais (contact sec) + capteur reed
+# Source : robot-educatif.info - tutoriel « Ouvrir sa porte de garage depuis son smartphone »
+# Le relais est câblé EN PARALLÈLE du bouton poussoir de la motorisation (entrée contact sec, basse tension).
+substitutions:
+  nom: porte-garage
+  gpio_relais: GPIO26      # sortie vers l'entrée IN du module relais
+  gpio_reed: GPIO27        # capteur reed vers GND (pull-up interne)
+  duree_impulsion: 700ms   # entre 0,5 et 1 s : vérifier la valeur dans la notice de la motorisation
+
+esphome:
+  name: ${nom}
+  friendly_name: Porte de garage
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_key          # clé générée par ESPHome, stockée dans secrets.yaml
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:                              # point d'accès de secours si le Wi-Fi tombe
+    ssid: "Porte-Garage-Secours"
+    password: !secret ap_password
+
+captive_portal:
+
+# --- Capteur reed : ON = porte fermée (aimant en face du capteur) ---------------
+binary_sensor:
+  - platform: gpio
+    id: reed_fermee
+    name: "Porte fermée (capteur)"
+    pin:
+      number: ${gpio_reed}
+      mode:
+        input: true
+        pullup: true
+      inverted: true               # contact fermé -> GPIO à GND -> état ON
+    filters:
+      - delayed_on_off: 200ms      # anti-rebond
+
+# --- Relais : impulsion courte, jamais maintenu --------------------------------
+switch:
+  - platform: gpio
+    id: relais
+    pin: ${gpio_relais}
+    restore_mode: ALWAYS_OFF       # au démarrage, le relais reste ouvert
+    internal: true                 # non exposé seul dans Home Assistant
+    on_turn_on:
+      - delay: ${duree_impulsion}
+      - switch.turn_off: relais
+
+script:
+  - id: impulsion
+    mode: single                   # ignore un 2e appui pendant l'impulsion
+    then:
+      - switch.turn_on: relais
+      - delay: 2s                  # pause minimale entre deux commandes
+
+# --- Entité "cover" affichée dans l'application Home Assistant ------------------
+cover:
+  - platform: template
+    id: garage
+    name: "Porte de garage"
+    device_class: garage
+    lambda: |-
+      return id(reed_fermee).state ? COVER_CLOSED : COVER_OPEN;
+    open_action:
+      - if:
+          condition:
+            binary_sensor.is_on: reed_fermee    # n'impulse que si la porte est fermée
+          then:
+            - script.execute: impulsion
+    close_action:
+      - if:
+          condition:
+            binary_sensor.is_off: reed_fermee   # n'impulse que si la porte est ouverte
+          then:
+            - script.execute: impulsion
+    stop_action:
+      - script.execute: impulsion               # sur la plupart des moteurs à 1 bouton, une impulsion arrête la course
+
+button:
+  - platform: restart
+    name: "Redémarrer le module"
+```
+
+First flashing by USB: `esphome run porte-garage.yaml`. Then the updates go through Wi-Fi.
+
+**Pulse duration** : `700ms` is suitable for most push button entries, but your record may indicate something else; stay between 0.5 and 1 sec. `impulsion` ignores repeated supports for 2 seconds.
+
+## Home Assistant: mobile app with confirmation
+
+The ESP32 is dis`cover`ed automatically (*Settings  Devices and Services  ESPHome*). It provides a garage type cover entity. On the dashboard, use a button card with confirmation:
+
+```yaml
+type: button
+entity: cover.porte_garage_porte_de_garage
+name: Porte de garage
+show_state: true
+tap_action:
+  action: toggle
+  confirmation:
+    text: "Actionner la porte de garage ?"
+```
+
+Alert if the door is open for more than 15 minutes:
+
+```yaml
+alias: Garage resté ouvert
+triggers:
+  - trigger: state
+    entity_id: cover.porte_garage_porte_de_garage
+    to: open
+    for: "00:15:00"
+actions:
+  - action: notify.notify
+    data:
+      message: "La porte de garage est ouverte depuis 15 minutes."
+```
+
+Adapt entity identifiers to those displayed in your home.
+
+## Launch in service
+
+Unlike the Raspberry Pi tutorials in this series, there is no systemd service to create: the program is compiled and runs directly on the ESP32, which restarts on its own after a power outage. The relay is forced to the idle state at startup (`restore_mode: ALWAYS_OFF`), so a break does not trigger the door.
+
+## The trick of this tutorial: a command that takes into account the actual state
+
+On a single-button input, each pulse makes "open / stop / close" in turn: an order "open" sent on a door already open the **would close**. Here, `open_action` sends the impulse only if the reed says "closed", and `close_action` only if it says "open". In addition, an accidental double press is blocked by the script `mode: single`. This logic is applied to any other relay already integrated with Home Assistant.
+
+## Frequent errors
+
+- Connect the relay to a power terminal instead of the push button input.
+- Use a relay module that does not switch to 3.3 V.
+- Impulse too long (more than 1 s): some engines interpret it differently.
+- Open a port to Home Assistant on the Internet without protection.
+- Bridge the cells to "test": never.
+
+## Troubleshooting
+
+- **The relay slams but the door doesn't move** : wrong entry on the terminal block, or impulse too short; reread the notice and try `1s`.
+- **The relay does not stick**: module not compatible 3.3 V; change module.
+- **Inverted state** : reed "normally closed"; delete `inverted: true`.
+- **"Open" state during closing**: normal, the state changes to "closed" only on contact with the reed at the end of the stroke.
+- **The door stops instead of leaving.** : on a step-by-step entry, a support during the race stops the door, this is the behavior provided by the engine.
+
+> **How this code was verified** : we did not install this mount on a door. The YAML file has been validated with `esphome config` then successfully compiled (`esphome compile`, ESPHome 2026.9); each option has been checked in the official ESPHome documentation. The wiring on your engine depends on its manual, which is authentic.
+
+## Verified sources
+
+- ESPHome, Template Cover: https://esphome.io/components/cover/template/
+- ESPHome, GPIO Switch (`restore_mode`): https://esphome.io/components/switch/gpio/
+- ESPHome, GPIO Binary Sensor (pull-up, filters): https://esphome.io/components/binary_sensor/gpio/
+- ESPHome, Script (`mode: single`): https://esphome.io/components/script/
+- Home Assistant, card actions and confirmation: https://www.home-assistant.io/dashboards/actions/
+- Home Assistant, remote access: https://www.home-assistant.io/docs/configuration/remote/
+
+To read also: [ESP32 + ESPHome](/en/smart-home/esp32-esphome-temperature-sensor/), [ESP32 Home Automation Projects](/en/smart-home/esp32-smart-home-projects/) and [door opening sensor on Raspberry Pi](/en/smart-home/raspberry-pi-door-sensor-notification/).

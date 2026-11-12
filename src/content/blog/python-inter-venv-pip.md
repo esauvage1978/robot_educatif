@@ -1,8 +1,8 @@
 ---
 title: "Python intermédiaire — environnements virtuels et pip"
-description: "Venv et pip Python : isolation, activation, requirements, PyPI. 20 exercices avec solutions."
+description: "Environnements virtuels Python : créer un venv, l’activer, installer avec pip et figer un requirements. Vingt exercices corrigés, pas à pas, sur un projet."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python intermédiaire
 seriesOrder: 2
@@ -18,6 +18,12 @@ categories:
   - "Tutoriel"
   - "Intermédiaire"
 ---
+> **Réponse directe (novembre 2026)** — Sur Python 3, créez un environnement isolé avec `python -m venv .venv`, activez-le (`source .venv/bin/activate` ou `.venv\Scripts\activate` sous Windows), puis installez des paquets avec `pip install`. Ordre courant : **venv d’abord**, **pip ensuite** dans l’env activé.
+
+> **Parcours intermédiaire (2/6)** — [Hub Python intermédiaire](/programmation/python-intermediaire/) · [Leçon 1 — modules](/python-inter-modules-imports/) · [Leçon 3 — pathlib](/python-inter-pathlib/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python-intermediaire/">Python intermédiaire</a> · venv et pip</nav>
+
 Si tu installes des bibliothèques avec **`pip`** directement sur le **Python « système »** ou sur **un seul interpréteur partagé**, plusieurs projets se retrouvent à **dépendre des mêmes paquets** aux **mêmes numéros de version**. Un projet qui exige **`requests` 2.28** et un autre qui suppose **`requests` 2.32** ne peuvent pas coexister proprement dans un seul `site-packages` global. Résultat typique : **« ça marchait hier »** après une mise à jour, ou des **conflits** avec les paquets gérés par le système (surtout sous Linux, où **`sudo pip install`** peut **casser** des outils de la distribution).
 
 Un **environnement virtuel** (`venv`, module standard depuis Python 3.3) crée un **dossier autonome** qui contient une **copie** (ou des liens) de l’interpréteur Python, les scripts **`pip`**, **`python`**, et surtout un répertoire **`site-packages`** **dédié** à ce projet. Tu peux donc avoir **un venv par projet**, chacun avec son graphe de versions, **sans toucher** au reste de la machine.
@@ -83,6 +89,17 @@ Sur un **gros projet**, une montée de version majeure peut **changer des API** 
 - **[Installing packages](https://packaging.python.org/tutorials/installing-packages/)** (guide Python Packaging User Guide) : venv, `pip`, bonnes pratiques modernes.
 - **[pip user guide](https://pip.pypa.io/en/stable/user_guide/)** : options utiles (`install`, `freeze`, contraintes).
 - **[The Python Package Index (PyPI)](https://pypi.org/)** : recherche de paquets et métadonnées officielles.
+
+## Questions fréquentes
+
+**Pourquoi `venv` plutôt que `pip install --user` ?**  
+`--user` installe dans un dossier utilisateur **partagé** par tous vos scripts. Un **venv** isole **un projet** sans mélanger les versions.
+
+**Dois-je committer le dossier `.venv` sur Git ?**  
+Non : ajoutez `.venv/` au **`.gitignore`** et versionnez **`requirements.txt`**.
+
+**`pip` dit « externally managed environment » (Linux) ?**  
+Certaines distributions bloquent `pip` global. Créez un **venv** (recommandé) ou utilisez le paquet système (`apt install python3-xxx`).
 
 ## Exercices (20)
 

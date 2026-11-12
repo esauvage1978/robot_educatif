@@ -1,6 +1,6 @@
 ---
 title: "Arduino C : conditions (if/else) capteurs et actionneurs"
-description: "if/else Arduino : seuils, capteurs et actionneurs simulés, bonnes pratiques. 20 exercices corrigés."
+description: "Conditions if et else en Arduino : seuils, capteurs et actionneurs simulés, avec les pièges à éviter. Vingt exercices corrigés, pas à pas, sur un petit robot."
 pubDate: 2026-04-02
 updatedDate: 2026-04-02
 series: "Arduino C"

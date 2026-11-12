@@ -2,7 +2,7 @@
 title: "Bataille navale en Python (6/6) — jeu complet au terminal"
 description: "Boucle principale, alternance des joueurs, masquer l’écran entre les tours ; variante contre une IA aléatoire."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 6
@@ -20,7 +20,15 @@ categories:
 ---
 Tu as toutes les **briques** : [grille](/python-bataille-navale-2-grille-et-affichage/), [placement](/python-bataille-navale-3-placement-bateaux/), [tirs](/python-bataille-navale-4-tirs-et-marques/), [coulé](/python-bataille-navale-5-coule-et-victoire/). Il reste à **assembler** une `main()` lisible et une boucle de partie.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Série Bataille navale (6/6)** — [Sommaire](/programmation/bataille-navale/) · [Parcours Python](/programmation/python/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/bataille-navale/">Série Bataille navale</a></nav>
+
+Le script **complet** ci-dessous et le fichier **[bataille_chapitre_06.py](/downloads/bataille-navale/bataille_chapitre_06.py)** sont identiques : tu peux copier-coller ou télécharger, puis lancer `python bataille_chapitre_06.py`.
+
+![Partie terminée — message de victoire dans le terminal](/images/blog/lot15/bataille-navale-partie-finie.png)
+
+*Exemple de fin de partie en mode deux joueurs (capture pédagogique).*
 
 ## 1. Structure recommandée du projet
 

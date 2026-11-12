@@ -1,24 +1,92 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import SelectionFetes2026 from '../components/SelectionFetes2026.astro';
 import Header from '../components/Header.astro';
 import { withBase } from '../lib/siteUrl';
 import promos from '../data/promos.json';
+import PageColumns from '../components/PageColumns.astro';
 
 // Les offres expirées disparaissent au build (fin incluse, heure de Paris).
 const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Paris' });
 const offers = promos.filter((p) => p.lang === 'fr' && p.start <= today && p.end >= today);
 const fmt = (d: string) => d.split('-').reverse().join('/');
 const groups = [...new Set(offers.map((o) => o.merchant))];
+const pageUpdated = today.split('-').reverse().join('/');
+
+const itemListJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Codes promo robots et domotique — sélection Noël 2026',
+	dateModified: `${today}T12:00:00+01:00`,
+	numberOfItems: offers.length,
+	itemListElement: offers.map((o, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		item: {
+			'@type': 'Offer',
+			name: o.title,
+			url: o.url,
+			validFrom: o.start,
+			validThrough: o.end,
+			priceCurrency: 'EUR',
+			availability: 'https://schema.org/InStock',
+		},
+	})),
+};
+
+const noelStarProducts = [
+	{
+		badge: '6–8 ans • Sans écran',
+		name: 'Learning Resources Botley 2.0 (kit 46 pièces)',
+		desc: 'Robot programmable par télécommande à flèches, détection d’obstacles et parcours.',
+		price: '~69–89 €',
+		amzUrl: 'https://www.amazon.fr/dp/B083T5G5ZK?tag=manuso06-21',
+		culturaUrl: 'https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dbotley%2Brobot%2Bprogrammable',
+		partnerLabel: 'Voir chez Eurekakids',
+		partnerUrl: 'https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F',
+	},
+	{
+		badge: '8–12 ans • Référence Scratch',
+		name: 'Makeblock mBot v1.1 (Bluetooth)',
+		desc: 'Le robot éducatif le plus utilisé à l’école et à la maison : montage 15 min, mBlock 5 & Arduino.',
+		price: '~85–109 €',
+		amzUrl: 'https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21',
+		culturaUrl: 'https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dmbot%2Bmakeblock',
+		partnerLabel: 'Voir chez Makerfire',
+		partnerUrl: 'https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F',
+	},
+	{
+		badge: '10–14 ans • Scratch & Python',
+		name: 'Makeblock mBot2 (avec carte CyberPi Wi-Fi)',
+		desc: 'Écran couleur, batterie 5 h intégrée, Wi-Fi IoT, capteurs avancés et programmation Python.',
+		price: '~159–179 €',
+		amzUrl: 'https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21',
+		culturaUrl: 'https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dmbot2%2Bmakeblock',
+		partnerLabel: 'Voir chez Makerfire',
+		partnerUrl: 'https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F',
+	},
+	{
+		badge: '12+ ans • Arduino & Makers',
+		name: 'ELEGOO Smart Robot Car V4.0 (Caméra Wi-Fi)',
+		desc: 'Kit voiture robot Arduino UNO R3 complet avec caméra FPV, suivi de ligne et connecteurs détrompés.',
+		price: '~75–95 €',
+		amzUrl: 'https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21',
+		culturaUrl: 'https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dkit%2Brobot%2Bprogrammable%2Barduino',
+		partnerLabel: 'Voir chez SparkBlocks',
+		partnerUrl: 'https://www.awin1.com/cread.php?awinmid=130419&awinaffid=3126073&ued=https%3A%2F%2Fsparkblocks.ca%2F',
+	},
+];
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Codes promo et bons plans robotique, 3D et makers"
-			description="Codes promo Creality, Creality Falcon et Batterie-Boutique : réductions en cours, dates de validité et conditions."
+			title="Codes promo Noël 2026 — robots & domotique"
+			description="Codes promo vérifiés : Cultura, Amazon, Creality, EcoFlow, Shelly. Sélection Noël 2026 robots éducatifs et domotique (mise à jour quotidienne)."
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(itemListJsonLd)} />
 		<style>
 			.promo-wrap { max-width: 960px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 3rem; }
 			.promo-wrap h1 { font-family: var(--font-heading); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 .75rem; }
@@ -34,14 +102,51 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 			.promo-cta { display: inline-block; background: var(--primary, #1f5fbf); color: #fff !important; text-decoration: none; font-weight: 700; padding: .55rem 1rem; border-radius: 8px; white-space: nowrap; }
 			.promo-side { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
 			.promo-foot { margin-top: 2.5rem; font-size: .9rem; color: #5b6470; }
+			.noel26-selection { margin: 1.75rem 0 2.25rem; padding: 1.25rem; border-radius: 14px; border: 2px solid #2563eb; background: #f8fafc; }
+			.noel26-title { margin: 0 0 .35rem; font-size: 1.35rem; color: #0f172a; }
+			.noel26-sub { margin: 0 0 1rem; font-size: .94rem; color: #475569; }
+			.noel26-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+			.noel26-card { background: #fff; border: 1px solid #dce3ee; border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: .45rem; }
+			.noel26-badge { align-self: flex-start; background: #dbeafe; color: #1e40af; font-size: .75rem; font-weight: 700; padding: .2rem .6rem; border-radius: 99px; }
+			.noel26-name { margin: 0; font-size: 1.08rem; line-height: 1.3; }
+			.noel26-name a { color: #0f172a; text-decoration: underline; }
+			.noel26-desc { margin: 0; font-size: .88rem; color: #475569; }
+			.noel26-price { margin: .15rem 0 .35rem; font-weight: 700; font-size: .92rem; white-space: nowrap; }
+			.noel26-price a { color: #1d4ed8; text-decoration: underline; white-space: nowrap; }
+			.noel26-btns { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: auto; }
+			.noel26-btn { display: inline-flex; align-items: center; justify-content: center; padding: .48rem .75rem; border-radius: 8px; font-weight: 700; font-size: .84rem; text-decoration: none !important; flex: 1 1 calc(50% - .3rem); min-width: 125px; text-align: center; }
+			.noel26-btn--amz { background: #ff9900; color: #111 !important; }
+			.noel26-btn--cultura { background: #004b93; color: #fff !important; }
+			.noel26-btn--partner { background: #0f766e; color: #fff !important; }
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main class="promo-wrap">
-			<h1>Codes promo et bons plans</h1>
-			<p class="promo-intro">Imprimantes 3D, graveurs laser, piles : voici les réductions en cours chez nos partenaires. Chaque offre affiche sa période de validité, et nous retirons celles qui ont expiré.</p>
+<PageColumns>
+			<h1>Codes promo et bons plans Noël 2026</h1>
+			<p class="promo-intro">Robots éducatifs, Cultura FR, Amazon, imprimantes 3D Creality, stations EcoFlow et domotique Shelly : sélection Noël 2026 et réductions vérifiées. <strong>Dernière vérification globale : {pageUpdated}</strong> (fuseau Europe/Paris).</p>
 			<p class="promo-note">Liens affiliés : si vous achetez via ces liens, ROBOT Éducatif peut toucher une commission, sans surcoût pour vous. Les conditions (montant minimum, produits exclus, cumul) sont fixées par chaque marchand : relisez-les sur sa boutique avant de payer.</p>
+			<SelectionFetes2026 compact />
+			<section class="noel26-selection" aria-label="Sélection cadeaux Noël 2026 multi-marchands">
+				<h2 class="noel26-title">🎄 Sélection cadeaux Noël 2026 : comparer Amazon, Cultura &amp; partenaires</h2>
+				<p class="noel26-sub">Accès direct aux robots programmables les plus demandés par tranche d'âge (boutons marchands accessibles sans défilement horizontal sur mobile) :</p>
+				<div class="noel26-grid">
+					{noelStarProducts.map((it) => (
+						<article class="noel26-card">
+							<div class="noel26-badge">{it.badge}</div>
+							<h3 class="noel26-name"><a href={it.amzUrl} target="_blank" rel="nofollow sponsored noopener">{it.name}</a></h3>
+							<p class="noel26-desc">{it.desc}</p>
+							<p class="noel26-price"><a href={it.amzUrl} target="_blank" rel="nofollow sponsored noopener">Tarif indicatif : {it.price} (voir prix du jour)</a></p>
+							<div class="noel26-btns">
+								<a href={it.amzUrl} target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">🛒 Voir sur Amazon →</a>
+								<a href={it.culturaUrl} target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--cultura">🎨 Voir chez Cultura →</a>
+								<a href={it.partnerUrl} target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--partner">⚡ {it.partnerLabel} →</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
 			{groups.map((g) => (
 				<section class="promo-group">
 					<h2>{g} <small style="font-weight:400;color:#5b6470">· {offers.find((o) => o.merchant === g)?.topic}</small></h2>
@@ -49,20 +154,269 @@ const groups = [...new Set(offers.map((o) => o.merchant))];
 						{offers.filter((o) => o.merchant === g).map((o) => (
 							<li class="promo-card">
 								<div class="promo-main">
-									<p class="promo-title">{o.title}</p>
-									<p class="promo-meta">Valable du {fmt(o.start)} au {fmt(o.end)} · mise à jour le {fmt(o.verified)}</p>
+									<p class="promo-title"><a href={o.url} rel="sponsored nofollow noopener" target="_blank" style="color:inherit;text-decoration:underline;">{o.title}</a></p>
+									<p class="promo-meta">Valable du {fmt(o.start)} au {fmt(o.end)} · vérifié le {fmt(o.verified)}</p>
 								</div>
 								<div class="promo-side">
-									{o.code ? <span class="promo-code">{o.code}</span> : <span class="promo-meta">Sans code</span>}
-									<a class="promo-cta" href={o.url} rel="sponsored nofollow noopener" target="_blank">Voir l'offre</a>
+									{o.code ? <span class="promo-code">{o.code}</span> : <span class="promo-meta">Offre directe</span>}
+									<a class="promo-cta" href={o.url} rel="sponsored nofollow noopener" target="_blank">Voir l'offre →</a>
 								</div>
 							</li>
 						))}
 					</ul>
 				</section>
 			))}
-			<p class="promo-foot">Vous cherchez d'abord un robot ou un kit ? Voir notre <a href={withBase('/categorie/')}>index des catégories</a> et les <a href={withBase('/marques/')}>pages marques</a>.</p>
-		</main>
+			
+			<section class="promo-group" data-integration-20261102b-partners-fr aria-label="Partenaires affiliés sans code vérifié">
+				<h2>Partenaires (France) — sans code inventé</h2>
+				<ul class="promo-list">
+					<li class="promo-card">
+						<div class="promo-main">
+							<p class="promo-title"><strong>AKKO FR</strong> — claviers mécaniques</p>
+							<p class="promo-meta">akkogear.eu · pratique pour coder Scratch/mBlock sur PC · livraison France</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=69050&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fakkogear.eu%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="69050">Voir AKKO →</a>
+						</div>
+					</li>
+					<li class="promo-card">
+						<div class="promo-main">
+							<p class="promo-title"><strong>fitBAG</strong> — housses tablettes &amp; liseuses</p>
+							<p class="promo-meta">Protéger tablettes utilisées en atelier robotique · fitbag.com</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=123940&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.fitbag.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="123940">Voir fitBAG →</a>
+						</div>
+					</li>
+					
+					
+					
+					
+					
+					<li class="promo-card" data-integration-20261105c-mid-73121>
+						<div class="promo-main">
+							<p class="promo-title"><strong>AV Access</strong> — matrices HDMI &amp; AV over IP (avaccess.com)</p>
+							<p class="promo-meta">Signal 4K, extenders, switchers · complète atelier Pi / écrans · sans code vérifié · welcome 05/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=73121&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.avaccess.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="73121">AV Access →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261105c-mid-26009>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Aliexpress FR</strong> — composants &amp; gadgets (fr.aliexpress.com)</p>
+							<p class="promo-meta">Marketplace · capteurs, câbles, modules ESP · vérifier délais/SAV · sans code inventé · actif 05/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=26009&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Ffr.aliexpress.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="26009">Aliexpress FR →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261105c-mid-97677>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Geekom FR</strong> — mini PC (geekompc.com/fr)</p>
+							<p class="promo-meta">Alternative au Raspberry Pi pour Home Assistant / Frigate · France · sans code vérifié · actif 05/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=97677&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fgeekompc.com%2Ffr%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="97677">Geekom FR →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261105c-mid-59085>
+						<div class="promo-main">
+							<p class="promo-title"><strong>SainSmart</strong> — CNC, électronique &amp; 3D (sainsmart.com)</p>
+							<p class="promo-meta">Fablab / makers · graving CNC, modules · US · sans code vérifié · actif 05/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=59085&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.sainsmart.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="59085">SainSmart →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261105b-77658>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Mvolo</strong> — thérapie lumière rouge &amp; infrarouge (mvolo.nl)</p>
+							<p class="promo-meta">Bien-être · Pays-Bas · welcome kit affilié 05/11/2026 · sans code vérifié · hors rubrique robots (carte partenaire)</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=77658&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fmvolo.nl%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="77658">Mvolo.nl →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261104c-44051>
+						<div class="promo-main">
+							<p class="promo-title"><strong>XPPen DE</strong> — tablettes &amp; écrans graphiques (storexppen.de)</p>
+							<p class="promo-meta">Dessin numérique · atelier STEM / Scratch · Allemagne · sans code vérifié · programme accepté 04/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=44051&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.storexppen.de%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="44051">XPPen DE →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261104-114674>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Narwal FR</strong> — robots aspirateurs laveurs (fr.narwal.com)</p>
+							<p class="promo-meta">Domotique · France · sans code vérifié · programme accepté 04/11/2026</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=114674&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Ffr.narwal.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="114674">Narwal FR →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261103b-120836>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Torro FR</strong> — étuis cuir téléphone / tablette</p>
+							<p class="promo-meta">torro-fr.com · protection tablettes en atelier · France · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=120836&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Ftorro-fr.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="120836">Torro FR →</a>
+						</div>
+					</li>
+					<li class="promo-card">
+						<div class="promo-main">
+							<p class="promo-title"><strong>1foDiscount</strong> — high-tech reconditionné</p>
+							<p class="promo-meta">1fodiscount.com · France · aucun code vérifié ce jour</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=126615&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.1fodiscount.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="126615">Voir 1foDiscount →</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+			
+			<section class="promo-group" data-integration-20261103-intl aria-label="Partenaires marchés internationaux sans code inventé">
+				<h2>Partenaires (DE · ES · US) — sans code inventé</h2>
+				<ul class="promo-list">
+					<li class="promo-card" data-integration-20261103-32419>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Creality</strong> — boutique DE (store.creality.com/de)</p>
+							<p class="promo-meta">Imprimantes 3D · livraison Allemagne · complète les guides fablab / scan3dlab</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=32419&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fstore.creality.com%2Fde%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="32419">Creality DE →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103-80509>
+						<div class="promo-main">
+							<p class="promo-title"><strong>GL.iNet</strong> — routeurs OpenWrt (gl-inet.com)</p>
+							<p class="promo-meta">VLAN IoT / voyage · marché US · pas de code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=80509&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.gl-inet.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="80509">GL.iNet →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103-72861>
+						<div class="promo-main">
+							<p class="promo-title"><strong>ARZOPA</strong> — écrans portables (arzopa.com)</p>
+							<p class="promo-meta">Second écran pour Raspberry Pi / atelier code · US · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=72861&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.arzopa.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="72861">ARZOPA →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103-92427>
+						<div class="promo-main">
+							<p class="promo-title"><strong>EKSA</strong> — casques gaming (eksa.net)</p>
+							<p class="promo-meta">Visioconférence / cours en ligne · US · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=92427&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.eksa.net%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="92427">EKSA →</a>
+						</div>
+					</li>
+					
+					<li class="promo-card" data-integration-20261103b-120988>
+						<div class="promo-main">
+							<p class="promo-title"><strong>toolmacher</strong> — outillage fonctionnel (toolmacher.com)</p>
+							<p class="promo-meta">Allemagne · atelier maker / bricolage · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=120988&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Ftoolmacher.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="120988">toolmacher DE →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103b-117937>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Torro DE</strong> — accessoires tech cuir (torro-de.com)</p>
+							<p class="promo-meta">Étuis tablette / téléphone · Allemagne · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=117937&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Ftorro-de.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="117937">Torro DE →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103b-70837>
+						<div class="promo-main">
+							<p class="promo-title"><strong>KAWA Electronics</strong> — caméras &amp; dashcams (kawa-in.com)</p>
+							<p class="promo-meta">Surveillance maison / atelier · US · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=70837&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.kawa-in.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="70837">KAWA →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103b-126875>
+						<div class="promo-main">
+							<p class="promo-title"><strong>GearVita</strong> — imprimantes 3D &amp; filaments (gearvita.com)</p>
+							<p class="promo-meta">Fablab / makers · US · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=126875&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fgearvita.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="126875">GearVita →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261103b-117721>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Minoston</strong> — prises Matter / Z-Wave (minoston.com)</p>
+							<p class="promo-meta">Smart home · US · complète Home Assistant · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=117721&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fminoston.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="117721">Minoston →</a>
+						</div>
+					</li>
+					
+					
+					<li class="promo-card" data-integration-20261105c-mid-128145>
+						<div class="promo-main">
+							<p class="promo-title"><strong>AOSU DE</strong> — caméras solaires &amp; sonnette (aosulife.com/de)</p>
+							<p class="promo-meta">Offre Awin 05/11 : −20 % SolarCam T2 Pro (sans code public vérifiable) · Allemagne · voir fiche marchand</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=128145&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.aosulife.com%2Fde%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="128145">AOSU DE →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261104-27417>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Stecker Express</strong> — adaptateurs &amp; prises voyage (stex24.com/de)</p>
+							<p class="promo-meta">Allemagne · Schuko / prises internationales · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=27417&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fstex24.com%2Fde%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="27417">Stecker Express DE →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261104-13737>
+						<div class="promo-main">
+							<p class="promo-title"><strong>MacTrade</strong> — Apple reconditionné (mactrade.de)</p>
+							<p class="promo-meta">Allemagne · Mac / iPad pour dev ou atelier · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=13737&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.mactrade.de%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="13737">MacTrade DE →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261104-94395>
+						<div class="promo-main">
+							<p class="promo-title"><strong>AGM Mobile</strong> — smartphones outdoor (agmmobile.com)</p>
+							<p class="promo-meta">US · téléphones robustes · sans code vérifié</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=94395&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.agmmobile.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="94395">AGM →</a>
+						</div>
+					</li>
+					<li class="promo-card" data-integration-20261104-98001>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Growatt Portable</strong> — stations électriques LiFePO4 (growattportable.com)</p>
+							<p class="promo-meta">Secours domotique / USB-C · US · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=98001&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.growattportable.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="98001">Growatt →</a>
+						</div>
+					</li><li class="promo-card" data-integration-20261103-77138>
+						<div class="promo-main">
+							<p class="promo-title"><strong>Powerplanet</strong> — Espagne (powerplanetonline.com)</p>
+							<p class="promo-meta">High-tech · version ES uniquement · sans code</p>
+						</div>
+						<div class="promo-side">
+							<a class="promo-cta" href="https://www.awin1.com/cread.php?awinmid=77138&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.powerplanetonline.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="77138">Powerplanet ES →</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<p class="promo-foot">Vous cherchez d'abord un robot par âge ? Consultez nos guides <a href={withBase('/quel-robot-acheter-enfant-6-ans-guide-achat/')}>6 ans</a>, <a href={withBase('/quel-robot-acheter-enfant-8-ans-guide-achat/')}>8 ans</a>, <a href={withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')}>10 ans</a>, <a href={withBase('/quel-robot-acheter-enfant-12-ans-guide-achat/')}>12 ans</a> et <a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>notre comparatif général Noël 2026</a>.</p>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

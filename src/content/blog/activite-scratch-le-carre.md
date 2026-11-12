@@ -16,7 +16,7 @@ Dans cet article, je vous propose de faire votre première activité très facil
 
 [Installer l’application mBlock 5](/installer-mblock-5-sous-windows-10/) ou scratch
 
-S’être familiariser avec l’[interface graphique de mBlock 5](/premier-pas-avec-mblock-5/)
+S’être familiarisé avec l’[interface graphique de mBlock 5](/premier-pas-avec-mblock-5/)
 
 ## 2\. La scène en détail
 
@@ -28,9 +28,11 @@ Les coordonnées d’un point s’écrivent **(x, y)** : d’abord l’abscisse 
 
 Le croisement des deux axes est l’**origine**, de coordonnées **(0, 0)** — au **centre** de la scène dans Scratch / mBlock.
 
-![Schéma du repère orthonormé de la scène mBlock / Scratch : origine au centre, axe x de −240 à +240, axe y de −180 à +180.](/images/blog/activite-scratch-carre/repere-orthonorme-mblock.svg)
+![Scène mBlock avec repère et contrôles — capture tutoriel](/images/blog/premier-pas-mblock/mblock-scene-controles.png)
 
-> **Limites de la scène :** pour que le lutin reste **à l’écran**, en pratique **x** doit rester entre **−240** et **+240**, et **y** entre **−180** et **+180** (scène classique 480 × 360 pixels, comme sur le schéma ci-dessus).
+*La scène mBlock : le centre est (0, 0), l’axe horizontal est x, l’axe vertical est y.*
+
+Sur une scène classique de 480 × 360 pixels, le lutin reste à l’écran si **x** reste entre **−240** et **+240**, et **y** entre **−180** et **+180**.
 
 ## 3\. Placement du lutin
 
@@ -48,9 +50,11 @@ Un carré a tous ses côté égaux et pour cette activité sa longueur est de 20
 
 Sachant que le lutin est placé aux coordonnées (-100,100) quelles sont les coordonnées du carré ? la réponse sera donnée à la fin de ce chapitre.
 
-Pour vous aider à visualiser le déplacement du lutin, vous pouvez ouvrir le projet mBlock déjà préparé (fond en forme de carré) : **[télécharger `carre.mblock`](/capture/carre/carre.mblock)**. Ouvrez le fichier avec **mBlock 5** (Fichier → Ouvrir).
+Le fichier **[carre.mblock](/capture/carre/carre.mblock)** s’ouvre dans mBlock 5 (Fichier, puis Ouvrir). Il contient le script photographié ci-dessous.
 
-![Scène préparée avec un carré (fond d’arrière-plan)](/capture/carre/03-scene-preparee-carre.png)
+![Script mBlock : quand espace est pressée, quatre blocs « glisser 1 seconde » vers (100, 100), (100, −100), (−100, −100) puis (−100, 100).](/capture/carre/03-scene-preparee-carre.png)
+
+*Le script du fichier : espace, puis les quatre coins dans le sens des aiguilles d’une montre.*
 
 Solution : Les coordonnées des quatre coins sont :
 
@@ -63,22 +67,50 @@ Le lutin devra se déplacer en suivant ces lignes — à vous de programmer le p
 
 ## 5\. Le programme
 
-Maintenant que le décor est planté, nous allons passer au programme.
+Quand on appuie sur la **barre espace**, le lutin parcourt les quatre côtés dans le **sens des aiguilles d’une montre** et revient au point de départ.
 
-**Comportement attendu :** lorsque l’on appuie sur la **barre espace**, le lutin **glisse** le long du carré dans le **sens horaire** (sens des aiguilles d’une montre), fait le **tour** du carré et revient à sa position de départ.
+Les blocs sont rangés par couleur dans la colonne de gauche : bleu pour **Mouvement**, orange pour **Contrôle**, jaune pour **Événements**. Le bouton d’**extension**, en bas de cette colonne, ajoute la catégorie **Stylo**.
 
-Le script correspondant est dans le même fichier que la scène : **[`carre.mblock`](/capture/carre/carre.mblock)**. Ouvrez-le dans mBlock 5 pour voir la **zone de script** ; vous pouvez modifier le projet ou recopier les blocs pour vous entraîner.
+![Catégories de blocs dans mBlock 5](/images/blog/premier-pas-mblock/mblock-categories-blocs.png)
 
-**Pour lancer :** cliquez sur le **drapeau vert**, puis sur la **barre espace** pour déclencher le déplacement.
+*Catégories de blocs. Le bouton d’extension, en bas, sert à ajouter le stylo.*
 
-En dernier lieu : **bravo** — vous avez réussi ce premier programme avec Scratch !
+On assemble les blocs dans la zone de script, en les emboîtant les uns sous les autres. Un bloc laissé à côté des autres ne s’exécute pas.
 
-## 6\. Apprendre scratch
+![Zone de script vide de mBlock 5](/images/blog/premier-pas-mblock/mblock-zone-script.png)
 
-Pour terminer, voici une sélection de **livres** pour aller plus loin avec **Scratch** et l’**algorithmique** — liens vers des recherches sur **Amazon.fr** (affiliation) ; vérifiez la fiche, les avis et le prix au moment de l’achat :
+*La zone de script, encore vide.*
 
-*   [Recherche : coffret ou manuel « J’apprends à coder avec Scratch 3 »](https://www.amazon.fr/s?k=j%27apprends+%C3%A0+coder+avec+scratch+3&tag=manuso06-21) — parcours guidé très utilisé en famille ou en classe.
-*   [Recherche : *Scratch pour les kids*](https://www.amazon.fr/s?k=scratch+pour+les+kids&tag=manuso06-21) — initiation ludique aux blocs et aux premiers jeux.
-*   [Recherche : programmer des jeux avec Scratch](https://www.amazon.fr/s?k=programmer+jeu+scratch&tag=manuso06-21) — livres orientés **jeux vidéo** et projets pas à pas.
-*   [Recherche : Scratch 3 + activités / ateliers](https://www.amazon.fr/s?k=scratch+3+activit%C3%A9s+enfants&tag=manuso06-21) — fiches et défis pour s’entraîner après les tutos du site.
-*   [Recherche : algorithmique pour enfants / débutants](https://www.amazon.fr/s?k=algorithmique+enfants+d%C3%A9butant&tag=manuso06-21) — pour lier **logique**, **boucles** et **conditions** au-delà d’un seul logiciel.
+### Vérifier
+
+Appuyez sur la barre espace. Le parcours est bon si le lutin fait un tour complet, revient en (−100, 100), et si le stylo est baissé, si le trait forme un carré.
+
+Un virage dans l’autre sens (↺ au lieu de ↻) envoie le lutin hors de la scène. Un bloc oublié dans la boucle laisse une forme ouverte. Si rien ne bouge, les blocs ne sont pas accrochés sous « quand la touche espace est pressée ».
+
+### Solution avec les coordonnées
+
+Le fichier **[carre.mblock](/capture/carre/carre.mblock)** contient le panda déjà placé en (−100, 100) et quatre blocs « glisser en 1 seconde à x: y: », dans cet ordre : (100, 100), (100, −100), (−100, −100), (−100, 100). Ouvrez-le avec mBlock 5, menu **Fichier**, puis **Ouvrir**.
+
+### Solution avec le stylo et « répéter 4 fois »
+
+Le lutin regarde à droite (direction 90). Il avance de 200 pas, tourne de 90° vers la droite, et recommence. Quatre quarts de tour font 360°.
+
+```text
+quand [espace] est pressée
+effacer tout
+aller à x: -100 y: 100
+s'orienter à 90
+stylo en position d'écriture
+répéter 4 fois
+    avancer de 200 pas
+    tourner ↻ de 90 degrés
+relever le stylo
+```
+
+Les trois lignes après l’événement remettent le lutin au départ : on peut relancer le programme sans que l’ancien trait gêne.
+
+## 6\. Aller plus loin
+
+Changez la longueur du côté, par exemple 100 ou 150 pas. Pour un triangle équilatéral, répétez 3 fois et tournez de 120° (360 divisé par 3). Pour un hexagone, répétez 6 fois et tournez de 60°.
+
+La suite sur un robot est le [premier programme mBot](/mon-premier-programme-mbot/). Pour choisir entre les deux logiciels, lisez [mBlock ou Scratch](/mblock-vs-scratch-lequel-choisir/).

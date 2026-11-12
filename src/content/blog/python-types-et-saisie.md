@@ -26,12 +26,36 @@ Tu sais déjà afficher des variables ([leçon 2](/python-variables-affichage/))
 
 Python manipule des valeurs de **types** différents. Les quatre premiers à maîtriser :
 
-| Type    | Rôle court              | Exemples        |
-|---------|-------------------------|-----------------|
-| `int`   | entier                  | `42`, `-3`, `0` |
-| `float` | nombre à virgule        | `3.14`, `2.0`   |
-| `str`   | texte                   | `"salut"`, `'x'` |
-| `bool`  | vrai / faux             | `True`, `False` |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Type</th>
+<th scope="col">Rôle court</th>
+<th scope="col">Exemples</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Type"><span class="td-val"><code>int</code></span></td>
+<td data-label="Rôle court"><span class="td-val">entier</span></td>
+<td data-label="Exemples"><span class="td-val"><code>42</code>, <code>-3</code>, <code>0</code></span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><code>float</code></span></td>
+<td data-label="Rôle court"><span class="td-val">nombre à virgule</span></td>
+<td data-label="Exemples"><span class="td-val"><code>3.14</code>, <code>2.0</code></span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><code>str</code></span></td>
+<td data-label="Rôle court"><span class="td-val">texte</span></td>
+<td data-label="Exemples"><span class="td-val"><code>"salut"</code>, <code>'x'</code></span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><code>bool</code></span></td>
+<td data-label="Rôle court"><span class="td-val">vrai / faux</span></td>
+<td data-label="Exemples"><span class="td-val"><code>True</code>, <code>False</code></span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Pour **inspecter** le type en cours d’apprentissage :
 

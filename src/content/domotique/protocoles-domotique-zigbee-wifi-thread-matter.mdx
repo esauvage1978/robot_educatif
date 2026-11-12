@@ -10,13 +10,59 @@ Avant d'acheter un premier capteur, il faut choisir **la langue que parleront vo
 
 ## L'essentiel en un tableau
 
-| Protocole | Fréquence (Europe) | Réseau | Passerelle nécessaire | Consommation | Dans Home Assistant |
-|---|---|---|---|---|---|
-| **Wi-Fi** | 2,4 GHz (parfois 5 GHz) | étoile autour de la box Internet | non | élevée : appareils sur secteur | selon la marque (intégration locale ou cloud) |
-| **Zigbee** | 2,4 GHz (IEEE 802.15.4) | maillé : les appareils sur secteur relaient | oui : un coordinateur (clé USB) | très faible : capteurs à pile pendant des mois | ZHA (intégré) ou Zigbee2MQTT |
-| **Z-Wave** | 868,4 MHz | maillé | oui : contrôleur Z-Wave | très faible | Z-Wave JS |
-| **Thread** | 2,4 GHz (IEEE 802.15.4) | maillé, IPv6 | oui : un « border router » | très faible | intégrations Thread et Matter |
-| **Matter** | s'appuie sur Wi-Fi, Thread ou Ethernet | couche applicative commune | dépend du transport | dépend du transport | intégration Matter |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Protocole</th>
+<th scope="col">Fréquence (Europe)</th>
+<th scope="col">Réseau</th>
+<th scope="col">Passerelle nécessaire</th>
+<th scope="col">Consommation</th>
+<th scope="col">Dans Home Assistant</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Protocole"><span class="td-val"><strong>Wi-Fi</strong></span></td>
+<td data-label="Fréquence (Europe)"><span class="td-val">2,4 GHz (parfois 5 GHz)</span></td>
+<td data-label="Réseau"><span class="td-val">étoile autour de la box Internet</span></td>
+<td data-label="Passerelle nécessaire"><span class="td-val">non</span></td>
+<td data-label="Consommation"><span class="td-val">élevée : appareils sur secteur</span></td>
+<td data-label="Dans Home Assistant"><span class="td-val">selon la marque (intégration locale ou cloud)</span></td>
+</tr>
+<tr>
+<td data-label="Protocole"><span class="td-val"><strong>Zigbee</strong></span></td>
+<td data-label="Fréquence (Europe)"><span class="td-val">2,4 GHz (IEEE 802.15.4)</span></td>
+<td data-label="Réseau"><span class="td-val">maillé : les appareils sur secteur relaient</span></td>
+<td data-label="Passerelle nécessaire"><span class="td-val">oui : un coordinateur (clé USB)</span></td>
+<td data-label="Consommation"><span class="td-val">très faible : capteurs à pile pendant des mois</span></td>
+<td data-label="Dans Home Assistant"><span class="td-val">ZHA (intégré) ou Zigbee2MQTT</span></td>
+</tr>
+<tr>
+<td data-label="Protocole"><span class="td-val"><strong>Z-Wave</strong></span></td>
+<td data-label="Fréquence (Europe)"><span class="td-val">868,4 MHz</span></td>
+<td data-label="Réseau"><span class="td-val">maillé</span></td>
+<td data-label="Passerelle nécessaire"><span class="td-val">oui : contrôleur Z-Wave</span></td>
+<td data-label="Consommation"><span class="td-val">très faible</span></td>
+<td data-label="Dans Home Assistant"><span class="td-val">Z-Wave JS</span></td>
+</tr>
+<tr>
+<td data-label="Protocole"><span class="td-val"><strong>Thread</strong></span></td>
+<td data-label="Fréquence (Europe)"><span class="td-val">2,4 GHz (IEEE 802.15.4)</span></td>
+<td data-label="Réseau"><span class="td-val">maillé, IPv6</span></td>
+<td data-label="Passerelle nécessaire"><span class="td-val">oui : un « border router »</span></td>
+<td data-label="Consommation"><span class="td-val">très faible</span></td>
+<td data-label="Dans Home Assistant"><span class="td-val">intégrations Thread et Matter</span></td>
+</tr>
+<tr>
+<td data-label="Protocole"><span class="td-val"><strong>Matter</strong></span></td>
+<td data-label="Fréquence (Europe)"><span class="td-val">s'appuie sur Wi-Fi, Thread ou Ethernet</span></td>
+<td data-label="Réseau"><span class="td-val">couche applicative commune</span></td>
+<td data-label="Passerelle nécessaire"><span class="td-val">dépend du transport</span></td>
+<td data-label="Consommation"><span class="td-val">dépend du transport</span></td>
+<td data-label="Dans Home Assistant"><span class="td-val">intégration Matter</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Notre meilleur choix pour débuter : Zigbee**, avec une clé coordinatrice branchée sur Home Assistant. Le catalogue est le plus large, les capteurs coûtent peu et tiennent longtemps sur pile, et tout reste en local. Les clés que nous comparons sont dans notre [guide des clés Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
 

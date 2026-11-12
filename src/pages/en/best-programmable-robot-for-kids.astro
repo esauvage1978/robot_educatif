@@ -1,0 +1,165 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+const title = 'Best programmable robot for kids (2026): choose by age 5–14';
+const description =
+	'Compare Botley 2.0, mBot, mBot2, Codey Rocky and ELEGOO for ages 5–14. Live Amazon.co.uk prices and photos, plus links to age-specific buying guides.';
+const updated = '4 November 2026';
+---
+
+<EnPost title={title} description={description} updated={updated}>
+	<AffiliateDisclosure locale="en" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/en/">Home</a> · <a href="/en/buying-guides/">Buying guides</a> · Programmable robots
+	</nav>
+	<p>
+		<a href="/en/buying-guides/">All English buying guides</a> ·{' '}
+		<a href="/en/educational-robot-christmas-gifts-2026/">Christmas robot gifts 2026</a> ·{' '}
+		<a href="/en/mbot-vs-mbot2/">mBot vs mBot2</a>
+	</p>
+
+	<ComparisonTable
+		market="uk"
+		locale="en"
+		title="Quick comparison (ages 5–14)"
+		products={[
+			{ id: 'botley-2', badge: 'Best 5–7 years' },
+			{ id: 'mbot', badge: 'Best 8–12 years' },
+			{ id: 'mbot2', badge: 'Best 10–14 years' },
+			{ id: 'codey-rocky', badge: 'Scratch + sensors' },
+			{ id: 'elegoo-robot-car', badge: 'Teen Arduino' },
+		]}
+	/>
+
+	<p>
+		<strong>Updated 4 November 2026.</strong> This hub helps UK families pick a <strong>coding robot</strong> for children aged
+		<strong>5 to 14</strong>. Prices and photos come from our Amazon Creators feed (date shown under the table). Manufacturer specs
+		below are from official pages, not lab tests. Browse our full <a href="/en/buying-guides/">buying guides index</a> for age-specific
+		detail pages. <strong>Scratch</strong> means block coding (like puzzle pieces); <strong>Arduino</strong> is text-based C/C++ on a microcontroller board.
+	</p>
+
+	<figure>
+		<img
+			src="/images/products/mbot2.webp"
+			alt="Makeblock mBot2, blue chassis and ultrasonic sensors"
+			width="600"
+			height="600"
+			loading="lazy"
+			decoding="async"
+		/>
+	</figure>
+
+	<h2>Christmas and birthday gifts: practical tips</h2>
+	<ul>
+		<li>
+			Match the kit to the child’s <strong>real age and patience</strong>, not the box art — use our{' '}
+			<a href="/en/best-robot-for-an-8-year-old/">8-year</a>, <a href="/en/best-robot-for-a-10-year-old/">10-year</a> and{' '}
+			<a href="/en/best-robot-for-a-12-year-old/">12-year</a> guides.
+		</li>
+		<li>
+			Charge batteries and install <a href="/en/install-mblock-5-windows/">mBlock 5</a> before unwrapping day so the first session is not
+			spent waiting on drivers.
+		</li>
+		<li>Order early in December: popular kits sell out and prices move daily — check live stock on the retailer page.</li>
+	</ul>
+
+	<h2>1. Match the robot to the child, not the marketing</h2>
+	<ul>
+		<li>
+			<strong>5–7 years</strong> — short sessions, often <strong>no screen</strong>; see our{' '}
+			<a href="/en/best-robot-for-a-6-year-old/">screen-free coding toys</a>.
+		</li>
+		<li><strong>8–10 years</strong> — Scratch-style blocks, 15–30 min assembly, first sensors.</li>
+		<li><strong>10–14 years</strong> — bridge to <strong>Python</strong>, Wi‑Fi projects, longer challenges.</li>
+		<li><strong>13+ with an adult</strong> — Arduino C++ kits such as the ELEGOO car.</li>
+	</ul>
+
+	<h2>2. Three criteria that matter</h2>
+	<p>
+		<strong>Software still maintained</strong> (tutorials, community), <strong>at least two types of challenge</strong> (line follow,
+		obstacle, light…), and <strong>total budget</strong> including batteries and storage. If you choose Makeblock, start with{' '}
+		<a href="/en/install-mblock-5-windows/">installing mBlock 5 on Windows</a>.
+	</p>
+
+	<h2>Manufacturer specs (reference)</h2>
+	<p>Figures from official datasheets (October 2026). Prices change often — use the comparison table above for today’s Amazon.co.uk offers.</p>
+
+	<div class="tableau empile">
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Criterion</th>
+					<th scope="col">mBot</th>
+					<th scope="col">mBot2</th>
+					<th scope="col">ELEGOO Robot Car V4.0</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-label="Criterion">
+						<span class="td-val">Stated age</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">6+</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Primary to secondary (Makeblock curriculum)</span>
+					</td>
+					<td data-label="ELEGOO Robot Car V4.0">
+						<span class="td-val">13+ with an adult helper</span>
+					</td>
+				</tr>
+				<tr>
+					<td data-label="Criterion">
+						<span class="td-val">Languages</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">Blocks (mBlock), Arduino</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Blocks, Python, Arduino IDE on CyberPi</span>
+					</td>
+					<td data-label="ELEGOO Robot Car V4.0">
+						<span class="td-val">Arduino (C/C++)</span>
+					</td>
+				</tr>
+				<tr>
+					<td data-label="Criterion">
+						<span class="td-val">Assembly time</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">~15 minutes</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">~30 minutes</span>
+					</td>
+					<td data-label="ELEGOO Robot Car V4.0">
+						<span class="td-val">Modular XH2.54 connectors</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h2>3. Age guides on this site</h2>
+	<p>
+		<a href="/en/best-robot-for-an-8-year-old/">Robot for 8 years</a> · <a href="/en/best-robot-for-a-10-year-old/">10 years</a> ·{' '}
+		<a href="/en/best-robot-for-a-12-year-old/">12 years</a> · <a href="/en/mbot-vs-mbot2/">mBot vs mBot2</a> ·{' '}
+		<a href="/en/makeblock-brand/">Makeblock brand hub</a>
+	</p>
+
+	<h2>Common mistakes</h2>
+	<ul>
+		<li>Buying the cheapest kit with no English documentation.</li>
+		<li>Underestimating adult time for drivers, Bluetooth and first login.</li>
+		<li>Choosing a teen Arduino kit for a 7-year-old who still prefers play without a laptop.</li>
+	</ul>
+
+	<p>
+		<strong>In short:</strong> the best robot is the one that will actually be used — clear software, varied challenges, honest budget. Start
+		from an age guide, then confirm today’s price on the retailer page.
+	</p>
+</EnPost>

@@ -1,0 +1,104 @@
+---
+title: "Erreurs de débutant en domotique (FAQ)"
+description: "Faut-il savoir coder ? Cloud ou local ? Et si Internet tombe ? Les questions que les débutants n'osent pas poser en domotique, avec des réponses franches et des conseils pour éviter les pièges."
+pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+priority: 2
+---
+
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
+
+Quand on débute en domotique, on se pose beaucoup de questions que les guides techniques n'abordent pas franchement : est-ce que je vais devoir coder ? Que se passe-t-il si Internet tombe ? Combien ça coûte vraiment ? Puis-je le faire si je suis locataire ?
+
+Cette page y répond sans détour. Vous y trouverez les erreurs que font presque tous les débutants, et comment les éviter avant d'avoir dépensé le moindre euro. Ces réponses ne remplacent ni les notices de sécurité des appareils, ni un électricien qualifié lorsqu'il s'agit de toucher à l'installation électrique.
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  links={[
+    { href: '/domotique/quelle-box-domotique-choisir-debutant/', label: 'Quelle box choisir' },
+    { href: '/domotique/domotique-location-sans-travaux/', label: 'Domotique en location, sans travaux' },
+    { href: '/domotique/glossaire-domotique/', label: 'Glossaire de la domotique' },
+    { href: '/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/', label: 'Tableau de compatibilité des appareils' },
+  ]}
+/>
+
+## Les sept erreurs les plus fréquentes
+
+1. **Acheter avant d'avoir un objectif.** On rentre chez soi avec dix objets et aucune règle utile. Écrivez d'abord ce que vous voulez que la maison fasse.
+2. **Multiplier les applications des marques.** Chacune a sa propre application et son propre compte, et on finit prisonnier de chacune. Mieux vaut des appareils qui parlent une langue commune (Zigbee, une radio économe en énergie, ou Matter, un langage compris par plusieurs marques) réunis par une seule box.
+3. **Oublier les relais Zigbee.** Un capteur isolé au fond du jardin ne « tient » pas. Il faut des appareils branchés sur secteur, comme une prise, qui relaient son signal.
+4. **Mettre Home Assistant directement sur Internet.** Home Assistant est le logiciel gratuit qui réunit vos appareils. Pour y accéder de l'extérieur, passez par un réseau privé virtuel (VPN) ou par une solution documentée comme l'abonnement Nabu Casa. Choisissez des mots de passe solides et activez la double vérification quand elle existe.
+5. **Couper n'importe quelle prise.** Certains appareils, comme un disque dur réseau, n'aiment pas être coupés brutalement.
+6. **Oublier que l'on est locataire.** Percer ou encastrer un module peut être interdit : lisez notre page sur la [domotique en location](/domotique/domotique-location-sans-travaux/).
+7. **Croire que Matter résout tout.** Matter est un langage commun prometteur, mais son catalogue reste à vérifier appareil par appareil, voir notre article sur les [protocoles en 2027](/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/).
+
+<ParcoursDebutantNav lang="fr" frSlug="erreurs-debutant-domotique-faq" position="bottom" />
+
+## FAQ
+
+### Faut-il savoir coder pour débuter ?
+
+Non. Home Assistant propose un éditeur visuel, et Homey (un boîtier du commerce prêt à l'emploi) utilise des cartes à assembler appelées Flows. Le YAML (un format de texte pour écrire des règles), ESPHome (un outil pour programmer de petites cartes électroniques) et MQTT (un système de messages entre appareils) servent plus tard, quand l'envie de bricoler vous prend. Nos [dix premières automatisations](/domotique/premieres-automatisations-domotique/) se font sans programmer.
+
+### Cloud ou local : que choisir ?
+
+Le cloud, ce sont les serveurs du fabricant sur Internet. Le local, c'est quand tout reste chez vous. Si vous voulez que le chauffage et les lumières continuent de marcher quand Internet tombe, visez du local : Home Assistant, Homey avec des appareils locaux, Zigbee, ou des modules Shelly commandés sur votre réseau. Le cloud est pratique pour la commande vocale et pour certaines fonctions du fabricant, mais il crée une dépendance. Beaucoup de foyers combinent les deux : le local d'abord, la voix en complément.
+
+### Comment savoir si un appareil est compatible ?
+
+Regardez d'abord la fiche du fabricant, qui indique s'il fonctionne avec Matter, Zigbee ou s'il propose une commande locale. Consultez ensuite le [tableau de compatibilité](/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/) et les listes d'appareils de ZHA, de Zigbee2MQTT (deux outils qui gèrent Zigbee dans Home Assistant) et des applications Homey. Méfiez-vous des promesses vagues comme « compatible Alexa » si vous visez un fonctionnement local avec Home Assistant.
+
+### Je suis locataire : que puis-je faire ?
+
+Beaucoup de choses sans percer : des prises, des capteurs à pile, des boutons, des têtes thermostatiques amovibles qui se vissent sur le radiateur, parfois des ampoules à vis. Évitez les modules encastrés sans accord du propriétaire. Notre page [domotique en location](/domotique/domotique-location-sans-travaux/) détaille tout cela.
+
+### Combien ça coûte vraiment pour démarrer ?
+
+Il n'y a pas de chiffre unique. À titre d'ordre de grandeur, comptez quelques dizaines d'euros avec du Wi-Fi seul, et plusieurs centaines d'euros avec un boîtier, une clé Zigbee et des capteurs. Les abonnements facultatifs, comme l'accès à distance ou le stockage des images de caméra, s'ajoutent. Consultez les fourchettes dans nos pages sur le [choix du boîtier](/domotique/quelle-box-domotique-choisir-debutant/) et sur les [premiers appareils](/domotique/premiers-appareils-domotique-acheter/), et vérifiez les prix chez le vendeur le jour de l'achat.
+
+### Sécurité et vie privée : quels réflexes adopter ?
+
+Utilisez un mot de passe différent pour chaque compte et pour la box, et faites les mises à jour. Pour les caméras, préférez celles dont les images restent chez vous, et sachez où partent les images si ce n'est pas le cas. N'exposez jamais l'interface d'administration de la box sur Internet sans protection. Si vous savez le faire, isolez les objets connectés sur un réseau séparé du reste de la maison ; sinon, commencez simplement, mais changez toujours les mots de passe d'origine.
+
+### Que se passe-t-il si Internet tombe ?
+
+| Votre installation | Ce qui se passe en général |
+|---|---|
+| Capteurs Zigbee avec une box locale (Home Assistant ou Homey) | Les automatisations continuent de fonctionner |
+| Prises qui dépendent des serveurs du fabricant | Elles ne répondent souvent plus |
+| Commande vocale (Google, Alexa) | Indisponible ou très limitée |
+| Accès à distance depuis l'extérieur | Coupé, mais tout reste utilisable depuis chez vous |
+
+### Faut-il une box tout de suite ?
+
+Non. Deux prises Wi-Fi pour essayer pendant une semaine peuvent suffire. Dès que vous voulez que plusieurs appareils agissent ensemble, passez au [choix de la box](/domotique/quelle-box-domotique-choisir-debutant/).
+
+### Home Assistant est-il trop difficile pour moi ?
+
+Il y a une courbe d'apprentissage : les mises à jour, le vocabulaire. La [version courte du parcours](/domotique/debuter-domotique-par-ou-commencer/) et le [guide complet](/domotique/debuter-en-domotique-guide-complet/) vous guident pas à pas. Homey reste une alternative moins technique.
+
+### Peut-on tout faire avec Matter seulement ?
+
+Pas encore pour tous les besoins : le catalogue d'appareils et la maturité varient. Matter est un pari sur la compatibilité, utile, mais Zigbee reste très pragmatique en 2026. Voir la page sur les [protocoles](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
+
+### Par quoi remplacer une première box qui ne convient pas ?
+
+Si vos appareils parlent Zigbee ou Matter, passer à Home Assistant ou à Homey est réaliste. Le vrai piège, ce sont les appareils qui dépendent entièrement des serveurs de leur marque. D'où l'intérêt de bien choisir dès le départ, avec le [guide complet](/domotique/debuter-en-domotique-guide-complet/).
+
+### Les prix « à environ tant d'euros » trouvés sur le web sont-ils fiables ?
+
+Pas comme un engagement. Prenez-les comme des ordres de grandeur et ouvrez la fiche du vendeur le jour de l'achat.
+
+### Les produits recommandés sur ce site sont-ils sponsorisés ?
+
+Certains liens sont affiliés (Amazon, Shelly) et sont signalés comme tels. Si vous achetez par ce lien, le site peut toucher une commission, sans surcoût pour vous. Cela ne change pas l'exigence : aucun prix n'est inventé et les limites de chaque produit sont indiquées.
+
+### Où demander de l'aide ensuite ?
+
+Commencez par la documentation officielle de Home Assistant, de Homey ou de Jeedom, puis les communautés d'utilisateurs. Sur ce site, le [configurateur de projet](/domotique/configurateur-projet-domotique/), la page des [codes d'erreur et dépannage](/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/) et les [projets ESP32](/domotique/projets-esp32-domotique/) peuvent vous dépanner.
+
+---
+
+*Auteur : Emmanuel Sauvage.*

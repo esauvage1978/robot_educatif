@@ -34,13 +34,35 @@ Open mBlock 5, then pick your device (for example **mBot** or **mBot2**) in the 
 
 ## Quick fixes
 
-| Problem | What to try |
-|---|---|
-| The `.exe` won't start | Right-click → **Properties** → **Unblock** if shown; run as administrator; download again. |
-| "Windows protected your PC" (SmartScreen) | **More info** → **Run anyway**, only if the file came from mblock.cc. |
-| Installation stops with an error | Your antivirus may be blocking it: allow the installer, then retry. |
-| No admin rights (school PC) | Ask the IT department, or use the browser version. |
-| Robot not detected | Plug it in by USB first; for Bluetooth on mBot, see Makeblock's help pages. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Problem</th>
+<th scope="col">What to try</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Problem"><span class="td-val">The <code>.exe</code> won't start</span></td>
+<td data-label="What to try"><span class="td-val">Right-click → <strong>Properties</strong> → <strong>Unblock</strong> if shown; run as administrator; download again.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">"Windows protected your PC" (SmartScreen)</span></td>
+<td data-label="What to try"><span class="td-val"><strong>More info</strong> → <strong>Run anyway</strong>, only if the file came from mblock.cc.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">Installation stops with an error</span></td>
+<td data-label="What to try"><span class="td-val">Your antivirus may be blocking it: allow the installer, then retry.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">No admin rights (school PC)</span></td>
+<td data-label="What to try"><span class="td-val">Ask the IT department, or use the browser version.</span></td>
+</tr>
+<tr>
+<td data-label="Problem"><span class="td-val">Robot not detected</span></td>
+<td data-label="What to try"><span class="td-val">Plug it in by USB first; for Bluetooth on mBot, see Makeblock's help pages.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## FAQ
 

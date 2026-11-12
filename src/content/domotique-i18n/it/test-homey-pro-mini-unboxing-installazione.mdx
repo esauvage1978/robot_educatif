@@ -1,0 +1,130 @@
+---
+title: "Test Homey Pro mini: unboxing e installazione (parte 1)"
+description: "Abbiamo provato a casa l'Homey Pro mini: contenuto della confezione, porte, collegamento Ethernet e installazione passo passo nell'app. Pronto in circa 15 minuti."
+pubDate: 2026-10-23T00:00:00Z
+category: "guides-achat"
+heroImage: "/images/domotique/homey/homey-pro-mini-boite-v2.webp"
+products: ["homey-pro-mini"]
+priority: 3
+lang: "it"
+frSlug: "test-homey-pro-mini-deballage-installation"
+---
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Test iniziato il 23 ottobre 2026.*
+
+L'Homey Pro mini è arrivato da noi stamattina. È la versione compatta dell'Homey Pro di Athom, un piccolo hub che fa da "cervello" alla casa smart: parla di serie Zigbee 3.0, Thread e Matter e si collega al router con un cavo Ethernet. Per Z-Wave, 433 MHz, infrarossi e Bluetooth serve l'Homey Bridge, un piccolo modulo radio venduto a parte. Prima di affidargli prese, lampadine o sensori, ecco il primo passo: cosa c'è nella confezione e come si svolge l'installazione, dal cartone fino alla schermata "Tutto pronto!".
+
+## In breve
+
+**Cosa ci è piaciuto finora**
+- Un'installazione **facilissima e ben guidata**: circa 15 minuti dal collegamento alla schermata finale.
+- L'aggiornamento del software parte da solo al primo avvio (4 minuti nel nostro caso).
+- Una **porta Ethernet RJ45 integrata** e un cavo di rete incluso nella confezione.
+- La configurazione della casa (piani, stanze) si fa subito, così non bisogna riorganizzare tutto dopo.
+- Tante tecnologie disponibili quando si aggiunge un dispositivo: 433 MHz, infrarossi, Matter, Z-Wave, Zigbee. Attenzione: sul mini, 433 MHz, infrarossi e Z-Wave funzionano solo con l'Homey Bridge, venduto a parte.
+
+**I limiti finora**
+- L'adattatore Ethernet ricevuto in più non serve a nulla sul mini, che ha già la sua porta di rete.
+- Non abbiamo ancora associato nessun dispositivo: portata radio, reattività e automazioni sono ancora da valutare. Per ora niente voto, arriverà con il seguito del test.
+
+Per capire come si colloca Homey rispetto alle alternative, leggete il nostro confronto [Home Assistant, Jeedom, Homey o hub commerciale](/it/domotica/home-assistant-jeedom-homey-quale-sistema/).
+
+## Unboxing
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-carton-v2.webp" alt="Cartone di spedizione aperto con la scatola dell'Homey Pro mini e quella dell'adattatore Ethernet" caption="All'apertura del pacco: l'Homey Pro mini e l'adattatore Ethernet ordinato insieme." />
+
+La scatola è nera, sobria, con la foto dell'hub e una grande scritta "mini" a colori sfumati. All'interno tutto è ben fissato.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-boite-v2.webp" alt="Scatola nera dell'Homey Pro mini con la parola mini in lettere sfumate" caption="La scatola dell'Homey Pro mini." />
+
+Nella confezione troviamo:
+
+1. l'hub Homey Pro mini;
+2. un cavo Ethernet piatto;
+3. un cavo USB-C;
+4. un alimentatore USB da rete;
+5. un foglietto "Legal & Safety Information" con un QR code che rimanda a [setup.homey.app](https://setup.homey.app) per scaricare l'app.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-contenu.webp" alt="Contenuto della confezione dell'Homey Pro mini: hub, foglietto, cavo Ethernet piatto, cavo USB-C e alimentatore" caption="Tutto il contenuto della confezione." />
+
+L'hub è un piccolo quadrato nero opaco, con il logo Homey inciso sopra e un LED sul davanti. È discreto e trova facilmente posto accanto al router.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-boitier-dessus.webp" alt="Parte superiore dell'Homey Pro mini, quadrato nero opaco con il logo inciso" caption="La parte superiore dell'hub, con il logo inciso." />
+
+## Porte e adattatore Ethernet
+
+Sul retro ci sono solo due porte: una **Ethernet RJ45** e una **USB-C** per l'alimentazione.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-connectique.webp" alt="Retro dell'Homey Pro mini con la porta Ethernet RJ45 e la porta USB-C" caption="Porta Ethernet e porta USB-C sul retro." />
+
+Insieme al mini avevamo ricevuto l'"Homey Pro Ethernet Adapter", un adattatore da USB-C a Ethernet. È pensato per l'Homey Pro grande, che non ha la porta di rete. **Sul mini è inutile**: basta collegare direttamente il cavo Ethernet incluso. Se scegliete il mini, quindi, non serve aggiungerlo al carrello. La prova del modello grande: [unboxing e installazione dell'Homey Pro](/it/domotica/test-homey-pro-unboxing-installazione/).
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-adaptateur.webp" alt="Homey Pro Ethernet Adapter, scatolina grigia con cavo USB-C" caption="L'adattatore Ethernet, utile solo per l'Homey Pro grande." />
+
+## Il collegamento
+
+Abbiamo collegato l'Homey Pro mini via Ethernet a uno switch Netgear GS108, poi abbiamo inserito l'alimentazione USB-C. Il LED si accende di viola: l'hub è pronto per la configurazione. Il cavo è obbligatorio: il mini non ha Wi-Fi integrato. Controlla comunque i vostri dispositivi Wi-Fi passando dal router.
+
+## L'installazione nell'app, passo dopo passo
+
+L'app Homey si scarica inquadrando il QR code del foglietto. Ecco come è andata da noi:
+
+1. **Benvenuto**: l'app mostra una schermata di benvenuto e propone di configurare un Homey.
+2. **Creazione dell'account** Homey.
+3. **Aggiornamento del software**, avviato in automatico. Da noi è durato circa 4 minuti (dalle 12:12 alle 12:16). Non bisogna scollegare l'hub nel frattempo.
+4. **"Benvenuto a casa"**: inizia la configurazione della casa.
+5. **Numero di piani**: ne abbiamo indicati due.
+6. **Scelta dei piani**: piano terra e primo piano nel nostro caso. L'app propone anche seminterrato, soffitta, garage, piscina, giardino, terrazza…
+7. **Stanze di ogni piano**: soggiorno, cucina, bagno, camera, cameretta, studio, ecc.
+8. **Riepilogo** della casa sotto forma di albero.
+9. **Rete Thread**: l'app chiede il permesso di configurarla.
+10. **"Tutto pronto!"**, verso le 12:25.
+11. **Nuovo dispositivo**: la schermata di aggiunta propone 433 MHz, Infrarossi, Matter, Z-Wave e Zigbee. Sul mini, solo Matter e Zigbee funzionano senza accessori; gli altri richiedono l'Homey Bridge.
+
+Le schermate dell'installazione, in ordine:
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '0.75rem', maxWidth: '640px', margin: '1.5rem auto'}}>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-bienvenue-chez-toi.webp" alt="Schermata 'Benvenuto a casa' dell'app Homey, con il pulsante per configurare la casa (app in francese)" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Benvenuto a casa</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-nombre-niveaux.webp" alt="Schermata dell'app Homey che chiede il numero di piani della casa, impostato su 2" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Numero di piani</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-choix-niveaux.webp" alt="Scelta dei piani nell'app Homey: piano terra e primo piano selezionati, proposti anche seminterrato, soffitta, garage, piscina, giardino, terrazza" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Scelta dei piani</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-choix-pieces.webp" alt="Selezione delle stanze del piano terra nell'app Homey: soggiorno, cucina, bagno, camera, studio…" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Stanze per piano</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-recapitulatif-maison.webp" alt="Albero riepilogativo della casa nell'app Homey, con le stanze del piano terra e del primo piano" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Riepilogo</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-reseau-thread.webp" alt="Schermata dell'app Homey per configurare una rete Thread, con il pulsante Continua" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Rete Thread</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-tout-est-pret.webp" alt="Schermata 'Tutto pronto!' dell'app Homey, con l'Homey Pro mini" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Tutto pronto!</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-nouvel-appareil.webp" alt="Schermata Nuovo dispositivo dell'app Homey con 433 MHz, Infrarossi, Matter, Z-Wave e Zigbee" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Nuovo dispositivo</figcaption></figure>
+</div>
+
+In tutto bisogna mettere in conto **circa 15 minuti** dal collegamento alla fine dell'installazione. Tutto viene spiegato man mano, senza gergo tecnico: non ci si sente mai persi.
+
+Per saperne di più sull'hub: [la pagina ufficiale dell'Homey Pro mini](https://homey.app/it-it/homey-pro-mini/) (prezzo aggiornato dal produttore).
+
+## FAQ
+
+**Serve l'adattatore Ethernet per l'Homey Pro mini?**
+No. Il mini ha già una porta RJ45 e un cavo Ethernet piatto è incluso. L'adattatore serve per l'Homey Pro grande.
+
+**Quanto dura l'installazione?**
+Circa 15 minuti da noi, di cui 4 di aggiornamento automatico del software.
+
+**Come si scarica l'app Homey?**
+Con il QR code del foglietto, che porta a setup.homey.app.
+
+**Quali tecnologie compaiono quando si aggiunge un dispositivo?**
+433 MHz, infrarossi, Matter, Z-Wave e Zigbee. Durante l'installazione viene configurata una rete Thread. Sul mini, Zigbee, Thread e Matter sono integrati; Z-Wave, 433 MHz, infrarossi e Bluetooth richiedono l'Homey Bridge, venduto a parte.
+
+**Qual è il protocollo migliore per iniziare?**
+Dipende dai dispositivi che avete in mente: la nostra guida [Zigbee, Wi-Fi, Thread o Matter](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/) fa il punto.
+
+<div class="shelly-encart">
+<p id="whats-next"><strong>Il seguito del test</strong></p>
+<p>L'Homey Pro mini è installato, ma non controlla ancora nulla. Nella prossima parte vi associeremo dispositivi Matter su Thread e Zigbee, poi creeremo le nostre prime automazioni (luce all'apertura di una porta, avvisi, scene). Seguirà il nostro giudizio completo. A presto su questa pagina!</p>
+</div>
+
+Per approfondire nel frattempo: [iniziare con la domotica, da dove partire](/it/domotica/come-iniziare/) e tutta la [sezione domotica](/it/domotica/).

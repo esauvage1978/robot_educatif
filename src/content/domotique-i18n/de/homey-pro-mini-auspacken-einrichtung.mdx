@@ -1,0 +1,130 @@
+---
+title: "Homey Pro mini im Test: Auspacken und Einrichtung (Teil 1)"
+description: "Wir haben den Homey Pro mini bei uns zu Hause ausprobiert: Lieferumfang, Anschlüsse, Ethernet-Verbindung und die Einrichtung in der App Schritt für Schritt. In rund 15 Minuten startklar."
+pubDate: 2026-10-23T00:00:00Z
+category: "guides-achat"
+heroImage: "/images/domotique/homey/homey-pro-mini-boite-v2.webp"
+products: ["homey-pro-mini"]
+priority: 3
+lang: "de"
+frSlug: "test-homey-pro-mini-deballage-installation"
+---
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Test begonnen am 23. Oktober 2026.*
+
+Der Homey Pro mini ist heute Morgen bei uns angekommen. Er ist die kompakte Version des Homey Pro von Athom, eine kleine Zentrale, die als „Gehirn“ des Smart Homes dient: Er beherrscht ab Werk Zigbee 3.0, Thread und Matter und wird per Ethernet-Kabel mit dem Router verbunden. Für Z-Wave, 433 MHz, Infrarot und Bluetooth braucht man die Homey Bridge, ein kleines, separat erhältliches Funkmodul. Bevor wir ihm Steckdosen, Lampen oder Sensoren anvertrauen, kommt der erste Schritt: was in der Schachtel steckt und wie die Einrichtung abläuft, vom Versandkarton bis zum Bildschirm „Alles bereit!“.
+
+## Kurz und knapp
+
+**Was uns bisher gefallen hat**
+- Eine **sehr einfache, gut geführte Einrichtung**: rund 15 Minuten vom Einstecken bis zum letzten Bildschirm.
+- Das Software-Update startet beim ersten Hochfahren von selbst (bei uns 4 Minuten).
+- Ein **eingebauter RJ45-Ethernet-Port**, ein Netzwerkkabel liegt bei.
+- Das Zuhause (Etagen, Räume) wird gleich zu Beginn angelegt, später muss man nichts mehr umsortieren.
+- Beim Hinzufügen eines Geräts stehen viele Technologien zur Wahl: 433 MHz, Infrarot, Matter, Z-Wave, Zigbee. Achtung: Beim mini funktionieren 433 MHz, Infrarot und Z-Wave nur mit der separat erhältlichen Homey Bridge.
+
+**Was bisher weniger überzeugt**
+- Der zusätzlich gelieferte Ethernet-Adapter nützt beim mini nichts, er hat bereits einen Netzwerkanschluss.
+- Wir haben noch kein Gerät gekoppelt: Funkreichweite, Reaktionszeit und Automationen müssen sich erst noch beweisen. Eine Bewertung gibt es noch nicht, sie folgt mit dem nächsten Teil des Tests.
+
+Wie sich Homey gegen andere Lösungen schlägt, zeigt unser Vergleich [Home Assistant, Jeedom, Homey oder fertige Zentrale](/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/).
+
+## Auspacken
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-carton-v2.webp" alt="Geöffneter Versandkarton mit der Schachtel des Homey Pro mini und der des Ethernet-Adapters" caption="Beim Öffnen des Pakets: der Homey Pro mini und der mitbestellte Ethernet-Adapter." />
+
+Die Schachtel ist schwarz und schlicht, mit einem Foto des Geräts und einem großen „mini“ in Farbverlauf. Innen sitzt alles fest an seinem Platz.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-boite-v2.webp" alt="Schwarze Schachtel des Homey Pro mini mit dem Wort mini in Verlaufsschrift" caption="Die Schachtel des Homey Pro mini." />
+
+In der Schachtel finden sich:
+
+1. die Homey-Pro-mini-Zentrale;
+2. ein flaches Ethernet-Kabel;
+3. ein USB-C-Kabel;
+4. ein USB-Netzteil;
+5. ein Beipackzettel „Legal & Safety Information“ mit einem QR-Code, der zu [setup.homey.app](https://setup.homey.app) führt, wo man die App herunterlädt.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-contenu.webp" alt="Lieferumfang des Homey Pro mini: Zentrale, Beipackzettel, flaches Ethernet-Kabel, USB-C-Kabel und Netzteil" caption="Der komplette Lieferumfang." />
+
+Das Gerät ist ein kleines, mattschwarzes Quadrat mit eingraviertem Homey-Logo auf der Oberseite und einer LED vorne. Es ist unauffällig und findet leicht neben dem Router Platz.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-boitier-dessus.webp" alt="Oberseite des Homey Pro mini, mattschwarzes Quadrat mit eingraviertem Logo" caption="Die Oberseite mit dem eingravierten Logo." />
+
+## Anschlüsse und Ethernet-Adapter
+
+Hinten gibt es nur zwei Anschlüsse: einen **RJ45-Ethernet-Port** und einen **USB-C-Port** für die Stromversorgung.
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-connectique.webp" alt="Rückseite des Homey Pro mini mit RJ45-Ethernet-Port und USB-C-Port" caption="Ethernet- und USB-C-Port auf der Rückseite." />
+
+Zusammen mit dem mini hatten wir den „Homey Pro Ethernet Adapter“ erhalten, einen Adapter von USB-C auf Ethernet. Er ist für den großen Homey Pro gedacht, der keinen Netzwerkanschluss hat. **Beim mini ist er überflüssig**: Man steckt einfach das mitgelieferte Ethernet-Kabel ein. Wer sich für den mini entscheidet, muss ihn also nicht in den Warenkorb legen. Der Test des großen Modells: [Homey Pro: Auspacken und Einrichtung](/de/smart-home/homey-pro-auspacken-einrichtung/).
+
+<Photo portrait src="/images/domotique/homey/homey-pro-mini-adaptateur.webp" alt="Homey Pro Ethernet Adapter, graues Gehäuse mit USB-C-Kabel" caption="Der Ethernet-Adapter, nur für den großen Homey Pro sinnvoll." />
+
+## Anschließen
+
+Wir haben den Homey Pro mini per Ethernet mit einem Netgear-GS108-Switch verbunden und dann die USB-C-Stromversorgung eingesteckt. Die LED leuchtet violett: Das Gerät ist bereit für die Einrichtung. Das Kabel ist Pflicht: Der mini hat kein eingebautes WLAN. Ihre WLAN-Geräte steuert er trotzdem, über Ihren Router.
+
+## Einrichtung in der App, Schritt für Schritt
+
+Die Homey-App lädt man herunter, indem man den QR-Code auf dem Beipackzettel scannt. So lief es bei uns ab:
+
+1. **Start**: Die App zeigt einen Willkommensbildschirm und bietet an, einen Homey einzurichten.
+2. **Anlegen des** Homey-**Kontos**.
+3. **Software-Update**, das automatisch startet. Bei uns dauerte es etwa 4 Minuten (von 12:12 bis 12:16 Uhr). Währenddessen das Gerät nicht vom Strom trennen.
+4. **„Willkommen zu Hause“**: Die Einrichtung des Zuhauses beginnt.
+5. **Anzahl der Etagen**: Wir haben zwei angegeben.
+6. **Auswahl der Etagen**: in unserem Fall Erdgeschoss und erster Stock. Die App bietet außerdem Keller, Dachboden, Garage, Pool, Garten, Terrasse und mehr an.
+7. **Räume pro Etage**: Wohnzimmer, Küche, Bad, Schlafzimmer, Kinderzimmer, Arbeitszimmer usw.
+8. **Übersicht** des Zuhauses als Baumstruktur.
+9. **Thread-Netzwerk**: Die App bittet um Erlaubnis, es einzurichten.
+10. **„Alles bereit!“**, gegen 12:25 Uhr.
+11. **Neues Gerät**: Der Bildschirm zum Hinzufügen bietet 433 MHz, Infrarot, Matter, Z-Wave und Zigbee. Beim mini funktionieren nur Matter und Zigbee ohne Zubehör; die anderen brauchen die Homey Bridge.
+
+Die Bildschirme der Einrichtung, der Reihe nach:
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '0.75rem', maxWidth: '640px', margin: '1.5rem auto'}}>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-bienvenue-chez-toi.webp" alt="Bildschirm „Willkommen zu Hause“ der Homey-App mit der Schaltfläche zum Einrichten des Zuhauses (App auf Französisch)" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Willkommen zu Hause</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-nombre-niveaux.webp" alt="Bildschirm der Homey-App mit der Frage nach der Anzahl der Etagen, auf 2 gestellt" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Anzahl der Etagen</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-choix-niveaux.webp" alt="Auswahl der Etagen in der Homey-App: Erdgeschoss und erster Stock angehakt, Keller, Dachboden, Garage, Pool, Garten und Terrasse zur Auswahl" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Etagen wählen</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-choix-pieces.webp" alt="Auswahl der Räume im Erdgeschoss in der Homey-App: Wohnzimmer, Küche, Bad, Schlafzimmer, Arbeitszimmer usw." loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Räume pro Etage</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-recapitulatif-maison.webp" alt="Übersicht des Zuhauses als Baumstruktur in der Homey-App, mit den Räumen im Erdgeschoss und ersten Stock" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Übersicht</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-reseau-thread.webp" alt="Bildschirm der Homey-App zum Einrichten eines Thread-Netzwerks, mit der Schaltfläche Weiter" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Thread-Netzwerk</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-tout-est-pret.webp" alt="Bildschirm „Alles bereit!“ der Homey-App mit dem Homey Pro mini" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Alles bereit!</figcaption></figure>
+  <figure style={{margin: 0}}><img src="/images/domotique/homey/homey-app-nouvel-appareil.webp" alt="Bildschirm Neues Gerät der Homey-App mit 433 MHz, Infrarot, Matter, Z-Wave und Zigbee" loading="lazy" decoding="async" width="480" height="963" style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #ddd'}} /><figcaption style={{fontSize: '0.85rem', textAlign: 'center', marginTop: '0.3rem', opacity: 0.8}}>Neues Gerät</figcaption></figure>
+</div>
+
+Insgesamt sollte man **rund 15 Minuten** vom Einstecken bis zum Ende der Einrichtung einplanen. Alles wird Schritt für Schritt und ohne Fachchinesisch erklärt, man fühlt sich nie verloren.
+
+Mehr über das Gerät: [die offizielle Seite des Homey Pro mini](https://homey.app/de-de/homey-pro-mini/) (aktueller Preis beim Hersteller).
+
+## FAQ
+
+**Braucht der Homey Pro mini den Ethernet-Adapter?**
+Nein. Der mini hat bereits einen RJ45-Port, und ein flaches Ethernet-Kabel liegt bei. Der Adapter ist für den großen Homey Pro gedacht.
+
+**Wie lange dauert die Einrichtung?**
+Bei uns etwa 15 Minuten, davon 4 Minuten automatisches Software-Update.
+
+**Wie lädt man die Homey-App herunter?**
+Über den QR-Code auf dem Beipackzettel, der zu setup.homey.app führt.
+
+**Welche Technologien erscheinen beim Hinzufügen eines Geräts?**
+433 MHz, Infrarot, Matter, Z-Wave und Zigbee. Ein Thread-Netzwerk wird während der Einrichtung angelegt. Beim mini sind Zigbee, Thread und Matter eingebaut; Z-Wave, 433 MHz, Infrarot und Bluetooth brauchen die separat erhältliche Homey Bridge.
+
+**Welches Protokoll eignet sich am besten für den Anfang?**
+Das hängt von den geplanten Geräten ab: Unser Ratgeber [Zigbee, WLAN, Thread oder Matter](/de/smart-home/smart-home-protokolle-zigbee-wifi-thread-matter/) erklärt die Unterschiede.
+
+<div class="shelly-encart">
+<p id="whats-next"><strong>Wie es weitergeht</strong></p>
+<p>Der Homey Pro mini ist eingerichtet, steuert aber noch nichts. Im nächsten Teil koppeln wir Geräte über Matter-over-Thread und Zigbee und erstellen dann unsere ersten Automationen (Licht beim Öffnen einer Tür, Benachrichtigungen, Szenen). Unser vollständiges Fazit folgt. Bis bald auf dieser Seite!</p>
+</div>
+
+Zum Weiterlesen in der Zwischenzeit: [Smart Home für Einsteiger: wo anfangen?](/de/smart-home/einstieg/) und alle unsere [Smart-Home-Ratgeber](/de/smart-home/).

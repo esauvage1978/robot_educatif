@@ -1,0 +1,735 @@
+---
+import SmartHomeProjectInlineConfigurator from './SmartHomeProjectInlineConfigurator.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import {
+	ALERT_YAML,
+	COVER_YAML,
+	GARAGE_DOOR_FAQ,
+	GARAGE_DOOR_STEPS,
+	PULSE_YAML,
+} from '../data/garageDoorPageContent.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	useCase: { id: string };
+	articleUrl: string;
+}
+
+const { useCase, articleUrl } = Astro.props;
+const useCaseJson = JSON.stringify(useCase);
+
+const howTo = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: 'Ouvrir une porte de garage motorisée depuis le téléphone',
+	description:
+		'Repérer le bornier du bouton poussoir, raccorder un contact sec, régler une impulsion courte, puis afficher l’état dans Home Assistant sans fermer la porte automatiquement.',
+	step: GARAGE_DOOR_STEPS.map((step, index) => ({
+		'@type': 'HowToStep',
+		position: index + 1,
+		name: step.title,
+		text: [step.why, ...step.actions, step.observe, step.check].join(' '),
+	})),
+};
+
+const techArticle = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: 'Ouvrir une porte de garage motorisée depuis le téléphone',
+	description:
+		'Le module imite le bouton mural par un contact sec. Il ne coupe pas le 230 V du moteur. Un capteur séparé indique si la porte est fermée.',
+	datePublished: '2026-10-28',
+	dateModified: '2026-10-29',
+	inLanguage: 'fr-FR',
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+
+const toc = [
+	['a-quoi-ca-sert', 'À quoi ça sert'],
+	['ce-que-vous-obtenez', 'Ce que vous obtenez'],
+	['avant-de-commencer', 'Avant de commencer'],
+	['trois-situations', 'Trois situations'],
+	['architecture', 'Comment ça commande'],
+	['quel-materiel', 'Quel matériel'],
+	['tutoriel', 'Pas à pas'],
+	['verifier', 'Vérifier'],
+	['depannage', 'Dépannage'],
+	['aller-plus-loin', 'Aller plus loin'],
+	['questions', 'Questions fréquentes'],
+	['sources', 'Sources'],
+];
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howTo)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticle)} />
+<StructuredDataFaq items={GARAGE_DOOR_FAQ} />
+
+<div class="gd-guide">
+	<nav class="gd-toc" aria-label="Sommaire">
+		{
+			toc.map(([id, label]) => (
+				<a href={`#${id}`}>{label}</a>
+			))
+		}
+	</nav>
+
+	<p>
+		La porte de garage s’ouvre déjà avec un bouton au mur et une télécommande. Le téléphone sert à faire le même geste, et
+		surtout à savoir si le tablier est resté levé. Le module ne remplace pas la motorisation : il relie deux bornes déjà
+		prévues pour le bouton, le temps d’un appui. Le moteur, les cellules et l’arrêt sur obstacle restent ceux d’origine.
+	</p>
+	<p>
+		Texte revu le 29 octobre 2026. Les bornes du Shelly 1 Mini Gen3 et les limites du SONOFF SNZB-04P viennent des fiches
+		fabricants citées en bas de page. Les exemples YAML Home Assistant n’ont pas été chargés sur une installation du site.
+		Le câblage de votre carte moteur est celui de sa notice.
+	</p>
+
+	<h2 id="a-quoi-ca-sert">À quoi sert de commander la porte depuis le téléphone</h2>
+	<p>
+		La télécommande reste dans la voiture, ou dans une poche difficile à atteindre devant le portail. Le téléphone est
+		déjà en main. Il permet d’ouvrir pour quelqu’un qui arrive, puis de vérifier une heure plus tard que la porte n’est
+		pas restée béante. Home Assistant garde l’historique de cet état. L’application du module, seule, sait surtout qu’elle
+		a envoyé une impulsion.
+	</p>
+	<p>
+		Ce n’est utile que si la motorisation possède déjà une entrée pour un bouton poussoir. Le guide ne transforme pas une
+		porte manuelle en porte motorisée, et il ne court-circuite pas une carte qui n’a que des bornes de puissance.
+	</p>
+
+	<h2 id="ce-que-vous-obtenez">Ce que vous allez obtenir</h2>
+	<p>
+		Une motorisation au plafond, inchangée dans son rôle : elle tire le tablier, elle s’arrête sur ses fins de course, et
+		ses cellules surveillent le passage. Le cordon rouge que l’on voit souvent sous le rail est le débrayage manuel. Il
+		ne se raccorde pas au module.
+	</p>
+	<figure class="gd-photo">
+		<img
+			src={withBase('/images/domotique/porte-garage/motorisation-plafond-liftmaster.webp')}
+			width="1600"
+			height="1200"
+			alt="Motorisation de porte de garage fixée au plafond, avec son rail, sa lampe et le cordon rouge de débrayage."
+			loading="lazy"
+			decoding="async"
+		/>
+		<figcaption>
+			Motorisation au plafond. Le module se raccorde au bornier du bouton décrit dans la notice, pas aux fils du moteur.
+			Sur cette série LiftMaster Security+ 2.0, ce bornier simple n’est pas toujours présent.
+			Photo :
+			<a href="https://commons.wikimedia.org/wiki/File:LiftMaster_Security%2B_2.0_P3_Garage_Door_Motor_Opener.jpg">Tony Webster</a>,
+			<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.
+		</figcaption>
+	</figure>
+	<p>
+		Après le montage, le bouton mural et la télécommande fonctionnent comme avant. Le téléphone demande une confirmation,
+		puis envoie la même impulsion. Si le capteur est posé, l’écran affiche ouvert ou fermé. Une notification part si la
+		porte reste ouverte. Aucune automatisation de ce guide ne la referme toute seule.
+	</p>
+
+	<h2 id="avant-de-commencer">Avant de commencer</h2>
+	<table class="gd-table">
+		<thead>
+			<tr><th>Point</th><th>Ce qu’il faut savoir</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Point">Objectif</td>
+				<td data-label="Détail">Envoyer l’impulsion du bouton poussoir depuis le téléphone, et savoir si la porte est fermée.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Difficulté</td>
+				<td data-label="Détail">Intermédiaire. Il faut lire une notice de motorisation et distinguer contact sec et 230 V. Le raccordement fixe de l’alimentation du module est un travail électrique.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Temps</td>
+				<td data-label="Détail">Comptez une demi-journée si la notice est claire et si Home Assistant répond déjà. Ce n’est pas une durée chronométrée sur un chantier.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Budget</td>
+				<td data-label="Détail">Indicatif catalogue : environ 8 à 62 € selon le profil (module seul, ou avec capteur d’ouverture et dongle Zigbee si besoin). Le configurateur détaille la liste.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Logiciels</td>
+				<td data-label="Détail">Home Assistant et son intégration Shelly pour le profil recommandé. Application Shelly Smart Control si vous restez sans serveur. ESPHome pour la variante carte nue, détaillée dans un autre guide.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Prérequis</td>
+				<td data-label="Détail">Une porte déjà motorisée, un bouton mural qui la fait bouger, le Wi-Fi 2,4 GHz dans le garage, et la notice. Pour le profil recommandé : Home Assistant déjà joignable sur le réseau local.</td>
+			</tr>
+			<tr>
+				<td data-label="Point">Risques</td>
+				<td data-label="Détail">230 V dans le capot. Écrasement si une commande part porte non surveillée. Ne jamais ponter les cellules. Ne pas ouvrir le port 8123 sur Internet. Ne pas fermer la porte par une automatisation horaire.</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h2 id="trois-situations">Trois façons d’arriver à la même impulsion</h2>
+	<p>
+		Le geste est le même : un contact qui se ferme un court instant sur l’entrée du bouton. Ce qui change, c’est ce que
+		vous possédez déjà. L’adresse de cette page peut contenir <code>tier</code>, <code>eco</code>, <code>qty</code> et
+		<code>tech</code>. Ce sont des réglages d’affichage. L’URL canonique reste celle sans paramètres.
+	</p>
+	<p data-gd-summary>
+		Réglage décrit par défaut : profil Recommandé, situation A, une porte, variante « bornier bouton poussoir ». Home
+		Assistant n’est pas dans les achats. Le coordinateur Zigbee non plus, s’il est déjà en service.
+	</p>
+
+	<section class="gd-sit" data-gd-situation="a">
+		<h3>Situation A — Home Assistant tourne déjà</h3>
+		<p>
+			C’est le cas du profil Recommandé (<code>eco=ha-zigbee</code>). Vous n’achetez pas un deuxième serveur. Le Shelly 1
+			Mini Gen3 envoie l’impulsion en Wi-Fi. Le capteur SONOFF SNZB-04P, lui, est en Zigbee : il dit si la porte est
+			ouverte. Le dongle n’entre dans la liste que pour celui qui n’a pas encore de coordinateur. La variante
+			<code>contact-sec</code> veut dire que la notice montre le bornier du bouton. La variante <code>dry-only</code> dit
+			la même chose avec une consigne de plus : cette entrée n’accepte aucun 230 V.
+		</p>
+	</section>
+	<section class="gd-sit" data-gd-situation="b">
+		<h3>Situation B — Vous flashez une carte ESP32</h3>
+		<p>
+			Le profil Évolutif (<code>eco=maker-esp32</code>) remplace le Shelly par une carte ESP32, un module relais dont le
+			contact sec se commande en 3,3 V, et un reed filaire. Le 230 V du moteur ne se branche pas plus sur ce relais. Le
+			pas à pas de cette page décrit le Shelly. Le flash, les broches GPIO et le YAML testés avec ESPHome sont dans le
+			<a href={withBase('/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/')}>tutoriel porte de garage ESPHome</a>.
+			Home Assistant n’est pas ajouté à la liste : sans lui, la carte n’a pas l’écran décrit plus loin.
+		</p>
+	</section>
+	<section class="gd-sit" data-gd-situation="c">
+		<h3>Situation C — L’application Shelly suffit</h3>
+		<p>
+			Le profil Économique (<code>eco=wifi-sans-box</code>) n’installe pas Home Assistant. L’application envoie
+			l’impulsion, à condition d’avoir réglé l’arrêt automatique de la sortie. Cette liste ne contient pas de capteur :
+			l’application ne prouve pas que le tablier a bougé. Le bouton mural reste le moyen de vérifier sur place.
+		</p>
+	</section>
+
+	<h3>Ce que la quantité et la variante changent</h3>
+	<table class="gd-table">
+		<thead>
+			<tr><th>Réglage</th><th>Effet sur la liste</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Réglage">Une porte</td>
+				<td data-label="Effet">Un relais. Un capteur d’état en profil Recommandé, après la mesure d’écart.</td>
+			</tr>
+			<tr>
+				<td data-label="Réglage">Plusieurs portes</td>
+				<td data-label="Effet">Un relais par motorisation, et un capteur par porte. Le coordinateur et Home Assistant restent uniques.</td>
+			</tr>
+			<tr>
+				<td data-label="Réglage">contact-sec</td>
+				<td data-label="Effet">La notice montre deux bornes pour le bouton mural. C’est le cas du pas à pas.</td>
+			</tr>
+			<tr>
+				<td data-label="Réglage">dry-only</td>
+				<td data-label="Effet">Même raccordement. L’entrée est spécifiée contact sec : L et N du module n’y vont pas.</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<SmartHomeProjectInlineConfigurator useCaseId={useCase.id} useCaseJson={useCaseJson} lang="fr" />
+	<noscript>
+		<p>Sans JavaScript, les boutons ne mettent pas la liste à jour. Les trois situations ci-dessus restent valables.</p>
+	</noscript>
+	<p>
+		Les vignettes du Shelly 1 Mini Gen3, du SNZB-04P et du ZBDongle-E montrent ces produits. Le lien Shelly ouvre la fiche
+		du Mini Gen3. Le lien du capteur ouvre une recherche Amazon.fr au nom SNZB-04P, avec l’identifiant partenaire du site :
+		une recherche ne garantit pas le modèle exact ni le stock du jour. Mesurez l’écart de la porte avant de le commander. Le
+		dongle est facultatif dès qu’un coordinateur Zigbee répond déjà.
+	</p>
+
+	<h2 id="architecture">Comment l’ordre arrive à la porte</h2>
+	<p>
+		Retenez une phrase : le téléphone demande, Home Assistant appelle le Shelly, le Shelly imite le bouton. Les cellules
+		et la carte moteur décident encore si le tablier a le droit de bouger. Le capteur Zigbee ne fait que remonter un
+		état. Il n’est pas dans le circuit du bouton.
+	</p>
+	<figure class="gd-schema">
+		<figcaption>
+			Schéma de principe. En vert, l’ordre et l’état. En orange, l’alimentation du module, qui ne va pas sur le bouton.
+		</figcaption>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 760" role="img" aria-labelledby="gd-arch-title gd-arch-desc">
+			<title id="gd-arch-title">Commande d’une porte de garage par contact sec</title>
+			<desc id="gd-arch-desc">
+				Le téléphone joint Home Assistant. Home Assistant commande le Shelly. Les bornes I et O du Shelly sont en
+				parallèle du bouton poussoir de la motorisation. L et N alimentent seulement le Shelly. Le capteur Zigbee
+				renvoie l’état ouvert ou fermé à Home Assistant et ne commande pas le moteur.
+			</desc>
+			<defs>
+				<marker id="gd-g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#0f766e"></path></marker>
+				<marker id="gd-o" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#c2410c"></path></marker>
+			</defs>
+			<rect width="360" height="760" rx="12" fill="#f8fafc"/>
+			<rect x="16" y="16" width="328" height="70" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="42" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">1. Téléphone</text>
+			<text x="28" y="64" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Demande confirmée. Ne parle pas au moteur.</text>
+			<line x1="180" y1="86" x2="180" y2="108" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)"/>
+			<text x="188" y="104" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">réseau local</text>
+			<rect x="16" y="114" width="328" height="70" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="140" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">2. Home Assistant</text>
+			<text x="28" y="162" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Déjà en place. Script d’impulsion.</text>
+			<line x1="180" y1="184" x2="180" y2="206" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)"/>
+			<text x="188" y="202" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">Wi-Fi 2,4 GHz</text>
+			<rect x="16" y="212" width="328" height="92" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="236" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">3. Shelly 1 Mini Gen3</text>
+			<text x="28" y="258" font-family="system-ui,sans-serif" font-size="13" fill="#334155">I et O : contact sec, impulsion courte</text>
+			<text x="28" y="278" font-family="system-ui,sans-serif" font-size="13" fill="#334155">L et N : son alimentation, à part</text>
+			<line x1="180" y1="304" x2="180" y2="326" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)"/>
+			<text x="188" y="322" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f766e">I et O seuls</text>
+			<rect x="16" y="332" width="328" height="78" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="356" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">4. Bornier du bouton</text>
+			<text x="28" y="378" font-family="system-ui,sans-serif" font-size="13" fill="#334155">En parallèle du bouton mural</text>
+			<text x="28" y="396" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Les noms sont ceux de la notice</text>
+			<line x1="180" y1="410" x2="180" y2="432" stroke="#0f766e" stroke-width="2" marker-end="url(#gd-g)"/>
+			<rect x="16" y="438" width="328" height="78" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+			<text x="28" y="462" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">5. Motorisation d’origine</text>
+			<text x="28" y="484" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Moteur, fins de course, cellules</text>
+			<text x="28" y="502" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Télécommande inchangée</text>
+			<text x="16" y="546" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#9a3412">Alimentation du module, à part</text>
+			<rect x="16" y="556" width="328" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+			<text x="28" y="588" font-family="system-ui,sans-serif" font-size="14" fill="#7c2d12">6. 110–240 V sur L et N uniquement</text>
+			<rect x="16" y="626" width="328" height="112" rx="8" fill="#fff" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4"/>
+			<text x="28" y="652" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">7. Capteur Zigbee</text>
+			<text x="28" y="674" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Vers le coordinateur, puis Home Assistant</text>
+			<text x="28" y="694" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Dit ouvert ou fermé</text>
+			<text x="28" y="716" font-family="system-ui,sans-serif" font-size="13" fill="#64748b">Ne commande pas le moteur</text>
+		</svg>
+	</figure>
+	<p>
+		Le Wi-Fi ne transporte que l’ordre vers le Shelly, et la page Home Assistant vers le téléphone. Les deux fils I et O
+		ne transportent pas le secteur du module : ils reproduisent le contact du bouton. Le capteur, en pointillés, remonte
+		par le coordinateur Zigbee déjà branché au serveur, ou par celui que vous ajoutez s’il n’y en a pas. Les autres
+		appareils Zigbee de la maison restent sur ce même coordinateur.
+	</p>
+	<p>
+		Pour choisir le coordinateur seulement si vous n’en avez pas :
+		<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>quel dongle Zigbee</a>,
+		puis
+		<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>ZHA ou Zigbee2MQTT</a>.
+		Le Shelly, lui, n’utilise pas ce dongle.
+	</p>
+
+	<h2 id="quel-materiel">Quel matériel pour le profil recommandé</h2>
+	<p>
+		Le Shelly 1 Mini Gen3 tient dans un petit volume. Les bornes se suivent : I et O sont le contact sec, L et N
+		alimentent le module, SW ne reçoit pas le bouton de la porte.
+	</p>
+	<p>
+		Le capteur d’état est un aimant et un boîtier. Les deux repères doivent se faire face.
+		La notice Sonoff demande 20 mm au plus quand la porte est fermée, et un usage à l’intérieur. S’il faut écarter les
+		deux morceaux pour les coller sur cette porte, ce n’est pas le bon capteur pour elle.
+	</p>
+	<table class="gd-table">
+		<thead>
+			<tr><th>Besoin</th><th>Choix de ce guide</th><th>Limite</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Besoin">Donner l’impulsion</td>
+				<td data-label="Choix">Shelly 1 Mini Gen3, contact sec, Wi-Fi 2,4 GHz</td>
+				<td data-label="Limite">Alimentation 110–240 V seulement. Ambiance −20 °C à 40 °C, humidité 30 à 70 % sur la fiche Shelly.</td>
+			</tr>
+			<tr>
+				<td data-label="Besoin">Savoir si c’est fermé</td>
+				<td data-label="Choix">SONOFF SNZB-04P, Zigbee 3.0, pile CR2477</td>
+				<td data-label="Limite">Écart 20 mm. Intérieur. Inutile d’en acheter un si la mesure ne passe pas.</td>
+			</tr>
+			<tr>
+				<td data-label="Besoin">Relier le capteur</td>
+				<td data-label="Choix">Le coordinateur déjà installé, sinon un ZBDongle-E</td>
+				<td data-label="Limite">Un second dongle à côté du premier ne fait pas mieux. Il crée un autre réseau.</td>
+			</tr>
+			<tr>
+				<td data-label="Besoin">Rester sans serveur</td>
+				<td data-label="Choix">Le même Shelly, dans son application</td>
+				<td data-label="Limite">Pas d’état fiable, pas d’historique Home Assistant.</td>
+			</tr>
+			<tr>
+				<td data-label="Besoin">Tout faire en ESPHome</td>
+				<td data-label="Choix">ESP32, relais 3,3 V à contact sec, reed filaire</td>
+				<td data-label="Limite">Le détail est le tutoriel ESPHome, pas une deuxième liste improvisée ici.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Le Shelly Plus 1 a aussi un contact sec, et sa fiche accepte en plus une alimentation 12 V, ce que le Mini Gen3 refuse.
+		Ce pas à pas câble le Mini Gen3, parce que c’est le module de la liste. On ne mélange pas les borniers des deux
+		modèles. Une alimentation 12 V « prise sur la carte moteur » ne se tente pas sans la notice de cette carte.
+	</p>
+
+	<h2 id="tutoriel">Raccorder et essayer, pas à pas</h2>
+	<p>
+		Les neuf étapes décrivent le profil Recommandé : Home Assistant déjà là, une porte, bornier de bouton. Faites-les
+		dans l’ordre. Si l’observation attendue n’a pas lieu, passez au dépannage avant d’enchaîner. La zone sous la porte
+		reste libre à chaque essai.
+	</p>
+	{
+		GARAGE_DOOR_STEPS.map((step, index) => (
+			<section class="gd-step">
+				<h3>
+					Étape {index + 1}. {step.title}
+				</h3>
+				<p>{step.why}</p>
+				<p>
+					<strong>Où :</strong> {step.where}
+				</p>
+				<ol>
+					{step.actions.map((action) => (
+						<li>{action}</li>
+					))}
+				</ol>
+				<p>{step.observe}</p>
+				<p>
+					<strong>Contrôle :</strong> {step.check}
+				</p>
+			</section>
+		))
+	}
+
+	<h3>Cellules : elles restent maîtres de la course</h3>
+	<p>
+		Le voyant en bout de cellule indique en général que le faisceau passe. S’il est éteint, ou si la porte refuse de
+		descendre, on nettoie les optiques et on les réaligne. On ne ponte pas les fils pour « finir le test du Shelly ».
+	</p>
+	<figure class="gd-photo">
+		<img
+			src={withBase('/images/domotique/porte-garage/cellule-photoelectrique-porte-garage.webp')}
+			width="1600"
+			height="1100"
+			alt="Cellule photoélectrique noire fixée sur le montant d’une porte de garage, voyant rouge allumé."
+			loading="lazy"
+			decoding="async"
+		/>
+		<figcaption>
+			Cellule en bas du montant. Elle reste branchée d’origine.
+			Photo :
+			<a href="https://commons.wikimedia.org/wiki/File:Electric_eye_for_garage_door_opener.jpg">Jud McCranie</a>,
+			<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+		</figcaption>
+	</figure>
+
+	<h3>Exemples Home Assistant, à personnaliser</h3>
+	<p>
+		Créez d’abord le script dans l’éditeur visuel : allumer l’interrupteur du Shelly, attendre une demi-seconde, l’éteindre.
+		Le YAML reprend la même idée. Remplacez <code>switch.remplacer_shelly</code> par l’identifiant lu dans Outils de
+		développement. Le mode <code>single</code> ignore un second appel tant que le premier n’est pas fini.
+	</p>
+	<pre><code>{PULSE_YAML}</code></pre>
+	<p>
+		Le modèle de porte n’envoie l’ordre d’ouverture que si le capteur est « off », et l’ordre de fermeture que s’il est
+		« on ». Adaptez ces deux conditions si votre capteur est inversé. <code>script.impulsion_porte_garage</code> doit être
+		l’identifiant réel du script. Si votre version refuse ce bloc, recréez la porte dans l’éditeur plutôt que de forcer le
+		fichier. Ceci n’a pas été exécuté sur une installation du site.
+	</p>
+	<pre><code>{COVER_YAML}</code></pre>
+	<p>
+		Carte de tableau de bord, avec confirmation. L’entité <code>cover</code> est celle créée ci-dessus, pas l’interrupteur
+		nu du Shelly.
+	</p>
+	<pre><code>{`type: button
+entity: cover.porte_de_garage
+name: Porte de garage
+show_state: true
+tap_action:
+  action: toggle
+  confirmation:
+    text: "Actionner la porte de garage ?"
+`}</code></pre>
+	<p>
+		Notification si le capteur reste ouvert. Il n’y a aucune action sur le Shelly. <code>notify.notify</code> est à
+		remplacer par le service de notification de votre téléphone, visible dans Outils de développement.
+	</p>
+	<pre><code>{ALERT_YAML}</code></pre>
+	<p>
+		Documentation utilisée :
+		<a href="https://www.home-assistant.io/integrations/shelly/">intégration Shelly</a>,
+		<a href="https://www.home-assistant.io/integrations/template/">modèles</a>,
+		<a href="https://www.home-assistant.io/dashboards/actions/">actions de carte et confirmation</a>.
+	</p>
+
+	<h2 id="verifier">Vérifier que l’ensemble tient</h2>
+	<ul class="gd-check">
+		<li>Le bouton mural ouvre, arrête et referme, comme avant le montage.</li>
+		<li>La télécommande d’origine aussi.</li>
+		<li>Un obstacle dans le faisceau des cellules empêche toujours la fermeture, ou renvoie la porte, selon la notice.</li>
+		<li>Une impulsion Shelly, porte dégagée, produit le même effet qu’un appui bref sur le bouton.</li>
+		<li>Le relais ne reste pas collé : on entend un clic court, pas un maintien.</li>
+		<li>Le capteur, s’il est posé, passe à fermé seulement quand la porte est complètement fermée.</li>
+		<li>Annuler la confirmation sur le téléphone ne fait pas bouger la porte.</li>
+		<li>La notification « resté ouvert » part sans allumer l’interrupteur du Shelly.</li>
+		<li>Après une coupure du disjoncteur puis un réenclenchement, la porte ne part pas toute seule.</li>
+		<li>Le port 8123 n’est pas redirigé vers Internet.</li>
+	</ul>
+
+	<h2 id="depannage">Quand ça ne marche pas</h2>
+	<h3>La porte ne bouge pas, le relais clique</h3>
+	<p>
+		I et O ne sont pas sur les bornes du bouton, ou l’impulsion est trop courte pour cette carte. Recoupez le
+		disjoncteur, reprenez la photo et la notice, et ne « essayez » pas une borne de lampe ou de moteur. Si le bouton mural
+		fonctionne encore, le Shelly est simplement à côté du mauvais couple de vis. Ensuite seulement, montez le minuteur
+		vers une seconde.
+	</p>
+	<h3>La porte part et s’arrête aussitôt</h3>
+	<p>
+		L’impulsion dure trop longtemps. La carte la comprend comme deux appuis : départ, puis arrêt. Ramenez l’arrêt
+		automatique vers 0,5 s. Le script Home Assistant ne doit pas non plus rappeler le Shelly dans la foulée.
+	</p>
+	<h3>Le bouton mural ne fonctionne plus</h3>
+	<p>
+		Les fils du bouton ont été déplacés, ou I et O sont en court-circuit permanent. Coupez le disjoncteur. Le relais au
+		repos doit laisser I et O ouverts. Le bouton mural se retrouve sur ses deux bornes d’origine, le Shelly seulement en
+		parallèle.
+	</p>
+	<h3>Le Shelly n’apparaît pas dans l’application</h3>
+	<p>
+		Wi-Fi 5 GHz seul, réseau invité, ou garage trop loin du point d’accès. Le module veut du 2,4 GHz, sur le même réseau
+		que le téléphone qui le règle. Testez l’adresse IP du Shelly depuis le garage avant de revisser le capot. Une
+		réservation DHCP évite qu’une autre adresse lui soit donnée après une coupure de box.
+	</p>
+	<h3>Home Assistant voit le Shelly, pas la porte</h3>
+	<p>
+		Normal tant que le modèle de porte n’est pas créé. L’intégration Shelly expose un interrupteur. La porte affichée
+		vient du modèle, qui s’appuie sur le capteur. Si le capteur est indisponible, le modèle doit refuser les ordres plutôt
+		que d’envoyer une impulsion à l’aveugle.
+	</p>
+	<h3>Le capteur reste « ouvert » porte fermée</h3>
+	<p>
+		L’écart dépasse 20 mm, les repères ne se font pas face, ou l’aimant est sur une partie du tablier qui s’éloigne en
+		position fermée. Reprenez la mesure. Déplacer le boîtier de quelques centimètres suffit souvent. S’il n’existe aucun
+		endroit à 20 mm ou moins, retirez ce capteur de la liste : il ne donnera pas un état utile, et ce n’est pas un défaut
+		du Shelly.
+	</p>
+	<h3>La porte bouge quand le capteur change</h3>
+	<p>
+		Une automatisation commande le Shelly ou la porte sur un changement d’état. Ouvrez Paramètres, Automatisations, et
+		cherchez un déclencheur sur ce capteur dont l’action n’est pas une simple notification. Désactivez-la. Le capteur
+		informe. Il ne pilote pas.
+	</p>
+	<h3>Rien ne répond après une coupure de courant</h3>
+	<p>
+		Au retour du secteur, le relais doit rester ouvert. L’arrêt automatique et le script qui éteint l’interrupteur vont
+		dans ce sens. Si la porte part au réenclenchement, le contact est maintenu : ne réessayez pas en boucle, coupez le
+		disjoncteur et vérifiez que I et O ne sont pas pontés par un fil oublié.
+	</p>
+
+	<h2 id="aller-plus-loin">Aller plus loin, quand la base fonctionne</h2>
+	<p>
+		Un deuxième téléphone s’ajoute comme un utilisateur Home Assistant, sans droit d’administrateur, avec la même
+		confirmation sur la carte. Ce n’est pas un partage du mot de passe du compte principal. L’accès hors de la maison
+		passe par le
+		<a href={withBase('/domotique/projets/acces-distance-securise-home-assistant-vpn/')}>guide d’accès distant</a>,
+		pas par un port ouvert.
+	</p>
+	<p>
+		La variante ESP32 reprend la même logique d’impulsion et de reed, avec des broches à choisir dans le YAML. Le fichier
+		déjà publié sur le site force le relais au repos au démarrage, et n’ouvre que si le reed dit la porte fermée. Il est
+		expliqué dans le
+		<a href={withBase('/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/')}>tutoriel ESPHome</a>.
+		On ne copie pas ses numéros de broches sur le Shelly : le Shelly n’a pas ces GPIO.
+	</p>
+	<p>
+		Un portail battant ou coulissant se traite à part, seulement si sa notice a aussi un bornier de bouton. La page
+		<a href={withBase('/domotique/projets/portail-electrique-connecte/')}>portail électrique</a>
+		est un autre projet. Les cellules d’un portail sur rue sont encore plus importantes : la commande distante ne les
+		dispense pas.
+	</p>
+
+	<h2 id="questions">Questions fréquentes</h2>
+	{
+		GARAGE_DOOR_FAQ.map((item) => (
+			<section>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</section>
+		))
+	}
+
+	<h2 id="sources">Pour continuer</h2>
+	<ul>
+		<li><a href="https://www.shelly.com/products/shelly-1-mini-gen3">Fiche Shelly 1 Mini Gen3</a> : contact sec, alimentation 110–240 V, limites d’ambiance</li>
+		<li><a href="https://help.sonoff.tech/docs/snzb-04p">Notice SONOFF SNZB-04P</a> : Zigbee 3.0, écart de 20 mm, intérieur</li>
+		<li><a href="https://www.aqara.com/en/product/door-and-window-sensor-p2/">Aqara Door and Window Sensor P2</a> : Thread et Matter, pas un capteur Zigbee</li>
+		<li><a href="https://www.home-assistant.io/integrations/shelly/">Home Assistant, intégration Shelly</a></li>
+		<li><a href="https://www.home-assistant.io/integrations/template/">Home Assistant, modèles</a></li>
+		<li><a href="https://www.home-assistant.io/docs/configuration/remote/">Accès distant Home Assistant</a></li>
+		<li><a href={withBase('/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/')}>Même porte, en ESPHome</a></li>
+		<li><a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>Dongle Zigbee</a></li>
+		<li><a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>ZHA ou Zigbee2MQTT</a></li>
+	</ul>
+</div>
+
+<script>
+	function gdSituation(eco) {
+		if (eco === 'maker-esp32') return 'b';
+		if (eco === 'wifi-sans-box') return 'c';
+		return 'a';
+	}
+
+	function gdSummary(eco, tech, qty) {
+		const q =
+			qty === '2'
+				? 'deux portes'
+				: qty === '3-5'
+					? 'le palier 3 à 5 portes'
+					: qty === '6+'
+						? 'le palier 6 portes ou plus'
+						: 'une porte';
+		const variante =
+			tech === 'dry-only'
+				? ' Variante contact sec seul : aucun 230 V sur l’entrée de la motorisation.'
+				: ' Variante contact sec : la notice montre le bornier du bouton poussoir.';
+		if (eco === 'wifi-sans-box') {
+			return (
+				'Situation C, profil Économique, ' +
+				q +
+				'.' +
+				variante +
+				' L’application Shelly envoie l’impulsion. Home Assistant et le capteur d’état ne sont pas dans la liste.'
+			);
+		}
+		if (eco === 'maker-esp32') {
+			return (
+				'Situation B, profil Évolutif, ' +
+				q +
+				'.' +
+				variante +
+				' La liste montre la carte ESP32. Le relais à contact sec et le reed filaire sont dans le tutoriel ESPHome. Home Assistant n’est pas ajouté.'
+			);
+		}
+		return (
+			'Situation A, profil Recommandé, ' +
+			q +
+			'.' +
+			variante +
+			' Home Assistant est supposé déjà en place. Le Shelly est en Wi-Fi. Le capteur d’ouverture est en Zigbee, si l’écart mesure 20 mm ou moins. Le coordinateur ne s’achète que s’il n’y en a pas déjà un.'
+		);
+	}
+
+	function gdApply(detail) {
+		const params = new URLSearchParams(window.location.search);
+		const eco = detail?.ecosystem || params.get('eco') || 'ha-zigbee';
+		const tech = detail?.techId || params.get('tech') || 'contact-sec';
+		const qty = detail?.qtyId || params.get('qty') || '1';
+		const summary = document.querySelector('[data-gd-summary]');
+		if (summary) summary.textContent = gdSummary(eco, tech, qty);
+		const current = gdSituation(eco);
+		document.querySelectorAll('[data-gd-situation]').forEach((node) => {
+			node.classList.toggle('is-current', node.getAttribute('data-gd-situation') === current);
+		});
+	}
+
+	document.addEventListener('shpp-config-change', (event) => {
+		gdApply(event.detail);
+	});
+	gdApply();
+</script>
+
+<style>
+	.gd-guide {
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+	.gd-toc {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin: 0 0 1.5rem;
+	}
+	.gd-toc a {
+		font-size: 0.92rem;
+	}
+	.gd-sit,
+	.gd-step {
+		margin: 1.25rem 0;
+	}
+	.gd-sit.is-current {
+		border-left: 4px solid #0f766e;
+		padding-left: 0.8rem;
+	}
+	.gd-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1rem 0 1.25rem;
+		font-size: 0.98rem;
+	}
+	.gd-table th,
+	.gd-table td {
+		border: 1px solid #cbd5e1;
+		padding: 0.55rem 0.7rem;
+		text-align: left;
+		vertical-align: top;
+		color: #0f172a;
+		background: #fff;
+	}
+	.gd-table th {
+		background: #f1f5f9;
+	}
+	
+	.gd-schema {
+		margin: 1.25rem 0;
+	}
+	.gd-schema svg {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+	}
+	.gd-schema figcaption {
+		margin-bottom: 0.4rem;
+		font-size: 0.95rem;
+	}
+	.gd-photo {
+		margin: 1.25rem 0 1.5rem;
+	}
+	.gd-photo img {
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		border-radius: 12px;
+		display: block;
+	}
+	.gd-photo figcaption {
+		margin-top: 0.45rem;
+		max-width: 720px;
+		font-size: 0.92rem;
+	}
+	.gd-guide pre {
+		overflow-x: auto;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	.gd-check {
+		padding-left: 1.2rem;
+	}
+	@media (max-width: 720px) {
+		.gd-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+		}
+		.gd-table tr {
+			display: block;
+			margin-bottom: 0.8rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 8px;
+			padding: 0.4rem 0.7rem;
+		}
+		.gd-table td {
+			display: block;
+			border: 0;
+			padding: 0.28rem 0;
+		}
+		.gd-table td::before {
+			content: attr(data-label);
+			display: block;
+			font-weight: 700;
+			font-size: 0.82rem;
+		}
+	}
+</style>

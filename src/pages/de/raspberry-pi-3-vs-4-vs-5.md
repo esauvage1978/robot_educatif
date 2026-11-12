@@ -9,18 +9,77 @@ Zwischen **[Raspberry Pi](/de/marke-raspberry-pi/) 3 Model B**, **Pi 4 Model B**
 
 ## 1. Datentabelle
 
-| | **Pi 3 Model B** | **Pi 4 Model B** | **Raspberry Pi 5** |
-|---|---|---|---|
-| SoC | Broadcom BCM2837 | Broadcom BCM2711 | Broadcom BCM2712 |
-| CPU | 4 × Cortex-A53, 1,2 GHz | 4 × Cortex-A72, 1,8 GHz | 4 × Cortex-A76, 2,4 GHz |
-| GPU / Video | VideoCore IV, 1 × HDMI (Standardgröße) | VideoCore VI, 2 × Micro-HDMI (4K) | VideoCore VII, 2 × Micro-HDMI (4Kp60) |
-| RAM | 1 GB LPDDR2 | 1 / 2 / 4 / 8 GB LPDDR4-3200 | 1 / 2 / 4 / 8 / 16 GB LPDDR4X-4267 |
-| Ethernet | 100 Mbit/s | Gigabit | Gigabit |
-| WLAN / Bluetooth | 802.11n, BT 4.1 | 802.11ac, BT 5.0 | 802.11ac, BT 5.0 |
-| USB | 4 × USB 2.0 | 2 × USB 3.0 + 2 × USB 2.0 | 2 × USB 3.0 + 2 × USB 2.0 |
-| PCIe | nein | nein | PCIe 2.0 ×1 |
-| Stromversorgung | Micro-USB 5 V, 2,5 A | USB-C 5 V, 3 A | USB-C 5 V, 5 A empfohlen |
-| GPIO | 40 Pins | 40 Pins | 40 Pins |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>Pi 3 Model B</strong></th>
+<th scope="col"><strong>Pi 4 Model B</strong></th>
+<th scope="col"><strong>Raspberry Pi 5</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">SoC</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">Broadcom BCM2837</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">Broadcom BCM2711</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Broadcom BCM2712</span></td>
+</tr>
+<tr>
+<td><span class="td-val">CPU</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">4 × Cortex-A53, 1,2 GHz</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">4 × Cortex-A72, 1,8 GHz</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">4 × Cortex-A76, 2,4 GHz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">GPU / Video</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">VideoCore IV, 1 × HDMI (Standardgröße)</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">VideoCore VI, 2 × Micro-HDMI (4K)</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">VideoCore VII, 2 × Micro-HDMI (4Kp60)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">RAM</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">1 GB LPDDR2</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">1 / 2 / 4 / 8 GB LPDDR4-3200</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">1 / 2 / 4 / 8 / 16 GB LPDDR4X-4267</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Ethernet</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">100 Mbit/s</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">Gigabit</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Gigabit</span></td>
+</tr>
+<tr>
+<td><span class="td-val">WLAN / Bluetooth</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">802.11n, BT 4.1</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">802.11ac, BT 5.0</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">802.11ac, BT 5.0</span></td>
+</tr>
+<tr>
+<td><span class="td-val">USB</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">4 × USB 2.0</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">2 × USB 3.0 + 2 × USB 2.0</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">2 × USB 3.0 + 2 × USB 2.0</span></td>
+</tr>
+<tr>
+<td><span class="td-val">PCIe</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">nein</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">nein</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">PCIe 2.0 ×1</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Stromversorgung</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">Micro-USB 5 V, 2,5 A</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">USB-C 5 V, 3 A</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">USB-C 5 V, 5 A empfohlen</span></td>
+</tr>
+<tr>
+<td><span class="td-val">GPIO</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">40 Pins</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">40 Pins</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">40 Pins</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Was sich im Alltag ändert
 

@@ -1,0 +1,337 @@
+---
+import { KIT_ITEMS, KIT_CATEGORIES, KIT_FIXED } from '../data/classKitConfigurator.mjs';
+import { amazonProductUrl, amazonSearchUrl } from '../lib/amazon';
+
+const itemsJson = JSON.stringify(
+	KIT_ITEMS.map((it) => ({
+		id: it.id,
+		category: it.category,
+		catLabel: KIT_CATEGORIES[it.category],
+		label: it.label,
+		unitEur: it.unitEur,
+		defaultQty: it.defaultQty,
+		maxQty: it.maxQty,
+		note: it.note || '',
+		scalesWithRobots: !!it.scalesWithRobots,
+		url: it.asin ? amazonProductUrl(it.asin, null) : amazonSearchUrl(it.search || it.label),
+	})),
+);
+const fixedJson = JSON.stringify(KIT_FIXED);
+---
+
+<div class="ckc" data-ckc data-fixed={fixedJson} data-items={itemsJson}>
+<form class="ckc-form" data-ckc-form="" onsubmit="return false">
+<div class="ckc-meta">
+<label>
+				{KIT_FIXED.establishmentLabel}
+				<input maxlength="120" name="establishment" placeholder="Collège / école…" type="text"/>
+</label>
+<label>
+				{KIT_FIXED.projectLabel}
+				<input maxlength="80" name="projectRef" placeholder="AO 2026-…" type="text"/>
+</label>
+<label>
+				Nombre de kits / binômes visés
+				<input data-ckc-robots="" max="30" min="1" name="robotCount" type="number" value="12"/>
+</label>
+</div>
+<p class="ckc-hint">
+			Les lignes marquées « par robot » se recalculent quand vous changez le nombre de kits. Ajustez chaque quantité
+			manuellement si besoin.
+		</p>
+<div class="ckc-groups" data-ckc-groups=""></div>
+<div class="ckc-actions">
+<button class="ckc-btn" data-ckc-calc="" type="button">Mettre à jour le devis</button>
+<button class="ckc-btn ckc-btn--secondary" data-ckc-export="" type="button">Exporter le devis (.txt)</button>
+<button class="ckc-btn ckc-btn--secondary" data-ckc-copy="" type="button">Copier dans le presse-papiers</button>
+</div>
+</form>
+<div class="ckc-out" data-ckc-out="" hidden="">
+<h3>Devis estimatif</h3>
+<p class="ckc-total" data-ckc-total=""></p>
+<table class="ckc-table">
+<thead>
+<tr>
+<th>Désignation</th>
+<th>Qté</th>
+<th>P.U. €</th>
+<th>Total €</th>
+</tr>
+</thead>
+<tbody data-ckc-lines=""></tbody>
+</table>
+<p class="ckc-legal">
+			Document indicatif sans valeur contractuelle. Vérifiez les références et tarifs fournisseur / remise éducation
+			avant engagement CSE ou marché public.
+		</p>
+</div>
+</div>
+<style is:global="">
+	.ckc-form {
+		margin: 1.5rem 0;
+		padding: 1.25rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	.ckc-meta {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	.ckc-meta label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.ckc-meta input {
+		padding: 0.5rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		font: inherit;
+		font-weight: 400;
+	}
+	.ckc-hint {
+		font-size: 0.9rem;
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1rem;
+	}
+	.ckc-group {
+		margin-bottom: 1.25rem;
+	}
+	.ckc-group h4 {
+		margin: 0 0 0.65rem;
+		font-size: 1rem;
+		color: var(--accent);
+	}
+	.ckc-line {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.75rem 1rem;
+		align-items: start;
+		padding: 0.65rem 0;
+		border-bottom: 1px solid var(--surface-border);
+	}
+	.ckc-line:last-child {
+		border-bottom: 0;
+	}
+	.ckc-line-info {
+		font-size: 0.92rem;
+	}
+	.ckc-line-info small {
+		display: block;
+		margin-top: 0.25rem;
+		opacity: 0.85;
+		font-weight: 400;
+	}
+	.ckc-qty {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.85rem;
+	}
+	.ckc-qty input {
+		width: 4rem;
+		padding: 0.35rem 0.5rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		text-align: center;
+	}
+	.ckc-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+		margin-top: 1.25rem;
+	}
+	.ckc-btn {
+		padding: 0.65rem 1.15rem;
+		border: 0;
+		border-radius: 8px;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.ckc-btn--secondary {
+		background: transparent;
+		color: var(--accent);
+		border: 2px solid var(--accent);
+	}
+	.ckc-out {
+		margin: 1.5rem 0;
+		padding: 1.25rem;
+		border-radius: 12px;
+		border: 1px solid rgba(43, 125, 233, 0.3);
+		background: rgba(43, 125, 233, 0.06);
+	}
+	.ckc-total {
+		font-size: 1.15rem;
+		font-weight: 700;
+		margin: 0 0 1rem;
+	}
+	.ckc-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.92rem;
+	}
+	.ckc-table th,
+	.ckc-table td {
+		padding: 0.45rem 0.5rem;
+		border-bottom: 1px solid var(--surface-border);
+		text-align: left;
+	}
+	.ckc-table th:nth-child(n + 2),
+	.ckc-table td:nth-child(n + 2) {
+		text-align: right;
+	}
+	.ckc-legal {
+		font-size: 0.85rem;
+		margin: 1rem 0 0;
+		opacity: 0.9;
+	}
+</style>
+<script>
+	function initCkc(root) {
+		let items = [];
+		try {
+			items = JSON.parse(root.dataset.items || '[]');
+		} catch {
+			return;
+		}
+		if (!Array.isArray(items) || items.length === 0) return;
+		const groupsEl = root.querySelector('[data-ckc-groups]');
+		const form = root.querySelector('[data-ckc-form]');
+		const robotsInput = root.querySelector('[data-ckc-robots]');
+		const out = root.querySelector('[data-ckc-out]');
+		const totalEl = root.querySelector('[data-ckc-total]');
+		const linesEl = root.querySelector('[data-ckc-lines]');
+
+		const byCat = {};
+		for (const it of items) {
+			if (!byCat[it.category]) byCat[it.category] = { label: it.catLabel, items: [] };
+			byCat[it.category].items.push(it);
+		}
+
+		for (const cat of Object.keys(byCat)) {
+			const wrap = document.createElement('div');
+			wrap.className = 'ckc-group';
+			wrap.innerHTML = `<h4>${byCat[cat].label}</h4>`;
+			for (const it of byCat[cat].items) {
+				const row = document.createElement('div');
+				row.className = 'ckc-line';
+				row.innerHTML = `
+					<div class="ckc-line-info">
+						<strong>${it.label}</strong> — ${it.unitEur} € / u.
+						${it.note ? `<small>${it.note}</small>` : ''}
+					</div>
+					<div class="ckc-qty">
+						<label>Qté <input type="number" min="0" max="${it.maxQty}" value="${it.defaultQty}" data-ckc-id="${it.id}" /></label>
+					</div>
+				`;
+				wrap.appendChild(row);
+			}
+			groupsEl.appendChild(wrap);
+		}
+
+		function getQtyInputs() {
+			return [...root.querySelectorAll('input[data-ckc-id]')];
+		}
+
+		function applyRobotScale() {
+			const robots = Math.min(30, Math.max(1, Number(robotsInput?.value) || 12));
+			for (const it of items) {
+				if (!it.scalesWithRobots) continue;
+				const inp = root.querySelector(`input[data-ckc-id="${it.id}"]`);
+				if (inp && (it.id === 'mbot2' || it.id === 'mbot' || it.id === 'cyberpi')) {
+					if (it.id === 'mbot2') inp.value = String(robots);
+				} else if (inp && it.scalesWithRobots && Number(inp.value) === 0) {
+					/* leave manual zero */
+				}
+			}
+		}
+
+		function buildLines() {
+			const lines = [];
+			let total = 0;
+			for (const inp of getQtyInputs()) {
+				const it = items.find((x) => x.id === inp.dataset.ckcId);
+				if (!it) continue;
+				const qty = Math.min(it.maxQty, Math.max(0, Number(inp.value) || 0));
+				if (qty === 0) continue;
+				const lineTotal = qty * it.unitEur;
+				total += lineTotal;
+				lines.push({ ...it, qty, lineTotal });
+			}
+			return { lines, total };
+		}
+
+		function render() {
+			const f = new FormData(form);
+			const { lines, total } = buildLines();
+			const est = String(f.get('establishment') || '').trim();
+			const ref = String(f.get('projectRef') || '').trim();
+			totalEl.textContent = `Total HT indicatif : ${total} € TTC ordre de grandeur${est ? ` — ${est}` : ''}${ref ? ` (${ref})` : ''}`;
+			linesEl.innerHTML = lines
+				.map(
+					(l) =>
+						`<tr><td>${l.label}</td><td>${l.qty}</td><td>${l.unitEur}</td><td>${l.lineTotal}</td></tr>`,
+				)
+				.join('');
+			out.hidden = lines.length === 0;
+			return { lines, total, est, ref };
+		}
+
+		function devisText() {
+			const f = new FormData(form);
+			const { lines, total } = buildLines();
+			const est = String(f.get('establishment') || '').trim();
+			const ref = String(f.get('projectRef') || '').trim();
+			const date = new Date().toISOString().slice(0, 10);
+			let t = `DEVIS ESTIMATIF KIT ROBOTIQUE CLASSE\n`;
+			t += `Date : ${date}\n`;
+			if (est) t += `Établissement : ${est}\n`;
+			if (ref) t += `Référence : ${ref}\n`;
+			t += `Source : robot-educatif.info/configurateur-kit-robotique-classe/\n\n`;
+			for (const l of lines) {
+				t += `${l.qty} x ${l.label} @ ${l.unitEur} € = ${l.lineTotal} €\n`;
+			}
+			t += `\nTOTAL INDICATIF : ${total} €\n`;
+			t += `\nMentions : montants 2026 à titre indicatif, hors remise éducation et frais de port.\n`;
+			return t;
+		}
+
+		robotsInput?.addEventListener('change', () => {
+			const robots = Math.min(30, Math.max(1, Number(robotsInput.value) || 12));
+			const m2 = root.querySelector('input[data-ckc-id="mbot2"]');
+			if (m2) m2.value = String(robots);
+			render();
+		});
+
+		root.querySelector('[data-ckc-calc]')?.addEventListener('click', render);
+		root.querySelector('[data-ckc-export]')?.addEventListener('click', () => {
+			render();
+			const blob = new Blob([devisText()], { type: 'text/plain;charset=utf-8' });
+			const a = document.createElement('a');
+			a.href = URL.createObjectURL(blob);
+			a.download = `devis-kit-robotique-${new Date().toISOString().slice(0, 10)}.txt`;
+			a.click();
+			URL.revokeObjectURL(a.href);
+		});
+		root.querySelector('[data-ckc-copy]')?.addEventListener('click', async () => {
+			render();
+			try {
+				await navigator.clipboard.writeText(devisText());
+			} catch {
+				/* ignore */
+			}
+		});
+
+		render();
+	}
+	document.querySelectorAll('[data-ckc]').forEach(initCkc);
+</script>

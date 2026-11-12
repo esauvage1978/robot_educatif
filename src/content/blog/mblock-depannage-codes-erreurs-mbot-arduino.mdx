@@ -1,0 +1,95 @@
+---
+title: "mBlock & Arduino : codes erreurs, téléversement et dépannage mBot"
+description: "stk500_getsync(), port COM invisible, moteurs à l'envers, ultrason bloqué : répertoire des erreurs mBlock / Arduino pour mBot avec indicateurs difficulté, temps et coût."
+pubDate: 2026-10-24T00:00:00Z
+amazonPreset: mbot
+categories:
+  - "mBlock"
+  - "mBot"
+  - "Arduino"
+  - "FAQ"
+relatedLinks:
+  - title: "Installer mBlock 5 sous Windows"
+    href: "/installer-mblock-5-sous-windows-10/"
+  - title: "Dépannage Bluetooth mBlock"
+    href: "/mblock-bluetooth-erreurs-frequentes-depannage/"
+  - title: "Codes erreurs domotique (Zigbee, Shelly…)"
+    href: "/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/"
+  - title: "Pièces & capteurs compatibles"
+    href: "/domotique/pieces-detachees-capteurs-compatibles-moins-cher/"
+---
+
+import RepairIndicators from '../../components/RepairIndicators.astro';
+import RepairCaution from '../../components/RepairCaution.astro';
+import RepairComplianceSections from '../../components/RepairComplianceSections.astro';
+import TroubleshootingCatalog from '../../components/TroubleshootingCatalog.astro';
+
+Ce guide regroupe les **messages d’erreur** et **symptômes** les plus fréquents quand on téléverse un programme **mBlock** vers un **mBot** (ou une carte **Arduino** / **CyberPi**). Chaque section affiche **difficulté**, **temps**, **coût** et **outils** avant la marche à suivre.
+
+<RepairComplianceSections lang="fr" variant="makeblock-only" showSupport={false} />
+
+<TroubleshootingCatalog lang="fr" defaultCategorySlug="robots-educatifs" />
+
+## stk500_getsync() — not in sync
+
+<RepairIndicators difficulty={2} time="10–20 min" cost="0 €" tools="Câble USB" />
+
+**Symptôme :** à la fin du téléversement, mBlock ou l’IDE Arduino affiche `avrdude: stk500_getsync(): not in sync` ou « programmer not responding ».
+
+**Causes fréquentes :** mauvais **port COM** sélectionné, câble USB **charge seulement** (pas de données), autre logiciel qui monopolise le port (moniteur série ouvert), robot éteint ou batterie faible.
+
+**Que faire :**
+
+1. Branchez en **USB direct** sur le PC (évitez les hubs non alimentés).
+2. Dans mBlock, ouvrez la liste des appareils et choisissez le port qui apparaît quand vous **branchez** le câble.
+3. Éteignez/rallumez le mBot, fermez le moniteur série, retéléversez.
+4. Sous Windows 11 : vérifiez le pilote dans le Gestionnaire de périphériques (voir [installation mBlock](/installer-mblock-5-sous-windows-10/)).
+
+<RepairCaution lang="fr" text="Carte mCore ou port USB endommagé sous garantie : contactez le SAV Makeblock (support.makeblock.com) — n'ouvrez pas le châssis mBot pour réparer la carte principale vous-même." />
+
+## Port COM invisible (Windows 11 / macOS / Chromebook)
+
+<RepairIndicators difficulty={3} time="15–30 min" cost="0–12 € (câble)" tools="Gestionnaire de périphériques" />
+
+**Symptôme :** aucun port série dans mBlock ; le robot ne s’affiche pas.
+
+**Windows 11 :** installez le pilote **CH340/CP2102** selon la carte, autorisez l’installateur dans l’antivirus. Débranchez/rebranchez sur un port USB arrière du PC.
+
+**macOS :** accordez les droits USB au navigateur si vous utilisez mBlock Web ; en application native, vérifiez *Confidentialité → USB*.
+
+**Chromebook :** mBlock Web + extension ; tous les modèles ne sont pas supportés — privilégiez l’**application Windows/macOS** pour les cours.
+
+## Moteur mBot qui tourne à l’envers
+
+<RepairIndicators difficulty={1} time="5 min" cost="0 €" tools="Aucun" />
+
+**Symptôme :** le robot recule quand le programme demande d’avancer.
+
+**Que faire :** dans mBlock, inversez la valeur de vitesse (**négative**) sur le bloc moteur concerné, ou permutez les connecteurs moteur gauche/droite si vous avez recâblé. Vérifiez aussi que le bloc « moteur » cible bien **M1/M2** sur votre révision de mBot.
+
+## Capteur ultrason bloqué à 0 cm ou 400 cm
+
+<RepairIndicators difficulty={2} time="10 min" cost="0 €" tools="Tournevis (vis cache)" />
+
+**Symptôme :** la variable distance reste à **0** ou **400** (hors plage) en permanence.
+
+**Que faire :**
+
+1. Contrôlez le câble **RJ25** sur le port ultrason (brochage Makeblock).
+2. Éloignez le robot d’un mur à moins de 2 cm (lecture minimale).
+3. Mettez à jour le **firmware** mBot et retéléversez un programme minimal de test ([série ultrason](/serie-capteur-ultrason-mbot-1-mesurer-distance/)).
+4. Si la valeur reste figée après choc : capteur endommagé — voir [pièces compatibles](/domotique/pieces-detachees-capteurs-compatibles-moins-cher/) ou le **SAV Makeblock** si le capteur d’origine est sous garantie.
+
+<RepairCaution lang="fr" text="Remplacement d'un câble RJ25 ou d'un capteur ultrason compatible : OK en autonomie. Moteur ou carte mCore défectueuse : SAV officiel Makeblock uniquement." />
+
+## Erreur « permission denied » ou accès port (Linux / Raspberry Pi)
+
+<RepairIndicators difficulty={3} time="15 min" cost="0 €" tools="Terminal" />
+
+Ajoutez l’utilisateur au groupe `dialout` (`sudo usermod -aG dialout $USER`), reconnectez-vous, puis réessayez. Évitez de lancer mBlock en root.
+
+<RepairComplianceSections lang="fr" variant="makeblock-only" showDisclaimer={false} showAssist={false} showSav={false} />
+
+---
+
+**Aller plus loin :** [premiers pas mBlock](/premier-pas-avec-mblock-5/), [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/), [comparatif mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).

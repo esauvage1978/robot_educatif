@@ -36,14 +36,46 @@ Sans ces quatre idées, on retombe sur du **copier-coller de blocs** sans compr�
 
 ## 2. École et maison : ce qui change (tableau)
 
-| | **À l’école** | **À la maison** |
-|---|----------------|-----------------|
-| **Temps** | Créneau fixe, souvent 45–60 min | À défendre dans l’emploi du temps (voir ci-dessous) |
-| **Objectif** | Souvent le même défi pour tous | Peut être **hyper personnalisé** (jeu, histoire, parodie) |
-| **Matériel** | PC homogènes, comptes gérés par l’établissement | PC vieillissant, tablette, imprimante ou pas |
-| **Aide** | Enseignant + pairs (pair programming) | Souvent **un adulte** pour installation et sauvegarde |
-| **Évaluation** | Grille, oral, production | Plutôt **démo** et fierté (« regarde ce que ça fait ») |
-| **Suivi** | Progression sur plusieurs séances | Risque du **projet abandonné** si pas de routine |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>À l’école</strong></th>
+<th scope="col"><strong>À la maison</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val"><strong>Temps</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">Créneau fixe, souvent 45–60 min</span></td>
+<td data-label="**À la maison**"><span class="td-val">À défendre dans l’emploi du temps (voir ci-dessous)</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Objectif</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">Souvent le même défi pour tous</span></td>
+<td data-label="**À la maison**"><span class="td-val">Peut être <strong>hyper personnalisé</strong> (jeu, histoire, parodie)</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Matériel</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">PC homogènes, comptes gérés par l’établissement</span></td>
+<td data-label="**À la maison**"><span class="td-val">PC vieillissant, tablette, imprimante ou pas</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Aide</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">Enseignant + pairs (pair programming)</span></td>
+<td data-label="**À la maison**"><span class="td-val">Souvent <strong>un adulte</strong> pour installation et sauvegarde</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Évaluation</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">Grille, oral, production</span></td>
+<td data-label="**À la maison**"><span class="td-val">Plutôt <strong>démo</strong> et fierté (« regarde ce que ça fait »)</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Suivi</strong></span></td>
+<td data-label="**À l’école**"><span class="td-val">Progression sur plusieurs séances</span></td>
+<td data-label="**À la maison**"><span class="td-val">Risque du <strong>projet abandonné</strong> si pas de routine</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Ce tableau explique pourquoi un enfant peut **réussir à l’école** et **stagner à la maison** (ou l’inverse) : ce n’est pas la même **charge cognitive** autour du clavier.
 
@@ -59,12 +91,36 @@ Ce tableau explique pourquoi un enfant peut **réussir à l’école** et **stag
 
 Hypothèse : enfant **8–11 ans**, déjà allumé sur les jeux vidéo, peu familier de Scratch.
 
-| Semaine | Objectif minimal | Ressource sur ce site |
-|---------|------------------|------------------------|
-| **1** | Compte Scratch ou mBlock OK, **un** lutin qui bouge au clavier | [Activité le carré](/activite-scratch-le-carre/) (s’adapter si trop dur) |
-| **2** | Ajouter un **deuxième costume** ou décor qui réagit | [Jeu vidéo partie 1](/scratch-creer-un-jeu-video-premiere-partie/) (intro décor) |
-| **3** | Introduire **une variable** (score, vitesse) | Même série, parties suivantes |
-| **4** | **Démo** 10 minutes pour un parent : expliquer à l’oral un bug corrigé | — |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Semaine</th>
+<th scope="col">Objectif minimal</th>
+<th scope="col">Ressource sur ce site</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Semaine"><span class="td-val"><strong>1</strong></span></td>
+<td data-label="Objectif minimal"><span class="td-val">Compte Scratch ou mBlock OK, <strong>un</strong> lutin qui bouge au clavier</span></td>
+<td data-label="Ressource sur ce site"><span class="td-val"><a href="/activite-scratch-le-carre/">Activité le carré</a> (s’adapter si trop dur)</span></td>
+</tr>
+<tr>
+<td data-label="Semaine"><span class="td-val"><strong>2</strong></span></td>
+<td data-label="Objectif minimal"><span class="td-val">Ajouter un <strong>deuxième costume</strong> ou décor qui réagit</span></td>
+<td data-label="Ressource sur ce site"><span class="td-val"><a href="/scratch-creer-un-jeu-video-premiere-partie/">Jeu vidéo partie 1</a> (intro décor)</span></td>
+</tr>
+<tr>
+<td data-label="Semaine"><span class="td-val"><strong>3</strong></span></td>
+<td data-label="Objectif minimal"><span class="td-val">Introduire <strong>une variable</strong> (score, vitesse)</span></td>
+<td data-label="Ressource sur ce site"><span class="td-val">Même série, parties suivantes</span></td>
+</tr>
+<tr>
+<td data-label="Semaine"><span class="td-val"><strong>4</strong></span></td>
+<td data-label="Objectif minimal"><span class="td-val"><strong>Démo</strong> 10 minutes pour un parent : expliquer à l’oral un bug corrigé</span></td>
+<td data-label="Ressource sur ce site"><span class="td-val">—</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Si la semaine 1 est déjà difficile, **raccourcissez** l’objectif (moins de blocs, mais **un** succès visible). C’est plus pédagogique qu’une « usine à blocs » copiés sur YouTube.
 
@@ -75,7 +131,7 @@ Si la semaine 1 est déjà difficile, **raccourcissez** l’objectif (moins de b
 
 ## 6. Passer à un robot (mBot) quand ?
 
-Quand l’enfant **explique** les blocs (boucle, événement, capteur) sans seulement les déplacer au hasard, vous pouvez enchaîner vers [premier programme mBot](/mon-premier-programme-mbot/) — les **concepts** sont les mêmes ; seul change le **support** (lutin à l’écran vs robot physique). Voir aussi [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+Quand l’enfant **explique** les blocs (boucle, événement, capteur) sans seulement les déplacer au hasard, vous pouvez enchaîner vers [premier programme mBot](/mon-premier-programme-mbot/) — les **concepts** sont les mêmes ; seul change le **support** (lutin à l’écran vs robot physique). Voir aussi [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/) et notre comparatif [robot programmable avec Scratch : lequel choisir ?](/robot-programmable-scratch-lequel-choisir/).
 
 ## 7. Erreurs fréquentes (et comment les éviter)
 

@@ -30,18 +30,66 @@ Zigbee2MQTT :  capteur Zigbee → clé USB → Zigbee2MQTT → serveur MQTT (Mos
 
 ## Tableau comparatif
 
-| | **ZHA** | **Zigbee2MQTT** |
-|---|---|---|
-| Où ça tourne | Intégration incluse dans Home Assistant | Programme séparé (une « app » de Home Assistant OS, ou installé sur une autre machine) |
-| Serveur MQTT | Inutile | Obligatoire (Mosquitto conseillé) |
-| Installation | Quelques clics, la clé est souvent détectée automatiquement | Installer Mosquitto, ajouter le dépôt, installer l'app, puis l'assistant de démarrage |
-| Interface | Dans les paramètres de Home Assistant | Interface web dédiée, plus détaillée |
-| Clés reconnues (famille de puce) | Silicon Labs (EZSP), Texas Instruments (ZNP), deCONZ, ZiGate | Texas Instruments (zStack) et Silicon Labs (EmberZNet) recommandés ; deCONZ pris en charge ; ZiGate non recommandée |
-| Appareils non standard | Corrigés par des « quirks » (petits modules de compatibilité) | Corrigés par des « converters » |
-| Mises à jour OTA des appareils | Oui, pour une liste limitée de fabricants qui publient leurs firmwares | Oui, à partir d'un dépôt qui rassemble les firmwares publiés par les fabricants |
-| Sauvegarde du réseau | Sauvegardes automatiques ; migration vers une autre clé prévue | Sauvegarde du coordinateur avec les clés zStack et EmberZNet |
-| Utiliser les capteurs hors de Home Assistant | Non | Oui, n'importe quel logiciel qui parle MQTT |
-| Matériel minimum | Celui de Home Assistant | L'app demande un système 64 bits ; les développeurs conseillent au moins un Raspberry Pi 4 |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>ZHA</strong></th>
+<th scope="col"><strong>Zigbee2MQTT</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Où ça tourne</span></td>
+<td data-label="**ZHA**"><span class="td-val">Intégration incluse dans Home Assistant</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Programme séparé (une « app » de Home Assistant OS, ou installé sur une autre machine)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Serveur MQTT</span></td>
+<td data-label="**ZHA**"><span class="td-val">Inutile</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Obligatoire (Mosquitto conseillé)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Installation</span></td>
+<td data-label="**ZHA**"><span class="td-val">Quelques clics, la clé est souvent détectée automatiquement</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Installer Mosquitto, ajouter le dépôt, installer l'app, puis l'assistant de démarrage</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Interface</span></td>
+<td data-label="**ZHA**"><span class="td-val">Dans les paramètres de Home Assistant</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Interface web dédiée, plus détaillée</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Clés reconnues (famille de puce)</span></td>
+<td data-label="**ZHA**"><span class="td-val">Silicon Labs (EZSP), Texas Instruments (ZNP), deCONZ, ZiGate</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Texas Instruments (zStack) et Silicon Labs (EmberZNet) recommandés ; deCONZ pris en charge ; ZiGate non recommandée</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Appareils non standard</span></td>
+<td data-label="**ZHA**"><span class="td-val">Corrigés par des « quirks » (petits modules de compatibilité)</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Corrigés par des « converters »</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Mises à jour OTA des appareils</span></td>
+<td data-label="**ZHA**"><span class="td-val">Oui, pour une liste limitée de fabricants qui publient leurs firmwares</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Oui, à partir d'un dépôt qui rassemble les firmwares publiés par les fabricants</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Sauvegarde du réseau</span></td>
+<td data-label="**ZHA**"><span class="td-val">Sauvegardes automatiques ; migration vers une autre clé prévue</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Sauvegarde du coordinateur avec les clés zStack et EmberZNet</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Utiliser les capteurs hors de Home Assistant</span></td>
+<td data-label="**ZHA**"><span class="td-val">Non</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">Oui, n'importe quel logiciel qui parle MQTT</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Matériel minimum</span></td>
+<td data-label="**ZHA**"><span class="td-val">Celui de Home Assistant</span></td>
+<td data-label="**Zigbee2MQTT**"><span class="td-val">L'app demande un système 64 bits ; les développeurs conseillent au moins un Raspberry Pi 4</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Sources : documentations officielles de ZHA et de Zigbee2MQTT, octobre 2026.*
 

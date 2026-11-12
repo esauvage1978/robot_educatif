@@ -18,9 +18,11 @@ categories:
   - "Tutoriel"
   - "Débutant"
 ---
+> **Réponse directe (octobre 2026)** — Une **variable** stocke une valeur (`nom = 12`). **Afficher** se fait avec `print()` ; en Python 3, `input()` renvoie toujours une **chaîne** à convertir (`int()`, `float()`) avant un calcul.
+
 Après avoir installé Python et ouvert un éditeur ([leçon 1](/python-environnement-developpement/)), tu passes à la **matière première** des programmes : stocker des informations dans des **variables** et les **afficher** à l’écran. Cette leçon reste volontairement sans `input()` : tout est écrit **dans le code** ; la saisie clavier arrive à la [leçon 3](/python-types-et-saisie/).
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+![Exemple de sortie dans un terminal Python](/images/blog/lot15/pendu-console-exemple.png)
 
 ## 1. Qu’est-ce qu’une variable ?
 

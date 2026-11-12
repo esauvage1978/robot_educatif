@@ -1,6 +1,6 @@
 ---
 title: "Raspberry Pi ou kit robot pour ado : comment trancher ?"
-description: "Raspberry Pi vs robot ado : Linux/Python ou robot tout-en-un. Critères, budget, prolongations."
+description: "Raspberry Pi ou kit robot pour un ado : Linux et Python d’un côté, robot prêt à l’emploi de l’autre. Critères, budget et suite du parcours, pour bien choisir."
 pubDate: "2026-03-30"
 updatedDate: "2026-03-31"
 heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
@@ -27,13 +27,41 @@ Vers **12–15 ans**, deux chemins se croisent souvent : la **carte programmable
 
 ## 1. Tableau de décision rapide
 
-| Critère | Raspberry Pi | Kit robot (mBot2, etc.) |
-|---------|--------------|-------------------------|
-| **Premier « wow »** | Plus tard (écran, config) | Souvent **rapide** (roule, évite) |
-| **Variété des projets** | Très large (serveur, caméra, domotique) | Centrée **robotique / capteurs embarqués** |
-| **Charge pour l’adulte** | Système, SD, mises à jour | Installation logicielle + parfois Bluetooth |
-| **Python** | Natif, énorme communauté | Selon modèle (ex. mBot2, CyberPi — voir comparatifs) |
-| **Linux / ligne de commande** | Au cœur du projet | Souvent **secondaire** |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">Raspberry Pi</th>
+<th scope="col">Kit robot (mBot2, etc.)</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Premier « wow »</strong></span></td>
+<td data-label="Raspberry Pi"><span class="td-val">Plus tard (écran, config)</span></td>
+<td data-label="Kit robot (mBot2, etc.)"><span class="td-val">Souvent <strong>rapide</strong> (roule, évite)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Variété des projets</strong></span></td>
+<td data-label="Raspberry Pi"><span class="td-val">Très large (serveur, caméra, domotique)</span></td>
+<td data-label="Kit robot (mBot2, etc.)"><span class="td-val">Centrée <strong>robotique / capteurs embarqués</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Charge pour l’adulte</strong></span></td>
+<td data-label="Raspberry Pi"><span class="td-val">Système, SD, mises à jour</span></td>
+<td data-label="Kit robot (mBot2, etc.)"><span class="td-val">Installation logicielle + parfois Bluetooth</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Python</strong></span></td>
+<td data-label="Raspberry Pi"><span class="td-val">Natif, énorme communauté</span></td>
+<td data-label="Kit robot (mBot2, etc.)"><span class="td-val">Selon modèle (ex. mBot2, CyberPi — voir comparatifs)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Linux / ligne de commande</strong></span></td>
+<td data-label="Raspberry Pi"><span class="td-val">Au cœur du projet</span></td>
+<td data-label="Kit robot (mBot2, etc.)"><span class="td-val">Souvent <strong>secondaire</strong></span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Choisir Raspberry Pi quand…
 

@@ -10,12 +10,51 @@ Une maison connectée a besoin d'un **cerveau** : le logiciel ou le boîtier qui
 
 ## L'essentiel en un tableau
 
-| Système | Type | Fonctionne sans Internet | Protocoles en natif | Difficulté | Pour qui |
-|---|---|---|---|---|---|
-| **Home Assistant** | logiciel libre (licence Apache 2.0) sur Raspberry Pi, mini-PC ou boîtier officiel | oui | Wi-Fi, Matter ; Zigbee, Z-Wave, Thread avec une clé radio | moyenne | celui qui veut tout piloter en local |
-| **Jeedom** | logiciel français, cœur sous licence GPL, boîtiers officiels | oui | via plugins (dont des plugins payants) | moyenne | utilisateur francophone, écosystème de plugins |
-| **Homey Pro** | boîtier tout-en-un | oui, pour les appareils locaux | Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, 433 MHz, infrarouge | faible | qui veut un boîtier prêt à l'emploi |
-| **Google Home / Alexa / Apple Maison** | écosystème d'assistant vocal | partiellement | Wi-Fi, Matter, Thread selon l'enceinte ou la box | très faible | quelques prises et ampoules, commande vocale |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Système</th>
+<th scope="col">Type</th>
+<th scope="col">Fonctionne sans Internet</th>
+<th scope="col">Protocoles en natif</th>
+<th scope="col">Difficulté</th>
+<th scope="col">Pour qui</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Système"><span class="td-val"><strong>Home Assistant</strong></span></td>
+<td data-label="Type"><span class="td-val">logiciel libre (licence Apache 2.0) sur Raspberry Pi, mini-PC ou boîtier officiel</span></td>
+<td data-label="Fonctionne sans Internet"><span class="td-val">oui</span></td>
+<td data-label="Protocoles en natif"><span class="td-val">Wi-Fi, Matter ; Zigbee, Z-Wave, Thread avec une clé radio</span></td>
+<td data-label="Difficulté"><span class="td-val">moyenne</span></td>
+<td data-label="Pour qui"><span class="td-val">celui qui veut tout piloter en local</span></td>
+</tr>
+<tr>
+<td data-label="Système"><span class="td-val"><strong>Jeedom</strong></span></td>
+<td data-label="Type"><span class="td-val">logiciel français, cœur sous licence GPL, boîtiers officiels</span></td>
+<td data-label="Fonctionne sans Internet"><span class="td-val">oui</span></td>
+<td data-label="Protocoles en natif"><span class="td-val">via plugins (dont des plugins payants)</span></td>
+<td data-label="Difficulté"><span class="td-val">moyenne</span></td>
+<td data-label="Pour qui"><span class="td-val">utilisateur francophone, écosystème de plugins</span></td>
+</tr>
+<tr>
+<td data-label="Système"><span class="td-val"><strong>Homey Pro</strong></span></td>
+<td data-label="Type"><span class="td-val">boîtier tout-en-un</span></td>
+<td data-label="Fonctionne sans Internet"><span class="td-val">oui, pour les appareils locaux</span></td>
+<td data-label="Protocoles en natif"><span class="td-val">Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, 433 MHz, infrarouge</span></td>
+<td data-label="Difficulté"><span class="td-val">faible</span></td>
+<td data-label="Pour qui"><span class="td-val">qui veut un boîtier prêt à l'emploi</span></td>
+</tr>
+<tr>
+<td data-label="Système"><span class="td-val"><strong>Google Home / Alexa / Apple Maison</strong></span></td>
+<td data-label="Type"><span class="td-val">écosystème d'assistant vocal</span></td>
+<td data-label="Fonctionne sans Internet"><span class="td-val">partiellement</span></td>
+<td data-label="Protocoles en natif"><span class="td-val">Wi-Fi, Matter, Thread selon l'enceinte ou la box</span></td>
+<td data-label="Difficulté"><span class="td-val">très faible</span></td>
+<td data-label="Pour qui"><span class="td-val">quelques prises et ampoules, commande vocale</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Notre meilleur choix : Home Assistant**, sur un boîtier [Home Assistant Green ou un Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/). C'est gratuit, local, et compatible avec presque toutes les marques. C'est aussi le système que nous utilisons dans tous nos tutoriels.
 

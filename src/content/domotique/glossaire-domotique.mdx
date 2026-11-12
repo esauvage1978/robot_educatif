@@ -1,0 +1,263 @@
+---
+title: "Glossaire de la domotique : termes essentiels"
+description: "Les mots de la domotique expliqués simplement : box, hub, Zigbee, Matter, MQTT, ESPHome, automatisation, fil pilote, TIC Linky… chacun avec un exemple concret."
+pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+priority: 3
+---
+
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
+
+Vous lisez un article sur la domotique et un mot vous arrête, un sigle, un terme anglais ou un nom de marque que personne n'a pris le temps de vous expliquer ? C'est normal. Ce domaine a pris l'habitude de mélanger tout cela.
+
+Ce glossaire est là pour ça. Chaque terme est expliqué en une ou deux phrases, puis illustré par un exemple pris dans une vraie maison. Vous pouvez le parcourir lettre par lettre grâce à l'index, ou y revenir quand un mot vous échappe. Pour les spécifications complètes, reportez-vous aux documents officiels des fabricants et des organismes de normalisation (Connectivity Standards Alliance, Thread Group, Z-Wave Alliance).
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  links={[
+    { href: '/domotique/protocoles-domotique-zigbee-wifi-thread-matter/', label: 'Comment vos appareils se parlent (protocoles)' },
+    { href: '/domotique/premieres-automatisations-domotique/', label: 'Vos premières automatisations' },
+    { href: '/domotique/erreurs-debutant-domotique-faq/', label: 'Erreurs de débutant' },
+  ]}
+/>
+
+## Index alphabétique
+
+[A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [W](#w) · [Y](#y) · [Z](#z)
+
+## A
+
+### <span id="a"></span>Action
+
+Ce que fait votre maison quand une automatisation se déclenche : allumer une lampe, envoyer une notification, régler le chauffage.  
+**Exemple :** vous recevez un message « la machine à laver a terminé ».
+
+### Appairage
+
+L'étape où vous « présentez » un nouvel appareil à votre box, pour qu'elle le reconnaisse. On dit aussi pairing en anglais.  
+**Exemple :** vous maintenez le bouton d'un capteur Zigbee enfoncé jusqu'à ce que votre logiciel annonce « nouvel appareil trouvé ».
+
+### Automatisation
+
+Une règle du type « si ceci arrive, alors fais cela », parfois avec des conditions supplémentaires. Voir nos [premières automatisations](/domotique/premieres-automatisations-domotique/).  
+**Exemple :** s'il y a du mouvement dans le couloir et qu'il fait nuit, la lumière s'allume.
+
+## B
+
+### <span id="b"></span>Border router (routeur de bordure)
+
+Un appareil qui relie un réseau Thread (voir plus bas) à votre réseau Internet maison, pour que les appareils Thread puissent être commandés.  
+**Exemple :** certaines enceintes connectées ou box récentes intègrent cette fonction.
+
+### Box domotique
+
+Le boîtier, ou la petite machine, qui centralise toute votre maison : elle reçoit les informations des capteurs et lance vos automatisations. On l'appelle aussi hub. Voir [quelle box choisir](/domotique/quelle-box-domotique-choisir-debutant/).  
+**Exemple :** Home Assistant Green ou Homey Pro mini.
+
+## C
+
+### <span id="c"></span>Cloud et local
+
+Le **cloud**, ce sont les serveurs du fabricant, sur Internet. Le **local**, c'est quand tout se passe chez vous, entre vos appareils et votre box.  
+**Exemple :** une prise qui ne se commande que par l'application du fabricant cesse de répondre si le service ou votre connexion tombe en panne ; une prise pilotée en local continue de fonctionner.
+
+### Condition
+
+Un filtre qui précise dans quel cas l'automatisation doit agir : une heure, un état, une présence.  
+**Exemple :** n'allumer le radiateur qu'entre 6 h et 22 h.
+
+### Coordinateur (Zigbee)
+
+Le chef du réseau Zigbee : c'est lui qui accepte les appareils et organise leurs échanges. En pratique, c'est le plus souvent une petite clé USB.  
+**Exemple :** la clé SONOFF ZBDongle-E branchée sur un boîtier Home Assistant.
+
+## D
+
+### <span id="d"></span>Déclencheur
+
+L'événement qui lance une automatisation. On dit aussi trigger en anglais.  
+**Exemple :** un capteur d'ouverture passe de « fermé » à « ouvert ».
+
+### Dongle
+
+Une petite clé USB qui ajoute une radio à votre box (Zigbee, Z-Wave ou Thread, par exemple).  
+**Exemple :** notre guide du [meilleur dongle Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
+
+## E
+
+### <span id="e"></span>Entité
+
+Dans Home Assistant, chaque information ou chaque commande est une entité : une température, un interrupteur, une lumière. Chacune porte un nom technique.  
+**Exemple :** `sensor.salon_temperature` est la température du salon.
+
+### ESP32
+
+Une petite carte électronique programmable, très bon marché, équipée du Wi-Fi et du Bluetooth. Elle permet de fabriquer soi-même des capteurs ou des commandes.  
+**Exemple :** un capteur de température maison construit avec une ESP32, voir nos [projets ESP32](/domotique/projets-esp32-domotique/).
+
+### ESPHome
+
+Un outil gratuit pour programmer des cartes comme l'ESP32 et les faire reconnaître par Home Assistant, sans écrire de vrai programme.  
+**Exemple :** [un capteur de température ESP32 avec ESPHome](/domotique/esp32-esphome-capteur-temperature/).
+
+## F
+
+### <span id="f"></span>Fil pilote
+
+Un fil de commande présent sur de nombreux radiateurs électriques en France. Il reçoit les ordres « confort », « éco » ou « hors gel » depuis un programmateur.  
+**Exemple :** un petit module relié à ce fil permet à Home Assistant de baisser le chauffage à distance. Notre guide : [piloter le fil pilote](/domotique/piloter-chauffage-electrique-fil-pilote-zigbee-shelly-home-assistant/).
+
+### Flow (Homey)
+
+La façon dont Homey construit une automatisation : on assemble des cartes visuelles « Quand… Et… Alors… ».  
+**Exemple :** quand une porte s'ouvre, et que le chauffage est allumé, alors envoyer une notification.
+
+## G
+
+### <span id="g"></span>GPIO
+
+Les petites broches métalliques d'une carte comme le Raspberry Pi, sur lesquelles on branche directement des composants électroniques (une LED, un capteur).  
+**Exemple :** relier un capteur de température aux broches d'un Raspberry Pi.
+
+## H
+
+### <span id="h"></span>Home Assistant
+
+Un logiciel gratuit qui réunit tous vos appareils connectés dans une seule application, et qui fonctionne chez vous, sans abonnement obligatoire.  
+**Exemple :** il tourne sur un boîtier Home Assistant Green ou sur un Raspberry Pi 5.
+
+### Hub ou passerelle
+
+Deux mots souvent utilisés pour parler de la box. Une passerelle peut aussi être un petit module qui traduit une langue radio vers une autre.  
+**Exemple :** le pont Philips Hue traduit les ordres de l'application vers les ampoules.
+
+## I
+
+### <span id="i"></span>Intégration
+
+Un module logiciel qui apprend à votre box à parler à une marque ou à une technologie donnée.  
+**Exemple :** l'intégration Matter de Home Assistant.
+
+## L
+
+### <span id="l"></span>Local (contrôle)
+
+Piloter un appareil sans dépendre des serveurs du fabricant.  
+**Exemple :** un module Shelly commandé directement par son adresse sur votre réseau, ou un capteur Zigbee suivi par ZHA.
+
+## M
+
+### <span id="m"></span>Maillage (mesh)
+
+Une organisation où les appareils relaient les messages de leurs voisins, comme des personnes qui se passent un seau d'eau. Zigbee, Z-Wave et Thread fonctionnent ainsi.  
+**Exemple :** une prise Zigbee placée dans le couloir transmet le message du capteur de la chambre. Voir la page sur les [protocoles](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
+
+### Matter
+
+Un langage commun, créé par plusieurs grandes marques, qui circule par Wi-Fi, par Thread ou par câble réseau. Il permet à un même appareil d'être compris par plusieurs systèmes.  
+**Exemple :** une ampoule Matter visible à la fois dans Home Assistant et dans Google Home (selon la configuration choisie).
+
+### MQTT
+
+Un système de messages très léger, très utilisé par les bricoleurs. Un appareil y « publie » une information sous une adresse, et les autres peuvent la lire.  
+**Exemple :** la température du salon est publiée sous l'adresse `zigbee2mqtt/salon_temp`.
+
+## O
+
+### <span id="o"></span>OTA (mise à jour sans fil)
+
+OTA veut dire « over the air ». C'est une mise à jour du logiciel interne d'un appareil, sans câble.  
+**Exemple :** [mises à jour OTA avec ESPHome](/domotique/mises-a-jour-ota-esphome/).
+
+## P
+
+### <span id="p"></span>Passerelle
+
+Un équipement ou un logiciel qui traduit un langage vers un autre, par exemple de la radio vers votre réseau Internet, ou du cloud vers le local.  
+**Exemple :** Zigbee2MQTT sert de passerelle entre Zigbee et MQTT.
+
+## R
+
+### <span id="r"></span>Raspberry Pi
+
+Un petit ordinateur de la taille d'une carte bancaire, très utilisé pour faire tourner Home Assistant.  
+**Exemple :** le Raspberry Pi 5, avec une alimentation adaptée et une carte mémoire.
+
+### Routeur Zigbee
+
+Un appareil branché sur secteur qui relaie les messages Zigbee des autres : une prise, une ampoule.  
+**Exemple :** une prise Zigbee au milieu du logement permet de joindre un capteur éloigné.
+
+## S
+
+### <span id="s"></span>Scène
+
+Un ensemble d'états que l'on rappelle d'un seul coup : « soirée film », « absence ».  
+**Exemple :** éteindre toutes les lumières et baisser le chauffage en un seul geste.
+
+## T
+
+### <span id="t"></span>Thread
+
+Un réseau en maillage qui consomme très peu d'énergie. Il a besoin d'un border router pour être relié à votre réseau Internet maison.  
+**Exemple :** un capteur Matter qui utilise Thread comme radio.
+
+### TIC Linky
+
+La sortie « télé-information client » du compteur Linky, qui fournit des données de consommation en France.  
+**Exemple :** suivre sa consommation d'électricité dans Home Assistant avec un module adapté, en respectant les consignes du fabricant.
+
+## W
+
+### <span id="w"></span>Wi-Fi
+
+Le réseau sans fil de votre box Internet. Les appareils Wi-Fi s'y connectent directement, sans clé supplémentaire, mais ils consomment davantage et sont rarement alimentés sur pile.  
+**Exemple :** une prise Tapo P110 se connecte au Wi-Fi de la maison.
+
+## Y
+
+### <span id="y"></span>YAML
+
+Un format de texte qui sert à écrire des règles à la main, avec des retraits pour marquer la structure. On peut s'en passer pour débuter.  
+**Exemple :** les exemples de [premières automatisations](/domotique/premieres-automatisations-domotique/) montrent un petit bloc YAML.
+
+## Z
+
+### <span id="z"></span>ZHA
+
+La façon intégrée à Home Assistant de gérer un réseau Zigbee. Son nom vient de « Zigbee Home Automation ».  
+**Exemple :** pour comparer, voir [ZHA ou Zigbee2MQTT](/domotique/home-assistant-zigbee2mqtt-ou-zha/).
+
+### Zigbee
+
+Une radio économe en énergie, parfaite pour des capteurs qui fonctionnent des mois sur pile. Elle fonctionne en maillage et utilise la fréquence de 2,4 GHz.  
+**Exemple :** le capteur SONOFF SNZB-02D, branché à Home Assistant grâce à une clé USB.
+
+### Zigbee2MQTT
+
+Une autre façon de gérer Zigbee dans Home Assistant : elle traduit les messages Zigbee en messages MQTT. C'est une alternative à ZHA.  
+**Exemple :** le catalogue d'appareils compatibles est très documenté par la communauté.
+
+### Z-Wave
+
+Une radio en maillage qui fonctionne autour de 868 MHz en Europe, donc moins gênée par le Wi-Fi.  
+**Exemple :** un module de volet roulant Z-Wave, piloté par une clé USB dédiée.
+
+<ParcoursDebutantNav lang="fr" frSlug="glossaire-domotique" position="bottom" />
+
+## FAQ
+
+**Box, hub et passerelle : est-ce la même chose ?**
+Dans le langage courant, presque. En détail, la box (ou hub) est le cerveau de la maison, alors qu'une passerelle peut n'être qu'un traducteur d'une langue radio vers une autre. Pour retrouver le fil général, voir le [guide complet pour débuter](/domotique/debuter-en-domotique-guide-complet/).
+
+**Faut-il connaître MQTT pour débuter ?**
+Non. ZHA fonctionne sans MQTT. Ce système de messages devient utile si vous choisissez Zigbee2MQTT ou si vous faites beaucoup de projets de bricolage.
+
+**Où retrouver ces mots dans le parcours ?**
+Dans le [choix de la box](/domotique/quelle-box-domotique-choisir-debutant/), les [protocoles](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/) et les [automatisations](/domotique/premieres-automatisations-domotique/).
+
+---
+
+*Auteur : Emmanuel Sauvage. Ce glossaire explique les mots pour débuter ; pour les détails techniques complets, les spécifications des organismes de normalisation (CSA, Thread Group, Z-Wave Alliance) et les documentations des fabricants font référence.*

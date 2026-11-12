@@ -1,0 +1,197 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+
+const title = 'Educational robot Christmas gifts 2026: Canada guide by age';
+const description =
+	'Christmas 2026 gift guide for Canadian families: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with Amazon.ca links, photos and age tips for coding robots.';
+const updated = '6 November 2026';
+const cmp = NOEL_COMPARISON.ca;
+---
+
+<EnPost title={title} description={description} updated={updated} lang="en-CA">
+	<AffiliateDisclosure locale="en" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/en/">Home</a> · <a href="/en/best-programmable-robot-for-kids/">Programmable robots</a> · Christmas gifts 2026
+	</nav>
+
+	<p>
+		<a href="/en/best-programmable-robot-for-kids/">Browse our robot buying guides for Canada</a> — this Christmas 2026 edition
+		targets <strong>Amazon.ca</strong> shoppers in Ontario, Quebec, BC and the rest of the country.
+	</p>
+
+	<ComparisonTable market="ca" locale="en" title={cmp.title} products={cmp.products} />
+
+	<p>
+		<strong>Christmas 2026</strong> is a strong time to gift a <strong>programmable robot</strong> instead of another passive
+		screen toy. Kids start with <strong>Scratch-style</strong> blocks (visual coding for children) in <strong>mBlock</strong>{' '}
+		(Makeblock’s free software for Windows/macOS), then move to Python or <strong>Arduino</strong> (small programmable board) C.{' '}
+		This page targets <strong>Amazon.ca</strong> shoppers; the comparison table shows our last price check on{' '}
+		<strong>4 November 2026</strong> (amounts in CAD where the feed lists them). Amazon.ca changes hourly — always confirm on the
+		product page before checkout.
+	</p>
+
+	<h2>Why a coding robot works in Canadian homes</h2>
+	<p>
+		A rechargeable coding kit often lasts several holiday seasons: firmware updates, spare parts and fair resale on Facebook Marketplace or Kijiji.
+		Children practice loops and debugging without a textbook, and the family can build on December 25 and ship a first program before New Year’s.
+		Screen time stays active — the child drives motion instead of only watching YouTube.
+	</p>
+
+
+	<figure>
+		<img src="/images/illustrations/noel-robot-sapin.webp" alt="Small wheeled robot beside a wrapped gift and a jug of pine branches" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>The first program usually happens on the floor, next to the tree, with an adult nearby.</figcaption>
+	</figure>
+
+	<h2 id="ages-4-6">Ages 4–6: screen-free arrows</h2>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title=""
+		products={[{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' }]}
+	/>
+	<p>
+		Look for <strong>physical buttons</strong> (
+		<a href={productAmazonUrl('bee-bot', 'ca')} target="_blank" rel="sponsored nofollow noopener">Code &amp; Go Robot Mouse</a>,{' '}
+		<a href={productAmazonUrl('tale-bot-pro', 'ca')} target="_blank" rel="sponsored nofollow noopener">Matatalab Tale-Bot Pro</a>
+		). Many Ontario and Quebec school boards lend <a href={productAmazonUrl('bee-bot', 'ca')} target="_blank" rel="sponsored nofollow noopener">floor robots for preschool</a> to
+		kindergarten classes — ask the teacher before buying a duplicate at home.
+	</p>
+
+	<h2 id="ages-7-9">Ages 7–9: first programmable robot</h2>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title=""
+		products={[{ id: 'mbot', badge: 'Best first robot, ages 8–12' }]}
+	/>
+	<p>
+		At this stage children tolerate <strong>15–30 minutes of assembly</strong> and understand “if obstacle then turn”. The{' '}
+		<strong><a href={productAmazonUrl('mbot', 'ca')} target="_blank" rel="sponsored nofollow noopener">Makeblock mBot</a></strong> is widely used in Canadian classroom coding initiatives and library maker spaces: line follower,
+		ultrasonic sensor, large teacher community, <a href="/en/install-mblock-5-windows/">mBlock 5 on Windows</a>. Order early in
+		December — Canada Post and Amazon peak shipping can add days in remote northern communities.
+	</p>
+
+	<h2 id="ages-10-13">Ages 10–13: mBot2 and Python path</h2>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title=""
+		products={[{ id: 'mbot2', badge: 'Scratch, then Python' }]}
+	/>
+	<p>
+		<strong><a href={productAmazonUrl('mbot2', 'ca')} target="_blank" rel="sponsored nofollow noopener">mBot2</a></strong> with CyberPi (colour screen, Wi‑Fi) suits kids who outgrow Scratch but are not ready for soldering.
+		Compare in <a href="/en/mbot-vs-mbot2/">mBot vs mBot2</a>. French immersion families often use mBlock in English or French
+		blocks — both work on the same kit.
+	</p>
+
+	<h2 id="ages-14-plus">Ages 14+: Arduino kits & Raspberry Pi 5</h2>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title=""
+		products={[
+			{ id: 'elegoo-penguin', badge: 'Biped, Arduino C' },
+			{ id: 'raspberry-pi-5-8gb', badge: 'Board only — check Amazon.ca' },
+		]}
+	/>
+	<p>
+		Teens who want typed code often pick the <strong>ELEGOO Penguin Bot</strong> (biped, Arduino C) or a{' '}
+		<strong>Raspberry Pi 5 (8 GB)</strong> for cameras and robot HATs — see{' '}
+		<a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a>. Budget for the official 27 W USB-C power supply (Type A plug in
+		Canada), case and microSD; Pi boards alone are rarely enough under the tree.
+	</p>
+
+	<figure>
+		<img src="/images/illustrations/noel-trois-budgets.webp" alt="Three wrapped gifts of increasing size on a wooden table" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>Three gift sizes. Choose the budget before the model.</figcaption>
+	</figure>
+
+	<h2 id="budget-ca">Budget bands (Canada)</h2>
+	<p>
+		Our price file for this page is not an Amazon.ca feed, so the cards do not show a dollar amount. Open Amazon.ca for the current price. The groups follow the same kits as the UK guide: a small-budget robot, the core school kits, then a Pi 5 board (power supply, case and microSD bought separately).
+	</p>
+	<h3>Small budget</h3>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title="Small budget"
+		products={[
+			{ id: 'elegoo-penguin', badge: 'Biped Arduino kit' },
+			{ id: 'mbot', badge: 'Ages 8–12' },
+			{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' },
+		]}
+	/>
+	<h3>Core kits</h3>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title="Core kits"
+		products={[
+			{ id: 'codey-rocky', badge: 'Ages 6–12' },
+			{ id: 'mbot2', badge: 'Scratch and Python' },
+		]}
+	/>
+	<h3>Raspberry Pi 5 board</h3>
+	<ComparisonTable
+		variant="cards"
+		market="ca"
+		locale="en"
+		title="Pi 5 board"
+		products={[{ id: 'raspberry-pi-5-8gb', badge: 'Board only — check Amazon.ca' }]}
+	/>
+
+	<h2>Ordering tips before December 25</h2>
+	<ol>
+		<li>Check <strong>Amazon.ca delivery</strong> to your postal code — order by mid-December for rural routes.</li>
+		<li>Plan adult time for mBlock install, USB drivers and Bluetooth on Windows 11.</li>
+		<li>Keep the receipt: educational kits resell well if unused.</li>
+		<li>Charge LiPo or AA batteries before wrapping — Christmas morning without power frustrates everyone.</li>
+	</ol>
+
+	<h2>FAQ</h2>
+	<h3>Are table prices guaranteed?</h3>
+	<p>No — Amazon.ca moves prices often. The comparison shows our last API check; confirm on the seller page.</p>
+	<h3>Scratch or Python first?</h3>
+	<p>
+		Blocks until about 10–11, then Python on mBot2. Start with{' '}
+		<a href="/en/install-mblock-5-windows/">mBlock on Windows</a> and{' '}
+		<a href="/en/first-mbot-program/">first mBot program</a>.
+	</p>
+	<h3>Do Canadian schools use these robots?</h3>
+	<p>
+		Yes — mBot appears in provincial STEM grants, library maker programs and Hour of Code events. Align with the teacher before
+		buying a second ecosystem.
+	</p>
+
+	<h2>Wrap-up before you click “Add to cart”</h2>
+	<p>
+		Emmanuel SAUVAGE and the robot-educatif.info team update prices and photos when Amazon feeds change — compare the table with
+		the Amazon.ca product page. Unsure between mBot and mBot2? Open our{' '}
+		<a href="/en/mbot-vs-mbot2/">comparison</a> and the{' '}
+		<a href="/en/educational-robots-2026-2027-calendar-buying-guide/">2026–2027 robot calendar</a>.
+	</p>
+	<p>
+		<strong>UK readers</strong> use our{' '}
+		<a href="/en/educational-robot-christmas-gifts-2026/">Christmas guide on Amazon.co.uk</a> (Type G plugs).{' '}
+		<strong>International English</strong> hub:{' '}
+		<a href="/en/educational-robot-christmas-gifts-2026/">educational robot gifts on /en/</a>. This page is written for{' '}
+		<strong>Amazon.ca</strong> and Canadian shipping realities.
+	</p>
+
+	<p>
+		<strong>Bottom line:</strong> match the robot to age, setup time and coding goal. The comparison table highlights our four
+		Christmas 2026 favourites with Amazon.ca affiliate links where available.
+	</p>
+</EnPost>

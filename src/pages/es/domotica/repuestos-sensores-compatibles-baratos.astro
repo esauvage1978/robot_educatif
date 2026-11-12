@@ -1,0 +1,21 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import SparePartsContent from '../../../components/domotique-pages/SparePartsContent.astro';
+import { SPARE_PARTS_META } from '../../../data/smartHomeSpareParts.mjs';
+
+const lang = 'es';
+const meta = SPARE_PARTS_META[lang];
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={meta.title}
+	description={meta.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/es/domotica/repuestos-sensores-compatibles-baratos/"
+	hubLabel="Domótica"
+	repairGuide={true}
+>
+	<SparePartsContent lang={lang} />
+</DomotiqueToolLayout>

@@ -1,0 +1,141 @@
+---
+import publication from '../../data/promos/publication.json';
+import registrePartenaires from '../../data/promos/partenaires-actifs.json';
+import {
+  appliquerPartenaires,
+  dateParis,
+  formaterDate,
+  formaterMontant,
+  formaterPourcent,
+  imageFiable,
+  produitsVisibles,
+} from '../../../public/cron/regles.mjs';
+import { TEXTES, langueDe, urlsDe } from './meta.mjs';
+
+appliquerPartenaires(registrePartenaires.prix, registrePartenaires.affid);
+
+const path = Astro.url.pathname;
+const { geo, lang } = langueDe(path);
+const T = TEXTES[lang] || TEXTES.fr;
+const urls = urlsDe(geo);
+const explication = /comment-nous-mesurons|how-we-measure|wie-wir-messen|come-misuriamo|como-medimos|hoe-we-meten/.test(path);
+const genereLe = publication.genereLe || '';
+const visibles = produitsVisibles(publication, lang, dateParis());
+const cartes = [...visibles].sort((a, b) => b.ratio - a.ratio || b.ecart - a.ecart || a.nom.localeCompare(b.nom, lang));
+const marques = [...new Set(cartes.map((p) => p.marque))].sort((a, b) => a.localeCompare(b, lang));
+
+function baseDe(produit) {
+  if (produit.signal === 'releve' && produit.dateReference) return T.baseReleve.replace('{date}', formaterDate(produit.dateReference, lang));
+  if (produit.signal === 'sale_price') return T.baseSale;
+  return T.baseOld;
+}
+function schema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': explication ? 'Article' : 'CollectionPage',
+    name: explication ? T.titreExplication : T.titre,
+    inLanguage: lang,
+    ...(genereLe ? { dateModified: genereLe } : {}),
+  };
+}
+const noteMarche = geo === 'uk' ? T.marcheUk : geo === 'ca' ? T.marcheCa : '';
+const clientText = {
+  perime: T.perime, vide: T.vide, majVide: T.majVide, baseReleve: T.baseReleve, baseSale: T.baseSale, baseOld: T.baseOld,
+  coloris: T.coloris, stock: T.stock, ecart: T.ecart, voir: T.voir, us: T.us, lienAff: T.lienAff,
+  filtreVide: T.filtreVide, fluxNon: T.fluxNon, fluxAbsent: T.fluxAbsent, fluxOk: T.fluxOk, fluxErr: T.fluxErr,
+};
+const h1 = explication ? T.titreExplication : T.titre;
+const chapo = explication ? T.chapoExplication : T.chapo;
+---
+
+<article class="baisses-page">
+  <header class="baisses-entete">
+    <h1>{h1}</h1>
+    <p class="baisses-chapo">{chapo}</p>
+    {genereLe && !explication && <p class="baisses-maj">{formaterDate(genereLe, lang)}</p>}
+  </header>
+
+  {!explication && (
+    <section id="liste-baisses" data-lang={lang} data-genere={genereLe}>
+      <p>{T.tri}</p>
+      {noteMarche && <p>{noteMarche}</p>}
+      {cartes.length > 0 && (
+        <form id="filtres-baisses" class="filtres-baisses" action={urls.produits}>
+          <label>{T.marque}
+            <select id="filtre-marque" name="marque">
+              <option value="">{T.toutes}</option>
+              {marques.map((marque) => <option value={marque}>{marque}</option>)}
+            </select>
+          </label>
+          <label>{T.produit}
+            <input id="filtre-produit" name="q" type="search" placeholder={T.chercher} autocomplete="off" />
+          </label>
+        </form>
+      )}
+      <p id="baisses-etat">{cartes.length ? '' : genereLe ? T.vide : T.majVide}</p>
+      <p id="baisses-filtre-vide" hidden>{T.filtreVide}</p>
+      <ul id="grille-baisses" class="grille-baisses">
+        {cartes.map((p) => {
+          const image = imageFiable(p.image);
+          return (
+            <li class="carte-baisse" data-marque={p.marque} data-produit={p.nom}>
+              <p class="baisse-pct"><span>−{formaterPourcent(p.ratio, lang)}&nbsp;%</span></p>
+              {image
+                ? <img class="photo-baisse" src={image} alt={p.nom} width="640" height="480" loading="lazy" />
+                : <div class="photo-baisse photo-baisse-vide" aria-hidden="true"></div>}
+              <p class="baisse-marque">{p.marque}</p>
+              <p class="baisse-nom">{p.nom}{p.variantes > 1 ? ` · ${T.coloris.replace('{n}', String(p.variantes))}` : ''}</p>
+              <p class="baisse-prix">
+                <strong>{formaterMontant(p.prix, p.devise, lang)}</strong>
+                <s>{formaterMontant(p.reference, p.devise, lang)}</s>
+              </p>
+              <p class="baisse-ecart">{T.ecart.replace('{montant}', formaterMontant(p.ecart, p.devise, lang)).replace('{pct}', formaterPourcent(p.ratio, lang))}</p>
+              <p class="baisse-base">{baseDe(p)}{p.stock === '1' ? ` · ${T.stock}` : ''}</p>
+              {p.marche === 'us' && <p class="baisse-base">{T.us}</p>}
+              <p class="baisse-lien">
+                <a class="lien-baisse" href={p.href} rel="sponsored nofollow noopener" target="_blank" data-affilie="oui" data-merchant={p.marque} data-product={p.id} data-product-category="baisse-prix" data-page-type="baisses" data-cta-placement="carte">{T.voir.replace('{nom}', p.marque)}</a>
+                <span> · {T.lienAff}</span>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+      <p class="baisses-suite"><a href={urls.explication}>{T.methode}</a></p>
+    </section>
+  )}
+
+  {explication && (
+    <section id="explication-baisses">
+      <p>{T.seuil}</p>
+      <p>{T.comparaison}</p>
+      <p>{T.amazon}</p>
+      <p><a href={urls.produits}>{T.produits}</a></p>
+    </section>
+  )}
+</article>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema())} />
+{!explication && <script id="baisses-i18n" type="application/json" set:html={JSON.stringify(clientText)} />}
+{!explication && <script src="/baisses.js" is:inline defer />}
+
+<style>
+  .baisses-page { max-width: 72rem; }
+  .baisses-chapo { font-size: 1.125rem; }
+  .baisses-maj, .baisse-marque, .baisse-base, .baisse-ecart { color: var(--texte-muted, #5c6570); }
+  .filtres-baisses { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin: 1rem 0 1.25rem; }
+  .filtres-baisses label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; }
+  .filtres-baisses select, .filtres-baisses input { min-height: 2.5rem; min-width: 14rem; padding: 0.35rem 0.6rem; border: 1px solid var(--grille, #e3e6ea); border-radius: 0.4rem; background: var(--papier, #fff); color: inherit; }
+  .grille-baisses { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
+  .carte-baisse { display: flex; flex-direction: column; border: 1px solid var(--grille, #e3e6ea); border-radius: 0.6rem; padding: 0.85rem; background: var(--papier, #fff); }
+  .carte-baisse[hidden] { display: none; }
+  .baisse-pct { margin: 0 0 0.5rem; }
+  .baisse-pct span { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: var(--filament, #ffb020); color: #1a1a1a; font-weight: 700; }
+  .photo-baisse { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; border-radius: 0.4rem; }
+  .photo-baisse-vide { background: var(--gris-fond, #f4f5f7); }
+  .baisse-nom { font-size: 1.05rem; line-height: 1.35; margin: 0.2rem 0 0.4rem; font-weight: 700; }
+  .baisse-prix { display: flex; gap: 0.6rem; align-items: baseline; margin: 0; }
+  .baisse-prix s { color: var(--texte-muted, #5c6570); }
+  .baisse-lien { margin-top: auto; padding-top: 0.6rem; }
+  .lien-baisse { font-weight: 650; }
+  .baisses-suite { margin-top: 1.5rem; }
+</style>

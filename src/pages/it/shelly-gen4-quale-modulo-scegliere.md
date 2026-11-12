@@ -11,16 +11,83 @@ I moduli **Shelly Gen4** si installano dietro un interruttore o una presa esiste
 
 ## 1. Tabella di confronto (dati del produttore)
 
-| | Shelly 1 Gen4 | Shelly 1PM Gen4 | Shelly 2PM Gen4 | Shelly i4 Gen4 | Shelly 1L Gen4 |
-|---|---|---|---|---|---|
-| Uso tipico | relè a contatto pulito (luci, cancelli, caldaia) | relè con misura dei consumi | 2 canali o tapparella, con misura | 4 ingressi per pulsanti/scenari (nessun relè) | luci senza neutro |
-| Corrente / potenza max | 16 A a 240 V~ | 16 A a 240 V~ | 10 A per canale, 16 A totali | — | 200 W |
-| Misura dei consumi | no | sì (tensione, corrente) | sì | no | no |
-| Neutro necessario | sì | sì | sì | sì | no (Shelly Bypass incluso, necessario con LED) |
-| Alimentazione | 110–240 V~, 24–48 V⎓, 12 V⎓ | 110–240 V~, 24–30 V⎓ | 110–240 V~, 24 V⎓ | 110–240 V~ | 220–240 V~ |
-| Dimensioni (A×L×P) | 37×42×16 mm | 37×42×16 mm | 37×42×16 mm | 37×42×15 mm | 41×42×16 mm |
-| Wi-Fi | 802.11 b/g/n/ax | 802.11 b/g/n/ax | 802.11 b/g/n/ax | 802.11 b/g/n/ax | 802.11 b/g/n |
-| Zigbee 3.0 / Matter | sì / sì | sì / sì | sì / sì | sì / sì | sì / sì |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col">Shelly 1 Gen4</th>
+<th scope="col">Shelly 1PM Gen4</th>
+<th scope="col">Shelly 2PM Gen4</th>
+<th scope="col">Shelly i4 Gen4</th>
+<th scope="col">Shelly 1L Gen4</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Uso tipico</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">relè a contatto pulito (luci, cancelli, caldaia)</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">relè con misura dei consumi</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">2 canali o tapparella, con misura</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">4 ingressi per pulsanti/scenari (nessun relè)</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">luci senza neutro</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Corrente / potenza max</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">16 A a 240 V~</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">16 A a 240 V~</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">10 A per canale, 16 A totali</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">—</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">200 W</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Misura dei consumi</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">no</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">sì (tensione, corrente)</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">sì</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">no</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">no</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Neutro necessario</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">sì</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">sì</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">sì</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">sì</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">no (Shelly Bypass incluso, necessario con LED)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Alimentazione</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">110–240 V~, 24–48 V⎓, 12 V⎓</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">110–240 V~, 24–30 V⎓</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">110–240 V~, 24 V⎓</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">110–240 V~</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">220–240 V~</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Dimensioni (A×L×P)</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">37×42×16 mm</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">37×42×16 mm</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">37×42×16 mm</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">37×42×15 mm</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">41×42×16 mm</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Wi-Fi</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">802.11 b/g/n/ax</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">802.11 b/g/n/ax</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">802.11 b/g/n/ax</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">802.11 b/g/n/ax</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">802.11 b/g/n</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Zigbee 3.0 / Matter</span></td>
+<td data-label="Shelly 1 Gen4"><span class="td-val">sì / sì</span></td>
+<td data-label="Shelly 1PM Gen4"><span class="td-val">sì / sì</span></td>
+<td data-label="Shelly 2PM Gen4"><span class="td-val">sì / sì</span></td>
+<td data-label="Shelly i4 Gen4"><span class="td-val">sì / sì</span></td>
+<td data-label="Shelly 1L Gen4"><span class="td-val">sì / sì</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Fonti: schede KB [Shelly 1 Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1-gen4), [1PM Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1pm-gen4), [2PM Gen4](https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen4), [i4 Gen4](https://kb.shelly.cloud/knowledge-base/shelly-i4-gen4), [1L Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1l-gen4). Protezione a monte richiesta dal produttore: interruttore magnetotermico curva B o C, max 16 A (10 A per il 1L).
 
@@ -34,10 +101,10 @@ Fonti: schede KB [Shelly 1 Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1
 
 ## 3. Con Home Assistant
 
-I modelli Gen4 sono riconosciuti in locale dall'integrazione Shelly di Home Assistant via Wi-Fi, oppure possono essere aggiunti come dispositivi Zigbee o Matter. Il Wi-Fi permette di usare anche gli script e l'MQTT integrati (indicati nella KB). Per scegliere la base di Home Assistant leggete il nostro confronto [Raspberry Pi 3 vs 4 vs 5](/it/raspberry-pi-3-vs-4-vs-5/).
+I modelli Gen4 sono riconosciuti in locale dall'integrazione Shelly di Home Assistant via Wi-Fi, oppure possono essere aggiunti come dispositivi Zigbee o Matter. Il Wi-Fi permette di usare anche gli script e l'MQTT integrati (indicati nella KB). Per scegliere la base di Home Assistant leggete il nostro confronto [Raspberry Pi 3 vs 4 vs 5](/it/raspberry-pi-3-vs-4-vs-5/) e la procedura [installare Home Assistant su Raspberry Pi 5](/it/domotica/installare-home-assistant-raspberry-pi-5/). Se un modulo non risponde dopo il cablaggio, il [repertorio dei codici errore Shelly, Zigbee e Home Assistant](/it/domotica/codici-errore-risoluzione-zigbee-home-assistant-shelly/) indica il controllo da fare. Per un carico su una presa, senza lavori in muratura, partite dalle [prese smart](/it/domotica/prese-smart/).
 
 ## 4. Dove comprare
 
-Tutti i modelli sono venduti sul negozio ufficiale Shelly Italia, che il 23 ottobre 2026 li indicava come disponibili: [Shelly 1 Gen4](https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fit%2Fproducts%2Fshelly-1-gen4), [Shelly 1PM Gen4](https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fit%2Fproducts%2Fshelly-1pm-gen4), [Shelly 2PM Gen4](https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fit%2Fproducts%2Fshelly-2pm-gen4), [Shelly i4 Gen4](https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fit%2Fproducts%2Fshelly-i4-gen4), [Shelly 1L Gen4](https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fit%2Fproducts%2Fshelly-1l-gen4) (link di affiliazione). I prezzi cambiano: verificate il prezzo sul sito al momento dell'acquisto.
+Tutti i modelli sono venduti sul negozio ufficiale Shelly Italia, che il 23 ottobre 2026 li indicava come disponibili: [Shelly 1 Gen4](https://www.shelly.com/it/products/shelly-1-gen4), [Shelly 1PM Gen4](https://www.shelly.com/it/products/shelly-1pm-gen4), [Shelly 2PM Gen4](https://www.shelly.com/it/products/shelly-2pm-gen4), [Shelly i4 Gen4](https://www.shelly.com/it/products/shelly-i4-gen4), [Shelly 1L Gen4](https://www.shelly.com/it/products/shelly-1l-gen4) (link di affiliazione). I prezzi cambiano: verificate il prezzo sul sito al momento dell'acquisto.
 
 **In breve:** 1 Gen4 per comandare, 1PM Gen4 per comandare e misurare, 2PM per due canali o tapparelle, i4 per i pulsanti, 1L se manca il neutro.

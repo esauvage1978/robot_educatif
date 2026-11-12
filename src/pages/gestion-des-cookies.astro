@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { COOKIE_CONSENT_STORAGE_KEY } from '../lib/cookieConsent';
 import { withBase } from '../lib/siteUrl';
+import PageColumns from '../components/PageColumns.astro';
 
 const politiqueUrl = withBase('/politique-de-confidentialite/');
 const mentionsUrl = withBase('/mentions-legales/');
@@ -14,12 +15,13 @@ const mentionsUrl = withBase('/mentions-legales/');
 	<head>
 		<BaseHead
 			title="Gestion des cookies"
-			description="Cookies, Consent Mode Google Analytics 4 et traceurs — ROBOT éducatif."
+			description="Cookies de robot-educatif.info : traceurs utilisés, bandeau de choix, Consent Mode et mesure d’audience. Dernière mise à jour : 28 mars 2026. Choix révocable."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
+<PageColumns>
 			<article class="legal-doc">
 				<h1>Gestion des cookies et traceurs</h1>
 				<p class="legal-meta">
@@ -27,9 +29,9 @@ const mentionsUrl = withBase('/mentions-legales/');
 				</p>
 				<p>
 					Cette page explique comment le site <strong>ROBOT éducatif</strong> utilise des
-					<strong>cookies</strong> et autres <strong>traceurs</strong>, comment fonctionne le
-					<strong>bandeau de consentement</strong> et le <strong>mode de consentement Google</strong> (Google
-					Analytics&nbsp;4). Pour le traitement global des données personnelles, voir la
+					<strong> cookies</strong> et autres <strong>traceurs</strong>, comment fonctionne le
+					<strong> bandeau de consentement</strong> et le <strong>mode de consentement Google</strong> (Google
+					Analytics&nbsp;4, mesure d’audience). Pour le traitement global des données personnelles, voir la
 					<a href={politiqueUrl}>politique de confidentialité</a>.
 				</p>
 
@@ -169,7 +171,8 @@ const mentionsUrl = withBase('/mentions-legales/');
 					</p>
 				</section>
 			</article>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 		<script is:inline define:vars={{ COOKIE_CONSENT_STORAGE_KEY }}>
 			document.getElementById('cookie-reset-choice')?.addEventListener('click', function () {

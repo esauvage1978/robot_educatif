@@ -2,7 +2,7 @@
 title: "Puissance 4 en Python (3/6) — coup valide et alternance"
 description: "Console, input colonne 1-7, alternance X/O ; demo de plusieurs tours sans detection victoire ; .py telechargeable."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-04
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 3
@@ -18,9 +18,11 @@ categories:
   - "Puissance 4"
   - "Projet"
 ---
-Après [jouer_colonne](/python-puissance-4-2-affichage-gravite/), on lit une **colonne au clavier**, on valide, on joue, puis on **passe la main** à l’autre joueur. Ce chapitre ne détecte pas encore la victoire (chapitre 4).
+Après [jouer_colonne](/python-puissance-4-2-affichage-gravite/) (chapitre 2), on lit une **colonne au clavier**, on valide, on joue, puis on **passe la main** à l’autre joueur. Ce chapitre ne détecte pas encore la victoire ([chapitre 4](/python-puissance-4-4-quatre-alignes/)).
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/">Programmation</a> · <a href="/programmation/puissance-4/">Puissance 4</a> · Partie 3/6</nav>
+
+> **Réponse directe** — Pour **alterner X et O** au Puissance 4 en console : après un coup réussi dans `jouer_colonne`, basculez `joueur = J2 if joueur == J1 else J1` ; si la colonne est pleine, **ne changez pas** de joueur. Hub série : [Puissance 4](/programmation/puissance-4/) · chapitre 1 : [cahier des charges](/python-puissance-4-1-cahier-grille/) · chapitre 2 : [gravité](/python-puissance-4-2-affichage-gravite/) · [robots Python](/robot-programmable-python/) (hors série jeu).
 
 ## 1. Lire une colonne (1 à 7 pour l’humain)
 
@@ -144,10 +146,17 @@ if __name__ == "__main__":
 
 **[puissance4_chapitre_03.py](/downloads/puissance4/puissance4_chapitre_03.py)**
 
+## FAQ
+
+**Pourquoi la colonne pleine ne change pas de joueur ?**  
+Sinon l’adversaire perdrait un tour — on redemande une colonne jouable.
+
+**`input()` renvoie une chaîne : pourquoi `int()` ?**  
+Python lit du texte ; `int()` convertit `"3"` en nombre pour comparer à `COLONNES`.
+
+**Où est la victoire ?**  
+Quatre jetons alignés : [partie 4](/python-puissance-4-4-quatre-alignes/).
+
 ## Suite
 
 [Partie 4 — Détecter quatre jetons alignés](/python-puissance-4-4-quatre-alignes/).
-
-## Amazon (partenaire)
-
-- [Python 3 exercices](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21)

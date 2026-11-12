@@ -9,13 +9,41 @@ updated: "23. Oktober 2026"
 
 ## 1. Vergleichstabelle
 
-| | **mBot** | **Codey Rocky** |
-|---|---|---|
-| Form | Zwei-Motoren-Chassis, Bausatz | ausdrucksstarker Kopf (Codey) + Fahrgestell (Rocky) |
-| Häufig genanntes Alter | **ab 8** (Schrauben, Anleitung) | **ab 6** (wenig Mechanik) |
-| Erste Aktivitäten | Linie, Hindernis, LEDs, Ultraschall | Emotionen, Display, Minispiele im Gesicht |
-| Blöcke / Python | ja, über mBlock | ja, über mBlock |
-| Im Unterricht | Robotik-Werkstatt | Begleiter, Vorführungen, Geschichten |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>mBot</strong></th>
+<th scope="col"><strong>Codey Rocky</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Form</span></td>
+<td data-label="**mBot**"><span class="td-val">Zwei-Motoren-Chassis, Bausatz</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">ausdrucksstarker Kopf (Codey) + Fahrgestell (Rocky)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Häufig genanntes Alter</span></td>
+<td data-label="**mBot**"><span class="td-val"><strong>ab 8</strong> (Schrauben, Anleitung)</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val"><strong>ab 6</strong> (wenig Mechanik)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Erste Aktivitäten</span></td>
+<td data-label="**mBot**"><span class="td-val">Linie, Hindernis, LEDs, Ultraschall</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Emotionen, Display, Minispiele im Gesicht</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Blöcke / Python</span></td>
+<td data-label="**mBot**"><span class="td-val">ja, über mBlock</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">ja, über mBlock</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Im Unterricht</span></td>
+<td data-label="**mBot**"><span class="td-val">Robotik-Werkstatt</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Begleiter, Vorführungen, Geschichten</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Unsere Wahl:** **Codey Rocky** für 6- bis 8-Jährige, die schnell loslegen wollen; der **mBot** ab 8 für Kinder, die gern bauen und eine „echte“ Roboterwerkstatt möchten.
 

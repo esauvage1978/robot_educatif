@@ -1,0 +1,154 @@
+---
+import { HUBS, COMPAT_ROWS, COMPAT_UI } from '../data/smartHomeCompat.mjs';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang } = Astro.props;
+const ui = COMPAT_UI[lang];
+
+function statusLabel(st) {
+	if (st === 'native') return ui.native;
+	if (st === 'plugin') return ui.plugin;
+	return ui.no;
+}
+---
+
+<div class="cmx" data-cmx="">
+<div class="cmx-filters">
+<label>
+			{ui.filterHub}
+			<select data-cmx-hub="">
+<option value="all">{ui.all}</option>
+				{HUBS.map((h) => (
+					<option value="{h.id}">{h.label[lang]}</option>
+				))}
+			</select>
+</label>
+<label>
+			{ui.filterProto}
+			<select data-cmx-proto="">
+<option value="all">{ui.all}</option>
+<option value="wifi">{ui.proto.wifi}</option>
+<option value="zigbee">{ui.proto.zigbee}</option>
+<option value="matter">{ui.proto.matter}</option>
+</select>
+</label>
+</div>
+<div class="cmx-table-wrap">
+<table class="cmx-table">
+<thead>
+<tr>
+<th>{ui.equipment}</th>
+<th>{ui.filterProto}</th>
+<th>{ui.consumption}</th>
+					{HUBS.map((h) => (
+						<th data-cmx-col="{h.id}">{h.label[lang]}</th>
+					))}
+				</tr>
+</thead>
+<tbody>
+				{COMPAT_ROWS.map((row) => (
+					<tr data-cmx-row="" data-proto="{row.protocol}">
+<td>
+<strong>{row.name}</strong>
+							{(row.notes[lang] ?? row.notes.en) && (
+								<p class="cmx-note">{row.notes[lang] ?? row.notes.en}</p>
+							)}
+						</td>
+<td>{ui.proto[row.protocol] ?? row.protocol}</td>
+<td>{row.powerW}</td>
+						{HUBS.map((h) => (
+							<td data-cmx-cell="{h.id}" data-status="{row.hubs[h.id]}">
+								{statusLabel(row.hubs[h.id])}
+							</td>
+						))}
+					</tr>
+				))}
+			</tbody>
+</table>
+</div>
+</div>
+<style>
+	.cmx-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+		margin: 1.25rem 0;
+	}
+	.cmx-filters label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.cmx-filters select {
+		padding: 0.45rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		min-width: 200px;
+	}
+	.cmx-table-wrap {
+		overflow-x: auto;
+		margin: 1rem 0 2rem;
+	}
+	.cmx-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9rem;
+	}
+	.cmx-table th,
+	.cmx-table td {
+		border: 1px solid var(--surface-border);
+		padding: 0.65rem 0.75rem;
+		vertical-align: top;
+	}
+	.cmx-table th {
+		background: #f0fdfa;
+		color: #0f766e;
+		font-size: 0.8rem;
+	}
+	.cmx-note {
+		margin: 0.35rem 0 0;
+		font-size: 0.82rem;
+		color: rgb(var(--gray-dark));
+		font-weight: 400;
+	}
+	.cmx-table tr[data-cmx-hidden='true'] {
+		display: none;
+	}
+	.cmx-table th[data-cmx-dim='true'],
+	.cmx-table td[data-cmx-dim='true'] {
+		opacity: 0.35;
+	}
+</style>
+<script>
+	function initCmx(root) {
+		const hubSel = root.querySelector('[data-cmx-hub]');
+		const protoSel = root.querySelector('[data-cmx-proto]');
+		const rows = root.querySelectorAll('[data-cmx-row]');
+		const cols = root.querySelectorAll('[data-cmx-col]');
+		function apply() {
+			const hub = hubSel?.value || 'all';
+			const proto = protoSel?.value || 'all';
+			rows.forEach((row) => {
+				const p = row.getAttribute('data-proto');
+				row.setAttribute('data-cmx-hidden', proto !== 'all' && p !== proto ? 'true' : 'false');
+			});
+			cols.forEach((th) => {
+				const id = th.getAttribute('data-cmx-col');
+				const dim = hub !== 'all' && id !== hub;
+				th.setAttribute('data-cmx-dim', dim ? 'true' : 'false');
+				root.querySelectorAll(`[data-cmx-cell="${id}"]`).forEach((td) => {
+					td.setAttribute('data-cmx-dim', dim ? 'true' : 'false');
+				});
+			});
+		}
+		hubSel?.addEventListener('change', apply);
+		protoSel?.addEventListener('change', apply);
+		apply();
+	}
+	document.querySelectorAll('[data-cmx]').forEach(initCmx);
+</script>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" role="img" aria-labelledby="title desc">
+  <title id="title">Maillage Zigbee vs étoile Wi-Fi</title>
+  <desc id="desc">À gauche, le Wi-Fi en étoile autour de la box Internet. À droite, le Zigbee en maillage avec prises relais.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="380" fill="url(#bg)" rx="12"/>
+  <text x="460" y="34" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f766e">Wi-Fi (étoile) vs Zigbee (maillage)</text>
+
+  <!-- Wi-Fi star -->
+  <text x="230" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#f97316">Wi-Fi</text>
+  <circle cx="230" cy="160" r="36" fill="#f97316"/>
+  <text x="230" y="165" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fff">Box IP</text>
+  <circle cx="100" cy="110" r="22" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  <text x="100" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#0f172a">Prise</text>
+  <circle cx="360" cy="110" r="22" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  <text x="360" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#0f172a">Ampoule</text>
+  <circle cx="100" cy="230" r="22" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  <text x="100" y="234" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#0f172a">Caméra</text>
+  <circle cx="360" cy="230" r="22" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  <text x="360" y="234" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#0f172a">Prise</text>
+  <line x1="198" y1="140" x2="120" y2="120" stroke="#fb923c" stroke-width="1.5"/>
+  <line x1="262" y1="140" x2="340" y2="120" stroke="#fb923c" stroke-width="1.5"/>
+  <line x1="198" y1="180" x2="120" y2="220" stroke="#fb923c" stroke-width="1.5"/>
+  <line x1="262" y1="180" x2="340" y2="220" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="230" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">Chaque appareil parle à la box Internet</text>
+
+  <!-- Zigbee mesh -->
+  <text x="690" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#6366f1">Zigbee</text>
+  <circle cx="690" cy="140" r="28" fill="#6366f1"/>
+  <text x="690" y="144" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fff">Coord.</text>
+  <circle cx="580" cy="200" r="24" fill="#4f46e5"/>
+  <text x="580" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#fff">Prise</text>
+  <circle cx="800" cy="200" r="24" fill="#4f46e5"/>
+  <text x="800" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#fff">Ampoule</text>
+  <circle cx="620" cy="290" r="20" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+  <text x="620" y="294" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#0f172a">Capteur</text>
+  <circle cx="760" cy="290" r="20" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+  <text x="760" y="294" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#0f172a">Capteur</text>
+  <line x1="665" y1="155" x2="600" y2="185" stroke="#818cf8" stroke-width="1.5"/>
+  <line x1="715" y1="155" x2="780" y2="185" stroke="#818cf8" stroke-width="1.5"/>
+  <line x1="600" y1="220" x2="780" y2="220" stroke="#818cf8" stroke-width="1.5"/>
+  <line x1="580" y1="224" x2="620" y2="272" stroke="#818cf8" stroke-width="1.5"/>
+  <line x1="800" y1="224" x2="760" y2="272" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="690" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">Les appareils sur secteur relaient les messages</text>
+
+  <text x="460" y="365" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">robot-educatif.info  protocoles domotiques</text>
+</svg>

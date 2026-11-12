@@ -2,7 +2,7 @@
 title: "Puissance 4 en Python (1/6) — cahier des charges et grille"
 description: "Console, constantes 6×7, nouvelle_grille et grille_pleine ; script .py telechargeable identique au code du chapitre."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 1
@@ -20,9 +20,27 @@ categories:
 ---
 Le **Puissance 4** se joue sur une grille **6 lignes × 7 colonnes** : les jetons tombent dans une colonne jusqu’à la case libre la plus basse. Le premier qui aligne **quatre** pions (horizontal, vertical, diagonal) gagne.
 
+> **Série Puissance 4 (1/6)** — [Sommaire](/programmation/puissance-4/) · suite : [Partie 2 — affichage](/python-puissance-4-2-affichage-gravite/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/puissance-4/">Série Puissance 4</a></nav>
+
 Tu travailles dans un **terminal** (PowerShell, invite de commandes, ou terminal intégré de VS Code / Thonny) : tu lances chaque script avec `python nom_du_fichier.py`.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+Exemple de grille vide affichée en console :
+
+```
+  1 2 3 4 5 6 7
+  . . . . . . .
+  . . . . . . .
+  . . . . . . .
+  . . . . . . .
+  . . . . . . .
+  . . . . . . .
+```
+
+![Terminal PowerShell après le script du chapitre 1 : grille 6 × 7 créée, dernière ligne [0, 0, 0, 1, 0, 0, 0], grille pleine False.](/images/lot10/puissance4-ch1-terminal-output.webp)
+
+*Sortie du fichier `puissance4_chapitre_01.py` : le `1` est dans la dernière ligne, colonne 4 (indice 3).*
 
 ## 1. Dimensions et symboles internes
 
@@ -118,7 +136,3 @@ if __name__ == "__main__":
 ## Suite
 
 [Partie 2 — Afficher la grille et faire tomber un jeton](/python-puissance-4-2-affichage-gravite/).
-
-## Amazon (partenaire)
-
-- [Python — projets et jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)

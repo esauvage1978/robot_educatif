@@ -114,11 +114,27 @@ Pour te laisser le temps de :
 
 **À créer dans Variables** :
 
-| Variable | À quoi elle sert |
-|---|---|
-| `reference` | Distance de départ (cm) |
-| `mesure` | Distance actuelle (cm) |
-| `intrusions` | Compteur (pour la version 3.2) |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Variable</th>
+<th scope="col">À quoi elle sert</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Variable"><span class="td-val"><code>reference</code></span></td>
+<td data-label="À quoi elle sert"><span class="td-val">Distance de départ (cm)</span></td>
+</tr>
+<tr>
+<td data-label="Variable"><span class="td-val"><code>mesure</code></span></td>
+<td data-label="À quoi elle sert"><span class="td-val">Distance actuelle (cm)</span></td>
+</tr>
+<tr>
+<td data-label="Variable"><span class="td-val"><code>intrusions</code></span></td>
+<td data-label="À quoi elle sert"><span class="td-val">Compteur (pour la version 3.2)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Programme de base (détection simple)** :
 

@@ -2,21 +2,28 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import HomeIntentPaths from '../../components/HomeIntentPaths.astro';
+import HomeSmartHome from '../../components/HomeSmartHome.astro';
 import { getIllustration } from '../../lib/illustration';
 import { withBase } from '../../lib/siteUrl';
 import { withImageVersion } from '../../lib/imageVersion';
+import { amazonDpUrl } from '../../lib/amazonMarket.mjs';
+import { catalogForMarket } from '../../lib/marketProducts.mjs';
 import { DE_PAGES, slugOf } from '../../lib/i18n.mjs';
 
 const TITLE = 'Robot Éducatif: Ratgeber zu Programmierrobotern, Arduino und Raspberry Pi für Kinder';
-const DESCRIPTION = 'Unabhängige Ratgeber für Eltern und Lehrkräfte in Deutschland, Österreich und der Schweiz: Programmierroboter nach Alter, Arduino-Bausätze, Raspberry-Pi-Vergleiche und mBlock-Anleitungen.';
+const DESCRIPTION = 'Unabhängige Ratgeber für Eltern und Lehrkräfte in Deutschland, Österreich und de. mBot, Arduino-Roboterbausätze, Raspberry Pi: unabhängige Ratgeber für Eltern';
 const card = (href) => {
 	const p = DE_PAGES.find((x) => x.href === href);
 	const ill = getIllustration(slugOf(p.fr));
 	return { ...p, img: ill ? withImageVersion(withBase(ill.src)) : null, alt: ill ? `Illustration: ${p.title}` : '' };
 };
-const hero = card('/de/bester-programmierbarer-roboter-fuer-kinder/');
-const comparisons = ['/de/mbot-vs-mbot2/', '/de/raspberry-pi-3-vs-4-vs-5/', '/de/raspberry-pi-5-welcher-ram/'].map(card);
-const smartHome = ['/de/smart-home/einstieg/', '/de/smart-home/home-assistant-green-vs-raspberry-pi-5/', '/de/smart-home/bester-zigbee-stick-home-assistant/', '/de/smart-home/smarte-steckdosen/'].map(card);
+const { catalog } = await catalogForMarket('de', 'de');
+const heroMbot2 = catalog.mbot2;
+const heroMbot2Price = heroMbot2 && !heroMbot2.amazonIndispo ? heroMbot2.priceRange : '';
+const heroMbot2Href = heroMbot2?.asin && !heroMbot2.amazonIndispo ? amazonDpUrl(heroMbot2.asin, 'de') : '';
+const heroImage = withImageVersion(withBase('/mbot2-hero-v2.webp'));
+const comparisons = ['/de/lernroboter-weihnachtsgeschenke-2026/', '/de/mbot-vs-mbot2/', '/de/raspberry-pi-3-vs-4-vs-5/', '/de/raspberry-pi-5-welcher-ram/'].map(card);
 const tutorials = ['/de/mblock-5-installieren-windows/', '/de/erstes-mbot-programm/', '/de/arduino-roboter-bausatz-fuer-kinder/'].map(card);
 const ages = [
 	{ badge: '6–8 Jahre', title: 'Erster Programmierroboter', text: 'Blockprogrammierung, fertig montierter Roboter, einfache Sensoraufgaben', href: '/de/bester-programmierbarer-roboter-fuer-kinder/' },
@@ -24,12 +31,17 @@ const ages = [
 	{ badge: 'Ab 13 Jahren', title: 'Arduino-Roboterbausätze', text: 'Verkabelung, C/C++ in der Arduino IDE, längere Projekte', href: '/de/arduino-roboter-bausatz-fuer-kinder/' },
 	{ badge: 'Ab 12 Jahren', title: 'Raspberry Pi', text: 'Ein echter Linux-Computer für Python, Kameras und Projekte zu Hause', href: '/de/raspberry-pi-3-vs-4-vs-5/' },
 ];
+
+import { getProductImage } from '../../lib/amazonImage';
+import { buildHomePopularProducts } from '../../lib/homePopularProducts.mjs';
+
+const popularProducts = await buildHomePopularProducts('de', 'de');
 ---
 
 <!doctype html>
 <html lang="de">
 	<head>
-		<BaseHead title={TITLE} description={DESCRIPTION} image={hero.img ?? undefined} />
+		<BaseHead title={TITLE} description={DESCRIPTION} image={heroImage} />
 		<style>
 			body {
 				background: var(--page-bg);
@@ -65,17 +77,9 @@ const ages = [
 		color: #9A3412;
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.hero-content .badge {
-			background: #C2410C;
-			color: #FFFFFF;
-		}
-	}
+	
 
-	html[data-theme="dark"] .hero-content .badge {
-		background: #C2410C;
-		color: #FFFFFF;
-	}
+	
 			
 			.hero-content h1 {
 				font-family: var(--font-heading);
@@ -126,15 +130,9 @@ const ages = [
 			background: #C2410C;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.btn-primary {
-				background: #C2410C;
-			}
-		}
 		
-		html[data-theme="dark"] .btn-primary {
-			background: #C2410C;
-		}
+		
+		
 		
 		.btn-primary:hover {
 			background: #ea580c;
@@ -142,15 +140,9 @@ const ages = [
 			box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.btn-primary:hover {
-				background: #9A3412;
-			}
-		}
 		
-		html[data-theme="dark"] .btn-primary:hover {
-			background: #9A3412;
-		}
+		
+		
 			
 			.btn-secondary {
 				border: 2px solid var(--primary);
@@ -191,15 +183,7 @@ const ages = [
 			box-shadow: 0 20px 40px rgba(11, 31, 42, 0.12);
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card {
-				background: #ffffff;
-			}
-			.hero-card .card-info strong,
-			.hero-card .card-info small {
-				color: #0B1F2A;
-			}
-		}
+		
 			
 			.hero-card img {
 				width: 100%;
@@ -221,12 +205,7 @@ const ages = [
 			font-size: 0.9rem;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card .card-tag {
-				background: #0F766E;
-				color: white;
-			}
-		}
+		
 			
 			.card-footer {
 				display: flex;
@@ -262,15 +241,7 @@ const ages = [
 			transition: all 0.2s ease;
 		}
 		
-		@media (prefers-color-scheme: dark) {
-			.hero-card .card-cta {
-				background: #0B1F2A;
-				color: white;
-			}
-			.hero-card .card-cta:hover {
-				background: #0F766E;
-			}
-		}
+		
 		
 		.card-cta:hover {
 			background: var(--primary);
@@ -379,10 +350,12 @@ const ages = [
 			}
 			
 			.product-card {
-				background: var(--page-bg);
-				border: 1px solid var(--surface-border);
-				border-radius: 12px;
-				transition: all 0.2s ease;
+				background: #fff;
+				border: 1px solid #e5edf3;
+				border-left: 4px solid #0f766e;
+				border-radius: 18px;
+				box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+				transition: box-shadow 0.2s ease;
 				overflow: hidden;
 			}
 			
@@ -405,9 +378,10 @@ const ages = [
 				aspect-ratio: 1;
 				object-fit: contain;
 				margin: 0 auto 1rem;
-				background: white;
-				border-radius: 8px;
-				border: 1px solid var(--surface-border);
+				background: #f4f7fb;
+				border-radius: 14px;
+				border: 0;
+				padding: 0.65rem;
 			}
 			
 			.product-card h3 {
@@ -417,19 +391,35 @@ const ages = [
 				color: rgb(var(--black));
 			}
 			
+			.product-card-price {
+				display: block;
+				margin: 0 0 0.65rem;
+				font-weight: 800;
+				font-size: 1.35rem;
+				letter-spacing: -0.02em;
+				color: #0f172a;
+			}
+			.product-card-price .price-eur,
+			.card-info .price-eur {
+				white-space: nowrap;
+			}
 			.product-card-cta {
-				display: inline-block;
-				background: var(--accent-warm);
-				color: white;
-				padding: 10px 18px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background: #f59e0b;
+				color: #0f172a;
+				padding: 0.65rem 1.15rem;
 				border-radius: 8px;
+				border: 1px solid #d97706;
 				font-weight: 700;
-				font-size: 0.9rem;
-				transition: all 0.2s ease;
+				font-size: 0.95rem;
+				transition: background 0.15s ease;
 			}
 			
 			.product-card-link:hover .product-card-cta {
-				background: #ea580c;
+				background: #d97706;
+				color: #0f172a;
 			}
 			
 		.articles-grid {
@@ -488,8 +478,9 @@ const ages = [
 			}
 			
 			.cta-banner {
-				background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-				color: white;
+				/* #134e4a → #0f766e : le blanc reste ≥ 5,3:1 sur toute la surface (le dégradé #14b8a6 tombait à ~2,5:1). */
+				background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
+				color: #f8fafc;
 				border-radius: 20px;
 				padding: 3rem 2.5rem;
 				text-align: center;
@@ -501,24 +492,40 @@ const ages = [
 				font-weight: 800;
 				font-size: clamp(1.8rem, 3vw, 2.25rem);
 				margin: 0 0 1rem 0;
+				color: #f8fafc;
 			}
 			
 			.cta-banner p {
 				font-size: 1.15rem;
 				margin: 0 0 2rem 0;
-				opacity: 0.95;
+				color: #f8fafc;
 				max-width: 600px;
 				margin-left: auto;
 				margin-right: auto;
 			}
-			
-			.cta-banner .btn {
-				background: white;
-				color: var(--primary);
+
+			.cta-banner a:not(.btn) {
+				color: #ffffff;
+				font-weight: 700;
+				text-decoration: underline;
+				text-decoration-thickness: 1px;
+				text-underline-offset: 3px;
+			}
+
+			.cta-banner a:not(.btn):hover,
+			.cta-banner a:not(.btn):focus-visible {
+				color: #ccfbf1;
 			}
 			
-			.cta-banner .btn:hover {
-				background: var(--page-bg);
+			.cta-banner .btn {
+				background: #ffffff;
+				color: #115e59;
+			}
+			
+			.cta-banner .btn:hover,
+			.cta-banner .btn:focus-visible {
+				background: #f0fdfa;
+				color: #134e4a;
 				transform: translateY(-2px);
 				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 			}
@@ -583,44 +590,56 @@ const ages = [
 		</style>
 		<style>
 			.hero-content { min-width: 0; }
-			.hero-ctas { flex-wrap: wrap; }
 			.hero h1 { overflow-wrap: break-word; }
-			.hero-card img.hero-ill { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block; }
 		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="home">
 			<section class="hero">
 				<div class="hero-inner">
 					<div class="hero-content">
-						<span class="badge">Neu: unsere Ratgeber auf Deutsch</span>
-						<h1>Der richtige <em>Programmierroboter</em> für Ihr Kind, klar erklärt</h1>
+						<span class="badge">🎄 Weihnachtsguide 2026 aktualisiert</span>
+						<h1>Der richtige Lernroboter, <em>nach Alter ausgewählt</em> für Ihr Kind</h1>
 						<p class="hero-lead">
-							mBot, Arduino-Roboterbausätze, Raspberry Pi: unabhängige Ratgeber für Eltern und Lehrkräfte in Deutschland, Österreich und der Schweiz, auf Basis der offiziellen Herstellerdaten.
+							mBot, programmierbare Roboter, Arduino-Bausätze: unsere Vergleiche nach Alter (6 bis 15 Jahre), damit das Geschenk wirklich Programmieren beibringt.
 						</p>
 						<div class="hero-ctas">
-							<a href={withBase('/de/bester-programmierbarer-roboter-fuer-kinder/')} class="btn btn-primary">Nach Alter wählen →</a>
-							<a href={withBase('/de/raspberry-pi-3-vs-4-vs-5/')} class="btn btn-secondary">Raspberry Pi vergleichen</a>
+							<a href={withBase('/de/lernroboter-weihnachtsgeschenke-2026/')} class="btn btn-primary">
+								<span class="hide-m">Zum Weihnachts</span><span class="show-m">Weihnachts</span>guide →
+							</a>
+							<a href={withBase('/de/bester-programmierbarer-roboter-fuer-kinder/')} class="btn btn-secondary">
+								Nach Alter wählen
+							</a>
 						</div>
 						<div class="trust-signals">
 							<span>📚 <b>{DE_PAGES.length} Ratgeber</b> auf Deutsch</span>
-							<span>🔎 Daten mit Quelle und Datum</span>
 						</div>
 					</div>
-					<a class="hero-card" href={withBase(hero.href)} style="text-decoration:none;color:inherit;">
-						<span class="card-tag">⭐ Meistgelesener Ratgeber</span>
-						{hero.img && <img class="hero-ill" src={hero.img} width="960" height="540" alt={hero.alt} loading="eager" fetchpriority="high" />}
+					<div class="hero-card">
+						<span class="card-tag">⭐ Unsere Wahl, ab 8 Jahren</span>
+						<img src={heroImage} width="500" height="320" alt="Makeblock mBot2 Programmierroboter" loading="eager" />
 						<div class="card-footer">
 							<div class="card-info">
-								<strong>Bester programmierbarer Roboter für Kinder</strong>
-								<small>mBot, mBot2, ELEGOO im Vergleich · 6 bis 13+ Jahre</small>
+								<strong>Makeblock mBot2</strong>
+								<small>Scratch, dann Python · passend ab 8 Jahren</small>
+								{heroMbot2Price && (
+									<small class="product-card-price">
+										<span class="price-eur">{heroMbot2Price}</span>
+									</small>
+								)}
 							</div>
-							<span class="card-cta">Lesen →</span>
+							{heroMbot2Href && (
+								<a href={heroMbot2Href} class="card-cta" rel="sponsored nofollow noopener" target="_blank">
+									Bei Amazon ansehen
+								</a>
+							)}
 						</div>
-					</a>
+					</div>
 				</div>
 			</section>
+
+			<HomeIntentPaths lang="de" />
 
 			<section class="section">
 				<div class="container">
@@ -640,6 +659,30 @@ const ages = [
 				</div>
 			</section>
 
+			<HomeSmartHome lang="de" />
+
+			<section class="section">
+				<div class="container">
+					<div class="best-sellers">
+						<h2>🔥 Beliebte Modelle</h2>
+						<p style="font-size:.85rem;opacity:.75;margin:-.4rem 0 1rem;">Werbelinks: Bei einem Kauf über Amazon.de erhalten wir eine Provision, für Sie ändert sich der Preis nicht.</p>
+						<div class="product-grid">
+							{popularProducts.map((product) => (
+								<div class="product-card">
+									<a href={product.href} rel={product.rel} target="_blank" class="product-card-link">
+										<img src={product.imageAmazon || getProductImage(product.asin, product.name, 200, 200)} alt={product.name} width="200" height="200" loading="lazy" class="product-card-img" />
+										<h3>{product.name}</h3>
+										{product.price && (
+											<span class="product-card-price"><span class="price-eur">{product.price}</span></span>
+										)}
+										<span class="product-card-cta">Bei Amazon.de ansehen →</span>
+									</a>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="section" style="background: var(--surface-2); padding: 4rem 0;">
 				<div class="container">
 					<div class="section-header">
@@ -678,23 +721,7 @@ const ages = [
 					</div>
 				</div>
 			</section>
-			<section class="section" style="background: var(--surface-2); padding: 4rem 0;">
-				<div class="container">
-					<div class="section-header">
-						<h2>Smart Home</h2>
-						<p>Home Assistant, Zigbee und smarte Steckdosen, angepasst an Haushalte mit Schuko (230 V, Typ F) und in der Schweiz (Typ J) · <a href={withBase('/de/smart-home/')}>Alle Smart-Home-Ratgeber →</a></p>
-					</div>
-					<div class="articles-grid">
-						{smartHome.map((c) => (
-							<a href={withBase(c.href)} class="article-card">
-								{c.img && <img src={c.img} alt={c.alt} width="448" height="252" loading="lazy" decoding="async" />}
-								<div class="article-content"><h3>{c.title}</h3></div>
-							</a>
-						))}
-					</div>
-				</div>
-			</section>
-		</main>
+</main>
 		<Footer />
 	</body>
 </html>

@@ -1,0 +1,356 @@
+---
+import {
+	ECOSYSTEMS,
+	QTY_OPTIONS,
+	BUDGET_TIERS,
+	PRODUCTS,
+} from '../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	useCaseId: string;
+	useCaseJson: string;
+}
+
+const { useCaseId, useCaseJson } = Astro.props;
+const ecosystemsJson = JSON.stringify(ECOSYSTEMS);
+const qtyJson = JSON.stringify(QTY_OPTIONS);
+const tiersJson = JSON.stringify(BUDGET_TIERS);
+const siteBase = withBase('');
+---
+
+<div
+	class="shpp-config"
+	data-shpp-config
+	data-use-case-id={useCaseId}
+	data-use-case={useCaseJson}
+	data-ecosystems={ecosystemsJson}
+	data-qty={qtyJson}
+	data-tiers={tiersJson}
+	data-base={siteBase}
+>
+	<h2 id="section-configurateur">Configurateur interactif du projet</h2>
+	<p class="shpp-config-lead">
+		Personnalisez l'écosystème, la variante technique, la quantité et le profil budget : la liste matériel et le budget se
+		mettent à jour instantanément.
+	</p>
+	<div class="shpp-config-grid">
+		<div class="shpp-block">
+			<h3>Profil budget</h3>
+			<div class="shpp-choices" data-shpp-tier></div>
+		</div>
+		<div class="shpp-block">
+			<h3>Écosystème</h3>
+			<div class="shpp-choices" data-shpp-eco></div>
+		</div>
+		<div class="shpp-block">
+			<h3 data-shpp-qty-label>Quantité</h3>
+			<div class="shpp-qty-row" data-shpp-qty></div>
+		</div>
+		<div class="shpp-block" data-shpp-tech-wrap hidden>
+			<h3>Variante technique</h3>
+			<div class="shpp-choices" data-shpp-tech></div>
+		</div>
+	</div>
+	<div class="shpp-alerts" data-shpp-alerts hidden></div>
+	<div data-shpp-live-result></div>
+</div>
+
+<script>
+	import { computeBill } from '../data/smartHomeUseCaseConfigurator.mjs';
+
+	function initShppConfig(root) {
+		const useCase = JSON.parse(root.dataset.useCase || '{}');
+		const ecosystems = JSON.parse(root.dataset.ecosystems || '[]');
+		const qtyOptions = JSON.parse(root.dataset.qty || '[]');
+		const tiers = JSON.parse(root.dataset.tiers || '[]');
+		const base = root.dataset.base || '';
+
+		const params = new URLSearchParams(window.location.search);
+		const state = {
+			tier: params.get('tier') || 'recommande',
+			ecosystem: params.get('eco') || 'ha-zigbee',
+			qtyId: params.get('qty') || '1',
+			techId: params.get('tech') || useCase.techOptions?.[0]?.id || null,
+		};
+
+		const tierWrap = root.querySelector('[data-shpp-tier]');
+		const ecoWrap = root.querySelector('[data-shpp-eco]');
+		const qtyWrap = root.querySelector('[data-shpp-qty]');
+		const qtyLabel = root.querySelector('[data-shpp-qty-label]');
+		const techWrap = root.querySelector('[data-shpp-tech-wrap]');
+		const techChoices = root.querySelector('[data-shpp-tech]');
+		const alertsEl = root.querySelector('[data-shpp-alerts]');
+		const resultEl = root.querySelector('[data-shpp-live-result]');
+
+		function syncUrl() {
+			const p = new URLSearchParams();
+			p.set('tier', state.tier);
+			p.set('eco', state.ecosystem);
+			p.set('qty', state.qtyId);
+			if (state.techId) p.set('tech', state.techId);
+			const url = `${window.location.pathname}?${p.toString()}`;
+			window.history.replaceState({}, '', url);
+		}
+
+		function tierToEco() {
+			const t = tiers.find((x) => x.id === state.tier);
+			if (t) state.ecosystem = t.ecosystem;
+		}
+
+		function renderControls() {
+			qtyLabel.textContent = useCase.qtyLabel || 'Quantité';
+			tierWrap.innerHTML = tiers
+				.map(
+					(t) =>
+						`<button type="button" class="shpp-choice${state.tier === t.id ? ' is-selected' : ''}" data-shpp-tier-id="${t.id}">${t.label}</button>`,
+				)
+				.join('');
+			tierWrap.querySelectorAll('[data-shpp-tier-id]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					state.tier = btn.dataset.shppTierId;
+					tierToEco();
+					renderControls();
+					renderResult();
+					syncUrl();
+				});
+			});
+
+			ecoWrap.innerHTML = ecosystems
+				.map(
+					(e) =>
+						`<button type="button" class="shpp-choice${state.ecosystem === e.id ? ' is-selected' : ''}" data-shpp-eco-id="${e.id}">${e.label}</button>`,
+				)
+				.join('');
+			ecoWrap.querySelectorAll('[data-shpp-eco-id]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					state.ecosystem = btn.dataset.shppEcoId;
+					const match = tiers.find((t) => t.ecosystem === state.ecosystem);
+					if (match) state.tier = match.id;
+					renderControls();
+					renderResult();
+					syncUrl();
+				});
+			});
+
+			qtyWrap.innerHTML = qtyOptions
+				.map(
+					(q) =>
+						`<button type="button" class="shpp-qty-btn${state.qtyId === q.id ? ' is-selected' : ''}" data-shpp-q="${q.id}">${q.label}</button>`,
+				)
+				.join('');
+			qtyWrap.querySelectorAll('[data-shpp-q]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					state.qtyId = btn.dataset.shppQ;
+					renderResult();
+					syncUrl();
+				});
+			});
+
+			if (useCase.techOptions?.length) {
+				techWrap.hidden = false;
+				techChoices.innerHTML = useCase.techOptions
+					.map(
+						(t) =>
+							`<button type="button" class="shpp-choice${state.techId === t.id ? ' is-selected' : ''}" data-shpp-tech-id="${t.id}">${t.label}</button>`,
+					)
+					.join('');
+				techChoices.querySelectorAll('[data-shpp-tech-id]').forEach((btn) => {
+					btn.addEventListener('click', () => {
+						state.techId = btn.dataset.shppTechId;
+						renderResult();
+						syncUrl();
+					});
+				});
+			} else {
+				techWrap.hidden = true;
+				state.techId = null;
+			}
+		}
+
+		function href(path) {
+			const p = path.startsWith('/') ? path : `/${path}`;
+			if (!base || base === '/') return p;
+			const b = base.endsWith('/') ? base.slice(0, -1) : base;
+			return `${b}${p}`;
+		}
+
+		function escapeHtml(s) {
+			return String(s)
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;');
+		}
+
+		function renderResult() {
+			const bill = computeBill({
+				useCaseId: useCase.id,
+				ecosystem: state.ecosystem,
+				qtyId: state.qtyId,
+				techId: state.techId,
+			});
+			if (!bill) {
+				resultEl.innerHTML = '<p>Configuration invalide pour cette combinaison.</p>';
+				return;
+			}
+			if (alertsEl) {
+				const alerts = [];
+				if (useCase.id === 'boite-lettres-colis') {
+					alerts.push(
+						'L’Aqara P2 parle Thread et Matter. Un dongle Zigbee ne l’associe pas : il faut un routeur de bordure Thread déjà en place.',
+					);
+				} else if (state.ecosystem === 'ha-zigbee' && !bill.lines.some((l) => l.productId.includes('zbdongle') || l.productId.includes('ha-connect'))) {
+					alerts.push('Pensez à un coordinateur Zigbee si ce n’est pas déjà le cas.');
+				}
+				if (state.ecosystem === 'wifi-sans-box' && useCase.id.includes('garage')) {
+					alerts.push(
+						'Retour d’état : Shelly BLU Door/Window via passerelle Bluetooth Gen3, ou capteur Zigbee si vous passez plus tard sur Home Assistant.',
+					);
+				}
+				if (useCase.id.includes('sans-neutre') && state.ecosystem === 'wifi-sans-box') {
+					alerts.push('Sans neutre : vérifiez la compatibilité LED min. 3 W du module choisi.');
+				}
+				if (alerts.length) {
+					alertsEl.hidden = false;
+					alertsEl.innerHTML = alerts.map((a) => `<p class="shpp-alert">⚠ ${escapeHtml(a)}</p>`).join('');
+				} else alertsEl.hidden = true;
+			}
+
+			const ecoLabel =
+				useCase.id === 'boite-lettres-colis'
+					? state.ecosystem === 'ha-zigbee'
+						? 'Home Assistant via Matter (le P2 n’est pas Zigbee)'
+						: state.ecosystem === 'maker-esp32'
+							? 'Même capteur Matter, sans carte ESP32'
+							: 'Application Matter, sans app Shelly'
+					: (ecosystems.find((e) => e.id === state.ecosystem)?.label ?? state.ecosystem);
+			const techLabel =
+				useCase.techOptions?.find((t) => t.id === state.techId)?.label ?? 'Variante par défaut';
+			const boxRequired = useCase.id === 'boite-lettres-colis' ? false : state.ecosystem === 'ha-zigbee' || state.ecosystem === 'maker-esp32';
+			const boxLabel =
+				useCase.id === 'boite-lettres-colis'
+					? 'Routeur de bordure Thread requis'
+					: boxRequired
+						? 'Requise (HA / coordinateur)'
+						: 'Facultative';
+
+			document.querySelectorAll('[data-shpp-dynamic-budget]').forEach((el) => {
+				el.innerHTML = `<strong>Budget estimé</strong> ${bill.meta.budgetText}`;
+			});
+			document.querySelectorAll('[data-shpp-dynamic-eco]').forEach((el) => {
+				el.innerHTML = `<strong>Écosystème</strong> ${escapeHtml(ecoLabel)}`;
+			});
+			document.querySelectorAll('[data-shpp-dynamic-tech]').forEach((el) => {
+				el.innerHTML = `<strong>Variante technique</strong> ${escapeHtml(techLabel)}`;
+			});
+			document.querySelectorAll('[data-shpp-dynamic-box]').forEach((el) => {
+				el.innerHTML = `<strong>Box domotique</strong> ${boxLabel}`;
+			});
+
+			document.querySelectorAll('[data-shpp-path]').forEach((path) => {
+				const id = path.dataset.shppPath;
+				path.hidden = id !== state.ecosystem && !(state.ecosystem === 'maker-esp32' && id === 'ha-zigbee');
+				path.classList.toggle('is-primary', id === state.ecosystem || (state.ecosystem === 'maker-esp32' && id === 'ha-zigbee'));
+			});
+
+			const guidesRaw = document.getElementById('shpp-guides-json')?.textContent;
+			if (guidesRaw) {
+				try {
+					const guides = JSON.parse(guidesRaw);
+					const g = guides[state.ecosystem] ?? guides['wifi-sans-box'];
+					if (g?.functionalSvg) {
+						document.querySelectorAll('[data-shpp-functional-svg]').forEach((el) => {
+							el.innerHTML = g.functionalSvg;
+						});
+					}
+					if (g?.functionalPoints?.length) {
+						document.querySelectorAll('[data-shpp-func-points]').forEach((ol) => {
+							ol.innerHTML = g.functionalPoints.map((pt) => `<li>${escapeHtml(pt)}</li>`).join('');
+						});
+					}
+					const yamlEl = document.querySelector('[data-shuc-yaml] code');
+					if (yamlEl && g?.yaml) yamlEl.textContent = g.yaml;
+				} catch {
+					/* ignore */
+				}
+			}
+
+			const linesHtml = bill.lines
+				.map((line) => {
+					const roleBadge =
+						line.role === 'main'
+							? '<span class="shpp-role-badge shpp-role--main">Indispensable</span>'
+							: line.note?.toLowerCase().includes('facult')
+								? '<span class="shpp-role-badge shpp-role--opt">Facultatif</span>'
+								: '<span class="shpp-role-badge shpp-role--rec">Recommandé</span>';
+					const imgSrc = href(line.image);
+					return `<tr>
+						<td><img src="${imgSrc}" alt="${escapeHtml(line.label)}" width="48" height="48" loading="lazy" /></td>
+						<td>${roleBadge} ${escapeHtml(line.label)}</td>
+						<td>${escapeHtml(line.note || '')}</td>
+						<td>${line.qty}</td>
+						<td>${line.lineText}</td>
+						<td><a href="${escapeHtml(line.buyUrl)}" rel="sponsored nofollow noopener" target="_blank">${escapeHtml(line.buyLabel)}</a></td>
+					</tr>`;
+				})
+				.join('');
+
+			resultEl.innerHTML = `
+				<p class="shpp-live-budget">Budget de la sélection : <strong>${bill.meta.budgetText}</strong></p>
+				<table class="tableau empile shpp-materiel-live">
+					<thead><tr><th></th><th>Matériel</th><th>Utilité</th><th>Qté</th><th>Prix</th><th>Action</th></tr></thead>
+					<tbody>${linesHtml}</tbody>
+				</table>
+			`;
+			root.dataset.shppBill = JSON.stringify(bill);
+		}
+
+		tierToEco();
+		if (params.get('eco')) state.ecosystem = params.get('eco');
+		if (params.get('tech')) state.techId = params.get('tech');
+		renderControls();
+		renderResult();
+		syncUrl();
+	}
+
+	document.querySelectorAll('[data-shpp-config]').forEach(initShppConfig);
+</script>
+
+<style is:global>
+	.shpp-config-grid {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	.shpp-choices,
+	.shpp-qty-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.shpp-choice,
+	.shpp-qty-btn {
+		padding: 0.45rem 0.75rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border, #cbd5e1);
+		background: var(--surface, #fff);
+		cursor: pointer;
+		font-size: 0.88rem;
+		text-align: left;
+	}
+	.shpp-choice.is-selected,
+	.shpp-qty-btn.is-selected {
+		border-color: #0f766e;
+		background: #ccfbf1;
+		font-weight: 700;
+	}
+	
+	.shpp-alert {
+		padding: 0.65rem 0.85rem;
+		border-radius: 8px;
+		background: #fef3c7;
+		color: #92400e;
+	}
+	
+</style>

@@ -8,14 +8,43 @@ category: esp32
 
 L'ESP32 coûte peu, se programme sans écrire de code grâce à ESPHome et s'intègre directement à Home Assistant. Voici nos guides, du choix de la carte au projet complet.
 
+<figure>
+<img src="/images/schemas/esp32-esphome.svg" alt="Chaîne ESP32, ESPHome, Home Assistant" width="780" height="496" />
+<figcaption>La carte ESP32 exécute ESPHome. ESPHome publie les capteurs et les commandes sur Home Assistant, dans la maison.</figcaption>
+</figure>
+
 ## L'essentiel en un tableau
 
-| Guide | Niveau | Ce que vous obtenez |
-|---|---|---|
-| [Quelle carte ESP32 choisir](/domotique/quelle-carte-esp32-choisir-domotique/) | débutant | les 5 puces comparées d'après les fiches Espressif |
-| [Capteur température ESP32 + ESPHome](/domotique/esp32-esphome-capteur-temperature/) | débutant | votre premier capteur dans Home Assistant |
-| [Porte de garage pilotée au smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/) | intermédiaire | un relais ESP32 câblé sur la motorisation |
-| [10 projets ESP32 pour la domotique](/domotique/projets-esp32-domotique/) | tous niveaux | des idées classées, avec le matériel |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Guide</th>
+<th scope="col">Niveau</th>
+<th scope="col">Ce que vous obtenez</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/quelle-carte-esp32-choisir-domotique/">Quelle carte ESP32 choisir</a></span></td>
+<td data-label="Niveau"><span class="td-val">débutant</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">les 5 puces comparées d'après les fiches Espressif</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/esp32-esphome-capteur-temperature/">Capteur température ESP32 + ESPHome</a></span></td>
+<td data-label="Niveau"><span class="td-val">débutant</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">votre premier capteur dans Home Assistant</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/">Porte de garage pilotée au smartphone</a></span></td>
+<td data-label="Niveau"><span class="td-val">intermédiaire</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">un relais ESP32 câblé sur la motorisation</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/projets-esp32-domotique/">10 projets ESP32 pour la domotique</a></span></td>
+<td data-label="Niveau"><span class="td-val">tous niveaux</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">des idées classées, avec le matériel</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Notre meilleur choix
 

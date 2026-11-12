@@ -1,0 +1,49 @@
+---
+title: "Home automation in rental: what can be installed without work?"
+description: "Tenant or temporary dwelling: connected sockets, battery sensors, thermostatic heads, wireless switches and cameras without drilling. What can be installed, what to ask the owner, and how to recover everything at the start."
+pubDate: 2026-10-23T00:00:00Z
+category: "debuter"
+priority: 5
+lang: "en"
+frSlug: "domotique-location-sans-travaux"
+---
+
+Being a tenant does not prevent you from having a smart home. The rule is simple: **anything that plugs, sticks or screws on an existing tip** can be installed and left with you. What concerns the electrical panel, the built-in switches or the boiler requires the agreement of the owner and, often, an electrician.
+
+## The essentials in a picture
+
+| Equipment | Installation | Owner's agreement | Recoverable at the start | Current Protocol |
+|---|---|---|---|---|
+| Connected socket | The Branches | No | yes | Wi-Fi, Zigbee, Matter |
+| Temperature / Humidity Sensor | laid or glued | No | yes | Zigbee, Bluetooth |
+| Opening sensor | Adhesive | No | yes (stick to remove) | Zigbee |
+| Connected Light Bulb | Screws | No | Yes (put the old one back) | Zigbee, Wi-Fi, Matter |
+| Wireless button/switch | Adhesive | No | yes | Zigbee |
+| Connected thermostatic head | replaces the head of the water radiator | to be checked (radiator equipped with a thermostatic body) | Yes (put the old head back) | Zigbee, Thread |
+| Indoor camera | Lay | no (respect the privacy of visitors) | yes | Wi - Fi |
+| Built-in switch, module behind switch | Electrical Works | **yes** | not advised | — |
+| Boiler Thermostat | Wiring | **yes** | — | — |
+
+**Our best choice to start renting: a Zigbee dongle on Home Assistant, plus Zigbee sockets and sensors.** Nothing is fixed to the wall, and on the day of the move the whole system fits in a carton. The detail of the keys is in our [Comparison of Zigbee dongles](/en/smart-home/best-zigbee-dongle-home-assistant/).
+
+## Equipment without risk
+
+**Connected sockets.** This is the ideal input: programming of an auxiliary heating, measurement of consumption, remote shutdown. Respect the maximum power indicated by the manufacturer (often 16 A) and avoid multiple outlets cascade. Our [Comparison of Zigbee plugs](/en/smart-home/smart-plugs-uk-us/) Which ones measure consumption.
+
+**Battery-operated sensors.** Temperature, humidity, window opening, water leakage: they land or stick. To choose, see our [Comparison of Zigbee Temperature Sensors](/en/smart-home/zigbee-temperature-sensor/). Use repositionable adhesives to avoid damaging the paint.
+
+**Wireless buttons.** A Zigbee button glued near the door can turn off all the lamps when leaving, without touching the existing wiring.
+
+## Equipment to check
+
+**Thermostatic heads**. On a hot water radiator equipped with a thermostatic valve, the head is unscrewed and replaced by a connected head, without draining. Keep the old head and put it back at the start. Check the compatibility of the thread with the adapter provided.
+
+**Cameras**. An indoor camera does not pose a technical problem. However, filming the common areas of a building or the public road is not allowed: only direct it to your home, as recalled by the [CNIL](https://www.cnil.fr/fr/la-videosurveillance-videoprotection-chez-soi).
+
+## What to leave to the owner
+
+Built-in modules behind switches, roller shutters, electrical panel, boiler thermostat: these installations modify the housing. Ask for written authorization and call an electrician.
+
+## The brain: discreet and transportable
+
+A [Home Assistant Green or a Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/) is connected to the Internet router via a network cable. At the move, you reconnect it at home: automations and history follow. To choose the system, read [Home Assistant, Jeedom, Homey or Box du Commerce](/en/smart-home/home-assistant-jeedom-homey-which-hub/), and for the full course, [Getting Started in Home Automation](/en/smart-home/getting-started/).

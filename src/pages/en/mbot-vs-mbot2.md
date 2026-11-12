@@ -9,17 +9,61 @@ The **mBot** and the **mBot2** are two generations of [Makeblock](/en/makeblock-
 
 ## 1. Comparison table
 
-| | **mBot (classic)** | **mBot2** |
-|---|---|---|
-| Board | **mCore** (Arduino-compatible) | **CyberPi** (more powerful, Wi-Fi) |
-| Programming | mBlock blocks; Arduino C for advanced users | mBlock blocks + **Python** built in |
-| Motors | two DC motors | **encoder motors** (precise moves) |
-| Typical sensors | line follower, ultrasonic, IR (depending on kit) | ultrasonic, line follower, light, **gyroscope** |
-| Display / sound | RGB LEDs, buzzer | **1.44" colour screen** (128 × 128) on CyberPi, speaker and microphone |
-| Connectivity | Bluetooth or 2.4G depending on pack | **Bluetooth and Wi-Fi** |
-| Chassis | aluminium alloy | aluminium alloy |
-| Power | battery pack (AA cells, depending on kit) | built-in **2,500 mAh** rechargeable battery, USB-C |
-| Best for | first robot, clubs, tight budget | ages 10+, longer projects, moving to Python |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>mBot (classic)</strong></th>
+<th scope="col"><strong>mBot2</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Board</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val"><strong>mCore</strong> (Arduino-compatible)</span></td>
+<td data-label="**mBot2**"><span class="td-val"><strong>CyberPi</strong> (more powerful, Wi-Fi)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Programming</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">mBlock blocks; Arduino C for advanced users</span></td>
+<td data-label="**mBot2**"><span class="td-val">mBlock blocks + <strong>Python</strong> built in</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Motors</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">two DC motors</span></td>
+<td data-label="**mBot2**"><span class="td-val"><strong>encoder motors</strong> (precise moves)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Typical sensors</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">line follower, ultrasonic, IR (depending on kit)</span></td>
+<td data-label="**mBot2**"><span class="td-val">ultrasonic, line follower, light, <strong>gyroscope</strong></span></td>
+</tr>
+<tr>
+<td><span class="td-val">Display / sound</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">RGB LEDs, buzzer</span></td>
+<td data-label="**mBot2**"><span class="td-val"><strong>1.44" colour screen</strong> (128 × 128) on CyberPi, speaker and microphone</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Connectivity</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">Bluetooth or 2.4G depending on pack</span></td>
+<td data-label="**mBot2**"><span class="td-val"><strong>Bluetooth and Wi-Fi</strong></span></td>
+</tr>
+<tr>
+<td><span class="td-val">Chassis</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">aluminium alloy</span></td>
+<td data-label="**mBot2**"><span class="td-val">aluminium alloy</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Power</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">battery pack (AA cells, depending on kit)</span></td>
+<td data-label="**mBot2**"><span class="td-val">built-in <strong>2,500 mAh</strong> rechargeable battery, USB-C</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Best for</span></td>
+<td data-label="**mBot (classic)**"><span class="td-val">first robot, clubs, tight budget</span></td>
+<td data-label="**mBot2**"><span class="td-val">ages 10+, longer projects, moving to Python</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Our pick:** the **mBot** as a first robot on a budget; the **mBot2** if you want several years of use and a smooth move from blocks to Python without buying another robot.
 
@@ -44,4 +88,4 @@ Still comparing brands? See our [programmable robot guide](/en/best-programmable
 
 ## 5. Where to buy
 
-Prices change often and vary by retailer, so **check current price**. Affiliate links: <a href="https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20" rel="nofollow sponsored">mBot (Amazon US)</a> / <a href="https://www.amazon.co.uk/s?k=Makeblock+mBot&tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a>, <a href="https://www.amazon.com/s?k=Makeblock+mBot2&tag=roboteducatif-20" rel="nofollow sponsored">mBot2 (Amazon US)</a> / <a href="https://www.amazon.co.uk/s?k=Makeblock+mBot2&tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a>.
+Prices change often and vary by retailer. This English page does not reuse a French ASIN as a US or UK product page, and it does not link a generic search. Dated UK amounts, when the feed has them, are on the [programmable robot guide](/en/best-programmable-robot-for-kids/).

@@ -48,26 +48,58 @@ const fallbackJournal: SeriesHubFallbackLesson[] = [
 
 <ProgrammationSeriesHub
 	metaTitle="Projet Python avancé — Analyseur de journal CLI"
-	metaDescription="Projet Python avancé : architecture, générateurs, asyncio, typage."
+	metaDescription="Projet Python avancé : un analyseur de journaux en ligne de commande, en six parties. Générateurs, décorateurs, asyncio, typage et packaging, pas à pas."
 	series="Projet Python avancé — Journal CLI"
 	breadcrumbLast="Projet Journal CLI"
 	pageTitle="Projet — Analyseur de journal (CLI)"
 	fallbackLessons={fallbackJournal}
 >
 	<p>
-		Ce projet **synthétise** le <a href={withBase('/programmation/python-avance/')}>parcours avancé</a> : générateurs pour lire de gros
-		fichiers ligne à ligne, <strong>décorateurs</strong> pour mesurer ou journaliser, <strong>asyncio</strong> pour
-		traiter plusieurs fichiers sans bloquer inutilement (schémas avec <code>asyncio</code> + exécuteur pour I/O disque),
-		<strong>typage</strong> et <strong>pyproject.toml</strong> pour livrer un paquet installable avec commande
-		<code>journal-stats</code>
-		— fictive dans le tutoriel, mais structurée comme un vrai outil.
+		<strong>Réponse rapide</strong> — Vous construisez un outil en ligne de commande qui lit des fichiers <strong>log</strong> (journaux
+		texte), calcule des statistiques et peut traiter plusieurs fichiers en parallèle. Ce hub regroupe les <strong>six parties</strong>{' '}
+		du parcours ; prérequis : <a href={withBase('/programmation/python-intermediaire/')}>Python intermédiaire</a> et{' '}
+		<a href={withBase('/programmation/python-avance/')}>Python avancé</a>.
 	</p>
 	<p>
-		Prérequis : <a href={withBase('/programmation/python-intermediaire/')}>intermédiaire</a> +{' '}
-		<a href={withBase('/programmation/python-avance/')}>avancé</a> (ou niveau équivalent). Ressource :{' '}
+		Ce projet <strong>synthétise</strong> le <a href={withBase('/programmation/python-avance/')}>parcours avancé</a> : générateurs pour
+		lire de gros fichiers ligne à ligne, <strong>décorateurs</strong> pour mesurer ou journaliser, <strong>asyncio</strong> pour traiter
+		plusieurs fichiers sans bloquer inutilement (schémas avec <code>asyncio</code> + exécuteur pour I/O disque), <strong>typage</strong>{' '}
+		et <strong>pyproject.toml</strong> pour livrer un paquet installable avec commande <code>journal-stats</code> — fictive dans le
+		tutoriel, mais structurée comme un vrai outil.
+	</p>
+	<p>
+		Maillage : <a href={withBase('/programmation/')}>hub programmation</a> ·{' '}
+		<a href={withBase('/programmation/projet-inter-agenda-cli/')}>projet Agenda CLI</a> (autre parcours guidé) ·{' '}
+		<a href={withBase('/python-inter-modules-imports/')}>modules et imports</a> ·{' '}
+		<a href={withBase('/python-inter-regex-re/')}>expressions régulières</a>.
+	</p>
+	<h2>Présentation de chaque partie</h2>
+	<ul>
+		<li>
+			<strong>Partie 1 — Architecture</strong> : découper le projet en modules <code>parser</code>, <code>stats</code>,{' '}
+			<code>cli</code> ; définir le périmètre (lignes ignorées, encodage UTF-8).
+		</li>
+		<li>
+			<strong>Partie 2 — Générateurs</strong> : lire un gros log sans charger tout en RAM ; <code>yield</code> et nettoyage des lignes.
+		</li>
+		<li>
+			<strong>Partie 3 — Décorateurs</strong> : chronométrer le parsing et journaliser le nombre de lignes traitées.
+		</li>
+		<li>
+			<strong>Partie 4 — Asyncio</strong> : traiter un dossier de logs avec <code>asyncio.gather</code> et sémaphore.
+		</li>
+		<li>
+			<strong>Partie 5 — Typage</strong> : <code>TypedDict</code>, <code>Protocol</code>, vérification <code>mypy</code>.
+		</li>
+		<li>
+			<strong>Partie 6 — Packaging</strong> : <code>pyproject.toml</code>, point d’entrée console, README et tests.
+		</li>
+	</ul>
+	<p>
+		Ressource papier (partenaire) :{' '}
 		<a
 			href={`https://www.amazon.fr/s?k=python+asyncio+avanc%C3%A9+livre&tag=${tag}`}
 			target="_blank"
-			rel="noopener noreferrer sponsored">Python avancé</a> (partenaire).
+			rel="noopener noreferrer sponsored">Python avancé</a>.
 	</p>
 </ProgrammationSeriesHub>

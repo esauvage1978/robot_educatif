@@ -1,0 +1,140 @@
+---
+import { PARCOURS_WEEKS } from '../data/scratchPython6Weeks.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const storageKey = 're-parcours-scratch-python-6w';
+const weeksJson = JSON.stringify(
+	PARCOURS_WEEKS.map((w) => ({
+		...w,
+		items: w.items.map((it) => ({ ...it, href: withBase(it.href) })),
+	})),
+);
+---
+
+<div class="sp6" data-sp6 data-weeks={weeksJson} data-storage={storageKey}>
+	<div class="sp6-actions">
+		<button type="button" class="sp6-btn" data-sp6-print>Imprimer la checklist</button>
+		<button type="button" class="sp6-btn sp6-btn--ghost" data-sp6-reset>Réinitialiser les cases</button>
+	</div>
+	<div class="sp6-weeks" data-sp6-mount></div>
+</div>
+
+<style is:global>
+	.sp6-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin: 1rem 0 1.5rem;
+	}
+	.sp6-btn {
+		padding: 0.55rem 1rem;
+		border-radius: 8px;
+		border: 0;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.sp6-btn--ghost {
+		background: transparent;
+		color: var(--accent);
+		border: 1px solid var(--accent);
+	}
+	.sp6-week {
+		margin-bottom: 1.75rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px dashed var(--surface-border);
+	}
+	.sp6-week h3 {
+		margin: 0 0 0.25rem;
+	}
+	.sp6-goal {
+		margin: 0 0 0.75rem;
+		font-size: 0.95rem;
+		opacity: 0.85;
+	}
+	.sp6-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		margin: 0.4rem 0;
+		font-size: 0.95rem;
+	}
+	.sp6-item input {
+		margin-top: 0.2rem;
+	}
+	@media print {
+		header,
+		footer,
+		.aqf,
+		.sp6-actions,
+		.domotique-subnav,
+		.cookie-consent {
+			display: none !important;
+		}
+		.article-header {
+			padding-bottom: 0.5rem;
+		}
+		.sp6-item a {
+			color: #000;
+			text-decoration: none;
+		}
+	}
+</style>
+
+<script>
+	function initSp6(root) {
+		const weeks = JSON.parse(root.dataset.weeks || '[]');
+		const key = root.dataset.storage || 'sp6';
+		const mount = root.querySelector('[data-sp6-mount]');
+		let state = {};
+		try {
+			state = JSON.parse(localStorage.getItem(key) || '{}');
+		} catch {
+			state = {};
+		}
+
+		function save() {
+			localStorage.setItem(key, JSON.stringify(state));
+		}
+
+		mount.innerHTML = weeks
+			.map(
+				(w) => `
+			<section class="sp6-week">
+				<h3>Semaine ${w.week} — ${w.title}</h3>
+				<p class="sp6-goal">${w.goal}</p>
+				${w.items
+					.map(
+						(it) => `
+					<label class="sp6-item">
+						<input type="checkbox" data-sp6-id="${it.id}" ${state[it.id] ? 'checked' : ''} />
+						<span><a href="${it.href}">${it.label}</a></span>
+					</label>`,
+					)
+					.join('')}
+			</section>`,
+			)
+			.join('');
+
+		mount.querySelectorAll('input[data-sp6-id]').forEach((inp) => {
+			inp.addEventListener('change', () => {
+				const id = inp.getAttribute('data-sp6-id');
+				if (!id) return;
+				state[id] = inp.checked;
+				save();
+			});
+		});
+
+		root.querySelector('[data-sp6-print]')?.addEventListener('click', () => window.print());
+		root.querySelector('[data-sp6-reset]')?.addEventListener('click', () => {
+			state = {};
+			save();
+			mount.querySelectorAll('input[data-sp6-id]').forEach((i) => {
+				i.checked = false;
+			});
+		});
+	}
+	document.querySelectorAll('[data-sp6]').forEach(initSp6);
+</script>

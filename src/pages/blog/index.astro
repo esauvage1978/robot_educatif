@@ -5,10 +5,8 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { articleSlugFromId } from '../../lib/articleSlug';
-import { categoryToSlug, topCategoriesByCount } from '../../lib/categories';
+import { categoryToSlug } from '../../lib/categories';
 import { resolveHeroImage } from '../../lib/contentHeroImage';
 import { resolveArticleThumbnail, getGeneratedThumbnailPath } from '../../lib/articleThumbnail';
 import { withImageVersion } from '../../lib/imageVersion';
@@ -20,26 +18,22 @@ const allPosts = await getCollection('blog');
 const posts = [...allPosts]
 	.filter((p) => !isProgrammingSeriesArticle(p))
 	.sort(compareBlogPostsByLastActivityDesc);
-const topCategories = topCategoriesByCount(posts, 15);
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title="Blog ROBOT éducatif" description="Articles robotique éducative : tutoriels mBlock, Scratch, Python, guides achat robots et comparatifs pour enfants." />
+		<BaseHead
+			title="Blog ROBOT éducatif"
+			description="Blog ROBOT éducatif : tutoriels mBlock et Scratch, comparatifs de robots et idées d’activités pour programmer à la maison ou en classe. Des articles concrets."
+		/>
 		<style>
 			.hero-blog {
-				width: 100vw;
-				position: relative;
-				margin-left: calc(50% - 50vw);
-				margin-right: calc(50% - 50vw);
-				margin-bottom: 2rem;
+				width: 100%;
+				margin: 0 0 2rem;
 				padding: clamp(2rem, 5vw, 3rem) 0;
-				border-radius: 0;
-				border: none;
 				border-bottom: 1px solid var(--surface-border);
 				background: var(--surface);
-				box-shadow: none;
 			}
 			.hero-blog-inner {
 				width: min(1140px, calc(100% - 2.5rem));
@@ -67,14 +61,15 @@ const topCategories = topCategoriesByCount(posts, 15);
 				line-height: 1.65;
 				font-family: var(--font-body, system-ui);
 			}
-			.page-layout {
-				display: grid;
-				grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
-				gap: 1.25rem;
-				align-items: start;
+			main {
+				width: 100%;
+				max-width: none;
+				margin: 0;
+				padding: 0 0 2.5rem;
 			}
-			.main-column {
-				min-width: 0;
+			.blog-wrap {
+				width: min(1140px, calc(100% - 2.5rem));
+				margin: 0 auto;
 			}
 			.posts-list {
 				display: flex;
@@ -137,11 +132,11 @@ const topCategories = topCategoriesByCount(posts, 15);
 				color: rgb(var(--gray));
 			}
 			.post-categories {
-				margin: 0.35rem 0 0 0;
+				margin: 0.15rem 0 0.75rem;
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.35rem;
-				justify-content: inherit;
+				justify-content: flex-start;
 			}
 			.posts-list li:first-child .post-categories {
 				justify-content: center;
@@ -157,9 +152,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 			border-radius: 999px;
 			border: 1px solid color-mix(in oklab, var(--accent) 22%, var(--surface-border));
 		}
-		html:not([data-theme='light']) .post-categories a {
-			color: #5EEAD4;
-		}
+		
 		.post-categories a:hover {
 			background: color-mix(in oklab, var(--accent) 18%, transparent);
 		}
@@ -175,11 +168,12 @@ const topCategories = topCategoriesByCount(posts, 15);
 					padding: 1.5rem 0;
 					margin-bottom: 1.25rem;
 				}
-				.hero-blog-inner {
+				.hero-blog-inner,
+				.blog-wrap {
 					width: calc(100% - 2rem);
 				}
-				.page-layout {
-					grid-template-columns: 1fr;
+				.posts-list li .post-categories {
+					justify-content: center;
 				}
 				.posts-list {
 					gap: 0.5em;
@@ -210,8 +204,7 @@ const topCategories = topCategoriesByCount(posts, 15);
 					</p>
 				</div>
 			</section>
-			<div class="page-layout">
-				<div class="main-column">
+			<div class="blog-wrap">
 					<section>
 						<h2 style="margin: 0 0 1rem 0;">Articles</h2>
 						<p style="margin: 0 0 1.5rem 0; color: rgb(var(--gray-dark));">
@@ -268,21 +261,19 @@ const topCategories = topCategoriesByCount(posts, 15);
 												</>
 											)}
 										</p>
-										{post.data.categories?.length ? (
-											<div class="post-categories">
-												{post.data.categories.map((cat) => (
-													<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
-												))}
-											</div>
-										) : null}
 									</a>
+									{post.data.categories?.length ? (
+										<div class="post-categories">
+											{post.data.categories.map((cat) => (
+												<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
+											))}
+										</div>
+									) : null}
 								</li>
 							);
 						})}
 					</ul>
 				</section>
-				</div>
-				<Sidebar topCategories={topCategories} />
 			</div>
 		</main>
 		<Footer />

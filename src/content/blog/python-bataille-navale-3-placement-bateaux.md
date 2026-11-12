@@ -1,8 +1,9 @@
 ---
 title: "Bataille navale en Python (3/6) — placement des navires"
-description: "Vérifier les limites, éviter le chevauchement, placer en horizontal ou vertical ; construire la liste des flottes."
+description: "Placer les 5 navires sans chevauchement : cases_libres, orientation H/V, saisie clavier ou tirage aléatoire. Chapitre 3 du projet Python."
+shareDescription: "Vérifier les limites, éviter le chevauchement, placer en horizontal ou vertical ; construire la liste des flottes."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-04
 series: Bataille navale
 seriesOrder: 3
 tags: ["Python", "Programmation", "Projet"]
@@ -17,9 +18,13 @@ categories:
   - "Bataille navale"
   - "Projet"
 ---
-Tu sais [créer et afficher une grille](/python-bataille-navale-2-grille-et-affichage/). Il faut maintenant **poser les navires** sur la grille défense et mémoriser **quelles cases** appartiennent à quel bateau.
+**Réponse directe** — Chaque navire occupe des cases contiguës **horizontalement** ou **verticalement**. Avant d’écrire `#` sur la grille, testez toutes les cases avec `cases_libres`. Mémorisez les coordonnées dans une liste `flotte` pour la partie 4 (tirs).
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+Ce chapitre fait partie du [projet Bataille navale en Python](/programmation/bataille-navale/) (série 6 parties). Vous savez déjà [créer et afficher une grille](/python-bataille-navale-2-grille-et-affichage/). Il reste à **poser les navires** sur la grille défense.
+
+![Exemple de grille 10×10 avec navires placés au hasard](/images/blog/lot15/pendu-console-exemple.png)
+
+<p><em>Exemple de rendu console — les `#` représentent les cases occupées (17 au total).</em></p>
 
 ## 1. Vérifier qu’une place est libre
 
@@ -81,18 +86,40 @@ Pour un **premier prototype**, tu peux demander pour chaque navire : ligne, colo
 ```python
 LONGUEURS = [5, 4, 3, 3, 2]
 
+def lire_orientation(texte):
+    t = texte.strip().upper()
+    if t in ("H", "HORIZONTAL", "O"):
+        return True
+    if t in ("V", "VERTICAL", "N"):
+        return False
+    raise ValueError("Orientation H ou V attendue")
+
+
 def placement_joueur(grille):
+    """Demande au joueur la case de départ (ex. B3) et H/V pour chaque navire."""
     flotte = []
     for L in LONGUEURS:
         while True:
-            # pseudo-code : input(), parser ligne/colonne/orientation
-            # coords = essayer_placer(...)
-            # if coords: flotte.append(coords); break
-            pass
+            print(f"Navire longueur {L} — case départ (ex. C4) puis H ou V :")
+            case_txt = input("Case : ")
+            orient_txt = input("H/V : ")
+            try:
+                ligne, col = parser_case(case_txt)
+                horizontal = lire_orientation(orient_txt)
+            except ValueError as err:
+                print("Erreur :", err)
+                continue
+            coords = essayer_placer(grille, ligne, col, L, horizontal)
+            if coords is None:
+                print("Impossible ici (hors grille, chevauchement ou dépassement).")
+                continue
+            flotte.append(coords)
+            afficher_grille_lettres(grille, f"Après placement du navire de {L}")
+            break
     return flotte
 ```
 
-À toi de combiner avec `parser_case` pour le **point de départ** (ex. coin avant-bâbord du navire).
+Le **coin avant-bâbord** du navire est la case que vous saisissez ; les autres cases se calculent avec `cases_navire`. Le script téléchargeable ci-dessous inclut `placement_aleatoire` ; remplacez l’appel dans `main()` par `placement_joueur(g)` pour tester la saisie clavier.
 
 ## 5. Placement aléatoire (pour une IA ou setup rapide)
 
@@ -115,15 +142,15 @@ def placement_aleatoire(grille):
     return flotte
 ```
 
+## Suite
+
+[Partie 4 — Enregistrer un tir et mettre à jour les grilles](/python-bataille-navale-4-tirs-et-marques/) · [Parcours Python robot](/robot-programmable-python/) · [Hub Bataille navale](/programmation/bataille-navale/)
+
 ## Exercices
 
 1. Interdis le **chevauchement** : vérifie que ton `cases_libres` refuse deux navires sur la même case.
 2. Interdis de **dépasser** : un navire de longueur 5 ne doit pas commencer en colonne `8` en horizontal.
 3. Après placement aléatoire, **affiche** la grille et vérifie visuellement le bon nombre de `#` (somme des longueurs = 17).
-
-## Suite
-
-[Partie 4 — Enregistrer un tir et mettre à jour les grilles](/python-bataille-navale-4-tirs-et-marques/).
 
 ## Script complet du chapitre
 
@@ -246,4 +273,6 @@ if __name__ == "__main__":
 
 ## Amazon (partenaire)
 
-- [Python 3 — exercices corrigés](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21)
+- [Python 3 — exercices corrigés](/go/az-fr-10aa727b99/)
+- [Livres programmation Python enfant](/go/az-fr-7dc730fd5d/)
+- [Python 3 — exercices corrigés (recherche Amazon)](/go/az-fr-373b67c1cf/)

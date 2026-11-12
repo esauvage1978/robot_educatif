@@ -1,0 +1,99 @@
+---
+title: "Zigbee, Wi-Fi, Z-Wave, Thread or Matter: which smart home protocol to choose?"
+description: "What each radio language of the connected home is for: Wi-Fi, Zigbee, Z-Wave, Thread, Matter, Bluetooth and 433 MHz. A simple table to choose when you are starting out."
+pubDate: 2026-10-23T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+priority: 3
+lang: "en"
+frSlug: "protocoles-domotique-zigbee-wifi-thread-matter"
+---
+
+Before buying your first sensor, a simple question comes up: how will it talk to the rest of the house? Every connected device uses a radio language, which we call a protocol. A Wi-Fi plug, a Zigbee sensor (a low-power radio built for battery sensors) and a Matter bulb (Matter is a common language shared by many brands) do not connect in the same way, and that choice decides which stick or small box you may have to add.
+
+This page helps you see clearly. By the end you will know what each name you meet in the shop means, which one suits a first purchase, and why Zigbee is so often advised to start with. The information comes from the bodies that define these standards, listed at the bottom of the page.
+
+![A white motion sensor on a bedside table, next to a lit lamp](/images/debutant/motion-sensor.webp)
+
+*A wireless motion sensor on a bedside table. This kind of device runs on a battery and sends its messages by radio: the choice of radio language decides whether it will last for months and how far it will be heard. Photo: Jakub Zerdzicki, Pexels, free licence.*
+
+## Go further
+
+- [Which protocol to choose in 2027?](/en/smart-home/matter-thread-zigbee-wifi-which-protocol-2027/)
+- [Smart home glossary (coordinator, mesh and more)](/en/smart-home/smart-home-glossary/)
+- [Choosing a Zigbee stick](/en/smart-home/best-zigbee-dongle-home-assistant/)
+- [Device compatibility table](/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/)
+
+## Star or mesh: two ways of linking devices
+
+To follow what comes next, picture two ways of passing a message around a house.
+
+In the first, each device talks directly to a single central point, like all the phones in a home picking up the same mast. This is the star layout, the one used by Wi-Fi: if the device is too far from your internet router, the signal no longer arrives.
+
+In the second, devices pass the message along from one to the next, like people passing a bucket of water. This is a mesh network: every device plugged into a mains socket can relay the signal of its neighbours. A sensor at the bottom of the garden no longer has to reach the house directly; it only has to reach a relay plug a little closer. Zigbee, Z-Wave and Thread work this way.
+
+## The essentials in a table
+
+| Radio language | Practical range | Battery sensors | What you need on top | Mesh network? | Worth remembering |
+|---|---|---|---|---|---|
+| **Wi-Fi** | The range of your home Wi-Fi | Poorly suited, it uses a lot of power | Nothing: your internet router is enough | No, each device talks directly to the router | Simple, but often goes through the manufacturer's servers |
+| **Zigbee** | Room to room, with relays | Yes, often several months | A USB stick called a coordinator | Yes, through mains-powered devices | The best starting point for sensors |
+| **Z-Wave** | Often good through concrete | Yes | A USB stick dedicated to Z-Wave | Yes | Less disturbed by Wi-Fi, but a shorter catalogue |
+| **Thread** | Mesh network, like Zigbee | Yes | A border router (see below) | Yes | Often used together with Matter |
+| **Matter** | Depends on the radio underneath | Depends on the radio | Depends on the radio | Depends on the radio | A common language, not a radio |
+| **Bluetooth Low Energy** | Short, the next room | Yes | Sometimes a stick or a hub | Rarely | Locks, sensors close to you |
+| **433 MHz** | Variable, hindered by walls | Often battery | A 433 MHz receiver, or a box that contains one | No | Older shutters and plugs, very uneven quality |
+
+The range printed on boxes (several tens of metres in open ground) drops sharply once there are walls. A mesh makes up for part of that weakness.
+
+**The simplest choice to start with is Zigbee**, with a stick plugged into a Home Assistant box, or with a hub that already includes it (such as Homey, a ready-made box). Home Assistant is free software that brings all your devices together in a single app. The Zigbee device catalogue is wide, batteries last a long time and everything works at home. Our page on [Zigbee sticks](/en/smart-home/best-zigbee-dongle-home-assistant/) guides your choice.
+
+## Wi-Fi: the simplest, but not the most frugal
+
+A Wi-Fi device connects to your internet router: no extra stick is needed. It is ideal for a [smart plug](/en/smart-home/smart-plugs-uk-us/) or a camera on mains power. The drawbacks: it uses quite a lot of energy, every new device adds to the ones your router has to handle, and it often depends on the manufacturer's servers (the cloud). Before buying, check that a local control mode exists, meaning one that stays inside your home.
+
+## Zigbee: the language of battery sensors
+
+Zigbee uses the 2.4 GHz band, the same as Wi-Fi, and is based on the IEEE 802.15.4 radio standard. Mains-powered devices relay the messages: they are called Zigbee routers. You also need a coordinator, the USB stick that runs the network. In Home Assistant it is driven with ZHA (the built-in solution) or with [Zigbee2MQTT](/en/smart-home/zigbee2mqtt-vs-zha-home-assistant/) (a more open solution that goes through a messaging system called MQTT). For a concrete example, see our guide to the [Zigbee temperature sensor](/en/smart-home/zigbee-temperature-sensor/).
+
+One tip: keep the stick away from your internet router, for example with a short USB extension cable. Both use the same frequency and can disturb each other.
+
+## Z-Wave: robust, but less choice
+
+Z-Wave works around 868 MHz in Europe. Be careful: the frequency is different in the United States, so do not import just any model. It is also a mesh network, less disturbed by Wi-Fi, with modules that are often more expensive and a smaller catalogue than Zigbee's.
+
+## Thread and Matter
+
+**Thread** is a mesh network that uses very little power. To link it to your home network you need a border router: a device that bridges the Thread network and your home internet network. Some recent speakers or boxes contain one.
+
+**Matter** is not a radio, it is a common language, published by the Connectivity Standards Alliance. It travels over Wi-Fi, Thread or a network cable (Ethernet), which lets the same device be recognised by several ecosystems, for example Apple, Google or Amazon. Its catalogue is still shorter than Zigbee's for some kinds of devices: check the category you are interested in before buying.
+
+## Bluetooth and 433 MHz
+
+**Bluetooth Low Energy** has a short range. You find it in smartwatches, some locks and some sensors. To equip a whole house it rarely complements Zigbee or Wi-Fi, except for devices close to the hub or for knowing who is home.
+
+**433 MHz** is the radio of many older roller shutters, doorbells and remote-controlled plugs. Homey and some receivers can drive them, but their quality and security vary a lot. It is useful for reusing existing equipment, not necessarily for fitting out a new home.
+
+## What to choose in your situation
+
+If you start with Home Assistant, combine Zigbee for sensors with local Wi-Fi for plugs and cameras. If you want your devices to be recognised by Apple, Google and Amazon at the same time, favour Matter when the device exists in that version. In a concrete house or over long distances, Z-Wave or a Zigbee network well supplied with relays does the job. And if you like making things yourself, an [ESP32 board with ESPHome](/en/smart-home/esp32-esphome-temperature-sensor/) on Wi-Fi is a good start (see also how to [choose an ESP32 board](/en/smart-home/which-esp32-board-for-smart-home/)). An ESP32 is a small programmable electronic board, and ESPHome is the software that lets you program it simply.
+
+To continue the path: the [complete guide](/en/smart-home/begin-smart-home-complete-guide/), the [choice of hub](/en/smart-home/which-smart-home-hub-for-beginners/), the [first devices](/en/smart-home/first-smart-home-devices-to-buy/) and the [glossary](/en/smart-home/smart-home-glossary/).
+
+## FAQ
+
+**Do Zigbee and Wi-Fi interfere with each other?**
+Yes, it can happen, because they use the same 2.4 GHz band. Moving the Zigbee stick away from the internet router and avoiding crowded channels reduces drop-outs.
+
+**Does Matter replace Zigbee?**
+Not in the short term for the whole catalogue. The two live side by side without difficulty in Home Assistant. Our [article on 2027](/en/smart-home/matter-thread-zigbee-wifi-which-protocol-2027/) says more.
+
+**Do I need a stick with Homey Pro?**
+Often not, for the radios already built in (it depends on the model). With a Home Assistant Green box or a Raspberry Pi, yes for Zigbee.
+
+**Is 433 MHz outdated?**
+Not for existing equipment. To fit out a new home, Zigbee, Matter or local Wi-Fi are generally healthier: documentation, security and availability are better.
+
+---
+
+*Author: Emmanuel Sauvage. Sources: documentation from the [Connectivity Standards Alliance](https://csa-iot.org/all-solutions/matter/) (Matter), the [Thread Group](https://www.threadgroup.org/What-is-Thread/Overview), the [Z-Wave Alliance](https://z-wavealliance.org/) and the [Home Assistant integrations](https://www.home-assistant.io/integrations/).*

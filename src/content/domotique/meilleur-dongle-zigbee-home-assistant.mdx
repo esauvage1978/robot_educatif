@@ -63,14 +63,81 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 
 ## Tableau comparatif : 6 dongles Zigbee pour Home Assistant
 
-| Modèle | Puce | Antenne | Portée indoor | Thread | ZHA | Z2M | Pour qui ? |
-|--------|------|---------|---------------|--------|-----|-----|------------|
-| **[SONOFF](/marque-sonoff/) ZBDongle-E** | EFR32MG21 | Externe SMA | 50 m | ❌ | ✅ | ✅ | **Tout le monde** — meilleur rapport qualité/prix |
-| **HA Connect ZBT-2** | Silicon Labs MG24 | Optimisée (boîtier) | non communiquée | ✅ | ✅ | ✅ | Early adopters Matter, support officiel Nabu Casa |
-| **SONOFF Dongle Lite MG21** | EFR32MG21 | Interne PCB | 25 m | ✅ | ✅ | ✅ | Budget mini, appartement < 70 m² |
-| **ConBee II** | deCONZ | Interne | 30 m | ❌ | ✅ | ✅ | Alternative deCONZ gateway, compatible Phoscon |
-| **Elelabs ELR023** | EFR32MG13 | Externe | 60 m | ❌ | ✅ | ✅ | Longue portée, firmware modifiable |
-| **ZZH! (Electrolama)** | CC2652R | Externe | 40 m | ❌ | ✅ | ✅ | DIY, puces TI CC26xx populaires |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modèle</th>
+<th scope="col">Puce</th>
+<th scope="col">Antenne</th>
+<th scope="col">Portée indoor</th>
+<th scope="col">Thread</th>
+<th scope="col">ZHA</th>
+<th scope="col">Z2M</th>
+<th scope="col">Pour qui ?</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong><a href="/marque-sonoff/">SONOFF</a> ZBDongle-E</strong></span></td>
+<td data-label="Puce"><span class="td-val">EFR32MG21</span></td>
+<td data-label="Antenne"><span class="td-val">Externe SMA</span></td>
+<td data-label="Portée indoor"><span class="td-val">50 m</span></td>
+<td data-label="Thread"><span class="td-val">❌</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val"><strong>Tout le monde</strong> — meilleur rapport qualité/prix</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>HA Connect ZBT-2</strong></span></td>
+<td data-label="Puce"><span class="td-val">Silicon Labs MG24</span></td>
+<td data-label="Antenne"><span class="td-val">Optimisée (boîtier)</span></td>
+<td data-label="Portée indoor"><span class="td-val">non communiquée</span></td>
+<td data-label="Thread"><span class="td-val">✅</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val">Early adopters Matter, support officiel Nabu Casa</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>SONOFF Dongle Lite MG21</strong></span></td>
+<td data-label="Puce"><span class="td-val">EFR32MG21</span></td>
+<td data-label="Antenne"><span class="td-val">Interne PCB</span></td>
+<td data-label="Portée indoor"><span class="td-val">25 m</span></td>
+<td data-label="Thread"><span class="td-val">✅</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val">Budget mini, appartement &lt; 70 m²</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>ConBee II</strong></span></td>
+<td data-label="Puce"><span class="td-val">deCONZ</span></td>
+<td data-label="Antenne"><span class="td-val">Interne</span></td>
+<td data-label="Portée indoor"><span class="td-val">30 m</span></td>
+<td data-label="Thread"><span class="td-val">❌</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val">Alternative deCONZ gateway, compatible Phoscon</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Elelabs ELR023</strong></span></td>
+<td data-label="Puce"><span class="td-val">EFR32MG13</span></td>
+<td data-label="Antenne"><span class="td-val">Externe</span></td>
+<td data-label="Portée indoor"><span class="td-val">60 m</span></td>
+<td data-label="Thread"><span class="td-val">❌</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val">Longue portée, firmware modifiable</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>ZZH! (Electrolama)</strong></span></td>
+<td data-label="Puce"><span class="td-val">CC2652R</span></td>
+<td data-label="Antenne"><span class="td-val">Externe</span></td>
+<td data-label="Portée indoor"><span class="td-val">40 m</span></td>
+<td data-label="Thread"><span class="td-val">❌</span></td>
+<td data-label="ZHA"><span class="td-val">✅</span></td>
+<td data-label="Z2M"><span class="td-val">✅</span></td>
+<td data-label="Pour qui ?"><span class="td-val">DIY, puces TI CC26xx populaires</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Prix : à vérifier chez le vendeur. Portée indoor = murs en plâtre, 2–3 obstacles.*
 
@@ -85,7 +152,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 - Compatible **ZHA** (intégré HA) et **Zigbee2MQTT** (module complémentaire)
 - Boîtier plastique robuste avec LED de statut
 
-**Compatibilité** : 90 % des capteurs Zigbee 3.0 du marché (SONOFF, Aqara, Philips Hue, IKEA Tradfri, Tuya).
+**Compatibilité** : capteurs Zigbee 3.0 courants des marques SONOFF, Aqara, Philips Hue, IKEA Tradfri et Tuya. La part exacte du catalogue n'est pas un pourcentage publié par les fabricants.
 
 **Limites** :
 - Pas de Thread/Matter natif (utiliser ZBT-2 si besoin)
@@ -93,7 +160,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 
 **Pour qui ?** Tout le monde. C'est le standard de facto en 2026.
 
-*Lien Amazon : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21).*
+*Lien Amazon.fr : [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21), 17,90 € le 10 novembre 2026.*
 
 ### 2. Home Assistant Connect ZBT-2 — Support officiel
 
@@ -105,7 +172,7 @@ Choisir une **clé Zigbee** pour Home Assistant, c'est la fondation d'un réseau
 - **Migration facilitée** : Home Assistant prévoit de transférer un réseau Zigbee existant vers la ZBT-2 sans tout réappairer (depuis ZHA)
 
 **Limites** :
-- **Prix plus élevé** que le ZBDongle-E (à vérifier chez le vendeur)
+- **Prix** : 94,99 € sur Amazon.fr le 10 novembre 2026 (ASIN B0G34ZTW51)
 - **Disponibilité aléatoire** : ruptures fréquentes en 2026 (réassort Domadoo prévu novembre)
 - Thread/Matter encore jeune (peu d'appareils compatibles en 2026)
 

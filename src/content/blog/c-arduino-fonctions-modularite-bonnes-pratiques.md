@@ -1,6 +1,6 @@
 ---
 title: "Fonction Arduino : créer et appeler des fonctions en C"
-description: "Fonctions Arduino : portée, DRY, code lisible, éviter les globales. 20 exercices corrigés."
+description: "Fonctions en C pour Arduino : les créer, les appeler, limiter la portée et éviter les variables globales. Vingt exercices corrigés pour un sketch plus clair."
 pubDate: 2026-04-02
 updatedDate: "2026-10-13"
 series: "Arduino C"

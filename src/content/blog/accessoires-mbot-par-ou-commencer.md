@@ -2,7 +2,7 @@
 title: "Accessoires mBot : capteurs, packs et pièces à acheter"
 description: "Quels accessoires mBot acheter ? Capteurs, extensions, packs mBuild, pièces détachées. Guide composants 2026."
 pubDate: "2026-03-30"
-updatedDate: "2026-10-13"
+updatedDate: "2026-11-09"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -21,29 +21,58 @@ relatedLinks:
     href: "/idees-projets-mbot-rapides-une-heure/"
 ---
 
-Une fois le **mBot** en route, les **accessoires** prolongent la durée de vie du kit : nouveaux **défis**, **réparations**, ou **variantes mécaniques**. L’erreur classique est d’**empiler** les achats sans **objectif pédagogique** — mieux vaut une **cible** (un capteur + un projet) qu’un placard plein de boîtes incompatibles.
+Une fois le **mBot** en route, les **accessoires** prolongent la durée de vie du kit : nouveaux **défis**, **réparations**, ou **variantes mécaniques**. L’erreur classique est d’**empiler** les achats sans **objectif pédagogique**. Le kit classique (fiche Amazon.fr B07XR98YYQ, **89,99 €** le 9 novembre 2026) contient déjà le télémètre ultrason, le suiveur de ligne et la télécommande infrarouge. Un second capteur ne sert qu’à un autre robot ou à un module de rechange, et seulement si la fiche indique le port **RJ25** de votre révision.
 
-![Priorité : consommables, capteurs, mécanique, fun](/images/blog/guides-2026/accessoires-mbot-cible.svg)
+![mBot Makeblock, le kit qui contient déjà l'ultrason et le suiveur de ligne](/images/products/mbot.webp)
 
 ## 1. Ordre de priorisation raisonnable
 
-| Priorité | Type | Pourquoi |
-|----------|------|----------|
-| 1 | **Piles rechargeables** + chargeur adapté | Sans alimentation fiable, tout le reste est frustrant. |
-| 2 | **Rangement** (boîte à compartiments) | Moins de pièces perdues = moins d’abandon. |
-| 3 | **Capteur** aligné sur un projet (ex. ultrason) | Un objectif clair — voir nos ateliers ci-dessous. |
-| 4 | **Pièces de rechange** (roues, vis) | Si le robot sort souvent de l’école ou du club. |
-| 5 | **Extensions « fun »** (bras, chenilles) | Quand les scripts de base sont **assimilés**, pas avant. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Priorité</th>
+<th scope="col">Type</th>
+<th scope="col">Pourquoi</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Priorité"><span class="td-val">1</span></td>
+<td data-label="Type"><span class="td-val"><strong>Piles rechargeables</strong> + chargeur adapté</span></td>
+<td data-label="Pourquoi"><span class="td-val">Sans alimentation fiable, tout le reste est frustrant.</span></td>
+</tr>
+<tr>
+<td data-label="Priorité"><span class="td-val">2</span></td>
+<td data-label="Type"><span class="td-val"><strong>Rangement</strong> (boîte à compartiments)</span></td>
+<td data-label="Pourquoi"><span class="td-val">Moins de pièces perdues = moins d’abandon.</span></td>
+</tr>
+<tr>
+<td data-label="Priorité"><span class="td-val">3</span></td>
+<td data-label="Type"><span class="td-val"><strong>Projet</strong> qui utilise l'ultrason déjà fourni</span></td>
+<td data-label="Pourquoi"><span class="td-val">Un objectif clair — voir nos ateliers ci-dessous.</span></td>
+</tr>
+<tr>
+<td data-label="Priorité"><span class="td-val">4</span></td>
+<td data-label="Type"><span class="td-val"><strong>Pièces de rechange</strong> (roues, vis)</span></td>
+<td data-label="Pourquoi"><span class="td-val">Si le robot sort souvent de l’école ou du club.</span></td>
+</tr>
+<tr>
+<td data-label="Priorité"><span class="td-val">5</span></td>
+<td data-label="Type"><span class="td-val"><strong>Extensions « fun »</strong> (bras, chenilles)</span></td>
+<td data-label="Pourquoi"><span class="td-val">Quand les scripts de base sont <strong>assimilés</strong>, pas avant.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Consommables et confort
 
 - **Piles** : vérifiez le **format** et l’**intensité** recommandés par Makeblock pour **votre** révision de mBot.
 - **Boîte de rangement** : peu « glamour », mais elle évite la perte de vis et la démotivation du « on ne retrouve plus la pièce ».
 
-## 3. Capteurs qui changent vraiment les projets
+## 3. Ce que le kit permet déjà
 
-- **Télémètre ultrason** : pilier de [mesure de distances](/activite-mbot-mesurer-des-distances/) et du [détecteur d’intrusion](/activite-mbot-detecteur-dintrusion/).
-- Capteurs **ligne** / **lumière** : utiles si vous visez des **parcours** au sol — **vérifiez la compatibilité** avec votre version de châssis et de carte.
+- **Télémètre ultrason** déjà dans le carton : [mesure de distances](/activite-mbot-mesurer-des-distances/) et [détecteur d’intrusion](/activite-mbot-detecteur-dintrusion/).
+- **Suiveur de ligne** : parcours au sol, sans acheter un second module.
+- Aucune fiche accessoire séparée n'a été relevée le 9 novembre 2026. Le seul bouton ci-dessous ouvre le robot, pas un capteur vendu à part.
 
 ## 4. Extensions « mécanique »
 
@@ -63,13 +92,11 @@ Oui si le **prix au détail** des pièces vous ferait payer plus cher séparéme
 **Dois-je prendre une deuxième batterie ?**  
 Utile en **club** ou **journée projet** ; à la maison, des piles rechargeables de qualité suffisent souvent.
 
-## Liens Amazon (affiliation)
+## Le robot qui contient déjà ces capteurs
 
-- [Accessoires mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Capteur ultrason robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Kit vis mécanique robot](https://www.amazon.fr/s?k=kit+vis+m%C3%A9canique+robot&tag=manuso06-21)
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) — 89,99 € le 9 novembre 2026
 
-*Partenaire Amazon — commission possible sur achats éligibles.*
+*Lien affilié. Le prix change : ouvrez la fiche le jour de l'achat.*
 
 ---
 

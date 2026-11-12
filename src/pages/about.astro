@@ -1,26 +1,85 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
+import { ARTICLE_AUTHOR } from '../consts';
 ---
 
 <Layout
-	title="À propos"
-	description="Découvrir la programmation et la robotique, pour apprendre en s’amusant."
+	title="À propos — qui édite robot-educatif.info"
+	description={`Qui édite robot-educatif.info, comment nous testons robots et domotique. Site édité par ${ARTICLE_AUTHOR} pour familles, enseignants et clubs.`}
 	pubDate={new Date('2021-08-08')}
 	heroImage={AboutHeroImage}
 >
 	<p>
-		Bienvenue sur <strong>ROBOT éducatif</strong> ! Ici, l’objectif est de rendre la programmation
-		et la robotique accessibles : pas de jargon inutile, juste des projets concrets, étape par étape.
+		<strong>En bref</strong> — <strong>robot-educatif.info</strong> est édité par <strong>{ARTICLE_AUTHOR}</strong>.
+		Nous aidons familles,
+		enseignants et clubs à choisir des robots éducatifs, installer <strong>mBlock</strong>, dépanner les
+		premiers blocages et, depuis 2025, aborder la domotique maker (Home Assistant, Zigbee, ESP32) avec la
+		même exigence de clarté.
 	</p>
 
-	<p>
-		Tu trouveras des tests de robots éducatifs, des idées d’activités et des conseils pour passer
-		de l’envie d’essayer au “je crée” avec enthousiasme.
-	</p>
+	<h2>Ce que nous savons faire</h2>
+	<ul>
+		<li>
+			<strong>Robotique Makeblock</strong> : montage mBot / mBot2, capteurs RJ25 et mBuild, téléversement
+			mBlock, Bluetooth et ateliers classe (ligne, ultrason, projets Scratch → Python).
+		</li>
+		<li>
+			<strong>Pédagogie numérique</strong> : parcours par âge, comparatifs honnêtes, fiches dépannage avec
+			sources constructeur lorsque c’est pertinent.
+		</li>
+		<li>
+			<strong>Domotique</strong> : guides fil pilote / Shelly, Zigbee, Raspberry Pi — uniquement sur des
+			sujets que nous documentons avec des références officielles (Shelly KB, Home Assistant, Makeblock
+			support, etc.).
+		</li>
+	</ul>
+
+	<h2>Comment nous choisissons les robots recommandés</h2>
+	<ol>
+		<li>
+			<strong>Critères fixes</strong> : tranche d’âge réaliste, logiciel disponible (mBlock, Scratch, Python…),
+			qualité de la doc fabricant, prix d’entrée et coût des extensions, retours SAV courants.
+		</li>
+		<li>
+			<strong>Tests en conditions réelles</strong> lorsque nous avons le matériel sous la main : montage,
+			premiers programmes, dépannage Bluetooth/USB, autonomie piles, usage en atelier. Ces articles le
+			mentionnent explicitement (dates de mise à jour, photos ou vidéos du canal YouTube associé).
+		</li>
+		<li>
+			<strong>Analyses documentaires</strong> pour les produits que nous n’avons pas testés récemment :
+			comparatifs basés sur fiches techniques Makeblock / LEGO / Arduino, prix indicatifs et retours
+			communautaires — <em>sans</em> prétendre à un test longue durée.
+		</li>
+		<li>
+			<strong>Transparence affiliation</strong> : liens Amazon / Awin signalés ; les prix affichés sont
+			indicatifs et doivent être vérifiés chez le marchand au moment de l’achat.
+		</li>
+	</ol>
+
+	<h2>Ce que nous ne faisons pas</h2>
+	<ul>
+		<li>Publier des « tests » inventés ou des notes chiffrées sans méthode reproductible.</li>
+		<li>Garantir qu’un robot conviendra à tous les enfants d’une tranche d’âge sans encadrement adulte.</li>
+		<li>Remplacer le SAV constructeur pour une panne matérielle sous garantie.</li>
+	</ul>
+
+	<h2>Guides utiles sur le site</h2>
+	<ul>
+		<li><a href="/meilleur-robot-programmable-enfant-2026/">Choisir un robot programmable par âge</a></li>
+		<li><a href="/programmation/">Tous nos parcours de programmation (Python, Scratch, Arduino)</a></li>
+		<li><a href="/domotique/debuter-domotique-par-ou-commencer/">Débuter en domotique (Home Assistant, Zigbee)</a></li>
+		<li><a href="/marques/">Fiches marques (Makeblock, LEGO, Raspberry Pi, SONOFF…)</a></li>
+		<li><a href="/belgique/">Robotique et domotique en Belgique (PECA, P1)</a></li>
+	</ul>
+
+	<h2>FAQ</h2>
+	<p><strong>Qui rédige les articles ?</strong> Emmanuel Sauvage (voir signature en bas de chaque guide). Nous ne signons jamais « Manu ».</p>
+	<p><strong>Les liens Amazon sont-ils des publicités ?</strong> Oui, lorsqu’ils sont marqués comme liens partenaires : le prix reste celui du marchand, sans surcoût pour vous.</p>
 
 	<p>
-		Que tu sois parent, enseignant ou curieux, le plus important reste le même : apprendre en
-		s’amusant.
+		Une question sur un guide ? Utilisez le formulaire en bas des articles ou la page{' '}
+		<a href="/contact/">contact</a>. Pour une collaboration marque, voir{' '}
+		<a href="/partenariat/">partenariat</a>.
 	</p>
 </Layout>

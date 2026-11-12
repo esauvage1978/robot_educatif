@@ -1,0 +1,31 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageColumns from '../../components/PageColumns.astro';
+const title = 'Robot éducatif Luxembourg : enseignement fondamental et secondaire';
+const description = 'Programmes scolaires luxembourgeois, robots éducatifs francophones, domotique et compteurs intelligents Creos pour projets STEM Guide pratique et liens marchand';
+const canonical = '/luxembourg/';
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <BaseHead title={title} description={description} />
+  <link rel="canonical" href={`https://robot-educatif.info${canonical}`} />
+</head>
+<body>
+  <Header />
+  <main id="main-content">
+<PageColumns>
+    <article class="prose">
+      <h1>STEM et domotique au Luxembourg</h1>
+      <Fragment set:html={`<aside class="encart-affilie-haut" data-above-fold-cta="" data-fr-hub="LU"><p><strong>Achat Luxembourg :</strong> <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=11447&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">ELV DE</a> · <a class="cta-aff" href="https://www.awin1.com/cread.php?awinmid=51799&awinaffid=3126073" rel="sponsored nofollow noopener" target="_blank">EcoFlow FR</a> · <a class="cta-aff" href="https://www.amazon.fr/s?k=robot+éducatif+programmable&tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Rechercher sur Amazon</a></p><p class="encart-note">Liens partenaires · prix et stock à vérifier chez le marchand.</p></aside>
+<p class="chapo">Programmes scolaires luxembourgeois, robots éducatifs francophones, domotique et compteurs intelligents Creos pour projets STEM Guide pratique et liens marchand</p>
+<h2>École luxembourgeoise</h2><p>Enseignement fondamental et secondaire multilingue : privilégiez robots avec interface FR et support enseignant (Makeblock, micro:bit).</p>
+<h2>Autres guides francophones limitrophes</h2><p><a href="/belgique/">Belgique</a> · <a href="/suisse/">Suisse</a> · <a href="/monaco/">Monaco</a> · <a href="/">France (accueil)</a></p>`} />
+    </article>
+  </PageColumns>
+</main>
+  <Footer />
+</body>
+</html>

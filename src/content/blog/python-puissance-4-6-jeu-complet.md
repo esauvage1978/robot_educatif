@@ -2,7 +2,7 @@
 title: "Puissance 4 en Python (6/6) — jeu complet et IA aléatoire"
 description: "Console, menu deux humains ou vs IA ; script final telechargeable ; pistes d'extension."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Puissance 4
 seriesOrder: 6
@@ -20,7 +20,28 @@ categories:
 ---
 Ce dernier chapitre ajoute un **menu** (`1` = deux humains, `2` = toi contre une **IA** qui choisit une colonne jouable au **hasard**), et la possibilité de quitter avec **`q`** pendant ta partie.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Série Puissance 4 (6/6)** — [Sommaire](/programmation/puissance-4/) · [Partie 5 — match nul](/python-puissance-4-5-match-nul/) · [Partie 1 — grille](/python-puissance-4-1-cahier-grille/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/puissance-4/">Série Puissance 4</a></nav>
+
+![Terminal après le chapitre 6 : menu 1 deux humains ou 2 contre l’IA, choix 2, colonne 4, l’IA joue aussi la colonne 4.](/images/lot10/puissance4-ch6-terminal-session.webp)
+
+*Sortie de `puissance4_chapitre_06.py` : le joueur pose un X en colonne 4, l’IA aléatoire répond par un O dans la même colonne.*
+
+## 0. Aperçu du rendu console
+
+Voici le type de sortie attendu en terminal (grille numérotée + symboles `.`, `X`, `O`) :
+
+```
+  1 2 3 4 5 6 7
+  . . . . . . .
+  . . . . . . .
+  . . . X . . .
+  . . O X . . .
+  . O O X . . .
+  O X X O . . .
+Joueur 1 (X), colonne (1-7 ou q) ?
+```
 
 ## 1. Rappel : boucle complète deux humains
 
@@ -223,7 +244,3 @@ if __name__ == "__main__":
 ## Télécharger ce chapitre
 
 **[puissance4_chapitre_06.py](/downloads/puissance4/puissance4_chapitre_06.py)**
-
-## Amazon (partenaire)
-
-- [Projets Python jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)

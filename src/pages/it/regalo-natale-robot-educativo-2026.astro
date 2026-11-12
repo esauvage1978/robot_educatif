@@ -1,0 +1,212 @@
+---
+import ItPost from '../../layouts/ItPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+
+const title = 'Regalo Natale 2026: robot educativi programmabili per bambini';
+const description =
+	'Guida regali Natale 2026: mBot, mBot2, ELEGOO Penguin Bot e Raspberry Pi 5 con prezzi Amazon.it aggiornati, foto prodotto e consigli per età e budget.';
+const updated = '6 novembre 2026';
+const cmp = NOEL_COMPARISON.it;
+---
+
+<ItPost title={title} description={description} updated={updated}>
+	<AffiliateDisclosure locale="it" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/it/">Home</a> · <a href="/it/miglior-robot-programmabile-per-bambini/">Guide robot</a> · Regali Natale 2026
+	</nav>
+
+	<p>
+		Hub completo: <a href="/it/miglior-robot-programmabile-per-bambini/">miglior robot programmabile per bambini</a> — qui selezioniamo i regali Natale 2026 su Amazon.it.
+	</p>
+
+	<ComparisonTable market="it" locale="it" title={cmp.title} products={cmp.products} />
+
+	<p>
+		<strong>Natale 2026</strong> è il momento giusto per regalare un <strong>robot programmabile</strong> che dura anni:
+		blocchi stile <strong>Scratch</strong> (programmazione visuale a blocchi per bambini) in mBlock, poi Python o{' '}
+		<strong>Arduino</strong> (scheda elettronica programmabile) C. Questa guida è pensata per chi acquista su{' '}
+		<strong>Amazon.it</strong> con prezzi e foto aggiornati al <strong>4 novembre 2026</strong>. Nel comparativo e nel testo
+		usiamo la stessa fonte prezzi — ad esempio <strong>89,99 €</strong> per mBot, <strong>170 €</strong> per mBot2,{' '}
+		<strong>50 €</strong> circa per ELEGOO Penguin Bot e <strong>204,99 €</strong> per Raspberry Pi 5 8 GB quando disponibili.
+		Approfondimento: <a href="/it/miglior-robot-programmabile-per-bambini/">confronto robot programmabili</a>.
+	</p>
+
+	<h2>Perché un robot educativo?</h2>
+	<p>
+		Un robot programmabile resta interessante per anni: batteria USB, aggiornamenti firmware e un buon valore di rivendita se i gusti cambiano.
+		I bambini esercitano logica e debug su sensori concreti, e in famiglia potete montarlo sotto l’albero e provare i primi programmi in vacanza.
+		Lo schermo serve a creare movimento, non solo a guardare video.
+	</p>
+
+
+	<figure>
+		<img src="/images/illustrations/noel-robot-sapin.webp" alt="Piccolo robot su ruote accanto a un regalo e a un vaso di rami di abete" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>Il primo programma si fa spesso per terra, accanto all’albero, con un adulto vicino.</figcaption>
+	</figure>
+
+	<h2 id="eta-4-6">4–6 anni: senza schermo</h2>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title=""
+		products={[{ id: 'code-and-go-souris', badge: 'Senza schermo, dai 4 anni' }]}
+	/>
+	<p>
+		Cercate pulsanti fisici (
+		<a href={productAmazonUrl('bee-bot', 'it')} target="_blank" rel="sponsored nofollow noopener">Code &amp; Go Robot Mouse</a>,{' '}
+		<a href={productAmazonUrl('tale-bot-pro', 'it')} target="_blank" rel="sponsored nofollow noopener">Matatalab Tale-Bot Pro</a>
+		), non radiocomandi da giocattolo. Guida per età:{' '}
+		<a href="/it/miglior-robot-programmabile-per-bambini/">robot programmabili</a>.
+	</p>
+
+	<h2 id="eta-7-9">7–9 anni: primo robot</h2>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title=""
+		products={[{ id: 'mbot', badge: 'Scelta sicura, 8–12 anni' }]}
+	/>
+	<p>
+		Il <a href={productAmazonUrl('mbot', 'it')} target="_blank" rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> resta la scelta sicura in Italia: montaggio in 15–30 minuti, community docente ampia,
+		sensori linea e ultrasuoni inclusi, <a href="/it/installare-mblock-5-windows/">mBlock su Windows o macOS</a>. Nei plessi che
+		adottano progetti <strong>STEM</strong> (scienza, tecnologia, ingegneria, matematica) e laboratori di coding — spesso legati
+		all’<strong>Hour of Code</strong> (iniziativa di programmazione a scuola) — mBot compare come kit condiviso. Il prezzo segue
+		il comparativo (circa <strong>90 €</strong>); controllate la scheda prodotto il giorno dell’ordine.
+	</p>
+
+	<h2 id="eta-10-13">10–13 anni: mBot2</h2>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title=""
+		products={[{ id: 'mbot2', badge: 'Scratch, poi Python' }]}
+	/>
+	<p>
+		<strong><a href={productAmazonUrl('mbot2', 'it')} target="_blank" rel="sponsored nofollow noopener">mBot2</a></strong> con CyberPi (schermo, Wi‑Fi) apre a <strong>Python</strong> mantenendo i blocchi — ideale se Scratch
+		è già facile. Confronto: <a href="/it/mbot-vs-mbot2/">mBot vs mBot2</a>. Budget indicativo <strong>170 €</strong>, coerente
+		con la tabella sopra.
+	</p>
+
+	<h2 id="eta-14">14+: Arduino e Raspberry Pi 5</h2>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title=""
+		products={[
+			{ id: 'elegoo-penguin', badge: 'Bipede, Arduino C' },
+			{ id: 'raspberry-pi-5-8gb', badge: 'Solo la scheda' },
+		]}
+	/>
+	<p>
+		<strong><a href={productAmazonUrl('elegoo-penguin', 'it')} target="_blank" rel="sponsored nofollow noopener">ELEGOO Penguin Bot</a></strong> per Arduino C divertente (circa <strong>50 €</strong> in tabella);{' '}
+		<strong><a href={productAmazonUrl('raspberry-pi-5-8gb', 'it')} target="_blank" rel="sponsored nofollow noopener">Raspberry Pi 5 8 GB</a></strong> per Linux, visione artificiale e robot con{' '}
+		<strong>HAT</strong> (schede di espansione montate sopra il Pi). Per domotica e sensori connessi si parla spesso di{' '}
+		<strong>IoT</strong> (Internet delle Cose) — un passo successivo rispetto al mBot sotto l’albero. Confronto RAM:{' '}
+		<a href="/it/raspberry-pi-3-vs-4-vs-5/">guida Raspberry Pi</a>.
+	</p>
+
+	<figure>
+		<img src="/images/illustrations/noel-trois-budgets.webp" alt="Tre pacchi regalo di dimensioni crescenti su un tavolo di legno" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>Tre formati di regalo. Si sceglie prima il budget, poi il modello.</figcaption>
+	</figure>
+
+	<h2 id="budget">Fasce di prezzo (Italia, 5 novembre 2026)</h2>
+	<p>
+		Ogni fascia mostra i kit il cui prezzo Amazon.it, nel rilevamento del 5 novembre 2026, cade in quell’intervallo.
+		Il pulsante apre la scheda del giorno.
+	</p>
+	<h3>Sotto 70 €</h3>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title="Sotto 70 €"
+		products={[
+			{ id: 'elegoo-penguin', badge: '49,99 € il 5 nov 2026' },
+			{ id: 'elegoo-uno-super-starter', badge: 'Elettronica senza saldature' },
+		]}
+	/>
+	<h3>70–180 €</h3>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title="Da 70 a 180 €"
+		products={[
+			{ id: 'elegoo-robot-car', badge: '75,99 € il 5 nov 2026' },
+			{ id: 'mbot', badge: '89,99 € il 5 nov 2026' },
+			{ id: 'codey-rocky', badge: '147,90 € il 5 nov 2026' },
+			{ id: 'mbot2', badge: '169,99 € il 5 nov 2026' },
+		]}
+	/>
+	<h3>Oltre 180 €</h3>
+	<p>
+		La sola scheda Raspberry Pi 5 da 8 GB era a 204,99 €. Alimentatore ufficiale da 27 W, case e microSD sono extra e non sono in questa scheda.
+	</p>
+	<ComparisonTable
+		variant="cards"
+		market="it"
+		locale="it"
+		title="Oltre 180 €"
+		products={[{ id: 'raspberry-pi-5-8gb', badge: '204,99 € il 5 nov 2026, solo scheda' }]}
+	/>
+
+	<h2>Consigli d’ordine</h2>
+	<ol>
+		<li>Verificare tempi di consegna Amazon.it a dicembre (Sicilia e isole: margine extra).</li>
+		<li>Prevedere tempo adulto per mBlock e driver USB.</li>
+		<li>Batterie ricaricabili pronte il giorno di Natale.</li>
+		<li>Controllare che il PC di casa supporti mBlock 5 (Windows 10/11 o macOS recente).</li>
+	</ol>
+
+	<h2>Robot programmabili e scuola in Italia</h2>
+	<p>
+		Dal 2025 molte scuole secondarie di primo grado aderiscono a percorsi di <strong>coding</strong> e STEM con kit condivisi:
+		montaggio in classe, blocchi mBlock, poi Python in seconda media. Prima di ordinare un secondo ecosistema, chiedete al docente
+		quale piattaforma usa — evita due marche incompatibili. Per uso familiare, il comparativo sopra riassume i quattro modelli con
+		aggiornamento prezzi del <strong>4 novembre 2026</strong>.
+	</p>
+
+	<h2>FAQ</h2>
+	<h3>I prezzi in tabella sono fissi?</h3>
+	<p>No — Amazon.it varia spesso. Data dell’ultimo controllo sotto il comparativo; confermare in pagina prodotto.</p>
+	<h3>Usano questi robot a scuola?</h3>
+	<p>
+		Sì — mBot compare in laboratori STEM e iniziative tipo <strong>Hour of Code</strong>. Chiedete all’insegnante prima di comprare
+		un secondo ecosistema.
+	</p>
+	<h3>Scratch o Python per primo?</h3>
+	<p>
+		Blocchi fino a 10–11 anni, poi Python su mBot2. Partite da{' '}
+		<a href="/it/installare-mblock-5-windows/">mBlock su Windows</a> e{' '}
+		<a href="/it/primi-passi-mblock-5/">primi passi</a>.
+	</p>
+
+	<h2>Errori da evitare</h2>
+	<ul>
+		<li>Scegliere solo in base allo sconto senza leggere recensioni recenti.</li>
+		<li>Kit troppo complesso come primo regalo.</li>
+		<li>Dimenticare un PC compatibile con mBlock.</li>
+	</ul>
+
+	<h2>Prima di ordinare su Amazon.it</h2>
+	<p>
+		Emmanuel SAUVAGE e la redazione di robot-educatif.info aggiornano prezzi e foto quando cambia il catalogo Amazon.it.
+		Confrontate tabella e scheda venditore. Per dubbi tra mBot e mBot2:{' '}
+		<a href="/it/mbot-vs-mbot2/">confronto</a> e{' '}
+		<a href="/it/robot-educativi-2026-2027-calendario-guida-acquisto/">calendario novità 2026–2027</a>.
+	</p>
+
+	<p>
+		<strong>In sintesi:</strong> allineate età, tempo di setup e obiettivo di coding — i quattro preferiti nel comparativo
+		riflettono la disponibilità Amazon.it all’aggiornamento del 4 novembre 2026.
+	</p>
+</ItPost>

@@ -1,0 +1,76 @@
+---
+title: Mises à jour OTA ESPHome sans câble
+description: "Mettez à jour un ESP32 ESPHome en Wi-Fi : OTA, mot de passe, Home Assistant, récupération et erreurs courantes. Matériel, schéma GPIO, YAML ESPHome et Home"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+---
+
+**OTA** signifie « Over The Air », littéralement « par les airs » : mettre à jour le programme d'un ESP32, une petite carte électronique équipée du Wi-Fi, par le réseau sans fil, sans la débrancher du mur ni la rapporter à l'ordinateur pour y brancher un câble USB. Pour un capteur fixé dans un faux plafond, une tablette murale ou une électrovanne dans le jardin, c'est ce qui rend la maintenance praticable : vous modifiez votre fichier de configuration (le YAML) depuis votre fauteuil, et la carte se met à jour toute seule.
+
+**Résultat attendu :** une nouvelle version du YAML installée sans câble, et une procédure de récupération si quelque chose tourne mal. **Durée :** 10 minutes. **Difficulté :** débutant.
+
+## Prérequis
+
+- Un appareil déjà flashé une première fois par USB avec un YAML contenant le bloc `ota:` ([premier flash](/domotique/flasher-code-esp32-esphome/)).
+- L'appareil allumé, connecté au Wi-Fi et visible dans ESPHome (pastille « Online »).
+- Un ordinateur ou un Home Assistant sur le même réseau local.
+
+## Activer l'OTA dans le YAML
+
+Les configurations de ce site contiennent déjà ce bloc :
+
+```yaml
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "mon-appareil Fallback"
+    password: !secret ap_password
+
+captive_portal:
+```
+
+Le mot de passe empêche toute autre machine du réseau d'envoyer un programme à votre carte. Le bloc `ap` et `captive_portal` créent un réseau Wi-Fi de secours si la carte ne retrouve pas le réseau habituel : voir la section récupération.
+
+## Mettre à jour depuis ESPHome Device Builder
+
+1. Modifiez le fichier YAML de l'appareil, par exemple en changeant un intervalle de mesure.
+2. Cliquez sur **Install** (ou sur **⋮ → Install**).
+3. Choisissez **Wirelessly**.
+4. Attendez la compilation, puis le téléversement : une barre de progression apparaît, puis la carte redémarre.
+
+En ligne de commande, `esphome run mon-appareil.yaml` propose le même choix et détecte l'appareil sur le réseau.
+
+**Vérification :** dans les journaux, la carte se reconnecte au Wi-Fi puis à Home Assistant. Dans **Paramètres → Appareils et services**, la version d'ESPHome de l'appareil est mise à jour dans sa fiche.
+
+## Que faire si l'OTA échoue ?
+
+La carte se récupère presque toujours sans câble :
+
+- **Mode sans échec (safe mode)** : si la carte redémarre plusieurs fois de suite (10 fois par défaut) sans démarrer correctement, ESPHome lance un mode minimal qui n'accepte que l'OTA. Corrigez le YAML, puis réinstallez-le sans fil.
+- **Wi-Fi de secours** : si le réseau habituel est introuvable, connectez-vous au Wi-Fi « Fallback » de la carte avec le mot de passe `ap_password`. La page de connexion permet de choisir un réseau ou de téléverser un fichier `.bin`.
+- **Dernier recours** : reflashez par USB ([tutoriel](/domotique/flasher-code-esp32-esphome/)).
+
+## Problèmes fréquents
+
+| Symptôme | Cause probable | Solution |
+|---|---|---|
+| « Error resolving IP address » | Le nom `.local` ne se résout pas (mDNS) | Ajoutez `use_address: 192.168.x.x` sous `wifi:` et réservez cette IP dans la box |
+| Mot de passe refusé | Le mot de passe a changé dans le YAML | Reflashez par USB une fois avec le nouveau mot de passe |
+| Échec en cours de téléversement | Signal Wi-Fi faible | Rapprochez la carte du routeur, réessayez |
+| Appareil « Offline » | Hors tension ou autre réseau | Vérifiez l'alimentation et le Wi-Fi |
+| Compilation OK mais pas d'envoi | Pare-feu ou VLAN séparant l'ordinateur et la carte | Autorisez le port 3232 entre les deux |
+
+## Bonnes pratiques de sécurité
+
+Gardez un mot de passe OTA, ne l'exposez pas sur Internet (le port 3232 ne doit jamais être redirigé depuis la box) et conservez la clé de chiffrement de l'API en lieu sûr. Mettez à jour ESPHome régulièrement : chaque version publie ses changements dans les [notes de version](https://esphome.io/changelog/). Après une montée de version, lisez la liste des changements incompatibles avant de réinstaller les appareils.
+
+Pour la suite : [projets ESP32 pas à pas](/domotique/projets-esp32-domotique/) et [bases du câblage GPIO](/domotique/bases-cablage-esp32-gpio/).
+
+<small>Mis à jour le 30 octobre 2026. Source : [documentation ESPHome, plateforme OTA](https://esphome.io/components/ota/esphome/). Les paramètres par défaut peuvent évoluer d'une version à l'autre.</small>

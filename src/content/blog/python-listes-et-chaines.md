@@ -1,8 +1,10 @@
 ---
 title: "Python — listes et chaînes de caractères"
-description: "Listes et chaînes Python : indices, slicing, méthodes, split/join. 20 exercices avec solutions."
+description: "Listes et chaînes Python : indices, tranches, méthodes courantes, split et join. Vingt exercices corrigés pour manipuler du texte pas à pas, avec des exemples."
 pubDate: 2026-03-28
-updatedDate: 2026-03-29
+updatedDate: "2026-11-02"
+shareTitle: "Python — listes et chaînes de caractères"
+shareDescription: "Listes et chaînes Python : indices, slicing, méthodes, split/join. 20 exercices avec solutions."
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 7
@@ -18,7 +20,19 @@ categories:
   - "Tutoriel"
   - "Intermédiaire"
 ---
-Les **listes** regroupent plusieurs valeurs dans un **ordre** (souvent homogènes : des nombres, des noms…). Les **chaînes** (`str`) se manipulent aussi par **indices** et **tranches**, mais sont **immuables** : une méthode comme `lower()` renvoie une **nouvelle** chaîne plutôt que de « modifier sur place » la variable.
+Les **listes** regroupent plusieurs valeurs dans un **ordre** (souvent homogènes : des nombres, des noms…). Les **chaînes** (`str`, abréviation de *string* en anglais = « chaîne de caractères ») se manipulent aussi par **indices** et **tranches**, mais sont **immuables** : une méthode comme `lower()` renvoie une **nouvelle** chaîne plutôt que de « modifier sur place » la variable.
+
+> **Parcours Python (7/10)** — [Sommaire du parcours](/programmation/python/) · [Leçon 6 — fonctions](/python-fonctions/) · [Leçon 8 — fichiers texte](/python-fichiers-texte/) · [Python intermédiaire — venv et pip](/python-inter-venv-pip/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python/">Parcours Python</a> · Leçon listes et chaînes</nav>
+
+**Pourquoi cette leçon compte** : presque tous les petits jeux (pendu, scores, pseudos) stockent leurs données dans des **listes** ou des **chaînes**. Savoir découper une phrase en mots (`split`) ou joindre des éléments (`join`) évite des boucles compliquées inutiles.
+
+## Avant de commencer : rappels utiles
+
+- Une **liste** se note entre crochets : `[1, 2, 3]`. On peut la **modifier** (`append`, `pop`).
+- Une **chaîne** se note entre guillemets : `"Bonjour"`. On ne change pas les caractères « sur place » : on **crée** une nouvelle chaîne (`strip`, `replace`, `lower`).
+- L’**indice** du premier élément est **0** ; **-1** désigne le **dernier** (valable pour listes et chaînes).
 
 ## 1. Listes : indices et tranches
 
@@ -310,10 +324,26 @@ else:
 </div>
 </details>
 
+## Questions fréquentes
+
+**Quelle différence entre `liste[i:j]` et `liste[i:j:k]` ?**  
+Les deux formes sont des **tranches** (*slicing*). `i:j` va de l’indice `i` **inclus** à `j` **exclus**. Le troisième nombre `k` est le **pas** : `[::-1]` inverse l’ordre (très pratique pour les palindromes, exercice 20).
+
+**Pourquoi `split(",")` ne marche pas sur mon CSV ?**  
+Si une cellule contient une **virgule à l’intérieur** d’un texte entre guillemets, un simple `split` ne suffit pas : il faut le module **`csv`** (vu plus tard) ou des règles plus strictes. Pour des listes simples (`a,b,c`), `split` convient.
+
+**Liste ou chaîne pour stocker des mots ?**  
+Une **liste de chaînes** (`["chat", "chien"]`) permet de modifier un mot sans toucher aux autres. Une seule grande chaîne convient surtout à l’**affichage** ou à l’**export** (`join`).
+
+**Erreur `IndexError: list index out of range` ?**  
+L’indice demandé **n’existe pas** (souvent `len(liste)` alors que le dernier indice valide est `len(liste) - 1`). Vérifie avec `print(len(scores))` avant d’accéder à `scores[i]`.
+
 ## Suite du parcours
 
-Lire et écrire des **fichiers texte** ([leçon 8](/python-fichiers-texte/)) permet de sauver des listes (scores, pseudos) sur le disque.
+Lire et écrire des **fichiers texte** ([leçon 8](/python-fichiers-texte/)) permet de sauver des listes (scores, pseudos) sur le disque. Ensuite : [erreurs et débogage](/python-erreurs-debogage/) pour lire les messages quand un indice ou un type est incorrect.
 
-## Amazon (partenaire)
+## Ressources Python (partenaire)
 
-- [Structures de données Python](https://www.amazon.fr/s?k=structures+de+donn%C3%A9es+python&tag=manuso06-21)
+- [Apprendre Python — livres débutant](https://www.amazon.fr/s?k=apprendre+python+d%C3%A9butant+livre&tag=manuso06-21)
+- [Exercices et projets Python](https://www.amazon.fr/s?k=python+exercices+projets+livre&tag=manuso06-21)
+- [Structures de données Python](/go/az-fr-7228657cbb/)

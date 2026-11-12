@@ -2,10 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import PageColumns from '../components/PageColumns.astro';
 
 const title = 'Recherche';
 const description =
-	'Rechercher dans les articles et pages du site ROBOT éducatif (robotique, Scratch, mBlock, Python).';
+	'Recherche sur robot-educatif.info : trouvez articles, tutoriels mBlock, guides Scratch et Python, comparatifs de robots éducatifs et pages pratiques du site.';
 const basePath = import.meta.env.BASE_URL;
 const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
 ---
@@ -19,6 +20,7 @@ const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
 	<body>
 		<Header />
 		<main>
+<PageColumns>
 			<article class="search-page">
 				<h1>Recherche</h1>
 				<p class="search-lead">
@@ -34,7 +36,8 @@ const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
 				</p>
 				<div id="search" class="search-root" aria-live="polite"></div>
 			</article>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 		<script is:inline define:vars={{ basePath }}>
 			(function () {

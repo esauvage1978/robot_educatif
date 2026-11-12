@@ -1,7 +1,8 @@
 ---
 title: "Équiper une classe en robots : budget et packs 2026"
-description: "Achat groupé robots pour classe collège/primaire : 900-3000€ pour 6-15 élèves. mBot, mBot2, tarifs, licences mBlock, maintenance, financement."
+description: "Combien de robots pour une classe, mBot, mBot2 ou ELEGOO : prix unitaires du 6 novembre 2026, licences mBlock, maintenance et financement. Accessoires non totalisés."
 pubDate: "2026-10-13"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot
 categories:
@@ -25,31 +26,50 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
 <AffiliateDisclosure variant="full" />
 
-Équiper une classe en **robots éducatifs** nécessite de jongler entre **budget**, **pédagogie**, **maintenance** et **évolutivité**. Ce guide vous aide à choisir le bon nombre de robots, le bon modèle, et à anticiper tous les coûts cachés (piles, rangement, licences, formation).
+Équiper une classe, c'est d'abord décider combien d'élèves touchent un robot en même temps, puis quel modèle tient le cycle, et seulement ensuite ce que coûtent les robots eux-mêmes. Les piles, les bacs et les tapis comptent, mais leur prix n'est pas dans le relevé du 6 novembre 2026. Cette page ne les additionne plus aux machines. Elle donne le prix unitaire Amazon.fr de trois robots, et le produit nombre × prix.
 
-## 1. Combien de robots pour combien d'élèves ?
+Ce jour-là, le [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) était à 89,99 €, le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) à 167,95 €, et la [voiture ELEGOO V4.0](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21) à 79,99 €. Aucun de ces montants n'est un prix de lot. Le choix pédagogique par niveau est dans le [guide technologie au collège](/robots-technologie-college-guide/) et dans [robot pédagogique pour l'école](/robot-pedagogique-ecole/).
 
-### Scénario primaire (CE2-CM2) : 24-28 élèves
+## Combien de robots pour la classe
 
-- **Option A** : 6 robots pour travail en **groupe de 4**
-  - Budget : ~600-900€
-  - Avantage : collaboration, coût maîtrisé
-  - Inconvénient : temps d'attente, gestion tour de rôle
+En primaire, pour 24 à 28 élèves, six mBot mettent les enfants par groupes de quatre. Le calcul, au tarif unitaire du 6 novembre 2026, est 6 × 89,99 €, soit 539,94 € de robots seuls. Tout le monde ne programme pas en même temps, et il faut un tour de rôle explicite. Douze mBot permettent des binômes : 12 × 89,99 €, soit 1 079,88 €, avec plus de câbles à compter en fin d'heure.
 
-- **Option B** : 12 robots pour travail en **binôme**
-  - Budget : ~1200-2000€
-  - Avantage : tous actifs, moins de conflits
-  - Inconvénient : rangement, charge mentale enseignant
+Huit mBot laissent trois ou quatre élèves par robot. C'est le compromis le plus simple à ranger pour une classe de cet effectif : 8 × 89,99 €, soit 719,92 €. Rapporté à 24 élèves, 719,92 ÷ 24 fait un peu moins de 30 € par élève, robots seuls. Ce n'est pas le coût de l'année.
 
-**Notre recommandation primaire** : 8 robots = 3-4 élèves/robot (sweet spot budget/péda).
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Nombre de mBot</th>
+<th scope="col">Organisation</th>
+<th scope="col">Robots seuls</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Nombre de mBot"><span class="td-val">6</span></td>
+<td data-label="Organisation"><span class="td-val">Groupes de 4</span></td>
+<td data-label="Robots seuls"><span class="td-val">539,94 €</span></td>
+</tr>
+<tr>
+<td data-label="Nombre de mBot"><span class="td-val">8</span></td>
+<td data-label="Organisation"><span class="td-val">3 ou 4 élèves par robot</span></td>
+<td data-label="Robots seuls"><span class="td-val">719,92 €</span></td>
+</tr>
+<tr>
+<td data-label="Nombre de mBot"><span class="td-val">10</span></td>
+<td data-label="Organisation"><span class="td-val">Un peu plus de deux élèves par robot</span></td>
+<td data-label="Robots seuls"><span class="td-val">899,90 €</span></td>
+</tr>
+<tr>
+<td data-label="Nombre de mBot"><span class="td-val">12</span></td>
+<td data-label="Organisation"><span class="td-val">Binômes</span></td>
+<td data-label="Robots seuls"><span class="td-val">1 079,88 €</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-### Scénario collège (6e-3e) : 24-30 élèves
+Chaque ligne multiplie le prix unitaire de 89,99 €, relevé le 6 novembre 2026, par le nombre de robots. Au collège, huit à dix robots suffisent pour des îlots de trois en technologie. Un club de douze à quinze adhérents tourne avec quatre à six machines, soit, en mBot, 359,96 € (4 × 89,99 €) ou 539,94 € (6 × 89,99 €). Une classe de lycée qui travaille en binômes sur un projet long vise plutôt douze à quinze postes, sur le modèle choisi plus bas, pas forcément le mBot.
 
-- **Technologie** : 8-10 robots suffit (îlots 3 élèves)
-- **Club robotique** : 4-6 robots (effectif 12-15)
-- **Classe NSI lycée** : 12-15 robots (binômes, projets longs)
-
-## 2. Quel robot par niveau ?
+## Quel modèle selon le cycle
 
 <ComparisonTable
   products={[
@@ -60,241 +80,140 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
   title="Robots par niveau scolaire"
 />
 
-### Primaire (CE2-CM2) + 6e-5e
+Du CE2 à la 5e, le mBot suffit. mBlock reprend des blocs proches de Scratch, le montage tient en une séance courte, les vis se voient quand il faut réparer, et les notices françaises sont nombreuses. Huit robots de ce modèle, c'est la ligne 719,92 € du tableau. Les piles rechargeables, deux bacs et un tapis de ligne s'ajoutent sur devis, sans être additionnés à ce montant.
+
+En 4e, en 3e et en NSI, le mBot2 passe des blocs au Python sur la même carte CyberPi, avec le Wi-Fi pour un projet connecté si le réseau de l'établissement le permet. Six mBot2 font 6 × 167,95 €, soit 1 007,70 € de robots seuls. Deux mBot2 en plus de huit mBot, pour que le professeur montre le texte sans équiper toute la salle, font 8 × 89,99 € + 2 × 167,95 €, soit 719,92 € + 335,90 € = 1 055,82 €. Là encore, accessoires exclus.
+
+Au lycée, en NSI ou en STI2D, la voiture [ELEGOO](/marque-elegoo/) V4.0 programme en C sur une carte compatible Arduino, avec une caméra et plusieurs capteurs à câbler. Douze voitures font 12 × 79,99 €, soit 959,88 €. Un Raspberry Pi 5 est une autre voie, carte par carte : la [8 Go](https://www.amazon.fr/dp/B0CK2FCG1K?tag=manuso06-21) était à 209,09 € et la [4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21) à 145,22 € le même jour, sans alimentation ni châssis. Le détail est dans le [kit Raspberry Pi 5](/kit-raspberry-pi-5-complet/).
+
+## Trois packs, sans faux total
+
+### Primaire, huit mBot
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Poste</th>
+<th scope="col">Détail</th>
+<th scope="col">Montant</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Poste"><span class="td-val">8 mBot</span></td>
+<td data-label="Détail"><span class="td-val">8 × 89,99 €, relevé du 6 novembre 2026</span></td>
+<td data-label="Montant"><span class="td-val">719,92 €</span></td>
+</tr>
+<tr>
+<td data-label="Poste"><span class="td-val">Piles, bacs, tapis, guide</span></td>
+<td data-label="Détail"><span class="td-val">Pas dans le relevé</span></td>
+<td data-label="Montant"><span class="td-val">Consulter le prix</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Le mBot n'embarque pas de batterie lithium. Prévoyez des piles AA, le nombre indiqué sur la notice, et un chargeur, sans les chiffrer ici. Un bac par groupe de robots et un tapis de ligne noire changent la vie de la séance. Leur prix se lit sur la fiche ou le devis du fournisseur.
+
+### Collège, six mBot2
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Poste</th>
+<th scope="col">Détail</th>
+<th scope="col">Montant</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Poste"><span class="td-val">6 mBot2</span></td>
+<td data-label="Détail"><span class="td-val">6 × 167,95 €, relevé du 6 novembre 2026</span></td>
+<td data-label="Montant"><span class="td-val">1 007,70 €</span></td>
+</tr>
+<tr>
+<td data-label="Poste"><span class="td-val">Batterie</span></td>
+<td data-label="Détail"><span class="td-val">Livrée avec chaque mBot2</span></td>
+<td data-label="Montant"><span class="td-val">Pas d'achat séparé</span></td>
+</tr>
+<tr>
+<td data-label="Poste"><span class="td-val">Extensions, armoire, formation</span></td>
+<td data-label="Détail"><span class="td-val">Pas dans le relevé</span></td>
+<td data-label="Montant"><span class="td-val">Consulter le prix</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Une formation de quelques heures est souvent proposée au plan académique. Quand elle est payante, le devis du formateur fait foi.
+
+### Lycée, douze voitures ELEGOO
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Poste</th>
+<th scope="col">Détail</th>
+<th scope="col">Montant</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Poste"><span class="td-val">12 ELEGOO V4.0</span></td>
+<td data-label="Détail"><span class="td-val">12 × 79,99 €, relevé du 6 novembre 2026</span></td>
+<td data-label="Montant"><span class="td-val">959,88 €</span></td>
+</tr>
+<tr>
+<td data-label="Poste"><span class="td-val">Piles, cartes mémoire, câbles, composants</span></td>
+<td data-label="Détail"><span class="td-val">Pas dans le relevé</span></td>
+<td data-label="Montant"><span class="td-val">Consulter le prix</span></td>
+</tr>
+<tr>
+<td data-label="Poste"><span class="td-val">Ordinateurs</span></td>
+<td data-label="Détail"><span class="td-val">Salle informatique déjà en place</span></td>
+<td data-label="Montant"><span class="td-val">Pas d'achat dans ce pack</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+L'IDE Arduino est libre. Le coût caché est le temps de câblage, pas une licence.
+
+## Financer sans inventer le montant de l'aide
+
+Les régions, la CARDIE, des fondations d'entreprise et certaines mairies publient des appels, souvent déposés à l'automne pour une réponse en début d'année civile. Le plafond est celui du texte de l'appel. Cette page n'en recopie pas un de mémoire. La coopérative ou le foyer socio-éducatif peuvent compléter avec une action déjà prévue (photos de classe, vente), en listant les dons fléchés. Certaines académies et Canopé prêtent un kit quelques semaines : réservez plusieurs mois avant la séquence, et ne comptez pas ce prêt comme un achat.
+
+## Après la livraison
+
+La première année, le temps long est la prise en main : firmware, liaison sans fil, essai du programme d'exemple sur chaque robot. Comptez une demi-journée pour huit à douze machines si personne ne l'a encore fait. La formation de l'enseignant s'ajoute, au plan académique ou sur devis. L'assurance du mobilier scolaire couvre parfois la casse. Demandez-le au gestionnaire, ne le supposez pas.
+
+Les années suivantes, les piles du mBot et les pièces d'usure (roues, vis, un capteur) reviennent. Leur prix se consulte au moment du réassort. Remplacer un mBot au tarif relevé coûte à nouveau 89,99 €, un mBot2 167,95 €, une voiture ELEGOO 79,99 €. Ce n'est pas un budget annuel moyen : c'est le prix d'une machine, le jour où il en faut une de plus. Aucune date de fin de maintenance logicielle n'est annoncée ici. La garantie se lit sur la fiche. Un parc chargé en fin de séance et rangé au sec dépasse cette garantie dans beaucoup de salles, sans que ce soit un engagement du fabricant.
 
-➜ **mBot classique** 
+mBlock, pour le mBot et le mBot2, s'utilise dans le navigateur ou en application de bureau, sans licence de classe à payer pour l'usage courant décrit par Makeblock. L'IDE Arduino, pour l'ELEGOO, est open source. Vérifiez tout de même les conditions au moment de l'installation en salle : un outil gratuit pour un particulier peut avoir une offre établissement séparée. À la date de cette page, ces deux environnements n'ajoutent pas une ligne au budget robots.
 
-**Pourquoi** :
-- Scratch natif (programme 2020)
-- Montage 15 min (séance découverte possible)
-- Réparations simples (vis apparentes)
-- Documentation française abondante
+## Ranger
 
-**Budget 8 robots** : 720€ (kits) + 150€ (piles rechargeables × 3 lots) + 100€ (rangement) = **~970€**
+Deux ou trois robots tiennent dans un bac avec un couvercle. Le prix d'un bac, d'une étagère ou d'une valise de transport n'est pas relevé : consultez-le, y compris pour une valise rigide si le matériel voyage d'une salle à l'autre. Un numéro sur chaque robot, la même couleur que la fiche du groupe, et une liste de retour (câble, vis, télécommande) évite l'inventaire de juin. Une armoire fermée ne sert que si la salle est toujours la même.
 
-### Collège 4e-3e + NSI lycée
+## Quelle formule selon l'établissement
 
-➜ **mBot2**  **OU** mBot classique + modules Python
+Une école avec une classe à équiper part sur huit mBot, soit 719,92 € de robots le 6 novembre 2026, puis les piles. Scratch dans mBlock couvre le cycle, et la prise en main enseignant reste courte si l'on suit [mBlock 5](/premier-pas-avec-mblock-5/).
 
-**Pourquoi mBot2** :
-- Python cycle 4 (BO 2020)
-- CyberPi = progression naturelle Scratch → Python
-- Projets IoT (météo, notifications, dashboard web)
-- Compatible mBuild (capteurs avancés)
+Un collège qui fait tourner la 6e et la 3e sur le même parc peut acheter dix mBot et quatre mBot2 : 10 × 89,99 € + 4 × 167,95 € = 899,90 € + 671,80 € = 1 571,70 € de robots seuls. Les mBot portent le cycle 3 et la 5e, les mBot2 la 4e et la 3e. C'est le schéma du [guide collège](/robots-technologie-college-guide/), avec un effectif un peu plus large que « huit plus quatre ».
 
-**Budget 6 mBot2** : 1008€ (kits) + 120€ (accessoires) + 150€ (rangement modulaire) = **~1278€**
+Un groupe de NSI peut rester sur douze ELEGOO, à 959,88 € de robots seuls, si le projet de l'année est le C et la caméra. Ce n'est pas le bon pack pour des 6e.
 
-**Alternative économique** : 8 mBot + 2 mBot2 (démonstration prof) = **~1056€**
+## Passer la commande
 
-### Lycée NSI / STI2D
+Les revendeurs qui facturent les établissements, comme Génération Robots ou Technologie Services, établissent un devis. Amazon Business aussi, avec un compte distinct d'un achat personnel. Une remise quantité n'est pas promise ici : elle se lit sur le devis, ou elle n'existe pas. Le paiement par mandat administratif se confirme avec le vendeur avant de l'écrire dans la procédure interne.
 
-➜ **ELEGOO Robot Car V4.0**  ou **Raspberry Pi 4/5** + châssis
+Le dossier d'achat se monte dans cet ordre.
 
-**Pourquoi** :
-- Arduino C/C++ (proche industrie)
-- Caméra FPV, capteurs multiples
-- Projets finaux BAC (vision, IA)
-- Communauté maker immense
+1. Demandez un devis qui nomme le modèle, la référence (ASIN ou SKU du revendeur), le nombre de pièces, et ce qui est livré ou non (piles, batterie, câble).
+2. Faites signer le bon de commande par le chef d'établissement, sur ce devis et pas sur une capture d'écran plus ancienne.
+3. Joignez le RIB si le règlement est un virement de l'établissement.
+4. Notez le délai annoncé. Deux à quatre semaines sont fréquentes, davantage avant les vacances de fin d'année. Ne promettez pas une séance à une date que le transporteur n'a pas confirmée.
 
-## 3. Budget complet par scénario
+Deux pièges reviennent dans les salles. Un clone sans pièce détachée fait gagner quelques euros à la commande et bloque la classe à la première roue cassée. Un « kit école » qui n'ajoute qu'une mallette au même robot se compare ligne à ligne avec la fiche nue. Fractionner la commande en trois petits achats fait souvent perdre un devis groupé, sans que le pourcentage soit le même partout.
 
-### Pack "Primaire découverte" (8 robots)
+Le calendrier qui tient : à l'automne, déposer les demandes et comparer les devis, puis les faire voter. Avant les vacances d'hiver, passer la commande et inscrire la formation. À la rentrée de janvier, réceptionner, mettre à jour chaque robot, puis seulement accueillir les élèves. De février à juin, les séances montrent les pièces qui manquent. L'été, on nettoie, on compte, et on commande ce qui a cassé, au prix du moment.
 
-| Poste | Détail | Coût |
-|-------|--------|------|
-| Robots | 8× mBot  | 720€ |
-| Piles | 3 lots 8× AA rechargeables + chargeur | 150€ |
-| Rangement | Bac plastique 30L IKEA × 2 | 50€ |
-| Tapis | 2 tapis suiveur ligne A1 | 80€ |
-| Livre prof | Guide pédagogique mBlock | 25€ |
-| **Total** | | **1025€** |
+Les fiches utilisées pour les prix de cette page sont le [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21), le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) et l'[ELEGOO V4.0](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21). Ce sont des liens affiliés. Les piles AA se commandent sur une fiche qui nomme la référence, pas via une recherche générale.
 
-*Soit ~43€/élève pour classe 24.*
+Huit mBot pour une classe de primaire, c'est 719,92 € de robots au relevé du 6 novembre 2026. Six mBot2 pour le Python du collège, c'est 1 007,70 €. Douze ELEGOO pour un groupe de lycée, c'est 959,88 €. Le rangement, les piles et la formation se chiffrent sur devis, à côté de ces trois nombres, pas à l'intérieur.
 
-### Pack "Collège Python" (6 robots)
-
-| Poste | Détail | Coût |
-|-------|--------|------|
-| Robots | 6× mBot2  | 1008€ |
-| Batteries | Incluses (Li-ion rechargeables) | 0€ |
-| Extensions | 2 kits capteurs mBuild | 100€ |
-| Rangement | Armoire métal 8 casiers | 200€ |
-| Formation | 3h formation enseignant (optionnel) | 300€* |
-| **Total** | | **1608€** |
-
-*Formation souvent prise en charge PAF/EAFC.*
-
-### Pack "Lycée projets" (12 robots)
-
-| Poste | Détail | Coût |
-|-------|--------|------|
-| Robots | 12× [ELEGOO](/marque-elegoo/) V4.0  | 960€ |
-| Accessoires | Piles, SD, câbles USB supplémentaires | 150€ |
-| Ordinateurs | (déjà disponibles en salle info) | 0€ |
-| Composants | Résistances, LED, breadboards | 100€ |
-| **Total** | | **1210€** |
-
-## 4. Financement et aides
-
-### Appels à projets 2026
-
-- **Région** : "Équipement numérique" (500-5000€)
-- **CARDIE** : Projets innovants (1000-3000€)
-- **Fondations entreprises** : Total, Orange, CGenial (variable)
-- **Mairies** : Budget fournitures + équipement
-
-**Calendrier** : septembre-novembre dépôt, janvier-mars attribution.
-
-### Coopérative scolaire / FSE
-
-- Bénéfices photos de classe
-- Tombola / vente gâteaux
-- Sponsors parents (listing donateurs fléchés)
-
-### Prêt matériel DANE / Canopé
-
-Certaines académies prêtent **kits robotiques** 4-8 semaines (réserver 3 mois avant).
-
-## 5. Coûts cachés et maintenance
-
-### Première année
-
-- **Formation enseignant** : 3-6h (PAF gratuit OU 300€ privé)
-- **Temps installation** : 2-4h (firmware, Bluetooth, tests)
-- **Assurance casse** : incluse mobilier scolaire habituellement
-
-### Années suivantes (annuel)
-
-- **Piles** : 30-50€/an (mBot classique)
-- **Pièces détachées** : 50-100€/an (roues, vis, capteurs)
-- **Renouvellement** : 1 robot sur 8 tous les 2 ans (~100€/an)
-
-**Total maintenance** : 150-250€/an pour classe 8 robots.
-
-### Obsolescence
-
-- **mBot classique** : 5-7 ans (firmware maintenu jusqu'en 2030 minimum)
-- **mBot2** : 5-8 ans (plateforme récente, maj logicielles)
-- **ELEGOO** : 4-6 ans (compatibilité Arduino éternelle)
-
-## 6. Rangement et logistique
-
-### Solutions économiques
-
-- **Bacs IKEA Samla 22L** : 5-8€ pièce, 2 robots/bac
-- **Étagères métal** : 50-100€ (charge 50kg)
-- **Étiquettes couleur** : binôme = couleur (rouge, bleu…)
-
-### Solutions pro
-
-- **Valises Peli** : 100-200€ pièce (transport sûr, mousse découpée)
-- **Chariots classe mobile** : 400-800€ (charge 16 robots + tablettes)
-
-### Signalétique
-
-- Numéroter chaque robot (autocollant)
-- Fiche inventaire plastifiée
-- Checklist retour fin séance (vis, câbles, télécommande)
-
-## 7. Licences logicielles
-
-### mBlock (mBot/mBot2)
-
-- **Version web** : gratuite, illimitée
-- **Version bureau** : gratuite, illimitée
-- **Pas de licence** enseignant nécessaire
-
-### Arduino IDE (ELEGOO)
-
-- **100% gratuit** et open source
-- Pas de restriction établissement
-
-### Conclusion logiciels
-
-➜ Aucun coût licence récurrent pour robots éducatifs standards.
-
-## 8. Notre recommandation par établissement
-
-### École primaire (1 classe)
-
-➜ **8 mBot classiques** = ~1000€ TTC (avec accessoires)
-
-Rentable sur 5 ans, pas de formation complexe, Scratch suffit.
-
-### Collège (2-3 classes)
-
-➜ **10 mBot classiques + 4 mBot2** = ~1900€
-
-Mutualisé 6e-5e (mBot) + 4e-3e (mBot2). Progression cohérente cycles 3-4.
-
-### Lycée NSI (1 groupe)
-
-➜ **12 ELEGOO V4.0** = ~1200€
-
-Arduino C/C++, projets BAC, écosystème mature, coût contenu.
-
-## 9. Commande groupée : conseils
-
-### Revendeurs agréés Éducation
-
-- **Génération Robots** : remise 10-15% sur devis
-- **Technologie Services** : paiement mandat administratif
-- **Amazon Business** : facture établissement, retours simplifiés
-
-### Documents à préparer
-
-1. Devis détaillé (références exactes ASIN/SKU)
-2. Bon de commande signé chef établissement
-3. RIB établissement (virement)
-4. Délai livraison (prévoir 2-4 semaines)
-
-### Éviter les pièges
-
-- ❌ Clones low-cost sans SAV (économie 20% = casse 80%)
-- ❌ Kits "éducation" gonflés (+30% pour mallette inutile)
-- ❌ Achats fractionnés (perdre remises quantité)
-
-## 10. Planning idéal
-
-### Septembre-Octobre
-
-- Réponse appels à projets
-- Devis comparatifs
-- Validation conseil école/CA
-
-### Novembre-Décembre
-
-- Commande validée (délai Noël)
-- Formation enseignant (PAF)
-
-### Janvier
-
-- Réception matériel
-- Tests firmware
-- Première séance élèves
-
-### Février-Juin
-
-- Séquences pédagogiques
-- Ajustements (pièces manquantes)
-
-### Juillet-Août
-
-- Maintenance (firmware, nettoyage)
-- Inventaire pièces
-- Commande renouvellement année N+1
-
-## 11. Liens utiles
-
-- [mBot classique (lot possible)](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [mBot2 (Python IoT)](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
-- [ELEGOO Robot Car V4.0](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21)
-- [Piles rechargeables AA (8×)](https://www.amazon.fr/s?k=piles+rechargeables+AA+eneloop&tag=manuso06-21)
-
-*Liens affiliés — soutien gratuit pour ce site.*
-
----
-
-**En résumé** : prévoir **1000-1500€** pour équiper une classe primaire/collège avec 8-10 robots mBot. Ajouter **200€/an** maintenance. Anticiper **formation** enseignant (PAF gratuit) et **rangement** adapté. Privilégier **mBot classique** pour CM1-5e, **mBot2** pour 4e-3e Python, **ELEGOO/Raspberry** pour lycée NSI.
-
-**À lire aussi** : [alternatives moins chères à LEGO Spike](/alternatives-lego-spike-comparatif-2026/) · [choisir un robot pédagogique pour l’école](/robot-pedagogique-ecole/)
+**À lire aussi** : [alternatives moins chères à LEGO Spike](/alternatives-lego-spike-comparatif-2026/) · [choisir un robot pédagogique pour l'école](/robot-pedagogique-ecole/)

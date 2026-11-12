@@ -1,0 +1,36 @@
+---
+import { withBase } from '../lib/siteUrl';
+
+interface Part {
+	a?: string;
+	href?: string;
+	sponsored?: boolean;
+	b?: string;
+	code?: string;
+}
+
+interface Props {
+	parts?: Array<string | Part>;
+}
+
+const { parts = [] } = Astro.props;
+---
+
+{
+	parts.map((part) => {
+		if (typeof part === 'string') return part;
+		if (part.b) return <strong>{part.b}</strong>;
+		if (part.code) return <code>{part.code}</code>;
+		const href = part.href ?? '';
+		const external = href.startsWith('http');
+		return (
+			<a
+				href={external ? href : withBase(href)}
+				rel={part.sponsored ? 'sponsored nofollow noopener' : external ? 'noopener noreferrer' : undefined}
+				target={external ? '_blank' : undefined}
+			>
+				{part.a}
+			</a>
+		);
+	})
+}

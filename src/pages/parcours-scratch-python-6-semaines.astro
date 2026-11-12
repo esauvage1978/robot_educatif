@@ -1,0 +1,32 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import ScratchPythonChecklist from '../components/ScratchPythonChecklist.astro';
+import { PARCOURS_PAGE } from '../data/scratchPython6Weeks.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={PARCOURS_PAGE.title}
+	description={PARCOURS_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/parcours-scratch-python-6-semaines/"
+	hubLabel="Programmation"
+	hubPath="/programmation/"
+>
+	<p>{PARCOURS_PAGE.intro}</p>
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot-mcore.webp')}
+			alt="mBot Makeblock à carte mCore, robot des séances mBlock de ce parcours avant le passage à Python"
+			width="800"
+			height="600"
+		/>
+	</figure>
+	<ScratchPythonChecklist />
+	<p>
+		Installer l’environnement : <a href={withBase('/installer-mblock-5-sous-windows-10/')}>mBlock 5</a> ·{' '}
+		<a href={withBase('/programmation/python/')}>parcours Python du site</a>.
+	</p>
+</RobotToolLayout>

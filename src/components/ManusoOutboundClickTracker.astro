@@ -1,0 +1,65 @@
+---
+/** Suivi manuso.fr des clics sortants (affiliés et externes) — indépendant du widget PageRating. */
+---
+
+<script is:inline>
+	(function () {
+		var scripts = document.scripts;
+		for (var si = 0; si < scripts.length; si++) {
+			var sc = scripts[si];
+			if (sc === document.currentScript) break;
+			var txt = sc.textContent || '';
+			if (txt.indexOf('mnz-click-v1') !== -1 && txt.indexOf('track_click=1') !== -1) return;
+		}
+		/*mnz-click-v1*/
+		var B = 'https://manuso.fr/realtime_api.php';
+		var site = location.hostname.replace(/^www\./, ''),
+			path = location.pathname || '/';
+		if (!/\/$/.test(path)) path += '/';
+		var lc = 0;
+		function tc(ev) {
+			if (ev.type === 'auxclick' && ev.button !== 1) return;
+			var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
+			if (!a) return;
+			var h = a.href || '';
+			if (!/^https?:\/\//i.test(h)) return;
+			var hn = '';
+			try {
+				hn = new URL(h).hostname.replace(/^www\./, '');
+			} catch (e) {
+				return;
+			}
+			if ((hn === site || hn === 'manuso.fr') && !/\/go\/|\/r\.php/i.test(h)) return;
+			if (Date.now() - lc < 400) return;
+			lc = Date.now();
+			var lb = (a.innerText || a.getAttribute('aria-label') || a.title || '')
+				.replace(/\s+/g, ' ')
+				.trim()
+				.slice(0, 80);
+			var u =
+				B +
+				'?track_click=1&site=' +
+				encodeURIComponent(site) +
+				'&page=' +
+				encodeURIComponent(path) +
+				'&label=' +
+				encodeURIComponent(lb) +
+				'&url=' +
+				encodeURIComponent(h);
+			var ok = 0;
+			try {
+				if (navigator.sendBeacon) ok = navigator.sendBeacon(u) ? 1 : 0;
+			} catch (e) {}
+			if (!ok) {
+				try {
+					fetch(u, { mode: 'no-cors', keepalive: 1 });
+				} catch (e) {}
+				try {
+					new Image().src = u;
+				} catch (e) {}
+			}
+		}
+		document.addEventListener('click', tc, true);
+		document.addEventListener('auxclick', tc, true);
+	})();
+</script>

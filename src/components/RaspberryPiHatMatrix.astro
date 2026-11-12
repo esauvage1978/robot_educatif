@@ -1,0 +1,170 @@
+---
+import { PI_MODELS, HAT_ROWS, HAT_CATEGORIES } from '../data/raspberryPiHatCompat.mjs';
+import { amazonProductUrl, amazonSearchUrl } from '../lib/amazon';
+import { withBase } from '../lib/siteUrl';
+
+function statusLabel(st) {
+	if (st === 'ok') return '✅';
+	if (st === 'warn') return '⚠️';
+	return '❌';
+}
+
+function buyUrl(row) {
+	if (row.asin) return amazonProductUrl(row.asin, null);
+	if (row.search) return amazonSearchUrl(row.search);
+	return amazonSearchUrl(row.name);
+}
+---
+
+<div class="phm" data-phm="">
+<div class="phm-filters">
+<label>
+			Modèle Raspberry Pi
+			<select data-phm-pi="">
+<option value="all">Tous (vue complète)</option>
+				{PI_MODELS.map((p) => (
+					<option value="{p.id}">{p.label}</option>
+				))}
+			</select>
+</label>
+<label>
+			Catégorie
+			<select data-phm-cat="">
+<option value="all">Toutes</option>
+				{Object.entries(HAT_CATEGORIES).map(([id, label]) => (
+					<option value="{id}">{label}</option>
+				))}
+			</select>
+</label>
+</div>
+<div class="phm-table-wrap">
+<table class="phm-table">
+<thead>
+<tr>
+<th>Équipement</th>
+<th>Catégorie</th>
+					{PI_MODELS.map((p) => (
+						<th data-phm-col="{p.id}">{p.label}</th>
+					))}
+					<th>Ressource</th>
+</tr>
+</thead>
+<tbody>
+				{HAT_ROWS.map((row) => (
+					<tr data-cat="{row.category}" data-phm-row="">
+<td>
+<strong>{row.name}</strong>
+							{row.note && <p class="phm-note">{row.note}</p>}
+						</td>
+<td>{HAT_CATEGORIES[row.category]}</td>
+						{PI_MODELS.map((p) => (
+							<td data-phm-cell="{p.id}" data-status="{row.models[p.id]}">
+								{statusLabel(row.models[p.id])}
+							</td>
+						))}
+						<td class="phm-links">
+							{row.guide && <a href="{withBase(row.guide)}">Tutoriel</a>}
+							<a href="{buyUrl(row)}" rel="noopener noreferrer sponsored" target="_blank">Amazon</a>
+</td>
+</tr>
+				))}
+			</tbody>
+</table>
+</div>
+</div>
+<style>
+	.phm-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+		margin: 1.25rem 0;
+	}
+	.phm-filters label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.phm-filters select {
+		padding: 0.45rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		min-width: 200px;
+	}
+	.phm-table-wrap {
+		overflow-x: auto;
+		margin: 1rem 0 2rem;
+	}
+	.phm-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.88rem;
+	}
+	.phm-table th,
+	.phm-table td {
+		border: 1px solid var(--surface-border);
+		padding: 0.6rem 0.7rem;
+		vertical-align: top;
+	}
+	.phm-table th {
+		background: #f0fdfa;
+		color: #0f766e;
+		font-size: 0.78rem;
+	}
+	.phm-note {
+		margin: 0.35rem 0 0;
+		font-size: 0.82rem;
+		color: rgb(var(--gray-dark));
+		font-weight: 400;
+	}
+	.phm-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		white-space: nowrap;
+	}
+	.phm-table tr[data-phm-hidden='true'] {
+		display: none;
+	}
+	.phm-table th[data-phm-dim='true'],
+	.phm-table td[data-phm-dim='true'] {
+		opacity: 0.35;
+	}
+</style>
+<script>
+	function initPhm(root) {
+		const piSel = root.querySelector('[data-phm-pi]');
+		const catSel = root.querySelector('[data-phm-cat]');
+		const rows = root.querySelectorAll('[data-phm-row]');
+		const cols = root.querySelectorAll('[data-phm-col]');
+
+		function apply() {
+			const pi = piSel?.value || 'all';
+			const cat = catSel?.value || 'all';
+			rows.forEach((row) => {
+				const c = row.getAttribute('data-cat') || '';
+				const catOk = cat === 'all' || c === cat;
+				let piOk = true;
+				if (pi !== 'all') {
+					const cell = row.querySelector(`[data-phm-cell="${pi}"]`);
+					const st = cell?.getAttribute('data-status');
+					piOk = st === 'ok' || st === 'warn';
+				}
+				row.setAttribute('data-phm-hidden', catOk && piOk ? 'false' : 'true');
+			});
+			cols.forEach((th) => {
+				const id = th.getAttribute('data-phm-col');
+				const dim = pi !== 'all' && id !== pi;
+				th.setAttribute('data-phm-dim', dim ? 'true' : 'false');
+				root.querySelectorAll(`[data-phm-cell="${id}"]`).forEach((td) => {
+					td.setAttribute('data-phm-dim', dim ? 'true' : 'false');
+				});
+			});
+		}
+		piSel?.addEventListener('change', apply);
+		catSel?.addEventListener('change', apply);
+		apply();
+	}
+	document.querySelectorAll('[data-phm]').forEach(initPhm);
+</script>

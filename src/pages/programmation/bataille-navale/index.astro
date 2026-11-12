@@ -1,27 +1,139 @@
 ---
-import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
-import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { articleSlugFromId } from '../../../lib/articleSlug';
+import StructuredDataBreadcrumb from '../../../components/StructuredDataBreadcrumb.astro';
 import { withBase } from '../../../lib/siteUrl';
+import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import PageColumns from '../../../components/PageColumns.astro';
 
 const tag = AMAZON_AFFILIATE_TAG;
+const all = await getCollection('blog');
+const posts = all
+	.filter((p) => p.data.series === 'Bataille navale')
+	.sort((a, b) => (a.data.seriesOrder ?? 99) - (b.data.seriesOrder ?? 99));
+
+const itemListLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Bataille navale en Python — robot-educatif.info',
+	description: 'Six chapitres pour coder une bataille navale au terminal.',
+	numberOfItems: posts.length,
+	itemListElement: posts.map((post, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		name: post.data.title,
+		url: new URL(`/${articleSlugFromId(post.id)}/`, Astro.site).href,
+	})),
+};
 ---
 
-<ProgrammationSeriesHub
-	metaTitle="Bataille navale en Python — projet guidé"
-	metaDescription="Série d’articles : modéliser une grille, placer des bateaux, tirs, coulé, et assembler un jeu complet au terminal."
-	series="Bataille navale"
-	breadcrumbLast="Bataille navale"
-	pageTitle="Bataille navale en Python"
->
-	<p>
-		Projet <strong>plus long</strong> que le parcours « mini-jeu » : tu réutilises listes, boucles, fonctions et conditions
-		pour construire pas à pas un jeu au <strong>terminal</strong>. Prérequis recommandé : avoir suivi au moins jusqu’aux{' '}
-		<a href={withBase('/python-listes-et-chaines/')}>listes et chaînes</a> du{' '}
-		<a href={withBase('/programmation/python/')}>parcours Python</a>.
-		Ressources :{' '}
-		<a
-			href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}
-			target="_blank"
-			rel="noopener noreferrer sponsored">livres projets Python</a> (partenaire).
-	</p>
-</ProgrammationSeriesHub>
+<!doctype html>
+<html lang="fr">
+	<head>
+		<BaseHead
+			title="Bataille navale en Python — projet guidé (6 parties)"
+			description="Série gratuite : grille 10×10, placement des bateaux, tirs, coulé et jeu complet au terminal. Prérequis, durée ~6 h, liens vers le parcours Python."
+		/>
+		<script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+		<StructuredDataBreadcrumb
+			items={[
+				{ name: 'Accueil', url: withBase('/') },
+				{ name: 'Programmation', url: withBase('/programmation/') },
+				{ name: 'Bataille navale', url: withBase('/programmation/bataille-navale/') },
+			]}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="py-series">
+<PageColumns>
+			<nav class="breadcrumb" aria-label="Fil d'Ariane">
+				<a href={withBase('/programmation/')}>Programmation</a>
+				<span aria-hidden="true"> / </span>
+				<span>Bataille navale</span>
+			</nav>
+			<h1>Bataille navale en Python</h1>
+			<blockquote class="geo-direct" style="margin: 0 0 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #0d9488; background: #f0fdfa; line-height: 1.55;">
+				<strong>Réponse directe (novembre 2026)</strong> — Cette série en <strong>6 parties</strong> vous guide pour créer une bataille navale jouable au <strong>terminal</strong> en Python 3. Durée totale estimée : <strong>5 à 7 h</strong>. Prérequis : avoir suivi au moins <a href={withBase('/python-listes-et-chaines/')}>listes et chaînes</a> et <a href={withBase('/python-conditions-if-else/')}>conditions if/else</a> du <a href={withBase('/programmation/python/')}>parcours Python</a>. Hub : <a href={withBase('/programmation/')}>programmation</a>.
+			</blockquote>
+			<p>
+				<img src={withBase('/images/blog-thumbnails/python-bataille-navale-1-cahier-des-charges.webp')} alt="Grille de bataille navale en Python" width="320" height="180" loading="lazy" style="max-width:100%;height:auto;border-radius:10px;margin:0 0 0.75rem;" />
+				<img src={withBase('/images/blog/lot15/bataille-navale-partie-finie.png')} alt="Partie de bataille navale dans le terminal" width="320" height="180" loading="lazy" style="max-width:100%;height:auto;border-radius:10px;margin:0 0 0.75rem;" />
+				<img src={withBase('/images/illustrations/python-bataille-navale-4-tirs-et-marques.webp')} alt="Marques de tirs sur la grille radar" width="320" height="180" loading="lazy" style="max-width:100%;height:auto;border-radius:10px;margin:0 0 1rem;" />
+			</p>
+			<h2 id="objectifs">Objectifs</h2>
+			<p class="lead">
+				Modéliser une grille, placer des navires sans chevauchement, gérer les tirs (touché / manqué / coulé) et enchaîner une partie à deux joueurs. Vous réutilisez listes, boucles, fonctions et fichiers texte.
+			</p>
+			<h2 id="prerequis">Prérequis et durée</h2>
+			<p class="lead">
+				Python 3.10+ et un éditeur (Thonny ou VS Code). Chaque chapitre propose du code téléchargeable dans <code>/downloads/bataille-navale/</code>.
+				Séries voisines : <a href={withBase('/programmation/pendu/')}>Pendu</a>, <a href={withBase('/programmation/carnet-todo/')}>Carnet Todo</a>, <a href={withBase('/programmation/puissance-4/')}>Puissance 4</a>.
+			</p>
+			<h2 id="sommaire">Sommaire des 6 chapitres</h2>
+			<ol class="lesson-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={withBase(`/${articleSlugFromId(post.id)}/`)}>
+								<span class="num">{post.data.seriesOrder ?? '?'}</span>
+								<span class="meta">
+									<span class="title">{post.data.title}</span>
+								</span>
+							</a>
+						</li>
+					))
+				}
+			</ol>
+			<p class="extra-series">
+				Ressource :{' '}
+				<a
+					href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}
+					target="_blank"
+					rel="noopener noreferrer sponsored">livres projets Python</a> (partenaire).
+			</p>
+		</PageColumns>
+</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.py-series {
+		max-width: 46rem;
+		margin: 0 auto;
+		padding: 1.5rem 1rem 3rem;
+	}
+	.lesson-list {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 2rem;
+	}
+	.lesson-list li {
+		margin: 0.5rem 0;
+	}
+	.lesson-list a {
+		display: flex;
+		gap: 0.75rem;
+		align-items: baseline;
+		text-decoration: none;
+		color: inherit;
+		padding: 0.65rem 0.75rem;
+		border-radius: 8px;
+		border: 1px solid #e2e8f0;
+	}
+	.lesson-list a:hover {
+		background: #f8fafc;
+	}
+	.num {
+		font-weight: 700;
+		color: #0d9488;
+		min-width: 1.5rem;
+	}
+	.title {
+		font-weight: 600;
+	}
+</style>

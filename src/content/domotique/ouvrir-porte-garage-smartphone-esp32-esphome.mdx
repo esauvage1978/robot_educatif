@@ -25,9 +25,21 @@ Ouvrir le garage depuis le téléphone, en plus de la télécommande, et surtout
 
 ## Durée, niveau et budget
 
-| Durée | Niveau | Budget |
-|---|---|---|
-| 2 à 3 h (lecture de notice et pose comprises) | intermédiaire | ESP32, module relais et contact reed sont des composants courants et abordables (prix à vérifier sur les liens) ; ni abonnement ni remplacement de la motorisation |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val">2 à 3 h (lecture de notice et pose comprises)</span></td>
+<td data-label="Niveau"><span class="td-val">intermédiaire</span></td>
+<td data-label="Budget"><span class="td-val">ESP32, module relais et contact reed sont des composants courants et abordables (prix à vérifier sur les liens) ; ni abonnement ni remplacement de la motorisation</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
 
@@ -55,15 +67,51 @@ Variante sans soudure : un module Shelly capable de fonctionner en **contact sec
 
 ## Câblage
 
-| Élément | Broche | Vers |
-|---|---|---|
-| Relais VCC | – | 3V3 de l'ESP32 (ou 5V selon la fiche du module) |
-| Relais GND | – | GND de l'ESP32 |
-| Relais IN | – | **GPIO26** de l'ESP32 |
-| Relais COM | contact sec | borne 1 de l'entrée « bouton poussoir » de la motorisation |
-| Relais NO | contact sec | borne 2 de cette même entrée |
-| Reed fil 1 | – | **GPIO27** de l'ESP32 |
-| Reed fil 2 | – | GND de l'ESP32 |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Élément</th>
+<th scope="col">Broche</th>
+<th scope="col">Vers</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Élément"><span class="td-val">Relais VCC</span></td>
+<td data-label="Broche"><span class="td-val">–</span></td>
+<td data-label="Vers"><span class="td-val">3V3 de l'ESP32 (ou 5V selon la fiche du module)</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Relais GND</span></td>
+<td data-label="Broche"><span class="td-val">–</span></td>
+<td data-label="Vers"><span class="td-val">GND de l'ESP32</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Relais IN</span></td>
+<td data-label="Broche"><span class="td-val">–</span></td>
+<td data-label="Vers"><span class="td-val"><strong>GPIO26</strong> de l'ESP32</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Relais COM</span></td>
+<td data-label="Broche"><span class="td-val">contact sec</span></td>
+<td data-label="Vers"><span class="td-val">borne 1 de l'entrée « bouton poussoir » de la motorisation</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Relais NO</span></td>
+<td data-label="Broche"><span class="td-val">contact sec</span></td>
+<td data-label="Vers"><span class="td-val">borne 2 de cette même entrée</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Reed fil 1</span></td>
+<td data-label="Broche"><span class="td-val">–</span></td>
+<td data-label="Vers"><span class="td-val"><strong>GPIO27</strong> de l'ESP32</span></td>
+</tr>
+<tr>
+<td data-label="Élément"><span class="td-val">Reed fil 2</span></td>
+<td data-label="Broche"><span class="td-val">–</span></td>
+<td data-label="Vers"><span class="td-val">GND de l'ESP32</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Le relais est **en parallèle** du bouton mural existant, qui continue de fonctionner. Placez le reed de façon qu'il soit fermé (aimant en face) **quand la porte est complètement fermée**.
 

@@ -11,13 +11,35 @@ Dieser Ratgeber erklärt die **Speichervarianten** (Verfügbarkeit je nach Land)
 
 ## 1. RAM-Varianten des Raspberry Pi 5
 
-| RAM | Typischer Einsatz |
-|---|---|
-| **1 GB** | Sehr günstige Edge-Aufgaben: einfache Skripte, ein leichtes Gateway. Wenig Reserve für Browser oder IDE. |
-| **2 GB** | Minimale Server, Anzeigen, Bots. Nicht ideal als Familien-Desktop mit vielen Browser-Tabs. |
-| **4 GB** | Die Allround-Wahl: Raspberry-Pi-OS-Desktop, Programmieren, kleine Web-Stacks, Home Assistant. |
-| **8 GB** | Mehrere Container, Datenbanken, ernsthaftes Kompilieren, Desktop mit vielen Hintergrunddiensten. |
-| **16 GB** | Auf einem Einplatinencomputer selten nötig: kleine lokale KI-Modelle, große Builds, Caches. Nur kaufen, wenn Sie wissen, wofür. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">RAM</th>
+<th scope="col">Typischer Einsatz</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>1 GB</strong></span></td>
+<td data-label="Typischer Einsatz"><span class="td-val">Sehr günstige Edge-Aufgaben: einfache Skripte, ein leichtes Gateway. Wenig Reserve für Browser oder IDE.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>2 GB</strong></span></td>
+<td data-label="Typischer Einsatz"><span class="td-val">Minimale Server, Anzeigen, Bots. Nicht ideal als Familien-Desktop mit vielen Browser-Tabs.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>4 GB</strong></span></td>
+<td data-label="Typischer Einsatz"><span class="td-val">Die Allround-Wahl: Raspberry-Pi-OS-Desktop, Programmieren, kleine Web-Stacks, Home Assistant.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>8 GB</strong></span></td>
+<td data-label="Typischer Einsatz"><span class="td-val">Mehrere Container, Datenbanken, ernsthaftes Kompilieren, Desktop mit vielen Hintergrunddiensten.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>16 GB</strong></span></td>
+<td data-label="Typischer Einsatz"><span class="td-val">Auf einem Einplatinencomputer selten nötig: kleine lokale KI-Modelle, große Builds, Caches. Nur kaufen, wenn Sie wissen, wofür.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Der Speicher ist beim Pi 5 **LPDDR4X-4267** (beim Pi 4 LPDDR4-3200).
 
@@ -46,7 +68,7 @@ Preise ändern sich oft und unterscheiden sich je nach Land: **Preis prüfen** b
 
 ## 5. Wo kaufen?
 
-Der Pi 5 wird über die [zugelassenen Händler](https://www.raspberrypi.com/resellers/) von Raspberry Pi in jedem Land verkauft, auch in Deutschland, Österreich und der Schweiz.
+Der Pi 5 wird über die [zugelassenen Händler](https://www.raspberrypi.com/resellers/) von Raspberry Pi verkauft, auch in Deutschland, Österreich und der Schweiz. Der Preis steht auf der Händlerseite des gewählten Modells (2 GB, 4 GB, 8 GB oder 16 GB), mit Netzteil und Kühler extra.
 
 **Raspberry Pi OS** spielen Sie mit dem **Raspberry Pi Imager** auf, genau wie bei früheren Modellen.
 

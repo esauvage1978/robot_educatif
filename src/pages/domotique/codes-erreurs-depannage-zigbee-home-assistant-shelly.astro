@@ -1,0 +1,21 @@
+---
+import DomotiqueToolLayout from '../../layouts/DomotiqueToolLayout.astro';
+import TroubleshootingHubContent from '../../components/domotique-pages/TroubleshootingHubContent.astro';
+import { TROUBLE_PAGE_META } from '../../data/smartHomeTroubleshooting.mjs';
+
+const lang = 'fr';
+const meta = TROUBLE_PAGE_META[lang];
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={meta.title}
+	description={meta.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/"
+	hubLabel="Domotique"
+	repairGuide={true}
+>
+	<TroubleshootingHubContent lang={lang} />
+</DomotiqueToolLayout>

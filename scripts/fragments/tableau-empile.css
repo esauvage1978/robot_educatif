@@ -1,0 +1,41 @@
+/* Règles .tableau.empile du build Astro (conservées après fusion CSS prod) */
+@media (max-width: 720px) {
+  .tableau.empile td { word-break: normal !important; overflow-wrap: break-word !important; hyphens: auto !important; align-items: flex-start !important; }
+  .tableau.empile td::before { flex: 0 0 38% !important; max-width: 40% !important; word-break: normal !important; overflow-wrap: break-word !important; text-align: left !important; }
+  .tableau.empile td > .td-val { flex: 1 1 58% !important; min-width: 0 !important; text-align: right !important; }
+}
+
+.tableau.empile tbody tr,
+.tableau.empile tbody tr td,
+.tableau.empile tbody tr th,
+.tableau.empile tbody tr .td-val,
+.tableau.empile tbody tr strong,
+.tableau.empile tbody tr span,
+.tableau.empile tbody tr p,
+.tableau.empile tbody tr li,
+.tableau.empile tbody tr a:not(.btn):not(.btn-action):not(.btn-amazon):not(.aff-btn) {
+  color: #0f172a !important;
+}
+@media (max-width: 720px) {
+  .tableau.empile tbody tr {
+    color: #0f172a !important;
+    background: #fff !important;
+  }
+  .tableau.empile tbody td::before {
+    color: #334155 !important;
+  }
+  .tableau.empile tbody td:first-child {
+    color: #0f172a !important;
+    font-weight: 700 !important;
+    background: #f1f5f9 !important;
+    border-radius: 6px !important;
+    padding: .5rem .65rem !important;
+    margin-bottom: .35rem !important;
+  }
+  .tableau.empile tbody td:first-child .td-val,
+  .tableau.empile tbody td:first-child strong {
+    color: #0f172a !important;
+  }
+}
+
+

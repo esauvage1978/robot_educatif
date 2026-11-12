@@ -1,0 +1,128 @@
+---
+title: "Programme mBot : faire clignoter les LED (mBlock)"
+description: "Ce nouvel article avec le mBot va vous faire découvrir les LEDS au travers de 3 activités. 2 simples et une un peu plus complexe."
+pubDate: "2020-04-18"
+heroImage: "../../assets/mbot/mbot-hero.png"
+updatedDate: "2026-11-03"
+amazonPreset: mbot
+categories:
+  - "Activité"
+  - "mBot"
+  - "Makeblock"
+  - "À partir de 8 ans"
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+<AffiliateDisclosure variant="compact" />
+
+<ComparisonTable
+  products={[
+    { id: 'mbot', badge: 'Activité LED' },
+    { id: 'mbot2', badge: 'Matrice + capteurs' },
+  ]}
+  title="Robot compatible avec cette activité LED"
+  amazonBtnLabel="Voir le prix →"
+/>
+
+<div style="margin:0 0 1.25rem;padding:1rem 1.15rem;border:2px solid #ff9900;border-radius:12px;background:#fffbeb;">
+  <p style="margin:0 0 .65rem;font-weight:700;color:#78350f;">Pas encore de mBot ?</p>
+  <p style="margin:0 0 .75rem;color:#44403c;">Cette activité cible le <strong>mBot classique</strong> (LED RGB sur la carte). <em>Lien affilié</em> Amazon.</p>
+  <p style="margin:0;display:flex;flex-wrap:wrap;gap:.5rem;">
+    <a href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21" rel="nofollow sponsored noopener" target="_blank" style="display:inline-block;padding:.55rem 1rem;background:#ff9900;color:#111;font-weight:700;border-radius:8px;text-decoration:none;">Voir le prix — mBot →</a>
+    <a href="/meilleur-robot-programmable-enfant-2026/" style="display:inline-block;padding:.55rem 1rem;background:#0f766e;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">Comparatif robots →</a>
+    <a href="/quel-robot-acheter-enfant-12-ans-guide-achat/" style="display:inline-block;padding:.55rem 1rem;background:#0f766e;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">Guide 12 ans →</a>
+  </p>
+</div>
+
+> **Réponse directe (novembre 2026)** — Dans mBlock, utilisez les blocs **LED RGB** + **boucle** + **attendre** pour alterner couleurs ; téléversez en mode **Upload** si le robot doit clignoter sans câble USB.
+
+le [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) est un robot qui embarque plusieurs capteurs et LED. Dans cette activité, nous allons nous pencher sur les 2 LEDS qui se trouvent sur la carte mère. Le but sera de les faire clignoter de façon alternative en rouge puis en rouge, vert et bleu et enfin progressivement en utilisant des variables.
+
+<h2 id="materiel-et-logiciel">Matériel et logiciel</h2>
+
+- [Robot mBot (présentation)](/mbot-mon-premier-robot-educatif/), programmation avec **mBlock**  
+- [Installer mBlock 5](/installer-mblock-5-sous-windows-10/) · [Premiers pas](/premier-pas-avec-mblock-5/) · [Blocs mBot](/installer-les-blocs-du-mbot/)
+
+*Lien affilié Amazon — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*
+
+Ces 2 LEDS, DELS ou diodes ont la particularité de pouvoir changer de couleur suivant le système de codage des couleurs RGB (Rouge, vert et bleu).
+
+## 1\. Un peu de théorie
+
+Dans le [système de codage de couleur RGB](https://fr.wikipedia.org/wiki/Rouge_vert_bleu), chaque composante de couleur peut prendre une valeur allant de 0 à 255.
+
+Voici quelques couleurs : rouge : 255 – 0 – 0. Vert : 0 – 255 – 0. Bleu : 0 – 0 – 255. Blanc : 255 – 255 – 255
+
+Nous avons donc plus de 16 millions de possibilités de couleur. 16 777 216 pour être précis.
+
+<h2 id="activite-1-clignotement">2. Activité 1 : clignotement des LEDS du mBot</h2>
+
+L’objectif du premier programme est d’allumer les leds en rouge alternativement à gauche et à droite et ceci 10 fois. Chaque LED doit être allumé 1 seconde.
+
+Une LED une fois allumée ne s’éteint pas seule, il faut donc lui affecter la valeur 0-0-0
+
+Pour se faire, vous aller utiliser les blocs suivants :
+
+
+Voici une des solutions possibles :
+
+
+*Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5 (voir [Programmes mBlock](/programmes/)).*
+
+<h2 id="activite-2-couleurs">3. Activité 2 : changer les couleurs des LEDS du mBot</h2>
+
+L’objectif de ce second programme est d’afficher les couleurs rouge, vert et bleu sur les 2 diodes pendant 10 cycles. Ce programme est tout aussi simple que le précédent.
+
+Ci dessous les blocs à utiliser
+
+
+Pour avoir une solution qui peut être celle ci
+
+
+*Fichier .mblock non fourni — reproduisez les blocs ci-dessus dans mBlock 5.*
+
+<h2 id="activite-3-progressif">4. Activité 3 : affichage progressif des LEDS du mBot</h2>
+
+Dans ce dernier programme, je vous demande d’allumer les leds en rouge, en vert et en bleu progressivement (de 0 à 255). Pour vous aider, je vais vous décrire le programme de façon détaillé. Il faudra donc le retranscrire.
+
+Vous allez devoir créer une variable que vous aller initialiser à 0 puis vous la ferait évoluer de 1 avant d’afficher la première couleur soit le rouge. L’affichage d’une nuance est à faire pendant 0.01 seconde. Il faudra reproduire ce bloc pour les 2 autres couleurs.
+
+Pour initialiser une variable ou lui assigner la valeur 0, il faut utiliser le bloc **définir xxx à 0**.
+
+Pour faire évoluer la valeur de la variable de 1, il faut utiliser le bloc **changer xxx par 1**.
+
+Je vous présente une solution possible
+
+
+et si vous ne souhaitez pas le reproduire, exportez votre propre projet depuis mBlock une fois les blocs en place (*fichier .mblock d’origine non fourni*).
+
+### 4.1 Amélioration du programme
+
+Ce programme fonctionne cependant il ne me satisfait pas pour 2 raisons.
+
+La première raison est que j’ai plus ou moins répété 3 fois la même chose et c’est 2 fois de trop !
+
+La seconde raison est que mes constantes sont elle aussi dupliquées. Dans ce programme j’en ai 2, le **pas** correspondant à l’évolution de la couleur et la durée de la **temporisation**. Si je veux changer une de ces constantes, je vais devoir le faire 3 fois.
+
+Je vous propose de réfléchir à une solution et je vous en donnerai une utilisant un bloc personnalisé avec 3 paramètres.
+
+
+Les premiers paramètres correspondent à mes deux constantes. Le dernier paramètre sera une variable pouvant contenir les valeurs 0,1 et 2. Si sa valeur est 0 alors j’afficherai le rouge, le 1 pour le vert et le 2 pour le bleu.
+
+Le contenu du bloc est le suivant
+
+
+et le programme principal sera le suivant
+
+
+En terme de nombre de ligne de code, ce programme n’est pas plus court. Cependant il est plus simple à faire évoluer et à paramétrer. Dans le cas d’un projet plus gros, il est indispensable de mettre en oeuvre ces mécanismes.
+
+Pour conclure, dans ces 3 activités, nos avons vu comment jouer avec les LEDS et je vous ai présenté de nouveaux concepts sous mBlock.
+
+## 5\. Apprendre le développement
+
+Je vous ai sélectionné une série de livre pour vous former avec le mBot et l’algorithme
+
+**Pour la classe** : nos [10 projets mBot gratuits](/10-projets-mbot-gratuits-classe-faciles/) proposent une progression complète en 10 séances, avec fiches élèves et corrigés en PDF.

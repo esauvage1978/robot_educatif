@@ -2,8 +2,8 @@
 title: "Python intermédiaire : classes et POO"
 description: "POO en Python : classes, __init__, self, méthodes, encapsulation par convention ; CapWords (PEP 8) ; dataclasses évoquées ; ressources ; 20 exercices."
 pubDate: 2026-03-29
-updatedDate: "2026-10-13"
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
+updatedDate: "2026-11-02"
+heroImage: "../../assets/blog-heroes/hero-python-regex.webp"
 series: Python intermédiaire
 seriesOrder: 4
 tags: ["Python", "Programmation", "Bonnes pratiques"]
@@ -18,7 +18,13 @@ categories:
   - "Tutoriel"
   - "Intermédiaire"
 ---
-En **programmation orientée objet**, une **classe** est un **modèle** (un « moule ») à partir duquel on crée des **instances** : chaque instance possède son **état** (valeurs des attributs) et partage le **comportement** défini par les **méthodes**. En Python, tout est **objet** (y compris les fonctions et les modules) ; la POO n’est pas obligatoire pour chaque script, mais elle clarifie les gros programmes : **regrouper** ce qui va ensemble, **nommer** les responsabilités, et **réutiliser** des abstractions (héritage, composition — hors périmètre minimal de cette leçon).
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python/">Parcours Python intermédiaire</a> · Leçon 4 — classes et POO</nav>
+
+> **Réponse directe (novembre 2026)** — Une **classe** décrit un type d’objet ; **`__init__`** initialise chaque instance ; les **méthodes** prennent **`self`** en premier argument pour accéder aux attributs. Commencez par une classe simple (`Point`, `Compteur`) avant les **dataclasses**.
+
+Cette leçon fait partie du [parcours Python intermédiaire](/programmation/python/) (modules, tests, fichiers). Prérequis utile : [pathlib](/python-inter-pathlib/).
+
+En **programmation orientée objet** (**POO**), une **classe** est un **modèle** (un « moule ») à partir duquel on crée des **instances** : chaque instance possède son **état** (valeurs des attributs) et partage le **comportement** défini par les **méthodes**. En Python, tout est **objet** (y compris les fonctions et les modules) ; la POO n’est pas obligatoire pour chaque script, mais elle clarifie les gros programmes : **regrouper** ce qui va ensemble, **nommer** les responsabilités, et **réutiliser** des abstractions (héritage, composition — hors périmètre minimal de cette leçon).
 
 Python privilégie la **simplicité** : pas de visibilité `private`/`public` stricte comme en Java ; on s’appuie sur des **conventions** (préfixe `_`) et sur la **discipline** d’équipe. Les **dataclasses** (`@dataclass`) du module **`dataclasses`** réduisent le code répétitif pour de simples « conteneurs de données » — à découvrir une fois **`__init__`** est bien compris.
 

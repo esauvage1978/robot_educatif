@@ -1,0 +1,69 @@
+---
+title: "Matter, Thread, Zigbee ou Wi-Fi en 2027 : différences et protocole à choisir"
+description: "Matter, Thread, Zigbee et Wi-Fi expliqués pour 2027 : schéma, cas d’usage, border router et coordinateur. Quel protocole choisir avec Home Assistant selon…"
+pubDate: 2026-10-28T00:00:00Z
+category: "debuter"
+priority: 2
+---
+
+import DomotiqueGearOffers202627 from '../../components/DomotiqueGearOffers202627.astro';
+
+<DomotiqueGearOffers202627 lang="fr" />
+
+**Matter**, **Thread**, **Zigbee** et **Wi-Fi** ne remplissent pas le même rôle en 2027. Matter est une couche applicative ; Thread et Zigbee sont des radios maillées ; le Wi-Fi reste roi pour le débit (caméras, prises). Schéma détaillé :
+
+![Écran Homey : configuration réseau Thread dans l’application](/images/domotique/homey/homey-app-reseau-thread.webp)
+
+*Photo : capture d’écran Homey (app mobile), ressource locale `/images/domotique/homey/homey-app-reseau-thread.webp` — article [test Homey Pro Mini](/domotique/test-homey-pro-mini-deballage-installation/).*
+
+## Rappel en une phrase
+
+- **Wi-Fi** : simple, gourmand, parfait pour prises et caméras sur secteur.
+- **Zigbee** : capteurs à pile, maillage économique — voir [meilleur dongle Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/).
+- **Thread** : Zigbee « moderne » IPv6, base de Matter over Thread.
+- **Matter** : même appareil visible dans HA, Apple et Google — si certifié.
+
+## Quel protocole choisir en 2027 ?
+
+1. **Débutant HA** : Zigbee capteurs + Wi-Fi local prises ; ajoutez Matter quand vous changez d’ampoules.
+2. **Apple + Google** : Matter over Thread + border router.
+3. **Location** : prises Wi-Fi ou Matter sans filage — [domotique sans travaux](/domotique/domotique-location-sans-travaux/).
+
+Pour aller plus loin : [100 projets domotique](/domotique/configurateur-projet-domotique/) et [maison 100 % locale](/domotique/debuter-en-domotique-guide-complet/).
+
+## Kits de démarrage par protocole
+
+<div class="tableau empile">
+<table>
+<thead><tr><th>Produit</th><th>Usage</th><th>Prix indicatif</th><th></th></tr></thead>
+<tbody>
+<tr>
+<td data-label="Produit"><span class="td-val">SONOFF ZBDongle-E</span></td>
+<td data-label="Usage">Coordinateur Zigbee 3.0</td>
+<td data-label="Prix indicatif"><span class="td-val" data-amazon-price="1">17,90 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21" data-amazon-query="SONOFF ZBDongle-E" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit"><span class="td-val">Google Nest Hub</span></td>
+<td data-label="Usage">Border router Thread</td>
+<td data-label="Prix indicatif"><span class="td-val">≈ 90–110 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/s?k=Nest+Hub+Thread+Matter&tag=manuso06-21" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+<tr>
+<td data-label="Produit"><span class="td-val">Shelly Plus 1PM</span></td>
+<td data-label="Usage">Relais Wi-Fi local</td>
+<td data-label="Prix indicatif"><span class="td-val">≈ 18–24 €</span></td>
+<td data-label="">
+<a class="btn btn-action btn-sm" href="https://www.amazon.fr/s?k=Shelly+Plus+1PM&tag=manuso06-21" target="_blank" rel="sponsored nofollow noopener">Voir l’offre →</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+Article lié : [Matter 1.6 (juin 2026)](/domotique/matter-1-6-nouveautes-nfc-maison-connectee/).

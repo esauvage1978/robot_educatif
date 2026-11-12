@@ -8,20 +8,74 @@ priority: 11
 
 Un robot aspirateur devient vraiment utile quand il se lance **tout seul** : quand la maison est vide, après le dîner, ou seulement dans la cuisine. Pour cela il doit remonter dans Home Assistant. Toutes les marques ne s'intègrent pas de la même façon : certaines communiquent en local, d'autres passent par le cloud du fabricant, d'autres encore n'ont qu'une intégration communautaire. Le tableau ci-dessous reprend la [documentation officielle de Home Assistant](https://www.home-assistant.io/integrations/#vacuum) (classe IoT indiquée sur chaque page, octobre 2026).
 
+<figure>
+<img src="/images/schemas/ha-aspirateur.svg" alt="Deux chemins : le robot rejoint Home Assistant par le réseau local, ou en passant par le cloud du fabricant" width="780" height="672" />
+<figcaption>Flèche verte : le robot parle à Home Assistant sur le réseau local. Flèche orange : les commandes passent par le cloud du fabricant. Le tableau indique quel chemin la documentation Home Assistant décrit pour chaque marque.</figcaption>
+</figure>
+
 ## L'essentiel en un tableau
 
-| Marque | Intégration Home Assistant | Type de connexion (doc HA) | Remarque |
-|---|---|---|---|
-| **Roborock** | [Roborock](https://www.home-assistant.io/integrations/roborock/) (officielle) | Local Polling | connexion au compte Roborock pour la configuration, puis pilotage local |
-| **iRobot Roomba / Braava** | [iRobot Roomba and Braava](https://www.home-assistant.io/integrations/roomba/) (officielle) | Local Push | modèles connectés Wi-Fi |
-| **Ecovacs** | [Ecovacs](https://www.home-assistant.io/integrations/ecovacs/) (officielle) | Cloud Push | dépend du cloud Ecovacs |
-| **SwitchBot** | [SwitchBot Cloud](https://www.home-assistant.io/integrations/switchbot_cloud/) (officielle) | Cloud Polling | la doc liste notamment les K10+, K10+ Pro, K11+, K20+ Pro, S10, S20 |
-| **Shark** | [Shark IQ](https://www.home-assistant.io/integrations/sharkiq/) (officielle) | Cloud Polling | gamme Shark IQ |
-| **Xiaomi (anciens modèles)** | [Xiaomi Miio](https://www.home-assistant.io/integrations/xiaomi_miio/) (officielle) | Local Polling | compatibilité variable selon le modèle |
-| **Dreame** | pas d'intégration officielle | — | intégration communautaire via HACS |
-| **Robots Matter** | [Matter](https://www.home-assistant.io/integrations/matter/) | local | catégorie « robot aspirateur » ajoutée dans Matter 1.2 ([CSA](https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/)) |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Marque</th>
+<th scope="col">Intégration Home Assistant</th>
+<th scope="col">Type de connexion (doc HA)</th>
+<th scope="col">Remarque</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Roborock</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/roborock/">Roborock</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Local Polling</span></td>
+<td data-label="Remarque"><span class="td-val">connexion au compte Roborock pour la configuration, puis pilotage local</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>iRobot Roomba / Braava</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/roomba/">iRobot Roomba and Braava</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Local Push</span></td>
+<td data-label="Remarque"><span class="td-val">modèles connectés Wi-Fi</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Ecovacs</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/ecovacs/">Ecovacs</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Cloud Push</span></td>
+<td data-label="Remarque"><span class="td-val">dépend du cloud Ecovacs</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>SwitchBot</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/switchbot_cloud/">SwitchBot Cloud</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Cloud Polling</span></td>
+<td data-label="Remarque"><span class="td-val">la doc liste notamment les K10+, K10+ Pro, K11+, K20+ Pro, S10, S20</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Shark</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/sharkiq/">Shark IQ</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Cloud Polling</span></td>
+<td data-label="Remarque"><span class="td-val">gamme Shark IQ</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Xiaomi (anciens modèles)</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/xiaomi_miio/">Xiaomi Miio</a> (officielle)</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">Local Polling</span></td>
+<td data-label="Remarque"><span class="td-val">compatibilité variable selon le modèle</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Dreame</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val">pas d'intégration officielle</span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">—</span></td>
+<td data-label="Remarque"><span class="td-val">intégration communautaire via HACS</span></td>
+</tr>
+<tr>
+<td data-label="Marque"><span class="td-val"><strong>Robots Matter</strong></span></td>
+<td data-label="Intégration Home Assistant"><span class="td-val"><a href="https://www.home-assistant.io/integrations/matter/">Matter</a></span></td>
+<td data-label="Type de connexion (doc HA)"><span class="td-val">local</span></td>
+<td data-label="Remarque"><span class="td-val">catégorie « robot aspirateur » ajoutée dans Matter 1.2 (<a href="https://csa-iot.org/newsroom/matter-1-2-arrives-with-nine-new-device-types-improvements-across-the-board/">CSA</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Notre meilleur choix : un Roborock.** L'intégration est officielle et pilote le robot en local, avec le choix des pièces, l'état des consommables et les erreurs. C'est aussi notre choix à petit budget, le Roborock Q7 M5, détaillé dans [Robot aspirateur à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
+**Notre meilleur choix : un Roborock.** L'intégration est officielle et pilote le robot en local, avec le choix des pièces, l'état des consommables et les erreurs. C'est aussi notre choix à petit budget, le Roborock Q7 M5, détaillé dans [Robot aspirateur à moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
 
 ## Local ou cloud : pourquoi c'est important
 

@@ -1,0 +1,184 @@
+---
+import { withBase } from '../lib/siteUrl';
+import { buyingMenuFor } from '../data/buyingGuides.mjs';
+
+const pathname = ('/' + Astro.url.pathname.replace(import.meta.env.BASE_URL, '')).replace(/\/+/g, '/');
+const lang = pathname === '/uk' || pathname.startsWith('/uk/')
+	? 'uk'
+	: pathname === '/ca' || pathname.startsWith('/ca/')
+		? 'ca'
+		: pathname === '/en' || pathname.startsWith('/en/')
+			? 'en'
+			: pathname === '/de' || pathname.startsWith('/de/')
+				? 'de'
+				: pathname === '/it' || pathname.startsWith('/it/')
+					? 'it'
+					: pathname === '/es' || pathname.startsWith('/es/')
+						? 'es'
+						: 'fr';
+const menu = buyingMenuFor(lang);
+const prefix = lang === 'uk' ? '/uk/' : lang === 'ca' ? '/ca/' : '';
+const hrefFor = (href: string) => (prefix && href.startsWith('/en/') ? prefix + href.slice('/en/'.length) : href);
+const normalize = (path: string) => (path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path);
+const current = normalize(pathname);
+const isCurrent = (href: string) => normalize(hrefFor(href)) === current;
+const sectionCurrent = menu.groups.some((group) => group.links.some((link) => isCurrent(link.href)));
+---
+
+<details class:list={['nav-guides', { 'is-section': sectionCurrent }]} data-nav-guides>
+	<summary class="nav-guides__trigger">
+		{menu.label}
+		<svg class="nav-guides__chevron" viewBox="0 0 12 12" aria-hidden="true" width="12" height="12">
+			<path d="M2.2 4.2 6 8l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	</summary>
+	<div class="nav-guides__panel" style={`--guide-cols: ${menu.groups.length}`}>
+		{menu.groups.map((group) => (
+			<div class="nav-guides__group">
+				<p class="nav-guides__title">{group.title}</p>
+				<ul>
+					{group.links.map((link) => (
+						<li>
+							<a href={withBase(hrefFor(link.href))} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+								<span>{link.label}</span>
+								{link.hint ? <span class="nav-guides__hint">{link.hint}</span> : null}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		))}
+	</div>
+</details>
+
+<style>
+	.nav-guides {
+		position: relative;
+	}
+	.nav-guides__trigger {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.28rem;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--ink);
+		font: inherit;
+		font-weight: 600;
+		font-size: 0.85rem;
+		line-height: 1.25;
+		white-space: nowrap;
+		cursor: pointer;
+		list-style: none;
+	}
+	.nav-guides__trigger::-webkit-details-marker {
+		display: none;
+	}
+	.nav-guides__trigger:hover,
+	.nav-guides[open] > .nav-guides__trigger {
+		color: var(--primary);
+	}
+	.nav-guides__chevron {
+		flex-shrink: 0;
+		transition: transform 0.15s ease;
+	}
+	.nav-guides[open] > .nav-guides__trigger .nav-guides__chevron {
+		transform: rotate(180deg);
+	}
+	.nav-guides__panel {
+		display: none;
+	}
+	.nav-guides__group ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.nav-guides__title {
+		margin: 0 0 0.35rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	.nav-guides__panel a {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.75rem;
+		padding: 0.38rem 0.45rem;
+		border-radius: 8px;
+		color: var(--ink);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.92rem;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+	.nav-guides__panel a:hover,
+	.nav-guides__panel a[aria-current='page'] {
+		background: var(--surface-2);
+		color: var(--primary);
+	}
+	.nav-guides__hint {
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: rgb(var(--gray));
+	}
+
+	:global(.internal-links) .nav-guides:hover .nav-guides__panel,
+	:global(.internal-links) .nav-guides:focus-within .nav-guides__panel,
+	:global(.internal-links) .nav-guides[open] .nav-guides__panel {
+		display: grid;
+		grid-template-columns: repeat(var(--guide-cols, 3), minmax(10rem, 1fr));
+		gap: 0.35rem 1.15rem;
+		position: absolute;
+		top: calc(100% + 0.7rem);
+		left: 0;
+		z-index: 400;
+		box-sizing: border-box;
+		width: min(40rem, calc(100vw - 1.5rem));
+		padding: 0.9rem 1rem 0.75rem;
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
+		border-radius: 14px;
+		box-shadow: 0 16px 40px rgba(11, 31, 42, 0.14);
+	}
+	:global(.internal-links) .nav-guides.is-section > .nav-guides__trigger::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0.9rem;
+		bottom: -0.5rem;
+		height: 2px;
+		background: var(--accent-warm);
+	}
+	:global(.internal-links) .nav-guides__trigger {
+		position: relative;
+	}
+
+	:global(.mobile-menu) .nav-guides {
+		border-bottom: 1px solid var(--surface-border);
+	}
+	:global(.mobile-menu) .nav-guides__trigger {
+		width: 100%;
+		justify-content: space-between;
+		padding: 1rem clamp(1rem, 5vw, 2rem);
+		font-size: 1rem;
+		text-align: left;
+	}
+	:global(.mobile-menu) .nav-guides[open] .nav-guides__panel {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.85rem;
+		padding: 0.15rem clamp(1rem, 5vw, 2rem) 1rem;
+		background: var(--surface-2);
+	}
+	:global(.mobile-menu) .nav-guides__panel a {
+		white-space: normal;
+	}
+
+	
+	
+	
+</style>

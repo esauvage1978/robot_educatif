@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DePost.astro
-title: "Arduino C Lektion 1: Aufbau eines Sketches, setup() und loop(), serieller Monitor"
-description: "So ist ein Arduino-Sketch aufgebaut: setup() läuft einmal, loop() wiederholt sich endlos, und Serial gibt Debug-Meldungen aus. Lektion 1 unseres Arduino-C-Kurses mit 12 Übungen und Lösungen."
+title: "Arduino C Lektion 1: Sketch, setup(), loop() und Serial"
+description: "So ist ein Arduino-Sketch aufgebaut: setup() läuft einmal, loop() wiederholt sich, Serial zeigt Debug. Lektion 1, 12 Übungen mit Lösungen, Schritt für Schritt."
 updated: "23. Oktober 2026"
 ---
 

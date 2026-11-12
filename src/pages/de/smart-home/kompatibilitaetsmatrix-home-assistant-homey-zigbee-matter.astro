@@ -1,0 +1,20 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import CompatMatrixContent from '../../../components/domotique-pages/CompatMatrixContent.astro';
+import { COMPAT_PAGE_META } from '../../../data/smartHomeCompat.mjs';
+
+const lang = 'de';
+const meta = COMPAT_PAGE_META[lang];
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={meta.title}
+	description={meta.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/"
+	hubLabel="Smart Home"
+>
+	<CompatMatrixContent lang={lang} />
+</DomotiqueToolLayout>

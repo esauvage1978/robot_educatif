@@ -1,8 +1,8 @@
 ---
 title: "Python — conditions (if, elif, else)"
-description: "Conditions Python : if/elif/else, and/or/not, cas pratiques. 20 exercices avec solutions."
+description: "Conditions Python : if, elif et else, opérateurs and, or et not, pour un menu ou une note. Vingt exercices corrigés, avec les solutions, prêtes à recopier."
 pubDate: 2026-03-28
-updatedDate: 2026-03-29
+updatedDate: "2026-11-02"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Python
 seriesOrder: 4
@@ -19,6 +19,10 @@ categories:
   - "Débutant"
 ---
 Les **conditions** choisissent quelle partie du programme s’exécute. En Python, un bloc qui dépend d’un `if` est reconnaissable à **l’indentation** (généralement **4 espaces**) : pas d’accolades `{}` comme en C ou Java.
+
+> **Parcours Python (4/6)** — [Sommaire du parcours](/programmation/python/) · [Leçon 3 — types et saisie](/python-types-et-saisie/) · [Leçon 5 — boucles](/python-boucles-for-while/)
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python/">Parcours Python</a></nav>
 
 Tu t’appuies sur les conversions vues en [leçon 3](/python-types-et-saisie/) (`int(input(...))`, etc.) pour comparer des nombres saisis au clavier.
 
@@ -304,7 +308,7 @@ else:
 
 ### Niveau difficile
 
-**Exercice 15** — Demande un **mot de passe** (chaîne). Si sa longueur est **&lt; 6**, affiche `trop court` ; sinon si elle est **&gt; 24**, affiche `trop long` ; sinon affiche `OK`. <span class="exo-badge exo-badge--hard">Difficile</span>
+**Exercice 15** — Demande un **mot de passe** (chaîne). Si sa longueur est **< 6**, affiche `trop court` ; sinon si elle est **> 24**, affiche `trop long` ; sinon affiche `OK`. <span class="exo-badge exo-badge--hard">Difficile</span>
 
 <details class="exercise-solution">
 <summary class="exercise-solution__summary">Afficher la solution</summary>
@@ -319,7 +323,7 @@ else:
 </div>
 </details>
 
-**Exercice 16** — Demande une **note** sur 20. Si **&lt; 0** ou **&gt; 20**, affiche `note invalide` ; sinon enchaîne un `elif` pour les mentions comme à la leçon (ex. `≥ 16` très bien, `≥ 14` bien, `≥ 12` assez bien, `≥ 10` passable, sinon insuffisant). <span class="exo-badge exo-badge--hard">Difficile</span>
+**Exercice 16** — Demande une **note** sur 20. Si **< 0** ou **> 20**, affiche `note invalide` ; sinon enchaîne un `elif` pour les mentions comme à la leçon (ex. `≥ 16` très bien, `≥ 14` bien, `≥ 12` assez bien, `≥ 10` passable, sinon insuffisant). <span class="exo-badge exo-badge--hard">Difficile</span>
 
 <details class="exercise-solution">
 <summary class="exercise-solution__summary">Afficher la solution</summary>
@@ -357,7 +361,7 @@ else:
 </div>
 </details>
 
-**Exercice 18** — Demande l’**âge** pour un tarif réduit : `&lt; 12` → `enfant`, `12` à `17` → `ado`, `18` à `64` → `adulte`, `≥ 65` → `senior` ; si `&lt; 0` ou `&gt; 120` → `âge invalide`. <span class="exo-badge exo-badge--hard">Difficile</span>
+**Exercice 18** — Demande l’**âge** pour un tarif réduit : `< 12` → `enfant`, `12` à `17` → `ado`, `18` à `64` → `adulte`, `≥ 65` → `senior` ; si `< 0` ou `> 120` → `âge invalide`. <span class="exo-badge exo-badge--hard">Difficile</span>
 
 <details class="exercise-solution">
 <summary class="exercise-solution__summary">Afficher la solution</summary>

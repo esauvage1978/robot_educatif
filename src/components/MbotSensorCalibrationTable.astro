@@ -1,0 +1,207 @@
+---
+import RepairIndicators from './RepairIndicators.astro';
+import RepairComplianceSections from './RepairComplianceSections.astro';
+import { SENSOR_ROWS, SENSOR_KINDS, ROBOT_FILTERS } from '../data/mbotSensorCalibration.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const rowsJson = JSON.stringify(SENSOR_ROWS);
+const kindsJson = JSON.stringify(SENSOR_KINDS);
+const robotsJson = JSON.stringify(ROBOT_FILTERS);
+---
+
+<div class="msc" data-msc data-rows={rowsJson} data-kinds={kindsJson} data-robots={robotsJson}>
+	<div class="msc-filters">
+		<label>
+			Robot
+			<select data-msc-robot>
+				<option value="all">Tous</option>
+				<option value="mbot">mBot (RJ25)</option>
+				<option value="mbot2">mBot2 / CyberPi</option>
+			</select>
+		</label>
+		<label>
+			Capteur
+			<select data-msc-sensor>
+				<option value="all">Tous</option>
+				{Object.entries(SENSOR_KINDS).map(([id, label]) => (
+					<option value={id}>{label}</option>
+				))}
+			</select>
+		</label>
+	</div>
+
+	<div class="msc-cards" data-msc-cards>
+		{SENSOR_ROWS.map((row) => (
+			<article
+				class="msc-card"
+				data-msc-card
+				data-sensor={row.sensor}
+				data-robots={row.robots}
+				id={`sensor-${row.id}`}
+			>
+				<header class="msc-card-head">
+					<span class="msc-tag">{SENSOR_KINDS[row.sensor]}</span>
+					<span class="msc-tag msc-tag--muted">{ROBOT_FILTERS[row.robots]}</span>
+				</header>
+				<h3>{row.symptom}</h3>
+				<RepairIndicators
+					difficulty={row.difficulty}
+					time={row.time}
+					cost={row.cost}
+					tools={row.tools}
+					lang="fr"
+				/>
+				<dl class="msc-dl">
+					<div>
+						<dt>Étalonnage / réglage</dt>
+						<dd>{row.calibration}</dd>
+					</div>
+					<div>
+						<dt>mBlock</dt>
+						<dd>{row.mblock}</dd>
+					</div>
+					<div>
+						<dt>Valeurs types</dt>
+						<dd>{row.values}</dd>
+					</div>
+				</dl>
+				{row.caution && (
+					<p class="msc-caution"><strong>Prudence :</strong> {row.caution}</p>
+				)}
+				{row.guide && (
+					<p class="msc-more">
+						<a href={withBase(row.guide)}>Voir aussi →</a>
+					</p>
+				)}
+			</article>
+		))}
+	</div>
+	<p class="msc-empty" data-msc-empty hidden>Aucune fiche pour ce filtre.</p>
+</div>
+
+<RepairComplianceSections lang="fr" variant="makeblock-only" showSav={true} showSupport={true} />
+
+<style>
+	.msc-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+		margin: 1.25rem 0;
+	}
+	.msc-filters label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.msc-filters select {
+		padding: 0.45rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		min-width: 200px;
+	}
+	.msc-cards {
+		display: grid;
+		gap: 1.25rem;
+		margin: 1rem 0 2rem;
+	}
+	.msc-card {
+		padding: 1.15rem 1.25rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	.msc-card-head {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.msc-tag {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding: 0.2rem 0.55rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #fff;
+	}
+	.msc-tag--muted {
+		background: #64748b;
+	}
+	.msc-card h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+	}
+	.msc-dl {
+		margin: 0.75rem 0 0;
+		display: grid;
+		gap: 0.65rem;
+	}
+	.msc-dl dt {
+		font-weight: 700;
+		font-size: 0.85rem;
+		color: var(--accent);
+	}
+	.msc-dl dd {
+		margin: 0.15rem 0 0;
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+	.msc-caution {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+		padding: 0.5rem 0.75rem;
+		background: #fef2f2;
+		border-radius: 8px;
+	}
+	.msc-more {
+		margin: 0.75rem 0 0;
+		font-weight: 600;
+	}
+	.msc-empty {
+		text-align: center;
+		padding: 2rem;
+		color: rgb(var(--gray-dark));
+	}
+</style>
+
+<script>
+	function initMsc(root) {
+		const robotSel = root.querySelector('[data-msc-robot]');
+		const sensorSel = root.querySelector('[data-msc-sensor]');
+		const cards = [...root.querySelectorAll('[data-msc-card]')];
+		const empty = root.querySelector('[data-msc-empty]');
+
+		function match(card) {
+			const r = robotSel?.value || 'all';
+			const s = sensorSel?.value || 'all';
+			const cr = card.dataset.robots;
+			const cs = card.dataset.sensor;
+			const robotOk =
+				r === 'all' ||
+				cr === r ||
+				cr === 'both' ||
+				(r === 'mbot2' && cr === 'mbot2') ||
+				(r === 'mbot' && (cr === 'mbot' || cr === 'both'));
+			const sensorOk = s === 'all' || cs === s;
+			return robotOk && sensorOk;
+		}
+
+		function filter() {
+			let visible = 0;
+			for (const card of cards) {
+				const ok = match(card);
+				card.hidden = !ok;
+				if (ok) visible++;
+			}
+			if (empty) empty.hidden = visible > 0;
+		}
+
+		robotSel?.addEventListener('change', filter);
+		sensorSel?.addEventListener('change', filter);
+		filter();
+	}
+	document.querySelectorAll('[data-msc]').forEach(initMsc);
+</script>

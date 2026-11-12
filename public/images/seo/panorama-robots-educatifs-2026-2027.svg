@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" role="img" aria-labelledby="title desc">
+  <title id="title">Panorama robots éducatifs 2026–2027</title>
+  <desc id="desc">Positionnement Thymio 3, mBot2, Sphero Blueprint, LEGO CS&amp;AI et micro:bit selon l'âge et le type de construction.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="520" rx="16" fill="url(#bg)" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="410" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Robots éducatifs 2026–2027 — panorama</text>
+  <line x1="90" y1="460" x2="760" y2="460" stroke="#64748b" stroke-width="2"/>
+  <line x1="90" y1="460" x2="90" y2="70" stroke="#64748b" stroke-width="2"/>
+  <text x="425" y="498" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Orientation — Clé en main ············· Modulaire / construction</text>
+  <text x="28" y="265" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#334155" transform="rotate(-90 28 265)">Niveau — Primaire ? Lycée</text>
+  <text x="95" y="475" font-size="11" fill="#64748b">Pré-assemblé</text>
+  <text x="680" y="475" font-size="11" fill="#64748b">Modulaire</text>
+  <text x="75" y="450" font-size="11" fill="#64748b">6–8 ans</text>
+  <text x="75" y="200" font-size="11" fill="#64748b">11–15 ans</text>
+  <text x="75" y="90" font-size="11" fill="#64748b">15+ / STI2D</text>
+  <g font-family="system-ui,sans-serif" font-size="12">
+    <rect x="140" y="320" width="130" height="52" rx="8" fill="#0d9488" fill-opacity="0.15" stroke="#0f766e"/>
+    <text x="205" y="342" text-anchor="middle" font-weight="700" fill="#0f766e">Thymio 3</text>
+    <text x="205" y="360" text-anchor="middle" fill="#334155">237 € · Cycle 2/3</text>
+    <rect x="280" y="260" width="130" height="52" rx="8" fill="#c2410c" fill-opacity="0.12" stroke="#c2410c"/>
+    <text x="345" y="282" text-anchor="middle" font-weight="700" fill="#c2410c">Makeblock mBot2</text>
+    <text x="345" y="300" text-anchor="middle" fill="#334155">~149–169 € · Python</text>
+    <rect x="420" y="220" width="140" height="52" rx="8" fill="#c2410c" fill-opacity="0.12" stroke="#ea580c"/>
+    <text x="490" y="242" text-anchor="middle" font-weight="700" fill="#ea580c">mBot2 Rover</text>
+    <text x="490" y="260" text-anchor="middle" fill="#334155">Tout-terrain · collège</text>
+    <rect x="560" y="140" width="150" height="52" rx="8" fill="#6366f1" fill-opacity="0.15" stroke="#4f46e5"/>
+    <text x="635" y="162" text-anchor="middle" font-weight="700" fill="#4f46e5">Sphero Blueprint</text>
+    <text x="635" y="180" text-anchor="middle" fill="#334155">Ingénierie · 4e–STI2D</text>
+    <rect x="600" y="280" width="150" height="52" rx="8" fill="#eab308" fill-opacity="0.2" stroke="#ca8a04"/>
+    <text x="675" y="302" text-anchor="middle" font-weight="700" fill="#a16207">LEGO CS &amp; AI</text>
+    <text x="675" y="320" text-anchor="middle" fill="#334155">339 $+ · briques</text>
+    <rect x="200" y="380" width="120" height="48" rx="8" fill="#0284c7" fill-opacity="0.12" stroke="#0284c7"/>
+    <text x="260" y="400" text-anchor="middle" font-weight="700" fill="#0369a1">micro:bit V2</text>
+    <text x="260" y="416" text-anchor="middle" fill="#334155">8–14 ans · open</text>
+  </g>
+  <text x="410" y="510" text-anchor="middle" font-size="10" fill="#94a3b8">robot-educatif.info · octobre 2026 — indicatif</text>
+</svg>

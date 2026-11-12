@@ -1,0 +1,24 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import ClassBudgetCalculator from '../components/ClassBudgetCalculator.astro';
+import { BUDGET_PAGE } from '../data/classBudgetRobot.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={BUDGET_PAGE.title}
+	description={BUDGET_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/calculateur-budget-robot-classe/"
+	hubLabel="École & classe"
+	hubPath="/equiper-classe-robots-budget-packs-2026/"
+>
+	<p>{BUDGET_PAGE.intro}</p>
+	<ClassBudgetCalculator />
+	<p>
+		Approche détaillée : <a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>équiper une classe en robots (budget et packs)</a>
+		· <a href={withBase('/robot-pedagogique-ecole/')}>robot pédagogique à l’école</a>.
+	</p>
+</RobotToolLayout>

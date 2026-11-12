@@ -11,13 +11,35 @@ This guide covers the **memory options** in the range (availability varies by co
 
 ## 1. Raspberry Pi 5 RAM options
 
-| RAM | Typical use |
-|---|---|
-| **1GB** | Ultra-low-cost edge jobs: simple scripts, a light gateway. Little headroom for a web browser or IDE. |
-| **2GB** | Minimal servers, displays, bots. Not ideal as a family desktop with many browser tabs. |
-| **4GB** | The all-round choice: Raspberry Pi OS desktop, coding, modest web stacks, Home Assistant. |
-| **8GB** | Several containers, databases, serious compiling, a desktop with many background services. |
-| **16GB** | Rarely needed on a single-board computer: small local AI models, big builds, caches. Only buy it if you know why. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">RAM</th>
+<th scope="col">Typical use</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>1GB</strong></span></td>
+<td data-label="Typical use"><span class="td-val">Ultra-low-cost edge jobs: simple scripts, a light gateway. Little headroom for a web browser or IDE.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>2GB</strong></span></td>
+<td data-label="Typical use"><span class="td-val">Minimal servers, displays, bots. Not ideal as a family desktop with many browser tabs.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>4GB</strong></span></td>
+<td data-label="Typical use"><span class="td-val">The all-round choice: Raspberry Pi OS desktop, coding, modest web stacks, Home Assistant.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>8GB</strong></span></td>
+<td data-label="Typical use"><span class="td-val">Several containers, databases, serious compiling, a desktop with many background services.</span></td>
+</tr>
+<tr>
+<td data-label="RAM"><span class="td-val"><strong>16GB</strong></span></td>
+<td data-label="Typical use"><span class="td-val">Rarely needed on a single-board computer: small local AI models, big builds, caches. Only buy it if you know why.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Memory is **LPDDR4X-4267** on the Pi 5 (LPDDR4-3200 on the Pi 4).
 
@@ -35,7 +57,7 @@ Memory is **LPDDR4X-4267** on the Pi 5 (LPDDR4-3200 on the Pi 4).
 3. **Home lab with Docker** or several stacks: **8GB**.
 4. **Big compiles, memory-hungry models, no compromise**: 16GB, after checking that storage and cooling keep up.
 
-Prices move often and differ between the UK and the US: **check current price** with an official reseller. US/UK: <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0CK3L9WD3?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> or <a href="https://www.amazon.com/dp/B0CK2FCG1K?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 8GB (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0CK2FCG1K?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> (affiliate links). The gap between 4GB and 16GB can be large.
+UK and US prices differ, and this page does not quote one. The 1GB, 2GB, 4GB, 8GB and 16GB boards are listed on the [official Raspberry Pi 5 page](https://www.raspberrypi.com/products/raspberry-pi-5/). The gap between 4GB and 16GB can be large.
 
 ## 4. Accessories you shouldn't forget
 

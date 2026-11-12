@@ -1,0 +1,31 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import GarageDoorLocalizedPage from '../../../components/GarageDoorLocalizedPage.astro';
+import { GARAGE_DOOR_LOCALES } from '../../../data/garageDoorLocales/index.mjs';
+import { GARAGE_DOOR_PATHS } from '../../../data/garageDoorLocales/paths.mjs';
+import { USE_CASES } from '../../../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../../../lib/siteUrl';
+
+const guide = GARAGE_DOOR_LOCALES.es;
+const useCase = USE_CASES.find((u) => u.id === 'garage-porte-smartphone');
+const articlePath = GARAGE_DOOR_PATHS.es;
+const pubDate = new Date('2026-10-29T00:00:00Z');
+const articleUrl = `https://robot-educatif.info${articlePath}`;
+---
+
+<DomotiqueToolLayout
+	title={guide.title}
+	description={guide.description}
+	lang="es"
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Domótica"
+	repairGuide={false}
+	breadcrumbItems={[
+		{ name: 'Inicio', url: withBase('/es/') },
+		{ name: 'Domótica', url: withBase('/es/domotica/') },
+		{ name: guide.title, url: withBase(articlePath) },
+	]}
+>
+	<GarageDoorLocalizedPage guide={guide} articleUrl={articleUrl} useCase={useCase} lang="es" />
+</DomotiqueToolLayout>

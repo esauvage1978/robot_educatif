@@ -2,7 +2,7 @@
 title: "Capteur ultrason mBot (3/4) : radar de recul amélioré"
 description: "Radar de recul mBot amélioré : vitesse du bip proportionnelle à la distance. Variables, opérateurs, boucles avancées."
 pubDate: "2026-03-31"
-updatedDate: "2026-03-31"
+updatedDate: "2026-11-02"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -20,6 +20,10 @@ relatedLinks:
   - title: "Mon premier programme mBot"
     href: "/mon-premier-programme-mbot/"
 ---
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/categorie/mbot/">Activités mBot</a> · Série capteur ultrason (3/4)</nav>
+
+Cette leçon appartient aux [activités mBot](/categorie/mbot/) et prolonge la [série capteur ultrason](/serie-capteur-ultrason-mbot-1-mesurer-distance/) (partie 3 sur 4). Si tu viens de la [partie 2 — radar par paliers](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/), tu peux réutiliser les mêmes blocs mBlock.
 
 <aside class="article-callout" role="note">
 <p><strong>Objectif pédagogique</strong></p>
@@ -92,6 +96,8 @@ Si tu trouves cette formule trop “maths”, commence par l’Option A.
 ---
 
 ## 3) Construire le programme (solution simple)
+
+![Capture mBlock : blocs pour lire la distance ultrason et calculer un délai (Option A)](/capture/capteur/mblock-capteur-ultrason-variable-lutin.png)
 
 Variables conseillées :
 

@@ -7,22 +7,72 @@ const tag = AMAZON_AFFILIATE_TAG;
 ---
 
 <ProgrammationSeriesHub
-	metaTitle="Le pendu en Python — mots et fichier texte"
-	metaDescription="Série guidée : mot mystère, chargement d’une liste depuis un fichier, lettres essayées, pendu ASCII et jeu complet."
+	metaTitle="Le pendu en Python — série gratuite en 6 leçons (2026)"
+	metaDescription="Projet pendu en console : mot masqué, fichier de mots, lettres essayées, boucle de partie, victoire et jeu complet. Parcours Python débutant."
 	series="Le pendu"
 	breadcrumbLast="Le pendu"
-	pageTitle="Le pendu en Python"
+	pageTitle="Le pendu en Python — projet guidé"
 >
+	<blockquote class="geo-direct" style="margin: 0 0 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #0d9488; background: #f0fdfa; line-height: 1.55;">
+		<strong>Réponse directe (novembre 2026)</strong> — Ce hub regroupe <strong>six leçons</strong> pour coder le jeu du <strong>pendu</strong> dans un <strong>terminal</strong> (fenêtre texte) avec <strong>Python 3</strong> : mot secret, fichier de mots, affichage, boucle de partie, fin de partie, puis structure complète du projet. Prérequis : savoir lire un <a href={withBase('/python-fichiers-texte/')}>fichier texte</a> et manipuler des <a href={withBase('/python-listes-et-chaines/')}>chaînes</a> (parcours <a href={withBase('/programmation/python/')}>Python débutant</a>).
+	</blockquote>
 	<p>
-		Jeu classique au <strong>terminal</strong> : deviner un mot <strong>lettre par lettre</strong> avec un nombre limité
-		d’erreurs. Tu
-		apprends à lire un <strong>fichier texte</strong> (un mot par ligne) et à manipuler des <strong>ensembles</strong> et
-		chaînes. 		Prérequis : <a href={withBase('/python-fichiers-texte/')}>fichiers texte</a> et{' '}
-		<a href={withBase('/python-listes-et-chaines/')}>chaînes</a> du{' '}
-		<a href={withBase('/programmation/python/')}>parcours Python</a>. Ressources :{' '}
-		<a
-			href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`}
-			target="_blank"
-			rel="noopener noreferrer sponsored">livres projets Python</a> (partenaire).
+		Le pendu est un jeu de lettres : l’ordinateur choisit un mot ; le joueur propose des lettres avec un nombre limité d’<strong>erreurs</strong>. Vous apprenez les <strong>ensembles</strong> (<code>set</code>), les boucles <code>while</code>, la saisie utilisateur et l’organisation d’un petit programme en plusieurs fichiers.
+	</p>
+	<p>
+		<img src={withBase('/images/blog/lot15/pendu-console-exemple.png')} alt="Exemple de sortie console pour le pendu en Python" width="640" height="360" loading="eager" style="max-width:100%;height:auto;border-radius:10px;" />
+	</p>
+	<h2 id="parcours">Comment lire la série</h2>
+	<ol>
+		<li><strong>Partie 1</strong> — Règles, mot en dur, masque avec des tirets (<a href={withBase('/python-pendu-1-cahier-mot-masque/')}>cahier des charges</a>).</li>
+		<li><strong>Partie 2</strong> — Charger une liste de mots depuis un <strong>fichier .txt</strong> (<a href={withBase('/python-pendu-2-mots-depuis-fichier/')}>mots depuis un fichier</a>).</li>
+		<li><strong>Partie 3</strong> — Afficher les lettres déjà essayées sans doublons (<a href={withBase('/python-pendu-3-affichage-lettres/')}>affichage des lettres</a>).</li>
+		<li><strong>Partie 4</strong> — Boucle principale jusqu’à victoire ou défaite (<a href={withBase('/python-pendu-4-boucle-partie/')}>boucle de partie</a>).</li>
+		<li><strong>Partie 5</strong> — Messages de fin et rejouer (<a href={withBase('/python-pendu-5-victoire-defaite/')}>victoire et défaite</a>).</li>
+		<li><strong>Partie 6</strong> — Arborescence de fichiers, checklist, extensions (<a href={withBase('/python-pendu-6-projet-complet/')}>projet complet</a>).</li>
+	</ol>
+	<h2 id="prerequis">Matériel et prérequis</h2>
+	<p>
+		<strong>Python 3.10+</strong>, un éditeur (Thonny, VS Code) et un terminal. Aucune bibliothèque externe : seulement la bibliothèque standard. Si vous débutez, commencez par la leçon <a href={withBase('/python-variables-affichage/')}>variables et affichage</a> puis le <a href={withBase('/programmation/python/')}>parcours Python</a> (dix leçons).
+	</p>
+	<h2 id="suite">Autres projets console</h2>
+	<p>
+		Même niveau : <a href={withBase('/programmation/bataille-navale/')}>bataille navale</a>, <a href={withBase('/programmation/puissance-4/')}>Puissance 4</a>, <a href={withBase('/programmation/carnet-todo/')}>carnet Todo + JSON</a>. Index : <a href={withBase('/programmation/')}>Programmation</a>.
+	</p>
+	<h2 id="pourquoi">Pourquoi coder le pendu en Python ?</h2>
+	<p>
+		Le pendu est un <strong>mini-projet</strong> idéal après les leçons sur les <a href={withBase('/python-boucles-for-while/')}>boucles</a> et les <a href={withBase('/python-conditions-if-else/')}>conditions</a> : vous manipulez une <strong>chaîne de caractères</strong> (mot secret), un <strong>ensemble</strong> (<code>set</code>, lettres déjà proposées) et la saisie clavier (<code>input()</code>). Contrairement à un jeu graphique (<strong>Pygame</strong>, bibliothèque d’affichage 2D), tout reste dans le <strong>terminal</strong> — parfait pour comprendre la logique avant d’ajouter des images.
+	</p>
+	<table>
+		<thead>
+			<tr><th>Projet console</th><th>Compétences clés</th><th>Durée indicative</th></tr>
+		</thead>
+		<tbody>
+			<tr><td><a href={withBase('/programmation/pendu/')}>Le pendu</a> (cette série)</td><td><code>set</code>, <code>while</code>, fichiers texte</td><td>2–4 h</td></tr>
+			<tr><td><a href={withBase('/programmation/bataille-navale/')}>Bataille navale</a></td><td>Grilles 2D, listes de listes</td><td>5–7 h</td></tr>
+			<tr><td><a href={withBase('/programmation/carnet-todo/')}>Carnet Todo + JSON</a></td><td>Dictionnaires, persistance</td><td>4–6 h</td></tr>
+		</tbody>
+	</table>
+	<h2 id="demarrer">Par où commencer aujourd’hui ?</h2>
+	<ol>
+		<li>Installez <strong>Python 3.10+</strong> et ouvrez Thonny ou VS Code.</li>
+		<li>Relisez si besoin <a href={withBase('/python-fichiers-texte/')}>fichiers texte</a> et <a href={withBase('/python-listes-et-chaines/')}>listes et chaînes</a>.</li>
+		<li>Ouvrez la <a href={withBase('/python-pendu-1-cahier-mot-masque/')}>partie 1</a> : mot masqué et règles en console.</li>
+		<li>Enchaînez les parties 2 à 6 dans l’ordre ; téléchargez les scripts depuis chaque leçon.</li>
+	</ol>
+	<p>
+		Hub général des tutoriels : <a href={withBase('/programmation/')}>Programmation</a> (robots, Arduino, Python débutant à avancé).
+	</p>
+	<h2 id="faq">FAQ</h2>
+	<ul>
+		<li><strong>Faut-il Pygame ?</strong> Non : tout se joue en texte dans le terminal ; Pygame viendrait plus tard pour une version graphique.</li>
+		<li><strong>Combien de temps ?</strong> Comptez 2 à 4 heures en suivant les six parties une par une, avec pauses pour tester votre code.</li>
+		<li><strong>Et les accents ?</strong> La série simplifie sans accents ; vous pourrez normaliser ensuite avec le module standard <code>unicodedata</code>.</li>
+		<li><strong>Quel niveau scolaire ?</strong> Collège ou lycée après les bases variables/boucles ; en autodidacte adulte, même prérequis.</li>
+		<li><strong>Peut-on tricher en lisant le fichier de mots ?</strong> Oui — c’est local : l’intérêt pédagogique est la boucle de jeu, pas l’anti-triche.</li>
+	</ul>
+	<p>
+		Ressources papier (partenaire) :{' '}
+		<a href={`https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=${tag}`} target="_blank" rel="noopener noreferrer sponsored">livres projets Python</a>.
 	</p>
 </ProgrammationSeriesHub>

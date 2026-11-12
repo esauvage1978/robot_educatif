@@ -1,385 +1,458 @@
 ---
-import { amazonProductUrl } from '../lib/amazon';
-import { getProductImage } from '../lib/amazonImage';
-import productsData from '../data/products.json';
+import { AMAZON_AFFILIATE_TAG } from '../consts';
+import {
+	amazonDpUrl,
+	comparisonLabels,
+	marketFromPathname,
+	MARKET_CONFIG,
+	priceMentionForLocale,
+} from '../lib/amazonMarket.mjs';
+import { catalogForMarket } from '../lib/marketProducts.mjs';
+import { withBase } from '../lib/siteUrl';
+import ProductBox from './ProductBox.astro';
 
-interface ProductEntry {
+interface ProductItem {
 	id: string;
 	badge?: string;
 }
 
 interface Props {
-	products: ProductEntry[];
+	productIds?: string[];
+	products?: (string | ProductItem)[];
 	title?: string;
+	amazonBtnLabel?: string;
+	priceMentionText?: string;
+	market?: string;
+	locale?: string;
+	/** `cards` : grille de fiches avec lien affilié, sans tableau. */
+	variant?: 'table' | 'cards';
 }
 
-const { products, title = 'Notre sélection rapide' } = Astro.props;
+const pathname = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const market = Astro.props.market || marketFromPathname(pathname);
+const locale =
+	Astro.props.locale ||
+	(market === 'de' ? 'de' : market === 'it' ? 'it' : market === 'es' ? 'es' : market === 'fr' ? 'fr' : 'en');
+const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
+const labels = comparisonLabels(locale);
 
-const productDetails = products.map((entry) => {
-	const data = productsData[entry.id as keyof typeof productsData];
-	if (!data) return null;
-	const imageUrl = getProductImage(data.asin, data.name, 80, 80);
-	return {
-		...data,
-		...entry,
-		url: data.asin
-			? amazonProductUrl(data.asin, null)
-			: amazonProductUrl(null, data.searchQuery || data.name),
-		imageUrl,
-	};
-}).filter(Boolean);
+const { catalog, releveAffichage } = await catalogForMarket(market, locale);
+const defaultMention = priceMentionForLocale(releveAffichage, locale);
 
-/** Colonne photo seulement si au moins un produit a une vraie photo (pas le SVG générique). */
-const hasPhotos = productDetails.some((p) => p && !String(p.imageUrl).startsWith('data:'));
+const {
+	productIds,
+	products: propProducts,
+	title = 'Comparatif rapide',
+	amazonBtnLabel = labels.amazonBtn,
+	priceMentionText = defaultMention,
+	variant = 'table',
+} = Astro.props;
+
+const catalogMap = catalog || {};
+const rawList = propProducts || productIds || [];
+
+const products = rawList
+	.map((item) => {
+		const id = typeof item === 'string' ? item : item.id;
+		const customBadge = typeof item === 'object' && item !== null ? item.badge : undefined;
+		const p = catalogMap[id] || Object.values(catalogMap).find((x: any) => x && x.id === id);
+		if (!p) return null;
+		return {
+			...p,
+			displayBadge: customBadge || p.badge || '',
+		};
+	})
+	.filter((p): p is NonNullable<typeof p> => p !== null);
+
+const getAmazonUrl = (p: any) => {
+	if (market === 'fr') {
+		return p.asin
+			? `https://www.amazon.fr/dp/${encodeURIComponent(p.asin)}?tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`
+			: `https://www.amazon.fr/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`;
+	}
+	if (p.asin) return amazonDpUrl(p.asin, market);
+	return `https://${cfg.host}/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(cfg.tag)}`;
+};
+
+const getModelHref = (p: any, amzUrl: string) =>
+	market === 'fr' && p.modelGo ? withBase(p.modelGo) : amzUrl;
+
+const productImg = (p: any) => {
+	if (p.imageAmazon && !p.amazonIndispo) return p.imageAmazon;
+	return withBase(p.image || p.imageUrl || '/images/products/mbot2.webp');
+};
+
+const priceLabel = (p: any) => {
+	if (p.amazonIndispo) return labels.unavailable;
+	if (!cfg.showPrices) return labels.checkPrice;
+	return p.priceRange || labels.checkPrice;
+};
+
+/** Nom affiché (jamais le titre Amazon brut). */
+const displayName = (p: any) => p.shortName || p.name;
+
+const showCultura = cfg.showCultura;
+const showPartner = market === 'fr';
 ---
 
-{productDetails.length > 0 && (
-	<div class="comparison-table-wrapper" id="selection">
-		<h2 class="comparison-title">{title}</h2>
-		<div class="comparison-table-scroll">
-			<table class:list={['comparison-table', { 'no-photos': !hasPhotos }]}>
-				<thead>
-					<tr>
-						{hasPhotos && <th class="image-col"><span class="sr-only">Photo</span></th>}
-						<th>Robot</th>
-						<th>Âge</th>
-						<th>Langages</th>
-						<th class="cta-col"><span class="sr-only">Lien</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					{productDetails.map((product) => (
+<div class:list={['comparison-container', variant === 'cards' && 'comparison-container--cards']}>
+	{title && <h3 class="comparison-title">{title}</h3>}
+
+	<div class="comparison-cards" aria-label={title || 'Comparatif produits'}>
+		{products.map((product) => {
+			const langs = Array.isArray(product.languages)
+				? product.languages
+				: Array.isArray(product.programming)
+					? product.programming
+					: [];
+			const pros = Array.isArray(product.pros) ? product.pros : [];
+			const cons = Array.isArray(product.cons) && product.cons.length > 0 ? product.cons : undefined;
+			const description = locale === 'fr' ? product.description || '' : '';
+			return (
+				<ProductBox
+					id={product.id}
+					name={displayName(product)}
+					badge={product.displayBadge || ''}
+					description={description}
+					pros={pros}
+					cons={cons}
+					ages={product.ages || product.ageRange || ''}
+					languages={langs}
+					layout="stack"
+					partnerUrl={showPartner ? product.partnerUrl || '' : ''}
+					culturaUrl={showCultura ? product.culturaUrl || '' : ''}
+				/>
+			);
+		})}
+	</div>
+
+	{variant !== 'cards' && (
+	<div class="table-responsive">
+		<table class="comparison-table">
+			<colgroup>
+				<col class="col-model" />
+				<col class="col-age" />
+				<col class="col-langs" />
+				<col class="col-price" />
+				<col class="col-pros" />
+				<col class="col-offers" />
+			</colgroup>
+			<thead>
+				<tr>
+					<th>{labels.model}</th>
+					<th>{labels.age}</th>
+					<th>{labels.langs}</th>
+					<th>{labels.price}</th>
+					<th>{labels.pros}</th>
+					<th>{labels.offers}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{products.map((product) => {
+					const amzUrl = getAmazonUrl(product);
+					const modelHref = getModelHref(product, amzUrl);
+					const langs = Array.isArray(product.languages)
+						? product.languages
+						: Array.isArray(product.programming)
+							? product.programming
+							: [];
+					const pros = Array.isArray(product.pros) ? product.pros : [];
+					const imgSrc = productImg(product);
+					const name = displayName(product);
+					return (
 						<tr>
-							{hasPhotos && (
-								<td class="product-image-cell">
-									<a
-										href={product.url}
-										target="_blank"
-										rel="sponsored nofollow noopener"
-										class="table-image-link"
-										tabindex="-1"
-										aria-hidden="true"
-									>
-										<img
-											src={product.imageUrl}
-											alt=""
-											width="64"
-											height="64"
-											loading="lazy"
-											decoding="async"
-											class="table-img"
-										/>
-									</a>
-									{product.imageCaption && <span class="ai-illustration-caption" style="display:block;text-align:center;font-size:0.62rem;line-height:1.15;max-width:72px;margin:0.25rem auto 0;">{product.imageCaption}</span>}
-								</td>
-							)}
-							<td class="product-name-cell">
-								<strong>{product.name}</strong>
-								{product.badge && <span class="table-badge">{product.badge}</span>}
-							</td>
-							<td class="ages-cell" data-label="Âge">{product.ages}</td>
-							<td class="languages-cell" data-label="Langages">
-								{Array.isArray(product.languages) ? product.languages.join(', ') : product.languages}
-							</td>
-							<td class="cta-cell">
-								<a
-									href={product.url}
-									target="_blank"
-									rel="sponsored nofollow noopener"
-									class="table-btn affiliate-link"
-									data-product-id={product.id}
-									data-product={product.name}
-								>
-									Voir sur Amazon
+							<td class="model-cell">
+								<a href={modelHref} target="_blank" rel="nofollow sponsored noopener" class="model-link">
+									<img src={imgSrc} alt={name} width="108" height="108" class="table-img" loading="lazy" decoding="async" />
+									<div class="model-text">
+										<strong class="model-name">{name}</strong>
+										{product.displayBadge && (
+											<div class="table-badge">{product.displayBadge}</div>
+										)}
+									</div>
 								</a>
 							</td>
+							<td>
+								<span class="age-pill">{product.ages || product.ageRange || 'Tous âges'}</span>
+							</td>
+							<td>{langs.join(', ')}</td>
+							<td class="price-cell">
+								<a href={amzUrl} target="_blank" rel="nofollow sponsored noopener" class="price-link">
+									{priceLabel(product)}
+								</a>
+							</td>
+							<td class="pros-cell">{pros.slice(0, 2).join(' • ')}</td>
+							<td class="action-cell">
+								<div class="table-offers">
+									<a href={amzUrl} class="table-btn amz-btn" target="_blank" rel="nofollow sponsored noopener">
+										{amazonBtnLabel}
+									</a>
+									{(showCultura && product.culturaUrl) || (showPartner && product.partnerUrl) ? (
+										<p class="table-also">
+											{showCultura && product.culturaUrl && (
+												<a class="table-alt" href={product.culturaUrl} target="_blank" rel="nofollow sponsored noopener">
+													Cultura
+												</a>
+											)}
+											{showCultura && product.culturaUrl && showPartner && product.partnerUrl && (
+												<span aria-hidden="true"> · </span>
+											)}
+											{showPartner && product.partnerUrl && (
+												<a class="table-alt" href={product.partnerUrl} target="_blank" rel="nofollow sponsored noopener">
+													{product.partnerLabel || 'Partenaire'}
+												</a>
+											)}
+										</p>
+									) : null}
+								</div>
+							</td>
 						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
-		<p class="comparison-note">
-			<strong>Note :</strong> Liens affiliés Amazon. En tant que partenaire, ce site peut percevoir une commission sur des achats éligibles, sans surcoût pour vous.
-		</p>
+					);
+				})}
+			</tbody>
+		</table>
 	</div>
-)}
+	)}
+	{priceMentionText && <p class="amazon-price-mention">{priceMentionText}</p>}
+</div>
 
 <style>
-	.comparison-table-wrapper {
-		background: linear-gradient(
-			135deg,
-			color-mix(in oklab, var(--accent) 8%, var(--surface-2)) 0%,
-			var(--surface-2) 100%
-		);
-		border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--surface-border));
+	.comparison-container {
+		margin: 2rem 0;
+		background: #fff;
 		border-radius: 12px;
-		padding: 1.5rem 1.25rem;
-		margin: 2rem 0 2.5rem 0;
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-	}
-
-	.comparison-title {
-		margin: 0 0 1rem 0;
-		font-size: 1.4rem;
-		font-weight: 800;
-		color: rgb(var(--black));
-		text-align: center;
-		/* neutralise le style h2 « carte » global des articles (pas de boîte dans la boîte) */
-		padding: 0;
-		border: 0;
-		border-radius: 0;
-		background: none;
-		box-shadow: none !important; /* bat html[data-theme='light'] .prose h2 */
-	}
-
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+		border: 1px solid rgb(var(--gray-light));
 		overflow: hidden;
-		clip: rect(0 0 0 0);
-		white-space: nowrap;
-	}
-
-	/* :global(.prose) : neutralise la règle générique des tableaux d'article (display:block, nowrap, bordure gauche) */
-	.comparison-table-scroll {
-		width: 100%;
-	}
-
-	:global(.prose) .comparison-table,
-	.comparison-table {
-		display: table;
-		table-layout: auto;
-		width: 100%;
 		max-width: 100%;
+		box-sizing: border-box;
+	}
+	.comparison-title {
 		margin: 0;
-		border-collapse: separate;
-		border-spacing: 0;
-		border: 1px solid var(--surface-border);
-		border-radius: 10px;
-		overflow: hidden;
-		white-space: normal;
-		font-size: 0.95rem;
-		line-height: 1.4;
-		background: var(--page-bg);
+		padding: 1rem 1.5rem;
+		background: rgb(var(--gray-light), 0.3);
+		border-bottom: 1px solid rgb(var(--gray-light));
+		font-size: 1.25rem;
+	}
+	.comparison-cards {
+		display: none;
+	}
+	.comparison-container--cards {
+		background: transparent;
+		border: 0;
 		box-shadow: none;
+		overflow: visible;
 	}
-
-	:global(.prose) .comparison-table thead,
-	:global(.prose) .comparison-table tbody {
-		display: table-header-group;
-		width: auto;
+	.comparison-container--cards .comparison-title {
+		padding: 0 0 0.85rem;
+		background: none;
+		border: 0;
 	}
-
-	:global(.prose) .comparison-table tbody {
-		display: table-row-group;
+	.comparison-container--cards .comparison-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+		gap: 1rem;
+		padding: 0;
+		align-items: stretch;
 	}
-
-	:global(.prose) .comparison-table th {
-		padding: 0.7rem 0.75rem;
+	.comparison-container--cards .table-responsive {
+		display: none;
+	}
+	.comparison-container--cards .amazon-price-mention {
+		border: 0;
+		padding: 0.85rem 0 0;
+	}
+	.table-responsive {
+		overflow-x: clip;
+		max-width: 100%;
+	}
+	.comparison-table {
+		width: 100%;
+		border-collapse: collapse;
 		text-align: left;
-		font-weight: 700;
 		font-size: 0.85rem;
-		white-space: nowrap;
-		background: color-mix(in oklab, var(--accent) 16%, var(--surface-2));
-		color: rgb(var(--black));
-		border-bottom: 1px solid var(--surface-border);
+		table-layout: fixed;
 	}
-
-	:global(.prose) .comparison-table td {
-		padding: 0.6rem 0.75rem;
+	.comparison-table .col-model {
+		width: 24%;
+	}
+	.comparison-table .col-age {
+		width: 11%;
+	}
+	.comparison-table .col-langs {
+		width: 13%;
+	}
+	.comparison-table .col-price {
+		width: 11%;
+	}
+	.comparison-table .col-pros {
+		width: 23%;
+	}
+	.comparison-table .col-offers {
+		width: 18%;
+	}
+	.comparison-table th,
+	.comparison-table td {
+		padding: 0.65rem 0.5rem;
+		border-bottom: 1px solid rgb(var(--gray-light));
 		vertical-align: middle;
-		border-bottom: 1px solid var(--surface-border);
+		overflow-wrap: anywhere;
+		word-break: normal;
 	}
-
-	:global(.prose) .comparison-table tbody tr:last-child td {
+	.comparison-table th {
+		background: rgb(var(--gray-light), 0.1);
+		font-weight: 700;
+		color: #334155;
+		white-space: normal;
+		font-size: 0.8rem;
+		line-height: 1.25;
+	}
+	.comparison-table tr:last-child td {
 		border-bottom: none;
 	}
-
-	:global(.prose) .comparison-table tbody tr:nth-child(even) {
-		background: color-mix(in oklab, var(--surface-2) 55%, transparent);
+	.comparison-table tr:hover {
+		background: rgb(var(--gray-light), 0.1);
 	}
-
-	.comparison-table th.image-col,
-	.product-image-cell {
-		width: 80px;
-		min-width: 80px;
+	.model-link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.45rem;
+		color: #0f172a;
+		text-decoration: none;
 		text-align: center;
 	}
-
-	.table-image-link {
-		display: inline-block;
-		line-height: 0;
+	.model-link:hover .model-name {
+		color: #0f766e;
+		text-decoration: underline;
+		text-decoration-color: rgba(15, 118, 110, 0.45);
 	}
-
-	:global(.prose) .comparison-table .table-img {
+	.model-text {
+		width: 100%;
+		min-width: 0;
+	}
+	.model-name {
 		display: block;
-		width: 64px;
-		height: 64px;
-		min-width: 64px;
-		max-width: none;
-		box-sizing: border-box;
+		font-size: 0.88rem;
+		line-height: 1.3;
+		font-weight: 700;
+		overflow-wrap: anywhere;
+	}
+	.table-badge {
+		font-size: 0.72rem;
+		color: #0f766e;
+		font-weight: 700;
+		margin-top: 0.2rem;
+		line-height: 1.25;
+	}
+	.table-img {
+		width: 108px;
+		height: 108px;
+		max-width: 100%;
 		object-fit: contain;
 		background: #fff;
 		border-radius: 6px;
-		border: 1px solid var(--surface-border);
-		margin: 0;
-	}
-
-	.product-name-cell {
-		min-width: 0;
-	}
-
-	.product-name-cell strong {
-		display: block;
-		font-weight: 700;
-		color: rgb(var(--black));
-		margin-bottom: 0.3rem;
-	}
-
-	.table-badge {
-		display: inline-block;
-		background: #0f766e;
-		color: #fff;
-		padding: 0.15rem 0.55rem;
-		border-radius: 999px;
-		font-size: 0.72rem;
-		font-weight: 700;
-		line-height: 1.4;
-	}
-
-	.ages-cell {
-		white-space: nowrap;
-	}
-
-	.languages-cell {
-		color: rgb(var(--gray-dark));
-		font-size: 0.9rem;
-	}
-
-	.cta-col,
-	.cta-cell {
-		width: 1%;
-		text-align: right;
-	}
-
-	.table-btn {
+		padding: 4px;
+		border: 1px solid rgb(var(--gray-light));
+		flex-shrink: 0;
 		box-sizing: border-box;
-		max-width: 100%;
+	}
+	.age-pill {
+		background: #e3f2fd;
+		color: #0d47a1;
+		padding: 0.2rem 0.45rem;
+		border-radius: 12px;
+		font-weight: 700;
+		font-size: 0.75rem;
+		white-space: normal;
 		display: inline-block;
-		padding: 0.55rem 0.9rem;
-		background: #c2410c;
-		color: #fff;
-		text-decoration: none;
+		line-height: 1.25;
+	}
+	.price-cell {
 		font-weight: 700;
-		font-size: 0.85rem;
-		line-height: 1.2;
-		border-radius: 6px;
 		white-space: nowrap;
-		transition: background 0.15s ease, transform 0.15s ease;
 	}
-
-	.table-btn:hover,
-	.table-btn:focus-visible {
-		background: #9a3412;
-		color: #fff;
-		transform: translateY(-1px);
+	.price-link {
+		color: #1b5e20;
+		background: #e8f5e9;
+		padding: 0.25rem 0.55rem;
+		border-radius: 8px;
+		text-decoration: underline;
+		font-size: 0.85rem;
+		white-space: nowrap;
 	}
-
-	.comparison-note {
-		margin: 0.9rem 0 0 0;
-		font-size: 0.82rem;
-		line-height: 1.5;
-		color: rgb(var(--gray-dark));
-		text-align: center;
-		text-wrap: balance;
+	.pros-cell {
+		font-size: 0.8rem;
+		color: #334155;
+		line-height: 1.4;
+		overflow-wrap: anywhere;
+		word-break: normal;
 	}
-
-	.comparison-note strong {
+	.table-offers {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.35rem;
+		width: 100%;
+	}
+	.table-also {
+		margin: 0;
+		font-size: 0.75rem;
+		line-height: 1.35;
+	}
+	.table-alt {
+		color: #0f766e;
+		font-weight: 650;
+	}
+	.table-btn {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0.4rem 0.45rem;
 		font-weight: 700;
-		color: rgb(var(--black));
+		border-radius: 6px;
+		text-decoration: none !important;
+		font-size: 0.75rem;
+		white-space: normal;
+		text-align: center;
+		line-height: 1.25;
+		transition: opacity 0.15s;
 	}
-
-	/* Mobile : chaque produit devient une carte (photo, nom, âge/langages, bouton pleine largeur), sans scroll horizontal */
+	.table-btn:hover {
+		opacity: 0.9;
+	}
+	.amz-btn {
+		background: #ff9900;
+		color: #111 !important;
+	}
+	.cult-btn {
+		background: #004b93;
+		color: #fff !important;
+	}
+	.part-btn {
+		background: #0f766e;
+		color: #fff !important;
+	}
+	.amazon-price-mention {
+		margin: 0;
+		padding: 0.75rem 1.25rem 1rem;
+		font-size: 0.82rem;
+		color: #64748b;
+		border-top: 1px solid rgb(var(--gray-light));
+		line-height: 1.5;
+	}
 	@media (max-width: 640px) {
-		.comparison-table-wrapper {
-			padding: 1.1rem 0.85rem;
+		.comparison-cards {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			padding: 1rem;
 		}
-
-		:global(.prose) .comparison-table,
-		:global(.prose) .comparison-table tbody,
-		:global(.prose) .comparison-table tr,
-		:global(.prose) .comparison-table td {
-			display: block;
-			width: 100%;
-			box-sizing: border-box;
-			min-width: 0;
-		}
-
-		:global(.prose) .comparison-table {
-			border: none;
-			background: transparent;
-		}
-
-		:global(.prose) .comparison-table thead {
-			display: none;
-		}
-
-		:global(.prose) .comparison-table tbody tr {
-			display: grid;
-			grid-template-columns: 64px minmax(0, 1fr);
-			width: auto;
-			column-gap: 0.85rem;
-			row-gap: 0.35rem;
-			align-items: center;
-			padding: 0.85rem;
-			margin-bottom: 0.75rem;
-			background: var(--page-bg);
-			border: 1px solid var(--surface-border);
-			border-radius: 10px;
-		}
-
-		:global(.prose) .comparison-table.no-photos tbody tr {
-			grid-template-columns: 1fr;
-		}
-
-		:global(.prose) .comparison-table td {
+		.comparison-container--cards .comparison-cards {
 			padding: 0;
-			border: none;
 		}
-
-		:global(.prose) .comparison-table .product-image-cell {
-			grid-row: span 3;
-			width: 64px;
-			min-width: 64px;
-			align-self: start;
-		}
-
-		.ages-cell,
-		.languages-cell {
-			font-size: 0.85rem;
-			white-space: normal;
-		}
-
-		.ages-cell::before,
-		.languages-cell::before {
-			content: attr(data-label) ' : ';
-			font-weight: 600;
-			color: rgb(var(--black));
-		}
-
-		:global(.prose) .comparison-table .cta-cell {
-			grid-column: 1 / -1;
-			width: 100%;
-			text-align: center;
-			margin-top: 0.4rem;
-		}
-
-		.table-btn {
-			display: block;
-			width: 100%;
-			text-align: center;
-			padding: 0.65rem 1rem;
+		.table-responsive {
+			display: none;
 		}
 	}
 </style>

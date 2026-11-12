@@ -1,7 +1,8 @@
 ---
-title: "Capteur température ESP32 + ESPHome pour Home Assistant : tuto complet"
-description: "Tutoriel complet : créer un capteur température DHT22 ou BME280 avec ESP32 et ESPHome. Câblage, code YAML, automatisations, troubleshooting. Projet DIY pas à pas."
+title: "Capteur température ESP32 + ESPHome (tuto Home Assistant)"
+description: "Tutoriel pas à pas : capteur température DHT22 ou BME280 avec ESP32 et ESPHome, câblage, YAML, automatisations et dépannage. Projet DIY pour débutants."
 pubDate: 2026-10-18T00:00:00Z
+updatedDate: 2026-11-02
 category: "esp32"
 products: ["esp32-c6-devkitc", "xiao-esp32c6"]
 priority: 8
@@ -9,7 +10,11 @@ priority: 8
 
 import ProductBox from '../../components/ProductBox.astro';
 
-Créer son propre **capteur température ESP32 + ESPHome** demande peu de matériel et s'intègre automatiquement dans Home Assistant. Ce tutoriel détaillé vous guide pas à pas du câblage à la première automatisation, avec des explications pour comprendre chaque étape et personnaliser votre capteur.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/domotique/">Domotique</a> · Capteur température ESP32</nav>
+
+Créer son propre **capteur température ESP32 + ESPHome** demande peu de matériel et s'intègre automatiquement dans **Home Assistant** (logiciel libre pour piloter sa maison connectée). Ce tutoriel vous guide du câblage à la première automatisation, avec des explications pour comprendre chaque étape. Pour d'autres idées de montages, voir [10 projets ESP32 domotique](/domotique/projets-esp32-domotique/) et le [hub domotique](/domotique/).
+
+**ESPHome** (acronyme de *ESP* + *Home*) est un firmware qui transforme un fichier **YAML** (texte structuré, facile à lire) en programme pour la puce **ESP32**. **Home Assistant** reçoit ensuite température et humidité sans cloud obligatoire. Si vous débutez en domotique, lisez d'abord [par où commencer](/domotique/debuter-domotique-par-ou-commencer/) et le [guide complet débuter en domotique](/domotique/debuter-en-domotique-guide-complet/).
 
 ## Matériel requis
 
@@ -40,24 +45,20 @@ Créer son propre **capteur température ESP32 + ESPHome** demande peu de matér
 - **XIAO ESP32-C6** (compact) — même puce, format mini (21 × 17,5 mm)
 - **ESP32-S3-DevKitC-1** (alternatif) — pas de Zigbee/Thread, mais WiFi stable
 
-*Pourquoi l'ESP32-C6 ?* Puce RISC-V avec WiFi 6, Zigbee 3.0 et Thread natifs. Futur-proof pour Matter. Consommation 50 % inférieure au S3 en deep sleep.
-
-*Liens Amazon : [ESP32-C6 DevKit](https://www.amazon.fr/s?k=ESP32-C6+DevKit&tag=manuso06-21), [XIAO ESP32-C6](https://www.amazon.fr/s?k=XIAO+ESP32-C6&tag=manuso06-21).*
+*Pourquoi l'ESP32-C6 ?* Puce RISC-V, Wi-Fi 6, Zigbee 3.0 et Thread sur la même puce. La référence à commander est **ESP32-C6-DevKitC-1** ou **XIAO ESP32-C6** : la photo du vendeur doit montrer cette référence, pas un ESP32 plus ancien.
 
 **Capteur température + humidité**
 - **DHT22 (AM2302)** — ±0,5 °C, ±2 % RH, protocole 1-wire simple
 - **BME280** — ±0,5 °C, ±3 % RH, **+ pression atmosphérique**, I2C, plus précis
 
-*Recommandation : BME280* pour les projets sérieux (pression = détection météo locale). DHT22 OK pour débuter.
-
-*Liens Amazon : [DHT22 AM2302](https://www.amazon.fr/s?k=DHT22&tag=manuso06-21), [BME280 module](https://www.amazon.fr/s?k=BME280+module&tag=manuso06-21).*
+*Recommandation : BME280* quand il faut aussi la pression. DHT22 pour un premier capteur d'humidité. Les modules vendus sous ces noms n'ont pas le même brochage : la photo du vendeur doit montrer la puce DHT22 ou BME280, pas seulement le mot sur le titre.
 
 **Accessoires de câblage**
 - **Breadboard 400 points** — prototypage sans soudure
 - **Câbles Dupont mâle-mâle** (10–20 fils)
 - **Résistance 4,7 kΩ** (optionnel DHT22, pull-up data) — améliore stabilité signal longue distance
 
-*Lien Amazon : [Kit breadboard + câbles](https://www.amazon.fr/s?k=breadboard+cable+kit&tag=manuso06-21).*
+Le câblage de départ : une breadboard 400 points et des câbles Dupont mâle-mâle. La résistance de 4,7 kΩ ne sert que si le DHT22 est loin de la carte.
 
 **Alimentation**
 - **Câble USB-C** (ESP32-C6) ou **micro-USB** (ESP32-S3) — pour flashage et alimentation 5V
@@ -133,7 +134,7 @@ SCL (jaune)   →    GPIO7 (ou GPIO22)
 - Vérifier votre DevKit (certains utilisent GPIO21/22)
 
 **Adresse I2C du BME280** : `0x76` (par défaut) ou `0x77` (si SDO connecté à VCC)
-- Vérifier avec un scan I2C si problème (voir section Troubleshooting)
+- Vérifier avec un scan I2C si problème (voir section Dépannage ci-dessous)
 
 **Pas de résistance pull-up externe nécessaire** : le module BME280 les inclut déjà (10 kΩ).
 
@@ -462,7 +463,7 @@ entities:
     icon: mdi:gauge
 ```
 
-## Troubleshooting : 5 problèmes courants
+## Dépannage : 5 problèmes courants
 
 ### Problème 1 : ESP32 ne se connecte pas au WiFi
 
@@ -631,7 +632,7 @@ sensor:
 **DHT22** : facile (1-wire), précision OK (±0,5 °C). **BME280** : I2C, précision +++ (±0,2 °C avec oversampling), bonus pression atmosphérique. Pour projet sérieux : **BME280**. Pour tester : **DHT22**.
 
 **L'ESP32 consomme-t-il beaucoup en veille ?**
-**ESP32-C6 WiFi actif** : 80 mA × 3,3V = 260 mW. Sur batterie 3000 mAh : 37h. **Avec deep sleep** : 0,01 mA → 3 mois. Sur secteur USB : négligeable (2 kWh/an = 0,40 €). Zigbee pur débutants : batterie < 1 an.
+**ESP32-C6 WiFi actif** : 80 mA × 3,3V = 260 mW. Sur batterie 3000 mAh : 37h. **Avec deep sleep** : 0,01 mA → 3 mois. Sur secteur USB : négligeable (2 kWh/an = 0,40 €). Zigbee pur débutants : batterie < 1 an.
 
 **Peut-on utiliser plusieurs capteurs ESP32 dans la même maison ?**
 Oui, créer un appareil ESPHome par ESP32 (noms différents : `capteur-salon`, `capteur-chambre`, etc.). Limite : WiFi (50 clients sur routeur classique). Astuce : 1 ESP32 avec **plusieurs capteurs Dallas DS18B20** (1-wire bus) = 10 capteurs sur 1 ESP32.
@@ -657,9 +658,7 @@ L'**`encryption: key`** chiffre déjà les communications HA ↔ ESP32. Pour blo
 
 ---
 
-*Affiliation : liens Amazon avec tag manuso06-21, commission ~3 % catégorie Électronique. Prix octobre 2026, indicatifs. Notre sélection basée sur recherche, sans tests physiques.*
-
-## Pour aller plus loin
+*Affiliation : liens Amazon avec tag manuso06-21, commission ~3 % catégorie Électronique. Prix indicatifs — vérifier chez le marchand. Sélection documentaire, sans tests physiques systématiques.*
 
 - [Ouvrir sa porte de garage depuis son smartphone avec un ESP32 et ESPHome](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
-- [Station m?t?o BME280 sur Raspberry Pi avec historique](/domotique/raspberry-pi-station-meteo-bme280-historique/)
+- [Station météo BME280 sur Raspberry Pi avec historique](/domotique/raspberry-pi-station-meteo-bme280-historique/)

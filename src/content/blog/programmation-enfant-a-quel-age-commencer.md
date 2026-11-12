@@ -23,7 +23,13 @@ relatedLinks:
 
 L’âge **indiqué sur une boîte** n’est qu’un **filtre grossier** : ce qui compte, c’est la **motivation**, la capacité à **tenir une consigne**, la **frustration** face à l’échec — et la **disponibilité d’un adulte** pour les premiers pas logiciels (installation, mots de passe, sauvegarde).
 
-![Repères d’âge et type d’activité](/images/blog/guides-2026/timeline-ages-programmation.svg)
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/categorie/guide/">Guides pratiques</a></nav>
+
+**Scratch**, au sens de ce guide, désigne **Scratch 3** (langage par blocs gratuit sur [scratch.mit.edu](https://scratch.mit.edu)) : l’enfant assemble des instructions visuelles sans taper de syntaxe. **mBlock** reprend la même logique de blocs pour piloter des robots Makeblock.
+
+![Interface de programmation par blocs (mBlock en ligne, proche de Scratch)](/images/blog/guides-2026/mblock-online-wikimedia.png)
+
+*Crédit : capture [mBlock en ligne](https://ide.mblock.cc/) — Matteo Ruffoni, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MblockOnline.png), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 ## 1. Quatre phases (indicatif, pas des barrières fixes)
 
@@ -33,7 +39,7 @@ Jeux **débranchés** (tuiles, parcours au sol), **robots sans écran** ou avec 
 
 ### 7–9 ans : blocs et premières boucles
 
-Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [activité carré](/activite-scratch-le-carre/).
+Quand l’enfant tient **20–40 minutes** sur une tâche et commence à **reformuler** ce qui bloque (« ça ne marche pas quand… »), **Scratch** / **mBlock** deviennent pertinents — [guide robot 7 ans](/quel-robot-acheter-enfant-7-ans-guide-achat/), [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [quel robot programmer avec Scratch](/robot-programmable-scratch-lequel-choisir/), [activité carré](/activite-scratch-le-carre/).
 
 ### 10–12 ans : capteurs, projets plus longs, pont vers le texte
 
@@ -59,12 +65,12 @@ Un enfant peut être **rapide sur YouTube ou un jeu** sans être prêt pour **d�
 - **Un projet** à la fois avec **démo** à la fin (voir [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/)).
 - **Ne pas** corriger les blocs à la place de l’enfant : poser des questions (« que se passe-t-il si on enlève ce bloc ? »).
 
-## Liens Amazon (affiliation)
+## Pour aller plus loin
 
-- [Robot éducatif enfant par âge](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Livre initiation programmation enfant](https://www.amazon.fr/s?k=livre+initiation+programmation+enfant&tag=manuso06-21)
-
-*Partenaire Amazon — commission possible sur achats éligibles.*
+- [Robot à 4 ans](/robot-enfant-4-ans/)
+- [Quel robot à 5 ans](/quel-robot-acheter-enfant-5-ans-guide-achat/)
+- [Quel robot à 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/)
+- [Scratch à l’école ou à la maison](/scratch-ecole-maison-par-ou-commencer/)
 
 ---
 

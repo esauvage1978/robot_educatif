@@ -1,7 +1,8 @@
 ---
 title: "Kit Raspberry Pi 5 complet : quel kit choisir en 2026 ?"
-description: "Kit Raspberry Pi 5 complet pour débuter : 4GB ou 8GB, composants essentiels, projets robotique et IA. Guide d'achat complet."
+description: "Kit Raspberry Pi 5 : carte 4 Go ou 8 Go, alimentation 27 W, microSD et boîtier. Prix des cartes relevés, accessoires à chiffrer à part."
 pubDate: "2026-10-12"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 categories:
   - "À partir de 14 ans"
@@ -23,6 +24,8 @@ import ProductBox from '../../components/ProductBox.astro';
 
 <AffiliateDisclosure variant="compact" />
 
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <a href="/marque-raspberry-pi/">Raspberry Pi</a> · Guide kit Pi 5</nav>
+
 <ComparisonTable
   products={[
     { id: 'raspberry-pi-5-8gb', badge: 'Notre choix (IA/vision)' },
@@ -31,20 +34,13 @@ import ProductBox from '../../components/ProductBox.astro';
   title="Raspberry Pi 5 : quelle version ?"
 />
 
-Le **[Raspberry Pi](/marque-raspberry-pi/) 5** est le nano-ordinateur le plus puissant de la gamme (2-3× plus rapide que le Pi 4). Mais acheter juste la carte nue ne suffit pas : il faut l'**alimentation**, la **carte SD**, le **boîtier** et souvent des **accessoires**. Ce guide vous aide à composer un **kit complet** selon votre projet.
+Une carte [Raspberry Pi 5](/marque-raspberry-pi/) nue ne démarre pas. Il faut l'alimentation, une carte microSD et, dès que le projet dure, un boîtier qui évacue la chaleur. Le 6 novembre 2026, sur Amazon.fr, la carte 4 Go était à 145,22 € ([fiche 4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)) et la carte 8 Go à 209,09 € ([fiche 8 Go](https://www.amazon.fr/dp/B0CK2FCG1K?tag=manuso06-21)). Ces deux montants ne couvrent pas le reste du kit : alimentation, microSD, boîtier, câble et éventuelle caméra ne figurent pas dans le relevé. Leur prix se consulte sur la fiche du jour, et ce guide ne les additionne pas à la carte.
 
-## Raspberry Pi 5 : les bases
+La fondation Raspberry Pi présente le Pi 5 comme nettement plus rapide que le Pi 4, de l'ordre de deux à trois fois selon ses propres mesures. Ce n'est pas un essai mené pour cet article. Le processeur est un Broadcom BCM2712, quatre cœurs Cortex-A76 à 2,4 GHz, avec un circuit graphique VideoCore VII à 800 MHz (OpenGL ES 3.1 et Vulkan 1.2). La mémoire est de la LPDDR4X, en 4 Go, 8 Go ou 16 Go. On trouve deux ports USB 3.0, deux USB 2.0, deux sorties micro-HDMI jusqu'en 4K à 60 images par seconde, un Ethernet gigabit, le Wi-Fi 5 et le Bluetooth 5.0. Le connecteur à 40 broches reprend le plan des Pi 4 et Pi 3, avec un lien PCIe 2.0, un bouton d'alimentation et une horloge temps réel. Cette horloge ne garde l'heure hors tension que si l'on ajoute une pile, qui n'est pas fournie avec la carte.
 
-### Caractéristiques clés
+Pour situer la carte dans la gamme, le [comparatif Pi 3, 4 et 5](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/) et le guide [quelle mémoire choisir](/raspberry-pi-5-quelle-version-memoire-acheter/) détaillent les usages. Un ado qui hésite encore entre un ordinateur et un robot déjà monté lira [Raspberry Pi ou kit robot](/raspberry-pi-ou-kit-robot-ado-guide/).
 
-- **Processeur** : Broadcom BCM2712, quad-core Cortex-A76 @ 2.4 GHz
-- **GPU** : VideoCore VII @ 800 MHz (OpenGL ES 3.1, Vulkan 1.2)
-- **RAM** : 4GB, 8GB ou 16GB LPDDR4X
-- **Connectique** : 2× USB 3.0, 2× USB 2.0, 2× micro-HDMI 4K60, Gigabit Ethernet, Wi-Fi 5, Bluetooth 5.0
-- **GPIO** : 40 broches compatibles Pi 4/3
-- **Nouveau** : PCIe 2.0, bouton power, horloge temps réel (RTC)
-
-### Quelle version choisir ?
+## Quelle mémoire choisir
 
 <ProductBox
   productId="raspberry-pi-5-4gb"
@@ -62,12 +58,7 @@ Le **[Raspberry Pi](/marque-raspberry-pi/) 5** est le nano-ordinateur le plus pu
   position={1}
 />
 
-**4GB : pour qui ?**
-- Projets **robotique** classiques (moteurs, capteurs, sans vision)
-- **Serveur léger** (Plex, Pi-hole, NAS)
-- **RetroPie** (console rétrogaming)
-- **Apprentissage** Python/Linux
-- **Budget serré** : la moins chère des deux versions
+La carte 4 Go suffit quand le projet tient dans un programme et quelques capteurs : robot à moteurs, serveur léger du type Pi-hole, apprentissage de Python et de Linux, ou bureautique modeste. À 145,22 € le 6 novembre 2026, c'est la moins chère des deux fiches relevées. Elle devient juste dès qu'un navigateur, un environnement de développement et une caméra tournent ensemble. Une console de jeux anciens n'est pas un argument automatique : la distribution doit annoncer le Pi 5. Ce n'est pas le cas de toutes les images prévues pour le Pi 4.
 
 <ProductBox
   productId="raspberry-pi-5-8gb"
@@ -85,218 +76,125 @@ Le **[Raspberry Pi](/marque-raspberry-pi/) 5** est le nano-ordinateur le plus pu
   position={2}
 />
 
-**8GB : pour qui ?**
-- **Vision par ordinateur** (OpenCV, détection d'objets)
-- **IA embarquée** (TensorFlow Lite, modèles ML)
-- **Multitâche** : serveur + interface graphique + IDE
-- **Futur-proof** : investissement durable
-- **Budget plus large** : un peu plus chère que la 4GB
+La carte 8 Go est celle qu'on prend pour une caméra, un modèle léger de vision par ordinateur, ou un bureau avec plusieurs logiciels ouverts. L'écart avec la 4 Go, sur les deux fiches du 6 novembre 2026, est de 63,87 € (209,09 € moins 145,22 €). Ce n'est que l'écart entre les cartes. Les mêmes accessoires s'ajoutent aux deux. Beaucoup de cartes d'extension prévues pour le Pi 4 se branchent encore sur les 40 broches, mais le boîtier et l'emplacement des ports ont changé : une carte qui enfermait un Pi 4 ne se réutilise pas sans vérification.
 
-**16GB : pour qui ?**
-- Projets **très avancés** (compilation lourde, bases de données)
-- **Overkill** pour la plupart des usages robotique enfant/ado
+La version 16 Go vise la compilation lourde, plusieurs conteneurs ou un modèle plus gros. Elle n'est pas dans le relevé de prix de cette page : consultez le prix sur la fiche, sans reprendre le montant de la 8 Go. Pour un premier robot ou une première année de Python, elle dépasse le besoin.
 
-**Notre recommandation** : **8GB** si l'écart de prix avec la 4GB reste raisonnable chez votre vendeur : vous aurez de la marge pour longtemps.
+Si le projet inclut une caméra ou plusieurs programmes à la fois, partez sur la 8 Go. Si le budget s'arrête à la carte et que les moteurs suffisent, la 4 Go démarre le projet. Dans les deux cas, commandez l'alimentation et la microSD en même temps, sinon la carte reste dans son sachet.
 
-## Composants essentiels (obligatoires)
+## Alimentation, carte mémoire et boîtier
 
-### 1. Alimentation USB-C 27W officielle
+L'alimentation officielle du Pi 5 est un bloc USB-C de 27 W, soit 5 V et 5 A, avec le dialogue USB Power Delivery attendu par la carte. Le Pi 5 démarre parfois avec une alimentation de Pi 4, mais le courant laissé aux ports USB baisse et un avertissement de sous-tension apparaît dès qu'un disque ou une caméra s'y branche. Le prix de ce bloc 27 W n'est pas dans le relevé : consultez le prix sur une fiche d'alimentation, pas sur celle de la carte.
 
-**Pourquoi 27W ?** Le Pi 5 consomme beaucoup plus que le Pi 4 (surtout avec périphériques USB).
+La microSD porte le système. Visez 64 ou 128 Go, en classe A2, plutôt qu'une carte de 32 Go qui se remplit au premier projet. Une carte de marque (SanDisk, Samsung, Kingston) évite les contrefaçons qui corrompent le système au bout de quelques semaines. Le prix n'est pas relevé ici : consultez le prix, et refusez une carte sans nom dont la capacité affichée est invraisemblable.
 
-**Prix** : à vérifier chez le vendeur  
-**Recherche** : [alimentation Raspberry Pi 5 officielle](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+Le Pi 5 chauffe plus qu'un Pi 4 dès que le processeur reste chargé. Un boîtier avec ventilateur actif est le choix sûr pour de la vision ou un serveur qui ne s'arrête pas. Des dissipateurs passifs suffisent pour un usage léger, par intermittence. Un ventilateur décoratif n'apporte rien de plus qu'un ventilateur simple. Là encore, consultez le prix : aucun boîtier n'est dans le relevé.
 
-**Alternative** : chargeur USB-C PD 27W+ de qualité (vérifiez compatibilité).
+Pour travailler confortablement, il faut aussi un câble micro-HDMI vers HDMI. Le second câble ne sert que si vous branchez deux écrans. Un clavier et une souris, en USB ou en Bluetooth, dépannent le premier jour. On peut s'en passer ensuite si la carte est préparée pour un accès à distance. Une carte déjà flashée avec Raspberry Pi OS fait gagner le quart d'heure d'installation, pour un supplément qui se vérifie sur la fiche.
 
-### 2. Carte microSD 32GB (minimum)
+En robotique, la carte ne fait pas rouler un châssis toute seule. Il faut une carte d'extension moteurs ou un pilote du type L298N, puis les capteurs du projet (distance, ligne, centrale inertielle). Une caméra officielle n'a d'intérêt que si le programme doit voir quelque chose. Une batterie externe se choisit selon la consommation réelle du montage. Aucun de ces accessoires n'a de prix dans le relevé.
 
-**Spécifications** :
-- **Capacité** : 32GB minimum, 64-128GB recommandé
-- **Classe** : A2 (meilleure performance apps)
-- **Vitesse** : UHS-I U3 ou mieux
+Le connecteur PCIe sert surtout à un SSD NVMe, via une carte d'adaptation prévue pour le Pi 5. Un module PoE+ alimente la carte par le câble Ethernet, si le switch fournit le PoE. Un modem 4G ou 5G n'a de sens que pour un objet qui sort du réseau de la maison. Chacun de ces ajouts a son propre prix, à consulter, et ne se déduit pas du prix de la carte.
 
-**Prix** : à vérifier chez le vendeur  
-**Recherche** : [carte microSD 64GB A2](https://www.amazon.fr/s?k=carte+microSD+64GB+A2&tag=manuso06-21)
+Si l'écran est loin de la carte, dans un atelier ou une baie, un extendeur HDMI remplace un long câble actif fragile. AV Access propose ce genre de matériel ([avaccess.com](https://www.avaccess.com/)). Aucun code promo n'a été vérifié pour ce programme (Awin, accueil du 5 novembre 2026).
 
-**Conseil** : évitez les cartes no-name, privilégiez SanDisk, Samsung, Kingston.
+<p><a href="https://www.awin1.com/cread.php?awinmid=73121&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.avaccess.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="73121">Parcourir AV Access →</a></p>
 
-### 3. Boîtier avec refroidissement
+## Kit vendu ensemble ou pièces séparées
 
-Le Pi 5 chauffe **beaucoup** plus que le Pi 4. Un boîtier avec ventilateur actif est **fortement recommandé**.
+Un kit annoncé « complet » par un revendeur réunit en principe une carte, une alimentation compatible, une microSD et un boîtier. L'intérêt est de n'avoir qu'une commande et des pièces censées aller ensemble. L'inconvénient est de payer des éléments que vous avez déjà, ou un boîtier sans ventilateur alors que votre projet en a besoin. Aucun kit tout-en-un n'est dans le relevé du 6 novembre 2026. Les fiches liées sur cette page sont les cartes seules. Pour un kit, consultez le prix d'une offre dont le titre liste vraiment l'alimentation, la microSD et le boîtier.
 
-**Options** :
-- **Boîtier officiel avec ventilateur actif** (notre choix)
-- **Boîtier avec dissipateurs passifs** (OK pour usage léger)
-- **Boîtier + ventilateur + RGB** (si vous aimez le bling)
+Acheter les pièces une par une permet d'écarter le clavier si la maison en a un, et de choisir un boîtier ventilé. Il faut alors vérifier la compatibilité Pi 5 de chaque pièce, et accepter plusieurs colis. C'est le chemin le plus clair tant que le relevé ne porte que sur les cartes.
 
-**Prix** : à vérifier chez le vendeur  
-**Recherche** : [boîtier Raspberry Pi 5 ventilateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+### Un premier poste, sans caméra
 
-## Composants optionnels (selon projet)
+Autour d'une carte 4 Go à 145,22 €, prévoyez l'alimentation 27 W, une microSD de 64 Go, un boîtier ventilé et un câble micro-HDMI. Le total n'est pas calculé ici, parce que seul le prix de la carte est relevé.
 
-### Pour démarrer confortablement
+### Un robot ou une caméra
 
-- **Câbles micro-HDMI vers HDMI** : 2× si double écran
-- **Clavier + souris** : USB ou Bluetooth
-- **Carte SD préchargée** : Raspberry Pi OS déjà installé (un peu plus chère)
+Autour d'une carte 8 Go à 209,09 €, le même socle (alimentation, microSD plutôt de 128 Go, boîtier ventilé) reçoit ensuite la carte moteurs, les capteurs et, si le programme doit voir, une caméra. Une batterie ne s'ajoute que pour un robot qui quitte le secteur. Chacun de ces postes se chiffre à part.
 
-### Pour la robotique
+### Un bureau Linux un peu chargé
 
-- **HAT de contrôle moteurs** : L298N, Adafruit Motor HAT
-- **Kit capteurs** : ultrason, ligne, IMU, GPS
-- **Caméra Pi** : v3 avec autofocus
-- **Batterie portable** : pour robot mobile
-
-### Pour projets avancés
-
-- **HAT PoE+** : alimentation par Ethernet
-- **SSD NVMe** : via PCIe (optionnel)
-- **Module 4G/5G** : pour IoT mobile
-
-## Kits tout-en-un vs achat à la carte
-
-### Kits officiels Raspberry Pi
-
-**Avantages** :
-- Tous les composants **compatibles**
-- **Documentation** claire
-- **Garantie** unifiée
-
-**Inconvénients** :
-- Parfois **plus cher** que achat séparé
-- Composants **standard** (pas de choix)
-
-**Prix kit complet officiel** : à vérifier chez le vendeur (varie selon la version RAM)
-
-**Recherche** : [kit Raspberry Pi 5 complet](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-
-### Achat à la carte (notre méthode)
-
-**Avantages** :
-- **Flexibilité** : choisir chaque composant
-- Souvent **moins cher**
-- Éviter les doublons (ex : si vous avez déjà clavier/souris)
-
-**Inconvénients** :
-- Vérifier **compatibilités**
-- Plusieurs commandes/délais
-
-## Liste de matériel type par projet
-
-Prix : à vérifier chez le vendeur au moment de l'achat (ils varient selon les stocks et les promotions).
-
-### Kit débutant complet (4GB)
-
-- Raspberry Pi 5 4GB
-- Alimentation 27W
-- Carte microSD 64GB
-- Boîtier + ventilateur
-- Câble micro-HDMI
-
-### Kit robotique (8GB)
-
-- Raspberry Pi 5 8GB
-- Alimentation 27W
-- Carte microSD 128GB
-- Boîtier + ventilateur
-- HAT moteurs
-- Kit capteurs
-- Caméra Pi v3
-- Batterie portable
-
-### Kit IA/vision (8GB)
-
-- Raspberry Pi 5 8GB
-- Alimentation 27W
-- Carte microSD 128GB
-- Boîtier + ventilateur
-- Caméra Pi HQ
-- Objectif
-- Clavier/souris
+Même carte 8 Go, même socle, plus un clavier et une souris si vous n'en avez pas. Une caméra de meilleure définition et un objectif ne servent que pour un projet d'image. Ils ne font pas partie du minimum pour apprendre Python.
 
 ## Installer et démarrer
 
-### 1. Préparer la carte SD (15 min)
+Ces étapes supposent une carte microSD, un ordinateur pour la préparer, puis un écran, un clavier et une souris pour le premier bureau. Comptez un quart d'heure pour écrire la carte, le temps du premier démarrage, puis quelques minutes de mises à jour. Ce parcours n'a pas été rejoué sur un Pi 5 pour la présente mise à jour : les libellés suivent Raspberry Pi Imager tel qu'il se présente depuis les versions qui demandent la personnalisation avant l'écriture.
 
-1. Télécharger **Raspberry Pi Imager** : rptl.io/imager
-2. Choisir **Raspberry Pi OS (64-bit)**
-3. Configurer Wi-Fi + user avant flash (paramètres avancés)
-4. Flasher la carte
+### Préparer la carte microSD
 
-### 2. Premier démarrage (10 min)
+1. Téléchargez Raspberry Pi Imager depuis [raspberrypi.com/software](https://www.raspberrypi.com/software/). Le raccourci rptl.io/imager ouvre le même outil.
+2. Choisissez l'appareil Raspberry Pi 5, puis le système Raspberry Pi OS 64 bits, puis la carte microSD branchée sur l'ordinateur. Vérifiez la lettre du lecteur : l'écriture efface tout ce qu'il contient.
+3. Quand l'outil propose de personnaliser le système, enregistrez un nom d'utilisateur, un mot de passe, le réseau Wi-Fi et, si vous voulez vous passer d'écran plus tard, l'accès SSH. La langue et le clavier français se règlent au même endroit. Sans cette étape, le premier démarrage redemande ces réglages sur un écran local.
+4. Lancez l'écriture et attendez la fin de la vérification. L'outil confirme que la carte est prête. Retirez-la alors, ne la débranchez pas au milieu de la barre de progression.
 
-1. Insérer carte SD
-2. Connecter clavier/souris/écran
-3. Brancher alimentation (LED rouge + verte)
-4. Attendre boot (~30s)
-5. Suivre assistant de configuration
+### Premier branchement
 
-### 3. Mettre à jour (5 min)
+1. Glissez la microSD dans le lecteur de la carte Pi, écran sur une sortie micro-HDMI, clavier et souris sur les prises USB.
+2. Branchez l'alimentation en dernier. Le voyant d'alimentation s'allume. Le bureau apparaît après quelques dizaines de secondes, davantage si le système termine une configuration.
+3. Si l'assistant s'ouvre encore, réglez la langue, le clavier AZERTY et le fuseau horaire, puis attendez la fin. Si tout a été saisi dans Imager, vous arrivez directement au bureau.
+4. Un message de sous-tension à ce stade veut dire que le bloc USB-C ne fournit pas ce que le Pi 5 attend. Remplacez-le par l'alimentation 27 W prévue pour cette carte avant d'ajouter des périphériques.
+
+### Mettre le système à jour
+
+Dans un terminal :
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
 ```
 
-### 4. Premier projet Python
+La commande se termine sans message d'erreur. Si le noyau a été mis à jour, redémarrez, puis vérifiez que le bureau revient et que le Wi-Fi est toujours là.
+
+### Allumer une LED en Python
+
+Le programme ci-dessous utilise gpiozero, présent sur Raspberry Pi OS, et la numérotation BCM. La broche BCM 17 est la broche physique 11. Une masse voisine, par exemple la broche physique 6 ou 9, referme le circuit. Placez une résistance en série avec la LED, couramment 330 ohms pour une LED standard : la brancher nue sur une broche peut l'abîmer. Ce fragment reprend l'exemple habituel de gpiozero. Il n'a pas été exécuté sur un Pi 5 pour cet article.
 
 ```python
-# blink.py - LED GPIO 17
-import RPi.GPIO as GPIO
-import time
+from gpiozero import LED
+from time import sleep
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.OUT)
+led = LED(17)
 
-try:
-    while True:
-        GPIO.output(17, True)
-        time.sleep(1)
-        GPIO.output(17, False)
-        time.sleep(1)
-except KeyboardInterrupt:
-    GPIO.cleanup()
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
 ```
 
-## Ressources pour aller plus loin
+Lancez-le depuis Thonny. La LED doit changer d'état chaque seconde. Ctrl+C dans le terminal, ou le bouton stop de Thonny, arrête la boucle. Les anciens exemples en RPi.GPIO visaient les cartes précédentes : sur le Pi 5, le contrôleur d'entrées-sorties a changé, et cette bibliothèque n'est plus le chemin décrit par la documentation actuelle.
 
-### Livres
+## Où continuer
 
-- [Raspberry Pi pour les nuls](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Projets Raspberry Pi robotique](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+La documentation à jour est sur raspberrypi.com. Le magazine MagPi (magpi.cc) publie des projets en PDF. Côté francophone, Framboise 314 (framboise314.fr) relaie des tutoriels. Des livres existent en librairie. Aucune édition précise n'est dans le relevé, donc cette page ne met pas de bouton d'achat sur un titre, et encore moins sur la fiche de la carte.
 
-### Sites
+Deux montages du site partent de cette base : le [détecteur de présence](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/) et la [station météo BME280](/domotique/raspberry-pi-station-meteo-bme280-historique/). Ils supposent la carte déjà démarrée, pas seulement commandée.
 
-- **raspberrypi.com** : documentation officielle
-- **framboise314.fr** : ressources francophones
-- **magpi.cc** : magazine officiel gratuit (PDF)
+## Questions fréquentes
 
-### Composants
+### Le Pi 5 vaut-il le prix par rapport à un Pi 4 déjà en rayon ?
 
-- [kit capteurs Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [HAT Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [caméra Raspberry Pi](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+Si vous achetez une carte neuve, le Pi 5 est celui qui a encore de la marge pour une caméra ou plusieurs logiciels. Le gain annoncé par la fondation est réel sur le papier, mais le surcoût comprend toujours l'alimentation 27 W : un bloc de Pi 4 ne complète pas la commande. Si un Pi 4 tourne déjà chez vous, le remplacer ne se justifie que lorsque la mémoire ou le processeur limite le projet.
 
+### Peut-on garder l'alimentation du Pi 4 ?
 
-**À lire aussi** : [projet détecteur de présence](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/) · [station météo Raspberry Pi](/domotique/raspberry-pi-station-meteo-bme280-historique/)
+Elle fait souvent démarrer la carte, puis elle montre ses limites dès qu'un port USB débite. Le bloc prévu pour le Pi 5 est le 27 W officiel, ou un chargeur USB-C de qualité qui négocie vraiment 5 V et 5 A. Consultez le prix : il n'est pas dans le relevé.
 
-## FAQ
+### 4 Go ou 8 Go pour un premier robot ?
 
-**Raspberry Pi 5 vs Raspberry Pi 4 : vaut-il le coup ?**  
-Oui. 2-3× plus rapide, meilleur pour IA/vision. Si vous achetez neuf, prenez le 5.
+La 4 Go, à 145,22 € le 6 novembre 2026, suffit pour des moteurs et des capteurs sans traitement d'image. Dès qu'une caméra ou un modèle de détection entre dans le projet, la 8 Go à 209,09 € évite de racheter la carte six mois plus tard. L'alimentation, la microSD et le boîtier restent à ajouter dans les deux cas.
 
-**Puis-je utiliser mon ancienne alimentation Pi 4 ?**  
-Déconseillé. Le Pi 5 demande 27W (vs 15W pour Pi 4). Risque de sous-tension.
+### Faut-il un écran ?
 
-**4GB ou 8GB pour débuter en robotique ?**  
-4GB suffit. Mais si vous prévoyez IA/vision, prenez directement 8GB.
+Pas en permanence. Un écran, un clavier et une souris servent le premier jour. Ensuite, SSH donne un terminal à distance, et un bureau distant affiche l'interface sur l'ordinateur de la maison. Cochez SSH dans Imager avant d'écrire la carte, sinon le premier contact se fait quand même sur un écran.
 
-**Dois-je acheter un écran ?**  
-Pas obligatoire : vous pouvez utiliser SSH (connexion sans écran) ou VNC.
+### Que sont le GPIO et l'I2C ?
 
-**Le Pi 5 remplace-t-il un PC ?**  
-Pour usage léger (bureautique, web, code) : oui. Pour jeux AAA ou montage vidéo pro : non.
+Les broches GPIO sont les entrées et sorties générales de la carte : on y relie une LED, un bouton ou, plus souvent, une carte d'extension qui pilote des moteurs. L'I2C est un bus à deux fils, SDA et SCL, qui permet à plusieurs capteurs de partager les mêmes broches. La station [BME280](/domotique/raspberry-pi-station-meteo-bme280-historique/) s'y branche de cette façon.
 
----
+### Le Pi 5 remplace-t-il un ordinateur ?
 
-**En résumé** : le prix d'un kit **Raspberry Pi 5 complet** dépend de la RAM et des accessoires (à vérifier chez le vendeur). Notre recommandation : **Pi 5 8GB** + alimentation 27W + microSD 128GB + boîtier ventilé pour une base solide. Ajoutez ensuite HAT moteurs, capteurs et caméra selon vos projets robotique/IA.
+Pour le web, le code et une bureautique légère, oui, à condition d'avoir l'alimentation, la microSD et un moyen d'afficher l'image. Pour un jeu récent ou un montage vidéo lourd, non. Et sans les accessoires, la carte seule n'est pas encore un poste.
+
+La commande utile, le jour où vous la passez, est donc la carte qui correspond au projet, 4 Go à 145,22 € ou 8 Go à 209,09 € au relevé du 6 novembre 2026, plus une alimentation 27 W, une microSD A2 et un boîtier ventilé dont les prix se lisent sur leurs propres fiches.

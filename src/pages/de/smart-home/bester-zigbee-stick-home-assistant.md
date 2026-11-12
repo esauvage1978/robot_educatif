@@ -9,14 +9,58 @@ Um Zigbee-Geräte aus **Home Assistant** zu steuern, brauchen Sie einen **Zigbee
 
 ## 1. Vergleichstabelle
 
-| Modell | Chip | Antenne | Thread / Matter | ZHA | Zigbee2MQTT | Ideal für |
-|---|---|---|---|---|---|---|
-| **[SONOFF](/de/marke-sonoff/) ZBDongle-E** | Silicon Labs EFR32MG21 | extern | nicht standardmäßig (Zigbee-Firmware) | ja | ja | die meisten: gut dokumentiert |
-| **Home Assistant Connect ZBT-2** | Silicon Labs MG24 | intern, in optimiertem Gehäuse | ja (Thread-Firmware wählbar) | ja | ja | offizieller Support von Nabu Casa, Thread-fähig |
-| **SONOFF Dongle Lite MG21** | Silicon Labs EFR32MG21 | intern | nicht standardmäßig | ja | ja | kleinstes Budget, kleine Wohnungen |
-| **ConBee II** (dresden elektronik) | deCONZ-Firmware | intern | nein | ja | ja | wer bereits deCONZ / Phoscon nutzt |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modell</th>
+<th scope="col">Chip</th>
+<th scope="col">Antenne</th>
+<th scope="col">Thread / Matter</th>
+<th scope="col">ZHA</th>
+<th scope="col">Zigbee2MQTT</th>
+<th scope="col">Ideal für</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modell"><span class="td-val"><strong><a href="/de/marke-sonoff/">SONOFF</a> ZBDongle-E</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs EFR32MG21</span></td>
+<td data-label="Antenne"><span class="td-val">extern</span></td>
+<td data-label="Thread / Matter"><span class="td-val">nicht standardmäßig (Zigbee-Firmware)</span></td>
+<td data-label="ZHA"><span class="td-val">ja</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">ja</span></td>
+<td data-label="Ideal für"><span class="td-val">die meisten: gut dokumentiert</span></td>
+</tr>
+<tr>
+<td data-label="Modell"><span class="td-val"><strong>Home Assistant Connect ZBT-2</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs MG24</span></td>
+<td data-label="Antenne"><span class="td-val">intern, in optimiertem Gehäuse</span></td>
+<td data-label="Thread / Matter"><span class="td-val">ja (Thread-Firmware wählbar)</span></td>
+<td data-label="ZHA"><span class="td-val">ja</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">ja</span></td>
+<td data-label="Ideal für"><span class="td-val">offizieller Support von Nabu Casa, Thread-fähig</span></td>
+</tr>
+<tr>
+<td data-label="Modell"><span class="td-val"><strong>SONOFF Dongle Lite MG21</strong></span></td>
+<td data-label="Chip"><span class="td-val">Silicon Labs EFR32MG21</span></td>
+<td data-label="Antenne"><span class="td-val">intern</span></td>
+<td data-label="Thread / Matter"><span class="td-val">nicht standardmäßig</span></td>
+<td data-label="ZHA"><span class="td-val">ja</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">ja</span></td>
+<td data-label="Ideal für"><span class="td-val">kleinstes Budget, kleine Wohnungen</span></td>
+</tr>
+<tr>
+<td data-label="Modell"><span class="td-val"><strong>ConBee II</strong> (dresden elektronik)</span></td>
+<td data-label="Chip"><span class="td-val">deCONZ-Firmware</span></td>
+<td data-label="Antenne"><span class="td-val">intern</span></td>
+<td data-label="Thread / Matter"><span class="td-val">nein</span></td>
+<td data-label="ZHA"><span class="td-val">ja</span></td>
+<td data-label="Zigbee2MQTT"><span class="td-val">ja</span></td>
+<td data-label="Ideal für"><span class="td-val">wer bereits deCONZ / Phoscon nutzt</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-Offizielle Seiten: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2) (dresden elektronik ist ein Hersteller aus Dresden). Preise ändern sich oft: Preis prüfen beim Händler.
+Offizielle Seiten: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/), [ConBee II](https://phoscon.de/en/conbee2) (dresden elektronik ist ein Hersteller aus Dresden). Preise ändern sich oft: Preis prüfen beim Händler. Aktuelle Angebote: [SONOFF ZBDongle-E bei Amazon.de](https://www.amazon.de/s?k=SONOFF+ZBDongle-E&tag=roboteducat00-21) und [ConBee II bei Amazon.de](https://www.amazon.de/s?k=ConBee+II&tag=roboteducat00-21) (Werbelinks).
 
 ## 2. ZHA oder Zigbee2MQTT?
 

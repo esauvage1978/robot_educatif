@@ -1,0 +1,100 @@
+---
+title: ESP32 smart home projects (ESPHome)
+description: "ESP32 + ESPHome projects for Home Assistant: temperature, garage, mmWave, energy, leak, weather, irrigation, doorbell, openings, LEDs, softener salt level."
+pubDate: 2026-10-18T00:00:00Z
+updatedDate: 2026-10-31T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 9
+lang: "en"
+frSlug: "projets-esp32-domotique"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+import Esp32ProjectsHubGrid from '../../../components/Esp32ProjectsHubGrid.astro';
+
+An **ESP32 flashed with ESPHome** is a small electronic board with Wi-Fi (the ESP32) to which ESPHome, software that prepares its program from a simple configuration file, gives a precise role. Depending on what you wire to it, it becomes a sensor, a relay, a detector or a light visible in Home Assistant, the free software that gathers your connected devices. Each of the projects below has its own page: parts with quantities, wiring diagram, complete YAML file, steps with checks, Home Assistant integration and troubleshooting. If you are a beginner, start with a Beginner-level project and read the four basic guides first, which explain the words and gestures common to every build.
+
+Hardware prices change often: the budgets shown are **estimates to check with the seller**, never observed prices.
+
+## Which project for which need?
+
+| You want to… | Project | Level |
+|---|---|---|
+| Measure a room’s temperature and humidity | [Temperature and humidity sensor](/en/smart-home/esp32-projects/temperature-humidity-sensor/) | Beginner |
+| Be told when someone rings | [Smart doorbell](/en/smart-home/esp32-projects/smart-doorbell/) | Beginner |
+| Know whether a door or window is open | [Door and window opening sensor](/en/smart-home/esp32-projects/door-window-sensor/) | Beginner |
+| Control a garage door from your phone | [Garage door](/en/smart-home/esp32-projects/garage-door/) | Intermediate |
+| Detect presence even without motion | [mmWave presence sensor LD2410](/en/smart-home/esp32-projects/mmwave-presence-ld2410/) | Intermediate |
+| Watch for a leak under an appliance | [Water leak detector](/en/smart-home/esp32-projects/water-leak-detector/) | Intermediate |
+| Measure weather, pressure and light | [BME280 + BH1750 weather station](/en/smart-home/esp32-projects/weather-station-bme280-bh1750/) | Intermediate |
+| Light a coloured LED strip | [WS2812 LED lighting](/en/smart-home/esp32-projects/ws2812-led-lighting/) | Intermediate |
+| Track your electricity use | [Energy meter with pulse output](/en/smart-home/esp32-projects/energy-meter-pulse/) | Advanced |
+| Water a garden according to soil moisture | [Automatic irrigation](/en/smart-home/esp32-projects/automatic-irrigation/) | Advanced |
+| Know when to refill softener salt | [Water softener salt level](/en/smart-home/esp32-projects/water-softener-salt-level-sensor/) | Intermediate |
+
+## The base hardware: an ESP32-C6 board
+
+All projects use the same control board. Choosing it is covered in [which ESP32 board for smart home](/en/smart-home/which-esp32-board-for-smart-home/).
+
+<ProductBox
+  lang="en"
+  productId="esp32-c6-devkitc"
+  name="ESP32-C6 DevKitC"
+  searchQuery="ESP32-C6 DevKitC-1"
+  image="/images/products/esp32-c6-devkitc.webp"
+  priceRange="to check with the seller"
+  pros={[
+    'Wi-Fi 6 (2.4 GHz) + Bluetooth LE',
+    'ESPHome compatible (ESP-IDF framework)',
+    'Direct USB-C',
+    'One board for every project'
+  ]}
+  badge="Recommended"
+  position={1}
+/>
+
+<Esp32ProjectsHubGrid lang="en" />
+
+## Before you start: ESP32 or Zigbee?
+
+It depends on what you are after. An ESP32 sensor can be customised endlessly (any I²C, SPI or GPIO sensor) and connects straight to Wi-Fi with no coordinator. A Zigbee sensor runs on a battery and goes anywhere, provided you own a coordinator. For a battery sensor stuck on a window, Zigbee is often handier; for a tailor-made USB-powered project, the ESP32 is more flexible. Price comparison depends on the seller: check it when you buy.
+
+## Safety: 230 V mains is not a DIY project
+
+None of the projects above asks you to touch 230 V: sensors run at 3.3 V, and valves and LEDs are powered by certified low-voltage blocks. A socket, a panel or a lighting circuit is a job for an electrician. If you would rather use a ready-made module to control a circuit, a certified relay is a safer option than a home-built one.
+
+<div class="shelly-encart">
+<p><strong>Ready-to-use module</strong> — If you prefer an already assembled relay rather than a home-built one: <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fproducts%2Fshelly-1-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1 Gen4" data-placement="encart_esp32_relais">Shelly 1 Gen4, Wi-Fi relay ready to integrate into Home Assistant</a>.</p>
+<p class="shelly-encart-note">Affiliate link: if you buy via this link, the site may collect a commission, at no extra cost to you.</p>
+</div>
+
+## Other ideas to explore
+
+These projects do not have a detailed page yet:
+
+- **Weather e-paper screen:** shows weather and temperature without a permanently lit screen (ESPHome `waveshare_epaper` components).
+- **CO₂ sensor:** an MH-Z19B reads CO₂; above roughly 1,000 ppm, ventilate.
+- **Local voice assistant:** M5Stack Atom Echo or Home Assistant Voice Preview Edition, with local voice processing.
+- **Full air quality:** BME680 for volatile organic compounds and a PMS5003 particle sensor.
+
+## Resources
+
+- [ESPHome documentation](https://esphome.io/)
+- [Home Assistant community](https://community.home-assistant.io/)
+
+<div class="shelly-encart">
+<p><strong>Measurement on the electrical panel</strong> — To track consumption directly on the board, without a build: <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fproducts%2Fshelly-pro-3em-v2" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly Pro 3EM" data-placement="encart_esp32_mesure">Shelly Pro 3EM, consumption monitoring on the electrical panel</a>. To control a shutter or two lighting circuits: <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Fproducts%2Fshelly-2pm-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 2PM Gen4" data-placement="encart_esp32_mesure">Shelly 2PM Gen4</a>.</p>
+<p class="shelly-encart-note">Affiliate link: if you buy via this link, the site may collect a commission, at no extra cost to you.</p>
+</div>
+
+## To go further
+
+- [Complete tutorial: ESP32 + ESPHome temperature sensor](/en/smart-home/esp32-esphome-temperature-sensor/)
+- [Open your garage door from your smartphone (ESP32 + ESPHome)](/en/smart-home/garage-door-smartphone-esp32-esphome/)
+- [Install Home Assistant](/en/smart-home/install-home-assistant-raspberry-pi-5/)
+- [Getting started in smart home](/en/smart-home/getting-started/)
+
+Amazon and Shelly links on this page are affiliate links: the site may earn a commission at no extra cost to you.
+
+<small>Updated on 31 October 2026.</small>

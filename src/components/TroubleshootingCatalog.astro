@@ -1,0 +1,948 @@
+---
+import RepairIndicators from './RepairIndicators.astro';
+import RepairCaution from './RepairCaution.astro';
+import { PROFESSIONAL_ASSISTANCE, PROFESSIONAL_ASSISTANCE_ROBOT } from '../data/repairCompliance.mjs';
+import { TROUBLE_UI } from '../data/smartHomeTroubleshooting.mjs';
+import { PRODUCTS, buildRenderEntries } from '../data/unifiedErrorCatalog.mjs';
+import { CONTACT_FORM_WEBHOOK_URL } from '../consts';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+	/** Pré-sélection catégorie (ex. robots-educatifs sur la page mBot) */
+	defaultCategorySlug?: string;
+}
+
+const { lang, defaultCategorySlug = '' } = Astro.props;
+const ui = TROUBLE_UI[lang];
+const entries = buildRenderEntries(lang);
+const productBySlug = Object.fromEntries(PRODUCTS.map((p) => [p.slug, p]));
+/** Modèles phares pour la barre rapide (partenaires prioritaires + robots éducatifs) */
+const FEATURED_PRODUCT_SLUGS = [
+	'shelly-plus-2pm',
+	'sonoff-zbdongle-p',
+	'aqara-door-window-p2',
+	'homey-mini',
+	'home-assistant-green',
+	'makeblock-mbot2',
+	'philips-hue-bridge',
+	'tapo-p110',
+];
+const featuredProducts = FEATURED_PRODUCT_SLUGS.map((slug) => productBySlug[slug]).filter(Boolean);
+
+const filterUi = {
+	fr: {
+		category: "Catégorie d'appareil",
+		brand: 'Marque',
+		product: 'Produit / modèle',
+		code: 'Code erreur / symptôme',
+		query: 'Recherche libre',
+		reset: 'Réinitialiser',
+		all: '— Tous —',
+		proposeTitle: "Votre produit ou code erreur n'est pas encore dans la liste ? Proposez-le à notre équipe",
+		proposeCategory: 'Catégorie',
+		proposeBrand: 'Marque',
+		proposeProduct: 'Modèle du produit',
+		proposeCode: 'Code erreur rencontré',
+		proposeDesc: 'Description / question',
+		proposeEmail: 'E-mail (optionnel)',
+		proposeSend: 'Envoyer la proposition',
+		proposeOk: 'Merci ! Votre proposition a été envoyée.',
+		proposeErr: "L'envoi a échoué. Réessayez dans un instant.",
+		proposeSending: 'Envoi…',
+		modelBarTitle: 'Modèles — clic pour filtrer',
+	},
+	en: {
+		category: 'Device category',
+		brand: 'Brand',
+		product: 'Product / model',
+		code: 'Error code / symptom',
+		query: 'Free search',
+		reset: 'Reset',
+		all: '— All —',
+		proposeTitle: 'Missing a product or error code? Suggest it to our team',
+		proposeCategory: 'Category',
+		proposeBrand: 'Brand',
+		proposeProduct: 'Product model',
+		proposeCode: 'Error code',
+		proposeDesc: 'Description / question',
+		proposeEmail: 'Email (optional)',
+		proposeSend: 'Send suggestion',
+		proposeOk: 'Thank you! Your suggestion was sent.',
+		proposeErr: 'Sending failed. Please try again.',
+		proposeSending: 'Sending…',
+		modelBarTitle: 'Models — click to filter',
+	},
+	de: {
+		category: 'Gerätekategorie',
+		brand: 'Marke',
+		product: 'Produkt / Modell',
+		code: 'Fehlercode / Symptom',
+		query: 'Freitextsuche',
+		reset: 'Zurücksetzen',
+		all: '— Alle —',
+		proposeTitle: 'Produkt oder Fehlercode fehlt? Schlagen Sie es unserem Team vor',
+		proposeCategory: 'Kategorie',
+		proposeBrand: 'Marke',
+		proposeProduct: 'Modell',
+		proposeCode: 'Fehlercode',
+		proposeDesc: 'Beschreibung / Frage',
+		proposeEmail: 'E-Mail (optional)',
+		proposeSend: 'Vorschlag senden',
+		proposeOk: 'Danke! Ihr Vorschlag wurde gesendet.',
+		proposeErr: 'Senden fehlgeschlagen. Bitte erneut versuchen.',
+		proposeSending: 'Wird gesendet…',
+		modelBarTitle: 'Modelle — Klick zum Filtern',
+	},
+	it: {
+		category: 'Categoria dispositivo',
+		brand: 'Marca',
+		product: 'Prodotto / modello',
+		code: 'Codice errore / sintomo',
+		query: 'Ricerca libera',
+		reset: 'Reimposta',
+		all: '— Tutti —',
+		proposeTitle: 'Prodotto o codice errore mancante? Proponetelo al nostro team',
+		proposeCategory: 'Categoria',
+		proposeBrand: 'Marca',
+		proposeProduct: 'Modello',
+		proposeCode: 'Codice errore',
+		proposeDesc: 'Descrizione / domanda',
+		proposeEmail: 'E-mail (opzionale)',
+		proposeSend: 'Invia proposta',
+		proposeOk: 'Grazie! La proposta è stata inviata.',
+		proposeErr: 'Invio non riuscito. Riprovate.',
+		proposeSending: 'Invio…',
+		modelBarTitle: 'Modelli — clic per filtrare',
+	},
+	es: {
+		category: 'Categoría de dispositivo',
+		brand: 'Marca',
+		product: 'Producto / modelo',
+		code: 'Código de error / síntoma',
+		query: 'Búsqueda libre',
+		reset: 'Restablecer',
+		all: '— Todos —',
+		proposeTitle: '¿Falta un producto o código de error? Propóngalo a nuestro equipo',
+		proposeCategory: 'Categoría',
+		proposeBrand: 'Marca',
+		proposeProduct: 'Modelo',
+		proposeCode: 'Código de error',
+		proposeDesc: 'Descripción / pregunta',
+		proposeEmail: 'Correo (opcional)',
+		proposeSend: 'Enviar propuesta',
+		proposeOk: '¡Gracias! Su propuesta se ha enviado.',
+		proposeErr: 'Error al enviar. Inténtelo de nuevo.',
+		proposeSending: 'Enviando…',
+		modelBarTitle: 'Modelos — clic para filtrar',
+	},
+}[lang];
+---
+
+<div
+	class="tsc"
+	data-tsc
+	data-lang={lang}
+	data-default-category={defaultCategorySlug}
+	data-webhook={CONTACT_FORM_WEBHOOK_URL}
+	data-propose-ok={filterUi.proposeOk}
+	data-propose-err={filterUi.proposeErr}
+	data-propose-sending={filterUi.proposeSending}
+>
+	<div class="tsc-filters" role="search">
+		<div class="tsc-filters__grid">
+			<label>
+				<span>{filterUi.category}</span>
+				<select data-filter-category>
+					<option value="">{filterUi.all}</option>
+				</select>
+			</label>
+			<label>
+				<span>{filterUi.brand}</span>
+				<select data-filter-brand>
+					<option value="">{filterUi.all}</option>
+				</select>
+			</label>
+			<label>
+				<span>{filterUi.product}</span>
+				<select data-filter-product>
+					<option value="">{filterUi.all}</option>
+				</select>
+			</label>
+			<label>
+				<span>{filterUi.code}</span>
+				<select data-filter-code>
+					<option value="">{filterUi.all}</option>
+				</select>
+			</label>
+			<label class="tsc-filters__query">
+				<span>{filterUi.query}</span>
+				<div class="tsc-filters__query-row">
+					<input type="search" data-filter-query autocomplete="off" />
+					<button type="button" class="tsc-reset" data-filter-reset>{filterUi.reset}</button>
+				</div>
+			</label>
+		</div>
+	</div>
+
+	<div class="tsc-model-bar" data-tsc-model-bar>
+		<p class="tsc-model-bar__title">{filterUi.modelBarTitle}</p>
+		<div class="tsc-model-bar__selected" data-selected-product-card hidden>
+			<img
+				class="tsc-model-bar__selected-img"
+				data-selected-product-img
+				alt="Aperçu du modèle sélectionné"
+				width="120"
+				height="90"
+				loading="lazy"
+				decoding="async"
+			/>
+			<div class="tsc-model-bar__selected-text">
+				<strong data-selected-product-name></strong>
+				<span class="tsc-model-bar__selected-brand" data-selected-product-brand></span>
+			</div>
+		</div>
+		<div class="tsc-model-bar__strip" data-model-strip role="list">
+			{featuredProducts.map((p) => (
+				<button
+					type="button"
+					class="tsc-model-bar__thumb-btn"
+					role="listitem"
+					data-model-thumb={p.slug}
+					title={p.name}
+					aria-label={p.name}
+				>
+					<img
+						src={p.image_url}
+						alt={p.name}
+						width="64"
+						height="48"
+						loading="lazy"
+						decoding="async"
+					/>
+				</button>
+			))}
+		</div>
+	</div>
+
+	<details class="tsc-propose" data-tsc-propose>
+		<summary>{filterUi.proposeTitle}</summary>
+		<form class="tsc-propose-form" novalidate>
+			<div class="tsc-propose-grid">
+				<label>
+					{filterUi.proposeCategory}
+					<input name="category" type="text" maxlength="120" />
+				</label>
+				<label>
+					{filterUi.proposeBrand}
+					<input name="brand" type="text" maxlength="120" />
+				</label>
+				<label>
+					{filterUi.proposeProduct}
+					<input name="product" type="text" maxlength="180" />
+				</label>
+				<label>
+					{filterUi.proposeCode}
+					<input name="error_code" type="text" maxlength="120" />
+				</label>
+			</div>
+			<label>
+				{filterUi.proposeDesc}
+				<textarea name="description" rows="3" required maxlength="4000"></textarea>
+			</label>
+			<label>
+				{filterUi.proposeEmail}
+				<input name="email" type="email" maxlength="190" autocomplete="email" />
+			</label>
+			<div class="tsc-hp" aria-hidden="true">
+				<label>Website<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+			</div>
+			<button type="submit" class="tsc-propose-btn">{filterUi.proposeSend}</button>
+			<p class="tsc-propose-status" role="status" aria-live="polite"></p>
+		</form>
+	</details>
+
+	<div class="tsc-list">
+		{entries.map((entry) => {
+			const primaryProduct = entry.product_slug ? productBySlug[entry.product_slug] : null;
+			const productLabel = primaryProduct?.name ?? entry.product_slug ?? '';
+			const thumbSrc = primaryProduct?.image_url ?? (entry.product_slug ? `/images/models/${entry.product_slug}.webp` : '');
+			return (
+			<article
+				class="tsc-card"
+				data-tsc-card
+				data-slug={entry.slug}
+				data-category={entry.category_slug}
+				data-brand={entry.brand_slug}
+				data-product={entry.product_slug || ''}
+				data-products={(entry.applicable_products || []).join(' ')}
+				data-code={entry.error_code_key ?? entry.error_code}
+				data-ecosystems={entry.ecosystem.join(' ')}
+				data-search={`${entry.title[lang]} ${entry.symptoms[lang]} ${entry.fix[lang]} ${entry.error_code}`.toLowerCase()}
+			>
+				<header class="tsc-card__head">
+					{thumbSrc && (
+						<img
+							class="tsc-card__thumb"
+							src={thumbSrc}
+							data-thumb-default={thumbSrc}
+							data-product-label={productLabel}
+							alt={productLabel}
+							width="80"
+							height="60"
+							loading="lazy"
+							decoding="async"
+						/>
+					)}
+					<div class="tsc-card__head-main">
+						<h2 class="tsc-card__title">
+							{lang === 'fr' ? (
+								<a class="tsc-card__title-link" href={`/domotique/code-erreur/${entry.slug}/`}>
+									{entry.title[lang]}
+								</a>
+							) : (
+								entry.title[lang]
+							)}
+						</h2>
+						<p class="tsc-card__meta">
+							<code>{entry.error_code}</code>
+						</p>
+					</div>
+				</header>
+				<RepairIndicators
+					lang={lang}
+					difficulty={entry.difficulty as 1 | 2 | 3 | 4 | 5}
+					time={entry.time}
+					cost={entry.cost}
+					tools={entry.tools}
+				/>
+				<p><strong>{ui.symptoms}</strong> — {entry.symptoms[lang]}</p>
+				<p><strong>{ui.fix}</strong> — {entry.fix[lang]}</p>
+				{entry.caution?.[lang] && <RepairCaution lang={lang} text={entry.caution[lang]} />}
+				{entry.savNote?.[lang] && (
+					<p class="tsc-sav-note"><strong>{ui.savNote}</strong> — {entry.savNote[lang]}</p>
+				)}
+				<p class="tsc-assist">{entry.category_slug === 'robots-educatifs' ? PROFESSIONAL_ASSISTANCE_ROBOT[lang] : PROFESSIONAL_ASSISTANCE[lang]}</p>
+			</article>
+			);
+		})}
+	</div>
+	<p class="tsc-empty" data-tsc-empty hidden>
+		{lang === 'fr'
+			? 'Aucun résultat — élargissez les filtres ou proposez votre code erreur ci-dessus.'
+			: lang === 'de'
+				? 'Keine Treffer — Filter lockern oder Fehlercode vorschlagen.'
+				: lang === 'it'
+					? 'Nessun risultato — allargate i filtri o proponete il codice errore.'
+					: lang === 'es'
+						? 'Sin resultados — amplíad los filtros o propongáis el código.'
+						: 'No matches — widen filters or suggest your error code above.'}
+	</p>
+</div>
+
+<style is:global>
+	.tsc-model-bar {
+		margin: 0 0 1.25rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-radius: 12px;
+		background: #f8fafc;
+	}
+	.tsc-model-bar__title {
+		margin: 0 0 0.65rem;
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: #475569;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.tsc-model-bar__selected {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		margin-bottom: 0.75rem;
+		padding: 0.65rem 0.75rem;
+		border-radius: 10px;
+		background: #fff;
+		border: 1px solid var(--border, #cbd5e1);
+	}
+	.tsc-model-bar__selected-img {
+		border-radius: 0.5rem;
+		object-fit: cover;
+		border: 1px solid var(--border, #cbd5e1);
+		background: #f8fafc;
+		flex-shrink: 0;
+	}
+	.tsc-model-bar__selected-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		min-width: 0;
+	}
+	.tsc-model-bar__selected-brand {
+		font-size: 0.88rem;
+		color: rgb(var(--gray-dark));
+	}
+	.tsc-model-bar__strip {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+	.tsc-model-bar__thumb-btn {
+		padding: 0;
+		border: 2px solid transparent;
+		border-radius: 0.5rem;
+		background: #fff;
+		cursor: pointer;
+		line-height: 0;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+	.tsc-model-bar__thumb-btn img {
+		display: block;
+		width: 64px;
+		height: 48px;
+		object-fit: cover;
+		border-radius: 0.4rem;
+		border: 1px solid var(--border, #cbd5e1);
+		background: #f8fafc;
+	}
+	.tsc-model-bar__thumb-btn:hover,
+	.tsc-model-bar__thumb-btn:focus-visible {
+		border-color: #0f766e;
+		box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2);
+		outline: none;
+	}
+	.tsc-model-bar__thumb-btn.is-active {
+		border-color: #0f766e;
+	}
+	.tsc-card__head {
+		display: flex;
+		gap: 0.85rem;
+		align-items: flex-start;
+		margin-bottom: 0.5rem;
+	}
+	.tsc-card__thumb {
+		border-radius: 0.5rem;
+		object-fit: cover;
+		border: 1px solid var(--border, #cbd5e1);
+		background: #f8fafc;
+		flex-shrink: 0;
+	}
+	.tsc-card__head-main {
+		flex: 1;
+		min-width: 0;
+	}
+	.tsc-filters {
+		margin: 1.5rem 0;
+	}
+	.tsc-filters__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 0.75rem;
+		align-items: end;
+	}
+	.tsc-filters__query {
+		grid-column: 1 / -1;
+	}
+	.tsc-filters label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+	.tsc-filters select,
+	.tsc-filters input[type='search'] {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0.55rem 0.65rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 8px;
+		font-size: 0.95rem;
+		font-weight: 400;
+		background: #fff;
+	}
+	.tsc-filters__query-row {
+		display: flex;
+		gap: 0.5rem;
+	}
+	.tsc-filters__query-row input {
+		flex: 1;
+	}
+	.tsc-reset {
+		border: 1px solid #0f766e;
+		background: #fff;
+		color: #0f766e;
+		border-radius: 8px;
+		padding: 0.45rem 0.75rem;
+		font-weight: 600;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	.tsc-propose {
+		margin: 1rem 0 1.5rem;
+		padding: 1rem 1.1rem;
+		border: 1px dashed #99f6e4;
+		border-radius: 12px;
+		background: rgba(15, 118, 110, 0.04);
+	}
+	.tsc-propose summary {
+		cursor: pointer;
+		font-weight: 700;
+		color: #0f766e;
+	}
+	.tsc-propose-form {
+		margin-top: 1rem;
+		display: grid;
+		gap: 0.75rem;
+	}
+	.tsc-propose-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		gap: 0.75rem;
+	}
+	.tsc-propose-form label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+	.tsc-propose-form input,
+	.tsc-propose-form textarea {
+		font-weight: 400;
+		padding: 0.5rem 0.65rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 8px;
+		font: inherit;
+	}
+	.tsc-propose-btn {
+		justify-self: start;
+		padding: 0.55rem 1rem;
+		border: 0;
+		border-radius: 8px;
+		background: #0f766e;
+		color: #fff;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.tsc-propose-status:empty {
+		display: none;
+	}
+	.tsc-hp {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	.tsc-card__meta {
+		margin: 0 0 0.5rem;
+		font-size: 0.85rem;
+	}
+	.tsc-card {
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		padding: 1.25rem 1.35rem;
+		margin-bottom: 1.25rem;
+		background: var(--surface);
+	}
+	.tsc-card__title {
+		font-size: 1.15rem;
+		margin: 0 0 0.35rem;
+		color: var(--accent);
+	}
+	.tsc-card__title-link {
+		color: inherit;
+		text-decoration: none;
+	}
+	.tsc-card__title-link:hover {
+		text-decoration: underline;
+	}
+	@media (max-width: 480px) {
+		.tsc-card__head {
+			flex-wrap: wrap;
+		}
+		.tsc-card__meta code {
+			word-break: break-word;
+			overflow-wrap: anywhere;
+			display: inline-block;
+		}
+	}
+	.tsc-sav-note {
+		margin-top: 0.75rem;
+		font-size: 0.92rem;
+		color: rgb(var(--gray-dark));
+	}
+	.tsc-assist {
+		margin-top: 0.75rem;
+		font-size: 0.88rem;
+		color: #0f766e;
+		border-top: 1px dashed #99f6e4;
+		padding-top: 0.65rem;
+	}
+	.tsc-empty {
+		text-align: center;
+		color: rgb(var(--gray-dark));
+		padding: 2rem;
+	}
+</style>
+
+<script>
+	function initTsc(root) {
+		const lang = root.getAttribute('data-lang') || 'fr';
+		const defaultCategory = root.getAttribute('data-default-category') || '';
+		const selCategory = root.querySelector('[data-filter-category]');
+		const selBrand = root.querySelector('[data-filter-brand]');
+		const selProduct = root.querySelector('[data-filter-product]');
+		const selCode = root.querySelector('[data-filter-code]');
+		const inputQuery = root.querySelector('[data-filter-query]');
+		const btnReset = root.querySelector('[data-filter-reset]');
+		const cards = [...root.querySelectorAll('[data-tsc-card]')];
+		const empty = root.querySelector('[data-tsc-empty]');
+		const proposeBox = root.querySelector('[data-tsc-propose]');
+		const proposeForm = root.querySelector('.tsc-propose-form');
+		const proposeStatus = root.querySelector('.tsc-propose-status');
+		const webhook = root.getAttribute('data-webhook') || '';
+		const selectedCard = root.querySelector('[data-selected-product-card]');
+		const selectedImg = root.querySelector('[data-selected-product-img]');
+		const selectedName = root.querySelector('[data-selected-product-name]');
+		const selectedBrand = root.querySelector('[data-selected-product-brand]');
+		const modelThumbBtns = [...root.querySelectorAll('[data-model-thumb]')];
+
+		let catalog = { categories: [], brands: [], products: [], errors: [] };
+
+		function fillSelect(select, items, valueKey, labelKey, keepValue) {
+			if (!select) return;
+			const current = keepValue ? select.value : '';
+			const first = select.options[0];
+			select.innerHTML = '';
+			if (first) select.appendChild(first);
+			items.forEach((item) => {
+				const opt = document.createElement('option');
+				opt.value = item[valueKey];
+				opt.textContent = item[labelKey];
+				select.appendChild(opt);
+			});
+			if (current && [...select.options].some((o) => o.value === current)) {
+				select.value = current;
+			}
+		}
+
+		function errorProductSlugs(err) {
+			const slugs = new Set();
+			if (err.product_slug) slugs.add(err.product_slug);
+			(err.applicable_products || []).forEach((s) => slugs.add(s));
+			return [...slugs];
+		}
+
+		function cardMatchesProduct(card, product) {
+			if (!product) return true;
+			const primary = card.getAttribute('data-product') || '';
+			const extra = (card.getAttribute('data-products') || '').split(/\s+/).filter(Boolean);
+			return primary === product || extra.includes(product);
+		}
+
+		function syncCategoryOptions() {
+			const cats = new Set();
+			for (const e of catalog.errors || []) {
+				for (const ps of errorProductSlugs(e)) {
+					const p = catalog.products.find((x) => x.slug === ps);
+					if (p) cats.add(p.category_slug);
+				}
+			}
+			const items = (catalog.categories || []).filter((c) => cats.has(c.slug));
+			fillSelect(selCategory, items, 'slug', 'name', true);
+		}
+
+		function syncBrandOptions() {
+			const cat = selCategory?.value || '';
+			const brands = new Set();
+			for (const e of catalog.errors || []) {
+				const productSlugs = errorProductSlugs(e);
+				if (cat) {
+					const inCat = productSlugs.some((ps) => {
+						const p = catalog.products.find((x) => x.slug === ps);
+						return p && p.category_slug === cat;
+					});
+					if (!inCat) continue;
+				}
+				brands.add(e.brand_slug);
+			}
+			const items = (catalog.brands || []).filter((b) => brands.has(b.slug));
+			fillSelect(selBrand, items, 'slug', 'name', true);
+		}
+
+		function syncProductOptions() {
+			const cat = selCategory?.value || '';
+			const brand = selBrand?.value || '';
+			const slugs = new Set();
+			for (const e of catalog.errors || []) {
+				if (brand && e.brand_slug !== brand) continue;
+				for (const ps of errorProductSlugs(e)) {
+					const p = catalog.products.find((x) => x.slug === ps);
+					if (!p) continue;
+					if (cat && p.category_slug !== cat) continue;
+					slugs.add(ps);
+				}
+			}
+			const products = (catalog.products || []).filter((p) => slugs.has(p.slug));
+			fillSelect(selProduct, products, 'slug', 'name', true);
+		}
+
+		function syncCodeOptions() {
+			const cat = selCategory?.value || '';
+			const brand = selBrand?.value || '';
+			const product = selProduct?.value || '';
+			const errors = catalog.errors.filter((e) => {
+				if (cat && e.category_slug !== cat) return false;
+				if (brand && e.brand_slug !== brand) return false;
+				if (product && !errorProductSlugs(e).includes(product)) return false;
+				return true;
+			});
+			const items = errors.map((e) => ({
+				slug: e.slug,
+				label: `${e.error_code} — ${e.title}`,
+			}));
+			fillSelect(selCode, items, 'slug', 'label', true);
+		}
+
+		function syncSelectedProductCard() {
+			const productSlug = selProduct?.value || '';
+			modelThumbBtns.forEach((btn) => {
+				btn.classList.toggle('is-active', btn.getAttribute('data-model-thumb') === productSlug);
+			});
+			if (!selectedCard) return;
+			if (!productSlug) {
+				selectedCard.hidden = true;
+				return;
+			}
+			const p = (catalog.products || []).find((x) => x.slug === productSlug);
+			if (!p) {
+				selectedCard.hidden = true;
+				return;
+			}
+			const brand = (catalog.brands || []).find((b) => b.slug === p.brand_slug);
+			if (selectedImg) {
+				selectedImg.src = p.image_url || `/images/models/${productSlug}.webp`;
+				selectedImg.alt = p.name || '';
+			}
+			if (selectedName) selectedName.textContent = p.name || '';
+			if (selectedBrand) selectedBrand.textContent = brand?.name || p.brand_slug || '';
+			selectedCard.hidden = false;
+		}
+
+		function updateCardThumbs() {
+			const product = selProduct?.value || '';
+			cards.forEach((card) => {
+				const img = card.querySelector('.tsc-card__thumb');
+				if (!img) return;
+				const defaultSrc = img.getAttribute('data-thumb-default') || '';
+				const defaultLabel = img.getAttribute('data-product-label') || '';
+				if (!product || card.hidden) {
+					img.src = defaultSrc;
+					img.alt = defaultLabel;
+					return;
+				}
+				if (cardMatchesProduct(card, product)) {
+					const p = (catalog.products || []).find((x) => x.slug === product);
+					img.src = p?.image_url || `/images/models/${product}.webp`;
+					img.alt = p?.name || defaultLabel;
+				} else {
+					img.src = defaultSrc;
+					img.alt = defaultLabel;
+				}
+			});
+		}
+
+		function applyFilters() {
+			const cat = selCategory?.value || '';
+			const brand = selBrand?.value || '';
+			const product = selProduct?.value || '';
+			const code = selCode?.value || '';
+			const q = (inputQuery?.value || '').trim().toLowerCase();
+			let visible = 0;
+			cards.forEach((card) => {
+				const hay = card.getAttribute('data-search') || '';
+				const slug = card.getAttribute('data-slug') || '';
+				const ok =
+					(!cat || card.getAttribute('data-category') === cat) &&
+					(!brand || card.getAttribute('data-brand') === brand) &&
+					(!product || cardMatchesProduct(card, product)) &&
+					(!code || slug === code || card.getAttribute('data-code') === code) &&
+					(!q || hay.includes(q));
+				card.hidden = !ok;
+				if (ok) visible++;
+			});
+			if (empty) empty.hidden = visible > 0;
+			if (proposeBox) proposeBox.open = visible === 0;
+			syncSelectedProductCard();
+			updateCardThumbs();
+		}
+
+		function selectProductBySlug(slug) {
+			if (!selProduct || !slug) return;
+			const p = (catalog.products || []).find((x) => x.slug === slug);
+			if (!p) return;
+			if (selCategory && p.category_slug) selCategory.value = p.category_slug;
+			syncBrandOptions();
+			if (selBrand && p.brand_slug) selBrand.value = p.brand_slug;
+			syncProductOptions();
+			selProduct.value = slug;
+			syncCodeOptions();
+			applyFilters();
+		}
+
+		async function loadCatalog() {
+			try {
+				let data = null;
+				try {
+					const res = await fetch(`/api/errors.php?action=catalog&lang=${encodeURIComponent(lang)}`);
+					if (res.ok) data = await res.json();
+				} catch {}
+				if (!data || ! Array.isArray(data.products)) {
+					const fb = await fetch('/api/errors-fallback.json');
+					if (fb.ok) {
+						const raw = await fb.json();
+						data = raw[lang] || raw.fr || null;
+					}
+				}
+				if (!data) {
+					applyFilters();
+					return;
+				}
+				catalog = data;
+				syncCategoryOptions();
+				if (defaultCategory && selCategory) {
+					selCategory.value = defaultCategory;
+				}
+				syncBrandOptions();
+				syncProductOptions();
+				syncCodeOptions();
+				applyFilters();
+			} catch {
+				applyFilters();
+			}
+		}
+
+		selCategory?.addEventListener('change', () => {
+			syncBrandOptions();
+			syncProductOptions();
+			syncCodeOptions();
+			applyFilters();
+		});
+		selBrand?.addEventListener('change', () => {
+			syncProductOptions();
+			syncCodeOptions();
+			applyFilters();
+		});
+		selProduct?.addEventListener('change', () => {
+			syncCodeOptions();
+			applyFilters();
+		});
+		modelThumbBtns.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const slug = btn.getAttribute('data-model-thumb') || '';
+				if (slug === selProduct?.value) {
+					if (selProduct) selProduct.value = '';
+					syncCodeOptions();
+					applyFilters();
+					return;
+				}
+				selectProductBySlug(slug);
+			});
+		});
+		selCode?.addEventListener('change', applyFilters);
+		inputQuery?.addEventListener('input', applyFilters);
+		btnReset?.addEventListener('click', () => {
+			if (selCategory) selCategory.value = defaultCategory || '';
+			if (selBrand) selBrand.value = '';
+			if (selProduct) selProduct.value = '';
+			if (selCode) selCode.value = '';
+			if (inputQuery) inputQuery.value = '';
+			syncBrandOptions();
+			syncProductOptions();
+			syncCodeOptions();
+			applyFilters();
+		});
+
+		proposeForm?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const fd = new FormData(proposeForm);
+			if (String(fd.get('website') || '').trim()) {
+				proposeStatus.textContent = root.getAttribute('data-propose-ok') || '';
+				proposeForm.reset();
+				return;
+			}
+			const payload = {
+				category: String(fd.get('category') || '').trim(),
+				brand: String(fd.get('brand') || '').trim(),
+				product: String(fd.get('product') || '').trim(),
+				error_code: String(fd.get('error_code') || '').trim(),
+				description: String(fd.get('description') || '').trim(),
+				email: String(fd.get('email') || '').trim(),
+				page_url: location.href,
+				lang,
+			};
+			if (!payload.description) return;
+			const btn = proposeForm.querySelector('.tsc-propose-btn');
+			const btnLabel = btn?.textContent || '';
+			if (btn) {
+				btn.disabled = true;
+				btn.textContent = root.getAttribute('data-propose-sending') || '…';
+			}
+			const msgLabels =
+				lang === 'en'
+					? { cat: 'Category', brand: 'Brand', product: 'Product', code: 'Error code' }
+					: lang === 'de'
+						? { cat: 'Kategorie', brand: 'Marke', product: 'Produkt', code: 'Fehlercode' }
+						: lang === 'it'
+							? { cat: 'Categoria', brand: 'Marca', product: 'Prodotto', code: 'Codice errore' }
+							: lang === 'es'
+								? { cat: 'Categoría', brand: 'Marca', product: 'Producto', code: 'Código' }
+								: { cat: 'Catégorie', brand: 'Marque', product: 'Produit', code: 'Code' };
+			const message =
+				`${msgLabels.cat}: ${payload.category}\n${msgLabels.brand}: ${payload.brand}\n${msgLabels.product}: ${payload.product}\n${msgLabels.code}: ${payload.error_code}\n\n${payload.description}`;
+			try {
+				await fetch('/api/errors.php?action=propose', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload),
+				});
+				if (webhook) {
+					const now = new Date().toISOString();
+					const body = new URLSearchParams({
+						name: 'Proposition catalogue erreurs',
+						email: payload.email || 'contact@robot-educatif.info',
+						message,
+						objet: 'Proposition produit / code erreur — catalogue',
+						page: payload.page_url,
+						source: 'robot-educatif.info',
+						rgpd: 'true',
+						privacy_policy_accepted: 'true',
+						privacy_policy_accepted_at: now,
+						submitted_at: now,
+						lang,
+					}).toString();
+					await fetch(webhook, {
+						method: 'POST',
+						mode: 'no-cors',
+						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+						body,
+					});
+				}
+				proposeStatus.textContent = root.getAttribute('data-propose-ok') || '';
+				proposeForm.reset();
+			} catch {
+				proposeStatus.textContent = root.getAttribute('data-propose-err') || '';
+			} finally {
+				if (btn) {
+					btn.disabled = false;
+					btn.textContent = btnLabel;
+				}
+			}
+		});
+
+		loadCatalog();
+	}
+	document.querySelectorAll('[data-tsc]').forEach(initTsc);
+</script>

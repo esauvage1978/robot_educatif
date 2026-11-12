@@ -2,7 +2,7 @@
 title: "Capteur ultrason mBot (1/4) : mesurer une distance"
 description: "Capteur ultrason mBot : principe (émission, écho), mesure en mode Live puis LED autonome. Bases pour projets avancés."
 pubDate: "2026-03-31"
-updatedDate: "2026-03-31"
+updatedDate: "2026-11-02"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
 categories:
@@ -21,10 +21,16 @@ relatedLinks:
     href: "/serie-capteur-ultrason-mbot-2-radar-recul-paliers/"
 ---
 
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/categorie/mbot/">Activités mBot</a> · Série capteur ultrason (1/4)</nav>
+
 <aside class="article-callout" role="note">
 <p><strong>Objectif pédagogique</strong></p>
 <p>Comprendre ce que mesure vraiment un capteur à ultrason, puis <strong>obtenir une distance fiable</strong> dans une variable. C’est la base des 3 activités suivantes (radar, cadence selon distance, freinage).</p>
 </aside>
+
+![Robot mBot avec capteur ultrason avant](/images/products/mbot.webp)
+
+Cette série fait partie du parcours [programmation pour enfants](/programmation-enfant-a-quel-age-commencer/) et du guide [Mon premier robot mBot](/mbot-mon-premier-robot-educatif/).
 
 ## Ce que tu vas faire
 
@@ -89,6 +95,8 @@ Et affiche-la dans la scène (case à cocher de la variable).
 
 ### 2.2 Lire le capteur en boucle
 
+![Mode Live mBlock : variable distance_cm qui change](/images/illustrations/mblock-bluetooth-erreurs-frequentes-depannage.webp)
+
 Le principe : en continu, tu affectes à `distance_cm` la valeur renvoyée par le capteur.
 
 Pseudo-logique :
@@ -132,3 +140,16 @@ Selon ta version de mBlock, les noms exacts varient un peu, mais la solution min
 Dans l’activité suivante, tu vas transformer `distance_cm` en un **radar de recul** : plus tu es proche, plus le robot “bipe” vite.
 
 [Épisode suivant →](/serie-capteur-ultrason-mbot-2-radar-recul-paliers/)
+
+## FAQ
+
+**Pourquoi USB plutôt que Bluetooth au début ?**  
+L’**USB** (câble) évite les problèmes de radio pendant que tu apprends à lire le capteur. Voir [dépannage Bluetooth mBlock](/mblock-bluetooth-erreurs-frequentes-depannage/) ensuite.
+
+**Quelle unité utilise mBlock ?**  
+En général des **centimètres (cm)** sur le bloc ultrason mBot.
+
+**La mesure saute : que faire ?**  
+Teste un obstacle **plat**, éloigne les mains du capteur, augmente le `attendre` dans la boucle.
+
+![Vue du mBot2 avec capteurs](/images/products/mbot2.webp)

@@ -3,7 +3,7 @@ title: "Installer les blocs du mBot"
 description: "Ajouter le robot mBot comme appareil dans mBlock 5 pour afficher les blocs orange (moteurs, capteurs, LED). Guide pas à pas."
 pubDate: "2020-04-08"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
-updatedDate: "2026-03-28"
+updatedDate: "2026-10-28"
 amazonPreset: mbot
 categories:
   - "mBot"
@@ -18,8 +18,11 @@ relatedLinks:
   - title: "Mon premier programme mBot"
     href: "/mon-premier-programme-mbot/"
 ---
+> **Réponse directe (octobre 2026)** — Dans mBlock 5 : **+ Appareil** → choisissez **mBot** ou **mBot2** → les blocs capteurs/moteurs apparaissent. Sans cette étape, seuls les blocs Scratch standard sont visibles.
 
-Pour programmer le [robot éducatif mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) dans **mBlock 5**, il faut d’abord **charger les blocs spécifiques** au mBot : ce sont les blocs **orange** (moteurs, capteurs, buzzer, LED…). Sans cette étape, vous ne verrez que les blocs Scratch « classiques » et pas les commandes pour le robot.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/categorie/mbot/">Articles mBot</a></nav>
+
+Pour programmer le [robot éducatif mBot](/go/az-fr-4f2f870ac3/) dans **mBlock 5**, il faut d’abord **charger les blocs spécifiques** au mBot : ce sont les blocs **orange** (moteurs, capteurs, buzzer, LED…). Sans cette étape, vous ne verrez que les blocs Scratch « classiques » et pas les commandes pour le robot.
 
 Cette procédure est rapide : elle consiste à **déclarer le mBot comme appareil** dans la bibliothèque Makeblock, puis à valider. L’interface mBlock peut varier légèrement selon la version (5.x, langue, thème), mais le principe reste le même.
 

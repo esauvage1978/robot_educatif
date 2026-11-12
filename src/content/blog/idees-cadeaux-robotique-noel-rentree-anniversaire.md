@@ -1,8 +1,8 @@
 ---
 title: "Idées cadeaux robotique : Noël, anniversaire (par âge)"
-description: "Idées cadeaux robotique : grille par âge, budgets, accessoires. Liens guides mBot, Scratch, robots."
+description: "Idées de cadeaux robotique par âge, pour Noël, la rentrée ou un anniversaire. Prix Amazon.fr relevés le 6 novembre 2026. Des pistes concrètes, sans gadget."
 pubDate: "2026-03-30"
-updatedDate: "2026-03-30"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
 amazonPreset: general
 categories:
@@ -21,110 +21,62 @@ relatedLinks:
     href: "/quel-robot-acheter-enfant-10-ans-guide-achat/"
 ---
 
-**Noël**, **rentrée**, **anniversaire**, parfois **fête des mères / pères** : autant d’occasions où l’on cherche un cadeau **à la fois ludique** et **porteur de compétences**. Ce guide propose une **grille par âge**, un **calendrier mental** des contraintes (temps adulte, budget, espace) et des **recherches Amazon** ciblées par thème — sans promesse de prix : vérifiez la **fiche produit**, les **avis** et la **disponibilité** au moment de l’achat.
+Noël, la rentrée ou un anniversaire n’imposent pas le même cadeau. Le soir du 24, un carton trop long à ouvrir finit en frustration. À la rentrée, le robot ne sert que s’il est déjà installé et rangé à portée de main. Pour un anniversaire, l’âge est précis : un goût (véhicule, construction, avec ou sans écran) vaut mieux que l’étiquette large « 8-12 ans » du magasin. Les prix cités viennent du relevé Amazon.fr du 6 novembre 2026, 11 h 23. Un accessoire qui n’y figure pas n’est pas chiffré.
 
-![Occasions et contraintes : budget, temps, espace](/images/blog/guides-2026/cadeaux-calendrier.svg)
+## Ce qui fait qu’un cadeau robotique est vraiment utilisé
 
-### Noël, rentrée ou anniversaire : trois profils de cadeau
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Facteur</th>
+<th scope="col">Question à se poser</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Facteur"><span class="td-val"><strong>Temps adulte</strong></span></td>
+<td data-label="Question à se poser"><span class="td-val">Qui aide à l’installation le premier jour ?</span></td>
+</tr>
+<tr>
+<td data-label="Facteur"><span class="td-val"><strong>Espace</strong></span></td>
+<td data-label="Question à se poser"><span class="td-val">Le robot a-t-il un parcours au sol, une table ou seulement un coin de bureau ?</span></td>
+</tr>
+<tr>
+<td data-label="Facteur"><span class="td-val"><strong>Durée</strong></span></td>
+<td data-label="Question à se poser"><span class="td-val">Piles, accessoires, communauté : voir <a href="/robot-educatif-pas-cher-compromis/">robot pas cher</a>.</span></td>
+</tr>
+<tr>
+<td data-label="Facteur"><span class="td-val"><strong>Rituel</strong></span></td>
+<td data-label="Question à se poser"><span class="td-val">Une heure ensemble vaut mieux qu’un gadget ouvert seul.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-- **Noël** : les **emballages** et l’effet « waouh » comptent, mais prévoyez **quand** le robot sera déballé (soirée chargée = frustration). Un mini « bon pour 1 h d’installation ensemble » dans la carte fait souvent la différence.
-- **Rentrée** : l’idée **« je code après les devoirs »** marche mieux si le matériel est **déjà installé** et rangé à portée de main — sinon le robot finit en déco de bureau.
-- **Anniversaire** : vous ciblez un **âge précis** ; profitez-en pour aligner le cadeau sur un **goût** (véhicule, construction, écran ou pas) plutôt que sur la tranche large « 8–12 ans » du magasin.
+Le risque le plus courant est un logiciel pas à jour, ou un câble au mauvais format. Une note dans la carte (ordinateur ou tablette compatible, Wi-Fi si le modèle en a besoin, compte pour mBlock) évite le blocage du lendemain. Les étapes logicielles sont dans [premiers pas avec mBlock](/premier-pas-avec-mblock-5/) et [installer mBlock sous Windows](/installer-mblock-5-sous-windows-10/). L’âge de départ se lit dans [à quel âge commencer la programmation](/programmation-enfant-a-quel-age-commencer/), et les repères généraux dans [meilleur robot programmable 2026](/meilleur-robot-programmable-enfant-2026/).
 
-## 1. Ce qui fait réussir un cadeau « robotique »
+Le [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) était à **89,99 €** le 6 novembre 2026. C’est une fiche précise, pas une recherche « cadeau robotique ».
 
-| Facteur | Question à se poser |
-|---------|---------------------|
-| **Temps adulte** | Qui aide à l’installation le premier jour ? |
-| **Espace** | Parcours au sol, table, bureau — le robot roule-t-il chez vous ? |
-| **Durée de vie** | Piles, accessoires, communauté — voir [robot pas cher](/robot-educatif-pas-cher-compromis/). |
-| **Rituel** | Prévoir **1 h** ensemble vaut mieux qu’un gadget qui sort de la boîte seul. |
+## Environ 5 à 7 ans
 
-**En pratique**, le risque n°1 est le **robot sans logiciel à jour** ou **sans câble** au bon format. Si vous offrez, glissez une **liste de contrôle** (PC/tablette compatible, Wi‑Fi si besoin, compte enfant pour mBlock si applicable) — nos articles [premiers pas mBlock](/premier-pas-avec-mblock-5/) et [installation mBlock sous Windows](/installer-mblock-5-sous-windows-10/) détaillent le côté logiciel.
+À cet âge, le jeu se fait au sol, avec des consignes courtes. Un parcours sans écran (cartes, boutons, robot qui va d’un point à un autre) pose l’enchaînement des instructions sans une heure de tutoriel le jour même. Le [guide sans écran](/robot-educatif-sans-ecran-guide/) et le [guide 5 ans](/quel-robot-acheter-enfant-5-ans-guide-achat/) détaillent ce choix. Un livre ou un jeu de logique, déplacements et « si… alors… » sans ordinateur, prépare la même idée quand l’écran doit rester éteint.
 
-**Amazon — recherches généralistes utiles pour comparer avant d’acheter :**
+Chez Cultura, deux robots Clementoni sont déjà liés : <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-eddie-mon-robot-educatif-clementoni-11908016.html" rel="sponsored nofollow" target="_blank">Eddie, mon robot éducatif</a> et <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-mon-robot-2-0-clementoni-11908014.html" rel="sponsored nofollow" target="_blank">Mon Robot 2.0</a>. L’âge conseillé se lit sur la fiche, il n’est pas repris ici comme une donnée vérifiée de plus. Leur prix n’est pas dans le relevé Amazon : consulter le prix.
 
-- [Cadeau robotique enfant STEM](https://www.amazon.fr/s?k=cadeau+robotique+enfant+STEM&tag=manuso06-21)
-- [Robot éducatif programmable enfant](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+## Environ 8 à 10 ans
 
-## 2. Environ 5–7 ans
+Les séances s’allongent : Scratch, un petit montage, parfois un premier capteur. Le [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21), à **89,99 €** au relevé, convient si un adulte peut passer une après-midi sur les premières connexions et le sens des moteurs. La présentation est dans [mBot, premier robot](/mbot-mon-premier-robot-educatif/), et le choix à cet âge dans le [guide 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/). Si le budget est plus serré, un livre Scratch et un petit kit tiennent lieu de complément : [Scratch à l’école ou à la maison](/scratch-ecole-maison-par-ou-commencer/).
 
-À cet âge, on privilégie souvent le **jeu au sol**, les **consignes courtes** et tout ce qui évite de passer une heure sur un **tutoriel vidéo** le jour même. Les parcours **sans écran** (cartes, boutons, robot qui se déplace sur une piste) collent bien aux **premières notions d’enchaînement** d’instructions.
+Côté construction sans programmation, Cultura propose le <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-robot-marko-3700802103028.html" rel="sponsored nofollow" target="_blank">Robot Marko (Buki)</a>, un kit à assembler qui ne se programme pas, et le <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-kit-ludo-educatif-pandacraft-les-robots-10136358.html" rel="sponsored nofollow" target="_blank">kit Pandacraft « Les robots »</a>, des activités de bricolage annoncées pour 8-12 ans, là aussi sans code. Consulter le prix sur ces fiches.
 
-- Robots **sans écran** ou **parcours au sol** — [guide sans écran](/robot-educatif-sans-ecran-guide/), [5 ans](/quel-robot-acheter-enfant-5-ans-guide-achat/).
-- **Livres** ou **jeux** de logique (déplacements, ordres, « si… alors… » simplifié) **sans ordinateur** : utiles pour déconnecter tout en préparant la **décomposition de tâches**.
+## À partir de 10 à 12 ans
 
-**Amazon (recherche affiliée) :**
+L’enfant compare son projet à ce qu’il voit en ligne et tient des séquences plus longues. Le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) était à **167,95 €** : plus de capteurs, une documentation orientée projets. [Codey Rocky](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21) était à **149,99 €**, robot compact. Le [kit CyberPi](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21) était à **59,99 €** : c’est une carte à intégrer, pas un second robot roulant, et ce prix ne s’ajoute pas ici à un autre. Le choix entre châssis se lit dans [mBot ou Codey Rocky](/mbot-vs-codey-rocky-comparatif/) et [mBot2 ou CyberPi](/mbot2-vs-cyberpi-comparatif/). Pour un ado qui hésite avec un ordinateur de projet, voir [Raspberry Pi ou kit robot](/raspberry-pi-ou-kit-robot-ado-guide/). Le guide d’âge le plus proche est [quel robot à 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/).
 
-- [Robot programmation sans écran enfant](https://www.amazon.fr/s?k=robot+programmation+sans+%C3%A9cran+enfant&tag=manuso06-21) — jeux de codage physique, robots « point A → point B ».
-- [Jeu logique programmation enfant 6 ans](https://www.amazon.fr/s?k=jeu+logique+programmation+enfant+6+ans&tag=manuso06-21) — compléments papier ou plateau.
-- [Livre algorithmique enfant premier âge](https://www.amazon.fr/s?k=livre+algorithmique+enfant+d%C3%A9butant&tag=manuso06-21) — histoires ou fiches très guidées.
+Le [Raspberry Pi 5 4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21) était à **145,22 €**, carte seule. Ce n’est pas un kit avec alimentation, boîtier et carte mémoire : ces pièces ne sont pas additionnées, leur prix se consulte à part.
 
-**Chez Cultura (liens affiliés) :**
+## Autour du robot, sans faux total
 
-- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-eddie-mon-robot-educatif-clementoni-11908016.html" rel="sponsored nofollow" target="_blank">Eddie, mon robot éducatif (Clementoni)</a> - robot éducatif de la gamme Clementoni ; vérifiez l'âge conseillé sur la fiche produit.
-- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-mon-robot-2-0-clementoni-11908014.html" rel="sponsored nofollow" target="_blank">Mon Robot 2.0 (Clementoni)</a> - autre robot éducatif Clementoni, même conseil sur l'âge indiqué.
+Le meilleur kit s’arrête si les piles sont vides ou si une vis a roulé sous le canapé. Prévoyez le format d’alimentation écrit sur la notice (AA, AAA ou bloc dédié), une boîte à compartiments pour la visserie et les capteurs, et un câble de rechange au bon connecteur (micro-USB ou USB-C selon la génération). Aucun de ces accessoires n’est chiffré dans le relevé de cette page. Consulter le prix de chacun, et ne pas les sommer au robot pour afficher un « budget cadeau » qui n’a pas été relevé.
 
-## 3. Environ 8–10 ans
+Pour la fête des mères, des pères ou des grands-parents, le même principe tient : un moment partagé (montage, premier programme) compte plus que la fiche technique. Un livre prolonge le cadeau quand l’enfant est seul. Le robot donne une raison de le faire à deux.
 
-La **maternelle du code** laisse place à des projets un peu plus longs : **Scratch**, petits **montages**, parfois un premier **capteur**. C’est souvent le bon moment pour un **mBot** (ou équivalent **Scratch / mBlock**) **si un adulte** peut consacrer une après-midi aux **premières connexions** et au **calibrage** des moteurs.
-
-- **mBot** ou équivalent **Scratch / mBlock** — [mBot](/mbot-mon-premier-robot-educatif/), [8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/).
-- **Livres Scratch** + petit **kit** d’électronique ou de construction si le budget est serré — voir aussi [Scratch école ou maison](/scratch-ecole-maison-par-ou-commencer/).
-
-**Amazon (recherche affiliée) :**
-
-- [mBot Makeblock robot éducatif](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Robot éducatif Scratch programmable](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
-- [Kit électronique enfant montage circuit](https://www.amazon.fr/s?k=kit+%C3%A9lectronique+enfant+montage+circuit&tag=manuso06-21) — alternative ou complément « mains dans le cambouis ».
-
-**Chez Cultura (liens affiliés), côté construction et bricolage :**
-
-- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-robot-marko-3700802103028.html" rel="sponsored nofollow" target="_blank">Robot Marko (Buki)</a> - kit de construction pour assembler un robot (ce n'est pas un robot programmable).
-- <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fp-kit-ludo-educatif-pandacraft-les-robots-10136358.html" rel="sponsored nofollow" target="_blank">Kit Pandacraft « Les robots » (8-12 ans)</a> - activités de bricolage autour des robots, sans programmation.
-
-## 4. À partir de 10–12 ans
-
-Les enfants tiennent des **séquences plus longues** et comparent leur projet à ce qu’ils voient en ligne. **mBot2** pousse vers plus de **capteurs** et une **doc** orientée projets ; **Codey Rocky** et **CyberPi** répondent à des usages différents (robot **roulant tout-en-un** vs **carte** à intégrer dans un montage). Nos comparatifs aident à trancher sans imposer une marque.
-
-- **mBot2**, **Codey Rocky**, **CyberPi** selon l’intérêt **roulant** vs **carte** — [mBot vs Codey](/mbot-vs-codey-rocky-comparatif/), [mBot2 vs CyberPi](/mbot2-vs-cyberpi-comparatif/).
-- Pour un ado qui hésite avec un PC « projet » : [Raspberry Pi ou kit robot](/raspberry-pi-ou-kit-robot-ado-guide/).
-
-**Amazon (recherche affiliée) :**
-
-- [mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Codey Rocky Makeblock](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
-- [CyberPi Makeblock](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
-- [Kit robotique programmation ado STEM](https://www.amazon.fr/s?k=kit+robotique+programmation+ado+STEM&tag=manuso06-21)
-- [Raspberry Pi kit débutant carte](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Livre Python robotique débutant jeunes](https://www.amazon.fr/s?k=livre+Python+robotique+d%C3%A9butant+jeunes&tag=manuso06-21)
-
-## 5. Toujours utile en plus du robot
-
-Même le meilleur kit **s’arrête** si les piles sont plates ou si une vis a roulé sous le canapé.
-
-- **Piles rechargeables** ou alimentation adaptée (vérifier le **format** : AA, AAA, bloc dédié, selon le robot).
-- **Rangement** (boîte à compartiments, petits casiers) pour visserie, câbles et capteurs démontés.
-- **Câble USB** de rechange (souvent micro-USB / USB-C selon la génération du matériel) : bon petit **add-on** de dernière minute.
-
-**Amazon (recherche affiliée) :**
-
-- [Piles rechargeables AA AAA chargeur](https://www.amazon.fr/s?k=piles+rechargeables+AA+AAA+chargeur&tag=manuso06-21)
-- [Boîte rangement compartiments petites pièces](https://www.amazon.fr/s?k=bo%C3%AEte+rangement+compartiments+petites+pi%C3%A8ces&tag=manuso06-21)
-- [Câble USB-C micro USB lot](https://www.amazon.fr/s?k=c%C3%A2ble+USB+micro+USB+USB-C+lot&tag=manuso06-21)
-
-## 6. Fêtes des mères / pères / grands-parents
-
-Le même raisonnement s’applique : visez un **temps partagé** (montage, premier programme) plutôt que la **fiche technique** seule. Un **livre** + un **petit robot** peut être un duo équilibré : le livre prolonge le cadeau quand l’enfant est seul, le robot cristallise l’occasion de faire équipe avec un adulte.
-
-**Amazon (recherche affiliée) :**
-
-- [Coffret STEM enfant livre + activité](https://www.amazon.fr/s?k=coffret+STEM+enfant+livre&tag=manuso06-21)
-- [Carte cadeau Amazon emballage](https://www.amazon.fr/s?k=carte+cadeau+Amazon&tag=manuso06-21) — utile si la famille préfère choisir le modèle exact (couleur, pack vendeur).
-
----
-
-*Partenaire Amazon — commission possible sur achats éligibles via ces liens de recherche, sans surcoût pour vous.*
-
-**Astuce** : offrez avec une **carte** ou un message qui propose un **créneau** d’1 h pour installer ensemble — le cadeau robotique réussit souvent quand le **rituel** est prévu.
+Une carte dans le paquet qui propose une heure d’installation ensemble évite le robot resté dans sa boîte. Partenaire Amazon et Cultura : une commission est possible sur un achat éligible, sans surcoût.

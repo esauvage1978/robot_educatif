@@ -1,0 +1,84 @@
+---
+interface Box {
+	title: string;
+	a: string;
+	b?: string;
+	tone?: 'power' | 'aside';
+}
+
+interface Props {
+	caption: string;
+	title: string;
+	desc: string;
+	boxes: Box[];
+}
+
+const { caption, title, desc, boxes } = Astro.props;
+const boxH = 74;
+const gap = 34;
+const width = 360;
+const top = 16;
+const height = top + boxes.length * boxH + Math.max(0, boxes.length - 1) * gap + 16;
+
+const nodes = boxes.map((box, index) => {
+	const y = top + index * (boxH + gap);
+	return { ...box, y, index };
+});
+---
+
+<figure class="pg-schema">
+	<figcaption>{caption}</figcaption>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby="pg-flow-title pg-flow-desc">
+		<title id="pg-flow-title">{title}</title>
+		<desc id="pg-flow-desc">{desc}</desc>
+		<rect width={width} height={height} rx="12" fill="#f8fafc"></rect>
+		{
+			nodes.map((box) => {
+				const fill = box.tone === 'power' ? '#fff7ed' : '#fff';
+				const stroke = box.tone === 'power' ? '#c2410c' : box.tone === 'aside' ? '#64748b' : '#0f766e';
+				const dash = box.tone === 'aside' ? '5 4' : undefined;
+				const titleY = box.b ? box.y + 28 : box.y + 32;
+				return (
+					<g>
+						<rect
+							x="16"
+							y={box.y}
+							width="328"
+							height={boxH}
+							rx="8"
+							fill={fill}
+							stroke={stroke}
+							stroke-width="2"
+							stroke-dasharray={dash}
+						></rect>
+						<text x="28" y={titleY} font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">
+							{box.title}
+						</text>
+						<text x="28" y={titleY + 22} font-family="system-ui,sans-serif" font-size="13" fill="#334155">
+							{box.a}
+						</text>
+						{box.b ? (
+							<text x="28" y={titleY + 40} font-family="system-ui,sans-serif" font-size="13" fill="#334155">
+								{box.b}
+							</text>
+						) : null}
+					</g>
+				);
+			})
+		}
+		{
+			nodes.slice(0, -1).map((box, index) => {
+				const next = nodes[index + 1];
+				const y1 = box.y + boxH;
+				const y2 = next.y;
+				const color = next.tone === 'power' ? '#c2410c' : '#0f766e';
+				return (
+					<g>
+						<line x1="180" y1={y1} x2="180" y2={y2 - 8} stroke={color} stroke-width="2"></line>
+						<path d={`M176,${y2 - 10} L180,${y2 - 2} L184,${y2 - 10}`} fill={color}></path>
+					</g>
+				);
+			})
+		}
+	</svg>
+</figure>

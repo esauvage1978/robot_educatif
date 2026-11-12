@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 356" width="390" height="356" role="img" style="font-family:'Segoe UI',system-ui,sans-serif">
+  <rect x="12" y="8" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="40" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Robot</text>
+  <line x1="195" y1="60" x2="195" y2="96" stroke="#0f766e" stroke-width="2"/>
+  <polygon points="188,96 195,108 202,96" fill="#0f766e"/>
+  <text x="208" y="86" font-size="16" fill="#0f766e">local</text>
+  <rect x="12" y="112" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="144" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Home Assistant</text>
+  <rect x="12" y="188" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="220" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Robot</text>
+  <line x1="195" y1="240" x2="195" y2="276" stroke="#c2410c" stroke-width="2"/>
+  <polygon points="188,276 195,288 202,276" fill="#c2410c"/>
+  <text x="208" y="266" font-size="16" fill="#c2410c">cloud</text>
+  <rect x="12" y="292" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="324" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Home Assistant</text>
+</svg>

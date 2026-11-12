@@ -1,0 +1,26 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import ClassKitConfigurator from '../components/ClassKitConfigurator.astro';
+import { KIT_PAGE } from '../data/classKitConfigurator.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={KIT_PAGE.title}
+	description={KIT_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/configurateur-kit-robotique-classe/"
+	hubLabel="École & classe"
+	hubPath="/equiper-classe-robots-budget-packs-2026/"
+>
+	<p>{KIT_PAGE.intro}</p>
+	<ClassKitConfigurator />
+	<p>
+		Compléter avec le{' '}
+		<a href={withBase('/calculateur-budget-robot-classe/')}>calculateur budget par élève</a>
+		· <a href={withBase('/compatibilite-makeblock/')}>matrice compatibilité Makeblock</a>
+		· <a href={withBase('/tableau-reglages-capteurs-mbot2-depannage/')}>réglages capteurs mBot2</a>.
+	</p>
+</RobotToolLayout>

@@ -2,6 +2,7 @@
 import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
+import PageColumns from './PageColumns.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../lib/articleSlug';
 import { withBase } from '../lib/siteUrl';
@@ -52,6 +53,7 @@ const slug = articleSlugFromId;
 	<body>
 		<Header />
 		<main class="series-hub">
+			<PageColumns>
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
@@ -91,6 +93,7 @@ const slug = articleSlugFromId;
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
+			</PageColumns>
 		</main>
 		<Footer />
 	</body>

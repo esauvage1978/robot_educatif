@@ -4,7 +4,7 @@
  * `tone="inverse"` : texte sur fond sombre (ex. hero accueil).
  */
 interface Props {
-	variant?: 'primary' | 'secondary' | 'ghost';
+	variant?: 'primary' | 'secondary' | 'ghost' | 'amazon';
 	tone?: 'default' | 'inverse';
 	size?: 'md' | 'sm';
 	href?: string;
@@ -135,6 +135,17 @@ const classes = [
 		background: color-mix(in oklab, var(--accent) 32%, var(--surface-2));
 		text-decoration: none !important;
 	}
+	.ui-btn--amazon:not(.ui-btn--inverse) {
+		color: #0f172a !important;
+		background: #f59e0b !important;
+		border-color: #d97706 !important;
+		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1) !important;
+	}
+	.ui-btn--amazon:not(.ui-btn--inverse):hover {
+		background: #d97706 !important;
+		color: #0f172a !important;
+		filter: none;
+	}
 	html[data-theme='light'] .ui-btn--ghost:not(.ui-btn--inverse) {
 		background: color-mix(in oklab, var(--accent) 14%, #fff);
 		color: #115E59 !important;
@@ -143,9 +154,7 @@ const classes = [
 		background: color-mix(in oklab, var(--accent) 22%, #eef6f9);
 		color: #115E59 !important;
 	}
-	html:not([data-theme='light']) .ui-btn--ghost:not(.ui-btn--inverse):hover {
-		color: #5EEAD4 !important;
-	}
+	
 
 	/* --- inverse (sur fond sombre) --- */
 	.ui-btn--inverse.ui-btn--primary {

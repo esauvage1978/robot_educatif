@@ -1,26 +1,87 @@
 ---
 import { withBase } from '../lib/siteUrl';
+import { isNoelGuidePage } from '../lib/christmasBannerPaths.mjs';
 
 const CHRISTMAS_END_DATE = new Date('2026-12-31T23:59:59');
 const ENABLE_CHRISTMAS_BANNER = true;
 
+const path = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const inLang = (code) => path === `/${code}` || path.startsWith(`/${code}/`);
+const lang = inLang('de')
+	? 'de'
+	: inLang('it')
+		? 'it'
+		: inLang('es')
+			? 'es'
+			: inLang('ca')
+				? 'ca'
+				: inLang('en') || inLang('uk') || inLang('us')
+					? 'en'
+					: 'fr';
+
+const COPY = {
+	fr: {
+		aria: 'Guide cadeaux de Noël',
+		title: 'Guide cadeaux Noël 2026',
+		text: 'Trouvez le robot éducatif parfait par âge et budget',
+		cta: 'Voir le guide',
+		href: '/robot-educatif-cadeau-noel-2026/',
+	},
+	en: {
+		aria: 'Christmas gift guide',
+		title: 'Christmas gift guide 2026',
+		text: 'Find the right coding robot by age and budget',
+		cta: 'See the guide',
+		href: '/en/educational-robot-christmas-gifts-2026/',
+	},
+	ca: {
+		aria: 'Christmas gift guide',
+		title: 'Christmas gift guide 2026',
+		text: 'Find the right coding robot by age and budget',
+		cta: 'See the guide',
+		href: '/ca/educational-robot-christmas-gifts-2026/',
+	},
+	de: {
+		aria: 'Weihnachtsgeschenke',
+		title: 'Weihnachtsgeschenke 2026',
+		text: 'Den passenden Lernroboter nach Alter und Budget finden',
+		cta: 'Zum Guide',
+		href: '/de/lernroboter-weihnachtsgeschenke-2026/',
+	},
+	it: {
+		aria: 'Guida regali di Natale',
+		title: 'Guida regali Natale 2026',
+		text: 'Il robot educativo giusto per età e budget',
+		cta: 'Vedi la guida',
+		href: '/it/regalo-natale-robot-educativo-2026/',
+	},
+	es: {
+		aria: 'Guía de regalos de Navidad',
+		title: 'Guía de regalos Navidad 2026',
+		text: 'El robot educativo adecuado según la edad y el presupuesto',
+		cta: 'Ver la guía',
+		href: '/es/regalo-navidad-robot-educativo-2026/',
+	},
+};
+const banner = COPY[lang];
+
 const now = new Date();
-const showBanner = ENABLE_CHRISTMAS_BANNER && now <= CHRISTMAS_END_DATE;
+const showBanner =
+	ENABLE_CHRISTMAS_BANNER &&
+	now <= CHRISTMAS_END_DATE &&
+	!isNoelGuidePage(Astro.url.pathname);
 ---
 
 {showBanner && (
-	<aside class="christmas-banner" role="complementary" aria-label="Guide cadeaux de Noël">
+	<aside class="christmas-banner" role="complementary" aria-label={banner.aria}>
 		<div class="christmas-banner-inner">
 			<span class="christmas-icon" aria-hidden="true">🎄🎁</span>
 			<div class="christmas-content">
-				<strong class="christmas-title">Guide cadeaux Noël 2026</strong>
-				<p class="christmas-text">Trouvez le robot éducatif parfait par âge et budget</p>
+				<strong class="christmas-title">{banner.title}</strong>
+				<p class="christmas-text">{banner.text}</p>
 			</div>
-			<a 
-				href={withBase('/robot-educatif-cadeau-noel-2026/')}
-				class="christmas-cta"
-			>
-				Voir le guide
+			<a href={withBase(banner.href)} class="christmas-cta">
+				{banner.cta}
 				<span aria-hidden="true">→</span>
 			</a>
 		</div>

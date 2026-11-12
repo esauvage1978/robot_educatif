@@ -1,0 +1,233 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+
+const title = 'Educational robot Christmas gifts 2026: picks by age & budget';
+const description =
+	'Christmas 2026 gift guide for coding robots in the UK: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with live Amazon.co.uk prices, photos and age tips for parents.';
+const updated = '6 November 2026';
+const cmp = NOEL_COMPARISON.en;
+---
+
+<EnPost title={title} description={description} updated={updated}>
+	<AffiliateDisclosure locale="en" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/en/">Home</a> · <a href="/en/buying-guides/">Buying guides</a> · <a href="/en/best-programmable-robot-for-kids/">Programmable robots</a> · Christmas gifts
+	</nav>
+
+	<p>
+		<a href="/en/buying-guides/">Browse all English buying guides</a> — this Christmas 2026 edition focuses on kits we actually see in UK classrooms and home setups.
+	</p>
+
+	<ComparisonTable
+		market="uk"
+		locale="en"
+		title={cmp.title}
+		products={cmp.products}
+	/>
+
+	<p>
+		<strong>Christmas 2026</strong> is the moment many families switch from passive screen time to a gift that
+		<strong> builds skills</strong>. A programmable robot stays relevant for years: block coding at primary school,
+		Python or Arduino at secondary. 		This guide is written for <strong>UK shoppers on Amazon.co.uk</strong> (prices
+		refreshed via our product feed). Start from our{' '}
+		<a href="/en/best-programmable-robot-for-kids/">main robot comparison</a> if you need manufacturer specs first.
+	</p>
+
+	<figure>
+		<img src="/images/illustrations/noel-robot-sapin.webp" alt="Small wheeled robot beside a wrapped gift and a jug of pine branches" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>The first program usually happens on the floor, next to the tree, with an adult nearby.</figcaption>
+	</figure>
+
+	<h2>Why a coding robot beats another plastic toy</h2>
+	<p>
+		A rechargeable coding kit usually lasts several Christmas seasons: firmware updates, spare parts and a decent resale value if interests shift.
+		Children practice loops and debugging without a textbook, and the family can share the unboxing on 25 December and a first working program before New Year.
+		Compared with passive video watching, the screen time here is active — the child drives motion and sound.
+	</p>
+
+
+	<h2 id="ages-7-9">Ages 7–9: first programmable robot</h2>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title=""
+		products={[{ id: 'mbot', badge: 'Best first robot, ages 8–12' }]}
+	/>
+	<p>
+		At this stage children tolerate <strong>15–30 minutes of assembly</strong> and understand “if obstacle then turn”.
+		<strong>Scratch</strong> (visual block coding) and <strong>Arduino</strong> (a small programmable board) are the two paths
+		most UK kits mention — you do not need both on day one.
+		The <a href={productAmazonUrl('mbot', 'uk')} target="_blank" rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> remains the safe default on Amazon.co.uk: huge teacher community,{' '}
+		<a href="/en/install-mblock-5-windows/">mBlock 5 on Windows</a>, line follower and ultrasonic projects out of the box.
+	</p>
+
+	<h2 id="ages-10-13">Ages 10–13: mBot2 and Python path</h2>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title=""
+		products={[{ id: 'mbot2', badge: 'Scratch, then Python' }]}
+	/>
+	<p>
+		<strong><a href={productAmazonUrl('mbot2', 'uk')} target="_blank" rel="sponsored nofollow noopener">mBot2</a></strong> adds CyberPi (colour screen, Wi‑Fi, microphone). Ideal when Scratch feels too easy but full
+		Arduino wiring is not ready yet. Compare details in <a href="/en/mbot-vs-mbot2/">mBot vs mBot2</a>.
+	</p>
+
+	<h2 id="ages-14-plus">Ages 14+: Arduino kits & Raspberry Pi 5</h2>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title=""
+		products={[
+			{ id: 'elegoo-penguin', badge: 'Biped, Arduino C' },
+			{ id: 'raspberry-pi-5-8gb', badge: 'Board only — Linux projects' },
+		]}
+	/>
+	<p>
+		Teens who want <strong>typed code</strong> often prefer the <strong><a href={productAmazonUrl('elegoo-penguin', 'uk')} target="_blank" rel="sponsored nofollow noopener">ELEGOO Penguin Bot</a></strong> (biped, Arduino C) or a{' '}
+		<strong><a href={productAmazonUrl('raspberry-pi-5-8gb', 'uk')} target="_blank" rel="sponsored nofollow noopener">Raspberry Pi 5 (8 GB)</a></strong> for vision, web servers and robot HATs — see{' '}
+		<a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a>.
+	</p>
+
+	<h2 id="ages-4-6">Ages 4–6: screen-free arrows</h2>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title=""
+		products={[{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' }]}
+	/>
+	<p>
+		Look for <strong>physical buttons</strong> (
+		<a href={productAmazonUrl('bee-bot', 'uk')} target="_blank" rel="sponsored nofollow noopener">Code &amp; Go Robot Mouse</a>,{' '}
+		<a href={productAmazonUrl('tale-bot-pro', 'uk')} target="_blank" rel="sponsored nofollow noopener">Matatalab Tale-Bot Pro</a>
+		). Avoid RC “robots” with no programming mode — they
+		are toys, not learning tools. See our <a href="/en/best-programmable-robot-for-kids/">age-based robot guide</a> for vetted options.
+	</p>
+
+	<figure>
+		<img src="/images/illustrations/noel-trois-budgets.webp" alt="Three wrapped gifts of increasing size on a wooden table" width="1280" height="720" loading="lazy" decoding="async" />
+		<figcaption>Three gift sizes. Choose the budget before the model.</figcaption>
+	</figure>
+
+	<h2>Budget bands (UK, 5 November 2026)</h2>
+	<p>
+		Each band below is a card for a kit whose Amazon.co.uk price, in our feed of 5 November 2026, falls in that range.
+		The button opens today’s listing. Where the feed has no price, the card says to check the product page.
+	</p>
+	<h3>Under £60</h3>
+	<p>
+		The mBot is £53 in this feed, so it sits here rather than in the middle band. The Penguin Bot has no price in the same file: confirm it on Amazon.co.uk before you treat it as a small-budget gift.
+	</p>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title="Under £60"
+		products={[
+			{ id: 'mbot', badge: '£53 on 5 Nov 2026' },
+			{ id: 'elegoo-penguin', badge: 'Biped Arduino kit' },
+			{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' },
+		]}
+	/>
+	<h3>£60–£150</h3>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title="£60 to £150"
+		products={[
+			{ id: 'codey-rocky', badge: '£100 on 5 Nov 2026' },
+			{ id: 'mbot2', badge: '£131.12 on 5 Nov 2026' },
+		]}
+	/>
+	<h3>£150 and above</h3>
+	<p>
+		The Raspberry Pi 5 (8 GB) had no price in the UK feed that day. Budget separately for the official 27 W supply, a case and a microSD card: the board alone is not a finished gift.
+	</p>
+	<ComparisonTable
+		variant="cards"
+		market="uk"
+		locale="en"
+		title="£150 and above"
+		products={[{ id: 'raspberry-pi-5-8gb', badge: 'Board only — check today’s price' }]}
+	/>
+
+	<h2>Ordering tips before 24 December</h2>
+	<ol>
+		<li>Check <strong>stock and delivery cut-off</strong> on Amazon.co.uk — add to basket early in December.</li>
+		<li>Plan <strong>adult setup time</strong> (mBlock install, USB drivers, Bluetooth pairing on Windows).</li>
+		<li>Keep the receipt: educational kits resell well on local marketplaces if unused.</li>
+		<li>Rechargeable AA or LiPo — avoid opening Christmas day without charged batteries.</li>
+	</ol>
+
+	<h2>FAQ</h2>
+	<h3>Scratch or Python first?</h3>
+	<p>
+		Scratch-style blocks until about 10–11, then Python on mBot2 or micro:bit. Our{' '}
+		<a href="/en/install-mblock-5-windows/">mBlock first steps</a> article walks through week one.
+	</p>
+	<h3>Do schools use these robots?</h3>
+	<p>
+		Yes — mBot appears in UK STEM clubs and primary computing. Align with the teacher before buying a duplicate kit.
+	</p>
+	<h3>Are prices in the table guaranteed?</h3>
+	<p>
+		No — Amazon prices move hourly. The comparison table shows our last API check; always confirm on the product page.
+	</p>
+
+	<p>
+		<strong>Canadian readers</strong> can open the same guide under <a href="/ca/educational-robot-christmas-gifts-2026/">/ca/</a>{' '}
+		with <strong>Amazon.ca</strong> links and CAD pricing where our feed lists them. UK readers use <a href="/uk/">/uk/</a> (Type G
+		plugs). This English page targets <strong>Amazon.co.uk</strong> shoppers.
+	</p>
+
+	<h2>Wrap-up before you click « Add to basket »</h2>
+	<p>
+		Emmanuel SAUVAGE and the robot-educatif.info editorial team update these guides when Amazon feeds change — compare the
+		table above with the seller page before checkout. If you are unsure between two kits, open our{' '}
+		<a href="/en/mbot-vs-mbot2/">mBot vs mBot2 comparison</a> and the{' '}
+		<a href="/en/educational-robots-2026-2027-calendar-buying-guide/">2026–2027 robot calendar</a> for release timing.
+	</p>
+	<p>
+		UK schools often standardise on one platform (usually mBlock + mBot). Ask the teacher before buying a second
+		ecosystem. For smart-home curious teens, the same Raspberry Pi can later run{' '}
+		<a href="/en/smart-home/getting-started/">Home Assistant</a> — but that is a separate project from the mBot under the tree.
+	</p>
+
+	<h2>Detailed age bands (secondary school focus)</h2>
+	<h3>Year 3–4 (ages 7–9)</h3>
+	<p>
+		Priority: confidence. Short builds, visible wins, adult nearby for USB and screws. Avoid kits that require soldering or
+		reading a 40-page PDF before the robot moves.
+	</p>
+	<h3>Year 5–7 (ages 9–12)</h3>
+	<p>
+		Introduce variables and simple debugging. mBot2 fits here if the child already did Scratch at school. Budget time for
+		Bluetooth troubleshooting on Windows — our <a href="/en/mblock-bluetooth-troubleshooting/">mBlock Bluetooth guide</a> saves Christmas afternoon.
+	</p>
+	<h3>Year 8+ (ages 12–14)</h3>
+	<p>
+		Consider Arduino-style kits or Pi 5 if the teen asks for « real code ». Pair with a clear monitor/keyboard plan and a
+		desk that survives small screw spills.
+	</p>
+
+	<ul>
+		<li>Buying by discount alone without reading recent UK reviews on durability.</li>
+		<li>Choosing a kit far above the child’s patience (soldering, loose wires) as a first gift.</li>
+		<li>Forgetting a compatible laptop/tablet for mBlock — check OS requirements first.</li>
+	</ul>
+
+	<p>
+		<strong>Bottom line:</strong> match the robot to <strong>age, setup time and coding goal</strong>. The comparison table
+		above highlights our four Christmas 2026 favourites with live UK pricing where available.
+	</p>
+</EnPost>

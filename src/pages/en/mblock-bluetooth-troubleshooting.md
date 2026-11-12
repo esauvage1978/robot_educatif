@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "mBlock Bluetooth not connecting? A step-by-step fix for mBot"
-description: "mBot, mBot2 or Codey Rocky won't connect over Bluetooth in mBlock? Check in the right order: USB first, mBlock and firmware, PC Bluetooth, pairing, range and interference. Table: USB or Bluetooth for each situation."
+description: "mBot, mBot2 or Codey Rocky will not connect in mBlock? Check USB, firmware, PC Bluetooth, pairing, range and interference, in that order. Start with USB."
 updated: "23 October 2026"
 ---
 
@@ -9,14 +9,46 @@ updated: "23 October 2026"
 
 ## 1. The order to follow (don't skip steps)
 
-| Step | Check | Why |
-|---|---|---|
-| 1 | **Prove the robot over USB** | if a USB upload fails, Bluetooth is not the problem |
-| 2 | **Update mBlock** | use a version compatible with your OS |
-| 3 | **Update the robot's firmware** | an old firmware can block Bluetooth |
-| 4 | **PC Bluetooth** | airplane mode, Fn key, drivers |
-| 5 | **Re-pair cleanly** | remove the old device, then pair again |
-| 6 | **Range and interference** | test at about 1 m first |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Step</th>
+<th scope="col">Check</th>
+<th scope="col">Why</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Step"><span class="td-val">1</span></td>
+<td data-label="Check"><span class="td-val"><strong>Prove the robot over USB</strong></span></td>
+<td data-label="Why"><span class="td-val">if a USB upload fails, Bluetooth is not the problem</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">2</span></td>
+<td data-label="Check"><span class="td-val"><strong>Update mBlock</strong></span></td>
+<td data-label="Why"><span class="td-val">use a version compatible with your OS</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">3</span></td>
+<td data-label="Check"><span class="td-val"><strong>Update the robot's firmware</strong></span></td>
+<td data-label="Why"><span class="td-val">an old firmware can block Bluetooth</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">4</span></td>
+<td data-label="Check"><span class="td-val"><strong>PC Bluetooth</strong></span></td>
+<td data-label="Why"><span class="td-val">airplane mode, Fn key, drivers</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">5</span></td>
+<td data-label="Check"><span class="td-val"><strong>Re-pair cleanly</strong></span></td>
+<td data-label="Why"><span class="td-val">remove the old device, then pair again</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">6</span></td>
+<td data-label="Check"><span class="td-val"><strong>Range and interference</strong></span></td>
+<td data-label="Why"><span class="td-val">test at about 1 m first</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Software and firmware
 
@@ -40,12 +72,26 @@ updated: "23 October 2026"
 
 ## 6. USB or Bluetooth?
 
-| Situation | Recommendation |
-|---|---|
-| Classroom, 30 pupils | USB to **upload**; Bluetooth for tests if the room allows |
-| Competition or demo | USB, or a setup **tested the day before**: no first Bluetooth connection on the day |
-| Troubleshooting | **always** validate over USB before blaming the robot |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Situation</th>
+<th scope="col">Recommendation</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Situation"><span class="td-val">Classroom, 30 pupils</span></td>
+<td data-label="Recommendation"><span class="td-val">USB to <strong>upload</strong>; Bluetooth for tests if the room allows</span></td>
+</tr>
+<tr>
+<td data-label="Situation"><span class="td-val">Competition or demo</span></td>
+<td data-label="Recommendation"><span class="td-val">USB, or a setup <strong>tested the day before</strong>: no first Bluetooth connection on the day</span></td>
+</tr>
+<tr>
+<td data-label="Situation"><span class="td-val">Troubleshooting</span></td>
+<td data-label="Recommendation"><span class="td-val"><strong>always</strong> validate over USB before blaming the robot</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-**Our advice:** **USB first** to prove the robot responds; **Bluetooth next**, with mBlock up to date and a clean pairing. Then build your [first mBot program](/en/first-mbot-program/). More guides in [Tutorials](/en/tutorials/).
-
-Affiliate link (check current price): <a href="https://www.amazon.com/s?k=USB+Bluetooth+5.0+adapter&tag=roboteducatif-20" rel="nofollow sponsored">USB Bluetooth 5.0 adapter (Amazon US)</a> / <a href="https://www.amazon.co.uk/s?k=USB+Bluetooth+5.0+adapter&tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a>.
+**USB first**, to prove the robot responds. **Bluetooth next**, with mBlock up to date and a clean pairing. Then build the [first mBot program](/en/first-mbot-program/). More guides are in [Tutorials](/en/tutorials/). A USB Bluetooth adapter is only worth trying after the built-in radio has failed these checks. Buy it from a listing that names the adapter, and read that day’s price there.

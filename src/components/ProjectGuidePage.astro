@@ -1,0 +1,338 @@
+---
+import InlineParts from './InlineParts.astro';
+import ProjectGuideFlow from './ProjectGuideFlow.astro';
+import SmartHomeProjectInlineConfigurator from './SmartHomeProjectInlineConfigurator.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import { withBase } from '../lib/siteUrl';
+
+interface Guide {
+	lang: string;
+	inLanguage: string;
+	title: string;
+	howToDescription: string;
+	articleDescription: string;
+	tocAria: string;
+	stepWord: string;
+	whereWord: string;
+	checkWord: string;
+	summaries?: Record<string, string>;
+	qtyLabels?: Record<string, string>;
+	techNotes?: Record<string, string>;
+	steps: { title: string; why: string; where: string; actions: string[]; observe: string; check: string }[];
+	faq: { question: string; answer: string }[];
+	blocks: Record<string, unknown>[];
+}
+
+interface Props {
+	guide: Guide;
+	articleUrl: string;
+	useCase?: { id: string };
+	showConfigurator?: boolean;
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { guide, articleUrl, useCase, showConfigurator = false, lang = 'fr' } = Astro.props;
+const useCaseJson = useCase ? JSON.stringify(useCase) : '';
+const situationJson = JSON.stringify({
+	summaries: guide.summaries ?? {},
+	qtyLabels: guide.qtyLabels ?? {},
+	techNotes: guide.techNotes ?? {},
+});
+
+const howTo = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: guide.title,
+	description: guide.howToDescription,
+	inLanguage: guide.inLanguage,
+	step: guide.steps.map((step, index) => ({
+		'@type': 'HowToStep',
+		position: index + 1,
+		name: step.title,
+		text: [step.why, ...step.actions, step.observe, step.check].join(' '),
+	})),
+};
+
+const techArticle = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: guide.title,
+	description: guide.articleDescription,
+	datePublished: '2026-10-29',
+	dateModified: '2026-10-29',
+	inLanguage: guide.inLanguage,
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howTo)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticle)} />
+<StructuredDataFaq items={guide.faq} />
+<script type="application/json" id="pg-situation-json" set:html={situationJson} />
+
+<div class="pg-guide">
+	<nav class="pg-toc" aria-label={guide.tocAria}>
+		{guide.blocks
+			.filter((block) => block.type === 'h2')
+			.map((block) => (
+				<a href={`#${block.id}`}>{block.toc || block.text}</a>
+			))}
+	</nav>
+
+	{
+		guide.blocks.map((block) => {
+			if (block.type === 'p') {
+				return (
+					<p>
+						<InlineParts parts={block.parts} />
+					</p>
+				);
+			}
+			if (block.type === 'h2') return <h2 id={block.id}>{block.text}</h2>;
+			if (block.type === 'h3') return <h3>{block.text}</h3>;
+			if (block.type === 'summary') {
+				return <p data-pg-summary>{block.text}</p>;
+			}
+			if (block.type === 'sit') {
+				return (
+					<section class:list={['pg-sit', { 'is-current': block.current }]} data-pg-eco={block.eco}>
+						<h3>{block.title}</h3>
+						<p>
+							<InlineParts parts={block.parts} />
+						</p>
+					</section>
+				);
+			}
+			if (block.type === 'config' && showConfigurator && useCase) {
+				return (
+					<>
+						<SmartHomeProjectInlineConfigurator useCaseId={useCase.id} useCaseJson={useCaseJson} lang={lang} />
+						<noscript>
+							<p>{block.noscript}</p>
+						</noscript>
+					</>
+				);
+			}
+			if (block.type === 'table') {
+				const headers = block.headers as string[];
+				const rows = block.rows as string[][];
+				return (
+					<table class="pg-table">
+						<thead>
+							<tr>
+								{headers.map((header) => (
+									<th>{header}</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{rows.map((row) => (
+								<tr>
+									{row.map((cell, index) => (
+										<td data-label={headers[index]}>{cell}</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				);
+			}
+			if (block.type === 'flow') {
+				return (
+					<ProjectGuideFlow
+						caption={block.caption}
+						title={block.title}
+						desc={block.desc}
+						boxes={block.boxes}
+					/>
+				);
+			}
+			if (block.type === 'steps') {
+				return guide.steps.map((step, index) => (
+					<section class="pg-step">
+						<h3>
+							{guide.stepWord} {index + 1}. {step.title}
+						</h3>
+						<p>{step.why}</p>
+						<p>
+							<strong>{guide.whereWord}</strong> {step.where}
+						</p>
+						<ol>
+							{step.actions.map((action) => (
+								<li>{action}</li>
+							))}
+						</ol>
+						<p>{step.observe}</p>
+						<p>
+							<strong>{guide.checkWord}</strong> {step.check}
+						</p>
+					</section>
+				));
+			}
+			if (block.type === 'pre') return <pre><code>{block.code}</code></pre>;
+			if (block.type === 'ul') {
+				const items = block.items as string[];
+				return (
+					<ul class="pg-check">
+						{items.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				);
+			}
+			if (block.type === 'faq') {
+				return guide.faq.map((item) => (
+					<section>
+						<h3>{item.question}</h3>
+						<p>{item.answer}</p>
+					</section>
+				));
+			}
+			if (block.type === 'sources') {
+				const items = block.items as { href: string; text: string; note?: string; sponsored?: boolean }[];
+				return (
+					<ul>
+						{items.map((item) => {
+							const external = item.href.startsWith('http');
+							return (
+								<li>
+									<a
+										href={external ? item.href : withBase(item.href)}
+										rel={item.sponsored ? 'sponsored nofollow noopener' : external ? 'noopener noreferrer' : undefined}
+										target={external ? '_blank' : undefined}
+									>
+										{item.text}
+									</a>
+									{item.note ? ` ${item.note}` : ''}
+								</li>
+							);
+						})}
+					</ul>
+				);
+			}
+			return null;
+		})
+	}
+</div>
+
+<script>
+	function pgApply(detail) {
+		const raw = document.getElementById('pg-situation-json')?.textContent;
+		if (!raw) return;
+		const data = JSON.parse(raw);
+		const params = new URLSearchParams(window.location.search);
+		const eco = detail?.ecosystem || params.get('eco') || 'ha-zigbee';
+		const tech = detail?.techId || params.get('tech') || '';
+		const qty = detail?.qtyId || params.get('qty') || '1';
+		const summary = document.querySelector('[data-pg-summary]');
+		const template = data.summaries?.[eco] || data.summaries?.['ha-zigbee'];
+		if (summary && template) {
+			const qtyLabel = data.qtyLabels?.[qty] || data.qtyLabels?.['1'] || '';
+			const techNote = data.techNotes?.[tech] || data.techNotes?.default || '';
+			summary.textContent = String(template).replaceAll('{qty}', qtyLabel).replaceAll('{tech}', techNote);
+		}
+		document.querySelectorAll('[data-pg-eco]').forEach((node) => {
+			node.classList.toggle('is-current', node.getAttribute('data-pg-eco') === eco);
+		});
+	}
+
+	document.addEventListener('shpp-config-change', (event) => {
+		pgApply(event.detail);
+	});
+	pgApply();
+</script>
+
+<style>
+	.pg-guide {
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+	.pg-toc {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin: 0 0 1.5rem;
+	}
+	.pg-toc a {
+		font-size: 0.92rem;
+	}
+	.pg-sit,
+	.pg-step {
+		margin: 1.25rem 0;
+	}
+	.pg-sit.is-current {
+		border-left: 4px solid #0f766e;
+		padding-left: 0.8rem;
+	}
+	.pg-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1rem 0 1.25rem;
+		font-size: 0.98rem;
+	}
+	.pg-table th,
+	.pg-table td {
+		border: 1px solid #cbd5e1;
+		padding: 0.55rem 0.7rem;
+		text-align: left;
+		vertical-align: top;
+		color: #0f172a;
+		background: #fff;
+	}
+	.pg-table th {
+		background: #f1f5f9;
+	}
+	
+	.pg-guide :global(.pg-schema) {
+		margin: 1.25rem 0;
+	}
+	.pg-guide :global(.pg-schema svg) {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+	}
+	.pg-guide :global(.pg-schema figcaption) {
+		margin-bottom: 0.4rem;
+		font-size: 0.95rem;
+	}
+	.pg-guide pre {
+		overflow-x: auto;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	.pg-check {
+		padding-left: 1.2rem;
+	}
+	@media (max-width: 720px) {
+		.pg-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+		}
+		.pg-table tr {
+			display: block;
+			margin-bottom: 0.8rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 8px;
+			padding: 0.4rem 0.7rem;
+		}
+		.pg-table td {
+			display: block;
+			border: 0;
+			padding: 0.28rem 0;
+		}
+		.pg-table td::before {
+			content: attr(data-label);
+			display: block;
+			font-weight: 700;
+			font-size: 0.82rem;
+		}
+	}
+</style>

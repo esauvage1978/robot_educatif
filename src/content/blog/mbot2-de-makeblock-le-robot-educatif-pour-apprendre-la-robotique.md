@@ -1,39 +1,31 @@
 ---
-title: "mBot2 Makeblock : avis, prix et ce qu'il apprend (2026)"
-description: "MBot2 de Makeblock : robot éducatif avec capteurs avancés, compatibilité Scratch/Python et fonctionnalités innovantes."
+title: "mBot2 Makeblock : prix et ce qu'il apprend (2026)"
+description: "mBot2 Makeblock : 127,48 € sur Amazon.fr le 10 novembre 2026, Scratch et Python, à partir de 10 ans selon la fiche. Le comparatif avec le mBot détaille le choix."
 pubDate: "2023-04-10"
+updatedDate: 2026-11-10
 heroImage: "../../assets/mbot2/mbot2-hero.jpg"
-amazonPreset: mbot2
 categories:
   - "Robot éducatif"
   - "mBot 2"
   - "Makeblock"
   - "À partir de 10 ans"
 ---
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) de [Makeblock](/marque-makeblock/) est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec son design élégant, sa facilité d’utilisation et ses fonctionnalités avancées, le MBot2 est le choix idéal pour les amateurs de robotique et les éducateurs.
 
-![Enfant découvrant un robot éducatif programmable (illustration d’ambiance)](/images/blog/inset-mbot2.webp)
+Le mBot2 de [Makeblock](/marque-makeblock/) est le robot à écran de la gamme, au-dessus du mBot. La fiche Amazon.fr du 10 novembre 2026, 06:14, le décrit comme compatible Scratch et Python, avec Wi-Fi, pour les 10 ans et plus. Cette page n'est pas un essai en classe : les critères de choix sont dans le [comparatif mBot et mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
 
-*Illustration générée pour l’article — robot éducatif générique, sans reproduire un modèle commercial précis.*
+| | Relevé |
+|---|---|
+| Modèle | Makeblock mBot2 |
+| ASIN | B0919F9CKS |
+| Prix | 127,48 € |
+| Place de marché | Amazon.fr |
+| Date | 10 novembre 2026, 06:14 |
+| Disponibilité dans ce relevé | oui |
 
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est livré avec une variété de capteurs, notamment des capteurs de suivi de ligne, des capteurs ultrasoniques et des capteurs de suivi de lumière. Ces capteurs permettent au robot de détecter son environnement et de réagir en conséquence, ce qui en fait un choix idéal pour les projets d’automatisation et de contrôle.
+Le plus bas des 30 jours précédents, dans le même relevé, est 135,61 €. Le bouton ouvre cette fiche.
 
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est également compatible avec Scratch, un langage de programmation visuel facile à utiliser, qui permet aux utilisateurs de créer des programmes simples en faisant glisser et déposer des blocs de code. Cette fonctionnalité en fait un choix idéal pour les jeunes enfants ou les débutants en programmation.
+[Consulter le prix](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
 
-De plus, le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est compatible avec le langage de programmation Python, qui permet aux utilisateurs de créer des programmes plus avancés pour contrôler le robot. Cette fonctionnalité en fait un choix idéal pour les étudiants et les professionnels de la programmation.
+Le titre de la fiche indique 10 ans et plus. Pour un enfant de cet âge, le [guide 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/) compare ce robot aux autres kits du même moment. Le logiciel est [mBlock](/logiciel-mblock-makeblock-mbot-quel-choisir/) : blocs d'abord, Python ensuite, sur le même robot.
 
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est également équipé d’un module Bluetooth, qui permet aux utilisateurs de contrôler le robot à distance en utilisant une application mobile. Cette fonctionnalité en fait un choix idéal pour les projets interactifs et de contrôle.
-
-Le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) est livré avec des instructions détaillées et des exemples de projets pour aider les utilisateurs à démarrer rapidement. Les enseignants peuvent également utiliser cette ressource pour créer des activités d’apprentissage interactives pour leurs élèves.
-
-En conclusion, le [MBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) de Makeblock est un robot éducatif passionnant qui offre une expérience d’apprentissage pratique et amusante pour les enfants et les adultes. Avec sa compatibilité multi-langage, ses capteurs avancés et sa connectivité Bluetooth, il est idéal pour les projets d’automatisation, les projets interactifs et les activités d’apprentissage en classe.
-
-## Comparer les offres sur Amazon.fr
-
-- [Recherche : mBot2 Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Recherche : accessoires mBot2](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Recherche : livre Python robotique enfant](https://www.amazon.fr/s?k=livre+Python+robotique+enfant&tag=manuso06-21)
-
-*Liens affiliés Amazon — commission possible pour le site, sans surcoût pour l’acheteur.*
-
-Voir aussi : [mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/), [guide d’achat 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/).
+Les accessoires ne sont pas interchangeables avec ceux du mBot sans le vérifier sur la fiche du comparatif. Un livre « Python robotique » n'est pas le mode d'emploi du mBot2.

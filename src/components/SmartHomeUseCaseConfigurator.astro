@@ -1,0 +1,917 @@
+---
+import RepairComplianceSections from './RepairComplianceSections.astro';
+import {
+	USE_CASES,
+	USE_CASE_CATEGORIES,
+	ECOSYSTEMS,
+	QTY_OPTIONS,
+} from '../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const useCaseCount = USE_CASES.length;
+const useCasesJson = JSON.stringify(USE_CASES);
+const categoriesJson = JSON.stringify(USE_CASE_CATEGORIES);
+const ecosystemsJson = JSON.stringify(ECOSYSTEMS);
+const qtyJson = JSON.stringify(QTY_OPTIONS);
+const siteBase = withBase('');
+---
+
+<div
+	class="shuc"
+	data-shuc
+	data-use-cases={useCasesJson}
+	data-categories={categoriesJson}
+	data-ecosystems={ecosystemsJson}
+	data-qty={qtyJson}
+	data-base={siteBase}
+	data-use-case-count={String(useCaseCount)}
+>
+	<nav class="shuc-steps" aria-label="Étapes du configurateur">
+		<span class="shuc-step-pill" data-shuc-pill="1">1. Projet</span>
+		<span class="shuc-step-pill" data-shuc-pill="2">2. Installation</span>
+		<span class="shuc-step-pill" data-shuc-pill="3">3. Matériel &amp; câblage</span>
+	</nav>
+
+	<section class="shuc-panel" data-shuc-step="1">
+		<h2 class="shuc-heading">Quel projet domotique voulez-vous réaliser ?</h2>
+		<p class="shuc-lead">
+			<strong>{useCaseCount} cas d’usage concrets</strong> configurables en 3 étapes — filtrez par catégorie ou
+			recherchez un mot-clé (garage, sans neutre, chauffe-eau…).
+		</p>
+		<div class="shuc-filters">
+			<label class="shuc-search-wrap">
+				<span class="visually-hidden">Rechercher un cas d’usage</span>
+				<input
+					type="search"
+					class="shuc-search"
+					data-shuc-search
+					placeholder="Ex : porte de garage, volet roulant, sans neutre, chauffe-eau, lave-linge…"
+					autocomplete="off"
+					spellcheck="false"
+				/>
+			</label>
+			<div class="shuc-filter-row" data-shuc-category-filters role="group" aria-label="Catégories">
+				{USE_CASE_CATEGORIES.map((cat) => (
+					<button
+						type="button"
+						class="shuc-filter-btn"
+						data-shuc-cat={cat.id}
+						aria-pressed={cat.id === 'all' ? 'true' : 'false'}
+					>
+						{cat.id === 'all' ? `${cat.label} (${useCaseCount})` : cat.label}
+					</button>
+				))}
+			</div>
+			<p class="shuc-filter-meta" data-shuc-filter-meta hidden></p>
+		</div>
+		<div class="shuc-cards" data-shuc-cards>
+			{USE_CASES.map((uc) => (
+				<button
+					type="button"
+					class="shuc-card"
+					data-shuc-pick={uc.id}
+					data-shuc-category={uc.category}
+					data-shuc-keywords={`${uc.title} ${uc.shortDesc} ${uc.keywords ?? ''}`.toLowerCase()}
+				>
+					<span class="shuc-card-emoji" aria-hidden="true">{uc.emoji}</span>
+					<span class="shuc-card-title">{uc.title}</span>
+					<span class="shuc-card-desc">{uc.shortDesc}</span>
+				</button>
+			))}
+		</div>
+	</section>
+
+	<section class="shuc-panel" data-shuc-step="2" hidden>
+		<button type="button" class="shuc-back" data-shuc-goto="1">← Changer de projet</button>
+		<h2 class="shuc-heading" data-shuc-step2-title></h2>
+
+		<div class="shuc-block">
+			<h3>Écosystème souhaité</h3>
+			<div class="shuc-choices" data-shuc-ecosystem></div>
+		</div>
+
+		<div class="shuc-block">
+			<h3 data-shuc-qty-heading>Quantité</h3>
+			<div class="shuc-qty-row" data-shuc-qty></div>
+		</div>
+
+		<div class="shuc-block" data-shuc-tech-wrap hidden>
+			<h3>Configuration électrique / technique</h3>
+			<div class="shuc-choices" data-shuc-tech></div>
+		</div>
+
+		<button type="button" class="shuc-btn shuc-btn--primary" data-shuc-show-result>Voir schéma, guide HA et matériel</button>
+	</section>
+
+	<section class="shuc-panel" data-shuc-step="3" hidden>
+		<button type="button" class="shuc-back" data-shuc-goto="2">← Ajuster l’installation</button>
+		<h2 class="shuc-heading">Schéma de câblage, guide Home Assistant et matériel</h2>
+		<div data-shuc-result></div>
+		<div class="shuc-result-actions">
+			<button type="button" class="shuc-btn" data-shuc-copy>Copier ma liste de matériel</button>
+			<button type="button" class="shuc-btn shuc-btn--secondary" data-shuc-print>Imprimer / PDF</button>
+		</div>
+	</section>
+</div>
+
+<RepairComplianceSections lang="fr" variant="smart-home" />
+
+<p class="shuc-assist">
+	En cas de doute, contactez l'assistance officielle ou faites réparer par le constructeur. Coupez toujours le disjoncteur
+	concerné avant toute intervention sur le 230 V.
+</p>
+
+<style is:global>
+	.shuc {
+		margin: 1.5rem 0 2rem;
+	}
+	.shuc-steps {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.25rem;
+	}
+	.shuc-step-pill {
+		padding: 0.35rem 0.85rem;
+		border-radius: 999px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		background: #e2e8f0;
+		color: #475569;
+	}
+	.shuc-step-pill.is-active {
+		background: #0f766e;
+		color: #fff;
+	}
+	.shuc-step-pill.is-done {
+		background: #ccfbf1;
+		color: #0f766e;
+	}
+	.shuc-heading {
+		font-size: 1.25rem;
+		margin: 0 0 0.5rem;
+	}
+	.shuc-lead {
+		color: rgb(var(--gray-dark));
+		margin: 0 0 1.25rem;
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+	.shuc-filters {
+		margin: 0 0 1.25rem;
+	}
+	.shuc-search-wrap {
+		display: block;
+		margin-bottom: 0.75rem;
+	}
+	.shuc-search {
+		width: 100%;
+		max-width: 640px;
+		padding: 0.65rem 0.9rem;
+		border-radius: 10px;
+		border: 2px solid var(--surface-border);
+		font: inherit;
+		font-size: 0.95rem;
+		background: #fff;
+		color: #0f172a;
+	}
+	.shuc-search::placeholder {
+		color: #64748b;
+	}
+	.shuc-search:focus {
+		outline: none;
+		border-color: #0f766e;
+		box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+	}
+	.shuc-filter-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+	.shuc-filter-btn {
+		padding: 0.4rem 0.75rem;
+		border-radius: 999px;
+		border: 1px solid var(--surface-border);
+		background: #fff;
+		font: inherit;
+		font-size: 0.82rem;
+		font-weight: 700;
+		cursor: pointer;
+		color: #334155;
+	}
+	.shuc-filter-btn[aria-pressed='true'] {
+		background: #0f766e;
+		border-color: #0f766e;
+		color: #fff;
+	}
+	.shuc-filter-meta {
+		margin: 0.65rem 0 0;
+		font-size: 0.88rem;
+		color: rgb(var(--gray-dark));
+	}
+	.shuc-card[hidden] {
+		display: none !important;
+	}
+	.shuc-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 0.85rem;
+	}
+	.shuc-card {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		padding: 1.1rem 1.15rem;
+		border-radius: 12px;
+		border: 2px solid var(--surface-border);
+		background: linear-gradient(145deg, #f8fafc 0%, #fff 55%);
+		cursor: pointer;
+		font: inherit;
+		transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+	}
+	.shuc-card:hover {
+		border-color: #0f766e;
+		box-shadow: 0 6px 20px rgba(15, 118, 110, 0.12);
+		transform: translateY(-2px);
+	}
+	.shuc-card-emoji {
+		font-size: 1.75rem;
+		line-height: 1;
+		margin-bottom: 0.5rem;
+	}
+	.shuc-card-title {
+		font-weight: 700;
+		font-size: 0.98rem;
+		line-height: 1.35;
+		margin-bottom: 0.35rem;
+		color: #0f172a;
+	}
+	.shuc-card-desc {
+		font-size: 0.88rem;
+		color: #334155;
+		line-height: 1.4;
+	}
+	.shuc-back {
+		margin: 0 0 1rem;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--accent);
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.shuc-block {
+		margin: 1.25rem 0;
+		padding: 1rem 1.1rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		background: var(--surface);
+	}
+	.shuc-block h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+	}
+	.shuc-choices {
+		display: grid;
+		gap: 0.5rem;
+	}
+	.shuc-choice {
+		text-align: left;
+		padding: 0.75rem 0.9rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		background: #fff;
+		color: #0f172a;
+		font: inherit;
+		font-weight: 600;
+		font-size: 0.9rem;
+		cursor: pointer;
+	}
+	.shuc-choice.is-selected {
+		border-color: #0f766e;
+		background: #f0fdfa;
+		box-shadow: inset 0 0 0 1px #0f766e;
+	}
+	.shuc-qty-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.shuc-qty-btn {
+		min-width: 3.5rem;
+		padding: 0.5rem 0.75rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		background: #fff;
+		color: #0f172a;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.shuc-qty-btn.is-selected {
+		border-color: #0f766e;
+		background: #0f766e;
+		color: #fff;
+	}
+	.shuc-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.65rem 1.15rem;
+		border-radius: 8px;
+		border: 0;
+		background: #0f766e;
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+		margin-top: 0.5rem;
+	}
+	.shuc-btn--primary {
+		width: 100%;
+		max-width: 360px;
+	}
+	.shuc-btn--secondary {
+		background: #fff;
+		color: #0f766e;
+		border: 2px solid #0f766e;
+	}
+	.shuc-result-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+	}
+	.shuc-indicators {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 0.65rem 1rem;
+		padding: 1rem 1.15rem;
+		margin: 1rem 0;
+		background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+		color: #0f172a;
+		border: 1px solid #99f6e4;
+		border-radius: 10px;
+		font-size: 0.92rem;
+	}
+	.shuc-indicators span {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #0f766e;
+		margin-bottom: 0.2rem;
+	}
+	.shuc-wiring {
+		margin: 1rem 0;
+		padding-left: 1.2rem;
+	}
+	.shuc-wiring li {
+		margin-bottom: 0.35rem;
+	}
+	.shuc-lines {
+		display: grid;
+		gap: 1rem;
+		margin: 1.25rem 0;
+	}
+	.shuc-line {
+		display: grid;
+		grid-template-columns: 72px 1fr auto;
+		gap: 1rem;
+		align-items: start;
+		padding: 1rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		background: #fff;
+		color: #0f172a;
+	}
+	.shuc-line--main {
+		border-color: #0f766e;
+		background: #f0fdfa;
+	}
+	.shuc-line img {
+		width: 72px;
+		height: 72px;
+		object-fit: contain;
+		border-radius: 8px;
+		background: #f8fafc;
+	}
+	.shuc-line h4 {
+		margin: 0 0 0.25rem;
+		font-size: 1rem;
+		color: #0f172a;
+	}
+	.shuc-line .shuc-role {
+		font-size: 0.88rem;
+		color: #334155;
+		margin: 0.25rem 0;
+	}
+	.shuc-line .shuc-price {
+		font-weight: 700;
+		color: #0f766e;
+		margin: 0.35rem 0;
+		white-space: nowrap;
+	}
+	.shuc-buy {
+		display: inline-block;
+		margin-top: 0.35rem;
+		padding: 0.4rem 0.75rem;
+		border-radius: 6px;
+		background: #c2410c;
+		color: #fff !important;
+		text-decoration: none;
+		font-size: 0.85rem;
+		font-weight: 700;
+	}
+	.shuc-total {
+		font-size: 1.15rem;
+		font-weight: 800;
+		margin: 1rem 0;
+	}
+	.shuc-tutorial {
+		margin: 1rem 0;
+	}
+	.shuc-tutorial a {
+		font-weight: 700;
+	}
+	.shuc-assist {
+		margin: 1rem 0 0;
+		padding: 0.85rem 1rem;
+		background: #f0fdfa;
+		color: #0f172a;
+		border-left: 4px solid #0f766e;
+		border-radius: 0 8px 8px 0;
+		font-size: 0.95rem;
+	}
+	.shuc-hero-buy {
+		margin: 1rem 0 1.25rem;
+		padding: 1rem 1.15rem;
+		border-radius: 10px;
+		border: 2px solid #c2410c;
+		background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+	}
+	.shuc-hero-buy a {
+		display: inline-block;
+		margin-top: 0.5rem;
+		padding: 0.55rem 1rem;
+		border-radius: 8px;
+		background: #c2410c;
+		color: #fff !important;
+		font-weight: 800;
+		text-decoration: none;
+	}
+	.shuc-tech-block {
+		margin: 1.25rem 0;
+	}
+	.shuc-tech-block h3 {
+		font-size: 1.05rem;
+		margin: 0 0 0.65rem;
+	}
+	.shuc-tech-block p {
+		margin: 0 0 0.5rem;
+		line-height: 1.55;
+		color: #334155;
+	}
+	.shuc-ref-svg-wrap {
+		overflow-x: auto;
+		margin: 1rem 0;
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		padding: 0.5rem;
+		background: #f8fafc;
+	}
+	.shuc-ref-svg-wrap svg {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	.shuc-svg-bg {
+		fill: #f8fafc;
+	}
+	.shuc-svg-title,
+	.shuc-svg-module-text,
+	.shuc-svg-wire-label {
+		fill: #0f172a;
+	}
+	.shuc-svg-muted,
+	.shuc-svg-note,
+	.shuc-svg-label {
+		fill: #475569;
+	}
+	.shuc-svg-module {
+		fill: #e2e8f0;
+		stroke: #64748b;
+	}
+	.shuc-svg-header {
+		fill: #cbd5e1;
+		stroke: none;
+	}
+	.shuc-svg-pill {
+		fill: #fff;
+		stroke: #94a3b8;
+		stroke-width: 1;
+	}
+	.shuc-svg-note-box {
+		fill: #f0fdf4;
+		stroke: #86efac;
+		stroke-width: 1;
+	}
+	.shuc-svg-term {
+		fill: #fff;
+		stroke: #334155;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.shuc-bornier {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.88rem;
+		margin: 1rem 0;
+	}
+	.shuc-bornier th,
+	.shuc-bornier td {
+		border: 1px solid var(--surface-border);
+		padding: 0.5rem 0.65rem;
+		text-align: left;
+		vertical-align: top;
+	}
+	.shuc-bornier th {
+		background: #f0fdfa;
+		font-weight: 700;
+	}
+	.shuc-steps-list {
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+	.shuc-steps-list li {
+		margin-bottom: 0.85rem;
+		line-height: 1.5;
+	}
+	.shuc-steps-list strong {
+		display: block;
+		margin-bottom: 0.25rem;
+	}
+	.shuc-yaml {
+		margin: 1rem 0;
+		padding: 1rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.78rem;
+		line-height: 1.45;
+		overflow-x: auto;
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+	@media (max-width: 560px) {
+		.shuc-line {
+			grid-template-columns: 56px 1fr;
+		}
+		.shuc-line .shuc-buy-wrap {
+			grid-column: 1 / -1;
+		}
+	}
+	@media print {
+		.shuc-steps,
+		.shuc-back,
+		.shuc-result-actions,
+		.shuc-panel[hidden] {
+			display: none !important;
+		}
+		.shuc-panel[data-shuc-step='3'] {
+			display: block !important;
+		}
+	}
+</style>
+
+<script>
+	import { computeBill } from '../data/smartHomeUseCaseConfigurator.mjs';
+
+	function initShuc(root) {
+		const useCases = JSON.parse(root.dataset.useCases || '[]');
+		const ecosystems = JSON.parse(root.dataset.ecosystems || '[]');
+		const qtyOptions = JSON.parse(root.dataset.qty || '[]');
+		const base = root.dataset.base || '';
+		const totalUseCases = Number(root.dataset.useCaseCount) || useCases.length;
+
+		const state = {
+			useCaseId: null,
+			ecosystem: 'wifi-sans-box',
+			qtyId: '1',
+			techId: null,
+			step: 1,
+			category: 'all',
+			searchQuery: '',
+		};
+
+		const pills = root.querySelectorAll('[data-shuc-pill]');
+		const panels = {
+			1: root.querySelector('[data-shuc-step="1"]'),
+			2: root.querySelector('[data-shuc-step="2"]'),
+			3: root.querySelector('[data-shuc-step="3"]'),
+		};
+		const step2Title = root.querySelector('[data-shuc-step2-title]');
+		const ecoWrap = root.querySelector('[data-shuc-ecosystem]');
+		const qtyWrap = root.querySelector('[data-shuc-qty]');
+		const qtyHeading = root.querySelector('[data-shuc-qty-heading]');
+		const techWrap = root.querySelector('[data-shuc-tech-wrap]');
+		const techChoices = root.querySelector('[data-shuc-tech]');
+		const resultEl = root.querySelector('[data-shuc-result]');
+		const searchInput = root.querySelector('[data-shuc-search]');
+		const filterMeta = root.querySelector('[data-shuc-filter-meta]');
+		const cardButtons = root.querySelectorAll('[data-shuc-pick]');
+
+		function normalizeSearch(s) {
+			return s
+				.toLowerCase()
+				.normalize('NFD')
+				.replace(/\p{M}/gu, '')
+				.trim();
+		}
+
+		function applyFilters() {
+			const q = normalizeSearch(state.searchQuery);
+			const cat = state.category;
+			let visible = 0;
+			cardButtons.forEach((btn) => {
+				const btnCat = btn.dataset.shucCategory || '';
+				const hay = btn.dataset.shucKeywords || '';
+				const catOk = cat === 'all' || btnCat === cat;
+				const searchOk = !q || hay.includes(q);
+				const show = catOk && searchOk;
+				btn.hidden = !show;
+				if (show) visible += 1;
+			});
+			if (filterMeta) {
+				if (visible < totalUseCases && (q || cat !== 'all')) {
+					filterMeta.hidden = false;
+					filterMeta.textContent = `${visible} cas affiché${visible > 1 ? 's' : ''} sur ${totalUseCases}`;
+				} else {
+					filterMeta.hidden = true;
+				}
+			}
+		}
+
+		function href(path) {
+			const p = path.startsWith('/') ? path : `/${path}`;
+			if (!base || base === '/') return p;
+			const b = base.endsWith('/') ? base.slice(0, -1) : base;
+			return `${b}${p}`;
+		}
+
+		function currentUseCase() {
+			return useCases.find((u) => u.id === state.useCaseId);
+		}
+
+		function updatePills() {
+			pills.forEach((pill) => {
+				const n = Number(pill.dataset.shucPill);
+				pill.classList.remove('is-active', 'is-done');
+				if (n === state.step) pill.classList.add('is-active');
+				else if (n < state.step) pill.classList.add('is-done');
+			});
+		}
+
+		function goStep(n) {
+			state.step = n;
+			Object.entries(panels).forEach(([k, el]) => {
+				if (el) el.hidden = Number(k) !== n;
+			});
+			updatePills();
+			if (n === 3) renderResult();
+		}
+
+		function renderStep2() {
+			const uc = currentUseCase();
+			if (!uc) return;
+			step2Title.textContent = uc.title;
+			qtyHeading.textContent = uc.qtyLabel;
+
+			ecoWrap.innerHTML = ecosystems
+				.map(
+					(e) =>
+						`<button type="button" class="shuc-choice${state.ecosystem === e.id ? ' is-selected' : ''}" data-shuc-eco="${e.id}">${e.label}</button>`,
+				)
+				.join('');
+			ecoWrap.querySelectorAll('[data-shuc-eco]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					state.ecosystem = btn.dataset.shucEco;
+					renderStep2();
+				});
+			});
+
+			qtyWrap.innerHTML = qtyOptions
+				.map(
+					(q) =>
+						`<button type="button" class="shuc-qty-btn${state.qtyId === q.id ? ' is-selected' : ''}" data-shuc-q="${q.id}">${q.label}</button>`,
+				)
+				.join('');
+			qtyWrap.querySelectorAll('[data-shuc-q]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					state.qtyId = btn.dataset.shucQ;
+					renderStep2();
+				});
+			});
+
+			if (uc.techOptions?.length) {
+				techWrap.hidden = false;
+				if (!state.techId) state.techId = uc.techOptions[0].id;
+				techChoices.innerHTML = uc.techOptions
+					.map(
+						(t) =>
+							`<button type="button" class="shuc-choice${state.techId === t.id ? ' is-selected' : ''}" data-shuc-tech="${t.id}">${t.label}</button>`,
+					)
+					.join('');
+				techChoices.querySelectorAll('[data-shuc-tech]').forEach((btn) => {
+					btn.addEventListener('click', () => {
+						state.techId = btn.dataset.shucTech;
+						renderStep2();
+					});
+				});
+			} else {
+				techWrap.hidden = true;
+				state.techId = null;
+			}
+		}
+
+		function diffLabel(d) {
+			if (d <= 2) return `${d}/5 — Facile`;
+			if (d === 3) return `${d}/5 — Moyen`;
+			if (d === 4) return `${d}/5 — Difficile`;
+			return `${d}/5 — Expert`;
+		}
+
+		function escapeHtml(s) {
+			return String(s)
+				.replace(/&/g, '&amp;')
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/"/g, '&quot;');
+		}
+
+		function renderResult() {
+			const bill = computeBill({
+				useCaseId: state.useCaseId,
+				ecosystem: state.ecosystem,
+				qtyId: state.qtyId,
+				techId: state.techId,
+			});
+			if (!bill) {
+				resultEl.innerHTML = '<p>Configuration invalide.</p>';
+				return;
+			}
+
+			const mainLine = bill.lines.find((l) => l.role === 'main') ?? bill.lines[0];
+			const heroBuy = mainLine
+				? `<div class="shuc-hero-buy">
+					<strong>Module principal : ${escapeHtml(mainLine.label)} × ${mainLine.qty}</strong>
+					<p class="shuc-role">${escapeHtml(mainLine.note || bill.useCaseTitle)}</p>
+					<a href="${escapeHtml(mainLine.buyUrl)}" rel="sponsored nofollow noopener" target="_blank">${escapeHtml(mainLine.buyLabel)}</a>
+				</div>`
+				: '';
+
+			const linesHtml = bill.lines
+				.map((line) => {
+					const isMain = line.role === 'main';
+					const imgSrc = href(line.image);
+					return `
+					<article class="shuc-line${isMain ? ' shuc-line--main' : ''}">
+						<img src="${imgSrc}" alt="${escapeHtml(line.label)}" width="72" height="72" loading="lazy" />
+						<div>
+							<h4>${isMain ? 'Module principal — ' : ''}${escapeHtml(line.label)} × ${line.qty}</h4>
+							<p class="shuc-role">${escapeHtml(line.note || (isMain ? bill.useCaseTitle : 'Accessoire'))}</p>
+							<p class="shuc-price">${line.lineText} (${line.unitText} / u.)</p>
+						</div>
+						<div class="shuc-buy-wrap">
+							<a class="shuc-buy" href="${escapeHtml(line.buyUrl)}" rel="sponsored nofollow noopener" target="_blank">${escapeHtml(line.buyLabel)}</a>
+						</div>
+					</article>`;
+				})
+				.join('');
+
+			const wiringHtml = bill.wiring.map((w) => `<li>${escapeHtml(w)}</li>`).join('');
+
+			const g = bill.guide;
+			const explainHtml = g.explanation.map((p) => `<p>${escapeHtml(p)}</p>`).join('');
+			const bornierRows = g.bornier
+				.map(
+					(r) =>
+						`<tr><td><code>${escapeHtml(r.terminal)}</code></td><td>${escapeHtml(r.wire)}</td><td>${escapeHtml(r.role)}</td></tr>`,
+				)
+				.join('');
+			const stepsHtml = g.installSteps
+				.map((s) => `<li><strong>${escapeHtml(s.title)}</strong>${escapeHtml(s.body)}</li>`)
+				.join('');
+
+			resultEl.innerHTML = `
+				<div class="shuc-indicators">
+					<div><span>Difficulté</span>${diffLabel(bill.meta.difficulty)}</div>
+					<div><span>Temps d'installation</span>${escapeHtml(bill.meta.time)}</div>
+					<div><span>Outils requis</span>${escapeHtml(bill.meta.tools)}</div>
+					<div><span>Budget total</span>${bill.meta.budgetText}</div>
+				</div>
+				${heroBuy}
+				<div class="shuc-tech-block">
+					<h3>Fonctionnement &amp; choix matériel (${escapeHtml(g.schemeTitle)})</h3>
+					${explainHtml}
+				</div>
+				<h3>Schéma de câblage</h3>
+				<div class="shuc-ref-svg-wrap">${g.svg}</div>
+				<h3>Tableau bornier (repérage fil par fil)</h3>
+				<table class="shuc-bornier">
+					<thead><tr><th scope="col">Borne du module</th><th scope="col">Fil à raccorder</th><th scope="col">Rôle &amp; vérification multimètre</th></tr></thead>
+					<tbody>${bornierRows}</tbody>
+				</table>
+				<h3>Installation &amp; Home Assistant (5 étapes)</h3>
+				<ol class="shuc-steps-list">${stepsHtml}</ol>
+				<h3>Automatisation YAML (copier-coller)</h3>
+				<pre class="shuc-yaml">${escapeHtml(g.yaml)}</pre>
+				<h3>Rappel branchement (3 points)</h3>
+				<ol class="shuc-wiring">${wiringHtml}</ol>
+				<p class="shuc-tutorial"><a href="${href(bill.tutorialHref)}">${escapeHtml(bill.tutorialLabel)} — tutoriel complet sur robot-educatif.info</a></p>
+				<h3>Liste complète du matériel</h3>
+				<div class="shuc-lines">${linesHtml}</div>
+				<p class="shuc-total">Budget matériel : ${bill.meta.budgetText} (hors câbles et main-d'œuvre)</p>
+			`;
+		}
+
+		function copyList() {
+			const bill = computeBill({
+				useCaseId: state.useCaseId,
+				ecosystem: state.ecosystem,
+				qtyId: state.qtyId,
+				techId: state.techId,
+			});
+			if (!bill) return;
+			let t = `Liste matériel — ${bill.useCaseTitle}\n`;
+			t += `Source : robot-educatif.info/domotique/configurateur-projet-domotique/\n\n`;
+			for (const line of bill.lines) {
+				t += `- ${line.label} × ${line.qty} (~${line.lineTotal} €)\n`;
+			}
+			t += `\nBudget indicatif : ~${bill.meta.budgetEur.toFixed(0)} €\n`;
+			t += `Tutoriel : ${bill.tutorialHref}\n`;
+			navigator.clipboard?.writeText(t);
+		}
+
+		cardButtons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				state.useCaseId = btn.dataset.shucPick;
+				state.techId = null;
+				state.qtyId = '1';
+				state.ecosystem = 'wifi-sans-box';
+				renderStep2();
+				goStep(2);
+			});
+		});
+
+		searchInput?.addEventListener('input', () => {
+			state.searchQuery = searchInput.value;
+			applyFilters();
+		});
+
+		root.querySelectorAll('[data-shuc-cat]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				state.category = btn.dataset.shucCat || 'all';
+				root.querySelectorAll('[data-shuc-cat]').forEach((b) => {
+					b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+				});
+				applyFilters();
+			});
+		});
+
+		applyFilters();
+
+		root.querySelectorAll('[data-shuc-goto]').forEach((btn) => {
+			btn.addEventListener('click', () => goStep(Number(btn.dataset.shucGoto)));
+		});
+
+		root.querySelector('[data-shuc-show-result]')?.addEventListener('click', () => goStep(3));
+
+		root.querySelector('[data-shuc-copy]')?.addEventListener('click', copyList);
+		root.querySelector('[data-shuc-print]')?.addEventListener('click', () => window.print());
+
+		updatePills();
+	}
+
+	document.querySelectorAll('[data-shuc]').forEach(initShuc);
+</script>

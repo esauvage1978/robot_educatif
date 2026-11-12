@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { withBase } from '../lib/siteUrl';
+import PageColumns from '../components/PageColumns.astro';
 
 const cookiesUrl = withBase('/gestion-des-cookies/');
 const mentionsUrl = withBase('/mentions-legales/');
@@ -13,232 +14,229 @@ const mentionsUrl = withBase('/mentions-legales/');
 	<head>
 		<BaseHead
 			title="Politique de confidentialité"
-			description="Politique de confidentialité et protection des données (RGPD) — ROBOT éducatif."
+			description="Politique de confidentialité de robot-educatif.info : données collectées, cookie. Dernière mise à jour : 28 mars 2026 Guides, comparatifs et conseils pratiques"
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<article class="legal-doc">
-				<h1>Politique de confidentialité</h1>
-				<p class="legal-meta">
-					<time>Dernière mise à jour : 28 mars 2026</time>
-				</p>
-				<p>
+<PageColumns>
+<article class="legal-doc">
+<h1>Politique de confidentialité</h1>
+<p class="legal-meta">
+<time>Dernière mise à jour : 3 novembre 2026</time>
+</p>
+<p>
 					La présente politique décrit comment <strong>ROBOT éducatif</strong> (ci-après « nous », « l’éditeur »)
 					traite vos données personnelles lorsque vous consultez le site. Elle est conforme au Règlement (UE)
 					2016/679 (« RGPD ») et à la loi française « Informatique et Libertés » dans sa version en vigueur.
 				</p>
-
-				<section aria-labelledby="pc-responsable">
-					<h2 id="pc-responsable">1. Responsable du traitement</h2>
-					<p>Le responsable du traitement des données est :</p>
-					<ul>
-						<li><strong>Emmanuel SAUVAGE</strong></li>
-						<li>
+<section aria-labelledby="pc-responsable">
+<h2 id="pc-responsable">1. Responsable du traitement</h2>
+<p>Le responsable du traitement des données est :</p>
+<ul>
+<li><strong>Emmanuel SAUVAGE</strong></li>
+<li>
 							Contact pour l’exercice de vos droits : via les moyens indiqués sur
 							<a href="https://emmanuelsauvage.fr" rel="noopener noreferrer">emmanuelsauvage.fr</a>.
 						</li>
-					</ul>
-					<p>
+</ul>
+<p>
 						Le site est développé et administré par la même personne. L’hébergement est assuré par
-						<strong>o2switch</strong> (voir <a href={mentionsUrl}>mentions légales</a>), qui peut avoir
+						<strong>o2switch</strong> (voir <a href="{mentionsUrl}">mentions légales</a>), qui peut avoir
 						accès à certaines données techniques dans le cadre strict de l’hébergement.
 					</p>
-				</section>
-
-				<section aria-labelledby="pc-donnees">
-					<h2 id="pc-donnees">2. Quelles données sont concernées ?</h2>
-					<p>Selon votre utilisation du Site, peuvent être traitées notamment :</p>
-					<ul>
-						<li>
-							<strong>Données techniques de navigation</strong> : adresse IP, type de navigateur, pages
+</section>
+<section aria-labelledby="pc-donnees">
+<h2 id="pc-donnees">2. Quelles données sont concernées ?</h2>
+<p>Selon votre utilisation du Site, peuvent être traitées notamment :</p>
+<ul>
+<li>
+<strong>Données techniques de navigation</strong> : adresse IP, type de navigateur, pages
 							consultées, date et heure de consultation, éventuellement identifiant de session côté serveur ou
 							journaux d’hébergement (logs).
 						</li>
-						<li>
-							<strong>Préférences stockées localement</strong> : par exemple le choix de thème (clair / sombre)
+<li>
+<strong>Préférences stockées localement</strong> : par exemple le choix de thème (clair / sombre)
 							peut être enregistré dans le stockage local de votre navigateur (<em>localStorage</em>) afin d’éviter
 							de devoir le redéfinir à chaque visite. Ces données restent sur votre appareil et ne sont pas
 							transmises au serveur par ce mécanisme.
 						</li>
-						<li>
-							<strong>Données de mesure d’audience (Google Analytics 4)</strong> : si vous acceptez les cookies
+<li>
+<strong>Données de mesure d’audience (Google Analytics 4)</strong> : si vous acceptez les cookies
 							de statistiques via le bandeau du site, Google peut traiter des données telles que des identifiants
 							de navigateur, des informations sur les pages consultées et des données techniques agrégées. Voir
-							la <a href={cookiesUrl}>gestion des cookies</a> et la documentation Google.
+							la <a href="{cookiesUrl}">gestion des cookies</a> et la documentation Google.
 						</li>
-						<li>
-							<strong>Données que vous nous envoyez volontairement</strong> (si un formulaire de contact ou un
-							moyen équivalent est mis en place à l’avenir) : nom, adresse e-mail, contenu du message, etc.
+<li>
+<strong>Questions posées via le formulaire en bas des articles</strong> : lorsque vous utilisez le bloc « Une question sur cet article » (présent sur de nombreux guides), nous recevons votre <strong>nom</strong>, votre <strong>adresse e-mail</strong>, le <strong>titre de la page consultée</strong> et le <strong>texte de votre message</strong>. L’envoi transite par un service d’automatisation (webhook sécurisé) qui transmet la demande à l’éditeur par e-mail ; nous ne revendons pas ces données.
 						</li>
-					</ul>
-				</section>
-
-				<section aria-labelledby="pc-finalites">
-					<h2 id="pc-finalites">3. Finalités et bases légales</h2>
-					<table class="legal-table">
-						<thead>
-							<tr>
-								<th scope="col">Finalité</th>
-								<th scope="col">Base légale (RGPD)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Permettre la consultation du Site et assurer sa sécurité</td>
-								<td>Intérêt légitime (article 6.1.f) — bon fonctionnement et sécurisation</td>
-							</tr>
-							<tr>
-								<td>Hébergement et maintenance technique, lecture des logs par l’hébergeur si nécessaire</td>
-								<td>Exécution de mesures précontractuelles / contrat d’hébergement ; obligation légale le cas échéant</td>
-							</tr>
-							<tr>
-								<td>Répondre à vos demandes si vous nous contactez</td>
-								<td>Intérêt légitime ou exécution de mesures précontractuelles selon le contexte</td>
-							</tr>
-							<tr>
-								<td>Mémoriser vos préférences (thème d’affichage)</td>
-								<td>
+<li>
+<strong>Formulaire de contact général</strong> (<a href={withBase('/contact/')}>page Contact</a>) : nom, e-mail, objet, message, et case d’acceptation explicite du traitement (RGPD).
+						</li>
+<li>
+<strong>Données que vous nous envoyez volontairement par d’autres moyens</strong> (e-mail direct, réseaux sociaux professionnels) : contenu du message et métadonnées associées.
+						</li>
+</ul>
+</section>
+<section aria-labelledby="pc-finalites">
+<h2 id="pc-finalites">3. Finalités et bases légales</h2>
+<div class="tableau empile"><table class="legal-table">
+<thead>
+<tr>
+<th scope="col">Finalité</th>
+<th scope="col">Base légale (RGPD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Finalité"><span class="td-val">Permettre la consultation du Site et assurer sa sécurité</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">Intérêt légitime (article 6.1.f) — bon fonctionnement et sécurisation</span></td>
+</tr>
+<tr>
+<td data-label="Finalité"><span class="td-val">Hébergement et maintenance technique, lecture des logs par l’hébergeur si nécessaire</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">Exécution de mesures précontractuelles / contrat d’hébergement ; obligation légale le cas échéant</span></td>
+</tr>
+<tr>
+<td data-label="Finalité"><span class="td-val">Répondre à vos demandes si vous nous contactez</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">Intérêt légitime ou exécution de mesures précontractuelles selon le contexte</span></td>
+</tr>
+<tr>
+<td data-label="Finalité"><span class="td-val">Mémoriser vos préférences (thème d’affichage)</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">
 									Intérêt légitime (confort d’utilisation) ; lorsque des traceurs équivalents aux cookies sont
 									utilisés, la règlementation sur les traceurs et le consentement peut s’appliquer (voir
-									<a href={cookiesUrl}>cookies</a>).
-								</td>
-							</tr>
-							<tr>
-								<td>
+									<a href="{cookiesUrl}">cookies</a>).
+								</span></td>
+</tr>
+<tr>
+<td data-label="Finalité"><span class="td-val">
 									Mesure d’audience et statistiques de fréquentation du Site (Google Analytics 4), via gtag et
 									Consent Mode
-								</td>
-								<td>Consentement (article 6.1.a RGPD) lorsque vous cliquez sur « Accepter » dans le bandeau</td>
-							</tr>
-							<tr>
-								<td>Respect des obligations légales (conservation de preuves, réponse aux autorités)</td>
-								<td>Obligation légale</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section aria-labelledby="pc-affiliation">
-					<h2 id="pc-affiliation">4. Liens d’affiliation Amazon et données tiers</h2>
-					<p>
+								</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">Consentement (article 6.1.a RGPD) lorsque vous cliquez sur « Accepter » dans le bandeau</span></td>
+</tr>
+<tr>
+<td data-label="Finalité"><span class="td-val">Respect des obligations légales (conservation de preuves, réponse aux autorités)</span></td>
+<td data-label="Base légale (RGPD)"><span class="td-val">Obligation légale</span></td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section aria-labelledby="pc-affiliation">
+<h2 id="pc-affiliation">4. Liens d’affiliation Amazon et données tiers</h2>
+<p>
 						Le Site contient des <strong>liens vers Amazon</strong> (notamment via le Programme Partenaires Amazon).
 						Lorsque vous cliquez sur un lien affilié, vous êtes redirigé vers le site d’Amazon (ou d’une entité du
 						groupe Amazon selon le pays). À partir de ce moment, le traitement de vos données relève de la
 						<strong>politique de confidentialité d’Amazon</strong>, et non de la nôtre.
 					</p>
-					<p>
+<p>
 						Amazon peut notamment : enregistrer que vous venez d’un site partenaire (identifiant d’affilié,
 						« tag » de suivi présent dans l’URL), déposer ou lire des <strong>cookies</strong> ou technologies
 						similaires pour la publicité, la mesure d’audience ou le fonctionnement du panier, et traiter vos
 						données dans le cadre de la commande si vous achetez chez eux.
 					</p>
-					<p>
+<p>
 						Nous ne recevons pas votre nom ni vos coordonnées bancaires via ces liens : Amazon communique en
 						général à l’affilié des <strong>informations agrégées ou statistiques</strong> sur les ventes
 						générées (conformément aux conditions du programme), qui ne permettent pas nécessairement de vous
 						identifier directement.
 					</p>
-					<p>
+<p>
 						Vous êtes informé(e) de la nature commerciale de ces liens (publicité rémunérée / partenariat) dans
-						les <a href={mentionsUrl}>mentions légales</a> ; une mention courte peut également figurer à
+						les <a href="{mentionsUrl}">mentions légales</a> ; une mention courte peut également figurer à
 						côté des recommandations de produits sur le Site.
 					</p>
-				</section>
-
-				<section aria-labelledby="pc-destinataires">
-					<h2 id="pc-destinataires">5. Destinataires et transferts</h2>
-					<p>Les données traitées par nous peuvent être communiquées à :</p>
-					<ul>
-						<li><strong>o2switch</strong>, uniquement pour l’hébergement ;</li>
-						<li>
-							<strong>Google Ireland Limited</strong> (Google Analytics 4), lorsque vous avez accepté la mesure
+</section>
+<section aria-labelledby="pc-destinataires">
+<h2 id="pc-destinataires">5. Destinataires et transferts</h2>
+<p>Les données traitées par nous peuvent être communiquées à :</p>
+<ul>
+<li><strong>o2switch</strong>, uniquement pour l’hébergement ;</li>
+<li>
+<strong>Google Ireland Limited</strong> (Google Analytics 4), lorsque vous avez accepté la mesure
 							d’audience — données hébergées dans l’Union européenne ou transférées selon les clauses types et la
 							politique Google ;
 						</li>
-						<li>
+<li>
 							toute autorité administrative ou judiciaire légalement habilitée à en faire la demande.
 						</li>
-					</ul>
-					<p>
+</ul>
+<p>
 						Nous ne vendons pas vos données personnelles. Les traitements « publicitaires » liés aux achats sur
 						Amazon relèvent d’Amazon après votre clic ; référez-vous à leurs paramètres. Pour la mesure d’audience
 						Google, vous pouvez retirer votre consentement en réinitialisant le choix sur la page
-						<a href={cookiesUrl}>gestion des cookies</a>.
+						<a href="{cookiesUrl}">gestion des cookies</a>.
 					</p>
-				</section>
-
-				<section aria-labelledby="pc-duree">
-					<h2 id="pc-duree">6. Durées de conservation</h2>
-					<ul>
-						<li>
-							<strong>Journaux techniques d’hébergement</strong> : durée limitée, conformément à la pratique de
+</section>
+<section aria-labelledby="pc-duree">
+<h2 id="pc-duree">6. Durées de conservation</h2>
+<ul>
+<li>
+<strong>Journaux techniques d’hébergement</strong> : durée limitée, conformément à la pratique de
 							l’hébergeur et aux obligations légales (souvent de quelques semaines à quelques mois, sauf
 							conservation exceptionnelle pour la sécurité ou une procédure).
 						</li>
-						<li>
-							<strong>Messages envoyés via un formulaire</strong> : conservés le temps de traiter la demande,
+<li>
+<strong>Messages envoyés via un formulaire</strong> : conservés le temps de traiter la demande,
 							puis archivés ou supprimés si aucune obligation légale ne impose une conservation plus longue.
 						</li>
-						<li>
-							<strong>Préférences locales (thème)</strong> : jusqu’à ce que vous effaciez les données du site
+<li>
+<strong>Préférences locales (thème)</strong> : jusqu’à ce que vous effaciez les données du site
 							dans votre navigateur ou changiez d’appareil.
 						</li>
-						<li>
-							<strong>Données Google Analytics</strong> : durées et paramètres de conservation conformément à la
+<li>
+<strong>Données Google Analytics</strong> : durées et paramètres de conservation conformément à la
 							configuration du compte Analytics et aux options proposées par Google (voir leur aide).
 						</li>
-					</ul>
-				</section>
-
-				<section aria-labelledby="pc-droits">
-					<h2 id="pc-droits">7. Vos droits</h2>
-					<p>Sous réserve des conditions prévues par la loi, vous disposez des droits suivants :</p>
-					<ul>
-						<li>droit d’<strong>accès</strong> et de <strong>rectification</strong> ;</li>
-						<li>droit à l’<strong>effacement</strong> (« droit à l’oubli ») ;</li>
-						<li>droit à la <strong>limitation</strong> du traitement ;</li>
-						<li>droit d’<strong>opposition</strong> au traitement fondé sur l’intérêt légitime ;</li>
-						<li>droit à la <strong>portabilité</strong> des données lorsque le traitement est automatisé et fondé sur
+</ul>
+</section>
+<section aria-labelledby="pc-droits">
+<h2 id="pc-droits">7. Vos droits</h2>
+<p>Sous réserve des conditions prévues par la loi, vous disposez des droits suivants :</p>
+<ul>
+<li>droit d’<strong>accès</strong> et de <strong>rectification</strong> ;</li>
+<li>droit à l’<strong>effacement</strong> (« droit à l’oubli ») ;</li>
+<li>droit à la <strong>limitation</strong> du traitement ;</li>
+<li>droit d’<strong>opposition</strong> au traitement fondé sur l’intérêt légitime ;</li>
+<li>droit à la <strong>portabilité</strong> des données lorsque le traitement est automatisé et fondé sur
 							le consentement ou un contrat ;</li>
-						<li>
+<li>
 							droit de définir des directives relatives au sort de vos données après votre décès (loi française).
 						</li>
-					</ul>
-					<p>
+</ul>
+<p>
 						Pour exercer ces droits : contact via <a href="https://emmanuelsauvage.fr" rel="noopener noreferrer">emmanuelsauvage.fr</a>. Une pièce d’identité peut être demandée si un doute raisonnable existe sur votre identité.
 					</p>
-					<p>
+<p>
 						Vous pouvez introduire une réclamation auprès de l’autorité de contrôle : en France, la
 						<a href="https://www.cnil.fr" rel="noopener noreferrer">CNIL</a> (<a href="https://www.cnil.fr/fr/adresser-une-plainte-la-cnil" rel="noopener noreferrer">plainte en ligne</a>).
 					</p>
-				</section>
-
-				<section aria-labelledby="pc-modifications">
-					<h2 id="pc-modifications">8. Modifications</h2>
-					<p>
+</section>
+<section aria-labelledby="pc-modifications">
+<h2 id="pc-modifications">8. Modifications</h2>
+<p>
 						Cette politique peut être mise à jour pour refléter l’évolution du Site, des outils utilisés ou de la
 						réglementation. La date de dernière mise à jour figure en haut de page. La poursuite de la navigation
 						après modification vaut prise de connaissance de la version publiée (sans préjudice du consentement
 						requis pour certaines catégories de traceurs).
 					</p>
-				</section>
-
-				<section aria-labelledby="pc-credits">
-					<h2 id="pc-credits">9. Visuels et crédits</h2>
-					<p>
+</section>
+<section aria-labelledby="pc-credits">
+<h2 id="pc-credits">9. Visuels et crédits</h2>
+<p>
 						Certaines images du Site peuvent provenir de <strong>Wikimedia Commons</strong> sous licence
 						<strong>CC BY-SA</strong> ; l’attribution est indiquée dans les mentions légales ou à proximité des
 						contenus concernés.
 					</p>
-				</section>
-			</article>
-		</main>
+</section>
+</article>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>
-
 <style>
 	.legal-doc .legal-meta {
 		font-size: 0.92rem;

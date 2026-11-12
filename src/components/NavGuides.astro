@@ -1,0 +1,222 @@
+---
+import { navGuidesForPath } from '../lib/navGuides.mjs';
+import { navDomotiqueForPath } from '../lib/navDomotique.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	variant?: 'desktop' | 'mobile';
+	menu?: 'guides' | 'domotique';
+}
+
+const { variant = 'desktop', menu = 'guides' } = Astro.props;
+const path = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const cfg = menu === 'domotique' ? navDomotiqueForPath(path) : navGuidesForPath(path);
+const isMobile = variant === 'mobile';
+const panelId = isMobile ? `nav-${menu}-panel-mobile` : `nav-${menu}-panel-desktop`;
+const triggerId = isMobile ? `nav-${menu}-trigger-mobile` : `nav-${menu}-trigger-desktop`;
+const here =
+	menu === 'domotique' &&
+	(/\/domotique(\/|$)/.test(path) || /\/smart-home(\/|$)/.test(path));
+---
+
+<div
+	class:list={['nav-guides', 'header-dropdown', { 'is-section': isMobile, 'nav-guides--domotique': menu === 'domotique' }]}
+	data-header-dropdown
+>
+	<button
+		type="button"
+		id={triggerId}
+		class:list={['nav-guides__trigger', 'nav-dropdown__trigger', { 'is-here': here }]}
+		data-dropdown-trigger
+		aria-expanded="false"
+		aria-controls={panelId}
+		aria-haspopup="true"
+	>
+		{cfg.trigger}
+		<span class="nav-dropdown__caret" aria-hidden="true">▾</span>
+	</button>
+	<div
+		id={panelId}
+		class="nav-guides__panel"
+		data-dropdown-panel
+		hidden
+		role="menu"
+		style={`--guide-cols: ${cfg.cols}`}
+	>
+		{cfg.promo && (
+			<a class="nav-guides__promo" href={withBase(cfg.promo.href)}>
+				<strong>{cfg.promo.title}</strong>
+				<span>{cfg.promo.text}</span>
+			</a>
+		)}
+		{cfg.groups.map((group) => (
+			<div class="nav-guides__group" role="none">
+				<p class="nav-guides__title">{group.title}</p>
+				<ul role="none">
+					{group.links.map((link) => (
+						<li role="none">
+							<a href={withBase(link.href)} role="menuitem">
+								<span>{link.label}</span>
+								{link.hint ? <span class="nav-guides__hint">{link.hint}</span> : null}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	.nav-guides {
+		position: relative;
+	}
+	.nav-guides__trigger {
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.2rem;
+		font-weight: 600;
+		font-size: 1rem;
+		color: var(--ink);
+		padding: 0.35rem 0.55rem;
+		border-radius: 8px;
+		border: none;
+		background: transparent;
+		font-family: inherit;
+		line-height: 1.25;
+	}
+	.nav-guides__trigger:hover,
+	.nav-guides__trigger[aria-expanded='true'] {
+		background: color-mix(in oklab, var(--primary) 8%, transparent);
+		color: var(--primary);
+	}
+	.nav-guides__trigger:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 2px;
+	}
+	.nav-guides__trigger.is-here {
+		background: color-mix(in oklab, var(--primary) 10%, transparent);
+		color: var(--primary);
+	}
+	.nav-guides--domotique:not(.is-section) {
+		position: static;
+	}
+	.nav-guides--domotique:not(.is-section) .nav-guides__panel {
+		left: 50%;
+		transform: translateX(-50%);
+		width: min(94vw, 980px);
+		max-height: min(70vh, 640px);
+		overflow: auto;
+	}
+	.nav-guides__panel {
+		position: absolute;
+		top: calc(100% + 0.35rem);
+		left: 0;
+		z-index: 120;
+		min-width: min(92vw, 720px);
+		display: grid;
+		grid-template-columns: repeat(var(--guide-cols, 3), minmax(0, 1fr));
+		gap: 1rem 1.25rem;
+		padding: 1rem 1.15rem;
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		box-shadow: 0 8px 28px rgba(11, 31, 42, 0.12);
+	}
+	.nav-guides__panel[hidden] {
+		display: none !important;
+	}
+	.nav-guides__promo {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 0.75rem;
+		padding: 0.7rem 0.9rem;
+		border-radius: 10px;
+		background: #111827;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.nav-guides__promo strong {
+		color: #ffb020;
+		font-weight: 800;
+	}
+	.nav-guides__promo span {
+		color: #e5e7eb;
+		font-size: 0.92rem;
+	}
+	.nav-guides__promo:hover {
+		background: #1f2937;
+		color: #fff;
+	}
+	.nav-guides__promo:focus-visible {
+		outline: 2px solid #ffb020;
+		outline-offset: 2px;
+	}
+	.nav-guides.is-section .nav-guides__panel {
+		position: static;
+		min-width: 0;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+		padding: 0.5rem 0 0.75rem;
+		grid-template-columns: 1fr;
+	}
+	.nav-guides.is-section {
+		width: 100%;
+		border-bottom: 1px solid var(--surface-border);
+		padding: 0.75rem clamp(1rem, 5vw, 2rem);
+	}
+	.nav-guides.is-section .nav-guides__trigger {
+		width: 100%;
+		justify-content: space-between;
+	}
+	.nav-guides__title {
+		margin: 0 0 0.4rem;
+		font-size: 0.78rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: rgb(var(--gray-dark));
+	}
+	.nav-guides__group ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.nav-guides__group li {
+		margin: 0.15rem 0;
+	}
+	.nav-guides__group a {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		align-items: baseline;
+		text-decoration: none;
+		color: var(--primary);
+		font-weight: 600;
+		font-size: 0.92rem;
+		padding: 0.2rem 0;
+		border-radius: 4px;
+	}
+	.nav-guides__group a:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 2px;
+	}
+	.nav-guides__group a:hover {
+		color: var(--primary-light);
+	}
+	.nav-guides__hint {
+		font-size: 0.78rem;
+		font-weight: 500;
+		color: rgb(var(--gray));
+	}
+	@media (max-width: 768px) {
+		.nav-guides:not(.is-section) {
+			display: none;
+		}
+	}
+</style>

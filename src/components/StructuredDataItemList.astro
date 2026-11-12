@@ -1,0 +1,32 @@
+---
+/**
+ * JSON-LD ItemList (noms + URL uniquement).
+ * Pas de Product/Offer/AggregateRating : pas de prix numériques vérifiés ni d’avis inventés.
+ */
+interface ListEntry {
+	name: string;
+	url: string;
+}
+interface Props {
+	name?: string;
+	items: ListEntry[];
+}
+const { name, items = [] } = Astro.props;
+const list =
+	items.length > 0
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'ItemList',
+				...(name ? { name } : {}),
+				numberOfItems: items.length,
+				itemListElement: items.map((item, i) => ({
+					'@type': 'ListItem',
+					position: i + 1,
+					name: item.name,
+					url: new URL(item.url, Astro.site).toString(),
+				})),
+			}
+		: null;
+---
+
+{list && <script type="application/ld+json" set:html={JSON.stringify(list)} />}

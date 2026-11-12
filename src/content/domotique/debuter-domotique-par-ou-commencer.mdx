@@ -1,17 +1,35 @@
 ---
 title: "Débuter en domotique : par où commencer en 2026 ?"
-description: "Guide complet pour débutants : budget, protocoles (Zigbee, Matter, Wi-Fi), premier équipement, box domotique. Nos conseils pour bien démarrer."
+description: "Votre premier équipement domotique expliqué simplement : budget, choix des appareils, première box et premiers capteurs, pour démarrer sans acheter au hasard."
 pubDate: 2026-10-18T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
 category: "debuter"
 products: ["tapo-p110", "sonoff-snzb-02d", "home-assistant-green", "sonoff-zbdongle-e"]
 priority: 2
 ---
 
 import ProductBox from '../../components/ProductBox.astro';
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
 
-La domotique fascine, mais **par où commencer** quand on découvre capteurs Zigbee, Home Assistant, Matter, ESP32 et robots aspirateurs connectés ? Ce guide vous donne un **parcours clair** et un **budget raisonnable** pour débuter sans vous noyer dans la technique ni regretter vos achats.
+Vous avez envie de rendre votre maison plus intelligente, mais le vocabulaire vous freine : capteurs, box, applications, robots connectés… Par quoi commencer, sans dépenser pour rien ?
 
-## Notre recommandation pour débuter
+Cette page vous donne le chemin le plus court. En quelques minutes de lecture, vous saurez fixer votre budget, choisir un premier équipement adapté à votre logement, et passer d'une simple prise connectée à des automatisations qui se déclenchent toutes seules. Chaque mot technique est expliqué quand il apparaît. Si vous voulez ensuite tout approfondir, le [guide complet pour débuter](/domotique/debuter-en-domotique-guide-complet/) reprend chaque étape en détail.
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  links={[
+    { href: '/domotique/quelle-box-domotique-choisir-debutant/', label: 'Quelle box choisir' },
+    { href: '/domotique/protocoles-domotique-zigbee-wifi-thread-matter/', label: 'Comment vos appareils se parlent (protocoles)' },
+    { href: '/domotique/premiers-appareils-domotique-acheter/', label: 'Les premiers appareils à acheter' },
+    { href: '/domotique/premieres-automatisations-domotique/', label: 'Vos premières automatisations' },
+    { href: '/domotique/erreurs-debutant-domotique-faq/', label: 'Les erreurs de débutant' },
+  ]}
+/>
+
+## Notre recommandation pour commencer
+
+Si vous cherchez un point de départ solide, sans vous poser trop de questions, voici ce que nous conseillons : un boîtier prêt à brancher, qui servira de cerveau à la maison, et une petite clé radio qui lui permet de parler aux capteurs sans fil.
 
 <ProductBox
   productId="home-assistant-green"
@@ -45,93 +63,102 @@ La domotique fascine, mais **par où commencer** quand on découvre capteurs Zig
   position={2}
 />
 
+Le Home Assistant Green est un boîtier qui fait tourner Home Assistant, un logiciel gratuit qui réunit tous vos appareils dans une seule application. Le SONOFF ZBDongle-E est une clé USB, aussi appelée dongle, qui lui apprend le Zigbee : une radio économe en énergie, parfaite pour les capteurs qui fonctionnent des mois sur pile.
+
 ## Qu'est-ce que la domotique, concrètement ?
 
-La domotique, c'est **automatiser et piloter sa maison** avec des objets connectés :
+La domotique consiste à piloter et à automatiser sa maison avec des objets connectés. Concrètement, vous pouvez :
 
-- **Piloter** : allumer une lampe depuis son téléphone, baisser le chauffage à distance.
-- **Automatiser** : « éteindre toutes les lumières à 23 h », « m'alerter si une fenêtre reste ouverte avec le chauffage allumé ».
-- **Surveiller** : température de chaque pièce, consommation électrique, caméra quand je suis absent.
+- piloter : allumer une lampe depuis votre téléphone, baisser le chauffage quand vous êtes en déplacement ;
+- automatiser : éteindre toutes les lumières à 23 h, ou être prévenu si une fenêtre reste ouverte pendant que le chauffage fonctionne ;
+- surveiller : suivre la température de chaque pièce, votre consommation électrique, ou regarder une caméra quand vous êtes absent.
 
-Contrairement aux années 2010 (solutions propriétaires, abonnements cloud, compatibilité zéro), la domotique 2026 est **ouverte**, **locale** et **abordable**. Les protocoles comme **Zigbee** et le nouveau **Matter** permettent de mélanger les marques. **Home Assistant** (logiciel gratuit) centralise tout sur un Raspberry Pi ou une petite box.
+Aujourd'hui, des appareils de marques différentes peuvent travailler ensemble, et beaucoup fonctionnent sans passer par Internet. Cela repose sur des langues radio communes comme Zigbee, et sur Matter, un langage commun que comprennent de plus en plus de marques. Home Assistant réunit tout cela sur un petit ordinateur, par exemple un Raspberry Pi (de la taille d'une carte bancaire), ou sur le boîtier présenté plus haut.
 
-## Les trois questions à se poser avant d'acheter
+## Trois questions à vous poser avant d'acheter
 
-### 1. Quel est mon budget de départ ?
+### 1. Quel budget pouvez-vous consacrer au départ ?
 
-- **Petit budget :** Wi-Fi uniquement (2 prises Tapo P110 + 1 ampoule L530E). Pilotage via app, sans box.
-- **Budget intermédiaire :** Zigbee + Raspberry Pi 5 4 Go + dongle Zigbee + 2-3 capteurs SONOFF. Automatisations locales.
-- **Budget plus large :** Home Assistant Green (box clé en main) + dongle Zigbee HA Connect ZBT-2 + capteurs. Zéro config système.
+- **Petit budget :** du Wi-Fi uniquement, avec deux prises Tapo P110 et une ampoule L530E. Vous les commandez depuis une application, sans boîtier central.
+- **Budget intermédiaire :** un Raspberry Pi 5 de 4 Go, une clé Zigbee et deux ou trois capteurs SONOFF. Vos automatisations restent chez vous.
+- **Budget plus large :** un Home Assistant Green (boîtier clé en main), la clé Zigbee Home Assistant Connect ZBT-2 et des capteurs, sans rien installer vous-même.
 
-*Prix : à vérifier chez le vendeur, ils changent selon les boutiques et les promotions.*
+Les prix changent d'une boutique à l'autre : vérifiez-les chez le vendeur avant d'acheter.
 
-**Notre conseil :** commencer petit (une ou deux prises Wi-Fi), puis ajouter une box Zigbee si on accroche.
+Notre conseil : commencez petit, avec une ou deux prises Wi-Fi, puis ajoutez un boîtier Zigbee si l'expérience vous plaît.
 
-### 2. Où vais-je utiliser la domotique ?
+### 2. Où allez-vous utiliser la domotique ?
 
-- **Appartement locataire :** privilégier le Wi-Fi ou Zigbee (rien à percer). Éviter les modules encastrés.
-- **Maison propriétaire :** Zigbee + modules encastrés (volets, chauffage) possibles.
-- **Avec des enfants :** automatisations « heure de lever » (veilleuse), surveillance de température, alerte fenêtre ouverte.
+- **En appartement, si vous êtes locataire :** privilégiez le Wi-Fi ou Zigbee, qui ne demandent aucun perçage. Évitez les modules encastrés dans les murs.
+- **Dans une maison dont vous êtes propriétaire :** vous pouvez ajouter des modules encastrés pour les volets roulants ou le chauffage.
+- **Avec des enfants :** pensez à une veilleuse qui s'allume à l'heure du coucher, à un suivi de la température de la chambre, ou à une alerte quand une fenêtre reste ouverte.
 
-### 3. Suis-je prêt à bricoler ou je veux du clé en main ?
+### 3. Aimez-vous bricoler, ou préférez-vous du clé en main ?
 
-- **Clé en main :** Home Assistant Green + capteurs Zigbee certifiés (SONOFF, Aqara). Tout fonctionne.
-- **Bricolage :** Raspberry Pi 5 + ESPHome + capteurs DIY (ESP32, DHT22). Maximum de liberté, plus technique.
+- **Clé en main :** un Home Assistant Green avec des capteurs Zigbee de marques éprouvées (SONOFF, Aqara). Tout fonctionne dès le branchement.
+- **Bricolage :** un Raspberry Pi 5 avec ESPHome et des capteurs que vous fabriquez (cartes ESP32, capteurs DHT22). ESP32 est une petite carte électronique programmable, ESPHome l'outil qui sert à la programmer. C'est le maximum de liberté, mais plus technique.
 
-## Les protocoles sans fil : Zigbee, Matter, Wi-Fi
+## Les langues radio : Zigbee, Matter, Wi-Fi
 
-| Protocole | Avantages | Inconvénients | Pour qui ? |
-|-----------|-----------|---------------|------------|
-| **Zigbee 3.0** | Basse conso, maillage (répéteurs), local, mature | Nécessite un hub USB | Capteurs, prises, têtes thermostatiques |
-| **Matter** | Universel, certifié, prometteur | Encore jeune (2024-2026), peu d'appareils | Attendre 2027 ou acheter Matter/Zigbee |
-| **Wi-Fi 2,4 GHz** | Aucun hub, app simple | Gourmand, dépend du cloud fabricant | Débuter sans investir dans une box |
-| **Thread** | Maillage, basse conso, IP natif | Très peu d'appareils (2026) | Futur, pas urgent |
+On appelle protocole la langue radio que parlent vos appareils. Voici les quatre que vous croiserez le plus souvent.
 
-**En 2026, Zigbee reste le meilleur rapport qualité/prix.** Matter arrive, mais Zigbee fonctionne déjà avec des milliers de produits.
+| Langue radio | Ses atouts | Ses limites | Pour qui ? |
+|---|---|---|---|
+| **Zigbee 3.0** | Économe en énergie, en maillage (les appareils sur secteur relaient le signal des autres), fonctionne chez vous, bien établi | Demande une clé USB branchée sur votre box | Capteurs, prises, têtes thermostatiques |
+| **Matter** | Compris par de nombreuses marques, certifié, prometteur | Encore jeune (2024 à 2026), peu d'appareils disponibles | Ceux qui veulent patienter jusqu'en 2027, ou acheter des appareils compatibles à la fois Matter et Zigbee |
+| **Wi-Fi 2,4 GHz** | Aucune clé à acheter, application simple | Consomme beaucoup, dépend souvent des serveurs du fabricant | Ceux qui veulent débuter sans investir dans un boîtier |
+| **Thread** | En maillage, très économe en énergie, utilisé avec Matter | Très peu d'appareils en 2026, et un appareil appelé routeur de bordure pour le relier à votre réseau | Plus tard, ce n'est pas urgent |
+
+En 2026, Zigbee reste le meilleur rapport entre prix et choix d'appareils. Matter arrive, mais Zigbee fonctionne déjà avec des milliers de produits. Pour mieux comprendre, lisez notre page sur les [protocoles expliqués simplement](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
 
 ## Le parcours recommandé, étape par étape
 
-### Étape 1 : Débuter en Wi-Fi sans box
+Voici quatre étapes pour avancer à votre rythme. À chaque étape, vous gagnez une capacité de plus, et vous pouvez vous arrêter quand vous en avez assez.
 
-**Matériel :**
-- 2 prises connectées **Tapo P110** : mesure de consommation, programmation horaire.
-- 1 ampoule **Tapo L530E** : couleur RGB, app Tapo.
+### Étape 1 : commencer en Wi-Fi, sans box
 
-**Ce qu'on peut faire :**
+Ici, vous apprenez à commander vos premiers appareils depuis votre téléphone et à les programmer à heure fixe.
+
+**Ce qu'il vous faut :**
+- Deux prises connectées **Tapo P110**, qui mesurent aussi la consommation d'électricité et se programment selon l'heure.
+- Une ampoule **Tapo L530E**, qui change de couleur et se pilote avec l'application Tapo.
+
+**Ce que vous pouvez faire :**
 - Programmer la cafetière le matin.
-- Éteindre les veilles la nuit.
+- Éteindre les appareils en veille la nuit.
 - Allumer une veilleuse depuis le canapé.
 
-**Limite :** pas d'automatisations entre appareils (« si température < 18 °C, allumer radiateur »). Chaque marque a son app.
+**La limite :** vos appareils ne peuvent pas encore agir ensemble, par exemple allumer un radiateur quand la température descend sous 18 °C. Chaque marque a sa propre application.
 
-*Liens affiliés Amazon (tag manuso06-21, catégorie Maison ~3 % de commission) : [Tapo P110 lot de 4](https://www.amazon.fr/dp/B0CJC8WMXV?tag=manuso06-21), [Tapo L530E](https://www.amazon.fr/s?k=Tapo+L530E&tag=manuso06-21).*
+*Liens Amazon (identifiant du site : manuso06-21). Une petite commission, d'environ 3 % en catégorie Maison, peut être versée sans surcoût pour vous : [Tapo P110 en lot de quatre](https://www.amazon.fr/dp/B0CJC8WMXV?tag=manuso06-21), [Tapo L530E](https://www.amazon.fr/s?k=Tapo+L530E&tag=manuso06-21).*
 
-### Étape 2 : Ajouter une box Zigbee
+### Étape 2 : ajouter un boîtier central pour automatiser
 
-Si on accroche, on passe à **Home Assistant** pour automatiser vraiment.
+Si l'expérience vous plaît, vous passez à Home Assistant. Vous apprenez ici à créer des règles qui font réagir plusieurs appareils entre eux. Deux chemins sont possibles.
 
-**Option A — Raspberry Pi 5 + dongle :**
-- Raspberry Pi 5 4 Go + alimentation 27 W + carte microSD 32 Go.
-- Dongle Zigbee **SONOFF ZBDongle-E**.
-- [Guide installation ici](/domotique/home-assistant-raspberry-pi-5-installation/).
+**Option A : un Raspberry Pi 5 avec une clé Zigbee.**
+- Un Raspberry Pi 5 de 4 Go, une alimentation de 27 watts et une carte microSD de 32 Go (la carte mémoire de l'ordinateur).
+- La clé Zigbee **SONOFF ZBDongle-E**.
+- Le [guide d'installation](/domotique/home-assistant-raspberry-pi-5-installation/) vous accompagne pas à pas.
 
-**Option B — Home Assistant Green (seul, ou avec dongle Zigbee + capteurs) :**
-- Box tout-en-un, processeur ARM, Home Assistant OS préinstallé.
-- [Comparatif Green vs Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/).
+**Option B : le Home Assistant Green**, seul ou avec une clé Zigbee et des capteurs.
+- Un boîtier tout-en-un, avec Home Assistant OS (le système de Home Assistant) déjà installé.
+- Notre [comparatif Green contre Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) vous aide à trancher.
 
-*Liens Amazon : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21), [Home Assistant Green](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21).*
+*Liens Amazon : [Raspberry Pi 5 de 4 Go](https://www.amazon.fr/s?k=raspberry+pi+5+4gb&tag=manuso06-21), [SONOFF ZBDongle-E](https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21), [Home Assistant Green](https://www.amazon.fr/dp/B0CXVKSG19?tag=manuso06-21).*
 
-### Étape 3 : Premiers capteurs Zigbee
+### Étape 3 : brancher vos premiers capteurs Zigbee
 
-Avec Home Assistant + dongle Zigbee, on ajoute :
+Vous apprenez à mesurer ce qui se passe chez vous et à en tirer des automatisations simples. Avec Home Assistant et la clé Zigbee, vous pouvez ajouter :
 
-- **SONOFF SNZB-02D** : capteur température + humidité LCD. [Guide capteurs température](/domotique/capteur-temperature-zigbee/).
-- **SONOFF SNZB-04P** : capteur ouverture porte/fenêtre.
-- **NOUS A1Z** : prise Zigbee avec mesure de consommation. [Guide prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/).
+- le **SONOFF SNZB-02D**, un capteur de température et d'humidité avec petit écran : voir notre [guide des capteurs de température](/domotique/capteur-temperature-zigbee/) ;
+- le **SONOFF SNZB-04P**, un capteur qui détecte l'ouverture d'une porte ou d'une fenêtre ;
+- la **NOUS A1Z**, une prise Zigbee qui mesure la consommation : voir notre [guide des prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/).
 
-*Liens Amazon : [SONOFF SNZB-02D](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21).*
+*Lien Amazon : [SONOFF SNZB-02D](https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21).*
 
-**Exemple d'automatisation :**
+**Un exemple de règle :** allumer le radiateur si la température passe sous 18 °C, entre 6 h et 22 h. Ce petit texte est écrit en YAML, un format qui permet de décrire une règle à la main. Vous pouvez aussi la construire avec l'éditeur visuel, sans écrire de code.
+
 ```yaml
 # Allumer le radiateur si température < 18 °C entre 6h et 22h
 automation:
@@ -150,67 +177,74 @@ automation:
           entity_id: switch.nous_a1z_radiateur
 ```
 
-### Étape 4 : Élargir selon ses besoins
+### Étape 4 : élargir selon vos besoins
 
-Une fois la base posée, on peut ajouter :
+Une fois la base posée, vous apprenez à compléter votre installation pièce par pièce. Voici des idées :
 
-- **Têtes thermostatiques Zigbee** (SONOFF TRVZB, tado X) : économiser le chauffage pièce par pièce.
-- **Détecteur de présence** (SNZB-03P PIR, Aqara FP2 mmWave) : allumer automatiquement.
-- **Robot aspirateur compatible HA** (Roborock, Dreame) : programmer selon présence. [Robots moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/).
-- **Autres robots autonomes de la maison** : la logique est la même pour la tondeuse robot ou les [robots de piscine](https://piscinebot.fr/meilleur-robot-piscine/), que l'on programme sur des créneaux où personne n'est dans le jardin ou dans l'eau.
-- **Capteurs DIY ESP32 + ESPHome** : température, CO2, relais custom. [Projets ESP32](/domotique/projets-esp32-domotique/).
+- **Des têtes thermostatiques Zigbee** (SONOFF TRVZB, tado X) : de petites vannes qui se vissent sur le radiateur, pour chauffer pièce par pièce et économiser.
+- **Un détecteur de présence** (SNZB-03P à infrarouge, Aqara FP2 à ondes radio) : pour allumer la lumière automatiquement quand quelqu'un arrive.
+- **Un robot aspirateur compatible avec Home Assistant** (Roborock, Dreame) : pour le lancer quand personne n'est à la maison. Voir nos [robots à moins de 200 euros](/domotique/robot-aspirateur-moins-de-200-euros/).
+- **D'autres robots autonomes** : la logique est la même pour la tondeuse robot ou les [robots de piscine](https://piscinebot.fr/meilleur-robot-piscine/), que l'on programme sur des créneaux où personne n'est dans le jardin ou dans l'eau.
+- **Des capteurs fabriqués vous-même** avec une carte ESP32 et ESPHome : température, CO₂, relais sur mesure. Voir nos [projets ESP32](/domotique/projets-esp32-domotique/).
 
 ## Les erreurs classiques à éviter
 
-1. **Acheter sans plan** : lister les pièces et les automatisations qu'on veut avant d'acheter.
-2. **Mélanger trop de marques Wi-Fi** : on se retrouve avec 5 apps différentes. Privilégier une seule gamme ou passer à Zigbee.
-3. **Oublier les répéteurs Zigbee** : les prises Zigbee font répéteur. En mettre une tous les 10 m pour un réseau stable.
-4. **Ignorer la sécurité** : utiliser des mots de passe forts, ne pas exposer Home Assistant sur Internet sans VPN.
+Avant de commencer, listez les pièces de la maison que vous voulez équiper et les automatisations qui vous intéressent : acheter sans plan est l'erreur la plus courante.
+
+Évitez aussi de mélanger trop de marques Wi-Fi, car vous vous retrouverez avec cinq applications différentes. Choisissez une seule gamme, ou passez à Zigbee.
+
+Pensez aux relais Zigbee : les prises Zigbee relaient le signal des autres appareils, et il est utile d'en placer une tous les dix mètres environ pour un réseau stable.
+
+Enfin, ne négligez pas la sécurité : mots de passe solides, et surtout pas de Home Assistant exposé sur Internet sans réseau privé virtuel (VPN, une connexion chiffrée vers votre maison).
 
 ## Récapitulatif par niveau
 
-| Niveau | Matériel | Ce qu'on peut faire |
-|--------|----------|---------------------|
-| **Débutant Wi-Fi** | 2 prises Tapo P110 + 1 ampoule L530E | Pilotage app, horaires |
-| **Zigbee + Pi 5** | Pi 5 4 Go + ZBDongle-E + 3 capteurs SONOFF | Automatisations locales, température, présence |
-| **Clé en main** | HA Green + ZBT-2 + 3 capteurs | Idem, zéro config système |
-| **Avancé** | Pi 5 + Zigbee + 10 capteurs + robot aspirateur + ESP32 | Maison complète, DIY |
+| Votre niveau | Le matériel | Ce que vous pouvez faire |
+|---|---|---|
+| **Débutant en Wi-Fi** | Deux prises Tapo P110 et une ampoule L530E | Commander depuis l'application et programmer des horaires |
+| **Zigbee avec Raspberry Pi 5** | Un Raspberry Pi 5 de 4 Go, une clé ZBDongle-E et trois capteurs SONOFF | Des automatisations qui restent chez vous : température, présence |
+| **Clé en main** | Un Home Assistant Green, une clé ZBT-2 et trois capteurs | Les mêmes automatisations, sans installer de système |
+| **Avancé** | Un Raspberry Pi 5, du Zigbee, une dizaine de capteurs, un robot aspirateur et des cartes ESP32 | Une maison complète, avec une part de bricolage |
 
-*Prix : à vérifier chez le vendeur. Commissions Amazon catégorie Maison environ 3 %.*
+Les prix évoluent selon les boutiques : à vérifier chez le vendeur.
 
 <div class="shelly-encart">
 <p><strong>Module Shelly (Wi-Fi)</strong> — Pour un relais prêt à intégrer dans Home Assistant : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-1-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1 Gen4" data-placement="encart_debuter">module relais Shelly 1 Gen4 (Wi-Fi, compatible Home Assistant)</a>. Pour suivre aussi la puissance consommée par l'appareil piloté : <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr%2Fproducts%2Fshelly-1pm-gen4" rel="sponsored nofollow" target="_blank" data-merchant="Shelly" data-product="Shelly 1PM Gen4" data-placement="encart_debuter">Shelly 1PM Gen4 avec mesure de puissance</a>.</p>
 <p class="shelly-encart-note">Lien affilié : si vous achetez via ce lien, le site peut percevoir une commission, sans surcoût pour vous.</p>
 </div>
 
-## Pour aller plus loin
+## Pour continuer votre lecture
 
-- [Installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/)
-- [Meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/)
-- [Projets ESP32 pour la domotique](/domotique/projets-esp32-domotique/)
-- [Robot aspirateur moins de 200 €](/domotique/robot-aspirateur-moins-de-200-euros/)
+- Le [guide complet pour débuter en domotique](/domotique/debuter-en-domotique-guide-complet/), pour reprendre chaque étape en détail.
+- [Quelle box choisir](/domotique/quelle-box-domotique-choisir-debutant/), le [glossaire](/domotique/glossaire-domotique/) et les [premières automatisations](/domotique/premieres-automatisations-domotique/).
+- [Installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/).
+- [Choisir la meilleure clé Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/).
+- [Les projets ESP32 pour la domotique](/domotique/projets-esp32-domotique/).
+- Le [configurateur de projet](/domotique/configurateur-projet-domotique/) et le [tableau de compatibilité des appareils](/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/).
+- Les [robots aspirateurs à moins de 200 euros](/domotique/robot-aspirateur-moins-de-200-euros/).
 
+**À lire aussi** : la [caméra extérieure solaire ieGeek](/domotique/camera-surveillance-exterieure-solaire-iegeek/).
 
-**À lire aussi** : [caméra extérieure solaire ieGeek](/domotique/camera-surveillance-exterieure-solaire-iegeek/)
+<ParcoursDebutantNav lang="fr" frSlug="debuter-domotique-par-ou-commencer" position="bottom" />
 
 ## FAQ
 
-**Combien de temps pour installer Home Assistant ?**
-1 heure avec le Raspberry Pi Imager (image HAOS, carte microSD, brancher le dongle Zigbee). 5 minutes avec Home Assistant Green (brancher, naviguer vers homeassistant.local:8123).
+**Combien de temps faut-il pour installer Home Assistant ?**
+Environ une heure avec un Raspberry Pi : on prépare la carte mémoire avec le logiciel gratuit Raspberry Pi Imager, on l'insère dans le Pi, on branche la clé Zigbee, puis on suit l'assistant. Avec un Home Assistant Green, comptez quelques minutes : on le branche, puis on ouvre l'adresse homeassistant.local:8123 dans un navigateur.
 
-**Mes objets connectés actuels sont compatibles ?**
-Si Wi-Fi et cloud fabricant, probablement non directement dans HA. Chercher « [marque] home assistant » pour voir si une intégration existe. Sinon, les garder dans leur app et acheter du Zigbee pour le nouveau.
+**Mes objets connectés actuels sont-ils compatibles ?**
+S'ils fonctionnent en Wi-Fi et dépendent des serveurs de leur fabricant, ils ne seront probablement pas reconnus directement par Home Assistant. Cherchez le nom de la marque suivi de « home assistant » pour voir si une intégration existe. Sinon, gardez-les dans leur application et choisissez du Zigbee pour les nouveaux appareils.
 
-**Je peux tout faire depuis mon téléphone ?**
-Oui, Home Assistant a une app iOS et Android. On peut aussi utiliser l'interface web depuis n'importe quel navigateur.
+**Puis-je tout faire depuis mon téléphone ?**
+Oui. Home Assistant propose une application pour iPhone et pour Android, et vous pouvez aussi utiliser son interface dans le navigateur de n'importe quel ordinateur.
 
 ---
 
-*Affiliation : cet article contient des liens affiliés Amazon (tag manuso06-21). Nous touchons une petite commission (environ 3 % en catégorie Maison) si vous achetez via ces liens, sans surcoût pour vous. Les prix et disponibilités sont relevés en octobre 2026 et peuvent varier.*
+*Affiliation : cette page contient des liens affiliés Amazon (identifiant manuso06-21). Si vous achetez par ces liens, nous touchons une petite commission, d'environ 3 % en catégorie Maison, sans surcoût pour vous. Les prix et disponibilités changent : vérifiez-les chez le vendeur. Auteur : Emmanuel Sauvage.*
 
-## Projets DIY pour se lancer
+## Projets pour se lancer en bricolant
 
-- [Capteur CO2 sur Raspberry Pi](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)
+- [Capteur de CO₂ sur Raspberry Pi](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)
 - [Capteur d'ouverture de porte avec notification](/domotique/raspberry-pi-capteur-ouverture-porte-notification/)
 - [Ouvrir sa porte de garage depuis son smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
 

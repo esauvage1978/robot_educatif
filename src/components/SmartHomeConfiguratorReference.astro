@@ -1,0 +1,75 @@
+---
+import { REFERENCE_SCHEMES, getReferenceScheme } from '../data/smartHomeWiringGuides.mjs';
+---
+
+<section class="shuc-ref" aria-labelledby="shuc-ref-title">
+	<h2 id="shuc-ref-title">Fiches de câblage de référence (schémas &amp; borniers)</h2>
+	<p>
+		Ces schémas complètent le configurateur ci-dessus : couleurs NFC 15-100, repérage borne par borne et rappels de
+		sécurité 230 V. Utilisez-les comme aide-mémoire sur chantier (VAT obligatoire).
+	</p>
+	{
+		REFERENCE_SCHEMES.map((id) => {
+			const ref = getReferenceScheme(id);
+			if (!ref) return null;
+			return (
+				<article class="shuc-ref-card" id={`shuc-ref-${id}`}>
+					<h3>{ref.title}</h3>
+					<div class="shuc-ref-svg" set:html={ref.svg} />
+					<table class="shuc-bornier">
+						<thead>
+							<tr>
+								<th scope="col">Borne du module</th>
+								<th scope="col">Fil à raccorder</th>
+								<th scope="col">Rôle &amp; vérification multimètre</th>
+							</tr>
+						</thead>
+						<tbody>
+							{ref.bornier.map((row) => (
+								<tr>
+									<td>
+										<code>{row.terminal}</code>
+									</td>
+									<td>{row.wire}</td>
+									<td>{row.role}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</article>
+			);
+		})
+	}
+</section>
+
+<style is:global>
+	.shuc-ref {
+		margin: 2.5rem 0 1rem;
+		padding-top: 1.5rem;
+		border-top: 2px solid var(--surface-border);
+	}
+	.shuc-ref h2 {
+		font-size: 1.35rem;
+		margin: 0 0 0.75rem;
+	}
+	.shuc-ref-card {
+		margin: 2rem 0;
+		padding: 1.25rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	.shuc-ref-card h3 {
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
+	}
+	.shuc-ref-svg {
+		overflow-x: auto;
+		margin-bottom: 1rem;
+	}
+	.shuc-ref-svg svg {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+</style>

@@ -1,0 +1,63 @@
+---
+title: Flash an ESP32 with ESPHome (USB, boot)
+description: "First ESP32-C6 flash with ESPHome: USB cable, CP210x/CH340 drivers, ESPHome Web, boot mode and fixes. Parts list, GPIO wiring, ESPHome YAML and Home Assist"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+lang: "en"
+frSlug: "flasher-code-esp32-esphome"
+---
+
+**Flashing** an ESP32 board means writing its program into its memory for the first time. This first write must go through a USB cable, because a brand-new board knows neither your Wi-Fi network nor ESPHome, the software that prepares that program from a configuration file called YAML (a plain text that describes what the board must do). After that, every update goes over the network without a cable, which is called an [OTA update](/en/smart-home/esphome-ota-updates/). This tutorial walks you step by step through that first flash with an ESP32-C6 DevKitC-1, a small electronic board with Wi-Fi, from a Windows, macOS or Linux computer.
+
+**Expected result:** the board boots with your configuration, joins your 2.4 GHz Wi-Fi and shows up in Home Assistant. **Time:** 15 to 30 minutes. **Difficulty:** beginner.
+
+## What you need first
+
+- An ESP32 board (see [which ESP32 board to choose](/en/smart-home/which-esp32-board-for-smart-home/)) and a **USB-C data cable**: many “charge-only” cables carry no data, the top cause of a missing board.
+- ESPHome installed in Home Assistant ([install ESPHome](/en/smart-home/install-esphome-home-assistant/)) and a YAML file for the device.
+- A **Chrome or Edge** browser (Firefox and Safari do not support browser serial USB).
+
+## Step 1: plug in the board and install the driver if needed
+
+The ESP32-C6-DevKitC-1 has two USB-C ports. Use the one marked **UART**: it goes through a USB-to-serial chip (CP210x on the official board). The other, marked USB, is the microcontroller’s native port.
+
+On Windows 10 and 11, the driver usually installs by itself. If not, install Silicon Labs’ **CP210x** driver, or the **CH340** driver for boards using that chip. Check that a “COM” port appears in Device Manager under “Ports (COM & LPT)”. macOS often has the driver built in. On Linux, add your user to the `dialout` group (`sudo usermod -a -G dialout $USER`) and log in again.
+
+**Check:** unplug and replug the board; a line appears and disappears in the port list.
+
+## Step 2: generate the flash file
+
+In ESPHome Device Builder, on your device’s card, open the **⋮ → Install** menu, then **Manual download**. When compilation ends (a few minutes the first time), choose **Factory format** and save the `.bin` file.
+
+If Home Assistant is open over HTTPS and the board is plugged into the computer showing the page, the **Plug into the computer running ESPHome Dashboard** option skips the download. It does not work on a plain-HTTP local address.
+
+## Step 3: flash with ESPHome Web
+
+1. Open [web.esphome.io](https://web.esphome.io/) in Chrome or Edge.
+2. Click **Connect**, then pick the board’s port (for example “USB JTAG/serial” or “CP210x”).
+3. Click **Install**, select the downloaded `.bin` file and confirm.
+4. Wait for the write to finish: the page shows progress, then a success message.
+
+**If the connection fails:** put the board in download mode. Hold the **BOOT** button, tap **RESET** (or EN), then release BOOT, and try again.
+
+## Step 4: check that everything works
+
+In ESPHome Web, open **Logs** after installing: the startup lines should show the Wi-Fi connection then the IP address. In Home Assistant, open **Settings → Devices & services**: the ESPHome device appears among discovered devices. Click **Configure** and enter the API encryption key from your YAML.
+
+## Common problems
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| No port in the list | Charge-only cable or wrong USB port | Change cable, use the UART port |
+| “Failed to connect” | Board not in download mode | Hold BOOT, tap RESET, release BOOT |
+| Write interrupted | Unreliable cable or USB hub | Plug straight into the computer |
+| Board reboots in a loop | Invalid config or reserved pin | Read the logs; see [GPIO wiring basics](/en/smart-home/esp32-wiring-gpio-basics/) |
+| No Wi-Fi connection | 5 GHz-only network or wrong password | Use 2.4 GHz, check `secrets.yaml` |
+
+## What next?
+
+Put it into practice with a [step-by-step ESP32 project](/en/smart-home/esp32-smart-home-project-ideas/) or the complete [temperature sensor guide](/en/smart-home/esp32-esphome-temperature-sensor/). Official documentation: [ESPHome Web](https://web.esphome.io/) and the [ESPHome getting-started guide](https://esphome.io/guides/getting_started_hassio/).
+
+<small>Updated on 30 October 2026. ESPHome and Home Assistant menu names change: check them on your version.</small>

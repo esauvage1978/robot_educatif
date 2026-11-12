@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Cycle d'exécution d'un sketch Arduino</title>
+  <desc id="desc">setup une fois puis loop avec lecture capteurs et action sur les sorties</desc>
+  <rect width="720" height="320" fill="#f8fafc"/>
+  <text x="360" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#0f172a">Sketch Arduino : setup() puis loop()</text>
+  <rect x="40" y="70" width="140" height="56" rx="8" fill="#0d9488" stroke="#0f766e"/>
+  <text x="110" y="104" text-anchor="middle" font-family="monospace" font-size="15" fill="#fff">setup()</text>
+  <text x="110" y="148" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">une seule fois au démarrage</text>
+  <path d="M180 98h40" stroke="#64748b" marker-end="url(#arr)"/>
+  <rect x="220" y="70" width="160" height="56" rx="8" fill="#2563eb" stroke="#1d4ed8"/>
+  <text x="300" y="104" text-anchor="middle" font-family="monospace" font-size="15" fill="#fff">loop()</text>
+  <text x="300" y="148" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">répété sans fin</text>
+  <path d="M380 98h40" stroke="#64748b" marker-end="url(#arr)"/>
+  <rect x="420" y="55" width="120" height="46" rx="6" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="480" y="84" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Entrées</text>
+  <text x="480" y="118" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">digitalRead, analogRead</text>
+  <rect x="420" y="130" width="120" height="46" rx="6" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="480" y="159" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#334155">Sorties</text>
+  <text x="480" y="193" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748b">digitalWrite, PWM</text>
+  <path d="M540 125 C580 125 580 220 300 220 C220 220 220 126 220 126" fill="none" stroke="#64748b" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="360" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#475569">retour vers loop()  pas de sortie normale du programme</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

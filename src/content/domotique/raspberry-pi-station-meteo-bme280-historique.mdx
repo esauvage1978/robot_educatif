@@ -1,12 +1,12 @@
 ---
 title: "Station météo Raspberry Pi avec BME280 et historique SQLite : tuto + code"
-description: "Construire une station météo intérieure ou abritée avec un BME280 sur Raspberry Pi 4 ou 5 : câblage I2C, code Python complet, historique SQLite, résumé quotidien et export CSV."
+description: "Construire une station météo intérieure ou abritée avec un BME280 sur Raspberry Pi 4 ou 5 : câblage I2C, code Python complet, historique SQLite, résumé quotidien et export CSV (option MQTT vers Home Assistant)."
 pubDate: 2026-10-19T00:00:00Z
 category: "home-assistant"
 priority: 6
 ---
 
-Le **BME280** mesure température, humidité et pression atmosphérique. Avec un Raspberry Pi, il devient une petite station météo qui **garde l'historique** dans une base SQLite : vous pouvez ensuite consulter les minimums et maximums de chaque jour, ou exporter les données en CSV pour un tableur. La pression qui baisse vite reste un bon indice d'arrivée de dégradation.
+Le **BME280** mesure température, humidité et pression atmosphérique sur le bus **I2C** (deux fils de données plus l'alimentation). Avec un Raspberry Pi, il devient une petite station météo qui **garde l'historique** dans une base SQLite : vous pouvez ensuite consulter les minimums et maximums de chaque jour, ou exporter les données en CSV pour un tableur. La pression qui baisse vite reste un bon indice d'arrivée de dégradation. Ce projet complète les autres tutoriels de la [rubrique domotique](/domotique/) sur le même Pi ([capteur de dioxyde de carbone SCD41](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/), [capteur de porte](/domotique/raspberry-pi-capteur-ouverture-porte-notification/)).
 
 ## Objectif
 
@@ -16,9 +16,21 @@ Le **BME280** mesure température, humidité et pression atmosphérique. Avec un
 
 ## Durée, niveau et budget
 
-| Durée | Niveau | Budget |
-|---|---|---|
-| 1 h | débutant à intermédiaire | le BME280 en module générique est l'un des capteurs I2C les plus abordables (prix à vérifier sur le lien) ; aucun abonnement, les données restent chez vous |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val">1 h</span></td>
+<td data-label="Niveau"><span class="td-val">débutant à intermédiaire</span></td>
+<td data-label="Budget"><span class="td-val">le BME280 en module générique est l'un des capteurs I2C les plus abordables (prix à vérifier sur le lien) ; aucun abonnement, les données restent chez vous</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
 
@@ -36,17 +48,41 @@ Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. 
 ## Matériel
 
 - Raspberry Pi 4 ou 5, Raspberry Pi OS Bookworm.
-- Un module **BME280** en I2C (<a href="https://www.amazon.fr/s?k=BME280+module+I2C&tag=manuso06-21" rel="sponsored nofollow" target="_blank">modules BME280 sur Amazon</a>). Attention : des modules « BMP280 » sans humidité sont parfois vendus sous le même nom ; le BMP280 ne fonctionnera pas avec ce code.
+- Un module **BME280** en I2C (<a href="/go/az-fr-8ce29a42b6/" rel="sponsored nofollow noopener" target="_blank">modules BME280 sur Amazon</a>, lien affilié). Attention : des modules « BMP280 » sans humidité sont parfois vendus sous le même nom ; le BMP280 ne fonctionnera pas avec ce code.
 - 4 fils Dupont. Pour une mesure extérieure, un abri ventilé à l'ombre.
 
 ## Câblage
 
-| Module BME280 | Raspberry Pi (broche physique) | Rôle |
-|---|---|---|
-| VIN (ou VCC) | broche 1 (3V3) | alimentation 3,3 V |
-| GND | broche 6 (GND) | masse |
-| SDA (ou SDI) | broche 3 (GPIO2 / SDA1) | données I2C |
-| SCL (ou SCK) | broche 5 (GPIO3 / SCL1) | horloge I2C |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Module BME280</th>
+<th scope="col">Raspberry Pi (broche physique)</th>
+<th scope="col">Rôle</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Module BME280"><span class="td-val">VIN (ou VCC)</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 1 (3V3)</span></td>
+<td data-label="Rôle"><span class="td-val">alimentation 3,3 V</span></td>
+</tr>
+<tr>
+<td data-label="Module BME280"><span class="td-val">GND</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 6 (GND)</span></td>
+<td data-label="Rôle"><span class="td-val">masse</span></td>
+</tr>
+<tr>
+<td data-label="Module BME280"><span class="td-val">SDA (ou SDI)</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 3 (GPIO2 / SDA1)</span></td>
+<td data-label="Rôle"><span class="td-val">données I2C</span></td>
+</tr>
+<tr>
+<td data-label="Module BME280"><span class="td-val">SCL (ou SCK)</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 5 (GPIO3 / SCL1)</span></td>
+<td data-label="Rôle"><span class="td-val">horloge I2C</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 L'adresse I2C est **0x77** par défaut chez Adafruit, mais beaucoup de modules génériques sont en **0x76**. `i2cdetect` vous le dira.
 
@@ -69,6 +105,22 @@ i2cdetect -y 1
 ```
 
 Vous devez voir **76** ou **77**. Si c'est 76, lancez le script avec `BME280_ADDR=0x76`.
+
+**Résultat attendu** (extrait typique de `i2cdetect -y 1` quand le câblage est bon) :
+
+```text
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- 76
+```
+
+Au premier lancement du script, la console affiche une ligne du type `2026-11-04 14:05:00 | T=21.3°C H=48% P=1013.2 hPa` toutes les cinq minutes.
 
 ```bash
 pip install adafruit-circuitpython-bme280
@@ -235,6 +287,20 @@ Un résultat nettement négatif indique une pression qui chute ; positif, qu'ell
 - **`database is locked`** : ne lancez pas deux enregistreurs sur la même base.
 - **Carte SD** : une écriture toutes les 5 minutes reste très modérée ; évitez de descendre sous la minute.
 
+## Questions fréquentes
+
+### BME280 ou capteur météo Zigbee ?
+
+Le filaire sur I2C convient si le Pi est déjà sur place ; le Zigbee évite un câble mais demande une [intégration Zigbee](/domotique/home-assistant-zigbee2mqtt-ou-zha/) stable. Les deux peuvent coexister dans Home Assistant.
+
+### Peut-on publier les mesures dans Home Assistant ?
+
+Oui, en ajoutant vous-même une publication MQTT (comme sur le [capteur CO2](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/)) : ce tutoriel se concentre d'abord sur SQLite local ; MQTT reste un prolongement optionnel une fois la base qui tourne.
+
+### Où placer le module pour des mesures fiables ?
+
+À l'abri du soleil direct, à plus de 10 cm du boîtier du Pi, idéalement dans un couloir ou une pièce de vie — pas dans un placard fermé. Pour sécuriser le serveur qui héberge la base, pensez au [secours électrique Home Assistant](/domotique/secours-electrique-home-assistant-onduleur-station/).
+
 > **Comment ce code a été vérifié** : nous n'avons pas monté ce capteur nous-mêmes. Le script a été contrôlé (syntaxe, installation des dépendances dans un venv, exécution) avec un capteur et un broker MQTT simulés, et chaque broche, adresse et fonction a été vérifiée dans les documentations officielles citées en fin d'article. Si un détail diffère sur votre module, la section Dépannage vous aide à le trouver.
 
 ## Sources vérifiées
@@ -245,4 +311,4 @@ Un résultat nettement négatif indique une pression qui chute ; positif, qu'ell
 - Python, module sqlite3 : https://docs.python.org/3/library/sqlite3.html
 - Raspberry Pi, configuration I2C : https://www.raspberrypi.com/documentation/computers/configuration.html
 
-À lire aussi : la version ESP32 de ce capteur, [capteur température ESP32 + ESPHome](/domotique/esp32-esphome-capteur-temperature/), et le [capteur CO2 SCD41 sur Raspberry Pi](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/).
+À lire aussi : la version ESP32 de ce capteur, [capteur température ESP32 + ESPHome](/domotique/esp32-esphome-capteur-temperature/), le [capteur CO2 SCD41 sur Raspberry Pi](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/) et [toute la rubrique domotique](/domotique/).

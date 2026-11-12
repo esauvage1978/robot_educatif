@@ -1,0 +1,197 @@
+---
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
+const ages = [
+	{
+		age: '6-8 ans',
+		titre: 'Premiers robots à coder',
+		texte: 'Blocs simples, montage rapide, robots solides.',
+		href: '/cadeau-robot-enfant-8-ans/',
+	},
+	{
+		age: '8-10 ans',
+		titre: 'Robots avec capteurs',
+		texte: 'Scratch, suivi de ligne, premiers défis.',
+		href: '/quel-robot-acheter-enfant-10-ans-guide-achat/',
+	},
+	{
+		age: '10-12 ans',
+		titre: 'Kits à construire',
+		texte: 'Passage vers Python et Arduino.',
+		href: '/quel-robot-acheter-enfant-12-ans-guide-achat/',
+	},
+	{
+		age: 'Ado',
+		titre: 'Cadeaux geek et makers',
+		texte: 'Raspberry Pi, Arduino, projets plus ambitieux.',
+		href: '/cadeau-geek-ado-programmation/',
+	},
+];
+---
+
+<section class="fetes26" aria-labelledby="fetes26-t">
+	<div class="fetes26-head">
+		<h2 id="fetes26-t">Black Friday et Noël 2026 : nos sélections par âge</h2>
+		{
+			!compact && (
+				<p>
+					Pour comparer avant les promos de fin novembre et trouver le bon cadeau sans se tromper d’âge. Les prix bougent beaucoup à cette période : vérifiez toujours le tarif affiché chez le marchand au moment de commander.
+				</p>
+			)
+		}
+	</div>
+	<ul class="fetes26-grid">
+		{
+			ages.map((item) => (
+				<li>
+					<a href={withBase(item.href)}>
+						<span class="fetes26-age">{item.age}</span>
+						<strong>{item.titre}</strong>
+						<small>{item.texte}</small>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<a class="fetes26-home" href={withBase('/domotique/')}>
+		<span class="fetes26-age fetes26-age--home">Maison</span>
+		<span class="fetes26-home-copy">
+			<strong>Domotique et maison connectée</strong>
+			<small>Box, capteurs Zigbee, robots aspirateurs.</small>
+		</span>
+		<em>Voir les guides</em>
+	</a>
+	<p class="fetes26-all">
+		<a href={withBase('/robot-educatif-cadeau-noel-2026/')}>Voir le guide cadeaux Noël 2026 complet →</a>
+	</p>
+</section>
+
+<style>
+	.fetes26 {
+		max-width: 1320px;
+		margin: 2rem auto;
+		padding: 1.5rem clamp(1rem, 3vw, 1.75rem) 1.35rem;
+		border-radius: 16px;
+		background: linear-gradient(135deg, #fff4e6, #fdecec);
+		color: #1f2430;
+		box-sizing: border-box;
+	}
+	.fetes26 h2 {
+		margin: 0 0 0.4rem;
+		font-size: clamp(1.25rem, 2vw, 1.55rem);
+		line-height: 1.25;
+		color: #1f2430;
+	}
+	.fetes26-head p {
+		margin: 0 0 1.1rem;
+		color: #4a5160;
+		max-width: 46rem;
+	}
+	.fetes26-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 0.8rem;
+	}
+	.fetes26-grid a,
+	.fetes26-home {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.35rem;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 1rem 1rem 1.05rem;
+		border-radius: 12px;
+		background: #fff;
+		color: #1f2430;
+		text-decoration: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	}
+	.fetes26-grid a:hover,
+	.fetes26-home:hover {
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	}
+	.fetes26-age {
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: #fff;
+		background: #c0392b;
+		padding: 0.12rem 0.55rem;
+		border-radius: 99px;
+		line-height: 1.3;
+	}
+	.fetes26-age--home {
+		background: #0f766e;
+		flex: none;
+	}
+	.fetes26-grid strong,
+	.fetes26-home strong {
+		font-size: 1.02rem;
+		line-height: 1.3;
+		color: #1f2430;
+	}
+	.fetes26-grid small,
+	.fetes26-home small {
+		color: #5b6470;
+		line-height: 1.4;
+	}
+	.fetes26-home {
+		flex-direction: row;
+		align-items: center;
+		gap: 0.9rem;
+		margin-top: 0.8rem;
+		border-top: 3px solid #0f766e;
+	}
+	.fetes26-home-copy {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		min-width: 0;
+		flex: 1;
+	}
+	.fetes26-home em {
+		flex: none;
+		font-style: normal;
+		font-weight: 700;
+		color: #0f766e;
+	}
+	.fetes26-all {
+		margin: 1rem 0 0;
+		font-weight: 600;
+	}
+	.fetes26-all a {
+		color: #b03a2e;
+	}
+	@media (max-width: 900px) {
+		.fetes26-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 640px) {
+		.fetes26 {
+			margin: 1.2rem 0.8rem;
+			padding: 1rem;
+		}
+		.fetes26 h2 {
+			font-size: 1.2rem;
+		}
+		.fetes26-grid {
+			grid-template-columns: 1fr;
+		}
+		.fetes26-home {
+			flex-wrap: wrap;
+		}
+		.fetes26-home em {
+			width: 100%;
+		}
+	}
+</style>

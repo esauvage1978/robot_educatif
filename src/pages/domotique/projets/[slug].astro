@@ -1,0 +1,60 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import SmartHomeProjectDetail from '../../../components/SmartHomeProjectDetail.astro';
+import {
+	PROJECT_SLUGS,
+	SLUG_TO_USE_CASE_ID,
+	projectPagePath,
+} from '../../../data/smartHomeProjectSlugs.mjs';
+import { getProjectPageContent } from '../../../data/smartHomeProjectContent.mjs';
+import { USE_CASES } from '../../../data/smartHomeUseCaseConfigurator.mjs';
+import { withBase } from '../../../lib/siteUrl';
+import { buildSmartHomeProjectSeoTitle } from '../../../lib/pageTitle';
+import { projectMetaDescriptionForSlug } from '../../../lib/projectMetaDescription';
+
+export function getStaticPaths() {
+	return PROJECT_SLUGS.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const useCaseId = SLUG_TO_USE_CASE_ID[slug ?? ''];
+const useCase = USE_CASES.find((u) => u.id === useCaseId);
+const content = useCaseId ? getProjectPageContent(useCaseId) : null;
+
+if (!useCase || !content || !slug) {
+	return Astro.redirect(withBase('/404'));
+}
+
+const articlePath = projectPagePath(slug);
+const articleUrl = `https://robot-educatif.info${articlePath}`;
+const pubDate = new Date('2026-10-28T00:00:00Z');
+
+const breadcrumbItems = [
+	{ name: 'Accueil', url: withBase('/') },
+	{ name: 'Domotique', url: withBase('/domotique/') },
+	{ name: 'Projets domotiques', url: withBase('/domotique/configurateur-projet-domotique/') },
+	{ name: useCase.title, url: withBase(articlePath) },
+];
+const seoTitle = buildSmartHomeProjectSeoTitle(useCase.title);
+const pageDescription = projectMetaDescriptionForSlug(slug, useCase.shortDesc, articlePath);
+---
+
+<DomotiqueToolLayout
+	title={seoTitle}
+	description={pageDescription}
+	lang="fr"
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Domotique"
+	repairGuide={true}
+	contentProvidesH1={true}
+	skipDefaultBreadcrumb={true}
+	breadcrumbItems={breadcrumbItems}
+>
+	<SmartHomeProjectDetail
+		useCase={useCase}
+		content={content}
+		slug={slug}
+		articleUrl={articleUrl}
+	/>
+</DomotiqueToolLayout>

@@ -1,9 +1,9 @@
 ---
 title: "Python — lire et écrire des fichiers texte"
-description: "Fichiers Python : open, with, modes r/w/a, encoding utf-8. 20 exercices avec solutions."
+description: "Lire et écrire un fichier texte en Python : open, with, modes r, w et a, encodage utf-8. Vingt exercices corrigés pour s’entraîner sur de vrais fichiers."
 pubDate: 2026-03-28
-updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
+updatedDate: 2026-11-02
+heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
 series: Python
 seriesOrder: 8
 tags: ["Python", "Programmation"]
@@ -18,6 +18,14 @@ categories:
   - "Fichiers"
   - "Intermédiaire"
 ---
+> **Réponse directe (novembre 2026)** — Ouvrez un fichier texte en Python avec `open(chemin, "r", encoding="utf-8")`, lisez via `.read()` ou une boucle sur le fichier, puis **fermez** ou utilisez `with open(...) as f:` pour éviter les fuites de descripteur.
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python/">Parcours Python</a> · Leçon 8 — fichiers</nav>
+
+Cette leçon fait partie du [parcours Python débutant](/programmation/python/) (variables, boucles, listes, fonctions). Prérequis : [listes et chaînes](/python-listes-et-chaines/). Suite : [erreurs et débogage](/python-erreurs-debogage/).
+
+![Exemple de fichier texte ouvert dans un éditeur — illustration pédagogique](/images/illustrations/python-fichiers-texte.webp)
+
 Les **fichiers** permettent de **conserver** des données entre deux exécutions du programme (scores, préférences, journaux). En Python, on ouvre un fichier avec **`open`**, mais la forme recommandée est le bloc **`with`** : le fichier est **fermé automatiquement**, même si une erreur survient au milieu.
 
 ## 1. Où se trouve le fichier ?
@@ -312,8 +320,8 @@ with open("resume.txt", "w", encoding="utf-8") as f:
 
 ## Suite du parcours
 
-Gérer proprement les **erreurs** ([leçon 9](/python-erreurs-debogage/)) évite que ton programme plante brutalement si un fichier manque ou si la conversion d’un nombre échoue.
+Gérer proprement les **erreurs** ([leçon 9](/python-erreurs-debogage/)) évite que ton programme plante brutalement si un fichier manque ou si la conversion d’un nombre échoue. Projet suivant dans la même série : [Carnet Todo](/programmation/carnet-todo/) ou [Bataille navale](/programmation/bataille-navale/).
 
-## Amazon (partenaire)
+## Ressource livre (partenaire)
 
-- [Python fichiers données CSV](https://www.amazon.fr/s?k=python+donn%C3%A9es+fichiers+livre&tag=manuso06-21)
+- [Livres Python données et fichiers sur Amazon.fr](https://www.amazon.fr/s?k=python+donn%C3%A9es+fichiers+livre&tag=manuso06-21)

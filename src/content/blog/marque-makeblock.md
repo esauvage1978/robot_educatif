@@ -1,6 +1,8 @@
 ---
-title: "Makeblock : notre avis sur la marque (mBot, mBot2, Codey Rocky, CyberPi)"
+title: "Makeblock : avis marque (mBot, mBot2, Codey Rocky)"
 description: "Makeblock vue par Robot Éducatif : nos guides et avis mBot, mBot2, Codey Rocky et CyberPi, la place de la marque dans nos comparatifs, points forts, limites, garantie et SAV en France."
+shareTitle: "Makeblock : notre avis sur la marque (mBot, mBot2, Codey Rocky, CyberPi)"
+shareDescription: "Makeblock vue par Robot Éducatif : nos guides et avis mBot, mBot2, Codey Rocky et CyberPi, la place de la marque dans nos comparatifs, points forts, limites, garantie et SAV en France."
 pubDate: "2026-10-23"
 updatedDate: "2026-10-23"
 categories:
@@ -14,7 +16,9 @@ relatedLinks:
   - title: "Toutes nos pages Marque"
     href: "/marques/"
 ---
-<p>Makeblock est la marque la plus présente sur Robot Éducatif : le mBot, le mBot2, le Codey Rocky et la carte CyberPi reviennent dans nos avis, nos tutoriels mBlock et la plupart de nos comparatifs. Voici notre avis sur la marque, les articles pour bien démarrer et ce qu’il faut savoir sur la garantie.</p>
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/marques/">Marques</a> · Makeblock</nav>
+
+<p>Makeblock est la marque la plus présente sur Robot Éducatif : le mBot, le mBot2, le Codey Rocky et la carte CyberPi reviennent dans nos avis, nos tutoriels mBlock et la plupart de nos comparatifs. Retrouvez aussi le hub <a href="/categorie/mbot/">activités mBot</a> et notre page <a href="/marques/">toutes les marques</a>. Voici notre avis sur Makeblock, les articles pour bien démarrer et ce qu’il faut savoir sur la garantie.</p>
 <h2 id="nos-avis-et-guides">Nos avis et guides Makeblock</h2>
 <ul>
 <li><a href="/mbot-avis-faut-il-acheter-pour-un-enfant/">mBot : faut-il l’acheter pour un enfant ?</a> : notre avis complet, budget, âge, limites.</li>
@@ -70,3 +74,4 @@ relatedLinks:
 <li><a href="/robot-pedagogique-ecole/">Choisir un robot pédagogique pour l’école</a></li>
 <li><a href="/mblock-vs-scratch-lequel-choisir/">mBlock ou Scratch ?</a></li>
 </ul>
+<p style="font-size:0.85rem;">Partage Pinterest (URL canonique) : <a href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Frobot-educatif.info%2Fmarque-makeblock%2F&amp;description=Makeblock+%3A+notre+avis+sur+la+marque+%28mBot%2C+mBot2%2C+Codey+Rocky%2C+CyberPi%29+-+Makeblock+vue+par+Robot+%C3%89ducatif+%3A+nos+guides+et+avis+mBot%2C+mBot2%2C+Codey+Rocky+et+CyberPi%2C+la+place+de+la+marque+dans+nos+comparatifs%2C+points+forts%2C+limites%2C+garantie+et+SAV+en+France.">Épingler sur Pinterest</a></p>

@@ -16,9 +16,21 @@ Un taux de CO2 élevé dans une pièce est le signe le plus simple d'un air mal 
 
 ## Durée, niveau et budget
 
-| Durée | Niveau | Budget |
-|---|---|---|
-| 1 h 30 (dont 30 min de configuration Home Assistant) | intermédiaire | un module SCD41 est nettement plus cher qu'un capteur de température : comparez les prix du moment sur les liens ci-dessous (à vérifier) ; le Raspberry Pi peut être celui qui fait déjà tourner Home Assistant |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val">1 h 30 (dont 30 min de configuration Home Assistant)</span></td>
+<td data-label="Niveau"><span class="td-val">intermédiaire</span></td>
+<td data-label="Budget"><span class="td-val">un module SCD41 est nettement plus cher qu'un capteur de température : comparez les prix du moment sur les liens ci-dessous (à vérifier) ; le Raspberry Pi peut être celui qui fait déjà tourner Home Assistant</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. Si vous possédez déjà le matériel, ce tutoriel ne demande aucun achat.
 
@@ -44,12 +56,36 @@ Aucun prix n'est indiqué ici car il varie : vérifiez-le au moment de l'achat. 
 
 Le SCD4x communique en I2C à l'adresse **0x62**. Les GPIO du Raspberry Pi sont en **3,3 V** : alimentez le module en 3,3 V (sur la carte Adafruit, la logique I2C reste en 3,3 V même si VIN est à 5 V, mais d'autres cartes n'ont pas ce circuit, donc le 3,3 V est le choix sûr).
 
-| Module SCD4x | Raspberry Pi (broche physique) | Rôle |
-|---|---|---|
-| VIN | broche 1 (3V3) | alimentation 3,3 V |
-| GND | broche 6 (GND) | masse |
-| SDA | broche 3 (GPIO2 / SDA1) | données I2C |
-| SCL | broche 5 (GPIO3 / SCL1) | horloge I2C |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Module SCD4x</th>
+<th scope="col">Raspberry Pi (broche physique)</th>
+<th scope="col">Rôle</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Module SCD4x"><span class="td-val">VIN</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 1 (3V3)</span></td>
+<td data-label="Rôle"><span class="td-val">alimentation 3,3 V</span></td>
+</tr>
+<tr>
+<td data-label="Module SCD4x"><span class="td-val">GND</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 6 (GND)</span></td>
+<td data-label="Rôle"><span class="td-val">masse</span></td>
+</tr>
+<tr>
+<td data-label="Module SCD4x"><span class="td-val">SDA</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 3 (GPIO2 / SDA1)</span></td>
+<td data-label="Rôle"><span class="td-val">données I2C</span></td>
+</tr>
+<tr>
+<td data-label="Module SCD4x"><span class="td-val">SCL</span></td>
+<td data-label="Raspberry Pi (broche physique)"><span class="td-val">broche 5 (GPIO3 / SCL1)</span></td>
+<td data-label="Rôle"><span class="td-val">horloge I2C</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Préparer le Raspberry Pi (commun à tous les tutoriels)
 

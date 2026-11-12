@@ -1,0 +1,51 @@
+---
+title: "Home Assistant, Jeedom, Homey or box of the trade: what brain for its smart home?"
+description: "Home Assistant, Jeedom, Homey Pro, Google Home, Alexa or Apple Home: local or cloud operation, supported protocols, difficulty and recommended profile."
+pubDate: 2026-10-23T00:00:00Z
+category: "debuter"
+priority: 4
+lang: "en"
+frSlug: "home-assistant-jeedom-homey-quel-systeme-choisir"
+---
+
+A smart home needs a **brain**: the software or device that receives information from sensors and triggers automations. The choice determines everything else: the usable protocols, the operation without the Internet, the daily difficulty. Here are the main options, according to their official documentation ([Home Assistant](https://www.home-assistant.io/installation/), [Jeedom](https://doc.jeedom.com/fr_FR/), [Homey Pro](https://homey.app/fr-fr/homey-pro/)).
+
+## The essentials in a picture
+
+| System | Type | Works without the Internet | Protocols in native | Difficulty | For whom |
+|---|---|---|---|---|---|
+| **Home Assistant** | free software (Apache 2.0 license) on Raspberry Pi, mini-PC or official case | yes | Wi-Fi, Matter; Zigbee, Z-Wave, Thread with radio key | Average | Someone who wants to drive everything locally. |
+| **Jeedom** | French software, GPL licensed core, official enclosures | yes | via plugins (including paid plugins) | Average | French-speaking user, ecosystem of plugins |
+| **Homey Pro** | All-in-One Box | Yes, for local appliances | Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, 433 MHz, Infrared | Low | who wants a ready-to-use case |
+| **Google Home / Alexa / Apple Home** | Voice Assistant Ecosystem | Partly | Wi-Fi, Matter, Thread according to speaker or box | very low | some sockets and bulbs, voice control |
+
+**Our best choice: Home Assistant**, on a case [Home Assistant Green or a Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/). It's free, local, and compatible with almost all brands. It's also the system we use in all our tutorials.
+
+## Home Assistant: The Most Open
+
+Home Assistant is an open source project supported by the company Nabu Casa. [Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/), a mini-PC or an official box (Green). The official website announces more than 1,500 integrations, from Philips Hue to [Robot Vacuums Roborock](/en/smart-home/robot-vacuum-home-assistant/). A USB dongle adds Zigbee or Thread ([which key to choose](/en/smart-home/best-zigbee-dongle-home-assistant/)).
+
+The flip side: you have to accept to get your hands on the configuration from time to time, and monthly updates require a little attention. Remote access is either through your own configuration or through the optional Home Assistant Cloud subscription.
+
+## Jeedom: the French alternative
+
+Jeedom is developed in France, with French-speaking documentation and community. The heart is free (GPL license) and installs on a Raspberry Pi or on the boxes sold by the publisher. The functions are added by **plugins**: many are free, some are paid on the Market Jeedom. Good choice if you prefer a French community and a plugin-based operation.
+
+## Homey Pro: the all-inclusive device
+
+Homey Pro brings together most home radios in a single box: Zigbee, Z-Wave, Thread, Matter, Wi-Fi, Bluetooth, but also 433 MHz and infrared for old devices. The application is neat and the automation is done by visual "Flows". It’s the least technical of local systems, but it’s proprietary hardware: you depend on published applications for Homey.
+
+We started testing the compact version: [Homey Pro mini, unpacking and installation](/en/smart-home/homey-pro-mini-unboxing-setup/).
+
+## Google Home, Alexa, Apple Home: practical but limited
+
+Voice assistants handle a few sockets, bulbs and thermostats very well, and they gradually open up to **Matter** (See our article on the [Protocols](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/)). For advanced automations or operation without the Internet, they quickly show their limits. They remain a good complement: Home Assistant can expose their devices for voice control.
+
+## How to decide
+
+1. **I just want to order a few lamps by the voice** A voice assistant is enough.
+2. **I want a home that works locally, without a subscription**: Home Assistant.
+3. **I want local but without configuration**: Homey Pro.
+4. **I prefer a community and plugins in French**: Jeedom.
+
+For the rest, our guide [Getting Started in Home Automation](/en/smart-home/getting-started/) offers a first equipment, and [Home automation for rent](/en/smart-home/smart-home-renters-no-drilling/) List what you can install without breaking through.

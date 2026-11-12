@@ -27,13 +27,41 @@ relatedLinks:
 
 ## 1. Tableau comparatif (synthèse)
 
-| | **mBot** | **Codey Rocky** |
-|---|----------|-----------------|
-| **Forme** | Châssis deux moteurs, kit à monter | Tête expressive + base mobile Rocky |
-| **Public souvent cité** | **8 ans et +** (vis, notice) | **6 ans et +** (moins de mécanique) |
-| **Premiers ateliers** | Ligne, obstacle, LED, ultrason | Émotions, écran, mini-jeux sur la « face » |
-| **Scratch / Python** | Oui via mBlock (selon version) | Oui via mBlock |
-| **Image en classe** | Très « atelier robotique » | Très « compagnon / démo oral » |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>mBot</strong></th>
+<th scope="col"><strong>Codey Rocky</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val"><strong>Forme</strong></span></td>
+<td data-label="**mBot**"><span class="td-val">Châssis deux moteurs, kit à monter</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Tête expressive + base mobile Rocky</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Public souvent cité</strong></span></td>
+<td data-label="**mBot**"><span class="td-val"><strong>8 ans et +</strong> (vis, notice)</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val"><strong>6 ans et +</strong> (moins de mécanique)</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Premiers ateliers</strong></span></td>
+<td data-label="**mBot**"><span class="td-val">Ligne, obstacle, LED, ultrason</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Émotions, écran, mini-jeux sur la « face »</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Scratch / Python</strong></span></td>
+<td data-label="**mBot**"><span class="td-val">Oui via mBlock (selon version)</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Oui via mBlock</span></td>
+</tr>
+<tr>
+<td><span class="td-val"><strong>Image en classe</strong></span></td>
+<td data-label="**mBot**"><span class="td-val">Très « atelier robotique »</span></td>
+<td data-label="**Codey Rocky**"><span class="td-val">Très « compagnon / démo oral »</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Choisir le mBot quand…
 

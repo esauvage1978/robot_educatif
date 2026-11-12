@@ -1,0 +1,250 @@
+---
+/** Bloc conversion « Matériel recommandé 2026–2027 » — au-dessus de la ligne de flottaison. */
+interface Props {
+	lang?: 'fr' | 'en' | 'uk' | 'ca' | 'us' | 'de' | 'it' | 'es';
+}
+
+const { lang = 'fr' } = Astro.props;
+
+const AWIN = '3126073';
+const aw = (mid: string, url: string) =>
+	`https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${AWIN}&ued=${encodeURIComponent(url)}`;
+
+type Row = { name: string; role: string; price: string; amzQ: string; extra?: { href: string; label: string } };
+
+const tags: Record<string, { host: string; tag: string; sym: string }> = {
+	fr: { host: 'www.amazon.fr', tag: 'manuso06-21', sym: '€' },
+	en: { host: 'www.amazon.com', tag: 'roboteducatif-20', sym: '$' },
+	uk: { host: 'www.amazon.co.uk', tag: 'roboteducatif-21', sym: '£' },
+	ca: { host: 'www.amazon.ca', tag: 'roboteducatif-20', sym: 'CA$' },
+	us: { host: 'www.amazon.com', tag: 'roboteducatif-20', sym: '$' },
+	de: { host: 'www.amazon.de', tag: 'roboteducat00-21', sym: '€' },
+	it: { host: 'www.amazon.it', tag: 'roboteducat0f-21', sym: '€' },
+	es: { host: 'www.amazon.es', tag: 'roboteducat07-21', sym: '€' },
+	nl: { host: 'www.amazon.nl', tag: 'manuso0607-21', sym: '€' },
+};
+
+const t = tags[lang] ?? tags.fr;
+const amz = (q: string) =>
+	`https://${t.host}/s?k=${encodeURIComponent(q)}&tag=${t.tag}`;
+
+const copy: Record<
+	string,
+	{ h2: string; lead: string; colProduct: string; colRole: string; colPrice: string; cta: string; note: string }
+> = {
+	fr: {
+		h2: '⚡ Matériel recommandé & Offres en stock (Édition 2026–2027)',
+		lead: 'Sélection testée pour Matter 1.6, Home Assistant et Zigbee — liens partenaires Amazon, Shelly, IMOU (Awin).',
+		colProduct: 'Produit',
+		colRole: 'Usage',
+		colPrice: 'Prix indicatif',
+		cta: 'Voir l’offre →',
+		note: 'Prix et stock à vérifier chez le marchand · liens affiliés.',
+	},
+	en: {
+		h2: '⚡ Recommended gear & in-stock deals (2026–2027 edition)',
+		lead: 'Matter 1.6, Home Assistant and Zigbee picks — Amazon, Shelly and IMOU partner links.',
+		colProduct: 'Product',
+		colRole: 'Role',
+		colPrice: 'Indicative price',
+		cta: 'Check deal →',
+		note: 'Verify price and stock at the merchant · affiliate links.',
+	},
+	uk: {
+		h2: '⚡ Recommended gear & in-stock deals (2026–2027 edition)',
+		lead: 'Matter 1.6, Home Assistant and Zigbee picks — Amazon UK, Shelly and IMOU partner links.',
+		colProduct: 'Product',
+		colRole: 'Role',
+		colPrice: 'Indicative price',
+		cta: 'View on Amazon →',
+		note: 'Verify price and stock · affiliate links.',
+	},
+	ca: {
+		h2: '⚡ Recommended gear & in-stock deals (2026–2027 edition)',
+		lead: 'Matter 1.6, Home Assistant and Zigbee picks — Amazon CA, Shelly and IMOU partner links.',
+		colProduct: 'Product',
+		colRole: 'Role',
+		colPrice: 'Indicative price',
+		cta: 'View on Amazon →',
+		note: 'Verify price and stock · affiliate links.',
+	},
+	de: {
+		h2: '⚡ Empfohlenes Material & Angebote (Edition 2026–2027)',
+		lead: 'Matter 1.6, Home Assistant, Zigbee — Partnerlinks Amazon, Shelly, IMOU (Awin).',
+		colProduct: 'Produkt',
+		colRole: 'Einsatz',
+		colPrice: 'Richtpreis',
+		cta: 'Angebot →',
+		note: 'Preise beim Händler prüfen · Affiliate-Links.',
+	},
+	it: {
+		h2: '⚡ Materiale consigliato e offerte (edizione 2026–2027)',
+		lead: 'Matter 1.6, Home Assistant, Zigbee — link partner Amazon, Shelly, IMOU.',
+		colProduct: 'Prodotto',
+		colRole: 'Uso',
+		colPrice: 'Prezzo indicativo',
+		cta: 'Vedi offerta →',
+		note: 'Verificare prezzi e stock · link affiliati.',
+	},
+	es: {
+		h2: '⚡ Material recomendado y ofertas (edición 2026–2027)',
+		lead: 'Matter 1.6, Home Assistant, Zigbee — enlaces Amazon, Shelly, IMOU (Awin).',
+		colProduct: 'Producto',
+		colRole: 'Uso',
+		colPrice: 'Precio orientativo',
+		cta: 'Ver oferta →',
+		note: 'Comprobar precio y stock · enlaces de afiliado.',
+	},
+};
+
+const c = copy[lang] ?? copy.fr;
+
+const shellyUrl =
+	lang === 'de'
+		? 'https://www.shelly.com/de'
+		: lang === 'it'
+			? 'https://www.shelly.com/it'
+			: lang === 'es'
+				? 'https://www.shelly.com/es'
+				: 'https://www.shelly.com/fr';
+
+const imouMid = { fr: '122426', en: '122426', uk: '122426', ca: '122426', de: '125816', it: '122428', es: '122426' }[lang] ?? '122426';
+const imouUrl = lang === 'de' ? 'https://store.imou.com/de-de/' : lang === 'it' ? 'https://store.imou.com/it-it' : 'https://store.imou.com/';
+const rows: Row[] = [
+	{
+		name: 'Home Assistant Green',
+		role: lang === 'fr' ? 'Box HA locale, SSD, faible conso' : 'Local HA hub, SSD, low power',
+		price: `≈ 110–125 ${t.sym}`,
+		amzQ: 'Home Assistant Green',
+	},
+	{
+		name: 'SONOFF ZBDongle-E Zigbee 3.0',
+		role: lang === 'fr' ? 'Coordinateur ZHA / Zigbee2MQTT' : 'ZHA / Zigbee2MQTT coordinator',
+		price: `≈ 28–35 ${t.sym}`,
+		amzQ: 'SONOFF ZBDongle-E Zigbee 3.0',
+	},
+	{
+		name: 'Aqara FP2 / capteurs mmWave',
+		role: lang === 'fr' ? 'Présence radar + PIR, éclairage & chauffage' : 'mmWave presence, lights & heating',
+		price: `≈ 45–90 ${t.sym}`,
+		amzQ: 'Aqara FP2 presence sensor mmWave',
+	},
+	{
+		name: 'Shelly Pro 2PM / Pro 3EM',
+		role: lang === 'fr' ? 'Rail DIN, mesure conso, volets' : 'DIN rail, energy metering',
+		price: `≈ 35–95 ${t.sym}`,
+		amzQ: 'Shelly Pro 2PM 3EM',
+		extra: { href: aw('114660', shellyUrl), label: 'Shelly →' },
+	},
+	{
+		name: 'Reolink 4K PoE / Wi-Fi',
+		role: lang === 'fr' ? 'Caméra IA locale, sans cloud payant' : 'Local AI camera, no paid cloud',
+		price: `≈ 80–180 ${t.sym}`,
+		amzQ: 'Reolink 4K PoE camera Home Assistant',
+	},
+	{
+		name: 'Nous A1Z / Tapo P110M Matter',
+		role: lang === 'fr' ? 'Prises Matter + mesure, mesh Zigbee' : 'Matter plugs + metering',
+		price: `≈ 18–35 ${t.sym}`,
+		amzQ: 'Tapo P110M Matter smart plug',
+	},
+	{
+		name: 'IMOU (Awin)',
+		role: lang === 'fr' ? 'Caméras IA locale, partenaire actif' : 'Local AI cameras (Awin partner)',
+		price: `≈ 40–120 ${t.sym}`,
+		amzQ: 'IMOU security camera',
+		extra: { href: aw(imouMid, imouUrl), label: 'IMOU →' },
+	},
+];
+---
+
+<section class="re-dom-gear-2027" aria-labelledby="re-dom-gear-2027-h">
+	<h2 id="re-dom-gear-2027-h">{c.h2}</h2>
+	<p class="re-dom-gear-lead">{c.lead}</p>
+	<div class="tableau empile">
+		<table>
+			<thead>
+				<tr>
+					<th>{c.colProduct}</th>
+					<th>{c.colRole}</th>
+					<th>{c.colPrice}</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{rows.map((row) => (
+					<tr>
+						<td data-label={c.colProduct}>
+							<span class="td-val">{row.name}</span>
+						</td>
+						<td data-label={c.colRole}>{row.role}</td>
+						<td data-label={c.colPrice}>
+							<span class="td-val">{row.price}</span>
+						</td>
+						<td data-label="">
+							<a
+								class="btn btn-action btn-sm"
+								href={row.extra?.href ?? amz(row.amzQ)}
+								target="_blank"
+								rel="sponsored nofollow noopener"
+								data-placement="domotique_gear_2027"
+							>
+								{row.extra && !row.extra.href.startsWith('https://www.amazon') ? row.extra.label : c.cta}
+							</a>
+							{row.extra && (
+								<a
+									class="btn btn-action btn-sm"
+									href={amz(row.amzQ)}
+									target="_blank"
+									rel="sponsored nofollow noopener"
+									style="margin-left:0.35rem"
+								>
+									Amazon
+								</a>
+							)}
+						</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</div>
+	<p class="re-dom-gear-note">{c.note}</p>
+	<p class="re-dom-gear-partners">
+		<a href={aw('11447', 'https://www.conrad.de/')} rel="sponsored nofollow noopener" target="_blank">Conrad</a>
+		{' · '}
+		<a href={aw('12513', 'https://www.elv.ch/')} rel="sponsored nofollow noopener" target="_blank">ELV CH</a>
+		{' · '}
+		<a href={aw('14040', 'https://www.mediamarkt.ch/')} rel="sponsored nofollow noopener" target="_blank">MediaMarkt CH</a>
+		{' · '}
+		<a href={aw('10951', 'https://www.geekbuying.com/')} rel="sponsored nofollow noopener" target="_blank">Geekbuying</a>
+	</p>
+</section>
+
+<style is:global>
+	.re-dom-gear-2027 {
+		margin: 0 0 1.75rem;
+		padding: 1.15rem 1.1rem;
+		border-radius: 14px;
+		border: 1px solid rgba(194, 65, 12, 0.35);
+		background: linear-gradient(135deg, rgba(194, 65, 12, 0.06), rgba(15, 118, 110, 0.06));
+	}
+	.re-dom-gear-2027 h2 {
+		font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+		margin: 0 0 0.45rem;
+		line-height: 1.3;
+	}
+	.re-dom-gear-lead {
+		margin: 0 0 1rem;
+		font-size: 0.92rem;
+		color: rgb(var(--gray-dark, 71 85 105));
+	}
+	.re-dom-gear-note,
+	.re-dom-gear-partners {
+		margin: 0.75rem 0 0;
+		font-size: 0.78rem;
+		opacity: 0.9;
+	}
+	.re-dom-gear-partners a {
+		font-weight: 600;
+	}
+</style>

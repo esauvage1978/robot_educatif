@@ -1,0 +1,672 @@
+---
+/**
+ * Gabarit d'une page projet ESP32 / ESPHome (data-driven : src/data/esp32Projects).
+ * Le H1 est rendu par DomotiqueToolLayout (title = project.locales[lang].title).
+ */
+import ProductBox from './ProductBox.astro';
+import StructuredDataFaq from './StructuredDataFaq.astro';
+import { amazonSearchUrl } from '../lib/amazonAffiliate.mjs';
+import { domotiquePath } from '../lib/domotiqueI18n.mjs';
+import { withBase } from '../lib/siteUrl';
+import { ESP32_HUB_PATHS, ESP32_TUTORIALS, listProjects, tutorialPath } from '../data/esp32Projects/index.mjs';
+import { AUTHOR, BOARD_BOX, PRODUCTS, PROJECTS_DATE } from '../data/esp32Projects/shared.mjs';
+import { BOARD_GUIDE_SLUG_FR, FULL_GUIDE_CTA, SOURCES, UI } from '../data/esp32Projects/ui.mjs';
+import { principleSvg, wiringSvg } from '../data/esp32Projects/wiring.mjs';
+
+interface Props {
+	project: any;
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+	articleUrl: string;
+}
+
+const { project, lang, articleUrl } = Astro.props;
+const ui = UI[lang];
+const loc = project.locales[lang];
+const board = PRODUCTS[project.productIds?.[0] ?? 'esp32-c6-devkitc'];
+const boardBox = BOARD_BOX[lang];
+
+const wiringCaption = `${ui.wiringTitle} : ${loc.h1}`;
+const principleCaption = `${ui.principleTitle} : ${loc.h1}`;
+const wiringMarkup = wiringSvg({
+	esp32Label: project.wiring.esp32Label ?? 'ESP32-C6 DevKitC-1',
+	sensorLabel: project.wiring.sensorName[lang],
+	pins: (project.wiring.pinsByLang?.[lang] ?? project.wiring.pins).map((pin: any) => ({
+		...pin,
+		device: pin.device?.[lang] ?? pin.device,
+	})),
+	caption: wiringCaption,
+	legend: ui.legend,
+});
+const principleMarkup = principleSvg({ boxes: project.wiring.principleBoxes[lang], caption: principleCaption });
+
+const searchQuery = project.searchQueries?.[lang] ?? '';
+const searchUrl = searchQuery ? amazonSearchUrl(lang, searchQuery) : '';
+const boardGuideHref = domotiquePath(lang === 'fr' ? 'fr' : lang, BOARD_GUIDE_SLUG_FR) ?? `/domotique/${BOARD_GUIDE_SLUG_FR}/`;
+const materialSearchUrl = (row: any) => {
+	const q = row.searchQuery || (row.q ? searchQuery : '');
+	return q ? amazonSearchUrl(lang, q) : '';
+};
+
+const tutorials = loc.relatedTutorialIds
+	.map((id: string) => ESP32_TUTORIALS.find((t) => t.id === id))
+	.filter(Boolean);
+const others = (() => {
+	const all = listProjects();
+	const index = all.findIndex((p) => p.id === project.id);
+	return [1, 2, 3].map((offset) => all[(index + offset) % all.length]).filter((p) => p.id !== project.id);
+})();
+
+const toc = [
+	{ id: 'objectif', text: ui.hObjective },
+	...(loc.photos?.length ? [{ id: 'photos', text: ui.hPhotos }] : []),
+	...(loc.alternatives?.length ? [{ id: 'solutions', text: ui.hAlternatives }] : []),
+	...(loc.placement ? [{ id: 'placement', text: ui.hPlacement }] : []),
+	{ id: 'schemas', text: ui.hSchemas },
+	{ id: 'materiel', text: ui.hMaterials },
+	{ id: 'montage', text: ui.hSteps },
+	{ id: 'code', text: ui.hYaml },
+	{ id: 'home-assistant', text: ui.hHa },
+	{ id: 'depannage', text: ui.hTrouble },
+	{ id: 'faq', text: ui.hFaq },
+	{ id: 'tutos', text: ui.hTutorials },
+];
+
+const howTo = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name: loc.title,
+	description: loc.description,
+	inLanguage: ui.htmlLang,
+	supply: loc.materials.map((m: any) => ({ '@type': 'HowToSupply', name: m.name })),
+	step: loc.steps.map((step: any, index: number) => ({
+		'@type': 'HowToStep',
+		position: index + 1,
+		name: step.title,
+		text: [...step.actions, step.observe, step.check].join(' '),
+	})),
+};
+const techArticle = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: loc.title,
+	description: loc.description,
+	datePublished: PROJECTS_DATE,
+	dateModified: PROJECTS_DATE,
+	inLanguage: ui.htmlLang,
+	author: { '@type': 'Person', name: 'Emmanuel SAUVAGE' },
+	mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+};
+const updatedLabel = new Date(`${PROJECTS_DATE}T00:00:00Z`).toLocaleDateString(
+	{ fr: 'fr-FR', en: 'en-GB', de: 'de-DE', it: 'it-IT', es: 'es-ES' }[lang],
+	{ day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' },
+);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howTo)} />
+<script type="application/ld+json" set:html={JSON.stringify(techArticle)} />
+<StructuredDataFaq items={loc.faq} />
+
+<div class="esp-project">
+	<ul class="esp-meta" aria-label={ui.metaLevel}>
+		<li>
+			<span class="esp-meta-k">{ui.metaLevel}</span>
+			<strong>{ui.levels[project.level]}</strong>
+		</li>
+		<li>
+			<span class="esp-meta-k">{ui.metaDuration}</span>
+			<strong>{project.durationHours} {ui.hoursUnit}</strong>
+		</li>
+		<li>
+			<span class="esp-meta-k">{ui.metaBudget}</span>
+			<strong>{project.budgetRange[lang]}</strong>
+		</li>
+	</ul>
+	<p class="esp-note">{ui.budgetNote}</p>
+
+	<nav class="esp-toc" aria-label={ui.tocAria}>
+		{toc.map((item) => <a href={`#${item.id}`}>{item.text}</a>)}
+	</nav>
+
+	<h2 id="objectif">{ui.hObjective}</h2>
+	<p>{loc.objective}</p>
+	<h3>{ui.hUsefulness}</h3>
+	<p>{loc.usefulness}</p>
+
+	<aside class="esp-callout esp-callout--takeaway" role="note">
+		<h3>{ui.hTakeaway}</h3>
+		<p>
+			{
+				loc.takeaway ??
+					(loc.objective.includes('. ')
+						? loc.objective.slice(0, loc.objective.indexOf('. ') + 1)
+						: loc.objective)
+			}
+		</p>
+	</aside>
+	<aside class="esp-callout esp-callout--tip" role="note">
+		<h3>{ui.hGoodToKnow}</h3>
+		<p>
+			{
+				loc.goodToKnow ??
+					loc.safety ??
+					(loc.troubleshooting?.[0]
+						? `${loc.troubleshooting[0].problem} — ${loc.troubleshooting[0].solution}`
+						: ui.yamlNote)
+			}
+		</p>
+	</aside>
+	<p class="esp-terms">
+		{ui.termsLead}{' '}
+		<a href={withBase(tutorialPath(lang, 'flash-esp32') ?? ESP32_HUB_PATHS[lang])}>{ui.termEsp32}</a>
+		{' · '}
+		<a href={withBase(tutorialPath(lang, 'install-esphome') ?? ESP32_HUB_PATHS[lang])}>{ui.termEsphome}</a>
+		{' · '}
+		<a href={withBase(tutorialPath(lang, 'wiring-gpio') ?? ESP32_HUB_PATHS[lang])}>{ui.termGpio}</a>
+		{' · '}
+		<a href={withBase(tutorialPath(lang, 'ota-esphome') ?? ESP32_HUB_PATHS[lang])}>{ui.termOta}</a>
+	</p>
+
+	{
+		project.fullGuide && project.fullGuide[lang] && (
+			<aside class="esp-callout esp-callout--guide">
+				<h3>{ui.hFullGuide}</h3>
+				<p>{ui.fullGuideLead}</p>
+				<p>
+					<a class="esp-cta" href={withBase(project.fullGuide[lang])}>{FULL_GUIDE_CTA[lang]} →</a>
+				</p>
+			</aside>
+		)
+	}
+
+	<h3>{ui.hPrereq}</h3>
+	<ul class="esp-list">
+		{loc.prerequisites.map((item: string) => <li>{item}</li>)}
+	</ul>
+
+	{
+		loc.safety && (
+			<aside class="esp-callout esp-callout--safety" role="note">
+				<h3>{ui.hSafety}</h3>
+				<p>{loc.safety}</p>
+			</aside>
+		)
+	}
+
+	{
+		loc.photos?.length > 0 && (
+			<section class="esp-photos">
+				<h2 id="photos">{ui.hPhotos}</h2>
+				{
+					loc.photos.map((photo: any) => (
+						<figure class="esp-photo">
+							<img src={withBase(photo.src)} alt={photo.alt} loading="lazy" width="1200" height="900" />
+							<figcaption>{photo.caption}</figcaption>
+						</figure>
+					))
+				}
+			</section>
+		)
+	}
+
+	{
+		loc.alternatives?.length > 0 && (
+			<section class="esp-alternatives">
+				<h2 id="solutions">{ui.hAlternatives}</h2>
+				{
+					loc.alternatives.map((alt: any) => (
+						<article class="esp-alt">
+							<h3>{alt.title}</h3>
+							<p>
+								<strong>{ui.altDifficulty}</strong> {alt.difficulty}
+								{' · '}
+								<strong>{ui.altBudget}</strong> {alt.budget}
+							</p>
+							<p>{alt.body}</p>
+							<p>
+								<strong>{ui.altInstall}</strong> {alt.install}
+							</p>
+							<p>
+								<strong>{ui.altAlert}</strong> {alt.alert}
+							</p>
+							{alt.linkHref && alt.linkLabel && (
+								<p>
+									<a href={alt.linkHref} rel="sponsored nofollow noopener" target="_blank">
+										{alt.linkLabel}
+									</a>
+								</p>
+							)}
+						</article>
+					))
+				}
+			</section>
+		)
+	}
+
+	{
+		loc.placement && (
+			<section class="esp-placement">
+				<h2 id="placement">{loc.placement.title || ui.hPlacement}</h2>
+				<p>{loc.placement.intro}</p>
+				{
+					loc.placement.image && (
+						<figure class="esp-photo">
+							<img
+								src={withBase(loc.placement.image)}
+								alt={loc.placement.alt || loc.placement.title || ui.hPlacement}
+								loading="lazy"
+								width="640"
+								height="420"
+							/>
+							{loc.placement.caption && <figcaption>{loc.placement.caption}</figcaption>}
+						</figure>
+					)
+				}
+			</section>
+		)
+	}
+
+	<h2 id="schemas">{ui.hSchemas}</h2>
+	<figure class="esp-schema">
+		<figcaption>{wiringCaption}</figcaption>
+		<Fragment set:html={wiringMarkup} />
+	</figure>
+	<figure class="esp-schema">
+		<figcaption>{principleCaption}</figcaption>
+		<Fragment set:html={principleMarkup} />
+	</figure>
+
+	<h2 id="materiel">{ui.hMaterials}</h2>
+	<p>{ui.boardIntro} <a href={withBase(boardGuideHref)}>{ui.boardGuide}</a></p>
+	<ProductBox
+		lang={lang}
+		productId={project.productIds?.[0] ?? 'esp32-c6-devkitc'}
+		name={board.name}
+		image={board.image}
+		priceRange={boardBox.price}
+		badge={boardBox.badge}
+		pros={boardBox.pros}
+		cons={boardBox.cons}
+	/>
+
+	<h3>{ui.hMain}</h3>
+	<table class="pg-table">
+		<thead>
+			<tr>
+				<th scope="col">{ui.thItem}</th>
+				<th scope="col">{ui.thQty}</th>
+				<th scope="col">{ui.thNote}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				loc.materials.map((row: any) => {
+					const rowUrl = materialSearchUrl(row);
+					const rowQuery = row.searchQuery || (row.q ? searchQuery : '');
+					return (
+						<tr>
+							<td data-label={ui.thItem}>{row.name}</td>
+							<td data-label={ui.thQty}>{row.qty}</td>
+							<td data-label={ui.thNote}>
+								{row.note}
+								{rowUrl && (
+									<>
+										{' '}
+										<a href={rowUrl} rel="sponsored nofollow noopener" target="_blank">
+											{ui.searchLead} « {rowQuery} » {ui.searchSuffix}
+										</a>
+									</>
+								)}
+							</td>
+						</tr>
+					);
+				})
+			}
+		</tbody>
+	</table>
+
+	<h3>{ui.hSmall}</h3>
+	<table class="pg-table">
+		<thead>
+			<tr>
+				<th scope="col">{ui.thItem}</th>
+				<th scope="col">{ui.thQty}</th>
+				<th scope="col">{ui.thNote}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				loc.smallMaterials.map((row: any) => (
+					<tr>
+						<td data-label={ui.thItem}>{row.name}</td>
+						<td data-label={ui.thQty}>{row.qty}</td>
+						<td data-label={ui.thNote}>{row.note}</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+	<p class="esp-note">{ui.disclosure}</p>
+
+	<h2 id="montage">{ui.hSteps}</h2>
+	{
+		loc.steps.map((step: any, index: number) => (
+			<section class="esp-step">
+				<h3>
+					{ui.stepWord} {index + 1}. {step.title}
+				</h3>
+				<ol>
+					{step.actions.map((action: string) => <li>{action}</li>)}
+				</ol>
+				<p>
+					<strong>{ui.observeWord}</strong> {step.observe}
+				</p>
+				<p>
+					<strong>{ui.checkWord}</strong> {step.check}
+				</p>
+			</section>
+		))
+	}
+
+	<h2 id="code">{ui.hYaml}</h2>
+	<p>{ui.yamlIntro}</p>
+	<pre tabindex="0" role="region" aria-label={ui.hYaml}><code class="language-yaml">{project.yaml}</code></pre>
+	<p class="esp-note">{ui.yamlNote}</p>
+
+	<h2 id="home-assistant">{ui.hHa}</h2>
+	<ul class="esp-list">
+		{loc.haIntegration.map((item: string) => <li>{item}</li>)}
+	</ul>
+	{
+		loc.haAutomationYaml && (
+			<>
+				<h3>{ui.hHaAutomation}</h3>
+				<pre tabindex="0" role="region" aria-label={ui.hHaAutomation}><code class="language-yaml">{loc.haAutomationYaml}</code></pre>
+			</>
+		)
+	}
+
+	<h2 id="depannage">{ui.hTrouble}</h2>
+	<table class="pg-table">
+		<thead>
+			<tr>
+				<th scope="col">{ui.thProblem}</th>
+				<th scope="col">{ui.thSolution}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				loc.troubleshooting.map((row: any) => (
+					<tr>
+						<td data-label={ui.thProblem}>{row.problem}</td>
+						<td data-label={ui.thSolution}>{row.solution}</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+
+	<h2 id="faq">{ui.hFaq}</h2>
+	{
+		loc.faq.map((item: any) => (
+			<section>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</section>
+		))
+	}
+
+	<h2 id="tutos">{ui.hTutorials}</h2>
+	<p>{ui.tutorialsLead}</p>
+	<ul class="esp-tutos">
+		{
+			tutorials.map((tuto: any) => (
+				<li>
+					<a href={withBase(tuto.paths[lang])}>{tuto.title[lang]}</a>
+					<span>{tuto.short[lang]}</span>
+				</li>
+			))
+		}
+	</ul>
+
+	<h3>{ui.hMoreProjects}</h3>
+	<ul class="esp-list">
+		{
+			others.map((other: any) => (
+				<li>
+					<a href={withBase(other.paths[lang])}>{other.locales[lang].h1}</a>
+				</li>
+			))
+		}
+		<li><a href={withBase(ESP32_HUB_PATHS[lang])}>{ui.allProjects}</a></li>
+	</ul>
+
+	<h3>{ui.sourcesTitle}</h3>
+	<ul class="esp-list">
+		{
+			SOURCES.map((source) => (
+				<li>
+					<a href={source.href} rel="noopener noreferrer" target="_blank">{source.text}</a>
+				</li>
+			))
+		}
+	</ul>
+
+	<aside class="esp-author">
+		<p>
+			<strong>{ui.byAuthor} {AUTHOR}</strong>. {ui.authorLine}
+			<br />
+			{ui.updated} {updatedLabel}.
+		</p>
+	</aside>
+</div>
+
+<style>
+	.esp-project {
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+	.esp-meta {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		gap: 0.75rem;
+		list-style: none;
+		margin: 0 0 0.4rem;
+		padding: 0;
+	}
+	.esp-meta li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 0.7rem 0.9rem;
+		border: 1px solid #cbd5e1;
+		border-radius: 10px;
+		background: #f8fafc;
+		color: #0f172a;
+	}
+	.esp-meta-k {
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: #475569;
+	}
+	.esp-note {
+		font-size: 0.9rem;
+		color: #475569;
+	}
+	.esp-toc {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.75rem;
+		margin: 1rem 0 1.5rem;
+	}
+	.esp-toc a {
+		font-size: 0.92rem;
+	}
+	.esp-list {
+		padding-left: 1.2rem;
+	}
+	.esp-callout {
+		margin: 1.25rem 0;
+		padding: 0.9rem 1.1rem;
+		border-radius: 10px;
+		border: 1px solid #99f6e4;
+		border-left: 5px solid #0f766e;
+		background: #f0fdfa;
+		color: #0f172a;
+	}
+	.esp-callout--safety {
+		border-color: #fed7aa;
+		border-left-color: #c2410c;
+		background: #fff7ed;
+	}
+	.esp-callout--takeaway {
+		border-color: #bfdbfe;
+		border-left-color: #1d4ed8;
+		background: #eff6ff;
+	}
+	.esp-callout--tip {
+		border-color: #fde68a;
+		border-left-color: #b45309;
+		background: #fffbeb;
+	}
+	.esp-terms {
+		font-size: 0.95rem;
+		margin: 0.75rem 0 1.25rem;
+		line-height: 1.55;
+	}
+	.esp-callout h3 {
+		margin: 0 0 0.35rem;
+		font-size: 1.05rem;
+	}
+	.esp-callout p {
+		margin: 0.25rem 0;
+	}
+	.esp-cta {
+		font-weight: 700;
+	}
+	.esp-schema {
+		margin: 1.25rem 0;
+	}
+	.esp-schema figcaption {
+		margin-bottom: 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+	.esp-schema :global(svg) {
+		display: block;
+		width: 100%;
+		max-width: 480px;
+		height: auto;
+	}
+	.esp-step {
+		margin: 1.25rem 0;
+	}
+	.esp-tutos {
+		list-style: none;
+		margin: 0.5rem 0 1rem;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+	}
+	.esp-tutos li {
+		display: flex;
+		flex-direction: column;
+		padding: 0.65rem 0.9rem;
+		border: 1px solid #cbd5e1;
+		border-radius: 10px;
+	}
+	.esp-tutos span {
+		font-size: 0.9rem;
+		color: #475569;
+	}
+	.esp-author {
+		margin-top: 2rem;
+		padding: 0.9rem 1.1rem;
+		border-top: 2px solid #cbd5e1;
+		font-size: 0.95rem;
+	}
+	.pg-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1rem 0 1.25rem;
+		font-size: 0.98rem;
+	}
+	.pg-table th,
+	.pg-table td {
+		border: 1px solid #cbd5e1;
+		padding: 0.55rem 0.7rem;
+		text-align: left;
+		vertical-align: top;
+		color: #0f172a;
+		background: #fff;
+	}
+	.pg-table th {
+		background: #f1f5f9;
+	}
+	.esp-project pre {
+		overflow-x: auto;
+		padding: 0.8rem;
+		border-radius: 8px;
+		background: #0f172a;
+		color: #e2e8f0;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	
+	
+	
+	@media (max-width: 720px) {
+		.pg-table thead {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+		}
+		.pg-table tr {
+			display: block;
+			margin-bottom: 0.8rem;
+			border: 1px solid #cbd5e1;
+			border-radius: 8px;
+			padding: 0.4rem 0.7rem;
+		}
+		.pg-table td {
+			display: block;
+			border: 0;
+			padding: 0.28rem 0;
+		}
+		.pg-table td::before {
+			content: attr(data-label);
+			display: block;
+			font-weight: 700;
+			font-size: 0.82rem;
+		}
+	}
+	.esp-photo {
+		margin: 1rem 0 1.4rem;
+	}
+	.esp-photo img {
+		display: block;
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		border-radius: 10px;
+		border: 1px solid #cbd5e1;
+		background: #fff;
+	}
+	.esp-photo figcaption {
+		margin-top: 0.45rem;
+		font-size: 0.92rem;
+		color: #475569;
+	}
+	.esp-alt {
+		margin: 1.1rem 0 1.4rem;
+		padding: 0.85rem 1rem;
+		border: 1px solid #e2e8f0;
+		border-radius: 10px;
+		background: #f8fafc;
+	}
+	.esp-alt h3 {
+		margin-top: 0;
+	}
+</style>

@@ -1,6 +1,6 @@
 ---
-title: "Raspberry Pi 4 vs 5 (et Pi 3) : lequel acheter en 2026 ?"
-description: "Comparatif Raspberry Pi 3 vs 4 vs 5 : performances, prix, RAM. Tableau détaillé, verdict 2026 et FAQ pour choisir le bon modèle."
+title: "Raspberry Pi 3 vs 4 vs 5 : lequel acheter en 2026 ? Comparatif et tableau"
+description: "Raspberry Pi 3, 4 ou 5 : tableau comparatif (processeur, RAM jusqu'à 16 Go, USB 3, PCIe, alimentation), quel modèle pour quel projet et lequel acheter en 2026."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
@@ -21,7 +21,9 @@ relatedLinks:
     href: "/raspberry-pi-ou-kit-robot-ado-guide/"
 ---
 
-Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, propose des **fourchettes de prix** observées en France **à la fin mars 2026** (toujours à **recroiser** au moment de l’achat), et aide à **trancher** selon votre scénario.
+Entre le **[Raspberry Pi](/marque-raspberry-pi/) 3 Modèle B**, le **Pi 4 Modèle B** et le **Pi 5**, l’écart n’est pas qu’une question de **prix** : **USB 3**, **Ethernet véritablement gigabit**, **double sortie vidéo**, puis sur le Pi 5 **PCIe** et des **barrettes jusqu’à 16 Go**, changent la faisabilité de beaucoup de projets. Ce comparatif résume les **fiches techniques**, donne des **fourchettes de prix** indicatives et aide à **trancher** selon votre scénario.
+
+**En bref :** le **Pi 5** est le meilleur choix pour un nouveau projet (bien plus rapide, PCIe, jusqu'à 16 Go de RAM), le **Pi 4** reste valable si vous le trouvez moins cher, et le **Pi 3** ne se justifie que pour des projets très légers ou si vous en avez déjà un. Voir les prix du moment : [Raspberry Pi 5](https://www.amazon.fr/s?k=Raspberry+Pi+5&tag=manuso06-21), [Raspberry Pi 4](https://www.amazon.fr/s?k=Raspberry+Pi+4&tag=manuso06-21), [kits Raspberry Pi 5](https://www.amazon.fr/s?k=kit+Raspberry+Pi+5&tag=manuso06-21) (liens affiliés Amazon). Pour un premier projet d'enfant, un [kit robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/) est souvent plus simple ; voir aussi nos guides [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/) et [robot pour 12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/).
 
 ## 1. La gamme en un clin d’œil
 
@@ -35,19 +37,83 @@ Plusieurs familles de cartes coexistent chez Raspberry Pi (Zero, Pico, format cl
 
 Les valeurs ci-dessous correspondent aux **références courantes** publiées par Raspberry Pi et à la littérature technique consolidée (fiches produit, documentation communautaire). Les fréquences exactes peuvent évoluer avec les **révisions firmware**.
 
-| Critère | **Pi 3 Modèle B** | **Pi 4 Modèle B** | **Raspberry Pi 5** |
-|--------|-------------------|-------------------|---------------------|
-| **SoC** | Broadcom **BCM2837** | Broadcom **BCM2711** | Broadcom **BCM2712** |
-| **CPU** | Quad **Cortex-A53** ~**1,2 GHz** | Quad **Cortex-A72** ~**1,8 GHz** | Quad **Cortex-A76** ~**2,4 GHz** |
-| **GPU / vidéo** | VideoCore IV, HDMI **1080p** typique | VideoCore VI, **2 × micro HDMI** 4K (cadences selon usage) | **VideoCore VII**, **2 × micro HDMI** 4K60 (HDMI 2.1 selon doc.) |
-| **RAM disponible** | **1 Go** LPDDR2 | **1 / 2 / 4 / 8 Go** LPDDR4-3200 | **1 / 2 / 4 / 8 / 16 Go** LPDDR4X-4267 |
-| **Ethernet** | ~**100 Mbit/s** (via USB interne) | **Gigabit** (puce séparée) | **Gigabit** |
-| **Wi‑Fi / BT** | Wi‑Fi **n**, BT **4.1** | Wi‑Fi **ac**, BT **5.0** | Wi‑Fi **ac/n**, BT **5.0** |
-| **USB** | 4 × **USB 2.0** | **2 × USB 3.0** + **2 × USB 2.0** | **2 × USB 3.0** + **2 × USB 2.0** |
-| **Stockage** | microSD | microSD | microSD **+ contrôleur plus rapide** (modes SD étendus) |
-| **PCIe** | Non | Non | **PCIe 2.0 ×1** (extensions NVMe via cartes « HAT+ », etc.) |
-| **Alimentation** | **Micro-USB 5 V** (≈ 2,5 A recommandés) | **USB-C 5 V** (≈ **3 A** pour usage typique) | **USB-C**, chargeur **5 V / 5 A** recommandé pour charge pleine ; options PD |
-| **GPIO** | 40 broches | 40 broches | 40 broches |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col"><strong>Pi 3 Modèle B</strong></th>
+<th scope="col"><strong>Pi 4 Modèle B</strong></th>
+<th scope="col"><strong>Raspberry Pi 5</strong></th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>SoC</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">Broadcom <strong>BCM2837</strong></span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">Broadcom <strong>BCM2711</strong></span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Broadcom <strong>BCM2712</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>CPU</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">Quad <strong>Cortex-A53</strong> ~<strong>1,2 GHz</strong></span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">Quad <strong>Cortex-A72</strong> ~<strong>1,8 GHz</strong></span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Quad <strong>Cortex-A76</strong> ~<strong>2,4 GHz</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>GPU / vidéo</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">VideoCore IV, HDMI <strong>1080p</strong> typique</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">VideoCore VI, <strong>2 × micro HDMI</strong> 4K (cadences selon usage)</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>VideoCore VII</strong>, <strong>2 × micro HDMI</strong> 4K60 (HDMI 2.1 selon doc.)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>RAM disponible</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val"><strong>1 Go</strong> LPDDR2</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val"><strong>1 / 2 / 4 / 8 Go</strong> LPDDR4-3200</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>1 / 2 / 4 / 8 / 16 Go</strong> LPDDR4X-4267</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Ethernet</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">~<strong>100 Mbit/s</strong> (via USB interne)</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val"><strong>Gigabit</strong> (puce séparée)</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>Gigabit</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Wi‑Fi / BT</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">Wi‑Fi <strong>n</strong>, BT <strong>4.1</strong></span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">Wi‑Fi <strong>ac</strong>, BT <strong>5.0</strong></span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Wi‑Fi <strong>ac/n</strong>, BT <strong>5.0</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>USB</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">4 × <strong>USB 2.0</strong></span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val"><strong>2 × USB 3.0</strong> + <strong>2 × USB 2.0</strong></span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>2 × USB 3.0</strong> + <strong>2 × USB 2.0</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Stockage</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">microSD</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">microSD</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">microSD <strong>+ contrôleur plus rapide</strong> (modes SD étendus)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>PCIe</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">Non</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">Non</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>PCIe 2.0 ×1</strong> (extensions NVMe via cartes « HAT+ », etc.)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Alimentation</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val"><strong>Micro-USB 5 V</strong> (≈ 2,5 A recommandés)</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val"><strong>USB-C 5 V</strong> (≈ <strong>3 A</strong> pour usage typique)</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val"><strong>USB-C</strong>, chargeur <strong>5 V / 5 A</strong> recommandé pour charge pleine ; options PD</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>GPIO</strong></span></td>
+<td data-label="**Pi 3 Modèle B**"><span class="td-val">40 broches</span></td>
+<td data-label="**Pi 4 Modèle B**"><span class="td-val">40 broches</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">40 broches</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ![Schéma pédagogique : USB 3, génération CPU et RAM max](/images/blog/raspberry-pi-comparatif-2026/pi3-pi4-pi5-axes.svg)
 
@@ -67,15 +133,43 @@ Les valeurs ci-dessous correspondent aux **références courantes** publiées pa
 
 Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, promotions) : comparez le prix chez le vendeur au moment de l'achat. Quelques repères pour comparer les offres :
 
-| Modèle | Commentaire |
-|--------|------------|
-| **Pi 3 B** (neuf / stock résiduel) | Souvent **moins cher** d'occasion ; attention aux arnaques « trop belles ». |
-| **Pi 4 B** (2 / 4 / 8 Go typiques) | Prix selon la quantité de mémoire. Le **1 Go** existe au catalogue historique mais **peut être introuvable** ou peu pertinent neuf. |
-| **Pi 5** **1 Go** | Entrée de gamme « officielle » quand disponible. |
-| **Pi 5** **2 Go** | Bon compromis **serveur léger** / **petit desktop**. |
-| **Pi 5** **4 Go** | Usage **bureau** / dev **standard**. |
-| **Pi 5** **8 Go** | Multi-tâches, **VM légères**, compilation. |
-| **Pi 5** **16 Go** | Modèles récents ; prix **très volatil** selon stock. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modèle</th>
+<th scope="col">Commentaire</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 3 B</strong> (neuf / stock résiduel)</span></td>
+<td data-label="Commentaire"><span class="td-val">Souvent <strong>moins cher</strong> d'occasion ; attention aux arnaques « trop belles ».</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 4 B</strong> (2 / 4 / 8 Go typiques)</span></td>
+<td data-label="Commentaire"><span class="td-val">Prix selon la quantité de mémoire. Le <strong>1 Go</strong> existe au catalogue historique mais <strong>peut être introuvable</strong> ou peu pertinent neuf.</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 5</strong> <strong>1 Go</strong></span></td>
+<td data-label="Commentaire"><span class="td-val">Entrée de gamme « officielle » quand disponible.</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 5</strong> <strong>2 Go</strong></span></td>
+<td data-label="Commentaire"><span class="td-val">Bon compromis <strong>serveur léger</strong> / <strong>petit desktop</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 5</strong> <strong>4 Go</strong></span></td>
+<td data-label="Commentaire"><span class="td-val">Usage <strong>bureau</strong> / dev <strong>standard</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 5</strong> <strong>8 Go</strong></span></td>
+<td data-label="Commentaire"><span class="td-val">Multi-tâches, <strong>VM légères</strong>, compilation.</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>Pi 5</strong> <strong>16 Go</strong></span></td>
+<td data-label="Commentaire"><span class="td-val">Modèles récents ; prix <strong>très volatil</strong> selon stock.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 *Vérifiez toujours la **fiche vendeur**, la **révision** de la carte et les **accessoires** inclus (absence d’alimentation officielle, coût du dissipateur sur Pi 5, etc.).*
 
@@ -99,12 +193,13 @@ Les prix des Raspberry Pi **bougent souvent** (ruptures, marges revendeur, TVA, 
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 5 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Raspberry Pi 4 Amazon recherche](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Kit Raspberry Pi alimentation dissipateur](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 5, 4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21), 140,82 € le 9 novembre 2026
+- [Raspberry Pi 5, 8 Go](https://www.amazon.fr/dp/B0CK2FCG1K?tag=manuso06-21), 209,09 € le même jour
+- [Raspberry Pi 4 Model B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/), page officielle : aucune carte Pi 4 n'est dans le relevé Amazon.fr du 9 novembre 2026
+- [Alimentation officielle 27 W](https://www.raspberrypi.com/products/27w-power-supply/)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 
 ---
 
-**En bref** : **Pi 3** = **référence historique** utile mais **serrée** ; **Pi 4** = **sweet spot** réseau / USB pour beaucoup de projets ; **Pi 5** = **plafond performance et RAM**, au prix de la **complexité thermique** et du **coût**.
+**En bref** : **Pi 3** = **référence historique** utile mais **serrée** ; **Pi 4** = un bon compromis réseau et USB pour beaucoup de projets ; **Pi 5** = **plafond performance et RAM**, au prix de la **complexité thermique** et du **coût**.

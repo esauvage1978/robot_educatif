@@ -2,7 +2,7 @@
 title: "Le pendu en Python (6/6) — projet complet et extensions"
 description: "Organiser pendu.py : constantes, fonctions, main ; checklist ; idées (scores en ligne, accents avec unicodedata)."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-02
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Le pendu
 seriesOrder: 6
@@ -18,9 +18,13 @@ categories:
   - "Pendu"
   - "Projet"
 ---
-Tu as tout pour **assembler** le jeu. Ce dernier article propose une **structure de fichiers**, une **checklist** et des **pistes d’extension**.
+> **Réponse directe (novembre 2026)** — Regroupe ton code dans `pendu.py` (ou un petit dossier `pendu/`) avec constantes en tête, fonctions testées aux chapitres 1 à 5, et un `main()` qui gère menu, statistiques et chemins de fichiers robustes via `pathlib`.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/pendu/">Série Le pendu</a> · Partie 6/6 — projet complet</nav>
+
+Tu as tout pour **assembler** le jeu. Ce dernier article propose une **structure de fichiers**, une **checklist** et des **pistes d’extension**. Retour au [sommaire du pendu](/programmation/pendu/) ou au [parcours Python](/programmation/python/) pour enchaîner.
+
+![Organisation du projet pendu — illustration pédagogique](/images/illustrations/python-pendu-6-projet-complet.webp)
 
 ## 1. Découpage type
 
@@ -187,6 +191,17 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+## FAQ
+
+**Un seul fichier ou plusieurs modules ?**  
+Tant que le script reste lisible (&lt; ~300 lignes), un fichier suffit ; au-delà, sépare `mots.py`, `affichage.py`, `jeu.py`.
+
+**Comment tester sans clavier à chaque fois ?**  
+Garde une petite liste de mots courts dans `mots_pendu.txt` et lance plusieurs parties d’affilée avec « rejouer ».
+
+**Que faire après le pendu ?**  
+Enchaîne avec [Puissance 4](/programmation/puissance-4/) ou le [Carnet Todo](/programmation/carnet-todo/) pour pratiquer fichiers JSON et menus.
 
 ## Télécharger ce chapitre
 

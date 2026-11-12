@@ -7,12 +7,38 @@ updated: "23 October 2026"
 
 Choosing a first coding robot, an Arduino kit, a Raspberry Pi or smart-home gear? Start here: each guide answers one buying question.
 
-| Article | Topic |
-|---|---|
-| [Best programmable robot for kids](/en/best-programmable-robot-for-kids/) | choosing by age (4–14) and budget |
-| [Arduino robot kit for kids](/en/arduino-robot-kit-for-kids/) | kits from 10 years old, C/C++ code |
-| [Raspberry Pi 5: which RAM?](/en/raspberry-pi-5-which-ram/) | 2, 4, 8 or 16 GB depending on use |
-| [Best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/) | the radio stick for a Zigbee network |
-| [Smart plugs for the UK and US](/en/smart-home/smart-plugs-uk-us/) | local-control plugs with energy metering |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Article</th>
+<th scope="col">Topic</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/best-programmable-robot-for-kids/">Best programmable robot for kids</a></span></td>
+<td data-label="Topic"><span class="td-val">choosing by age (4–14) and budget</span></td>
+</tr>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/arduino-robot-kit-for-kids/">Arduino robot kit for kids</a></span></td>
+<td data-label="Topic"><span class="td-val">kits from 10 years old, C/C++ code</span></td>
+</tr>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/robotics-equipment-for-renters/">Robotics equipment for renters</a></span></td>
+<td data-label="Topic"><span class="td-val">kits that pack away, with no drilling and no workshop</span></td>
+</tr>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/raspberry-pi-5-which-ram/">Raspberry Pi 5: which RAM?</a></span></td>
+<td data-label="Topic"><span class="td-val">2, 4, 8 or 16 GB depending on use</span></td>
+</tr>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/smart-home/best-zigbee-dongle-home-assistant/">Best Zigbee dongle for Home Assistant</a></span></td>
+<td data-label="Topic"><span class="td-val">the radio stick for a Zigbee network</span></td>
+</tr>
+<tr>
+<td data-label="Article"><span class="td-val"><a href="/en/smart-home/smart-plugs-uk-us/">Smart plugs for the UK and US</a></span></td>
+<td data-label="Topic"><span class="td-val">local-control plugs with energy metering</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Best pick:** start with the [best programmable robot for kids](/en/best-programmable-robot-for-kids/) guide: it compares the main educational robots by age and links to every detailed guide.

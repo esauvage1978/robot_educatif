@@ -15,12 +15,36 @@ This tutorial takes you **step by step** from the first block in mBlock 5 to **u
 
 ## 1. Summary of the program
 
-| Step | Block (category) | What it does |
-|---|---|---|
-| 1 | *when mBot(mcore) starts up* (mBot / events) | entry point when the board is powered on or reset |
-| 2 | *wait until ⟨ ⟩* (Control) | pauses until the condition becomes true |
-| 3 | *when on-board button pressed?* (Sensing) | becomes true when you press the board's button |
-| 4 | *play note C4 for 0.25 beats* (Show / sound) | plays one short note |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Step</th>
+<th scope="col">Block (category)</th>
+<th scope="col">What it does</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Step"><span class="td-val">1</span></td>
+<td data-label="Block (category)"><span class="td-val"><em>when mBot(mcore) starts up</em> (mBot / events)</span></td>
+<td data-label="What it does"><span class="td-val">entry point when the board is powered on or reset</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">2</span></td>
+<td data-label="Block (category)"><span class="td-val"><em>wait until ⟨ ⟩</em> (Control)</span></td>
+<td data-label="What it does"><span class="td-val">pauses until the condition becomes true</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">3</span></td>
+<td data-label="Block (category)"><span class="td-val"><em>when on-board button pressed?</em> (Sensing)</span></td>
+<td data-label="What it does"><span class="td-val">becomes true when you press the board's button</span></td>
+</tr>
+<tr>
+<td data-label="Step"><span class="td-val">4</span></td>
+<td data-label="Block (category)"><span class="td-val"><em>play note C4 for 0.25 beats</em> (Show / sound)</span></td>
+<td data-label="What it does"><span class="td-val">plays one short note</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Block labels can vary slightly between mBlock versions and language settings.
 

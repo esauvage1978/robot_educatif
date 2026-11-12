@@ -9,19 +9,71 @@ Both run **Home Assistant OS** and both make an excellent local smart home hub. 
 
 ## 1. Specs side by side
 
-| | Home Assistant Green | [Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB) |
-|---|---|---|
-| In the box | finished device: case, storage, power supply | bare board only |
-| Processor | quad-core Cortex-A55, 1.8 GHz | quad-core Cortex-A76, 2.4 GHz |
-| RAM | 4 GB LPDDR4X | 4 or 8 GB LPDDR4X (also 1, 2 and 16 GB) |
-| Storage | 32 GB eMMC, built in | microSD, or NVMe SSD via a PCIe add-on |
-| USB | 2 × USB 2.0 | 2 × USB 3.0 + 2 × USB 2.0 |
-| Ethernet | Gigabit | Gigabit |
-| Wi-Fi | none (Ethernet only) | built in (Ethernet still recommended for a hub) |
-| Power supply | universal supply included | buy the official 27W USB-C supply (UK, US and EU plugs available) |
-| Cooling | fanless | Active Cooler recommended |
-| Set-up | plug in Ethernet and power, open homeassistant.local:8123 | flash Home Assistant OS with Raspberry Pi Imager, then boot |
-| Price | <a href="https://www.amazon.com/dp/B0CXVKSG19?tag=roboteducatif-20" rel="nofollow sponsored">Home Assistant Green (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0CXVKSG19?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> | <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="nofollow sponsored">Raspberry Pi 5 4GB (Amazon US)</a> / <a href="https://www.amazon.co.uk/dp/B0CK3L9WD3?tag=roboteducatif-21" rel="nofollow sponsored">Amazon UK</a> (board only: add supply, case, storage) |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col">Home Assistant Green</th>
+<th scope="col"><a href="/en/raspberry-pi-brand/">Raspberry Pi</a> 5 (4GB or 8GB)</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">In the box</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">finished device: case, storage, power supply</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">bare board only</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Processor</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">quad-core Cortex-A55, 1.8 GHz</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">quad-core Cortex-A76, 2.4 GHz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">RAM</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">4 GB LPDDR4X</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">4 or 8 GB LPDDR4X (also 1, 2 and 16 GB)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Storage</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">32 GB eMMC, built in</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">microSD, or NVMe SSD via a PCIe add-on</span></td>
+</tr>
+<tr>
+<td><span class="td-val">USB</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">2 × USB 2.0</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">2 × USB 3.0 + 2 × USB 2.0</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Ethernet</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">Gigabit</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">Gigabit</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Wi-Fi</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">none (Ethernet only)</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">built in (Ethernet still recommended for a hub)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Power supply</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">universal supply included</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">buy the official 27W USB-C supply (UK, US and EU plugs available)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Cooling</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">fanless</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">Active Cooler recommended</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Set-up</span></td>
+<td data-label="Home Assistant Green"><span class="td-val">plug in Ethernet and power, open homeassistant.local:8123</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val">flash Home Assistant OS with Raspberry Pi Imager, then boot</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Price</span></td>
+<td data-label="Home Assistant Green"><span class="td-val"><a href="https://www.home-assistant.io/green/">Home Assistant Green, official page</a>. This English page does not copy a US or UK price.</span></td>
+<td data-label="[Raspberry Pi](/en/raspberry-pi-brand/) 5 (4GB or 8GB)"><span class="td-val"><a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5, official page</a>. The board still needs a power supply, a case and storage.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Who should pick the Green?
 

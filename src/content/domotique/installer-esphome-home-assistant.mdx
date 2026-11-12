@@ -1,0 +1,106 @@
+---
+title: Installer ESPHome dans Home Assistant
+description: "Installez ESPHome Device Builder : add-on, secrets.yaml, chiffrement, premier ESP32-C6 et adoption dans HA. Matériel, schéma GPIO, YAML ESPHome et Home Ass"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+---
+
+**ESPHome** est un logiciel qui transforme une carte ESP32, une petite carte électronique équipée du Wi-Fi, en appareil domotique : vous décrivez ce que la carte doit faire dans un simple fichier de configuration appelé YAML, et ESPHome en fait le programme de la carte, sans que vous ayez à écrire de code. Dans Home Assistant, le logiciel libre qui réunit vos appareils connectés, le module complémentaire **ESPHome Device Builder** fournit l'éditeur, le compilateur (l'outil qui fabrique le programme) et l'outil de mise à jour. Une fois installé, il sert à tous vos projets ESP32.
+
+**Résultat attendu :** ESPHome ouvert dans la barre latérale, un fichier `secrets.yaml` et un premier appareil prêt à être flashé. **Durée :** 20 minutes. **Difficulté :** débutant.
+
+## Quelle méthode d'installation ?
+
+Les modules complémentaires n'existent que sur **Home Assistant OS** (Green, Yellow, Raspberry Pi, machine virtuelle) et **Supervised**. Sur une installation **Container** ou **Core**, ESPHome s'installe à part, comme décrit plus bas. Si vous ne savez pas quelle variante vous utilisez, ouvrez **Paramètres → Système → À propos** : la ligne « Type d'installation » l'indique.
+
+## Méthode A : module complémentaire (Home Assistant OS)
+
+1. Ouvrez **Paramètres → Modules complémentaires**, puis **Boutique des modules complémentaires** en bas à droite.
+2. Cherchez **ESPHome Device Builder** et cliquez sur **Installer**.
+3. Une fois installé, activez **Afficher dans la barre latérale**, puis cliquez sur **Démarrer**.
+4. Ouvrez **ESPHome** dans la barre latérale : le tableau de bord s'affiche, vide au départ.
+
+**Vérification :** le tableau de bord ESPHome se charge sans erreur et propose le bouton **+ New Device**.
+
+## Méthode B : Container ou Core
+
+Sans module complémentaire, installez ESPHome sur n'importe quelle machine Linux, macOS ou Windows avec Python :
+
+```bash
+pip install esphome
+esphome dashboard config/
+```
+
+Le tableau de bord s'ouvre alors sur `http://localhost:6052`. Une image Docker officielle est aussi disponible (`ghcr.io/esphome/esphome`, avec `--net=host` pour que la découverte réseau fonctionne) : suivez la [documentation d'installation ESPHome](https://esphome.io/guides/installing_esphome/).
+
+## Préparer le fichier secrets.yaml
+
+Dans ESPHome, cliquez sur **Secrets** (en haut à droite). Ce fichier garde vos mots de passe hors des fichiers d'appareils, ce qui permet de les partager sans les divulguer :
+
+```yaml
+wifi_ssid: "NomDeVotreReseau"
+wifi_password: "mot-de-passe-wifi"
+ap_password: "mot-de-passe-de-secours"
+api_encryption_key: "COLLEZ-UNE-CLE-GENEREE"
+ota_password: "mot-de-passe-ota"
+```
+
+Générez la clé de chiffrement avec `openssl rand -base64 32` (ou tout générateur de 32 octets encodés en base64). Votre réseau doit être en **2,4 GHz** : l'ESP32-C6 ne se connecte pas à un réseau uniquement 5 GHz. Ne publiez jamais ce fichier.
+
+## Créer le premier appareil
+
+1. Cliquez sur **+ New Device**, puis **Continue**.
+2. Donnez un nom en minuscules sans espace, par exemple `test-esp32`, et validez.
+3. Choisissez **ESP32-C6** comme type de carte. L'assistant crée le fichier de l'appareil ; fermez la fenêtre d'installation sans flasher pour l'instant.
+4. Cliquez sur **Edit** et remplacez le contenu par une base minimale :
+
+```yaml
+esphome:
+  name: test-esp32
+
+esp32:
+  board: esp32-c6-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "test-esp32 Fallback"
+    password: !secret ap_password
+
+captive_portal:
+```
+
+Cliquez sur **Validate** : le message « Configuration is valid » confirme la syntaxe. Ce fichier n'a pas été exécuté sur une carte pour cet article ; il reprend la structure standard de la documentation ESPHome.
+
+## Flasher et adopter l'appareil dans Home Assistant
+
+Le premier flash se fait par câble USB : suivez [flasher un ESP32 avec ESPHome](/domotique/flasher-code-esp32-esphome/). Ensuite, Home Assistant détecte l'appareil : ouvrez **Paramètres → Appareils et services**, cliquez sur **Configurer** sur la carte ESPHome découverte et collez la clé de chiffrement. Les mises à jour suivantes se font [sans câble, en OTA](/domotique/mises-a-jour-ota-esphome/).
+
+## Problèmes fréquents
+
+| Symptôme | Cause probable | Solution |
+|---|---|---|
+| Le module ESPHome est introuvable | Installation Container ou Core | Utilisez la méthode B |
+| « Invalid key » à l'adoption | Clé différente de celle du YAML | Copiez la valeur exacte de `api_encryption_key` |
+| Compilation très longue | Première compilation, cache vide | Patientez : les suivantes sont plus rapides |
+| Erreur « secret not defined » | Entrée absente de `secrets.yaml` | Ajoutez la ligne manquante |
+| L'appareil n'est jamais découvert | Wi-Fi 5 GHz, VLAN séparé ou mDNS bloqué | Utilisez le 2,4 GHz et le même réseau que Home Assistant |
+
+Suite : choisissez un [projet ESP32](/domotique/projets-esp32-domotique/) et vérifiez les bases du [câblage GPIO](/domotique/bases-cablage-esp32-gpio/).
+
+<small>Mis à jour le 30 octobre 2026. Sources : [documentation ESPHome](https://esphome.io/) et [documentation Home Assistant](https://www.home-assistant.io/). Vérifiez les noms de menus sur votre version.</small>

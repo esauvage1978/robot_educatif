@@ -15,21 +15,74 @@ Ein Smart Home muss nicht mit einer großen Zentrale und einem Wochenende voller
 
 ## 2. Funkstandards einfach erklärt
 
-| Standard | Stärken | Grenzen | Gut für |
-|---|---|---|---|
-| **WLAN (2,4 GHz)** | keine Zentrale, einfache App | höherer Stromverbrauch, oft abhängig von der Cloud des Herstellers | die erste smarte Steckdose oder Lampe |
-| **Zigbee 3.0** | sparsam, Mesh-Netz, funktioniert lokal | braucht einen USB-Koordinator oder eine Zentrale | Sensoren, Steckdosen, Heizkörperthermostate |
-| **Thread** | Mesh, sparsam, IP-basiert | bisher weniger Geräte | zukunftssichere Batteriegeräte |
-| **Matter** | ein Standard für Apple Home, Google Home, Alexa und SmartThings | noch in Entwicklung; läuft über WLAN oder Thread | Geräte kaufen, ohne sich zu binden |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Standard</th>
+<th scope="col">Stärken</th>
+<th scope="col">Grenzen</th>
+<th scope="col">Gut für</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>WLAN (2,4 GHz)</strong></span></td>
+<td data-label="Stärken"><span class="td-val">keine Zentrale, einfache App</span></td>
+<td data-label="Grenzen"><span class="td-val">höherer Stromverbrauch, oft abhängig von der Cloud des Herstellers</span></td>
+<td data-label="Gut für"><span class="td-val">die erste smarte Steckdose oder Lampe</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Zigbee 3.0</strong></span></td>
+<td data-label="Stärken"><span class="td-val">sparsam, Mesh-Netz, funktioniert lokal</span></td>
+<td data-label="Grenzen"><span class="td-val">braucht einen USB-Koordinator oder eine Zentrale</span></td>
+<td data-label="Gut für"><span class="td-val">Sensoren, Steckdosen, Heizkörperthermostate</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Thread</strong></span></td>
+<td data-label="Stärken"><span class="td-val">Mesh, sparsam, IP-basiert</span></td>
+<td data-label="Grenzen"><span class="td-val">bisher weniger Geräte</span></td>
+<td data-label="Gut für"><span class="td-val">zukunftssichere Batteriegeräte</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Matter</strong></span></td>
+<td data-label="Stärken"><span class="td-val">ein Standard für Apple Home, Google Home, Alexa und SmartThings</span></td>
+<td data-label="Grenzen"><span class="td-val">noch in Entwicklung; läuft über WLAN oder Thread</span></td>
+<td data-label="Gut für"><span class="td-val">Geräte kaufen, ohne sich zu binden</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 3. Elektrische Grundlagen in Deutschland, Österreich und der Schweiz
 
-| | Deutschland / Österreich | Schweiz |
-|---|---|---|
-| Stecker / Steckdose | Typ F (Schuko) | Typ J (T13); flache Euro-Stecker (Typ C) passen ebenfalls |
-| Netzspannung | 230 V, 50 Hz | 230 V, 50 Hz |
-| Kennzeichnung | CE (EU-Konformität) | CE wird in der Regel anerkannt; Schweizer Steckertyp beachten |
-| Fest verdrahtete Schalter und Relais | Arbeiten an der festen Installation gehören in die Hände einer Elektrofachkraft | Installationsarbeiten nur durch berechtigte Fachpersonen |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col">Deutschland / Österreich</th>
+<th scope="col">Schweiz</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Stecker / Steckdose</span></td>
+<td data-label="Deutschland / Österreich"><span class="td-val">Typ F (Schuko)</span></td>
+<td data-label="Schweiz"><span class="td-val">Typ J (T13); flache Euro-Stecker (Typ C) passen ebenfalls</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Netzspannung</span></td>
+<td data-label="Deutschland / Österreich"><span class="td-val">230 V, 50 Hz</span></td>
+<td data-label="Schweiz"><span class="td-val">230 V, 50 Hz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Kennzeichnung</span></td>
+<td data-label="Deutschland / Österreich"><span class="td-val">CE (EU-Konformität)</span></td>
+<td data-label="Schweiz"><span class="td-val">CE wird in der Regel anerkannt; Schweizer Steckertyp beachten</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Fest verdrahtete Schalter und Relais</span></td>
+<td data-label="Deutschland / Österreich"><span class="td-val">Arbeiten an der festen Installation gehören in die Hände einer Elektrofachkraft</span></td>
+<td data-label="Schweiz"><span class="td-val">Installationsarbeiten nur durch berechtigte Fachpersonen</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Praktische Regel:** Kaufen Sie Steckergeräte immer in der **Version für Ihr Land**. Ein Reiseadapter ist keine sichere Dauerlösung, besonders nicht für große Lasten wie Heizlüfter.
 

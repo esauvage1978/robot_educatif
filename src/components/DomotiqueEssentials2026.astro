@@ -1,0 +1,337 @@
+---
+import { amazonDpUrl, marketFromPathname, priceMentionForLocale, MARKET_CONFIG } from '../lib/amazonMarket.mjs';
+import {
+	CHECK_PRICE,
+	amazonOffer,
+	amazonSnapshot,
+	localeForMarket,
+	priceMarket,
+} from '../lib/amazonPriceStore.mjs';
+
+const pathname = Astro.url.pathname;
+const market = priceMarket(marketFromPathname(pathname)) || 'fr';
+const locale = localeForMarket(market);
+const snap = amazonSnapshot(market);
+const mention = priceMentionForLocale(snap?.releveAffichage || '', locale);
+
+const copy = {
+	fr: {
+		title: 'Les 4 indispensables Domotique & Home Assistant (Sélection 2026)',
+		lead: 'Kit de départ pour Home Assistant et Zigbee. Le prix affiché est le relevé Amazon du modèle nommé, pas une fourchette.',
+		shellyPrice: 'Prix sur Shelly',
+		items: [
+			{
+				asin: 'B0CXVKSG19',
+				query: 'Home Assistant Green',
+				title: 'Home Assistant Green',
+				role: 'Box domotique locale, stockage inclus, faible consommation. Le mini-PC N100 est un autre achat : son prix n’est pas celui de la Green.',
+			},
+			{
+				asin: 'B0B6P22YJC',
+				query: 'SONOFF ZBDongle-E',
+				title: 'Clé Zigbee 3.0 SONOFF ZBDongle-E',
+				role: 'Coordinateur ZHA / Zigbee2MQTT.',
+			},
+			{
+				asin: null,
+				query: 'Shelly Plus 1PM',
+				title: 'Micromodules Shelly (Wi-Fi / Zigbee / Pro)',
+				role: 'Relais, fil pilote, mesure de consommation. Plusieurs références : le prix se lit sur la fiche Shelly.',
+				shelly: true,
+			},
+			{
+				asin: 'B0BYZP8NK2',
+				query: 'SONOFF SNZB-02D',
+				title: 'Capteur Zigbee SONOFF SNZB-02D',
+				role: 'Température et humidité. Une tablette murale est un autre produit, avec son propre prix.',
+			},
+		],
+		cta: 'Amazon →',
+		altCta: 'Amazon Shelly',
+	},
+	en: {
+		title: '4 Home Assistant essentials (2026 picks)',
+		lead: 'Starter kit for Home Assistant and Zigbee. The price is the Amazon snapshot for the named model, not a range.',
+		shellyPrice: 'Price on Shelly',
+		items: [
+			{
+				asin: 'B0CXVKSG19',
+				query: 'Home Assistant Green',
+				title: 'Home Assistant Green',
+				role: 'Local hub with storage and low power draw. A mini PC is a different purchase.',
+			},
+			{
+				asin: 'B0B6P22YJC',
+				query: 'SONOFF ZBDongle-E',
+				title: 'SONOFF ZBDongle-E Zigbee 3.0',
+				role: 'ZHA / Zigbee2MQTT coordinator.',
+			},
+			{
+				asin: null,
+				query: 'Shelly Plus 1PM',
+				title: 'Shelly modules (Wi-Fi / Zigbee / Pro)',
+				role: 'Relays, pilot wire, energy metering. Several models: read the price on Shelly.',
+				shelly: true,
+			},
+			{
+				asin: 'B0BYZP8NK2',
+				query: 'SONOFF SNZB-02D',
+				title: 'SONOFF SNZB-02D Zigbee sensor',
+				role: 'Temperature and humidity. A wall tablet is a separate product.',
+			},
+		],
+		cta: 'Amazon →',
+		altCta: 'Amazon Shelly',
+	},
+	de: {
+		title: '4 Smart-Home-Grundausstattungen (Auswahl 2026)',
+		lead: 'Startset für Home Assistant und Zigbee. Der Preis ist der Amazon-Stand des genannten Modells, keine Spanne.',
+		shellyPrice: 'Preis bei Shelly',
+		items: [
+			{
+				asin: 'B0CXVKSG19',
+				query: 'Home Assistant Green',
+				title: 'Home Assistant Green',
+				role: 'Lokale Zentrale, Speicher inklusive, geringer Verbrauch. Ein Mini-PC ist ein anderes Gerät.',
+			},
+			{
+				asin: 'B0B6P22YJC',
+				query: 'SONOFF ZBDongle-E',
+				title: 'SONOFF ZBDongle-E Zigbee 3.0',
+				role: 'Koordinator für ZHA / Zigbee2MQTT.',
+			},
+			{
+				asin: null,
+				query: 'Shelly Plus 1PM',
+				title: 'Shelly-Module (WLAN / Zigbee / Pro)',
+				role: 'Relais, Pilotlinie, Verbrauchsmessung. Mehrere Modelle: Preis auf der Shelly-Seite.',
+				shelly: true,
+			},
+			{
+				asin: 'B0BYZP8NK2',
+				query: 'SONOFF SNZB-02D',
+				title: 'SONOFF SNZB-02D Zigbee-Sensor',
+				role: 'Temperatur und Luftfeuchte. Ein Wandtablet ist ein anderes Produkt.',
+			},
+		],
+		cta: 'Amazon →',
+		altCta: 'Amazon Shelly',
+	},
+	it: {
+		title: '4 indispensabili per Home Assistant (selezione 2026)',
+		lead: 'Kit di partenza per Home Assistant e Zigbee. Il prezzo è il rilevamento Amazon del modello indicato, non una forbice.',
+		shellyPrice: 'Prezzo su Shelly',
+		items: [
+			{
+				asin: 'B0CXVKSG19',
+				query: 'Home Assistant Green',
+				title: 'Home Assistant Green',
+				role: 'Centralina locale, memoria inclusa, basso consumo. Un mini PC è un altro acquisto.',
+			},
+			{
+				asin: 'B0B6P22YJC',
+				query: 'SONOFF ZBDongle-E',
+				title: 'SONOFF ZBDongle-E Zigbee 3.0',
+				role: 'Coordinatore ZHA / Zigbee2MQTT.',
+			},
+			{
+				asin: null,
+				query: 'Shelly Plus 1PM',
+				title: 'Moduli Shelly (Wi-Fi / Zigbee / Pro)',
+				role: 'Relè, filo pilota, misura dei consumi. Più modelli: il prezzo è sulla scheda Shelly.',
+				shelly: true,
+			},
+			{
+				asin: 'B0BYZP8NK2',
+				query: 'SONOFF SNZB-02D',
+				title: 'Sensore Zigbee SONOFF SNZB-02D',
+				role: 'Temperatura e umidità. Un tablet a muro è un altro prodotto.',
+			},
+		],
+		cta: 'Amazon →',
+		altCta: 'Amazon Shelly',
+	},
+	es: {
+		title: '4 imprescindibles de Home Assistant (selección 2026)',
+		lead: 'Kit de inicio para Home Assistant y Zigbee. El precio es el registro de Amazon del modelo citado, no una horquilla.',
+		shellyPrice: 'Precio en Shelly',
+		items: [
+			{
+				asin: 'B0CXVKSG19',
+				query: 'Home Assistant Green',
+				title: 'Home Assistant Green',
+				role: 'Central local, almacenamiento incluido, bajo consumo. Un mini PC es otra compra.',
+			},
+			{
+				asin: 'B0B6P22YJC',
+				query: 'SONOFF ZBDongle-E',
+				title: 'SONOFF ZBDongle-E Zigbee 3.0',
+				role: 'Coordinador ZHA / Zigbee2MQTT.',
+			},
+			{
+				asin: null,
+				query: 'Shelly Plus 1PM',
+				title: 'Micromódulos Shelly (Wi-Fi / Zigbee / Pro)',
+				role: 'Relés, hilo piloto, medida de consumo. Varias referencias: el precio está en Shelly.',
+				shelly: true,
+			},
+			{
+				asin: 'B0BYZP8NK2',
+				query: 'SONOFF SNZB-02D',
+				title: 'Sensor Zigbee SONOFF SNZB-02D',
+				role: 'Temperatura y humedad. Una tableta de pared es otro producto.',
+			},
+		],
+		cta: 'Amazon →',
+		altCta: 'Amazon Shelly',
+	},
+};
+
+const c = copy[locale] || copy.fr;
+const shellyShop =
+	locale === 'de'
+		? 'https://www.shelly.com/de'
+		: locale === 'it'
+			? 'https://www.shelly.com/it'
+			: locale === 'es'
+				? 'https://www.shelly.com/es'
+				: locale === 'en'
+					? 'https://www.shelly.com/en'
+					: 'https://www.shelly.com/fr';
+const shellyAff = locale === 'fr' ? '2818852' : '3126073';
+const shellyUrl = `https://www.awin1.com/cread.php?awinmid=114660&awinaffid=${shellyAff}&ued=${encodeURIComponent(shellyShop)}`;
+
+const items = c.items.map((item) => {
+	const offer = item.asin ? amazonOffer(market, item.asin) : null;
+	const price = item.shelly ? c.shellyPrice : offer ? offer.label : CHECK_PRICE[locale];
+	const url = item.shelly ? shellyUrl : amazonDpUrl(item.asin, market);
+	return { ...item, price, url, priced: Boolean(offer) || Boolean(item.shelly) };
+});
+---
+
+<section class="re-dom-essentials-2026" aria-labelledby="re-dom-essentials-title">
+	<h2 id="re-dom-essentials-title">{c.title}</h2>
+	<p class="re-dom-essentials-lead">
+		{c.lead}
+		{mention ? ` ${mention}` : ''}
+	</p>
+	<ul class="re-dom-essentials-grid">
+		{items.map((item) => (
+			<li class="re-dom-essentials-card">
+				<h3>{item.title}</h3>
+				<p class="re-dom-essentials-role">{item.role}</p>
+				<p class="re-dom-essentials-price" data-amazon-price="1">{item.price}</p>
+				<div class="re-dom-essentials-actions">
+					<a
+						class="re-dom-essentials-btn"
+						href={item.url}
+						data-amazon-query={item.query}
+						target="_blank"
+						rel="sponsored nofollow noopener"
+						data-placement="domotique_essentials_2026"
+					>
+						{item.shelly ? (locale === 'fr' ? 'Voir sur Shelly →' : locale === 'de' ? 'Bei Shelly →' : locale === 'it' ? 'Vedi su Shelly →' : locale === 'es' ? 'Ver en Shelly →' : 'View on Shelly →') : `🛒 ${c.cta}`}
+					</a>
+					{item.shelly && (
+						<a
+							class="re-dom-essentials-btn re-dom-essentials-btn--ghost"
+							href={`https://${MARKET_CONFIG[market].host}/s?k=${encodeURIComponent(item.query)}&tag=${MARKET_CONFIG[market].tag}`}
+							data-amazon-query={item.query}
+							target="_blank"
+							rel="sponsored nofollow noopener"
+							data-placement="domotique_essentials_2026"
+						>
+							{c.altCta}
+						</a>
+					)}
+				</div>
+			</li>
+		))}
+	</ul>
+</section>
+
+<style is:global>
+	.re-dom-essentials-2026 {
+		margin: 1.75rem 0 2rem;
+		padding: 1.25rem 1.15rem;
+		border-radius: 14px;
+		border: 1px solid rgba(15, 118, 110, 0.35);
+		background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(11, 31, 42, 0.04));
+	}
+	.re-dom-essentials-2026 h2 {
+		font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+		margin: 0 0 0.5rem;
+		line-height: 1.3;
+	}
+	.re-dom-essentials-lead {
+		margin: 0 0 1rem;
+		font-size: 0.92rem;
+		color: rgb(var(--gray-dark, 71 85 105));
+		max-width: 52rem;
+	}
+	.re-dom-essentials-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 0.85rem;
+	}
+	.re-dom-essentials-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		padding: 0.85rem 0.95rem;
+		border-radius: 10px;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		background: var(--surface, #fff);
+	}
+	.re-dom-essentials-card h3 {
+		font-size: 0.95rem;
+		margin: 0;
+		line-height: 1.25;
+		color: var(--accent, #0f766e);
+	}
+	.re-dom-essentials-role {
+		margin: 0;
+		font-size: 0.82rem;
+		line-height: 1.4;
+		flex: 1;
+	}
+	.re-dom-essentials-price {
+		margin: 0;
+		font-size: 0.85rem;
+		font-weight: 700;
+	}
+	.re-dom-essentials-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 0.35rem;
+	}
+	.re-dom-essentials-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.45rem 0.75rem;
+		border-radius: 8px;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-decoration: none;
+		background: #c2410c;
+		color: #fff !important;
+		border: none;
+	}
+	.re-dom-essentials-btn:hover {
+		filter: brightness(1.06);
+	}
+	.re-dom-essentials-btn--ghost {
+		background: transparent;
+		color: #0f766e !important;
+		border: 1.5px solid #0f766e;
+	}
+	
+	
+	
+	
+</style>

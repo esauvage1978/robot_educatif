@@ -1,7 +1,10 @@
 ---
-title: "Déballage et découverte Tale-Bot Pro Matatalab"
-description: "Tale-Bot Matatalab : robot éducatif pour enfants, découverte robotique et programmation par blocs."
+shareTitle: "Déballage et découverte Tale-Bot Pro Matatalab"
+shareDescription: "Tale-Bot Matatalab : robot éducatif pour enfants, découverte robotique et programmation par blocs."
+title: "Déballage Tale-Bot Pro Matatalab : photos et premiers pas"
+description: "Déballage du Tale-Bot Pro Matatalab : ce que contient la boîte, les premiers pas avec l’enfant, et les activités possibles dès 4 ans, sans notice compliquée."
 pubDate: "2023-05-01"
+updatedDate: "2026-11-03"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:
   - "Matatalab"
@@ -9,9 +12,36 @@ categories:
   - "Tale-Bot"
   - "À partir de 5 ans"
 ---
-Le robot tale-bot de chez [Matatalab](/marque-matatalab/) est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Dans cet article, nous allons déballer et découvrir ensemble ce robot éducatif. Nous allons également voir comment effectuer les premiers pas pour programmer et utiliser le robot tale-bot.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/marque-matatalab/">Matatalab</a> · Tale-Bot Pro</nav>
 
-Pour découvrir ce qu’est le robot Talebot pro, je vous invite à lire l’article intitulé : [Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants](/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants/)
+> **Réponse directe** — Le **Tale-Bot Pro** (robot éducatif sans écran, commandes sur le robot) se programme par **cartes** et **boutons** ; idéal dès **4–5 ans** avec un adulte pour la langue. Après le déballage : charger, choisir le **français** sur la grille, puis enchaîner **avancer / reculer / danser**. Hub marque : [Matatalab](/marque-matatalab/).
+
+Le robot tale-bot de chez [Matatalab](/marque-matatalab/) est un outil éducatif amusant et interactif qui permet aux enfants de découvrir le monde de la robotique et de la programmation. Cet article documente notre **déballage réel** avec photos, un **mini tutoriel** visible dès le début, puis le retour d’usage avec un enfant de 4 ans.
+
+![Tale-Bot Pro — vue du robot](/images/illustrations/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab.webp)
+
+*Crédit photo : Tale-Bot Pro lors du déballage (usage éditorial).*
+
+## Mini tutoriel : premiers pas (5 minutes)
+
+1. **Chargez** le robot avec le câble fourni (voyant stable avant la première session).
+2. Posez la **grille de langue** sous le robot : choisissez **FR** et la distance (**10 cm** ou **15 cm** par pas).
+3. Appuyez sur **Programmer**, enchaînez **Avancer × 2**, **Reculer × 1**, **Danser** — validez avec **Lecture**.
+4. Testez le mode **Histoire** (ex. balade au zoo) — voir [FAQ Tale-Bot](/le-robot-tale-bot-de-chez-matatalab-questions-reponses/) si la voix reste en anglais.
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.fr/dp/B0CZ6R182M?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank"><strong>Voir le Tale-Bot Pro sur Amazon</strong></a> · <a href="https://www.matatalab.com/" target="_blank" rel="noopener">Site Matatalab</a></p>
+
+Pour découvrir ce qu’est le robot Talebot pro en détail : [Le robot Tale-bot de chez Matatalab : un outil éducatif pour enfants](/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants/).
+
+## Galerie déballage
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin:1rem 0;">
+<img src="/images/blog-thumbnails/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab.webp" alt="Boîtes Tale-Bot Pro" width="240" height="135" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+<img src="/images/blog-thumbnails/le-robot-tale-bot-de-chez-matatalab-un-outil-educatif-pour-enfants.webp" alt="Tale-Bot face avant" width="240" height="135" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+<img src="/images/blog-thumbnails/le-robot-tale-bot-de-chez-matatalab-questions-reponses.webp" alt="Grille langue Tale-Bot" width="240" height="135" loading="lazy" style="border-radius:8px;object-fit:cover;" />
+</div>
+
+*Crédits : vignettes éditoriales Robot Éducatif (déballage Matatalab).*
 
 ## Remerciement
 
@@ -77,10 +107,12 @@ Pour en savoir plus : le [site officiel de Matatalab](https://www.matatalab.com/
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B0CZ6R182M?tag=manuso06-21)
 
 ## Conclusion
 
 Après avoir testé le robot Tale-bot pro de chez Matatalab pendant plusieurs jours, mon fils de 4 ans l’aime tellement qu’il ne le quitte plus ! Ce produit éducatif propose une multitude de fonctionnalités amusantes et interactives, telles que le mode histoire, l’enregistrement des sons, les jeux de recherche de forme et de dénombrement, ainsi que la possibilité de déguiser le robot selon les préférences de votre enfant. Nous sommes convaincus que ce jouet intelligent aidera à développer la créativité et les compétences cognitives de notre enfant, tout en lui procurant des heures de plaisir. En somme, le robot Tale-bot pro de chez Matatalab est un excellent choix pour les parents cherchant à offrir un jouet éducatif et amusant à leurs enfants.
 
 **À lire aussi** : [qui est Matatalab ?](/matatalab-une-entreprise-innovante/)
+
+<p style="font-size:0.85rem;">Partage Pinterest (URL canonique) : <a href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Frobot-educatif.info%2Fdeballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab%2F&amp;description=D%C3%A9ballage+et+d%C3%A9couverte+Tale-Bot+Pro+Matatalab+-+Tale-Bot+Matatalab+%3A+robot+%C3%A9ducatif+pour+enfants%2C+d%C3%A9couverte+robotique+et+programmation+par+blocs.">Épingler sur Pinterest</a></p>

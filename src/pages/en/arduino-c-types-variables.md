@@ -1,11 +1,21 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Arduino C lesson 2: types, variables and constants"
-description: "int, unsigned long, float, bool, char and const char*: which Arduino type to use for speeds, distances, time and states, plus scope and constants. Lesson 2 of our Arduino C course, 12 exercises with solutions."
-updated: "23 October 2026"
+description: "int, unsigned long, float, bool and const char*: which Arduino type fits speed, distance, time and state. Lesson 2 of the course, 12 solved exercises."
+updated: "4 November 2026"
 ---
 
-In robotics you handle a lot of **numbers** (speeds, distances, times) and **states** (on/off). In Arduino C, choosing the right **type** makes the program clearer and avoids bugs. This is lesson 2 of our [Arduino course](/en/arduino/).
+> **Quick answer (November 2026)** — Use **`int`** for counters and motor speeds (whole numbers), **`unsigned long`** for anything from **`millis()`** (milliseconds since the board booted), **`float`** only when you need decimals, and **`bool`** for on/off states. If a robot drives backward, you often fix it with a **negative speed**—that is a sign issue, not a new type.
+
+This lesson is part of our [Arduino C course hub](/en/arduino/) (lesson 2 of 14). **Prerequisite:** [Lesson 1 — sketch structure and Serial](/en/arduino-c-sketch-structure-serial/). Parents and teachers: pair it with [programmable robots for kids](/en/best-programmable-robot-for-kids/) once block coding is comfortable.
+
+![Arduino Starter Kit product photo](/images/products/arduino-starter-kit.webp)
+
+<p><em>Arduino Starter Kit — editorial hardware illustration.</em></p>
+
+![Arduino UNO R3 board](/images/models/arduino-uno-r3.webp)
+
+<p><em>Arduino UNO R3 — typical board used in these exercises.</em></p>
 
 ## 1. The most useful types
 
@@ -226,3 +236,14 @@ void loop() {}</code></pre>
 ---
 
 ← Previous: [Lesson 1: sketch structure and Serial](/en/arduino-c-sketch-structure-serial/) · Next: [Lesson 3: conditions, sensors and actuators](/en/arduino-c-conditions-sensors/) → · [Back to the course](/en/arduino/)
+
+## FAQ
+
+**What type for an ultrasonic distance in cm?**  
+Usually **`int distance_cm`** — ultrasonic modules return whole centimetres in most classroom sketches.
+
+**Why not store everything in `float`?**  
+It works for small programs, but **`int`** is clearer for counters and saves RAM on an **UNO** (the common Arduino board with 2 KB SRAM).
+
+**Where does this fit in the full course?**  
+After [lesson 1](/en/arduino-c-sketch-structure-serial/) (Serial monitor) and before [lesson 3](/en/arduino-c-conditions-sensors/) (if/else and sensors). See also [Arduino robot kit for kids](/en/arduino-robot-kit-for-kids/) for hardware that matches these lessons.

@@ -1,0 +1,1191 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import RepairIndicators from '../../../components/RepairIndicators.astro';
+import RepairCaution from '../../../components/RepairCaution.astro';
+import RepairComplianceSections from '../../../components/RepairComplianceSections.astro';
+import { PROFESSIONAL_ASSISTANCE, PROFESSIONAL_ASSISTANCE_ROBOT, PROFESSIONAL_ASSISTANCE_LOW_VOLTAGE } from '../../../data/repairCompliance.mjs';
+import { TROUBLE_UI } from '../../../data/smartHomeTroubleshooting.mjs';
+import {
+	BRANDS,
+	PRODUCTS,
+	getAllCatalogEntries,
+} from '../../../data/unifiedErrorCatalog.mjs';
+import { withBase } from '../../../lib/siteUrl';
+import { ARTICLE_AUTHOR } from '../../../consts';
+import { buildErrorCodeSeoTitle } from '../../../lib/pageTitle';
+
+export function getStaticPaths() {
+	const entries = getAllCatalogEntries();
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+type Props = {
+	entry: ReturnType<typeof getAllCatalogEntries>[number];
+};
+
+const { entry } = Astro.props as Props;
+const lang = 'fr';
+const ui = TROUBLE_UI[lang];
+const productBySlug = Object.fromEntries(PRODUCTS.map((p) => [p.slug, p]));
+const brandBySlug = Object.fromEntries(BRANDS.map((b) => [b.slug, b]));
+
+const primaryProduct = entry.product_slug ? productBySlug[entry.product_slug] : null;
+const productLabel = primaryProduct?.name ?? entry.product_slug ?? '';
+const brand = brandBySlug[entry.brand_slug];
+const imageSrc = primaryProduct?.image_url ?? `/images/models/${entry.product_slug}.webp`;
+
+const pageTitle = buildErrorCodeSeoTitle(
+	entry.error_code,
+	entry.title.fr,
+	productLabel,
+	entry.brand_slug,
+);
+const META_DESCRIPTIONS: Record<string, string> = {
+	'z2m-205':
+		"Error 205 Zigbee2MQTT à l'appairage : rapprochez le capteur, relancez l'interview ZDO, canal Zigbee fixe. Pas à pas Sonoff dongle et FAQ.",
+	'aqara-thermostat-e1-e2':
+		'Codes E1 ou E2 sur tête Aqara T1 : calibrage vanne M30, adaptateur compatible, piston grippé. Étapes copiables dans Aqara Home.',
+	'aqara-p2-matter-pase-timeout':
+		'PASE timeout Matter sur Aqara P2 : border router Thread, reset 10 s, même compte. Pas à pas Home Assistant et Aqara Home.',
+	'hue-motion-red-led-zigbee':
+		'LED rouge Hue Motion à chaque passage : pile CR2450, canal Zigbee, Bridge injoignable. Diagnostic pas à pas.',
+	'arduino-permission-denied-linux':
+		'Permission denied sur /dev/ttyUSB0 (Linux) : groupe dialout, nouvelle session, pas de mBlock en root. Commandes copiables Arduino IDE.',
+	'sonoff-zbmini-l2-led-blink':
+		'ZBMini-L2 : lampe qui clignote sans neutre. Coupure disjoncteur, bypass Sonoff, charge min 3 W. Pas à pas Zigbee.',
+	'homey-pro-red-ring-recovery':
+		'Anneau rouge pulse sur Homey Pro : laisser refroidir, recovery USB Athom, libérer eMMC. Pas à pas sans ouvrir le boîtier.',
+	'z2m-interview-failed':
+		'Interview failed Zigbee2MQTT : converters à jour, reset fabricant, réappairage à 50 cm du dongle. Pas à pas Z2M vérifiable.',
+};
+const description =
+	META_DESCRIPTIONS[entry.slug] ?? `${entry.symptoms.fr}`.slice(0, 158).trim();
+const articlePath = `/domotique/code-erreur/${entry.slug}/`;
+const hubTroubleshootPath = '/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/';
+const pubDate = new Date('2026-10-24T00:00:00Z');
+
+const modelSlugs = [
+	...(entry.product_slug ? [entry.product_slug] : []),
+	...(entry.applicable_products || []),
+];
+const applicableNames = [...new Set(modelSlugs)]
+	.map((slug) => productBySlug[slug]?.name ?? slug)
+	.filter(Boolean);
+
+const relatedSameBrand = getAllCatalogEntries()
+	.filter((e) => e.brand_slug === entry.brand_slug && e.slug !== entry.slug)
+	.slice(0, 8);
+
+const toolsStr =
+	typeof entry.tools === 'string' ? entry.tools : entry.tools?.fr ?? '';
+
+const MAINS_CATEGORIES = new Set(['micromodules-relais']);
+const isMakeblockRobot =
+	entry.brand_slug === 'makeblock' || (entry.ecosystem?.includes('makeblock') ?? false);
+const isEducRobot = entry.category_slug === 'robots-educatifs';
+const isLowVoltageDomotique =
+	(!isEducRobot && !MAINS_CATEGORIES.has(entry.category_slug)) ||
+	(isEducRobot && entry.brand_slug === 'arduino');
+const complianceVariant = isMakeblockRobot
+	? 'makeblock-only'
+	: isLowVoltageDomotique
+		? 'low-voltage-domotique'
+		: 'smart-home';
+const assistText = isMakeblockRobot
+	? PROFESSIONAL_ASSISTANCE_ROBOT[lang]
+	: isLowVoltageDomotique
+		? PROFESSIONAL_ASSISTANCE_LOW_VOLTAGE[lang]
+		: PROFESSIONAL_ASSISTANCE[lang];
+
+const pageUrl = new URL(withBase(articlePath), Astro.site).toString();
+const faqItems = [
+	{
+		question: `Que signifie le code ou symptôme « ${entry.error_code} » sur ${productLabel} ?`,
+		answer: entry.symptoms.fr,
+	},
+	{
+		question: `Comment résoudre « ${entry.error_code} » (${entry.title.fr}) ?`,
+		answer: entry.fix.fr,
+	},
+];
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'TechArticle',
+			headline: pageTitle,
+			description,
+			datePublished: pubDate.toISOString(),
+			author: { '@type': 'Person', name: ARTICLE_AUTHOR },
+			image: new URL(withBase(imageSrc), Astro.site).toString(),
+			mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqItems.map((item) => ({
+				'@type': 'Question',
+				name: item.question,
+				acceptedAnswer: { '@type': 'Answer', text: item.answer },
+			})),
+		},
+	],
+};
+---
+
+<DomotiqueToolLayout
+	title={pageTitle}
+	description={description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel="Domotique"
+	repairGuide={true}
+	skipDefaultBreadcrumb={true}
+	breadcrumbItems={[
+		{ name: 'Accueil', url: withBase('/') },
+		{ name: 'Domotique', url: withBase('/domotique/') },
+		{ name: 'Codes erreurs & dépannage', url: withBase(hubTroubleshootPath) },
+		{ name: entry.error_code, url: withBase(articlePath) },
+	]}
+>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+	<nav class="breadcrumb error-breadcrumb" aria-label="Fil d'Ariane">
+		<a href={withBase('/')}>Accueil</a> · <a href={withBase('/domotique/')}>Domotique</a> · <a href={withBase(hubTroubleshootPath)}>Codes erreurs & dépannage</a> · {entry.error_code}
+	</nav>
+
+	<p class="error-hub-intro">
+		Cette fiche fait partie du <a href={withBase('/domotique/')}>hub domotique</a> et du{' '}
+		<a href={withBase(hubTroubleshootPath)}>répertoire codes erreurs Zigbee & Home Assistant</a>.
+		Pour choisir une clé USB : <a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif dongles Zigbee</a>.
+	</p>
+
+	<div class="error-hero">
+		<img
+			src={imageSrc}
+			alt={productLabel}
+			width="240"
+			height="180"
+			loading="eager"
+			decoding="async"
+			class="error-hero__img"
+		/>
+		<div class="error-hero__text">
+			<p class="error-hero__code"><code>{entry.error_code}</code></p>
+			<p class="error-hero__brand">
+				<strong>Marque :</strong> {brand?.name ?? entry.brand_slug}
+			</p>
+			{applicableNames.length > 0 && (
+				<p class="error-hero__models">
+					<strong>Modèles concernés :</strong> {applicableNames.join(', ')}
+				</p>
+			)}
+		</div>
+	</div>
+
+	<RepairIndicators
+		lang={lang}
+		difficulty={entry.difficulty as 1 | 2 | 3 | 4 | 5}
+		time={entry.time}
+		cost={entry.cost}
+		tools={toolsStr}
+	/>
+
+	{entry.slug === 'z2m-205' && (
+		<section class="error-section">
+			<h2>Réponse rapide (Error 205)</h2>
+			<p>
+				<strong>Symptôme :</strong> l’appairage Zigbee s’arrête avec « <strong>Error 205</strong> » ou un timeout{' '}
+				<strong>ZDO</strong> (Zigbee Device Object — échange de découverte entre capteur et coordinateur) après environ
+				10 secondes dans les journaux <strong>Zigbee2MQTT</strong> (Z2M — passerelle logicielle qui fait dialoguer vos
+				capteurs Zigbee avec Home Assistant).
+			</p>
+			<p>
+				<strong>Cause la plus fréquente :</strong> le capteur est trop loin du dongle USB, dort sur pile avant la fin de
+				l’« interview », ou le canal <strong>2,4 GHz</strong> est saturé (Wi-Fi + Zigbee partagent la bande).
+			</p>
+			<ol>
+				<li>
+					Placez l’appareil à <strong>moins d’1 m</strong> du coordinateur (clé Sonoff ZBDongle-E/P ou équivalent).
+				</li>
+				<li>
+					Activez le mode appairage sur le capteur (bouton fabricant jusqu’au clignotement rapide).
+				</li>
+				<li>
+					Dans l’interface Z2M, supprimez l’appareil « fantôme » puis relancez l’appairage.
+				</li>
+				<li>
+					Fixez un <strong>canal Zigbee</strong> (15, 20 ou 25) loin du Wi-Fi ; évitez le canal 11 si votre box Wi-Fi
+					est aussi sur 11.
+				</li>
+				<li>
+					Sur <strong>ZBDongle-E</strong> : firmware <strong>Ember</strong> à jour (<code>adapter: ember</code> dans
+					configuration.yaml).
+				</li>
+			</ol>
+			<p>
+				Hub domotique : <a href={withBase('/domotique/')}>guide domotique</a> · répertoire :{' '}
+				<a href={withBase(hubTroubleshootPath)}>codes erreurs Zigbee &amp; Home Assistant</a> ·{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif dongles Zigbee</a> ·{' '}
+				<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>Zigbee2MQTT ou ZHA</a> · fiche liée :{' '}
+				<a href={withBase('/domotique/code-erreur/z2m-interview-failed/')}>Interview failed</a>.
+			</p>
+			<h3>Exemple de journal</h3>
+			<pre class="error-log"><code>{`z2m: Interview failed because Error: AREQ - ZDO response after 10000ms
+z2m: Failed to configure 'capteur_porte', attempt 1/5, error: Error 205`}</code></pre>
+			<h3>FAQ Error 205</h3>
+			<ul>
+				<li>
+					<strong>Capteur sur pile Aqara ?</strong> Réveillez-le (ouvrez la porte / passez devant le PIR) pendant
+					l’appairage.
+				</li>
+				<li>
+					<strong>Prise Sonoff routeur ?</strong> Coupez temporairement une prise Zigbee instable qui flood le réseau.
+				</li>
+				<li>
+					<strong>Toujours bloqué ?</strong> Mettez Z2M à jour (converters) puis réinitialisez le capteur (procédure
+					constructeur).
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'z2m-interview-failed' && (
+		<section class="error-section">
+			<h2>Réponse rapide (« Interview failed » — Zigbee2MQTT)</h2>
+			<p>
+				<strong>Symptôme :</strong> l’appareil apparaît dans <strong>Zigbee2MQTT</strong> (Z2M — passerelle logicielle entre capteurs Zigbee et{' '}
+				<strong>Home Assistant</strong>) mais l’« <strong>interview</strong> » (échange ZCL où le coordinateur lit les clusters du capteur) échoue :
+				entités manquantes, statut <code>unsupported</code>, ou message <code>Interview failed</code> dans les journaux.
+			</p>
+			<p>
+				<img src={withBase('/images/models/aqara-motion-p2.webp')} alt="Capteur Zigbee Aqara — exemple d’appareil concerné par interview failed" width="640" height="360" loading="lazy" />
+				<em>Exemple de capteur Zigbee (Aqara Motion P2) — le même type d’erreur touche aussi Sonoff, Tuya sans hub, etc.</em>
+			</p>
+			<h3>Pas à pas (15 min, 0 € si dongle déjà en place)</h3>
+			<ol>
+				<li>
+					<strong>Mettre Z2M à jour</strong> (conteneur Docker ou add-on HA) — les <strong>converters</strong> (fichiers qui décrivent chaque
+					modèle) corrigent souvent les « unsupported ».
+				</li>
+				<li>
+					<strong>Supprimer l’appareil</strong> dans l’interface Z2M (pas seulement dans Home Assistant) — évite les doublons « fantômes ».
+				</li>
+				<li>
+					<strong>Réinitialisation fabricant</strong> — bouton 5–10 s (Aqara : ouvrir capteur + appui long ; Tuya sans gateway : clignotement
+					rapide jusqu’à relâcher).
+				</li>
+				<li>
+					<strong>Réappairer à &lt; 50 cm</strong> du dongle USB (Sonoff ZBDongle-E/P ou ConBee) — pas depuis un autre étage.
+				</li>
+				<li>
+					<strong>Capteur sur pile :</strong> réveillez-le pendant l’interview (mouvement PIR, ouverture porte) — sinon il dort et l’interview
+					échoue.
+				</li>
+				<li>
+					<strong>Canal Zigbee fixe</strong> (15, 20 ou 25) loin du Wi-Fi 2,4 GHz — voir{' '}
+					<a href={withBase('/domotique/code-erreur/z2m-205/')}>Error 205</a> pour le même principe de proximité.
+				</li>
+			</ol>
+			<table>
+				<thead>
+					<tr>
+						<th>Cause fréquente</th>
+						<th>Indice dans les logs</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Converter manquant / obsolète</td>
+						<td><code>Unsupported device</code></td>
+						<td>MAJ Z2M + issue GitHub zigbee-herdsman-converters</td>
+					</tr>
+					<tr>
+						<td>Capteur endormi (pile)</td>
+						<td>Timeout ZDO 10 s</td>
+						<td>Réveil physique pendant appairage</td>
+					</tr>
+					<tr>
+						<td>Trop loin du coordinateur</td>
+						<td><code>No network route</code> puis failed</td>
+						<td>Rapprocher + routeur Zigbee alimenté</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Exemple de journal</h3>
+			<pre class="error-log"><code>{`z2m: Interview failed for '0x…' (model XYZ)
+z2m: Device 'capteur_salon' supported: false`}</code></pre>
+			<p>
+				<a href={withBase('/domotique/')}>Hub domotique</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire codes erreurs</a> ·{' '}
+				<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>Zigbee2MQTT ou ZHA</a> ·{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif dongles Zigbee</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/z2m-no-route/')}>No network route</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/z2m-205/')}>Error 205</a>.
+			</p>
+			<h3>FAQ Interview failed</h3>
+			<ul>
+				<li>
+					<strong>ZHA au lieu de Z2M ?</strong> Même logique d’interview — voir{' '}
+					<a href={withBase('/domotique/code-erreur/zha-probe-failed/')}>Failed to probe (ZHA)</a>.
+				</li>
+				<li>
+					<strong>Toujours unsupported après MAJ ?</strong> Vérifiez la garantie constructeur avant d’ouvrir le boîtier (SAV Aqara,
+					Sonoff…).
+				</li>
+				<li>
+					<strong>Home Assistant Yellow / Green ?</strong> Le coordinateur intégré ou USB suit les mêmes règles de proximité et de
+					firmware Ember/EZSP — voir{' '}
+					<a href={withBase('/domotique/raspberry-pi-station-meteo-bme280-historique/')}>autres projets Pi</a> si vous testez sur Pi 5.
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'aqara-thermostat-e1-e2' && (
+		<section class="error-section">
+			<h2>Réponse rapide (E1 / E2 — vanne M30)</h2>
+			<p>
+				<strong>E1 ou E2</strong> sur l’écran de la <strong>tête thermostatique Aqara T1</strong> signifie en général que
+				la <strong>course de vanne M30×1,5</strong> (filetage standard des radiateurs en France) n’est pas calibrée, ou que
+				le <strong>piston</strong> est grippé / bloqué.
+			</p>
+			<h3>Calibrage M30 — pas à pas (Aqara Home)</h3>
+			<ol>
+				<li>
+					<strong>Chauffage coupé</strong> — attendez que le radiateur soit tiède ; notez la température ambiante.
+				</li>
+				<li>
+					<strong>Démontez la tête</strong> — tournez le corps sans forcer ; vérifiez l’<strong>adaptateur M30</strong>{' '}
+					(livré avec la tête : RA, RAV, Giacomini…).
+				</li>
+				<li>
+					<strong>Tournez la vanne à la main</strong> — ouverture / fermeture complète sans outil électrique ; si ça
+					grince, purgez le radiateur ou remplacez l’insert.
+				</li>
+				<li>
+					<strong>Remontez la tête</strong> — vissez jusqu’au contact, sans écraser le joint.
+				</li>
+				<li>
+					<strong>App Aqara Home</strong> — appareil → <em>Paramètres</em> → <strong>Calibrage vanne / Valve
+					calibration</strong> → lancez la procédure (2–3 min, bruit moteur normal).
+				</li>
+				<li>
+					<strong>Test consigne</strong> — baissez à 18 °C puis remontez à 21 °C : la vanne doit claquer une fois, pas en
+					boucle.
+				</li>
+			</ol>
+			<p>
+				Comparatif têtes connectées :{' '}
+				<a href={withBase('/domotique/debuter-en-domotique-guide-complet/')}>guide débuter en domotique</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire dépannage</a> ·{' '}
+				<a href={withBase('/domotique/')}>hub domotique</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/aqara-thermostat-calibration/')}>écart de température T1</a>.
+			</p>
+			<h3>FAQ E1 / E2</h3>
+			<ul>
+				<li>
+					<strong>Adaptateur incorrect ?</strong> Mesurez le filetage (M30 vs M28) avant d’acheter un adaptateur tiers.
+				</li>
+				<li>
+					<strong>Erreur après purge ?</strong> Relancez un calibrage : l’air dans le corps peut bloquer le piston.
+				</li>
+				<li>
+					<strong>Sous garantie ?</strong> Contact Aqara si le moteur ne bouge plus après calibrage (ne pas ouvrir la
+					tête sous garantie sans accord SAV).
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'aqara-p2-matter-pase-timeout' && (
+		<section class="error-section">
+			<h2>Réponse rapide (PASE timeout — Matter / Thread)</h2>
+			<p>
+				<strong>Symptôme :</strong> l’ajout Matter du capteur <strong>Aqara P2</strong> (portes/fenêtres ou mouvement) échoue avec «{' '}
+				<strong>PASE timeout</strong> » ou « setup failed ». <strong>PASE</strong> (*Password Authenticated Session Establishment*) est
+				la première étape chiffrée du protocole <strong>Matter</strong> (standard maison connectée inter-marques). Sans{' '}
+				<strong>border router Thread</strong> (routeur filaire IPv6 pour le maillage Thread), la session expire — le Wi-Fi seul ne suffit pas.
+			</p>
+			<p>
+				<img src={withBase('/images/products/aqara-door-window-p2.webp')} alt="Capteur Aqara Door and Window P2" width="640" height="360" loading="lazy" />
+				<em>Photo produit Aqara P2 — usage éditorial robot-educatif.info.</em>
+			</p>
+			<h3>Matter vs Zigbee sur le même P2</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Stack</th>
+						<th>Prérequis</th>
+						<th>Symptôme si manquant</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Matter</strong></td>
+						<td>Border router Thread + même compte</td>
+						<td>PASE timeout, pairing failed</td>
+					</tr>
+					<tr>
+						<td><strong>Zigbee</strong></td>
+						<td>Hub Aqara / dongle ZHA ou Z2M</td>
+						<td>Interview failed (autre fiche)</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Marche à suivre (20 min)</h3>
+			<ol>
+				<li>
+					Listez vos border routers : <strong>Hub Aqara M3</strong>, <strong>Homey Pro</strong>, <strong>Apple TV 4K</strong>{' '}
+					(Thread), ou intégration Matter de votre box — au moins un doit être <em>En ligne</em>.
+				</li>
+				<li>
+					Même « maison » Matter / même compte Aqara — supprimez un ancien appairage Google Home seul si le QR est déjà consommé.
+				</li>
+				<li>
+					Rapprochez le P2 à <strong>moins de 3 m</strong> du routeur Thread (pas du Wi-Fi seulement).
+				</li>
+				<li>
+					<strong>Reset usine</strong> : bouton 10 s → clignotement rapide (voir notice P2).
+				</li>
+				<li>
+					Désactivez VPN / DNS filtrant sur le téléphone pendant le scan du QR Matter.
+				</li>
+				<li>
+					Relancez l’ajout dans <strong>Aqara Home</strong> ou <strong>Home Assistant</strong> (Matter) — attendez la fin sans
+					verrouiller l’écran.
+				</li>
+			</ol>
+			<p>
+				<a href={withBase('/domotique/')}>Hub domotique</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>codes erreurs Zigbee et Home Assistant</a> ·{' '}
+				<a href={withBase('/domotique/protocoles-domotique-zigbee-wifi-thread-matter/')}>Zigbee, Wi-Fi, Thread, Matter</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/homey-matter-failed/')}>Matter pairing failed (Homey)</a> ·{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif dongles Zigbee</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/aqara-interview-sleep/')}>Aqara interview failed</a>.
+			</p>
+			<h3>FAQ P2 Matter</h3>
+			<ul>
+				<li>
+					<strong>P2 en Zigbee OK mais Matter KO ?</strong> Deux stacks : migrez Matter seulement quand Thread est stable.
+				</li>
+				<li>
+					<strong>Pas de border router ?</strong> Ajoutez un M3 ou Homey — le Wi-Fi seul ne suffit pas à Thread.
+				</li>
+				<li>
+					<strong>Timeout répété ?</strong> Changez de téléphone (iOS vs Android) pour isoler un bug app.
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'hue-motion-red-led-zigbee' && (
+		<section class="error-section">
+			<h2>Réponse rapide (LED rouge — Hue Motion)</h2>
+			<p>
+				<strong>Symptôme :</strong> le capteur <strong>Hue Motion</strong> clignote en <strong>rouge</strong> à chaque détection au
+				lieu de rester discret : il n’a pas transmis l’événement au <strong>Hue Bridge</strong> (passerelle Zigbee Philips) ou la pile
+				est faible.
+			</p>
+			<p>
+				<img src={withBase('/images/products/hue-starter-kit-bridge-pro.webp')} alt="Hue Bridge et écosystème Philips Hue" width="640" height="360" loading="lazy" />
+				<em>Philips Hue Bridge — le capteur Motion doit joindre ce coordinateur ou un routeur Hue alimenté.</em>
+			</p>
+			<h3>Correspondance Wi-Fi 2,4 GHz ↔ canal Zigbee Hue</h3>
+			<p>
+				Le <strong>Wi-Fi</strong> (réseau sans fil de la box) et le <strong>Zigbee</strong> (maillage capteurs Hue) partagent la bande{' '}
+				<strong>2,4 GHz</strong>. Si votre box utilise le canal Wi-Fi <strong>6</strong>, le canal Zigbee <strong>25</strong> (fréquent sur Hue) peut
+				être saturé — d’où la LED rouge à chaque passage.
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Canal Wi-Fi 2,4 GHz (box)</th>
+						<th>Risque pour Zigbee 25</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1, 6 ou 11 (large)</td>
+						<td>Élevé si Zigbee = 25</td>
+						<td>Changer Zigbee vers 15 ou 20 dans l’app Hue</td>
+					</tr>
+					<tr>
+						<td>Canal fixe inconnu</td>
+						<td>Variable</td>
+						<td>Test : rapprocher capteur + ampoule Hue routeur</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Diagnostic illustré</h3>
+			<ol>
+				<li>
+					Ouvrez le capteur — remplacez la pile <strong>CR2450</strong> (testez &gt; 2,7 V au multimètre si possible).
+				</li>
+				<li>
+					Rapprochez-le d’une <strong>ampoule Hue alimentée</strong> (routeur Zigbee), pas seulement du Bridge dans un autre
+					étage.
+				</li>
+				<li>
+					App <strong>Hue</strong> → Bridge → <em>Paramètres Zigbee</em> : notez le canal ; si le Wi-Fi 2,4 GHz utilise le même
+					canal, changez celui du Bridge.
+				</li>
+				<li>
+					Si le Bridge est « injoignable » en parallèle : suivez d’abord{' '}
+					<a href={withBase('/domotique/code-erreur/hue-bridge-unreachable/')}>Hue Bridge injoignable</a>.
+				</li>
+				<li>
+					Réappairez le capteur à <strong>&lt; 1 m</strong> du Bridge (bouton reset + recherche Hue).
+				</li>
+			</ol>
+			<p>
+				<a href={withBase('/domotique/')}>Hub domotique</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire dépannage Zigbee</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/hue-bridge-unreachable/')}>Hue Bridge injoignable</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/z2m-no-route/')}>No network route (Z2M)</a> ·{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>dongles Zigbee Home Assistant</a>.
+			</p>
+			<h3>FAQ LED rouge</h3>
+			<ul>
+				<li>
+					<strong>Canal 25 ?</strong> Fréquent sur Hue ; interférence Wi-Fi possible — testez canal 15 ou 20.
+				</li>
+				<li>
+					<strong>Capteur ne répond plus du tout ?</strong> Reset puis réappairage ; pile neuve obligatoire.
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'sonoff-zbmini-l2-led-blink' && (
+		<section class="error-section">
+			<h2>Réponse rapide (LED clignote — ZBMini-L2)</h2>
+			<p>
+				<strong>Symptôme :</strong> après installation du micromodule <strong>Sonoff ZBMini-L2</strong> (relais Zigbee sans fil
+				neutre), la lampe <strong>clignote</strong>, reste faiblement allumée ou ne s’éteint pas. Cause fréquente : charge{' '}
+				<strong>LED &lt; 3 W</strong> ou driver électronique incompatible avec le schéma <strong>L-only</strong> (sans neutre au
+				module).
+			</p>
+			<p>
+				<img src={withBase('/images/models/sonoff-zbmini-l2.webp')} alt="Sonoff ZBMini-L2 micromodule Zigbee" width="640" height="360" loading="lazy" />
+				<em>Photo produit Sonoff ZBMini-L2 — vérifiez la référence sur l’emballage avant achat du bypass.</em>
+			</p>
+			<h3>Sécurité 230 V (obligatoire)</h3>
+			<ol>
+				<li>Coupez le <strong>disjoncteur</strong> du circuit (pas seulement l’interrupteur mural).</li>
+				<li>Contrôlez l’absence de tension avec un testeur adapté ou faites intervenir un électricien qualifié.</li>
+				<li>Ne travaillez jamais sur fils sous tension — le module est derrière l’interrupteur.</li>
+			</ol>
+			<h3>Procédure (bypass puis charge minimale)</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Étape</th>
+						<th>Action</th>
+						<th>Durée indicative</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Identifier charge : ampoule LED &lt; 3 W ou guirlande ?</td>
+						<td>2 min</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Installer le <strong>bypass Sonoff</strong> (kit S-MATE / doc ITEAD) en parallèle de la lampe</td>
+						<td>10–15 min</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Test avec ampoule <strong>incandescente</strong> 40–60 W (charge résistive) pour valider le câblage</td>
+						<td>5 min</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Réappairer le module en <strong>Zigbee</strong> à &lt; 1 m du coordinateur (<strong>Z2M</strong> = Zigbee2MQTT, <strong>ZHA</strong> = intégration Home Assistant)</td>
+						<td>5 min</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<a href={withBase('/domotique/')}>Hub domotique</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire codes erreurs</a> ·{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>dongle Zigbee Home Assistant</a> ·{' '}
+				<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>Zigbee2MQTT ou ZHA</a> ·{' '}
+				<a href={withBase('/domotique/code-erreur/z2m-no-route/')}>No network route (Z2M)</a>.
+			</p>
+			<h3>FAQ clignotement</h3>
+			<ul>
+				<li>
+					<strong>Bypass obligatoire ?</strong> Presque toujours sur LED faible puissance sans neutre — sans bypass, le courant de
+					veille alimente la lampe.
+				</li>
+				<li>
+					<strong>Module OK en Z2M mais pas ZHA ?</strong> Même câblage ; refaites l’interview près du dongle USB Sonoff (
+					<a href={withBase('/domotique/code-erreur/sonoff-dongle-ezsp-ember/')}>driver Ember/EZSP</a>).
+				</li>
+			</ul>
+		</section>
+	)}
+
+	{entry.slug === 'arduino-permission-denied-linux' && (
+		<section class="error-section">
+			<h2>Réponse rapide (permission denied Linux)</h2>
+			<p>
+				<strong>Symptôme :</strong> Arduino IDE, mBlock ou <code>esptool</code> refuse d’ouvrir{' '}
+				<code>/dev/ttyUSB0</code> ou <code>/dev/ttyACM0</code> avec « <strong>Permission denied</strong> » — pas un
+				câble défectueux, mais un droit Unix manquant.
+			</p>
+			<h3>Commandes copiables (Ubuntu / Debian / Raspberry Pi OS)</h3>
+			<ol>
+				<li>
+					Branchez la carte <strong>Arduino UNO R4</strong> ou le robot <strong>mBot</strong> en USB.
+				</li>
+				<li>
+					Listez le port : <pre class="error-log"><code>{`ls -l /dev/ttyUSB* /dev/ttyACM* 2>/dev/null`}</code></pre>
+				</li>
+				<li>
+					Ajoutez votre utilisateur au groupe <strong>dialout</strong> :
+					<pre class="error-log"><code>{`sudo usermod -aG dialout $USER`}</code></pre>
+				</li>
+				<li>
+					<strong>Déconnectez-vous complètement</strong> de la session (ou redémarrez) — un simple nouvel onglet terminal
+					ne suffit pas.
+				</li>
+				<li>
+					Vérifiez : <pre class="error-log"><code>{`groups | grep dialout`}</code></pre>
+				</li>
+				<li>
+					Retéléversez le sketch — <strong>ne lancez pas mBlock en root</strong> (<code>sudo</code> casse les permissions
+					du dossier utilisateur).
+				</li>
+			</ol>
+			<p>
+				Robots éducatifs : <a href={withBase('/programmation/')}>hub programmation</a> ·{' '}
+				<a href={withBase('/installer-mblock-5-windows/')}>installer mBlock 5</a> ·{' '}
+				<a href={withBase('/premier-programme-mbot/')}>premier programme mBot</a> ·{' '}
+				<a href={withBase('/programmation/arduino-c/')}>cours Arduino C</a> ·{' '}
+				<a href={withBase(hubTroubleshootPath)}>codes erreurs (robots &amp; domotique)</a>.
+			</p>
+			<h3>FAQ Linux &amp; classe</h3>
+			<ul>
+				<li>
+					<strong>Chromebook / Crostini ?</strong> Autorisez l’USB dans les paramètres Linux, puis répétez{' '}
+					<code>usermod</code>.
+				</li>
+				<li>
+					<strong>Port change à chaque branchement ?</strong> Utilisez le lien stable{' '}
+					<code>/dev/serial/by-id/usb-…</code> dans Arduino IDE → Outils → Port.
+				</li>
+				<li>
+					<strong>Élève sous macOS ?</strong> Pas de dialout : voir la doc Apple « accès série » ; sous Windows, installez
+					le driver CH340/CP210x du fabricant.
+				</li>
+			</ul>
+		</section>
+	)}
+
+	<section class="error-section">
+		<h2>{ui.symptoms}</h2>
+		<p>{entry.symptoms.fr}</p>
+	</section>
+
+	<section class="error-section">
+		<h2>{ui.fix}</h2>
+		<p>{entry.fix.fr}</p>
+	</section>
+
+	{entry.slug === 'sonoff-dongle-ezsp-ember' && (
+		<section class="error-section">
+			<h2>Étapes pas à pas (Home Assistant / Zigbee2MQTT)</h2>
+			<ol>
+				<li>
+					<strong>Modèle exact</strong> — lisez l’étiquette : <em>ZBDongle-P</em> (Texas Instruments CC2652P) ou{' '}
+					<em>ZBDongle-E</em> (Silicon Labs EFR32). Les pilotes ne sont pas interchangeables.
+				</li>
+				<li>
+					<strong>Port USB</strong> — branchez sur un alimentation 5 V stable ; utilisez un{' '}
+					<strong>câble USB extension</strong> pour éloigner la clé des interférences Wi-Fi 2,4 GHz.
+				</li>
+				<li>
+					<strong>Zigbee2MQTT</strong> — dans la configuration, `adapter: ember` pour Dongle-E, `zstack` ou EZSP pour
+					Dongle-P selon le firmware flashé. Reprenez le chemin `/dev/serial/by-id/…` depuis{' '}
+					<strong>Paramètres → Système → Matériel</strong> dans Home Assistant.
+				</li>
+				<li>
+					<strong>ZHA</strong> — ajoutez l’intégration <em>Zigbee Home Automation</em> une seule fois ; si Zigbee2MQTT
+					occupait déjà le port, arrêtez l’add-on Z2M avant.
+				</li>
+				<li>
+					<strong>Firmware</strong> — si le dongle vient d’être mis à jour, suivez la procédure Sonoff / Koenkk sans
+					débrancher en cours de flash (voir la mise en garde ci-dessous).
+				</li>
+			</ol>
+			<p>
+				Comparatif des clés USB :{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>
+					meilleur dongle Zigbee pour Home Assistant
+				</a>
+				. Choix ZHA vs Zigbee2MQTT :{' '}
+				<a href={withBase('/domotique/home-assistant-zigbee2mqtt-ou-zha/')}>Zigbee2MQTT ou ZHA</a>.
+			</p>
+		</section>
+	)}
+
+	{(entry.slug === 'sonoff-zbdongle-ezsp-ember-zbdongle-e' ||
+		entry.slug === 'sonoff-dongle-ezsp-ember') && (
+		<section class="error-section">
+			<h2>Exemple de journal Zigbee2MQTT</h2>
+			<pre class="error-log"><code>{`[2026-11-03 14:02:11] error: z2m: Failed to start adapter!
+[2026-11-03 14:02:11] error: z2m: EZSP adapter is no longer supported for this firmware; use adapter: ember`}</code></pre>
+			<p>
+				Si vous voyez une variante « <em>ember</em> required » ou « <em>EZSP</em> deprecated », la cause est la même :
+				firmware **7.4+** sur <strong>ZBDongle-E</strong> avec une config Z2M encore en EZSP.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'sonoff-zbdongle-ezsp-ember-zbdongle-e' && (
+		<section class="error-section">
+			<h2>Dongle-E vs Dongle-P (ne pas confondre)</h2>
+			<table>
+				<thead>
+					<tr><th>Modèle</th><th>Puce</th><th>Pilote Z2M typique</th></tr>
+				</thead>
+				<tbody>
+					<tr><td><strong>ZBDongle-E</strong></td><td>Silicon Labs EFR32</td><td><code>adapter: ember</code></td></tr>
+					<tr><td><strong>ZBDongle-P</strong></td><td>TI CC2652P</td><td><code>zstack</code> / EZSP selon firmware</td></tr>
+				</tbody>
+			</table>
+			<p>
+				Fiche produit :{' '}
+				<a href={withBase('/domotique/code-erreur/sonoff-dongle-ezsp-ember/')}>
+					Sonoff Dongle EZSP / Ember (vue d’ensemble)
+				</a>
+				· comparatif matériel :{' '}
+				<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>meilleur dongle Zigbee</a>.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'ha-supervisor-emmc-recorder' && (
+		<section class="error-section">
+			<h2>Procédure pas à pas (Recorder + eMMC)</h2>
+			<ol>
+				<li>
+					<strong>Sauvegarde</strong> — Paramètres → Système → Sauvegardes : créez une archive complète avant toute
+					manipulation (rebuild ou migration DB).
+				</li>
+				<li>
+					<strong>Alléger le Recorder</strong> — Éditez <code>configuration.yaml</code> :{' '}
+					<code>recorder:</code> avec <code>purge_keep_days: 7</code> (ou moins) et{' '}
+					<code>exclude:</code> pour entités à haute fréquence (LQI, puissance instantanée, capteurs debug).
+				</li>
+				<li>
+					<strong>Redémarrer Home Assistant</strong> — vérifiez si l’avertissement eMMC et les locks disparaissent après
+					24 h d’écriture réduite.
+				</li>
+				<li>
+					<strong>Lock SQLite persistant</strong> — en SSH (add-on Terminal) :{' '}
+					<code>ha core rebuild</code> uniquement si la sauvegarde est récente ; attendez la fin sans couper le
+					courant.
+				</li>
+				<li>
+					<strong>Migration SSD USB (Green)</strong> — branchez un SSD formaté, copiez{' '}
+					<code>/config/home-assistant_v2.db</code> vers le disque, configurez <code>recorder.db_url</code> selon la
+					documentation officielle Home Assistant, puis redémarrez.
+				</li>
+			</ol>
+			<p>
+				Contexte installation :{' '}
+				<a href={withBase('/domotique/home-assistant-green-vs-raspberry-pi-5/')}>Home Assistant Green vs Pi 5</a>
+				· secours secteur :{' '}
+				<a href={withBase('/domotique/secours-electrique-home-assistant-onduleur-station/')}>
+					onduleur et autonomie
+				</a>
+				.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'sonoff-zigbee-bridge-pro-offline' && (
+		<section class="error-section">
+			<h2>Checklist eWeLink (Bridge Pro)</h2>
+			<ol>
+				<li>
+					<strong>Alimentation</strong> — testez un autre câble USB et un chargeur 5 V ≥ 1 A ; évitez les ports PC en veille.
+				</li>
+				<li>
+					<strong>Redémarrage</strong> — débranchez 10 s, rebranchez ; attendez la LED stable avant d’ouvrir eWeLink.
+				</li>
+				<li>
+					<strong>Firmware</strong> — dans eWeLink, vérifiez une mise à jour pour le Bridge Pro ; notez la version avant/après.
+				</li>
+				<li>
+					<strong>Appareils fantômes</strong> — supprimez les capteurs supprimés physiquement mais encore listés (libère des slots Zigbee).
+				</li>
+				<li>
+					<strong>Maillage</strong> — ajoutez une <strong>prise Zigbee secteur</strong> à mi-chemin entre le pont et les capteurs
+					lointains ; le Zigbee (réseau maillé 2,4 GHz pour objets connectés) route via les appareils alimentés.
+				</li>
+			</ol>
+			<p>
+				Si vous migrez vers Home Assistant avec une clé USB plutôt que le pont Sonoff :{' '}
+				<a href={withBase('/domotique/debuter-en-domotique-guide-complet/')}>guide débuter en domotique</a> et{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire codes erreurs</a>.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'mbot-motor-reverse' && (
+		<section class="error-section">
+			<h2>Réponse rapide (salle de classe)</h2>
+			<p>
+				<strong>Symptôme :</strong> l’<strong>mBot</strong> (robot éducatif Makeblock à roues) part en arrière quand les
+				élèves cliquent sur « avancer » dans <strong>mBlock</strong> (logiciel de blocs Scratch + Python). Ce n’est pas un
+				« bug » aléatoire : c’est presque toujours la <strong>polarité moteur</strong> ou un câble M1/M2 inversé sur la
+				carte <strong>mCore</strong>.
+			</p>
+			<img
+				src="/images/products/mbot.webp"
+				alt="Robot éducatif Makeblock mBot — châssis à deux moteurs"
+				width="480"
+				height="360"
+				loading="lazy"
+				decoding="async"
+				class="error-hero__img"
+			/>
+			<p class="img-credit" style="font-size:0.85rem;color:rgb(var(--gray-dark));">
+				Photo produit Makeblock mBot — usage éditorial robot-educatif.info.
+			</p>
+			<h2>Tutoriel mBlock — 6 étapes numérotées</h2>
+			<ol>
+				<li>
+					<strong>Brancher l’USB</strong> — mBot allumé, câble USB vers le PC ; dans mBlock 5, mode <em>USB</em> (pas
+					Bluetooth) pour la première séance.
+				</li>
+				<li>
+					<strong>Ouvrir un programme minimal</strong> — bloc « quand drapeau vert cliqué » + bloc « moteur M1 vitesse
+					100 % » + « moteur M2 vitesse 100 % » (libellés exacts selon la langue de mBlock).
+				</li>
+				<li>
+					<strong>Observer le sens</strong> — si le robot recule, notez quel moteur semble inversé (roue gauche /
+					droite).
+				</li>
+				<li>
+					<strong>Corriger par le logiciel</strong> — remplacez <code>100</code> par <code>-100</code> sur le moteur
+					concerné, ou inversez les deux vitesses si les deux roues partent à l’envers.
+				</li>
+				<li>
+					<strong>Corriger par le câble</strong> — éteignez l’mBot, débranchez le connecteur RJ25 du moteur M1 ou M2 sur
+					la mCore et permutez-le (prise symétrique). Retestez avec des vitesses positives.
+				</li>
+				<li>
+					<strong>Documenter pour la classe</strong> — enregistrez le projet mBlock corrigé ; lien utile :{' '}
+					<a href={withBase('/installer-mblock-5-windows/')}>installer mBlock 5 sous Windows</a> et{' '}
+					<a href={withBase('/premier-programme-mbot/')}>premier programme mBot</a>.
+				</li>
+			</ol>
+			<h3>Exemple de blocs (vitesse négative)</h3>
+			<pre class="error-log"><code>{`Quand drapeau vert cliqué
+  moteur M1 vitesse -80 %
+  moteur M2 vitesse -80 %   ← les deux négatifs = avance si câbles inversés`}</code></pre>
+			<h2>FAQ classe (CM1–CM2 / 6e)</h2>
+			<ul>
+				<li>
+					<strong>Un seul moteur inversé ?</strong> Corrigez seulement M1 ou M2 en négatif — inutile de permuter les deux câbles
+					si une roue est correcte.
+				</li>
+				<li>
+					<strong>Le robot tourne sur place ?</strong> Vérifiez que les deux vitesses ont le même signe ; un « + » et un « − »
+					font pivoter le robot.
+				</li>
+				<li>
+					<strong>Scratch vs mBlock ?</strong> mBlock ajoute les blocs Makeblock ; voir{' '}
+					<a href={withBase('/sinscrire-sur-mblock/')}>créer un compte mBlock</a>.
+				</li>
+			</ul>
+			<img
+				src="/images/products/codey-rocky.webp"
+				alt="Robot Codey Rocky Makeblock — comparaison de gamme"
+				width="360"
+				height="270"
+				loading="lazy"
+				decoding="async"
+				class="error-hero__img"
+			/>
+			<p class="img-credit" style="font-size:0.85rem;color:rgb(var(--gray-dark));">
+				Photo produit Codey Rocky — Makeblock / usage éditorial.
+			</p>
+			<p>
+				Hub robots : <a href={withBase('/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/')}>mBot2 Makeblock</a>
+				· comparatif <a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a>
+				· dépannage Bluetooth :{' '}
+				<a href={withBase('/mblock-bluetooth-erreurs-frequentes-depannage/')}>mBlock Bluetooth</a> · répertoire :{' '}
+				<a href={withBase(hubTroubleshootPath)}>codes erreurs domotique & robots</a>.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'shelly-pro-3em-negative-power' && (
+		<section class="error-section">
+			<h2>Réponse rapide (mesure au tableau)</h2>
+			<p>
+				Le <strong>Shelly Pro 3EM</strong> (module de mesure triphasé au tableau électrique) affiche parfois une{' '}
+				<strong>puissance négative</strong> sur une phase : l’énergie semble « produite » alors que vous consommez. Cause
+				habituelle : <strong>pince CT</strong> (transformateur de courant) mal orientée ou phase L1/L2/L3 permutée par
+				rapport au schéma Shelly.
+			</p>
+			<img
+				src="/images/models/shelly-pro-3em.webp"
+				alt="Module Shelly Pro 3EM pour mesure triphasée"
+				width="320"
+				height="240"
+				loading="lazy"
+				decoding="async"
+				class="error-hero__img"
+			/>
+			<p class="img-credit" style="font-size:0.85rem;color:rgb(var(--gray-dark));">
+				Visuel produit Shelly Pro 3EM — Shelly / usage éditorial.
+			</p>
+			<h2>Procédure pas à pas (230 V — coupure obligatoire)</h2>
+			<ol>
+				<li>
+					<strong>Couper le disjoncteur général</strong> — aucune mesure de continuité sous tension sur les CT ; port
+					EPI (équipement de protection individuelle) si vous ouvrez le tableau.
+				</li>
+				<li>
+					<strong>Photographier l’existant</strong> — repérez L1, L2, L3 sur le bornier Shelly et la couleur des fils
+					phase (norme locale).
+				</li>
+				<li>
+					<strong>Pinces CT A / B / C</strong> — la flèche gravée sur la pince doit pointer vers le <strong>tableau /
+					consommation</strong> (sens du courant import). Une flèche inversée = kW négatifs.
+				</li>
+				<li>
+					<strong>Correspondance CT ↔ phase</strong> — CT1 sur L1, CT2 sur L2, CT3 sur L3 ; un croisement CT2/L3
+					affiche des signes incohérents entre phases.
+				</li>
+				<li>
+					<strong>Remise sous tension</strong> — ouvrez l’app Shelly → Pro 3EM → <em>Settings → Calibration</em> (ou
+					équivalent firmware) et lancez la calibration des CT si proposée.
+				</li>
+				<li>
+					<strong>Contrôle de bon sens</strong> — allumez un convecteur connu (2–3 kW) sur la phase testée : la puissance
+					doit être <strong>positive</strong> et du bon ordre de grandeur.
+				</li>
+			</ol>
+			<table>
+				<thead>
+					<tr><th>Observation</th><th>Action probable</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Une seule phase négative</td><td>Inverser la pince CT de cette phase ou corriger le fil L correspondant</td></tr>
+					<tr><td>Deux phases négatives</td><td>Vérifier permutations CT2/CT3 et schéma triphasé</td></tr>
+					<tr><td>Total cohérent mais signe global inversé</td><td>Option « reverse direction » dans l’app si disponible, après validation électricien</td></tr>
+				</tbody>
+			</table>
+			<p>
+				Intégration domotique :{' '}
+				<a href={withBase('/domotique/home-assistant-raspberry-pi-5-installation/')}>installer Home Assistant sur Pi 5</a>
+				· projet ESP32 + mesure :{' '}
+				<a href={withBase('/domotique/projets-esp32-domotique/')}>projets ESP32 domotique</a>
+				· hub : <a href={withBase('/domotique/')}>domotique débutant</a>.
+			</p>
+		</section>
+	)}
+
+	{entry.slug === 'tapo-p110-offline' && (
+		<section class="error-section">
+			<h2>Guide pas à pas dans Home Assistant (Tapo P110)</h2>
+			<ol>
+				<li>
+					<strong>Vérifier le cloud Tapo</strong> — ouvrez l’application mobile Tapo : si la prise y est « hors ligne », corrigez
+					d’abord le Wi-Fi (2,4 GHz, mot de passe, distance au routeur).
+				</li>
+				<li>
+					<strong>IP locale stable</strong> — dans l’app ou le routeur, notez l’adresse IPv4 de la P110 et créez une
+					réservation DHCP (même adresse après reboot).
+				</li>
+				<li>
+					<strong>Recharger l’intégration</strong> — Home Assistant → Paramètres → Appareils et services →{' '}
+					<strong>TP-Link Tapo</strong> → menu ⋮ → <em>Recharger</em>. Attendez 30 s puis testez l’interrupteur.
+				</li>
+				<li>
+					<strong>Isolement Wi-Fi</strong> — désactivez « AP isolation » / « isolation client » sur le SSID IoT ; sans cela
+					Home Assistant ne joint pas la prise malgré un ping OK depuis un autre VLAN.
+				</li>
+				<li>
+					<strong>Compte cloud</strong> — après changement de mot de passe Tapo, supprimez puis re-ajoutez l’intégration avec
+					le compte à jour (2FA activée si possible).
+				</li>
+			</ol>
+			<p>
+				Pour le maillage domotique : voir le{' '}
+				<a href={withBase('/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/')}>
+					répertoire codes erreurs & dépannage
+				</a>{' '}
+				et le{' '}
+				<a href={withBase('/domotique/debuter-en-domotique-guide-complet/')}>guide débuter en domotique</a>.
+			</p>
+		</section>
+	)}
+
+	{entry.caution?.fr && <RepairCaution lang={lang} text={entry.caution.fr} />}
+
+	{entry.savNote?.fr && (
+		<p class="error-sav">
+			<strong>{ui.savNote}</strong> — {entry.savNote.fr}
+		</p>
+	)}
+
+	<p class="error-assist">{assistText}</p>
+
+	{entry.brand_slug === 'arduino' ? (
+		<>
+			<aside class="repair-compliance repair-compliance--disclaimer" role="note">
+				<strong>Clause de non-responsabilité</strong>
+				<p>
+					Ce guide décrit un problème de téléversement sur carte Arduino (USB, mode DFU). Coupez l’alimentation USB
+					avant de changer de câble ou de port. Robot Éducatif décline toute responsabilité en cas de mauvaise
+					manipulation. Pour une carte sous garantie, contactez le{' '}
+					<a href="https://support.arduino.cc/" rel="noopener noreferrer" target="_blank">support Arduino</a>.
+				</p>
+			</aside>
+			<p>
+				Voir aussi le{' '}
+				<a href={withBase('/c-arduino-environnement-structure-sketch/')}>cours Arduino en C</a>, le{' '}
+				<a href={withBase('/programmation/')}>hub programmation</a> et le{' '}
+				<a href={withBase(hubTroubleshootPath)}>répertoire codes erreurs</a>.
+				(Les robots Makeblock mBot relèvent d’une autre rubrique :{' '}
+				<a href="https://support.makeblock.com/" rel="noopener noreferrer" target="_blank">support Makeblock</a>.)
+			</p>
+		</>
+	) : (
+		<RepairComplianceSections lang={lang} variant={complianceVariant} showAssist={false} />
+	)}
+
+	{relatedSameBrand.length > 0 && (
+		<section class="error-related" aria-labelledby="related-errors-heading">
+			<h2 id="related-errors-heading">
+				Autres codes erreur {brand?.name ?? entry.brand_slug}
+			</h2>
+			<ul>
+				{relatedSameBrand.map((rel) => (
+					<li>
+						<a href={withBase(`/domotique/code-erreur/${rel.slug}/`)}>
+							<code>{rel.error_code}</code> — {rel.title.fr}
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
+</DomotiqueToolLayout>
+
+<style>
+	.error-breadcrumb {
+		font-size: 0.9rem;
+		margin-bottom: 1.25rem;
+		color: rgb(var(--gray-dark));
+	}
+	.error-hub-intro {
+		margin: 0 0 1.25rem 0;
+		line-height: 1.6;
+		max-width: 42rem;
+	}
+	.error-breadcrumb a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.error-breadcrumb a:hover {
+		text-decoration: underline;
+	}
+	.error-hero {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+		align-items: flex-start;
+		margin-bottom: 1.5rem;
+		padding: 1rem 1.1rem;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-radius: 12px;
+		background: #f8fafc;
+	}
+	.error-hero__img {
+		border-radius: 0.5rem;
+		object-fit: cover;
+		border: 1px solid var(--border, #cbd5e1);
+		flex-shrink: 0;
+	}
+	.error-hero__code {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+	}
+	.error-hero__code code {
+		word-break: break-word;
+		overflow-wrap: anywhere;
+	}
+	.error-hero__brand,
+	.error-hero__models {
+		margin: 0.35rem 0 0;
+		font-size: 0.95rem;
+		color: rgb(var(--gray-dark));
+	}
+	.error-section h2 {
+		font-size: 1.15rem;
+		margin: 1.25rem 0 0.5rem;
+		color: var(--accent);
+	}
+	.error-sav {
+		margin-top: 1rem;
+		font-size: 0.92rem;
+		color: rgb(var(--gray-dark));
+	}
+	.error-assist {
+		margin: 1rem 0;
+		font-size: 0.88rem;
+		color: #0f766e;
+		border-top: 1px dashed #99f6e4;
+		padding-top: 0.65rem;
+	}
+	.error-related {
+		margin-top: 2rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--surface-border, #e2e8f0);
+	}
+	.error-related ul {
+		margin: 0.75rem 0 0;
+		padding-left: 1.25rem;
+	}
+	.error-related li {
+		margin-bottom: 0.45rem;
+	}
+	.error-related a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.error-related a:hover {
+		text-decoration: underline;
+	}
+	.error-log {
+		background: #0f172a;
+		color: #e2e8f0;
+		padding: 0.85rem 1rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+	.error-log code {
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+</style>

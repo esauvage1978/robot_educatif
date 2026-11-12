@@ -10,16 +10,56 @@ Tout ce qu'il faut pour installer Home Assistant, le relier à vos appareils et 
 
 ## L'essentiel en un tableau
 
-| Guide | Type | Ce que vous obtenez |
-|---|---|---|
-| [Installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/) | tutoriel | un serveur HA fonctionnel, pas à pas |
-| [Home Assistant Green vs Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) | comparatif | quel matériel choisir, caractéristiques officielles |
-| [Zigbee2MQTT ou ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/) | comparatif | quelle intégration Zigbee utiliser |
-| [Secours électrique : onduleur ou station](/domotique/secours-electrique-home-assistant-onduleur-station/) | guide | calcul d'autonomie et arrêt propre |
-| [Capteur CO2 SCD41 sur Raspberry Pi](/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/) | projet | mesure de CO2 remontée dans HA |
-| [Capteur d'ouverture de porte](/domotique/raspberry-pi-capteur-ouverture-porte-notification/) | projet | notification smartphone à l'ouverture |
-| [Détecteur de présence PIR](/domotique/raspberry-pi-detecteur-presence-pir-eclairage/) | projet | lumière qui s'allume au passage |
-| [Station météo BME280](/domotique/raspberry-pi-station-meteo-bme280-historique/) | projet | température, humidité, pression et historique |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Guide</th>
+<th scope="col">Type</th>
+<th scope="col">Ce que vous obtenez</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/home-assistant-raspberry-pi-5-installation/">Installer Home Assistant sur Raspberry Pi 5</a></span></td>
+<td data-label="Type"><span class="td-val">tutoriel</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">un serveur HA fonctionnel, pas à pas</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/home-assistant-green-vs-raspberry-pi-5/">Home Assistant Green vs Raspberry Pi 5</a></span></td>
+<td data-label="Type"><span class="td-val">comparatif</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">quel matériel choisir, caractéristiques officielles</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/home-assistant-zigbee2mqtt-ou-zha/">Zigbee2MQTT ou ZHA</a></span></td>
+<td data-label="Type"><span class="td-val">comparatif</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">quelle intégration Zigbee utiliser</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/secours-electrique-home-assistant-onduleur-station/">Secours électrique : onduleur ou station</a></span></td>
+<td data-label="Type"><span class="td-val">guide</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">calcul d'autonomie et arrêt propre</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/">Capteur CO2 SCD41 sur Raspberry Pi</a></span></td>
+<td data-label="Type"><span class="td-val">projet</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">mesure de CO2 remontée dans HA</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/raspberry-pi-capteur-ouverture-porte-notification/">Capteur d'ouverture de porte</a></span></td>
+<td data-label="Type"><span class="td-val">projet</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">notification smartphone à l'ouverture</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/raspberry-pi-detecteur-presence-pir-eclairage/">Détecteur de présence PIR</a></span></td>
+<td data-label="Type"><span class="td-val">projet</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">lumière qui s'allume au passage</span></td>
+</tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/raspberry-pi-station-meteo-bme280-historique/">Station météo BME280</a></span></td>
+<td data-label="Type"><span class="td-val">projet</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">température, humidité, pression et historique</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## Notre meilleur choix
 

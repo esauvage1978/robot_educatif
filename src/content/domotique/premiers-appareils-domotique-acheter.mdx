@@ -1,0 +1,157 @@
+---
+title: "Premiers appareils à acheter en domotique"
+description: "Que mettre dans votre premier panier domotique ? Des kits de départ par objectif et par budget : capteurs, prises, ampoules, vannes de radiateur, clé Zigbee et petit matériel."
+pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+products: ["sonoff-zbdongle-e", "sonoff-snzb-02d", "tapo-p110"]
+priority: 2
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
+
+Acheter « un peu de tout » est le moyen le plus rapide de se décourager : on se retrouve avec cinq applications, des appareils qui ne se parlent pas, et aucune règle vraiment utile. La bonne méthode consiste à partir de ce que vous voulez obtenir, puis à choisir quelques objets seulement.
+
+Cette page vous propose des kits de départ, par objectif (confort, économies, sécurité, lumière, chauffage) et par budget. Vous y trouverez aussi le petit matériel que tout le monde oublie : la rallonge USB, les piles, la bonne alimentation. À la fin, vous saurez quoi mettre dans votre panier, et quoi laisser de côté pour l'instant.
+
+![Une prise connectée, une caméra rotative, un détecteur de mouvement, une ampoule et un autre petit boîtier blancs posés ensemble sur un fond clair](/images/debutant/smart-home-devices.webp)
+
+*Les objets d'un premier kit de domotique : prise connectée, caméra, détecteur de mouvement et ampoule. Chacun répond à un besoin différent (mesurer, surveiller, détecter, éclairer), ce qui évite d'acheter plusieurs fois la même chose. Photo : Jakub Zerdzicki, Pexels, licence libre.*
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  links={[
+    { href: '/domotique/quelle-box-domotique-choisir-debutant/', label: 'Quelle box choisir' },
+    { href: '/domotique/meilleur-dongle-zigbee-home-assistant/', label: 'Choisir sa clé Zigbee' },
+    { href: '/domotique/capteur-temperature-zigbee/', label: 'Capteurs de température Zigbee' },
+    { href: '/domotique/prise-connectee-zigbee-home-assistant/', label: 'Prises connectées' },
+    { href: '/domotique/premieres-automatisations-domotique/', label: 'Premières automatisations' },
+  ]}
+/>
+
+## Combien prévoir pour commencer ?
+
+Un mot sur le vocabulaire avant de regarder les budgets. Zigbee est une radio économe en énergie, parfaite pour les capteurs à pile. Pour que votre box la comprenne, on lui branche une petite clé USB, appelée clé Zigbee ou dongle. Quant à Home Assistant, c'est le logiciel gratuit qui réunit tous vos appareils dans une seule application.
+
+| Votre budget de départ | Ce que vous pouvez faire |
+|---|---|
+| Très petit | Une ou deux prises Wi-Fi qui mesurent la consommation, et pourquoi pas une ampoule connectée. Aucun boîtier central n'est nécessaire. |
+| Moyen | Un boîtier central déjà choisi (ou un Raspberry Pi, un petit ordinateur de la taille d'une carte bancaire), plus une clé Zigbee, deux ou trois capteurs et une prise Zigbee branchée sur secteur qui servira aussi de relais. |
+| Plus large | La même base, avec en plus des vannes de radiateur, un détecteur de présence ou une caméra, selon votre objectif. |
+
+Avant d'acheter, vérifiez toujours qu'un appareil est reconnu par votre box en consultant le [tableau de compatibilité](/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/) et la page [quelle box choisir](/domotique/quelle-box-domotique-choisir-debutant/).
+
+## Le petit matériel qu'on oublie
+
+Une courte rallonge USB sert à éloigner la clé Zigbee de votre box Internet. Les deux utilisent la même fréquence radio et peuvent se gêner, quelques dizaines de centimètres suffisent souvent à régler le problème.
+
+Si vous choisissez un Raspberry Pi 5, il lui faut une alimentation suffisamment puissante : notre tutoriel d'[installation de Home Assistant](/domotique/home-assistant-raspberry-pi-5-installation/) précise laquelle.
+
+Prévoyez aussi des piles du bon format. Les capteurs utilisent souvent des piles boutons de type CR2032 ou CR2450, vérifiez la fiche produit.
+
+Une prise Zigbee branchée sur secteur fait double emploi : elle commande un appareil, et elle relaie en même temps le signal des autres capteurs. On l'appelle alors un routeur Zigbee.
+
+Enfin, tout module encastré dans un mur ou relié au fil pilote d'un radiateur doit être posé par un électricien si vous n'êtes pas qualifié.
+
+## Des kits selon votre objectif
+
+### Pour le confort et la température
+
+Un capteur de température et d'humidité Zigbee, comme le SONOFF SNZB-02D (voir notre [guide des capteurs de température](/domotique/capteur-temperature-zigbee/)), donne une première vision de la maison. Vous pouvez y ajouter une prise pour un radiateur d'appoint, mais seulement si la puissance et la sécurité le permettent. Une alerte du type « il fait moins de 16 degrés dans le salon » fait un très bon premier réglage : voir [premières automatisations](/domotique/premieres-automatisations-domotique/).
+
+### Pour les économies d'énergie
+
+Des prises avec mesure de puissance vous montrent ce que chaque appareil consomme. Le modèle Wi-Fi Tapo P110 en est un exemple, tout comme les prises Zigbee de la marque NOUS ou équivalentes ([guide des prises](/domotique/prise-connectee-zigbee-home-assistant/)). Plus tard, vous pourrez suivre votre compteur Linky grâce à sa sortie TIC (une prise d'information sur le compteur, expliquée dans le [glossaire](/domotique/glossaire-domotique/)), avec un module adapté.
+
+### Pour la sécurité, version légère
+
+Un capteur d'ouverture sur la porte d'entrée et un détecteur de mouvement dans le couloir suffisent pour commencer. Votre box peut vous envoyer une notification sur le téléphone, sans centrale d'alarme professionnelle.
+
+### Pour l'éclairage
+
+Une ampoule connectée, ou une prise sur laquelle vous branchez une lampe existante, suffit. Ajoutez un détecteur de mouvement pour que la lumière s'allume quand vous passez. Évitez d'acheter dix marques Wi-Fi différentes : chacune aura son application.
+
+### Pour le chauffage, pièce par pièce
+
+Choisissez des vannes thermostatiques (de petites têtes qui se vissent sur le radiateur) en Zigbee ou en Matter, un langage commun à plusieurs marques, et vérifiez bien que le format de la vanne correspond à votre radiateur. Un capteur de température placé ailleurs dans la pièce aide si la vanne est mal située. Pour un chauffage électrique avec fil pilote, notre guide [chauffage fil pilote](/domotique/piloter-chauffage-electrique-fil-pilote-zigbee-shelly-home-assistant/) explique la marche à suivre.
+
+### Si vous êtes locataire
+
+Des prises, des capteurs à pile, des boutons et des têtes thermostatiques qui se retirent sans laisser de trace : la page [domotique en location](/domotique/domotique-location-sans-travaux/) détaille les options.
+
+## Des kits selon votre budget
+
+Les sommes ci-dessous sont des ordres de grandeur pour un premier mois d'essai, pas des tarifs. Les prix changent d'une boutique à l'autre : vérifiez-les chez le vendeur avant d'acheter.
+
+### Sans box : pour découvrir
+
+Deux prises Wi-Fi qui mesurent la consommation, et éventuellement une ampoule connectée. Selon les marques et les lots, on dépense de quelques dizaines d'euros à une centaine d'euros environ, à confirmer chez le vendeur.
+
+### Avec Home Assistant : la base Zigbee
+
+Il vous faut un cerveau : le boîtier [Home Assistant Green](/domotique/home-assistant-green-vs-raspberry-pi-5/) ou un [Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/). Il faut ensuite une clé Zigbee ([comparatif des clés](/domotique/meilleur-dongle-zigbee-home-assistant/)), un capteur de température, un capteur d'ouverture et une prise Zigbee.
+
+<ProductBox
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={['Coordinateur USB', 'ZHA / Z2M', 'Antenne externe', 'Catalogue large']}
+  badge="Dongle"
+  position={1}
+/>
+
+<ProductBox
+  productId="sonoff-snzb-02d"
+  name="SONOFF SNZB-02D"
+  asin="B0BYZP8NK2"
+  image="/images/products/sonoff-snzb-02d.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={['Température + humidité', 'Écran', 'Pile longue durée', 'Zigbee']}
+  badge="Capteur"
+  position={2}
+/>
+
+<ProductBox
+  productId="tapo-p110"
+  name="TP-Link Tapo P110"
+  asin="B0CJC8WMXV"
+  image="/images/products/tapo-p110.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={['Mesure de conso', 'Sans hub au début', 'Programmation app', 'Abordable']}
+  badge="Sans box"
+  position={3}
+/>
+
+### Avec Homey
+
+Prenez un Homey Pro ou Pro mini (voir notre article sur le [Homey Pro mini](/domotique/test-homey-pro-mini-deballage-installation/)), puis les mêmes types d'appareils que ci-dessus. Pour chaque appareil, vérifiez qu'il apparaît dans l'application Homey avant de l'acheter.
+
+## Ce qu'il vaut mieux ne pas acheter en premier
+
+Cinq caméras connectées avant un seul capteur utile ne vous apporteront rien. Évitez aussi les modules encastrés si vous êtes locataire ou peu à l'aise avec l'électricité, et les accessoires de pilotage propres à chaque marque alors qu'une clé Zigbee et un seul logiciel suffisent souvent. Même prudence avec le matériel 433 MHz (de vieilles radios de télécommande) dont on ne sait pas si votre box le reçoit.
+
+Si vous visez un projet précis (garage, volets…), le [configurateur](/domotique/configurateur-projet-domotique/) vous aide à assembler la liste. Et si vous avez envie de fabriquer certains capteurs vous-même, regardez les [projets ESP32](/domotique/projets-esp32-domotique/).
+
+<ParcoursDebutantNav lang="fr" frSlug="premiers-appareils-domotique-acheter" position="bottom" />
+
+## FAQ
+
+**Zigbee ou Wi-Fi pour mon premier achat ?**
+Le Wi-Fi permet de tester sans box, avec une application par marque. Zigbee devient plus intéressant dès que vous avez une box et que vous voulez des capteurs à pile et des automatisations qui restent chez vous. Détails dans notre page sur les [protocoles](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
+
+**Combien de relais Zigbee faut-il prévoir ?**
+À titre de repère, une prise ou une ampoule Zigbee branchée sur secteur tous les huit à dix mètres aide souvent, et il en faut davantage si les murs sont épais. Plutôt qu'une règle toute faite, mesurez la qualité du lien radio dans votre application (ZHA ou Zigbee2MQTT, les deux outils qui gèrent Zigbee dans Home Assistant).
+
+**Puis-je mélanger Sonoff, Aqara et IKEA ?**
+Souvent oui sur Zigbee avec Home Assistant, mais chaque appareil a ses petites particularités (méthode d'association, pile, comportements propres). Le [tableau de compatibilité](/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/) et les listes d'appareils de ZHA et Zigbee2MQTT vous aident à vérifier.
+
+**Où voir des automatisations avec ce matériel ?**
+Dans nos [premières automatisations](/domotique/premieres-automatisations-domotique/) ; pour reprendre le fil général, retrouvez le [guide complet pour débuter](/domotique/debuter-en-domotique-guide-complet/).
+
+---
+
+*Affiliation : certains liens Amazon portent l'identifiant du site (manuso06-21 en France). Si vous achetez par ce lien, une commission peut être versée, sans surcoût pour vous. Prix à vérifier chez le vendeur. Auteur : Emmanuel Sauvage.*

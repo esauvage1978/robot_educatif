@@ -1,0 +1,28 @@
+---
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	/** Dernier segment (page courante), texte seul */
+	currentLabel: string;
+	hubHref?: string;
+	hubLabel?: string;
+	/** Page hub /domotique/ : Accueil · Domotique sans répéter le titre */
+	hubIndex?: boolean;
+}
+
+const {
+	currentLabel,
+	hubHref = withBase('/domotique/'),
+	hubLabel = 'Domotique',
+	hubIndex = false,
+} = Astro.props;
+---
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+	<a href={withBase('/')}>Accueil</a>
+	{hubIndex ? (
+		<> · {hubLabel}</>
+	) : (
+		<> · <a href={hubHref}>{hubLabel}</a> · {currentLabel}</>
+	)}
+</nav>

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Arduino C lesson 3: if/else conditions for sensors and actuators"
-description: "Comparisons, AND/OR/NOT and else if: write the rules that make a robot stop, slow down or beep from a distance reading. Lesson 3 of our Arduino C course, 12 exercises with solutions."
+description: "Comparisons, AND/OR/NOT and else if: rules that make a robot stop, slow or beep from a distance. Lesson 3 of the course, 12 exercises with solutions, for class."
 updated: "23 October 2026"
 ---
 

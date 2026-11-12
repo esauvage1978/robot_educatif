@@ -1,0 +1,444 @@
+---
+title: "Piloter un radiateur électrique (fil pilote ou contacteur) avec Shelly et Zigbee sous Home Assistant ou Homey : schéma diode, délestage et économies"
+description: "Guide pratique pour piloter vos radiateurs électriques (fil pilote 4/6 ordres avec diode 1N4007, module Zigbee NodOn ou Shelly Plus 2PM / 1 Mini Gen3) sous Home Assistant et Homey : schéma, capteur de température, coupure fenêtre ouverte et délestage."
+pubDate: 2026-10-26T00:00:00Z
+updatedDate: 2026-10-26T00:00:00Z
+category: "home-assistant"
+priority: 1
+faqSchema:
+  - question: "Pourquoi ne faut-il jamais piloter un radiateur électrique récent en coupant directement son alimentation 230 V ?"
+    answer: "Les radiateurs à inertie modernes intègrent une carte électronique à régulation PID et un écran. Couper brutalement leur alimentation 230 V plusieurs fois par heure use prématurément les relais et condensateurs, réinitialise le thermostat interne et annule l'effet d'inertie douce. Il faut utiliser le fil pilote (fil noir)."
+  - question: "Dans quel sens brancher la diode 1N4007 sur le fil pilote pour obtenir l'ordre Arrêt ou Hors-gel ?"
+    answer: "Avec la phase 230 V envoyée à travers une diode redresseuse 1N4007 vers le fil pilote : si l'anneau gris (cathode) est orienté vers le Fil Pilote, seule la demi-alternance positive passe, ce qui donne l'ordre Arrêt (Délestage). Si l'anneau gris est orienté vers la Phase (sortie du relais Shelly), seule la demi-alternance négative passe, ce qui donne l'ordre Hors-gel (~7 °C)."
+  - question: "Quelle économie réelle permet le passage automatique de Confort à Éco avec un capteur Zigbee ?"
+    answer: "Selon l'ADEME, baisser la température moyenne de 1 °C réduit la consommation de chauffage d'environ 7 %. En passant automatiquement de Confort (19 °C) à Éco (15,5 °C, soit -3,5 °C) pendant 8 h d'absence en journée et la nuit dans les pièces inoccupées, l'économie atteint 20 à 28 % sur l'hiver."
+  - question: "Faut-il choisir un module Zigbee fil pilote natif (NodOn SIN-4-FP-21) ou un module Shelly avec diode 1N4007 ?"
+    answer: "Le module Zigbee fil pilote natif (type NodOn SIN-4-FP-21) génère directement les 6 ordres sans diode externe et étend le maillage Zigbee. Le montage Shelly (Shelly 1 Mini Gen3 ou Shelly Plus 2PM + diodes 1N4007) fonctionne en Wi-Fi local sans dongle Zigbee et revient deux fois moins cher si vous n'avez besoin que des ordres Confort et Arrêt/Éco."
+---
+
+En hiver, le chauffage électrique représente **60 à 70 % de la facture d'électricité** d'un logement équipé de radiateurs à inertie ou de panneaux rayonnants. Pourtant, la plupart des radiateurs restent bloqués en mode **Confort** toute la journée parce que leurs menus intégrés sont fastidieux à programmer pièce par pièce.
+
+Dans ce tutoriel complet, nous voyons comment piloter proprement chaque radiateur sous **Home Assistant** ou **Homey Pro / Homey Pro mini** : différence cruciale entre **commande par fil pilote** et **coupure par contacteur**, **schéma de câblage avec diode `1N4007`** sur module **Shelly** ou module **Zigbee fil pilote natif**, couplage avec un **capteur de température déporté** et un **capteur d'ouverture de fenêtre**, délestage automatique et calcul réel du retour sur investissement.
+
+## Objectif
+
+- Comprendre la norme **Fil Pilote (4 et 6 ordres)** et pourquoi il ne faut pas couper sauvagement l'alimentation 230 V d'un radiateur électronique.
+- Câbler en toute sécurité soit un **module fil pilote Zigbee natif (NodOn SIN-4-FP-21)**, soit un **module Shelly (Shelly 1 Mini Gen3 ou Shelly Plus 2PM) avec diodes redresseuses `1N4007`**.
+- Associer le radiateur à un [capteur de température Zigbee déporté](/domotique/capteur-temperature-zigbee/) et à un [capteur d'ouverture de fenêtre](/domotique/raspberry-pi-capteur-ouverture-porte-notification/) pour couper instantanément la chauffe lors de l'aération.
+- Mettre en place un **délestage automatique** pour ne jamais faire disjoncter le compteur Linky en heures pleines.
+
+## Durée, niveau et budget
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Durée</th>
+<th scope="col">Niveau</th>
+<th scope="col">Budget par radiateur</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Durée"><span class="td-val"><strong>30 à 45 min par radiateur</strong></span></td>
+<td data-label="Niveau"><span class="td-val"><strong>Intermédiaire</strong> (intervention dans la sortie de câble murale, <strong>disjoncteur coupé</strong>)</span></td>
+<td data-label="Budget par radiateur"><span class="td-val"><strong>~16 à 28 €</strong> (Shelly + diode <code>1N4007</code>) ou <strong>~34 à 42 €</strong> (module Zigbee fil pilote 6 ordres natif)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+> ⚠️ **Sécurité électrique obligatoire (230 V AC)** : Avant d'ouvrir la boîte de sortie de câble derrière un radiateur, **coupez impérativement le disjoncteur divisionnaire Chauffage (10 A, 16 A ou 20 A)** au tableau électrique. Attention : dans certaines installations anciennes, le fil pilote noir peut rester sous 230 V s'il est raccordé à un vieux programmateur central au tableau. **Vérifiez systématiquement l'absence de tension (VAT)** entre Phase/Neutre ET entre Fil Pilote/Neutre avant de toucher aux conducteurs.
+
+---
+
+## 1. Fil pilote (fil noir) vs Coupure de puissance (contacteur) : ne faites pas cette erreur !
+
+Il existe deux façons très différentes de commander un radiateur électrique :
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Méthode</th>
+<th scope="col">Principe électrique</th>
+<th scope="col">Pour quel type de radiateur ?</th>
+<th scope="col">Avantages &amp; Risques</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Méthode"><span class="td-val"><strong>1. Commande par Fil Pilote (fil noir)</strong> <em>(Recommandée à 95 %)</em></span></td>
+<td data-label="Principe électrique"><span class="td-val">Le radiateur reste alimenté en 230 V (Phase + Neutre). Le module domotique envoie uniquement un <strong>signal de commande très faible (&lt; 50 mA)</strong> sur le fil noir.</span></td>
+<td data-label="Pour quel type de radiateur ?"><span class="td-val"><strong>Tous les radiateurs modernes</strong> (inertie sèche/fluide, fonte, double cœur, rayonnants) dotés d'un thermostat électronique et d'un fil noir.</span></td>
+<td data-label="Avantages &amp; Risques"><span class="td-val">✅ Aucun courant fort dans le module.<br/>✅ Préserve la régulation interne PID douce et l'écran.<br/>✅ Aucun bruit de claquement de puissance.</span></td>
+</tr>
+<tr>
+<td data-label="Méthode"><span class="td-val"><strong>2. Coupure de puissance 230 V (Relais 16 A ou Contacteur Jour/Nuit)</strong></span></td>
+<td data-label="Principe électrique"><span class="td-val">Le relais ou le contacteur coupe directement la <strong>Phase 230 V</strong> qui alimente la résistance chauffante (1 000 W à 2 500 W).</span></td>
+<td data-label="Pour quel type de radiateur ?"><span class="td-val">Uniquement les <strong>anciens convecteurs mécaniques (« grille-pain » sans fil pilote)</strong> ou un sèche-serviettes purement résistif.</span></td>
+<td data-label="Avantages &amp; Risques"><span class="td-val">⚠️ **À proscrire sur un radiateur électronique récent** (use l'électronique interne).<br/>⚠️ Au-delà de **1 500 W (6,5 A)** en charge continue, utilisez un **contacteur modulaire 20 A** au tableau plutôt qu'un micro-relais encastré.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+
+## 2. Les 4 et 6 ordres Fil Pilote et le secret de la diode 1N4007
+
+La norme française **Fil Pilote (GIFAM / NF C 15-100)** utilise la tension secteur 230 V 50 Hz envoyée (ou modifiée) sur le **fil noir** par rapport au Neutre pour dicter son mode au radiateur :
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Ordre Fil Pilote</th>
+<th scope="col">Signal électrique sur le fil noir (par rapport au Neutre)</th>
+<th scope="col">Comportement du radiateur</th>
+<th scope="col">Comment l'obtenir avec un relais + diode <code>1N4007</code> ?</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><strong>1. Confort</strong></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val"><strong>0 V AC</strong> (Circuit ouvert / rien n'est envoyé)</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val">Chauffe à la consigne réglée sur l'écran du radiateur (ex. <strong>19,5 °C</strong>).</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Relais ouvert (<code>OFF</code>).</span></td>
+</tr>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><strong>2. Éco</strong></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val"><strong>230 V AC pleine onde</strong> (Phase directe)</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val">Abaisse automatiquement la consigne de <strong>-3,5 °C</strong> par rapport au mode Confort (ex. <strong>16,0 °C</strong>).</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Relais envoyant le 230 V direct sans diode.</span></td>
+</tr>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><strong>3. Hors-gel</strong></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val"><strong>Demi-alternance négative</strong> (~-115 V eff.)</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val">Maintient la pièce autour de <strong>7 °C</strong> (vacances d'hiver).</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Phase 230 V à travers une diode <strong>1N4007</strong> — <strong>anneau gris (cathode) côté Phase / Relais</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><strong>4. Arrêt (Délestage)</strong></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val"><strong>Demi-alternance positive</strong> (~+115 V eff.)</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val"><strong>Coupe immédiatement la chauffe</strong> tout en laissant l'écran du radiateur alimenté.</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Phase 230 V à travers une diode <strong>1N4007</strong> — <strong>anneau gris (cathode) côté Fil Pilote noir</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><em>5. Confort -1 °C</em></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val">230 V pendant <strong>3 secondes</strong> toutes les 5 minutes</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val">Abaisse la consigne de -1 °C (ex. 18,5 °C).</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Généré nativement par un module Zigbee 6 ordres (ex. NodOn).</span></td>
+</tr>
+<tr>
+<td data-label="Ordre Fil Pilote"><span class="td-val"><em>6. Confort -2 °C</em></span></td>
+<td data-label="Signal électrique sur le fil noir (par rapport au Neutre)"><span class="td-val">230 V pendant <strong>7 secondes</strong> toutes les 5 minutes</span></td>
+<td data-label="Comportement du radiateur"><span class="td-val">Abaisse la consigne de -2 °C (ex. 17,5 °C).</span></td>
+<td data-label="Comment l&#x27;obtenir avec un relais + diode `1N4007` ?"><span class="td-val">Généré nativement par un module Zigbee 6 ordres (ex. NodOn).</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+### Schéma de câblage : Module Shelly + Diodes 1N4007 vs Module Zigbee Fil Pilote
+
+<svg viewBox="0 0 820 290" width="100%" height="auto" role="img" aria-label="Schéma de câblage d'un radiateur fil pilote avec diode 1N4007 sur module Shelly (Arrêt / Hors-gel / Confort / Éco)" style="max-width:820px;margin:1.25rem auto;display:block;background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:12px;">
+  <rect x="15" y="20" width="380" height="250" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="205" y="45" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1e3a8a">Montage A : Shelly 1 Mini Gen3 + 1 Diode 1N4007</text>
+  <text x="205" y="63" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1e40af">(Pilotage direct par thermostat Home Assistant : Confort / Arrêt)</text>
+
+  <rect x="35" y="85" width="130" height="90" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="110" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Shelly 1 Mini Gen3</text>
+  <text x="100" y="130" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#dc2626">L / I : Phase 230 V</text>
+  <text x="100" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2563eb">N : Neutre (Bleu)</text>
+  <text x="100" y="165" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#16a34a" font-weight="bold">O : Sortie commutée</text>
+
+  <line x1="165" y1="158" x2="210" y2="158" stroke="#dc2626" stroke-width="2.5"/>
+  <polygon points="210,146 210,170 232,158" fill="#1e293b"/>
+  <line x1="234" y1="145" x2="234" y2="171" stroke="#64748b" stroke-width="4"/>
+  <text x="222" y="138" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0f172a">Diode 1N4007</text>
+  <text x="222" y="186" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">Anneau gris → Fil Noir</text>
+  <line x1="236" y1="158" x2="275" y2="158" stroke="#0f172a" stroke-width="2.5"/>
+
+  <rect x="275" y="85" width="105" height="90" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="327" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Radiateur</text>
+  <text x="327" y="132" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">Mode « Prog/Auto »</text>
+  <text x="327" y="158" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f172a">Fil Pilote Noir</text>
+
+  <text x="205" y="215" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1e3a8a" font-weight="bold">• Relais Shelly OFF = 0 V → Radiateur en CONFORT (Chauffe)</text>
+  <text x="205" y="235" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#991b1b" font-weight="bold">• Relais Shelly ON = Demi-onde + → Radiateur en ARRÊT (Coupé)</text>
+  <text x="205" y="253" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">(Sécurité idéale : si le Shelly ou le Wi-Fi tombe en panne, le chauffage reste actif !)</text>
+
+  <rect x="415" y="20" width="390" height="250" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="610" y="45" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#14532d">Montage B : Shelly Plus 2PM (4 ordres) ou NodOn Zigbee</text>
+  <text x="610" y="63" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#166534">(Pilotage multi-ordres : Confort, Éco -3,5°C, Hors-gel, Arrêt)</text>
+
+  <rect x="435" y="82" width="350" height="82" rx="8" fill="#ffffff" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="610" y="103" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Option 1 : Module Zigbee NodOn SIN-4-FP-21 (Sans diode)</text>
+  <text x="610" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#334155">Bornes L (Phase), N (Neutre) et FP (reliée directement au fil noir)</text>
+  <text x="610" y="142" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#15803d" font-weight="bold">→ Génère nativement les 6 ordres dans Zigbee2MQTT / ZHA / Homey</text>
+
+  <rect x="435" y="176" width="350" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="610" y="196" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Option 2 : Shelly Plus 2PM + 2 Diodes 1N4007 en parallèle</text>
+  <text x="610" y="214" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#334155">• Sortie O1 → Diode anneau vers Fil Noir (Demi-onde + = Arrêt)</text>
+  <text x="610" y="231" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#334155">• Sortie O2 → Diode anneau vers O2 (Demi-onde - = Hors-gel)</text>
+  <text x="610" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#15803d" font-weight="bold">• O1 OFF + O2 OFF = Confort  |  O1 ON + O2 ON = Pleine onde = Éco !</text>
+</svg>
+
+> 💡 **Pourquoi l'astuce des 2 diodes tête-bêche sur un Shelly Plus 2PM est géniale ?**
+> Lorsque les deux sorties `O1` (demi-alternance positive) et `O2` (demi-alternance négative) sont activées en même temps, les deux demi-ondes se recombinent sur le fil noir pour reformer une **pleine onde 230 V AC**, c'est-à-dire l'ordre **Éco (-3,5 °C)** ! Avec un seul module **Shelly Plus 2PM** et deux diodes `1N4007` à 0,10 €, vous obtenez ainsi les **4 ordres complets** :
+> - `O1=OFF, O2=OFF` → **Confort**
+> - `O1=ON, O2=ON` → **Éco**
+> - `O1=OFF, O2=ON` → **Hors-gel**
+> - `O1=ON, O2=OFF` → **Arrêt (Délestage)**
+
+---
+
+## 3. Comparatif matériel : quel module choisir pour vos radiateurs ?
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col"><strong>1. Module Zigbee Fil Pilote (NodOn SIN-4-FP-21 / Legrand)</strong></th>
+<th scope="col"><strong>2. Shelly 1 Mini Gen3 + 1 diode 1N4007</strong></th>
+<th scope="col"><strong>3. Shelly Plus 2PM / 2PM Gen3 + 2 diodes 1N4007</strong></th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Protocole</strong></span></td>
+<td data-label="**1. Module Zigbee Fil Pilote (NodOn SIN-4-FP-21 / Legrand)**"><span class="td-val"><strong>Zigbee 3.0</strong> (ZHA, Zigbee2MQTT, Homey)</span></td>
+<td data-label="**2. Shelly 1 Mini Gen3 + 1 diode 1N4007**"><span class="td-val"><strong>Wi-Fi local + Bluetooth</strong> (API locale MQTT/HTTP)</span></td>
+<td data-label="**3. Shelly Plus 2PM / 2PM Gen3 + 2 diodes 1N4007**"><span class="td-val"><strong>Wi-Fi local + Bluetooth</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Ordres supportés</strong></span></td>
+<td data-label="**1. Module Zigbee Fil Pilote (NodOn SIN-4-FP-21 / Legrand)**"><span class="td-val"><strong>6 ordres natifs</strong> (aucune diode à câbler)</span></td>
+<td data-label="**2. Shelly 1 Mini Gen3 + 1 diode 1N4007**"><span class="td-val"><strong>2 ordres</strong> (<code>Confort</code> / <code>Arrêt</code> ou <code>Confort</code> / <code>Éco</code>)</span></td>
+<td data-label="**3. Shelly Plus 2PM / 2PM Gen3 + 2 diodes 1N4007**"><span class="td-val"><strong>4 ordres</strong> (<code>Confort</code>, <code>Éco</code>, <code>Hors-gel</code>, <code>Arrêt</code>)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Usage idéal</strong></span></td>
+<td data-label="**1. Module Zigbee Fil Pilote (NodOn SIN-4-FP-21 / Legrand)**"><span class="td-val">Pilotage 6 ordres fluide + extension du maillage Zigbee</span></td>
+<td data-label="**2. Shelly 1 Mini Gen3 + 1 diode 1N4007**"><span class="td-val">Régulation fine par thermostat externe (<em>Versatile Thermostat</em> / Homey)</span></td>
+<td data-label="**3. Shelly Plus 2PM / 2PM Gen3 + 2 diodes 1N4007**"><span class="td-val">Gestion complète des 4 modes en Wi-Fi sans dongle Zigbee</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Dimensions</strong></span></td>
+<td data-label="**1. Module Zigbee Fil Pilote (NodOn SIN-4-FP-21 / Legrand)**"><span class="td-val">40 × 44 × 16,9 mm</span></td>
+<td data-label="**2. Shelly 1 Mini Gen3 + 1 diode 1N4007**"><span class="td-val"><strong>Ultra-compact</strong> (29 × 34 × 16 mm, rentre partout)</span></td>
+<td data-label="**3. Shelly Plus 2PM / 2PM Gen3 + 2 diodes 1N4007**"><span class="td-val">42 × 37 × 16 mm</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+### Sélection matériel testée pour le pilotage fil pilote
+
+<div class="noel26-selection" style="margin:1.5rem 0;padding:1.25rem;border-radius:14px;border:2px solid #0f766e;background:#f0fdfa;">
+  <h3 style="margin:0 0 0.4rem;font-size:1.2rem;color:#134e4a;">🔥 Matériel recommandé pour piloter vos radiateurs électriques</h3>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#334155;">Modules disponibles chez Shelly FR, Amazon et Cultura :</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;">
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#dcfce7;color:#166534;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">🏆 6 Ordres Natifs Zigbee</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.amazon.fr/s?k=NodOn+SIN-4-FP-21+module+fil+pilote+Zigbee&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Module Chauffage Fil Pilote Zigbee 3.0 NodOn SIN-4-FP-21</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Compatible Zigbee2MQTT, ZHA et Homey Pro / Mini. Génère les 6 ordres fil pilote sans diode externe, bornier sans vis.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.amazon.fr/s?k=NodOn+SIN-4-FP-21+module+fil+pilote+Zigbee&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~36–42 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.amazon.fr/s?k=NodOn+SIN-4-FP-21+module+fil+pilote+Zigbee&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🛒 Voir sur Amazon →</a>
+        <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Ddomotique%2Bconnectee" target="_blank" rel="nofollow sponsored noopener" style="background:#004b93;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🎨 Voir chez Cultura →</a>
+      </div>
+    </article>
+
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#dbeafe;color:#1e40af;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">⚡ Montage Diode 2 ou 4 Ordres</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Shelly 1 Mini Gen3 ou Shelly 2PM Gen3 (+ Diodes 1N4007)</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Format mini idéal derrière la sortie de câble du radiateur. Pilotage local 100 % sans cloud sous Home Assistant et Homey.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~15–29 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.awin1.com/cread.php?awinmid=121790&awinaffid=3126073&ued=https%3A%2F%2Fwww.shelly.com%2Ffr" target="_blank" rel="nofollow sponsored noopener" style="background:#0f766e;color:#fff !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">⚡ Boutique Shelly FR →</a>
+        <a href="https://www.amazon.fr/s?k=Shelly+1+Mini+Gen3+diode+1N4007&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 calc(50% - 0.3rem);text-align:center;">🛒 Voir sur Amazon →</a>
+      </div>
+    </article>
+
+    <article style="background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:0.45rem;">
+      <span style="align-self:flex-start;background:#fef3c7;color:#92400e;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:99px;">🌡️ Capteur Déporté &amp; Fenêtre</span>
+      <h4 style="margin:0;font-size:1.05rem;"><a href="https://www.amazon.fr/s?k=Capteur+temperature+Zigbee+SONOFF+SNZB-02D+Aqara&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f172a;text-decoration:underline;">Capteur de température Zigbee (SONOFF SNZB-02D / Aqara) + Capteur Fenêtre</a></h4>
+      <p style="margin:0;font-size:0.88rem;color:#475569;">Mesure la vraie température au centre de la pièce (loin du corps chaud du radiateur) et coupe le chauffage dès qu'une fenêtre s'ouvre.</p>
+      <p style="margin:0.15rem 0 0.35rem;font-weight:700;font-size:0.9rem;"><a href="https://www.amazon.fr/s?k=Capteur+temperature+Zigbee+SONOFF+SNZB-02D+Aqara&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="color:#0f766e;text-decoration:underline;">Tarif indicatif : ~12–19 € (voir prix du jour)</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:auto;">
+        <a href="https://www.amazon.fr/s?k=Capteur+temperature+Zigbee+SONOFF+SNZB-02D+Aqara&tag=manuso06-21" target="_blank" rel="nofollow sponsored noopener" style="background:#ff9900;color:#111 !important;font-weight:700;padding:0.48rem 0.75rem;border-radius:8px;text-decoration:none;font-size:0.84rem;flex:1 1 100%;text-align:center;">🛒 Voir sur Amazon →</a>
+      </div>
+    </article>
+  </div>
+</div>
+
+---
+
+## 4. Couplage avec capteur de température Zigbee, ouverture de fenêtre et délestage
+
+Une sonde intégrée dans le bas d'un radiateur est toujours faussée par la chaleur du mur et les courants d'air au sol. Pour obtenir une régulation ultra-précise au dixième de degré :
+
+1. **Réglez le thermostat physique du radiateur sur 20,5 °C ou 21 °C en mode « Fil Pilote / Auto / Prog »** (il sert de limiteur matériel de sécurité).
+2. **Placez un [capteur de température Zigbee](/domotique/capteur-temperature-zigbee/) à 1,50 m du sol**, loin du radiateur et du soleil direct, ainsi qu'un [capteur d'ouverture sur la fenêtre](/domotique/raspberry-pi-capteur-ouverture-porte-notification/).
+3. **Logique d'inversion importante (Montage A — Shelly 1 Mini + 1 diode Arrêt)** :
+   - Lorsque le relais Shelly est **`OFF`**, le fil pilote est à 0 V → le radiateur **CHAUFFE** (Confort).
+   - Lorsque le relais Shelly est **`ON`**, la demi-alternance positive traverse la diode → le radiateur est en **ARRÊT**.
+   - Dans un `generic_thermostat` Home Assistant, il suffit donc de créer un `switch` template inversé (`heater_radiateur_salon`) ou d'utiliser l'excellent composant HACS **Versatile Thermostat** qui gère nativement la logique inversée des fils pilotes, la détection d'ouverture de fenêtre et le **délestage** !
+
+### Configuration YAML complète sous Home Assistant (Switch Fil Pilote + Coupure Fenêtre + Délestage)
+
+```yaml
+# 1. Dans configuration.yaml : Switch inversé (ON = Chauffe / Confort, OFF = Arrêt via diode 1N4007)
+switch:
+  - platform: template
+    switches:
+      chauffage_salon_confort:
+        friendly_name: "Chauffage Salon (Fil Pilote)"
+        value_template: "{{ is_state('switch.shelly_1mini_fil_pilote_salon', 'off') }}"
+        turn_on:
+          service: switch.turn_off
+          target:
+            entity_id: switch.shelly_1mini_fil_pilote_salon
+        turn_off:
+          service: switch.turn_on
+          target:
+            entity_id: switch.shelly_1mini_fil_pilote_salon
+
+# 2. Thermostat virtuel relié au capteur de température Zigbee déporté
+climate:
+  - platform: generic_thermostat
+    name: "Thermostat Salon"
+    heater: switch.chauffage_salon_confort
+    target_sensor: sensor.capteur_zigbee_salon_temperature
+    min_temp: 7
+    max_temp: 22
+    ac_mode: false
+    target_temp: 19.5
+    cold_tolerance: 0.2
+    hot_tolerance: 0.2
+    away_temp: 16.0
+    sleep_temp: 17.0
+```
+
+Et dans `automations.yaml`, ajoutez la **coupure immédiate sur ouverture de fenêtre** ainsi que le **délestage automatique** lorsque la consommation totale de la maison approche de la limite de votre abonnement Linky (ex. 5 500 W sur un abonnement 6 kVA) :
+
+```yaml
+- id: "chauffage_coupure_fenetre_ouverte"
+  alias: "Chauffage - Coupure si fenêtre ouverte > 2 min"
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.fenetre_salon_contact
+      to: "on"
+      for:
+        minutes: 2
+  action:
+    - service: climate.set_hvac_mode
+      target:
+        entity_id: climate.thermostat_salon
+      data:
+        hvac_mode: "off"
+    - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.fenetre_salon_contact
+          to: "off"
+          for:
+            seconds: 30
+    - service: climate.set_hvac_mode
+      target:
+        entity_id: climate.thermostat_salon
+      data:
+        hvac_mode: "heat"
+
+- id: "chauffage_delestage_abonnement_6kva"
+  alias: "Chauffage - Délestage prioritaire si puissance maison > 5500 W"
+  mode: single
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.puissance_totale_maison_w
+      above: 5500
+      for:
+        seconds: 15
+  action:
+    # Force l'ordre Arrêt sur les radiateurs des chambres pendant le pic (four / plaques / LL)
+    - service: select.select_option
+      target:
+        entity_id:
+          - select.nodon_fp_chambre_1_pilot_wire_mode
+          - select.nodon_fp_chambre_2_pilot_wire_mode
+      data:
+        option: "off"
+    - wait_for_trigger:
+        - platform: numeric_state
+          entity_id: sensor.puissance_totale_maison_w
+          below: 4200
+          for:
+            minutes: 3
+    - service: select.select_option
+      target:
+        entity_id:
+          - select.nodon_fp_chambre_1_pilot_wire_mode
+          - select.nodon_fp_chambre_2_pilot_wire_mode
+      data:
+        option: "comfort"
+```
+
+### Logique de Flow sous Homey Pro / Homey Pro mini
+
+Sur **Homey**, l'application officielle **NodOn** ou **Zigbee** expose directement le sélecteur des 6 ordres (`Confort`, `Confort -1`, `Confort -2`, `Éco`, `Hors-gel`, `Arrêt`) :
+- **Flow « Absence & Nuit »** : **QUAND** la dernière personne quitte la maison (ou à 22 h 30 pour le salon) → **ALORS** passer le mode Fil Pilote sur **Éco (-3,5 °C)**.
+- **Flow « Fenêtre ouverte »** : **QUAND** la zone ou le capteur d'ouverture de fenêtre passe à *Ouvert* depuis 2 minutes → **ALORS** passer le radiateur sur **Hors-gel** jusqu'à la fermeture.
+
+---
+
+## 5. Calcul concret des économies d'énergie sur un hiver (référence ADEME)
+
+Selon les données techniques de l'**ADEME**, abaisser la température intérieure de **1 °C** réduit la consommation de chauffage de **7 % en moyenne**.
+
+Prenons un logement équipé de **4 radiateurs de 1 500 W** (salon, bureau, 2 chambres) consommant ensemble **4 500 kWh** sur la saison de chauffe (novembre à mars, soit ~1 125 € TTC/an au tarif de 0,25 €/kWh) :
+
+1. **Passage automatique en mode Éco (-3,5 °C, de 19,5 °C à 16 °C)** pendant **8 h d'absence en semaine** et **8 h la nuit** dans les pièces de vie :
+   - L'abaissement moyen pondéré sur 24 h est d'environ **-1,8 °C à -2,2 °C**.
+   - Gain énergétique : <strong>2,0 × 7 % = 14 % à 18 %</strong> d'économie directe.
+2. **Suppression des chauffes fenêtres ouvertes + régulation déportée au centre de la pièce** (évite la surchauffe de +0,8 °C fréquente des sondes internes de radiateur) :
+   - Gain supplémentaire : **~5 % à 7 %**.
+3. **Délestage intelligent** :
+   - Permet de conserver un abonnement **6 kVA ou 9 kVA** au lieu de payer toute l'année un abonnement 12 kVA juste pour encaisser quelques pointes d'hiver (**~45 à 80 € d'abonnement économisés par an**).
+
+**Bilan chiffré :** Sur une facture chauffage de 1 125 €/hiver, l'économie de **20 % (soit ~900 kWh = 225 € par hiver)** rembourse **l'intégralité des 4 modules Shelly ou Zigbee dès le premier hiver**.
+
+---
+
+## 6. Erreurs fréquentes et dépannage
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Symptôme constaté</th>
+<th scope="col">Cause probable</th>
+<th scope="col">Solution immédiate</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Le radiateur passe en Hors-gel (~7 °C) quand vous demandez l'Arrêt (ou inversement)</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">La <strong>diode <code>1N4007</code> est branchée à l'envers</strong>.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Inversez le sens de la diode dans le Wago : <strong>l'anneau gris (cathode)</strong> doit être orienté <strong>vers le fil pilote noir du radiateur</strong> pour obtenir l'ordre <strong>Arrêt (demi-onde positive)</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Le radiateur continue de chauffer normalement quel que soit l'ordre envoyé</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Le radiateur est resté en mode « Manuel / Soleil » sur son propre clavier au lieu du mode <strong>« Auto / Prog / Fil Pilote (FP) »</strong>.</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Activez le mode <strong>Fil Pilote / Auto / Programmation externe</strong> sur le boîtier du radiateur (consultez l'icône horloge ou maison de votre modèle Thermor, Atlantic, Sauter, Noirot).</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>Le différentiel 30 mA saute dès que le module envoie un ordre sur le fil pilote</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Vous avez repris la Phase ou le Neutre du module sur un circuit prises de courant situé sous un <strong>interrupteur différentiel 30 mA différent</strong> de celui du circuit chauffage !</span></td>
+<td data-label="Solution immédiate"><span class="td-val">Alimentez <strong>obligatoirement</strong> votre module Shelly ou Zigbee sur la <strong>Phase et le Neutre de la sortie de câble du radiateur lui-même</strong> (même disjoncteur, même différentiel 30 mA).</span></td>
+</tr>
+<tr>
+<td data-label="Symptôme constaté"><span class="td-val"><strong>La diode chauffe ou claque</strong></span></td>
+<td data-label="Cause probable"><span class="td-val">Vous avez branché la diode sur l'alimentation de puissance du radiateur au lieu du <strong>fil noir (fil pilote)</strong>, ou utilisé une petite diode signal <code>1N4148</code> (100 V).</span></td>
+<td data-label="Solution immédiate"><span class="td-val">La diode ne doit <strong>jamais</strong> alimenter la résistance de chauffe : elle se place uniquement en série avec le <strong>fil pilote noir</strong> (&lt; 50 mA), et il faut impérativement une référence <strong><code>1N4007</code> (1 000 V / 1 A)</strong> ou <code>1N4004</code>.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+
+## Pour aller plus loin sur le site
+
+- [Quel capteur de température Zigbee choisir pour Home Assistant et Homey ?](/domotique/capteur-temperature-zigbee/)
+- [Détecter l'ouverture d'une porte ou fenêtre avec notification instantanée](/domotique/raspberry-pi-capteur-ouverture-porte-notification/)
+- [Secours électrique domotique : calculer l'autonomie réelle et automatiser sur coupure avec Shelly et EcoFlow](/domotique/secours-electrique-home-assistant-onduleur-station-ecoflow-shelly/)
+- [Suivre sa consommation électrique en temps réel avec une prise Shelly ou Zigbee](/domotique/projets/suivi-consommation-electrique/)
+- [Codes erreurs et dépannage Zigbee, Home Assistant et Shelly](/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/)

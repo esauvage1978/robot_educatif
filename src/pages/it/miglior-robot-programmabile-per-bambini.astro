@@ -1,0 +1,108 @@
+---
+import ItPost from '../../layouts/ItPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+const title = 'Miglior robot programmabile per bambini (2026): età 5–14 anni';
+const description =
+	'Confronto Botley 2.0, mBot, mBot2, Codey Rocky ed ELEGOO per bambini dai 5 ai 14 anni. Prezzi e foto Amazon.it aggiornati e guide per fascia d\'età.';
+const updated = '4 novembre 2026';
+---
+
+<ItPost title={title} description={description} updated={updated}>
+	<AffiliateDisclosure locale="it" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/it/">Home</a> · <a href="/it/marchio-makeblock/">Makeblock</a> · Robot programmabili
+	</nav>
+	<p>
+		<a href="/it/regalo-natale-robot-educativo-2026/">Regali Natale robot</a> ·{' '}
+		<a href="/it/mbot-vs-mbot2/">mBot vs mBot2</a> · <a href="/it/marchio-makeblock/">Marca Makeblock</a>
+	</p>
+
+	<ComparisonTable
+		market="it"
+		locale="it"
+		title="Confronto rapido (5–14 anni)"
+		products={[
+			{ id: 'botley-2', badge: 'Top 5–7 anni' },
+			{ id: 'mbot', badge: 'Top 8–12 anni' },
+			{ id: 'mbot2', badge: 'Top 10–14 anni' },
+			{ id: 'codey-rocky', badge: 'Scratch + sensori' },
+			{ id: 'elegoo-robot-car', badge: 'Arduino teen' },
+		]}
+	/>
+
+	<p>
+		<strong>Aggiornato il 4 novembre 2026.</strong> Questa pagina aiuta a scegliere un <strong>robot programmabile</strong> per bambini
+		dai <strong>5 ai 14 anni</strong>. Prezzi e immagini provengono dal feed Amazon Creators (data sotto la tabella). Approfondimenti nella
+		sezione <a href="/it/marchio-makeblock/">Makeblock</a> e nelle guide collegate sotto.
+	</p>
+
+	<figure>
+		<img
+			src="/images/products/mbot2.webp"
+			alt="Makeblock mBot2, telaio blu e sensori a ultrasuoni"
+			width="600"
+			height="600"
+			loading="lazy"
+			decoding="async"
+		/>
+	</figure>
+
+	<h2>1. Obiettivo prima del marchio</h2>
+	<ul>
+		<li><strong>5–7 anni</strong> — sessioni brevi, spesso <strong>senza schermo</strong>.</li>
+		<li><strong>8–10 anni</strong> — blocchi Scratch/mBlock, montaggio guidato.</li>
+		<li><strong>10–14 anni</strong> — Python e Wi‑Fi con mBot2.</li>
+		<li><strong>13+ con adulto</strong> — kit Arduino ELEGOO.</li>
+	</ul>
+
+	<h2>2. Software, sensori, budget totale</h2>
+	<p>
+		Verificate tutorial aggiornati e community attiva. Include pile ricaricabili e contenitore. Guida:{' '}
+		<a href="/it/installare-mblock-5-windows/">installare mBlock 5</a>.
+	</p>
+
+	<div class="tableau empile">
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Criterio</th>
+					<th scope="col">mBot</th>
+					<th scope="col">mBot2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-label="Criterio">
+						<span class="td-val">Età indicata</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">6+ anni</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Primaria–secondaria</span>
+					</td>
+				</tr>
+				<tr>
+					<td data-label="Criterio">
+						<span class="td-val">Linguaggi</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">Blocchi (mBlock), Arduino</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Blocchi, Python, Arduino IDE</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h2>3. Guide collegate</h2>
+	<p>
+		<a href="/it/robot-programmabile-8-anni/">Robot 8 anni</a> · <a href="/it/mbot-vs-mbot2/">mBot vs mBot2</a> ·{' '}
+		<a href="/it/regalo-natale-robot-educativo-2026/">Regali Natale robot</a>
+	</p>
+</ItPost>

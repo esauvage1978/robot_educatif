@@ -1,0 +1,65 @@
+---
+title: Flasher un ESP32 avec ESPHome (USB, boot)
+description: "Premier flash d’un ESP32-C6 avec ESPHome : USB, pilotes CP210x/CH340, ESPHome Web, mode boot et dépannage. Matériel, schéma GPIO, YAML ESPHome et Home Assi"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+---
+
+**Flasher** une carte ESP32, c'est écrire pour la première fois son programme dans sa mémoire. Cette première écriture passe obligatoirement par un câble USB, parce qu'une carte neuve ne connaît encore ni votre réseau Wi-Fi ni ESPHome, le logiciel qui prépare ce programme à partir d'un fichier de configuration appelé YAML (un simple texte qui décrit ce que la carte doit faire). Ensuite, toutes les mises à jour se font par le réseau, sans câble : on parle de [mises à jour OTA](/domotique/mises-a-jour-ota-esphome/). Ce tutoriel vous guide pas à pas dans ce premier flash avec une carte ESP32-C6 DevKitC-1, une petite carte électronique équipée du Wi-Fi, depuis un ordinateur Windows, macOS ou Linux.
+
+**Résultat attendu :** la carte démarre avec votre configuration, se connecte au Wi-Fi 2,4 GHz et apparaît dans Home Assistant. **Durée :** 15 à 30 minutes. **Difficulté :** débutant.
+
+![Carte Espressif ESP32-C6-DevKitC-1 : module ESP32-C6-WROOM-1, ports UART et USB, boutons BOOT et RESET](/images/products/esp32-c6-devkitc.webp)
+
+La carte de ce tutoriel est l’**ESP32-C6-DevKitC-1**. Le port marqué **UART** sert au premier flash par câble ; le port marqué **USB** est le port natif du microcontrôleur. Les deux boutons en face avant sont **RESET** et **BOOT**.
+
+## Ce qu'il faut avant de commencer
+
+- Une carte ESP32 (voir [quelle carte ESP32 choisir](/domotique/quelle-carte-esp32-choisir-domotique/)) et un **câble USB-C de données** : beaucoup de câbles « charge seule » ne transmettent pas les données, première cause de carte introuvable.
+- ESPHome installé dans Home Assistant ([installer ESPHome](/domotique/installer-esphome-home-assistant/)) et un fichier YAML de l'appareil.
+- Un navigateur **Chrome ou Edge** (Firefox et Safari ne gèrent pas l'USB série du navigateur).
+
+## Étape 1 : brancher la carte et installer le pilote si besoin
+
+La carte ESP32-C6-DevKitC-1 a deux ports USB-C. Utilisez celui repéré **UART** : il passe par une puce de conversion USB-série (CP210x sur la carte officielle). Le second, repéré USB, est le port natif du microcontrôleur.
+
+Sous Windows 10 et 11, le pilote s'installe en général tout seul. Sinon, installez le pilote **CP210x** de Silicon Labs, ou le pilote **CH340** pour les cartes qui utilisent cette puce. Vérifiez la présence d'un port « COM » dans le Gestionnaire de périphériques, section « Ports (COM et LPT) ». Sous macOS, le pilote est souvent intégré. Sous Linux, ajoutez votre utilisateur au groupe `dialout` (`sudo usermod -a -G dialout $USER`) puis rouvrez la session.
+
+**Vérification :** en débranchant puis rebranchant la carte, une ligne apparaît et disparaît dans la liste des ports.
+
+## Étape 2 : générer le fichier de flash
+
+Dans ESPHome Device Builder, sur la carte de votre appareil, ouvrez le menu **⋮ → Install**, puis **Manual download**. Une fois la compilation terminée (quelques minutes la première fois), choisissez le format **Factory format** et enregistrez le fichier `.bin`.
+
+Si Home Assistant est ouvert en HTTPS et si la carte est branchée à l'ordinateur qui affiche la page, l'option **Plug into the computer running ESPHome Dashboard** évite le téléchargement. Elle ne fonctionne pas sur une adresse locale en HTTP simple.
+
+## Étape 3 : flasher avec ESPHome Web
+
+1. Ouvrez [web.esphome.io](https://web.esphome.io/) dans Chrome ou Edge.
+2. Cliquez sur **Connect**, puis choisissez le port de la carte (par exemple « USB JTAG/serial » ou « CP210x »).
+3. Cliquez sur **Install**, sélectionnez le fichier `.bin` téléchargé et confirmez.
+4. Attendez la fin de l'écriture : la page affiche une progression, puis un message de réussite.
+
+**Si la connexion échoue :** passez la carte en mode téléchargement. Maintenez le bouton **BOOT**, appuyez brièvement sur **RESET** (ou EN), puis relâchez BOOT, et recommencez.
+
+## Étape 4 : vérifier que tout fonctionne
+
+Dans ESPHome Web, ouvrez **Logs** après l'installation : les lignes de démarrage doivent montrer la connexion au Wi-Fi puis l'adresse IP. Dans Home Assistant, ouvrez **Paramètres → Appareils et services** : l'appareil ESPHome apparaît dans les appareils découverts. Cliquez sur **Configurer** et saisissez la clé de chiffrement de l'API présente dans votre YAML.
+
+## Problèmes fréquents
+
+| Symptôme | Cause probable | Solution |
+|---|---|---|
+| Aucun port dans la liste | Câble « charge seule » ou mauvais port USB | Changez de câble, utilisez le port UART |
+| « Failed to connect » | La carte n'est pas en mode téléchargement | BOOT maintenu, RESET, puis relâcher BOOT |
+| Écriture interrompue | Câble ou hub USB peu fiable | Branchez directement sur l'ordinateur |
+| La carte redémarre en boucle | Configuration invalide ou broche réservée | Lisez les logs ; voir [bases du câblage GPIO](/domotique/bases-cablage-esp32-gpio/) |
+| Pas de connexion Wi-Fi | Réseau en 5 GHz uniquement ou mot de passe faux | Utilisez le 2,4 GHz, vérifiez `secrets.yaml` |
+
+## Et ensuite ?
+
+Mettez en pratique avec un [projet ESP32 pas à pas](/domotique/projets-esp32-domotique/) ou le guide complet du [capteur de température](/domotique/esp32-esphome-capteur-temperature/). Documentation officielle : [ESPHome Web](https://web.esphome.io/) et [guide de démarrage ESPHome](https://esphome.io/guides/getting_started_hassio/).
+
+<small>Mis à jour le 30 octobre 2026. Les noms de menus d'ESPHome et de Home Assistant évoluent : vérifiez-les sur votre version.</small>

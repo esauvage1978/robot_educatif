@@ -1,0 +1,184 @@
+---
+import { ROBOTS, ACCESSORY_ROWS } from '../data/makeblockCompat.mjs';
+import { amazonProductUrl, amazonSearchUrl } from '../lib/amazon';
+
+function statusLabel(st) {
+	if (st === 'ok') return '✅';
+	if (st === 'warn') return '⚠️';
+	return '❌';
+}
+
+function buyUrl(row) {
+	if (row.asin) return amazonProductUrl(row.asin, null);
+	if (row.search) return amazonSearchUrl(row.search);
+	return amazonSearchUrl(row.name);
+}
+---
+
+<div class="mbx" data-mbx="">
+<div class="mbx-filters">
+<label>
+			Filtrer par robot
+			<select data-mbx-robot="">
+<option value="all">Tous</option>
+				{ROBOTS.map((r) => (
+					<option value="{r.id}">{r.label}</option>
+				))}
+			</select>
+</label>
+<label>
+			Connectique
+			<select data-mbx-conn="">
+<option value="all">Toutes</option>
+<option value="rj25">RJ25</option>
+<option value="mbuild">mBuild</option>
+<option value="builtin">Intégré</option>
+</select>
+</label>
+<label class="mbx-search">
+			Recherche
+			<input autocomplete="off" data-mbx-q="" placeholder="Nom de l’accessoire…" type="search"/>
+</label>
+</div>
+<div class="mbx-table-wrap">
+<table class="mbx-table">
+<thead>
+<tr>
+<th>Accessoire</th>
+<th>Connectique</th>
+<th>Alimentation</th>
+<th>Langages</th>
+					{ROBOTS.map((r) => (
+						<th data-mbx-col="{r.id}">{r.label}</th>
+					))}
+					<th>Achat</th>
+</tr>
+</thead>
+<tbody>
+				{ACCESSORY_ROWS.map((row) => (
+					<tr data-conn="{row.connector}" data-mbx-row="" data-name="{row.name.toLowerCase()}">
+<td>
+<strong>{row.name}</strong>
+							{row.note && <p class="mbx-note">{row.note}</p>}
+						</td>
+<td>{row.connector === 'rj25' ? 'RJ25' : row.connector === 'mbuild' ? 'mBuild' : 'Intégré'}</td>
+<td>{row.power}</td>
+<td>{row.langs}</td>
+						{ROBOTS.map((r) => (
+							<td data-mbx-cell="{r.id}" data-status="{row.robots[r.id]}" title="{row.robots[r.id]}">
+								{statusLabel(row.robots[r.id])}
+							</td>
+						))}
+						<td>
+<a href="{buyUrl(row)}" rel="noopener noreferrer sponsored" target="_blank">Amazon</a>
+</td>
+</tr>
+				))}
+			</tbody>
+</table>
+</div>
+<p class="mbx-legend">
+<strong>Légende :</strong> ✅ compatible directe · ⚠️ variante ou prérequis · ❌ non adapté au châssis / carte.
+	</p>
+</div>
+<style>
+	.mbx-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+		margin: 1.25rem 0;
+	}
+	.mbx-filters label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.mbx-filters select,
+	.mbx-search input {
+		padding: 0.45rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		min-width: 180px;
+		font: inherit;
+	}
+	.mbx-table-wrap {
+		overflow-x: auto;
+		margin: 1rem 0;
+	}
+	.mbx-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.88rem;
+	}
+	.mbx-table th,
+	.mbx-table td {
+		border: 1px solid var(--surface-border);
+		padding: 0.6rem 0.7rem;
+		vertical-align: top;
+	}
+	.mbx-table th {
+		background: #eff6ff;
+		color: #1d4ed8;
+		font-size: 0.78rem;
+	}
+	.mbx-note {
+		margin: 0.35rem 0 0;
+		font-size: 0.82rem;
+		color: rgb(var(--gray-dark));
+		font-weight: 400;
+	}
+	.mbx-table tr[data-mbx-hidden='true'] {
+		display: none;
+	}
+	.mbx-table th[data-mbx-dim='true'],
+	.mbx-table td[data-mbx-dim='true'] {
+		opacity: 0.35;
+	}
+	.mbx-legend {
+		font-size: 0.9rem;
+		opacity: 0.85;
+	}
+</style>
+<script>
+	function initMbx(root) {
+		const robotSel = root.querySelector('[data-mbx-robot]');
+		const connSel = root.querySelector('[data-mbx-conn]');
+		const qInput = root.querySelector('[data-mbx-q]');
+		const rows = root.querySelectorAll('[data-mbx-row]');
+		const cols = root.querySelectorAll('[data-mbx-col]');
+
+		function apply() {
+			const robot = robotSel?.value || 'all';
+			const conn = connSel?.value || 'all';
+			const q = String(qInput?.value || '').trim().toLowerCase();
+			rows.forEach((row) => {
+				const name = row.getAttribute('data-name') || '';
+				const c = row.getAttribute('data-conn') || '';
+				const connOk = conn === 'all' || c === conn;
+				const qOk = !q || name.includes(q);
+				let robotOk = true;
+				if (robot !== 'all') {
+					const cell = row.querySelector(`[data-mbx-cell="${robot}"]`);
+					const st = cell?.getAttribute('data-status');
+					robotOk = st === 'ok' || st === 'warn';
+				}
+				row.setAttribute('data-mbx-hidden', connOk && qOk && robotOk ? 'false' : 'true');
+			});
+			cols.forEach((th) => {
+				const id = th.getAttribute('data-mbx-col');
+				const dim = robot !== 'all' && id !== robot;
+				th.setAttribute('data-mbx-dim', dim ? 'true' : 'false');
+				root.querySelectorAll(`[data-mbx-cell="${id}"]`).forEach((td) => {
+					td.setAttribute('data-mbx-dim', dim ? 'true' : 'false');
+				});
+			});
+		}
+		robotSel?.addEventListener('change', apply);
+		connSel?.addEventListener('change', apply);
+		qInput?.addEventListener('input', apply);
+		apply();
+	}
+	document.querySelectorAll('[data-mbx]').forEach(initMbx);
+</script>

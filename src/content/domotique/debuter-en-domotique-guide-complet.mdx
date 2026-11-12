@@ -1,0 +1,194 @@
+---
+title: "Débuter en domotique : le guide complet"
+description: "Vous débutez en domotique ? Ce guide vous explique dans l'ordre ce qu'il faut décider, acheter et configurer pour que votre maison réagisse toute seule, avec des mots simples."
+pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-10-30T00:00:00Z
+category: "debuter"
+products: ["home-assistant-green", "sonoff-zbdongle-e"]
+priority: 1
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+import DomotiquePagesConnexes from '../../components/DomotiquePagesConnexes.astro';
+import ParcoursDebutantNav from '../../components/ParcoursDebutantNav.astro';
+
+Vous aimeriez que votre maison s'occupe de petites choses à votre place : baisser le chauffage quand une fenêtre reste ouverte, allumer le couloir la nuit, vous prévenir quand la porte s'ouvre. C'est exactement ce que fait la domotique : des objets connectés qui réagissent seuls, selon des règles que vous choisissez.
+
+Ce guide vous accompagne pas à pas. À la fin, vous saurez par quoi commencer, quoi acheter en premier (et quoi laisser en rayon), et comment créer votre première règle automatique. Inutile de connaître le vocabulaire : chaque mot technique est expliqué dès qu'il apparaît.
+
+![Main tenant un smartphone qui affiche l'application d'une serrure connectée posée sur une porte blanche](/images/debutant/living-room-tech.webp)
+
+*Une serrure connectée commandée depuis un téléphone : c'est le premier réflexe de la domotique, un objet de la maison que l'on pilote à distance ou que l'on programme. Photo : Sebastian Scholz (Nuki), Unsplash, licence Unsplash.*
+
+<DomotiquePagesConnexes
+  title="Pour aller plus loin"
+  pillarHref="/domotique/debuter-domotique-par-ou-commencer/"
+  pillarPrefix="Version courte"
+  pillarLabel="Débuter en domotique : par où commencer"
+  links={[
+    { href: '/domotique/quelle-box-domotique-choisir-debutant/', label: 'Quelle box choisir quand on débute' },
+    { href: '/domotique/protocoles-domotique-zigbee-wifi-thread-matter/', label: 'Comment vos appareils se parlent (les protocoles expliqués simplement)' },
+    { href: '/domotique/premiers-appareils-domotique-acheter/', label: 'Les premiers appareils à acheter' },
+    { href: '/domotique/glossaire-domotique/', label: 'Glossaire de la domotique' },
+    { href: '/domotique/premieres-automatisations-domotique/', label: 'Vos premières automatisations' },
+    { href: '/domotique/erreurs-debutant-domotique-faq/', label: 'Les erreurs de débutant et leurs réponses' },
+  ]}
+/>
+
+## L'essentiel en quelques lignes
+
+Si vous voulez des automatisations qui marchent sans abonnement, et même quand Internet est coupé, une base simple suffit. Elle tient en trois éléments.
+
+Le premier est un cerveau. Il s'agit de Home Assistant, un logiciel gratuit qui réunit tous vos appareils dans une seule application. Il tourne sur un petit boîtier : soit le [Home Assistant Green](/domotique/home-assistant-green-vs-raspberry-pi-5/), un boîtier prêt à brancher, soit un [Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/), un petit ordinateur de la taille d'une carte bancaire.
+
+Le deuxième est une clé radio, appelée aussi dongle : une petite clé USB qui permet au cerveau de parler aux capteurs sans fil. Elle fonctionne avec Zigbee, un langage radio économe en énergie, parfait pour des capteurs qui tiennent des mois sur une simple pile. Notre [guide des clés Zigbee](/domotique/meilleur-dongle-zigbee-home-assistant/) vous aide à choisir.
+
+Le troisième est une poignée de capteurs et de prises connectées, choisis pour un seul objectif : le confort, les économies d'énergie ou la sécurité.
+
+Vous préférez ne rien installer vous-même ? Homey Pro mini est un boîtier du commerce qui rassemble plusieurs radios et se configure depuis une application : voir [notre déballage et installation](/domotique/test-homey-pro-mini-deballage-installation/). Et si vous êtes locataire, commencez par le [parcours sans travaux](/domotique/domotique-location-sans-travaux/).
+
+## Étape 1 : savoir ce que vous voulez vraiment
+
+Avant d'acheter quoi que ce soit, écrivez une seule phrase. Par exemple : « Je veux baisser le chauffage quand une fenêtre est ouverte » ou « Je veux que la lumière du couloir s'allume la nuit ». Tout le reste, le choix de la marque comme celui du matériel, découle de cette phrase.
+
+Trois questions vous aident à y voir clair.
+
+| Question | Pourquoi elle change tout |
+|---|---|
+| Êtes-vous locataire ou propriétaire ? | Un locataire évite de percer ou de toucher à l'installation électrique. Il se tourne vers des prises, des capteurs à pile et des têtes qui se vissent sur les radiateurs. Un propriétaire peut aussi installer des modules cachés dans les murs. |
+| Aimez-vous bricoler ou voulez-vous du clé en main ? | Bricoler, c'est installer un logiciel sur un Raspberry Pi ou fabriquer un capteur avec une carte ESP32 (une petite carte électronique programmable, équipée du Wi-Fi). Le clé en main, c'est un boîtier Home Assistant Green ou Homey, prêt à l'emploi. |
+| Quel budget pour démarrer ? | Avec peu d'argent, on commence en Wi-Fi, sans boîtier central. Avec un peu plus, on prend directement un boîtier et une clé Zigbee. |
+
+Un mot vous échappe ? Le [glossaire](/domotique/glossaire-domotique/) les explique tous, avec un exemple. Les questions qu'on n'ose pas poser (« faut-il savoir coder ? », « et si Internet tombe ? ») ont leur réponse dans la page sur les [erreurs de débutant](/domotique/erreurs-debutant-domotique-faq/).
+
+## Étape 2 : choisir le chef d'orchestre de la maison (la box)
+
+![Gros plan sur plusieurs cartes électroniques Raspberry Pi vertes avec leurs ports USB et réseau](/images/debutant/raspberry-pi.webp)
+
+*Des Raspberry Pi vus de près. Ce petit ordinateur peut devenir le cerveau de votre maison dès que Home Assistant est installé dessus. Photo : Craig Dennis, Pexels, licence libre.*
+
+La box, aussi appelée hub, est le chef d'orchestre. Elle reçoit les informations de vos capteurs (« la porte vient de s'ouvrir ») et déclenche les actions que vous avez prévues (« allume l'entrée »).
+
+Vous n'êtes pas obligé d'en acheter une tout de suite. Vous pouvez commencer avec les applications de chaque fabricant, puis tout regrouper plus tard si l'envie vous prend.
+
+| Votre profil | Ce qui vous convient le mieux |
+|---|---|
+| Vous voulez faire des économies de chauffage ou suivre votre consommation | Home Assistant, avec des capteurs de température et des prises qui mesurent la consommation |
+| Vous voulez être alerté si quelque chose se passe | Home Assistant ou Homey, avec des capteurs d'ouverture et de mouvement |
+| Vous voulez simplement piloter quelques lampes | Des ampoules ou prises Wi-Fi, sans boîtier central, puis Home Assistant plus tard si besoin |
+| Vous êtes locataire | Des prises, des capteurs à pile et des têtes thermostatiques qui se vissent sur le radiateur |
+| Vous aimez bricoler | Home Assistant sur un Raspberry Pi ou un mini-ordinateur, avec des cartes [ESP32](/domotique/projets-esp32-domotique/) |
+
+Pour chaque objectif, des ordres de grandeur de budget et les pièges à éviter (comme un abonnement caché), rendez-vous sur la page [Quelle box domotique choisir](/domotique/quelle-box-domotique-choisir-debutant/). Si vous voulez comparer les logiciels eux-mêmes, lisez notre [comparatif Home Assistant, Jeedom et Homey](/domotique/home-assistant-jeedom-homey-quel-systeme-choisir/).
+
+<ProductBox
+  productId="home-assistant-green"
+  name="Home Assistant Green"
+  asin="B0CXVKSG19"
+  image="/images/products/home-assistant-green.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'HAOS préinstallé',
+    'Fonctionne en local',
+    'Évolutif avec dongle Zigbee',
+    'Sans abonnement obligatoire'
+  ]}
+  badge="Box pour démarrer"
+  position={1}
+/>
+
+Vous préférez une box prête à l'emploi, réglée entièrement depuis une appli, sans rien installer ? Le Homey Pro mini d'Athom est l'alternative la plus simple. Il parle directement Zigbee, Thread et Matter, les « langues radio » de vos appareils expliquées dans notre [glossaire](/domotique/glossaire-domotique/), et tout fonctionne chez vous, même si Internet est coupé. Le Homey Pro mini est en cours de test chez nous : voyez notre [déballage et installation pas à pas](/domotique/test-homey-pro-mini-deballage-installation/).
+
+<ProductBox
+  productId="homey-pro-mini"
+  name="Homey Pro mini"
+  image="/images/domotique/homey/homey-pro-mini-boitier-dessus.webp"
+  priceRange="À vérifier chez le vendeur"
+  pros={[
+    'Appli très simple, sans rien installer',
+    'Zigbee, Thread et Matter intégrés',
+    'Fonctionne en local, sans abonnement obligatoire',
+    'Z-Wave, Bluetooth et infrarouge avec le Homey Bridge (vendu à part)',
+    'Le Homey Pro (plus cher) intègre aussi Wi-Fi, Z-Wave et infrarouge'
+  ]}
+  badge="Alternative tout-en-un"
+  position={2}
+/>
+
+## Étape 3 : comprendre comment vos appareils se parlent
+
+Chaque appareil connecté utilise une langue radio pour échanger avec la maison. On appelle cela un protocole. Les plus courants sont le Wi-Fi (celui de votre box Internet) et Zigbee, dont nous avons déjà parlé. Viennent ensuite Z-Wave, un cousin de Zigbee qui utilise une autre fréquence radio, Thread, un réseau économe en énergie, et Matter, un langage commun que comprennent de plus en plus de marques. On croise aussi le Bluetooth et le 433 MHz, une radio ancienne que l'on trouve sur d'anciens volets roulants.
+
+Ces langues ne sont pas interchangeables. Elles diffèrent par leur portée, par leur appétit en énergie (un capteur à pile ne peut pas utiliser le Wi-Fi) et par le matériel qu'il faut ajouter.
+
+Retenez surtout une idée : avec Zigbee, les appareils branchés sur une prise électrique font office de relais. Chacun transmet le message de son voisin, un peu comme une chaîne de personnes qui se passent un seau. On parle de réseau en maillage. Plus vous ajoutez d'appareils sur secteur, plus le réseau devient solide.
+
+Pour aller plus loin, trois lectures :
+
+- Le guide [Zigbee, Wi-Fi, Thread et Matter expliqués simplement](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/), avec un tableau à garder sous la main.
+- L'article [Matter, Thread, Zigbee, Wi-Fi : quel choix en 2027](/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/), pour voir où va le marché.
+- Le [tableau de compatibilité entre marques et boîtiers](/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/), pour vérifier qu'un appareil sera reconnu.
+
+Notre règle de départ : Zigbee pour les capteurs à pile, Wi-Fi local pour les prises et modules branchés sur secteur (par exemple ceux de la marque Shelly, qui se commandent sans passer par Internet), et Matter lorsque vous voulez ne pas dépendre d'une seule marque.
+
+## Étape 4 : acheter vos premiers appareils, un kit et non un inventaire
+
+Un bon kit de départ tient en peu d'objets : une clé Zigbee si vous choisissez cette radio, un ou deux capteurs, une ou deux prises, et éventuellement une ampoule ou une vanne de radiateur. La page [premiers appareils à acheter](/domotique/premiers-appareils-domotique-acheter/) propose des kits par objectif et par budget.
+
+<ProductBox
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Coordinateur Zigbee USB',
+    'ZHA ou Zigbee2MQTT',
+    'Antenne externe',
+    'Large catalogue capteurs'
+  ]}
+  badge="Dongle Zigbee"
+  position={2}
+/>
+
+Cette clé joue le rôle de coordinateur : c'est elle qui dirige le réseau Zigbee de la maison. Les prix varient d'une boutique à l'autre, pensez à les vérifier chez le vendeur avant d'acheter.
+
+Vous hésitez sur l'ampleur du projet (garage, volets, chauffage) ? Le [configurateur de projet](/domotique/configurateur-projet-domotique/) vous aide à cadrer le matériel nécessaire.
+
+## Étape 5 : créer vos premières automatisations
+
+Une automatisation est une règle du type « si ceci arrive, alors fais cela ». Elle se compose d'un déclencheur (ce qui se passe), de conditions facultatives (dans quel cas) et d'actions (ce que la maison fait).
+
+Exemple : quand le détecteur du couloir repère un mouvement (déclencheur) et qu'il fait nuit (condition), la lumière s'allume (action).
+
+La page [premières automatisations](/domotique/premieres-automatisations-domotique/) présente dix idées concrètes, de la lumière qui s'allume toute seule à l'alerte quand la machine à laver a fini, pour Home Assistant comme pour Homey.
+
+## Et ensuite ?
+
+Une fois la base en place, voici où creuser :
+
+- Installer Home Assistant : le [tutoriel pour Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/), ou le [comparatif entre le Green et le Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) si vous hésitez.
+- Choisir Homey : [Pro mini, déballage et installation](/domotique/test-homey-pro-mini-deballage-installation/).
+- Fabriquer ses propres capteurs : les [projets ESP32](/domotique/projets-esp32-domotique/) et la [rubrique ESP32](/domotique/rubrique/esp32/).
+- Choisir entre deux façons de connecter Zigbee à Home Assistant : [Zigbee2MQTT ou ZHA](/domotique/home-assistant-zigbee2mqtt-ou-zha/).
+- Parcourir tous nos articles pour débutants : la [rubrique Débuter](/domotique/rubrique/debuter/).
+
+<ParcoursDebutantNav lang="fr" frSlug="debuter-en-domotique-guide-complet" position="bottom" />
+
+## FAQ
+
+**Par où commencer si je n'ai qu'une heure ?**
+Lisez les étapes 1 et 2, choisissez un seul objectif, puis passez à la [version courte du parcours](/domotique/debuter-domotique-par-ou-commencer/). Surtout, n'achetez pas cinq marques Wi-Fi différentes le premier jour : vous vous retrouveriez avec cinq applications à gérer.
+
+**Faut-il absolument Home Assistant ?**
+Non. Pour deux prises et une ampoule, l'application du fabricant ou Matter (un langage commun compris par de nombreuses marques) peut suffire. Home Assistant, ou Homey, devient utile dès que vous voulez que vos appareils agissent ensemble et continuent de fonctionner même sans Internet.
+
+**Est-ce que tout marche si Internet tombe ?**
+Les appareils pilotés en local continuent de fonctionner : capteurs Zigbee, box locale, automatisations. En revanche, tout ce qui passe par les serveurs d'un fabricant (on parle du cloud) s'arrête, tout comme la commande vocale. Le détail est dans la page sur les [erreurs de débutant](/domotique/erreurs-debutant-domotique-faq/).
+
+**Où trouver la définition d'un mot technique que je ne comprends pas ?**
+Dans le [glossaire de la domotique](/domotique/glossaire-domotique/). Chaque terme y est expliqué en une ou deux phrases, avec un exemple pris dans une vraie maison.
+
+---
+
+*Affiliation : certains liens Amazon portent l'identifiant du site (manuso06-21 en France). Si vous achetez par ce lien, une commission peut être versée, sans surcoût pour vous. Prix et disponibilités à vérifier chez le vendeur. Auteur : Emmanuel Sauvage.*

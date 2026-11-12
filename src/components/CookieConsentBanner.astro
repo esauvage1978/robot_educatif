@@ -137,12 +137,7 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 		box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
 		pointer-events: auto;
 	}
-	html[data-theme='dark'] .cookie-consent__inner,
-	:root[data-theme='dark'] .cookie-consent__inner {
-		background: var(--surface-2, #1e1e24);
-		border-color: var(--surface-border, #333);
-		color: var(--color-base, #e6e6ea);
-	}
+	
 	.cookie-consent__title {
 		margin: 0 0 0.5rem;
 		font-size: 1.05rem;
@@ -150,15 +145,9 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 		color: var(--accent-dark);
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.cookie-consent__title {
-			color: #5EEAD4;
-		}
-	}
 	
-	html[data-theme="dark"] .cookie-consent__title {
-		color: #5EEAD4;
-	}
+	
+	
 	
 	.cookie-consent__text {
 		margin: 0 0 1rem;
@@ -166,15 +155,9 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 		line-height: 1.5;
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.cookie-consent__text {
-			color: #E2E8F0;
-		}
-	}
 	
-	html[data-theme="dark"] .cookie-consent__text {
-		color: #E2E8F0;
-	}
+	
+	
 	
 	.cookie-consent__text a {
 		color: var(--accent-dark);
@@ -183,15 +166,9 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 		text-underline-offset: 2px;
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.cookie-consent__text a {
-			color: #5EEAD4;
-		}
-	}
 	
-	html[data-theme="dark"] .cookie-consent__text a {
-		color: #5EEAD4;
-	}
+	
+	
 	.cookie-consent__actions {
 		display: flex;
 		flex-wrap: wrap;

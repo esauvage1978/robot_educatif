@@ -1,0 +1,44 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import Esp32ProjectDetail from '../../../components/Esp32ProjectDetail.astro';
+import { ESP32_HUB_PATHS, getProjectBySlug, projectSlugs } from '../../../data/esp32Projects/index.mjs';
+import { PROJECTS_DATE, SITE_ORIGIN } from '../../../data/esp32Projects/shared.mjs';
+import { UI } from '../../../data/esp32Projects/ui.mjs';
+import { withBase } from '../../../lib/siteUrl';
+
+const lang = 'fr';
+
+export function getStaticPaths() {
+	return projectSlugs('fr').map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const project = getProjectBySlug(lang, slug);
+if (!project) {
+	return Astro.redirect(withBase('/404'));
+}
+const ui = UI[lang];
+const loc = project.locales[lang];
+const articlePath = project.paths[lang];
+const articleUrl = `${SITE_ORIGIN}${articlePath}`;
+const pubDate = new Date(`${PROJECTS_DATE}T00:00:00Z`);
+---
+
+<DomotiqueToolLayout
+	title={loc.title}
+	description={loc.description}
+	heading={loc.h1}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel={ui.section}
+	repairGuide={false}
+	breadcrumbItems={[
+		{ name: ui.home, url: withBase(lang === 'fr' ? '/' : `/${lang}/`) },
+		{ name: ui.section, url: withBase('/domotique/') },
+		{ name: ui.hubName, url: withBase(ESP32_HUB_PATHS[lang]) },
+		{ name: loc.h1, url: withBase(articlePath) },
+	]}
+>
+	<Esp32ProjectDetail project={project} lang={lang} articleUrl={articleUrl} />
+</DomotiqueToolLayout>

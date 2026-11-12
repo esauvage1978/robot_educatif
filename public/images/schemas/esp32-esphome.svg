@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 248" width="390" height="248" role="img" style="font-family:'Segoe UI',system-ui,sans-serif">
+  <rect x="12" y="8" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="40" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">ESP32</text>
+  <line x1="195" y1="60" x2="195" y2="84" stroke="#0f766e" stroke-width="2"/>
+  <polygon points="188,84 195,96 202,84" fill="#0f766e"/>
+  <rect x="12" y="100" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="132" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">ESPHome</text>
+  <line x1="195" y1="152" x2="195" y2="176" stroke="#0f766e" stroke-width="2"/>
+  <polygon points="188,176 195,188 202,176" fill="#0f766e"/>
+  <rect x="12" y="192" width="366" height="52" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <text x="195" y="224" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a">Home Assistant</text>
+</svg>

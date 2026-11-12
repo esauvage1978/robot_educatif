@@ -20,7 +20,7 @@ categories:
 ---
 La [boucle](/python-pendu-4-boucle-partie/) fonctionne : tu peux **polir** l’expérience joueur et ajouter de petites **statistiques** pour rendre le jeu plus satisfaisant.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+![Exemple de sortie dans un terminal Python](/images/blog/lot15/pendu-console-exemple.png)
 
 ## 1. Messages de fin
 

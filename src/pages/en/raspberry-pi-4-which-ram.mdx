@@ -1,0 +1,149 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "Raspberry Pi 4: which RAM version should you buy?"
+description: "Pi 4: 2, 4 or 8GB RAM by project, accessory basket, troubleshooting and UK/US price guidance (Oct 2026)."
+updated: "31 October 2026"
+schemaUpdated: "2026-10-31"
+faqSchema:
+  - question: "2GB or 4GB for a first Raspberry Pi 4?"
+    answer: "In 2026, choose 4GB for a Raspberry Pi OS desktop, learning Python or robotics with sensors. 2GB fits a headless server (Pi-hole, light API) if you already know Linux."
+  - question: "Can Raspberry Pi 4 RAM be upgraded later?"
+    answer: "No. Memory is soldered on the board. Pick the SKU at purchase; when in doubt, 4GB or 8GB are safe defaults."
+  - question: "Which power supply for Raspberry Pi 4?"
+    answer: "USB-C 5V input; Raspberry Pi recommends about 3A (15W) for the board plus modest USB peripherals. A weak phone charger triggers the low-power warning and throttling."
+  - question: "Do I need a fan case on Pi 4?"
+    answer: "For long sessions (compiling, server, busy desktop), a fan case or serious heatsinks reduce thermal throttling. For a light headless script, passive cooling may be enough."
+---
+
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+
+<AffiliateDisclosure variant="compact" lang="en" />
+
+> **Direct answer (October 2026)** — For a **first Pi 4** at home, school or for **Python** robotics, choose **4GB** in most cases. Pick **8GB** if you stack several **services** in parallel — for example **Docker** (software that runs apps in isolated “containers”), compile often or keep many browser tabs open. **2GB** suits **headless** network use. The **1GB** SKU is a low priority new in 2026 — compare a [Pi 5](/en/raspberry-pi-5-which-ram/) or a used **2/4GB** board instead.
+
+**At a glance:**
+
+| Variant | Typical projects |
+| --- | --- |
+| **Pi 4 2 GB** | Pi-hole, light server, kiosk, monitoring |
+| **Pi 4 4 GB** | Linux desktop, Python, robotics, daily use |
+| **Pi 4 8 GB** | Docker, compiling, large remote IDE, many tabs |
+
+### United Kingdom (Amazon.co.uk)
+
+Indicative **October 2026** prices: **4GB** board alone often around **£45–60**; **8GB** typically **£10–20** more. Always confirm the listing. To compare generations, read the [Pi 3 vs 4 vs 5 comparison](/en/raspberry-pi-3-vs-4-vs-5/) — the main Raspberry Pi hub on this site.
+
+### United States (Amazon.com)
+
+Same capacity logic on **Amazon.com** — we do not copy UK prices as US prices. Approved resellers are listed on [raspberrypi.com](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/).
+
+The **[Raspberry Pi](/en/raspberry-pi-brand/) 4 Model B** (2019, later revisions) is a **single-board computer** the size of a credit card. It differs from the Pi 3 especially with **two USB 3.0 ports**, independent **Gigabit Ethernet**, **up to 8GB of RAM** in **LPDDR4-3200** (soldered working memory, faster than on Pi 3) and **two micro-HDMI outputs**. This guide covers the **four common memory SKUs**, **how to choose**, the **accessory basket**, **software setup** and **troubleshooting**.
+
+![Several Raspberry Pi boards lined up to compare sizes](/images/blog/raspberry-pi-comparatif-2026/gamme-pi-opt.jpg)
+
+*Photo: [SimonWaldherr](https://commons.wikimedia.org/wiki/File:Raspberry_Pi_1,_Pi_5,_Pi_400,_Zero_2_and_Pico.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons.*
+
+## 1. The four “RAM” variants
+
+On the same **Pi 4 Model B** board, only the **amount of memory** changes; the **system-on-chip (SoC) BCM2711** (quad **Cortex-A72** ~**1.8 GHz**, 64-bit) is **identical**.
+
+| Variant | RAM | Typical buyer profile |
+|----------|-----|---------------------------|
+| **1 GB** | 1 GB LPDDR4 | **Minimal** projects (sensor, small headless app). **Low priority** new in 2026 — a **[Pi 5](/en/raspberry-pi-5-which-ram/) 1 GB** (or richer used Pi 4) often replaces this SKU. |
+| **2 GB** | 2 GB | **Light server**, **kiosk**, **monitoring**; **tight** graphical desktop (few tabs). |
+| **4 GB** | 4 GB | **Sweet spot**: Raspberry Pi OS desktop, **Python** development, reasonable daily use. |
+| **8 GB** | 8 GB | Several **Docker** stacks, compiling, larger remote **IDE** (integrated development environment), buffers for modest databases. |
+
+All variants offer a **40-pin GPIO (General Purpose Input/Output — pins for sensors and add-ons)**, **CSI / DSI** ribbon interfaces (**CSI** = Camera Serial Interface; **DSI** = Display Serial Interface), **Wi‑Fi ac** and **Bluetooth 5.0**, with a **microSD** card as primary storage.
+
+## 2. Specs that stop wrong projects
+
+- **Video**: two **micro-HDMI** — plan **cables or adapters** (often **micro-HDMI → HDMI**).
+- **USB**: **2 × USB 3** (fast drive / stick) + **2 × USB 2** (keyboard / mouse).
+- **Power**: **USB-C 5 V** input; a quality **3 A (15 W)** PSU is wise if you power hungry peripherals downstream.
+- **Thermals**: without a ventilated case or heatsinks, the **CPU** **throttles** (slows down to limit heat) quickly; for long load, aim for a **fan case** or **heat sinks**.
+
+## 3. Which memory for which use?
+
+**1 GB** — **systemd** scripts, **MQTT** (Message Queuing Telemetry Transport — lightweight messaging for sensors / home automation), small **Node** or **Python** without a GUI, reusing ageing stock. **Avoid** a desktop with a modern browser. For a **new** buy, compare the [Pi 5 RAM guide](/en/raspberry-pi-5-which-ram/) first.
+
+**2 GB** — **Pi-hole**, **AdGuard**, light **reverse proxy**, home **Git**, small APIs. A desktop remains usable for **occasional admin**, not for a child juggling YouTube + online Scratch at once. For a **ready-made robot** instead of a bare board, see our [Arduino robot kit buying guide](/en/arduino-robot-kit-for-kids/).
+
+**4 GB** — the **default recommendation** for a versatile **Linux** workstation, robotics with a heavier stack, or learning. Still a solid **price / comfort** compromise in 2026.
+
+**8 GB** — more comfortable **Rust** / **C++** builds, **container stacks** such as **Docker**, modest **SQLite** or **PostgreSQL** home lab, or a desktop with **many tabs** if the SD storage stays fast.
+
+## 4. Quick decision tree
+
+1. **No monitor**, network scripts or server: **2GB** (or **1GB** if you measured RAM use).
+2. **First Pi 4** for family / school / maker: **4GB**.
+3. **Several apps** or **Docker** at once: **8GB**.
+4. **Tight budget** but demanding new project: compare **Pi 4 8GB** vs **Pi 5 4GB** in the [Pi 3 / 4 / 5 comparison](/en/raspberry-pi-3-vs-4-vs-5/) before ordering.
+
+## 5. Pi 4 or Pi 5?
+
+If your budget allows a **Pi 5** with **active cooling** and a **good 5 A (27 W) charger**, the Pi 5 brings a **faster CPU**, **RAM up to 16GB** and **PCIe** (high-speed link to NVMe SSD HATs). Otherwise the **Pi 4 4GB** or **8GB** remains **highly relevant** — detailed table in the [Pi 3 / 4 / 5 comparison](/en/raspberry-pi-3-vs-4-vs-5/).
+
+## 6. Accessories for your basket
+
+- **15 W USB-C PSU (3 A)** suited to Pi 4.
+- **Fan case** or **heatsinks** for long loads.
+- Fast **A2 microSD** — <a href="/go/az-gb-89b9e1aeb0/" rel="sponsored nofollow noopener">A2 microSD (UK)</a> · <a href="/go/az-us-06848dad09/" rel="sponsored nofollow noopener">A2 microSD (US)</a>.
+- **Micro-HDMI cables** for one or two screens.
+
+## 7. Price: check with the seller
+
+A **Pi 4** price depends on memory (2, 4 or 8GB), reseller and stock: verify it at purchase time. Also check whether the price includes an **SD card**, **case** and **PSU** — three items that inflate the total quickly if they are not “in the box”.
+
+## 8. Software setup
+
+The procedure matches other recent Pis: **Raspberry Pi Imager** on a PC, choose **Raspberry Pi OS** (Desktop or Lite), **SSH / Wi‑Fi / user** options in the gear menu — step-by-step: [Raspberry Pi 3 getting started](/en/raspberry-pi-3-getting-started/) (Imager steps are **the same** on Pi 4).
+
+## 9. Troubleshooting: RAM, power and slowness
+
+| Symptom | Likely cause | What to do |
+| --- | --- | --- |
+| Very slow system, tabs closing | **RAM** saturated (often 2GB with too many services) | Close apps; next purchase aim for **4GB** or **8GB** (RAM **not** upgradeable) |
+| Thermometer icon or throttled CPU | **Cooling** insufficient | Fan case or heatsinks; avoid a bare Pi in a closed cupboard |
+| Yellow lightning “under-voltage” | **PSU &lt; 3 A** or poor USB-C cable | Replace with a **15 W** PSU documented for Pi 4 |
+| “Out of memory” when compiling or using Docker | SKU too small | Fewer containers, compile elsewhere, or buy **8GB** |
+| Won’t boot | Worn microSD or corrupt image | Reflash with **Imager**; try a new **A2** card |
+
+On Raspberry Pi OS, run `free -h` in a terminal — the **available** column shows real **RAM** headroom.
+
+## Frequently asked questions
+
+**2GB or 4GB to start?**  
+In 2026, **4GB** for desktop or learning; **2GB** if the machine stays **headless** and light.
+
+**Is a fan mandatory?**  
+Not for a occasional sensor script; **practically yes** for compiling, 24/7 server or busy desktop.
+
+**Can RAM be expanded later?**  
+No — memory is **soldered**.
+
+## Where to buy (affiliate)
+
+Confirm memory size on the listing before you buy.
+
+**UK**
+
+- <a href="/go/az-gb-fb93c09a32/" rel="sponsored nofollow noopener">Raspberry Pi 4 Model B — Amazon UK</a>
+- <a href="/go/az-gb-d7e72dc270/" rel="sponsored nofollow noopener">Raspberry Pi 4 8GB — Amazon UK search</a>
+- <a href="/go/az-gb-9c69ad56e8/" rel="sponsored nofollow noopener">Pi 4 fan case — UK</a>
+- <a href="/go/az-gb-89e30efb27/" rel="sponsored nofollow noopener">USB-C 15 W PSU for Pi 4 — UK</a>
+
+**US**
+
+- <a href="/go/az-us-a70604b50e/" rel="sponsored nofollow noopener">Raspberry Pi 4 Model B — Amazon.com</a>
+- <a href="/go/az-us-d1df9d049f/" rel="sponsored nofollow noopener">Raspberry Pi 4 8GB — Amazon.com search</a>
+- <a href="/go/az-us-51e407b562/" rel="sponsored nofollow noopener">Pi 4 fan case — US</a>
+- <a href="/go/az-us-f4c72444ff/" rel="sponsored nofollow noopener">USB-C 15 W PSU for Pi 4 — US</a>
+
+*Amazon partner — commission possible on eligible purchases. Price ranges last checked: October 2026.*
+
+---
+
+**Summary**: to **start** or for **mixed use**, aim for **4GB**; step up to **8GB** if you run **several apps** or compile often; **2GB** for **network / headless**; **1GB** only if **price** and **need** are truly minimal.
+
+*Emmanuel Sauvage*

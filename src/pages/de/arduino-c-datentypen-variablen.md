@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Arduino C Lektion 2: Datentypen, Variablen und Konstanten"
-description: "int, unsigned long, float, bool, char und const char*: welcher Arduino-Datentyp für Geschwindigkeit, Abstand, Zeit und Zustände, dazu Gültigkeitsbereich und Konstanten. Lektion 2 unseres Arduino-C-Kurses, 12 Übungen mit Lösungen."
+description: "int, unsigned long, float, bool und const char*: welcher Arduino-Typ für Tempo, Abstand, Zeit und Zustand. Lektion 2, 12 Übungen mit Lösungen zum Nachbauen."
 updated: "23. Oktober 2026"
 ---
 

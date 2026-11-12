@@ -2,7 +2,7 @@
 title: "mBot vs mBot2 : différences, prix et lequel choisir ?"
 description: "mBot vs mBot2 : tableau comparatif, différences prix, CyberPi, Python. Lequel choisir en 2026 selon l'âge et budget ?"
 pubDate: "2023-04-09"
-updatedDate: "2026-10-13"
+updatedDate: "2026-11-09"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.png"
 amazonPreset: mbotVs
 categories:
@@ -24,18 +24,31 @@ La robotique et la programmation sont des compétences de plus en plus utiles po
 
 Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous aider à trancher — sans remplacer la fiche technique officielle du fabricant, que vous devriez toujours vérifier avant d’acheter (révision de kit, couleur du châssis, présence ou non du module Bluetooth, etc.).
 
-![Schéma illustratif : deux familles de robots éducatifs côte à côte (illustration d’ambiance)](/images/blog/inset-mbot-vs.webp)
+![mBot Makeblock, robot à deux roues](/images/products/mbot.webp)
 
-*Illustration générée pour l’article — schéma conceptuel, sans reproduire des produits commerciaux précis.*
+![mBot2 Makeblock, robot avec carte CyberPi](/images/products/mbot2.webp)
 
-## Prix indicatifs (France, mars 2026)
+## Prix relevés sur Amazon.fr le 9 novembre 2026
 
-À titre **indicatif** au **29 mars 2026**, sur des offres courantes en ligne (Amazon et autres vendeurs), on trouve souvent :
+Le 9 novembre 2026 à 6 h 14, les fiches Amazon.fr affichaient :
 
-| Modèle | Prix indicatif* |
-|--------|------------------|
-| **mBot** (kit de base, selon offre) | **environ 89,99 €** |
-| **mBot2** | **environ 167,95 €** |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modèle</th>
+<th scope="col">Relevé du 9 novembre 2026</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>mBot</strong> (kit de base, selon offre)</span></td>
+<td data-label="Relevé du 9 novembre 2026"><span class="td-val" data-amazon-price="1">89,99 €</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>mBot2</strong></span></td>
+<td data-label="Relevé du 9 novembre 2026"><span class="td-val" data-amazon-price="1">167,95 €</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 \*Montants **variables** selon promotions, stock, vendeur, présence d’accessoires dans le pack et TVA affichée. Vérifiez le **prix au moment de l’achat**.
 
@@ -51,16 +64,56 @@ Cette page compare **prix**, **fonctionnalités** et **accessoires** pour vous a
 
 Les détails peuvent légèrement varier selon la **révision** du kit ; le tableau résume l’**esprit** des deux gammes.
 
-| Critère | mBot (classique) | mBot2 |
-|--------|-------------------|--------|
-| **Carte / cerveau** | Carte **mCore** (écosystème Arduino-compatible côté usage) | **CyberPi** (plus de puissance, Wi-Fi, usage **Python** poussé) |
-| **Programmation** | Blocs **mBlock** ; possibilité d’approfondir selon niveau | Blocs **mBlock** + **Python** intégré de façon naturelle pour monter en niveau |
-| **Moteurs** | Deux moteurs pour se déplacer | Moteurs avec **codeurs** (meilleure précision de déplacement pour les projets avancés) |
-| **Capteurs courants** | Suivi de **ligne**, **ultrason** (distance), usage **IR** (télécommande selon kit) | **Ultrason**, suivi de **ligne**, **lumière** ambiante, **gyroscope** |
-| **Retour visuel / son** | LED RGB, **buzzer** | **Écran couleur 1,44"** (128 × 128) sur la CyberPi, **haut-parleur** et **micro** |
-| **Connectivité** | Souvent **Bluetooth** selon pack (vérifier la fiche produit) | **Bluetooth** et **Wi-Fi** (téléchargement de programmes, usages connectés) |
-| **Châssis** | Alliage d'aluminium | Alliage d'aluminium, batterie 2 500 mAh intégrée |
-| **Public conseillé** | Découverte, clubs, familles qui veulent un **prix maîtrisé** | Collège / lycée, passionnés, projets qui durent et **montée en compétence** |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">mBot (classique)</th>
+<th scope="col">mBot2</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Carte / cerveau</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Carte <strong>mCore</strong> (écosystème Arduino-compatible côté usage)</span></td>
+<td data-label="mBot2"><span class="td-val"><strong>CyberPi</strong> (plus de puissance, Wi-Fi, usage <strong>Python</strong> poussé)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Programmation</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Blocs <strong>mBlock</strong> ; possibilité d’approfondir selon niveau</span></td>
+<td data-label="mBot2"><span class="td-val">Blocs <strong>mBlock</strong> + <strong>Python</strong> intégré de façon naturelle pour monter en niveau</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Moteurs</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Deux moteurs pour se déplacer</span></td>
+<td data-label="mBot2"><span class="td-val">Moteurs avec <strong>codeurs</strong> (meilleure précision de déplacement pour les projets avancés)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Capteurs courants</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Suivi de <strong>ligne</strong>, <strong>ultrason</strong> (distance), usage <strong>IR</strong> (télécommande selon kit)</span></td>
+<td data-label="mBot2"><span class="td-val"><strong>Ultrason</strong>, suivi de <strong>ligne</strong>, <strong>lumière</strong> ambiante, <strong>gyroscope</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Retour visuel / son</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">LED RGB, <strong>buzzer</strong></span></td>
+<td data-label="mBot2"><span class="td-val"><strong>Écran couleur 1,44"</strong> (128 × 128) sur la CyberPi, <strong>haut-parleur</strong> et <strong>micro</strong></span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Connectivité</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Souvent <strong>Bluetooth</strong> selon pack (vérifier la fiche produit)</span></td>
+<td data-label="mBot2"><span class="td-val"><strong>Bluetooth</strong> et <strong>Wi-Fi</strong> (téléchargement de programmes, usages connectés)</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Châssis</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Alliage d'aluminium</span></td>
+<td data-label="mBot2"><span class="td-val">Alliage d'aluminium, batterie 2 500 mAh intégrée</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val"><strong>Public conseillé</strong></span></td>
+<td data-label="mBot (classique)"><span class="td-val">Découverte, clubs, familles qui veulent un <strong>prix maîtrisé</strong></span></td>
+<td data-label="mBot2"><span class="td-val">Collège / lycée, passionnés, projets qui durent et <strong>montée en compétence</strong></span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **En résumé** : le **mBot** couvre très bien **découverte et premiers défis** (ligne, obstacle, lumière). Le **mBot2** ajoute une **vraie couche « projet »** : précision des mouvements, richesse des interactions (écran couleur, son, micro), et une carte pensée pour **Scratch → Python** sans changer de robot.
 
@@ -95,8 +148,8 @@ En conclusion, le choix entre le **mBot** et le **mBot2** dépend du **budget**,
 
 ## Acheter sur Amazon
 
-- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Accessoires et capteurs mBot / Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
+- [mBot Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) — 89,99 € le 9 novembre 2026
+- [mBot2 Makeblock sur Amazon.fr](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) — 167,95 € le 9 novembre 2026
+- Les accessoires se choisissent dans le [guide des accessoires mBot](/accessoires-mbot-par-ou-commencer/) : le kit de base contient déjà l'ultrason, le suiveur de ligne et la télécommande infrarouge.
 
 *Liens affiliés — commission possible pour le site sur des achats éligibles, sans surcoût pour vous.*

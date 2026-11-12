@@ -1,6 +1,6 @@
 ---
 title: "Tale-Bot Matatalab : Questions / Réponses (FAQ 2026)"
-description: "Tale-Bot Pro : robot éducatif, blocs de commandes, histoires interactives, apprentissage logique."
+description: "Questions sur le Tale-Bot Pro Matatalab : âge, blocs de commande, histoires interactives et ce que l’enfant apprend vraiment en logique, avant l’achat."
 pubDate: "2023-05-01"
 heroImage: "../../assets/tale-bot/tale-bot-pro-hero.webp"
 categories:
@@ -45,6 +45,6 @@ Pour en savoir plus : le [site officiel de Matatalab](https://www.matatalab.com/
 
 Boutique en ligne de Matatalab Tale-bot pro
 
-ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21)
+ou sur Amazon : [Tale-Bot Pro sur Amazon](https://www.amazon.fr/dp/B0CZ6R182M?tag=manuso06-21)
 
 **À lire aussi** : [qui est Matatalab ?](/matatalab-une-entreprise-innovante/)

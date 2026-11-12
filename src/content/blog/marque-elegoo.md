@@ -21,8 +21,8 @@ relatedLinks:
 <tbody>
 <tr><td><a href="/meilleur-robot-educatif-arduino-kit-choisir/">Meilleur kit robot Arduino</a></td><td>Robot Car V4.0 ; Penguin Bot</td><td>Robot Car V4.0 : meilleur rapport qualité/prix ; Penguin Bot : petit budget.</td></tr>
 <tr><td><a href="/alternatives-lego-spike-comparatif-2026/">Alternatives à LEGO Spike</a></td><td>Robot Car V4.0</td><td>Gagnant sur le prix et l’Arduino (lycée STI2D) ; Spike plus accessible aux jeunes.</td></tr>
-<tr><td><a href="/robot-moins-de-50-euros/">Robot à moins de 50 €</a></td><td>Penguin Bot</td><td>Meilleur choix sous 50 €.</td></tr>
-<tr><td><a href="/robot-moins-de-100-euros/">Robot à moins de 100 €</a></td><td>Robot Car V4.0</td><td>Option Arduino dans ce budget.</td></tr>
+<tr><td><a href="/robot-moins-de-50-euros/">Robot à moins de 50 €</a></td><td>Penguin Bot</td><td>Meilleur choix sous 50 €.</td></tr>
+<tr><td><a href="/robot-moins-de-100-euros/">Robot à moins de 100 €</a></td><td>Robot Car V4.0</td><td>Option Arduino dans ce budget.</td></tr>
 <tr><td><a href="/kit-robotique-adulte-debutant/">Kit robotique adulte débutant</a></td><td>Smart Robot Car V4.0</td><td>« Je veux un robot qui roule ce week-end ».</td></tr>
 <tr><td><a href="/equiper-classe-robots-budget-packs-2026/">Équiper une classe</a></td><td>Robot Car V4.0</td><td>Budget classe.</td></tr>
 </tbody>

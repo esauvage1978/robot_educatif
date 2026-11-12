@@ -1,8 +1,74 @@
 # https://robot-educatif.info — Astro (@astrojs/sitemap)
 User-agent: *
+Disallow: /go/
 Allow: /
 # Si le site est servi sous un sous-dossier (ASTRO_BASE), préfixer ce chemin (ex. /projet/stats-articles-interne/).
 Disallow: /stats-articles-interne/
 Disallow: /rest/
 
 Sitemap: https://robot-educatif.info/sitemap-index.xml
+
+# Robots IA & moteurs alternatifs (exploration, recherche web, entraînement LLM)
+User-agent: Bravebot
+Disallow: /go/
+Allow: /
+
+User-agent: GPTBot
+Disallow: /go/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /go/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /go/
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /go/
+Allow: /
+
+User-agent: anthropic-ai
+Disallow: /go/
+Allow: /
+
+User-agent: Claude-Web
+Disallow: /go/
+Allow: /
+
+User-agent: Claude-SearchBot
+Disallow: /go/
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /go/
+Allow: /
+
+User-agent: Perplexity-User
+Disallow: /go/
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /go/
+Allow: /
+
+User-agent: Googlebot
+Disallow: /go/
+Allow: /
+
+User-agent: Bingbot
+Disallow: /go/
+Allow: /
+
+User-agent: msnbot
+Disallow: /go/
+Allow: /
+
+User-agent: Applebot
+Disallow: /go/
+Allow: /
+
+User-agent: Applebot-Extended
+Disallow: /go/
+Allow: /

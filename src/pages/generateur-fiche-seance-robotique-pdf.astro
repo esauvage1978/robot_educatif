@@ -1,0 +1,34 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import SessionSheetGenerator from '../components/SessionSheetGenerator.astro';
+import { SESSION_PAGE } from '../data/sessionSheetRobot.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={SESSION_PAGE.title}
+	description={SESSION_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/generateur-fiche-seance-robotique-pdf/"
+	hubLabel="École & classe"
+	hubPath="/equiper-classe-robots-budget-packs-2026/"
+>
+	<p>{SESSION_PAGE.intro}</p>
+	<figure>
+		<img src={withBase('/images/schemas/fiche-seance.svg')} alt="Les quatre blocs de la fiche : cycle et robot, compétences, déroulé minuté, grille d’évaluation" width="780" height="560" />
+		<figcaption>La fiche imprimable reprend ces quatre blocs, dans cet ordre, à partir du cycle, du robot et de la durée choisis.</figcaption>
+	</figure>
+	<SessionSheetGenerator />
+	<p>
+		Voir aussi :{' '}
+		<a href={withBase('/parcours-scratch-python-6-semaines/')}>parcours Scratch → Python (6 semaines)</a>
+		· <a href={withBase('/ressources-svg-schemas-mbot-capteurs/')}>schémas SVG capteurs mBot</a>
+		· <a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>projets mBot pour la classe</a>.
+	</p>
+	<aside class="encart-affilie" data-integration-20261102-apolosign role="note">
+		<p><strong>Affichage numérique en classe</strong> — Pour un emploi du temps ou des consignes visibles sans projector, <a href="https://www.awin1.com/cread.php?awinmid=118701&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.apolosign.com%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="118701">Apolosign</a> propose des écrans calendrier et signalétique (US). Vérifiez la tension et la livraison avant commande.</p>
+		<p class="encart-note">Lien partenaire Awin · voir <a href={withBase('/mentions-legales/#ml-affiliation')}>transparence affiliation</a>.</p>
+	</aside>
+</RobotToolLayout>

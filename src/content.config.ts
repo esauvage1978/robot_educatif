@@ -13,6 +13,8 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			shareTitle: z.string().optional(),
+			shareDescription: z.string().optional(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
@@ -25,12 +27,14 @@ const blog = defineCollection({
 					'mbot2',
 					'mbotVs',
 					'matatalab',
+					'sansEcran',
 					'codeyRocky',
 					'cyberpi',
 					'raspberry',
 					'eilik',
 					'scratch',
 					'lego',
+					'pythonTests',
 				])
 				.optional(),
 			/** Maillage interne : articles mis en avant dans la colonne 1/3 */

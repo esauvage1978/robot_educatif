@@ -16,7 +16,7 @@ interface Props {
 
 const { url, description, media = '', variant = 'button', class: className = '' } = Astro.props;
 
-if (!PINTEREST_ENABLED) return null;
+if (! PINTEREST_ENABLED) return null;
 
 const pinterestUrl = new URL('https://www.pinterest.com/pin/create/button/');
 pinterestUrl.searchParams.set('url', url);

@@ -47,8 +47,8 @@ Implémente **`parse_lines(path: Path) -> Iterator[LogLine]`** en ouvrant le fic
 <div class="exercise-solution__body">
 <pre class="exercise-solution__pre"><code class="language-python">import re
 LINE = re.compile(
-    r"^(?P&lt;ts&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) "
-    r"(?P&lt;lvl&gt;INFO|ERROR|WARN) (?P&lt;msg&gt;.*)$"
+    r"^(? P&lt;ts&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) "
+    r"(? P&lt;lvl&gt;INFO|ERROR|WARN) (? P&lt;msg&gt;.*)$"
 )</code></pre>
 </div>
 </details>

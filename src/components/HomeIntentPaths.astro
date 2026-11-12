@@ -1,0 +1,221 @@
+---
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { lang = 'fr' } = Astro.props;
+
+const copy = {
+	fr: {
+		title: 'Par où commencer ?',
+		lead: 'Le site couvre deux sujets. Choisissez celui qui vous amène.',
+		robotKicker: 'Robots éducatifs',
+		robotTitle: 'Choisir un robot',
+		robotText: 'Guides par âge, de 4 à 15 ans, Scratch, Python et Arduino, pour la maison ou la classe.',
+		robotCta: 'Voir les guides d’achat',
+		robotHref: '/meilleur-robot-programmable-enfant-2026/',
+		homeKicker: 'Maison connectée',
+		homeTitle: 'Équiper la maison',
+		homeText: 'Home Assistant en local, Zigbee, volets, éclairage et dépannage, sans abonnement cloud.',
+		homeCta: 'Commencer la domotique',
+		homeHref: '/domotique/debuter-domotique-par-ou-commencer/',
+	},
+	en: {
+		title: 'Where do you want to start?',
+		lead: 'The site covers two subjects. Pick the one you came for.',
+		robotKicker: 'Coding robots',
+		robotTitle: 'Choose a robot',
+		robotText: 'Age guides, Scratch, Python and Arduino, for home or the classroom.',
+		robotCta: 'Buying guides',
+		robotHref: '/en/best-programmable-robot-for-kids/',
+		homeKicker: 'Smart home',
+		homeTitle: 'Set up the home',
+		homeText: 'Local Home Assistant, Zigbee, lights and a garage door, without a cloud subscription.',
+		homeCta: 'Start with smart home',
+		homeHref: '/en/smart-home/getting-started/',
+	},
+	de: {
+		title: 'Womit möchten Sie anfangen?',
+		lead: 'Die Seite behandelt zwei Themen. Wählen Sie das, weswegen Sie hier sind.',
+		robotKicker: 'Programmierroboter',
+		robotTitle: 'Einen Roboter wählen',
+		robotText: 'Ratgeber nach Alter, Scratch, Python und Arduino, für zu Hause oder die Klasse.',
+		robotCta: 'Zu den Kaufberatern',
+		robotHref: '/de/bester-programmierbarer-roboter-fuer-kinder/',
+		homeKicker: 'Smart Home',
+		homeTitle: 'Das Haus ausstatten',
+		homeText: 'Home Assistant lokal, Zigbee, Licht und Garagentor, ohne Cloud-Abo.',
+		homeCta: 'Mit Smart Home starten',
+		homeHref: '/de/smart-home/einstieg/',
+	},
+	it: {
+		title: 'Da dove volete partire?',
+		lead: 'Il sito tratta due argomenti. Scegliete quello per cui siete arrivati.',
+		robotKicker: 'Robot educativi',
+		robotTitle: 'Scegliere un robot',
+		robotText: 'Guide per età, Scratch, Python e Arduino, per casa o per la classe.',
+		robotCta: 'Guide all’acquisto',
+		robotHref: '/it/miglior-robot-programmabile-per-bambini/',
+		homeKicker: 'Domotica',
+		homeTitle: 'Attrezzare la casa',
+		homeText: 'Home Assistant in locale, Zigbee, luci e porta del garage, senza abbonamento cloud.',
+		homeCta: 'Iniziare la domotica',
+		homeHref: '/it/domotica/come-iniziare/',
+	},
+	es: {
+		title: '¿Por dónde empezar?',
+		lead: 'El sitio trata dos temas. Elige el que te ha traído hasta aquí.',
+		robotKicker: 'Robots educativos',
+		robotTitle: 'Elegir un robot',
+		robotText: 'Guías por edad, Scratch, Python y Arduino, para casa o para el aula.',
+		robotCta: 'Guías de compra',
+		robotHref: '/es/mejor-robot-programable-para-ninos/',
+		homeKicker: 'Domótica',
+		homeTitle: 'Equipar la casa',
+		homeText: 'Home Assistant en local, Zigbee, luces y puerta del garaje, sin suscripción en la nube.',
+		homeCta: 'Empezar la domótica',
+		homeHref: '/es/domotica/como-empezar/',
+	},
+} as const;
+
+const t = copy[lang];
+const doors = [
+	{
+		mod: 'robot',
+		kicker: t.robotKicker,
+		title: t.robotTitle,
+		text: t.robotText,
+		cta: t.robotCta,
+		href: t.robotHref,
+	},
+	{
+		mod: 'home',
+		kicker: t.homeKicker,
+		title: t.homeTitle,
+		text: t.homeText,
+		cta: t.homeCta,
+		href: t.homeHref,
+	},
+];
+---
+
+<section class="home-intents" aria-labelledby="home-intents-title">
+	<div class="home-intents__inner">
+		<h2 id="home-intents-title">{t.title}</h2>
+		<p class="home-intents__lead">{t.lead}</p>
+		<ul class="home-intents__grid">
+			{doors.map((item) => (
+				<li>
+					<a class:list={['home-intents__card', `home-intents__card--${item.mod}`]} href={withBase(item.href)}>
+						<span class="home-intents__kicker">{item.kicker}</span>
+						<strong>{item.title}</strong>
+						<span>{item.text}</span>
+						<em>{item.cta}</em>
+					</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.home-intents {
+		background: var(--surface-2);
+		padding: 2.5rem clamp(1rem, 5vw, 2rem) 3rem;
+		border-bottom: 1px solid var(--surface-border);
+	}
+	.home-intents__inner {
+		max-width: 1320px;
+		margin: 0 auto;
+	}
+	.home-intents h2 {
+		font-family: var(--font-heading);
+		font-weight: 800;
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		margin: 0 0 0.5rem;
+		text-align: center;
+	}
+	.home-intents__lead {
+		text-align: center;
+		color: rgb(var(--gray-dark));
+		margin: 0 auto 1.75rem;
+		max-width: 40rem;
+	}
+	.home-intents__grid {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+	.home-intents__grid > li {
+		margin: 0;
+		min-height: 0;
+	}
+	.home-intents__card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+		height: 100%;
+		padding: 1.5rem 1.35rem 1.6rem;
+		box-sizing: border-box;
+		background: var(--surface);
+		border: 2px solid var(--surface-border);
+		border-radius: 16px;
+		text-decoration: none;
+		color: inherit;
+		transition:
+			border-color 0.2s,
+			box-shadow 0.2s,
+			transform 0.2s;
+	}
+	.home-intents__card--robot {
+		border-top: 4px solid #c2410c;
+	}
+	.home-intents__card--home {
+		border-top: 4px solid var(--primary, #0f766e);
+	}
+	.home-intents__kicker {
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+	}
+	.home-intents__card strong {
+		font-family: var(--font-heading);
+		font-size: clamp(1.25rem, 2vw, 1.55rem);
+		font-weight: 800;
+		color: rgb(var(--black));
+	}
+	.home-intents__card span {
+		font-size: 1rem;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+		flex: 1;
+	}
+	.home-intents__card .home-intents__kicker {
+		flex: none;
+	}
+	.home-intents__card em {
+		font-style: normal;
+		font-weight: 700;
+		color: var(--primary);
+		font-size: 0.98rem;
+		margin-top: auto;
+		padding-top: 0.65rem;
+	}
+	.home-intents__card:hover {
+		border-color: var(--primary);
+		box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+		transform: translateY(-2px);
+	}
+	@media (min-width: 800px) {
+		.home-intents__grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+</style>

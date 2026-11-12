@@ -2,8 +2,8 @@
 title: "Python intermédiaire — expressions régulières (module re)"
 description: "Module re : search, match, findall, groupes, sub ; raw strings ; limites des regex ; ressources officielles ; 20 exercices avec solutions repliables."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
-heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
+updatedDate: 2026-11-02
+heroImage: "../../assets/blog-heroes/hero-python-regex.webp"
 series: Python intermédiaire
 seriesOrder: 6
 tags: ["Python", "Programmation", "Bonnes pratiques"]
@@ -18,7 +18,13 @@ categories:
   - "Tutoriel"
   - "Intermédiaire"
 ---
-Une **expression régulière** (regex) est une **notation compacte** pour décrire une **famille** de chaînes possibles : « une suite de chiffres », « un mot composé de lettres », « une date au format AAAA-MM », etc. Le module standard **`re`** compile ces motifs et les applique avec des fonctions de **recherche**, **découpage** ou **remplacement**. C’est un outil **très efficace** pour du texte semi-structuré (logs, exports), mais les motifs **complexes** deviennent vite **difficiles à lire et à maintenir** : règle d’or — rester **simple**, **nommer l’intention** en commentaire, et envisager un **parseur** (HTML, JSON, CSV avec le module **`csv`**) quand le format est riche ou évolutif.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/python-intermediaire/">Python intermédiaire</a> · Leçon 6 — expressions régulières</nav>
+
+> **Réponse directe (novembre 2026)** — Utilisez le module **`re`** avec des **chaînes brutes** (`r"..."`) pour chercher (`search`), ancrer au début (`match`), lister (`findall`) ou remplacer (`sub`) ; gardez les motifs **simples** et documentez l’intention en commentaire.
+
+Une **expression régulière** (**regex**) est une **notation compacte** pour décrire une **famille** de chaînes possibles : « une suite de chiffres », « un mot composé de lettres », « une date au format AAAA-MM », etc. Le module standard **`re`** compile ces motifs et les applique avec des fonctions de **recherche**, **découpage** ou **remplacement**. C’est un outil **très efficace** pour du texte semi-structuré (logs, exports), mais les motifs **complexes** deviennent vite **difficiles à lire et à maintenir** : règle d’or — rester **simple**, **nommer l’intention** en commentaire, et envisager un **parseur** (HTML, JSON, CSV avec le module **`csv`**) quand le format est riche ou évolutif.
+
+Cette leçon fait partie du [Python intermédiaire](/programmation/python-intermediaire/) — après les [tests et qualité](/python-inter-tests-qualite/), avant d’autres modules du parcours [programmation](/programmation/).
 
 ## 1. Chercher : `search` vs `match`
 
@@ -51,7 +57,7 @@ re.sub(r"\s+", " ", "a   b  c")  # un seul espace entre mots
 
 ## 4. Groupes et extraction
 
-Les **parenthèses** dans le motif définissent des **groupes de capture** : **`m.group(1)`** est la première parenthèse, etc. Les **groupes nommés** `(?P<nom>...)` améliorent la lisibilité pour les motifs un peu longs.
+Les **parenthèses** dans le motif définissent des **groupes de capture** : **`m.group(1)`** est la première parenthèse, etc. Les **groupes nommés** `(? P<nom>...)` améliorent la lisibilité pour les motifs un peu longs.
 
 ```python
 m = re.match(r"(\d+)-(\d+)", "2026-03")
@@ -238,14 +244,14 @@ print(re.findall(r"https?://\S+", texte))</code></pre>
 </div>
 </details>
 
-**Exercice 17** — Sur la chaîne **`"2026-03"`**, utilise un **groupe nommé** pour l’année (motif du type **`(?P<year>\d{4})`**), puis affiche l’année avec **`m.group("year")`**. <span class="exo-badge exo-badge--hard">Difficile</span>
+**Exercice 17** — Sur la chaîne **`"2026-03"`**, utilise un **groupe nommé** pour l’année (motif du type **`(? P<year>\d{4})`**), puis affiche l’année avec **`m.group("year")`**. <span class="exo-badge exo-badge--hard">Difficile</span>
 
 <details class="exercise-solution">
 <summary class="exercise-solution__summary">Afficher la solution</summary>
 <div class="exercise-solution__body">
 <pre class="exercise-solution__pre"><code class="language-python">import re
-# Groupe nommé « year » (syntaxe : (?P&lt;name&gt;...) dans la doc Python « re »)
-m = re.match(r"(?P&lt;year&gt;\d{4})-(\d{2})", "2026-03")
+# Groupe nommé « year » (syntaxe : (? P&lt;name&gt;...) dans la doc Python « re »)
+m = re.match(r"(? P&lt;year&gt;\d{4})-(\d{2})", "2026-03")
 print(m.group("year"))</code></pre>
 </div>
 </details>
@@ -285,11 +291,16 @@ def masquer_emails(texte):
 
 ## Suite du parcours
 
-Tu peux enchaîner avec les [projets guidés](/programmation/) (bataille navale, pendu, etc.) en appliquant modules, tests et chemins **`Path`**.
+Retour au [hub Python intermédiaire](/programmation/python-intermediaire/) · [Leçon 5 — tests](/python-inter-tests-qualite/) · [Projets guidés](/programmation/) (bataille navale, pendu…).
 
-## Amazon (partenaire)
+## Ressources libres (sans achat)
 
-- [Python texte et données](https://www.amazon.fr/s?k=python+traitement+texte+livre&tag=manuso06-21)
+- [Documentation officielle `re`](https://docs.python.org/fr/3/library/re.html) (FR)
+- [HOWTO regex Python](https://docs.python.org/fr/3/howto/regex.html)
+
+## Amazon (partenaire, optionnel)
+
+- [Python traitement de texte](https://www.amazon.fr/s?k=python+traitement+texte+livre&tag=manuso06-21)
 </think>
 
 

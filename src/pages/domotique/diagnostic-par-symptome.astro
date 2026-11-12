@@ -1,0 +1,27 @@
+---
+import DomotiqueToolLayout from '../../layouts/DomotiqueToolLayout.astro';
+import SymptomDiagnosticTree from '../../components/SymptomDiagnosticTree.astro';
+import { SYMPTOM_DIAG_PAGE } from '../../data/smartHomeSymptomDiagnostic.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+const lang = 'fr';
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={SYMPTOM_DIAG_PAGE.title}
+	description={SYMPTOM_DIAG_PAGE.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/domotique/diagnostic-par-symptome/"
+	hubLabel="Domotique"
+	repairGuide={true}
+>
+	<p>{SYMPTOM_DIAG_PAGE.intro}</p>
+	<SymptomDiagnosticTree />
+	<p>
+		Répertoire détaillé :{' '}
+		<a href={withBase('/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/')}>codes erreurs Zigbee, Shelly, Home Assistant</a>
+		· <a href={withBase('/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/')}>matrice compatibilité</a>.
+	</p>
+</DomotiqueToolLayout>

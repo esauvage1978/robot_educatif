@@ -9,18 +9,77 @@ Entre la **Raspberry Pi 3 Model B**, la **Pi 4 Model B** y la **Pi 5** no solo c
 
 ## 1. Tabla de datos
 
-| | **Pi 3 Model B** | **Pi 4 Model B** | **Raspberry Pi 5** |
-|---|---|---|---|
-| SoC | Broadcom BCM2837 | Broadcom BCM2711 | Broadcom BCM2712 |
-| CPU | 4 × Cortex-A53, 1,2 GHz | 4 × Cortex-A72, 1,8 GHz | 4 × Cortex-A76, 2,4 GHz |
-| GPU / vídeo | VideoCore IV, 1 × HDMI estándar | VideoCore VI, 2 × micro-HDMI (4K) | VideoCore VII, 2 × micro-HDMI (4Kp60) |
-| RAM | 1 GB LPDDR2 | 1 / 2 / 4 / 8 GB LPDDR4-3200 | 1 / 2 / 4 / 8 / 16 GB LPDDR4X-4267 |
-| Ethernet | 100 Mbit/s | Gigabit | Gigabit |
-| Wi-Fi / Bluetooth | 802.11n, BT 4.1 | 802.11ac, BT 5.0 | 802.11ac, BT 5.0 |
-| USB | 4 × USB 2.0 | 2 × USB 3.0 + 2 × USB 2.0 | 2 × USB 3.0 + 2 × USB 2.0 |
-| PCIe | no | no | PCIe 2.0 ×1 |
-| Alimentación | micro-USB 5 V, 2,5 A | USB-C 5 V, 3 A | USB-C 5 V, 5 A recomendados |
-| GPIO | 40 pines | 40 pines | 40 pines |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col"><strong>Pi 3 Model B</strong></th>
+<th scope="col"><strong>Pi 4 Model B</strong></th>
+<th scope="col"><strong>Raspberry Pi 5</strong></th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">SoC</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">Broadcom BCM2837</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">Broadcom BCM2711</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Broadcom BCM2712</span></td>
+</tr>
+<tr>
+<td><span class="td-val">CPU</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">4 × Cortex-A53, 1,2 GHz</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">4 × Cortex-A72, 1,8 GHz</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">4 × Cortex-A76, 2,4 GHz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">GPU / vídeo</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">VideoCore IV, 1 × HDMI estándar</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">VideoCore VI, 2 × micro-HDMI (4K)</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">VideoCore VII, 2 × micro-HDMI (4Kp60)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">RAM</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">1 GB LPDDR2</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">1 / 2 / 4 / 8 GB LPDDR4-3200</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">1 / 2 / 4 / 8 / 16 GB LPDDR4X-4267</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Ethernet</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">100 Mbit/s</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">Gigabit</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">Gigabit</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Wi-Fi / Bluetooth</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">802.11n, BT 4.1</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">802.11ac, BT 5.0</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">802.11ac, BT 5.0</span></td>
+</tr>
+<tr>
+<td><span class="td-val">USB</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">4 × USB 2.0</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">2 × USB 3.0 + 2 × USB 2.0</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">2 × USB 3.0 + 2 × USB 2.0</span></td>
+</tr>
+<tr>
+<td><span class="td-val">PCIe</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">no</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">no</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">PCIe 2.0 ×1</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Alimentación</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">micro-USB 5 V, 2,5 A</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">USB-C 5 V, 3 A</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">USB-C 5 V, 5 A recomendados</span></td>
+</tr>
+<tr>
+<td><span class="td-val">GPIO</span></td>
+<td data-label="**Pi 3 Model B**"><span class="td-val">40 pines</span></td>
+<td data-label="**Pi 4 Model B**"><span class="td-val">40 pines</span></td>
+<td data-label="**Raspberry Pi 5**"><span class="td-val">40 pines</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 2. Qué cambia en el día a día
 
@@ -30,7 +89,7 @@ Entre la **Raspberry Pi 3 Model B**, la **Pi 4 Model B** y la **Pi 5** no solo c
 
 ## 3. Precios
 
-Los precios de las Raspberry Pi cambian a menudo (stock, márgenes de las tiendas, IVA). **Consulta el precio** en un [distribuidor autorizado](https://www.raspberrypi.com/resellers/) o en Amazon.es: <a href="https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21" rel="sponsored nofollow">Raspberry Pi 5 4 GB</a> o <a href="https://www.amazon.es/dp/B0CK2FCG1K?tag=roboteducat07-21" rel="sponsored nofollow">Raspberry Pi 5 8 GB</a> (enlaces de afiliado). Comprueba siempre la revisión de la placa y el contenido de la caja (fuente de alimentación, disipador).
+Los precios de las Raspberry Pi cambian a menudo (stock, márgenes de las tiendas, IVA). **Consulta el precio** en un [distribuidor autorizado](https://www.raspberrypi.com/resellers/). Los ASIN del relevé francés del 10 de noviembre de 2026 no se reutilizan aquí como fichas de Amazon.es. Comprueba siempre la revisión de la placa y el contenido de la caja (fuente de alimentación, disipador).
 
 ## 4. ¿Qué Raspberry Pi para cada uso?
 

@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { withBase } from '../lib/siteUrl';
+import PageColumns from '../components/PageColumns.astro';
 ---
 
 <!doctype html>
@@ -10,12 +11,13 @@ import { withBase } from '../lib/siteUrl';
 	<head>
 		<BaseHead
 			title="Mentions légales"
-			description="Mentions légales, éditeur, hébergement et liens d'affiliation — ROBOT éducatif."
+			description="Mentions légales de robot-educatif.info : éditeur Emmanuel SAUVAGE, hébergement o2switch et propriété des contenus. Mise à jour : 30 mars 2026. Siège en France."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main>
+<PageColumns>
 			<article class="legal-doc">
 				<h1>Mentions légales</h1>
 				<p class="legal-meta">
@@ -74,6 +76,8 @@ import { withBase } from '../lib/siteUrl';
 						Le Site participe au <strong>Programme Partenaires Amazon EU</strong> (ou programme équivalent proposé par Amazon selon les pays). Certains liens vers le site Amazon (par exemple <em>amazon.fr</em>) sont des
 						<strong>liens affiliés</strong> : lorsque vous cliquez sur ces liens et réalisez un achat éligible,
 						l’éditeur peut percevoir une <strong>commission</strong>, sans surcoût pour vous.
+						Certains liens vers d’autres marchands passent par le réseau Awin : le principe est le même,
+						une commission possible pour l’éditeur, sans surcoût affiché.
 					</p>
 					<p>
 						Cette rémunération contribue au financement du Site. Conformément aux obligations légales et aux
@@ -156,7 +160,8 @@ import { withBase } from '../lib/siteUrl';
 					</p>
 				</section>
 			</article>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

@@ -10,13 +10,65 @@ priority: 4
 
 ## L'essentiel en un tableau
 
-| Puce | Cœurs / fréquence max | Wi-Fi | Bluetooth | IEEE 802.15.4 (Thread, Zigbee) | USB natif | SRAM |
-|---|---|---|---|---|---|---|
-| **ESP32** (classique) | 2 × Xtensa LX6, 240 MHz | Wi-Fi 4, 2,4 GHz | Classic + BLE 4.2 | non | non | 520 Ko |
-| **ESP32-S3** | 2 × Xtensa LX7, 240 MHz | Wi-Fi 4, 2,4 GHz | BLE 5 | non | oui (OTG) | 512 Ko |
-| **ESP32-C3** | 1 × RISC-V, 160 MHz | Wi-Fi 4, 2,4 GHz | BLE 5 | non | série/JTAG | 400 Ko |
-| **ESP32-C6** | 1 × RISC-V 160 MHz + cœur basse conso | **Wi-Fi 6**, 2,4 GHz | BLE 5 | **oui** | série/JTAG | 512 Ko |
-| **ESP32-H2** | 1 × RISC-V, 96 MHz | **non** | BLE 5 | **oui** | série/JTAG | 320 Ko |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Puce</th>
+<th scope="col">Cœurs / fréquence max</th>
+<th scope="col">Wi-Fi</th>
+<th scope="col">Bluetooth</th>
+<th scope="col">IEEE 802.15.4 (Thread, Zigbee)</th>
+<th scope="col">USB natif</th>
+<th scope="col">SRAM</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Puce"><span class="td-val"><strong>ESP32</strong> (classique)</span></td>
+<td data-label="Cœurs / fréquence max"><span class="td-val">2 × Xtensa LX6, 240 MHz</span></td>
+<td data-label="Wi-Fi"><span class="td-val">Wi-Fi 4, 2,4 GHz</span></td>
+<td data-label="Bluetooth"><span class="td-val">Classic + BLE 4.2</span></td>
+<td data-label="IEEE 802.15.4 (Thread, Zigbee)"><span class="td-val">non</span></td>
+<td data-label="USB natif"><span class="td-val">non</span></td>
+<td data-label="SRAM"><span class="td-val">520 Ko</span></td>
+</tr>
+<tr>
+<td data-label="Puce"><span class="td-val"><strong>ESP32-S3</strong></span></td>
+<td data-label="Cœurs / fréquence max"><span class="td-val">2 × Xtensa LX7, 240 MHz</span></td>
+<td data-label="Wi-Fi"><span class="td-val">Wi-Fi 4, 2,4 GHz</span></td>
+<td data-label="Bluetooth"><span class="td-val">BLE 5</span></td>
+<td data-label="IEEE 802.15.4 (Thread, Zigbee)"><span class="td-val">non</span></td>
+<td data-label="USB natif"><span class="td-val">oui (OTG)</span></td>
+<td data-label="SRAM"><span class="td-val">512 Ko</span></td>
+</tr>
+<tr>
+<td data-label="Puce"><span class="td-val"><strong>ESP32-C3</strong></span></td>
+<td data-label="Cœurs / fréquence max"><span class="td-val">1 × RISC-V, 160 MHz</span></td>
+<td data-label="Wi-Fi"><span class="td-val">Wi-Fi 4, 2,4 GHz</span></td>
+<td data-label="Bluetooth"><span class="td-val">BLE 5</span></td>
+<td data-label="IEEE 802.15.4 (Thread, Zigbee)"><span class="td-val">non</span></td>
+<td data-label="USB natif"><span class="td-val">série/JTAG</span></td>
+<td data-label="SRAM"><span class="td-val">400 Ko</span></td>
+</tr>
+<tr>
+<td data-label="Puce"><span class="td-val"><strong>ESP32-C6</strong></span></td>
+<td data-label="Cœurs / fréquence max"><span class="td-val">1 × RISC-V 160 MHz + cœur basse conso</span></td>
+<td data-label="Wi-Fi"><span class="td-val"><strong>Wi-Fi 6</strong>, 2,4 GHz</span></td>
+<td data-label="Bluetooth"><span class="td-val">BLE 5</span></td>
+<td data-label="IEEE 802.15.4 (Thread, Zigbee)"><span class="td-val"><strong>oui</strong></span></td>
+<td data-label="USB natif"><span class="td-val">série/JTAG</span></td>
+<td data-label="SRAM"><span class="td-val">512 Ko</span></td>
+</tr>
+<tr>
+<td data-label="Puce"><span class="td-val"><strong>ESP32-H2</strong></span></td>
+<td data-label="Cœurs / fréquence max"><span class="td-val">1 × RISC-V, 96 MHz</span></td>
+<td data-label="Wi-Fi"><span class="td-val"><strong>non</strong></span></td>
+<td data-label="Bluetooth"><span class="td-val">BLE 5</span></td>
+<td data-label="IEEE 802.15.4 (Thread, Zigbee)"><span class="td-val"><strong>oui</strong></span></td>
+<td data-label="USB natif"><span class="td-val">série/JTAG</span></td>
+<td data-label="SRAM"><span class="td-val">320 Ko</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Notre meilleur choix pour débuter : une carte ESP32 classique (type DevKitC).** C'est la mieux documentée dans ESPHome et dans les forums, et elle suffit pour la quasi-totalité des projets de notre page [10 projets ESP32](/domotique/projets-esp32-domotique/). Prenez un **ESP32-S3** si vous voulez une caméra ou plus de broches, un **ESP32-C6** si vous voulez préparer Thread.
 

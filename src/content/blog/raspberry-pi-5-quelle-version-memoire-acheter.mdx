@@ -1,6 +1,6 @@
 ---
-title: "Raspberry Pi 5 : 4 Go ou 8 Go de RAM ? Prix et conseil"
-description: "Raspberry Pi 5 : 4 Go ou 8 Go de RAM ? Comparatif prix/performances, usages recommandés et notre verdict pour choisir la bonne version."
+title: "Raspberry Pi 5 : 4 Go, 8 Go ou 16 Go, lequel choisir en 2026 ?"
+description: "Raspberry Pi 5 en 4 Go, 8 Go ou 16 Go : quelle quantité de RAM pour Home Assistant, robotique, bureautique ou IA ? Tableau récapitulatif, usages et kits pour bien démarrer."
 pubDate: "2026-03-30"
 updatedDate: "2026-10-13"
 heroImage: "../../assets/blog-heroes/hero-raspberry.webp"
@@ -23,6 +23,32 @@ relatedLinks:
 
 
 import ProductBox from '../../components/ProductBox.astro';
+
+**En bref :**
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Version</th>
+<th scope="col">Pour quels projets ?</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Version"><span class="td-val"><strong>Pi 5 4 Go</strong></span></td>
+<td data-label="Pour quels projets ?"><span class="td-val">Robotique, capteurs, Home Assistant, apprendre Python</span></td>
+</tr>
+<tr>
+<td data-label="Version"><span class="td-val"><strong>Pi 5 8 Go</strong></span></td>
+<td data-label="Pour quels projets ?"><span class="td-val">Bureau Linux fluide, plusieurs services en parallèle, vision par ordinateur</span></td>
+</tr>
+<tr>
+<td data-label="Version"><span class="td-val"><strong>Pi 5 16 Go</strong></span></td>
+<td data-label="Pour quels projets ?"><span class="td-val">Modèles d'IA en local, nombreux conteneurs, gros projets</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Voir les prix du moment : [Raspberry Pi 5 4 Go](https://www.amazon.fr/s?k=Raspberry+Pi+5+4Go&tag=manuso06-21), [8 Go](https://www.amazon.fr/s?k=Raspberry+Pi+5+8Go&tag=manuso06-21), [16 Go](https://www.amazon.fr/s?k=Raspberry+Pi+5+16Go&tag=manuso06-21) et les [kits Raspberry Pi 5 complets](https://www.amazon.fr/s?k=kit+Raspberry+Pi+5&tag=manuso06-21) (liens affiliés Amazon). Pour un enfant ou un ado, comparez aussi avec un [kit robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/) et nos guides [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/) et [robot pour 12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/).
 
 <ProductBox
   productId="raspberry-pi-5-4gb"
@@ -51,13 +77,35 @@ Ce guide liste les **cinq déclinaisons mémoire** annoncées par la gamme (selo
 
 ## 1. Les déclinaisons RAM du Pi 5
 
-| Variante | Usage typique |
-|----------|---------------|
-| **1 Go** | **Edge ultra-économique** : scripts bas niveau, passerelle légère, situations où le **prix public** prime. Moins de marge pour navigateur ou IDE lourds. |
-| **2 Go** | **Serveurs** minimalistes, afficheurs, bots ; **pas** idéal pour un desktop « famille » riche en onglets. |
-| **4 Go** | **Référence polyvalente** 2026 : bureau Raspberry Pi OS, développement, stacks web modérées. |
-| **8 Go** | **Multi-conteneurs**, bases de données, compilation sérieuse, bureaux avec beaucoup de services en arrière-plan. |
-| **16 Go** | **Charge RAM rare** sur SBC : modèles IA locaux légers, grosses **builds**, caches, **VM** très limitées mais possibles — **surcoût** important ; n’achetez ce format **que si vous savez** pourquoi vous en avez besoin. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Variante</th>
+<th scope="col">Usage typique</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>1 Go</strong></span></td>
+<td data-label="Usage typique"><span class="td-val"><strong>Edge ultra-économique</strong> : scripts bas niveau, passerelle légère, situations où le <strong>prix public</strong> prime. Moins de marge pour navigateur ou IDE lourds.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>2 Go</strong></span></td>
+<td data-label="Usage typique"><span class="td-val"><strong>Serveurs</strong> minimalistes, afficheurs, bots ; <strong>pas</strong> idéal pour un desktop « famille » riche en onglets.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>4 Go</strong></span></td>
+<td data-label="Usage typique"><span class="td-val"><strong>Référence polyvalente</strong> 2026 : bureau Raspberry Pi OS, développement, stacks web modérées.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>8 Go</strong></span></td>
+<td data-label="Usage typique"><span class="td-val"><strong>Multi-conteneurs</strong>, bases de données, compilation sérieuse, bureaux avec beaucoup de services en arrière-plan.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>16 Go</strong></span></td>
+<td data-label="Usage typique"><span class="td-val"><strong>Charge RAM rare</strong> sur SBC : modèles IA locaux légers, grosses <strong>builds</strong>, caches, <strong>VM</strong> très limitées mais possibles — <strong>surcoût</strong> important ; n’achetez ce format <strong>que si vous savez</strong> pourquoi vous en avez besoin.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 La mémoire est de type **LPDDR4X-4267** sur le Pi 5 (contre LPDDR4-3200 sur Pi 4), ce qui aide le GPU et le CPU dans les scénarios **large bande**.
 
@@ -91,9 +139,9 @@ Vous flashez **Raspberry Pi OS** avec **Imager** comme pour les générations pr
 
 ## Liens Amazon (affiliation)
 
-- [Raspberry Pi 5](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Dissipateur actif Raspberry Pi 5](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Alimentation 5V 5A Raspberry Pi 5](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
+- [Raspberry Pi 5, 4 Go](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21), 140,82 € le 9 novembre 2026
+- [Raspberry Pi 5, 8 Go](https://www.amazon.fr/dp/B0CK2FCG1K?tag=manuso06-21), 209,09 € le même jour
+- Alimentation 27 W : [page officielle](https://www.raspberrypi.com/products/27w-power-supply/). Le refroidisseur est décrit sur [la page du Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/). Ces deux accessoires n'ont pas de fiche dans le relevé Amazon.fr du 9 novembre 2026.
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

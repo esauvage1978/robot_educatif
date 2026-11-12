@@ -2,7 +2,7 @@
 title: "Projet Agenda CLI (2/6) — données, pathlib et JSON"
 description: "Chemin du fichier agenda, pathlib.Path, lecture et écriture atomique, encodage UTF-8 ; 12 exercices."
 pubDate: 2026-03-29
-updatedDate: 2026-03-29
+updatedDate: 2026-11-02
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Projet Python intermédiaire — Agenda CLI
 seriesOrder: 2
@@ -18,6 +18,12 @@ categories:
   - "Projet"
   - "Intermédiaire"
 ---
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/projet-python-intermediaire-agenda/">Projet Agenda CLI</a> · Partie 2/6 — données et pathlib</nav>
+
+> **Réponse directe (novembre 2026)** — Stockez les événements dans **`~/.agenda/agenda.json`** avec **`pathlib.Path`**, **`encoding="utf-8"`** et une **écriture atomique** (fichier temporaire puis `replace`) pour éviter un JSON corrompu si le script s’arrête en plein enregistrement.
+
+Après le [cahier des charges](/projet-inter-agenda-1-cahier-des-charges/), ce chapitre isole le module **`storage`** du [projet agenda CLI](/programmation/projet-python-intermediaire-agenda/) : chemins, lecture et écriture JSON fiables. Suite prévue : [partie 3 — modèle et POO](/projet-inter-agenda-3-modele-poo/).
+
 Le module **`storage`** isole tout ce qui touche au **disque** : où se trouve le fichier, comment le **lire** et l’**écrire**. On utilise **`pathlib.Path`** pour composer les chemins (`Path.home() / ".agenda" / "agenda.json"`) et **`json.load` / `json.dump`** avec **`encoding="utf-8"`**. Pour éviter un fichier **corrompu** si le processus meurt en pleine écriture, une stratégie simple est d’écrire dans un **fichier temporaire** dans le même répertoire puis **`Path.replace`** (atomique sur le même volume en général).
 
 ## Contrat du module `storage`
@@ -151,6 +157,17 @@ def data_path() -> Path:
     assert load_events(p) == d</code></pre>
 </div>
 </details>
+
+## FAQ
+
+**Pourquoi `Path.replace` plutôt qu’écraser directement le fichier ?**  
+Si le processus est tué pendant l’écriture, un remplacement direct peut laisser un JSON tronqué. Écrire dans un fichier temporaire du même dossier puis **`replace`** limite ce risque (opération atomique sur le même volume).
+
+**Où ranger le fichier par défaut ?**  
+`Path.home() / ".agenda" / "agenda.json"` convient à un usage personnel ; `./data/agenda.json` facilite les tests et le partage du dépôt — documentez le choix dans le README.
+
+**Faut-il `indent=2` dans `json.dump` ?**  
+Oui pour un fichier lisible à la main et des diffs Git clairs ; en production à très gros volume on pourrait compacter, ce qui n’est pas le cas ici.
 
 ## Suite
 

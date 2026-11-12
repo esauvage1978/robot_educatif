@@ -1,0 +1,112 @@
+---
+interface Props {
+	difficulty: 1 | 2 | 3 | 4 | 5;
+	difficultyLabel?: string;
+	time: string;
+	cost: string;
+	tools: string;
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { difficulty, difficultyLabel, time, cost, tools, lang = 'fr' } = Astro.props;
+
+const labels = {
+	fr: { difficulty: 'Difficulté', time: 'Temps', cost: 'Coût', tools: 'Outils' },
+	en: { difficulty: 'Difficulty', time: 'Time', cost: 'Cost', tools: 'Tools' },
+	de: { difficulty: 'Schwierigkeit', time: 'Dauer', cost: 'Kosten', tools: 'Werkzeug' },
+	it: { difficulty: 'Difficoltà', time: 'Tempo', cost: 'Costo', tools: 'Attrezzi' },
+	es: { difficulty: 'Dificultad', time: 'Tiempo', cost: 'Coste', tools: 'Herramientas' },
+};
+const L = labels[lang];
+
+const levelEmoji =
+	difficulty <= 2 ? '🟢' : difficulty === 3 ? '🟡' : difficulty === 4 ? '🟠' : '🔴';
+const defaultLevel =
+	lang === 'fr'
+		? difficulty <= 2
+			? 'Facile'
+			: difficulty === 3
+				? 'Moyen'
+				: difficulty === 4
+					? 'Difficile'
+					: 'Expert'
+		: lang === 'de'
+			? difficulty <= 2
+				? 'Leicht'
+				: difficulty === 3
+					? 'Mittel'
+					: difficulty === 4
+						? 'Schwer'
+						: 'Experte'
+			: lang === 'it'
+				? difficulty <= 2
+					? 'Facile'
+					: difficulty === 3
+						? 'Medio'
+						: difficulty === 4
+							? 'Difficile'
+							: 'Esperto'
+				: lang === 'es'
+					? difficulty <= 2
+						? 'Fácil'
+						: difficulty === 3
+							? 'Medio'
+							: difficulty === 4
+								? 'Difícil'
+								: 'Experto'
+					: difficulty <= 2
+						? 'Easy'
+						: difficulty === 3
+							? 'Medium'
+							: difficulty === 4
+								? 'Hard'
+								: 'Expert';
+const levelText = difficultyLabel ?? `${defaultLevel} (${difficulty}/5)`;
+---
+
+<div class="repair-indicators" role="group" aria-label={L.difficulty}>
+	<div class="repair-indicators__item">
+		<span class="repair-indicators__label">{L.difficulty}</span>
+		<span class="repair-indicators__value">{levelEmoji} {levelText}</span>
+	</div>
+	<div class="repair-indicators__item">
+		<span class="repair-indicators__label">{L.time}</span>
+		<span class="repair-indicators__value">⏱️ {time}</span>
+	</div>
+	<div class="repair-indicators__item">
+		<span class="repair-indicators__label">{L.cost}</span>
+		<span class="repair-indicators__value">💶 {cost}</span>
+	</div>
+	<div class="repair-indicators__item">
+		<span class="repair-indicators__label">{L.tools}</span>
+		<span class="repair-indicators__value">🧰 {tools}</span>
+	</div>
+</div>
+
+<style>
+	.repair-indicators {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 0.65rem 1rem;
+		padding: 1rem 1.15rem;
+		margin: 1.25rem 0;
+		background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+		border: 1px solid #99f6e4;
+		border-radius: 10px;
+		font-size: 0.92rem;
+	}
+	.repair-indicators__label {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #0f766e;
+		margin-bottom: 0.2rem;
+	}
+	.repair-indicators__value {
+		font-weight: 600;
+		color: rgb(var(--black));
+		line-height: 1.35;
+	}
+</style>

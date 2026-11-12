@@ -1,9 +1,7 @@
 ---
-import Button from './Button.astro';
-import { amazonSearchUrl, amazonProductUrl } from '../lib/amazon';
-import type { AmazonSidebarPreset } from '../lib/amazonSidebarPresets';
-import { categoryToSlug, type TopCategory } from '../lib/categories';
-import { resolveAmazonSidebarLinks } from '../lib/resolveAmazonSidebar';
+import { getCollection } from 'astro:content';
+import { getSidebarGuideNav } from '../lib/sidebarGuideNav.mjs';
+import { resolveRelatedThumbs } from '../lib/sidebarRelatedThumb';
 import { withBase } from '../lib/siteUrl';
 
 interface RelatedLink {
@@ -12,311 +10,407 @@ interface RelatedLink {
 }
 
 interface Props {
-	/** Slug fichier article (sans extension) ; vide sur la liste blog → suggestions générales */
-	articleSlug?: string;
-	affiliatePreset?: AmazonSidebarPreset | null;
+	/** guide = colonne guides d’achat ; hub = liste blog */
+	variant?: 'guide' | 'hub';
 	relatedLinks?: RelatedLink[] | undefined;
-	/** Quatre catégories (liens vers /categorie/…) — colonne 1/3 */
-	categories?: string[];
-	/** Top catégories par nombre d’articles (accueil, blog, etc.) */
-	topCategories?: TopCategory[];
 }
 
-const {
-	articleSlug = '',
-	affiliatePreset = null,
-	relatedLinks = undefined,
-	categories = [],
-	topCategories = undefined,
-} = Astro.props;
-const affiliateLinks = resolveAmazonSidebarLinks(articleSlug, affiliatePreset);
-const internalLinks = relatedLinks?.length ? relatedLinks : null;
+const { variant = 'guide', relatedLinks = undefined } = Astro.props;
+const pathname = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const nav = getSidebarGuideNav(pathname);
+const allPosts = await getCollection('blog');
+const domotiquePosts = await getCollection('domotique');
+const readAlso = variant === 'guide' ? resolveRelatedThumbs(relatedLinks, pathname, allPosts, domotiquePosts) : [];
 ---
 
-<aside class="sidebar">
-	<section class="widget widget-affiliate" aria-labelledby="sidebar-affiliate-title">
-		<h3 id="sidebar-affiliate-title">Propositions d’achat Amazon</h3>
-		<p class="affiliate-note">
-			Idées de produits en lien avec cet article. Liens affiliés : en tant que partenaire Amazon, ce site peut
-			percevoir une commission sur des achats éligibles, sans surcoût pour vous.
-		</p>
-		<ul class="affiliate-list">
-			{affiliateLinks.map((item) => {
-				const url = item.asin ? amazonProductUrl(item.asin, null) : amazonSearchUrl(item.query || '');
-				return (
-					<li>
-						<a href={url} target="_blank" rel="noopener noreferrer sponsored">
-							{item.label}
-							<span aria-hidden="true" class="external-hint"> ↗</span>
+<aside class="guide-sidebar" data-guide-sidebar>
+	{
+		variant === 'guide' && (
+			<section class="guide-sidebar__box guide-sidebar__box--quick" aria-labelledby="guide-sidebar-quick-title">
+				<button
+					type="button"
+					class="guide-sidebar__toc-toggle"
+					data-guide-toc-toggle
+					aria-expanded="true"
+					aria-controls="guide-sidebar-toc-panel"
+				>
+					<span class="guide-sidebar__title" id="guide-sidebar-quick-title">
+						{nav.quickNavTitle}
+					</span>
+					<span class="guide-sidebar__toc-chevron" aria-hidden="true">▾</span>
+				</button>
+				<nav
+					id="guide-sidebar-toc-panel"
+					class="guide-sidebar__toc"
+					data-guide-toc
+					aria-label={nav.quickNavTitle}
+				>
+					<p class="guide-sidebar__toc-empty" data-guide-toc-empty hidden>
+						—
+					</p>
+					<ul class="guide-sidebar__toc-list" data-guide-toc-list></ul>
+				</nav>
+			</section>
+		)
+	}
+	{
+		readAlso.length > 0 && (
+			<section class="guide-sidebar__box" aria-labelledby="guide-sidebar-read-title">
+				<h2 id="guide-sidebar-read-title" class="guide-sidebar__title guide-sidebar__title--plain">
+					{nav.readAlsoTitle}
+				</h2>
+				<div class="guide-sidebar__read-also">
+					{readAlso.map((item) => (
+						<a href={withBase(item.href)}>
+							<img
+								src={withBase(item.imgSrc)}
+								alt={item.imgAlt}
+								width="112"
+								height="84"
+								loading="lazy"
+								decoding="async"
+							/>
+							<span>{item.title}</span>
 						</a>
-					</li>
-				);
-			})}
-		</ul>
-	</section>
-	{
-		internalLinks && (
-			<section class="widget widget-related" aria-labelledby="sidebar-related-title">
-				<h3 id="sidebar-related-title">À lire aussi</h3>
-				<p class="related-hint">Articles du site en lien avec ce sujet.</p>
-				<ul class="related-list">
-					{internalLinks.map((item) => (
-						<li>
-							<a href={withBase(item.href)}>{item.title}</a>
-						</li>
 					))}
-				</ul>
+				</div>
 			</section>
 		)
 	}
-	<section class="widget widget-feedback" aria-labelledby="sidebar-feedback-title">
-		<h3 id="sidebar-feedback-title">Votre avis</h3>
-		<p class="feedback-text">
-			{
-				articleSlug ? (
-					<>
-						Vous avez un <strong>retour</strong> sur cet article, des <strong>points à améliorer</strong> ou
-						des <strong>sujets</strong> à aborder ? Écrivez-nous : votre message aide à enrichir le site.
-					</>
-				) : (
-					<>
-						Vous avez un <strong>retour</strong> sur le site, des <strong>idées d’articles</strong> ou des{' '}
-						<strong>sujets</strong> à aborder ? Écrivez-nous : votre message aide à orienter les prochains contenus.
-					</>
-				)
-			}
-		</p>
-		<p class="feedback-cta-wrap">
-			<Button href={withBase('/contact/')} variant="ghost" size="sm" target="_blank" rel="noopener noreferrer">
-				Me contacter
-				<span class="sr-only"> (ouvre dans un nouvel onglet)</span>
-				<span aria-hidden="true" class="external-hint"> ↗</span>
-			</Button>
-		</p>
-	</section>
-	{
-		categories.length > 0 && (
-			<section class="widget widget-categories" aria-labelledby="sidebar-categories-title">
-				<h3 id="sidebar-categories-title">Catégories</h3>
-				<p class="related-hint">Cliquez pour voir tous les articles du même thème.</p>
-				<ul class="related-list category-chips">
-					{categories.map((cat) => (
-						<li>
-							<a href={withBase(`/categorie/${categoryToSlug(cat)}/`)}>{cat}</a>
-						</li>
-					))}
-				</ul>
-				<p class="cat-all">
-					<a href={withBase('/categorie/')}>Toutes les catégories</a>
-				</p>
-			</section>
-		)
-	}
-	{
-		topCategories && topCategories.length > 0 && (
-			<section class="widget widget-top-categories" aria-labelledby="sidebar-top-cats-title">
-				<h3 id="sidebar-top-cats-title">Catégories les plus représentées</h3>
-				<ul class="related-list top-cat-list">
-					{topCategories.map((c) => (
-						<li>
-							<a href={`/categorie/${c.slug}/`}>
-								<span class="top-cat-label">{c.label}</span>
-								<span class="top-cat-count">{c.count}</span>
-							</a>
-						</li>
-					))}
-				</ul>
-				<p class="cat-all">
-					<a href={withBase('/categorie/')}>Toutes les catégories</a>
-				</p>
-			</section>
-		)
-	}
-	<section class="widget">
-		<h3>Explorer le blog</h3>
-		<ul>
-			<li><a href={withBase('/blog/')}>Tous les articles</a></li>
-			<li><a href={withBase('/categorie/')}>Par catégorie</a></li>
-			<li><a href={withBase('/programmation/')}>Programmation</a></li>
-		</ul>
-	</section>
 </aside>
 
 <style>
-	.sidebar {
-		display: grid;
-		gap: 1rem;
+	.guide-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.125rem;
+		min-width: 0;
 	}
-	.widget {
-		background: var(--surface-2);
-		border: 1px solid var(--surface-border);
-		border-radius: 8px;
-		padding: 1.15rem 1.1rem;
-		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+	.guide-sidebar__box {
+		background: var(--surface-2, #fff);
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-radius: 14px;
+		padding: 1.125rem 1.1rem;
 	}
-	.widget-affiliate {
-		border-color: color-mix(in oklab, var(--accent) 22%, var(--surface-border));
+	.guide-sidebar__box--quick {
+		border-top: 4px solid #0f766e;
 	}
-	.widget-related {
-		border-color: color-mix(in oklab, var(--accent-warm) 18%, var(--surface-border));
+	.guide-sidebar__toc-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		gap: 0.5rem;
+		padding: 0;
+		margin: 0 0 0.75rem;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		text-align: left;
 	}
-	.widget-categories {
-		border-color: color-mix(in oklab, var(--accent) 15%, var(--surface-border));
+	.guide-sidebar__toc-chevron {
+		font-size: 0.85rem;
+		color: #0f766e;
+		transition: transform 0.15s ease;
+		flex-shrink: 0;
 	}
-	.widget-top-categories {
-		border-color: color-mix(in oklab, var(--accent-warm) 12%, var(--surface-border));
+	.guide-sidebar__toc-toggle[aria-expanded='false'] + .guide-sidebar__toc {
+		display: none;
 	}
-	.widget-feedback {
-		border-color: color-mix(in oklab, var(--accent) 24%, var(--surface-border));
-		background: linear-gradient(
-			160deg,
-			color-mix(in oklab, var(--accent) 10%, var(--surface-2)) 0%,
-			var(--surface-2) 100%
-		);
+	.guide-sidebar__toc-toggle[aria-expanded='false'] .guide-sidebar__toc-chevron {
+		transform: rotate(-90deg);
 	}
-	html[data-theme='light'] .widget-feedback {
-		background: linear-gradient(
-			160deg,
-			color-mix(in oklab, var(--accent) 8%, #f7f9fc) 0%,
-			var(--surface-2) 100%
-		);
-	}
-	.feedback-text {
-		margin: 0 0 1rem 0;
-		font-size: 0.88rem;
-		line-height: 1.55;
-		color: rgb(var(--gray-dark));
-		font-family: var(--font-body, system-ui);
-	}
-	.feedback-text strong {
-		color: rgb(var(--black));
+	.guide-sidebar__title {
+		margin: 0;
+		font-size: 1.0625rem;
+		line-height: 1.3;
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: #0f766e;
 		font-weight: 700;
 	}
-	.feedback-cta-wrap {
-		margin: 0;
+	.guide-sidebar__title--plain {
+		color: rgb(var(--black, 11 31 42));
 	}
-	.feedback-cta-wrap :global(.ui-btn) {
-		display: inline-flex;
-	}
-	.top-cat-list a {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 0.65rem;
-		width: 100%;
-		box-sizing: border-box;
-	}
-	.top-cat-label {
-		min-width: 0;
-		flex: 1;
-	}
-	.top-cat-count {
-		flex-shrink: 0;
-		font-size: 0.82rem;
-		font-weight: 600;
-		color: rgb(var(--gray));
-		font-variant-numeric: tabular-nums;
-		text-decoration: none !important;
-	}
-	.category-chips a {
-		font-weight: 600;
-	}
-	.cat-all {
-		margin: 0.75rem 0 0 0;
-		font-size: 0.88rem;
-	}
-	.cat-all a {
-		color: rgb(var(--gray));
-		font-weight: 600;
-	}
-	.related-hint {
-		margin: 0 0 0.75rem 0;
-		font-size: 0.82rem;
-		line-height: 1.45;
-		color: rgb(var(--gray));
-		font-family: var(--font-body, system-ui);
-	}
-	.related-list {
-		gap: 0.5rem;
-	}
-	.widget h3 {
-		margin: 0 0 0.85rem 0;
-		font-size: 0.78rem;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		font-weight: 600;
-		font-family: var(--font-body, system-ui);
-		color: rgb(var(--gray));
-		padding-bottom: 0.5rem;
-		border-bottom: 1px solid var(--surface-border);
-	}
-	.affiliate-note {
-		margin: 0 0 0.85rem 0;
-		font-size: 0.82rem;
-		line-height: 1.45;
-		color: rgb(var(--gray));
-		font-family: var(--font-body, system-ui);
-	}
-	.widget ul {
+	.guide-sidebar__toc-list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		display: grid;
-		gap: 0.45rem;
+		max-height: min(42vh, 20rem);
+		overflow-y: auto;
+		overflow-x: hidden;
+		scrollbar-gutter: stable;
 	}
-	.sidebar-heading {
-		margin: 0.6rem 0 0.1rem 0;
-		padding: 0.35rem 0 0 0;
-		border-top: 1px solid var(--surface-border);
-		font-size: 0.72rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: rgb(var(--gray));
+	.guide-sidebar__toc-list li {
+		margin: 0;
+		min-width: 0;
+	}
+	.guide-sidebar__toc-list a {
+		display: block;
+		font-size: 0.875rem;
+		padding: 0.38rem 0.55rem;
+		margin: 0.1rem 0;
+		border-radius: 8px;
+		color: var(--prose-link, #0f766e);
+		text-decoration: underline;
+		text-decoration-thickness: 1.5px;
+		text-decoration-color: var(--prose-link-line, #5eead4);
+		text-underline-offset: 3px;
 		font-weight: 600;
-		list-style: none;
+		line-height: 1.35;
+		border-left: 3px solid transparent;
+		overflow-wrap: anywhere;
+		word-break: normal;
+		hyphens: auto;
 	}
-	.affiliate-list {
-		gap: 0.55rem;
+	.guide-sidebar__toc-list a:hover {
+		background: #f0fdfa;
+		color: var(--prose-link-hover, #115e59);
+		text-decoration-color: var(--prose-link, #0f766e);
 	}
-	.widget a {
-		text-decoration: none;
-		color: var(--accent-dark);
-		font-weight: 600;
-		font-size: 0.96rem;
-		display: inline-block;
-		padding: 0.2rem 0;
-		border: none;
-		background: none;
-		border-radius: 0;
-		transition: color 0.12s ease;
+	.guide-sidebar__toc-list a.is-active,
+	.guide-sidebar__toc-list a[aria-current='true'] {
+		background: #f0fdfa;
+		color: var(--prose-link-hover, #115e59);
+		text-decoration-color: var(--prose-link, #0f766e);
+		border-left-color: var(--prose-link, #0f766e);
 	}
 	
-	@media (prefers-color-scheme: dark) {
-		.widget a {
-			color: #5EEAD4;
+	@media (max-width: 1023px) {
+		.guide-sidebar__toc-toggle {
+			margin-bottom: 0.35rem;
 		}
 	}
-	
-	html[data-theme="dark"] .widget a {
-		color: #5EEAD4;
+	@media (min-width: 1024px) {
+		.guide-sidebar__toc-toggle {
+			cursor: default;
+			pointer-events: none;
+		}
+		.guide-sidebar__toc-chevron {
+			display: none;
+		}
 	}
-	
-	.widget a:hover {
-		text-decoration: underline;
-		text-underline-offset: 3px;
+	@media (min-width: 1024px) {
+		:global(.re-toc-mobile) {
+			display: none !important;
+		}
 	}
-	html[data-theme='light'] .widget a:hover {
-		color: #0c3a50;
+	.guide-sidebar__toc-empty {
+		margin: 0;
+		font-size: 0.85rem;
+		color: #64748b;
 	}
-	html:not([data-theme='light']) .widget a:hover {
-		color: var(--accent);
+	.guide-sidebar__read-also a {
+		display: flex;
+		gap: 0.65rem;
+		align-items: center;
+		padding: 0.5rem 0;
+		text-decoration: none;
+		color: rgb(var(--black, 11 31 42));
+		font-size: 0.875rem;
+		font-weight: 600;
+		line-height: 1.35;
 	}
-	.external-hint {
-		font-weight: 500;
-		opacity: 0.75;
-		text-decoration: none !important;
+	.guide-sidebar__read-also a + a {
+		border-top: 1px dashed var(--surface-border, #e2e8f0);
 	}
-	html:not([data-theme='light']) .external-hint {
-		color: #5EEAD4;
+	.guide-sidebar__read-also img {
+		width: 56px;
+		height: 42px;
+		border-radius: 8px;
+		object-fit: cover;
+		flex: none;
+		background: #e2e8f0;
+	}
+	@media (min-width: 1024px) {
+		:global(.page-layout--with-sidebar) > .guide-rail,
+		:global(.page-layout--with-sidebar) > .guide-sidebar,
+		:global(.page-layout--with-sidebar) > [data-guide-sidebar] {
+			position: sticky;
+			top: 5.25rem;
+			align-self: start;
+			max-height: calc(100vh - 6.5rem);
+			overflow: auto;
+		}
 	}
 </style>
+
+<script>
+	(() => {
+		const SKIP =
+			/^(aqf-t|navigation-rapide|quick-navigation|schnelle-navigation|navigazione-rapida|navegación-rápida|pr-title|pr-widget|faq|questions-fréquentes|häufige-fragen|domande-frequenti|preguntas-frecuentes)$/i;
+		const FAQ_SECTION = /faq|questions|fréquent|häufig|frequenti|preguntas/i;
+		const root = document.querySelector<HTMLElement>('[data-guide-toc]');
+		if (!root) return;
+		const list = root.querySelector<HTMLUListElement>('[data-guide-toc-list]');
+		const empty = root.querySelector<HTMLElement>('[data-guide-toc-empty]');
+		if (!list) return;
+
+		const toggle = document.querySelector<HTMLButtonElement>('[data-guide-toc-toggle]');
+		if (toggle) {
+			const mq = window.matchMedia('(max-width: 1023px)');
+			toggle.addEventListener('click', () => {
+				if (!mq.matches) return;
+				const open = toggle.getAttribute('aria-expanded') === 'true';
+				toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+			});
+		}
+
+		const article =
+			document.querySelector<HTMLElement>('.page-layout--with-sidebar article .prose') ||
+			document.querySelector<HTMLElement>('article .prose') ||
+			document.querySelector<HTMLElement>('article');
+		if (!article) return;
+
+		const inlineTocTitle =
+			/^(sommaire|contents|inhalt|inhaltsverzeichnis|indice|índice|sommario)$/i;
+		article.querySelectorAll('.article-toc').forEach((node) => node.remove());
+		for (const heading of Array.from(article.querySelectorAll<HTMLElement>('h2'))) {
+			const label = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+			if (!inlineTocTitle.test(label)) continue;
+			const next = heading.nextElementSibling;
+			if (next && (next.tagName === 'UL' || next.tagName === 'OL')) next.remove();
+			heading.remove();
+		}
+
+		const cleanLabel = (text: string) =>
+			text
+				.replace(/\s+/g, ' ')
+				.replace(/^(\d+[\.\)\]]\s*)/, '')
+				.replace(/^(\d+\s*[-–—]\s*)/, '')
+				.trim();
+
+		const slugify = (value: string) =>
+			value
+				.normalize('NFD')
+				.replace(/[\u0300-\u036f]/g, '')
+				.toLowerCase()
+				.replace(/[^a-z0-9]+/g, '-')
+				.replace(/^-+|-+$/g, '')
+				.slice(0, 80);
+
+		const usedIds = new Set(
+			Array.from(document.querySelectorAll<HTMLElement>('[id]')).map((el) => el.id),
+		);
+		for (const h of Array.from(article.querySelectorAll<HTMLElement>('h2'))) {
+			if (h.closest('.guide-sidebar') || h.id) continue;
+			const base = slugify(h.textContent || '') || 'section';
+			let id = base;
+			let n = 2;
+			while (usedIds.has(id)) id = `${base}-${n++}`;
+			h.id = id;
+			usedIds.add(id);
+		}
+
+		const headings = Array.from(article.querySelectorAll<HTMLElement>('h2[id]')).filter((h) => {
+			const id = h.id || '';
+			if (!id || SKIP.test(id)) return false;
+			if (h.closest('.guide-sidebar')) return false;
+			if (FAQ_SECTION.test(h.textContent || '')) return false;
+			return true;
+		});
+
+		const seen = new Set<string>();
+		const unique = headings.filter((h) => {
+			if (seen.has(h.id)) return false;
+			seen.add(h.id);
+			return true;
+		});
+
+		if (!unique.length) {
+			if (empty) empty.hidden = false;
+			return;
+		}
+		if (empty) empty.hidden = true;
+
+		type LinkPair = { a: HTMLAnchorElement; h: HTMLElement; mobileA?: HTMLAnchorElement };
+		const links: LinkPair[] = [];
+		for (const h of unique) {
+			const li = document.createElement('li');
+			const a = document.createElement('a');
+			a.href = `#${h.id}`;
+			a.textContent = cleanLabel(h.textContent || '');
+			a.title = a.textContent;
+			li.appendChild(a);
+			list.appendChild(li);
+			links.push({ a, h });
+		}
+
+		const lang = document.documentElement.lang || 'fr';
+		const mobileTitle =
+			lang === 'de'
+				? 'Inhalt'
+				: lang === 'it'
+					? 'Indice'
+					: lang === 'es'
+						? 'Índice'
+						: lang.startsWith('en')
+							? 'Contents'
+							: 'Sommaire';
+
+		let mobile = article.querySelector<HTMLDetailsElement>('.re-toc-mobile');
+		if (!mobile) {
+			mobile = document.createElement('details');
+			mobile.className = 're-toc-mobile';
+			const sum = document.createElement('summary');
+			sum.textContent = mobileTitle;
+			mobile.appendChild(sum);
+			const nav = document.createElement('nav');
+			nav.setAttribute('aria-label', mobileTitle);
+			const mul = document.createElement('ul');
+			mul.className = 'guide-sidebar__toc-list';
+			nav.appendChild(mul);
+			mobile.appendChild(nav);
+			article.insertBefore(mobile, article.firstChild);
+		}
+		const mul = mobile.querySelector<HTMLUListElement>('.guide-sidebar__toc-list');
+		if (mul) {
+			mul.innerHTML = '';
+			for (const item of links) {
+				const li = document.createElement('li');
+				const ma = document.createElement('a');
+				ma.href = item.a.href;
+				ma.textContent = item.a.textContent;
+				ma.title = item.a.title;
+				li.appendChild(ma);
+				mul.appendChild(li);
+				item.mobileA = ma;
+			}
+		}
+
+		const setActive = (id: string | null) => {
+			for (const item of links) {
+				const on = id !== null && item.h.id === id;
+				item.a.classList.toggle('is-active', on);
+				if (on) item.a.setAttribute('aria-current', 'true');
+				else item.a.removeAttribute('aria-current');
+				item.mobileA?.classList.toggle('is-active', on);
+				if (on) item.mobileA?.setAttribute('aria-current', 'true');
+				else item.mobileA?.removeAttribute('aria-current');
+			}
+		};
+
+		if (typeof IntersectionObserver !== 'undefined') {
+			const obs = new IntersectionObserver(
+				(entries) => {
+					const visible = entries
+						.filter((e) => e.isIntersecting)
+						.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+					if (visible.length) setActive(visible[0].target.id);
+				},
+				{ rootMargin: '-30% 0px -55% 0px', threshold: 0 },
+			);
+			for (const h of unique) obs.observe(h);
+		} else {
+			window.addEventListener('scroll', () => {
+				const y = window.scrollY + 120;
+				let current: string | null = unique[0]?.id ?? null;
+				for (const h of unique) {
+					if (h.offsetTop <= y) current = h.id;
+				}
+				setActive(current);
+			}, { passive: true });
+		}
+	})();
+</script>

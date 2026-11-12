@@ -8,6 +8,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { articleSlugFromId } from '../lib/articleSlug';
+import PageColumns from '../components/PageColumns.astro';
 
 const posts = await getCollection('blog');
 const articlesPayload = posts
@@ -23,169 +24,116 @@ const statsEnabled = Boolean(supabaseUrl && supabaseKey);
 const pathPrefix = import.meta.env.BASE_URL;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="fr">
-	<head>
-		<BaseHead
-			title="Statistiques site (interne)"
-			description="Vues par article, vues par page et notes — page non indexée, usage personnel."
-			noIndex={true}
-		/>
-	</head>
-	<body data-pagefind-ignore>
-		<Header />
-		<main class="stats-interne">
-			<article class="stats-interne__article">
-				<h1>Statistiques site</h1>
-				<p class="stats-interne__warn">
-					<strong>Usage interne.</strong> Cette page n’est pas destinée au référencement : elle n’apparaît pas dans le
+<head>
+<BaseHead
+  description="Vues par article, vues par page et notes. Page non indexée, usage personnel."
+  noIndex={true}
+  title="Statistiques site (interne)"
+/>
+</head>
+<body data-pagefind-ignore="">
+<header></header>
+<main class="stats-interne">
+<PageColumns>
+<article class="stats-interne__article">
+<h1>Statistiques site</h1>
+<p class="stats-interne__warn">
+<strong>Usage interne.</strong> Cette page n’est pas destinée au référencement : elle n’apparaît pas dans le
 					sitemap, porte <code>noindex</code> et n’est liée nulle part sur le site. Conservez l’URL confidentielle.
 				</p>
-
-				<p id="stats-status" class="stats-interne__status" aria-live="polite">
+<p aria-live="polite" class="stats-interne__status" id="stats-status">
 					{statsEnabled ? 'Chargement des données…' : 'Supabase non configuré (variables PUBLIC_SUPABASE_URL / PUBLIC_SUPABASE_ANON_KEY).'}
 				</p>
-
-				<div class="stats-interne__tiles" aria-label="Indicateurs agrégés">
-					<div class="stats-interne__tile">
-						<span class="stats-interne__tile-label">Vues pages</span>
-						<p class="stats-interne__tile-value" id="stats-total-path-views">—</p>
-						<p class="stats-interne__tile-hint">Parcours du site (hors articles blog)</p>
-					</div>
-					<div class="stats-interne__tile">
-						<span class="stats-interne__tile-label">Vues articles</span>
-						<p class="stats-interne__tile-value" id="stats-total-views">—</p>
-						<p class="stats-interne__tile-hint">Fiches du blog</p>
-					</div>
-					<div class="stats-interne__tile">
-						<span class="stats-interne__tile-label">Votes cumulés</span>
-						<p class="stats-interne__tile-value" id="stats-total-votes">—</p>
-						<p class="stats-interne__tile-hint">Nombre de notes enregistrées (tous articles)</p>
-					</div>
-					<div class="stats-interne__tile">
-						<span class="stats-interne__tile-label">Frappes 404</span>
-						<p class="stats-interne__tile-value" id="stats-total-404-hits">—</p>
-						<p class="stats-interne__tile-hint">Total des accès à des URL inexistantes</p>
-					</div>
-				</div>
-
-				<div class="stats-interne__tabs" data-stats-tabs>
-					<div class="stats-interne__tablist" role="tablist" aria-label="Sections des statistiques">
-						<button
-							type="button"
-							class="stats-interne__tab"
-							role="tab"
-							id="tab-pages"
-							aria-selected="true"
-							aria-controls="panel-pages"
-							tabindex="0"
-						>
+<div aria-label="Indicateurs agrégés" class="stats-interne__tiles">
+<div class="stats-interne__tile">
+<span class="stats-interne__tile-label">Vues pages</span>
+<p class="stats-interne__tile-value" id="stats-total-path-views">—</p>
+<p class="stats-interne__tile-hint">Parcours du site (hors articles blog)</p>
+</div>
+<div class="stats-interne__tile">
+<span class="stats-interne__tile-label">Vues articles</span>
+<p class="stats-interne__tile-value" id="stats-total-views">—</p>
+<p class="stats-interne__tile-hint">Fiches du blog</p>
+</div>
+<div class="stats-interne__tile">
+<span class="stats-interne__tile-label">Votes cumulés</span>
+<p class="stats-interne__tile-value" id="stats-total-votes">—</p>
+<p class="stats-interne__tile-hint">Nombre de notes enregistrées (tous articles)</p>
+</div>
+<div class="stats-interne__tile">
+<span class="stats-interne__tile-label">Frappes 404</span>
+<p class="stats-interne__tile-value" id="stats-total-404-hits">—</p>
+<p class="stats-interne__tile-hint">Total des accès à des URL inexistantes</p>
+</div>
+</div>
+<div class="stats-interne__tabs" data-stats-tabs="">
+<div aria-label="Sections des statistiques" class="stats-interne__tablist" role="tablist">
+<button aria-controls="panel-pages" aria-selected="true" class="stats-interne__tab" id="tab-pages" role="tab" tabindex="0" type="button">
 							Pages
 						</button>
-						<button
-							type="button"
-							class="stats-interne__tab"
-							role="tab"
-							id="tab-articles"
-							aria-selected="false"
-							aria-controls="panel-articles"
-							tabindex="-1"
-						>
+<button aria-controls="panel-articles" aria-selected="false" class="stats-interne__tab" id="tab-articles" role="tab" tabindex="-1" type="button">
 							Articles
 						</button>
-						<button
-							type="button"
-							class="stats-interne__tab"
-							role="tab"
-							id="tab-referrals"
-							aria-selected="false"
-							aria-controls="panel-referrals"
-							tabindex="-1"
-						>
+<button aria-controls="panel-referrals" aria-selected="false" class="stats-interne__tab" id="tab-referrals" role="tab" tabindex="-1" type="button">
 							Référents
 						</button>
-						<button
-							type="button"
-							class="stats-interne__tab"
-							role="tab"
-							id="tab-404"
-							aria-selected="false"
-							aria-controls="panel-404"
-							tabindex="-1"
-						>
+<button aria-controls="panel-404" aria-selected="false" class="stats-interne__tab" id="tab-404" role="tab" tabindex="-1" type="button">
 							404
 						</button>
-					</div>
-
-					<div
-						class="stats-interne__panel"
-						id="panel-pages"
-						role="tabpanel"
-						aria-labelledby="tab-pages"
-					>
-						<p class="stats-interne__panel-hint">
+</div>
+<div aria-labelledby="tab-pages" class="stats-interne__panel" id="panel-pages" role="tabpanel">
+<p class="stats-interne__panel-hint">
 							Chemins avec slash final. Les articles du blog ne sont pas comptés ici (vues dans l’onglet Articles).
 						</p>
-						<div class="stats-interne__table-wrap">
-							<table class="stats-interne__table">
-								<thead>
-									<tr>
-										<th scope="col">Chemin</th>
-										<th scope="col" class="stats-interne__col-num">Vues</th>
-									</tr>
-								</thead>
-								<tbody id="stats-paths-tbody">
+<div class="stats-interne__table-wrap">
+<div class="tableau empile"><table class="stats-interne__table">
+<thead>
+<tr>
+<th scope="col">Chemin</th>
+<th class="stats-interne__col-num" scope="col">Vues</th>
+</tr>
+</thead>
+<tbody id="stats-paths-tbody">
 									{
 										!statsEnabled && (
 											<tr>
-												<td colspan="2">—</td>
-											</tr>
+<td colspan="2" data-label="Chemin"><span class="td-val">—</span></td>
+</tr>
 										)
 									}
 								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<div
-						class="stats-interne__panel"
-						id="panel-articles"
-						role="tabpanel"
-						aria-labelledby="tab-articles"
-						hidden
-					>
-						<div class="stats-interne__table-wrap">
-							<table class="stats-interne__table">
-								<thead>
-									<tr>
-										<th scope="col">Article</th>
-										<th scope="col" class="stats-interne__col-num">Vues</th>
-										<th scope="col" class="stats-interne__col-num">Note moy.</th>
-										<th scope="col" class="stats-interne__col-num">Votes</th>
-									</tr>
-								</thead>
-								<tbody id="stats-tbody">
+</table></div>
+</div>
+</div>
+<div aria-labelledby="tab-articles" class="stats-interne__panel" hidden="" id="panel-articles" role="tabpanel">
+<div class="stats-interne__table-wrap">
+<div class="tableau empile"><table class="stats-interne__table">
+<thead>
+<tr>
+<th scope="col">Article</th>
+<th class="stats-interne__col-num" scope="col">Vues</th>
+<th class="stats-interne__col-num" scope="col">Note moy.</th>
+<th class="stats-interne__col-num" scope="col">Votes</th>
+</tr>
+</thead>
+<tbody id="stats-tbody">
 									{
 										!statsEnabled && (
 											<tr>
-												<td colspan="4">—</td>
-											</tr>
+<td colspan="4" data-label="Article"><span class="td-val">—</span></td>
+</tr>
 										)
 									}
 								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<div
-						class="stats-interne__panel"
-						id="panel-referrals"
-						role="tabpanel"
-						aria-labelledby="tab-referrals"
-						hidden
-					>
-						<p class="stats-interne__panel-hint">
-							<strong>Source / support</strong> (proche de Google Analytics), agrégé sur toutes les pages comptées
+</table></div>
+</div>
+</div>
+<div aria-labelledby="tab-referrals" class="stats-interne__panel" hidden="" id="panel-referrals" role="tabpanel">
+<p class="stats-interne__panel-hint">
+<strong>Source / support</strong> (proche de Google Analytics), agrégé sur toutes les pages comptées
 							par <code>page_referral_stats</code> : moteurs en <code>… / organic</code>, liens depuis un site en
 							<code>hôte / referral</code>, sans référent HTTP en <code>(direct) / (none)</code>, navigation sur le
 							site en <code>(internal) / (internal)</code>. Les paramètres <code>utm_source</code> et
@@ -195,87 +143,73 @@ const pathPrefix = import.meta.env.BASE_URL;
 							<code>(direct) / (none)</code> — ce n’est pas un bug du site, c’est une limite du Web par rapport à
 							GA.
 						</p>
-						<div class="stats-interne__ref-grid">
-							<div class="stats-interne__ref-card" id="stats-ref-card-1">
-								<span class="stats-interne__ref-rank">1</span>
-								<p class="stats-interne__ref-origin" id="stats-ref-origin-1">—</p>
-								<p class="stats-interne__ref-views">
-									<span id="stats-ref-views-1">—</span> vues
+<div class="stats-interne__ref-grid">
+<div class="stats-interne__ref-card" id="stats-ref-card-1">
+<span class="stats-interne__ref-rank">1</span>
+<p class="stats-interne__ref-origin" id="stats-ref-origin-1">—</p>
+<p class="stats-interne__ref-views">
+<span id="stats-ref-views-1">—</span> vues
 								</p>
-							</div>
-							<div class="stats-interne__ref-card" id="stats-ref-card-2">
-								<span class="stats-interne__ref-rank">2</span>
-								<p class="stats-interne__ref-origin" id="stats-ref-origin-2">—</p>
-								<p class="stats-interne__ref-views">
-									<span id="stats-ref-views-2">—</span> vues
+</div>
+<div class="stats-interne__ref-card" id="stats-ref-card-2">
+<span class="stats-interne__ref-rank">2</span>
+<p class="stats-interne__ref-origin" id="stats-ref-origin-2">—</p>
+<p class="stats-interne__ref-views">
+<span id="stats-ref-views-2">—</span> vues
 								</p>
-							</div>
-						</div>
-						<p class="stats-interne__hint" style="margin-top: 1rem">
+</div>
+</div>
+<p class="stats-interne__hint" style="margin-top: 1rem">
 							Top 15 des combinaisons (toutes pages confondues). Les anciennes lignes
 							<code>direct</code> / <code>https://…</code> sont regroupées avec le nouveau format quand c’est
 							possible.
 						</p>
-						<div class="stats-interne__table-wrap" style="margin-top: 0.5rem">
-							<table class="stats-interne__table">
-								<thead>
-									<tr>
-										<th scope="col">Source / support</th>
-										<th scope="col" class="stats-interne__col-num">Vues</th>
-									</tr>
-								</thead>
-								<tbody id="stats-ref-tbody">
-									<tr>
-										<td colspan="2">—</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<div
-						class="stats-interne__panel"
-						id="panel-404"
-						role="tabpanel"
-						aria-labelledby="tab-404"
-						hidden
-					>
-						<p class="stats-interne__panel-hint">
+<div class="stats-interne__table-wrap" style="margin-top: 0.5rem">
+<div class="tableau empile"><table class="stats-interne__table">
+<thead>
+<tr>
+<th scope="col">Source / support</th>
+<th class="stats-interne__col-num" scope="col">Vues</th>
+</tr>
+</thead>
+<tbody id="stats-ref-tbody">
+<tr>
+<td colspan="2" data-label="Source / support"><span class="td-val">—</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div aria-labelledby="tab-404" class="stats-interne__panel" hidden="" id="panel-404" role="tabpanel">
+<p class="stats-interne__panel-hint">
 							Chemins demandés ayant servi une page <strong>404</strong>, agrégés dans
 							<code>page_not_found_stats</code> (nombre de frappes, première et dernière occurrence). Exécuter
 							<code>scripts/supabase-page-not-found-stats.sql</code> dans Supabase si la table n’existe pas encore.
 						</p>
-						<div class="stats-interne__table-wrap">
-							<table class="stats-interne__table">
-								<thead>
-									<tr>
-										<th scope="col">Chemin demandé</th>
-										<th scope="col" class="stats-interne__col-num">Frappes</th>
-										<th scope="col" class="stats-interne__col-nowrap">1<sup>re</sup> fois</th>
-										<th scope="col" class="stats-interne__col-nowrap">Dernière fois</th>
-									</tr>
-								</thead>
-								<tbody id="stats-404-tbody">
-									<tr>
-										<td colspan="4">—</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</article>
-		</main>
-		<Footer suppressPagePathTracking />
-		<script
-			define:vars={{
-				articlesPayload,
-				supabaseUrl,
-				supabaseKey,
-				statsEnabled,
-				pathPrefix,
-			}}
-		>
+<div class="stats-interne__table-wrap">
+<div class="tableau empile"><table class="stats-interne__table">
+<thead>
+<tr>
+<th scope="col">Chemin demandé</th>
+<th class="stats-interne__col-num" scope="col">Frappes</th>
+<th class="stats-interne__col-nowrap" scope="col">1<sup>re</sup> fois</th>
+<th class="stats-interne__col-nowrap" scope="col">Dernière fois</th>
+</tr>
+</thead>
+<tbody id="stats-404-tbody">
+<tr>
+<td colspan="4" data-label="Chemin demandé"><span class="td-val">—</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</article>
+</PageColumns>
+</main>
+<footer suppresspagepathtracking=""></footer>
+<script articlespayload,="" define:vars="{{" pathprefix,="" statsenabled,="" supabasekey,="" supabaseurl,="" }}="">
 			(function () {
 				function formatAvg(sum, count) {
 					if (!count) return '—';
@@ -480,7 +414,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 						var pathRows = [];
 						if (resPaths.ok) {
 							pathRows = await resPaths.json();
-							if (!Array.isArray(pathRows)) pathRows = [];
+							if (! Array.isArray(pathRows)) pathRows = [];
 						}
 
 						var resRef = await fetch(
@@ -490,7 +424,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 						var refRows = [];
 						if (resRef.ok) {
 							refRows = await resRef.json();
-							if (!Array.isArray(refRows)) refRows = [];
+							if (! Array.isArray(refRows)) refRows = [];
 						}
 
 						var res404 = await fetch(
@@ -501,7 +435,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 						var nfRows = [];
 						if (res404.ok) {
 							nfRows = await res404.json();
-							if (!Array.isArray(nfRows)) nfRows = [];
+							if (! Array.isArray(nfRows)) nfRows = [];
 						}
 
 						var bySlug = new Map();
@@ -753,7 +687,7 @@ const pathPrefix = import.meta.env.BASE_URL;
 				run();
 			})();
 		</script>
-		<style>
+<style>
 			.stats-interne {
 				width: min(1100px, calc(100% - 2rem));
 				margin: 0 auto;
@@ -964,5 +898,5 @@ const pathPrefix = import.meta.env.BASE_URL;
 				color: var(--accent);
 			}
 		</style>
-	</body>
+</body>
 </html>

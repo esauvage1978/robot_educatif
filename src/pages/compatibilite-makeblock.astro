@@ -1,0 +1,37 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import MakeblockCompatMatrix from '../components/MakeblockCompatMatrix.astro';
+import { MAKEBLOCK_PAGE } from '../data/makeblockCompat.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={MAKEBLOCK_PAGE.title}
+	description={MAKEBLOCK_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/compatibilite-makeblock/"
+	hubLabel="Makeblock & mBot"
+	hubPath="/accessoires-mbot-par-ou-commencer/"
+>
+	<p>
+		<strong>Réponse rapide</strong> — Avant d’acheter un capteur Makeblock, vérifiez la <strong>connectique</strong> (RJ25 sur mBot classique,{' '}
+		<strong>mBuild</strong> sur mBot2) et le robot cible. Cette matrice interactive croise accessoires et modèles ; les liens Amazon sont{' '}
+		<strong>partenaires</strong> (commission éventuelle, prix du jour sur le site marchand).
+	</p>
+	<p>
+		Hub Makeblock : <a href={withBase('/accessoires-mbot-par-ou-commencer/')}>accessoires mBot — par où commencer</a> ·{' '}
+		<a href={withBase('/marque-makeblock/')}>notre avis sur la marque Makeblock</a> ·{' '}
+		<a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a> ·{' '}
+		<a href={withBase('/logiciel-mblock-makeblock-mbot-quel-choisir/')}>mBlock vs robot</a> ·{' '}
+		<a href={withBase('/programmation/')}>hub programmation</a>.
+	</p>
+	<p>{MAKEBLOCK_PAGE.intro}</p>
+	<MakeblockCompatMatrix />
+	<p>
+		Pour choisir vos premiers capteurs : <a href={withBase('/accessoires-mbot-par-ou-commencer/')}>accessoires mBot par où commencer</a>
+		· <a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a> ·{' '}
+		<a href={withBase('/serie-capteur-ultrason-mbot-1-mesurer-distance/')}>série capteur ultrason mBot</a>.
+	</p>
+</RobotToolLayout>

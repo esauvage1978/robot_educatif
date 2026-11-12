@@ -1,13 +1,16 @@
 ---
 title: "Bataille navale en Python (5/6) — coulé et victoire"
-description: "Parcourir la flotte pour savoir si un navire est entièrement touché ; tester si tous les navires sont coulés."
+description: "Détecter un navire coulé et la victoire : parcourir la flotte, comparer les cases touchées, terminer la partie. Série console Python."
+shareDescription: "Parcourir la flotte pour savoir si un navire est entièrement touché ; tester si tous les navires sont coulés."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-03
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Bataille navale
 seriesOrder: 5
 tags: ["Python", "Programmation", "Projet"]
 relatedLinks:
+  - title: "Hub bataille navale"
+    href: "/programmation/bataille-navale/"
   - title: "Partie 4 — tirs"
     href: "/python-bataille-navale-4-tirs-et-marques/"
   - title: "Partie 6 — jeu complet"
@@ -18,9 +21,15 @@ categories:
   - "Bataille navale"
   - "Projet"
 ---
-Après un tir **touché** ([partie 4](/python-bataille-navale-4-tirs-et-marques/)), il faut savoir si le navire est **coulé** (toutes ses cases sont `X` sur la grille défense) et si la **flotte entière** est détruite.
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/bataille-navale/">Série Bataille navale</a> · Partie 5/6 — coulé et victoire</nav>
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+> **Réponse directe** — Après un tir **touché** ([partie 4](/python-bataille-navale-4-tirs-et-marques/)), testez si **toutes** les cases du navire sont marquées `X` sur la grille **défense** (`navire_coule`). Si **chaque** navire de la flotte est coulé, la partie est perdue pour le défenseur (`tous_coules`).
+
+Après un tir **touché**, il faut savoir si le navire est **coulé** (toutes ses cases sont `X` sur la grille défense) et si la **flotte entière** est détruite.
+
+![Grille avec un navire coulé et message de victoire](/images/illustrations/python-bataille-navale-5-coule-et-victoire.webp)
+
+<p class="image-credit">Crédit : illustration du site — navire coulé sur grille océan</p>
 
 ## 1. Une flotte = liste de navires
 
@@ -91,7 +100,13 @@ Pour éviter de parcourir toute la flotte à chaque tir, tu peux maintenir un **
 
 ## Suite
 
-[Partie 6 — Assembler la boucle de jeu (2 joueurs ou IA)](/python-bataille-navale-6-jeu-complet/).
+[Partie 6 — Assembler la boucle de jeu (2 joueurs ou IA)](/python-bataille-navale-6-jeu-complet/) · [Hub bataille navale](/programmation/bataille-navale/) · [Parcours Python](/programmation/python/)
+
+## FAQ
+
+- **Quelle différence entre touché et coulé ?** **Touché** = une case du navire est `X` ; **coulé** = toutes les cases de ce navire sont `X`.
+- **Dois-je parcourir toute la flotte à chaque tir ?** Pour 5 petits navires, oui — c’est lisible. Plus tard, un compteur par navire suffit.
+- **Qui gagne quand `tous_coules` est vrai ?** L’**adversaire** qui a tiré : votre flotte est entièrement détruite.
 
 ## Script complet du chapitre
 
@@ -280,6 +295,11 @@ if __name__ == "__main__":
 
 **[bataille_chapitre_05.py](/downloads/bataille-navale/bataille_chapitre_05.py)**
 
-## Amazon (partenaire)
+## Pour aller plus loin (sans matériel robot)
 
-- [Structures de données Python](https://www.amazon.fr/s?k=structures+de+donn%C3%A9es+python&tag=manuso06-21)
+- [Conditions if/else en Python](/python-conditions-if-else/)
+- [Listes et boucles for](/python-boucles-for-while/)
+- [Hub programmation](/programmation/)
+- [Robots programmables Python](/robot-programmable-python/) (guide achat, hors série console)
+
+<p class="affiliate-footer">Liens partenaires (sidebar série) : <a href="/go/az-fr-10aa727b99/">mBot2</a> · <a href="/go/az-fr-7228657cbb/">Raspberry Pi 5</a> · <a href="/go/az-fr-7dc730fd5d/">CyberPi</a></p>

@@ -3,13 +3,15 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { AMAZON_AFFILIATE_TAG } from '../../consts';
-import bandeauPythonUrl from '../../assets/programmation/bandeau-python.svg?url';
-import bandeauArduinoCUrl from '../../assets/programmation/bandeau-arduino-c.svg?url';
-import bandeauBatailleNavaleUrl from '../../assets/programmation/bandeau-bataille-navale.svg?url';
-import bandeauPenduUrl from '../../assets/programmation/bandeau-pendu.svg?url';
-import bandeauPuissance4Url from '../../assets/programmation/bandeau-puissance-4.svg?url';
-import bandeauCarnetTodoUrl from '../../assets/programmation/bandeau-carnet-todo.svg?url';
 import { withBase } from '../../lib/siteUrl';
+import PageColumns from '../../components/PageColumns.astro';
+
+const bandeauPythonUrl = withBase('/images/blog/lot15/pendu-console-exemple.png');
+const bandeauArduinoCUrl = withBase('/images/products/arduino-starter-kit.webp');
+const bandeauBatailleNavaleUrl = withBase('/images/blog/lot15/bataille-navale-partie-finie.png');
+const bandeauPenduUrl = withBase('/images/blog/lot15/pendu-console-exemple.png');
+const bandeauPuissance4Url = withBase('/images/blog/lot11/puissance4-console-exemple.png');
+const bandeauCarnetTodoUrl = withBase('/images/blog/lot11/scratch-3-interface.webp');
 
 const tag = AMAZON_AFFILIATE_TAG;
 ---
@@ -18,16 +20,24 @@ const tag = AMAZON_AFFILIATE_TAG;
 <html lang="fr">
 	<head>
 		<BaseHead
-			title="Programmation"
-			description="Parcours et tutoriels pour apprendre la programmation : Python, exercices progressifs et ressources."
+			title="Programmation Python et robotique : parcours et projets (école, collège)"
+			description="Hub programmation : Python débutant à avancé, Arduino C, Puissance 4, bataille navale, pendu et projets CLI — exercices corrigés et progression par niveau."
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="prog-hub">
+<PageColumns>
 			<h1>Programmation</h1>
+			<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href={withBase('/')}>Accueil</a> · Programmation</nav>
 			<p class="lead">
-				Des parcours structurés avec exercices, exemples de code et liens vers des ressources (dont des ouvrages sur
+				<strong>Réponse directe</strong> — Vous cherchez où apprendre la <strong>programmation</strong> orientée <strong>robotique scolaire</strong> :
+				commencez par le <a href={withBase('/programmation/python/')}>parcours Python débutant</a> (6–14 ans selon chapitre), enchaînez avec{' '}
+				<a href={withBase('/programmation/python-intermediaire/')}>Python intermédiaire</a>, puis des <strong>projets jeu</strong> (Puissance 4, bataille navale, pendu).
+				Chaque piste ci-dessous indique le public visé et la durée indicative.
+			</p>
+			<p class="lead">
+				Ressources partenaires (livres) :{' '}
 				<a
 				href={`https://www.amazon.fr/s?k=programmation+python+livre&tag=${tag}`}
 				target="_blank"
@@ -38,6 +48,38 @@ const tag = AMAZON_AFFILIATE_TAG;
 			<section class="tracks" aria-labelledby="tracks-title">
 				<h2 id="tracks-title">Parcours disponibles</h2>
 				<ul class="track-cards">
+					<li>
+						<a href={withBase('/generateur-fiche-seance-robotique-pdf/')} class="track-card">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : fiche de séance robotique imprimable"
+								loading="lazy"
+							/>
+							<h3>Fiche de séance robotique (imprimable)</h3>
+							<p>
+								Cycles 2 à lycée, mBot2 / mBot / CyberPi : compétences, déroulé minuté, blocs Scratch ou Python et grille d’évaluation.
+							</p>
+							<span class="cta">Générer la fiche →</span>
+						</a>
+					</li>
+					<li>
+						<a href={withBase('/parcours-scratch-python-6-semaines/')} class="track-card track-card--highlight">
+							<img
+								src={bandeauPythonUrl}
+								width="800"
+								height="250"
+								alt="Bandeau visuel : de Scratch à Python en 6 semaines"
+								loading="eager"
+							/>
+							<h3>Scratch / mBlock → Python (6 semaines)</h3>
+							<p>
+								Checklist imprimable pour la classe : mBot, capteurs, puis Python au terminal — liens vers nos activités.
+							</p>
+							<span class="cta">Voir le programme →</span>
+						</a>
+					</li>
 					<li>
 						<a href={withBase('/programmation/python/')} class="track-card">
 							<img
@@ -211,7 +253,8 @@ const tag = AMAZON_AFFILIATE_TAG;
 					</li>
 				</ul>
 			</section>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>
@@ -262,6 +305,9 @@ const tag = AMAZON_AFFILIATE_TAG;
 	.track-card:hover {
 		border-color: color-mix(in oklab, var(--accent) 40%, transparent);
 		box-shadow: var(--box-shadow);
+	}
+	.track-card--highlight {
+		border-color: color-mix(in oklab, var(--accent) 55%, transparent);
 	}
 	.track-card img {
 		display: block;

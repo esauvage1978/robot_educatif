@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="t d">
+  <title id="t">Cycle d'exécution d'un programme Arduino</title>
+  <desc id="d">Au démarrage, setup s'exécute une seule fois. Ensuite loop se répète : lecture des capteurs, puis commande des sorties, puis retour à loop.</desc>
+  <rect width="720" height="360" rx="12" fill="#f8fafc"/>
+  <text x="360" y="36" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Comment tourne un programme Arduino</text>
+  <text x="360" y="58" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" fill="#64748b">setup() une fois, puis loop() encore et encore</text>
+
+  <!-- setup -->
+  <rect x="48" y="90" width="160" height="70" rx="10" fill="#0d9488"/>
+  <text x="128" y="122" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="18" font-weight="700" fill="#fff">setup()</text>
+  <text x="128" y="144" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#ecfdf5">une seule fois</text>
+  <text x="128" y="178" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#475569">branchements, Serial&</text>
+
+  <!-- arrow to loop -->
+  <path d="M218 125 h36" stroke="#64748b" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- loop -->
+  <rect x="268" y="90" width="170" height="70" rx="10" fill="#2563eb"/>
+  <text x="353" y="122" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="18" font-weight="700" fill="#fff">loop()</text>
+  <text x="353" y="144" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#dbeafe">se répète sans fin</text>
+  <text x="353" y="178" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="12" fill="#475569">cSur du programme</text>
+
+  <!-- arrow to IO -->
+  <path d="M448 125 h36" stroke="#64748b" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <!-- IO boxes -->
+  <rect x="498" y="78" width="174" height="48" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="585" y="98" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">Entrées (capteurs)</text>
+  <text x="585" y="116" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#475569">digitalRead / analogRead</text>
+
+  <rect x="498" y="138" width="174" height="48" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="585" y="158" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600" fill="#1e293b">Sorties (LED, moteurs)</text>
+  <text x="585" y="176" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="11" fill="#475569">digitalWrite / PWM</text>
+
+  <!-- return arrow -->
+  <path d="M585 196 v40 H353 v-28" fill="none" stroke="#64748b" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#a)"/>
+  <text x="360" y="268" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" fill="#334155">Puis on revient dans loop()  le programme ne s'arrête pas tout seul</text>
+
+  <rect x="80" y="292" width="560" height="44" rx="8" fill="#ecfeff" stroke="#99f6e4"/>
+  <text x="360" y="320" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="13" fill="#0f766e">Astuce : utilisez le moniteur série (Serial) pour afficher ce que la carte lit</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L8,3.5 L0,7 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

@@ -53,5 +53,5 @@ relatedLinks:
 <h2 id="a-lire-aussi">À lire aussi</h2>
 <ul>
 <li><a href="/marque-makeblock/">Makeblock : la suite logique vers 8 ans</a></li>
-<li><a href="/robot-moins-de-100-euros/">Robots à moins de 100 €</a></li>
+<li><a href="/robot-moins-de-100-euros/">Robots à moins de 100 €</a></li>
 </ul>

@@ -20,7 +20,7 @@ categories:
 ---
 Ce mini-projet **recapitule** le parcours : saisie avec **`input`**, conversion **`int`**, boucle **`while`**, comparaisons **`if` / `elif` / `else`**, module **`random`**, et gestion d’une saisie incorrecte avec **`try` / `except`** ([leçon 9](/python-erreurs-debogage/)). Tu peux le coder dans le même dossier que tes autres scripts et le lancer avec `python plus_ou_moins.py`.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+![Exemple de sortie dans un terminal Python](/images/blog/lot15/pendu-console-exemple.png)
 
 ## 1. Règles du jeu
 
@@ -80,7 +80,3 @@ Tu peux ajouter un test : si la proposition est **hors** de 1–100, afficher un
 
 Tu disposes d’une **base solide** pour des projets perso (petits outils, jeux texte, automatisation légère). N’hésite pas à revenir sur [/programmation/python](/programmation/python) pour enchaîner les leçons ou les réviser dans l’ordre.
 
-## Amazon (partenaire)
-
-- [Projets Python jeux et applications](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
-- [Python 3 coffret ou manuel complet](https://www.amazon.fr/s?k=python+3+coffret+apprendre&tag=manuso06-21)

@@ -5,8 +5,10 @@ import Header from '../../../components/Header.astro';
 import { getCollection } from 'astro:content';
 import { articleSlugFromId } from '../../../lib/articleSlug';
 import { withBase } from '../../../lib/siteUrl';
-import bandeauArduinoUrl from '../../../assets/programmation/bandeau-arduino-c.svg?url';
 import { AMAZON_AFFILIATE_TAG } from '../../../consts';
+import PageColumns from '../../../components/PageColumns.astro';
+
+const bandeauArduinoUrl = withBase('/images/products/arduino-starter-kit.webp');
 
 const tag = AMAZON_AFFILIATE_TAG;
 const SERIE = 'Arduino C';
@@ -21,12 +23,13 @@ const posts = all
 	<head>
 		<BaseHead
 			title="Arduino C — parcours débutant (robotique)"
-			description="Cours Arduino C robotique : variables, conditions, boucles, timing, modularité. 20 exercices par leçon."
+			description="Cours Arduino C robotique : variables, conditions, boucles, timing, modularité. . Leçons progressives pour passer de la structure d’un sketch aux automatismes"
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="py-series">
+<PageColumns>
 			<nav class="breadcrumb" aria-label="Fil d’Ariane">
 				<a href={withBase('/programmation/')}>Programmation</a>
 				<span aria-hidden="true"> / </span>
@@ -41,6 +44,9 @@ const posts = all
 				loading="eager"
 			/>
 			<h1>Arduino C — parcours robotique (débutant)</h1>
+			<blockquote class="geo-direct" style="margin: 0 0 1.25rem; padding: 1rem 1.15rem; border-left: 4px solid #0d9488; background: #f0fdfa; line-height: 1.55;">
+				<strong>Réponse directe (octobre 2026)</strong> — Le « langage Arduino » est du <strong>C/C++</strong> simplifié pour microcontrôleurs : chaque programme (sketch) contient <code>setup()</code> (initialisation, une fois) et <code>loop()</code> (répété). La chaîne officielle compile avec <strong>avr-gcc</strong> via l’IDE Arduino ou l’CLI, puis téléverse le binaire sur la carte (USB). Ce n’est pas du C standard « bureau » : pas de <code>main()</code> écrit à la main, bibliothèques <code>Wire</code>, <code>Servo</code>, etc. Première leçon : <a href={withBase('/c-arduino-environnement-structure-sketch/')}>structure du sketch</a> ; types : <a href={withBase('/c-arduino-types-variables/')}>variables et types</a>.
+			</blockquote>
 			<p class="lead">
 				Leçons progressives pour passer de la structure d’un sketch aux automatismes utiles en robotique : types,
 				seuils, boucles, timing non-bloquant avec <code>millis()</code> et modularité. Chaque article propose du{' '}
@@ -57,6 +63,70 @@ const posts = all
 				→ <a href={withBase('/domotique/projets-esp32-domotique/')}>10 projets ESP32 pour la maison connectée</a>
 			</div>
 
+			<h2>C standard vs langage Arduino — quelle différence ?</h2>
+			<p>
+				Le C « cours » tourne souvent sur PC avec un <code>main()</code> unique. Sur Arduino, l’IDE génère un <code>main()</code> qui appelle votre <code>setup()</code> puis boucle sur <code>loop()</code>. Vous programmez entrées/sorties avec <code>pinMode</code>, <code>digitalWrite</code>, <code>digitalRead</code>, <code>analogRead</code>.
+			</p>
+			<img
+				src={withBase('/images/products/arduino-starter-kit.webp')}
+				width="720"
+				height="480"
+				alt="Kit Arduino starter — photo produit"
+				loading="lazy"
+				style="max-width: 100%; height: auto; margin: 1rem 0;"
+			/>
+
+			<h2>Compilation et téléversement (étapes)</h2>
+			<ol>
+				<li>Ouvrir ou créer un sketch (.ino).</li>
+				<li>Sélectionner la <strong>carte</strong> et le <strong>port COM</strong> (Windows) ou <strong>/dev/ttyUSB*</strong> (Linux).</li>
+				<li><strong>Vérifier</strong> (compile) — corriger erreurs de syntaxe (point-virgule, types).</li>
+				<li><strong>Téléverser</strong> — attendre « Done uploading ».</li>
+			</ol>
+
+			<h2>Erreurs fréquentes de compilation et de téléversement</h2>
+			<table style="width:100%; border-collapse: collapse; font-size: 0.92rem;">
+				<thead>
+					<tr>
+						<th style="text-align:left; border-bottom: 1px solid var(--surface-border); padding: 0.4rem;">Message / symptôme</th>
+						<th style="text-align:left; border-bottom: 1px solid var(--surface-border); padding: 0.4rem;">Piste</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="padding: 0.4rem; vertical-align: top;"><code>stk500_getsync()</code></td>
+						<td style="padding: 0.4rem;">Mauvais port, câble charge-only, carte non sélectionnée, autre programme monopolise le port</td>
+					</tr>
+					<tr>
+						<td style="padding: 0.4rem; vertical-align: top;">Port COM absent</td>
+						<td style="padding: 0.4rem;">Pilote USB (CH340/CH341, FTDI) — voir leçons robot si carte clone</td>
+					</tr>
+					<tr>
+						<td style="padding: 0.4rem; vertical-align: top;">« expected ; before … »</td>
+						<td style="padding: 0.4rem;">Point-virgule manquant en fin de ligne C</td>
+					</tr>
+					<tr>
+						<td style="padding: 0.4rem; vertical-align: top;">Types / conversion</td>
+						<td style="padding: 0.4rem;">Mélanger <code>int</code> et <code>float</code> — voir <a href={withBase('/c-arduino-types-variables/')}>types et variables</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2>Exemple minimal commenté</h2>
+			<pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:8px;overflow:auto;font-size:0.85rem;"><code>{`const int LED = 13;
+
+void setup() {
+  pinMode(LED, OUTPUT);  // broche 13 en sortie
+}
+
+void loop() {
+  digitalWrite(LED, HIGH);
+  delay(500);
+  digitalWrite(LED, LOW);
+  delay(500);
+}`}</code></pre>
+
+			<h2>Leçons du parcours</h2>
 			<ol class="lesson-list">
 				{
 					posts.map((post) => (
@@ -75,7 +145,8 @@ const posts = all
 			<p class="back">
 				<a href={withBase('/programmation')}>← Toutes les rubriques programmation</a>
 			</p>
-		</main>
+		</PageColumns>
+</main>
 		<Footer />
 	</body>
 </html>

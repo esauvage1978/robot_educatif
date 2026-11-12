@@ -1,11 +1,17 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Arduino C Lektion 3: if/else-Bedingungen für Sensoren und Aktoren"
-description: "Vergleiche, UND/ODER/NICHT und else if: die Regeln, mit denen ein Roboter anhand eines Abstandswerts anhält, bremst oder piept. Lektion 3 unseres Arduino-C-Kurses, 12 Übungen mit Lösungen."
+description: "Vergleiche, UND/ODER/NICHT und else if: Regeln, mit denen ein Roboter bei einem Abstand anhält, bremst oder piept. Lektion 3, 12 Übungen mit Lösungen."
 updated: "23. Oktober 2026"
 ---
 
-**Bedingungen** (`if`, `else if`, `else`) entscheiden, was je nach Lage passiert: gemessener Abstand, gedrückter Taster, wenig Licht. Dies ist Lektion 3 unseres [Arduino-Kurses](/de/arduino/).
+> **Kurzantwort** — Sie möchten **Arduino** mit einem **Roboter-Bausatz** lernen: wählen Sie zuerst ein Set mit Ultraschall und Motoren ([Bausatz-Ratgeber](/de/arduino-roboter-bausatz-fuer-kinder/)), installieren Sie die **Arduino IDE**, dann arbeiten Sie **Lektion 1 → 2 → 3** durch. **Arduino** ist eine Open-Source-Plattform (Board + IDE); **C** ist die Programmiersprache der Sketches. Hub: diese Seite · Makeblock-Vergleich: [mBot vs Codey Rocky](/de/mbot-vs-codey-rocky/) · Markenüberblick: [Makeblock](/de/marke-makeblock/).
+
+<nav class="breadcrumb" aria-label="Brotkrumen"><a href="/de/">Start</a> · <a href="/de/arduino/">Arduino-Kurs</a> · Lektion 3</nav>
+
+← Vorherige Lektion: [Lektion 2 — Datentypen und Variablen](/de/arduino-c-datentypen-variablen/) · Übersicht: [Arduino-Hub](/de/arduino/) · Nächster Schritt nach dem Kurs: [Roboter-Bausatz-Ratgeber](/de/arduino-roboter-bausatz-fuer-kinder/) · [Lektion 1 — Sketch & Serial](/de/arduino-c-sketch-aufbau-serial/).
+
+**Bedingungen** (`if`, `else if`, `else`) entscheiden, was je nach Lage passiert: gemessener Abstand, gedrückter Taster, wenig Licht. Dies ist **Lektion 3** unseres [Arduino-Kurses](/de/arduino/) (Hub).
 
 In der Robotik schreibst du ständig Regeln wie:
 

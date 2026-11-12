@@ -20,8 +20,6 @@ categories:
 ---
 Bien choisir ton **environnement** dès le début évite la frustration : interpréteur à jour, éditeur lisible, et sur mobile une appli qui gère vraiment Python 3.
 
-![Schéma Windows, macOS, Android](../../assets/programmation/python-outils.svg)
-
 ## 1. Ce dont tu as besoin
 
 - **Python 3** (langage + commande `python` ou `py` dans le terminal).
@@ -86,7 +84,7 @@ python hello.py
 
 ou `python3 hello.py` sur Mac.
 
-![Illustration console Python](../../assets/programmation/python-terminal.svg)
+![Exemple de sortie dans un terminal Python](/images/blog/lot15/pendu-console-exemple.png)
 
 ## Exercices pratiques
 

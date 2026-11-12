@@ -15,21 +15,74 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 
 ## 2. Wireless standards in plain English
 
-| Standard | Strengths | Limits | Good for |
-|---|---|---|---|
-| **Wi-Fi (2.4 GHz)** | no hub, simple app | uses more power, often relies on the maker's cloud | your first smart plug or bulb |
-| **Zigbee 3.0** | low power, mesh network, works locally | needs a USB coordinator or hub | sensors, plugs, radiator valves |
-| **Thread** | mesh, low power, IP-based | fewer devices so far | future-proof battery devices |
-| **Matter** | one standard across Apple Home, Google Home, Alexa and SmartThings | still maturing; runs over Wi-Fi or Thread | buying devices that won't lock you in |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Standard</th>
+<th scope="col">Strengths</th>
+<th scope="col">Limits</th>
+<th scope="col">Good for</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Wi-Fi (2.4 GHz)</strong></span></td>
+<td data-label="Strengths"><span class="td-val">no hub, simple app</span></td>
+<td data-label="Limits"><span class="td-val">uses more power, often relies on the maker's cloud</span></td>
+<td data-label="Good for"><span class="td-val">your first smart plug or bulb</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Zigbee 3.0</strong></span></td>
+<td data-label="Strengths"><span class="td-val">low power, mesh network, works locally</span></td>
+<td data-label="Limits"><span class="td-val">needs a USB coordinator or hub</span></td>
+<td data-label="Good for"><span class="td-val">sensors, plugs, radiator valves</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Thread</strong></span></td>
+<td data-label="Strengths"><span class="td-val">mesh, low power, IP-based</span></td>
+<td data-label="Limits"><span class="td-val">fewer devices so far</span></td>
+<td data-label="Good for"><span class="td-val">future-proof battery devices</span></td>
+</tr>
+<tr>
+<td data-label="Standard"><span class="td-val"><strong>Matter</strong></span></td>
+<td data-label="Strengths"><span class="td-val">one standard across Apple Home, Google Home, Alexa and SmartThings</span></td>
+<td data-label="Limits"><span class="td-val">still maturing; runs over Wi-Fi or Thread</span></td>
+<td data-label="Good for"><span class="td-val">buying devices that won't lock you in</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 3. What differs between the UK and the US
 
-| | United Kingdom | United States |
-|---|---|---|
-| Plug / socket | Type G (BS 1363), fused plug, 13 A max | Type A/B (NEMA 1-15 / 5-15), usually 15 A circuits |
-| Mains voltage | 230 V, 50 Hz | 120 V, 60 Hz |
-| Product safety marking | UKCA (CE still accepted for many goods) | FCC for radio devices; UL or ETL listing for mains safety |
-| Wired switches and relays | domestic electrical work must comply with Part P (England and Wales); use a registered electrician for new circuits | follow local electrical code (NEC); permits and licensed electricians vary by state |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col">United Kingdom</th>
+<th scope="col">United States</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Plug / socket</span></td>
+<td data-label="United Kingdom"><span class="td-val">Type G (BS 1363), fused plug, 13 A max</span></td>
+<td data-label="United States"><span class="td-val">Type A/B (NEMA 1-15 / 5-15), usually 15 A circuits</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Mains voltage</span></td>
+<td data-label="United Kingdom"><span class="td-val">230 V, 50 Hz</span></td>
+<td data-label="United States"><span class="td-val">120 V, 60 Hz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Product safety marking</span></td>
+<td data-label="United Kingdom"><span class="td-val">UKCA (CE still accepted for many goods)</span></td>
+<td data-label="United States"><span class="td-val">FCC for radio devices; UL or ETL listing for mains safety</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Wired switches and relays</span></td>
+<td data-label="United Kingdom"><span class="td-val">domestic electrical work must comply with Part P (England and Wales); use a registered electrician for new circuits</span></td>
+<td data-label="United States"><span class="td-val">follow local electrical code (NEC); permits and licensed electricians vary by state</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Practical rule:** always buy the **UK or US version** of a plug-in device. An EU plug in a travel adaptor is not a safe permanent solution, especially for high loads such as heaters.
 

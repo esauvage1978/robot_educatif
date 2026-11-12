@@ -1,0 +1,21 @@
+---
+import DomotiqueToolLayout from '../../../layouts/DomotiqueToolLayout.astro';
+import SparePartsContent from '../../../components/domotique-pages/SparePartsContent.astro';
+import { SPARE_PARTS_META } from '../../../data/smartHomeSpareParts.mjs';
+
+const lang = 'en';
+const meta = SPARE_PARTS_META[lang];
+const pubDate = new Date('2026-10-24T00:00:00Z');
+---
+
+<DomotiqueToolLayout
+	title={meta.title}
+	description={meta.description}
+	lang={lang}
+	pubDate={pubDate}
+	articlePath="/en/smart-home/spare-parts-sensors-compatible-budget/"
+	hubLabel="Smart home"
+	repairGuide={true}
+>
+	<SparePartsContent lang={lang} />
+</DomotiqueToolLayout>

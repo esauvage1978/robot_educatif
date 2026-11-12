@@ -1,11 +1,21 @@
 ---
 layout: ../../layouts/EnPost.astro
-title: "Arduino C lesson 1: sketch structure, setup() and loop(), Serial Monitor"
-description: "Learn how an Arduino sketch is built: setup() runs once, loop() repeats forever, and Serial prints debug messages. Lesson 1 of our Arduino C course, with 12 exercises and solutions."
-updated: "23 October 2026"
+title: "Arduino lesson 1: setup(), loop() and Serial Monitor"
+description: "How an Arduino sketch works: setup() runs once, loop() repeats, and Serial helps you debug. Lesson 1 of the Arduino C course, with 12 exercises and answers."
+updated: "2 November 2026"
+shareTitle: "Arduino C lesson 1 — sketch structure"
+shareDescription: "setup(), loop(), compile and Serial.println — first steps on any UNO-class board."
 ---
 
-**Arduino C** is C/C++ adapted to microcontrollers. In robotics the idea is simple: your program runs **in a loop** on the board, reads **sensors** and drives **actuators** (LEDs, motors, buzzer). This is lesson 1 of our [Arduino course](/en/arduino/); the code works on any UNO-compatible board, including the one in an [Arduino robot kit](/en/arduino-robot-kit-for-kids/).
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/arduino/">Arduino course</a> · Lesson 1</nav>
+
+**Quick answer (November 2026)** — An Arduino **sketch** is a small C/C++ program with **`setup()`** (runs **once** at boot) and **`loop()`** (repeats forever). Use **`Serial`** (*UART text to your PC*) like `print()` in Python to see what the board is doing.
+
+This is lesson 1 of our [Arduino course](/en/arduino/); it works on any UNO-compatible board, including kits in our [Arduino robot kit guide](/en/arduino-robot-kit-for-kids/) and [best programmable robot](/en/best-programmable-robot-for-kids/).
+
+![Arduino IDE and Serial Monitor — structure of a sketch](/images/illustrations/c-arduino-environnement-structure-sketch.webp)
+
+**Arduino C** is C/C++ adapted to microcontrollers. In robotics the idea is simple: your program runs **in a loop** on the board, reads **sensors** and drives **actuators** (LEDs, motors, buzzer).
 
 In this lesson you will learn:
 
@@ -281,4 +291,15 @@ void loop() {}</code></pre>
 
 ---
 
-Next: [Lesson 2: types, variables and constants](/en/arduino-c-types-variables/) → · [Back to the course](/en/arduino/)
+Next: [Lesson 2: types, variables and constants](/en/arduino-c-types-variables/) → · [Back to the course hub](/en/arduino/)
+
+## FAQ
+
+**What baud rate for Serial?**  
+**9600** is fine for lessons; match `Serial.begin(9600)` and the Serial Monitor dropdown.
+
+**Verify vs Upload?**  
+**Verify** compiles only; **Upload** sends the binary to the board—compile often, upload when ready.
+
+**Same code on mBot mCore?**  
+Logic is identical; mBlock may wrap Makeblock libraries—see [mBot vs mBot2](/en/mbot-vs-mbot2/).

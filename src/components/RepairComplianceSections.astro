@@ -1,0 +1,160 @@
+---
+import {
+	DISCLAIMER,
+	DISCLAIMER_LOW_VOLTAGE,
+	DISCLAIMER_ROBOT,
+	PROFESSIONAL_ASSISTANCE,
+	PROFESSIONAL_ASSISTANCE_LOW_VOLTAGE,
+	PROFESSIONAL_ASSISTANCE_ROBOT,
+	SAV_POLICY,
+	SAV_POLICY_LOW_VOLTAGE,
+	SMART_HOME_MANUFACTURERS,
+	SUPPORT_BLOCK_TITLE,
+} from '../data/repairCompliance.mjs';
+
+interface Props {
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
+	/** smart-home = 230 V ; low-voltage-domotique = piles/USB ; makeblock-only = robots */
+	variant?: 'smart-home' | 'low-voltage-domotique' | 'makeblock-only';
+	showDisclaimer?: boolean;
+	showAssist?: boolean;
+	showSav?: boolean;
+	showSupport?: boolean;
+}
+
+const {
+	lang,
+	variant = 'smart-home',
+	showDisclaimer = true,
+	showAssist = true,
+	showSav = true,
+	showSupport = true,
+} = Astro.props;
+
+const manufacturers =
+	variant === 'makeblock-only'
+		? SMART_HOME_MANUFACTURERS.filter((m) => m.id === 'makeblock')
+		: SMART_HOME_MANUFACTURERS;
+
+const disclaimerText =
+	variant === 'makeblock-only'
+		? DISCLAIMER_ROBOT[lang]
+		: variant === 'low-voltage-domotique'
+			? DISCLAIMER_LOW_VOLTAGE[lang]
+			: DISCLAIMER[lang];
+const assistText =
+	variant === 'makeblock-only'
+		? PROFESSIONAL_ASSISTANCE_ROBOT[lang]
+		: variant === 'low-voltage-domotique'
+			? PROFESSIONAL_ASSISTANCE_LOW_VOLTAGE[lang]
+			: PROFESSIONAL_ASSISTANCE[lang];
+const savText =
+	variant === 'low-voltage-domotique' ? SAV_POLICY_LOW_VOLTAGE[lang] : SAV_POLICY[lang];
+
+const emailLabel =
+	lang === 'fr' ? 'E-mail' : lang === 'de' ? 'E-Mail' : lang === 'it' ? 'E-mail' : lang === 'es' ? 'Correo' : 'Email';
+const phoneLabel =
+	lang === 'fr' ? 'Téléphone' : lang === 'de' ? 'Telefon' : lang === 'it' ? 'Telefono' : lang === 'es' ? 'Teléfono' : 'Phone';
+---
+
+{showDisclaimer && (
+	<aside class="repair-compliance repair-compliance--disclaimer" role="note">
+		<strong>
+			{lang === 'fr'
+				? 'Clause de non-responsabilité & Sécurité'
+				: lang === 'de'
+					? 'Haftungsausschluss & Sicherheit'
+					: lang === 'it'
+						? 'Esclusione di responsabilità & sicurezza'
+						: lang === 'es'
+							? 'Aviso legal y seguridad'
+							: 'Disclaimer & safety'}
+		</strong>
+		<p>{disclaimerText}</p>
+	</aside>
+)}
+
+{showAssist && <p class="repair-compliance repair-compliance--assist">{assistText}</p>}
+
+{showSav && <p class="repair-compliance repair-compliance--sav">{savText}</p>}
+
+{showSupport && (
+<section class="repair-compliance repair-compliance--support" aria-labelledby="official-support-heading">
+	<h2 id="official-support-heading">{SUPPORT_BLOCK_TITLE[lang]}</h2>
+	<ul class="repair-support-list">
+		{manufacturers.map((brand) => (
+			<li>
+				<strong>{brand.name[lang]}</strong>
+				<ul>
+					{brand.links.map((link) => (
+						<li>
+							<a href={link.url} rel="noopener noreferrer" target="_blank">{link.label[lang]}</a>
+						</li>
+					))}
+					{brand.email && (
+						<li>
+							{emailLabel}: <a href={`mailto:${brand.email}`}>{brand.email}</a>
+						</li>
+					)}
+					{brand.phone && (
+						<li>
+							{phoneLabel}: <a href={`tel:${brand.phone.replace(/\s/g, '')}`}>{brand.phone}</a>
+						</li>
+					)}
+				</ul>
+			</li>
+		))}
+	</ul>
+</section>
+)}
+
+<style>
+	.repair-compliance {
+		margin: 1.5rem 0;
+		line-height: 1.55;
+	}
+	.repair-compliance--disclaimer {
+		padding: 1.1rem 1.25rem;
+		border: 2px solid #b45309;
+		border-radius: 10px;
+		background: #fffbeb;
+	}
+	.repair-compliance--disclaimer strong {
+		display: block;
+		margin-bottom: 0.5rem;
+		color: #92400e;
+	}
+	.repair-compliance--assist {
+		padding: 0.85rem 1rem;
+		background: #f0fdfa;
+		border-left: 4px solid #0f766e;
+		border-radius: 0 8px 8px 0;
+		font-size: 0.95rem;
+	}
+	.repair-compliance--sav {
+		font-size: 0.95rem;
+		color: rgb(var(--gray-dark));
+	}
+	.repair-compliance--support {
+		padding: 1.25rem 1.35rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	.repair-compliance--support h2 {
+		font-size: 1.2rem;
+		margin: 0 0 1rem;
+		color: var(--accent);
+	}
+	.repair-support-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 1rem;
+	}
+	.repair-support-list > li > ul {
+		margin: 0.35rem 0 0;
+		padding-left: 1.1rem;
+	}
+</style>

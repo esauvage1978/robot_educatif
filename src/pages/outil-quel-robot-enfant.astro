@@ -1,0 +1,79 @@
+---
+import RobotToolLayout from '../layouts/RobotToolLayout.astro';
+import RobotAgeQuiz from '../components/RobotAgeQuiz.astro';
+import { QUIZ_PAGE } from '../data/robotAgeQuiz.mjs';
+import { withBase } from '../lib/siteUrl';
+
+const pubDate = new Date('2026-11-03T00:00:00Z');
+---
+
+<RobotToolLayout
+	title={QUIZ_PAGE.title}
+	description={QUIZ_PAGE.description}
+	pubDate={pubDate}
+	articlePath="/outil-quel-robot-enfant/"
+	hubLabel="Guides d'achat"
+	hubPath="/meilleur-robot-programmable-enfant-2026/"
+>
+	<p set:html={QUIZ_PAGE.intro} />
+	<RobotAgeQuiz />
+	<h2>Relier chaque tranche d’âge à un guide détaillé</h2>
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot2.webp')}
+			alt="Makeblock mBot2, exemple cité dans le tableau pour les 10-13 ans"
+			width="800"
+			height="600"
+		/>
+	</figure>
+	<p>
+		Le quiz oriente vers un modèle ; nos guides par âge détaillent le montage, le logiciel (
+		<strong>Scratch</strong>, bloc visuel ; <strong>Python</strong>, langage texte) et le budget réel (
+		<strong>TTC</strong>, toutes taxes comprises).
+	</p>
+	<table>
+		<thead>
+			<tr><th>Âge</th><th>Guide sur le site</th><th>Exemple de robot</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>4–6 ans</td>
+				<td><a href={withBase('/robot-enfant-4-ans/')}>Robot dès 4 ans</a> · <a href={withBase('/robot-educatif-sans-ecran-guide/')}>Sans écran</a></td>
+				<td>Tale-Bot, Code &amp; Go</td>
+			</tr>
+			<tr>
+				<td>7–9 ans</td>
+				<td><a href={withBase('/quel-robot-acheter-enfant-8-ans-guide-achat/')}>Guide 8 ans</a></td>
+				<td>Codey Rocky, mBot</td>
+			</tr>
+			<tr>
+				<td>10–13 ans</td>
+				<td><a href={withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')}>Guide 10 ans</a> · <a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a></td>
+				<td>mBot2, CyberPi</td>
+			</tr>
+			<tr>
+				<td>14 ans et +</td>
+				<td><a href={withBase('/quel-robot-acheter-enfant-12-ans-guide-achat/')}>Guide 12 ans</a> · <a href={withBase('/meilleur-robot-educatif-arduino-kit-choisir/')}>Kit Arduino</a></td>
+				<td>ELEGOO, Raspberry Pi</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Comparatif global : <a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>meilleurs robots programmables 2026</a>
+		· budget serré : <a href={withBase('/robot-moins-de-50-euros/')}>robots sous 50 €</a>
+		· école : <a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>packs classe 2026</a>.
+	</p>
+	<h2>FAQ</h2>
+	<ul>
+		<li><strong>Faut-il un écran ?</strong> Non avant 6–7 ans si vous visez la logique sans tablette ; à partir du collège, un PC ou une tablette débloque Scratch puis Python.</li>
+		<li><strong>Scratch ou Python ?</strong> Scratch (blocs) dès 8 ans ; Python texte plutôt à partir de 10–11 ans avec un adulte au début.</li>
+		<li><strong>Les liens Amazon ?</strong> Boutons partenaires sur les fiches produit ; vous pouvez aussi acheter chez un revendeur local — vérifiez la garantie UE.</li>
+	</ul>
+	<p>
+		Guides par âge :{' '}
+		<a href={withBase('/quel-robot-acheter-enfant-5-ans-guide-achat/')}>5 ans</a> ·{' '}
+		<a href={withBase('/quel-robot-acheter-enfant-8-ans-guide-achat/')}>8 ans</a> ·{' '}
+		<a href={withBase('/quel-robot-acheter-enfant-10-ans-guide-achat/')}>10 ans</a> ·{' '}
+		<a href={withBase('/quel-robot-acheter-enfant-12-ans-guide-achat/')}>12 ans</a>.
+	</p>
+</RobotToolLayout>

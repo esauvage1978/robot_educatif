@@ -1,0 +1,273 @@
+/* Ponts classes build Astro absentes du CSS fusionné prod */
+.callout-quick { box-sizing: border-box; }
+.callout-no-install { box-sizing: border-box; }
+.callout-web-pillar { box-sizing: border-box; }
+.github-dark { font: inherit; }
+.is-section { box-sizing: border-box; }
+.language-python { font: inherit; }
+.line { font: inherit; }
+.nav-guides { box-sizing: border-box; }
+.nav-guides__chevron { box-sizing: border-box; }
+.nav-guides__group { box-sizing: border-box; }
+.nav-guides__hint { box-sizing: border-box; }
+.nav-guides__panel { box-sizing: border-box; }
+.nav-guides__title { box-sizing: border-box; }
+.nav-guides__trigger { box-sizing: border-box; }
+.promo-code { box-sizing: border-box; }
+.prose--slug-10-projets-mbot-gratuits-classe-faciles { /* variante prose par slug */ }
+.prose--slug-accessoires-mbot-par-ou-commencer { /* variante prose par slug */ }
+.prose--slug-activite-mbot-detecteur-dintrusion { /* variante prose par slug */ }
+.prose--slug-alternatives-lego-spike-comparatif-2026 { /* variante prose par slug */ }
+.prose--slug-cadeau-geek-ado-programmation { /* variante prose par slug */ }
+.prose--slug-cadeau-robot-enfant-10-ans { /* variante prose par slug */ }
+.prose--slug-cadeau-robot-enfant-8-ans { /* variante prose par slug */ }
+.prose--slug-equiper-classe-robots-budget-packs-2026 { /* variante prose par slug */ }
+.prose--slug-idees-cadeaux-robotique-noel-rentree-anniversaire { /* variante prose par slug */ }
+.prose--slug-idees-projets-mbot-rapides-une-heure { /* variante prose par slug */ }
+.prose--slug-installer-mblock-5-sous-windows-10 { /* variante prose par slug */ }
+.prose--slug-kit-robotique-adulte-debutant { /* variante prose par slug */ }
+.prose--slug-logiciel-mblock-makeblock-mbot-quel-choisir { /* variante prose par slug */ }
+.prose--slug-mblock-bluetooth-erreurs-frequentes-depannage { /* variante prose par slug */ }
+.prose--slug-mblock-vs-scratch-lequel-choisir { /* variante prose par slug */ }
+.prose--slug-mbot-avis-faut-il-acheter-pour-un-enfant { /* variante prose par slug */ }
+.prose--slug-mbot-vs-codey-rocky-comparatif { /* variante prose par slug */ }
+.prose--slug-mbot-vs-lego-robot-lequel-est-le-meilleur { /* variante prose par slug */ }
+.prose--slug-mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants { /* variante prose par slug */ }
+.prose--slug-meilleur-robot-educatif-arduino-kit-choisir { /* variante prose par slug */ }
+.prose--slug-meilleur-robot-programmable-enfant-2026 { /* variante prose par slug */ }
+.prose--slug-mise-en-route-raspberry-pi-3-modele-b { /* variante prose par slug */ }
+.prose--slug-premier-pas-avec-mblock-5 { /* variante prose par slug */ }
+.prose--slug-prix-mbot-mbot2-ranger-comparatif-2026 { /* variante prose par slug */ }
+.prose--slug-python-bataille-navale-1-cahier-des-charges { /* variante prose par slug */ }
+.prose--slug-python-erreurs-debogage { /* variante prose par slug */ }
+.prose--slug-python-types-et-saisie { /* variante prose par slug */ }
+.prose--slug-quel-robot-acheter-enfant-10-ans-guide-achat { /* variante prose par slug */ }
+.prose--slug-quel-robot-acheter-enfant-12-ans-guide-achat { /* variante prose par slug */ }
+.prose--slug-quel-robot-acheter-enfant-7-ans-guide-achat { /* variante prose par slug */ }
+.prose--slug-quel-robot-educatif-autour-de-200-euros-guide-2026 { /* variante prose par slug */ }
+.prose--slug-quel-robot-educatif-choisir-2026 { /* variante prose par slug */ }
+.prose--slug-quel-robot-educatif-entre-200-et-500-euros-guide-2026 { /* variante prose par slug */ }
+.prose--slug-quel-robot-educatif-entre-500-et-1000-euros-guide-2026 { /* variante prose par slug */ }
+.prose--slug-quel-robot-educatif-plus-de-1000-euros-guide-expert-2026 { /* variante prose par slug */ }
+.prose--slug-raspberry-pi-3-vs-4-vs-5-comparatif-2026 { /* variante prose par slug */ }
+.prose--slug-raspberry-pi-4-quelle-version-memoire-acheter { /* variante prose par slug */ }
+.prose--slug-raspberry-pi-5-quelle-version-memoire-acheter { /* variante prose par slug */ }
+.prose--slug-raspberry-pi-ou-kit-robot-ado-guide { /* variante prose par slug */ }
+.prose--slug-robot-educatif-eilik-compagnon { /* variante prose par slug */ }
+.prose--slug-robot-moins-de-100-euros { /* variante prose par slug */ }
+.prose--slug-robot-moins-de-50-euros { /* variante prose par slug */ }
+.prose--slug-robot-pedagogique-ecole { /* variante prose par slug */ }
+.prose--slug-robot-programmable-python { /* variante prose par slug */ }
+.prose--slug-robot-programmable-scratch-lequel-choisir { /* variante prose par slug */ }
+.prose--slug-robots-technologie-college-guide { /* variante prose par slug */ }
+.prose--slug-scratch-ecole-maison-par-ou-commencer { /* variante prose par slug */ }
+.prose--slug-sinscrire-sur-mblock { /* variante prose par slug */ }
+.share-btn { box-sizing: border-box; display: inline-flex; }
+.share-btn--copy { box-sizing: border-box; display: inline-flex; }
+.share-btn--facebook { box-sizing: border-box; display: inline-flex; }
+.share-btn--pinterest { box-sizing: border-box; display: inline-flex; }
+.share-btn--twitter { box-sizing: border-box; display: inline-flex; }
+.share-btn--whatsapp { box-sizing: border-box; display: inline-flex; }
+.share-buttons { box-sizing: border-box; }
+.share-icon { box-sizing: border-box; }
+.share-label { box-sizing: border-box; }
+
+.breadcrumb,
+.christmas-banner,
+.christmas-banner-inner,
+.christmas-content,
+.christmas-cta,
+.christmas-cta-text,
+.christmas-cta-title,
+.christmas-dismiss,
+.christmas-side,
+.christmas-title,
+.christmas-tree {
+  box-sizing: border-box;
+}
+.christmas-icon,
+.christmas-text,
+.etiquette,
+.footer-facebook,
+.footer-francophonie,
+.mut,
+.pr-widget {
+  box-sizing: border-box;
+}
+
+/* scrollWidth mobile ≤ viewport (375/390) — blocs code et libellés longs */
+pre.astro-code,
+pre.astro-code.github-dark,
+article pre,
+.prose pre {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+pre.astro-code code,
+pre.astro-code .line,
+pre.astro-code .line span {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.prose a code,
+.prose li code,
+article li code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+.tableau.empile,
+.tableau.empile table {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header refactor Astro (classes HTML sans règles dans le CSS fusionné prod) */
+.header-bar,
+.header-cta,
+.header-dropdown,
+.header-icon-btn,
+.is-current,
+.lang-dropdown,
+.lang-dropdown__active,
+.lang-dropdown__menu,
+.lang-dropdown__trigger,
+.mobile-menu-cta,
+.mobile-menu-section,
+.mobile-menu-section__title,
+.nav-dropdown__caret,
+.nav-dropdown__trigger,
+.nav-outils,
+.nav-outils__panel,
+.guide-sidebar,
+.guide-sidebar__box,
+.guide-sidebar__box--quick,
+.guide-sidebar__chips,
+.guide-sidebar__grp,
+.guide-sidebar__grp-title,
+.guide-sidebar__list,
+.guide-sidebar__read-also,
+.guide-sidebar__title,
+.guide-sidebar__title--plain,
+.page-layout--with-sidebar,
+.article-toc,
+.article-toc-title,
+.active,
+.affiliate-notice,
+.aqf-btn,
+.aqf-check,
+.aqf-hp,
+.aqf-row,
+.aqf-status,
+.aqf-sub,
+.cookie-consent,
+.cookie-consent__actions,
+.cookie-consent__btn,
+.cookie-consent__btn--primary,
+.cookie-consent__btn--secondary,
+.cookie-consent__inner,
+.cookie-consent__text,
+.cookie-consent__title,
+.copyright,
+.desktop-only,
+.footer-bottom,
+.footer-brand,
+.footer-col,
+.footer-columns,
+.footer-inner,
+.footer-tagline,
+.hero-article,
+.hero-article-content,
+.hero-author,
+.hero-desc,
+.hero-meta,
+.last-updated-on,
+.mobile-menu,
+.mobile-menu-toggle,
+.mobile-only,
+.mnz-choix-n,
+.mnz-choix-t,
+.moon-icon,
+.pr-reasons,
+.pr-star,
+.site-header,
+.social-links,
+.sun-icon,
+.brand,
+.brand-logo {
+  box-sizing: border-box;
+}
+
+.domotique-subnav {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.subnav-scroll {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* En-tête mobile : le bouton menu ne doit pas dépasser le viewport (scrollWidth) */
+@media (max-width: 720px) {
+  body {
+    max-width: 100%;
+  }
+  .cookie-consent,
+  .cookie-consent__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+  }
+  header nav,
+  .site-header nav {
+    padding-inline: 0.5rem !important;
+    gap: 0.25rem !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .brand img,
+  .site-header .logo img,
+  .brand-logo {
+    max-width: 108px !important;
+    height: auto !important;
+  }
+  .header-social .social-icon {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+}
+@media (max-width: 400px) {
+  header nav,
+  .site-header nav {
+    padding-inline: 0.45rem !important;
+    gap: 0.25rem !important;
+  }
+  .brand img,
+  .site-header .logo img,
+  .brand-logo {
+    max-width: 82px !important;
+  }
+  .header-actions .btn,
+  .nav-cta .btn {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    padding: 0.35rem !important;
+    min-width: 2.25rem !important;
+  }
+}
+.lang-switch a[hreflang=en-us],.lang-switch a[hreflang=en-gb],.lang-switch a[hreflang=en-ca]{display:none}

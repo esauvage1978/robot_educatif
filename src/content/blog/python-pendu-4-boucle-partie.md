@@ -2,7 +2,7 @@
 title: "Le pendu en Python (4/6) — boucle de partie et validation"
 description: "while True avec conditions de sortie ; redemander une lettre invalide ; rejouer une partie sans redémarrer le script."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-02
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
 series: Le pendu
 seriesOrder: 4
@@ -18,9 +18,13 @@ categories:
   - "Pendu"
   - "Projet"
 ---
-Tu as les **briques** ([masque](/python-pendu-1-cahier-mot-masque/), [fichier](/python-pendu-2-mots-depuis-fichier/), [affichage](/python-pendu-3-affichage-lettres/)). Il faut une **boucle** propre qui enchaîne les tours jusqu’à victoire ou défaite, sans laisser le programme planter sur une saisie bancale.
+> **Réponse directe (novembre 2026)** — Enferme chaque partie dans une boucle `while True` avec `break` sur victoire ou défaite, et fais tourner `demander_lettre_valide()` jusqu’à obtenir **une seule lettre alphabétique jamais essayée**.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/pendu/">Série Le pendu</a> · Partie 4/6 — boucle de partie</nav>
+
+Tu as les **briques** ([masque](/python-pendu-1-cahier-mot-masque/), [fichier](/python-pendu-2-mots-depuis-fichier/), [affichage](/python-pendu-3-affichage-lettres/)). Il faut une **boucle** propre qui enchaîne les tours jusqu’à victoire ou défaite, sans laisser le programme planter sur une saisie bancale. Ce chapitre s’inscrit dans le [projet pendu en Python](/programmation/pendu/) (hub du parcours en six parties). Suite : [partie 5 — victoire et défaite](/python-pendu-5-victoire-defaite/).
+
+![Boucle de jeu au pendu — illustration pédagogique](/images/illustrations/python-pendu-4-boucle-partie.webp)
 
 ## 1. Structure `while True` avec `break`
 
@@ -64,6 +68,17 @@ Après `break`, demande `Rejouer ? (o/n)` : si oui, recharge un nouveau mot, ré
 1. Compte le **nombre de coups** (lettres valides jouées) et affiche-le en fin de partie.
 2. Limite la **longueur** du mot secret entre 4 et 8 lettres en filtrant la liste chargée.
 3. Mode **difficile** : seulement **5** vies — paramètre `vies_initiales` passé à `jouer_une_partie`.
+
+## FAQ
+
+**Pourquoi `while True` plutôt qu’un `for` ?**  
+Le nombre de tours dépend des lettres trouvées : on sort avec `break` dès que le masque n’a plus de `_` ou que les vies tombent à zéro.
+
+**Comment éviter le crash sur une saisie vide ?**  
+Centralise la validation dans `demander_lettre_valide()` : boucle interne jusqu’à une lettre A–Z unique.
+
+**Où placer la boucle « rejouer » ?**  
+Soit une boucle externe autour de `jouer_une_partie()`, soit un menu dans `main()` — voir le script complet ci-dessous.
 
 ## Suite
 

@@ -3,67 +3,178 @@ import { Image } from 'astro:assets';
 import { SITE_TITLE } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import HeaderLink from './HeaderLink.astro';
+import NavGuides from './NavGuides.astro';
+import Drapeau from './Drapeau.astro';
 import logoA from '../assets/logo-a.svg';
-import { findPair } from '../lib/i18n.mjs';
+import { findPair, OMIT_US_HREFLANG } from '../lib/i18n.mjs';
+import { SMART_HOME_TOOL_PATHS } from '../lib/smartHomeToolPaths.mjs';
+import {
+	URL_CODES_ERREURS_DOMOTIQUE,
+	URL_CONFIGURATEUR_DOMOTIQUE,
+	URL_PIECES_SAV_DOMOTIQUE,
+	URL_QUIZ_ROBOT_ENFANT,
+} from '../lib/siteToolUrls.mjs';
+import ChristmasBanner from './ChristmasBanner.astro';
+
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-const isEn = _p === '/en' || _p.startsWith('/en/');
+const isUk = _p === '/uk' || _p.startsWith('/uk/');
+const isCa = _p === '/ca' || _p.startsWith('/ca/');
+const isUs = _p === '/us' || _p.startsWith('/us/');
+const isEn = (_p === '/en' || _p.startsWith('/en/')) && !isUk && !isCa && !isUs;
+const isAnglo = isEn || isUk || isCa || isUs;
 const pair = findPair(_p);
 const frHref = pair && pair.fr ? pair.fr : '/';
 const enHref = pair && pair.en ? pair.en : '/en/';
+const geoFromEn = (loc: string) => {
+	if (!enHref || enHref === '/en/') return `/${loc}/`;
+	if (enHref.startsWith('/en/')) return enHref.replace(/^\/en\//, `/${loc}/`);
+	return `/${loc}/`;
+};
+const ukHref = pair && pair.uk ? pair.uk : geoFromEn('uk');
+const caHref = pair && pair.ca ? pair.ca : geoFromEn('ca');
+const usHref = pair && pair.us ? pair.us : OMIT_US_HREFLANG ? enHref : geoFromEn('us');
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const deHref = pair && pair.de ? pair.de : '/de/';
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
 const itHref = pair && pair.it ? pair.it : '/it/';
 const esHref = pair && pair.es ? pair.es : '/es/';
-const isFr = !isEn && !isDe && !isIt && !isEs;
-const navFr = [
-	['/', 'Accueil'],
-	['/meilleur-robot-programmable-enfant-2026/', "Guides d'achat"],
-	['/domotique/', 'Domotique'],
-	['/10-projets-mbot-gratuits-classe-faciles/', 'Projets mBot'],
+const isFr = !isAnglo && !isDe && !isIt && !isEs;
+
+const homeHref = isAnglo ? (isUs ? '/us/' : isUk ? '/uk/' : isCa ? '/ca/' : '/en/') : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : '/';
+
+const navMainFr: [string, string][] = [
+	['/10-projets-mbot-gratuits-classe-faciles/', 'mBot'],
 	['/programmation/', 'Python'],
 	['/blog/', 'Blog'],
 ];
-const navEn = [
-	['/en/', 'Home'],
-	['/en/buying-guides/', 'Buying guides'],
-	['/en/comparisons/', 'Comparisons'],
-	['/en/tutorials/', 'Tutorials'],
-	['/en/arduino/', 'Arduino'],
-	['/en/smart-home/', 'Smart home'],
+const navMainEn: [string, string][] = [
+	['/en/tutorials/', 'mBot'],
+	['/en/arduino/', 'Python'],
+	['/blog/', 'Blog'],
 ];
-const navDe = [
-	['/de/', 'Start'],
-	['/de/kaufberater/', 'Kaufberater'],
-	['/de/vergleiche/', 'Vergleiche'],
-	['/de/anleitungen/', 'Anleitungen'],
-	['/de/arduino/', 'Arduino'],
-	['/de/smart-home/', 'Smart Home'],
+const navMainDe: [string, string][] = [
+	['/de/anleitungen/', 'mBot'],
+	['/de/arduino/', 'Python'],
+	['/blog/', 'Blog'],
 ];
-const navIt = [
-	['/it/', 'Home'],
-	['/it/miglior-robot-programmabile-per-bambini/', "Guide all'acquisto"],
-	['/it/raspberry-pi-3-vs-4-vs-5/', 'Confronti'],
-	['/it/kit-robot-arduino-per-bambini/', 'Arduino'],
-	['/it/shelly-gen4-quale-modulo-scegliere/', 'Domotica'],
-	['/it/marchi/', 'Marchi'],
+const navMainIt: [string, string][] = [
+	['/it/installare-mblock-5-windows/', 'mBot'],
+	['/it/kit-robot-arduino-per-bambini/', 'Python'],
+	['/blog/', 'Blog'],
 ];
-const navEs = [
-	['/es/', 'Inicio'],
-	['/es/mejor-robot-programable-para-ninos/', 'Guías de compra'],
-	['/es/raspberry-pi-3-vs-4-vs-5/', 'Comparativas'],
-	['/es/kit-robot-arduino-para-ninos/', 'Arduino'],
-	['/es/shelly-gen4-que-modulo-elegir/', 'Domótica'],
-	['/es/marcas/', 'Marcas'],
+const navMainEs: [string, string][] = [
+	['/marque-makeblock/', 'mBot'],
+	['/es/kit-robot-arduino-para-ninos/', 'Python'],
+	['/blog/', 'Blog'],
 ];
-const nav = isEn ? navEn : isDe ? navDe : isIt ? navIt : isEs ? navEs : navFr;
-const mobileExtra = (isEn || isDe || isIt || isEs) ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
+const navMain = isAnglo ? navMainEn : isDe ? navMainDe : isIt ? navMainIt : isEs ? navMainEs : navMainFr;
+const baissesHref = isDe
+	? '/de/preissenkungen/'
+	: isIt
+		? '/it/ribassi-prezzo/'
+		: isEs
+			? '/es/bajadas-de-precio/'
+			: isCa
+				? '/ca/price-drops/'
+				: isUk
+					? '/uk/price-drops/'
+					: isAnglo
+						? '/en/price-drops/'
+						: '/baisses-de-prix/';
+const baissesLib = isDe ? 'Preissenkungen' : isIt ? 'Ribassi di prezzo' : isEs ? 'Bajadas de precio' : isAnglo ? 'Price drops' : 'Baisses de prix';
+const accHref = isDe ? '/de/zubehoer/' : isIt ? '/it/accessori/' : isEs ? '/es/accesorios/' : isCa ? '/ca/accessories/' : isUk ? '/uk/accessories/' : isAnglo ? '/en/accessories/' : '/accessoires/';
+const accLib = isDe ? 'Zubehör' : isIt ? 'Accessori' : isEs ? 'Accesorios' : isAnglo ? 'Accessories' : 'Accessoires';
+const bfHref = isDe
+	? '/de/black-friday/'
+	: isIt
+		? '/it/black-friday/'
+		: isEs
+			? '/es/black-friday/'
+			: isCa
+				? '/ca/black-friday/'
+				: isUk
+					? '/uk/black-friday/'
+					: isAnglo
+						? '/en/black-friday/'
+						: '/black-friday/';
+const mobileExtra = isAnglo || isDe || isIt || isEs ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
+
+const outilsTrigger = isAnglo ? 'Tools' : isDe ? 'Werkzeuge' : isIt ? 'Strumenti' : isEs ? 'Herramientas' : 'Outils';
+
+const outilsMenuFr: [string, string][] = [
+	[URL_CONFIGURATEUR_DOMOTIQUE, '⚡ Configurateur Domotique'],
+	[URL_CODES_ERREURS_DOMOTIQUE, '🔧 Codes erreurs'],
+	[URL_PIECES_SAV_DOMOTIQUE, 'Pièces détachées & SAV'],
+	[URL_QUIZ_ROBOT_ENFANT, 'Quel robot éducatif choisir ?'],
+	['/configurateur-kit-robotique-classe/', 'Configurateur kit classe'],
+	['/calculateur-budget-robot-classe/', 'Calculateur budget classe'],
+	['/compatibilite-makeblock/', 'Compatibilité Makeblock mBot'],
+	['/tableau-reglages-capteurs-mbot2-depannage/', 'Réglages capteurs mBot2'],
+	['/mblock-depannage-codes-erreurs-mbot-arduino/', 'Dépannage mBlock & codes mBot'],
+];
+const outilsMenuEn: [string, string][] = [
+	['/en/smart-home/', '⚡ Smart home tools'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.en, '🔧 Error codes'],
+	[SMART_HOME_TOOL_PATHS.spareParts.en, 'Spare parts & sensors'],
+	[SMART_HOME_TOOL_PATHS.compatMatrix.en, 'Compatibility matrix'],
+	['/en/best-programmable-robot-for-kids/', 'Robot buying guide'],
+];
+const outilsMenuDe: [string, string][] = [
+	['/de/smart-home/', '⚡ Smart Home'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.de, '🔧 Fehlercodes'],
+	[SMART_HOME_TOOL_PATHS.spareParts.de, 'Ersatzteile & Sensoren'],
+	[SMART_HOME_TOOL_PATHS.compatMatrix.de, 'Kompatibilitätsmatrix'],
+	['/de/bester-programmierbarer-roboter-fuer-kinder/', 'Kaufberater Roboter'],
+];
+const outilsMenuIt: [string, string][] = [
+	['/it/domotica/', '⚡ Domotica'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.it, '🔧 Codici errore'],
+	[SMART_HOME_TOOL_PATHS.spareParts.it, 'Ricambi e sensori'],
+	[SMART_HOME_TOOL_PATHS.compatMatrix.it, 'Matrice compatibilità'],
+	['/it/miglior-robot-programmabile-per-bambini/', 'Guida robot'],
+];
+const outilsMenuEs: [string, string][] = [
+	['/es/domotica/', '⚡ Domótica'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.es, '🔧 Códigos error'],
+	[SMART_HOME_TOOL_PATHS.spareParts.es, 'Repuestos y sensores'],
+	[SMART_HOME_TOOL_PATHS.compatMatrix.es, 'Matriz compatibilidad'],
+	['/es/mejor-robot-programable-para-ninos/', 'Guía robots'],
+];
+const outilsMenu = isAnglo ? outilsMenuEn : isDe ? outilsMenuDe : isIt ? outilsMenuIt : isEs ? outilsMenuEs : outilsMenuFr;
+
+const ctaConfigHref = isAnglo ? '/en/smart-home/' : isDe ? '/de/smart-home/' : isIt ? '/it/domotica/' : isEs ? '/es/domotica/' : URL_CONFIGURATEUR_DOMOTIQUE;
+const ctaConfigLabel = isAnglo ? '⚡ Configurator' : isDe ? '⚡ Konfigurator' : isIt ? '⚡ Configuratore' : isEs ? '⚡ Configurador' : '⚡ Configurateur';
+
+const langNavLabel = isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
+
+type LangOption = {
+	code: string;
+	href: string;
+	hreflang: string;
+	lang: string;
+	label: string;
+	current: boolean;
+};
+const langOptions: LangOption[] = [
+	{ code: 'FR', href: frHref, hreflang: 'fr', lang: 'fr', label: 'Français', current: isFr },
+	{ code: 'EN', href: enHref, hreflang: 'en', lang: 'en', label: 'English', current: isEn },
+	{ code: 'US', href: usHref, hreflang: 'en-us', lang: 'en-US', label: 'English (US)', current: isUs },
+	{ code: 'UK', href: ukHref, hreflang: 'en-gb', lang: 'en-GB', label: 'English (UK)', current: isUk },
+	{ code: 'CA', href: caHref, hreflang: 'en-ca', lang: 'en-CA', label: 'English (CA)', current: isCa },
+	{ code: 'DE', href: deHref, hreflang: 'de', lang: 'de', label: 'Deutsch', current: isDe },
+	{ code: 'IT', href: itHref, hreflang: 'it', lang: 'it', label: 'Italiano', current: isIt },
+	{ code: 'ES', href: esHref, hreflang: 'es', lang: 'es', label: 'Español', current: isEs },
+];
+const activeLang = langOptions.find((l) => l.current) ?? langOptions[0];
+
+const menuOpenLabel = isIt ? 'Apri il menu' : isEs ? 'Abrir el menú' : isDe ? 'Menü öffnen' : isAnglo ? 'Open menu' : 'Ouvrir le menu';
+const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe ? 'Menü schließen' : isAnglo ? 'Close menu' : 'Fermer le menu';
 ---
 
-<header>
-	<nav>
-		<a class="brand" href={withBase(isEn ? '/en/' : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : '/')}>
+<header class="site-header">
+	<nav class="header-bar" aria-label={isAnglo ? 'Main' : isDe ? 'Hauptnavigation' : isIt ? 'Principale' : isEs ? 'Principal' : 'Principale'}>
+		<a class="brand" href={withBase(homeHref)}>
 			<Image
 				class="brand-logo"
 				src={logoA}
@@ -75,472 +186,580 @@ const mobileExtra = (isEn || isDe || isIt || isEs) ? [] : [['/partenariat/', 'Pa
 				decoding="async"
 			/>
 		</a>
+
 		<div class="internal-links desktop-only">
-			{nav.map(([href, label]) => <HeaderLink href={href}>{label}</HeaderLink>)}
-	</div>
-	<div class="header-social desktop-only">
-		<button id="theme-toggle" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : isIt ? "Attiva la modalità scura" : isEs ? "Activar modo oscuro" : "Passer en mode sombre"} class="theme-toggle">
-			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<circle cx="12" cy="12" r="5"></circle>
-				<line x1="12" y1="1" x2="12" y2="3"></line>
-				<line x1="12" y1="21" x2="12" y2="23"></line>
-				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-				<line x1="1" y1="12" x2="3" y2="12"></line>
-				<line x1="21" y1="12" x2="23" y2="12"></line>
-				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-			</svg>
-			<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-			</svg>
-		</button>
-		<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
-			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-				<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-			</svg>
-		</a>
-		<a href="https://www.pinterest.fr/roboteducatif/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-icon">
-			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-				<path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
-			</svg>
-		</a>
-		<a href="https://www.facebook.com/roboteducatif.info" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
-			<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-				<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-			</svg>
-		</a>
-	</div>
-	<div class="lang-switch" role="navigation" aria-label={isEn ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue'}>
-		<a href={withBase(frHref)} hreflang="fr" lang="fr" aria-current={isFr ? 'true' : undefined} class:list={[{ current: isFr }]}>FR</a>
-		<a href={withBase(enHref)} hreflang="en" lang="en" aria-current={isEn ? 'true' : undefined} class:list={[{ current: isEn }]}>EN</a>
-		<a href={withBase(deHref)} hreflang="de" lang="de" aria-current={isDe ? 'true' : undefined} class:list={[{ current: isDe }]}>DE</a>
-		<a href={withBase(itHref)} hreflang="it" lang="it" aria-current={isIt ? 'true' : undefined} class:list={[{ current: isIt }]}>IT</a>
-		<a href={withBase(esHref)} hreflang="es" lang="es" aria-current={isEs ? 'true' : undefined} class:list={[{ current: isEs }]}>ES</a>
-	</div>
-	<button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label={isEn ? "Open menu" : isDe ? "Menü öffnen" : isIt ? "Apri il menu" : isEs ? "Abrir el menú" : "Ouvrir le menu"} aria-expanded="false">
-		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-			<path d="M3 12h18M3 6h18M3 18h18"/>
-		</svg>
-	</button>
-</nav>
-	<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-		<button id="theme-toggle-mobile" type="button" aria-label={isEn ? "Switch to dark mode" : isDe ? "Dunkelmodus aktivieren" : isIt ? "Attiva la modalità scura" : isEs ? "Activar modo oscuro" : "Passer en mode sombre"} class="theme-toggle-mobile">
-			<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<circle cx="12" cy="12" r="5"></circle>
-				<line x1="12" y1="1" x2="12" y2="3"></line>
-				<line x1="12" y1="21" x2="12" y2="23"></line>
-				<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-				<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-				<line x1="1" y1="12" x2="3" y2="12"></line>
-				<line x1="21" y1="12" x2="23" y2="12"></line>
-				<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-				<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-			</svg>
-			<svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-			</svg>
-			<span class="theme-toggle-label"></span>
-		</button>
-		{[...nav, ...mobileExtra].map(([href, label]) => <a href={withBase(href)}>{label}</a>)}
+			<HeaderLink class="nav-bf" href={bfHref}>Black Friday</HeaderLink>
+			<HeaderLink href={baissesHref}>{baissesLib}</HeaderLink>
+			<HeaderLink href={accHref}>{accLib}</HeaderLink>
+			<NavGuides variant="desktop" />
+			<NavGuides variant="desktop" menu="domotique" />
+			{navMain.map(([href, label]) => (
+				<HeaderLink href={href}>{label}</HeaderLink>
+			))}
+			<div class="header-dropdown nav-outils" data-header-dropdown>
+				<button
+					type="button"
+					id="nav-outils-trigger"
+					class="nav-dropdown__trigger"
+					data-dropdown-trigger
+					aria-expanded="false"
+					aria-controls="nav-outils-panel"
+					aria-haspopup="true"
+				>
+					{outilsTrigger}
+					<span class="nav-dropdown__caret" aria-hidden="true">▾</span>
+				</button>
+				<div id="nav-outils-panel" class="nav-outils__panel" data-dropdown-panel hidden role="menu">
+					{outilsMenu.map(([href, label]) => (
+						<a href={withBase(href)} role="menuitem">{label}</a>
+					))}
+				</div>
+			</div>
+		</div>
+
+		<div class="header-actions">
+			<a class="header-cta desktop-only" href={withBase(ctaConfigHref)}>{ctaConfigLabel}</a>
+
+			<div class="lang-dropdown header-dropdown" data-header-dropdown role="navigation" aria-label={langNavLabel}>
+				<button
+					type="button"
+					id="lang-switch-btn"
+					class="lang-dropdown__trigger"
+					data-dropdown-trigger
+					aria-expanded="false"
+					aria-controls="lang-switch-menu"
+					aria-haspopup="true"
+					aria-label={activeLang.label}
+				>
+					<Drapeau code={activeLang.code} />
+					<span class="nav-dropdown__caret" aria-hidden="true">▾</span>
+				</button>
+				<div id="lang-switch-menu" class="lang-dropdown__menu" data-dropdown-panel hidden role="menu">
+					{langOptions.map((opt) => (
+						<a
+							href={withBase(opt.href)}
+							hreflang={opt.hreflang}
+							lang={opt.lang}
+							role="menuitem"
+							aria-current={opt.current ? 'true' : undefined}
+							class:list={[{ 'is-current': opt.current }]}
+						>
+							<Drapeau code={opt.code} />{opt.label}
+						</a>
+					))}
+				</div>
+			</div>
+
+			<button
+				class="mobile-menu-toggle header-icon-btn"
+				id="mobile-menu-toggle"
+				type="button"
+				aria-label={menuOpenLabel}
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+			>
+				<span aria-hidden="true">☰</span>
+			</button>
+		</div>
+	</nav>
+
+	<div class="mobile-menu" id="mobile-menu" hidden>
+		<a class="nav-bf" href={withBase(bfHref)}>Black Friday</a>
+		<a href={withBase(baissesHref)}>{baissesLib}</a>
+		<a href={withBase(accHref)}>{accLib}</a>
+		<a class="mobile-menu-cta" href={withBase(ctaConfigHref)}>{ctaConfigLabel}</a>
+		<NavGuides variant="mobile" />
+		<NavGuides variant="mobile" menu="domotique" />
+		{navMain.map(([href, label]) => (
+			<a href={withBase(href)}>{label}</a>
+		))}
+		<div class="mobile-menu-section">
+			<p class="mobile-menu-section__title">{outilsTrigger}</p>
+			{outilsMenu.map(([href, label]) => (
+				<a href={withBase(href)}>{label}</a>
+			))}
+		</div>
+		{mobileExtra.map(([href, label]) => (
+			<a href={withBase(href)}>{label}</a>
+		))}
 	</div>
 </header>
+<ChristmasBanner />
+
 <style>
-	header {
+	.site-header {
 		position: sticky;
 		top: 0;
 		z-index: 100;
 		margin: 0;
-		padding: 0 clamp(1rem, 5vw, 2rem);
+		padding: 0 clamp(0.875rem, 3vw, 1.5rem);
 		background: var(--surface);
 		border-bottom: 1px solid var(--surface-border);
 		box-shadow: 0 1px 3px rgba(11, 31, 42, 0.05);
 		backdrop-filter: blur(10px);
 	}
-	
-	nav {
+
+	.header-bar {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 1.5rem;
-		max-width: 1320px;
+		gap: 0.65rem;
+		max-width: 1280px;
 		margin: 0 auto;
+		min-height: 64px;
+		min-width: 0;
 	}
-	
+
 	.brand {
 		display: flex;
 		align-items: center;
-		padding: 1rem 0;
 		flex-shrink: 0;
 		text-decoration: none;
+		padding: 0.35rem 0;
 	}
-	
-	.brand img {
-		height: 45px;
+
+	.brand :global(img) {
+		height: 30px;
 		width: auto;
-		max-width: min(230px, 55vw);
+		max-width: min(180px, 42vw);
 		display: block;
 	}
-	
+
 	.internal-links {
 		display: flex;
-		gap: 1.5rem;
 		align-items: center;
+		gap: 0.15rem;
+		min-width: 0;
+		flex: 1 1 auto;
+		margin-left: 0.35rem;
 	}
-	
-	.internal-links :global(a) {
+
+	.internal-links :global(a),
+	.nav-dropdown__trigger {
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
-		font-size: 1rem;
-		transition: color 0.2s ease;
+		font-size: 0.9375rem;
+		padding: 0.35rem 0.55rem;
+		border-radius: 8px;
+		white-space: nowrap;
+	}
+
+	.internal-links :global(a:hover),
+	.nav-dropdown__trigger:hover,
+	.nav-dropdown__trigger[aria-expanded='true'] {
+		background: color-mix(in oklab, var(--primary) 8%, transparent);
+		color: var(--primary);
+	}
+
+	.internal-links :global(a.active) {
+		background: color-mix(in oklab, var(--primary) 10%, transparent);
+		color: var(--primary);
+	}
+
+	.internal-links :global(a.nav-bf) {
+		background: #111827;
+		color: #ffb020 !important;
+		border-radius: 999px;
+		font-weight: 800;
+		margin-right: 0.35rem;
+	}
+
+	.internal-links :global(a.nav-bf:hover),
+	.internal-links :global(a.nav-bf.active) {
+		background: #1f2937;
+		color: #ffe08a !important;
+	}
+
+	.header-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-left: auto;
+		flex-shrink: 0;
+	}
+
+	.header-cta {
+		display: inline-flex;
+		align-items: center;
+		background: var(--primary);
+		color: #fff !important;
+		padding: 0.45rem 0.85rem;
+		border-radius: 999px;
+		font-weight: 700;
+		font-size: 0.8125rem;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.header-cta:hover {
+		background: var(--primary-light);
+		color: #fff !important;
+	}
+
+	.header-cta:focus-visible {
+		outline: 2px solid var(--accent-warm);
+		outline-offset: 2px;
+	}
+
+	.header-icon-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		border: 1px solid var(--surface-border);
+		border-radius: 50%;
+		background: var(--surface);
+		cursor: pointer;
+		color: var(--ink);
+		padding: 0;
+		flex-shrink: 0;
+		font-size: 1.05rem;
+		line-height: 1;
+	}
+
+	.header-icon-btn:focus-visible,
+	.nav-dropdown__trigger:focus-visible,
+	.lang-dropdown__trigger:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 2px;
+	}
+
+	.nav-dropdown__trigger {
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		font-family: inherit;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.15rem;
+	}
+
+	.nav-dropdown__caret {
+		font-size: 0.65rem;
+		opacity: 0.85;
+	}
+
+	.nav-outils {
 		position: relative;
 	}
-	
-	@media (prefers-color-scheme: dark) {
-		.internal-links :global(a) {
-			color: rgb(var(--gray-dark));
-		}
-		.internal-links :global(a.highlight) {
-			color: var(--primary-light);
-		}
-		.internal-links :global(a:hover) {
-			color: var(--primary-light);
-		}
+
+	.nav-outils__panel[hidden] {
+		display: none !important;
 	}
-	
-	.internal-links :global(a:hover) {
-		color: var(--primary);
-	}
-	
-	.internal-links :global(a.highlight) {
-		color: var(--primary);
-		font-weight: 700;
-	}
-	
-	.internal-links :global(a.active::after) {
-		content: '';
+	.nav-outils__panel {
 		position: absolute;
-		bottom: -0.5rem;
-		left: 0;
 		right: 0;
-		height: 2px;
-		background: var(--accent-warm);
+		top: calc(100% + 0.35rem);
+		min-width: 260px;
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		box-shadow: 0 8px 24px rgba(11, 31, 42, 0.12);
+		padding: 0.35rem;
+		z-index: 120;
 	}
-	
-	.lang-switch {
+
+	.nav-outils__panel a {
+		display: block;
+		padding: 0.45rem 0.65rem;
+		border-radius: 6px;
+		color: var(--ink);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.875rem;
+	}
+
+	.nav-outils__panel a:hover {
+		background: color-mix(in oklab, var(--primary) 8%, transparent);
+		color: var(--primary);
+	}
+
+	.nav-outils__panel a:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 1px;
+	}
+
+	.lang-dropdown {
+		position: relative;
+	}
+
+	.lang-dropdown__trigger {
 		display: inline-flex;
 		align-items: center;
+		gap: 0.25rem;
 		border: 1px solid var(--surface-border);
+		background: var(--surface);
 		border-radius: 999px;
-		overflow: hidden;
-		flex-shrink: 0;
-		margin-left: auto;
-	}
-	.lang-switch a {
-		padding: 0.3rem 0.65rem;
-		font-size: 0.8rem;
+		padding: 0.35rem 0.65rem;
 		font-weight: 700;
+		font-size: 0.8125rem;
+		color: var(--primary);
+		cursor: pointer;
+		font-family: inherit;
+		white-space: nowrap;
+	}
+
+	.lang-dropdown__menu[hidden] {
+		display: none !important;
+	}
+	.lang-dropdown__menu {
+		position: absolute;
+		right: 0;
+		top: calc(100% + 0.35rem);
+		min-width: 190px;
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
+		border-radius: 10px;
+		box-shadow: 0 8px 24px rgba(11, 31, 42, 0.12);
+		padding: 0.35rem;
+		z-index: 130;
+	}
+
+	.lang-dropdown__menu a {
+		display: flex;
+		align-items: center;
+		padding: 0.45rem 0.65rem;
+		border-radius: 6px;
 		text-decoration: none;
 		color: var(--ink);
-		line-height: 1.2;
+		font-size: 0.875rem;
+		font-weight: 600;
 	}
-	.lang-switch a.current {
-		background: var(--primary);
-		color: #fff;
+
+	.lang-dropdown__menu a:hover {
+		background: color-mix(in oklab, var(--primary) 8%, transparent);
+		color: var(--primary);
 	}
+
+	.lang-dropdown__menu a.is-current,
+	.lang-dropdown__menu a[aria-current='true'] {
+		background: color-mix(in oklab, var(--primary) 12%, transparent);
+		color: var(--primary);
+		font-weight: 700;
+	}
+
+	.lang-dropdown__menu a:focus-visible {
+		outline: 2px solid var(--primary);
+		outline-offset: 1px;
+	}
+
 	.mobile-menu-toggle {
 		display: none;
-		background: none;
-		border: none;
-		padding: 0.5rem;
-		cursor: pointer;
-		color: var(--ink);
 	}
-	
-	@media (prefers-color-scheme: dark) {
-		.mobile-menu-toggle {
-			color: rgb(var(--gray-dark));
-		}
-	}
-	
-	.mobile-menu-toggle svg {
-		width: 24px;
-		height: 24px;
-	}
-	
+
 	.mobile-menu {
-		display: none;
+		display: flex;
 		flex-direction: column;
-		gap: 0;
 		background: var(--surface);
 		border-bottom: 1px solid var(--surface-border);
-		max-width: 1320px;
+		max-width: 1280px;
 		margin: 0 auto;
 	}
-	
-	.mobile-menu[aria-hidden="false"] {
-		display: flex;
+
+	.mobile-menu[hidden] {
+		display: none !important;
 	}
-	
+
 	.mobile-menu a {
-		padding: 1rem clamp(1rem, 5vw, 2rem);
+		padding: 0.85rem clamp(0.875rem, 3vw, 1.5rem);
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
 		border-bottom: 1px solid var(--surface-border);
-		transition: background 0.2s ease;
 	}
-	
-	@media (prefers-color-scheme: dark) {
-		.mobile-menu a {
-			color: rgb(var(--gray-dark));
-		}
-		.mobile-menu a:hover,
-		.mobile-menu a.highlight {
-			color: var(--primary-light);
-		}
-	}
-	
-	.mobile-menu a:hover,
-	.mobile-menu a.highlight {
+
+	.mobile-menu a:hover {
 		background: var(--surface-2);
 		color: var(--primary);
 	}
-	
-	.mobile-menu a:last-child {
+
+	.mobile-menu a.nav-bf {
+		margin: 0.65rem clamp(0.875rem, 3vw, 1.5rem) 0.15rem;
+		padding: 0.55rem 0.9rem;
+		width: fit-content;
+		border-radius: 999px;
+		background: #111827;
+		color: #ffb020 !important;
+		font-weight: 800;
 		border-bottom: none;
 	}
-	
-	.header-social {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-left: 1rem;
+
+	.mobile-menu a.nav-bf:hover {
+		background: #1f2937;
+		color: #ffe08a !important;
 	}
-	
-	.social-icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
+
+	.mobile-menu-cta {
+		background: color-mix(in oklab, var(--primary) 10%, var(--surface)) !important;
+		color: var(--primary) !important;
+		font-weight: 700 !important;
+	}
+
+	.mobile-menu-section__title {
+		margin: 0;
+		padding: 0.65rem clamp(0.875rem, 3vw, 1.5rem) 0.25rem;
+		font-size: 0.75rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
 		color: rgb(var(--gray-dark));
-		transition: color 0.15s ease, transform 0.15s ease;
 	}
-	
-	.social-icon svg {
-		width: 18px;
-		height: 18px;
-	}
-	
-	.social-icon:hover {
-		transform: translateY(-2px);
-	}
-	
-	.social-icon:nth-child(1):hover {
-		color: #FF0000; /* YouTube */
-	}
-	
-	.social-icon:nth-child(2):hover {
-		color: #E60023; /* Pinterest */
-	}
-	
-	.social-icon:nth-child(4):hover {
-		color: #1877F2; /* Facebook */
-	}
-	
-	.theme-toggle {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 32px;
-		height: 32px;
-		background: none;
-		border: none;
-		cursor: pointer;
-		color: rgb(var(--gray-dark));
-		transition: color 0.15s ease, transform 0.15s ease;
-		padding: 0;
-		margin-right: 0.75rem;
-	}
-	
-	.theme-toggle svg {
-		width: 20px;
-		height: 20px;
-	}
-	
-	.theme-toggle .moon-icon {
-		display: none;
-	}
-	
-	html[data-theme='dark'] .theme-toggle .sun-icon {
-		display: none;
-	}
-	
-	html[data-theme='dark'] .theme-toggle .moon-icon {
-		display: block;
-	}
-	
-	.theme-toggle:hover {
-		color: var(--primary);
-		transform: translateY(-2px);
-	}
-	
-	@media (prefers-color-scheme: dark) {
-		html:not([data-theme='light']) .theme-toggle .sun-icon {
-			display: none;
-		}
-		html:not([data-theme='light']) .theme-toggle .moon-icon {
-			display: block;
-		}
-	}
-	
-	.theme-toggle-mobile {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		width: 100%;
-		padding: 1rem clamp(1rem, 5vw, 2rem);
-		background: none;
-		border: none;
-		border-bottom: 1px solid var(--surface-border);
-		text-align: left;
-		font-weight: 600;
-		color: var(--ink);
-		cursor: pointer;
-		transition: background 0.2s ease;
-	}
-	
-	@media (prefers-color-scheme: dark) {
-		.theme-toggle-mobile {
-			color: rgb(var(--gray-dark));
-		}
-	}
-	
-	.theme-toggle-mobile svg {
-		width: 20px;
-		height: 20px;
-		flex-shrink: 0;
-	}
-	
-	.theme-toggle-mobile .moon-icon {
-		display: none;
-	}
-	
-	html[data-theme='dark'] .theme-toggle-mobile .sun-icon {
-		display: none;
-	}
-	
-	html[data-theme='dark'] .theme-toggle-mobile .moon-icon {
-		display: block;
-	}
-	
-	@media (prefers-color-scheme: dark) {
-		html:not([data-theme='light']) .theme-toggle-mobile .sun-icon {
-			display: none;
-		}
-		html:not([data-theme='light']) .theme-toggle-mobile .moon-icon {
-			display: block;
-		}
-	}
-	
-	.theme-toggle-mobile:hover {
-		background: var(--surface-2);
-		color: var(--primary);
-	}
-	
-	@media (prefers-color-scheme: dark) {
-		.theme-toggle-mobile:hover {
-			color: var(--primary-light);
-		}
-	}
-	
-	.theme-toggle-label {
-		flex: 1;
-	}
-	
+
 	@media (max-width: 768px) {
 		.desktop-only {
-			display: none;
+			display: none !important;
 		}
-		
+
 		.mobile-menu-toggle {
-			display: block;
+			display: inline-flex;
 		}
-		
-		.brand img {
-			height: 40px;
-			max-width: min(200px, 60vw);
+
+		.brand :global(img) {
+			height: 24px;
+			max-width: min(130px, 34vw);
+		}
+
+		.header-bar {
+			gap: 0.35rem;
+		}
+
+		.lang-dropdown__trigger {
+			padding: 0.3rem 0.5rem;
+			font-size: 0.75rem;
 		}
 	}
-	@media (max-width: 480px) {
-		.brand img { height: 30px; max-width: min(130px, 32vw); object-fit: contain; }
-		.lang-switch a { padding: 0.25rem 0.32rem; font-size: 0.7rem; }
-		nav { gap: 0.4rem; }
-		.mobile-menu-toggle { padding: 0.35rem; }
+
+	@media (min-width: 769px) and (max-width: 1320px) {
+		:global(html[lang='de']) .internal-links :global(a),
+		:global(html[lang='de']) .nav-dropdown__trigger {
+			font-size: 0.82rem;
+			padding-inline: 0.4rem;
+		}
+		:global(html[lang='de']) .header-cta {
+			font-size: 0.75rem;
+			padding-inline: 0.65rem;
+		}
 	}
 </style>
 
 <script>
 	(() => {
-		const button = document.getElementById('mobile-menu-toggle');
-		const menu = document.getElementById('mobile-menu');
-		
-		if (!button || !menu) return;
-		const menuLabels = { en: ['Open menu', 'Close menu'], de: ['Menü öffnen', 'Menü schließen'], it: ['Apri il menu', 'Chiudi il menu'], es: ['Abrir el menú', 'Cerrar el menú'] }[document.documentElement.lang] || ['Ouvrir le menu', 'Fermer le menu'];
-		
-		button.addEventListener('click', () => {
-			const isOpen = menu.getAttribute('aria-hidden') === 'false';
-			menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-			button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-			button.setAttribute('aria-label', isOpen ? menuLabels[0] : menuLabels[1]);
-		});
-		
-		menu.querySelectorAll('a').forEach(link => {
-			link.addEventListener('click', () => {
-				menu.setAttribute('aria-hidden', 'true');
-				button.setAttribute('aria-expanded', 'false');
-				button.setAttribute('aria-label', menuLabels[0]);
+		const dropdowns = Array.from(document.querySelectorAll('[data-header-dropdown]'));
+
+		function focusables(panel: Element) {
+			return Array.from(
+				panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+			).filter((el) => !el.closest('[hidden]'));
+		}
+
+		function closeDropdown(wrapper: Element) {
+			const trigger = wrapper.querySelector<HTMLElement>('[data-dropdown-trigger]');
+			const panel = wrapper.querySelector<HTMLElement>('[data-dropdown-panel]');
+			if (!trigger || !panel) return;
+			panel.hidden = true;
+			trigger.setAttribute('aria-expanded', 'false');
+		}
+
+		function openDropdown(wrapper: Element) {
+			dropdowns.forEach((d) => {
+				if (d !== wrapper) closeDropdown(d);
+			});
+			const trigger = wrapper.querySelector<HTMLElement>('[data-dropdown-trigger]');
+			const panel = wrapper.querySelector<HTMLElement>('[data-dropdown-panel]');
+			if (!trigger || !panel) return;
+			panel.hidden = false;
+			trigger.setAttribute('aria-expanded', 'true');
+		}
+
+		dropdowns.forEach((wrapper) => {
+			const trigger = wrapper.querySelector<HTMLElement>('[data-dropdown-trigger]');
+			const panel = wrapper.querySelector<HTMLElement>('[data-dropdown-panel]');
+			if (!trigger || !panel) return;
+
+			const toggle = () => {
+				if (panel.hidden) openDropdown(wrapper);
+				else closeDropdown(wrapper);
+			};
+
+			trigger.addEventListener('click', toggle);
+
+			trigger.addEventListener('keydown', (e) => {
+				const ev = e as KeyboardEvent;
+				if (ev.key === 'Enter' || ev.key === ' ') {
+					ev.preventDefault();
+					toggle();
+				}
+				if (ev.key === 'ArrowDown' && panel.hidden) {
+					ev.preventDefault();
+					openDropdown(wrapper);
+					focusables(panel)[0]?.focus();
+				}
+			});
+
+			panel.addEventListener('keydown', (e) => {
+				const ev = e as KeyboardEvent;
+				const items = focusables(panel);
+				const idx = items.indexOf(document.activeElement as HTMLElement);
+				if (ev.key === 'Escape') {
+					ev.preventDefault();
+					closeDropdown(wrapper);
+					trigger.focus();
+				}
+				if (ev.key === 'ArrowDown') {
+					ev.preventDefault();
+					items[(idx + 1 + items.length) % items.length]?.focus();
+				}
+				if (ev.key === 'ArrowUp') {
+					ev.preventDefault();
+					items[(idx - 1 + items.length) % items.length]?.focus();
+				}
+			});
+
+			trigger.addEventListener('keydown', (e) => {
+				const ev = e as KeyboardEvent;
+				if (ev.key === 'Escape' && !panel.hidden) {
+					ev.preventDefault();
+					closeDropdown(wrapper);
+					trigger.focus();
+				}
 			});
 		});
-	})();
 
-	(() => {
-		function updateThemeToggle() {
-			const theme = document.documentElement.dataset.theme || 
-				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			const isDark = theme === 'dark';
-			const en = document.documentElement.lang === 'en';
-			const de = document.documentElement.lang === 'de';
-			const it = document.documentElement.lang === 'it';
-			const es = document.documentElement.lang === 'es';
-			const label = it ? (isDark ? 'Attiva la modalità chiara' : 'Attiva la modalità scura') : es ? (isDark ? 'Activar modo claro' : 'Activar modo oscuro') : de ? (isDark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren') : en ? (isDark ? 'Switch to light mode' : 'Switch to dark mode') : (isDark ? 'Passer en mode clair' : 'Passer en mode sombre');
-			const mobileLabel = it ? (isDark ? 'Modalità chiara' : 'Modalità scura') : es ? (isDark ? 'Modo claro' : 'Modo oscuro') : de ? (isDark ? 'Hellmodus' : 'Dunkelmodus') : en ? (isDark ? 'Light mode' : 'Dark mode') : (isDark ? 'Mode clair' : 'Mode sombre');
-			
-			document.getElementById('theme-toggle')?.setAttribute('aria-label', label);
-			document.getElementById('theme-toggle-mobile')?.setAttribute('aria-label', label);
-			const mobileLabelEl = document.querySelector('.theme-toggle-label');
-			if (mobileLabelEl) {
-				mobileLabelEl.textContent = mobileLabel;
-			}
+		document.addEventListener('click', (e) => {
+			const t = e.target as Node;
+			dropdowns.forEach((wrapper) => {
+				if (!wrapper.contains(t)) closeDropdown(wrapper);
+			});
+		});
+
+		const button = document.getElementById('mobile-menu-toggle');
+		const menu = document.getElementById('mobile-menu');
+		if (button && menu) {
+			const openLabel = button.getAttribute('aria-label') || 'Menu';
+			const closeLabels: Record<string, [string, string]> = {
+				en: ['Open menu', 'Close menu'],
+				de: ['Menü öffnen', 'Menü schließen'],
+				it: ['Apri il menu', 'Chiudi il menu'],
+				es: ['Abrir el menú', 'Cerrar el menú'],
+			};
+			const lang = document.documentElement.lang || 'fr';
+			const pair = closeLabels[lang] || ['Ouvrir le menu', 'Fermer le menu'];
+
+			button.addEventListener('click', () => {
+				const isOpen = !menu.hidden;
+				menu.hidden = isOpen;
+				button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+				button.setAttribute('aria-label', isOpen ? pair[0] : pair[1]);
+			});
+
+			menu.querySelectorAll('a').forEach((link) => {
+				link.addEventListener('click', () => {
+					menu.hidden = true;
+					button.setAttribute('aria-expanded', 'false');
+					button.setAttribute('aria-label', pair[0]);
+				});
+			});
 		}
-
-		function setTheme(theme: 'light' | 'dark') {
-			document.documentElement.dataset.theme = theme;
-			localStorage.setItem('robot-educatif-theme', theme);
-			updateThemeToggle();
-		}
-
-		function toggleTheme() {
-			const currentTheme = document.documentElement.dataset.theme || 
-				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-		}
-
-		document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
-		document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
-
-		updateThemeToggle();
 	})();
 </script>

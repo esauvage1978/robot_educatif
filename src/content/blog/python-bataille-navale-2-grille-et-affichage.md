@@ -1,8 +1,8 @@
 ---
 title: "Bataille navale en Python (2/6) — grille et affichage"
-description: "Créer une grille 10×10, afficher avec en-têtes, convertir A1–J10 en indices et l’inverse."
+description: "Bataille navale en Python, partie 2 : grille 10×10, affichage avec en-têtes, et conversion des cases A1 à J10 en indices, pour placer les bateaux du jeu."
 pubDate: 2026-03-29
-updatedDate: 2026-03-28
+updatedDate: 2026-11-02
 series: Bataille navale
 seriesOrder: 2
 tags: ["Python", "Programmation", "Projet"]
@@ -17,9 +17,12 @@ categories:
   - "Bataille navale"
   - "Projet"
 ---
-Tu continues le [projet bataille navale](/programmation/bataille-navale/) après la [partie 1](/python-bataille-navale-1-cahier-des-charges/) : cette fois, tout le « moteur d’affichage » minimal pour **voir** les grilles dans le terminal.
 
-![Console Python](../../assets/programmation/python-terminal.svg)
+**En bref** — Cette leçon ajoute une **grille 10×10** et l’**affichage terminal** au [projet bataille navale](/programmation/bataille-navale/) (hub du parcours). Vous convertissez les cases **A1–J10** en indices Python **0–9**.
+
+Tu continues après la [partie 1](/python-bataille-navale-1-cahier-des-charges/) : cette fois, tout le « moteur d’affichage » minimal pour **voir** les grilles dans le terminal.
+
+![Grille de bataille navale affichée dans un terminal Python](/images/illustrations/python-bataille-navale-2-grille-et-affichage.webp)
 
 ## 1. Créer une grille vide
 
@@ -102,7 +105,7 @@ Confondre **colonne 0** en Python et **colonne 1** pour le joueur : garde **une 
 
 ## Suite
 
-[Partie 3 — Placer les navires sans chevauchement](/python-bataille-navale-3-placement-bateaux/).
+[Partie 3 — Placer les navires sans chevauchement](/python-bataille-navale-3-placement-bateaux/) · [Hub bataille navale](/programmation/bataille-navale/) · [Parcours programmation](/programmation/)
 
 ## Script complet du chapitre
 

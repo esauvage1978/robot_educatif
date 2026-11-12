@@ -1,10 +1,7 @@
 ---
 import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
 import type { SeriesHubFallbackLesson } from '../../../components/ProgrammationSeriesHub.astro';
-import { AMAZON_AFFILIATE_TAG } from '../../../consts';
 import { withBase } from '../../../lib/siteUrl';
-
-const tag = AMAZON_AFFILIATE_TAG;
 
 const fallbackAgenda: SeriesHubFallbackLesson[] = [
 	{
@@ -48,24 +45,43 @@ const fallbackAgenda: SeriesHubFallbackLesson[] = [
 
 <ProgrammationSeriesHub
 	metaTitle="Projet Python — Agenda personnel en CLI"
-	metaDescription="Projet guidé en six parties : cahier des charges, données JSON et pathlib, classes et services, tests pytest, argparse, livraison et extensions."
+	metaDescription="Projet guidé en six parties : cahier des charges, JSON et pathlib, classes, pytest, argparse, livraison. Prérequis intermédiaire Python."
 	series="Projet Python intermédiaire — Agenda CLI"
 	breadcrumbLast="Projet Agenda CLI"
 	pageTitle="Projet — Agenda personnel (CLI)"
 	fallbackLessons={fallbackAgenda}
 >
 	<p>
-		Ce projet **synthétise** le <a href={withBase('/programmation/python-intermediaire/')}>parcours intermédiaire</a> : modules,
-		<strong>pathlib</strong>, <strong>JSON</strong>, <strong>classes</strong>, <strong>pytest</strong>, ligne de commande
-		avec <code>argparse</code>. Tu construis un petit <strong>agenda</strong> : événements datés, sauvegarde locale,
-		listage et suppression — sans framework web, pour te concentrer sur la <strong>structure</strong> du code et les
-		<strong>tests</strong>. Prérequis : avoir suivi les six leçons intermédiaires ou équivalent.
+		<strong>Réponse directe</strong> — Vous allez construire un <strong>agenda en ligne de commande</strong> (
+		<abbr title="Command Line Interface">CLI</abbr>, interface texte dans le terminal) : événements datés, fichier
+		<strong>JSON</strong> (<em>JavaScript Object Notation</em>, format texte lisible) local, commandes{' '}
+		<code>add</code>, <code>list</code>, <code>remove</code>. Ce hub regroupe les <strong>six chapitres</strong> dans
+		l’ordre ; commencez par le <a href={withBase('/projet-inter-agenda-1-cahier-des-charges/')}>cahier des charges (1/6)</a>.
 	</p>
 	<p>
-		Ressource complémentaire :{' '}
-		<a
-			href={`https://www.amazon.fr/s?k=python+projet+cli+livre&tag=${tag}`}
-			target="_blank"
-			rel="noopener noreferrer sponsored">Python et projets CLI</a> (partenaire).
+		Le projet <strong>synthétise</strong> le{' '}
+		<a href={withBase('/programmation/python-intermediaire/')}>parcours intermédiaire</a> : modules,{' '}
+		<strong>pathlib</strong>, <strong>classes</strong>, <strong>pytest</strong>, <code>argparse</code>. Prérequis
+		minimum : <a href={withBase('/python-inter-modules-imports/')}>modules et imports</a>,{' '}
+		<a href={withBase('/python-inter-pathlib/')}>pathlib</a>,{' '}
+		<a href={withBase('/python-inter-poo-classes/')}>POO</a>,{' '}
+		<a href={withBase('/python-inter-venv-pip/')}>venv et pip</a>.
+	</p>
+	<h2>Présentation de chaque partie</h2>
+	<ul>
+		<li><strong>Partie 1</strong> — Cahier des charges : périmètre, structure <code>src/</code>, format JSON des événements.</li>
+		<li><strong>Partie 2</strong> — Module <code>storage</code> : chemins fiables, lecture/écriture UTF-8, fichier agenda.</li>
+		<li><strong>Partie 3</strong> — Modèle métier : classe <code>Event</code>, validation <code>datetime</code>, service.</li>
+		<li><strong>Partie 4</strong> — Tests <strong>pytest</strong> : fixtures, erreurs, non-régression.</li>
+		<li><strong>Partie 5</strong> — CLI <code>argparse</code> : sous-commandes, messages clairs, codes de sortie.</li>
+		<li><strong>Partie 6</strong> — Livraison : <code>main()</code>, README, extensions possibles (export ICS).</li>
+	</ul>
+	<p>
+		Autres projets du même niveau :{' '}
+		<a href={withBase('/programmation/carnet-todo/')}>Carnet Todo + JSON</a>,{' '}
+		<a href={withBase('/programmation/bataille-navale/')}>Bataille navale</a>,{' '}
+		<a href={withBase('/programmation/pendu/')}>Le pendu</a>. Index :{' '}
+		<a href={withBase('/programmation/')}>Programmation</a>. Ressource complémentaire :{' '}
+		<a href="/go/az-fr-649f8f9ae5/">livres Python projet CLI</a> (partenaire).
 	</p>
 </ProgrammationSeriesHub>

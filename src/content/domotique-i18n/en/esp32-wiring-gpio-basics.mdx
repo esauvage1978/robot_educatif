@@ -1,0 +1,100 @@
+---
+title: "ESP32 wiring: GPIO, 3.3 V and pull-ups"
+description: "Wire an ESP32-C6 safely: 3.3 V logic, pins to avoid, pull-ups, LED resistor, common ground and a quick test. Parts list, GPIO wiring, ESPHome YAML and Home"
+pubDate: 2026-10-30T00:00:00Z
+category: "esp32"
+products: ["esp32-c6-devkitc", "xiao-esp32c6"]
+priority: 7
+lang: "en"
+frSlug: "bases-cablage-esp32-gpio"
+---
+
+Wiring an ESP32, a small electronic board with Wi-Fi, means following a few simple rules, but ignoring just one is enough to burn out a pin or get unstable readings. This tutorial gathers the basics used by the [site’s ESP32 projects](/en/smart-home/esp32-smart-home-project-ideas/), with the ESP32-C6-DevKitC-1 as the reference board. You will learn what GPIOs are, the metal pins lined up along the edge of the board, how to pick the right one, and how to connect a button and an LED safely.
+
+**Expected result:** knowing how to pick a pin, wire a button and an LED safely, and test the build with ESPHome. **Time:** 30 minutes. **Difficulty:** beginner.
+
+## Rule 1: pins run at 3.3 V
+
+The ESP32-C6’s GPIO pins work at **3.3 V** and do not tolerate 5 V. Wiring a sensor’s 5 V output straight to an input can damage it. Two fixes: power the sensor at 3.3 V if it accepts that, or bring its signal down with a **level shifter** or a **voltage divider** (two resistors, for example 10 kΩ and 20 kΩ to go from 5 V to about 3.3 V).
+
+Each pin supplies only limited current: aim for **about ten milliamps at most** and never exceed the Espressif datasheet values. For a heavier load (relay, LED strip, motor), use a module designed for it, powered separately, with a **common ground** to the microcontroller.
+
+## Which pins on the ESP32-C6-DevKitC-1?
+
+| Pins | Note | Suggested use |
+|---|---|---|
+| GPIO0 to GPIO3, GPIO6, GPIO7, GPIO10, GPIO11, GPIO18 to GPIO23 | Free at boot | Inputs, outputs, I²C, UART |
+| GPIO0 to GPIO6 | Can read an analog voltage (ADC) | Analog probes |
+| GPIO4, GPIO5, GPIO8, GPIO9, GPIO15 | Boot configuration pins; GPIO8 drives the board’s RGB LED, GPIO9 is the BOOT button | Avoid, or use with care |
+| GPIO12, GPIO13 | Native USB link | Leave free |
+| GPIO16, GPIO17 | Serial console (UART0) | Leave free |
+
+This list follows Espressif’s board documentation; check it for another board (XIAO ESP32C6, for instance), whose pins carry other numbers.
+
+## Pull-up resistors and inputs
+
+An input connected to nothing “floats” and reads random values. A **pull-up resistor** holds it at a known level. The ESP32 has internal resistors you can enable in ESPHome:
+
+```yaml
+binary_sensor:
+  - platform: gpio
+    name: "Test button"
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP      # high level at rest
+      inverted: true          # press = ON
+    filters:
+      - delayed_on: 50ms      # debounce
+      - delayed_off: 50ms
+```
+
+The button sits between GPIO10 and GND: at rest the pin reads 3.3 V, pressed it reads 0 V. The internal resistors are fairly weak; for a cable longer than a few metres, add an external 10 kΩ resistor to 3V3.
+
+## Wire an LED with its resistor
+
+An LED without a resistor draws too much current. The maths is simple: R = (3.3 V − LED voltage) ÷ wanted current. For a red LED of about 2 V at 5 mA: (3.3 − 2) ÷ 0.005 = 260 Ω, so a **330 Ω resistor** fits. Wire GPIO18 → resistor → anode (long leg) → cathode → GND.
+
+```yaml
+output:
+  - platform: gpio
+    pin: GPIO18
+    id: led_out
+
+light:
+  - platform: binary
+    name: "Test LED"
+    output: led_out
+```
+
+These two snippets were not run on a board for this article; they follow the standard syntax from the ESPHome documentation.
+
+## Other rules to know
+
+- **Common ground:** every module linked to the microcontroller must share GND, otherwise signals have no reference.
+- **Polarity:** swapping + and − often destroys the part. Check the marking or datasheet.
+- **I²C bus:** SDA and SCL get pull-up resistors (already on most modules); each device has an address. The `scan: true` option lists them.
+- **Inductive loads** (relays, solenoid valves, motors): add a flyback diode for DC loads.
+- **230 V:** never connect mains to a pin, a test board or an unprotected module. Mains builds are for an electrician.
+
+## A four-step test method
+
+1. **Build on a breadboard** before soldering.
+2. **Check with a multimeter:** link continuity, no short between 3V3 and GND, power off.
+3. **Connect one component at a time** and test it before adding the next.
+4. **Read the ESPHome logs** if a component does not respond.
+
+**Check:** in Home Assistant, “Test button” turns “on” when you press, and “Test LED” lights the LED.
+
+## Common problems
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| The board no longer boots after a wiring change | A component pulls a boot-configuration pin | Unplug GPIO4, 5, 8, 9 or 15, or change pin |
+| Input changes by itself | Floating pin or long cable | Internal or external pull-up, shorter cable |
+| LED very dim or off | Reversed polarity or resistor too large | Flip the LED, try 220 to 330 Ω |
+| Unstable analog values | Noisy supply or non-ADC pin | Use GPIO0 to GPIO6, add a `median` filter |
+| A component is hot | Short circuit or wrong polarity | Unplug immediately and recheck |
+
+To go further: [flash a board](/en/smart-home/flash-esp32-esphome/) and [update without a cable](/en/smart-home/esphome-ota-updates/). Official documentation: [ESP32-C6-DevKitC-1, Espressif](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html).
+
+<small>Updated on 30 October 2026. Check your board’s pin numbers before any wiring.</small>

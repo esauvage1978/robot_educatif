@@ -1,24 +1,29 @@
 ---
 interface Props {
 	variant?: 'full' | 'compact';
+	locale?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	html?: string;
 }
 
-const { variant = 'full' } = Astro.props;
+const { variant = 'full', locale = 'fr', html } = Astro.props;
+
+const defaultFr =
+	variant === 'full'
+		? '<strong>Divulgation :</strong> Cet article contient des liens affiliés Amazon. En tant que partenaire Amazon, ce site perçoit une commission sur les achats éligibles réalisés via ces liens, sans surcoût pour vous. Ces commissions nous aident à maintenir et améliorer le contenu du site.'
+		: '<strong>Liens affiliés :</strong> Ce site perçoit une commission sur les achats Amazon éligibles, sans surcoût pour vous.';
+
+const bodies: Record<string, string> = {
+	fr: defaultFr,
+	en: '<strong>Disclosure:</strong> This guide includes Amazon affiliate links. As an Amazon Associate we earn from qualifying purchases, at no extra cost to you.',
+	de: '<strong>Hinweis:</strong> Dieser Artikel enthält Amazon-Partnerlinks. Als Amazon-Partner verdienen wir an qualifizierten Käufen, ohne Mehrkosten für Sie.',
+	it: '<strong>Informativa:</strong> Questa guida contiene link affiliati Amazon. In qualità di Associate Amazon percepiamo una commissione sugli acquisti idonei, senza costi aggiuntivi.',
+	es: '<strong>Aviso:</strong> Esta guía incluye enlaces de afiliado de Amazon. Como Asociado de Amazon obtenemos ingresos por compras cualificadas, sin coste extra para usted.',
+};
+const inner = html || bodies[locale] || defaultFr;
 ---
 
 <div class:list={['affiliate-disclosure', `affiliate-disclosure--${variant}`]}>
-	{variant === 'full' ? (
-		<p>
-			<strong>Divulgation :</strong> Cet article contient des liens affiliés Amazon. En tant que
-			partenaire Amazon, ce site perçoit une commission sur les achats éligibles réalisés via ces liens,
-			sans surcoût pour vous. Ces commissions nous aident à maintenir et améliorer le contenu du site.
-		</p>
-	) : (
-		<p>
-			<strong>Liens affiliés :</strong> Ce site perçoit une commission sur les achats Amazon éligibles,
-			sans surcoût pour vous.
-		</p>
-	)}
+	<p set:html={inner} />
 </div>
 
 <style>
@@ -36,6 +41,10 @@ const { variant = 'full' } = Astro.props;
 	.affiliate-disclosure--compact {
 		padding: 0.75rem 1rem;
 		font-size: 0.82rem;
+	}
+
+	.affiliate-disclosure--full {
+		/* variante par défaut : styles de .affiliate-disclosure */
 	}
 
 	.affiliate-disclosure p {

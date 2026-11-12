@@ -33,12 +33,36 @@ Ce guide détaille les **quatre déclinaisons mémoire** courantes, **quand choi
 
 Sur une même carte **Pi 4 Modèle B**, seule la **quantité de mémoire** change ; le **SoC BCM2711** (quad **Cortex-A72** ~**1,8 GHz**, 64 bits) est **identique**.
 
-| Variante | RAM | Profil d’acheteur typique |
-|----------|-----|---------------------------|
-| **1 Go** | 1 Go LPDDR4 | Projets **minimalistes** (capteur, petite appli headless). **Peu prioritaire** neuf en 2026 si le **Pi 5 1 Go** ou un **occasion** plus riche existe au même prix. |
-| **2 Go** | 2 Go | **Serveur léger**, **kiosk**, **monitoring** ; bureau graphique **serré** (onglets limités). |
-| **4 Go** | 4 Go | **Sweet spot** : bureau Raspberry Pi OS, développement **Python**, usage quotidien raisonnable. |
-| **8 Go** | 8 Go | **Multiples services Docker**, compilation, **gros IDE** distant, tampons pour bases de données modestes. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Variante</th>
+<th scope="col">RAM</th>
+<th scope="col">Profil d’acheteur typique</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>1 Go</strong></span></td>
+<td data-label="RAM"><span class="td-val">1 Go LPDDR4</span></td>
+<td data-label="Profil d’acheteur typique"><span class="td-val">Projets <strong>minimalistes</strong> (capteur, petite appli headless). <strong>Peu prioritaire</strong> neuf en 2026 si le <strong>Pi 5 1 Go</strong> ou un <strong>occasion</strong> plus riche existe au même prix.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>2 Go</strong></span></td>
+<td data-label="RAM"><span class="td-val">2 Go</span></td>
+<td data-label="Profil d’acheteur typique"><span class="td-val"><strong>Serveur léger</strong>, <strong>kiosk</strong>, <strong>monitoring</strong> ; bureau graphique <strong>serré</strong> (onglets limités).</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>4 Go</strong></span></td>
+<td data-label="RAM"><span class="td-val">4 Go</span></td>
+<td data-label="Profil d’acheteur typique"><span class="td-val"><strong>Sweet spot</strong> : bureau Raspberry Pi OS, développement <strong>Python</strong>, usage quotidien raisonnable.</span></td>
+</tr>
+<tr>
+<td data-label="Variante"><span class="td-val"><strong>8 Go</strong></span></td>
+<td data-label="RAM"><span class="td-val">8 Go</span></td>
+<td data-label="Profil d’acheteur typique"><span class="td-val"><strong>Multiples services Docker</strong>, compilation, <strong>gros IDE</strong> distant, tampons pour bases de données modestes.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Toutes les variantes offrent **GPIO 40 broches**, **CSI / DSI** (caméra / écran officiels en overlay), **Wi‑Fi ac** et **Bluetooth 5.0**, **carte microSD** comme stockage principal.
 
@@ -71,13 +95,9 @@ Le prix d'un **Pi 4** dépend de la mémoire (2, 4 ou 8 Go), du revendeur et des
 
 La procédure est la même que pour les autres Pi récents : **Raspberry Pi Imager** sur PC, choix de **Raspberry Pi OS** (Desktop ou Lite), options **SSH / Wi‑Fi / utilisateur** dans l’engrenage — voir notre guide pas à pas : [mise en route Raspberry Pi 3](/mise-en-route-raspberry-pi-3-modele-b/) (les étapes Imager sont **identiques** sur Pi 4).
 
-## Liens Amazon (affiliation)
+## Où vérifier le prix
 
-- [Raspberry Pi 4 Model B](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Boîtier ventilateur Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-- [Alimentation USB-C Raspberry Pi 4](https://www.amazon.fr/dp/B0CK3L9WD3?tag=manuso06-21)
-
-*Partenaire Amazon — commission possible sur achats éligibles.*
+L’ASIN B0CK3L9WD3 du relevé Amazon.fr est un **Raspberry Pi 5 4 Go**, pas un Pi 4, pas un boîtier et pas une alimentation. La fiche officielle du Pi 4 est sur [raspberrypi.com](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/). Les prix datés du Pi 5 sont dans le [comparatif Pi 3 / 4 / 5](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/).
 
 ---
 

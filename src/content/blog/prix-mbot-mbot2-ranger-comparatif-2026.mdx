@@ -1,7 +1,8 @@
 ---
 title: "Prix mBot, mBot2, Ranger 2026 : quel kit acheter ?"
-description: "Comparatif prix mBot (89€), mBot2 (167€) et Ranger (189€). Différences techniques, évolutions, kits complets. Guide pour choisir le bon modèle Makeblock."
+description: "mBot 89,99 €, mBot2 167,95 €, Ranger 189,99 € au relevé Amazon.fr du 6 novembre 2026. Différences, sans additionner les accessoires."
 pubDate: "2026-10-13"
+updatedDate: "2026-11-06"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: mbot2
 categories:
@@ -28,26 +29,50 @@ import ProductBox from '../../components/ProductBox.astro';
 
 <ComparisonTable
   products={[
-    { id: 'mbot', badge: 'Meilleur rapport qualité-prix' },
-    { id: 'mbot2', badge: 'Meilleur choix Python' },
-    { id: 'mbot-ranger', badge: 'Tout-terrain avancé' },
+    { id: 'mbot', badge: 'Meilleur rapport du relevé' },
+    { id: 'mbot2', badge: 'Python et Wi-Fi' },
+    { id: 'mbot-ranger', badge: 'Trois formes' },
   ]}
-  title="Comparatif prix et fonctionnalités"
+  title="mBot, mBot2 et Ranger"
 />
 
-La gamme **[Makeblock](/marque-makeblock/) mBot** propose trois modèles distincts en 2026 : le **mBot classique** , le **mBot2**  et le **mBot Ranger** . Chacun vise un public différent et offre des fonctionnalités adaptées. Ce guide vous aide à **comparer les prix**, comprendre les **différences techniques** et choisir le **kit le plus rentable** selon votre situation.
+La gamme [Makeblock](/marque-makeblock/) mBot se lit ici en trois kits : le mBot, le mBot2 et le mBot Ranger. Les prix viennent du relevé Amazon.fr du 6 novembre 2026, 11 h 23. Ils peuvent bouger ensuite. Les piles, chargeurs et modules qui ne sont pas dans ce relevé ne sont pas additionnés au robot.
 
-## 1. Tableau récapitulatif prix 2026
+## Les trois prix
 
-| Modèle | Prix indicatif | Âge recommandé | Points forts |
-|--------|---------------|----------------|--------------|
-| **mBot** | Voir prix Amazon | 8-12 ans | Scratch, montage simple, nombreux tutoriels |
-| **mBot2** | Voir prix Amazon | 10-14 ans | Python, CyberPi, Wi-Fi, IoT |
-| **mBot Ranger** | Voir prix Amazon | 10-14 ans | Tout-terrain, 3 formes, auto-équilibré |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modèle</th>
+<th scope="col">Prix le 6 novembre 2026</th>
+<th scope="col">Âge recommandé</th>
+<th scope="col">Ce qui le distingue</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>mBot</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">89,99 €</span></td>
+<td data-label="Âge recommandé"><span class="td-val">8-12 ans</span></td>
+<td data-label="Ce qui le distingue"><span class="td-val">Blocs, montage court, beaucoup de tutoriels</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>mBot2</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">167,95 €</span></td>
+<td data-label="Âge recommandé"><span class="td-val">10-14 ans</span></td>
+<td data-label="Ce qui le distingue"><span class="td-val">Python, CyberPi, Wi-Fi</span></td>
+</tr>
+<tr>
+<td data-label="Modèle"><span class="td-val"><strong>mBot Ranger</strong></span></td>
+<td data-label="Prix le 6 novembre 2026"><span class="td-val">189,99 €</span></td>
+<td data-label="Âge recommandé"><span class="td-val">10-14 ans</span></td>
+<td data-label="Ce qui le distingue"><span class="td-val">Tout-terrain, trois formes, équilibrage</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-*Prix Amazon France avec tag affilié manuso06-21, octobre 2026. Peuvent varier selon promotions et vendeurs tiers.*
+Fiches : [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21), [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21), [Ranger](https://www.amazon.fr/dp/B07KG4JHBH?tag=manuso06-21). Une commission est possible sur un achat éligible, sans surcoût. Le comparatif fonctionnel, au-delà du prix, est dans [mBot ou mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
 
-## 2. mBot classique  : le meilleur point d'entrée
+## mBot : le ticket d’entrée à 89,99 €
 
 <ProductBox
   productId="mbot"
@@ -65,31 +90,11 @@ La gamme **[Makeblock](/marque-makeblock/) mBot** propose trois modèles distinc
   position={1}
 />
 
-### Ce qui est inclus
+La boîte réunit un châssis en aluminium, deux moteurs à courant continu, un capteur à ultrasons, un suiveur de ligne à deux capteurs, des LED RGB, un buzzer, la carte mCore (compatible Arduino), une télécommande infrarouge, les câbles et la visserie. On programme d’abord en blocs, dans mBlock, proche de Scratch. Le premier programme tient souvent dans une heure quand un adulte est là pour le branchement. Le pas à pas est dans [premier programme mBot](/mon-premier-programme-mbot/).
 
-- Châssis aluminium
-- Moteurs à courant continu (2×)
-- Capteur ultrason
-- Suiveur de ligne (2 capteurs)
-- LED RGB programmables
-- Buzzer
-- Carte mCore (Arduino)
-- Télécommande infrarouge
-- Câbles et visserie
+Il convient à un premier robot, vers 8-10 ans, et à une classe qui veut plusieurs postes sans passer au tarif du mBot2. Il n’a pas de Wi-Fi d’origine, ni d’écran couleur : le retour passe par les LED et le buzzer. La suite, si l’on reste sur ce châssis, se fait plutôt en Arduino qu’en Python. Les ajouts éventuels sont présentés dans [accessoires mBot](/accessoires-mbot-par-ou-commencer/), sans prix tant qu’ils ne sont pas dans le relevé.
 
-### Pour qui ?
-
-- **Premier robot éducatif** : interface Scratch simple, projets réussis en 1h
-- **Classe primaire/collège** : budget maîtrisé pour équiper 5-10 robots
-- **Enfant 8-10 ans** : ne nécessite pas Python immédiatement
-
-### Limites
-
-- Pas de Wi-Fi natif
-- Écran limité (matrice LED)
-- Passage Python via Arduino (courbe d'apprentissage)
-
-## 3. mBot2  : le meilleur pour Python et IoT
+## mBot2 : 167,95 €, pour Python
 
 <ProductBox
   productId="mbot2"
@@ -108,37 +113,11 @@ La gamme **[Makeblock](/marque-makeblock/) mBot** propose trois modèles distinc
   position={1}
 />
 
-### Différence clé : CyberPi
+La différence tient à la carte CyberPi : écran couleur, microphone, haut-parleur, accéléromètre, capteur de lumière, Wi-Fi 2,4 GHz et batterie au lithium rechargeable. On commence en blocs, puis on passe à Python sans changer de robot. Des projets connectés (une mesure publiée, un petit tableau de bord) deviennent possibles. Ce n’est pas pour autant un ordinateur généraliste.
 
-Le **CyberPi** est une carte programmable complète :
-- Écran couleur LCD
-- Microphone + haut-parleur
-- Accéléromètre 6 axes
-- Capteur de lumière
-- Wi-Fi 2.4GHz
-- Batterie lithium rechargeable
+L’écart avec le mBot, 77,96 € au relevé (167,95 − 89,99), se justifie si Python est déjà l’objectif, au collège ou dans un club, et si le robot doit servir plusieurs années. Il ne se justifie pas pour une première découverte, ni si l’enfant préfère démonter un châssis plutôt que d’écrire. Huit mBot à 89,99 € font 719,92 € de kits seuls. Six en font 539,94 €. Ce calcul ne comprend ni piles ni un mBot2 de démonstration : ces lignes se consultent à part.
 
-Cette carte transforme le mBot2 en **vrai ordinateur mobile** capable de projets IoT (météo connectée, notifications Telegram, dashboard web).
-
-### Pour qui ?
-
-- **Collège/lycée** : transition naturelle Scratch → Python
-- **Enfant 10+ ans** passionné tech : IoT, capteurs avancés, projets longs
-- **Clubs robotique** : compétitions type First Lego League nécessitant code structuré
-
-### Surcoût justifié ?
-
-**Oui** si :
-- Objectif Python clair (collège, NSI, orientation ingénieur)
-- Budget classe permet 3-5 robots mBot2 plutôt que 8 mBot classiques
-- Projet annuel prévu (station météo, robot messager…)
-
-**Non** si :
-- Première découverte sans engagement
-- Budget très serré
-- Enfant préfère construction mécanique au code
-
-## 4. mBot Ranger  : le choix tout-terrain
+## Ranger : 189,99 €, trois formes
 
 <ProductBox
   productId="mbot-ranger"
@@ -157,123 +136,65 @@ Cette carte transforme le mBot2 en **vrai ordinateur mobile** capable de projets
   position={1}
 />
 
-### Les 3 formes
+Le Ranger se reconstruit. Le Tank Raptor roule sur chenilles. La forme voiture met l’ultrason vers l’avant. Le robot équilibré tient debout, gyroscope à l’appui, dans l’esprit d’un petit gyropode. Le montage est plus long que celui du mBot, souvent deux ou trois heures la première fois. On programme en blocs puis en Arduino, pas en Python natif comme sur le mBot2. La liaison est le Bluetooth, pas le Wi-Fi.
 
-1. **Tank Raptor** : chenilles, franchissement obstacles
-2. **Racing Car** : vitesse, capteur ultrason avant
-3. **Balancing Robot** : auto-équilibré (type Segway)
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Critère</th>
+<th scope="col">mBot2</th>
+<th scope="col">Ranger</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Critère"><span class="td-val">Prix le 6 novembre 2026</span></td>
+<td data-label="mBot2"><span class="td-val">167,95 €</span></td>
+<td data-label="Ranger"><span class="td-val">189,99 €</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val">Programmation</span></td>
+<td data-label="mBot2"><span class="td-val">Blocs et Python</span></td>
+<td data-label="Ranger"><span class="td-val">Blocs et Arduino</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val">Liaison</span></td>
+<td data-label="mBot2"><span class="td-val">Wi-Fi et Bluetooth</span></td>
+<td data-label="Ranger"><span class="td-val">Bluetooth</span></td>
+</tr>
+<tr>
+<td data-label="Critère"><span class="td-val">Ce qui change</span></td>
+<td data-label="mBot2"><span class="td-val">Logiciel, écran, projets connectés</span></td>
+<td data-label="Ranger"><span class="td-val">Trois formes mécaniques</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
-### Pour qui ?
+On prend le Ranger si la mécanique prime. On prend le mBot2 si Python et le Wi-Fi priment. L’écart de prix au relevé est de 22,04 € (189,99 − 167,95).
 
-- **Passionnés mécanique** : montage 2-3h, transformations multiples
-- **Démonstrations** : effet spectaculaire avec équilibrage
-- **Programmation intermédiaire** : boucles PID, gyroscope, logique états
+## Ce qu’il faut encore prévoir, sans total inventé
 
-### vs mBot2 ?
+Les trois kits ne disent pas tous la même chose sur les piles. Vérifiez la notice : format AA, batterie déjà dans la boîte, ou chargeur séparé. Un tapis de parcours, des servos, une bande de LED ou un capteur de couleur sont des achats à part. Leur prix n’est pas dans ce relevé. Consulter chaque fiche, et ne pas les ajouter de tête au 89,99 €, au 167,95 € ou au 189,99 €.
 
-| Critère | mBot2 | Ranger |
-|---------|-------|--------|
-| Programmation | Python facilité | Scratch/Arduino |
-| Connectivité | Wi-Fi natif | Bluetooth uniquement |
-| Polyvalence | Logiciel (IoT, IA) | Matérielle (3 formes) |
-| Prix | Voir prix Amazon | Voir prix Amazon |
+Le kit CyberPi d’apprentissage Scratch et Python était à **59,99 €** dans le même relevé. Ce montant décrit ce kit, pas le prix d’un échange de carte mCore dans un mBot déjà monté. Une carte nue peut manquer l’écran et des fonctions propres au mBot2. Le panorama des familles est dans [quel robot choisir en 2026](/quel-robot-educatif-choisir-2026/).
 
-**Choisir Ranger si** : l'aspect mécanique/physique prime sur le code avancé.  
-**Choisir mBot2 si** : Python et projets connectés sont prioritaires.
+Pour une classe, un revendeur éducation peut faire un devis. Ce relevé Amazon ne contient pas de remise négociée. L’occasion non plus n’a pas de prix ici : on vérifie le firmware, le Bluetooth, la notice et les câbles avant d’accepter un montant annoncé par le vendeur. Des promotions reviennent parfois au Black Friday, à la rentrée ou au Prime Day. Le pourcentage n’est pas connu à l’avance : c’est la fiche du jour qui compte.
 
-## 5. Budget complet à prévoir
+## Quel profil
 
-Au-delà du prix du kit, anticipez :
+Pour une première découverte vers 8-10 ans, le mBot à 89,99 € suffit : blocs, montage court, et le budget restant sert aux piles si la notice en demande, à leur prix du jour. Pour un collégien qui vise Python, le mBot2 à 167,95 € enlève l’étape d’une carte séparée. Pour un enfant de 10-14 ans qui veut transformer le robot, le Ranger à 189,99 € est le kit mécanique. En classe, plusieurs mBot permettent le travail à deux ; un ou deux mBot2 suffisent si l’enseignant veut montrer Python. Les trois boîtes ensemble ne servent qu’à un club. Un second robot, six mois ou un an plus tard, vaut mieux qu’un achat groupé le premier jour.
 
-### Accessoires quasi obligatoires
+## Questions fréquentes
 
-- **Piles rechargeables AA** (8-12 selon modèle) : 20-30€
-- **Chargeur** de piles : 15-25€
-- **Tapis de test** (optionnel mais utile) : 15-40€
+### Le mBot2 remplace-t-il le Ranger ?
 
-### Extensions populaires (optionnelles)
+Non. Le Ranger a un châssis et un gyroscope prévus pour l’équilibrage et pour changer de forme. Le mBot2 ne devient pas ce robot en changeant seulement le programme.
 
-- **Kit servo 9g** (3-4 servos) : 15-20€
-- **Module LED strip** : 10-15€
-- **Capteur de couleur** : 20-25€
-- **mBuild modules** (compatibles mBot2) : 15-50€ selon fonction
+### Un mBot devient-il un mBot2 ?
 
-### Coût total réaliste
+Pas complètement. On peut s’intéresser à une carte CyberPi, mais le kit à 59,99 € du relevé n’est pas chiffré comme une greffe dans un mBot. L’écran et une partie des fonctions du mBot2 restent liés à ce modèle.
 
-- **mBot** : 90€ kit + 30€ accessoires = **~120€**
-- **mBot2** : 168€ kit + 20€ piles + 25€ extension = **~213€**
-- **Ranger** : 190€ kit + 40€ accessoires = **~230€**
+### Faut-il les trois ?
 
-## 6. Où acheter au meilleur prix ?
+Non, sauf collection ou club. Un modèle collé à l’âge et au langage visé, puis éventuellement un second si la passion tient.
 
-### Amazon France (liens affiliés)
-
-- [mBot classique](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) : suivi commande, SAV Amazon
-- [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) : souvent promotions Prime
-- [mBot Ranger](https://www.amazon.fr/dp/B07KG4JHBH?tag=manuso06-21) : comparer vendeurs tiers
-
-*Commission possible sur achats éligibles (soutient ce site).*
-
-### Revendeurs éducation
-
-Pour commandes groupées classe (5+ robots), contactez revendeurs agrégés éducation nationale : remises 10-20% possibles + facture établissement.
-
-### Occasions (avec prudence)
-
-- Vérifier firmware à jour
-- Tester Bluetooth avant achat
-- S'assurer notice/câbles présents
-- Prix occasions 2026 : mBot ~50€, mBot2 ~100€, Ranger ~120€
-
-## 7. Notre recommandation par profil
-
-### Profil "Première découverte" (8-10 ans)
-
-➜ **mBot classique** 
-
-Scratch suffit largement, montage simple, ressources gratuites abondantes. Budget restant pour piles + livre.
-
-### Profil "Objectif Python collège" (10-12 ans)
-
-➜ **mBot2** 
-
-CyberPi élimine barrières Python, projets IoT motivants, compatible NSI lycée. Investissement rentabilisé sur 3-4 ans.
-
-### Profil "Passionné construction" (10-14 ans)
-
-➜ **mBot Ranger** 
-
-Transformations multiples, défis mécaniques, équilibrage spectaculaire. Complément idéal si déjà un mBot classique à la maison.
-
-### Profil "Classe technologie collège"
-
-➜ **mBot classique** × 6-8 (budget ~900€)
-
-Privilégier quantité pour travail binômes. Ajouter 1-2 mBot2 pour démonstrations Python enseignant.
-
-## 8. Questions fréquentes
-
-### Le mBot2 peut-il tout faire comme le Ranger ?
-
-**Non** : le Ranger a un châssis spécifique et gyroscope pour l'équilibrage. Le mBot2 ne peut pas se transformer en robot auto-équilibré sans acheter kit Ranger séparément.
-
-### Puis-je upgrader mon mBot classique en mBot2 ?
-
-**Partiellement** : acheter CyberPi séparé (~60€) permet de remplacer mCore et gagner Python + Wi-Fi. Mais il manquera écran couleur optimisé et certaines fonctions mBot2 natives.
-
-### Faut-il acheter les trois ?
-
-**Non**, sauf club robotique ou collection. Choisir **un** modèle adapté à l'âge/objectif, puis éventuellement **un second** après 6-12 mois si vraiment passionné.
-
-### Les prix vont-ils baisser ?
-
-Historiquement, Makeblock maintient prix stables. Promotions possibles :
-- **Black Friday** (novembre)
-- **Rentrée scolaire** (août-septembre)
-- **Prime Day** Amazon (juillet)
-
-Économies attendues : 5-15% maximum.
-
----
-
-**En résumé** : le **mBot classique**  reste le **meilleur rapport qualité-prix** pour débuter. Le **mBot2**  se justifie dès que **Python** devient un objectif clair. Le **Ranger**  séduit les passionnés de **mécanique** et transformations spectaculaires. Anticipez ~30€ d'accessoires dans tous les cas.
+Le mBot à 89,99 € reste le rapport le plus bas du relevé pour débuter. Le mBot2 à 167,95 € se comprend dès que Python est l’objectif. Le Ranger à 189,99 € s’adresse à qui veut trois machines dans la même boîte.

@@ -1,0 +1,10 @@
+---
+/** Affiche le bandeau des 4 indispensables sur les hubs domotique traduits. */
+import DomotiqueEssentials2026 from './DomotiqueEssentials2026.astro';
+
+const raw = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const path = raw.endsWith('/') ? raw : `${raw}/`;
+const hubs = new Set(['/en/smart-home/', '/de/smart-home/', '/it/domotica/', '/es/domotica/']);
+---
+
+{hubs.has(path) && <DomotiqueEssentials2026 />}

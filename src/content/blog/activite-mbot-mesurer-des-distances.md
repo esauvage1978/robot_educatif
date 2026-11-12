@@ -1,6 +1,6 @@
 ---
 title: "Activité mBot : mesurer des distances"
-description: "Capteur ultrason mBot : mesurer distance, afficher (LED). Types, Arduino C."
+description: "Activité mBot : mesurer une distance avec le capteur ultrason et l’afficher. D’abord en blocs mBlock, puis le lien avec les types en Arduino C, en classe."
 pubDate: "2020-04-21"
 heroImage: "../../assets/mbot/mbot-hero.png"
 amazonPreset: mbot
@@ -26,7 +26,7 @@ relatedLinks:
 
 Cette activité en **deux temps** guide pour :
 
-1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
+1. **Lire la distance** renvoyée par le **capteur à ultrason** du [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) et la voir **sur l’ordinateur** (variable + mode **Live**) ;
 2. **Afficher cette distance sur la matrice LED** du robot en **mode autonome** (sans câble), en gérant le passage **nombre → texte**.
 
 Les libellés exacts des blocs peuvent varier selon la **version de mBlock** et la **langue** de l’interface ; l’**enchaînement logique** reste le même.

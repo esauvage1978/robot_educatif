@@ -2,19 +2,33 @@
 title: "Arduino C : boucles et timing (delay vs millis)"
 description: "Boucles for/while, compteurs, et timing en robotique : delay, millis, cadence de capteurs/son, éviter les blocages. 20 exercices corrigés."
 pubDate: 2026-04-02
-updatedDate: "2026-10-13"
+updatedDate: "2026-11-02"
 series: "Arduino C"
 seriesOrder: 4
 tags: ["C", "Arduino", "Robotique", "Programmation"]
 relatedLinks:
   - title: "Leçon 3 — conditions"
     href: "/c-arduino-conditions-capteurs-actionneurs/"
+  - title: "Parcours Arduino C"
+    href: "/programmation/arduino-c/"
 categories:
   - "C"
   - "Arduino"
   - "Programmation"
   - "Débutant"
 ---
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/programmation/arduino-c/">Arduino C</a> · Leçon 4 — boucles et timing</nav>
+
+> **Réponse directe (novembre 2026)** — En robotique, une boucle **`while`** dans **`loop()`** relit les capteurs en continu ; **`delay()`** est simple mais **bloque** tout le programme ; **`millis()`** permet un clignotement ou un bip **sans** figer la lecture des boutons.
+
+![Montage mBot / Arduino pour exercices de timing](/images/products/mbot.webp)
+
+## Prérequis matériel et logiciel
+
+- Carte **Arduino UNO** ou robot **mBot** (carte compatible Arduino).
+- Câble **USB**, **Arduino IDE 2.x** installée.
+- Leçons déjà vues : [structure du sketch](/c-arduino-environnement-structure-sketch/) et [conditions capteurs](/c-arduino-conditions-capteurs-actionneurs/) dans le [parcours Arduino C](/programmation/arduino-c/).
 
 En robotique, les boucles servent à :
 
@@ -23,6 +37,8 @@ En robotique, les boucles servent à :
 - produire une cadence (bips, clignotement).
 
 Mais attention : un robot qui fait `delay(5000)` ne peut plus réagir pendant 5 secondes. D’où l’intérêt de `millis()` pour faire du **timing non-bloquant**.
+
+Suite logique dans la série Arduino C : [leçon 5 — fonctions et modularité](/c-arduino-fonctions-modularite-bonnes-pratiques/).
 
 ## 1) `for` : quand tu connais le nombre de tours
 

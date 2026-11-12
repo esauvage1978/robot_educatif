@@ -1,0 +1,123 @@
+---
+import EsPost from '../../layouts/EsPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+
+const title = 'Mejor robot programable para niños (2026): edades 5–14 años';
+const description =
+	'Comparativa Botley 2.0, mBot, mBot2, Codey Rocky y ELEGOO para niños de 5 a 14 años. Precios y fotos Amazon.es del feed Creators y guías por edad.';
+const updated = '4 de noviembre de 2026';
+---
+
+<EsPost title={title} description={description} updated={updated}>
+	<AffiliateDisclosure locale="es" />
+
+	<nav class="breadcrumb" aria-label="Miga de pan">
+		<a href="/es/">Inicio</a> · <a href="/es/marca-makeblock/">Makeblock</a> · Robots programables
+	</nav>
+	<p>
+		<a href="/es/regalo-navidad-robot-educativo-2026/">Regalos Navidad robot</a> ·{' '}
+		<a href="/es/mbot-vs-mbot2/">mBot vs mBot2</a> · <a href="/es/marca-makeblock/">Marca Makeblock</a>
+	</p>
+
+	<ComparisonTable
+		market="es"
+		locale="es"
+		title="Comparativa rápida (5–14 años)"
+		products={[
+			{ id: 'botley-2', badge: 'Top 5–7 años' },
+			{ id: 'mbot', badge: 'Top 8–12 años' },
+			{ id: 'mbot2', badge: 'Top 10–14 años' },
+			{ id: 'codey-rocky', badge: 'Scratch + sensores' },
+			{ id: 'elegoo-robot-car', badge: 'Adolescentes Arduino' },
+		]}
+	/>
+
+	<p>
+		<strong>Actualizado el 4 de noviembre de 2026.</strong> Esta guía compara robots <strong>programables</strong> para niños de
+		<strong>5 a 14 años</strong>. Precios e imágenes según nuestro feed Amazon Creators (fecha bajo la tabla). Más contexto en{' '}
+		<a href="/es/marca-makeblock/">Makeblock</a>, en la guía <a href="/es/regalo-navidad-robot-educativo-2026/">regalos Navidad</a> y en{' '}
+		<a href="/es/robot-programable-8-anos/">robot para 8 años</a>, <a href="/es/mbot-vs-mbot2/">mBot vs mBot2</a>.{' '}
+		<strong>Scratch</strong> es programación por bloques; <strong>Arduino</strong> es código C/C++ en una placa.
+	</p>
+
+	<figure>
+		<img
+			src="/images/products/mbot2.webp"
+			alt="Makeblock mBot2, chasis azul y sensores de ultrasonidos"
+			width="600"
+			height="600"
+			loading="lazy"
+			decoding="async"
+		/>
+	</figure>
+
+	<h2>1. Edad y paciencia primero</h2>
+	<ul>
+		<li><strong>5–7 años</strong> — retos cortos, a menudo <strong>sin pantalla</strong>.</li>
+		<li><strong>8–10 años</strong> — bloques Scratch/mBlock, montaje sencillo.</li>
+		<li><strong>10–14 años</strong> — Python y Wi‑Fi con mBot2.</li>
+		<li><strong>13+ con adulto</strong> — kit Arduino ELEGOO.</li>
+	</ul>
+
+	<h2>2. Software, sensores y presupuesto real</h2>
+	<p>
+		Busque tutoriales recientes y comunidad activa. Cuente pilas recargables y tiempo adulto para la primera instalación.{' '}
+		<a href="/es/instalar-mblock-5-windows/">Instalar mBlock 5</a>.
+	</p>
+
+	<div class="tableau empile">
+		<table>
+			<thead>
+				<tr>
+					<th scope="col">Criterio</th>
+					<th scope="col">mBot</th>
+					<th scope="col">mBot2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-label="Criterio">
+						<span class="td-val">Edad indicada</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">6+ años</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Primaria–secundaria</span>
+					</td>
+				</tr>
+				<tr>
+					<td data-label="Criterio">
+						<span class="td-val">Lenguajes</span>
+					</td>
+					<td data-label="mBot">
+						<span class="td-val">Bloques (mBlock), Arduino</span>
+					</td>
+					<td data-label="mBot2">
+						<span class="td-val">Bloques, Python, Arduino IDE</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h2>3. Más guías</h2>
+	<p>
+		<a href="/es/robot-programable-8-anos/">Robot 8 años</a> · <a href="/es/mbot-vs-mbot2/">mBot vs mBot2</a> ·{' '}
+		<a href="/es/regalo-navidad-robot-educativo-2026/">Regalos Navidad robot</a> ·{' '}
+		<a href="/es/scratch-escuela-casa-empezar/">Scratch en casa</a>
+	</p>
+
+	<h2>Errores frecuentes</h2>
+	<ul>
+		<li>Elegir solo por precio del día sin leer reseñas recientes sobre resistencia y soporte.</li>
+		<li>Subestimar el tiempo adulto para drivers, Bluetooth y primer inicio de sesión.</li>
+		<li>Comprar un kit Arduino para un niño de 7 años que aún prefiere jugar sin portátil.</li>
+	</ul>
+
+	<p>
+		<strong>En resumen:</strong> el mejor robot es el que se usará de verdad — software claro, retos variados y presupuesto honesto (pilas,
+		extensiones, tiempo adulto). Consulte la guía por edad y confirme el precio del día en la tienda.
+	</p>
+</EsPost>

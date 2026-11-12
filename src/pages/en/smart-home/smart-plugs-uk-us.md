@@ -9,22 +9,70 @@ The smart plug is the easiest first smart home device, but it is also the one wh
 
 ## 1. UK vs US: the electrical basics
 
-| | United Kingdom | United States |
-|---|---|---|
-| Socket | Type G (BS 1363) | Type A/B (NEMA 1-15 / 5-15) |
-| Voltage | 230 V, 50 Hz | 120 V, 60 Hz |
-| Typical max load | 13 A (fused plug), about 3,000 W | 15 A circuit; most smart plugs are rated 15 A, about 1,800 W |
-| Markings to look for | UKCA (or CE), BS 1363 compliance | FCC ID for the radio; UL or ETL listing for safety |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col"> </th>
+<th scope="col">United Kingdom</th>
+<th scope="col">United States</th>
+</tr></thead><tbody>
+<tr>
+<td><span class="td-val">Socket</span></td>
+<td data-label="United Kingdom"><span class="td-val">Type G (BS 1363)</span></td>
+<td data-label="United States"><span class="td-val">Type A/B (NEMA 1-15 / 5-15)</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Voltage</span></td>
+<td data-label="United Kingdom"><span class="td-val">230 V, 50 Hz</span></td>
+<td data-label="United States"><span class="td-val">120 V, 60 Hz</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Typical max load</span></td>
+<td data-label="United Kingdom"><span class="td-val">13 A (fused plug), about 3,000 W</span></td>
+<td data-label="United States"><span class="td-val">15 A circuit; most smart plugs are rated 15 A, about 1,800 W</span></td>
+</tr>
+<tr>
+<td><span class="td-val">Markings to look for</span></td>
+<td data-label="United Kingdom"><span class="td-val">UKCA (or CE), BS 1363 compliance</span></td>
+<td data-label="United States"><span class="td-val">FCC ID for the radio; UL or ETL listing for safety</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 **Always check the rated load** printed on the plug before connecting a heater, kettle or space heater, and avoid daisy-chaining plugs.
 
 ## 2. Zigbee, Wi-Fi or Matter?
 
-| Type | Pros | Cons | Choose it if |
-|---|---|---|---|
-| **Zigbee** | local, low power, acts as a mesh repeater | needs a Zigbee coordinator | you run Home Assistant with a [Zigbee dongle](/en/smart-home/best-zigbee-dongle-home-assistant/) |
-| **Wi-Fi** | no hub, quick app set-up | busier Wi-Fi, often cloud-dependent | you're just starting |
-| **Matter (over Wi-Fi or Thread)** | works with Apple Home, Google Home, Alexa, SmartThings and Home Assistant | check the Matter logo and version on the box | you want to avoid lock-in |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Type</th>
+<th scope="col">Pros</th>
+<th scope="col">Cons</th>
+<th scope="col">Choose it if</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Zigbee</strong></span></td>
+<td data-label="Pros"><span class="td-val">local, low power, acts as a mesh repeater</span></td>
+<td data-label="Cons"><span class="td-val">needs a Zigbee coordinator</span></td>
+<td data-label="Choose it if"><span class="td-val">you run Home Assistant with a <a href="/en/smart-home/best-zigbee-dongle-home-assistant/">Zigbee dongle</a></span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Wi-Fi</strong></span></td>
+<td data-label="Pros"><span class="td-val">no hub, quick app set-up</span></td>
+<td data-label="Cons"><span class="td-val">busier Wi-Fi, often cloud-dependent</span></td>
+<td data-label="Choose it if"><span class="td-val">you're just starting</span></td>
+</tr>
+<tr>
+<td data-label="Type"><span class="td-val"><strong>Matter (over Wi-Fi or Thread)</strong></span></td>
+<td data-label="Pros"><span class="td-val">works with Apple Home, Google Home, Alexa, SmartThings and Home Assistant</span></td>
+<td data-label="Cons"><span class="td-val">check the Matter logo and version on the box</span></td>
+<td data-label="Choose it if"><span class="td-val">you want to avoid lock-in</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ## 3. What to check on the spec sheet
 

@@ -1,16 +1,21 @@
 ---
-title: "Télécharger mBlock 5 gratuit sur Windows 10/11 (guide en français)"
-description: "Où télécharger mBlock 5 gratuitement et sans risque, comment l'installer sur Windows 10 ou 11 pas à pas, et que faire si Windows bloque l'installation (SmartScreen, antivirus, droits administrateur)."
+title: "Installer mBlock 5 sous Windows 10/11 : guide pas à pas"
+headline: "Installer mBlock 5 sous Windows 10/11 : guide pas à pas"
+description: "Installer mBlock 5 gratuitement sur Windows 10 ou 11 : téléchargement officiel, UAC, SmartScreen, pilote USB CH340 pour mBot. Guide avec captures d'écran."
 pubDate: "2020-04-07"
 heroImage: "../../assets/blog-heroes/hero-scratch-mblock.webp"
-updatedDate: "2026-10-23"
+updatedDate: "2026-11-05"
 categories:
   - "mBlock"
   - "Guide"
   - "Installation"
   - "Windows"
 relatedLinks:
-  - title: "mBlock en ligne ou app : quel logiciel ?"
+  - title: "Télécharger mBlock 5 Gratuit (liens officiels 2026)"
+    href: "/telecharger-mblock-5-gratuit-guide-2026/"
+  - title: "Programmer avec mBlock en ligne sans installer"
+    href: "/mblock-en-ligne-programmer-sans-installer/"
+  - title: "Quel logiciel mBlock choisir (app, Web, Python) ?"
     href: "/logiciel-mblock-makeblock-mbot-quel-choisir/"
   - title: "Premiers pas avec mBlock 5"
     href: "/premier-pas-avec-mblock-5/"
@@ -22,13 +27,25 @@ relatedLinks:
 
 import ProductBox from '../../components/ProductBox.astro';
 
-**mBlock 5 se télécharge gratuitement** sur le site officiel **[mblock.cc](https://www.mblock.cc/en-us/download/)** (installateur Windows d’environ 380 Mo). Ce guide vous accompagne **de A à Z** pour **installer mBlock 5.6** (programmation par blocs Makeblock) sur **Windows 10** ou **Windows 11**. Le numéro exact de version peut évoluer (**5.6.x**) selon le site officiel. Depuis les versions récentes de l’installateur, **après l’acceptation du Contrôle de compte d’utilisateur (UAC)**, l’installation **démarre tout de suite** : il n’y a **plus d’écran** pour la langue par défaut, le dossier d’installation, le menu Démarrer, le raccourci bureau ou un résumé avant la copie des fichiers.
+<div class="callout-quick" style="border:2px solid #2b7de9;border-radius:12px;padding:1rem 1.2rem;margin:1rem 0 1.5rem;background:#f2f7ff;color:#1f2430;">
 
-**Illustrations :** **captures** pour la **page de téléchargement**, le fichier dans **Téléchargements**, l’**écran de fin** et la **taille du dossier** une fois installé ; l’**UAC** reste schématisé. Les libellés peuvent varier selon la langue de Windows ou la version : en cas de doute, suivez la **logique** (Oui, Terminer, etc.).
+**Accès rapide à mBlock 5 sur PC**
 
-mBlock existe aussi pour **macOS**, **iOS**, **Android**, **Linux** et **Chromebook** — ici nous ne traitons que **Windows**. Impossible d’installer un logiciel sur le poste ? **mBlock en ligne** fonctionne dans le navigateur : voir [mBlock en ligne (ide.mblock.cc)](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+- **Installation locale (ce guide) :** récupérez l'installateur via notre page [Télécharger mBlock 5 Gratuit](/telecharger-mblock-5-gratuit-guide-2026/) (liens officiels Windows 10/11), puis suivez les étapes ci-dessous.
+- **Sans droits administrateur :** utilisez plutôt [mBlock en ligne dans le navigateur](/mblock-en-ligne-programmer-sans-installer/) — ce n'est pas une installation Windows.
+- **Premier projet en 2 minutes :** choisissez le Panda, glissez « quand le drapeau vert est cliqué » puis « dire Bonjour ! », et cliquez sur le drapeau vert.
 
-Une fois l’installation faite, vous pourrez programmer un robot comme le **[mBot](https://www.amazon.fr/dp/B07SM91TT6?tag=manuso06-21)** (lien Amazon affilié).
+**Le robot le plus simple à piloter avec mBlock :** le [Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21), 89,99 € sur Amazon.fr le 9 novembre 2026. Le [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21), 167,95 € le même jour, convient quand l'enfant passe des blocs à Python. Pour choisir selon l'âge : [robot pour 8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [robot pour 10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/), [kits robot Arduino](/meilleur-robot-educatif-arduino-kit-choisir/).
+
+</div>
+
+**Ce guide décrit l’installation locale de mBlock 5** (application bureau, environ 380 Mo à télécharger) sur **Windows 10** ou **Windows 11** : Contrôle de compte utilisateur (UAC), éventuel avertissement **SmartScreen**, puis **pilote USB CH340** pour brancher un **mBot** en série. Si vous n’avez pas encore l’installateur, commencez par [Télécharger mBlock 5 Gratuit](/telecharger-mblock-5-gratuit-guide-2026/) (liens officiels Makeblock). Ce tutoriel vous accompagne **de A à Z** pour **installer mBlock 5.6** (programmation par blocs Makeblock). Le numéro exact de version peut évoluer (**5.6.x**) selon le site officiel. Depuis les versions récentes de l’installateur, **après l’acceptation du Contrôle de compte d’utilisateur (UAC)**, l’installation **démarre tout de suite** : il n’y a **plus d’écran** pour la langue par défaut, le dossier d’installation, le menu Démarrer, le raccourci bureau ou un résumé avant la copie des fichiers.
+
+Les captures montrent la page de téléchargement, le fichier dans Téléchargements, l'écran de fin et la taille du dossier. Les libellés changent avec la langue de Windows : cliquez sur Oui, puis sur Terminer.
+
+mBlock existe aussi pour **macOS**, **iOS**, **Android**, **Linux** et **Chromebook** — ici nous ne traitons que **Windows**. Poste verrouillé sans droits admin ? Reportez-vous à [programmer avec mBlock en ligne sans rien installer](/mblock-en-ligne-programmer-sans-installer/) ; pour comparer app bureau et navigateur : [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+
+Une fois l’installation faite, vous pourrez programmer un robot comme le **[mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)** (lien Amazon affilié).
 
 ## Avant de commencer (prérequis)
 
@@ -72,7 +89,7 @@ Après le clic sur **Download** :
 - Sous **Edge** ou **Chrome**, une barre en bas de la fenêtre peut afficher le téléchargement : vous pouvez cliquer sur **Ouvrir le fichier** ou **Afficher dans le dossier**.
 - Raccourci utile : **`Ctrl + J`** ouvre la liste des téléchargements dans plusieurs navigateurs.
 
-**À propos de mLink :** l’outil **mLink** sert surtout à la connexion matérielle / certains usages. Pour travailler **avec l’application installée** comme dans ce guide, concentrez-vous sur **mBlock 5** pour Windows. Vous pouvez aussi utiliser **[mBlock en ligne](https://ide.mblock.cc/)** si vous préférez ne rien installer.
+**À propos de mLink :** l’outil **mLink** sert surtout à la connexion matérielle / certains usages. Pour travailler **avec l’application installée** comme dans ce guide, concentrez-vous sur **mBlock 5** pour Windows. Alternative sans installation : [mBlock en ligne](/mblock-en-ligne-programmer-sans-installer/).
 
 ---
 
@@ -95,7 +112,6 @@ Windows peut afficher une fenêtre **« Voulez-vous autoriser cette application�
 
 - Cliquez sur **Oui** pour autoriser l’installateur à modifier l’ordinateur (comportement normal pour un logiciel installé dans `Program Files`).
 
-![Représentation : fenêtre UAC — cliquer sur Oui](/images/blog/installer-mblock/ecran-03-uac.svg)
 
 *Si vous n’êtes pas administrateur, demandez à une personne qui a les droits sur la machine.*
 
@@ -139,13 +155,35 @@ Ensuite, suivez l’article **[Premier pas avec mBlock 5](/premier-pas-avec-mblo
 
 ## Dépannage rapide
 
-| Problème | Piste |
-|----------|--------|
-| Le fichier `.exe` ne se lance pas | **Propriétés** → **Débloquer** si visible ; **Exécuter en tant qu’administrateur** ; retélécharger le fichier ; voir la FAQ ci-dessous. |
-| Message **Windows a protégé votre PC** (SmartScreen) | **Informations complémentaires** → **Exécuter quand même** — uniquement si le fichier vient bien de **mblock.cc** ou du **lien de secours** proposé plus haut sur **ce site**. |
-| Installation interrompue / écran d’erreur | Antivirus ou pare-feu : autoriser l’installateur ou désactiver **temporairement** la protection le temps de l’installation (puis la réactiver). |
-| UAC bloqué / pas de droits admin | Compte administrateur ou aide d’un adulte / du service informatique. |
-| Écrans de l’installateur en anglais | Les libellés **Finish**, **Install Finished**, etc. sont courants ; la **langue d’interface** de mBlock se règle dans l’**application** après ouverture. |
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Problème</th>
+<th scope="col">Piste</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Problème"><span class="td-val">Le fichier <code>.exe</code> ne se lance pas</span></td>
+<td data-label="Piste"><span class="td-val"><strong>Propriétés</strong> → <strong>Débloquer</strong> si visible ; <strong>Exécuter en tant qu’administrateur</strong> ; retélécharger le fichier ; voir la FAQ ci-dessous.</span></td>
+</tr>
+<tr>
+<td data-label="Problème"><span class="td-val">Message <strong>Windows a protégé votre PC</strong> (SmartScreen)</span></td>
+<td data-label="Piste"><span class="td-val"><strong>Informations complémentaires</strong> → <strong>Exécuter quand même</strong> — uniquement si le fichier vient bien de <strong>mblock.cc</strong> ou du <strong>lien de secours</strong> proposé plus haut sur <strong>ce site</strong>.</span></td>
+</tr>
+<tr>
+<td data-label="Problème"><span class="td-val">Installation interrompue / écran d’erreur</span></td>
+<td data-label="Piste"><span class="td-val">Antivirus ou pare-feu : autoriser l’installateur ou désactiver <strong>temporairement</strong> la protection le temps de l’installation (puis la réactiver).</span></td>
+</tr>
+<tr>
+<td data-label="Problème"><span class="td-val">UAC bloqué / pas de droits admin</span></td>
+<td data-label="Piste"><span class="td-val">Compte administrateur ou aide d’un adulte / du service informatique.</span></td>
+</tr>
+<tr>
+<td data-label="Problème"><span class="td-val">Écrans de l’installateur en anglais</span></td>
+<td data-label="Piste"><span class="td-val">Les libellés <strong>Finish</strong>, <strong>Install Finished</strong>, etc. sont courants ; la <strong>langue d’interface</strong> de mBlock se règle dans l’<strong>application</strong> après ouverture.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ---
 
@@ -175,29 +213,17 @@ Installez la **dernière version stable** proposée sur le site officiel (souven
 
 Dans la plupart des cas, oui : il s’agit de **mBlock 5** pour PC. Vérifiez bien que la source est **Makeblock** / **mblock.cc**.
 
-### Recherches du type « mblock 5 télécharger », « telecharger mblock », « mblock téléchargement », « mblock download », « mblock5 download »
-
-Toutes renvoient au **même logiciel** (mBlock **5** pour Windows). La **page officielle** reste **[mblock.cc — Download](https://www.mblock.cc/en-us/download/)** ; pour le **PC sous Windows**, choisissez la section **Windows** (souvent **64 bits**). Les équivalents en anglais (**mblock download**, **mblock 5 download**, **download mblock 5**) pointent vers la même installation.
-
-### « mblock5 », « mblock v5 », « m block 5 », « mbloc 5 » (faute), « mblcok » : c’est bien mBlock ?
-
-Oui : il s’agit en pratique du **même programme** (**mBlock 5**, environnement Makeblock proche de Scratch). Si une recherche ne trouve rien, retapez **mBlock 5 Makeblock** ou allez directement sur **mblock.cc**.
-
 ### Anciennes versions (5.3, 5.4.3, « télécharger mblock 5.4 3 ») : faut-il les installer ?
 
 Les tutos ou vidéos peuvent citer **5.3** ou **5.4.3** : ce sont d’**anciennes références**. Pour un **nouveau** PC, installez plutôt la **dernière version stable** affichée sur le site officiel (souvent **5.6.x** ou plus récent). Une vieille version n’est utile que dans un cas **très spécifique** (compatibilité matériel signalée par le fabricant).
-
-### « mblock PC », « mblock download pc », « télécharger mblock pour windows »
-
-Sur **mblock.cc**, la section **Windows** fournit l’installateur **pour PC** (ordinateur fixe ou portable). La procédure de ce guide s’applique à **Windows 10** et **Windows 11**.
 
 ### « Installer mblock » après le téléchargement : rien d’autre à chercher ?
 
 Une fois le **.exe** récupéré, il suffit de **lancer** le fichier (voir la section **« Étape 2 — Lancer l’installateur »** plus haut) ; il n’y a en général **pas** d’assistant « Suivant » multiple sur les installateurs récents — la copie démarre après l’**UAC**.
 
-### mBlock en ligne, « mblock 5 web », ou installation : que choisir ?
+### Application bureau ou navigateur : que choisir ?
 
-**[mBlock en ligne](https://ide.mblock.cc/)** (navigateur) convient quand on **ne peut pas** installer de logiciel. Pour **firmware**, **USB** stable et **téléversement** vers le robot, l’**application bureau** est en général préférable — voir [Quel logiciel mBlock : app, Web, Python](/logiciel-mblock-makeblock-mbot-quel-choisir/).
+Pour **firmware**, **USB** stable et **téléversement** vers le robot, l’**application bureau** (ce guide + [téléchargement officiel](/telecharger-mblock-5-gratuit-guide-2026/)) est en général préférable. Sans droits admin, reportez-vous à [mBlock en ligne](/mblock-en-ligne-programmer-sans-installer/) — comparatif complet dans [quel logiciel mBlock choisir](/logiciel-mblock-makeblock-mbot-quel-choisir/).
 
 ### C’est quoi « mblock planet » ?
 

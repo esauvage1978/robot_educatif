@@ -4,13 +4,35 @@ import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import PageNotFoundTracker from '../components/PageNotFoundTracker.astro';
+import SiteQuickAccess from '../components/SiteQuickAccess.astro';
 import { withBase } from '../lib/siteUrl';
+import PageColumns from '../components/PageColumns.astro';
+import {
+	URL_CODES_ERREURS_DOMOTIQUE,
+	URL_CONFIGURATEUR_DOMOTIQUE,
+	URL_PIECES_SAV_DOMOTIQUE,
+} from '../lib/siteToolUrls.mjs';
 
 /** Servie via ErrorDocument 404 : l’URL du navigateur reste /chemin/inexistant/ — <base> aligne les URLs relatives (_astro/, etc.). */
 const documentBaseHref = (Astro.site
 	? new URL(import.meta.env.BASE_URL, Astro.site)
 	: new URL(import.meta.env.BASE_URL, Astro.url)
 ).href;
+
+const configurators = [
+	{ href: URL_CONFIGURATEUR_DOMOTIQUE, label: 'Configurateur projet domotique' },
+	{ href: '/configurateur-kit-robotique-classe/', label: 'Configurateur kit robotique classe' },
+	{ href: '/calculateur-budget-robot-classe/', label: 'Calculateur budget robot classe' },
+	{ href: '/outil-quel-robot-enfant/', label: 'Quiz — quel robot pour mon enfant ?' },
+	{ href: '/domotique/diagnostic-par-symptome/', label: 'Diagnostic domotique par symptôme' },
+	{ href: '/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/', label: 'Matrice compatibilité domotique' },
+];
+
+const guideLinks = [
+	{ href: '/domotique/', label: 'Hub domotique' },
+	{ href: '/meilleur-robot-programmable-enfant-2026/', label: "Guides robots par âge" },
+	{ href: '/mblock-depannage-codes-erreurs-mbot-arduino/', label: 'Dépannage mBlock & mBot' },
+];
 ---
 
 <!doctype html>
@@ -19,31 +41,80 @@ const documentBaseHref = (Astro.site
 		<base href={documentBaseHref} />
 		<BaseHead
 			title="Page introuvable (404)"
-			description="La page demandée n’existe pas ou a été déplacée — ROBOT éducatif."
+			description="La page demandée n’existe pas ou a été déplacée — ROBOT éducatif.. 404 Guides, comparatifs et conseils pratiques sur robot-educatif.info. robot-educatif.info"
 			noIndex={true}
 		/>
 	</head>
 	<body>
 		<Header />
 		<main class="not-found">
+<PageColumns>
 			<article class="not-found__article">
 				<p class="not-found__code" aria-hidden="true">404</p>
 				<h1>Page introuvable</h1>
 				<p class="not-found__lead">
-					Il n’y a pas de contenu à l’adresse indiquée. L’URL peut être incorrecte, ou la page a été renommée ou
-					supprimée.
+					Il n’y a pas de contenu à l’adresse indiquée. Utilisez la recherche ci-dessous ou un accès direct pour
+					retrouver un configurateur, un guide ou une fiche code erreur.
 				</p>
 				<p class="not-found__path" id="not-found-display-path" hidden>
 					<span class="not-found__path-label">Chemin demandé :</span>
 					<code id="not-found-path-value"></code>
 				</p>
+			</article>
+
+			<SiteQuickAccess layout="compact" />
+
+			<div class="not-found__sections">
+				<section class="not-found__block" aria-labelledby="nf-configurators">
+					<h2 id="nf-configurators">Nos configurateurs &amp; calculateurs (accès en 1 clic)</h2>
+					<ul class="not-found__link-grid">
+						{configurators.map((item) => (
+							<li>
+								<a href={withBase(item.href)}>{item.label}</a>
+							</li>
+						))}
+					</ul>
+				</section>
+
+				<section class="not-found__block" aria-labelledby="nf-errors">
+					<h2 id="nf-errors">Vous cherchez un code erreur ou une panne ?</h2>
+					<p>
+						Le répertoire regroupe <strong>48 fiches</strong> (Zigbee, Shelly, Home Assistant, robots éducatifs…)
+						avec symptômes et correctifs.
+					</p>
+					<ul class="not-found__actions-inline">
+						<li>
+							<a class="not-found__cta-primary" href={withBase(URL_CODES_ERREURS_DOMOTIQUE)}>
+								🔧 Répertoire des codes erreurs
+							</a>
+						</li>
+						<li>
+							<a class="not-found__cta-secondary" href={withBase(URL_PIECES_SAV_DOMOTIQUE)}>
+								Pièces détachées &amp; SAV
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section class="not-found__block" aria-labelledby="nf-guides">
+					<h2 id="nf-guides">Guides phares</h2>
+					<ul class="not-found__link-grid">
+						{guideLinks.map((item) => (
+							<li>
+								<a href={withBase(item.href)}>{item.label}</a>
+							</li>
+						))}
+					</ul>
+				</section>
+
 				<nav class="not-found__actions" aria-label="Poursuivre la visite">
 					<Button href={withBase('/')}>Retour à l’accueil</Button>
-					<Button href={withBase('/recherche/')} variant="secondary">Recherche</Button>
-					<Button href={withBase('/blog/')} variant="secondary">Blog</Button>
+					<Button href={withBase('/contact/')} variant="secondary">Nous contacter</Button>
+					<Button href={withBase('/recherche/')} variant="secondary">Recherche site</Button>
 				</nav>
-			</article>
-		</main>
+			</div>
+		</PageColumns>
+</main>
 		<Footer suppressPagePathTracking />
 		<PageNotFoundTracker />
 		<script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL ?? '/' }}>
@@ -71,12 +142,13 @@ const documentBaseHref = (Astro.site
 		</script>
 		<style>
 			.not-found {
-				width: min(640px, calc(100% - 2rem));
+				width: min(920px, calc(100% - 2rem));
 				margin: 0 auto;
-				padding: 2.5rem 0 3.5rem;
+				padding: 2rem 0 3.5rem;
 			}
 			.not-found__article {
 				text-align: center;
+				margin-bottom: 0.5rem;
 			}
 			.not-found__code {
 				margin: 0 0 0.5rem;
@@ -98,7 +170,7 @@ const documentBaseHref = (Astro.site
 				font-size: 1.02rem;
 			}
 			.not-found__path {
-				margin: 0 0 1.75rem;
+				margin: 0 0 1rem;
 				font-size: 0.92rem;
 				color: rgb(var(--gray));
 				line-height: 1.5;
@@ -117,12 +189,87 @@ const documentBaseHref = (Astro.site
 				background: var(--surface-2);
 				border: 1px solid var(--surface-border);
 			}
+			.not-found__sections {
+				margin-top: 1.5rem;
+			}
+			.not-found__block {
+				margin-bottom: 2rem;
+				padding: 1.25rem 1.35rem;
+				border-radius: 14px;
+				border: 1px solid var(--surface-border);
+				background: var(--surface);
+			}
+			.not-found__block h2 {
+				margin: 0 0 0.85rem;
+				font-size: 1.15rem;
+				font-family: var(--font-heading);
+			}
+			.not-found__block p {
+				margin: 0 0 1rem;
+				color: rgb(var(--gray-dark));
+				line-height: 1.55;
+			}
+			.not-found__link-grid {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: grid;
+				gap: 0.5rem;
+			}
+			@media (min-width: 560px) {
+				.not-found__link-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+			.not-found__link-grid a {
+				display: block;
+				padding: 0.55rem 0.75rem;
+				border-radius: 10px;
+				text-decoration: none;
+				font-weight: 600;
+				color: var(--primary);
+				background: var(--surface-2);
+				border: 1px solid var(--surface-border);
+			}
+			.not-found__link-grid a:hover {
+				border-color: var(--primary);
+			}
+			.not-found__actions-inline {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.65rem;
+			}
+			.not-found__cta-primary,
+			.not-found__cta-secondary {
+				display: inline-block;
+				padding: 0.65rem 1rem;
+				border-radius: 10px;
+				font-weight: 700;
+				text-decoration: none;
+			}
+			.not-found__cta-primary {
+				background: var(--primary);
+				color: #fff;
+			}
+			.not-found__cta-secondary {
+				border: 2px solid var(--primary);
+				color: var(--primary);
+			}
 			.not-found__actions {
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.65rem;
 				justify-content: center;
 				align-items: center;
+				margin-top: 1rem;
+			}
+			.not-found :global(.site-quick-access) {
+				border-radius: 14px;
+				border: 1px solid var(--surface-border);
+				margin-bottom: 1.5rem;
 			}
 		</style>
 	</body>
