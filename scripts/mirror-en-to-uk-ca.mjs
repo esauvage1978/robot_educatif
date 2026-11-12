@@ -41,12 +41,34 @@ function copyEn(src, dest) {
 	}
 }
 
+const MARKET_AMAZON = {
+	uk: { lang: 'en-GB', host: 'www.amazon.co.uk', tag: 'roboteducatif-21' },
+	ca: { lang: 'en-CA', host: 'www.amazon.ca', tag: 'roboteducat03-20' },
+};
+
+/** Liens Amazon du miroir : boutique et tag du marché, y compris dans les attributs data-*. */
+function retargetAmazonAttrs(html, market) {
+	const { host, tag } = MARKET_AMAZON[market];
+	return html.replace(/=\s*(["'])([^"']*amazon\.(?:com|ca|co\.uk)[^"']*)\1/gi, (full, q, url) => {
+		const next = url
+			.replace(/(?:www\.)?amazon\.(?:co\.uk|ca|com)(?![.\w-])/gi, (m) =>
+				m.toLowerCase().startsWith('www.') ? host : host.replace(/^www\./, ''),
+			)
+			.replace(
+				/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g,
+				tag,
+			);
+		return `=${q}${next}${q}`;
+	});
+}
+
 function mirror(market) {
 	const dest = join(dist, market);
 	mkdirSync(dest, { recursive: true });
 	copyEn(enRoot, dest);
 	const files = walkHtml(dest);
 	let n = 0;
+	const { lang } = MARKET_AMAZON[market];
 	for (const file of files) {
 		let html = readFileSync(file, 'utf8');
 		const before = html;
@@ -62,6 +84,8 @@ function mirror(market) {
 				.replaceAll(`href="/${market}/`, 'href="/en/')
 				.replaceAll(`href='/${market}/`, "href='/en/");
 		});
+		html = html.replace(/<html\b([^>]*)\blang="en(?:-[A-Za-z]+)?"/i, `<html$1lang="${lang}"`);
+		html = html.replace(/("inLanguage"\s*:\s*")en(?:-[A-Za-z]+)?"/g, `$1${lang}"`);
 		// og:locale
 		if (market === 'uk') {
 			html = html.replace(/og:locale" content="en_US"/g, 'og:locale" content="en_GB"');
@@ -83,6 +107,7 @@ function mirror(market) {
 				return `<a${attrs.replace(/href="[^"]*"/, `href="${href}"`)}>`;
 			});
 		}
+		html = retargetAmazonAttrs(html, market);
 		if (html !== before) {
 			writeFileSync(file, html);
 			n++;

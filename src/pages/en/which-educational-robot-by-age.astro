@@ -1,0 +1,91 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import RobotAgeQuiz from '../../components/en/RobotAgeQuiz.astro';
+import { QUIZ_PAGE_EN } from '../../data/robotAgeQuiz.en.mjs';
+import { withBase } from '../../lib/siteUrl';
+---
+
+<EnPost
+	title={QUIZ_PAGE_EN.title}
+	description={QUIZ_PAGE_EN.description}
+	updated="3 November 2026"
+	faqSchema={[
+		{
+			question: 'Does a young child need a screen?',
+			answer: 'Not before about 6 or 7, if the goal is logic without a tablet. From the middle-school years, a computer or tablet opens Scratch and then Python.',
+		},
+		{
+			question: 'Scratch or Python?',
+			answer: 'Scratch blocks from about age 8. Written Python is more realistic from 10 or 11, with an adult nearby at the start.',
+		},
+	]}
+>
+	<p set:html={QUIZ_PAGE_EN.intro.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')} />
+	<RobotAgeQuiz />
+	<h2>Match each age band to a longer guide</h2>
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot2.webp')}
+			alt="Makeblock mBot2, the example used in the table for ages 10 to 13"
+			width="800"
+			height="600"
+		/>
+	</figure>
+	<p>
+		The quiz points at one model. The age guides go into the build, the software (
+		<strong>Scratch</strong> blocks, then <strong>Python</strong>) and what the kit actually costs.
+		Euro figures on those guides are Amazon.fr readings, not a converted US or UK price.
+	</p>
+	<table>
+		<thead>
+			<tr><th>Age</th><th>Guide</th><th>Example</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>4–6</td>
+				<td>
+					<a href={withBase('/en/best-robot-for-a-4-year-old/')}>Robot from age 4</a>
+					· <a href={withBase('/robot-educatif-sans-ecran-guide/')}>Screen-free (French)</a>
+				</td>
+				<td>Tale-Bot, Code &amp; Go</td>
+			</tr>
+			<tr>
+				<td>7–9</td>
+				<td><a href={withBase('/en/best-robot-for-an-8-year-old/')}>Guide for age 8</a></td>
+				<td>Codey Rocky, mBot</td>
+			</tr>
+			<tr>
+				<td>10–13</td>
+				<td>
+					<a href={withBase('/en/best-robot-for-a-10-year-old/')}>Guide for age 10</a>
+					· <a href={withBase('/en/mbot-vs-mbot2/')}>mBot vs mBot2</a>
+				</td>
+				<td>mBot2, CyberPi</td>
+			</tr>
+			<tr>
+				<td>14 and up</td>
+				<td>
+					<a href={withBase('/en/best-robot-for-a-12-year-old/')}>Guide for age 12</a>
+					· <a href={withBase('/en/arduino-robot-kit-for-kids/')}>Arduino kit</a>
+				</td>
+				<td>ELEGOO, Raspberry Pi</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Wider comparison:
+		<a href={withBase('/en/best-programmable-robot-for-kids/')}>best programmable robots in 2026</a>
+		· tight budget:
+		<a href={withBase('/robot-moins-de-50-euros/')}>robots under €50 (French)</a>
+		· a whole class:
+		<a href={withBase('/en/class-robot-budget-calculator/')}>classroom budget calculator</a>.
+	</p>
+	<p>
+		More age guides:
+		<a href={withBase('/en/best-robot-for-a-5-year-old/')}>age 5</a>
+		· <a href={withBase('/en/best-robot-for-an-8-year-old/')}>age 8</a>
+		· <a href={withBase('/en/best-robot-for-a-10-year-old/')}>age 10</a>
+		· <a href={withBase('/en/best-robot-for-a-12-year-old/')}>age 12</a>.
+	</p>
+	<p>Some links on this page are affiliate links. The button opens Amazon so you can check today’s price.</p>
+</EnPost>

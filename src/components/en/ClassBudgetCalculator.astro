@@ -1,0 +1,216 @@
+---
+import { CLASS_MODELS, CLASS_FIXED } from '../../data/classBudgetRobot.mjs';
+
+const LABELS = {
+	mbot2: 'Makeblock mBot2',
+	mbot: 'Makeblock mBot',
+	cyberpi: 'Makeblock CyberPi (board only)',
+	'raspberry-pi-5': 'Raspberry Pi 5 (beginner smart-home kit)',
+	arduino: 'Arduino robot-car kit (ELEGOO V4)',
+};
+const NOTES = {
+	cyberpi: 'Add a chassis or a mount if each pair does not already have an mBot2.',
+	'raspberry-pi-5': '4 GB board, 27 W power supply, case and microSD card.',
+};
+
+const modelsJson = JSON.stringify(
+	CLASS_MODELS.map((m) => ({
+		id: m.id,
+		label: LABELS[m.id] || m.label,
+		unitEur: m.unitEur,
+		url: `https://www.amazon.com/dp/${m.asin}?tag=roboteducatif-20`,
+		perRobotExtras: m.perRobotExtras,
+		note: NOTES[m.id] || '',
+	})),
+);
+const fixedJson = JSON.stringify(CLASS_FIXED);
+---
+
+<div class="cbc" data-cbc-en data-models={modelsJson} data-fixed={fixedJson}>
+	<form class="cbc-form" data-cbc-form>
+		<div class="cbc-grid">
+			<label>
+				Number of students
+				<input type="number" name="students" min="5" max="30" value="24" required />
+			</label>
+			<label>
+				Students per pair (or group)
+				<select name="groupSize">
+					<option value="1">1 (one robot per student)</option>
+					<option value="2" selected>2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+			</label>
+			<label>
+				Robot
+				<select name="model" data-cbc-model>
+					{CLASS_MODELS.map((m) => (
+						<option value={m.id}>{LABELS[m.id] || m.label} (~€{m.unitEur} / kit)</option>
+					))}
+				</select>
+			</label>
+		</div>
+		<fieldset class="cbc-checks">
+			<legend>Consumables and storage</legend>
+			<label class="cbc-inline">
+				<input type="checkbox" name="batteries" checked />
+				Rechargeable batteries (shared sets)
+			</label>
+			<label class="cbc-inline">
+				<input type="checkbox" name="storage" checked />
+				Classroom storage box
+			</label>
+			<label class="cbc-inline">
+				<input type="checkbox" name="spares" />
+				Spare parts (about one set per robot)
+			</label>
+		</fieldset>
+		<button type="button" class="cbc-btn" data-cbc-calc>Estimate the budget</button>
+	</form>
+
+	<div class="cbc-out" data-cbc-out hidden>
+		<h3>Estimate</h3>
+		<ul class="cbc-summary" data-cbc-summary></ul>
+		<h4>Shopping list</h4>
+		<ul class="cbc-list" data-cbc-list></ul>
+		<p class="cbc-note" data-cbc-model-note></p>
+	</div>
+</div>
+
+<style is:global>
+	.cbc-form {
+		display: grid;
+		gap: 1.25rem;
+		margin: 1.5rem 0;
+		padding: 1.25rem;
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		background: var(--surface);
+	}
+	.cbc-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		gap: 1rem;
+	}
+	.cbc-form label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.cbc-form input,
+	.cbc-form select {
+		padding: 0.5rem 0.65rem;
+		border-radius: 8px;
+		border: 1px solid var(--surface-border);
+		font: inherit;
+		font-weight: 400;
+	}
+	.cbc-checks {
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	.cbc-checks legend {
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+	.cbc-inline {
+		flex-direction: row !important;
+		align-items: center;
+		gap: 0.5rem !important;
+		font-weight: 400 !important;
+		margin: 0.35rem 0;
+	}
+	.cbc-btn {
+		justify-self: start;
+		padding: 0.65rem 1.25rem;
+		border: 0;
+		border-radius: 8px;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.cbc-out {
+		margin: 1.5rem 0;
+		padding: 1.25rem;
+		border-radius: 12px;
+		border: 1px solid rgba(43, 125, 233, 0.3);
+		background: rgba(43, 125, 233, 0.06);
+	}
+	.cbc-out h3,
+	.cbc-out h4 {
+		margin: 0 0 0.75rem;
+	}
+	.cbc-summary {
+		font-size: 1.05rem;
+		font-weight: 600;
+	}
+	.cbc-list {
+		margin: 0 0 1rem;
+		padding-left: 1.2rem;
+	}
+	.cbc-note {
+		font-size: 0.9rem;
+		opacity: 0.85;
+		margin: 0;
+	}
+</style>
+
+<script>
+	function initCbcEn(root) {
+		const models = JSON.parse(root.dataset.models || '[]');
+		const fixed = JSON.parse(root.dataset.fixed || '{}');
+		const form = root.querySelector('[data-cbc-form]');
+		const out = root.querySelector('[data-cbc-out]');
+		const summary = root.querySelector('[data-cbc-summary]');
+		const list = root.querySelector('[data-cbc-list]');
+		const modelNote = root.querySelector('[data-cbc-model-note]');
+		const btn = root.querySelector('[data-cbc-calc]');
+
+		function calc() {
+			const f = new FormData(form);
+			const students = Math.min(30, Math.max(5, Number(f.get('students')) || 24));
+			const groupSize = Number(f.get('groupSize')) || 2;
+			const modelId = String(f.get('model'));
+			const model = models.find((m) => m.id === modelId) || models[0];
+			const robots = Math.ceil(students / groupSize);
+			let total = robots * model.unitEur;
+			const lines = [`${robots} × ${model.label} — €${robots * model.unitEur}`];
+
+			if (f.get('batteries')) {
+				const packs = Math.max(1, Math.ceil(robots / 4));
+				const bat = packs * (fixed.chargerSharedEur || 28);
+				total += bat;
+				lines.push(`${packs} rechargeable-battery set(s) and a charger — €${bat}`);
+			}
+			if (f.get('storage')) {
+				total += fixed.storageBoxEur || 35;
+				lines.push(`1 storage box — €${fixed.storageBoxEur || 35}`);
+			}
+			if (f.get('spares')) {
+				const sp = robots * (model.perRobotExtras?.sparePartsEur || 0);
+				total += sp;
+				lines.push(`Spare parts (estimate) — €${sp}`);
+			}
+
+			const perStudent = (total / students).toFixed(2);
+			summary.innerHTML = `
+				<li>Estimated total: <strong>€${total}</strong></li>
+				<li>Per student: <strong>€${perStudent}</strong> (${students} students, ${robots} robot${robots > 1 ? 's' : ''})</li>
+			`;
+			list.innerHTML = lines.map((l) => `<li>${l}</li>`).join('');
+			list.innerHTML += `<li><a href="${model.url}" target="_blank" rel="noopener noreferrer sponsored">Check today’s price on Amazon</a></li>`;
+			modelNote.textContent = model.note || '';
+			out.hidden = false;
+		}
+
+		btn?.addEventListener('click', calc);
+		calc();
+	}
+	document.querySelectorAll('[data-cbc-en]').forEach(initCbcEn);
+</script>

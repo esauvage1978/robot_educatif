@@ -1,0 +1,34 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import ClassBudgetCalculator from '../../components/en/ClassBudgetCalculator.astro';
+import { withBase } from '../../lib/siteUrl';
+---
+
+<EnPost
+	title="Classroom robotics budget calculator"
+	description="Estimate a class set for 5 to 30 students: robots, batteries, storage and cost per student for mBot2, mBot, CyberPi, Raspberry Pi 5 or an Arduino kit."
+	updated="24 October 2026"
+	faqSchema={[
+		{
+			question: 'Are these dollar or pound prices?',
+			answer: 'No. The figures are 2026 euro ballparks for new kits, before education discounts. Use them to size an order, then check today’s price on Amazon.',
+		},
+		{
+			question: 'What does the calculator count?',
+			answer: 'It divides the class into pairs or groups, multiplies by the kit price, then adds shared battery sets, one storage box and optional spare parts.',
+		},
+	]}
+>
+	<p>
+		The amounts are 2026 ballparks in euros for new kits, before education discounts. Adjust them to a supplier quote or a bulk order. We do not invent a US or UK shelf price.
+	</p>
+	<ClassBudgetCalculator />
+	<p>
+		For the written version, see
+		<a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>equipping a class with robots (French guide, with pack examples)</a>
+		and
+		<a href={withBase('/robot-pedagogique-ecole/')}>robots in school</a>.
+		To pick a single robot first, use the
+		<a href={withBase('/en/which-educational-robot-by-age/')}>age quiz</a>.
+	</p>
+</EnPost>

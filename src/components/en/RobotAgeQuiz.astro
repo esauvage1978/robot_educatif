@@ -1,0 +1,172 @@
+---
+import { QUIZ_QUESTIONS_EN, QUIZ_RESULTS_EN } from '../../data/robotAgeQuiz.en.mjs';
+import productsData from '../../data/products.json';
+import { withBase } from '../../lib/siteUrl';
+
+function amazonUrl(asin) {
+	return asin ? `https://www.amazon.com/dp/${asin}?tag=roboteducatif-20` : null;
+}
+
+const resultsJson = JSON.stringify(
+	Object.fromEntries(
+		Object.entries(QUIZ_RESULTS_EN).map(([key, r]) => {
+			const prod = r.productId ? productsData[r.productId] : null;
+			const asin = r.asin || prod?.asin || null;
+			return [
+				key,
+				{
+					...r,
+					href: withBase(r.href),
+					amazon: amazonUrl(asin),
+				},
+			];
+		}),
+	),
+);
+---
+
+<div class="rqz" data-rqz-en data-results={resultsJson}>
+	<form class="rqz-form" data-rqz-form>
+		{Object.entries(QUIZ_QUESTIONS_EN).map(([key, block]) => (
+			<fieldset data-rqz-step={key}>
+				<legend>{block.label}</legend>
+				{block.options.map((opt) => (
+					<label class="rqz-opt">
+						<input type="radio" name={key} value={opt.id} required={key === 'age'} />
+						<span>{opt.label}</span>
+					</label>
+				))}
+			</fieldset>
+		))}
+		<button type="submit" class="rqz-btn">See the suggestion</button>
+	</form>
+
+	<div class="rqz-result" data-rqz-result hidden>
+		<h3>Where we would start</h3>
+		<div class="rqz-card" data-rqz-primary></div>
+		<h4>Worth comparing</h4>
+		<ul class="rqz-alt" data-rqz-alt></ul>
+		<p class="rqz-more">
+			<a href={withBase('/en/best-programmable-robot-for-kids/')}>Full 2026 comparison →</a>
+		</p>
+	</div>
+</div>
+
+<style is:global>
+	.rqz-form fieldset {
+		border: 1px solid var(--surface-border);
+		border-radius: 12px;
+		padding: 1rem 1.25rem;
+		margin: 0 0 1rem;
+	}
+	.rqz-form legend {
+		font-weight: 700;
+		padding: 0 0.25rem;
+	}
+	.rqz-opt {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+		cursor: pointer;
+	}
+	.rqz-opt input {
+		margin-top: 0.2rem;
+	}
+	.rqz-btn {
+		padding: 0.7rem 1.4rem;
+		border: 0;
+		border-radius: 8px;
+		background: var(--accent);
+		color: #fff;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	.rqz-result {
+		margin-top: 1.5rem;
+	}
+	.rqz-card {
+		padding: 1rem 1.1rem;
+		border-radius: 12px;
+		border: 1px solid var(--surface-border);
+		background: var(--surface);
+	}
+	.rqz-card h4 {
+		margin: 0 0 0.35rem;
+		font-size: 1.15rem;
+	}
+	.rqz-card p {
+		margin: 0.35rem 0;
+	}
+	.rqz-alt {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+	.rqz-more {
+		margin: 1rem 0 0;
+		font-size: 0.95rem;
+	}
+</style>
+
+<script>
+	function pickResults(age, screen, budget, results) {
+		const ids = [];
+		if (age === '4-6') {
+			ids.push(screen === 'tablet' ? 'codey-rocky' : 'tale-bot', 'code-and-go');
+		} else if (age === '7-9') {
+			if (screen === 'no-screen') ids.push('botley', 'code-and-go');
+			else if (budget === 'lt100') ids.push('mbot', 'codey-rocky');
+			else ids.push('codey-rocky', 'mbot');
+		} else if (age === '10-13') {
+			if (budget === 'lt100') ids.push('mbot', 'codey-rocky');
+			else if (budget === '500+') ids.push('mbot2', 'cyberpi');
+			else ids.push('mbot2', 'mbot');
+		} else {
+			if (budget === 'lt100' || budget === '100-200') ids.push('elegoo-car', 'mbot2');
+			else if (budget === '500+') ids.push('rpi5', 'mbot2');
+			else ids.push('mbot2', 'elegoo-car');
+		}
+		const uniq = [...new Set(ids)].filter((id) => results[id]);
+		return uniq.length ? uniq : ['mbot2', 'mbot'];
+	}
+
+	function renderCard(el, r) {
+		el.innerHTML = `
+			<h4>${r.name}</h4>
+			<p>${r.summary}</p>
+			<p><strong>Age:</strong> ${r.ages} · <strong>Languages:</strong> ${r.langs}</p>
+			<p><a href="${r.href}">Read the guide</a>${r.amazon ? ` · <a href="${r.amazon}" target="_blank" rel="noopener noreferrer sponsored">Check today’s price on Amazon</a>` : ''}</p>
+		`;
+	}
+
+	function initRqz(root) {
+		const results = JSON.parse(root.dataset.results || '{}');
+		const form = root.querySelector('[data-rqz-form]');
+		const box = root.querySelector('[data-rqz-result]');
+		const primary = root.querySelector('[data-rqz-primary]');
+		const alt = root.querySelector('[data-rqz-alt]');
+
+		form?.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const f = new FormData(form);
+			const age = String(f.get('age') || '');
+			const screen = String(f.get('screen') || 'either');
+			const budget = String(f.get('budget') || '100-200');
+			if (!age) return;
+			const ids = pickResults(age, screen, budget, results);
+			renderCard(primary, results[ids[0]]);
+			alt.innerHTML = ids
+				.slice(1)
+				.map((id) => {
+					const r = results[id];
+					return `<li><strong>${r.name}</strong> — ${r.summary} <a href="${r.href}">Read the guide</a></li>`;
+				})
+				.join('');
+			box.hidden = false;
+			box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		});
+	}
+	document.querySelectorAll('[data-rqz-en]').forEach(initRqz);
+</script>
