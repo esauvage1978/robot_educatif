@@ -17,7 +17,7 @@ Some links below are affiliate links. **Amazon.co.uk** is the default shop; an *
 
 **Direct answer (October 2026)** — You lay the **foundation** of **Connect Four** in **Python 3**: a **6×7 grid** as a **list of lists**, **constants** (`VIDE`, `J1`, `J2`) and **`grille_pleine`** to detect a future **draw**. No pretty display yet: you work in a **terminal** (text window where you run `python filename.py`). Download **`puissance4_chapitre_01.py`** below; next step is [chapter 2 — display and gravity](/python-puissance-4-2-affichage-gravite/).
 
-**Connect Four series (6 parts)** — [Hub](/programmation/puissance-4/) · **1 — grid (this page)** · [2 — display](/python-puissance-4-2-affichage-gravite/) · [3 — turns](/python-puissance-4-3-coup-alternance/) · [4 — four in a row](/python-puissance-4-4-quatre-alignes/) · [5 — draw](/python-puissance-4-5-match-nul/) · [6 — complete game](/en/python-connect-four-6-complete-game/)
+**Connect Four series (6 parts)** — [Hub](/en/connect-four-python/) · **1 — grid (this page)** · [2 — display](/en/connect-four-python-2-display/) · [3 — turns](/en/connect-four-python-3-turns/) · [4 — four in a row](/en/connect-four-python-4-four-in-a-row/) · [5 — draw](/en/connect-four-python-5-draw/) · [6 — complete game](/en/connect-four-python-6-full-game/)
 
 | Item | Detail |
 | --- | --- |
@@ -150,7 +150,7 @@ No traceback should appear. Failed `assert` means wrong `LIGNES` / `COLONNES`.
 2. Fill column 0 with two `J2` from the bottom; what are `g[5][0]` and `g[4][0]`? **Answer:** both `2`.
 3. `grille_pleine(nouvelle_grille())`? **Answer:** `False`.
 
-Other text games: [Hangman hub](/programmation/pendu/), [Battleship hub](/programmation/bataille-navale/). Series finale: [chapter 6 — full game](/en/python-connect-four-6-complete-game/).
+Other text games: [Hangman hub](/programmation/pendu/), [Battleship hub](/programmation/bataille-navale/). Series finale: [chapter 6 — full game](/en/connect-four-python-6-full-game/).
 
 ## Download
 

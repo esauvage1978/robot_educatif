@@ -17,7 +17,7 @@ Allow about 20 to 40 minutes per chapter. At the end of chapter 6 you can play t
 
 ## The six chapters
 
-1. [The 6×7 grid](/en/connect-four-python-1-grid/): empty cells, players 1 and 2, and why row 0 is the top.
+1. [The 6×7 grid](/en/python-connect-four-1-grid-setup/): empty cells, players 1 and 2, and why row 0 is the top.
 2. [Display and gravity](/en/connect-four-python-2-display/): print the board and drop a token to the lowest free cell.
 3. [Turns](/en/connect-four-python-3-turns/): read a column from the keyboard and switch player only after a legal drop.
 4. [Four in a row](/en/connect-four-python-4-four-in-a-row/): count in four directions from the last token.

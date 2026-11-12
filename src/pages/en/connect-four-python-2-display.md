@@ -84,5 +84,5 @@ if __name__ == "__main__":
 
 ## Next
 
-[Chapter 3 — read a column and take turns](/en/connect-four-python-3-turns/). [Chapter 1](/en/connect-four-python-1-grid/).
+[Chapter 3 — read a column and take turns](/en/connect-four-python-3-turns/). [Chapter 1](/en/python-connect-four-1-grid-setup/).
 

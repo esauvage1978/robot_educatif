@@ -52,7 +52,7 @@ const listFile = path.join(root, 'REECRITURE90_LOT10_DIST_PATHS.txt');
 /** Pilier(s) attendus dans `.prose` (au moins un). */
 const PILLARS = {
 	'/python-puissance-4-1-cahier-grille/': ['/programmation/puissance-4/', '/programmation/python/'],
-	'/en/python-connect-four-1-grid-setup/': ['/en/python-connect-four-6-complete-game/', '/programmation/puissance-4/'],
+	'/en/python-connect-four-1-grid-setup/': ['/en/connect-four-python-6-full-game/', '/programmation/puissance-4/'],
 	'/de/python-vier-gewinnt-1-gitter/': ['/de/python-vier-gewinnt-6-komplettspiel/', '/programmation/puissance-4/'],
 	'/it/python-forza-4-1-griglia/': ['/it/python-forza-4-6-gioco-completo/', '/programmation/puissance-4/'],
 	'/es/python-conecta-4-1-cuadricula/': ['/es/python-conecta-4-6-juego-completo/', '/programmation/puissance-4/'],
@@ -92,7 +92,7 @@ const PILLARS = {
 	'/it/raspberry-pi-4-quale-ram/': ['/it/raspberry-pi-3-vs-4-vs-5/'],
 	'/es/raspberry-pi-4-que-ram/': ['/es/raspberry-pi-3-vs-4-vs-5/'],
 	'/python-puissance-4-6-jeu-complet/': ['/programmation/puissance-4/', '/programmation/python/'],
-	'/en/python-connect-four-6-complete-game/': ['/en/python-connect-four-1-grid-setup/', '/programmation/puissance-4/'],
+	'/en/connect-four-python-6-full-game/': ['/en/python-connect-four-1-grid-setup/', '/programmation/puissance-4/'],
 	'/de/python-vier-gewinnt-6-komplettspiel/': ['/de/python-vier-gewinnt-1-gitter/', '/programmation/puissance-4/'],
 	'/it/python-forza-4-6-gioco-completo/': ['/it/python-forza-4-1-griglia/', '/programmation/puissance-4/'],
 	'/es/python-conecta-4-6-juego-completo/': ['/es/python-conecta-4-1-cuadricula/', '/programmation/puissance-4/'],

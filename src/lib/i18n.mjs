@@ -126,7 +126,7 @@ const STATIC_LANG_PAIRS = [
 	},
 	{
 		fr: '/python-puissance-4-1-cahier-grille/',
-		en: '/en/connect-four-python-1-grid/',
+		en: '/en/python-connect-four-1-grid-setup/',
 		de: '/de/vier-gewinnt-python-1-raster/',
 		it: '/it/forza-quattro-python-1-griglia/',
 		es: '/es/conecta-4-python-1-tablero/',
