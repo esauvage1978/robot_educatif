@@ -1,0 +1,9 @@
+---
+import PageFiche from '../../../components/partenaires/PageFiche.astro';
+import { SLUGS } from '../../../data/partenaires/registre.mjs';
+export function getStaticPaths() {
+  return SLUGS.map((partenaire) => ({ params: { partenaire } }));
+}
+const slug = Astro.params.partenaire ?? '';
+---
+<PageFiche lang="en" slug={slug} />

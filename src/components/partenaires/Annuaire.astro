@@ -1,0 +1,75 @@
+---
+interface Props { lang: string }
+const { lang } = Astro.props;
+import './partenaires.css';
+import { PUBLIES, PREFIX, textes, defautMarche, logoDe, paysDe } from '../../data/partenaires/registre.mjs';
+const t = textes(lang);
+const langue = (lang in PREFIX ? lang : 'fr') as keyof typeof PREFIX;
+const base = PREFIX[langue];
+const liste = [...PUBLIES].sort((a, b) => a.nom.localeCompare(b.nom, lang === 'en' ? 'en' : 'fr'));
+const ordre = ['fr', 'de', 'it', 'es', 'nl', 'uk', 'us', 'ca', 'eu', 'international'];
+const presents = ordre.filter((m) => liste.some((p) => p.marche === m));
+const familles = [...new Set(liste.map((p) => p.famille))];
+const defaut = defautMarche(lang);
+const visible = (m: string) => !defaut || m === defaut || m === 'eu' || m === 'international';
+const accueil = lang === 'fr' ? '/' : `/${lang}/`;
+---
+<div class="pp">
+  <p class="pp-fil"><a href={accueil}>{t.accueil}</a></p>
+  <h1>{t.titreIndex}</h1>
+  <p class="pp-intro">{t.intro}</p>
+  {liste.length === 0 ? <p>{t.vide}</p> : (
+    <>
+      <div class="pp-filtres" id="pp-filtres">
+        <label>{t.marcheLabel}
+          <select id="pp-marche">
+            <option value="" selected={defaut === ''}>{t.tous}</option>
+            {presents.map((m) => <option value={m} selected={defaut === m}>{paysDe(lang, m)}</option>)}
+          </select>
+        </label>
+        <label>{t.familleLabel}
+          <select id="pp-famille">
+            <option value="">{t.tous}</option>
+            {familles.map((f) => <option value={f}>{f === 'revendeur' ? t.revendeurs : t.marques}</option>)}
+          </select>
+        </label>
+      </div>
+      <div class="pp-grille">
+        {liste.map((p) => {
+          const logo = logoDe(p.slug);
+          return (
+            <a class="pp-carte" href={`${base}${p.slug}/`} data-marche={p.marche} data-famille={p.famille} hidden={!visible(p.marche)}>
+              {logo && <img class="pp-logo" src={logo} alt="" width="72" height="48" />}
+              <span class="pp-nom"><strong>{p.nom}</strong><small>{paysDe(lang, p.marche)}</small></span>
+            </a>
+          );
+        })}
+      </div>
+    </>
+  )}
+</div>
+<script is:inline>
+  (function () {
+    var racine = document.getElementById('pp-filtres');
+    if (!racine) return;
+    var marche = document.getElementById('pp-marche');
+    var famille = document.getElementById('pp-famille');
+    var cartes = document.querySelectorAll('.pp-carte');
+    function ouvert(m, choix) {
+      if (!choix) return true;
+      if (choix === 'eu' || choix === 'international') return m === choix;
+      return m === choix || m === 'eu' || m === 'international';
+    }
+    function appliquer() {
+      var c = marche.value;
+      var f = famille.value;
+      cartes.forEach(function (el) {
+        var ok = ouvert(el.getAttribute('data-marche'), c) && (!f || el.getAttribute('data-famille') === f);
+        if (ok) el.removeAttribute('hidden');
+        else el.setAttribute('hidden', '');
+      });
+    }
+    marche.addEventListener('change', appliquer);
+    famille.addEventListener('change', appliquer);
+  })();
+</script>
