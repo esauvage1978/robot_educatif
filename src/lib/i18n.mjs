@@ -1,5 +1,6 @@
 import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n.mjs';
 import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
+import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 
 /** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
 export const OMIT_US_HREFLANG = true;
@@ -242,7 +243,7 @@ const STATIC_LANG_PAIRS = [
 	{ fr: null, en: '/en/arduino/', de: '/de/arduino/' },
 ];
 
-export const LANG_PAIRS = [...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS];
+export const LANG_PAIRS = [...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES];
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
 	{ href: '/en/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: educational robots and smart home' },

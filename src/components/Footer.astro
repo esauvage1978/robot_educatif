@@ -26,6 +26,16 @@ const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
 const isFr = !isAnglo && !isDe && !isIt && !isEs;
+const partenairesHref = isDe
+	? withBase('/de/partner/')
+	: isIt
+		? withBase('/it/partner/')
+		: isEs
+			? withBase('/es/socios/')
+			: isAnglo
+				? withBase('/en/partners/')
+				: withBase('/partenaires/');
+const partenairesLabel = isEs ? 'Socios' : isAnglo ? 'Partners' : isDe || isIt ? 'Partner' : 'Partenaires';
 const bfHref = isDe
 	? '/de/black-friday/'
 	: isIt
@@ -204,6 +214,7 @@ const bfHref = isDe
 				<h3>About</h3>
 				<ul>
 					<li><a href={withBase('/contact/')} hreflang="fr">Contact</a></li>
+					<li data-nav="partenaires-en"><a href={partenairesHref}>{partenairesLabel}</a></li>
 					<li><a href={withBase('/mentions-legales/')} hreflang="fr">Legal notice (FR)</a></li>
 					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Privacy (FR)</a></li>
 					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
@@ -252,6 +263,7 @@ const bfHref = isDe
 				<ul>
 					<li><a href={withBase('/about/')}>À propos</a></li>
 					<li><a href={withBase('/partenariat/')}>Partenariat</a></li>
+					<li data-nav="partenaires"><a href={partenairesHref}>{partenairesLabel}</a></li>
 					<li><a href={withBase('/codes-promo/')}>Codes promo et bons plans</a></li>
 					<li><a href={withBase('/contact/')}>Contact</a></li>
 					<li><a href={withBase('/mentions-legales/')}>Mentions légales</a></li>
