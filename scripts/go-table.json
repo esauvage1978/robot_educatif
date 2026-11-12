@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-11T23:38:28.598Z",
- "count": 1562,
+ "updated": "2026-11-12T12:35:40.363Z",
+ "count": 1564,
  "links": {
   "aw-10951-2d6adea7f3": {
    "url": "https://www.awin1.com/cread.php?awinmid=10951&awinaffid=2818852&ued=https%3A%2F%2Fwww.geekbuying.com%2F",
@@ -6233,6 +6233,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-92cfb18f70": {
+   "url": "https://www.amazon.fr/dp/B098T6527G?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-93b396a34c": {
    "url": "https://www.amazon.fr/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=manuso06-21",
    "merchant": "amazon",
@@ -6391,6 +6397,12 @@
   },
   "az-fr-a3496e9bfe": {
    "url": "https://www.amazon.fr/s?k=python+d%C3%A9ploiement+livre&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-a4bae989aa": {
+   "url": "https://www.amazon.fr/s?k=OSOYOO+Sport+Car+Arduino&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
