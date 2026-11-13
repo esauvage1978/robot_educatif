@@ -41,3 +41,4 @@ prive/
 
 # Copies locales avant modification
 *.avant-*
+uk-ca-geo-report.json
