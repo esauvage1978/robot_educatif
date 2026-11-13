@@ -103,6 +103,7 @@ export function lireRegistre(markdown) {
       plateforme: cells[0],
       marque: cells[1].replace(/&#124;/g, '|').replace(/&amp;/g, '&'),
       statut: cells[2],
+      date: cells[3] || '',
       liens: cells[5],
       integre: cells[6],
       comparateur: idxComparateur >= 0 ? (cells[idxComparateur] || '') : '',
@@ -175,4 +176,141 @@ export function ecrireMidsClient(source, partenaires) {
     throw new Error('balises MIDS_REGISTRE absentes de baisses.js');
   }
   return suivant;
+}
+
+function estAccepte(statut) {
+  const t = String(statut || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  return t === 'acceptee' || t === 'accepte';
+}
+
+function marcheDe(nom) {
+  const n = String(nom || '').toLowerCase();
+  if (n.includes('amazon')) {
+    if (/\bnl\b|\.nl\b/.test(n)) return 'nl';
+    if (/\buk\b|co\.uk|royaume-uni/.test(n)) return 'uk';
+    if (/\bca\b|canada/.test(n)) return 'ca';
+    if (/\bde\b|\.de\b|allemagne/.test(n)) return 'de';
+    if (/\bit\b|\.it\b|ital/.test(n)) return 'it';
+    if (/\bes\b|\.es\b|espagn/.test(n)) return 'es';
+    if (/\bfr\b|\.fr\b|france/.test(n)) return 'fr';
+    if (/\bus\b|\.com\b|états|etats/.test(n) && !n.includes('.com.be')) return 'us';
+    return 'international';
+  }
+  const fin = n.match(/(?:^|\s|\()(fr|de|uk|us|it|es|nl|ca|eu)\)?\s*$/);
+  if (fin) return fin[1];
+  if (/\.fr\b|\(fr\)|\bfrance\b/.test(n)) return 'fr';
+  if (/\.de\b|\(de\)|\ballemagne\b|\bdeutschland\b/.test(n)) return 'de';
+  if (/\.co\.uk\b|\(uk\)|\broyaume-uni\b/.test(n)) return 'uk';
+  if (/\(us\)|\bétats-unis\b|\betats-unis\b|\busa\b/.test(n)) return 'us';
+  if (/\.it\b|\(it\)|\bitalie\b|\bitalia\b/.test(n)) return 'it';
+  if (/\.es\b|\(es\)|\bespagne\b/.test(n)) return 'es';
+  if (/\.nl\b|\(nl\)|\bpays-bas\b/.test(n)) return 'nl';
+  if (/\(ca\)|\bcanada\b/.test(n)) return 'ca';
+  if (/\(eu\)|\beurope\b/.test(n)) return 'eu';
+  if (/international|\bglobal\b/.test(n)) return 'international';
+  return 'international';
+}
+
+function slugifier(nom) {
+  return String(nom || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 48);
+}
+
+const NOMS_AMAZON = {
+  fr: 'Amazon.fr',
+  de: 'Amazon.de',
+  it: 'Amazon.it',
+  es: 'Amazon.es',
+  uk: 'Amazon.co.uk',
+  us: 'Amazon.com',
+  ca: 'Amazon.ca',
+  nl: 'Amazon.nl',
+};
+
+const DOMAINES_AMAZON = {
+  fr: 'www.amazon.fr',
+  de: 'www.amazon.de',
+  it: 'www.amazon.it',
+  es: 'www.amazon.es',
+  uk: 'www.amazon.co.uk',
+  us: 'www.amazon.com',
+  ca: 'www.amazon.ca',
+  nl: 'www.amazon.nl',
+};
+
+function nomAffiche(marque, marche) {
+  if (/^amazon/i.test(marque) && NOMS_AMAZON[marche]) return NOMS_AMAZON[marche];
+  return String(marque || '').replace(/\s*\(compte commun\)/gi, '').trim();
+}
+
+function familleDe(marque) {
+  return /amazon|jake|conrad|shop|store|magasin|boutique/i.test(marque) ? 'revendeur' : 'marque';
+}
+
+function groupeDe(slug, marque) {
+  if (/^amazon/i.test(marque)) return 'amazon';
+  return slug.replace(/-(fr|de|uk|us|it|es|nl|eu|ca|global)$/, '') || slug;
+}
+
+function urlsDe(ligne, marche) {
+  const texte = String(ligne.liens || '');
+  const trouves = [...texte.matchAll(/https?:\/\/[^\s)|]+/g)].map((m) => m[0].replace(/[.,;]+$/, ''));
+  const awin = trouves.find((u) => /awin1\.com|awin\.com/i.test(u)) || '';
+  const amazon = trouves.find((u) => /amazon\./i.test(u) && !/amazon\.com\.be/i.test(u)) || '';
+  const officiel = trouves.find((u) => !/awin1\.com|awin\.com|amazon\./i.test(u)) || '';
+  let bouton = awin;
+  if (!bouton && String(ligne.plateforme || '').toLowerCase() === 'awin') {
+    const mid = (texte.match(/awinmid=(\d+)/i) || texte.match(/\bmid=(\d+)/i) || [])[1];
+    const affid = (texte.match(/awinaffid=(\d+)/i) || texte.match(/\baffid=(\d+)/i) || [])[1];
+    if (mid && affid) bouton = `https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${affid}`;
+  }
+  const amazonien = /amazon/i.test(`${ligne.plateforme} ${ligne.marque}`);
+  if (amazonien) {
+    const tag = (texte.match(/\b((?:manuso|roboteducat)[a-z0-9-]*-\d+)\b/i) || texte.match(/[?&]tag=([A-Za-z0-9-]+)/) || [])[1];
+    const domaine = DOMAINES_AMAZON[marche];
+    if (amazon && !/amazon\.com\.be/i.test(amazon)) bouton = amazon;
+    else if (tag && domaine) bouton = `https://${domaine}/?tag=${tag}`;
+    else bouton = '';
+  }
+  return { bouton, officiel };
+}
+
+export function partenairesPublies(registre) {
+  const pris = new Set();
+  const out = [];
+  for (const ligne of registre.lignes || []) {
+    if (!estAccepte(ligne.statut)) continue;
+    const marche = marcheDe(ligne.marque);
+    let slug = /^amazon/i.test(ligne.marque) && NOMS_AMAZON[marche] ? `amazon-${marche}` : slugifier(nomAffiche(ligne.marque, marche));
+    if (!slug) slug = 'partenaire';
+    const mid = (String(ligne.liens || '').match(/awinmid=(\d+)/i) || [])[1] || '';
+    if (pris.has(slug)) slug = `${slug}-${mid || '2'}`.slice(0, 60);
+    let n = 2;
+    while (pris.has(slug)) {
+      slug = `${slug.replace(/-\d+$/, '')}-${n++}`;
+    }
+    pris.add(slug);
+    const urls = urlsDe(ligne, marche);
+    const bloque = registre.aVerifier && registre.aVerifier.has(String(ligne.marque || '').trim().toLowerCase());
+    out.push({
+      slug,
+      marque: ligne.marque,
+      liens: ligne.liens || '',
+      plateforme: ligne.plateforme || '',
+      nom: nomAffiche(ligne.marque, marche),
+      marche,
+      famille: familleDe(ligne.marque),
+      groupe: groupeDe(slug, ligne.marque),
+      date: ligne.date || '',
+      bouton: bloque ? '' : urls.bouton,
+      officiel: urls.officiel,
+      amazon: /amazon/i.test(`${ligne.plateforme} ${ligne.marque}`),
+    });
+  }
+  return out.sort((a, b) => a.nom.localeCompare(b.nom, 'fr'));
 }

@@ -1,0 +1,52 @@
+---
+interface Props { lang: string; slug: string }
+const { lang, slug } = Astro.props;
+import './partenaires.css';
+import { PUBLIES, PREFIX, textes, logoDe, articlesPour, liensUtiles, dateAffichee, paysDe } from '../../data/partenaires/registre.mjs';
+const t = textes(lang);
+const langue = (lang in PREFIX ? lang : 'fr') as keyof typeof PREFIX;
+const index = PREFIX[langue];
+const p = PUBLIES.find((x) => x.slug === slug);
+if (!p) throw new Error(`partenaire inconnu : ${slug}`);
+const articles = articlesPour(p, lang);
+const utiles = liensUtiles(lang);
+const voisins = PUBLIES.filter((x) => x.groupe === p.groupe && x.slug !== p.slug);
+const logo = logoDe(p.slug);
+const quand = dateAffichee(p.date, lang);
+const accueil = lang === 'fr' ? '/' : `/${lang}/`;
+---
+<div class="pp">
+  <p class="pp-fil"><a href={accueil}>{t.accueil}</a> · <a href={index}>{t.titreIndex}</a></p>
+  <h1>{p.nom}</h1>
+  <p class="pp-chapo">{t.chapo(p.nom, p.marche)}</p>
+  <div class="pp-identite">
+    {logo && <img class="pp-logo" src={logo} alt="" width="72" height="48" />}
+    <p>{t.marche} : {paysDe(lang, p.marche)}</p>
+    {quand && <p>{t.depuis} {quand}</p>}
+    {p.officiel && <p><a href={p.officiel} rel="noopener" target="_blank">{t.site}</a></p>}
+    {p.bouton && (
+      <p><a class="pp-bouton" href={p.bouton} rel="sponsored nofollow noopener" target="_blank">{p.amazon ? t.prix : t.voir(p.nom)}</a></p>
+    )}
+  </div>
+  {articles.length > 0 && (
+    <section>
+      <h2>{t.articles}</h2>
+      <ul class="pp-liste">
+        {articles.map((a: { href: string; titre: string }) => <li><a href={a.href}>{a.titre}</a></li>)}
+      </ul>
+    </section>
+  )}
+  {voisins.length > 0 && (
+    <section>
+      <h2>{t.autres}</h2>
+      <ul class="pp-liste">
+        {voisins.map((v) => <li><a href={`${index}${v.slug}/`}>{v.nom}</a> — {paysDe(lang, v.marche)}</li>)}
+      </ul>
+    </section>
+  )}
+  {utiles.length > 0 && (
+    <ul class="pp-liste">
+      {utiles.map((u) => <li><a href={u.href}>{u.titre}</a></li>)}
+    </ul>
+  )}
+</div>

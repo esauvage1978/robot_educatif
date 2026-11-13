@@ -1,5 +1,6 @@
 import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n.mjs';
 import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
+import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 
 /** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
 export const OMIT_US_HREFLANG = true;
@@ -199,6 +200,8 @@ const STATIC_LANG_PAIRS = [
 	{ fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', en: '/en/raspberry-pi-5-which-ram/', de: '/de/raspberry-pi-5-welcher-ram/', it: '/it/raspberry-pi-5-quale-ram/', es: '/es/raspberry-pi-5-que-ram/' },
 	{ fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', en: '/en/raspberry-pi-3-vs-4-vs-5/', de: '/de/raspberry-pi-3-vs-4-vs-5/', it: '/it/raspberry-pi-3-vs-4-vs-5/', es: '/es/raspberry-pi-3-vs-4-vs-5/' },
 	{ fr: '/meilleur-robot-educatif-arduino-kit-choisir/', en: '/en/arduino-robot-kit-for-kids/', de: '/de/arduino-roboter-bausatz-fuer-kinder/', it: '/it/kit-robot-arduino-per-bambini/', es: '/es/kit-robot-arduino-para-ninos/' },
+	{ fr: '/unboxing-osoyoo-sport-car-v1-arduino/', en: '/en/osoyoo-sport-car-v1-unboxing/', de: '/de/osoyoo-sport-car-v1-auspacken/', it: '/it/unboxing-osoyoo-sport-car-v1/', es: '/es/unboxing-osoyoo-sport-car-v1/' },
+	{ fr: '/assemblage-branchement-osoyoo-sport-car-v1-arduino/', en: '/en/osoyoo-sport-car-v1-assembly-wiring/', de: '/de/osoyoo-sport-car-v1-zusammenbau-anschluss/', it: '/it/assemblaggio-collegamento-osoyoo-sport-car-v1/', es: '/es/montaje-conexion-osoyoo-sport-car-v1/' },
 	{ fr: '/equipement-robotique-locataire/', en: '/en/robotics-equipment-for-renters/', de: '/de/robotik-ausruestung-fuer-mieter/', it: '/it/attrezzatura-robotica-per-inquilini/', es: '/es/equipo-robotica-para-inquilinos/' },
 	{ fr: '/domotique/', en: '/en/smart-home/', de: '/de/smart-home/', it: '/it/domotica/', es: '/es/domotica/' },
 	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/', it: '/it/marchio-makeblock/', es: '/es/marca-makeblock/' },
@@ -463,7 +466,7 @@ function fusionnerPaires(paires, ajouts) {
 	return out;
 }
 
-export const LANG_PAIRS = fusionnerPaires([...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS], EN_RATTACHEES);
+export const LANG_PAIRS = fusionnerPaires([...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES], EN_RATTACHEES);
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
 	{ href: '/en/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: educational robots and smart home' },
@@ -471,6 +474,8 @@ export const EN_PAGES = [
 	{ href: '/en/best-programmable-robot-for-kids/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Best programmable robot for kids: how to choose by age' },
 	{ href: '/en/robotics-equipment-for-renters/', fr: '/equipement-robotique-locataire/', title: 'Robotics equipment for renters, without a workshop' },
 	{ href: '/en/arduino-robot-kit-for-kids/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Arduino robot kit for kids: how to choose' },
+	{ href: '/en/osoyoo-sport-car-v1-unboxing/', fr: '/unboxing-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0 unboxing: rechargeable battery and 6 free lessons' },
+	{ href: '/en/osoyoo-sport-car-v1-assembly-wiring/', fr: '/assemblage-branchement-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0: assembly and wiring' },
 	{ href: '/en/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: which one to buy' },
 	{ href: '/en/raspberry-pi-5-which-ram/', fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', title: 'Raspberry Pi 5: 2GB, 4GB, 8GB or 16GB?' },
 	{ href: '/en/install-mblock-5-windows/', fr: '/installer-mblock-5-sous-windows-10/', title: 'How to install mBlock 5 on Windows 10 and 11' },
@@ -501,6 +506,8 @@ export const DE_PAGES = [
 	{ href: '/de/bester-programmierbarer-roboter-fuer-kinder/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Bester programmierbarer Roboter für Kinder: Auswahl nach Alter' },
 	{ href: '/de/robotik-ausruestung-fuer-mieter/', fr: '/equipement-robotique-locataire/', title: 'Robotik-Ausrüstung für Mieter, ohne Werkstatt' },
 	{ href: '/de/arduino-roboter-bausatz-fuer-kinder/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Arduino-Roboterbausatz für Kinder: so wählen Sie' },
+	{ href: '/de/osoyoo-sport-car-v1-auspacken/', fr: '/unboxing-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0 ausgepackt: Akku inklusive und 6 kostenlose Lektionen' },
+	{ href: '/de/osoyoo-sport-car-v1-zusammenbau-anschluss/', fr: '/assemblage-branchement-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0: Zusammenbau und Anschluss' },
 	{ href: '/de/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: welchen kaufen?' },
 	{ href: '/de/raspberry-pi-5-welcher-ram/', fr: '/raspberry-pi-5-quelle-version-memoire-acheter/', title: 'Raspberry Pi 5: 2 GB, 4 GB, 8 GB oder 16 GB?' },
 	{ href: '/de/mblock-5-installieren-windows/', fr: '/installer-mblock-5-sous-windows-10/', title: 'mBlock 5 unter Windows 10 und 11 installieren' },
@@ -581,6 +588,8 @@ export const IT_PAGES = [
 	{ href: '/it/miglior-robot-programmabile-per-bambini/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Miglior robot programmabile per bambini: come scegliere per età' },
 	{ href: '/it/attrezzatura-robotica-per-inquilini/', fr: '/equipement-robotique-locataire/', title: 'Attrezzatura robotica per inquilini, senza laboratorio' },
 	{ href: '/it/kit-robot-arduino-per-bambini/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit robot Arduino per bambini: come sceglierlo' },
+	{ href: '/it/unboxing-osoyoo-sport-car-v1/', fr: '/unboxing-osoyoo-sport-car-v1-arduino/', title: 'Unboxing OSOYOO Sport Car V1.0: batteria inclusa e 6 lezioni gratuite' },
+	{ href: '/it/assemblaggio-collegamento-osoyoo-sport-car-v1/', fr: '/assemblage-branchement-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0: assemblaggio e collegamento' },
 	{ href: '/it/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: quale comprare?' },
 	{ href: '/it/domotica/come-iniziare/', fr: '/domotique/debuter-domotique-par-ou-commencer/', title: 'Domotica per principianti: da dove iniziare' },
 	{ href: '/it/domotica/home-assistant-green-vs-raspberry-pi-5/', fr: '/domotique/home-assistant-green-vs-raspberry-pi-5/', title: 'Home Assistant Green vs Raspberry Pi 5' },
@@ -661,6 +670,8 @@ export const ES_PAGES = [
 	{ href: '/es/mejor-robot-programable-para-ninos/', fr: '/meilleur-robot-programmable-enfant-2026/', title: 'Mejor robot programable para niños: cómo elegir según la edad' },
 	{ href: '/es/equipo-robotica-para-inquilinos/', fr: '/equipement-robotique-locataire/', title: 'Equipo de robótica para inquilinos: qué elegir sin taller' },
 	{ href: '/es/kit-robot-arduino-para-ninos/', fr: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Kit de robot Arduino para niños: cómo elegirlo' },
+	{ href: '/es/unboxing-osoyoo-sport-car-v1/', fr: '/unboxing-osoyoo-sport-car-v1-arduino/', title: 'Unboxing OSOYOO Sport Car V1.0: batería incluida y 6 lecciones gratis' },
+	{ href: '/es/montaje-conexion-osoyoo-sport-car-v1/', fr: '/assemblage-branchement-osoyoo-sport-car-v1-arduino/', title: 'OSOYOO Sport Car V1.0: montaje y conexión' },
 	{ href: '/es/raspberry-pi-3-vs-4-vs-5/', fr: '/raspberry-pi-3-vs-4-vs-5-comparatif-2026/', title: 'Raspberry Pi 3 vs 4 vs 5: ¿cuál comprar?' },
 	{ href: '/es/actividad-scratch-el-cuadrado/', fr: '/activite-scratch-le-carre/', title: 'Actividad Scratch: dibujar un cuadrado' },
 	{ href: '/es/conecta-4-python/', fr: '/programmation/puissance-4/', title: 'Conecta 4 en Python, seis capítulos' },

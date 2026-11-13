@@ -1,0 +1,93 @@
+---
+layout: ../../layouts/EsPost.astro
+title: "OSOYOO Sport Car V1.0: montaje y conexión (lección 1, consejos de montaje)"
+description: "Montaje y cableado del OSOYOO Sport Car V1.0: Emmanuel ha seguido la lección 1 de OSOYOO, con una biela de más, un destornillador de verdad y un poco de holgura en las ruedas delanteras."
+updated: "12 de noviembre de 2026"
+shareTitle: "OSOYOO Sport Car V1.0: montaje y conexión"
+shareDescription: "Kit Arduino montado con la lección 1: instrucciones fiables, una biela de más, holgura en el casquillo de las ruedas delanteras y, después, la conexión."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Aviso: los enlaces de Amazon pueden generar una comisión sin coste extra. Los precios cambian a menudo — compruebe la ficha del vendedor antes de comprar.*
+
+**Serie OSOYOO Sport Car V1.0** — [Parte 1: unboxing](/es/unboxing-osoyoo-sport-car-v1/) · Está en la parte 2 (montaje y conexión).
+
+> **Respuesta directa** — Después del [unboxing](/es/unboxing-osoyoo-sport-car-v1/), he **montado y conectado** el **OSOYOO Sport Car V1.0**. Empecé por el vídeo oficial, pero no da las referencias de las piezas: por eso pasé a la [lección 1 en osoyoo.com](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/), que describe la instalación del material, el cableado y la prueba del servo SG90. Las instrucciones son fiables. Habrá un tercer artículo, sobre el **uso** (programación y lecciones).
+
+El 12 de noviembre de 2026, la ficha [OSOYOO Sport Car V1.0](https://www.amazon.es/dp/B098T6527G?tag=roboteducat07-21) existía en Amazon.es, pero el artículo **no estaba disponible** y no había un precio en oferta (enlace de afiliado). El precio que aparece en la ficha el día de la compra es el que cuenta. No inventamos un importe.
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-assemblage/voiture-cablee-osoyoo-sport-car-v1.webp"
+  ages="a partir de 14 años"
+  languages={['C Arduino']}
+  description="Coche robot Arduino con dirección por servomotor, batería de 9 V recargable y seis lecciones en línea gratuitas."
+  lang="es"
+  pros={[
+    'Todo está en la caja, batería recargable incluida',
+    'Dirección como en un coche de verdad',
+    'Wi-Fi, evitación de obstáculos y seguimiento de línea',
+  ]}
+/>
+
+## Qué instrucciones seguir
+
+Primero vi el **vídeo oficial**. Da una idea del resultado, pero **no indica las referencias de las piezas**. Para el montaje me basé por tanto en la [lección 1: instalación del material y prueba del servo](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/), en osoyoo.com.
+
+Esa lección es la base de las siguientes. Trata, por este orden:
+
+- la **instalación del material** (chasis, motor, bielas, ruedas, placas, servos, sensores, batería);
+- la **conexión** (motor, portabaterías, voltímetro, servos y sensores en el shield de motor);
+- la **instalación del software** (Arduino IDE) y la **alineación del servo de dirección** (`steering.ino`, valor `FRONT`).
+
+El detalle de cada tornillo y de cada conector está en esa página: aquí no invento referencias. El contenido de la caja se describió en el [artículo de unboxing](/es/unboxing-osoyoo-sport-car-v1/).
+
+## Lo que comprobé durante el montaje
+
+Las instrucciones de montaje son **fiables**, pero **viene una biela de más**: hacen falta **dos** y la caja contiene **tres**.
+
+En las **ruedas delanteras**, deje un **poco de holgura en el casquillo metálico**: si se aprieta demasiado, la rueda deja de girar.
+
+Aconsejo tener un **destornillador de verdad**, además del pequeño destornillador incluido, más cómodo para los tornillos de cabeza plana.
+
+He apreciado las **piezas que vienen de más**: en caso de rotura o de pérdida, es realmente de agradecer.
+
+La **relación calidad-precio** ya está ahí en la **parte del material**.
+
+El sitio y el robot están realmente pensados para los **niños** y para las personas **a partir de 14 años**.
+
+## Las ruedas delanteras
+
+Las ruedas delanteras se montan en la varilla metálica de la dirección (paso 8 de la lección 1).
+
+Mi consejo: dejar un poco de holgura en el casquillo metálico, para que las ruedas giren libremente, sin forzar.
+
+Con las ruedas colocadas, el chasis está montado: se pasa a la conexión.
+
+## Los servos y el shield
+
+![Shield montado en su soporte negro en la parte delantera del OSOYOO Sport Car, servo azul SG90 de la cabeza de ultrasonidos debajo, servo naranja de dirección en el chasis, y cables de servo naranja, rojo y marrón](/images/blog/osoyoo-sport-car-v1-assemblage/servos-shield-osoyoo-sport-car.webp)
+
+En esta foto, el **shield** está montado en su **soporte negro delantero**, el **servo azul SG90** de la cabeza de ultrasonidos va sujeto debajo, y el **servo naranja de dirección** está colocado en el chasis, con sus **cables naranja, rojo y marrón**.
+
+La lección 1 indica la conexión oficial de estos servos en el shield de motor: el servo de dirección **MG90S** (naranja) en **D9**, el servo (azul) en **D10**.
+
+## El coche una vez cableado
+
+![OSOYOO Sport Car V1.0 cableado, vista de perfil: placa Arduino y shield de motor, batería amarilla, display de 4 dígitos, servo naranja y mazos de cables hacia adelante, hacia los sensores](/images/blog/osoyoo-sport-car-v1-assemblage/voiture-cablee-osoyoo-sport-car-v1.webp)
+
+Una vez hecha la conexión, de perfil se reconocen: la **placa Arduino** y el **shield de motor**, la **batería amarilla**, el **display de 4 dígitos**, el **servo naranja** y los **mazos de cables hacia adelante** (hacia los sensores).
+
+La misma lección describe también las demás conexiones oficiales: quite los puentes (jumpers) de **ENB-D6**, **IN3-D9** e **IN4-D10**; conecte el motor a **K1** o **K2**; una al shield el portabaterías, el voltímetro, el sensor de ultrasonidos y el sensor de seguimiento de línea. El detalle ilustrado está en la [página de la lección 1](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/).
+
+## Lo que sigue: la prueba del servo y el uso
+
+La lección 1 no termina en el cableado: continúa con la instalación del **Arduino IDE** y con la **alineación del servo de dirección**, con el sketch `steering.ino`, para que las ruedas delanteras apunten al frente (anote el valor `FRONT` para las lecciones siguientes).
+
+El **uso** del kit — la programación y las lecciones — será un **tercer artículo**.
+
+Para el contenido de la caja y el programa de las seis lecciones, vea el [unboxing del OSOYOO Sport Car V1.0](/es/unboxing-osoyoo-sport-car-v1/).
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.es/dp/B098T6527G?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>Ver el kit OSOYOO Sport Car en Amazon →</strong></a> <small>(enlace de afiliado)</small></p>

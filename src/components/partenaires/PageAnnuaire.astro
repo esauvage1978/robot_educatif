@@ -1,0 +1,26 @@
+---
+import BaseHead from '../BaseHead.astro';
+import Footer from '../Footer.astro';
+import Header from '../Header.astro';
+import PageColumns from '../PageColumns.astro';
+import Annuaire from './Annuaire.astro';
+import { metaPage } from '../../data/partenaires/registre.mjs';
+interface Props { lang: string }
+const { lang } = Astro.props;
+const meta = metaPage(lang);
+const htmlLang = ({ fr: 'fr', en: 'en', de: 'de', it: 'it', es: 'es' } as Record<string, string>)[lang] || 'fr';
+---
+<!doctype html>
+<html lang={htmlLang}>
+  <head><BaseHead title={meta.titre} description={meta.description} /></head>
+  <body>
+    <Header />
+    <main>
+      <PageColumns sommaire={false}><Annuaire lang={lang} /></PageColumns>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style is:global>
+  .page-layout--sans-sommaire { display: block; width: min(1180px, 100%); margin-inline: auto; }
+</style>
