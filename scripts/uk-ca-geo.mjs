@@ -128,6 +128,74 @@ for (const file of walk(DIST)) {
   const next = head + raw.slice(end);
   if (next !== raw) writeFileSync(file, next);
 }
+// 4. Reciprocite des hreflang (13/11/2026) : une cible sans aucun hreflang recoit le groupe de la page source
+//    (si elle est indexable et canonique) ; puis tout lien vers une page absente ou qui ne renvoie pas est retire.
+const dec = (p) => { try { return decodeURIComponent(p); } catch { return p; } };
+const keyOf = (p) => dec(p).replace(/index\.html?$/, '').replace(/\.html?$/, '').replace(/\/+$/, '') || '/';
+function readPages() {
+  const pages = new Map();
+  for (const file of walk(DIST)) {
+    const raw = readFileSync(file, 'utf8');
+    const end = raw.search(/<\/head>/i);
+    if (end < 0) continue;
+    const head = raw.slice(0, end);
+    const alts = (head.match(LINK_RE) || []).filter(isAlt);
+    const can = (head.match(LINK_RE) || []).find((t) => attr(t, 'rel').toLowerCase() === 'canonical');
+    const cPath = can ? pathOf(attr(can, 'href')) : null;
+    const key = keyOf(publicPath(file));
+    pages.set(key, {
+      file, raw, end, alts,
+      targets: new Set(alts.map((t) => pathOf(attr(t, 'href'))).filter(Boolean).map(keyOf)),
+      indexable: !/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(head) && !/http-equiv\s*=\s*["']refresh["']/i.test(head) && (!cPath || keyOf(cPath) === key),
+    });
+  }
+  return pages;
+}
+stats.adoptedCluster = 0; stats.altRemoved = 0;
+let pages = readPages();
+for (const [key, pg] of pages) {
+  if (!pg.alts.length) continue;
+  for (const t of pg.targets) {
+    if (t === key) continue;
+    const tp = pages.get(t);
+    if (!tp || tp.alts.length || !tp.indexable || tp.adopted) continue;
+    if (!pg.targets.has(t)) continue;
+    tp.adopted = true;
+    const head = tp.raw.slice(0, tp.end);
+    const block = pg.alts.join('\n');
+    const can = (head.match(LINK_RE) || []).find((x) => attr(x, 'rel').toLowerCase() === 'canonical');
+    const next = (can ? head.replace(can, `${can}\n${block}`) : `${head}${block}\n`) + tp.raw.slice(tp.end);
+    writeFileSync(tp.file, next);
+    stats.adoptedCluster++;
+  }
+}
+const removedEx = [];
+for (let round = 0; round < 6; round++) {
+pages = readPages();
+let roundRemoved = 0;
+for (const [key, pg] of pages) {
+  if (!pg.alts.length) continue;
+  let head = pg.raw.slice(0, pg.end);
+  let changed = false;
+  for (const tag of pg.alts) {
+    const tPath = pathOf(attr(tag, 'href'));
+    if (!tPath) continue;
+    const t = keyOf(tPath);
+    if (t === key) continue;
+    const tp = pages.get(t);
+    if (tp && tp.targets.has(key)) continue;
+    head = head.replace(tag, '');
+    changed = true;
+    stats.altRemoved++;
+    roundRemoved++;
+    if (removedEx.length < 30) removedEx.push(`${key} -> ${attr(tag, 'hreflang')} ${t}${tp ? '' : ' (absente)'}`);
+  }
+  if (changed) writeFileSync(pg.file, head + pg.raw.slice(pg.end));
+}
+if (!roundRemoved) break;
+}
+issues.altRemovedExamples = removedEx;
+
 const report = { site: SITE, generated: new Date().toISOString(), stats, issues };
 writeFileSync(join(dirname(DIST), 'uk-ca-geo-report.json'), JSON.stringify(report, null, 1));
-console.log(`[uk-ca-geo] ${SITE} : ${stats.pages} pages, script ajoute sur ${stats.script}, hreflang completes sur ${stats.hreflangPages} (en-US ${stats.enUS}, en ${stats.en}, en-GB ${stats.enGB}, en-CA ${stats.enCA}), casse ${stats.casing}, doublons ${stats.dupRemoved}, canonical UK/CA corriges ${stats.canonicalFixed}, sans x-default ${issues.noXDefault}`);
+console.log(`[uk-ca-geo] ${SITE} : ${stats.pages} pages, script ajoute sur ${stats.script}, hreflang completes sur ${stats.hreflangPages} (en-US ${stats.enUS}, en ${stats.en}, en-GB ${stats.enGB}, en-CA ${stats.enCA}), casse ${stats.casing}, doublons ${stats.dupRemoved}, canonical UK/CA corriges ${stats.canonicalFixed}, groupes hreflang adoptes ${stats.adoptedCluster}, hreflang non reciproques retires ${stats.altRemoved}, sans x-default ${issues.noXDefault}`);
