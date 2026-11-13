@@ -25,7 +25,8 @@ const isAnglo = isEn || isUk || isCa || isUs;
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
-const isFr = !isAnglo && !isDe && !isIt && !isEs;
+const isNl = _p === '/nl' || _p.startsWith('/nl/');
+const isFr = !isAnglo && !isDe && !isIt && !isEs && !isNl;
 const bfHref = isDe
 	? '/de/black-friday/'
 	: isIt
@@ -52,7 +53,7 @@ const bfHref = isDe
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">{isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isAnglo ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
+			<p class="footer-tagline">{isNl ? "Kiezen en leren met de juiste educatieve robots" : isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isAnglo ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
@@ -73,7 +74,38 @@ const bfHref = isDe
 		</div>
 		
 		<div class="footer-columns">
-{isIt ? (<>
+{isNl ? (<>
+			<div class="footer-col">
+				<h3>Koopgidsen</h3>
+				<ul>
+					<li><a href={withBase('/nl/beste-programmeerbare-robot-voor-kinderen/')}>Programmeerbare robots per leeftijd</a></li>
+					<li><a href={withBase('/nl/arduino-robot-kit-voor-kinderen/')}>Arduino-robotkits</a></li>
+					<li><a href={withBase('/nl/')}>Alle Nederlandse gidsen</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Vergelijkingen</h3>
+				<ul>
+					<li><a href={withBase('/nl/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3 vs 4 vs 5</a></li>
+					<li><a href={withBase('/nl/mbot-vs-mbot2/')}>mBot vs mBot2</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Lessen</h3>
+				<ul>
+					<li><a href={withBase('/nl/mblock-5-installeren-windows/')}>mBlock 5 installeren</a></li>
+					<li><a href={withBase('/nl/slimme-woning/')}>Slimme woning</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h3>Over de site</h3>
+				<ul>
+					<li><a href={withBase('/contact/')} hreflang="fr">Contact (FR)</a></li>
+					<li><a href={withBase('/politique-de-confidentialite/')} hreflang="fr">Privacy (FR)</a></li>
+					<li><a href={withBase('/')} hreflang="fr" lang="fr">Version française</a></li>
+				</ul>
+			</div>
+</>) : isIt ? (<>
 			<div class="footer-col">
 				<h3>Guide all'acquisto</h3>
 				<ul>
@@ -266,10 +298,10 @@ const bfHref = isDe
 	<div class="footer-bottom">
 		<div class="footer-bottom-inner">
 			<p class="affiliate-notice">
-				{isIt ? "Alcuni link sono link di affiliazione: in caso di acquisto potremmo ricevere una commissione, senza costi aggiuntivi per voi. I dati tecnici provengono dalle pagine ufficiali dei produttori; dichiariamo una prova solo dove è indicata espressamente. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei." : isEs ? "Algunos enlaces son de afiliación: si compras, podemos recibir una comisión sin coste adicional para ti. Los datos técnicos proceden de las páginas oficiales de los fabricantes; solo afirmamos haber probado un producto cuando se indica expresamente. Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables." : isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isAnglo ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
+				{isNl ? "Sommige links zijn affiliate-links. Koop je via zo’n link, dan kunnen we een commissie krijgen, zonder extra kosten voor jou. Technische gegevens komen van de officiële pagina’s van de fabrikant. We zeggen alleen dat we iets zelf hebben getest als dat er uitdrukkelijk bij staat." : isIt ? "Alcuni link sono link di affiliazione: in caso di acquisto potremmo ricevere una commissione, senza costi aggiuntivi per voi. I dati tecnici provengono dalle pagine ufficiali dei produttori; dichiariamo una prova solo dove è indicata espressamente. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei." : isEs ? "Algunos enlaces son de afiliación: si compras, podemos recibir una comisión sin coste adicional para ti. Los datos técnicos proceden de las páginas oficiales de los fabricantes; solo afirmamos haber probado un producto cuando se indica expresamente. Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables." : isDe ? "Einige Links sind Affiliate-Links: Bei einem Kauf erhalten wir eventuell eine Provision, ohne Mehrkosten für Sie. Technische Daten stammen von den offiziellen Herstellerseiten; einen eigenen Test behaupten wir nur, wo er ausdrücklich genannt ist." : isAnglo ? "Some links are affiliate links: we may earn a commission at no extra cost to you. Specifications come from manufacturers' official pages; we only claim hands-on testing where stated. As an Amazon Associate I earn from qualifying purchases." : "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises."}
 			</p>
 			<div class="footer-meta">
-				<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isIt ? "Sviluppato da" : isEs ? "Desarrollado por" : isDe ? "Entwickelt von" : isAnglo ? "Built by" : "Développé par"} Emmanuel&nbsp;SAUVAGE</p>
+				<p class="copyright">&copy; {today.getFullYear()} ROBOT éducatif · {isNl ? "Gemaakt door" : isIt ? "Sviluppato da" : isEs ? "Desarrollado por" : isDe ? "Entwickelt von" : isAnglo ? "Built by" : "Développé par"} Emmanuel&nbsp;SAUVAGE</p>
 				{isFr && (
 					<nav class="footer-francophonie" aria-label="Éditions francophones">
 						<!-- francophone-limitrophe-hubs -->

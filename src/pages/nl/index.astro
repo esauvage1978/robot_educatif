@@ -1,0 +1,56 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { withBase } from '../../lib/siteUrl';
+
+const title = 'Educatieve robots voor kinderen: koopgidsen, mBot en Python';
+const description = 'Onafhankelijke gidsen voor ouders en leraren in Nederland en België. mBot, Arduino-kits en Raspberry Pi, met de prijs van vandaag op Amazon.nl.';
+---
+
+<html lang="nl">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main class="prose" style="width:min(760px,calc(100% - 2rem));margin:2rem auto 3rem;">
+			<h1>Educatieve robots, zonder verkooppraatje</h1>
+			<p>
+				Robot Éducatif helpt ouders, leraren en clubs een robot te kiezen die een kind echt gebruikt.
+				Deze Nederlandse pagina’s volgen dezelfde tests en dezelfde eurobedragen als de Franse bron.
+				Een bedrag in euro’s is een meting op Amazon.fr op de genoemde datum. De knop opent Amazon.nl, zodat je de prijs van vandaag zelf ziet. We verzinnen geen Nederlands schapprijs.
+			</p>
+			<h2>Kies op leeftijd</h2>
+			<ul>
+				<li><a href={withBase('/nl/robot-voor-4-jaar/')}>Robot vanaf 4 jaar</a></li>
+				<li><a href={withBase('/nl/robot-voor-6-jaar/')}>Robot voor 6 jaar</a></li>
+				<li><a href={withBase('/nl/robot-voor-8-jaar/')}>Robot voor 8 jaar</a></li>
+				<li><a href={withBase('/nl/robot-voor-10-jaar/')}>Robot voor 10 jaar</a></li>
+				<li><a href={withBase('/nl/robot-voor-12-jaar/')}>Robot voor 12 jaar</a></li>
+				<li><a href={withBase('/nl/beste-programmeerbare-robot-voor-kinderen/')}>Programmeerbare robots: hoe kies je</a></li>
+			</ul>
+			<h2>Merken en vergelijkingen</h2>
+			<ul>
+				<li><a href={withBase('/nl/mbot-vs-mbot2/')}>mBot of mBot2</a></li>
+				<li><a href={withBase('/nl/mbot-recensie/')}>mBot: is hij de moeite waard?</a></li>
+				<li><a href={withBase('/nl/arduino-robot-kit-voor-kinderen/')}>Arduino-robotkit</a></li>
+				<li><a href={withBase('/nl/raspberry-pi-3-vs-4-vs-5/')}>Raspberry Pi 3, 4 of 5</a></li>
+				<li><a href={withBase('/nl/educatieve-robot-zonder-scherm/')}>Robot zonder scherm</a></li>
+			</ul>
+			<h2>Aan de slag</h2>
+			<ul>
+				<li><a href={withBase('/nl/mblock-5-installeren-windows/')}>mBlock 5 installeren op Windows</a></li>
+				<li><a href={withBase('/nl/eerste-mbot-programma/')}>Je eerste mBot-programma</a></li>
+				<li><a href={withBase('/nl/wanneer-beginnen-met-programmeren/')}>Wanneer begin je met programmeren?</a></li>
+				<li><a href={withBase('/nl/python-cursus/')}>Python-cursus</a></li>
+				<li><a href={withBase('/nl/slimme-woning/')}>Slimme woning: waar begin je?</a></li>
+			</ul>
+			<p>
+				Sommige links zijn affiliate-links naar Amazon.nl (tag manuso0607-21). De Franse site blijft de bron voor de lange dossiers die hier nog niet staan.
+				<a href={withBase('/')} hreflang="fr" lang="fr">Version française</a>.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

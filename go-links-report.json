@@ -1,11 +1,11 @@
 {
  "site": "robot-educatif.info",
- "generated": "2026-11-12T22:22:24.333Z",
+ "generated": "2026-11-13T22:06:36.056Z",
  "stats": {
-  "files": 1805,
-  "filesChanged": 1162,
-  "amazon": 6359,
-  "awin": 1039,
+  "files": 1838,
+  "filesChanged": 1184,
+  "amazon": 6486,
+  "awin": 1045,
   "repaired": 0,
   "relFixed": 109,
   "collisions": 0,
@@ -10787,6 +10787,204 @@
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
+  },
+  "az-nl-0359d03d08": {
+   "url": "https://www.amazon.nl/s?k=Learning+Resources+Code+%26+Go+Robot+Mouse&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-069c34adca": {
+   "url": "https://www.amazon.nl/s?k=Makeblock+mBot+Bluetooth&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-0da6b49bf4": {
+   "url": "https://www.amazon.nl/s?k=mBot+Makeblock+accessoires+sensor&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-0dc6605c70": {
+   "url": "https://www.amazon.nl/dp/B07GVD6GQH?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-0dd3b05ed2": {
+   "url": "https://www.amazon.nl/dp/B0919F9CKS?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-11de579ef3": {
+   "url": "https://www.amazon.nl/dp/B083T5G5ZK?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-392c2d8bac": {
+   "url": "https://www.amazon.nl/dp/B0CK2FCG1K?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-409b7322e3": {
+   "url": "https://www.amazon.nl/s?k=ELEGOO+Smart+Robot+Car+Kit+V4.0&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-455fc0e82a": {
+   "url": "https://www.amazon.nl/dp/B0CK3L9WD3?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-48d1598607": {
+   "url": "https://www.amazon.nl/s?k=Raspberry+Pi+5&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-569da80dd3": {
+   "url": "https://www.amazon.nl/s?k=coding+starter+kit+kids&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-5d3e3b7072": {
+   "url": "https://www.amazon.nl/dp/B08BTJFYT3?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-5f58f5d735": {
+   "url": "https://www.amazon.nl/dp/B01B14XK00?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-62223c646f": {
+   "url": "https://www.amazon.nl/dp/B07KG4JHBH?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-62aedcbc70": {
+   "url": "https://www.amazon.nl/s?k=Matatalab+Tale-Bot&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-6f9dc9a730": {
+   "url": "https://www.amazon.nl/dp/B083T58PKM?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-7ba8d888ea": {
+   "url": "https://www.amazon.nl/s?k=Makeblock+mBot+Ranger&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-7dac2ed4b1": {
+   "url": "https://www.amazon.nl/dp/B07474MMB5?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-9066b7746d": {
+   "url": "https://www.amazon.nl/s?k=Makeblock+mBot+Ultimate+2.0&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-907012c8d3": {
+   "url": "https://www.amazon.nl/s?k=Scratch+robot+programmeren+boek+kinderen&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-9d4459b0ba": {
+   "url": "https://www.amazon.nl/dp/B01A5YMCH4?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-a0cec19497": {
+   "url": "https://www.amazon.nl/s?k=Makeblock+Codey+Rocky&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-a6540ea55a": {
+   "url": "https://www.amazon.nl/s?k=Makeblock+mBot2&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-abd2f5377c": {
+   "url": "https://www.amazon.nl/dp/B078Y9RYM2?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-b275d41902": {
+   "url": "https://www.amazon.nl/s?k=Learning+Resources+Botley+2.0&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-b3a60197ff": {
+   "url": "https://www.amazon.nl/dp/B07XR98YYQ?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-c9ee5961ff": {
+   "url": "https://www.amazon.nl/s?k=Scratch+book+children+beginners&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-d3ce74c868": {
+   "url": "https://www.amazon.nl/s?k=Ohbot+educational+robot&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-d5596a9282": {
+   "url": "https://www.amazon.nl/s?k=programmable+educational+robot+kids&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-df7b5e5ea7": {
+   "url": "https://www.amazon.nl/dp/B0CZ6R182M?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-eb5631aabc": {
+   "url": "https://www.amazon.nl/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-ec1e9bb60e": {
+   "url": "https://www.amazon.nl/dp/B07CGH8NZ7?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-f505fcb0a0": {
+   "url": "https://www.amazon.nl/s?k=fischertechnik+STEM+Coding+Robo+Mission&tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   },
   "az-us-012c4a655c": {
    "url": "https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducatif-20",

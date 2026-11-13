@@ -4,10 +4,11 @@ import { withBase } from '../lib/siteUrl';
 
 const cookiesPageUrl = withBase('/gestion-des-cookies/');
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-const isEn = _p === '/en' || _p.startsWith('/en/');
+const isEn = _p === '/en' || _p.startsWith('/en/') || _p.startsWith('/uk/') || _p.startsWith('/ca/');
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
+const isNl = _p === '/nl' || _p.startsWith('/nl/');
 ---
 
 <div id="cookie-consent-banner" class="cookie-consent" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc" hidden>
@@ -43,6 +44,17 @@ const isEs = _p === '/es' || _p.startsWith('/es/');
 			<div class="cookie-consent__actions">
 				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Ablehnen</button>
 				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Akzeptieren</button>
+			</div>
+		</>
+		) : isNl ? (
+		<>
+			<p id="cookie-consent-title" class="cookie-consent__title">Cookies en statistieken</p>
+			<p id="cookie-consent-desc" class="cookie-consent__text">
+				We gebruiken Google Analytics 4 om te zien hoe de site wordt gebruikt (bekeken pagina’s, navigatie). Dat gebeurt alleen als je akkoord gaat. Weigeren houdt je niet tegen om de site te lezen. Meer: <a href={cookiesPageUrl} hreflang="fr">cookie-instellingen</a> en <a href={withBase('/politique-de-confidentialite/')} hreflang="fr">privacyverklaring</a> (in het Frans).
+			</p>
+			<div class="cookie-consent__actions">
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--secondary" id="cookie-consent-reject">Weigeren</button>
+				<button type="button" class="cookie-consent__btn cookie-consent__btn--primary" id="cookie-consent-accept">Accepteren</button>
 			</div>
 		</>
 		) : isEn ? (

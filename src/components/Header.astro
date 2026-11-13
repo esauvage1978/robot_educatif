@@ -39,9 +39,11 @@ const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
 const itHref = pair && pair.it ? pair.it : '/it/';
 const esHref = pair && pair.es ? pair.es : '/es/';
-const isFr = !isAnglo && !isDe && !isIt && !isEs;
+const isNl = _p === '/nl' || _p.startsWith('/nl/');
+const nlHref = pair && pair.nl ? pair.nl : '/nl/';
+const isFr = !isAnglo && !isDe && !isIt && !isEs && !isNl;
 
-const homeHref = isAnglo ? (isUs ? '/us/' : isUk ? '/uk/' : isCa ? '/ca/' : '/en/') : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : '/';
+const homeHref = isAnglo ? (isUs ? '/us/' : isUk ? '/uk/' : isCa ? '/ca/' : '/en/') : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : isNl ? '/nl/' : '/';
 
 const navMainFr: [string, string][] = [
 	['/10-projets-mbot-gratuits-classe-faciles/', 'mBot'],
@@ -74,7 +76,14 @@ const navMainEs: [string, string][] = [
 	['/es/domotica/', 'Domótica'],
 	['/es/marcas/', 'Marcas'],
 ];
-const navMain = isAnglo ? navMainEn : isDe ? navMainDe : isIt ? navMainIt : isEs ? navMainEs : navMainFr;
+const navMainNl: [string, string][] = [
+	['/nl/', 'Home'],
+	['/nl/beste-programmeerbare-robot-voor-kinderen/', 'Koopgids'],
+	['/nl/raspberry-pi-3-vs-4-vs-5/', 'Vergelijkingen'],
+	['/nl/arduino-robot-kit-voor-kinderen/', 'Arduino'],
+	['/nl/slimme-woning/', 'Slimme woning'],
+];
+const navMain = isNl ? navMainNl : isAnglo ? navMainEn : isDe ? navMainDe : isIt ? navMainIt : isEs ? navMainEs : navMainFr;
 const baissesHref = isDe
 	? '/de/preissenkungen/'
 	: isIt
@@ -152,7 +161,7 @@ const outilsMenu = isAnglo ? outilsMenuEn : isDe ? outilsMenuDe : isIt ? outilsM
 const ctaConfigHref = isAnglo ? '/en/smart-home/' : isDe ? '/de/smart-home/' : isIt ? '/it/domotica/' : isEs ? '/es/domotica/' : URL_CONFIGURATEUR_DOMOTIQUE;
 const ctaConfigLabel = isAnglo ? '⚡ Configurator' : isDe ? '⚡ Konfigurator' : isIt ? '⚡ Configuratore' : isEs ? '⚡ Configurador' : '⚡ Configurateur';
 
-const langNavLabel = isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
+const langNavLabel = isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : isNl ? 'Taal' : 'Langue';
 
 type LangOption = {
 	code: string;
@@ -171,15 +180,16 @@ const langOptions: LangOption[] = [
 	{ code: 'DE', href: deHref, hreflang: 'de', lang: 'de', label: 'Deutsch', current: isDe },
 	{ code: 'IT', href: itHref, hreflang: 'it', lang: 'it', label: 'Italiano', current: isIt },
 	{ code: 'ES', href: esHref, hreflang: 'es', lang: 'es', label: 'Español', current: isEs },
+	{ code: 'NL', href: nlHref, hreflang: 'nl', lang: 'nl', label: 'Nederlands', current: isNl },
 ];
 const activeLang = langOptions.find((l) => l.current) ?? langOptions[0];
 
-const menuOpenLabel = isIt ? 'Apri il menu' : isEs ? 'Abrir el menú' : isDe ? 'Menü öffnen' : isAnglo ? 'Open menu' : 'Ouvrir le menu';
-const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe ? 'Menü schließen' : isAnglo ? 'Close menu' : 'Fermer le menu';
+const menuOpenLabel = isNl ? 'Menu openen' : isIt ? 'Apri il menu' : isEs ? 'Abrir el menú' : isDe ? 'Menü öffnen' : isAnglo ? 'Open menu' : 'Ouvrir le menu';
+const menuCloseLabel = isNl ? 'Menu sluiten' : isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe ? 'Menü schließen' : isAnglo ? 'Close menu' : 'Fermer le menu';
 ---
 
 <header class="site-header">
-	<nav class="header-bar" aria-label={isAnglo ? 'Main' : isDe ? 'Hauptnavigation' : isIt ? 'Principale' : isEs ? 'Principal' : 'Principale'}>
+	<nav class="header-bar" aria-label={isNl ? 'Hoofdmenu' : isAnglo ? 'Main' : isDe ? 'Hauptnavigation' : isIt ? 'Principale' : isEs ? 'Principal' : 'Principale'}>
 		<a class="brand" href={withBase(homeHref)}>
 			<Image
 				class="brand-logo"

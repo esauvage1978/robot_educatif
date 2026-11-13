@@ -21,6 +21,7 @@ const HREFLANG_CODES = {
 	de: 'de',
 	it: 'it',
 	es: 'es',
+	nl: 'nl',
 };
 
 interface Props {
@@ -58,6 +59,7 @@ const isEn = (_p === '/en' || _p.startsWith('/en/')) && !isUk && !isCa && !isUs;
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it/' || _p.startsWith('/it/');
 const isEs = _p === '/es/' || _p.startsWith('/es/');
+const isNl = _p === '/nl' || _p.startsWith('/nl/');
 const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 ---
 
@@ -110,7 +112,7 @@ const xDefault = langPair ? (langPair.fr || langPair.en || langPair.it) : null;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
-<meta property="og:locale" content={isUk ? "en_GB" : isCa ? "en_CA" : isEn || isUs ? "en_US" : isDe ? "de_DE" : isIt ? "it_IT" : isEs ? "es_ES" : "fr_FR"} />
+<meta property="og:locale" content={isUk ? "en_GB" : isCa ? "en_CA" : isEn || isUs ? "en_US" : isDe ? "de_DE" : isIt ? "it_IT" : isEs ? "es_ES" : isNl ? "nl_NL" : "fr_FR"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

@@ -14,7 +14,7 @@ const DOMOTIQUE_LANG_PAIRS = Object.entries(DOMOTIQUE_SLUGS).map(([frSlug]) => (
 
 // Paires FR/EN pour hreflang et sélecteur de langue (chemins sans base).
 const STATIC_LANG_PAIRS = [
-	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/' },
+	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/', nl: '/nl/' },
 	{ fr: '/accessoires/', en: '/en/accessories/', uk: '/uk/accessories/', ca: '/ca/accessories/', de: '/de/zubehoer/', it: '/it/accessori/', es: '/es/accesorios/' },
 	{ fr: '/meilleur-robot-programmable-enfant-2026/', en: '/en/best-programmable-robot-for-kids/', de: '/de/bester-programmierbarer-roboter-fuer-kinder/', it: '/it/miglior-robot-programmabile-per-bambini/', es: '/es/mejor-robot-programable-para-ninos/' },
 	{
@@ -451,6 +451,38 @@ const EN_RATTACHEES = [
 	{ fr: '/domotique/code-erreur/cyberpi-enospc-mblock/', en: '/en/smart-home/error/cyberpi-enospc-mblock/' },
 	{ fr: '/domotique/code-erreur/arduino-uno-r4-bossac-dfu/', en: '/en/smart-home/error/arduino-uno-r4-bossac-dfu/' },
 	{ fr: '/domotique/code-erreur/arduino-uno-r3-getsync/', en: '/en/smart-home/error/arduino-uno-r3-getsync/' },
+	{ en: '/en/best-robot-for-a-4-year-old/', nl: '/nl/robot-voor-4-jaar/' },
+	{ en: '/en/best-robot-for-a-5-year-old/', nl: '/nl/robot-voor-5-jaar/' },
+	{ en: '/en/best-robot-for-a-6-year-old/', nl: '/nl/robot-voor-6-jaar/' },
+	{ en: '/en/best-robot-for-a-7-year-old/', nl: '/nl/robot-voor-7-jaar/' },
+	{ en: '/en/best-robot-for-an-8-year-old/', nl: '/nl/robot-voor-8-jaar/' },
+	{ en: '/en/best-robot-for-a-10-year-old/', nl: '/nl/robot-voor-10-jaar/' },
+	{ en: '/en/best-robot-for-a-12-year-old/', nl: '/nl/robot-voor-12-jaar/' },
+	{ en: '/en/best-robot-for-a-14-year-old/', nl: '/nl/robot-voor-14-jaar/' },
+	{ en: '/en/best-programmable-robot-for-kids/', nl: '/nl/beste-programmeerbare-robot-voor-kinderen/' },
+	{ en: '/en/mbot-vs-mbot2/', nl: '/nl/mbot-vs-mbot2/' },
+	{ en: '/en/mbot-review-worth-buying/', nl: '/nl/mbot-recensie/' },
+	{ en: '/en/mbot2-makeblock-what-it-teaches/', nl: '/nl/mbot2-wat-het-leert/' },
+	{ en: '/en/codey-rocky-makeblock/', nl: '/nl/codey-rocky/' },
+	{ en: '/en/first-mbot-program/', nl: '/nl/eerste-mbot-programma/' },
+	{ en: '/en/mbot-my-first-educational-robot/', nl: '/nl/mbot-mijn-eerste-robot/' },
+	{ en: '/en/mblock-vs-scratch/', nl: '/nl/mblock-vs-scratch/' },
+	{ en: '/en/install-mblock-5-windows/', nl: '/nl/mblock-5-installeren-windows/' },
+	{ en: '/en/download-mblock-5-free/', nl: '/nl/mblock-5-gratis-downloaden/' },
+	{ en: '/en/arduino-robot-kit-for-kids/', nl: '/nl/arduino-robot-kit-voor-kinderen/' },
+	{ en: '/en/raspberry-pi-3-vs-4-vs-5/', nl: '/nl/raspberry-pi-3-vs-4-vs-5/' },
+	{ en: '/en/raspberry-pi-5-which-ram/', nl: '/nl/raspberry-pi-5-welk-geheugen/' },
+	{ en: '/en/screen-free-educational-robots/', nl: '/nl/educatieve-robot-zonder-scherm/' },
+	{ en: '/en/robots-for-school/', nl: '/nl/robots-voor-school/' },
+	{ en: '/en/scratch-school-home-getting-started/', nl: '/nl/scratch-school-thuis/' },
+	{ en: '/en/educational-robot-under-100/', nl: '/nl/educatieve-robot-onder-100-euro/' },
+	{ en: '/en/educational-robot-under-50/', nl: '/nl/educatieve-robot-onder-50-euro/' },
+	{ en: '/en/educational-robot-200-500-guide/', nl: '/nl/educatieve-robot-200-500-euro/' },
+	{ en: '/en/lego-spike-alternatives-2026/', nl: '/nl/alternatieven-lego-spike-2026/' },
+	{ en: '/en/when-to-start-coding-with-kids/', nl: '/nl/wanneer-beginnen-met-programmeren/' },
+	{ en: '/en/python-course/', nl: '/nl/python-cursus/' },
+	{ en: '/en/learn-to-code/', nl: '/nl/leren-programmeren/' },
+	{ en: '/en/smart-home/getting-started/', nl: '/nl/slimme-woning/' },
 ];
 
 function fusionnerPaires(paires, ajouts) {
@@ -702,7 +734,7 @@ export const ES_PAGES = [
 
 ];
 export const langOf = (p) => {
-	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es']) {
+	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es', 'nl']) {
 		if (p === `/${l}` || p.startsWith(`/${l}/`)) return l;
 	}
 	return 'fr';
@@ -731,7 +763,8 @@ export function findPair(pathname) {
 			x.es === p ||
 			x.uk === p ||
 			x.ca === p ||
-			x.us === p,
+			x.us === p ||
+			x.nl === p,
 	);
 	if (direct) return direct;
 	if (p.startsWith('/uk/') || p === '/uk/') {
