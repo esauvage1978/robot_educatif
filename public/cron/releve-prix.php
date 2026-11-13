@@ -1,12 +1,12 @@
 <?php
 /**
- * Cron quotidien o2switch. Ne répond pas en HTTP.
- * Exemple (6 h 15, heure du serveur) :
- * 15 6 * * * /usr/local/bin/php /chemin/scan3dlab.com/cron/releve-prix.php
- * Clé du flux produit Awin, une ligne, hors du site :
- *   dossier parent de la racine web + /prive/awin-product-feed.key
- * En local, depuis ce fichier : ../../prive/awin-product-feed.key
- * ou la variable AWIN_FEED_API_KEY.
+ * Cron quotidien o2switch (cPanel → Tâches cron). Ne répond pas en HTTP.
+ * Exemple Paris, 6 h 15 : 15 6 * * *
+ * Commande : /usr/local/bin/php /home/VOTRE_COMPTE/DOMAINE/cron/releve-prix.php
+ * (DOMAINE = racine web du site, ex. robot-educatif.info — le dossier cron/ est dans public/).
+ * Clé flux Awin : un cran au-dessus de la racine web, fichier prive/awin-product-feed.key
+ * ou variable d’environnement AWIN_FEED_API_KEY sur le compte.
+ * Les publications FTP ne doivent pas écraser prix-du-jour.json ni cron/historique.json (PUBLISH).
  * Amazon n'est pas interrogé.
  */
 if (PHP_SAPI !== 'cli') {

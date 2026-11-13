@@ -125,8 +125,25 @@ function publierRegistre() {
   console.log(`${doc.genereLe} : ${prix.length} programmes Awin acceptés, ${prix.filter((p) => p.aIntegrer).length} encore à intégrer dans les pages, ${uniques.length} liens dont le programme n’est pas accepté.`);
 }
 
+function registrePourReleve() {
+  if (fs.existsSync(fichierMd)) {
+    publierRegistre();
+    return true;
+  }
+  const doc = lireJson(fichierJson, null);
+  if (!doc?.prix?.length) {
+    console.error('PARTENAIRES.md absent et partenaires-actifs.json vide.');
+    return false;
+  }
+  console.log('PARTENAIRES.md absent : relevé avec partenaires-actifs.json déployé.');
+  return true;
+}
+
 function main() {
-  publierRegistre();
+  if (!registrePourReleve()) {
+    process.exitCode = 1;
+    return;
+  }
   if (process.argv.includes('--sans-releve')) return;
   const doc = JSON.parse(fs.readFileSync(fichierJson, 'utf8'));
   if (!doc.prix?.length) {

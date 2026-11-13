@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "PARTENAIRES.md",
-  "genereLe": "2026-11-08",
+  "genereLe": "2026-11-13",
   "affid": "3126073",
   "amazonExclu": true,
   "comparaisonParDefaut": true,
@@ -25,7 +25,7 @@
       "marque": "3dmakerpro",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -36,9 +36,9 @@
       "nom": "3DMakerpro EU",
       "marque": "3dmakerpro",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -49,7 +49,31 @@
       "marque": "Abacus ES",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "acer-ch",
+      "mid": "23364",
+      "nom": "Acer CH",
+      "marque": "Acer CH",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "acer-es",
+      "mid": "17132",
+      "nom": "Acer ES",
+      "marque": "Acer ES",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -61,7 +85,19 @@
       "marque": "Acer Gadget Partner-Newease",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "acer-ie",
+      "mid": "19517",
+      "nom": "Acer IE",
+      "marque": "Acer IE",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -85,7 +121,7 @@
       "marque": "air-Q DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -97,7 +133,7 @@
       "marque": "AirDroid",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -108,9 +144,9 @@
       "nom": "AKKO DE",
       "marque": "AKKO DE",
       "pages": "de",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -151,14 +187,50 @@
       "exclure": []
     },
     {
+      "id": "anker-solix-de",
+      "mid": "32623",
+      "nom": "Anker Solix DE",
+      "marque": "Anker Solix DE",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "anthbot-de",
+      "mid": "125144",
+      "nom": "ANTHBOT DE",
+      "marque": "ANTHBOT DE",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "anthbot-us",
+      "mid": "127129",
+      "nom": "Anthbot US",
+      "marque": "Anthbot US",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
       "id": "aosu",
       "mid": "84037",
       "nom": "AOSU",
       "marque": "AOSU",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -193,7 +265,7 @@
       "marque": "Applian LLC",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -203,6 +275,18 @@
       "mid": "72861",
       "nom": "ARZOPA",
       "marque": "ARZOPA",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "autelpilot",
+      "mid": "37618",
+      "nom": "Autelpilot",
+      "marque": "Autelpilot",
       "pages": "toutes",
       "liensSite": true,
       "aIntegrer": false,
@@ -229,7 +313,19 @@
       "marque": "azurefilm",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "back-to-the-office-ie",
+      "mid": "129295",
+      "nom": "Back To The Office - Ie",
+      "marque": "Back To The Office - Ie",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -252,9 +348,9 @@
       "nom": "Beatbot FR",
       "marque": "Beatbot FR",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -265,7 +361,7 @@
       "marque": "BlazeVideo DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -277,7 +373,7 @@
       "marque": "BLUETTI CA",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -289,7 +385,7 @@
       "marque": "Botslab US",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -301,7 +397,7 @@
       "marque": "cambuy DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -313,7 +409,7 @@
       "marque": "Cheapfixit",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -325,7 +421,7 @@
       "marque": "CircuitMess",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -337,7 +433,7 @@
       "marque": "Comet IT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -349,7 +445,7 @@
       "marque": "comspot DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -372,9 +468,9 @@
       "nom": "Creality (32419)",
       "marque": "creality",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -409,7 +505,7 @@
       "marque": "Cyber Suite SaaS",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -421,7 +517,7 @@
       "marque": "DATOUBOSS (DE)",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -433,7 +529,7 @@
       "marque": "druckerpatronenexpress DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -456,9 +552,9 @@
       "nom": "Ecovacs FR",
       "marque": "Ecovacs FR",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -469,7 +565,7 @@
       "marque": "einstar",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -492,9 +588,9 @@
       "nom": "Elegoo",
       "marque": "elegoo",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -505,7 +601,7 @@
       "marque": "ELV AT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -553,7 +649,7 @@
       "marque": "EURONICS DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -564,9 +660,9 @@
       "nom": "Fast Technology Limited",
       "marque": "Fast Technology Limited",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -575,6 +671,30 @@
       "mid": "123940",
       "nom": "fitBAG",
       "marque": "fitBAG",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "gardepro",
+      "mid": "49085",
+      "nom": "GardePro",
+      "marque": "GardePro",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "gearvita",
+      "mid": "126875",
+      "nom": "GearVita",
+      "marque": "GearVita",
       "pages": "toutes",
       "liensSite": true,
       "aIntegrer": false,
@@ -595,13 +715,37 @@
       "exclure": []
     },
     {
+      "id": "geekvape",
+      "mid": "55941",
+      "nom": "Geekvape",
+      "marque": "Geekvape",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "getdigital-de",
+      "mid": "14854",
+      "nom": "getdigital DE",
+      "marque": "getdigital DE",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
       "id": "getgoods-de",
       "mid": "17430",
       "nom": "getgoods DE",
       "marque": "getgoods DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -625,7 +769,7 @@
       "marque": "GMK Tec | Mini PC (US)",
       "pages": "en",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -637,7 +781,7 @@
       "marque": "Gotodirect",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -649,7 +793,7 @@
       "marque": "GSMnet DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -661,7 +805,7 @@
       "marque": "GSMnet FR",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -673,7 +817,7 @@
       "marque": "GSMnet IT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -685,7 +829,7 @@
       "marque": "GSMnet NL",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -697,7 +841,7 @@
       "marque": "Handy24Zubehör",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -709,7 +853,7 @@
       "marque": "Hero Wars France",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -721,7 +865,7 @@
       "marque": "Hero Wars Germany",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -733,7 +877,7 @@
       "marque": "hm-sat.de - Heimkino- und Satelliten-Technik DE",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -757,7 +901,7 @@
       "marque": "Honiture",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -768,9 +912,9 @@
       "nom": "ieGeek ES",
       "marque": "ieGeek ES",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -792,9 +936,9 @@
       "nom": "ieGeek IT",
       "marque": "ieGeek IT",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -841,7 +985,7 @@
       "marque": "INFFNI",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -853,7 +997,19 @@
       "marque": "INGNOK",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "irobot-it",
+      "mid": "21287",
+      "nom": "iRobot IT",
+      "marque": "iRobot IT",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -865,7 +1021,7 @@
       "marque": "it-versand.com DE+AT",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -877,7 +1033,7 @@
       "marque": "Jubee (DE)",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -889,7 +1045,19 @@
       "marque": "JUGUETESONLINE ES",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "kaspersky-fr",
+      "mid": "19485",
+      "nom": "Kaspersky FR",
+      "marque": "Kaspersky FR",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -913,7 +1081,7 @@
       "marque": "keysfan",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -925,7 +1093,7 @@
       "marque": "Keysoff",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -937,7 +1105,7 @@
       "marque": "Lagenio",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -949,7 +1117,7 @@
       "marque": "layerline",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -961,7 +1129,7 @@
       "marque": "Lockin",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1009,7 +1177,7 @@
       "marque": "Meross Smarthome",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1021,7 +1189,19 @@
       "marque": "Mibro",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "minddo-ai",
+      "mid": "131611",
+      "nom": "MindDo AI",
+      "marque": "MindDo AI",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1045,7 +1225,7 @@
       "marque": "Mint Outdoor",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1057,7 +1237,7 @@
       "marque": "Moulinex IT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1081,7 +1261,7 @@
       "marque": "My Mini Maker",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1117,7 +1297,31 @@
       "marque": "Netzwerkartikel.de",
       "pages": "de",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "outin-germany",
+      "mid": "127821",
+      "nom": "Outin Germany",
+      "marque": "Outin Germany",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "paj-gps-es-pt",
+      "mid": "109918",
+      "nom": "PAJ GPS ES/PT",
+      "marque": "PAJ GPS ES/PT",
+      "pages": "toutes",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1129,7 +1333,7 @@
       "marque": "Porton Private Cloud Storage",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1153,7 +1357,19 @@
       "marque": "POWERUP Toys",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "refoss-de",
+      "mid": "123182",
+      "nom": "Refoss DE",
+      "marque": "Refoss DE",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1165,7 +1381,7 @@
       "marque": "Refurbished.nl",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1177,7 +1393,7 @@
       "marque": "Revolution Soft",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1189,7 +1405,7 @@
       "marque": "Revopoint 3D Technologies Inc",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1201,7 +1417,7 @@
       "marque": "ROBOTIME (US)",
       "pages": "en",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1213,7 +1429,7 @@
       "marque": "Rowenta IT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1237,7 +1453,7 @@
       "marque": "SharkNinja IT",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1249,7 +1465,7 @@
       "marque": "SharkNinja UK",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1260,9 +1476,9 @@
       "nom": "Shelly ES",
       "marque": "Shelly ES",
       "pages": "toutes",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -1284,9 +1500,9 @@
       "nom": "shifter DE",
       "marque": "shifter DE",
       "pages": "de",
-      "liensSite": false,
+      "liensSite": true,
       "aIntegrer": false,
-      "aVerifier": true,
+      "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
     },
@@ -1297,7 +1513,7 @@
       "marque": "SK-LED",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1333,7 +1549,7 @@
       "marque": "StepMotech",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1345,7 +1561,7 @@
       "marque": "Stormforce Gaming",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1357,7 +1573,19 @@
       "marque": "Technaxx",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
+      "id": "tesmart-de",
+      "mid": "100407",
+      "nom": "TESmart DE",
+      "marque": "TESmart DE",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1369,7 +1597,7 @@
       "marque": "TESSAN",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1381,7 +1609,7 @@
       "marque": "ThePhoneLab NL",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1429,7 +1657,7 @@
       "marque": "Ugovaper",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1441,7 +1669,7 @@
       "marque": "Ugovapor",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1459,13 +1687,25 @@
       "exclure": []
     },
     {
+      "id": "xrshop-tienda-de-vr-ar-mr-y-ai-glasses",
+      "mid": "31806",
+      "nom": "XRshop - Tienda de VR, AR, MR y AI Glasses",
+      "marque": "XRshop - Tienda de VR, AR, MR y AI Glasses",
+      "pages": "de",
+      "liensSite": true,
+      "aIntegrer": false,
+      "aVerifier": false,
+      "comparaisonPrix": true,
+      "exclure": []
+    },
+    {
       "id": "yose-power-fr",
       "mid": "113160",
       "nom": "Yose Power FR",
       "marque": "Yose Power FR",
       "pages": "toutes",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
@@ -1477,7 +1717,7 @@
       "marque": "Zosi (US)",
       "pages": "en",
       "liensSite": true,
-      "aIntegrer": true,
+      "aIntegrer": false,
       "aVerifier": false,
       "comparaisonPrix": true,
       "exclure": []
