@@ -28,41 +28,62 @@ function go_is_internal_ip($ip) {
 }
 
 /**
- * Boutique Amazon selon le pays du visiteur (12/11/2026).
- * Pays lu dans CF-IPCountry (Cloudflare) ou GEOIP_COUNTRY_CODE (mod_geoip du serveur).
- * Sans pays connu, ou pour un pays autre que GB, CA ou US : comportement inchangé.
+ * Boutique Amazon selon le pays du visiteur (12/11/2026, etendu le 13/11/2026 aux 8 boutiques).
+ * Pays lu dans CF-IPCountry (Cloudflare) ou GEOIP_COUNTRY_CODE (mod_geoip du serveur),
+ * sinon dans le parametre ?cc= pose par /geo-amazon.js (fuseau et langue du navigateur).
+ * Sans pays connu, ou pour un pays sans boutique geree : comportement inchange.
  */
+function go_amazon_stores() {
+    return [
+        'FR' => ['www.amazon.fr', 'manuso06-21'],
+        'US' => ['www.amazon.com', 'roboteducatif-20'],
+        'GB' => ['www.amazon.co.uk', 'roboteducatif-21'],
+        'CA' => ['www.amazon.ca', 'roboteducat03-20'],
+        'DE' => ['www.amazon.de', 'roboteducat00-21'],
+        'IT' => ['www.amazon.it', 'roboteducat0f-21'],
+        'ES' => ['www.amazon.es', 'roboteducat07-21'],
+        'NL' => ['www.amazon.nl', 'manuso0607-21'],
+    ];
+}
 function go_visitor_country() {
+    $alias = ['AT' => 'DE', 'MC' => 'FR', 'JE' => 'GB', 'GG' => 'GB', 'IM' => 'GB'];
+    $stores = go_amazon_stores();
     foreach (['HTTP_CF_IPCOUNTRY', 'GEOIP_COUNTRY_CODE', 'REDIRECT_GEOIP_COUNTRY_CODE'] as $k) {
         $v = strtoupper(trim((string)($_SERVER[$k] ?? '')));
-        if (preg_match('/^[A-Z]{2}$/', $v) && $v !== 'XX' && $v !== 'T1') return $v;
+        if (preg_match('/^[A-Z]{2}$/', $v) && $v !== 'XX' && $v !== 'T1') return $alias[$v] ?? $v;
+    }
+    $v = isset($_GET['cc']) && is_string($_GET['cc']) ? strtoupper(trim($_GET['cc'])) : '';
+    if (preg_match('/^[A-Z]{2}$/', $v)) {
+        $v = $alias[$v] ?? $v;
+        if (isset($stores[$v])) return $v;
     }
     return '';
 }
 function go_geo_amazon_url($url, $cc) {
-    $stores = [
-        'GB' => ['www.amazon.co.uk', 'roboteducatif-21'],
-        'CA' => ['www.amazon.ca', 'roboteducat03-20'],
-        'US' => ['www.amazon.com', 'roboteducatif-20'],
-    ];
+    $stores = go_amazon_stores();
     if (!isset($stores[$cc])) return $url;
+    $ours = [];
+    foreach ($stores as $s) $ours[$s[1]] = 1;
     $p = parse_url($url);
-    if (!is_array($p) || empty($p['host']) || !preg_match('/(^|\.)amazon\.(fr|de|it|es|nl|se|pl|com\.be|co\.uk|com|ca)$/i', $p['host'])) return $url;
+    if (!is_array($p) || empty($p['host']) || !preg_match('/(^|\.)amazon\.(fr|de|it|es|nl|co\.uk|com|ca)$/i', $p['host'])) return $url;
     list($host, $tag) = $stores[$cc];
     $q = [];
     if (!empty($p['query'])) parse_str($p['query'], $q);
+    $cur = isset($q['tag']) && is_string($q['tag']) ? $q['tag'] : '';
+    if ($cur !== '' && !isset($ours[$cur])) return $url; // tag volontaire different : inchange
     $path = isset($p['path']) && $p['path'] !== '' ? $p['path'] : '/';
     if (strtolower(preg_replace('/^www\./', '', $p['host'])) === substr($host, 4)) {
-        // même boutique : on garde la page, on impose le bon tag
+        // meme boutique : on garde la page, on impose le tag de la boutique
+        if ($cur === $tag) return $url;
         $q['tag'] = $tag;
         return 'https://' . $host . $path . '?' . http_build_query($q);
     }
-    // autre boutique : recherche (un ASIN peut ne pas exister d'une boutique à l'autre)
+    // autre boutique : seulement pour un lien ASIN ou une recherche (un ASIN peut ne pas exister ailleurs -> recherche)
     $kw = '';
-    if (!empty($q['k']) && is_string($q['k'])) $kw = $q['k'];
-    elseif (!empty($q['field-keywords']) && is_string($q['field-keywords'])) $kw = $q['field-keywords'];
-    elseif (preg_match('#/(?:dp|gp/product|gp/aw/d|exec/obidos/ASIN)/([A-Z0-9]{10})#i', $path, $m)) $kw = strtoupper($m[1]);
-    if ($kw === '') return 'https://' . $host . '/?tag=' . $tag;
+    if (preg_match('#^/s/?$#', $path) && !empty($q['k']) && is_string($q['k'])) $kw = $q['k'];
+    elseif (preg_match('#^/s/?$#', $path) && !empty($q['field-keywords']) && is_string($q['field-keywords'])) $kw = $q['field-keywords'];
+    elseif (preg_match('#/(?:dp|gp/product|gp/aw/d|exec/obidos/ASIN)/([A-Z0-9]{10})(?:[/?]|$)#i', $path, $m)) $kw = strtoupper($m[1]);
+    if ($kw === '') return $url;
     return 'https://' . $host . '/s?k=' . rawurlencode($kw) . '&tag=' . $tag;
 }
 

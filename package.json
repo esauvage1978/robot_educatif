@@ -20,7 +20,7 @@
     "dev": "astro dev --port 4321",
     "dev:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro dev --port 4321",
     "prebuild": "node scripts/generate-blog-thumbnails.mjs",
-    "build": "cross-env ASTRO_BASE= astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && node scripts/ensure-inline-css-live-parity.mjs dist && cross-env ASTRO_BASE= node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs && node scripts/verify-blog-routes.mjs && node scripts/mirror-en-to-uk-ca.mjs dist && node scripts/extend-sitemap-uk-ca.mjs dist && node scripts/sitemap-hreflang.mjs dist && node scripts/go-links.mjs dist --site robot-educatif.info",
+    "build": "cross-env ASTRO_BASE= astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && node scripts/ensure-inline-css-live-parity.mjs dist && cross-env ASTRO_BASE= node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs && node scripts/verify-blog-routes.mjs && node scripts/mirror-en-to-uk-ca.mjs dist && node scripts/extend-sitemap-uk-ca.mjs dist && node scripts/sitemap-hreflang.mjs dist && node scripts/uk-ca-geo.mjs dist --site https://robot-educatif.info && node scripts/go-links.mjs dist --site robot-educatif.info",
     "verify:blog-routes": "node scripts/verify-blog-routes.mjs",
     "check:product-jsonld": "node scripts/check-product-jsonld.mjs",
     "build:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs",
