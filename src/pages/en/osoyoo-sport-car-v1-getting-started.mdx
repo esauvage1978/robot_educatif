@@ -1,0 +1,141 @@
+---
+layout: ../../layouts/EnPost.astro
+title: "OSOYOO Sport Car V1.0: getting started, first Arduino program and steering test"
+description: "Getting started with the OSOYOO Sport Car V1.0: installing the Arduino IDE, uploading steering.ino, steering test, tight spots we fixed, ESP8266 Wi-Fi module and HC-02 Bluetooth pairing."
+updated: "14 November 2026"
+shareTitle: "OSOYOO Sport Car V1.0: getting started and steering test"
+shareDescription: "Arduino IDE, Arduino UNO board, steering-servo test, reset button, ESP8266 Wi-Fi module and HC-02 Bluetooth pairing: a hands-on account."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Affiliate disclosure: Amazon links on this page may earn us a commission at no extra cost to you. This English page is used in several countries: the pound price below is from an amazon.co.uk listing, not a US or Canadian price. Prices change — check the retailer before you buy.*
+
+**OSOYOO Sport Car V1.0 series** — [Part 1: unboxing](/en/osoyoo-sport-car-v1-unboxing/) · [Part 2: assembly and wiring](/en/osoyoo-sport-car-v1-assembly-wiring/) · You are on part 3 (getting started and using the kit).
+
+> **Direct answer** — Once the car was [assembled and wired](/en/osoyoo-sport-car-v1-assembly-wiring/), I installed the **Arduino IDE** and **7-Zip**, opened the official `steering.ino` sketch, selected the **“Arduino UNO”** board and uploaded the code with the **battery unplugged**. The **steering test** worked: the front wheels turn left, then right, then return to centre. This test mainly helped me spot **two tight spots** in the build. I then plugged in the **ESP8266 Wi-Fi module** and paired the **HC-02 Bluetooth module** with the phone. The first driving attempt needs a large clear space, and my verdict is clear: a very good kit for learning to program, with excellent value for money.
+
+<p data-amazon-note="uk">On 12 November 2026, the <a href="https://www.amazon.co.uk/dp/B098T6527G?tag=roboteducatif-21" data-amazon-query="OSOYOO Sport Car Arduino" rel="sponsored nofollow noopener" target="_blank">OSOYOO Sport Car V1.0</a> listing on Amazon.co.uk showed <span class="td-val" data-amazon-price="1">£63.14</span> (affiliate link). The price on the product page when you buy is the one that counts.</p>
+
+<p>The kit is also available from the <a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank">official OSOYOO shop</a> <small>(direct link, not an affiliate link)</small>.</p>
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp"
+  ages="14+"
+  languages={['Arduino C']}
+  description="Arduino robot car with servo steering, a rechargeable 9 V battery and six free online lessons."
+  lang="en"
+  pros={[
+    'Everything is in the box, including a rechargeable battery',
+    'Steering like a real car',
+    'Wi-Fi, obstacle avoidance and line tracking',
+  ]}
+/>
+
+## Install the Arduino IDE and 7-Zip
+
+The end of [OSOYOO lesson 1](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/) asks for two free programs:
+
+- the **Arduino IDE**, to write the code and send it to the board (I installed version **2.3.11**);
+- **7-Zip**, to unzip the code files supplied by OSOYOO.
+
+Both installations are **straightforward**: you download, click “Next”, and you are ready. No difficulty here.
+
+## Open steering.ino and select the Arduino UNO board
+
+OSOYOO provides a small test program, `steering.ino`, in the `steering.zip` archive of lesson 1. You unzip it, then open it in the IDE (**File → Open**).
+
+![Arduino IDE 2.3.11 with the OSOYOO steering.ino sketch open: Servo library, servo on pin 9, FRONT value set to 90, then left, right and centre positions](/images/blog/osoyoo-sport-car-v1-utilisation/ide-arduino-steering-ino-osoyoo-sport-car.webp)
+
+The code is short and readable, even for a beginner: the steering servo is on **pin 9**, the “straight ahead” position is set by `#define FRONT 90`, and the program sends the servo **left**, then **right**, then **to the centre**, with a one-second pause between each position.
+
+Before uploading the code, you need to **select the “Arduino UNO” board** in the “Select Board” list, with the USB port that appears. The OSOYOO board is compatible with Arduino UNO R3: that is the choice that lets you upload the program.
+
+![Arduino IDE toolbar with the Arduino UNO board selected](/images/blog/osoyoo-sport-car-v1-utilisation/selection-carte-arduino-uno.webp)
+
+## Upload the code with the battery unplugged
+
+OSOYOO stresses this point, in red in the lesson: **switch off the battery** (or unplug the adapter) while you send the code. The board is then powered by the computer’s USB cable. You then click the **→ (Upload)** arrow.
+
+![OSOYOO Sport Car V1.0 connected to the computer over USB: board’s blue LED on, voltage display, front sensor lit green](/images/blog/osoyoo-sport-car-v1-utilisation/voiture-sous-tension-usb-osoyoo-sport-car.webp)
+
+Once it is powered, you can see the board’s **blue LED**, the **voltage display** and the **front sensor** lighting up green.
+
+## The steering test: what it is really for
+
+As soon as the code is loaded, the front wheels should turn **left**, then **right**, then come back **straight**. In my case, the test revealed **two tight spots** in the build. As I noted at the time: **I can see why the post-assembly test matters**.
+
+### Tight spot 1: the tie rod was too tight
+
+![Transparent acrylic steering tie rod of the OSOYOO Sport Car, with three round holes and an oblong hole at the end](/images/blog/osoyoo-sport-car-v1-utilisation/biellette-acrylique-direction-osoyoo.webp)
+
+At the acrylic **tie rod** of the steering, the load on the servo was **too high**: the servo was straining. I **enlarged the hole with a Dremel** (where the screwdriver is pointing in the photo) to give it some play.
+
+![Close-up of the OSOYOO Sport Car steering: metal rod, white screwed part, black servo arm and tie rod](/images/blog/osoyoo-sport-car-v1-utilisation/direction-servo-biellette-osoyoo-sport-car.webp)
+
+### Tight spot 2: the front-wheel screws
+
+As during [assembly](/en/osoyoo-sport-car-v1-assembly-wiring/), you must **not overtighten the front-wheel screws**, or the wheels no longer turn and the servo cannot steer them.
+
+**Tip**: if the servo strains or growls during this test, check these two places first. If the wheels do not come back quite straight, lesson 1 suggests remounting the servo arm or changing the `FRONT` value (increase it if the wheels veer left, decrease it if they veer right). Note that value: you will need it in the later lessons.
+
+### The result
+
+Once these points were fixed, the test passed: both **front wheels turn together**, left, then right, then back to centre. The movement is **abrupt**, which is normal: the program sends the servo straight to fixed angles, with no transition.
+
+![OSOYOO Sport Car V1.0 from above during the steering test, sensors lit](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp)
+
+![OSOYOO Sport Car V1.0 during the steering test, front wheels turned](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-roues-braquees-osoyoo-sport-car.webp)
+
+## Tip: the white button to replay the test
+
+![White reset button on the OSOYOO Sport Car board, between the cables](/images/blog/osoyoo-sport-car-v1-utilisation/bouton-reset-carte-osoyoo-sport-car.webp)
+
+You do not need to upload the code again to repeat the test: just press the **white button** on the board. It is the **reset** button: it restarts the program from the beginning, and the steering repeats left, right, centre. Handy for checking a setting after tightening or loosening a screw.
+
+## The ESP8266 Wi-Fi module
+
+![OSOYOO ESP8266 Wi-Fi module version 1.0 plugged in upright on the OSOYOO Sport Car motor shield](/images/blog/osoyoo-sport-car-v1-utilisation/module-wifi-esp8266-osoyoo-sport-car.webp)
+
+Next step: I plugged in the **OSOYOO ESP8266 Wi-Fi module (version 1.0)**, standing upright on the shield. Check the **pin orientation** against the lesson diagram before you power it on.
+
+According to [OSOYOO lesson 5](https://osoyoo.com/fr/2020/10/30/sg90-servo-steering-robot-car-lesson-5-wifi-udp/), this module lets you drive the car from a smartphone with the **“OSOYOO IoT UDP Robot Car”** app, either through your router (STA mode) or by turning the car into its own Wi-Fi access point (AP mode). The lesson asks you to have done lesson 2 (basic movements) first.
+
+**Weak point noted**: the **white switch** that **turns the car on** has trouble **staying in position**. Check that it is firmly clicked in before each run, or the car may switch off mid-test.
+
+## HC-02 Bluetooth pairing
+
+![Android “Pair with HC-02?” screen asking for a PIN, with the note “Usually 0000 or 1234”](/images/blog/osoyoo-sport-car-v1-utilisation/appairage-bluetooth-hc02-osoyoo.webp)
+
+The kit also includes an **HC-02 Bluetooth module**. To pair it, go to the **phone’s Bluetooth settings**: the module appears under the name **HC-02**, and the phone asks for a PIN. Enter **1234**: that is the code that worked on our unit. There is no need to tick access to contacts.
+
+[Lesson 6](https://osoyoo.com/2021/03/07/sg90-servo-steering-robot-car-lesson-6-mock-driving-with-bluetooth-app/) then uses the **“OSOYOO imitation driving”** app: you drive by tilting the phone like a steering wheel, with forward / reverse.
+
+## Driving the car: several apps to choose from
+
+OSOYOO offers **several apps** to drive the car from a smartphone, depending on the module in use and the driving style you prefer. I tried two of them:
+
+- **OSOYOO IoT APP**: a full remote with a **directional pad**, **sliders** from 0 to 100 and **eight function buttons, F1 to F8**.
+- **The steering-wheel driving app** (lesson 6, **Bluetooth** connection): a **steering wheel**, a **speedometer**, **Speed + / Speed −** buttons, an **Engine** switch and a gear lever for forward or reverse. It feels like sitting at the wheel of a real car.
+
+![OSOYOO IoT APP screen: directional pad, sliders from 0 to 100 and function buttons F1 to F8](/images/blog/osoyoo-sport-car-v1-utilisation/appli-osoyoo-iot-app-pilotage.webp)
+
+![OSOYOO steering-wheel driving app: steering wheel, speedometer, Speed + and Speed − buttons, Engine switch, Connect button and gear lever](/images/blog/osoyoo-sport-car-v1-utilisation/appli-volant-bluetooth-osoyoo.webp)
+
+## First driving attempt
+
+The first driving attempt is **fairly tricky**: the car takes a little practice before you have it well under control. My tip: allow a **large clear space, with no obstacles**, so you can practise without stress (an empty garage, a large clear room or a yard).
+
+## Our verdict on the OSOYOO Sport Car V1.0 kit
+
+This kit is **very well done**, both in its **design** and in its **tutorials**. The **progression** of the lessons is well thought out, and the **examples** provided let you move forward step by step. For **learning to program**, it is a **good platform**, with **excellent value for money**.
+
+The small points to watch remain minor: an adjustment of the steering tie rod during the build, the wheel screws that must not be overtightened, and the on/off switch that does not stay in position well.
+
+To go back to the start of the series: the [unboxing](/en/osoyoo-sport-car-v1-unboxing/) (what is in the box and the six-lesson programme) and the [assembly and wiring](/en/osoyoo-sport-car-v1-assembly-wiring/). To start with the code, see our [Arduino C](/en/arduino-c-sketch-structure-serial/) series.
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.co.uk/dp/B098T6527G?tag=roboteducatif-21" data-amazon-query="OSOYOO Sport Car Arduino" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>See the OSOYOO Sport Car kit on Amazon →</strong></a> <small>(affiliate link)</small></p>
+
+<p style="margin:1rem 0;"><a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank" class="btn btn-action"><strong>See the kit in the official OSOYOO shop</strong></a> <small>(direct link, not an affiliate link)</small></p>
