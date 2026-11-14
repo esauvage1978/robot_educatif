@@ -1,0 +1,139 @@
+---
+layout: ../../layouts/EsPost.astro
+title: "OSOYOO Sport Car V1.0: puesta en marcha, primer programa Arduino y prueba de la dirección"
+description: "Puesta en marcha del OSOYOO Sport Car V1.0: instalación del Arduino IDE, carga de steering.ino, prueba de la dirección, puntos difíciles corregidos, módulo Wi-Fi ESP8266 y emparejamiento Bluetooth HC-02."
+updated: "14 de noviembre de 2026"
+shareTitle: "OSOYOO Sport Car V1.0: puesta en marcha y prueba de la dirección"
+shareDescription: "Arduino IDE, placa Arduino UNO, prueba del servo de dirección, botón reset, módulo Wi-Fi ESP8266 y emparejamiento Bluetooth HC-02: un relato práctico."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Aviso: los enlaces de Amazon pueden generar una comisión sin coste extra. Los precios cambian a menudo — compruebe la ficha del vendedor antes de comprar.*
+
+**Serie OSOYOO Sport Car V1.0** — [Parte 1: unboxing](/es/unboxing-osoyoo-sport-car-v1/) · [Parte 2: montaje y conexión](/es/montaje-conexion-osoyoo-sport-car-v1/) · Está en la parte 3 (puesta en marcha y uso).
+
+> **Respuesta directa** — Una vez el coche [montado y conectado](/es/montaje-conexion-osoyoo-sport-car-v1/), instalé el **Arduino IDE** y **7-Zip**, abrí el sketch oficial `steering.ino`, elegí la placa **« Arduino UNO »** y cargué el código, **batería desconectada**. La **prueba de la dirección** funcionó: las ruedas delanteras giran a la izquierda, luego a la derecha y vuelven al centro. Esta prueba me sirvió sobre todo para detectar **dos puntos difíciles** del montaje. Después enchufé el **módulo Wi-Fi ESP8266** y emparejé el **módulo Bluetooth HC-02** con el teléfono. El primer ensayo de conducción pide un gran espacio despejado, y mi veredicto es claro: un kit muy bueno para aprender a programar, con una excelente relación calidad-precio.
+
+El 12 de noviembre de 2026, la ficha [OSOYOO Sport Car V1.0](https://www.amazon.es/dp/B098T6527G?tag=roboteducat07-21) existía en Amazon.es, pero el artículo **no estaba disponible** y no había un precio en oferta (enlace de afiliado). El precio que aparece en la ficha el día de la compra es el que cuenta. No inventamos un importe. El kit también está disponible en la <a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank">tienda oficial OSOYOO</a> (enlace directo, no de afiliado).
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp"
+  ages="a partir de 14 años"
+  languages={['C Arduino']}
+  description="Coche robot Arduino con dirección por servomotor, batería de 9 V recargable y seis lecciones en línea gratuitas."
+  lang="es"
+  pros={[
+    'Todo está en la caja, batería recargable incluida',
+    'Dirección como en un coche de verdad',
+    'Wi-Fi, evitación de obstáculos y seguimiento de línea',
+  ]}
+/>
+
+## Instalar el Arduino IDE y 7-Zip
+
+El final de la [lección 1 de OSOYOO](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/) pide dos programas gratuitos:
+
+- el **Arduino IDE**, para escribir el código y enviarlo a la placa (instalé la versión **2.3.11**);
+- **7-Zip**, para descomprimir los archivos de código que proporciona OSOYOO.
+
+Las dos instalaciones son **clásicas**: se descarga, se pulsa « Siguiente » y ya está listo. Ninguna dificultad por este lado.
+
+## Abrir steering.ino y elegir la placa Arduino UNO
+
+OSOYOO proporciona un pequeño programa de prueba, `steering.ino`, en el archivo `steering.zip` de la lección 1. Se descomprime y luego se abre en el IDE (**Archivo → Abrir**).
+
+![Arduino IDE 2.3.11 con el sketch steering.ino de OSOYOO abierto: biblioteca Servo, servo en el pin 9, valor FRONT en 90, luego posiciones izquierda, derecha y centro](/images/blog/osoyoo-sport-car-v1-utilisation/ide-arduino-steering-ino-osoyoo-sport-car.webp)
+
+El código es corto y legible, incluso para un principiante: el servo de dirección está en el **pin 9**, la posición « recto » se fija con `#define FRONT 90`, y el programa envía el servo **a la izquierda**, luego **a la derecha**, luego **al centro**, con una pausa de un segundo entre cada posición.
+
+Antes de enviar el código, hay que **seleccionar la placa « Arduino UNO »** en la lista « Select Board », con el puerto USB que aparece. La placa OSOYOO es compatible con Arduino UNO R3: esa es la elección que permite enviar el programa.
+
+![Barra de herramientas del Arduino IDE con la placa Arduino UNO seleccionada](/images/blog/osoyoo-sport-car-v1-utilisation/selection-carte-arduino-uno.webp)
+
+## Cargar el código, con la batería desconectada
+
+OSOYOO insiste en este punto, en rojo en la lección: **corte la batería** (o desenchufe el adaptador) mientras envía el código. La placa se alimenta entonces con el cable USB del ordenador. Luego se pulsa la flecha **→ (Cargar)**.
+
+![OSOYOO Sport Car V1.0 conectado por USB al ordenador: LED azul de la placa encendido, visor de tensión, sensor delantero encendido en verde](/images/blog/osoyoo-sport-car-v1-utilisation/voiture-sous-tension-usb-osoyoo-sport-car.webp)
+
+En tensión se ven el **LED azul** de la placa, el **visor de tensión** y el **sensor delantero** que se enciende en verde.
+
+## La prueba de la dirección: para qué sirve de verdad
+
+En cuanto el código está cargado, las ruedas delanteras deben girar **a la izquierda**, luego **a la derecha** y volver **rectas**. En mi caso, la prueba reveló **dos puntos difíciles** del montaje. Como anoté en el momento: **entiendo la utilidad de la prueba después del montaje**.
+
+### Punto difícil n.º 1: la bieleta demasiado apretada
+
+![Bieleta acrílica transparente de la dirección del OSOYOO Sport Car, con tres agujeros redondos y un agujero oblongo en el extremo](/images/blog/osoyoo-sport-car-v1-utilisation/biellette-acrylique-direction-osoyoo.webp)
+
+En la **bieleta acrílica** de la dirección, la carga sobre el servomotor era **demasiado fuerte**: el servo forzaba. **Ensanche el agujero con el Dremel** (donde apunta el destornillador en la foto) para devolverle holgura.
+
+![Dirección del OSOYOO Sport Car de cerca: varilla metálica, pieza blanca atornillada, brazo negro del servo y bieleta](/images/blog/osoyoo-sport-car-v1-utilisation/direction-servo-biellette-osoyoo-sport-car.webp)
+
+### Punto difícil n.º 2: los tornillos de las ruedas delanteras
+
+Como durante el [montaje](/es/montaje-conexion-osoyoo-sport-car-v1/), no hay que **apretar demasiado los tornillos de las ruedas delanteras**, si no ya no giran y el servo no puede orientarlas.
+
+**Consejo**: si el servo fuerza o gruñe durante esta prueba, mire primero estos dos sitios. Si las ruedas no vuelven bien rectas, la lección 1 propone volver a montar el brazo del servo o modificar el valor `FRONT` (aumentarlo si las ruedas se van a la izquierda, disminuirlo si se van a la derecha). Anote ese valor: servirá en las lecciones siguientes.
+
+### El resultado
+
+Una vez corregidos estos puntos, la prueba pasa: las **dos ruedas delanteras giran juntas**, a la izquierda, luego a la derecha, y vuelven al centro. El movimiento es **seco**, es normal: el programa envía el servo directamente a ángulos fijos, sin transición.
+
+![OSOYOO Sport Car V1.0 visto desde arriba durante la prueba de dirección, sensores encendidos](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp)
+
+![OSOYOO Sport Car V1.0 durante la prueba de dirección, ruedas delanteras giradas](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-roues-braquees-osoyoo-sport-car.webp)
+
+## Consejo: el botón blanco para repetir la prueba
+
+![Botón blanco de reinicio (reset) en la placa del OSOYOO Sport Car, entre los cables](/images/blog/osoyoo-sport-car-v1-utilisation/bouton-reset-carte-osoyoo-sport-car.webp)
+
+No hace falta volver a enviar el código para repetir la prueba: basta pulsar el **botón blanco** de la placa. Es el botón **reset**: reinicia el programa desde el principio, y la dirección vuelve a hacer izquierda, derecha, centro. Práctico para comprobar un ajuste después de haber apretado o aflojado un tornillo.
+
+## El módulo Wi-Fi ESP8266
+
+![Módulo Wi-Fi ESP8266 OSOYOO versión 1.0 enchufado en vertical en el shield de motor del OSOYOO Sport Car](/images/blog/osoyoo-sport-car-v1-utilisation/module-wifi-esp8266-osoyoo-sport-car.webp)
+
+Siguiente paso: enchufé el **módulo Wi-Fi ESP8266 de OSOYOO (versión 1.0)**, en vertical en el shield. Compruebe el **sentido de los pines** respecto al esquema de la lección antes de ponerlo en tensión.
+
+Según la [lección 5 de OSOYOO](https://osoyoo.com/fr/2020/10/30/sg90-servo-steering-robot-car-lesson-5-wifi-udp/), este módulo permite conducir el coche desde un smartphone con la aplicación **« OSOYOO IoT UDP Robot Car »**, ya sea a través del router (modo STA) o haciendo del coche su propio punto de acceso Wi-Fi (modo AP). La lección pide haber hecho antes la lección 2 (movimientos básicos).
+
+**Punto débil detectado**: el **interruptor blanco** que sirve para **encender el coche** le cuesta **quedarse en posición**. Compruebe que está bien encajado antes de cada ensayo, si no el coche puede apagarse por el camino.
+
+## El emparejamiento Bluetooth HC-02
+
+![Pantalla Android « ¿Emparejar con HC-02? » que pide un código PIN, con la indicación « Habitualmente 0000 o 1234 »](/images/blog/osoyoo-sport-car-v1-utilisation/appairage-bluetooth-hc02-osoyoo.webp)
+
+El kit también incluye un **módulo Bluetooth HC-02**. Para emparejarlo, se entra en los **ajustes Bluetooth del teléfono**: el módulo aparece con el nombre **HC-02**, y el teléfono pide un código PIN. Introduzca **1234**: es el código que funcionó en nuestro ejemplar. No hace falta marcar el acceso a los contactos.
+
+La [lección 6](https://osoyoo.com/2021/03/07/sg90-servo-steering-robot-car-lesson-6-mock-driving-with-bluetooth-app/) usa después la aplicación **« OSOYOO imitation driving »**: se conduce inclinando el teléfono como un volante, con marcha adelante / atrás.
+
+## Conducir el coche: varias aplicaciones a elegir
+
+OSOYOO propone **varias aplicaciones** para conducir el coche desde un smartphone, según el módulo usado y el estilo de conducción preferido. He probado dos:
+
+- **OSOYOO IoT APP**: un mando completo con una **cruz direccional**, **deslizadores** de 0 a 100 y **ocho botones de función F1 a F8**.
+- **La aplicación de conducción con volante** (lección 6, conexión **Bluetooth**): un **volante**, un **cuentakilómetros**, botones **Speed + / Speed −**, un interruptor **Engine** y una palanca de cambios para la marcha adelante o atrás. Da la sensación de estar al volante de un coche de verdad.
+
+![Pantalla de la OSOYOO IoT APP: cruz direccional, deslizadores de 0 a 100 y botones de función F1 a F8](/images/blog/osoyoo-sport-car-v1-utilisation/appli-osoyoo-iot-app-pilotage.webp)
+
+![Aplicación de conducción con volante de OSOYOO: volante, cuentakilómetros, botones Speed + y Speed −, interruptor Engine, botón Connect y palanca de cambios](/images/blog/osoyoo-sport-car-v1-utilisation/appli-volant-bluetooth-osoyoo.webp)
+
+## Primer ensayo de conducción
+
+El primer ensayo de conducción es **bastante delicado**: el coche pide un poco de práctica antes de dominarlo bien. Mi consejo: prevea un **gran espacio despejado, sin obstáculos**, para entrenarse con calma (un garaje vacío, una habitación grande despejada o un patio).
+
+## Nuestra opinión sobre el kit OSOYOO Sport Car V1.0
+
+Este kit está **muy logrado**, tanto por su **concepción** como por sus **tutoriales**. La **progresión** de las lecciones está bien pensada y los **ejemplos** incluidos permiten avanzar paso a paso. Para **aprender a programar**, es un **buen soporte**, con una **excelente relación calidad-precio**.
+
+Los pequeños puntos a vigilar siguen siendo menores: un ajuste de la bieleta de dirección en el montaje, los tornillos de las ruedas que no hay que apretar demasiado y el interruptor de encendido/apagado que sujeta mal en posición.
+
+Para repasar el inicio de la serie: el [unboxing](/es/unboxing-osoyoo-sport-car-v1/) (contenido de la caja y programa de las 6 lecciones) y el [montaje y la conexión](/es/montaje-conexion-osoyoo-sport-car-v1/). Para empezar con el código, consulte nuestra serie [C para Arduino](/es/arduino-c/).
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.es/dp/B098T6527G?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>Ver el kit OSOYOO Sport Car en Amazon →</strong></a> <small>(enlace de afiliado)</small></p>
+
+<p style="margin:1rem 0;"><a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank" class="btn btn-action"><strong>Ver el kit en la tienda oficial OSOYOO</strong></a> <small>(enlace directo, no de afiliado)</small></p>
