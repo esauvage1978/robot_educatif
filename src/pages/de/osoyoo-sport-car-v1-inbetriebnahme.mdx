@@ -1,0 +1,140 @@
+---
+layout: ../../layouts/DePost.astro
+title: "OSOYOO Sport Car V1.0: Inbetriebnahme, erstes Arduino-Programm und Lenkungstest"
+description: "Inbetriebnahme des OSOYOO Sport Car V1.0: Installation der Arduino IDE, Hochladen von steering.ino, Lenkungstest, behobene Engstellen, ESP8266-WLAN-Modul und Bluetooth-Kopplung des HC-02."
+updated: "14. November 2026"
+shareTitle: "OSOYOO Sport Car V1.0: Inbetriebnahme und Lenkungstest"
+shareDescription: "Arduino IDE, Arduino-UNO-Board, Test des Lenkservos, Reset-Taste, ESP8266-WLAN-Modul und Bluetooth-Kopplung des HC-02: ein Praxisbericht."
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+*Hinweis: Amazon-Links auf dieser Seite können uns eine Provision einbringen, ohne Mehrkosten für Sie. Preise ändern sich häufig — bitte vor dem Kauf auf der Produktseite prüfen.*
+
+**Serie OSOYOO Sport Car V1.0** — [Teil 1: Auspacken](/de/osoyoo-sport-car-v1-auspacken/) · [Teil 2: Zusammenbau und Anschluss](/de/osoyoo-sport-car-v1-zusammenbau-anschluss/) · Sie sind bei Teil 3 (Inbetriebnahme und Nutzung).
+
+> **Kurzantwort** — Sobald das Auto [zusammengebaut und angeschlossen](/de/osoyoo-sport-car-v1-zusammenbau-anschluss/) war, habe ich die **Arduino IDE** und **7-Zip** installiert, den offiziellen Sketch `steering.ino` geöffnet, das Board **„Arduino UNO“** gewählt und den Code hochgeladen, **Akku abgetrennt**. Der **Lenkungstest** hat funktioniert: die Vorderräder drehen nach links, dann nach rechts und kehren in die Mitte zurück. Dieser Test hat mir vor allem geholfen, **zwei Engstellen** beim Zusammenbau zu finden. Anschließend habe ich das **ESP8266-WLAN-Modul** aufgesteckt und das **Bluetooth-Modul HC-02** mit dem Telefon gekoppelt. Der erste Fahrversuch braucht viel freien Platz, und mein Urteil ist klar: ein sehr gutes Kit, um Programmieren zu lernen, mit einem ausgezeichneten Preis-Leistungs-Verhältnis.
+
+Am 12. November 2026 zeigte das Angebot [OSOYOO Sport Car V1.0](https://www.amazon.de/dp/B098T6527G?tag=roboteducat00-21) bei Amazon.de **71,90 €** (Affiliate-Link). Maßgeblich ist der Preis auf der Produktseite am Kauftag. Das Kit ist auch im <a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank">offiziellen OSOYOO-Shop</a> erhältlich (direkter Link, kein Affiliate-Link).
+
+<ProductBox
+  name="OSOYOO Sport Car V1.0"
+  asin="B098T6527G"
+  image="/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp"
+  ages="ab 14 Jahren"
+  languages={['Arduino-C']}
+  priceRange="71,90 €"
+  description="Arduino-Roboterauto mit Servolenkung, ladbarem 9-V-Akku und sechs kostenlosen Online-Lektionen."
+  lang="de"
+  pros={[
+    'Alles in der Box, inklusive ladbarem Akku',
+    'Lenkung wie bei einem echten Auto',
+    'WLAN, Hindernisvermeidung und Linienfolge',
+  ]}
+/>
+
+## Arduino IDE und 7-Zip installieren
+
+Am Ende der [OSOYOO-Lektion 1](https://osoyoo.com/fr/2021/02/20/sg90-servo-steering-robot-car-lesson-1-hardware-installation-and-servo-test/) werden zwei kostenlose Programme verlangt:
+
+- die **Arduino IDE**, um den Code zu schreiben und auf das Board zu senden (ich habe Version **2.3.11** installiert);
+- **7-Zip**, um die von OSOYOO gelieferten Codedateien zu entpacken.
+
+Beide Installationen sind **ganz normal**: herunterladen, auf „Weiter“ klicken, fertig. Auf dieser Seite gab es keine Schwierigkeit.
+
+## steering.ino öffnen und das Arduino-UNO-Board wählen
+
+OSOYOO liefert ein kleines Testprogramm, `steering.ino`, im Archiv `steering.zip` der Lektion 1. Man entpackt es und öffnet es dann in der IDE (**Datei → Öffnen**).
+
+![Arduino IDE 2.3.11 mit geöffnetem OSOYOO-Sketch steering.ino: Servo-Bibliothek, Servo an Pin 9, FRONT-Wert auf 90, dann Positionen links, rechts und Mitte](/images/blog/osoyoo-sport-car-v1-utilisation/ide-arduino-steering-ino-osoyoo-sport-car.webp)
+
+Der Code ist kurz und auch für Einsteiger lesbar: das Lenkservo hängt an **Pin 9**, die Position „geradeaus“ wird mit `#define FRONT 90` gesetzt, und das Programm schickt das Servo **nach links**, dann **nach rechts**, dann **in die Mitte**, mit einer Sekunde Pause zwischen den Positionen.
+
+Bevor Sie den Code senden, müssen Sie in der Liste „Select Board“ das Board **„Arduino UNO“** wählen, zusammen mit dem USB-Anschluss, der erscheint. Das OSOYOO-Board ist mit Arduino UNO R3 kompatibel: diese Wahl ermöglicht das Hochladen des Programms.
+
+![Symbolleiste der Arduino IDE mit ausgewähltem Arduino-UNO-Board](/images/blog/osoyoo-sport-car-v1-utilisation/selection-carte-arduino-uno.webp)
+
+## Code hochladen, Akku abgetrennt
+
+OSOYOO betont diesen Punkt, in der Lektion in Rot: **trennen Sie den Akku** (oder ziehen Sie das Netzteil ab), während Sie den Code senden. Das Board wird dann über das USB-Kabel des Computers versorgt. Anschließend klickt man auf den Pfeil **→ (Hochladen)**.
+
+![OSOYOO Sport Car V1.0 per USB mit dem Computer verbunden: blaue LED des Boards an, Spannungsanzeige, vorderer Sensor grün beleuchtet](/images/blog/osoyoo-sport-car-v1-utilisation/voiture-sous-tension-usb-osoyoo-sport-car.webp)
+
+Unter Spannung sieht man die **blaue LED** des Boards, die **Spannungsanzeige** und den **vorderen Sensor**, der grün leuchtet.
+
+## Der Lenkungstest: wozu er wirklich dient
+
+Sobald der Code geladen ist, sollen die Vorderräder **nach links**, dann **nach rechts** drehen und wieder **gerade** stehen. Bei mir hat der Test **zwei Engstellen** des Zusammenbaus sichtbar gemacht. Wie ich mir in dem Moment notiert habe: **ich verstehe, warum der Test nach dem Zusammenbau wichtig ist**.
+
+### Engstelle 1: die Spurstange war zu eng
+
+![Transparente Acryl-Spurstange der Lenkung des OSOYOO Sport Car, mit drei runden Löchern und einem Langloch am Ende](/images/blog/osoyoo-sport-car-v1-utilisation/biellette-acrylique-direction-osoyoo.webp)
+
+An der **Acryl-Spurstange** der Lenkung war die Belastung des Servos **zu hoch**: das Servo hat sich gezwungen. Ich habe **das Loch mit dem Dremel vergrößert** (dort, wo der Schraubendreher auf dem Foto hinzeigt), um wieder Spiel zu geben.
+
+![Lenkung des OSOYOO Sport Car aus der Nähe: Metallstange, weißes festgeschraubtes Teil, schwarzer Servoarm und Spurstange](/images/blog/osoyoo-sport-car-v1-utilisation/direction-servo-biellette-osoyoo-sport-car.webp)
+
+### Engstelle 2: die Schrauben der Vorderräder
+
+Wie schon beim [Zusammenbau](/de/osoyoo-sport-car-v1-zusammenbau-anschluss/) darf man die **Schrauben der Vorderräder nicht zu fest anziehen**, sonst drehen sie sich nicht mehr und das Servo kann sie nicht ausrichten.
+
+**Tipp**: wenn das Servo bei diesem Test schwergängig ist oder knurrt, prüfen Sie zuerst diese beiden Stellen. Wenn die Räder nicht wieder gerade stehen, schlägt Lektion 1 vor, den Servoarm neu zu montieren oder den Wert `FRONT` zu ändern (erhöhen, wenn die Räder nach links zeigen, verringern, wenn sie nach rechts zeigen). Notieren Sie diesen Wert: er wird in den späteren Lektionen wieder gebraucht.
+
+### Das Ergebnis
+
+Nachdem diese Punkte behoben waren, ist der Test durchgelaufen: beide **Vorderräder drehen gemeinsam** nach links, dann nach rechts und zurück in die Mitte. Die Bewegung ist **ruckartig**, das ist normal: das Programm schickt das Servo direkt auf feste Winkel, ohne Übergang.
+
+![OSOYOO Sport Car V1.0 von oben während des Lenkungstests, Sensoren leuchten](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-vue-ensemble-osoyoo-sport-car.webp)
+
+![OSOYOO Sport Car V1.0 während des Lenkungstests, Vorderräder eingeschlagen](/images/blog/osoyoo-sport-car-v1-utilisation/test-direction-roues-braquees-osoyoo-sport-car.webp)
+
+## Tipp: die weiße Taste, um den Test zu wiederholen
+
+![Weiße Reset-Taste auf dem Board des OSOYOO Sport Car, zwischen den Kabeln](/images/blog/osoyoo-sport-car-v1-utilisation/bouton-reset-carte-osoyoo-sport-car.webp)
+
+Sie müssen den Code nicht erneut hochladen, um den Test zu wiederholen: es reicht, die **weiße Taste** auf dem Board zu drücken. Das ist die **Reset-Taste**: sie startet das Programm von vorn, und die Lenkung macht wieder links, rechts, Mitte. Praktisch, um eine Einstellung zu prüfen, nachdem man eine Schraube festgezogen oder gelöst hat.
+
+## Das ESP8266-WLAN-Modul
+
+![OSOYOO-ESP8266-WLAN-Modul Version 1.0 senkrecht auf dem Motor-Shield des OSOYOO Sport Car aufgesteckt](/images/blog/osoyoo-sport-car-v1-utilisation/module-wifi-esp8266-osoyoo-sport-car.webp)
+
+Nächster Schritt: ich habe das **OSOYOO-ESP8266-WLAN-Modul (Version 1.0)** senkrecht auf das Shield gesteckt. Prüfen Sie die **Pin-Ausrichtung** anhand der Zeichnung der Lektion, bevor Sie einschalten.
+
+Laut [OSOYOO-Lektion 5](https://osoyoo.com/fr/2020/10/30/sg90-servo-steering-robot-car-lesson-5-wifi-udp/) lässt sich das Auto mit diesem Modul per Smartphone und der App **„OSOYOO IoT UDP Robot Car“** steuern, entweder über den Router (STA-Modus) oder indem das Auto selbst zum WLAN-Zugangspunkt wird (AP-Modus). Die Lektion setzt voraus, dass Lektion 2 (Grundbewegungen) bereits gemacht ist.
+
+**Festgestellte Schwachstelle**: der **weiße Schalter**, mit dem man das **Auto einschaltet**, bleibt schlecht **in Position**. Prüfen Sie vor jedem Versuch, dass er fest eingerastet ist, sonst kann das Auto unterwegs ausgehen.
+
+## Bluetooth-Kopplung des HC-02
+
+![Android-Bildschirm „Mit HC-02 koppeln?“ mit PIN-Abfrage und dem Hinweis „Normalerweise 0000 oder 1234“](/images/blog/osoyoo-sport-car-v1-utilisation/appairage-bluetooth-hc02-osoyoo.webp)
+
+Zum Kit gehört auch ein **Bluetooth-Modul HC-02**. Zum Koppeln geht man in die **Bluetooth-Einstellungen des Telefons**: das Modul erscheint unter dem Namen **HC-02**, und das Telefon fragt nach einem PIN-Code. Geben Sie **1234** ein: das ist der Code, der bei unserem Exemplar funktioniert hat. Den Zugriff auf Kontakte brauchen Sie nicht zu aktivieren.
+
+[Lektion 6](https://osoyoo.com/2021/03/07/sg90-servo-steering-robot-car-lesson-6-mock-driving-with-bluetooth-app/) nutzt anschließend die App **„OSOYOO imitation driving“**: man fährt, indem man das Telefon wie ein Lenkrad neigt, mit Vorwärts- / Rückwärtsfahrt.
+
+## Das Auto steuern: mehrere Apps zur Auswahl
+
+OSOYOO bietet **mehrere Apps**, um das Auto vom Smartphone aus zu steuern, je nach verwendetem Modul und bevorzugtem Fahrstil. Ich habe zwei davon ausprobiert:
+
+- **OSOYOO IoT APP**: eine vollständige Fernbedienung mit einem **Richtungskreuz**, **Schiebern** von 0 bis 100 und **acht Funktionstasten F1 bis F8**.
+- **Die Lenkrad-Fahr-App** (Lektion 6, **Bluetooth**-Verbindung): ein **Lenkrad**, ein **Tachometer**, Tasten **Speed + / Speed −**, ein **Engine**-Schalter und ein Schalthebel für Vorwärts oder Rückwärts. Man fühlt sich wie am Steuer eines echten Autos.
+
+![Bildschirm der OSOYOO IoT APP: Richtungskreuz, Schieber von 0 bis 100 und Funktionstasten F1 bis F8](/images/blog/osoyoo-sport-car-v1-utilisation/appli-osoyoo-iot-app-pilotage.webp)
+
+![OSOYOO-Lenkrad-Fahr-App: Lenkrad, Tachometer, Tasten Speed + und Speed −, Engine-Schalter, Connect-Taste und Schalthebel](/images/blog/osoyoo-sport-car-v1-utilisation/appli-volant-bluetooth-osoyoo.webp)
+
+## Erster Fahrversuch
+
+Der erste Fahrversuch ist **ziemlich knifflig**: das Auto braucht etwas Übung, bevor man es gut beherrscht. Mein Tipp: planen Sie **viel freien Platz ohne Hindernisse** ein, damit Sie in Ruhe üben können (eine leere Garage, ein großer freier Raum oder ein Hof).
+
+## Unser Urteil zum OSOYOO Sport Car V1.0
+
+Dieses Kit ist **sehr gelungen**, sowohl in der **Konstruktion** als auch in den **Tutorials**. Die **Progression** der Lektionen ist durchdacht, und die mitgelieferten **Beispiele** lassen sich Schritt für Schritt nachvollziehen. Um **Programmieren zu lernen**, ist es ein **gutes Lernmittel**, mit einem **ausgezeichneten Preis-Leistungs-Verhältnis**.
+
+Die kleinen Punkte, auf die man achten sollte, bleiben gering: eine Anpassung der Lenk-Spurstange beim Zusammenbau, die Radschrauben, die man nicht zu fest anziehen darf, und der Ein-/Ausschalter, der schlecht in Position bleibt.
+
+Zum Anfang der Serie zurück: das [Auspacken](/de/osoyoo-sport-car-v1-auspacken/) (Lieferumfang und Programm der sechs Lektionen) und der [Zusammenbau und Anschluss](/de/osoyoo-sport-car-v1-zusammenbau-anschluss/). Für den Einstieg in den Code siehe unsere Reihe [Arduino-C](/de/arduino-c-sketch-aufbau-serial/).
+
+<p style="margin:1rem 0;"><a href="https://www.amazon.de/dp/B098T6527G?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank" class="btn btn-action"><strong>OSOYOO Sport Car bei Amazon ansehen →</strong></a> <small>(Affiliate-Link)</small></p>
+
+<p style="margin:1rem 0;"><a href="https://osoyoo.store/products/arduino-robot-smart-car-servo-steering-diy-kit" rel="sponsored noopener" target="_blank" class="btn btn-action"><strong>Kit im offiziellen OSOYOO-Shop ansehen</strong></a> <small>(direkter Link, kein Affiliate-Link)</small></p>
