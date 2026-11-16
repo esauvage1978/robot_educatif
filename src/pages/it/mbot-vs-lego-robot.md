@@ -7,11 +7,11 @@ updated: "30 ottobre 2026"
 
 Alcuni link di questa pagina sono di affiliazione. Se acquisti tramite questi link possiamo ricevere una commissione senza costi aggiuntivi per te. I prezzi sono **indicativi su Amazon.it / UE (ottobre 2026)**; verifica sempre prezzo e contenuto del pacco.
 
-> **Aggiornamento 23/10/2026**: LEGO Education ha ritirato SPIKE Essential e SPIKE Prime dalla vendita diretta dal 30 giugno 2026; restano solo scorte dei rivenditori. I prezzi SPIKE citati sotto (289 € e 379 €) sono gli **ultimi prezzi di catalogo LEGO**, non listini Amazon.it garantiti. In Italia: cerca scorte su Amazon.it o rivenditori school; dettagli sul [marchio LEGO](/marque-lego/) o [EN LEGO Education](/en/lego-education-brand/).
+> **Aggiornamento 23/10/2026**: LEGO Education ha ritirato SPIKE Essential e SPIKE Prime dalla vendita diretta dal 30 giugno 2026; restano solo scorte dei rivenditori. I prezzi SPIKE citati sotto (289 € e 379 €) sono gli **ultimi prezzi di catalogo LEGO**, non listini Amazon.it garantiti. In Italia: cerca scorte su Amazon.it o rivenditori school; dettagli sulla [pagina marchio LEGO Education](/it/marchio-lego-education/).
 
 «**Meglio un mBot o un robot LEGO?**» — la domanda torna di continuo nelle famiglie che vogliono **un solo grande acquisto** per la ripresa o Natale. Non c’è un vincitore universale: **LEGO Education** eccelle quando il bambino vive per la **costruzione** e l’ecosistema **mattoncini + curriculum**; **Makeblock (mBot / mBot2)** eccelle quando si vuole un **robot su ruote compatto**, un percorso **mBlock / Scratch** ben documentato e spesso un **prezzo d’ingresso** più basso.
 
-Con «robot LEGO» intendiamo soprattutto **[LEGO Education](/marque-lego/) SPIKE Essential**, **SPIKE Prime** e il vecchio **LEGO Mindstorms Robot Inventor (51515)** — quest’ultimo **non è più venduto nuovo** da LEGO dalla fine del 2022, ma circola ancora **usato**. **Word Blocks** = programmazione a blocchi tipo Scratch 3 nell’app SPIKE.
+Con «robot LEGO» intendiamo soprattutto **[LEGO Education](/it/marchio-lego-education/) SPIKE Essential**, **SPIKE Prime** e il vecchio **LEGO Mindstorms Robot Inventor (51515)** — quest’ultimo **non è più venduto nuovo** da LEGO dalla fine del 2022, ma circola ancora **usato**. **Word Blocks** = programmazione a blocchi tipo Scratch 3 nell’app SPIKE.
 
 ## 1. Due filosofie di prodotto
 

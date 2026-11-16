@@ -36,7 +36,7 @@ const reviewPage = reviewPageForPath(_n);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
 ---
-<html lang={htmlLang}>
+<html lang={htmlLang === 'nl' ? 'nl' : htmlLang}>
 	<head>
 		<BaseHead title={title} description={description} image={ogImage} ogType="article" />
 		<StructuredDataFaq items={fm.faqSchema} />

@@ -7,7 +7,7 @@ updated: "30 de octubre de 2026"
 
 Algunos enlaces de esta página son de afiliados. Si compras a través de ellos, podemos recibir una comisión sin coste extra para ti. Los precios citados son orientativos para **España / UE** (2026); comprueba siempre el precio actual y el contenido del pack en Amazon.es u otra tienda.
 
-> **Actualización 23/10/2026**: LEGO Education retiró SPIKE Essential y SPIKE Prime de la venta directa el 30 de junio de 2026; solo quedan stocks de revendedores. Los precios SPIKE de esta página (289 € y 379 €) son los últimos precios de catálogo LEGO, no precios actuales garantizados. Detalles en la [página LEGO Education (EN)](/en/lego-education-brand/) o [versión en francés](/marque-lego/).
+> **Actualización 23/10/2026**: LEGO Education retiró SPIKE Essential y SPIKE Prime de la venta directa el 30 de junio de 2026; solo quedan stocks de revendedores. Los precios SPIKE de esta página (289 € y 379 €) son los últimos precios de catálogo LEGO, no precios actuales garantizados. Detalles en nuestra [página LEGO Education](/es/marca-lego-education/).
 
 «**¿Mejor un mBot o un robot LEGO?**» — la pregunta vuelve una y otra vez en familias que quieren **una sola gran compra** para la vuelta al cole o Navidad. No hay un ganador universal: **LEGO Education** destaca cuando el niño vive por la **construcción** y el ecosistema **ladrillos + currículo**; **Makeblock (mBot / mBot2)** destaca cuando quieres un **robot rodante compacto**, un recorrido **mBlock / Scratch** bien documentado y a menudo un **precio de entrada** más bajo.
 

@@ -81,6 +81,8 @@ Examples: **mBot**, **mBot2**, **Codey Rocky**.
 
 ### C. LEGO Education — SPIKE Essential & SPIKE Prime
 
+See our dedicated [LEGO Education brand page](/en/lego-education-brand/) for SPIKE, WeDo, BricQ, pricing and 2026 end-of-direct-sales context.
+
 - **SPIKE Essential**: gentler entry, simpler hub, audience often **~6–9** depending on maturity; ideal for schools and families who want **classic LEGO + a bit of Technic** before the sprint to Prime.
 - **SPIKE Prime**: hub with **6 ports**, motors and sensors compatible with **FIRST LEGO League (FLL)** — international school robotics league with LEGO robots — **Word Blocks** (Scratch 3) and **Python** programming; often aimed **from ~10** to handle complexity with autonomy. If SPIKE stock is unclear in your country, see [LEGO SPIKE alternatives 2026](/en/lego-education-computer-science-ai-2026-spike-prime-alternatives/).
 - **LEGO Mindstorms Robot Inventor (51515)**: very complete consumer set but **discontinued new** at LEGO — interesting mainly **second-hand** if you accept end-of-life documentation ([LEGO product page for 51515](https://www.lego.com/en-gb/product/robot-inventor-51515)).

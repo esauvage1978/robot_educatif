@@ -10,4 +10,5 @@ updated: "23 ottobre 2026"
 <li><a href="/it/marchio-matatalab/">Matatalab</a>: Tale-Bot Pro, programmazione senza schermo per i più piccoli (provato da noi).</li>
 <li><a href="/it/marchio-elegoo/">ELEGOO</a>: kit robot Arduino per passare al vero codice.</li>
 <li><a href="/it/marchio-raspberry-pi/">Raspberry Pi</a>: Raspberry Pi 3, 4 e 5 a confronto.</li>
+<li><a href="/it/marchio-lego-education/">LEGO Education</a>: SPIKE, WeDo e BricQ — costruzione e programmazione a mattoncini (vendita diretta SPIKE terminata nel 2026).</li>
 </ul>

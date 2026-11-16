@@ -79,6 +79,8 @@ Beispiele: **mBot**, **mBot2**, **Codey Rocky**.
 
 ### C. LEGO Education — SPIKE Essential & SPIKE Prime
 
+Ausführlich auf unserer [LEGO-Education-Markenseite](/de/marke-lego-education/) (SPIKE, WeDo, BricQ, Preise, Verkaufsstopp 2026).
+
 - **SPIKE Essential**: sanfterer Einstieg, einfacheres Hub, Publikum oft **~6–9** je nach Reife; ideal für Schulen und Familien, die **klassisches LEGO + etwas Technic** vor dem Sprint zu Prime wollen.
 - **SPIKE Prime**: Hub mit **6 Ports**, Motoren und Sensoren kompatibel mit der **FIRST LEGO League (FLL)** — internationale Schulrobotik-Liga mit LEGO — Programmierung mit **Word Blocks** (Scratch 3) und **Python**; oft ab **~10 Jahren**, um die Komplexität mit Autonomie zu stemmen. Unklare SPIKE-Verfügbarkeit: [SPIKE-Alternativen 2026](/de/lego-education-computer-science-ai-2026-spike-prime-alternativen/).
 - **LEGO Mindstorms Robot Inventor (51515)**: sehr komplettes Consumer-Set, aber bei LEGO **neu eingestellt** — interessant vor allem **gebraucht**, wenn Sie „End-of-Life“-Dokumentation akzeptieren.
