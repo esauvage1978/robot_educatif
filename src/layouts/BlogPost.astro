@@ -126,7 +126,10 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 ) {
 	tutorialProducts = ['mbot2', 'raspberry-pi-5-8gb', 'cyberpi'];
 	tutorialGuide = { url: '/robot-programmable-python/', title: 'Guide : robots programmables Python' };
-} else if (categoryLower.some(c => c.includes('arduino'))) {
+} else if (
+	categoryLower.some(c => c.includes('arduino')) &&
+	articleSlug !== 'meilleur-robot-educatif-arduino-kit-choisir'
+) {
 	tutorialProducts = ['elegoo-robot-car', 'elegoo-penguin'];
 	tutorialGuide = { url: '/meilleur-robot-educatif-arduino-kit-choisir/', title: 'Guide : kits robot Arduino pour enfants' };
 } else if (categoryLower.some(c => c.includes('raspberry'))) {

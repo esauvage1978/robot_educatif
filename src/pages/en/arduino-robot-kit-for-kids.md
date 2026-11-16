@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Arduino robot kit for kids: how to choose (2026)"
-description: "Is an Arduino robot kit right for your child? Age, what is in the box, ELEGOO car and Penguin Bot, and first steps with the Arduino IDE. UK price checked 6 November 2026."
-updated: "6 November 2026"
+description: "ELEGOO Smart Robot Car V4.0 at £70.99 on Amazon.co.uk (16 November 2026), Penguin Bot, age and first Arduino IDE steps. UK prices, not a converted euro price."
+updated: "16 November 2026"
 ---
 
 An Arduino robot kit is a box of parts: a controller board, motors, sensors, a chassis and wires. Your child builds it, then programs it in C/C++ with the free [Arduino IDE](https://www.arduino.cc/en/software). It is a step on from a block-based robot such as the mBot. There is more wiring and more typing, and those are the skills that carry over to other electronics.
 
-This page is for parents and teachers choosing a kit for a child of at least 12, or for a keen teenager. Prices in euros from a French shop are not used here. Where we have no local check, the line is to see today's price.
+This page is for parents and teachers choosing a kit for a child of at least 12, or for a keen teenager. For a first car, the ELEGOO Smart Robot Car V4.0 is the kit here: **£70.99** on Amazon.co.uk on 16 November 2026, 06:10. ELEGOO rates it 13+. The Penguin Bot is the smaller biped, from about 8 with an adult nearby. That UK listing had no price on the same check. Prices in euros from a French shop are not used here.
 
 ## What is usually in the box
 
@@ -17,9 +17,11 @@ The gain is that the child can see what each wire does, change the code and the 
 
 ## Two ELEGOO kits
 
-[ELEGOO](/en/elegoo-brand/) rates the [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) as 13+ on the manufacturer page, checked 21 October 2026. On Amazon.co.uk the listing we checked is a different age line: the title says 8+. Read the age on the box you are about to buy. The same UK listing, [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.co.uk/dp/B07474MMB5?tag=roboteducatif-21), was £70.99 on 6 November 2026 (11:23, amazon.co.uk). The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module. It does not name a camera. If a camera is the reason for the purchase, confirm it on the product page that day. There is no US or Canadian price in our checks. See today's price on the shop for that country.
+![ELEGOO Smart Robot Car Kit V4.0: black chassis, ultrasonic sensor and a camera module on top](/images/products/elegoo-robot-car.webp)
 
-The smaller kit in this guide is the ELEGOO Penguin Bot, a biped that walks, plays sounds and responds to an infrared remote. A program is already loaded, and servos are the moving parts. It is a first Arduino project from about 8 with an adult nearby, or from about 10 with some independence. It does not include the richer sensors of the car. Extra modules come later, and this page does not add them up into a yearly budget. The Amazon.co.uk listing had no price on 6 November 2026. [See the Penguin Bot listing](https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21) and check today's price. The same applies in the US and in Canada.
+[ELEGOO](/en/elegoo-brand/) rates the [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) as 13+ on the manufacturer page, checked 21 October 2026. On Amazon.co.uk the listing we checked is a different age line: the title says 8+. Read the age on the box you are about to buy. The same UK listing, [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.co.uk/dp/B07474MMB5?tag=roboteducatif-21), was **£70.99** on 16 November 2026 (06:10, amazon.co.uk). The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module. It does not name a camera. The manufacturer kit in the photo has a camera module on the chassis. If a camera is the reason for the purchase, confirm it on the product page that day. There is no US or Canadian price in our checks. See today's price on the shop for that country.
+
+The smaller kit in this guide is the ELEGOO Penguin Bot, a biped that walks, plays sounds and responds to an infrared remote. A program is already loaded, and servos are the moving parts. It is a first Arduino project from about 8 with an adult nearby, or from about 10 with some independence. It does not include the richer sensors of the car. Extra modules come later, and this page does not add them up into a yearly budget. The Amazon.co.uk listing had no price on 16 November 2026. [See the Penguin Bot listing](https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21) and check today's price. The same applies in the US and in Canada.
 
 ## Is it the right age?
 
@@ -31,19 +33,19 @@ The smaller kit in this guide is the ELEGOO Penguin Bot, a biped that walks, pla
 </tr></thead><tbody>
 <tr>
 <td data-label="Age (guide only)"><span class="td-val">8–10</span></td>
-<td data-label="Recommendation"><span class="td-val">Block-based robot instead (mBot), or Arduino only with close adult help</span></td>
+<td data-label="Recommendation"><span class="td-val">Penguin Bot with an adult nearby, or a block robot: <a href="/en/best-robot-for-an-8-year-old/">robot for an 8-year-old</a></span></td>
 </tr>
 <tr>
 <td data-label="Age (guide only)"><span class="td-val">10–12</span></td>
-<td data-label="Recommendation"><span class="td-val">Simple Arduino kit with adult help for wiring</span></td>
+<td data-label="Recommendation"><span class="td-val">Penguin Bot with some independence, or the car kit with help. <a href="/en/best-robot-for-a-10-year-old/">Robot for a 10-year-old</a></span></td>
 </tr>
 <tr>
 <td data-label="Age (guide only)"><span class="td-val">12–14</span></td>
-<td data-label="Recommendation"><span class="td-val">Arduino car kit with growing independence</span></td>
+<td data-label="Recommendation"><span class="td-val">ELEGOO car with growing independence. <a href="/en/best-robot-for-a-12-year-old/">Robot for a 12-year-old</a></span></td>
 </tr>
 <tr>
 <td data-label="Age (guide only)"><span class="td-val">14+</span></td>
-<td data-label="Recommendation"><span class="td-val">Car kit plus extensions (camera, more sensors)</span></td>
+<td data-label="Recommendation"><span class="td-val">Car kit, then more sensors. <a href="/en/best-robot-for-a-14-year-old/">Robot for a 14-year-old</a> and <a href="/en/osoyoo-sport-car-v1-unboxing/">OSOYOO Sport Car</a></span></td>
 </tr>
 </tbody>
 </table>

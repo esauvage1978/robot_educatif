@@ -161,7 +161,12 @@ const enabled = Boolean(supabaseUrl && supabaseKey && articleSlug);
 						return;
 					}
 
-					const already = localStorage.getItem(LS_PREFIX + slug);
+					let already = null;
+					try {
+						already = localStorage.getItem(LS_PREFIX + slug);
+					} catch {
+						already = null;
+					}
 					if (rateWrap && thanks) {
 						if (already) {
 							rateWrap.hidden = true;

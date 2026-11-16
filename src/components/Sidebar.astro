@@ -62,14 +62,16 @@ const readAlso = variant === 'guide' ? resolveRelatedThumbs(relatedLinks, pathna
 				<div class="guide-sidebar__read-also">
 					{readAlso.map((item) => (
 						<a href={withBase(item.href)}>
-							<img
-								src={withBase(item.imgSrc)}
-								alt={item.imgAlt}
-								width="112"
-								height="84"
-								loading="lazy"
-								decoding="async"
-							/>
+							{item.imgSrc && (
+								<img
+									src={withBase(item.imgSrc)}
+									alt=""
+									width="112"
+									height="84"
+									loading="lazy"
+									decoding="async"
+								/>
+							)}
 							<span>{item.title}</span>
 						</a>
 					))}
@@ -214,6 +216,10 @@ const readAlso = variant === 'guide' ? resolveRelatedThumbs(relatedLinks, pathna
 	}
 	.guide-sidebar__read-also a + a {
 		border-top: 1px dashed var(--surface-border, #e2e8f0);
+	}
+	.guide-sidebar__read-also a span {
+		min-width: 0;
+		overflow-wrap: break-word;
 	}
 	.guide-sidebar__read-also img {
 		width: 56px;

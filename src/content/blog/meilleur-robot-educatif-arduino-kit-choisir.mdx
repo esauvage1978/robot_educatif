@@ -1,8 +1,8 @@
 ---
 title: "Kit robot Arduino : lequel choisir pour débuter ? Comparatif 2026"
-description: "Kit robot Arduino pour un enfant, un ado ou un débutant : voiture ELEGOO, Penguin Bot, niveau requis et projets possibles. Prix amazon.fr du 6 novembre 2026."
+description: "Voiture ELEGOO V4.0 à 79,99 € et Penguin Bot à 37,99 € (amazon.fr, 16 novembre 2026) : âge, contenu du kit et premier programme Arduino."
 pubDate: "2026-02-18"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-16"
 heroImage: "../../assets/blog-heroes/hero-mbot-vs.webp"
 amazonPreset: "general"
 categories:
@@ -25,16 +25,18 @@ relatedLinks:
 
 import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
-import ProductBox from '../../components/ProductBox.astro';
 
 <AffiliateDisclosure variant="compact" />
 
+Pour un premier robot Arduino qui roule, la voiture **ELEGOO V4.0** est le kit de cette page. Au relevé amazon.fr du 16 novembre 2026, 6 h 10, elle est à **79,99 €**. ELEGOO indique 13 ans et plus. Pour un budget plus bas, le **Penguin Bot** blanc V2.0 est à **37,99 €** le même jour : un bipède, à partir de 8 ans si un adulte reste à côté. Les montants viennent de ce relevé, les fonctions des fiches Amazon et de la page du fabricant. Ce guide ne repose pas sur un essai en atelier.
+
 <ComparisonTable
+  variant="cards"
   products={[
     { id: 'elegoo-robot-car', badge: 'Meilleur rapport qualité-prix' },
     { id: 'elegoo-penguin', badge: 'Petit budget' },
   ]}
-  title="Meilleurs kits robots Arduino pour enfants"
+  title="Deux kits Arduino ELEGOO"
 />
 
 Un kit robot Arduino est une boîte de pièces : une carte, un châssis, des moteurs, des capteurs et des fils. L'enfant assemble, puis il programme en C avec l'IDE Arduino. Ce n'est pas un robot déjà fermé comme le mBot. Il y a plus de câblage, et c'est justement ce qui apprend l'électronique.
@@ -49,43 +51,23 @@ Arduino convient quand on veut comprendre ce que fait chaque fil, changer le cod
 
 ## Deux kits ELEGOO
 
-Les prix ci-dessous viennent du relevé amazon.fr du 6 novembre 2026, 11 h 23. Le montant affiché sur la fiche au moment de l'achat fait foi.
+Les prix de cette page viennent du relevé amazon.fr du 16 novembre 2026, 6 h 10. Le montant affiché sur la fiche au moment de l'achat fait foi.
 
-### ELEGOO voiture robot 4.0
+<h3 id="elegoo-voiture-robot">ELEGOO voiture robot 4.0</h3>
 
-<ProductBox
-  productId="elegoo-robot-car"
-  name="ELEGOO Kit Voiture Robot Intelligent V4.0"
-  asin="B078Y9RYM2"
-  ages="12+ ans"
-  languages={['Arduino C']}
-  showProsCons={false}
-  badge="Meilleur rapport qualité-prix"
-  position={1}
-/>
+![Voiture robot ELEGOO V4.0 : châssis noir, capteur à ultrasons et module caméra sur le dessus](/images/products/elegoo-robot-car.webp)
 
-C'est le kit le plus complet de cette page pour un premier robot qui roule. Au relevé, la fiche [ELEGOO voiture 4.0](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21) est à 79,99 €. Son titre nomme la carte UNO R3, le suivi de ligne, le capteur à ultrasons et la télécommande infrarouge. La présentation habituelle de la V4.0, sur ce site, ajoute des tutoriels pas à pas en français, un module ESP8266 pour le Wi-Fi et une caméra. Le titre du 6 novembre ne les répète pas. Si c'est pour le Wi-Fi ou la caméra que vous l'achetez, ouvrez la liste des modules avant de payer. Une autre fiche V4.0 du même relevé n'avait pas de prix.
+C'est le kit le plus complet de cette page pour un premier robot qui roule. La fiche [ELEGOO voiture 4.0](https://www.amazon.fr/dp/B078Y9RYM2?tag=manuso06-21) est à 79,99 €. Son titre nomme la carte UNO R3, le suivi de ligne, le capteur à ultrasons et la télécommande infrarouge. Il ne nomme ni caméra, ni module Wi-Fi, ni notice en français. Le kit du fabricant porte un module caméra sur le châssis. Si la caméra ou le Wi-Fi est la raison de l'achat, ouvrez la liste des pièces sur la fiche du jour. Une autre fiche V4.0 du même relevé n'avait pas de prix.
 
 Le châssis et les moteurs sont prévus pour un usage répété, et le [support ELEGOO](/marque-elegoo/) passe par des forums tenus à jour.
 
-Le kit vise les ados à partir de 12 ans qui débutent en Arduino, avec un adulte pour les premières séances. Selon l'usage et les capteurs ajoutés ensuite, on s'en sert de quelques mois à deux ans. Ce guide ne chiffre pas un budget annuel d'accessoires : le prix d'un module se vérifie le jour où on le commande.
+ELEGOO situe ce kit à partir de 13 ans. Sur cette page, 12 ans reste envisageable si un adulte gère les premières séances de câblage. Selon l'usage et les capteurs ajoutés ensuite, on s'en sert de quelques mois à deux ans. Ce guide ne chiffre pas un budget annuel d'accessoires : le prix d'un module se vérifie le jour où on le commande.
 
-### ELEGOO Penguin Bot
-
-<ProductBox
-  productId="elegoo-penguin"
-  name="ELEGOO Penguin Bot"
-  asin="B07GVD6GQH"
-  ages="8-14 ans"
-  languages={['Arduino C']}
-  showProsCons={false}
-  badge="Petit budget"
-  position={2}
-/>
+<h3 id="elegoo-penguin-bot">ELEGOO Penguin Bot</h3>
 
 Le Penguin Bot est un bipède. Il marche, danse, joue de la musique et répond à la télécommande infrarouge. Le montage compte environ une demi-heure. Un programme est déjà chargé : le robot fonctionne dès qu'il est assemblé, puis le code se modifie. Les servomoteurs font découvrir une mécanique articulée, différente d'une voiture. La limite est nette : le capteur livré sert surtout à la télécommande infrarouge. Pour aller plus loin, il faudra d'autres modules.
 
-La fiche [Penguin Bot V2.0](https://www.amazon.fr/dp/B07GVD6GQH?tag=manuso06-21) est à 39,99 € au même relevé. Il convient à partir de 8 ans si un adulte reste à côté, et vers 10 ans en autonomie partielle.
+La fiche [Penguin Bot V2.0](https://www.amazon.fr/dp/B07GVD6GQH?tag=manuso06-21) est à 37,99 € au relevé du 16 novembre. Le titre la décrit comme le Penguin Bot blanc, avec un tutoriel d'assemblage. Il convient à partir de 8 ans si un adulte reste à côté, et vers 10 ans en autonomie partielle.
 
 ### Autre piste : OSOYOO Sport Car V1.0
 
@@ -101,19 +83,19 @@ Pour un ado de 14 ans et plus, le kit OSOYOO Sport Car V1.0 propose une voiture 
 </tr></thead><tbody>
 <tr>
 <td data-label="Âge"><span class="td-val">8-10 ans</span></td>
-<td data-label="Recommandation"><span class="td-val">Penguin Bot avec <strong>accompagnement fort</strong> (adulte ou atelier)</span></td>
+<td data-label="Recommandation"><span class="td-val"><a href="#elegoo-penguin-bot">Penguin Bot</a> avec un adulte à côté, ou un robot à blocs : <a href="/quel-robot-acheter-enfant-8-ans-guide-achat/">guide 8 ans</a></span></td>
 </tr>
 <tr>
 <td data-label="Âge"><span class="td-val">10-12 ans</span></td>
-<td data-label="Recommandation"><span class="td-val">Penguin Bot en semi-autonomie, ou Robot Car avec aide</span></td>
+<td data-label="Recommandation"><span class="td-val"><a href="#elegoo-penguin-bot">Penguin Bot</a> en semi-autonomie, ou la <a href="#elegoo-voiture-robot">voiture ELEGOO</a> avec aide. <a href="/quel-robot-acheter-enfant-10-ans-guide-achat/">Guide 10 ans</a></span></td>
 </tr>
 <tr>
 <td data-label="Âge"><span class="td-val">12-14 ans</span></td>
-<td data-label="Recommandation"><span class="td-val">Robot Car en autonomie progressive</span></td>
+<td data-label="Recommandation"><span class="td-val"><a href="#elegoo-voiture-robot">Voiture ELEGOO</a> en autonomie progressive. <a href="/quel-robot-acheter-enfant-12-ans-guide-achat/">Guide 12 ans</a></span></td>
 </tr>
 <tr>
-<td data-label="Âge"><span class="td-val">14+ ans</span></td>
-<td data-label="Recommandation"><span class="td-val">Robot Car + extensions (caméra, IA, capteurs multiples)</span></td>
+<td data-label="Âge"><span class="td-val">14 ans et plus</span></td>
+<td data-label="Recommandation"><span class="td-val">Voiture ELEGOO, puis d'autres capteurs. <a href="/robot-programmable-14-ans-ado/">Guide 14 ans</a> et <a href="/unboxing-osoyoo-sport-car-v1-arduino/">OSOYOO Sport Car</a></span></td>
 </tr>
 </tbody>
 </table>
@@ -273,7 +255,7 @@ Un code qui ne compile pas manque souvent d'une bibliothèque (AFMotor, Servo, N
 
 ### À partir de quel âge ?
 
-Dix ans est un minimum, et seulement avec un adulte à côté. Douze ans est l'âge où le C devient raisonnable sans que chaque erreur bloque la séance. Entre 8 et 10 ans, le Penguin Bot avec un adulte reste le kit de cette page. En dessous, un robot à boutons ou à cartes est plus adapté.
+Huit ans, avec un adulte, pour le Penguin Bot. Dix ans si l'enfant lit déjà un peu de code avec quelqu'un à côté. Douze ans pour la voiture, et treize ans sur la boîte ELEGOO. En dessous de 8 ans, un robot à boutons ou à cartes est plus adapté. Le détail par âge est dans le tableau plus haut, avec le guide correspondant.
 
 ### Faut-il déjà savoir programmer ?
 

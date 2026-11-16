@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/DePost.astro
 title: "Arduino-Roboterbausatz für Kinder: so wählen Sie (2026)"
-description: "Passt ein Arduino-Roboterbausatz zu Ihrem Kind? Alter, Lieferumfang, ELEGOO-Auto und Penguin Bot, Arduino gegen mBot und Raspberry Pi. Preis bei Amazon.de vom 6. November 2026."
-updated: "6. November 2026"
+description: "ELEGOO Smart Robot Car V4.0 zu 79,99 € bei Amazon.de (16. November 2026): Alter, Lieferumfang, Penguin Bot und erste Schritte mit der Arduino IDE."
+updated: "16. November 2026"
 ---
 
 Ein Arduino-Roboterbausatz ist eine Kiste mit Bauteilen: Steuerplatine, Motoren, Sensoren, Fahrgestell und Kabel. Das Kind baut den Roboter und programmiert ihn in C/C++ mit der kostenlosen [Arduino IDE](https://www.arduino.cc/en/software). Das ist ein Schritt über einen blockbasierten Roboter wie den mBot hinaus. Mehr Verkabelung, mehr Tippen, und genau das lässt sich auf andere Elektronik übertragen.
 
-Die Seite richtet sich an Eltern und Lehrkräfte, die einen Bausatz für ein Kind ab etwa 12 Jahren suchen, oder für einen motivierten Teenager. Ein Euro-Preis aus einem französischen Shop steht hier nicht als deutscher Preis.
+Die Seite richtet sich an Eltern und Lehrkräfte, die einen Bausatz für ein Kind ab etwa 12 Jahren suchen, oder für einen motivierten Teenager. Für ein erstes Auto ist das ELEGOO Smart Robot Car V4.0 der Bausatz dieser Seite: **79,99 €** bei Amazon.de am 16. November 2026, 6:10 Uhr. ELEGOO nennt 13+. Der Penguin Bot ist der kleinere Zweibeiner, ab etwa 8 Jahren mit einem Erwachsenen daneben. Ein Euro-Preis aus einem französischen Shop steht hier nicht als deutscher Preis.
 
 ## Was in der Regel in der Kiste liegt
 
@@ -17,9 +17,11 @@ Der Gewinn: Das Kind sieht, was jede Leitung tut, und kann Code und Aufbau ände
 
 ## Zwei ELEGOO-Bausätze
 
-[ELEGOO](/de/marke-elegoo/) nennt für das [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) auf der Herstellerseite 13+ (geprüft am 21. Oktober 2026). In der Amazon.de-Abfrage vom 6. November 2026, 11:23 Uhr, kostet das Angebot [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21) 79,99 €. Der Titel nennt Kamera, UNO R3, Linienverfolgung, Infrarot-Fernbedienung und App-Steuerung. Es gilt der Preis auf der Produktseite am Kauftag.
+![ELEGOO Smart Robot Car V4.0: schwarzes Fahrgestell, Ultraschallsensor und Kameramodul](/images/products/elegoo-robot-car.webp)
 
-Der kleinere Bausatz dieser Auswahl ist der ELEGOO Penguin Bot, ein Zweibeiner, der läuft, Töne spielt und auf eine Infrarot-Fernbedienung reagiert. Der Zusammenbau dauert etwa eine halbe Stunde, ein Programm ist schon geladen, die Bewegung kommt von Servos. Er passt ab etwa 8 Jahren mit einem Erwachsenen daneben, ab etwa 10 Jahren mit etwas Selbstständigkeit. Die reicheren Sensoren des Autos fehlen. Weitere Module kommen später. Diese Seite rechnet sie nicht zu einer Jahressumme zusammen. In derselben Abfrage lautet der Titel dieses Angebots « Robot Biped », nicht Penguin Bot. Deshalb steht hier kein Betrag dafür. [Angebot bei Amazon.de ansehen](https://www.amazon.de/dp/B07GVD6GQH?tag=roboteducat00-21) und die genaue Bezeichnung prüfen, bevor Sie es mit dem Penguin Bot gleichsetzen.
+[ELEGOO](/de/marke-elegoo/) nennt für das [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) auf der Herstellerseite 13+ (geprüft am 21. Oktober 2026). In der Amazon.de-Abfrage vom 16. November 2026, 6:10 Uhr, kostet das Angebot [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21) **79,99 €**. Der Titel nennt Kamera, UNO R3, Linienverfolgung, Infrarot-Fernbedienung und App-Steuerung. Es gilt der Preis auf der Produktseite am Kauftag.
+
+Der kleinere Bausatz dieser Auswahl ist der ELEGOO Penguin Bot, ein Zweibeiner, der läuft, Töne spielt und auf eine Infrarot-Fernbedienung reagiert. Der Zusammenbau dauert etwa eine halbe Stunde, ein Programm ist schon geladen, die Bewegung kommt von Servos. Er passt ab etwa 8 Jahren mit einem Erwachsenen daneben, ab etwa 10 Jahren mit etwas Selbstständigkeit. Die reicheren Sensoren des Autos fehlen. Weitere Module kommen später. Diese Seite rechnet sie nicht zu einer Jahressumme zusammen. In derselben Abfrage kostet [dieses Angebot](https://www.amazon.de/dp/B07GVD6GQH?tag=roboteducat00-21) **69,99 €**. Der Titel lautet « Robot Biped », nicht Penguin Bot. Prüfen Sie die Bezeichnung, bevor Sie es mit dem weißen Penguin Bot gleichsetzen.
 
 ## Passt das Alter?
 
@@ -31,19 +33,19 @@ Der kleinere Bausatz dieser Auswahl ist der ELEGOO Penguin Bot, ein Zweibeiner, 
 </tr></thead><tbody>
 <tr>
 <td data-label="Alter (nur Richtwert)"><span class="td-val">8–10</span></td>
-<td data-label="Empfehlung"><span class="td-val">Lieber ein blockbasierter Roboter (mBot) oder Arduino nur mit enger Begleitung durch Erwachsene</span></td>
+<td data-label="Empfehlung"><span class="td-val">Penguin Bot mit einem Erwachsenen daneben, oder ein Roboter mit Blöcken: <a href="/de/lernroboter-8-jahre/">Lernroboter ab 8 Jahren</a></span></td>
 </tr>
 <tr>
 <td data-label="Alter (nur Richtwert)"><span class="td-val">10–12</span></td>
-<td data-label="Empfehlung"><span class="td-val">Einfacher Arduino-Bausatz, Verkabelung mit Hilfe von Erwachsenen</span></td>
+<td data-label="Empfehlung"><span class="td-val">Penguin Bot mit etwas Selbstständigkeit, oder das Auto mit Hilfe. <a href="/de/lernroboter-10-jahre/">Lernroboter ab 10 Jahren</a></span></td>
 </tr>
 <tr>
 <td data-label="Alter (nur Richtwert)"><span class="td-val">12–14</span></td>
-<td data-label="Empfehlung"><span class="td-val">Arduino-Autobausatz mit wachsender Selbstständigkeit</span></td>
+<td data-label="Empfehlung"><span class="td-val">ELEGOO-Auto mit wachsender Selbstständigkeit. <a href="/de/lernroboter-12-jahre/">Lernroboter ab 12 Jahren</a></span></td>
 </tr>
 <tr>
 <td data-label="Alter (nur Richtwert)"><span class="td-val">14+</span></td>
-<td data-label="Empfehlung"><span class="td-val">Autobausatz plus Erweiterungen (Kamera, weitere Sensoren)</span></td>
+<td data-label="Empfehlung"><span class="td-val">Auto, danach weitere Sensoren. <a href="/de/lernroboter-14-jahre/">Lernroboter ab 14 Jahren</a> und <a href="/de/osoyoo-sport-car-v1-auspacken/">OSOYOO Sport Car</a></span></td>
 </tr>
 </tbody>
 </table>
@@ -103,7 +105,7 @@ Die meisten Sensoren für eine UNO laufen auch auf anderen UNO-kompatiblen Plati
 
 ## Wo kaufen?
 
-Hersteller-Shops und große Marktplätze verkaufen diese Bausätze in Deutschland, Österreich und der Schweiz. Einzelteile bietet der US-Händler SparkFun in seiner [Arduino-Abteilung](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (Affiliate-Link; Versand aus den USA, Zoll und Einfuhrumsatzsteuer beachten). [DFRobot](https://www.dfrobot.com/) liefert international Fahrgestelle und Sensoren. Der [Arduino Store](https://store.arduino.cc/) liefert in die EU. Der geprüfte Preis auf dieser Seite ist der des Auto-Kits bei Amazon.de oben.
+Hersteller-Shops und große Marktplätze verkaufen diese Bausätze in Deutschland, Österreich und der Schweiz. Einzelteile bietet der US-Händler SparkFun in seiner [Arduino-Abteilung](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (Affiliate-Link; Versand aus den USA, Zoll und Einfuhrumsatzsteuer beachten). [DFRobot](https://www.dfrobot.com/) liefert international Fahrgestelle und Sensoren. Der [Arduino Store](https://store.arduino.cc/) liefert in die EU. Die geprüften Preise auf dieser Seite sind die beiden Amazon.de-Angebote oben: 79,99 € für das Auto mit Kamera im Titel, 69,99 € für das Angebot, dessen Titel « Robot Biped » lautet.
 
 ## Erste Schritte
 

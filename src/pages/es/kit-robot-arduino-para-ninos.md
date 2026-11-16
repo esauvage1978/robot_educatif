@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/EsPost.astro
 title: "Kit de robot Arduino para niños: cómo elegirlo (2026)"
-description: "¿Un kit de robot Arduino encaja con tu hijo? Edad, contenido de la caja, coche ELEGOO y Penguin Bot, Arduino frente a mBot y Raspberry Pi. Precios de Amazon.es del 6 de noviembre de 2026."
-updated: "6 de noviembre de 2026"
+description: "Coche ELEGOO V4.0 a 71,99 € y Penguin Bot a 69,99 € en Amazon.es (16 de noviembre de 2026): edad, contenido de la caja y primeros pasos con el Arduino IDE."
+updated: "16 de noviembre de 2026"
 ---
 
 Un kit de robot Arduino es una caja de piezas: placa de control, motores, sensores, chasis y cables. El niño lo monta y lo programa en C/C++ con el [Arduino IDE](https://www.arduino.cc/en/software), gratuito. Es un paso más allá de un robot de bloques como el mBot. Hay más cableado y más código que escribir, y son justo esas destrezas las que sirven para otros proyectos de electrónica.
 
-La página es para padres y docentes que buscan un kit para un niño de al menos 12 años, o para un adolescente ya motivado. Un precio copiado de una tienda francesa no es un precio en España.
+La página es para padres y docentes que buscan un kit para un niño de al menos 12 años, o para un adolescente ya motivado. Para un primer coche, el ELEGOO V4.0 de esta página está a **71,99 €** en Amazon.es el 16 de noviembre de 2026, a las 6:10. ELEGOO indica 13+. El Penguin Bot, el bípedo más pequeño, está a **69,99 €** el mismo día, desde los 8 años con un adulto al lado. Un precio copiado de una tienda francesa no es un precio en España.
 
 ## Qué suele traer la caja
 
@@ -17,11 +17,13 @@ La ventaja es ver qué hace cada cable y poder cambiar el código y el montaje. 
 
 ## Dos kits ELEGOO
 
+![ELEGOO Smart Robot Car V4.0: chasis negro, sensor de ultrasonidos y módulo de cámara](/images/products/elegoo-robot-car.webp)
+
 ELEGOO indica 13+ para el [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) en la página del fabricante, consultada el 21 de octubre de 2026. Mira también la [página de la marca ELEGOO](/es/marca-elegoo/).
 
-En la consulta de precios de Amazon.es del 6 de noviembre de 2026, a las 11:23, la ficha [ELEGOO coche robótico V4.0](https://www.amazon.es/dp/B07474MMB5?tag=roboteducat07-21) estaba a 71,99 €. El título nombra seguimiento de línea, sensor de ultrasonidos, módulo de infrarrojos y placa UNO R3. No nombra una cámara. Si la cámara es el motivo de la compra, confírmalo en la ficha de ese día. Cuenta el precio que figure en la ficha al pagar.
+En la consulta de precios de Amazon.es del 16 de noviembre de 2026, a las 6:10, la ficha [ELEGOO coche robótico V4.0](https://www.amazon.es/dp/B07474MMB5?tag=roboteducat07-21) estaba a **71,99 €**. El título nombra seguimiento de línea, sensor de ultrasonidos, módulo de infrarrojos y placa UNO R3. No nombra una cámara. El kit del fabricante, el de la foto, lleva un módulo de cámara en el chasis. Si la cámara es el motivo de la compra, confírmalo en la ficha de ese día. Cuenta el precio que figure en la ficha al pagar.
 
-El kit más pequeño de esta selección es el ELEGOO Penguin Bot, un bípedo que camina, suena y responde a un mando de infrarrojos. El montaje descrito lleva alrededor de media hora, hay un programa ya cargado y el movimiento lo hacen servos. Encaja desde los 8 años con un adulto al lado, y hacia los 10 con algo de autonomía. No trae los sensores más completos del coche. Los módulos de más llegan después. Esta página no los suma en un presupuesto anual. La ficha [Penguin Bot](https://www.amazon.es/dp/B07GVD6GQH?tag=roboteducat07-21) estaba a 69,99 € en la misma consulta. El título lo llama robot bípedo Penguin BOT, con tutorial de montaje.
+El kit más pequeño de esta selección es el ELEGOO Penguin Bot, un bípedo que camina, suena y responde a un mando de infrarrojos. El montaje descrito lleva alrededor de media hora, hay un programa ya cargado y el movimiento lo hacen servos. Encaja desde los 8 años con un adulto al lado, y hacia los 10 con algo de autonomía. No trae los sensores más completos del coche. Los módulos de más llegan después. Esta página no los suma en un presupuesto anual. La ficha [Penguin Bot](https://www.amazon.es/dp/B07GVD6GQH?tag=roboteducat07-21) estaba a **69,99 €** en la misma consulta. El título lo llama robot bípedo Penguin BOT, con tutorial de montaje.
 
 ## ¿Encaja la edad?
 
@@ -33,19 +35,19 @@ El kit más pequeño de esta selección es el ELEGOO Penguin Bot, un bípedo que
 </tr></thead><tbody>
 <tr>
 <td data-label="Edad (orientativa)"><span class="td-val">8–10</span></td>
-<td data-label="Recomendación"><span class="td-val">mejor un robot de bloques (mBot), o Arduino solo con un adulto muy presente</span></td>
+<td data-label="Recomendación"><span class="td-val">Penguin Bot con un adulto al lado, o un robot de bloques: <a href="/es/robot-programable-8-anos/">robot para 8 años</a></span></td>
 </tr>
 <tr>
 <td data-label="Edad (orientativa)"><span class="td-val">10–12</span></td>
-<td data-label="Recomendación"><span class="td-val">kit Arduino sencillo, cableado con ayuda de un adulto</span></td>
+<td data-label="Recomendación"><span class="td-val">Penguin Bot con algo de autonomía, o el coche con ayuda. <a href="/es/robot-programable-10-anos/">Robot para 10 años</a></span></td>
 </tr>
 <tr>
 <td data-label="Edad (orientativa)"><span class="td-val">12–14</span></td>
-<td data-label="Recomendación"><span class="td-val">kit de coche robot Arduino con cada vez más autonomía</span></td>
+<td data-label="Recomendación"><span class="td-val">Coche ELEGOO con cada vez más autonomía. <a href="/es/robot-programable-12-anos/">Robot para 12 años</a></span></td>
 </tr>
 <tr>
 <td data-label="Edad (orientativa)"><span class="td-val">14+</span></td>
-<td data-label="Recomendación"><span class="td-val">kit de coche más ampliaciones (cámara, otros sensores)</span></td>
+<td data-label="Recomendación"><span class="td-val">Coche, luego más sensores. <a href="/es/robot-programable-14-anos/">Robot para 14 años</a> y <a href="/es/unboxing-osoyoo-sport-car-v1/">OSOYOO Sport Car</a></span></td>
 </tr>
 </tbody>
 </table>

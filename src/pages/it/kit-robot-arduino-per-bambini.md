@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/ItPost.astro
 title: "Kit robot Arduino per bambini: come sceglierlo (2026)"
-description: "Un kit robot Arduino è adatto a vostro figlio? Età, contenuto della scatola, auto ELEGOO e Penguin Bot, Arduino rispetto a mBot e Raspberry Pi. Prezzi Amazon.it del 6 novembre 2026."
-updated: "6 novembre 2026"
+description: "ELEGOO auto robot V4 a 75,99 € e Penguin Bot a 47,49 € su Amazon.it (16 novembre 2026): età, contenuto della scatola e primi passi con l'Arduino IDE."
+updated: "16 novembre 2026"
 ---
 
 Un kit robot Arduino è una scatola di componenti: scheda di controllo, motori, sensori, telaio e cavi. Il bambino lo monta e lo programma in C/C++ con l'[Arduino IDE](https://www.arduino.cc/en/software), gratuito. È un passo oltre un robot a blocchi come l'mBot. Più cablaggio, più codice da scrivere, e sono proprio queste le competenze che restano per altri progetti di elettronica.
 
-La pagina è per genitori e insegnanti che cercano un kit per un bambino di almeno 12 anni, o per un adolescente già motivato. Un prezzo copiato da un negozio francese non è un prezzo italiano.
+La pagina è per genitori e insegnanti che cercano un kit per un bambino di almeno 12 anni, o per un adolescente già motivato. Per una prima auto, il kit ELEGOO di questa pagina è a **75,99 €** su Amazon.it il 16 novembre 2026, ore 6:10. ELEGOO indica 13+. Il Penguin Bot, il bipede più piccolo, è a **47,49 €** lo stesso giorno, dagli 8 anni con un adulto accanto. Un prezzo copiato da un negozio francese non è un prezzo italiano.
 
 ## Che cosa c'è di solito nella scatola
 
@@ -17,11 +17,13 @@ Il vantaggio è vedere che cosa fa ogni filo, e poter cambiare codice e montaggi
 
 ## Due kit ELEGOO
 
+![ELEGOO Smart Robot Car V4.0: telaio nero, sensore a ultrasuoni e modulo fotocamera](/images/products/elegoo-robot-car.webp)
+
 ELEGOO indica 13+ per la [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) sulla pagina del produttore, verificata il 21 ottobre 2026. Vedi anche la [pagina sul marchio ELEGOO](/it/marchio-elegoo/).
 
-Nella rilevazione dei prezzi su Amazon.it del 6 novembre 2026, ore 11:23, la scheda [ELEGOO Car Kit V4.0](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21) non aveva un prezzo: risultava non disponibile. Lo stesso giorno un'altra scheda, [Kit Robot Intelligente Auto V4](https://www.amazon.it/dp/B078Y9RYM2?tag=roboteducat0f-21), era a 75,99 €. Il titolo di questa seconda scheda cita tracciamento di linea, sensore a ultrasuoni, telecomando a infrarossi e FPV. Non è la stessa offerta della prima. Controllate foto e contenuto prima di considerarle intercambiabili. Vale il prezzo del giorno sulla scheda che ordinate.
+Nella rilevazione dei prezzi su Amazon.it del 16 novembre 2026, ore 6:10, la scheda [ELEGOO Car Kit V4.0](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21) non aveva un prezzo: risultava non disponibile. Lo stesso giorno un'altra scheda, [Kit Robot Intelligente Auto V4](https://www.amazon.it/dp/B078Y9RYM2?tag=roboteducat0f-21), era a **75,99 €**. Il titolo di questa seconda scheda cita tracciamento di linea, sensore a ultrasuoni, telecomando a infrarossi e FPV. Non è la stessa offerta della prima. Controllate foto e contenuto prima di considerarle intercambiabili. Vale il prezzo del giorno sulla scheda che ordinate.
 
-Il kit più piccolo di questa scelta è l'ELEGOO Penguin Bot, un bipede che cammina, suona e risponde a un telecomando a infrarossi. Il montaggio descritto dura circa mezz'ora, un programma è già caricato, il movimento arriva dai servomotori. Va bene dagli 8 anni con un adulto accanto, e verso i 10 anni con un po' di autonomia. I sensori più ricchi dell'auto non ci sono. I moduli in più arrivano dopo. Questa pagina non li somma in un budget annuale. La scheda [Penguin Bot](https://www.amazon.it/dp/B07GVD6GQH?tag=roboteducat0f-21) era a 49,99 € nella stessa rilevazione. Il titolo la chiama Penguin Bot bipede, versione bianca, dagli 8 anni.
+Il kit più piccolo di questa scelta è l'ELEGOO Penguin Bot, un bipede che cammina, suona e risponde a un telecomando a infrarossi. Il montaggio descritto dura circa mezz'ora, un programma è già caricato, il movimento arriva dai servomotori. Va bene dagli 8 anni con un adulto accanto, e verso i 10 anni con un po' di autonomia. I sensori più ricchi dell'auto non ci sono. I moduli in più arrivano dopo. Questa pagina non li somma in un budget annuale. La scheda [Penguin Bot](https://www.amazon.it/dp/B07GVD6GQH?tag=roboteducat0f-21) era a **47,49 €** nella stessa rilevazione. Il titolo la chiama Penguin Bot bipede, versione bianca, dagli 8 anni.
 
 ## L'età è adatta?
 
@@ -33,19 +35,19 @@ Il kit più piccolo di questa scelta è l'ELEGOO Penguin Bot, un bipede che camm
 </tr></thead><tbody>
 <tr>
 <td data-label="Età (indicativa)"><span class="td-val">8–10</span></td>
-<td data-label="Consiglio"><span class="td-val">meglio un robot a blocchi (mBot), oppure Arduino con un adulto sempre accanto</span></td>
+<td data-label="Consiglio"><span class="td-val">Penguin Bot con un adulto accanto, oppure un robot a blocchi: <a href="/it/robot-programmabile-8-anni/">robot a 8 anni</a></span></td>
 </tr>
 <tr>
 <td data-label="Età (indicativa)"><span class="td-val">10–12</span></td>
-<td data-label="Consiglio"><span class="td-val">kit Arduino semplice, cablaggio con l'aiuto di un adulto</span></td>
+<td data-label="Consiglio"><span class="td-val">Penguin Bot con un po' di autonomia, o l'auto con un aiuto. <a href="/it/robot-programmabile-10-anni/">Robot a 10 anni</a></span></td>
 </tr>
 <tr>
 <td data-label="Età (indicativa)"><span class="td-val">12–14</span></td>
-<td data-label="Consiglio"><span class="td-val">kit auto robot Arduino con crescente autonomia</span></td>
+<td data-label="Consiglio"><span class="td-val">Auto ELEGOO con crescente autonomia. <a href="/it/robot-programmabile-12-anni/">Robot a 12 anni</a></span></td>
 </tr>
 <tr>
 <td data-label="Età (indicativa)"><span class="td-val">14+</span></td>
-<td data-label="Consiglio"><span class="td-val">kit auto più espansioni (fotocamera, altri sensori)</span></td>
+<td data-label="Consiglio"><span class="td-val">Auto, poi altri sensori. <a href="/it/robot-programmabile-14-anni/">Robot a 14 anni</a> e <a href="/it/unboxing-osoyoo-sport-car-v1/">OSOYOO Sport Car</a></span></td>
 </tr>
 </tbody>
 </table>
