@@ -1559,3 +1559,91 @@ main:has(> .page-layout) {
 		grid-template-columns: 1fr !important;
 	}
 }
+
+/* Menu burger mobile — retrait, zones tactiles, liste OUTILS (toutes langues) */
+:root {
+	--mobile-menu-pad: clamp(0.875rem, 3vw, 1.5rem);
+}
+
+@media (max-width: 768px) {
+	.site-header .mobile-menu {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.site-header .mobile-menu > a,
+	.site-header .mobile-menu-section > a,
+	.site-header .mobile-menu .nav-guides.is-section > .nav-guides__trigger {
+		display: flex !important;
+		align-items: center;
+		box-sizing: border-box;
+		width: 100% !important;
+		max-width: 100%;
+		min-height: 44px;
+		padding: 0.85rem var(--mobile-menu-pad) !important;
+		font-size: 0.9375rem !important;
+		font-weight: 600;
+		line-height: 1.35 !important;
+		white-space: normal !important;
+		overflow-wrap: break-word;
+		word-break: normal;
+		flex-shrink: 0 !important;
+		flex-wrap: nowrap;
+	}
+
+	.site-header .mobile-menu .nav-guides.is-section {
+		padding: 0 !important;
+		width: 100%;
+	}
+
+	.site-header .mobile-menu .nav-guides.is-section > .nav-guides__trigger {
+		justify-content: space-between;
+		gap: 0.5rem;
+		text-align: left;
+		border-radius: 0;
+	}
+
+	.site-header .mobile-menu .nav-guides.is-section .nav-dropdown__caret {
+		margin-inline-start: auto;
+		flex-shrink: 0;
+	}
+
+	.site-header .mobile-menu-section {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.site-header .mobile-menu-section__title {
+		padding: 0.65rem var(--mobile-menu-pad) 0.25rem !important;
+		margin: 0;
+	}
+
+	.site-header .mobile-menu a.nav-bf {
+		display: inline-flex !important;
+		align-items: center;
+		width: auto !important;
+		max-width: calc(100% - 2 * var(--mobile-menu-pad));
+		margin: 0.35rem var(--mobile-menu-pad) 0 !important;
+		padding: 0.55rem 0.9rem !important;
+		min-height: 44px;
+		border-bottom: none;
+	}
+
+	.site-header .mobile-menu a.mobile-menu-cta {
+		box-sizing: border-box;
+	}
+
+	.site-header .mobile-menu .nav-guides.is-section .nav-guides__panel {
+		padding: 0.25rem var(--mobile-menu-pad) 0.75rem !important;
+	}
+
+	.site-header .mobile-menu .nav-guides__group a {
+		display: flex !important;
+		min-height: 44px;
+		align-items: center;
+		padding: 0.5rem 0 !important;
+		white-space: normal !important;
+	}
+}

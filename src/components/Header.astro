@@ -568,10 +568,18 @@ const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe
 	}
 
 	.mobile-menu a {
-		padding: 0.85rem clamp(0.875rem, 3vw, 1.5rem);
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		min-height: 44px;
+		padding: 0.85rem var(--mobile-menu-pad, clamp(0.875rem, 3vw, 1.5rem));
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
+		font-size: 0.9375rem;
+		line-height: 1.35;
+		white-space: normal;
+		overflow-wrap: break-word;
 		border-bottom: 1px solid var(--surface-border);
 	}
 
@@ -581,9 +589,13 @@ const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe
 	}
 
 	.mobile-menu a.nav-bf {
-		margin: 0.65rem clamp(0.875rem, 3vw, 1.5rem) 0.15rem;
+		display: inline-flex;
+		align-items: center;
+		margin: 0.35rem var(--mobile-menu-pad, clamp(0.875rem, 3vw, 1.5rem)) 0;
 		padding: 0.55rem 0.9rem;
-		width: fit-content;
+		width: auto;
+		max-width: calc(100% - 2 * var(--mobile-menu-pad, clamp(0.875rem, 3vw, 1.5rem)));
+		min-height: 44px;
 		border-radius: 999px;
 		background: #111827;
 		color: #ffb020 !important;
@@ -602,9 +614,24 @@ const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe
 		font-weight: 700 !important;
 	}
 
+	.mobile-menu-section {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.mobile-menu-section > a {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		min-height: 44px;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
 	.mobile-menu-section__title {
 		margin: 0;
-		padding: 0.65rem clamp(0.875rem, 3vw, 1.5rem) 0.25rem;
+		padding: 0.65rem var(--mobile-menu-pad, clamp(0.875rem, 3vw, 1.5rem)) 0.25rem;
 		font-size: 0.75rem;
 		font-weight: 800;
 		text-transform: uppercase;
