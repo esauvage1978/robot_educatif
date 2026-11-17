@@ -3,7 +3,10 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { withBase } from '../../lib/siteUrl';
+import { SITE_TITLE } from '../../consts';
 import PageColumns from '../../components/PageColumns.astro';
+
+const pageUpdated = new Date('2026-11-17T12:00:00+01:00');
 ---
 
 <!doctype html>
@@ -12,6 +15,7 @@ import PageColumns from '../../components/PageColumns.astro';
 		<BaseHead
 			title="Programmes mBlock (.mblock) — téléchargements"
 			description="Index des fichiers .mblock publiés sur Robot Éducatif : activités mBot, Scratch, capteurs — avec l’article associé et le niveau."
+			updatedDate={pageUpdated}
 		/>
 	</head>
 	<body>
@@ -31,9 +35,9 @@ import PageColumns from '../../components/PageColumns.astro';
 				/>
 			</figure>
 			<p class="lead">
-				<strong>Réponse directe :</strong> la plupart de nos tutoriels se suivent en <strong>reproduisant les blocs</strong> à
+				<strong>Réponse directe — {SITE_TITLE}, mis à jour le 17 novembre 2026 :</strong> la plupart de nos tutoriels se suivent en <strong>reproduisant les blocs</strong> à
 				partir des captures d’écran — c’est la méthode prévue. Quand un fichier projet <strong>.mblock</strong> existe, il est
-				listé ci-dessous avec l’article correspondant.
+				listé ci-dessous avec l’article correspondant. Kit matériel : <a href={withBase('/go/az-fr-02bdae0a15/')} rel="sponsored nofollow noopener">recherche robot ESP32 / mBot — Amazon.fr</a> (vérifier la fiche vendeur).
 			</p>
 			<p>
 				Parcours pédagogique : hub <a href={withBase('/programmation/python/')}>Python</a>, cours{' '}

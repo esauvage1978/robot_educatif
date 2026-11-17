@@ -2,10 +2,10 @@
 layout: ../../layouts/EsPost.astro
 title: "Robot programable para 6 años, en 1.º de primaria"
 description: "A los 6 años, a menudo en 1.º de primaria: flechas sin pantalla, un ratón de laberinto o un robot ya montado que se programa por bloques."
-updated: "29 de octubre de 2026"
+updated: "17 de noviembre de 2026"
 ---
 
-Algunos enlaces son de afiliación. Si compras a través de ellos, podemos recibir una comisión sin coste adicional para ti. No mostramos un precio. Comprueba el precio de hoy en Amazon.es.
+Algunos enlaces son de afiliación (`/go/`). Si compras a través de ellos, podemos recibir una comisión sin coste adicional para ti. No mostramos un precio. Comprueba el precio de hoy en Amazon.es.
 
 **A los 6 años, a menudo en 1.º de primaria, compra un robot que el niño arranque sin leer un manual.** La decisión real es flechas y nada de pantalla, o bloques al estilo Scratch en una tablet, contigo al lado.
 
@@ -21,17 +21,19 @@ En la ficha: pilas incluidas o no, tablet obligatoria o no, edad que declara el 
 
 ## Tres modelos
 
+![Botley 2.0 — robot programable sin pantalla](/images/products/botley-2.webp)
+
 | Robot | Programación | Pantalla | Para quién |
 |---|---|---|---|
 | Botley 2.0 | Mando de flechas | No | Laberinto, obstáculo, línea negra |
 | Codey Rocky | Bloques en mBlock y luego Python | Tablet u ordenador | Le gusta la tablet y quieres un robot más allá de los 8 |
 | Code & Go Robot Mouse | Botones en el ratón y placas | No | Primer robot, varios niños, un paso más pequeño |
 
-**Botley 2.0** si nunca ha programado y la tablet se queda apartada. Flechas, marcha, y se mira. Los sets actuales añaden obstáculo y línea. El contenido cambia según la caja. Las pilas a menudo no vienen. [Buscar en Amazon.es](https://www.amazon.es/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat07-21).
+**Botley 2.0** si nunca ha programado y la tablet se queda apartada. Flechas, marcha, y se mira. Los sets actuales añaden obstáculo y línea. El contenido cambia según la caja. Las pilas a menudo no vienen. <a href="/go/az-es-f675115d55/" rel="sponsored nofollow noopener">Botley 2.0 en Amazon.es</a>.
 
-**Codey Rocky** está listo. Los bloques de mBlock se parecen a Scratch y más adelante hay Python, por eso sigue teniendo sentido a los 10 o a los 12. Hace falta tablet u ordenador, y el primer emparejamiento lo haces tú. [Makeblock](/es/marca-makeblock/) · [Buscar en Amazon.es](https://www.amazon.es/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat07-21).
+**Codey Rocky** está listo. Los bloques de mBlock se parecen a Scratch y más adelante hay Python, por eso sigue teniendo sentido a los 10 o a los 12. Hace falta tablet u ordenador, y el primer emparejamiento lo haces tú. [Makeblock](/es/marca-makeblock/) · <a href="/go/az-es-0f514360b9/" rel="sponsored nofollow noopener">Codey Rocky en Amazon.es</a>.
 
-**Code & Go Robot Mouse**: botones en el lomo, placas, indicado por el fabricante hacia los 4 años. Los retos se acaban antes que con Botley. Vale para compartir, no es el robot de los 10 años. [Buscar en Amazon.es](https://www.amazon.es/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat07-21).
+**Code & Go Robot Mouse**: botones en el lomo, placas, indicado por el fabricante hacia los 4 años. Los retos se acaban antes que con Botley. Vale para compartir, no es el robot de los 10 años. <a href="/go/az-es-64aedd504e/" rel="sponsored nofollow noopener">robots programables para niños — Amazon.es</a>.
 
 ## Decisión
 

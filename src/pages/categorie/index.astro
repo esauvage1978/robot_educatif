@@ -66,12 +66,13 @@ function entriesForBlock(block: ThemedBlock) {
 const pageTitle = `Catégories — ${SITE_TITLE}`;
 const pageDesc =
 	'Index des rubriques : robots Makeblock, mBlock, Python, Raspberry Pi et guides. Choisissez un thème ou cherchez un article par mot-clé, un thème à la fois.';
+const pageUpdated = new Date('2026-11-17T12:00:00+01:00');
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={pageTitle} description={pageDesc} />
+		<BaseHead title={pageTitle} description={pageDesc} updatedDate={pageUpdated} />
 		<style>
 			.hero-cat {
 				width: 100vw;
@@ -170,7 +171,7 @@ const pageDesc =
 				<div class="hero-cat-inner">
 					<h1>Catégories</h1>
 					<p>
-						<strong>Réponse directe</strong> — chaque article du blog est rangé dans une ou plusieurs rubriques.
+						<strong>Réponse directe (17 novembre 2026)</strong> — chaque article du blog est rangé dans une ou plusieurs rubriques.
 						Utilisez les <strong>sections thématiques</strong> ci-dessous ou la <strong>recherche</strong> pour trouver
 						mBlock, mBot, Python ou Raspberry Pi. Point d’entrée :{' '}
 						<a href="/meilleur-robot-programmable-enfant-2026/">guides robots 2026</a>,{' '}

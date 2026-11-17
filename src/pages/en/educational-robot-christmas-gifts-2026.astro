@@ -3,12 +3,26 @@ import EnPost from '../../layouts/EnPost.astro';
 import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
-import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
-
 const title = 'Educational robot Christmas gifts 2026: picks by age & budget';
 const description =
 	'Christmas 2026 gift guide for coding robots in the UK: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with live Amazon.co.uk prices, photos and age tips for parents.';
-const updated = '6 November 2026';
+const updated = '17 November 2026';
+
+/** Partner search links via /go/ (Amazon.co.uk). */
+const GO_UK: Record<string, string> = {
+	mbot: '/go/az-gb-b5d4d0b7cd/',
+	mbot2: '/go/az-gb-a34aebc7e6/',
+	'codey-rocky': '/go/az-gb-0d9298762a/',
+	'elegoo-penguin': '/go/az-gb-cb491e7ec4/',
+	'raspberry-pi-5-8gb': '/go/az-gb-0d703c15cd/',
+	'code-and-go-souris': '/go/az-gb-22af2d7032/',
+	'bee-bot': '/go/az-gb-22af2d7032/',
+	'tale-bot-pro': '/go/az-gb-22af2d7032/',
+	botley: '/go/az-gb-85ba07832a/',
+};
+function goUk(key: string) {
+	return GO_UK[key] || GO_UK.mbot;
+}
 const cmp = NOEL_COMPARISON.en;
 ---
 
@@ -63,7 +77,7 @@ const cmp = NOEL_COMPARISON.en;
 		At this stage children tolerate <strong>15–30 minutes of assembly</strong> and understand “if obstacle then turn”.
 		<strong>Scratch</strong> (visual block coding) and <strong>Arduino</strong> (a small programmable board) are the two paths
 		most UK kits mention — you do not need both on day one.
-		The <a href={productAmazonUrl('mbot', 'uk')} target="_blank" rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> remains the safe default on Amazon.co.uk: huge teacher community,{' '}
+		The <a href={goUk('mbot')} rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> remains the safe default on Amazon.co.uk: huge teacher community,{' '}
 		<a href="/en/install-mblock-5-windows/">mBlock 5 on Windows</a>, line follower and ultrasonic projects out of the box.
 	</p>
 
@@ -76,7 +90,7 @@ const cmp = NOEL_COMPARISON.en;
 		products={[{ id: 'mbot2', badge: 'Scratch, then Python' }]}
 	/>
 	<p>
-		<strong><a href={productAmazonUrl('mbot2', 'uk')} target="_blank" rel="sponsored nofollow noopener">mBot2</a></strong> adds CyberPi (colour screen, Wi‑Fi, microphone). Ideal when Scratch feels too easy but full
+		<strong><a href={goUk('mbot2')} rel="sponsored nofollow noopener">mBot2</a></strong> adds CyberPi (colour screen, Wi‑Fi, microphone). Ideal when Scratch feels too easy but full
 		Arduino wiring is not ready yet. Compare details in <a href="/en/mbot-vs-mbot2/">mBot vs mBot2</a>.
 	</p>
 
@@ -92,8 +106,8 @@ const cmp = NOEL_COMPARISON.en;
 		]}
 	/>
 	<p>
-		Teens who want <strong>typed code</strong> often prefer the <strong><a href={productAmazonUrl('elegoo-penguin', 'uk')} target="_blank" rel="sponsored nofollow noopener">ELEGOO Penguin Bot</a></strong> (biped, Arduino C) or a{' '}
-		<strong><a href={productAmazonUrl('raspberry-pi-5-8gb', 'uk')} target="_blank" rel="sponsored nofollow noopener">Raspberry Pi 5 (8 GB)</a></strong> for vision, web servers and robot HATs — see{' '}
+		Teens who want <strong>typed code</strong> often prefer the <strong><a href={goUk('elegoo-penguin')} rel="sponsored nofollow noopener">ELEGOO Penguin Bot</a></strong> (biped, Arduino C) or a{' '}
+		<strong><a href={goUk('raspberry-pi-5-8gb')} rel="sponsored nofollow noopener">Raspberry Pi 5 (8 GB)</a></strong> for vision, web servers and robot HATs — see{' '}
 		<a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a>.
 	</p>
 
@@ -107,8 +121,8 @@ const cmp = NOEL_COMPARISON.en;
 	/>
 	<p>
 		Look for <strong>physical buttons</strong> (
-		<a href={productAmazonUrl('bee-bot', 'uk')} target="_blank" rel="sponsored nofollow noopener">Code &amp; Go Robot Mouse</a>,{' '}
-		<a href={productAmazonUrl('tale-bot-pro', 'uk')} target="_blank" rel="sponsored nofollow noopener">Matatalab Tale-Bot Pro</a>
+		<a href={goUk('code-and-go-souris')} rel="sponsored nofollow noopener">Code &amp; Go Robot Mouse</a>,{' '}
+		<a href={goUk('tale-bot-pro')} rel="sponsored nofollow noopener">Matatalab Tale-Bot Pro</a>
 		). Avoid RC “robots” with no programming mode — they
 		are toys, not learning tools. See our <a href="/en/best-programmable-robot-for-kids/">age-based robot guide</a> for vetted options.
 	</p>

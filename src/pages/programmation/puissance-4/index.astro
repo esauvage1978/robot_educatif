@@ -1,6 +1,7 @@
 ---
 import ProgrammationSeriesHub from '../../../components/ProgrammationSeriesHub.astro';
 import { withBase } from '../../../lib/siteUrl';
+import { SITE_TITLE } from '../../../consts';
 ---
 
 <ProgrammationSeriesHub
@@ -11,7 +12,8 @@ import { withBase } from '../../../lib/siteUrl';
 	pageTitle="Puissance 4 en Python"
 >
 	<p>
-		Variante du « connect four » : deux joueurs laissent tomber des jetons dans des <strong>colonnes</strong> ; le premier
+		Sur <strong>{SITE_TITLE}</strong>, cette série <em>Puissance 4</em> met en pratique le Python du site (console, sans Pygame).
+		Dernière relecture : <strong>17 novembre 2026</strong>. Variante du « connect four » : deux joueurs laissent tomber des jetons dans des <strong>colonnes</strong> ; le premier
 		qui aligne <strong>quatre</strong> pions gagne. Tu travailles une grille 2D, des boucles et des tests dans toutes les
 		directions. Prérequis : <a href={withBase('/python-listes-et-chaines/')}>listes</a>,{' '}
 		<a href={withBase('/python-boucles-for-while/')}>boucles</a> et{' '}
@@ -24,10 +26,17 @@ import { withBase } from '../../../lib/siteUrl';
 	<p>
 		<img src={withBase('/images/blog-thumbnails/python-puissance-4-1-cahier-grille.webp')} alt="Grille Puissance 4 en console Python" width="640" height="360" loading="eager" />
 	</p>
+	<p>
+		Pour aller plus loin hors Puissance 4 : <a href={withBase('/programmation/morpion/')}>Morpion en Python</a>,{' '}
+		<a href={withBase('/activite-scratch-le-carre/')}>première boucle Scratch</a> et{' '}
+		<a href={withBase('/meilleur-robot-programmable-enfant-2026/')}>guides robots 2026</a>. Livres jeux Python :{' '}
+		<a href={withBase('/go/aw-113876-0d72e18924/')} rel="sponsored nofollow noopener">kits robot programmable — Cultura</a>.
+	</p>
 	<h2>FAQ rapide</h2>
-	<ul>
-		<li><strong>Combien de chapitres ?</strong> Six, du cahier des charges au jeu complet.</li>
-		<li><strong>Faut-il Pygame ?</strong> Non : tout se joue dans le <strong>terminal</strong> (fenêtre texte).</li>
-		<li><strong>Et après ?</strong> Enchaîne sur <a href={withBase('/python-erreurs-debogage/')}>déboguer son code Python</a>.</li>
-	</ul>
+	<h3>Combien de chapitres ?</h3>
+	<p>Six, du cahier des charges au jeu complet en terminal.</p>
+	<h3>Faut-il Pygame ?</h3>
+	<p>Non : tout se joue dans le <strong>terminal</strong> (fenêtre texte).</p>
+	<h3>Et après ?</h3>
+	<p>Enchaîne sur <a href={withBase('/python-erreurs-debogage/')}>déboguer son code Python</a> ou la série <a href={withBase('/programmation/bataille-navale/')}>Bataille navale</a>.</p>
 </ProgrammationSeriesHub>

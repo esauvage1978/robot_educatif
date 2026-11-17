@@ -2,12 +2,24 @@
 layout: ../../../layouts/EsPost.astro
 title: "Domótica en alquiler: ¿qué se puede instalar sin obras?"
 description: "Inquilino o vivienda temporal: enchufes inteligentes, sensores a pilas, cabezales termostáticos, interruptores inalámbricos y cámaras sin taladrar. Qué instalar, qué pedir al propietario y cómo llevarte todo al mudarte."
-updated: "24 de octubre de 2026"
+updated: "17 de noviembre de 2026"
 ---
+
+Algunos enlaces son de afiliación (`/go/`).
+
+<div class="article-toc" role="navigation" aria-label="Índice">
+<p class="article-toc-title">Índice</p>
+<ul>
+<li><a href="#tabla">Tabla resumen</a></li>
+<li><a href="#sin-riesgo">Instalación sin obras</a></li>
+<li><a href="#acordar">Antes de acordar</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
 
 Ser inquilino no impide tener una casa conectada. La regla es simple: **todo lo que se enchufa, se pega o se atornilla en algo existente** se puede montar y llevarte al irte. Lo que toca el cuadro eléctrico, interruptores empotrados o la caldera requiere permiso del propietario y, a menudo, un electricista autorizado.
 
-## Lo esencial en una tabla
+## Lo esencial en una tabla {#tabla}
 
 <div class="tableau empile">
 <table>
@@ -110,5 +122,21 @@ Módulos empotrados, persianas motorizadas en obra, cuadro eléctrico, termostat
 Un [Home Assistant Green o Raspberry Pi 5](/es/domotica/home-assistant-green-vs-raspberry-pi-5/) se conecta al router por cable. Al mudarte, lo enchufas en la nueva casa: automatizaciones e historial siguen contigo. Para elegir sistema: [Home Assistant, Jeedom, Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/) y [cómo empezar](/es/domotica/como-empezar/).
 
 Un robot educativo en la misma vivienda se elige por el suelo libre, el ruido de los motores y una sola caja el día de la mudanza: [equipo de robótica para inquilinos](/es/equipo-robotica-para-inquilinos/).
+
+Enchufe Zigbee de ejemplo: <a href="/go/az-es-2035357ee8/" rel="sponsored nofollow noopener">SONOFF ZBDongle-E en Amazon.es</a> si montas Home Assistant. Guías relacionadas: [matriz compatibilidad](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/), [navegación LiDAR aspirador](/es/domotica/robot-aspirador-navegacion-lidar/).
+
+## FAQ {#faq}
+
+### ¿Puedo dejar enchufes inteligentes al mudarme?
+
+Sí: son tuyos si los compraste tú.
+
+### ¿Zigbee o Wi‑Fi en alquiler?
+
+Wi‑Fi es más rápido; Zigbee con HA ahorra batería en sensores. Ver [cómo empezar](/es/domotica/como-empezar/).
+
+### ¿Necesito permiso para un termostato en el radiador?
+
+En radiadores de agua suele bastar cambiar la cabeza; guarda la original.
 
 [Todas las guías](/es/domotica/)

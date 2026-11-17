@@ -2,14 +2,25 @@
 layout: ../../../layouts/EsPost.astro
 title: "Test Homey Pro mini: unboxing e instalación (parte 1)"
 description: "Homey Pro mini en casa: contenido de la caja, conectividad, Ethernet e instalación paso a paso en la app. Listo en unos 15 minutos."
-updated: "24 de octubre de 2026"
+updated: "17 de noviembre de 2026"
 ---
+
+<div class="article-toc" role="navigation" aria-label="Índice">
+<p class="article-toc-title">Índice</p>
+<ul>
+<li><a href="#resumen">En resumen</a></li>
+<li><a href="#unboxing">Unboxing</a></li>
+<li><a href="#conectividad">Conectividad</a></li>
+<li><a href="#instalacion">Instalación en la app</a></li>
+<li><a href="#faq">Preguntas frecuentes</a></li>
+</ul>
+</div>
 
 *Prueba iniciada el 23 de octubre de 2026.*
 
 El **Homey Pro mini** de Athom es la versión compacta del Homey Pro: «cerebro» domótico con Zigbee, Matter, Thread, Z-Wave, 433 MHz e infrarrojo sin dongles extra. Antes de conectar enchufes y sensores, primera parte: qué trae la caja y cómo llegar a la pantalla «¡Todo listo!».
 
-## En resumen
+## En resumen {#resumen}
 
 **Lo que nos gustó**
 - Instalación **muy guiada**: ~15 minutos del cable a «Todo listo».
@@ -24,7 +35,7 @@ El **Homey Pro mini** de Athom es la versión compacta del Homey Pro: «cerebro�
 
 Comparativa: [Home Assistant, Jeedom, Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/).
 
-## Unboxing
+## Unboxing {#unboxing}
 
 ![Cartón abierto con Homey Pro mini y adaptador Ethernet](/images/domotique/homey/homey-pro-mini-carton-v2.webp)
 
@@ -44,7 +55,7 @@ Cuadrado negro mate, logo Homey y LED frontal. Cabe junto al router.
 
 ![Parte superior del mini](/images/domotique/homey/homey-pro-mini-boitier-dessus.webp)
 
-## Conectividad
+## Conectividad {#conectividad}
 
 Trasera: **Ethernet RJ45** y **USB-C** de alimentación.
 
@@ -52,7 +63,7 @@ Trasera: **Ethernet RJ45** y **USB-C** de alimentación.
 
 El «Homey Pro Ethernet Adapter» es para el modelo grande sin RJ45; **en el mini sobra**. La prueba del modelo grande: [unboxing e instalación](/es/domotica/test-homey-pro-unboxing-instalacion/).
 
-## Instalación en la app
+## Instalación en la app {#instalacion}
 
 1. App Homey (QR de la nota).  
 2. Crear cuenta.  
@@ -67,13 +78,21 @@ Capturas del asistente (mismas imágenes que la versión francesa): bienvenida, 
 
 Ficha oficial: [Homey Pro mini](https://homey.app/es-es/homey-pro-mini/).
 
-## Preguntas frecuentes
+## Preguntas frecuentes {#faq}
 
-**¿Adaptador Ethernet para el mini?** No; trae RJ45 y cable.
+### ¿Adaptador Ethernet para el mini?
 
-**¿Cuánto tarda?** ~15 min (4 min de actualización).
+No; trae RJ45 y cable.
 
-**¿Qué protocolo para empezar?** Depende de tus dispositivos: [Zigbee, Wi-Fi, Thread o Matter](/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/).
+### ¿Cuánto tarda la instalación?
+
+Unos 15 minutos en nuestra prueba (4 min de actualización de firmware).
+
+### ¿Qué protocolo para empezar?
+
+Depende de tus dispositivos: [Zigbee, Wi-Fi, Thread o Matter](/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/). La [matriz de compatibilidad](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/) ayuda a cruzar dispositivos antes de comprar.
+
+Búsqueda orientativa: <a href="/go/az-es-27c47b19db/" rel="sponsored nofollow noopener">Homey Pro mini en Amazon.es</a> (precio del día en la ficha vendedor).
 
 **Siguiente parte del test**: emparejar Matter/Thread y Zigbee, primeras automatizaciones y valoración completa.
 

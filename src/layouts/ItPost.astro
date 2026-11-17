@@ -16,11 +16,15 @@ import { findPair, IT_PAGES, slugOf } from '../lib/i18n.mjs';
 import { getIllustration } from '../lib/illustration';
 import { withBase } from '../lib/siteUrl';
 import ArticleByline from '../components/ArticleByline.astro';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import { guideArticleDates } from '../lib/guideArticleDates.mjs';
 const fm = Astro.props.frontmatter ?? Astro.props;
 const { title, description, updated } = fm;
 const minutesRead = Number(fm.minutesRead);
 const readingMinutes = Number.isFinite(minutesRead) && minutesRead > 0 ? minutesRead : undefined;
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const { pubDate, updatedDate } = guideArticleDates(fm);
+const articleSlug = _p.replace(/^\/it\//, '').replace(/\/$/, '') || 'page';
 const pair = findPair(_p);
 const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
 const ill = frSlug ? getIllustration(frSlug) : null;
@@ -36,7 +40,15 @@ const reviewOffer = reviewPage?.offer ?? null;
 ---
 <html lang="it">
 	<head>
-		<BaseHead title={title} description={description} image={ogImage} ogType="article" />
+		<BaseHead title={title} description={description} image={ogImage} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<StructuredDataArticle
+			title={title}
+			description={description}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			heroImage={ogImage}
+			articleSlug={articleSlug}
+		/>
 		<StructuredDataFaq items={fm.faqSchema} />
 		<style>
 			main {

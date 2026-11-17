@@ -2,10 +2,10 @@
 layout: ../../layouts/DePost.astro
 title: "Lernroboter mit 6 Jahren: zur Einschulung"
 description: "Mit 6 Jahren, oft zur 1. Klasse: Roboter mit Pfeilen ohne Bildschirm, eine Labyrinth-Maus, oder ein fertiger Roboter mit Blöcken. Was Sie vor dem Kauf prüfen."
-updated: "29. Oktober 2026"
+updated: "17. November 2026"
 ---
 
-Einige Links sind Partnerlinks. Wenn Sie darüber kaufen, erhalten wir möglicherweise eine Provision, ohne Mehrkosten für Sie. Ein Preis steht hier bewusst nicht: Angebote wechseln, und ein aus Frankreich übernommener Betrag wäre kein geprüfter Preis bei Amazon.de. Öffnen Sie den Link und prüfen Sie Tagespreis, genaue Kit-Bezeichnung und Lieferung nach Deutschland.
+Einige Links sind Partnerlinks (`/go/`). Wenn Sie darüber kaufen, erhalten wir möglicherweise eine Provision, ohne Mehrkosten für Sie. Ein Preis steht hier bewusst nicht: Angebote wechseln, und ein aus Frankreich übernommener Betrag wäre kein geprüfter Preis bei Amazon.de. Öffnen Sie den Link und prüfen Sie Tagespreis, genaue Kit-Bezeichnung und Lieferung nach Deutschland.
 
 **Mit 6 Jahren, oft in der 1. Klasse, kaufen Sie einen Roboter, den das Kind ohne Anleitung starten kann.** Die eigentliche Frage ist: Pfeile und kein Bildschirm, oder Blöcke im Scratch-Stil auf einem Tablet, mit Ihnen daneben.
 
@@ -21,17 +21,19 @@ Auf der Angebotsseite: Batterien dabei oder nicht, Tablet nötig oder nicht, Alt
 
 ## Drei Modelle
 
+![Learning Resources Botley 2.0 — bildschirmfreier Lernroboter](/images/products/botley-2.webp)
+
 | Roboter | Programmierung | Bildschirm | Passend für |
 |---|---|---|---|
 | Botley 2.0 | Pfeil-Fernbedienung | Nein | Labyrinth, Hindernis, schwarze Linie |
 | Codey Rocky | Blöcke in mBlock, später Python | Tablet oder Computer | Mag das Tablet, der Roboter soll über 8 hinaus reichen |
 | Code & Go Robot Mouse | Tasten auf der Maus, Platten | Nein | Erstes Gerät, mehrere Kinder, kleinerer Schritt |
 
-**Botley 2.0**, wenn noch nie programmiert wurde und das Tablet ausbleiben soll. Pfeile eingeben, Start, zusehen. Aktuelle Sets ergänzen Hindernis und Linienfolge. Der Lieferumfang wechselt je nach Packung. Batterien fehlen oft. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat00-21).
+**Botley 2.0**, wenn noch nie programmiert wurde und das Tablet ausbleiben soll. Pfeile eingeben, Start, zusehen. Aktuelle Sets ergänzen Hindernis und Linienfolge. Der Lieferumfang wechselt je nach Packung. Batterien fehlen oft. <a href="/go/az-de-d483e8fc08/" rel="sponsored nofollow noopener">Botley 2.0 bei Amazon.de</a>.
 
-**Codey Rocky** ist startklar. mBlock-Blöcke liegen nah an Scratch, später ist Python möglich, deshalb trägt er auch mit 10 oder 12 noch. Tablet oder Computer, und die erste Kopplung macht ein Erwachsener. [Makeblock](/de/marke-makeblock/) · [mBot oder Codey Rocky](/de/mbot-vs-codey-rocky/) · [Bei Amazon.de suchen](https://www.amazon.de/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat00-21).
+**Codey Rocky** ist startklar. mBlock-Blöcke liegen nah an Scratch, später ist Python möglich, deshalb trägt er auch mit 10 oder 12 noch. Tablet oder Computer, und die erste Kopplung macht ein Erwachsener. [Makeblock](/de/marke-makeblock/) · [mBot oder Codey Rocky](/de/mbot-vs-codey-rocky/) · <a href="/go/az-de-6daeb0d4ac/" rel="sponsored nofollow noopener">Codey Rocky suchen — Amazon.de</a> (Preis am Vortag prüfen).
 
-**Code & Go Robot Mouse**: Tasten auf dem Rücken, Labyrinthplatten, vom Hersteller etwa ab 4 Jahren. Die Aufgaben sind schneller ausgereizt als bei Botley. Ein gutes Spiel für mehrere Kinder, kein Roboter für das 10. Lebensjahr. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat00-21).
+**Code & Go Robot Mouse**: Tasten auf dem Rücken, Labyrinthplatten, vom Hersteller etwa ab 4 Jahren. Die Aufgaben sind schneller ausgereizt als bei Botley. Ein gutes Spiel für mehrere Kinder, kein Roboter für das 10. Lebensjahr. <a href="/go/az-de-98343f096a/" rel="sponsored nofollow noopener">Lernroboter für Kinder — Amazon.de</a>.
 
 ## Entscheidung
 
