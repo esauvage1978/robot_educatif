@@ -172,6 +172,6 @@ export const COMPAT_PAGE_META = {
 		description:
 			'Cuadrícula interactiva protocolo × central × módulo con estados y consumo.',
 		intro:
-			'Filtrad por central y protocolo. Referencia octubre 2026 — comprobad la ficha del fabricante.',
+			'Filtrad por central y protocolo. Referencia noviembre 2026 — comprobad la ficha del fabricante.',
 	},
 };

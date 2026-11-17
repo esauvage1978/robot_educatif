@@ -2,7 +2,7 @@
 layout: ../../../layouts/EnPost.astro
 title: "Homey Pro mini: unboxing and setup (part 1)"
 description: "Homey Pro mini first impressions: box contents, ports, Ethernet wiring and step-by-step app setup. Ready in about 15 minutes."
-updated: "24 October 2026"
+updated: "17 November 2026"
 ---
 
 *Also available in [French](/domotique/test-homey-pro-mini-deballage-installation/).*
@@ -11,7 +11,18 @@ updated: "24 October 2026"
 
 The Homey Pro mini arrived this morning—Athom’s compact “brain” for Zigbee, Matter, Thread, Z-Wave, 433 MHz and IR without extra USB radios. Before pairing plugs and sensors, here is part one: what is in the box and how setup runs from unboxing to “All set!”.
 
-## Summary so far
+<div class="article-toc" role="navigation" aria-label="On this page">
+<p class="article-toc-title">On this page</p>
+<ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#unboxing">Unboxing</a></li>
+<li><a href="#ports">Ports</a></li>
+<li><a href="#setup">App setup</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+
+## Summary so far {#summary}
 
 **What we liked**
 
@@ -28,7 +39,9 @@ The Homey Pro mini arrived this morning—Athom’s compact “brain” for Zigb
 
 Context: [Home Assistant, Jeedom, Homey or voice hubs](/en/smart-home/home-assistant-jeedom-homey-which-hub/).
 
-## Unboxing
+## Unboxing {#unboxing}
+
+![Homey Pro mini retail box opened](/images/domotique/homey/homey-pro-mini-carton-v2.webp)
 
 Black understated retail box. Inside:
 
@@ -38,13 +51,21 @@ Black understated retail box. Inside:
 4. Mains USB adapter  
 5. Legal & safety leaflet with QR to [setup.homey.app](https://setup.homey.app)
 
+![Homey Pro mini box contents](/images/domotique/homey/homey-pro-mini-contenu.webp)
+
 The unit is a small matte black square with a front LED—easy to hide by the router.
 
-## Ports
+![Top view of Homey Pro mini](/images/domotique/homey/homey-pro-mini-boitier-dessus.webp)
 
-Rear: **Ethernet RJ45** and **USB-C** power only. We wired Ethernet to a Netgear GS108 switch, then power. The LED went purple: ready to configure. Wi-Fi works, but cable is simpler for a fixed hub.
+## Ports {#ports}
 
-## App setup (our run)
+Rear: **Ethernet RJ45** and **USB-C** power only.
+
+![Ethernet and USB-C ports on Homey Pro mini](/images/domotique/homey/homey-pro-mini-connectique.webp)
+
+We wired Ethernet to a Netgear GS108 switch, then power. The LED went purple: ready to configure. Wi-Fi works, but cable is simpler for a fixed hub. Cross-check devices in our [compatibility matrix](/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/).
+
+## App setup (our run) {#setup}
 
 1. Install Homey app (QR on leaflet).  
 2. Create Homey account.  
@@ -61,16 +82,19 @@ Total **~15 minutes**, plain language throughout.
 
 Official product page: [Homey Pro mini](https://homey.app/homey-pro-mini/) (pricing on the maker’s site).
 
-## FAQ
+## FAQ {#faq}
 
-**Need the Ethernet adapter on the mini?**  
+### Need the Ethernet adapter on the mini?
+
 No—RJ45 and cable are included. The adapter is for the large Homey Pro: [unboxing and setup](/en/smart-home/homey-pro-unboxing-setup/).
 
-**How long is setup?**  
-~15 minutes here, including update.
+### How long is setup?
 
-**Which protocol first?**  
-Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/).
+About 15 minutes in our run, including a firmware update.
+
+### Which protocol first?
+
+Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/). UK search: <a href="/go/az-gb-bfdc8ca423/" rel="sponsored nofollow noopener">Homey Pro mini on Amazon.co.uk</a>.
 
 ## Next in the series
 

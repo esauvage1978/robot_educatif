@@ -2,18 +2,31 @@
 layout: ../../../layouts/ItPost.astro
 title: "Domotica per principianti: da dove iniziare nel 2026?"
 description: "Un primo piano domotico concreto per appartamenti e case in Italia: Wi-Fi, Zigbee, Thread e Matter spiegati, cosa comprare per primo e quali regole elettriche rispettare."
-updated: "24 ottobre 2026"
+updated: "17 novembre 2026"
 ---
+
+Alcuni link sono di affiliazione (`/go/`).
+
+<div class="article-toc" role="navigation" aria-label="Sommario">
+<p class="article-toc-title">Sommario</p>
+<ul>
+<li><a href="#domande">Tre domande</a></li>
+<li><a href="#protocolli">Protocolli</a></li>
+<li><a href="#elettrico">Norme elettriche</a></li>
+<li><a href="#percorso">Percorso</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
 
 Una casa smart non deve per forza cominciare con una grande centralina e un fine settimana di cablaggi. Questa guida propone un percorso passo dopo passo che funziona tanto in un **appartamento in affitto** quanto in una **casa di proprietà**, e indica i punti a cui fare attenzione in Italia: **prese, marcatura e chi può mettere mano all'impianto**.
 
-## 1. Tre domande prima del primo acquisto
+## 1. Tre domande prima del primo acquisto {#domande}
 
 1. **Cosa volete automatizzare per primo?** Luci, riscaldamento, un avviso quando la lavatrice ha finito, oppure la misura dei consumi? Partite da un bisogno reale.
 2. **Vi piace smanettare?** I dispositivi Wi-Fi funzionano subito con un'app; Zigbee e Home Assistant offrono il controllo locale, ma richiedono un po' di configurazione.
 3. **Siete in affitto o proprietari?** In affitto conviene restare su **dispositivi a spina** e sensori a batteria, che non lasciano tracce.
 
-## 2. I protocolli spiegati in modo semplice
+## 2. I protocolli spiegati in modo semplice {#protocolli}
 
 <div class="tableau empile">
 <table>
@@ -51,7 +64,7 @@ Una casa smart non deve per forza cominciare con una grande centralina e un fine
 </table>
 </div>
 
-## 3. Le basi elettriche in Italia
+## 3. Le basi elettriche in Italia {#elettrico}
 
 <div class="tableau empile">
 <table>
@@ -81,13 +94,13 @@ Una casa smart non deve per forza cominciare con una grande centralina e un fine
 
 **Regola pratica:** comprate sempre i dispositivi a spina nella **versione adatta alle vostre prese**. Un adattatore da viaggio non è una soluzione sicura a lungo termine, soprattutto con carichi importanti come una stufetta.
 
-## 4. Un percorso passo dopo passo
+## 4. Un percorso passo dopo passo {#percorso}
 
 **Passo 1: iniziare con il Wi-Fi, senza centralina.** Una o due prese smart con misura dei consumi bastano per programmare una lampada e scoprire quanto consumano davvero i vostri apparecchi. Shelly propone prese in versioni per i diversi paesi: guardate la [gamma di prese Shelly](https://www.shelly.com/collections/smart-plugs) e scegliete la versione europea.
 
 **Passo 2: aggiungere una centralina.** Per il controllo locale installate [Home Assistant](https://www.home-assistant.io/) su un **Home Assistant Green** già pronto oppure su un **Raspberry Pi 5**: confronto in [Home Assistant Green vs Raspberry Pi 5](/it/domotica/home-assistant-green-vs-raspberry-pi-5/).
 
-**Passo 3: aggiungere un coordinatore Zigbee e i primi sensori.** I sensori di temperatura, apertura e movimento costano poco e durano mesi con una pila a bottone. Vedete [la miglior chiavetta Zigbee per Home Assistant](/it/domotica/miglior-chiavetta-zigbee-home-assistant/).
+**Passo 3: aggiungere un coordinatore Zigbee e i primi sensori.** I sensori di temperatura, apertura e movimento costano poco e durano mesi con una pila a bottone. Vedete [la miglior chiavetta Zigbee per Home Assistant](/it/domotica/miglior-chiavetta-zigbee-home-assistant/), la [matrice compatibilità](/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/) e <a href="/go/az-it-6673efde6d/" rel="sponsored nofollow noopener">SONOFF ZBDongle-E su Amazon.it</a>.
 
 **Passo 4: ampliare dove serve.** Moduli dietro gli interruttori (lavoro da elettricista, vedi [Shelly Gen4: quale modulo scegliere](/it/shelly-gen4-quale-modulo-scegliere/)), valvole termostatiche, un robot aspirapolvere o sensori ESP32 fatti in casa.
 
@@ -97,6 +110,20 @@ Una casa smart non deve per forza cominciare con una grande centralina e un fine
 - Usare una presa economica senza marcatura per una stufetta o un bollitore: controllate il **carico massimo** e la **marcatura CE**.
 - Ricablare da soli gli interruttori della luce senza la qualifica necessaria.
 
-**Prossima lettura:** [Prese smart per l'Italia](/it/domotica/prese-smart/).
+**Prossima lettura:** [Prese smart per l'Italia](/it/domotica/prese-smart/), [domotica in affitto](/it/domotica/domotica-affitto-senza-lavori/) e [protocolli Zigbee / Matter](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/).
+
+## FAQ {#faq}
+
+### Serve un permesso in affitto?
+
+No per spine smart e sensori a batteria; impianto fisso solo con proprietario ed elettricista.
+
+### Home Assistant o Homey mini?
+
+Home Assistant è flessibile; Homey integra più radio. Confronto: [Home Assistant, Jeedom, Homey](/it/domotica/home-assistant-jeedom-homey-quale-sistema/).
+
+### Da quale scheda ESP32 partire?
+
+DevKitC classico per ESPHome — vedi [quale scheda ESP32](/it/domotica/quale-scheda-esp32-domotica/).
 
 [Tutte le guide alla domotica](/it/domotica/)

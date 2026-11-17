@@ -97,6 +97,6 @@ Una casa inteligente no tiene por qué empezar con una gran central y un fin de 
 - Usar un enchufe barato sin marcado para un calefactor o un hervidor: revisa la **carga máxima** y el **marcado CE**.
 - Recablear tú mismo los interruptores de la luz sin la cualificación necesaria.
 
-**Siguiente lectura:** [Enchufes inteligentes para España](/es/domotica/enchufes-inteligentes/).
+**Siguiente lectura:** [Enchufes inteligentes para España](/es/domotica/enchufes-inteligentes/), [domótica en alquiler sin obras](/es/domotica/domotica-alquiler-sin-obras/), [matriz de compatibilidad](/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/) y [test Homey Pro mini](/es/domotica/test-homey-pro-mini-unboxing-instalacion/).
 
 [Todas las guías de domótica](/es/domotica/)

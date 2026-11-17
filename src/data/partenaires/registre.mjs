@@ -289,6 +289,32 @@ function echapper(s) {
 
 const HORS_ARTICLE = /\/(affiliation|affiliate|affiliazione|afiliacion|transpar|werbehinweis|mentions|impressum|privacy|confidential|cookies|contact|kontakt|contatti|contacto|a-propos|about|ueber-uns|chi-siamo|partenariat|partnership|404)(\/|$)/;
 
+/** Liens éditoriaux manuels quand la détection automatique ne trouve rien (B08). */
+const EDITORIAL_LINKS = {
+	'cambuy-de': {
+		es: [
+			{ href: '/es/domotica/como-empezar/', titre: 'Domótica para principiantes' },
+			{ href: '/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/', titre: 'Matriz compatibilidad HA / Homey' },
+			{ href: '/es/domotica/robot-aspirador-navegacion-lidar/', titre: 'Robots aspirador: navegación LiDAR' },
+		],
+		de: [
+			{ href: '/de/smart-home/einstieg/', titre: 'Smart Home Einstieg' },
+			{ href: '/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/', titre: 'Kompatibilitätsmatrix' },
+		],
+		fr: [
+			{ href: '/domotique/debuter-en-domotique-guide-complet/', titre: 'Débuter en domotique' },
+			{ href: '/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/', titre: 'Matrice compatibilité' },
+		],
+	},
+};
+
+export function editorialPour(partenaire, lang) {
+	const bloc = EDITORIAL_LINKS[partenaire.slug];
+	if (!bloc) return [];
+	const langue = lang === 'uk' || lang === 'ca' || lang === 'us' ? 'en' : lang;
+	return bloc[langue] || bloc.fr || [];
+}
+
 export function articlesPour(partenaire, lang) {
   const pages = indexer();
   let motif = '';

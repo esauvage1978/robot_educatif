@@ -12,12 +12,14 @@ import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.ast
 import DomotiqueBreadcrumbNav from '../components/DomotiqueBreadcrumbNav.astro';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
 	pubDate: Date;
+	updatedDate?: Date;
 	articlePath: string;
 	hubLabel: string;
 	/** Pages codes erreurs / pièces détachées (conformité SAV) */
@@ -30,8 +32,20 @@ interface Props {
 	skipDefaultBreadcrumb?: boolean;
 }
 
-const { title, description, lang, pubDate, articlePath, hubLabel, repairGuide = false, breadcrumbItems, contentProvidesH1 = false, skipDefaultBreadcrumb = false } =
-	Astro.props;
+const {
+	title,
+	description,
+	lang,
+	pubDate,
+	updatedDate = new Date('2026-11-17T11:00:00+01:00'),
+	articlePath,
+	hubLabel,
+	repairGuide = false,
+	breadcrumbItems,
+	contentProvidesH1 = false,
+	skipDefaultBreadcrumb = false,
+} = Astro.props;
+const articleSlug = articlePath.replace(/^\/(fr\/)?/, '').replace(/\/$/, '');
 const formLang = lang === 'fr' ? 'fr' : lang;
 const hubPath =
 	lang === 'fr'
@@ -66,7 +80,14 @@ const crossLinkVariant =
 
 <html lang={lang === 'fr' ? 'fr' : lang}>
 	<head>
-		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} />
+		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<StructuredDataArticle
+			title={title}
+			description={description}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			articleSlug={articleSlug}
+		/>
 		<StructuredDataBreadcrumb items={breadcrumbJsonLd} />
 		<style>
 			main {
@@ -126,8 +147,9 @@ const crossLinkVariant =
 					<h1>{title}</h1>
 					<p style="font-size: 1.05rem; color: rgb(var(--gray-dark));">{description}</p>
 					<p style="font-size: 0.9rem; color: rgb(var(--gray-dark)); margin-top: 0.75rem;">
+						{lang === 'fr' ? 'Mis à jour le' : lang === 'de' ? 'Aktualisiert am' : lang === 'it' ? 'Aggiornato il' : lang === 'es' ? 'Actualizado el' : 'Updated'}{' '}
 						<FormattedDate
-							date={pubDate}
+							date={updatedDate}
 							locale={lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : lang === 'it' ? 'it-IT' : lang === 'es' ? 'es-ES' : 'en-GB'}
 						/>{' '}
 						· {ARTICLE_AUTHOR}

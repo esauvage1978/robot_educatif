@@ -2,14 +2,28 @@
 layout: ../../../layouts/ItPost.astro
 title: "Zigbee, Wi-Fi, Z-Wave, Thread o Matter: quale protocollo domotico scegliere?"
 description: "Protocolli domotici spiegati in modo semplice: frequenze, mesh, gateway, consumi e compatibilità con Home Assistant. Tabella comparativa e consigli per iniziare in Italia."
-updated: "24 ottobre 2026"
+updated: "17 novembre 2026"
 ---
+
+Alcuni link sono di affiliazione (`/go/`): possono generare una commissione senza costi aggiuntivi.
+
+<div class="article-toc" role="navigation" aria-label="Sommario">
+<p class="article-toc-title">Sommario</p>
+<ul>
+<li><a href="#tabella">L’essenziale in una tabella</a></li>
+<li><a href="#wifi">Wi-Fi</a></li>
+<li><a href="#zigbee">Zigbee</a></li>
+<li><a href="#zwave">Z-Wave</a></li>
+<li><a href="#thread">Thread e Matter</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
 
 Prima di comprare il primo sensore, conviene capire **in quale « lingua » parleranno i dispositivi**. Una presa Wi-Fi, un sensore Zigbee e una lampadina Matter non si collegano allo stesso modo, e questa scelta determina quale gateway acquistare. Qui riassumiamo i cinque protocolli che troverete in negozio, basandoci sulle documentazioni ufficiali ([Connectivity Standards Alliance](https://csa-iot.org/all-solutions/matter/), [Thread Group](https://www.threadgroup.org/What-is-Thread/Overview), [Z-Wave Alliance](https://z-wavealliance.org/), [integrazioni Home Assistant](https://www.home-assistant.io/integrations/)).
 
 In Italia lo Zigbee usa la stessa banda **2,4 GHz** del resto d’Europa; le chiavette USB che compri online funzionano senza adattamenti regionali.
 
-## L’essenziale in una tabella
+## L’essenziale in una tabella {#tabella}
 
 <div class="tableau empile">
 <table>
@@ -65,23 +79,23 @@ In Italia lo Zigbee usa la stessa banda **2,4 GHz** del resto d’Europa; le chi
 </table>
 </div>
 
-**La nostra scelta per iniziare: Zigbee**, con una chiavetta coordinatrice collegata a Home Assistant. Il catalogo è ampio, i sensori costano poco e durano a lungo con le pile, e tutto resta in locale. Confronto delle chiavette: [miglior chiavetta Zigbee per Home Assistant](/it/domotica/miglior-chiavetta-zigbee-home-assistant/).
+**La nostra scelta per iniziare: Zigbee**, con una chiavetta coordinatrice collegata a Home Assistant. Il catalogo è ampio, i sensori costano poco e durano a lungo con le pile, e tutto resta in locale. Confronto delle chiavette: [miglior chiavetta Zigbee per Home Assistant](/it/domotica/miglior-chiavetta-zigbee-home-assistant/). Per ordinare: <a href="/go/az-it-6673efde6d/" rel="sponsored nofollow noopener">ricerca SONOFF ZBDongle-E su Amazon.it</a> (verificate versione e prezzo del giorno).
 
-## Wi-Fi: il più semplice, non il più sobrio
+## Wi-Fi: il più semplice, non il più sobrio {#wifi}
 
 Un dispositivo Wi-Fi si collega direttamente al router: nessun gateway da acquistare. Va bene per una [presa smart](/it/domotica/prese-smart/) o una telecamera, sempre collegate alla rete. Il Wi-Fi però consuma troppo per un piccolo sensore a batteria, e ogni apparecchio occupa un posto sulla rete del router. Molti prodotti Wi-Fi entry-level passano dal cloud del produttore: verificate che esista un’integrazione **locale** prima dell’acquisto.
 
-## Zigbee: lo standard dei sensori
+## Zigbee: lo standard dei sensori {#zigbee}
 
 Zigbee usa la radio IEEE 802.15.4 a 2,4 GHz. I dispositivi a rete (prese, lampadine) **inoltro** i messaggi: più ne aggiungete, più la rete copre distanze maggiori. Serve un **coordinatore**, di solito una chiavetta USB; Home Assistant lo gestisce con ZHA o Zigbee2MQTT. Dettagli in [Zigbee2MQTT o ZHA](/it/domotica/zigbee2mqtt-o-zha-home-assistant/). Esempio: il [sensore di temperatura Zigbee](/it/domotica/sensore-temperatura-zigbee/) può durare mesi con una piletta.
 
 Attenzione: Zigbee e Wi-Fi condividono i 2,4 GHz. Allontanate la chiavetta dal router con una prolunga USB e separate i canali.
 
-## Z-Wave: robusto, catalogo più stretto
+## Z-Wave: robusto, catalogo più stretto {#zwave}
 
 Z-Wave trasmette intorno a **868,4 MHz** in Europa, lontano dal Wi-Fi, con meno interferenze. Rete mesh e prodotti certificati Z-Wave Alliance. In cambio, meno scelta e prezzi spesso più alti dello Zigbee equivalente. La frequenza cambia per regione (908,4 MHz negli USA): un modulo americano **non** funziona in Italia.
 
-## Thread e Matter: la nuova generazione
+## Thread e Matter: la nuova generazione {#thread}
 
 **Thread** è una mesh a basso consumo su IEEE 802.15.4, con IPv6: ogni dispositivo ha un indirizzo IP. Serve un **border router**; alcuni speaker e router recenti ne integrano uno.
 
@@ -94,6 +108,20 @@ Z-Wave trasmette intorno a **868,4 MHz** in Europa, lontano dal Wi-Fi, con meno 
 - **Casa in cemento, distanze grandi**: Z-Wave o una rete Zigbee con molte prese ripetitore.
 - **Volete costruire sensori fai-da-te**: [ESP32 con ESPHome](/it/domotica/esp32-esphome-sensore-temperatura/) usa il Wi-Fi; alcune schede recenti supportano Thread ([quale scheda ESP32](/it/domotica/quale-scheda-esp32-domotica/)).
 
-Per il resto del percorso: [domotica per principianti](/it/domotica/come-iniziare/) e [Home Assistant, Jeedom, Homey o box commerciali](/it/domotica/home-assistant-jeedom-homey-quale-sistema/).
+Per il resto del percorso: [domotica per principianti](/it/domotica/come-iniziare/), la [matrice compatibilità HA / Homey](/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/) e [Home Assistant, Jeedom, Homey o box commerciali](/it/domotica/home-assistant-jeedom-homey-quale-sistema/).
+
+## FAQ {#faq}
+
+### Meglio Zigbee o Matter per chi inizia con Home Assistant?
+
+Zigbee per sensori a batteria e mesh collaudata; Matter quando volete lo stesso dispositivo anche su Apple Home o Google Home senza dongle extra.
+
+### Serve una chiavetta USB per lo Zigbee?
+
+Sì con Home Assistant su PC o Raspberry Pi: un coordinatore USB (es. ZBDongle-E) oppure un hub tipo Homey che integra già le radio.
+
+### Il Wi-Fi 2,4 GHz interferisce con lo Zigbee?
+
+Spesso sì: usate una prolunga USB e separate i canali Wi-Fi e Zigbee sul router.
 
 [Tutte le guide](/it/domotica/)

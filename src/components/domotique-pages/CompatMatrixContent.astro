@@ -21,6 +21,14 @@ const meta = COMPAT_PAGE_META[lang];
 			<a href={withBase('/domotique/capteur-temperature-zigbee/')}>comparatif capteur température Zigbee</a> et le{' '}
 			<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>choix du dongle Zigbee</a>.
 		</>
+	) : lang === 'es' ? (
+		<>
+			<strong>Leyenda:</strong> <em>Nativo</em> = integración oficial o muy estable; <em>Plugin</em> = extensión o puente (Zigbee2MQTT, HACS…);
+			<em> No</em> = no previsto o nube obligatoria. Antes de comprar, cruce con{' '}
+			<a href={withBase('/es/domotica/robot-aspirador-navegacion-lidar/')}>navegación LiDAR en aspiradores</a>,{' '}
+			<a href={withBase('/es/domotica/test-homey-pro-mini-unboxing-instalacion/')}>Homey Pro mini (parte 1)</a> y{' '}
+			<a href={withBase('/es/domotica/como-empezar/')}>domótica para principiantes</a>.
+		</>
 	) : (
 		meta.intro
 	)}

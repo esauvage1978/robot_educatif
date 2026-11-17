@@ -2,18 +2,31 @@
 layout: ../../../layouts/EnPost.astro
 title: "Smart home for beginners (UK & US): where to start in 2026"
 description: "A practical first smart home plan for UK and US homes: Wi-Fi, Zigbee, Thread and Matter explained, what to buy first, and the electrical rules that differ between 230V and 120V."
-updated: "21 October 2026"
+updated: "17 November 2026"
 ---
+
+Some links are partner links (`/go/`).
+
+<div class="article-toc" role="navigation" aria-label="On this page">
+<p class="article-toc-title">On this page</p>
+<ul>
+<li><a href="#questions">Three questions</a></li>
+<li><a href="#standards">Wireless standards</a></li>
+<li><a href="#uk-us">UK vs US</a></li>
+<li><a href="#steps">Step-by-step</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
 
 A smart home doesn't have to start with a big hub and a weekend of wiring. This guide gives you a step-by-step path that works in a **UK flat** or a **US house**, and flags the points where the two countries really differ: **plugs, mains voltage, certification and who is allowed to wire what**.
 
-## 1. Three questions before you buy anything
+## 1. Three questions before you buy anything {#questions}
 
 1. **What do you want to automate first?** Lights, heating, a washing-machine alert or energy monitoring? Start with one real need.
 2. **Do you want to tinker?** Wi-Fi devices work out of the box with an app; Zigbee and Home Assistant give you local control but need a little set-up.
 3. **Do you rent or own?** Renters should stick to **plug-in devices** and battery sensors that leave no trace.
 
-## 2. Wireless standards in plain English
+## 2. Wireless standards in plain English {#standards}
 
 <div class="tableau empile">
 <table>
@@ -51,7 +64,7 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 </table>
 </div>
 
-## 3. What differs between the UK and the US
+## 3. What differs between the UK and the US {#uk-us}
 
 <div class="tableau empile">
 <table>
@@ -86,13 +99,13 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 
 **Practical rule:** always buy the **UK or US version** of a plug-in device. An EU plug in a travel adaptor is not a safe permanent solution, especially for high loads such as heaters.
 
-## 4. A step-by-step path
+## 4. A step-by-step path {#steps}
 
 **Step 1: start with Wi-Fi and no hub.** One or two smart plugs with energy monitoring let you schedule a lamp and see what your appliances really use. Shelly makes plugs in local versions: see the [Shelly smart plug range](https://www.shelly.com/collections/smart-plugs) and pick the UK or US model.
 
 **Step 2: add a home hub.** For local control, install [Home Assistant](https://www.home-assistant.io/) on a ready-made **Home Assistant Green** or on a **Raspberry Pi 5**: compare them in [Home Assistant Green vs Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/).
 
-**Step 3: add a Zigbee coordinator and your first sensors.** Temperature, door and motion sensors are cheap and run for months on a coin cell. See [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/).
+**Step 3: add a Zigbee coordinator and your first sensors.** Temperature, door and motion sensors are cheap and run for months on a coin cell. See [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/), our [compatibility matrix](/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/) and <a href="/go/az-gb-c0e0c96683/" rel="sponsored nofollow noopener">SONOFF ZBDongle-E on Amazon.co.uk</a> (verify listing before order).
 
 **Step 4: expand where it helps.** Relays behind switches (a job for an electrician if you're not qualified), radiator valves, a robot vacuum or DIY ESP32 sensors.
 
@@ -102,6 +115,20 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 - Using a cheap uncertified plug for a heater or kettle: check the **rated load** and the **UKCA** or **UL/ETL** marking.
 - Rewiring light switches yourself without the right qualifications.
 
-**Next:** [Smart plugs for the UK and US](/en/smart-home/smart-plugs-uk-us/).
+**Next:** [Smart plugs for the UK and US](/en/smart-home/smart-plugs-uk-us/), [ESP32 projects hub](/en/smart-home/esp32-projects/) and [Homey Pro mini unboxing](/en/smart-home/homey-pro-mini-unboxing-setup/).
+
+## FAQ {#faq}
+
+### Do renters need permission for smart plugs?
+
+No for plug-in gear; fixed wiring needs landlord approval and a qualified electrician.
+
+### Zigbee dongle or all-in-one hub?
+
+A USB coordinator with Home Assistant is flexible; Homey Pro mini bundles radios — see [Home Assistant vs Homey](/en/smart-home/home-assistant-jeedom-homey-which-hub/).
+
+### Matter or Zigbee first?
+
+Zigbee for cheap battery sensors today; Matter when you want one label across Apple, Google and Alexa.
 
 [All smart-home guides](/en/smart-home/)

@@ -2,13 +2,13 @@
 interface Props { lang: string; slug: string }
 const { lang, slug } = Astro.props;
 import './partenaires.css';
-import { PUBLIES, PREFIX, textes, logoDe, articlesPour, liensUtiles, dateAffichee, paysDe } from '../../data/partenaires/registre.mjs';
+import { PUBLIES, PREFIX, textes, logoDe, articlesPour, editorialPour, liensUtiles, dateAffichee, paysDe } from '../../data/partenaires/registre.mjs';
 const t = textes(lang);
 const langue = (lang in PREFIX ? lang : 'fr') as keyof typeof PREFIX;
 const index = PREFIX[langue];
 const p = PUBLIES.find((x) => x.slug === slug);
 if (!p) throw new Error(`partenaire inconnu : ${slug}`);
-const articles = articlesPour(p, lang);
+const articles = [...articlesPour(p, lang), ...editorialPour(p, lang)];
 const utiles = liensUtiles(lang);
 const voisins = PUBLIES.filter((x) => x.groupe === p.groupe && x.slug !== p.slug);
 const logo = logoDe(p.slug);

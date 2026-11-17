@@ -47,7 +47,6 @@ const redirectedPaths = new Set([
 	'/en/robot-for-10-year-old/',
 	'/en/robot-for-12-year-old/',
 	'/en/best-screen-free-coding-toys/',
-	'/uk/educational-robot-christmas-gifts-2026/',
 	'/en/smart-home/esp32-smart-home-projects/',
 	'/uk/smart-home/esp32-smart-home-projects/',
 	'/ca/smart-home/esp32-smart-home-projects/',
@@ -81,7 +80,6 @@ export default defineConfig({
 		'/en/robot-for-10-year-old/': '/en/best-robot-for-a-10-year-old/',
 		'/en/robot-for-12-year-old/': '/en/best-robot-for-a-12-year-old/',
 		'/en/best-screen-free-coding-toys/': '/en/best-robot-for-a-6-year-old/',
-		'/uk/educational-robot-christmas-gifts-2026/': '/en/educational-robot-christmas-gifts-2026/',
 	},
 	integrations: [
 		mdx(),

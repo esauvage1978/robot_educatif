@@ -18,6 +18,14 @@ const accueil = lang === 'fr' ? '/' : `/${lang}/`;
   <p class="pp-fil"><a href={accueil}>{t.accueil}</a></p>
   <h1>{t.titreIndex}</h1>
   <p class="pp-intro">{t.intro}</p>
+  {lang === 'es' && (
+    <p class="pp-intro" style="margin-top:0.75rem;">
+      Contenido del sitio que puede cruzarse con revendedores internacionales (p. ej. <a href="/es/socios/cambuy-de/">cambuy DE</a>) :{' '}
+      <a href="/es/domotica/como-empezar/">cómo empezar en domótica</a>,{' '}
+      <a href="/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/">matriz de compatibilidad</a> y{' '}
+      <a href="/es/domotica/domotica-alquiler-sin-obras/">domótica en alquiler sin obras</a>.
+    </p>
+  )}
   {liste.length === 0 ? <p>{t.vide}</p> : (
     <>
       <div class="pp-filtres" id="pp-filtres">
