@@ -235,18 +235,6 @@
       "exclure": []
     },
     {
-      "id": "aosu-da",
-      "mid": "128145",
-      "nom": "AOSU DA",
-      "marque": "AOSU DA",
-      "pages": "toutes",
-      "liensSite": true,
-      "aIntegrer": false,
-      "aVerifier": false,
-      "comparaisonPrix": true,
-      "exclure": []
-    },
-    {
       "id": "apolosign",
       "mid": "118701",
       "nom": "Apolosign",

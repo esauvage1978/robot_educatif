@@ -130,14 +130,6 @@ Alle laut Fiche **IP65**, Gegensprechen, Sirene, Scheinwerfer; Cloud optional.
 
 Eigenes Grundstück filmen — **nicht** öffentliche Straße oder Nachbargrundstück. Maskierungszonen in der App nutzen. Orientierung: [BfDI – Videoüberwachung privat](https://www.bfdi.bund.de/DE/Themen/Technik/Telekommunikation/Videoüberwachung/videoueberwachung-node.html).
 
-
-
-## AOSU (Alternative DE — SolarCam)
-
-**AOSU** vertreibt solarbetriebene Überwachungskameras auf [aosulife.com/de](https://www.aosulife.com/de/). Laut Awin-Mail vom 05/11/2026: **20 % Rabatt auf die SolarCam T2 Pro** (kein öffentlicher Gutscheincode in der Mail — Angebot auf der Händlerseite prüfen). RTSP/Home Assistant vor Kauf verifizieren.
-
-<p><a href="https://www.awin1.com/cread.php?awinmid=128145&amp;awinaffid=3126073&amp;ued=https%3A%2F%2Fwww.aosulife.com%2Fde%2F" rel="sponsored nofollow noopener" target="_blank" data-awin-link data-awin-mid="128145">AOSU DE (SolarCam) →</a> <em>(Affiliate-Link Awin)</em></p>
-
 ## FAQ
 
 **Brauche ich ein Cloud-Abo?**  
