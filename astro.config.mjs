@@ -16,7 +16,7 @@ import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
 
 // Build metadata synchronously at config time
-const { articleDates, thinCategories, latestDate, domotiqueLatest } = buildSitemapMetadata();
+const { articleDates, latestDate, domotiqueLatest } = buildSitemapMetadata();
 
 // URLs redirected via .htaccess (301) — exclude from sitemap
 const redirectedPaths = new Set([
@@ -104,15 +104,7 @@ export default defineConfig({
 					return false;
 				}
 				
-				// Exclude thin category pages (<3 articles, same threshold as noindex in [slug].astro)
-				if (path.startsWith('/categorie/') && path !== '/categorie/') {
-					const catSlug = path.replace(/^\/categorie\/|\/$/g, '');
-					if (thinCategories.has(catSlug)) {
-						return false;
-					}
-				}
-				
-				return true;
+return true;
 			},
 			serialize: (item) => {
 				const url = new URL(item.url);

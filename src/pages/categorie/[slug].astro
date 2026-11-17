@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const pageTitle = `${entry.label} — guides robotique`;
 const pageDesc = buildCategoryMetaDescription(entry.label, entry.posts.length);
-const shouldNoIndex = entry.posts.length < 3;
+const shouldNoIndex = false;
 
 const POST_BLURBS: Record<string, string> = {
 	'mbot-mon-premier-robot-educatif': 'Premier montage et connexion mBlock — idéal après le choix du kit.',
