@@ -208,7 +208,14 @@ const STATIC_LANG_PAIRS = [
 	{ fr: '/marque-makeblock/', en: '/en/makeblock-brand/', de: '/de/marke-makeblock/', it: '/it/marchio-makeblock/', es: '/es/marca-makeblock/' },
 	{ fr: '/marque-matatalab/', en: '/en/matatalab-brand/', de: '/de/marke-matatalab/', it: '/it/marchio-matatalab/', es: '/es/marca-matatalab/' },
 	{ fr: '/marque-elegoo/', en: '/en/elegoo-brand/', de: '/de/marke-elegoo/', it: '/it/marchio-elegoo/', es: '/es/marca-elegoo/' },
-	{ fr: '/marque-lego/', en: '/en/lego-education-brand/', de: '/de/marke-lego-education/' },
+	{
+		fr: '/marque-lego/',
+		en: '/en/lego-education-brand/',
+		de: '/de/marke-lego-education/',
+		it: '/it/marchio-lego-education/',
+		es: '/es/marca-lego-education/',
+		nl: '/nl/lego-education-merk/',
+	},
 	{ fr: '/marque-raspberry-pi/', en: '/en/raspberry-pi-brand/', de: '/de/marke-raspberry-pi/', it: '/it/marchio-raspberry-pi/', es: '/es/marca-raspberry-pi/' },
 	{ fr: '/marque-sonoff/', en: '/en/sonoff-brand/', de: '/de/marke-sonoff/' },
 	{ it: '/it/shelly-gen4-quale-modulo-scegliere/', es: '/es/shelly-gen4-que-modulo-elegir/' },
@@ -718,7 +725,7 @@ export const ES_PAGES = [
 
 ];
 export const langOf = (p) => {
-	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es']) {
+	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es', 'nl']) {
 		if (p === `/${l}` || p.startsWith(`/${l}/`)) return l;
 	}
 	return 'fr';
@@ -745,6 +752,7 @@ export function findPair(pathname) {
 			x.de === p ||
 			x.it === p ||
 			x.es === p ||
+			x.nl === p ||
 			x.uk === p ||
 			x.ca === p ||
 			x.us === p,
