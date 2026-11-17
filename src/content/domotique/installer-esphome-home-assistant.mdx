@@ -1,15 +1,46 @@
 ---
-title: Installer ESPHome dans Home Assistant
-description: "Installez ESPHome Device Builder : add-on, secrets.yaml, chiffrement, premier ESP32-C6 et adoption dans HA. Matériel, schéma GPIO, YAML ESPHome et Home Ass"
+title: "Installer ESPHome dans Home Assistant : projet ESPHome pas à pas"
+description: "Projet ESPHome dans Home Assistant : add-on Device Builder, secrets.yaml, premier ESP32-C6 et adoption. Matériel, GPIO, YAML ESPHome."
 pubDate: 2026-10-30T00:00:00Z
+updatedDate: 2026-11-17
 category: "esp32"
 products: ["esp32-c6-devkitc", "xiao-esp32c6"]
 priority: 7
+faqSchema:
+  - question: "Où installer ESPHome si je n'ai pas Home Assistant OS ?"
+    answer: "Sur Container ou Core, installez ESPHome séparément (pip ou Docker) puis ouvrez le tableau de bord sur le port 6052."
+  - question: "Pourquoi secrets.yaml est-il obligatoire ?"
+    answer: "Il garde Wi-Fi, OTA et clé API chiffrée hors des fichiers d'appareils que vous partagez ou versionnez."
+  - question: "Quelle carte pour un premier projet ESPHome ?"
+    answer: "ESP32-C6 DevKitC-1 : Wi-Fi 2,4 GHz, USB-C, bien documentée sur ESPHome et dans nos tutoriels GPIO."
 ---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+Ce guide décrit un **projet ESPHome** complet dans **Home Assistant** : installer l’outil, sécuriser les secrets, préparer une carte **ESP32** et l’adopter dans HA.
 
 **ESPHome** est un logiciel qui transforme une carte ESP32, une petite carte électronique équipée du Wi-Fi, en appareil domotique : vous décrivez ce que la carte doit faire dans un simple fichier de configuration appelé YAML, et ESPHome en fait le programme de la carte, sans que vous ayez à écrire de code. Dans Home Assistant, le logiciel libre qui réunit vos appareils connectés, le module complémentaire **ESPHome Device Builder** fournit l'éditeur, le compilateur (l'outil qui fabrique le programme) et l'outil de mise à jour. Une fois installé, il sert à tous vos projets ESP32.
 
 **Résultat attendu :** ESPHome ouvert dans la barre latérale, un fichier `secrets.yaml` et un premier appareil prêt à être flashé. **Durée :** 20 minutes. **Difficulté :** débutant.
+
+![ESP32-C6 DevKitC — carte de référence pour un projet ESPHome](/images/products/esp32-c6-devkitc.webp)
+
+<ProductBox
+  name="ESP32-C6 DevKitC-1"
+  searchQuery="ESP32-C6 DevKitC-1"
+  image="/images/products/esp32-c6-devkitc.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Wi-Fi 2,4 GHz',
+    'USB-C',
+    'Compatible ESPHome',
+    'Idéal premier flash USB'
+  ]}
+  badge="Projet ESPHome"
+  position={1}
+/>
+
+Carte conseillée : <a href="/go/az-fr-4fd178ce38/" rel="sponsored nofollow noopener">ESP32-C6-DevKitC-1 sur Amazon</a> (lien partenaire).
 
 ## Quelle méthode d'installation ?
 
@@ -103,4 +134,4 @@ Le premier flash se fait par câble USB : suivez [flasher un ESP32 avec ESPHome]
 
 Suite : choisissez un [projet ESP32](/domotique/projets-esp32-domotique/) et vérifiez les bases du [câblage GPIO](/domotique/bases-cablage-esp32-gpio/).
 
-<small>Mis à jour le 30 octobre 2026. Sources : [documentation ESPHome](https://esphome.io/) et [documentation Home Assistant](https://www.home-assistant.io/). Vérifiez les noms de menus sur votre version.</small>
+<small>Mis à jour le 17 novembre 2026. Sources : [documentation ESPHome](https://esphome.io/) et [documentation Home Assistant](https://www.home-assistant.io/). Vérifiez les noms de menus sur votre version.</small>

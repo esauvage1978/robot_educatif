@@ -18,6 +18,24 @@ const allPosts = await getCollection('blog');
 const posts = [...allPosts]
 	.filter((p) => !isProgrammingSeriesArticle(p))
 	.sort(compareBlogPostsByLastActivityDesc);
+
+const blogIndexUpdated = new Date('2026-11-17T12:00:00+01:00');
+const blogCategories = [
+	{ href: '/categorie/mbot/', label: 'mBot' },
+	{ href: '/categorie/mblock/', label: 'mBlock' },
+	{ href: '/categorie/scratch/', label: 'Scratch' },
+	{ href: '/categorie/raspberry-pi/', label: 'Raspberry Pi' },
+	{ href: '/categorie/domotique/', label: 'Domotique' },
+];
+const collectionJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'Blog — robotique éducative',
+	description:
+		'Tutoriels mBlock et Scratch, comparatifs de robots et idées d’activités pour programmer à la maison ou en classe.',
+	dateModified: blogIndexUpdated.toISOString(),
+	url: withBase('/blog/'),
+};
 ---
 
 <!doctype html>
@@ -26,7 +44,9 @@ const posts = [...allPosts]
 		<BaseHead
 			title="Blog ROBOT éducatif"
 			description="Blog ROBOT éducatif : tutoriels mBlock et Scratch, comparatifs de robots et idées d’activités pour programmer à la maison ou en classe. Des articles concrets."
+			updatedDate={blogIndexUpdated}
 		/>
+		<script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
 		<style>
 			.hero-blog {
 				width: 100%;
@@ -202,9 +222,45 @@ const posts = [...allPosts]
 						Retours terrain, comparatifs et activités pour enseigner ou apprendre la programmation et la
 						robotique avec du matériel grand public et des kits pédagogiques.
 					</p>
+					<p style="margin-top: 0.75rem; font-size: 0.95rem; color: rgb(var(--gray-dark));">
+						<strong>Dernière mise à jour de cette page :</strong>{' '}
+						<time datetime="2026-11-17">17 novembre 2026</time>.
+					</p>
 				</div>
 			</section>
 			<div class="blog-wrap">
+					<section style="margin-bottom: 1.5rem;">
+						<h2 style="margin: 0 0 0.75rem 0; font-size: 1.15rem;">Parcourir par thème</h2>
+						<table class="tableau empile" style="width: 100%;">
+							<thead>
+								<tr>
+									<th scope="col">Thème</th>
+									<th scope="col">Hub</th>
+								</tr>
+							</thead>
+							<tbody>
+								{blogCategories.map((c) => (
+									<tr>
+										<td data-label="Thème">
+											<span class="td-val">{c.label}</span>
+										</td>
+										<td data-label="Hub">
+											<span class="td-val">
+												<a href={withBase(c.href)}>{c.href}</a>
+											</span>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+						<p style="margin: 0.75rem 0 0; font-size: 0.88rem; color: rgb(var(--gray));">
+							Liens partenaires possibles (Amazon.fr) — ex.{' '}
+							<a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener">
+								robots programmables sur Amazon
+							</a>
+							.
+						</p>
+					</section>
 					<section>
 						<h2 style="margin: 0 0 1rem 0;">Articles</h2>
 						<p style="margin: 0 0 1.5rem 0; color: rgb(var(--gray-dark));">

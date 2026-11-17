@@ -14,6 +14,7 @@ interface Props {
 	title: string;
 	description: string;
 	pubDate: Date;
+	updatedDate?: Date;
 	articlePath: string;
 	hubLabel?: string;
 	hubPath?: string;
@@ -23,10 +24,12 @@ const {
 	title,
 	description,
 	pubDate,
+	updatedDate,
 	articlePath,
 	hubLabel = 'Guides & outils',
 	hubPath = '/meilleur-robot-programmable-enfant-2026/',
 } = Astro.props;
+const displayDate = updatedDate ?? pubDate;
 
 const breadcrumbJsonLd = [
 	{ name: 'Accueil', url: withBase('/') },
@@ -37,7 +40,7 @@ const breadcrumbJsonLd = [
 
 <html lang="fr">
 	<head>
-		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} />
+		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
 		<StructuredDataBreadcrumb items={breadcrumbJsonLd} />
 		<style>
 			main {
@@ -87,7 +90,14 @@ const breadcrumbJsonLd = [
 					<h1>{title}</h1>
 					<p style="font-size: 1.05rem; color: rgb(var(--gray-dark));">{description}</p>
 					<p style="font-size: 0.9rem; color: rgb(var(--gray-dark)); margin-top: 0.75rem;">
-						<FormattedDate date={pubDate} /> · {ARTICLE_AUTHOR}
+						{updatedDate ? (
+							<>
+								Mis à jour le <FormattedDate date={displayDate} />
+							</>
+						) : (
+							<FormattedDate date={displayDate} />
+						)}{' '}
+						· {ARTICLE_AUTHOR}
 					</p>
 				</header>
 				<div class="article-content prose">

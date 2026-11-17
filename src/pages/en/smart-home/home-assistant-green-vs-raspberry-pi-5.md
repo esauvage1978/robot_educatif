@@ -2,8 +2,18 @@
 layout: ../../../layouts/EnPost.astro
 title: "Home Assistant Green vs Raspberry Pi 5: which to choose (2026)"
 description: "Home Assistant Green or a Raspberry Pi 5 for your smart home hub? Official specs side by side, what's in the box, what you must add, and who each one suits."
-updated: "21 October 2026"
+updated: "17 November 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "Home Assistant Green or Raspberry Pi 5 for a first hub?"
+    answer: "Green if you want plug-and-play Home Assistant with case, storage and PSU included; Pi 5 4GB if you accept flashing a card and buying cooling and power for more headroom and NVMe options."
+  - question: "Is 4GB enough on Home Assistant Green?"
+    answer: "Yes for most homes with dozens of Zigbee devices and few cameras. Heavy camera stacks or many add-ons may need Pi 5 8GB instead."
+  - question: "Do I need a Zigbee USB stick on both?"
+    answer: "Yes — neither has a built-in coordinator; budget a dongle on a short USB extension for either path."
 ---
+
+<p><em>Last updated 17 November 2026.</em></p>
 
 Both run **Home Assistant OS** and both make an excellent local smart home hub. The difference is **set-up time versus flexibility**. Specs below come from the official pages: [Home Assistant Green](https://www.home-assistant.io/green/) and [Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) (checked 21 October 2026). We have not benchmarked them ourselves.
 
@@ -99,5 +109,22 @@ Not sure which Pi 5 memory size? Read [Raspberry Pi 5: which RAM to buy](/en/ras
 Neither device has Zigbee built in. Plug in a USB coordinator on a short extension cable to reduce interference: see [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/).
 
 **Verdict:** Green for zero-hassle; Pi 5 for power and flexibility.
+
+![Home Assistant Green smart home hub in its enclosure](/images/products/home-assistant-green.webp)
+
+## Where to buy
+
+- <a href="/go/az-gb-81defa28ab/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon UK</a>
+- <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon UK</a> · see [which Pi 5 RAM to buy](/en/raspberry-pi-5-which-ram/)
+
+## FAQ
+
+**Green or Pi 5 if I am new to Home Assistant?**  
+Green — one cable and you are in the UI. Pi 5 rewards you later if you want NVMe, GPIO or more RAM.
+
+**Can I move my setup when I rent?**  
+Both are small boxes that unplug from the router; see [smart home for renters without drilling](/en/smart-home/smart-home-renters-no-drilling/).
+
+*Amazon Associates — commission possible on eligible purchases.*
 
 [All smart-home guides](/en/smart-home/)

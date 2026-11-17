@@ -2,11 +2,11 @@
 /** @typedef {'mbot'|'mbot2'|'both'} RobotTarget */
 
 export const SENSOR_CALIB_PAGE = {
-	title: 'Étalonnage et dépannage capteurs mBot / mBot2',
+	title: 'Capteur mBot / mBot2 ne marche pas : étalonnage et dépannage',
 	description:
-		'Tableau interactif : suiveur de ligne Quad RGB, ultrason, gyroscope CyberPi, capteur de lumière — réglages mBlock, valeurs types et pistes de dépannage en classe.',
+		'Tableau interactif quand un capteur mBot ou mBot2 ne marche pas : ligne Quad RGB, ultrason, gyro CyberPi, lumière — réglages mBlock, valeurs types et dépannage.',
 	intro:
-		'Filtrez par robot et par capteur. Les indicateurs donnent une idée du temps et du matériel nécessaires ; testez toujours sur tapis propre et batterie chargée avant un cours.',
+		'Le robot ne suit plus la ligne, l’ultrason reste bloqué ou le gyro dérive ? Filtrez par robot et par capteur. Les colonnes indiquent temps et matériel ; testez sur tapis propre et batterie chargée avant un cours.',
 };
 
 export const SENSOR_KINDS = {

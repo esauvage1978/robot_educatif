@@ -2,7 +2,8 @@
 layout: ../../../layouts/EnPost.astro
 title: "First useful smart home automations"
 description: "Ten simple first automations for your home: light, heating, washing machine, away mode... explained for Home Assistant and for Homey, with no coding required."
-updated: "30 October 2026"
+updated: "17 November 2026"
+schemaUpdated: "2026-11-17"
 faqSchema:
   - question: "Do I need to learn YAML?"
     answer: "Not to start. The Home Assistant visual editor covers these ten cases. YAML becomes useful later, to keep a copy of your rules or for advanced needs."
@@ -14,6 +15,29 @@ faqSchema:
     answer: "In our ESP32 project ideas and in the complete beginner guide, which maps the whole path."
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "First useful smart home automations",
+  "dateModified": "2026-11-17",
+  "inLanguage": "en"
+}
+</script>
+
+<p><em>Last updated 17 November 2026.</em></p>
+
+<div class="article-toc" role="navigation" aria-label="Table of contents">
+<p class="article-toc-title">Contents</p>
+<ul>
+<li><a href="#principle">Trigger, condition, action</a></li>
+<li><a href="#automations">Ten automations</a></li>
+<li><a href="#yaml">YAML example</a></li>
+<li><a href="#tips">Practical tips</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+
 Your hub is plugged in, your first sensors are recognised, and now what? This is the moment when a smart home becomes truly useful: when the house acts on its own. A good automation answers a real need ("I do not want to heat with the windows open"), not the urge for a gadget.
 
 This page gives you ten simple ideas. For each one, you will know what it is for, what you need, and how to create it in Home Assistant (free software that brings all your devices together) as well as in Homey (a ready-made hub you buy off the shelf). No need to know how to code. The equipment is presented in the [first devices to buy](/en/smart-home/first-smart-home-devices-to-buy/), and unfamiliar words are in the [glossary](/en/smart-home/smart-home-glossary/).
@@ -23,9 +47,10 @@ This page gives you ten simple ideas. For each one, you will know what it is for
 - [First smart home devices to buy](/en/smart-home/first-smart-home-devices-to-buy/)
 - [Smart home glossary](/en/smart-home/smart-home-glossary/)
 - [Homey Pro mini: unboxing and setup](/en/smart-home/homey-pro-mini-unboxing-setup/)
-- [Install Home Assistant on a Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/)
+- [Install Home Assistant on a Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/) — hardware: [Pi 5 which RAM](/en/raspberry-pi-5-which-ram/) · <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Pi 5 4GB (UK)</a>
+- [ESP32 project ideas](/en/smart-home/esp32-smart-home-project-ideas/) for DIY sensors
 
-## The principle, in three words
+<h2 id="principle">The principle, in three words</h2>
 
 Every automation follows the same pattern: an event triggers it, a condition may specify in which case it should act, and an action does what is asked. The two programs use different words for the same idea.
 
@@ -37,7 +62,9 @@ Every automation follows the same pattern: an event triggers it, a condition may
 
 In Home Assistant, you create a rule from the Settings menu, then Automations & scenes, with a visual editor: the labels may vary slightly with the version. In Homey, you assemble cards in the Flows section. No line of code is needed for these ten cases. The small YAML example further down (a text format for writing a rule by hand) is only an illustration.
 
-## 1. Turn on the light when someone passes
+<h2 id="automations">Ten starter automations</h2>
+
+### 1. Turn on the light when someone passes
 
 **What it is for:** the hallway lights up at night without you looking for the switch, then goes off when nobody moves any more.  
 **What you need:** a motion detector and a light (smart bulb, plug or relay).
@@ -46,7 +73,7 @@ In Home Assistant, choose the motion detector as the trigger, add a condition "i
 
 In Homey, assemble a card "When motion is detected", "And it is night", "Then turn on the light". A second Flow, with a delay card, turns the light off.
 
-## 2. Get warned when a window stays open with the heating on
+### 2. Get warned when a window stays open with the heating on
 
 **What it is for:** avoid heating for nothing.  
 **What you need:** a contact sensor and a connected heating device (radiator valve, plug or thermostat).
@@ -55,7 +82,7 @@ In Home Assistant, trigger the rule when the sensor says "open", add the conditi
 
 In Homey, it is the same chain with a card "When the contact opens", "And the heating is on", "Then send a notification", and if your device allows it, a card to lower the setpoint.
 
-## 3. Know when the washing machine has finished
+### 3. Know when the washing machine has finished
 
 **What it is for:** receive a message as soon as the cycle ends, so the laundry does not stay damp.  
 **What you need:** a plug that measures electricity consumption.
@@ -64,7 +91,7 @@ In Home Assistant, the rule fires when the power drops back under a low threshol
 
 The right thresholds depend on your machine: look at its consumption curve once before setting the values.
 
-## 4. "Away" mode: switch everything off when leaving
+### 4. "Away" mode: switch everything off when leaving
 
 **What it is for:** a single gesture, or your leaving the house, switches off the lights and some plugs.  
 **What you need:** a wireless button, or your phone's presence detection.
@@ -73,28 +100,28 @@ In Home Assistant, trigger the rule when the person leaves the house (or when a 
 
 Phone location is never perfect. Always keep a physical button as a backup.
 
-## 5. A night light at a fixed time for the children
+### 5. A night light at a fixed time for the children
 
 **What it is for:** a soft light that comes on at bedtime.  
 **What you need:** a dimmable bulb.
 
 In Home Assistant, choose a time as the trigger and turn on the light at low brightness. In Homey, "When the time is...", "Then turn on the light at such a percentage".
 
-## 6. An alert if the temperature gets too low
+### 6. An alert if the temperature gets too low
 
 **What it is for:** detect a risk of frozen pipes, or a lack of heating.  
 **What you need:** a temperature sensor.
 
 In Home Assistant, trigger the rule when the temperature falls under a threshold (for example five degrees) and send a notification, possibly while turning on a heater. In Homey, "When the temperature becomes lower than...", "Then send an alert".
 
-## 7. Turn on a lamp at sunset
+### 7. Turn on a lamp at sunset
 
 **What it is for:** a warm atmosphere at the end of the day.  
 **What you need:** a connected light.
 
 In Home Assistant, use the "sunset" trigger (you can shift it by a few minutes), then turn on the light. In Homey, "When the sun sets", "Then turn on".
 
-## 8. Cut standby power at night
+### 8. Cut standby power at night
 
 **What it is for:** save the electricity of devices that stay on for nothing, such as a television and its box.  
 **What you need:** plugs that can be controlled remotely.
@@ -103,21 +130,21 @@ In Home Assistant, switch the plugs off at 11:30 pm and back on at 7 am if neede
 
 First check that the device can stand being cut off abruptly: a network hard drive (NAS) or some set-top boxes do not like it at all.
 
-## 9. Get notified when the front door opens
+### 9. Get notified when the front door opens
 
 **What it is for:** know who comes in, for example when the children come home alone.  
 **What you need:** a contact sensor.
 
 In Home Assistant, send a notification as soon as the sensor opens, with the optional condition "nobody is home". In Homey, "When the door opens", "Then send a notification".
 
-## 10. Remember to air the room
+### 10. Remember to air the room
 
 **What it is for:** a reminder to open the windows for ten minutes, at a fixed time or when the air is too stale.  
 **What you need:** either nothing, just the time; or a CO₂ sensor, which measures the gas that builds up in a closed room (see [this project with a Raspberry Pi and an SCD41 sensor](/en/smart-home/raspberry-pi-co2-scd41-home-assistant/)).
 
 In Home Assistant, trigger the rule at a regular time, or when the CO₂ level exceeds a threshold, then send a notification. In Homey, "When the time comes" or "When CO₂ is high", then "Then notify".
 
-## A YAML example for Home Assistant
+<h2 id="yaml">A YAML example for Home Assistant</h2>
 
 Here is the first automation (the hallway light) written as text. You can copy it into the editor in YAML mode, after replacing the names with those of your own devices.
 
@@ -141,13 +168,13 @@ automation:
 
 This example has not been run on your installation. After adapting it, use the check tool of the Home Assistant editor before saving it.
 
-## A few tips so you do not drown
+<h2 id="tips">A few tips so you do not drown</h2>
 
 An automation should answer a single need, not three. Give it a meaningful name, such as "Living room window alert with radiator", so you can find it again in six months. Test it first with a simple notification before entrusting it with a heavier action, like cutting the heating. And for the washing machine consumption thresholds, measure before you set them.
 
 To continue the path, move on to the [beginner mistakes](/en/smart-home/smart-home-beginner-mistakes-faq/) or go back to the [complete guide](/en/smart-home/begin-smart-home-complete-guide/).
 
-## Frequently asked questions
+<h2 id="faq">FAQ</h2>
 
 **Do I need to learn YAML?**
 Not to start. The Home Assistant visual editor covers these ten cases. YAML becomes useful later, to keep a copy of your rules or for advanced needs.

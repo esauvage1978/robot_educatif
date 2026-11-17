@@ -2,7 +2,13 @@
 layout: ../../layouts/EsPost.astro
 title: "CyberPi de Makeblock: opinión y tutorial de Python para empezar"
 description: "Opinión sobre la CyberPi de Makeblock, una placa programable con pantalla y sensores: puntos fuertes, límites, seguridad de la batería y primer programa en Python con mBlock."
-updated: "31 de octubre de 2026"
+updated: "17 de noviembre de 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "¿A partir de qué edad encaja la CyberPi?"
+    answer: "Makeblock la orienta a partir de unos 10 años, con lectura en el PC y un adulto en la primera instalación."
+  - question: "¿Hace falta un mBot para la CyberPi?"
+    answer: "No. La placa funciona sola; el mBot2 usa la misma CyberPi como cerebro del robot."
 ---
 
 ¿Has oído hablar de la **CyberPi** de [Makeblock](/es/marca-makeblock/) y te preguntas qué se puede hacer realmente con esta pequeña placa transparente con pantalla? Interesa a los estudiantes curiosos de secundaria, a los profesores de tecnología y a los padres que quieren ir un poco más allá del simple videojuego. En este artículo te decimos a quién le conviene, qué hace bien, qué no hace y, a continuación, te guiamos paso a paso para escribir tu primer programa en **Python**, un lenguaje de programación muy utilizado que se escribe con texto, a diferencia de los bloques de colores que se ensamblan con el ratón.

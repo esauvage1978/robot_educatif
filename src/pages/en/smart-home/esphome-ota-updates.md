@@ -2,7 +2,15 @@
 layout: ../../../layouts/EnPost.astro
 title: ESPHome OTA updates without a cable
 description: "Update an ESP32 over Wi-Fi with ESPHome: OTA option, password, Home Assistant, safe mode and fixes."
-updated: "30 October 2026"
+updated: "17 November 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "Can I update ESPHome without a USB cable?"
+    answer: "Yes, after the first USB flash. Add an ota: block with a password in your YAML; later edits compile and upload over Wi-Fi from ESPHome or Home Assistant on the same LAN."
+  - question: "What if OTA fails midway?"
+    answer: "Move the device closer to the router, retry, or use ESPHome safe mode / fallback AP. If the firmware is broken, reflash once over USB."
+  - question: "Is OTA safe on a smart home ESP32?"
+    answer: "Keep a strong OTA password, never expose port 3232 to the Internet, and store API keys in secrets.yaml — same LAN-only rule as Home Assistant."
 ---
 **OTA** stands for “Over The Air”: updating the program of an ESP32, a small electronic board with Wi-Fi, over the wireless network, without unplugging it from the wall or carrying it back to the computer to plug in a USB cable. For a sensor fixed in a ceiling void, a wall tablet or a solenoid valve in the garden, this is what makes maintenance practical: you edit your configuration file (the YAML) from your armchair, and the board updates itself.
 
@@ -75,4 +83,14 @@ Keep an OTA password, never expose it to the Internet (port 3232 must never be f
 
 Next: [step-by-step ESP32 projects](/en/smart-home/esp32-smart-home-project-ideas/) and [GPIO wiring basics](/en/smart-home/esp32-wiring-gpio-basics/).
 
-<small>Updated on 30 October 2026. Source: [ESPHome documentation, OTA platform](https://esphome.io/components/ota/esphome/). Defaults may change between versions.</small>
+Board used in our ESPHome tutorials: <a href="/go/az-gb-b6d570bd8d/" rel="sponsored nofollow noopener">ESP32-C6 DevKitC-1 on Amazon UK</a>.
+
+## FAQ
+
+**Can I update ESPHome without USB after the first flash?**  
+Yes — keep the `ota:` block and password in YAML; compile from ESPHome or Home Assistant on the same Wi-Fi.
+
+**OTA upload keeps failing?**  
+Check signal, reserve a fixed IP if mDNS fails, and never forward OTA port 3232 from your router.
+
+<small>Updated on 17 November 2026. Source: [ESPHome documentation, OTA platform](https://esphome.io/components/ota/esphome/). Defaults may change between versions.</small>

@@ -2,12 +2,53 @@
 layout: ../../layouts/EnPost.astro
 title: "Makeblock CyberPi: review and Python tutorial for beginners"
 description: "Review of the Makeblock CyberPi, a programmable board with a screen and sensors: strengths, limits, battery safety and a first Python program with mBlock."
-updated: "31 October 2026"
+updated: "17 November 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "What is the Makeblock CyberPi?"
+    answer: "CyberPi is a compact ESP32 board with a 1.44-inch colour screen, joystick, microphone, speaker, light sensor and gyroscope. It powers the mBot2 robot and can be bought alone for desk projects in mBlock blocks or Python."
+  - question: "At what age is CyberPi appropriate?"
+    answer: "From about 8–9 with an adult for blocks; from about 10 for Python with support. It suits middle-school makers who already understand loops from Scratch or mBlock."
+  - question: "Can RJ25 mBot sensors plug into CyberPi?"
+    answer: "No. CyberPi uses the mBuild magnetic bus. Legacy mBot RJ25 modules need the classic mCore board, not CyberPi."
+  - question: "CyberPi alone or mBot2?"
+    answer: "CyberPi alone for screen, sound and desk coding. Choose mBot2 if you want a rolling robot with the same CyberPi brain, encoder motors and rechargeable battery."
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Makeblock CyberPi: review and Python tutorial for beginners",
+  "description": "Review of the Makeblock CyberPi board: specs, safety, mBuild vs RJ25, and a first Python program in mBlock.",
+  "dateModified": "2026-11-17",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "Emmanuel Sauvage" }
+}
+</script>
+
+Some links on this page are affiliate links. **Amazon.co.uk** is the default shop below; check today’s listing — we do not invent local prices.
+
+<p><em>Last updated 17 November 2026.</em></p>
+
+<div class="article-toc" role="navigation" aria-label="Table of contents">
+<p class="article-toc-title">Contents</p>
+<ul>
+<li><a href="#what-is">What is CyberPi?</a></li>
+<li><a href="#specs">Specifications</a></li>
+<li><a href="#connectivity">Wi-Fi and Bluetooth</a></li>
+<li><a href="#power">Power and safety</a></li>
+<li><a href="#connectors">mBuild vs RJ25</a></li>
+<li><a href="#opinion">Our opinion</a></li>
+<li><a href="#tutorial">Python tutorial</a></li>
+<li><a href="#buy">Where to buy</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
 
 You have heard about the **CyberPi** from [Makeblock](/en/makeblock-brand/), and you are wondering what you can really do with this small transparent board with a screen? It interests curious middle-schoolers, technology teachers and parents who want to go a little further than simple video games. In this article we tell you who it suits, what it does well, what it does not do, and then we guide you step by step to write your first program in **Python**, a very widely used programming language that you write as text, as opposed to the coloured blocks you assemble with a mouse.
 
-## What is the CyberPi?
+<h2 id="what-is">What is the CyberPi?</h2>
 
 The CyberPi is a **development board**: a small electronic board that you program so that it reacts to what it senses and to what you ask of it. You can think of it as the brain of a project, to which you then add motors, lights or sensors. This is the brain that Makeblock also puts inside the [mBot2](/en/mbot-vs-mbot2/) robot, but the board also exists on its own, without wheels, for projects that stay on the table.
 
@@ -25,13 +66,29 @@ On the board itself, there is enough to interact with without plugging anything 
 
 The board’s brain is a chip from the **ESP32** family, very common among electronics hobbyists and able to connect wirelessly. The exact contents of the kit vary depending on the offer: some shops sell the board alone, others sell kits with the Pocket Shield extension or other accessories. Check the exact list before ordering.
 
-## Wi-Fi and Bluetooth: what are they for in practice?
+<h2 id="specs">CyberPi specifications (reference)</h2>
+
+| Feature | Detail |
+| --- | --- |
+| **MCU** | ESP32 (dual-core, Wi-Fi and Bluetooth) |
+| **Display** | 1.44″ colour LCD, 128 × 128 pixels |
+| **Inputs** | Joystick, buttons A/B, light sensor, gyroscope |
+| **Audio** | Speaker and microphone on board |
+| **Lighting** | RGB LEDs programmable in mBlock / Python |
+| **Power** | USB-C (data) or compatible LiPo when used standalone |
+| **Extensions** | **mBuild** magnetic modules (not RJ25) |
+| **Software** | **mBlock 5** — blocks and Python on the same device |
+| **Typical use** | Desk projects; also built into [mBot2](/en/mbot-vs-mbot2/) |
+
+Compare the rolling robot: [mBot vs mBot2](/en/mbot-vs-mbot2/) · age hub: [when to start coding with kids](/en/when-to-start-coding-with-kids/).
+
+<h2 id="connectivity">Wi-Fi and Bluetooth: what are they for in practice?</h2>
 
 **Wi-Fi** connects the board to your home network, and therefore to the Internet. It lets you, for example, fetch information online or send a message from a project. **Bluetooth** is a short-range wireless link, like the one on a portable speaker: you use it to connect the board to a computer or tablet without a USB cable. To start, the USB cable remains the most reliable way. If the Bluetooth link gives you trouble, our page on [common Bluetooth errors with mBlock](/en/mblock-bluetooth-troubleshooting/) lists the settings to check.
 
 Some presentations of the board also mention artificial intelligence features, such as voice recognition, which go through the Internet. We have not verified them: they depend on the software version and on an online service, so we do not count them in our opinion.
 
-## Power, battery and safety
+<h2 id="power">Power, battery and safety</h2>
 
 Used on its own, outside the mBot2 chassis, the CyberPi is powered by its **USB cable** or by a Makeblock-compatible **LiPo battery** (lithium-polymer, the same technology as in many phones). There is **no connection to the 230-volt mains** to make: no electrical panel to touch, neither to use the board nor to change a sensor.
 
@@ -42,11 +99,11 @@ Lithium batteries do call for a few simple precautions, however:
 - stop using any battery that is swollen, damaged or heats up abnormally, and never puncture it;
 - do not short-circuit its wires, even briefly.
 
-## mBuild or RJ25: do not mix up the connectors
+<h2 id="connectors">mBuild or RJ25: do not mix up the connectors</h2>
 
 The CyberPi’s official extensions plug into the **mBuild** system, modules linked by magnetic connectors or by cable. This is **not** the **RJ25** connector of the older [mBot](/en/mbot-my-first-educational-robot/), which looks like a phone socket. Before buying a module, including a second-hand one, check that it is listed for the CyberPi or for mBuild on [Makeblock’s support site](https://support.makeblock.com).
 
-## Our opinion of the CyberPi
+<h2 id="opinion">Our opinion of the CyberPi</h2>
 
 This opinion is based on Makeblock’s documentation, on the board’s published specifications and on how the other products in this range are used in class. We have not measured the battery’s runtime, so we give no figure.
 
@@ -67,13 +124,13 @@ This opinion is based on Makeblock’s documentation, on the board’s published
 - On its own, it does not roll: if you want a robot that moves and follows lines, look instead at the [mBot2 and how it compares](/en/mbot-vs-mbot2/).
 - It needs a computer or tablet to be programmed.
 - The extensions are specific to Makeblock: not every sensor on the market plugs straight into it.
-- If you would rather learn Linux and run a small server, a Raspberry Pi-type board suits that need better. Our [Raspberry Pi getting-started guide](/en/raspberry-pi-3-getting-started/) will help you decide.
+- If you would rather learn Linux and run a small server, a Raspberry Pi-type board suits that need better. Our [Raspberry Pi getting-started guide](/en/raspberry-pi-3-getting-started/) and [Pi 5 RAM guide](/en/raspberry-pi-5-which-ram/) will help you decide.
 
 If you are hesitating for a 10-year-old, our guide to the [best robot for a 10-year-old](/en/best-robot-for-a-10-year-old/) compares the options by profile.
 
-The price changes depending on the offers and kits. No Amazon.com or Amazon.co.uk product page is linked here: the French ASINs for the CyberPi board and the mBot2 are not reused on those marketplaces, and a search for “electronics kit” does not name one listing. The comparison is [mBot vs mBot2](/en/mbot-vs-mbot2/).
+The price changes depending on the offers and kits. For a **CyberPi inside a rolling robot**, confirm the listing is **mBot2** (not classic mBot): <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">mBot2 — Amazon UK</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>. See [mBot vs mBot2](/en/mbot-vs-mbot2/) before you order.
 
-## Tutorial: display a message and react to button A in Python
+<h2 id="tutorial">Tutorial: display a message and react to button A in Python</h2>
 
 This small program displays a text on the screen, then, every time you press button A, turns the light green, plays a sound and displays “Well done!”.
 
@@ -138,4 +195,28 @@ Run the program in live mode, or send it to the board if you want it to keep goi
 
 What next? You can add a second button, display the light sensor’s value or, if you want to see your code make a robot roll, discover the [mBot2](/en/mbot-vs-mbot2/). To choose the software suited to your device, read our guide [mBlock 5: desktop app, browser or Python for mBot?](/en/mblock-software-which-to-choose/).
 
+<h2 id="buy">Where to buy (affiliate)</h2>
+
+- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi robot) — Amazon UK</a>
+- <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon.com</a>
+- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — Amazon UK search</a>
+
 *Amazon Associates — a commission may be earned on eligible purchases, at no extra cost to you.*
+
+<h2 id="faq">FAQ</h2>
+
+### What is the Makeblock CyberPi?
+
+CyberPi is an ESP32 board with a colour screen, sound, light and motion sensors. It is the brain of mBot2 and works on its own for desk coding in mBlock.
+
+### At what age is CyberPi appropriate?
+
+Often from **8–9** with an adult for blocks, and **10+** for a first Python project with support. See [when to start coding](/en/when-to-start-coding-with-kids/).
+
+### Can I use old mBot RJ25 sensors on CyberPi?
+
+No — use **mBuild** modules. Classic mBot uses **RJ25** on mCore. See [mBot vs mBot2](/en/mbot-vs-mbot2/).
+
+### CyberPi board alone or full mBot2?
+
+**CyberPi alone** for compact desk projects; **mBot2** if you want wheels, line following and a built-in battery without buying twice.

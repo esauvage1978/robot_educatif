@@ -2,7 +2,8 @@
 layout: ../../../layouts/EnPost.astro
 title: "Smart home for renters: what you can install without drilling"
 description: "Renting or short-term lets: smart plugs, battery sensors, TRVs, wireless switches and no-drill cameras. What is allowed, when to ask the landlord, and how to take everything with you when you move."
-updated: "24 October 2026"
+updated: "17 November 2026"
+schemaUpdated: "2026-11-17"
 ---
 
 *Also available in [French](/domotique/domotique-location-sans-travaux/).*

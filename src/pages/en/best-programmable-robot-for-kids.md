@@ -140,6 +140,7 @@ Figures from official pages on **21 October 2026** (prices/stock: recheck **31 O
 - [mBot vs mBot2](/en/mbot-vs-mbot2/)
 - [mBot vs Codey Rocky](/en/mbot-vs-codey-rocky/)
 - [CyberPi board overview](/en/makeblock-cyberpi-overview/)
+- [LEGO CS &amp; AI / SPIKE alternatives](/en/lego-education-computer-science-ai-2026-spike-prime-alternatives/)
 - [Makeblock brand hub](/en/makeblock-brand/)
 
 ## 5. Common mistakes
