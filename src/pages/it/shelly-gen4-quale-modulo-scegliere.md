@@ -2,8 +2,18 @@
 layout: ../../layouts/ItPost.astro
 title: "Shelly Gen4: quale modulo scegliere per la domotica (1, 1PM, 2PM, i4, 1L)"
 description: "Confronto dei moduli Shelly Gen4 da incasso: carico massimo, misura dei consumi, neutro, Wi-Fi, Zigbee e Matter. Dati ufficiali Shelly e consigli per Home Assistant."
-updated: "23 ottobre 2026"
+updated: "17 novembre 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "Quale Shelly Gen4 per una singola luce con neutro in scatola?"
+    answer: "Shelly 1 Gen4 per un semplice comando; Shelly 1PM Gen4 se volete anche la misura dei consumi (scaldabagno, lavatrice)."
+  - question: "Cosa scegliere senza filo di neutro?"
+    answer: "Shelly 1L Gen4 con bypass incluso, massimo 200 W — adatto a molte installazioni più vecchie."
+  - question: "Shelly i4 Gen4 serve a comandare un carico?"
+    answer: "No: sono solo quattro ingressi per pulsanti o scenari in Home Assistant, senza relè di potenza."
 ---
+
+Alcuni link possono essere di affiliazione (Shelly ufficiale o Amazon.it tramite `/go/`).
 
 I moduli **Shelly Gen4** si installano dietro un interruttore o una presa esistente e rendono "smart" luci, tapparelle o apparecchi senza cambiare le placche. Tutti i modelli di questa pagina supportano **Wi-Fi, Bluetooth, Zigbee 3.0 e Matter** e funzionano con l'app Shelly, Home Assistant, Google Home, Alexa e SmartThings. Non li abbiamo testati: i dati qui sotto provengono dalla [knowledge base ufficiale Shelly](https://kb.shelly.cloud/knowledge-base/) e dal [negozio Shelly Italia](https://www.shelly.com/it), consultati il 23 ottobre 2026.
 
@@ -89,6 +99,18 @@ I moduli **Shelly Gen4** si installano dietro un interruttore o una presa esiste
 </table>
 </div>
 
+![Modulo relè Shelly (esempio di famiglia Plus/Gen4)](/images/models/shelly-plus-1pm.webp)
+
+*Illustrazione di un modulo relè Shelly da incasso (famiglia Plus, aspetto simile ai Gen4 nelle scatole).*
+
+## Sommario
+
+1. [Tabella di confronto](#1-tabella-di-confronto-dati-del-produttore)
+2. [Quale scegliere](#2-quale-scegliere)
+3. [Home Assistant](#3-con-home-assistant)
+4. [Dove comprare](#4-dove-comprare)
+5. [FAQ](#domande-frequenti)
+
 Fonti: schede KB [Shelly 1 Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1-gen4), [1PM Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1pm-gen4), [2PM Gen4](https://kb.shelly.cloud/knowledge-base/shelly-2pm-gen4), [i4 Gen4](https://kb.shelly.cloud/knowledge-base/shelly-i4-gen4), [1L Gen4](https://kb.shelly.cloud/knowledge-base/shelly-1l-gen4). Protezione a monte richiesta dal produttore: interruttore magnetotermico curva B o C, max 16 A (10 A per il 1L).
 
 ## 2. Quale scegliere?
@@ -105,6 +127,22 @@ I modelli Gen4 sono riconosciuti in locale dall'integrazione Shelly di Home Assi
 
 ## 4. Dove comprare
 
-Tutti i modelli sono venduti sul negozio ufficiale Shelly Italia, che il 23 ottobre 2026 li indicava come disponibili: [Shelly 1 Gen4](https://www.shelly.com/it/products/shelly-1-gen4), [Shelly 1PM Gen4](https://www.shelly.com/it/products/shelly-1pm-gen4), [Shelly 2PM Gen4](https://www.shelly.com/it/products/shelly-2pm-gen4), [Shelly i4 Gen4](https://www.shelly.com/it/products/shelly-i4-gen4), [Shelly 1L Gen4](https://www.shelly.com/it/products/shelly-1l-gen4) (link di affiliazione). I prezzi cambiano: verificate il prezzo sul sito al momento dell'acquisto.
+Tutti i modelli sono venduti sul [negozio ufficiale Shelly Italia](https://www.shelly.com/it) (affiliazione). In alternativa su Amazon.it: <a href="/go/az-it-0671e9bd00/" rel="sponsored nofollow noopener">ricerca moduli Shelly</a> — verificate modello Gen4 e tensione 230 V.
 
 **In breve:** 1 Gen4 per comandare, 1PM Gen4 per comandare e misurare, 2PM per due canali o tapparelle, i4 per i pulsanti, 1L se manca il neutro.
+
+## Domande frequenti
+
+### Posso usare solo Zigbee senza Wi-Fi?
+
+Sì: i Gen4 espongono Zigbee 3.0 e Matter; in Home Assistant aggiungeteli come dispositivi Zigbee o tramite integrazione Shelly Wi-Fi.
+
+### 2PM Gen4 per una tapparella?
+
+Sì, ma rispettate il limite di **10 A per canale** e la protezione magnetotermica indicata dal produttore.
+
+### Serve un elettricista?
+
+Per collegamenti a **230 V** in scatola da incasso, sì — conforme CEI 64-8.
+
+<small>Aggiornato il 17 novembre 2026. Dati produttore consultati il 23 ottobre 2026.</small>

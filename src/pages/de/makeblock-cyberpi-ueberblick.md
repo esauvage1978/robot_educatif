@@ -2,7 +2,13 @@
 layout: ../../layouts/DePost.astro
 title: "Makeblock CyberPi: Test und Python-Tutorial für Einsteiger"
 description: "Test der Makeblock CyberPi, einer programmierbaren Platine mit Display und Sensoren: Stärken, Grenzen, Akkusicherheit und ein erstes Python-Programm mit mBlock."
-updated: "31. Oktober 2026"
+updated: "17. November 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "Ab welchem Alter eignet sich die CyberPi?"
+    answer: "Makeblock richtet CyberPi und mBot2 an ältere Kinder und Jugendliche (ca. 10+) aus, wenn Lesen am Computer sitzt und ein Erwachsener bei der ersten Installation hilft."
+  - question: "Braucht die CyberPi einen mBot?"
+    answer: "Nein. Die Platine läuft allein am Tisch; der mBot2 nutzt dieselbe CyberPi als Herzstück für fahrende Projekte."
 ---
 
 Du hast von der **CyberPi** von [Makeblock](/de/marke-makeblock/) gehört und fragst dich, was man mit dieser kleinen durchsichtigen Platine mit Display wirklich anfangen kann? Sie interessiert neugierige Schülerinnen und Schüler der weiterführenden Schule, Technik-Lehrkräfte und Eltern, die ein Stück weiter gehen wollen als beim bloßen Videospiel. In diesem Artikel sagen wir dir, für wen sie sich eignet, was sie gut kann und was nicht, und führen dich dann Schritt für Schritt durch dein erstes Programm in **Python** – einer sehr verbreiteten Programmiersprache, die man als Text schreibt, im Gegensatz zu den bunten Blöcken, die man mit der Maus zusammensetzt.

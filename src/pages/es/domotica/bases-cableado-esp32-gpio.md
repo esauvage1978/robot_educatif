@@ -2,12 +2,26 @@
 layout: ../../../layouts/EsPost.astro
 title: "Cableado ESP32: GPIO, 3,3 V y pull-up"
 description: "Cablea un ESP32-C6 sin dañarlo: 3,3 V, pines a evitar, pull-up, resistencia LED, masa común y prueba. Material, esquema GPIO, YAML ESPHome y Home Assistant"
-updated: "30 de octubre de 2026"
+updated: "17 de noviembre de 2026"
+schemaUpdated: "2026-11-17"
+faqSchema:
+  - question: "¿Puedo conectar 5 V directamente a un GPIO del ESP32-C6?"
+    answer: "No. Los GPIO trabajan a 3,3 V. Usa alimentación 3,3 V en el sensor, un convertidor de nivel o un divisor de tensión."
+  - question: "¿Qué pin uso para un pulsador con ESPHome?"
+    answer: "GPIO10 u otro pin libre al arranque, con mode INPUT_PULLUP e inverted si el pulsador va entre el pin y GND."
+  - question: "¿Qué resistencia para un LED de prueba?"
+    answer: "Unos 330 Ω entre el GPIO y el ánodo del LED; el cátodo a GND."
 ---
+
+Algunos enlaces son de afiliación **Amazon.es** (etiqueta `roboteducat07-21` vía `/go/`): podemos recibir una comisión sin coste extra.
 
 Cablear un ESP32, una pequeña placa electrónica con Wi-Fi, exige respetar unas pocas reglas sencillas, pero ignorar una sola basta para quemar un pin u obtener medidas inestables. Este tutorial reúne las bases útiles para los [proyectos ESP32 del sitio](/es/domotica/proyectos-esp32-domotica/), con la ESP32-C6-DevKitC-1 como placa de referencia. Aprenderás qué son los GPIO, los pines metálicos alineados en el borde de la placa, cómo elegir el adecuado y cómo conectar con seguridad un pulsador y un LED.
 
 **Resultado esperado:** saber elegir un pin, conectar un pulsador y un LED sin riesgo y probar el montaje con ESPHome. **Duración:** 30 minutos. **Dificultad:** principiante.
+
+![Placa ESP32-C6-DevKitC-1: módulo, USB y pines GPIO](/images/products/esp32-c6-devkitc.webp)
+
+Los números de pin impresos en el borde de esta **ESP32-C6-DevKitC-1** son los que usamos en los ejemplos YAML.
 
 ## Regla 1: los pines funcionan a 3,3 V
 
@@ -91,6 +105,18 @@ Estos dos extractos no se han ejecutado en una placa para este artículo; siguen
 | Valores analógicos inestables | Alimentación con ruido o pin sin ADC | Usa GPIO0 a GPIO6, añade un filtro `median` |
 | Un componente está caliente | Cortocircuito o polaridad errónea | Desconecta de inmediato y revisa |
 
+**Material:** placa de referencia — <a href="/go/az-es-1bf9950098/" rel="sponsored nofollow noopener">ESP32-C6-DevKitC-1 en Amazon.es</a> (precio del día).
+
 Para seguir: [flashear una placa](/es/domotica/flashear-esp32-esphome/) y [actualizar sin cable](/es/domotica/actualizaciones-ota-esphome/). Documentación oficial: [ESP32-C6-DevKitC-1, Espressif](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html).
 
-<small>Actualizado el 30 de octubre de 2026. Comprueba los números de pin de tu placa antes de cualquier cableado.</small>
+## Preguntas frecuentes
+
+### ¿GPIO8 y GPIO9 están libres?
+
+GPIO8 controla el LED RGB de la placa; GPIO9 es el botón BOOT — evítalos en un cableado permanente.
+
+### ¿Necesito resistencia pull-up externa?
+
+En cables cortos basta el pull-up interno de ESPHome; en cables de varios metros añade 10 kΩ hacia 3,3 V.
+
+<small>Actualizado el 17 de noviembre de 2026. Comprueba los números de pin de tu placa antes de cualquier cableado.</small>

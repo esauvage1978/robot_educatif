@@ -2,9 +2,20 @@
 title: "Domotique en location : que peut-on installer sans travaux ?"
 description: "Locataire ou logement temporaire : prises connectées, capteurs à pile, têtes thermostatiques, interrupteurs sans fil et caméras sans perçage. Ce qu'on peut installer, ce qu'il faut demander au propriétaire, et comment tout récupérer au départ."
 pubDate: 2026-10-23T00:00:00Z
+updatedDate: 2026-11-17
 category: "debuter"
+products: ["tapo-p110", "sonoff-snzb-02d"]
 priority: 5
+faqSchema:
+  - question: "Peut-on installer une domotique en location sans accord du propriétaire ?"
+    answer: "Oui pour ce qui se branche, se colle ou se visse sans modifier l'installation fixe : prises connectées, capteurs à pile, ampoules connectées, boutons sans fil."
+  - question: "Quel équipement domotique choisir en premier en location ?"
+    answer: "Une prise connectée ou Zigbee et un capteur température/humidité à pile, puis une mini box Home Assistant Green ou Raspberry Pi 5 transportable."
+  - question: "Faut-il laisser les appareils au départ ?"
+    answer: "Prises, capteurs et hub partent avec vous. Remettez les ampoules d'origine et les têtes thermostatiques d'origine si vous les avez remplacées."
 ---
+
+import ProductBox from '../../components/ProductBox.astro';
 
 Être locataire n'empêche pas d'avoir une maison connectée. La règle est simple : **tout ce qui se branche, se colle ou se visse sur un embout existant** peut s'installer puis repartir avec vous. Ce qui touche au tableau électrique, aux interrupteurs encastrés ou à la chaudière demande l'accord du propriétaire et, souvent, un électricien.
 
@@ -92,6 +103,36 @@ priority: 5
 
 **Prises connectées.** C'est l'entrée en matière idéale : programmation d'un chauffage d'appoint, mesure de consommation, coupure à distance. Respectez la puissance maximale indiquée par le fabricant (souvent 16 A) et évitez les multiprises en cascade. Notre [comparatif des prises Zigbee](/domotique/prise-connectee-zigbee-home-assistant/) précise lesquelles mesurent la consommation.
 
+<ProductBox
+  productId="tapo-p110"
+  name="Tapo P110"
+  image="/images/products/tapo-p110.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Se branche sans travaux',
+    'Mesure de consommation',
+    '16 A — chauffage d\'appoint',
+    'Compatible Home Assistant'
+  ]}
+  badge="Location"
+  position={1}
+/>
+
+<ProductBox
+  name="SONOFF SNZB-02D"
+  searchQuery="SONOFF SNZB-02D Zigbee"
+  image="/images/products/sonoff-snzb-02d.webp"
+  priceRange="à vérifier chez le vendeur"
+  pros={[
+    'Température et humidité',
+    'À pile — sans fil',
+    'Adhésif ou pose libre',
+    'Zigbee'
+  ]}
+  badge="Capteur"
+  position={2}
+/>
+
 **Capteurs à pile.** Température, humidité, ouverture de fenêtre, fuite d'eau : ils se posent ou se collent. Pour les choisir, voir notre [comparatif des capteurs de température Zigbee](/domotique/capteur-temperature-zigbee/). Utilisez des adhésifs repositionnables pour ne pas abîmer la peinture.
 
 **Boutons sans fil.** Un bouton Zigbee collé près de la porte peut éteindre toutes les lampes en partant, sans toucher au câblage existant.
@@ -111,3 +152,11 @@ Modules encastrés derrière les interrupteurs, volets roulants, tableau électr
 Un [Home Assistant Green ou un Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) se branche sur la box Internet par un câble réseau. Au déménagement, vous le rebranchez chez vous : les automatisations et l'historique suivent. Pour choisir le système, lisez [Home Assistant, Jeedom, Homey ou box du commerce](/domotique/home-assistant-jeedom-homey-quel-systeme-choisir/), et pour le parcours complet, [Débuter en domotique](/domotique/debuter-domotique-par-ou-commencer/).
 
 Un robot éducatif dans le même logement se choisit sur la place au sol, le bruit des moteurs et une seule boîte le jour du départ : [équipement de robotique pour locataire](/equipement-robotique-locataire/).
+
+## FAQ
+
+**Box trop chère pour un locataire ?** Commencez par **Zigbee** sur une box existante, ou un **Raspberry Pi 4** d'occasion ; le [Green vs Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/) aide à arbitrer.
+
+**Caméra sans perçage ?** Oui, posée sur étagère ; respectez la [CNIL](https://www.cnil.fr/fr/la-videosurveillance-videoprotection-chez-soi) (pas de parties communes filmées).
+
+<small>**Mis à jour le 17 novembre 2026.** Liens partenaires Amazon possibles sur les fiches produit ci-dessus.</small>

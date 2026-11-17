@@ -5,17 +5,20 @@ import { SENSOR_CALIB_PAGE } from '../data/mbotSensorCalibration.mjs';
 import { withBase } from '../lib/siteUrl';
 
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-17T00:00:00Z');
 ---
 
 <RobotToolLayout
 	title={SENSOR_CALIB_PAGE.title}
 	description={SENSOR_CALIB_PAGE.description}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/tableau-reglages-capteurs-mbot2-depannage/"
 	hubLabel="mBot & capteurs"
 	hubPath="/accessoires-mbot-par-ou-commencer/"
 >
 	<p>{SENSOR_CALIB_PAGE.intro}</p>
+	<p><small>Mis à jour le <time datetime="2026-11-17">17 novembre 2026</time>.</small></p>
 	<figure>
 		<img src={withBase('/images/schemas/mbot2-capteurs.svg')} alt="Quatre capteurs du tableau : suiveur de ligne Quad RGB, ultrason, gyroscope CyberPi, capteur de lumière" width="780" height="440" />
 		<figcaption>Les quatre familles du tableau : ligne, distance, orientation et lumière. Les seuils se règlent dans mBlock, puis se vérifient sur tapis propre.</figcaption>
@@ -25,6 +28,7 @@ const pubDate = new Date('2026-10-24T00:00:00Z');
 		Codes erreurs fréquents :{' '}
 		<a href={withBase('/domotique/code-erreur/mbot-ultrasonic-stuck/')}>ultrason bloqué</a>
 		· <a href={withBase('/mblock-depannage-codes-erreurs-mbot-arduino/')}>dépannage mBlock mBot</a>
-		· <a href={withBase('/compatibilite-makeblock/')}>compatibilité accessoires</a>.
+		· <a href={withBase('/compatibilite-makeblock/')}>compatibilité accessoires</a>
+		. Matériel : <a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener">mBot Makeblock sur Amazon</a> (partenaire).
 	</p>
 </RobotToolLayout>
