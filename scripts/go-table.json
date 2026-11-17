@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
  "updated": "2026-11-17T10:40:23.700Z",
- "count": 2054,
+ "count": 2052,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -1810,22 +1810,6 @@
    "mid": "128141",
    "dest": "",
    "affid": ""
-  },
-  "aw-128145-a92c733ec6": {
-   "url": "https://www.awin1.com/cread.php?awinmid=128145&awinaffid=3126073",
-   "merchant": "awin",
-   "country": "",
-   "mid": "128145",
-   "dest": "",
-   "affid": "3126073"
-  },
-  "aw-128145-e83540c9aa": {
-   "url": "https://www.awin1.com/cread.php?awinmid=128145&awinaffid=3126073&ued=https%3A%2F%2Fwww.aosulife.com%2Fde%2F",
-   "merchant": "awin",
-   "country": "",
-   "mid": "128145",
-   "dest": "www.aosulife.com",
-   "affid": "3126073"
   },
   "aw-128847-036d501e33": {
    "url": "https://www.awin1.com/cread.php?awinmid=128847&awinaffid=3126073&ued=https%3A%2F%2Ffr.iegeek.com%2Fproducts%2Fbattery-camera-zs-gx4s-with-panel-5mp",
