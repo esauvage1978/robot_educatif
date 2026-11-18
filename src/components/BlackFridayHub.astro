@@ -21,13 +21,14 @@ const snap = amazonSnapshot(market);
 const mention = priceMentionForLocale(snap?.releveAffichage || '', locale);
 
 const PRODUCTS = [
-	{ asin: 'B083T5G5ZK', query: 'Learning Resources Botley 2.0', key: 'botley' },
-	{ asin: 'B07XR98YYQ', query: 'Makeblock mBot', key: 'mbot' },
-	{ asin: 'B0919F9CKS', query: 'Makeblock mBot2', key: 'mbot2' },
-	{ asin: 'B078Y9RYM2', query: 'ELEGOO Smart Robot Car V4.0', key: 'elegoo' },
-	{ asin: 'B0B6P22YJC', query: 'SONOFF ZBDongle-E', key: 'dongle' },
-	{ asin: 'B0BYZP8NK2', query: 'SONOFF SNZB-02D', key: 'sensor' },
+	{ asin: 'B083T5G5ZK', query: 'Learning Resources Botley 2.0', key: 'botley', image: '/images/products/botley-2.webp' },
+	{ asin: 'B07XR98YYQ', query: 'Makeblock mBot', key: 'mbot', image: '/images/products/mbot.webp' },
+	{ asin: 'B0919F9CKS', query: 'Makeblock mBot2', key: 'mbot2', image: '/images/products/mbot2.webp' },
+	{ asin: 'B078Y9RYM2', query: 'ELEGOO Smart Robot Car V4.0', key: 'elegoo', image: '/images/products/elegoo-robot-car.webp' },
+	{ asin: 'B0B6P22YJC', query: 'SONOFF ZBDongle-E', key: 'dongle', image: '/images/products/sonoff-zbdongle-e.webp' },
+	{ asin: 'B0BYZP8NK2', query: 'SONOFF SNZB-02D', key: 'sensor', image: '/images/products/sonoff-snzb-02d.webp' },
 ];
+const updatedIso = `${today}T12:00:00+01:00`;
 
 const copy = {
 	en: {
@@ -336,6 +337,7 @@ const cards = PRODUCTS.map((p) => {
 		price: offer ? offer.label : CHECK_PRICE[locale],
 		url: amazonDpUrl(p.asin, market),
 		group: p.key === 'dongle' || p.key === 'sensor' ? 'home' : 'robot',
+		image: p.image,
 	};
 });
 const robotCards = cards.filter((card) => card.group === 'robot');
@@ -344,18 +346,28 @@ const homeCards = cards.filter((card) => card.group === 'home');
 const faqJson = {
 	'@context': 'https://schema.org',
 	'@type': 'FAQPage',
+	dateModified: updatedIso,
 	mainEntity: c.faq.map((item) => ({
 		'@type': 'Question',
 		name: item.q,
 		acceptedAnswer: { '@type': 'Answer', text: item.a },
 	})),
 };
+const webPageJson = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: c.title,
+	description: c.description,
+	dateModified: updatedIso,
+	inLanguage: market === 'uk' ? 'en-GB' : market === 'ca' ? 'en-CA' : 'en',
+};
 ---
 
 <!doctype html>
 <html lang={c.html}>
 	<head>
-		<BaseHead title={c.title} description={c.description} />
+		<BaseHead title={c.title} description={c.description} updatedDate={new Date(updatedIso)} ogType="article" />
+		<script type="application/ld+json" set:html={JSON.stringify(webPageJson)} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqJson)} />
 		<style>
 			.bf-wrap { max-width: 960px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 3rem; }
@@ -365,6 +377,11 @@ const faqJson = {
 			.bf-wrap h2 { font-size: 1.35rem; margin: 2rem 0 .75rem; }
 			.bf-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
 			.bf-grid a, .bf-card { display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: 1rem; border-radius: 12px; background: #fff; border: 1px solid #e3e6ea; color: inherit; text-decoration: none; }
+			.bf-card img.bf-prod { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: contain; border-radius: 8px; background: #f4f6f8; }
+			.bf-toc { margin: 1rem 0 1.5rem; padding: 0.85rem 1rem; border: 1px solid #e3e6ea; border-radius: 10px; background: #f8fafc; }
+			.bf-toc ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+			.bf-cal { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; font-size: 0.95rem; }
+			.bf-cal th, .bf-cal td { border: 1px solid #e3e6ea; padding: 0.5rem 0.65rem; text-align: left; }
 			.bf-age { align-self: flex-start; font-size: .75rem; font-weight: 700; color: #fff; background: #111827; padding: .12rem .55rem; border-radius: 99px; }
 			.bf-price { font-weight: 800; margin: .2rem 0; }
 			.bf-price a { color: #1d4ed8; }
@@ -392,8 +409,34 @@ const faqJson = {
 			<p class="bf-lead">{c.lead}</p>
 			<p class="bf-note">{c.note}</p>
 			<p>{priceNote}</p>
+			<p><strong>Page updated:</strong> {pageUpdated} (Europe/Paris).</p>
 
-			<h2>{c.guidesTitle}</h2>
+			<nav class="bf-toc" aria-label="On this page">
+				<p><strong>On this page</strong></p>
+				<ol>
+					<li><a href="#bf-calendar">2026 calendar</a></li>
+					<li><a href="#bf-guides">{c.guidesTitle}</a></li>
+					<li><a href="#bf-robots">{c.robotsTitle}</a></li>
+					<li><a href="#bf-home">{c.homeTitle}</a></li>
+					<li><a href="#bf-codes">{c.codesTitle}</a></li>
+					<li><a href="#bf-faq">{c.faqTitle}</a></li>
+				</ol>
+			</nav>
+
+			<h2 id="bf-calendar">Black Friday 2026 calendar</h2>
+			<table class="bf-cal">
+				<thead>
+					<tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">What to check</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>18–26 Nov 2026</td><td>Early deals</td><td>Age-fit robot guides before the price drops</td></tr>
+					<tr><td>27 Nov 2026</td><td>Black Friday</td><td>Amazon snapshot vs live price on the product page</td></tr>
+					<tr><td>30 Nov 2026</td><td>Cyber Monday</td><td>Zigbee gear and kits often bundled</td></tr>
+					<tr><td>Dec 2026</td><td>Christmas</td><td>See our <a href={withBase(hrefFor(c.xmas))}>Christmas gift guide</a></td></tr>
+				</tbody>
+			</table>
+
+			<h2 id="bf-guides">{c.guidesTitle}</h2>
 			<p>{c.guidesLead}</p>
 			<ul class="bf-grid">
 				{c.ages.map((age) => (
@@ -405,10 +448,13 @@ const faqJson = {
 				<a href={withBase(hrefFor(c.compareHref))}>{c.compare}</a>
 			</p>
 
-			<h2>{c.robotsTitle}</h2>
+			<h2 id="bf-robots">{c.robotsTitle}</h2>
 			<ul class="bf-grid">
 				{robotCards.map((card) => (
 					<li class="bf-card">
+						{card.image && (
+							<img class="bf-prod" src={withBase(card.image)} alt={card.name} width="320" height="240" loading="lazy" decoding="async" />
+						)}
 						<span class="bf-age">{card.badge}</span>
 						<strong>{card.name}</strong>
 						<p>{card.desc}</p>
@@ -420,10 +466,13 @@ const faqJson = {
 				))}
 			</ul>
 
-			<h2>{c.homeTitle}</h2>
+			<h2 id="bf-home">{c.homeTitle}</h2>
 			<ul class="bf-grid">
 				{homeCards.map((card) => (
 					<li class="bf-card">
+						{card.image && (
+							<img class="bf-prod" src={withBase(card.image)} alt={card.name} width="320" height="240" loading="lazy" decoding="async" />
+						)}
 						<span class="bf-age">{card.badge}</span>
 						<strong>{card.name}</strong>
 						<p>{card.desc}</p>
@@ -441,9 +490,13 @@ const faqJson = {
 					<a class="bf-btn" href={shellyUrl} target="_blank" rel="sponsored nofollow noopener">{c.shellyCta}</a>
 				</li>
 			</ul>
-			<p class="bf-links"><a href={withBase(hrefFor(c.hubHref))}>{c.hub}</a></p>
+			<p class="bf-links">
+				<a href={withBase(hrefFor(c.hubHref))}>{c.hub}</a>
+				<a href={withBase(prefix ? `${prefix}price-drops/` : '/en/price-drops/')}>Price drops hub →</a>
+				<a href={withBase('/domotique/rubrique/guides-achat/')}>Smart home buying guides (FR) →</a>
+			</p>
 
-			<h2>{c.codesTitle}</h2>
+			<h2 id="bf-codes">{c.codesTitle}</h2>
 			{offers.length === 0 ? (
 				<p>{c.emptyCodes}</p>
 			) : (
@@ -474,7 +527,7 @@ const faqJson = {
 				</ul>
 			)}
 
-			<section class="bf-faq">
+			<section class="bf-faq" id="bf-faq">
 				<h2>{c.faqTitle}</h2>
 				{c.faq.map((item) => (
 					<details>

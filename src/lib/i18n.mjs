@@ -16,6 +16,10 @@ const DOMOTIQUE_LANG_PAIRS = Object.entries(DOMOTIQUE_SLUGS).map(([frSlug]) => (
 // Paires FR/EN pour hreflang et sélecteur de langue (chemins sans base).
 const STATIC_LANG_PAIRS = [
 	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/' },
+	{ fr: '/belgique/' },
+	{ fr: '/suisse/' },
+	{ fr: '/luxembourg/' },
+	{ fr: '/monaco/' },
 	{ fr: '/accessoires/', en: '/en/accessories/', uk: '/uk/accessories/', ca: '/ca/accessories/', de: '/de/zubehoer/', it: '/it/accessori/', es: '/es/accesorios/' },
 	{ fr: '/meilleur-robot-programmable-enfant-2026/', en: '/en/best-programmable-robot-for-kids/', de: '/de/bester-programmierbarer-roboter-fuer-kinder/', it: '/it/miglior-robot-programmabile-per-bambini/', es: '/es/mejor-robot-programable-para-ninos/' },
 	{

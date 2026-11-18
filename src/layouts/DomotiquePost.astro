@@ -24,6 +24,8 @@ type Props = CollectionEntry<'domotique'>['data'] & {
 	articleSlug: string;
 	faqSchema?: { question: string; answer: string }[];
 	minutes?: number;
+	/** Rubriques hub : ne pas afficher la vignette IA/générique au-dessus du texte. */
+	hubContentIllustration?: boolean;
 };
 
 const DOMOTIQUE_READ_ALSO = [
@@ -42,6 +44,7 @@ const {
 	articleSlug,
 	faqSchema = [],
 	minutes,
+	hubContentIllustration = true,
 } = Astro.props;
 
 const subnavCategory = articleSlug === 'debuter-en-domotique-guide-complet' ? 'guide-debuter' : category;
@@ -189,7 +192,7 @@ const reviewOffer = reviewPage?.offer ?? null;
 						minutes={minutes}
 					/>
 				</header>
-				{illustration && !isReviewLayout && (
+				{illustration && !isReviewLayout && hubContentIllustration && (
 					<figure class="domotique-illustration">
 						<img src={thumbnailImage} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
 						<figcaption class="ai-illustration-caption">Illustration générée par IA</figcaption>

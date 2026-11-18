@@ -3,9 +3,12 @@ import DomotiqueToolLayout from '../../layouts/DomotiqueToolLayout.astro';
 import SymptomDiagnosticTree from '../../components/SymptomDiagnosticTree.astro';
 import { SYMPTOM_DIAG_PAGE } from '../../data/smartHomeSymptomDiagnostic.mjs';
 import { withBase } from '../../lib/siteUrl';
+import { amazonDpUrl } from '../../lib/amazonMarket.mjs';
 
 const lang = 'fr';
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-18T12:00:00+01:00');
+const dongleUrl = amazonDpUrl('B0B6P22YJC', 'fr');
 ---
 
 <DomotiqueToolLayout
@@ -13,11 +16,29 @@ const pubDate = new Date('2026-10-24T00:00:00Z');
 	description={SYMPTOM_DIAG_PAGE.description}
 	lang={lang}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/domotique/diagnostic-par-symptome/"
 	hubLabel="Domotique"
 	repairGuide={true}
 >
 	<p>{SYMPTOM_DIAG_PAGE.intro}</p>
+	<figure style="margin:1rem 0 1.5rem;">
+		<img
+			src={withBase('/images/products/sonoff-zbdongle-e.webp')}
+			alt="Clé USB Zigbee SONOFF ZBDongle-E, souvent impliquée dans les pannes d’appairage"
+			width="480"
+			height="360"
+			loading="lazy"
+			decoding="async"
+			style="max-width:320px;height:auto;border-radius:10px;"
+		/>
+		<figcaption style="font-size:0.9rem;color:rgb(var(--gray-dark));margin-top:0.35rem;">
+			Un coordinateur Zigbee fiable limite les symptômes « appairage impossible » : voir le{' '}
+			<a href={withBase('/domotique/meilleur-dongle-zigbee-home-assistant/')}>comparatif des clés</a>
+			{' '}ou{' '}
+			<a href={dongleUrl} rel="sponsored nofollow noopener" target="_blank">SONOFF ZBDongle-E sur Amazon</a>.
+		</figcaption>
+	</figure>
 	<SymptomDiagnosticTree />
 	<p>
 		Répertoire détaillé :{' '}

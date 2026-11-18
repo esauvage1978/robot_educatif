@@ -1,10 +1,22 @@
 ---
 import DomotiquePost from './DomotiquePost.astro';
+import DomotiqueHubProductRail from '../components/DomotiqueHubProductRail.astro';
+
 const fm = Astro.props.frontmatter ?? Astro.props;
-const { title, description, category } = fm;
+const { title, description, category, lang = 'fr' } = fm;
 const pubDate = new Date(fm.pubDate ?? '2026-10-23');
-const updatedDate = fm.updatedDate ? new Date(fm.updatedDate) : undefined;
+const updatedDate = fm.updatedDate ? new Date(fm.updatedDate) : new Date('2026-11-18T12:00:00+01:00');
+const showAffiliate = category === 'guides-achat' || category === 'robots-aspirateurs';
 ---
-<DomotiquePost title={title} description={description} pubDate={pubDate} updatedDate={updatedDate} category={category} articleSlug="domotique-hub">
+<DomotiquePost
+	title={title}
+	description={description}
+	pubDate={pubDate}
+	updatedDate={updatedDate}
+	category={category}
+	articleSlug="domotique-hub"
+	hubContentIllustration={false}
+>
+	{showAffiliate && <DomotiqueHubProductRail category={category} lang={lang} />}
 	<slot />
 </DomotiquePost>
