@@ -8,8 +8,19 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import { MAILLAGE_EXCLUDE_PATHS, detectContentLang, isSameContentLang } from '../src/lib/maillageLocales.mjs';
+import {
+	titleFromSource,
+	titleFromDistHtml,
+	distHtmlPath,
+	isPathLikeTitle,
+	humanizeUrlPath,
+	KNOWN_PAGE_TITLES,
+} from '../src/lib/maillagePageTitles.mjs';
 import { getAllCatalogEntries } from '../src/data/unifiedErrorCatalog.mjs';
 import { B09_ORPHAN_PATHS } from '../src/data/b09-orphan-paths.mjs';
+
+const MIN_BLOCK_LINKS = 3;
+const MAX_BLOCK_LINKS = 5;
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -145,6 +156,44 @@ function simpleHash(s) {
 	return h;
 }
 
+function titleForPath(urlPath, raw = '') {
+	let t = titleFromSource(urlPath, raw);
+	if (isPathLikeTitle(t)) {
+		const distFile = distHtmlPath(root, urlPath);
+		if (fs.existsSync(distFile)) {
+			const fromDist = titleFromDistHtml(fs.readFileSync(distFile, 'utf8'));
+			if (fromDist) t = fromDist;
+		}
+	}
+	if (isPathLikeTitle(t) && KNOWN_PAGE_TITLES.has(urlPath)) {
+		t = KNOWN_PAGE_TITLES.get(urlPath);
+	}
+	if (isPathLikeTitle(t)) t = humanizeUrlPath(urlPath);
+	return t;
+}
+
+function resolvePageTitle(page) {
+	if (page.file && page.file !== '' && fs.existsSync(page.file)) {
+		return titleForPath(page.path, fs.readFileSync(page.file, 'utf8'));
+	}
+	return titleForPath(page.path, '');
+}
+
+function linkEntry(href, titleByPath) {
+	const path = normalizePath(href);
+	return { href: path, title: titleByPath.get(path) || titleForPath(path) };
+}
+
+function assertNoPathLikeTitles(outboundMap) {
+	for (const [src, links] of Object.entries(outboundMap)) {
+		for (const l of links) {
+			if (isPathLikeTitle(l.title)) {
+				throw new Error(`[maillage-plan] Ancre invalide (chemin) sur ${src} → ${l.href} : « ${l.title} »`);
+			}
+		}
+	}
+}
+
 const pages = [];
 const knownPaths = new Set();
 
@@ -234,6 +283,14 @@ for (const entry of getAllCatalogEntries()) {
 	}
 }
 
+/** Titres éditoriaux (jamais un chemin URL brut). */
+const titleByPath = new Map();
+for (const p of pages) {
+	const resolved = resolvePageTitle(p);
+	p.title = resolved;
+	titleByPath.set(p.path, resolved);
+}
+
 const byCluster = new Map();
 const byBroad = new Map();
 for (const p of pages) {
@@ -253,7 +310,7 @@ function ensureOutbound(pagePath, targets) {
 		if (t.href === pagePath) continue;
 		if (!knownPaths.has(t.href)) continue;
 		if (existing.has(t.href)) continue;
-		if (outbound[pagePath].length >= 5) break;
+		if (outbound[pagePath].length >= MAX_BLOCK_LINKS) break;
 		outbound[pagePath].push(t);
 		existing.add(t.href);
 		inboundCount.set(t.href, (inboundCount.get(t.href) || 0) + 1);
@@ -279,13 +336,13 @@ function pickTargets(source, count, preferPaths = []) {
 	}
 	const rest = hashPick(source.path, pool.filter((p) => !picked.some((x) => x.path === p.path)), count - picked.length);
 	const all = [...picked, ...rest].slice(0, count);
-	return all.map((p) => ({ href: p.path, title: p.title }));
+	return all.map((p) => linkEntry(p.path, titleByPath));
 }
 
 for (const page of pages) {
 	// Seuil volontairement prudent : le markdown source sous-estime souvent les liens comptés dans dist/.
-	if (page.outCount >= 5) continue;
-	const need = Math.min(5, Math.max(3, 5 - page.outCount));
+	if (page.outCount >= MAX_BLOCK_LINKS) continue;
+	const need = Math.min(MAX_BLOCK_LINKS, Math.max(MIN_BLOCK_LINKS, MAX_BLOCK_LINKS - page.outCount));
 	const targets = pickTargets(page, need);
 	ensureOutbound(page.path, targets);
 }
@@ -312,8 +369,7 @@ for (const orphanPath of B09_ORPHANS) {
 	for (const src of candidates) {
 		const cur = inboundCount.get(targetPath) || inboundCount.get(orphanPath) || 0;
 		if (cur >= 3) break;
-		const orphanTitle = targetPage?.title ?? targetPath;
-		const prefer = [{ href: targetPath, title: orphanTitle }];
+		const prefer = [linkEntry(targetPath, titleByPath)];
 		const extra = pickTargets(src, 2, [targetPath]);
 		ensureOutbound(src.path, [...prefer, ...extra]);
 	}
@@ -334,7 +390,7 @@ for (const hub of ERROR_HUBS) {
 			(p.path.includes('/error/') || p.path.includes('/code-erreur/')),
 	);
 	const picks = hashPick(hub, errors, 8);
-	ensureOutbound(hub, picks.map((p) => ({ href: p.path, title: p.title })));
+	ensureOutbound(hub, picks.map((p) => linkEntry(p.path, titleByPath)));
 }
 
 for (const [accPath, accTitle] of ACCESSORIES_PATHS) {
@@ -366,8 +422,20 @@ for (const orphanPath of [...B09_ORPHANS, ...B09_PUSH_TAIL]) {
 		);
 		const src = hashPick(`${targetPath}:${guard}`, pool, 1)[0];
 		if (!src) break;
-		ensureOutbound(src.path, [{ href: targetPath, title: targetPage?.title ?? targetPath }]);
+		ensureOutbound(src.path, [linkEntry(targetPath, titleByPath)]);
 	}
+}
+
+/** Chaque page du plan : au moins MIN_BLOCK_LINKS liens « À lire aussi ». */
+for (const pagePath of Object.keys(outbound)) {
+	const links = outbound[pagePath];
+	if (links.length >= MIN_BLOCK_LINKS) continue;
+	const page = pages.find((p) => p.path === pagePath);
+	if (!page) continue;
+	const extra = pickTargets(page, MIN_BLOCK_LINKS + 2).filter(
+		(t) => !links.some((l) => l.href === t.href) && t.href !== pagePath,
+	);
+	ensureOutbound(pagePath, extra.slice(0, MIN_BLOCK_LINKS - links.length));
 }
 
 /** UK/CA : la plupart des pages viennent du miroir EN — dupliquer le plan avec préfixes /uk/ et /ca/. */
@@ -382,13 +450,66 @@ for (const [srcPath, links] of Object.entries(outbound)) {
 	for (const market of ['uk', 'ca']) {
 		const destPath = enToMarket(srcPath, market);
 		if (expanded[destPath]) continue;
-		const mirrored = links.map((l) => ({
-			href: l.href.startsWith('/en/') ? enToMarket(l.href, market) : l.href,
-			title: l.title,
-		}));
+		const mirrored = links.map((l) => {
+			const href = l.href.startsWith('/en/') ? enToMarket(l.href, market) : l.href;
+			return linkEntry(href, titleByPath);
+		});
 		if (mirrored.length) expanded[destPath] = mirrored;
 	}
 }
+
+for (const market of ['uk', 'ca']) {
+	for (const page of pages) {
+		if (!page.path.startsWith('/en/')) continue;
+		const destPath = enToMarket(page.path, market);
+		if (expanded[destPath] || !outbound[page.path]?.length) continue;
+		expanded[destPath] = outbound[page.path].map((l) => {
+			const href = l.href.startsWith('/en/') ? enToMarket(l.href, market) : l.href;
+			return linkEntry(href, titleByPath);
+		});
+	}
+}
+
+function topUpExpanded(map) {
+	for (const pagePath of Object.keys(map)) {
+		const links = map[pagePath];
+		if (!links?.length || links.length >= MIN_BLOCK_LINKS) continue;
+		const page = pages.find((p) => p.path === pagePath);
+		if (!page) continue;
+		let guard = 0;
+		while (links.length < MIN_BLOCK_LINKS && guard < 16) {
+			guard += 1;
+			const candidates = pickTargets(page, MIN_BLOCK_LINKS + 4).filter(
+				(t) => t.href !== pagePath && !links.some((l) => l.href === t.href),
+			);
+			if (!candidates.length) break;
+			links.push(candidates[0]);
+		}
+		map[pagePath] = links;
+	}
+}
+
+/** Langues à catalogue réduit (ex. NL) : maille complète entre pairs + minimum 3 liens. */
+const nlPages = pages.filter((p) => detectContentLang(p.path) === 'nl');
+if (nlPages.length > 1) {
+	for (const p of nlPages) {
+		const others = nlPages.filter((x) => x.path !== p.path).map((x) => linkEntry(x.path, titleByPath));
+		ensureOutbound(p.path, others);
+		if (outbound[p.path]?.length) {
+			const list = expanded[p.path] || [...outbound[p.path]];
+			for (const t of others) {
+				if (list.length >= MIN_BLOCK_LINKS) break;
+				if (list.some((l) => l.href === t.href)) continue;
+				list.push(t);
+			}
+			expanded[p.path] = list;
+		}
+	}
+}
+
+topUpExpanded(expanded);
+
+assertNoPathLikeTitles(expanded);
 
 const plan = {
 	generatedAt: new Date().toISOString(),

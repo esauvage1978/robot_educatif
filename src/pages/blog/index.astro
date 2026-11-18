@@ -13,6 +13,7 @@ import { withImageVersion } from '../../lib/imageVersion';
 import { isProgrammingSeriesArticle } from '../../lib/blogScope';
 import { compareBlogPostsByLastActivityDesc } from '../../lib/sortBlogPosts';
 import { withBase } from '../../lib/siteUrl';
+import EditorialReadAlso from '../../components/EditorialReadAlso.astro';
 
 const allPosts = await getCollection('blog');
 const posts = [...allPosts]
@@ -330,6 +331,9 @@ const collectionJsonLd = {
 						})}
 					</ul>
 				</section>
+				<div class="prose blog-read-also-wrap">
+					<EditorialReadAlso pathname="/blog/" />
+				</div>
 			</div>
 		</main>
 		<Footer />

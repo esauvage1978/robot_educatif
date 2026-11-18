@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 /**
  * Mesure B08 (liens sortants dans article .prose) et B09 (liens entrants) sur dist/.
- * Usage: node scripts/audit-maillage-dist.mjs [dist]
+ * Usage: node scripts/audit-maillage-dist.mjs [dist] [--strict]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
 import { MAILLAGE_EXCLUDE_PATHS } from '../src/lib/maillageLocales.mjs';
+import { isPathLikeTitle } from '../src/lib/maillagePageTitles.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const dist = path.resolve(root, process.argv[2] || 'dist');
+const argv = process.argv.slice(2);
+const strict = argv.includes('--strict');
+const distArg = argv.find((a) => a !== '--strict');
+const dist = path.resolve(root, distArg || 'dist');
 
 function walkHtml(dir, out = []) {
 	if (!fs.existsSync(dir)) return out;
@@ -64,6 +68,27 @@ function extractProseLinks(html, pagePath) {
 	return { count: new Set(links).size, links: [...new Set(links)] };
 }
 
+function auditEditorialBlocks(html, pagePath) {
+	const $ = cheerio.load(html);
+	const block = $('#editorial-read-also-title').closest('section.editorial-read-also');
+	if (!block.length) return { rendered: false, linkCount: 0, anchors: [] };
+	const anchors = [];
+	block.find('a[href]').each((_, el) => {
+		const text = $(el).text().replace(/\s+/g, ' ').trim();
+		const href = $(el).attr('href') || '';
+		anchors.push({ text, href });
+	});
+	return { rendered: true, linkCount: anchors.length, anchors };
+}
+
+function looksLikeUrlAnchor(text) {
+	if (!text) return true;
+	if (text.startsWith('/')) return true;
+	if (/^https?:\/\//i.test(text)) return true;
+	if (/^\/[a-z]{2}(\/|$)/i.test(text)) return true;
+	return isPathLikeTitle(text);
+}
+
 if (!fs.existsSync(dist)) {
 	console.error(`dist introuvable: ${dist}`);
 	process.exit(1);
@@ -72,16 +97,42 @@ if (!fs.existsSync(dist)) {
 const files = walkHtml(dist);
 const pages = [];
 const inbound = new Map();
+let blocksRendered = 0;
+let blocksUnder3Links = 0;
+const badAnchors = [];
+const ukCaEnInText = [];
 
 for (const file of files) {
 	const urlPath = urlPathFromFile(file);
 	if (!isEditorialPath(urlPath)) continue;
 	const html = fs.readFileSync(file, 'utf8');
 	const { count, links } = extractProseLinks(html, urlPath);
-	pages.push({ path: urlPath, outCount: count });
+	const block = auditEditorialBlocks(html, urlPath);
+	pages.push({ path: urlPath, outCount: count, block });
 	for (const target of links) {
 		if (!inbound.has(target)) inbound.set(target, new Set());
 		inbound.get(target).add(urlPath);
+	}
+	if (block.rendered) {
+		blocksRendered += 1;
+		if (block.linkCount < 3) blocksUnder3Links += 1;
+		for (const a of block.anchors) {
+			if (looksLikeUrlAnchor(a.text)) {
+				badAnchors.push({ page: urlPath, text: a.text, href: a.href });
+			}
+		}
+	}
+	if ((urlPath.startsWith('/uk/') || urlPath.startsWith('/ca/')) && html.includes('editorial-read-also')) {
+		const $ = cheerio.load(html);
+		const section = $('section.editorial-read-also');
+		const visible = section.text();
+		if (/\/en\//.test(visible)) {
+			ukCaEnInText.push(urlPath);
+		}
+		for (const a of section.find('a').toArray()) {
+			const t = $(a).text();
+			if (t.includes('/en/')) ukCaEnInText.push(`${urlPath} (ancre: ${t.slice(0, 80)})`);
+		}
 	}
 }
 
@@ -92,6 +143,12 @@ const orphans = pages.filter((p) => (inbound.get(p.path)?.size ?? 0) < 1);
 const report = {
 	dist,
 	totalEditorial: pages.length,
+	editorialReadAlso: {
+		blocksRendered,
+		blocksUnder3Links,
+		badAnchorCount: badAnchors.length,
+		ukCaVisibleEnPaths: [...new Set(ukCaEnInText)].length,
+	},
 	b08: {
 		below3: b08Low.length,
 		atLeast3: b08Ok.length,
@@ -106,6 +163,33 @@ const outPath = path.join(root, 'audit', 'maillage-dist-report.json');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(
 	outPath,
-	`${JSON.stringify({ summary: report, orphans: orphans.map((p) => p.path), b08Low: b08Low.map((p) => p.path) }, null, 2)}\n`,
+	`${JSON.stringify(
+		{
+			summary: report,
+			badAnchors: badAnchors.slice(0, 50),
+			ukCaEnInText: [...new Set(ukCaEnInText)].slice(0, 50),
+			orphans: orphans.map((p) => p.path),
+			b08Low: b08Low.map((p) => p.path),
+		},
+		null,
+		2,
+	)}\n`,
 );
 console.log(JSON.stringify(report, null, 2));
+
+if (strict) {
+	const errors = [];
+	if (badAnchors.length) {
+		errors.push(`${badAnchors.length} ancre(s) ressemblent à un chemin/URL (ex. ${badAnchors[0].page}: « ${badAnchors[0].text} »)`);
+	}
+	if (blocksUnder3Links) {
+		errors.push(`${blocksUnder3Links} bloc(s) « À lire aussi » avec moins de 3 liens`);
+	}
+	if (ukCaEnInText.length) {
+		errors.push(`${[...new Set(ukCaEnInText)].length} page(s) /uk/ ou /ca/ avec « /en/ » visible dans le bloc`);
+	}
+	if (errors.length) {
+		console.error('[audit-maillage-dist] Échec strict:\n' + errors.map((e) => `  - ${e}`).join('\n'));
+		process.exit(1);
+	}
+}
