@@ -3,7 +3,7 @@ interface Props {
 	url: string;
 	title: string;
 	description?: string;
-	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es' | 'nl';
 }
 
 const { url, title, description = 'Guides, comparatifs et conseils pratiques sur robot-educatif.info. robot-educati Guides, comparatifs et conseils pratiques sur robot-educatif.info.', lang = 'fr' } = Astro.props;
@@ -14,6 +14,7 @@ const LABELS = {
 	de: { group: 'Diesen Artikel teilen', share: 'Teilen', fb: 'Auf Facebook teilen', pin: 'Auf Pinterest pinnen', wa: 'Per WhatsApp teilen', tw: 'Auf X teilen' },
 	it: { group: 'Condividi questo articolo', share: 'Condividi', fb: 'Condividi su Facebook', pin: 'Salva su Pinterest', wa: 'Condividi su WhatsApp', tw: 'Condividi su X' },
 	es: { group: 'Compartir este artículo', share: 'Compartir', fb: 'Compartir en Facebook', pin: 'Guardar en Pinterest', wa: 'Compartir en WhatsApp', tw: 'Compartir en X' },
+	nl: { group: 'Dit artikel delen', share: 'Delen', fb: 'Delen op Facebook', pin: 'Opslaan op Pinterest', wa: 'Delen via WhatsApp', tw: 'Delen op X' },
 };
 const L = LABELS[lang] || LABELS.fr;
 

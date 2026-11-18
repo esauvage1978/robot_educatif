@@ -15,6 +15,7 @@ import {
 	isPathLikeTitle,
 	isInvalidAnchorTitle,
 	humanizeUrlPath,
+	cleanPageTitle,
 	KNOWN_PAGE_TITLES,
 	normalizeMaillageHref,
 } from '../src/lib/maillagePageTitles.mjs';
@@ -176,6 +177,21 @@ function titleForPath(urlPath, raw = '') {
 }
 
 function resolvePageTitle(page) {
+	const rawTitle = page.title ? cleanPageTitle(String(page.title)) : '';
+	if (rawTitle && !isInvalidAnchorTitle(rawTitle) && !isPathLikeTitle(rawTitle)) {
+		return rawTitle;
+	}
+	if (page.file && /\.(md|mdx)$/i.test(page.file) && fs.existsSync(page.file)) {
+		try {
+			const { data } = matter(fs.readFileSync(page.file, 'utf8'));
+			if (data?.title) {
+				const t = cleanPageTitle(String(data.title));
+				if (t && !isInvalidAnchorTitle(t) && !isPathLikeTitle(t)) return t;
+			}
+		} catch {
+			/* ignore */
+		}
+	}
 	if (page.file && page.file !== '' && fs.existsSync(page.file)) {
 		return titleForPath(page.path, fs.readFileSync(page.file, 'utf8'));
 	}
@@ -223,10 +239,9 @@ for (const file of walkFiles(path.join(root, 'src/pages'))) {
 	try {
 		const { data, content } = matter(raw);
 		body = content;
-		if (data.title) title = String(data.title).trim();
+		if (data.title) title = cleanPageTitle(String(data.title));
 	} catch {
-		const t = raw.match(/title:\s*["']([^"']+)["']/);
-		if (t) title = t[1];
+		title = titleFromSource(urlPath, raw);
 	}
 	const outLinks = [...collectInternalLinks(body)].filter(
 		(h) => !h.startsWith('/go/') && isSameContentLang(h, urlPath),

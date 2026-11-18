@@ -14,7 +14,7 @@ export function pageExists(href) {
 
 export function localePrefix(pathname) {
 	const p = pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-	const m = p.match(/^\/(en|uk|us|ca|de|it|es)(?=\/|$)/);
+	const m = p.match(/^\/(en|uk|us|ca|de|it|es|nl)(?=\/|$)/);
 	return m ? `/${m[1]}` : '';
 }
 
@@ -23,6 +23,7 @@ export function localeKey(pathname) {
 	if (pre === '/de') return 'de';
 	if (pre === '/it') return 'it';
 	if (pre === '/es') return 'es';
+	if (pre === '/nl') return 'nl';
 	if (pre === '/en' || pre === '/uk' || pre === '/us' || pre === '/ca') return 'en';
 	return 'fr';
 }
@@ -41,7 +42,8 @@ export function localizeGuideHref(href, pathname) {
 	if (href.startsWith('/de/') && prefix === '/de') return href;
 	if (href.startsWith('/it/') && prefix === '/it') return href;
 	if (href.startsWith('/es/') && prefix === '/es') return href;
-	if (!/^\/(en|uk|us|ca|de|it|es)\//.test(href)) {
+	if (href.startsWith('/nl/') && prefix === '/nl') return href;
+	if (!/^\/(en|uk|us|ca|de|it|es|nl)\//.test(href)) {
 		const alt = `${prefix}${href}`.replace(/\/{2,}/g, '/');
 		if (pageExists(alt)) return alt;
 	}
@@ -298,6 +300,22 @@ const SIDEBAR_NAV = {
 					},
 					{ href: '/en/mblock-vs-scratch/', label: 'Scratch o Python (EN)' },
 					{ href: '/en/install-mblock-5-windows/', label: 'mBlock (EN)' },
+				],
+			},
+		],
+	},
+	nl: {
+		quickNavTitle: 'Inhoud',
+		readAlsoTitle: 'Meer lezen',
+		groups: [
+			{
+				title: 'Nederlands op deze site',
+				type: 'list',
+				links: [
+					{ href: '/nl/', label: 'Startpagina NL' },
+					{ href: '/nl/lego-education-merk/', label: 'LEGO Education merkgids' },
+					{ href: '/nl/partners/', label: 'Partners' },
+					{ href: '/nl/prijsdalingen/', label: 'Prijsdalingen' },
 				],
 			},
 		],

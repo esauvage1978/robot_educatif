@@ -25,8 +25,11 @@ const isAnglo = isEn || isUk || isCa || isUs;
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
-const isFr = !isAnglo && !isDe && !isIt && !isEs;
-const partenairesHref = isDe
+const isNl = _p === '/nl/' || _p.startsWith('/nl/');
+const isFr = !isAnglo && !isDe && !isIt && !isEs && !isNl;
+const partenairesHref = isNl
+	? withBase('/nl/partners/')
+	: isDe
 	? withBase('/de/partner/')
 	: isIt
 		? withBase('/it/partner/')
@@ -35,7 +38,7 @@ const partenairesHref = isDe
 			: isAnglo
 				? withBase('/en/partners/')
 				: withBase('/partenaires/');
-const partenairesLabel = isEs ? 'Socios' : isAnglo ? 'Partners' : isDe || isIt ? 'Partner' : 'Partenaires';
+const partenairesLabel = isNl ? 'Partners' : isEs ? 'Socios' : isAnglo ? 'Partners' : isDe || isIt ? 'Partner' : 'Partenaires';
 const bfHref = isDe
 	? '/de/black-friday/'
 	: isIt
@@ -62,7 +65,7 @@ const bfHref = isDe
 				loading="lazy"
 				decoding="async"
 			/>
-			<p class="footer-tagline">{isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isAnglo ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
+			<p class="footer-tagline">{isNl ? "Kiezen en leren met de juiste educatieve robots" : isIt ? "Scegliere e imparare con i robot educativi giusti" : isEs ? "Elegir y aprender con los robots educativos adecuados" : isDe ? "Mit den richtigen Lernrobotern auswählen und lernen" : isAnglo ? "Choosing and learning with the right educational robots" : "Choisir et apprendre avec les bons robots éducatifs"}</p>
 			<div class="social-links">
 				<a href="https://youtube.com/@roboteducatif6268" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
 					<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">

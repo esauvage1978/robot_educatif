@@ -39,9 +39,26 @@ const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');
 const itHref = pair && pair.it ? pair.it : '/it/';
 const esHref = pair && pair.es ? pair.es : '/es/';
-const isFr = !isAnglo && !isDe && !isIt && !isEs;
+const isNl = _p === '/nl/' || _p.startsWith('/nl/');
+const isFr = !isAnglo && !isDe && !isIt && !isEs && !isNl;
 
-const homeHref = isAnglo ? (isUs ? '/us/' : isUk ? '/uk/' : isCa ? '/ca/' : '/en/') : isDe ? '/de/' : isIt ? '/it/' : isEs ? '/es/' : '/';
+const homeHref = isNl
+	? '/nl/'
+	: isAnglo
+		? isUs
+			? '/us/'
+			: isUk
+				? '/uk/'
+				: isCa
+					? '/ca/'
+					: '/en/'
+		: isDe
+			? '/de/'
+			: isIt
+				? '/it/'
+				: isEs
+					? '/es/'
+					: '/';
 
 const navMainFr: [string, string][] = [
 	['/10-projets-mbot-gratuits-classe-faciles/', 'mBot'],
@@ -74,8 +91,25 @@ const navMainEs: [string, string][] = [
 	['/es/domotica/', 'Domótica'],
 	['/es/marcas/', 'Marcas'],
 ];
-const navMain = isAnglo ? navMainEn : isDe ? navMainDe : isIt ? navMainIt : isEs ? navMainEs : navMainFr;
-const baissesHref = isDe
+const navMainNl: [string, string][] = [
+	['/nl/lego-education-merk/', 'LEGO Education'],
+	['/nl/partners/', 'Partners'],
+	['/nl/prijsdalingen/', 'Prijsdalingen'],
+];
+const navMain = isNl
+	? navMainNl
+	: isAnglo
+		? navMainEn
+		: isDe
+			? navMainDe
+			: isIt
+				? navMainIt
+				: isEs
+					? navMainEs
+					: navMainFr;
+const baissesHref = isNl
+	? '/nl/prijsdalingen/'
+	: isDe
 	? '/de/preissenkungen/'
 	: isIt
 		? '/it/ribassi-prezzo/'
@@ -88,9 +122,33 @@ const baissesHref = isDe
 					: isAnglo
 						? '/en/price-drops/'
 						: '/baisses-de-prix/';
-const baissesLib = isDe ? 'Preissenkungen' : isIt ? 'Ribassi di prezzo' : isEs ? 'Bajadas de precio' : isAnglo ? 'Price drops' : 'Baisses de prix';
-const accHref = isDe ? '/de/zubehoer/' : isIt ? '/it/accessori/' : isEs ? '/es/accesorios/' : isCa ? '/ca/accessories/' : isUk ? '/uk/accessories/' : isAnglo ? '/en/accessories/' : '/accessoires/';
-const accLib = isDe ? 'Zubehör' : isIt ? 'Accessori' : isEs ? 'Accesorios' : isAnglo ? 'Accessories' : 'Accessoires';
+const baissesLib = isNl
+	? 'Prijsdalingen'
+	: isDe
+		? 'Preissenkungen'
+		: isIt
+			? 'Ribassi di prezzo'
+			: isEs
+				? 'Bajadas de precio'
+				: isAnglo
+					? 'Price drops'
+					: 'Baisses de prix';
+const accHref = isNl
+	? '/accessoires/'
+	: isDe
+		? '/de/zubehoer/'
+		: isIt
+			? '/it/accessori/'
+			: isEs
+				? '/es/accesorios/'
+				: isCa
+					? '/ca/accessories/'
+					: isUk
+						? '/uk/accessories/'
+						: isAnglo
+							? '/en/accessories/'
+							: '/accessoires/';
+const accLib = isNl ? 'Accessoires (FR)' : isDe ? 'Zubehör' : isIt ? 'Accessori' : isEs ? 'Accesorios' : isAnglo ? 'Accessories' : 'Accessoires';
 const bfHref = isDe
 	? '/de/black-friday/'
 	: isIt
@@ -152,7 +210,7 @@ const outilsMenu = isAnglo ? outilsMenuEn : isDe ? outilsMenuDe : isIt ? outilsM
 const ctaConfigHref = isAnglo ? '/en/smart-home/' : isDe ? '/de/smart-home/' : isIt ? '/it/domotica/' : isEs ? '/es/domotica/' : URL_CONFIGURATEUR_DOMOTIQUE;
 const ctaConfigLabel = isAnglo ? '⚡ Configurator' : isDe ? '⚡ Konfigurator' : isIt ? '⚡ Configuratore' : isEs ? '⚡ Configurador' : '⚡ Configurateur';
 
-const langNavLabel = isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
+const langNavLabel = isNl ? 'Taal' : isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
 
 type LangOption = {
 	code: string;

@@ -1,6 +1,6 @@
 ---
 /** Widget satisfaction page (Manuso rating API) — libellés par langue. */
-type Lang = 'fr' | 'en' | 'de' | 'it' | 'es';
+type Lang = 'fr' | 'en' | 'de' | 'it' | 'es' | 'nl';
 
 interface Props {
 	lang?: Lang;
@@ -70,6 +70,16 @@ const COPY: Record<
 		send: 'Enviar',
 		avgLabel: 'Nota media',
 		starsAria: 'Valoración',
+	},
+	nl: {
+		title: 'Was deze pagina nuttig?',
+		thx: 'Bedankt!',
+		improve: 'Wat kunnen we verbeteren?',
+		reasons: ['Onvolledige info', 'Link of prijs verouderd', 'Tool of tabel corrigeren'],
+		placeholder: 'Optioneel commentaar (180 tekens)',
+		send: 'Versturen',
+		avgLabel: 'Gemiddelde score',
+		starsAria: 'Beoordeling',
 	},
 };
 

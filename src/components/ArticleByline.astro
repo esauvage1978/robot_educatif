@@ -7,9 +7,10 @@ const labels = {
 	de: { by: 'Von', role: 'Herausgeber von ROBOT éducatif', read: 'Min. Lesezeit', updated: 'Aktualisiert am' },
 	it: { by: 'Di', role: 'Editore di ROBOT éducatif', read: 'min di lettura', updated: 'Aggiornato il' },
 	es: { by: 'Por', role: 'Editor de ROBOT éducatif', read: 'min de lectura', updated: 'Actualizado el' },
+	nl: { by: 'Door', role: 'Redactie ROBOT éducatif', read: 'min leestijd', updated: 'Bijgewerkt op' },
 } as const;
 
-const locales = { fr: 'fr-FR', en: 'en-GB', de: 'de-DE', it: 'it-IT', es: 'es-ES' } as const;
+const locales = { fr: 'fr-FR', en: 'en-GB', de: 'de-DE', it: 'it-IT', es: 'es-ES', nl: 'nl-NL' } as const;
 
 interface Props {
 	lang?: keyof typeof labels;

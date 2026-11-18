@@ -8,7 +8,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
 import { MAILLAGE_EXCLUDE_PATHS } from '../src/lib/maillageLocales.mjs';
-import { isInvalidAnchorTitle, normalizeMaillageHref } from '../src/lib/maillagePageTitles.mjs';
+import {
+	cleanPageTitle,
+	isInvalidAnchorTitle,
+	isTruncatedAnchorTitle,
+	normalizeMaillageHref,
+} from '../src/lib/maillagePageTitles.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -137,12 +142,22 @@ if (!fs.existsSync(dist)) {
 
 const files = walkHtml(dist);
 const validPaths = collectValidDistPaths(dist);
+const canonicalTitles = new Map();
+for (const file of files) {
+	const urlPath = urlPathFromFile(file);
+	const html = fs.readFileSync(file, 'utf8');
+	const $ = cheerio.load(html);
+	const fromTitle = cleanPageTitle($('title').first().text());
+	if (fromTitle) canonicalTitles.set(urlPath, fromTitle);
+}
+
 const pages = [];
 const inbound = new Map();
 const deadLinks = [];
 let blocksRendered = 0;
 let blocksUnder3Links = 0;
 const badAnchors = [];
+const truncatedAnchors = [];
 const ukCaEnInText = [];
 
 for (const file of files) {
@@ -161,8 +176,12 @@ for (const file of files) {
 		blocksRendered += 1;
 		if (block.linkCount < 3) blocksUnder3Links += 1;
 		for (const a of block.anchors) {
+			const hrefNorm = normalizeCheckingHref(a.href);
+			const canonical = canonicalTitles.get(hrefNorm) || '';
 			if (looksLikeUrlAnchor(a.text)) {
-				badAnchors.push({ page: urlPath, text: a.text, href: a.href });
+				badAnchors.push({ page: urlPath, text: a.text, href: hrefNorm || a.href, canonical });
+			} else if (isTruncatedAnchorTitle(a.text, canonical)) {
+				truncatedAnchors.push({ page: urlPath, text: a.text, href: hrefNorm || a.href, canonical });
 			}
 		}
 	}
@@ -190,7 +209,8 @@ const report = {
 	editorialReadAlso: {
 		blocksRendered,
 		blocksUnder3Links,
-		badAnchorCount: badAnchors.length,
+		badAnchorCount: badAnchors.length + truncatedAnchors.length,
+		truncatedAnchorCount: truncatedAnchors.length,
 		ukCaVisibleEnPaths: [...new Set(ukCaEnInText)].length,
 		deadInternalLinks: deadLinks.length,
 	},
@@ -212,6 +232,7 @@ fs.writeFileSync(
 		{
 			summary: report,
 			badAnchors: badAnchors.slice(0, 50),
+			truncatedAnchors: truncatedAnchors.slice(0, 50),
 			deadLinks: deadLinks.slice(0, 50),
 			ukCaEnInText: [...new Set(ukCaEnInText)].slice(0, 50),
 			orphans: orphans.map((p) => p.path),
@@ -226,7 +247,12 @@ console.log(JSON.stringify(report, null, 2));
 if (strict) {
 	const errors = [];
 	if (badAnchors.length) {
-		errors.push(`${badAnchors.length} ancre(s) ressemblent à un chemin/URL (ex. ${badAnchors[0].page}: « ${badAnchors[0].text} »)`);
+		errors.push(`${badAnchors.length} ancre(s) invalides (ex. ${badAnchors[0].page}: « ${badAnchors[0].text} »)`);
+	}
+	if (truncatedAnchors.length) {
+		errors.push(
+			`${truncatedAnchors.length} ancre(s) tronquée(s) ou ≠ titre cible (ex. ${truncatedAnchors[0].page}: « ${truncatedAnchors[0].text} » → ${truncatedAnchors[0].canonical})`,
+		);
 	}
 	if (blocksUnder3Links) {
 		errors.push(`${blocksUnder3Links} bloc(s) « À lire aussi » avec moins de 3 liens`);

@@ -2,7 +2,32 @@
  * Résolution de titres éditoriaux pour le plan de maillage (jamais un chemin URL).
  */
 
+import matter from 'gray-matter';
+
 const SITE_SUFFIX = /\s*\|\s*Robot\s*[ÉE]ducatif.*$/i;
+
+/** Compare titres pour l’audit (sans suffixe site). */
+export function titlesMatchForAnchor(anchor, canonical) {
+	if (!anchor?.trim() || !canonical?.trim()) return !anchor?.trim();
+	const a = cleanPageTitle(anchor).toLowerCase();
+	const c = cleanPageTitle(canonical).toLowerCase();
+	return a === c;
+}
+
+export function isTruncatedAnchorTitle(anchor, canonical = '') {
+	if (!anchor || typeof anchor !== 'string') return false;
+	const t = anchor.trim();
+	if (!t) return true;
+	if (/[''']\s*$/.test(t)) return true;
+	const c = cleanPageTitle(canonical);
+	if (!c || titlesMatchForAnchor(t, c)) return false;
+	const tl = t.toLowerCase();
+	const cl = c.toLowerCase();
+	if (!cl.startsWith(tl)) return false;
+	// Apostrophe typographique coupée dans le YAML (ex. « pour l' » / « Guides d' »)
+	if (/\s(l|d|n|s|m|t|c|j|qu)[''']?\s*$/i.test(t)) return true;
+	return false;
+}
 
 export function cleanPageTitle(raw) {
 	if (!raw || typeof raw !== 'string') return '';
@@ -58,20 +83,21 @@ export function humanizeUrlPath(urlPath) {
 
 function yamlFrontmatterTitle(raw) {
 	if (!raw.startsWith('---')) return '';
-	const end = raw.indexOf('\n---', 4);
-	if (end < 0) return '';
-	const yaml = raw.slice(4, end);
-	const quoted = yaml.match(/^title:\s*["']([^"']+)["']/m);
-	if (quoted) return cleanPageTitle(quoted[1]);
-	const plain = yaml.match(/^title:\s*([^\n]+)/m);
-	if (plain) return cleanPageTitle(plain[1].trim());
+	try {
+		const { data } = matter(raw);
+		if (data?.title != null && String(data.title).trim()) {
+			return cleanPageTitle(String(data.title));
+		}
+	} catch {
+		/* ignore */
+	}
 	return '';
 }
 
 function resolveAstroStringConst(raw, varName) {
-	const re = new RegExp(`const\\s+${varName}\\s*=\\s*["'\`]([^"'\`]+)["'\`]`);
+	const re = new RegExp(`const\\s+${varName}\\s*=\\s*([\"'\`])([\\s\\S]*?)\\1`, 'm');
 	const m = raw.match(re);
-	return m ? cleanPageTitle(m[1]) : '';
+	return m ? cleanPageTitle(m[2]) : '';
 }
 
 function astroEmbeddedTitle(raw) {
@@ -88,7 +114,6 @@ function astroEmbeddedTitle(raw) {
 
 	const patterns = [
 		/BaseHead[^>]*\s+title=\{?["']([^"'$]+)["']\}?/,
-		/const\s+title\s*=\s*["']([^"']+)["']/,
 		/<h1[^>]*>\s*\{title\}\s*<\/h1>/,
 		/<h1[^>]*>\s*\{t\.title\}\s*<\/h1>/,
 		/<h1[^>]*>\s*([^<{][^<]{2,120})\s*<\/h1>/,
@@ -118,7 +143,6 @@ export const KNOWN_PAGE_TITLES = new Map(
 		'/de/': 'Robot Éducatif: Ratgeber zu Programmierrobotern, Arduino und Raspberry Pi für Kinder',
 		'/it/': 'Robot programmabili per bambini: guide Arduino e Raspberry Pi',
 		'/es/': 'Robots programables para niños — guías en español',
-		'/nl/': 'Educatieve robots — gidsen, robots en programmaeren',
 		'/accessoires/': 'Accessoires des robots et cartes déjà présentés',
 		'/en/accessories/': 'Accessories for the boards and robots already covered',
 		'/uk/accessories/': 'Accessories for the boards and robots already covered',
