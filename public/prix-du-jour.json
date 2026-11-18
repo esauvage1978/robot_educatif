@@ -4270,8 +4270,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "acer-ch",
@@ -4371,8 +4370,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "allpowers-fr",
@@ -4642,8 +4640,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "cyber-suite-saas",
@@ -4793,8 +4790,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "gardepro",
@@ -4854,8 +4850,7 @@
       "pages": "de",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "gl-technologies-hong-kong-limited",
@@ -4878,17 +4873,6 @@
       "retenus": 0
     },
     {
-      "id": "gotodirect",
-      "mid": "115128",
-      "nom": "Gotodirect",
-      "marque": "Gotodirect",
-      "pages": "toutes",
-      "flux": "erreur",
-      "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
-    },
-    {
       "id": "gsmnet-de",
       "mid": "127701",
       "nom": "GSMnet DE",
@@ -4896,8 +4880,7 @@
       "pages": "de",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "gsmnet-fr",
@@ -4907,8 +4890,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "gsmnet-it",
@@ -4918,8 +4900,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "gsmnet-nl",
@@ -4929,8 +4910,7 @@
       "pages": "toutes",
       "flux": "erreur",
       "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
+      "retenus": 0
     },
     {
       "id": "handy24zubehor",
@@ -5330,16 +5310,6 @@
       "pages": "toutes",
       "flux": "absent",
       "lus": 0,
-      "retenus": 0
-    },
-    {
-      "id": "paj-gps-es-pt",
-      "mid": "109918",
-      "nom": "PAJ GPS ES/PT",
-      "marque": "PAJ GPS ES/PT",
-      "pages": "toutes",
-      "flux": "ok",
-      "lus": 18,
       "retenus": 0
     },
     {

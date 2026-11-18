@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "PARTENAIRES.md",
-  "genereLe": "2026-11-13",
+  "genereLe": "2026-11-18",
   "affid": "3126073",
   "amazonExclu": true,
   "comparaisonParDefaut": true,
@@ -775,18 +775,6 @@
       "exclure": []
     },
     {
-      "id": "gotodirect",
-      "mid": "115128",
-      "nom": "Gotodirect",
-      "marque": "Gotodirect",
-      "pages": "toutes",
-      "liensSite": true,
-      "aIntegrer": false,
-      "aVerifier": false,
-      "comparaisonPrix": true,
-      "exclure": []
-    },
-    {
       "id": "gsmnet-de",
       "mid": "127701",
       "nom": "GSMnet DE",
@@ -1307,18 +1295,6 @@
       "mid": "127821",
       "nom": "Outin Germany",
       "marque": "Outin Germany",
-      "pages": "toutes",
-      "liensSite": true,
-      "aIntegrer": false,
-      "aVerifier": false,
-      "comparaisonPrix": true,
-      "exclure": []
-    },
-    {
-      "id": "paj-gps-es-pt",
-      "mid": "109918",
-      "nom": "PAJ GPS ES/PT",
-      "marque": "PAJ GPS ES/PT",
       "pages": "toutes",
       "liensSite": true,
       "aIntegrer": false,
