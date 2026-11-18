@@ -13,6 +13,7 @@ import DomotiqueBreadcrumbNav from '../components/DomotiqueBreadcrumbNav.astro';
 import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 
 interface Props {
 	title: string;
@@ -159,6 +160,7 @@ const crossLinkVariant =
 				<div class:list={['article-content', 'prose', { 'repair-guide-page': repairGuide }]}>
 					{crossLinkVariant && <ToolResolutionBanner variant={crossLinkVariant} />}
 					<slot />
+					<EditorialReadAlso pathname={articlePath} />
 				</div>
 				<div class="article-content">
 					<!-- page-rating-v1 -->

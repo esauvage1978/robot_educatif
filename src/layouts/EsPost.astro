@@ -19,6 +19,7 @@ import { withBase } from '../lib/siteUrl';
 import ArticleByline from '../components/ArticleByline.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import { guideArticleDates } from '../lib/guideArticleDates.mjs';
+import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 const fm = Astro.props.frontmatter ?? Astro.props;
 const { title, description, updated } = fm;
 const minutesRead = Number(fm.minutesRead);
@@ -294,6 +295,7 @@ const reviewOffer = reviewPage?.offer ?? null;
 					<div class="prose">
 						<HubEssentials />
 						<slot />
+						<EditorialReadAlso />
 					</div>
 					<PageRatingWidget lang="es" />
 

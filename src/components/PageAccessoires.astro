@@ -3,6 +3,7 @@ import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import PageColumns from './PageColumns.astro';
+import EditorialReadAlso from './EditorialReadAlso.astro';
 import catalogue from '../data/accessoires-catalogue.json';
 import prix from '../data/prix-amazon.json';
 
@@ -140,6 +141,7 @@ const produits = [...new Set(cartes.map((c) => c.produit))];
     <Header />
     <main>
       <PageColumns sommaire={false}>
+        <article class="prose">
         <p class="acc-fil"><a href={homeUrl}>{t.home}</a> · {t.crumb}</p>
         <h1>{t.title}</h1>
         <p>{intro}</p>
@@ -187,6 +189,8 @@ const produits = [...new Set(cartes.map((c) => c.produit))];
             );
           })}
         </ul>
+        <EditorialReadAlso />
+        </article>
       </PageColumns>
     </main>
     <Footer />

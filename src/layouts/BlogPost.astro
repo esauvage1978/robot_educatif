@@ -29,6 +29,7 @@ import { getIllustration } from '../lib/illustration';
 import { withImageVersion } from '../lib/imageVersion';
 import { withBase } from '../lib/siteUrl';
 import { findPair } from '../lib/i18n.mjs';
+import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
@@ -265,6 +266,7 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 					)}
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
 						<slot />
+						<EditorialReadAlso pathname={Astro.url.pathname} />
 						{chooseRobotAges && <ChooseRobotBox ages={chooseRobotAges} />}
 						{tutorialProducts && tutorialProducts.length > 0 && (
 							<TutorialProductBox

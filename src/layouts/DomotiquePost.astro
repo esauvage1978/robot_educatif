@@ -13,6 +13,7 @@ import { reviewPageForPath } from '../lib/reviewOffers.mjs';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import DomotiqueBreadcrumbNav from '../components/DomotiqueBreadcrumbNav.astro';
+import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import ArticleByline from '../components/ArticleByline.astro';
 import { withBase } from '../lib/siteUrl';
@@ -197,6 +198,7 @@ const reviewOffer = reviewPage?.offer ?? null;
 
 				<div class="article-content prose">
 								<slot />
+								<EditorialReadAlso />
 							</div>
 							<!-- page-rating-v1 -->
 							<section id="pr-widget" class="pr-widget" aria-labelledby="pr-title">
