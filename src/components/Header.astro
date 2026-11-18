@@ -134,7 +134,7 @@ const baissesLib = isNl
 					? 'Price drops'
 					: 'Baisses de prix';
 const accHref = isNl
-	? '/accessoires/'
+	? '/en/accessories/'
 	: isDe
 		? '/de/zubehoer/'
 		: isIt
@@ -148,8 +148,10 @@ const accHref = isNl
 						: isAnglo
 							? '/en/accessories/'
 							: '/accessoires/';
-const accLib = isNl ? 'Accessoires (FR)' : isDe ? 'Zubehör' : isIt ? 'Accessori' : isEs ? 'Accesorios' : isAnglo ? 'Accessories' : 'Accessoires';
-const bfHref = isDe
+const accLib = isNl ? 'Toebehoren' : isDe ? 'Zubehör' : isIt ? 'Accessori' : isEs ? 'Accesorios' : isAnglo ? 'Accessories' : 'Accessoires';
+const bfHref = isNl
+	? '/en/black-friday/'
+	: isDe
 	? '/de/black-friday/'
 	: isIt
 		? '/it/black-friday/'
@@ -162,9 +164,19 @@ const bfHref = isDe
 					: isAnglo
 						? '/en/black-friday/'
 						: '/black-friday/';
-const mobileExtra = isAnglo || isDe || isIt || isEs ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
+const mobileExtra = isAnglo || isDe || isIt || isEs || isNl ? [] : [['/partenariat/', 'Partenariat'], ['/contact/', 'Contact']];
 
-const outilsTrigger = isAnglo ? 'Tools' : isDe ? 'Werkzeuge' : isIt ? 'Strumenti' : isEs ? 'Herramientas' : 'Outils';
+const outilsTrigger = isNl
+	? 'Tools'
+	: isAnglo
+		? 'Tools'
+		: isDe
+			? 'Werkzeuge'
+			: isIt
+				? 'Strumenti'
+				: isEs
+					? 'Herramientas'
+					: 'Outils';
 
 const outilsMenuFr: [string, string][] = [
 	[URL_CONFIGURATEUR_DOMOTIQUE, '⚡ Configurateur Domotique'],
@@ -205,10 +217,47 @@ const outilsMenuEs: [string, string][] = [
 	[SMART_HOME_TOOL_PATHS.compatMatrix.es, 'Matriz compatibilidad'],
 	['/es/mejor-robot-programable-para-ninos/', 'Guía robots'],
 ];
-const outilsMenu = isAnglo ? outilsMenuEn : isDe ? outilsMenuDe : isIt ? outilsMenuIt : isEs ? outilsMenuEs : outilsMenuFr;
+const outilsMenuNl: [string, string][] = [
+	['/en/smart-home/', '⚡ Slim huis'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.en, '🔧 Foutcodes'],
+	[SMART_HOME_TOOL_PATHS.spareParts.en, 'Reserveonderdelen en sensoren'],
+	[SMART_HOME_TOOL_PATHS.compatMatrix.en, 'Compatibiliteitsmatrix'],
+	['/en/best-programmable-robot-for-kids/', 'Robot-koopgids'],
+];
+const outilsMenu = isNl
+	? outilsMenuNl
+	: isAnglo
+		? outilsMenuEn
+		: isDe
+			? outilsMenuDe
+			: isIt
+				? outilsMenuIt
+				: isEs
+					? outilsMenuEs
+					: outilsMenuFr;
 
-const ctaConfigHref = isAnglo ? '/en/smart-home/' : isDe ? '/de/smart-home/' : isIt ? '/it/domotica/' : isEs ? '/es/domotica/' : URL_CONFIGURATEUR_DOMOTIQUE;
-const ctaConfigLabel = isAnglo ? '⚡ Configurator' : isDe ? '⚡ Konfigurator' : isIt ? '⚡ Configuratore' : isEs ? '⚡ Configurador' : '⚡ Configurateur';
+const ctaConfigHref = isNl
+	? '/en/smart-home/'
+	: isAnglo
+		? '/en/smart-home/'
+		: isDe
+			? '/de/smart-home/'
+			: isIt
+				? '/it/domotica/'
+				: isEs
+					? '/es/domotica/'
+					: URL_CONFIGURATEUR_DOMOTIQUE;
+const ctaConfigLabel = isNl
+	? '⚡ Configurator'
+	: isAnglo
+		? '⚡ Configurator'
+		: isDe
+			? '⚡ Konfigurator'
+			: isIt
+				? '⚡ Configuratore'
+				: isEs
+					? '⚡ Configurador'
+					: '⚡ Configurateur';
 
 const langNavLabel = isNl ? 'Taal' : isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
 
@@ -232,12 +281,32 @@ const langOptions: LangOption[] = [
 ];
 const activeLang = langOptions.find((l) => l.current) ?? langOptions[0];
 
-const menuOpenLabel = isIt ? 'Apri il menu' : isEs ? 'Abrir el menú' : isDe ? 'Menü öffnen' : isAnglo ? 'Open menu' : 'Ouvrir le menu';
-const menuCloseLabel = isIt ? 'Chiudi il menu' : isEs ? 'Cerrar el menú' : isDe ? 'Menü schließen' : isAnglo ? 'Close menu' : 'Fermer le menu';
+const menuOpenLabel = isNl
+	? 'Menu openen'
+	: isIt
+		? 'Apri il menu'
+		: isEs
+			? 'Abrir el menú'
+			: isDe
+				? 'Menü öffnen'
+				: isAnglo
+					? 'Open menu'
+					: 'Ouvrir le menu';
+const menuCloseLabel = isNl
+	? 'Menu sluiten'
+	: isIt
+		? 'Chiudi il menu'
+		: isEs
+			? 'Cerrar el menú'
+			: isDe
+				? 'Menü schließen'
+				: isAnglo
+					? 'Close menu'
+					: 'Fermer le menu';
 ---
 
 <header class="site-header">
-	<nav class="header-bar" aria-label={isAnglo ? 'Main' : isDe ? 'Hauptnavigation' : isIt ? 'Principale' : isEs ? 'Principal' : 'Principale'}>
+	<nav class="header-bar" aria-label={isNl ? 'Hoofdnavigatie' : isAnglo ? 'Main' : isDe ? 'Hauptnavigation' : isIt ? 'Principale' : isEs ? 'Principal' : 'Principale'}>
 		<a class="brand" href={withBase(homeHref)}>
 			<Image
 				class="brand-logo"
