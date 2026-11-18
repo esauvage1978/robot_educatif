@@ -1,4 +1,4 @@
-export const LANGS = ["fr","en","de","it","es"];
+export const LANGS = ['fr', 'en', 'de', 'it', 'es', 'nl'];
 export const PREFIX = {
   fr: '/partenaires/',
   en: '/en/partners/',

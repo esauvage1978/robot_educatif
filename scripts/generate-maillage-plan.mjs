@@ -13,8 +13,10 @@ import {
 	titleFromDistHtml,
 	distHtmlPath,
 	isPathLikeTitle,
+	isInvalidAnchorTitle,
 	humanizeUrlPath,
 	KNOWN_PAGE_TITLES,
+	normalizeMaillageHref,
 } from '../src/lib/maillagePageTitles.mjs';
 import { getAllCatalogEntries } from '../src/data/unifiedErrorCatalog.mjs';
 import { B09_ORPHAN_PATHS } from '../src/data/b09-orphan-paths.mjs';
@@ -106,6 +108,7 @@ function walkFiles(dir, acc = []) {
 
 function urlPathFromSource(filePath) {
 	const rel = path.relative(path.join(root, 'src/pages'), filePath).replace(/\\/g, '/');
+	if (rel === 'index.astro') return '/';
 	if (rel.endsWith('/index.astro')) {
 		return normalizePath(`/${rel.replace(/\/index\.astro$/, '')}/`);
 	}
@@ -180,16 +183,28 @@ function resolvePageTitle(page) {
 }
 
 function linkEntry(href, titleByPath) {
-	const path = normalizePath(href);
+	const path = normalizeMaillageHref(normalizePath(href));
 	return { href: path, title: titleByPath.get(path) || titleForPath(path) };
 }
 
-function assertNoPathLikeTitles(outboundMap) {
+function assertValidAnchorTitles(outboundMap) {
 	for (const [src, links] of Object.entries(outboundMap)) {
 		for (const l of links) {
-			if (isPathLikeTitle(l.title)) {
-				throw new Error(`[maillage-plan] Ancre invalide (chemin) sur ${src} → ${l.href} : « ${l.title} »`);
+			if (isInvalidAnchorTitle(l.title)) {
+				throw new Error(`[maillage-plan] Ancre invalide sur ${src} → ${l.href} : « ${l.title} »`);
 			}
+		}
+	}
+}
+
+function collapseIndexOutbound(map) {
+	if (map['/index/'] && !map['/']) {
+		map['/'] = map['/index/'];
+	}
+	delete map['/index/'];
+	for (const links of Object.values(map)) {
+		for (const l of links) {
+			l.href = normalizeMaillageHref(l.href);
 		}
 	}
 }
@@ -307,6 +322,10 @@ function ensureOutbound(pagePath, targets) {
 	if (!outbound[pagePath]) outbound[pagePath] = [];
 	const existing = new Set(outbound[pagePath].map((t) => t.href));
 	for (const t of targets) {
+		t.href = normalizeMaillageHref(t.href);
+		if (isInvalidAnchorTitle(t.title)) {
+			t.title = titleForPath(t.href);
+		}
 		if (t.href === pagePath) continue;
 		if (!knownPaths.has(t.href)) continue;
 		if (existing.has(t.href)) continue;
@@ -509,7 +528,10 @@ if (nlPages.length > 1) {
 
 topUpExpanded(expanded);
 
-assertNoPathLikeTitles(expanded);
+collapseIndexOutbound(expanded);
+collapseIndexOutbound(outbound);
+
+assertValidAnchorTitles(expanded);
 
 const plan = {
 	generatedAt: new Date().toISOString(),

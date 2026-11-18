@@ -8,7 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
 import { MAILLAGE_EXCLUDE_PATHS } from '../src/lib/maillageLocales.mjs';
-import { isPathLikeTitle } from '../src/lib/maillagePageTitles.mjs';
+import { isInvalidAnchorTitle, normalizeMaillageHref } from '../src/lib/maillagePageTitles.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -82,11 +82,52 @@ function auditEditorialBlocks(html, pagePath) {
 }
 
 function looksLikeUrlAnchor(text) {
-	if (!text) return true;
-	if (text.startsWith('/')) return true;
-	if (/^https?:\/\//i.test(text)) return true;
-	if (/^\/[a-z]{2}(\/|$)/i.test(text)) return true;
-	return isPathLikeTitle(text);
+	return isInvalidAnchorTitle(text);
+}
+
+function collectValidDistPaths(distDir) {
+	const valid = new Set(['/']);
+	function walk(dir) {
+		for (const name of fs.readdirSync(dir)) {
+			const p = path.join(dir, name);
+			if (fs.statSync(p).isDirectory()) {
+				walk(p);
+				continue;
+			}
+			const rel = path.relative(distDir, p).replace(/\\/g, '/');
+			if (name.endsWith('.html')) {
+				valid.add(urlPathFromFile(p));
+				continue;
+			}
+			valid.add(`/${rel}`);
+		}
+	}
+	walk(distDir);
+	return valid;
+}
+
+function normalizeCheckingHref(href) {
+	if (!href?.startsWith('/')) return '';
+	let h = href.split('#')[0].split('?')[0];
+	if (h.startsWith('/go/')) return '';
+	h = normalizeMaillageHref(h);
+	if (/\.\w{2,5}$/i.test(h)) return h;
+	if (!h.endsWith('/')) h = `${h}/`;
+	return h;
+}
+
+function auditInternalHrefs(html, pagePath, validPaths, deadLinks) {
+	const $ = cheerio.load(html);
+	const selector = 'section.editorial-read-also a[href], .pp-grille a.pp-carte[href], .pp-fil a[href]';
+	$(selector).each((_, el) => {
+		let h = $(el).attr('href') || '';
+		if (!h.startsWith('/')) return;
+		const norm = normalizeCheckingHref(h);
+		if (!norm) return;
+		if (!validPaths.has(norm)) {
+			deadLinks.push({ from: pagePath, href: norm, text: $(el).text().replace(/\s+/g, ' ').trim().slice(0, 80) });
+		}
+	});
 }
 
 if (!fs.existsSync(dist)) {
@@ -95,8 +136,10 @@ if (!fs.existsSync(dist)) {
 }
 
 const files = walkHtml(dist);
+const validPaths = collectValidDistPaths(dist);
 const pages = [];
 const inbound = new Map();
+const deadLinks = [];
 let blocksRendered = 0;
 let blocksUnder3Links = 0;
 const badAnchors = [];
@@ -104,8 +147,9 @@ const ukCaEnInText = [];
 
 for (const file of files) {
 	const urlPath = urlPathFromFile(file);
-	if (!isEditorialPath(urlPath)) continue;
 	const html = fs.readFileSync(file, 'utf8');
+	auditInternalHrefs(html, urlPath, validPaths, deadLinks);
+	if (!isEditorialPath(urlPath)) continue;
 	const { count, links } = extractProseLinks(html, urlPath);
 	const block = auditEditorialBlocks(html, urlPath);
 	pages.push({ path: urlPath, outCount: count, block });
@@ -148,6 +192,7 @@ const report = {
 		blocksUnder3Links,
 		badAnchorCount: badAnchors.length,
 		ukCaVisibleEnPaths: [...new Set(ukCaEnInText)].length,
+		deadInternalLinks: deadLinks.length,
 	},
 	b08: {
 		below3: b08Low.length,
@@ -167,6 +212,7 @@ fs.writeFileSync(
 		{
 			summary: report,
 			badAnchors: badAnchors.slice(0, 50),
+			deadLinks: deadLinks.slice(0, 50),
 			ukCaEnInText: [...new Set(ukCaEnInText)].slice(0, 50),
 			orphans: orphans.map((p) => p.path),
 			b08Low: b08Low.map((p) => p.path),
@@ -187,6 +233,11 @@ if (strict) {
 	}
 	if (ukCaEnInText.length) {
 		errors.push(`${[...new Set(ukCaEnInText)].length} page(s) /uk/ ou /ca/ avec « /en/ » visible dans le bloc`);
+	}
+	if (deadLinks.length) {
+		errors.push(
+			`${deadLinks.length} lien(s) interne(s) vers une page absente de dist/ (ex. ${deadLinks[0].from} → ${deadLinks[0].href})`,
+		);
 	}
 	if (errors.length) {
 		console.error('[audit-maillage-dist] Échec strict:\n' + errors.map((e) => `  - ${e}`).join('\n'));

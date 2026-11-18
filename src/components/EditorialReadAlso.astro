@@ -1,7 +1,7 @@
 ---
 import { withBase } from '../lib/siteUrl';
 import { READ_ALSO_HEADING, detectContentLang, MAILLAGE_EXCLUDE_PATHS } from '../lib/maillageLocales.mjs';
-import { isPathLikeTitle, humanizeUrlPath } from '../lib/maillagePageTitles.mjs';
+import { isInvalidAnchorTitle, humanizeUrlPath, normalizeMaillageHref } from '../lib/maillagePageTitles.mjs';
 import planData from '../data/maillage-plan.json';
 
 type Props = {
@@ -21,10 +21,12 @@ if (MAILLAGE_EXCLUDE_PATHS.has(path)) {
 const rawLinks = (planData.outbound?.[path] ?? []) as { href: string; title: string }[];
 const links = rawLinks
 	.filter((link) => link.href?.startsWith('/'))
-	.map((link) => ({
-		href: link.href,
-		title: isPathLikeTitle(link.title) ? humanizeUrlPath(link.href) : link.title,
-	}));
+	.map((link) => {
+		const href = normalizeMaillageHref(link.href);
+		let title = link.title;
+		if (isInvalidAnchorTitle(title)) title = humanizeUrlPath(href);
+		return { href, title };
+	});
 if (!links.length) {
 	return null;
 }

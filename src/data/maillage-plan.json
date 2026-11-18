@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-18T11:25:53.585Z",
-  "pageCount": 1021,
+  "generatedAt": "2026-11-18T11:57:06.131Z",
+  "pageCount": 1022,
   "outbound": {
     "/about/": [
       {
@@ -115,7 +115,7 @@
       },
       {
         "href": "/ca/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       },
       {
         "href": "/ca/educational-robot-christmas-gifts-2026/",
@@ -123,21 +123,21 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       },
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       }
     ],
     "/ca/black-friday/": [
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/ca/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       },
       {
         "href": "/ca/accessories/",
@@ -151,7 +151,7 @@
       },
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/ca/black-friday/",
@@ -169,7 +169,7 @@
       },
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       }
     ],
     "/ca/price-drops/how-we-measure/": [
@@ -183,7 +183,7 @@
       },
       {
         "href": "/ca/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       }
     ],
     "/ca/price-drops/": [
@@ -193,7 +193,7 @@
       },
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/ca/accessories/",
@@ -225,7 +225,7 @@
       },
       {
         "href": "/belgique/",
-        "title": "title"
+        "title": "Robot éducatif Belgique : PECA, compteur P1 RJ12 et Shelly"
       }
     ],
     "/codes-promo/": [
@@ -627,7 +627,7 @@
       },
       {
         "href": "/de/preissenkungen/wie-wir-messen/",
-        "title": "meta.titre"
+        "title": "WIE WIR Messen"
       },
       {
         "href": "/de/mblock-vs-scratch/",
@@ -693,7 +693,7 @@
     "/de/lernroboter-unter-100-euro/": [
       {
         "href": "/de/preissenkungen/",
-        "title": "meta.titre"
+        "title": "Preissenkungen"
       },
       {
         "href": "/de/mblock-vs-scratch/",
@@ -973,7 +973,7 @@
     "/de/mbot-aktivitaet-leds-blinken/": [
       {
         "href": "/de/",
-        "title": "TITLE"
+        "title": "Robot Éducatif: Ratgeber zu Programmierrobotern, Arduino und Raspberry Pi für Kinder"
       },
       {
         "href": "/de/lego-education-computer-science-ai-2026-spike-prime-alternativen/",
@@ -1047,7 +1047,7 @@
       },
       {
         "href": "/de/preissenkungen/wie-wir-messen/",
-        "title": "meta.titre"
+        "title": "WIE WIR Messen"
       },
       {
         "href": "/de/marke-raspberry-pi/",
@@ -1331,7 +1331,7 @@
       },
       {
         "href": "/de/preissenkungen/",
-        "title": "meta.titre"
+        "title": "Preissenkungen"
       }
     ],
     "/de/raspberry-pi-3-vs-4-vs-5/": [
@@ -2685,7 +2685,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/en/best-robot-for-a-6-year-old/": [
@@ -3395,7 +3395,7 @@
       },
       {
         "href": "/en/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/en/mbot2-makeblock-what-it-teaches/",
@@ -3721,7 +3721,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/en/price-drops/how-we-measure/": [
@@ -3749,7 +3749,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/en/programming-gifts-for-teens/": [
@@ -4281,7 +4281,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/en/python-journal-cli-6-package/": [
@@ -4407,7 +4407,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/en/python-planner-cli-3-model/": [
@@ -4809,7 +4809,7 @@
       },
       {
         "href": "/en/",
-        "title": "EN"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       },
       {
         "href": "/en/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
@@ -5931,7 +5931,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       },
       {
         "href": "/es/domotica/primeras-automatizaciones-domotica/",
@@ -6005,7 +6005,7 @@
       },
       {
         "href": "/es/",
-        "title": "TITLE"
+        "title": "Robots programables para niños — guías en español"
       }
     ],
     "/es/conecta-4-python-4-cuatro-en-linea/": [
@@ -6869,7 +6869,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/como-medimos/",
-        "title": "meta.titre"
+        "title": "Como Medimos"
       },
       {
         "href": "/es/domotica/codigos-error-solucion-zigbee-home-assistant-shelly/",
@@ -7125,7 +7125,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       }
     ],
     "/es/montaje-conexion-osoyoo-sport-car-v1/": [
@@ -7139,7 +7139,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       }
     ],
     "/es/primer-programa-mbot/": [
@@ -7401,7 +7401,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       },
       {
         "href": "/es/domotica/codigos-error-solucion-zigbee-home-assistant-shelly/",
@@ -7411,7 +7411,7 @@
     "/es/robot-programable-14-anos/": [
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       },
       {
         "href": "/es/10-proyectos-mbot-gratis-clase/",
@@ -7513,7 +7513,7 @@
       },
       {
         "href": "/es/",
-        "title": "TITLE"
+        "title": "Robots programables para niños — guías en español"
       },
       {
         "href": "/es/marca-raspberry-pi/",
@@ -7569,7 +7569,7 @@
       },
       {
         "href": "/es/bajadas-de-precio/",
-        "title": "meta.titre"
+        "title": "Bajadas DE Precio"
       },
       {
         "href": "/es/primeros-pasos-mblock-5/",
@@ -7646,18 +7646,18 @@
         "title": "Python avancé — générateurs, async, typage, packaging"
       }
     ],
-    "/index/": [
+    "/": [
       {
-        "href": "/suisse/",
-        "title": "title"
+        "href": "/10-projets-mbot-gratuits-classe-faciles/",
+        "title": "10 projets mBot gratuits pour la classe (fiches PDF + corrigés)"
       },
       {
-        "href": "/domotique/code-erreur/mbot-motor-reverse/",
-        "title": "Mbot Motor Reverse"
+        "href": "/domotique/",
+        "title": "Domotique — guides et projets"
       },
       {
-        "href": "/domotique/code-erreur/aqara-interview-sleep/",
-        "title": "Aqara Interview Sleep"
+        "href": "/robots-educatifs-2026-2027-nouveautes-calendrier-comparatif/",
+        "title": "Robots éducatifs 2026–2027 : calendrier des nouveautés et comparatif"
       }
     ],
     "/it/10-progetti-mbot-gratis-classe/": [
@@ -7685,7 +7685,7 @@
       },
       {
         "href": "/it/ribassi-prezzo/come-misuriamo/",
-        "title": "meta.titre"
+        "title": "Come Misuriamo"
       }
     ],
     "/it/accessori-mbot-da-dove-iniziare/": [
@@ -8609,7 +8609,7 @@
     "/it/forza-quattro-python-6-partita-completa/": [
       {
         "href": "/it/ribassi-prezzo/",
-        "title": "meta.titre"
+        "title": "Ribassi Prezzo"
       },
       {
         "href": "/it/unboxing-osoyoo-sport-car-v1/",
@@ -9093,7 +9093,7 @@
       },
       {
         "href": "/it/",
-        "title": "TITLE"
+        "title": "Robot programmabili per bambini: guide Arduino e Raspberry Pi"
       }
     ],
     "/it/python-forza-4-6-gioco-completo/": [
@@ -9355,7 +9355,7 @@
       },
       {
         "href": "/it/ribassi-prezzo/",
-        "title": "meta.titre"
+        "title": "Ribassi Prezzo"
       },
       {
         "href": "/it/forza-quattro-python-6-partita-completa/",
@@ -9572,10 +9572,28 @@
         "title": "Kit robotique adulte et débutant : lequel choisir en 2026"
       }
     ],
+    "/nl/": [
+      {
+        "href": "/nl/prijsdalingen/hoe-we-meten/",
+        "title": "Hoe prijsdalingen worden gemeten"
+      },
+      {
+        "href": "/nl/partners/",
+        "title": "Partners — samenwerkingen per markt"
+      },
+      {
+        "href": "/nl/lego-education-merk/",
+        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+      },
+      {
+        "href": "/nl/prijsdalingen/",
+        "title": "Prijsdalingen bij partners"
+      }
+    ],
     "/nl/lego-education-merk/": [
       {
         "href": "/nl/partners/",
-        "title": "Partners — affiliate programs by market"
+        "title": "Partners — samenwerkingen per markt"
       },
       {
         "href": "/nl/prijsdalingen/",
@@ -9584,6 +9602,10 @@
       {
         "href": "/nl/prijsdalingen/hoe-we-meten/",
         "title": "Hoe prijsdalingen worden gemeten"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmaeren"
       }
     ],
     "/nl/partners/": [
@@ -9598,6 +9620,10 @@
       {
         "href": "/nl/prijsdalingen/",
         "title": "Prijsdalingen bij partners"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmaeren"
       }
     ],
     "/nl/prijsdalingen/hoe-we-meten/": [
@@ -9610,8 +9636,12 @@
         "title": "Prijsdalingen bij partners"
       },
       {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmaeren"
+      },
+      {
         "href": "/nl/partners/",
-        "title": "Partners — affiliate programs by market"
+        "title": "Partners — samenwerkingen per markt"
       }
     ],
     "/nl/prijsdalingen/": [
@@ -9621,7 +9651,11 @@
       },
       {
         "href": "/nl/partners/",
-        "title": "Partners — affiliate programs by market"
+        "title": "Partners — samenwerkingen per markt"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmaeren"
       },
       {
         "href": "/nl/prijsdalingen/hoe-we-meten/",
@@ -9901,15 +9935,15 @@
       },
       {
         "href": "/uk/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       },
       {
         "href": "/uk/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       }
     ],
     "/uk/black-friday/": [
@@ -9919,11 +9953,11 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       },
       {
         "href": "/uk/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       }
     ],
     "/uk/": [
@@ -9933,7 +9967,7 @@
       },
       {
         "href": "/uk/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/uk/accessories/",
@@ -9947,11 +9981,11 @@
       },
       {
         "href": "/uk/price-drops/",
-        "title": "meta.titre"
+        "title": "Price Drops"
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/uk/price-drops/": [
@@ -9961,7 +9995,7 @@
       },
       {
         "href": "/uk/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/uk/accessories/",
@@ -10077,7 +10111,7 @@
       },
       {
         "href": "/suisse/",
-        "title": "title"
+        "title": "Robot éducatif en Suisse romande : PER, prise T13 et données"
       }
     ],
     "/assemblage-branchement-osoyoo-sport-car-v1-arduino/": [
@@ -10195,7 +10229,7 @@
     "/cadeau-robot-enfant-10-ans/": [
       {
         "href": "/monaco/",
-        "title": "title"
+        "title": "Robot éducatif Monaco : écoles, fablab et domotique locale"
       },
       {
         "href": "/domotique/glossaire-domotique/",
@@ -10265,7 +10299,7 @@
     "/equiper-classe-robots-budget-packs-2026/": [
       {
         "href": "/belgique/",
-        "title": "title"
+        "title": "Robot éducatif Belgique : PECA, compteur P1 RJ12 et Shelly"
       },
       {
         "href": "/blog/",
@@ -11014,8 +11048,8 @@
         "title": "Arduino C — types, variables et constantes (20 exercices)"
       },
       {
-        "href": "/index/",
-        "title": "HOME_TITLE"
+        "href": "/programmation-enfant-a-quel-age-commencer/",
+        "title": "Programmation enfant : à quel âge commencer ?"
       }
     ],
     "/python-av-packaging-pyproject/": [
@@ -11595,7 +11629,7 @@
     "/python-variables-affichage/": [
       {
         "href": "/belgique/",
-        "title": "title"
+        "title": "Robot éducatif Belgique : PECA, compteur P1 RJ12 et Shelly"
       },
       {
         "href": "/domotique/raspberry-pi-capteur-co2-scd41-home-assistant/",
@@ -12019,7 +12053,7 @@
       },
       {
         "href": "/belgique/",
-        "title": "title"
+        "title": "Robot éducatif Belgique : PECA, compteur P1 RJ12 et Shelly"
       },
       {
         "href": "/python-puissance-4-1-cahier-grille/",
@@ -12106,8 +12140,8 @@
         "title": "Z2M 205"
       },
       {
-        "href": "/index/",
-        "title": "HOME_TITLE"
+        "href": "/robot-pedagogique-ecole/",
+        "title": "Robot pédagogique pour l"
       }
     ],
     "/sinscrire-sur-mblock/": [
@@ -15469,7 +15503,7 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/ca/best-robot-for-a-5-year-old/": [
@@ -15483,7 +15517,7 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       }
     ],
     "/uk/best-robot-for-a-6-year-old/": [
@@ -16823,7 +16857,7 @@
       },
       {
         "href": "/uk/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/uk/mbot2-makeblock-what-it-teaches/",
@@ -16837,7 +16871,7 @@
       },
       {
         "href": "/ca/price-drops/how-we-measure/",
-        "title": "meta.titre"
+        "title": "HOW WE Measure"
       },
       {
         "href": "/ca/mbot2-makeblock-what-it-teaches/",
@@ -17471,7 +17505,7 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/ca/partners/": [
@@ -17485,7 +17519,7 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       }
     ],
     "/uk/programming-gifts-for-teens/": [
@@ -18527,7 +18561,7 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/ca/python-journal-cli-5-typing-mypy/": [
@@ -18541,7 +18575,7 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       }
     ],
     "/uk/python-journal-cli-6-package/": [
@@ -18779,7 +18813,7 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/ca/python-planner-cli-2-pathlib/": [
@@ -18793,7 +18827,7 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       }
     ],
     "/uk/python-planner-cli-3-model/": [
@@ -19587,7 +19621,7 @@
       },
       {
         "href": "/uk/",
-        "title": "UK"
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       },
       {
         "href": "/uk/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
@@ -19601,7 +19635,7 @@
       },
       {
         "href": "/ca/",
-        "title": "CA"
+        "title": "Coding robots & smart home — guides for Canada"
       },
       {
         "href": "/ca/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
@@ -23622,7 +23656,7 @@
     ]
   },
   "stats": {
-    "pagesWithSupplement": 1569,
+    "pagesWithSupplement": 1570,
     "b09InKnown": 63
   }
 }

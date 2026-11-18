@@ -19,6 +19,33 @@ export function isPathLikeTitle(title) {
 	return false;
 }
 
+/** Identifiant de code (HOME_TITLE), expression {…}, etc. — interdit comme ancre. */
+export function isIdentifierLikeTitle(title) {
+	if (!title || typeof title !== 'string') return true;
+	const s = title.trim();
+	if (!s) return true;
+	if (/^[A-Z][A-Z0-9_]*$/.test(s)) return true;
+	if (/^\{[^}]+\}$/.test(s)) return true;
+	if (/^(title|href|pathname)$/i.test(s)) return true;
+	return false;
+}
+
+export function isInvalidAnchorTitle(title) {
+	return isPathLikeTitle(title) || isIdentifierLikeTitle(title);
+}
+
+/** Canonise les href internes du plan (ex. /index/ → /). */
+export function normalizeMaillageHref(href) {
+	if (!href || typeof href !== 'string') return href;
+	let s = href.trim();
+	if (!s.startsWith('/')) return href;
+	const bare = s.split('#')[0].split('?')[0];
+	if (/\.\w{2,5}$/i.test(bare)) return bare;
+	if (!s.endsWith('/')) s = `${s}/`;
+	if (s === '/index/') return '/';
+	return s;
+}
+
 export function humanizeUrlPath(urlPath) {
 	const parts = urlPath.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
 	const seg = parts[parts.length - 1] || 'accueil';
@@ -41,10 +68,26 @@ function yamlFrontmatterTitle(raw) {
 	return '';
 }
 
+function resolveAstroStringConst(raw, varName) {
+	const re = new RegExp(`const\\s+${varName}\\s*=\\s*["'\`]([^"'\`]+)["'\`]`);
+	const m = raw.match(re);
+	return m ? cleanPageTitle(m[1]) : '';
+}
+
 function astroEmbeddedTitle(raw) {
+	for (const name of ['HOME_TITLE', 'TITLE']) {
+		const val = resolveAstroStringConst(raw, name);
+		if (val && new RegExp(`title\\s*=\\s*\\{${name}\\}`).test(raw)) return val;
+	}
+
+	const headVar = raw.match(/<BaseHead[^>]*\s+title=\{([A-Za-z_][A-Za-z0-9_]*)\}/);
+	if (headVar) {
+		const resolved = resolveAstroStringConst(raw, headVar[1]);
+		if (resolved && !isInvalidAnchorTitle(resolved)) return resolved;
+	}
+
 	const patterns = [
 		/BaseHead[^>]*\s+title=\{?["']([^"'$]+)["']\}?/,
-		/<BaseHead[^>]*title=\{([^}]+)\}/,
 		/const\s+title\s*=\s*["']([^"']+)["']/,
 		/<h1[^>]*>\s*\{title\}\s*<\/h1>/,
 		/<h1[^>]*>\s*\{t\.title\}\s*<\/h1>/,
@@ -52,10 +95,15 @@ function astroEmbeddedTitle(raw) {
 	];
 	for (const re of patterns) {
 		const m = raw.match(re);
-		if (m?.[1] && !m[1].includes('{')) {
-			const t = cleanPageTitle(m[1]);
-			if (t && !isPathLikeTitle(t)) return t;
+		if (!m?.[1]) continue;
+		if (/^[A-Za-z_][A-Za-z0-9_]*$/.test(m[1].trim())) {
+			const resolved = resolveAstroStringConst(raw, m[1].trim());
+			if (resolved && !isInvalidAnchorTitle(resolved)) return resolved;
+			continue;
 		}
+		if (m[1].includes('{')) continue;
+		const t = cleanPageTitle(m[1]);
+		if (t && !isInvalidAnchorTitle(t)) return t;
 	}
 	return '';
 }
@@ -63,6 +111,14 @@ function astroEmbeddedTitle(raw) {
 /** Titres connus pour pages hub / wrappers sans frontmatter exploitable. */
 export const KNOWN_PAGE_TITLES = new Map(
 	Object.entries({
+		'/': "Robot programmable enfant : guides d'achat, mBlock et tutos 2026",
+		'/en/': 'Coding robots & smart home — guides for UK, US & Canada',
+		'/uk/': 'Coding robots & smart home — guides for UK, US & Canada',
+		'/ca/': 'Coding robots & smart home — guides for Canada',
+		'/de/': 'Robot Éducatif: Ratgeber zu Programmierrobotern, Arduino und Raspberry Pi für Kinder',
+		'/it/': 'Robot programmabili per bambini: guide Arduino e Raspberry Pi',
+		'/es/': 'Robots programables para niños — guías en español',
+		'/nl/': 'Educatieve robots — gidsen, robots en programmaeren',
 		'/accessoires/': 'Accessoires des robots et cartes déjà présentés',
 		'/en/accessories/': 'Accessories for the boards and robots already covered',
 		'/uk/accessories/': 'Accessories for the boards and robots already covered',
@@ -84,7 +140,7 @@ export const KNOWN_PAGE_TITLES = new Map(
 		'/de/lernroboter-unter-100-euro/': 'Lernroboter unter 100 €: beste Kits 2026',
 		'/it/python-forza-4-1-griglia/': 'Forza 4 in Python (1/6) — griglia 6×7 e modello dati',
 		'/nl/lego-education-merk/': 'LEGO Education: merkgids SPIKE, WeDo en BricQ',
-		'/nl/partners/': 'Partners — affiliate programs by market',
+		'/nl/partners/': 'Partners — samenwerkingen per markt',
 		'/nl/prijsdalingen/': 'Prijsdalingen bij partners',
 		'/nl/prijsdalingen/hoe-we-meten/': 'Hoe prijsdalingen worden gemeten',
 	}).map(([p, t]) => [p.endsWith('/') ? p : `${p}/`, t]),
@@ -108,7 +164,7 @@ export function titleFromSource(urlPath, raw = '') {
 	if (!t) t = yamlFrontmatterTitle(raw);
 	if (!t && raw.includes('BaseHead')) t = astroEmbeddedTitle(raw);
 
-	if (isPathLikeTitle(t)) t = humanizeUrlPath(urlPath);
+	if (isPathLikeTitle(t) || isIdentifierLikeTitle(t)) t = humanizeUrlPath(urlPath);
 	return t;
 }
 
@@ -131,6 +187,7 @@ export function titleFromDistHtml(html) {
 }
 
 export function distHtmlPath(root, urlPath) {
+	if (urlPath === '/' || urlPath === '') return `${root}/dist/index.html`;
 	const rel = urlPath.replace(/^\//, '').replace(/\/$/, '');
 	return `${root}/dist/${rel}/index.html`;
 }

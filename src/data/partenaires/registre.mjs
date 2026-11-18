@@ -156,8 +156,9 @@ export function textes(lang) {
       vide: 'Todavía no hay un socio aceptado publicado.',
     },
     nl: {
-      titreIndex: 'Partners',
-      descriptionIndex: 'Merken en winkels met een aanvaarde samenwerking, hun officiële site wanneer die bekend is, en de artikelen op deze site die hen noemen.',
+      titreIndex: 'Partners — samenwerkingen per markt',
+      descriptionIndex:
+        'Merken en winkels met een aanvaarde samenwerking, hun officiële site wanneer die bekend is, en de artikelen op deze site die hen noemen.',
       titreFiche: (nom) => `${nom}, partner`,
       descriptionFiche: (nom, marche) => `${nom} hoort bij de partners van de site voor de markt ${paysDe('nl', marche)}.`,
       chapo: (nom, marche) => `${nom} hoort bij de partners van de site voor de markt ${paysDe('nl', marche)}.`,
