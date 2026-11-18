@@ -23,6 +23,7 @@ const { entry } = Astro.props;
 const pageTitle = `${entry.label} — guides robotique`;
 const pageDesc = buildCategoryMetaDescription(entry.label, entry.posts.length);
 const shouldNoIndex = false;
+const pageUpdated = new Date('2026-11-18T12:00:00+01:00');
 
 const POST_BLURBS: Record<string, string> = {
 	'mbot-mon-premier-robot-educatif': 'Premier montage et connexion mBlock — idéal après le choix du kit.',
@@ -51,7 +52,7 @@ const POST_BLURBS: Record<string, string> = {
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={pageTitle} description={pageDesc} noIndex={shouldNoIndex} />
+		<BaseHead title={pageTitle} description={pageDesc} noIndex={shouldNoIndex} updatedDate={pageUpdated} ogType="article" />
 		<StructuredDataBreadcrumb
 			items={[
 				{ name: 'Accueil', url: withBase('/') },
@@ -194,14 +195,21 @@ const POST_BLURBS: Record<string, string> = {
 								<a href={withBase('/programmation-enfant-a-quel-age-commencer/')}>âge pour programmer</a>.
 							</>
 						)}
-						{!['mbot', 'cadeaux', 'mbot-2', 'scratch'].includes(entry.slug) && (
+						{entry.slug === 'ecole' && (
+							<>
+								Guides <strong>école</strong> et numérique : Scratch, mBlock, budgets classe et choix de robots conformes à un projet PECA ou EPI. Hub :{' '}
+								<a href={withBase('/robot-pedagogique-ecole/')}>robot pédagogique pour l’école</a> ·{' '}
+								<a href={withBase('/belgique/')}>spécificités Belgique (PECa, marchés publics)</a>.
+							</>
+						)}
+						{!['mbot', 'cadeaux', 'mbot-2', 'scratch', 'ecole'].includes(entry.slug) && (
 							<>
 								Retrouvez ici tous nos articles sur <strong>{entry.label}</strong> : tutoriels pratiques, guides d'achat,
 								comparatifs de robots éducatifs et conseils pour l'apprentissage de la robotique et de la programmation.
 							</>
 						)}
 					</p>
-					<p class="count">{entry.posts.length} article{entry.posts.length > 1 ? 's' : ''} dans cette catégorie.</p>
+					<p class="count">{entry.posts.length} article{entry.posts.length > 1 ? 's' : ''} dans cette catégorie · mis à jour le 18/11/2026.</p>
 				</div>
 			</section>
 			<div class="list-wrap">
@@ -320,6 +328,64 @@ const POST_BLURBS: Record<string, string> = {
 								<a href={withBase('/marque-makeblock/')}>fiche Makeblock</a>.
 							</p>
 							<img src={withBase('/images/blog/robots-educatif-500-1000-euros-2026/makeblock-mbot2.jpg')} alt="Makeblock mBot2" width="320" height="180" loading="lazy" style="border-radius:8px;" />
+						</section>
+					)
+				}
+				{
+					entry.slug === 'ecole' && (
+						<section class="intro" style="margin-bottom:1.75rem;padding:1.1rem 1.2rem;border:1px solid var(--surface-border);border-radius:10px;background:var(--surface-2);max-width:42rem;line-height:1.6;">
+							<h2 style="margin:0 0 0.65rem 0;font-size:1.15rem;">Parcours enseignant / parent</h2>
+							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
+								Commencez par <strong>un objectif pédagogique</strong> (initiation Scratch, robot physique, technologie collège), puis seulement le matériel.
+							</p>
+							<ul
+								class="ecole-aff-grid"
+								style="list-style:none;margin:0 0 0.85rem;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;"
+							>
+								<li style="border:1px solid var(--surface-border);border-radius:10px;padding:0.65rem;background:#fff;">
+									<a
+										href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21"
+										rel="sponsored nofollow noopener"
+										target="_blank"
+										style="display:flex;flex-direction:column;gap:0.4rem;text-decoration:none;color:inherit;"
+									>
+										<img
+											src={withBase('/images/products/mbot.webp')}
+											alt="Makeblock mBot pour la classe"
+											width="200"
+											height="150"
+											loading="lazy"
+											style="width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:8px;"
+										/>
+										<strong style="font-size:0.95rem;">Makeblock mBot</strong>
+										<span style="font-size:0.85rem;color:var(--accent);font-weight:700;">Voir sur Amazon →</span>
+									</a>
+								</li>
+								<li style="border:1px solid var(--surface-border);border-radius:10px;padding:0.65rem;background:#fff;">
+									<a
+										href="https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21"
+										rel="sponsored nofollow noopener"
+										target="_blank"
+										style="display:flex;flex-direction:column;gap:0.4rem;text-decoration:none;color:inherit;"
+									>
+										<img
+											src={withBase('/images/products/mbot2.webp')}
+											alt="Makeblock mBot2 CyberPi"
+											width="200"
+											height="150"
+											loading="lazy"
+											style="width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:8px;"
+										/>
+										<strong style="font-size:0.95rem;">Makeblock mBot2</strong>
+										<span style="font-size:0.85rem;color:var(--accent);font-weight:700;">Voir sur Amazon →</span>
+									</a>
+								</li>
+							</ul>
+							<ul style="margin:0 0 0.85rem 0;padding-left:1.2rem;">
+								<li><a href={withBase('/scratch-ecole-maison-par-ou-commencer/')}>Scratch école / maison</a></li>
+								<li><a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>Budget robots pour une classe</a></li>
+								<li><a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>10 projets mBot gratuits</a></li>
+							</ul>
 						</section>
 					)
 				}

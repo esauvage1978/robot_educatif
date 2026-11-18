@@ -1,7 +1,13 @@
 ---
 import RepairComplianceSections from '../RepairComplianceSections.astro';
 import RepairIndicators from '../RepairIndicators.astro';
-import { sparePartsRows, SPARE_PARTS_META } from '../../data/smartHomeSpareParts.mjs';
+import {
+	sparePartsRows,
+	SPARE_PARTS_META,
+	SPARE_PARTS_UI,
+	SPARE_PARTS_MBLOCK_HREF,
+} from '../../data/smartHomeSpareParts.mjs';
+import { withBase } from '../../lib/siteUrl';
 
 interface Props {
 	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
@@ -9,56 +15,150 @@ interface Props {
 
 const { lang } = Astro.props;
 const meta = SPARE_PARTS_META[lang];
+const ui = SPARE_PARTS_UI[lang];
 const rows = sparePartsRows(lang);
 const shopLabel =
 	lang === 'fr' ? 'Boutiques' : lang === 'de' ? 'Shops' : lang === 'it' ? 'Negozi' : lang === 'es' ? 'Tiendas' : 'Shops';
+
+const toolsPath = {
+	fr: '/domotique/codes-erreurs-depannage-zigbee-home-assistant-shelly/',
+	en: '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/',
+	de: '/de/smart-home/fehlercodes-stoerungen-zigbee-home-assistant-shelly/',
+	it: '/it/domotica/codici-errore-risoluzione-zigbee-home-assistant-shelly/',
+	es: '/es/domotica/codigos-error-solucion-zigbee-home-assistant-shelly/',
+}[lang];
+
+const donglePath = {
+	fr: '/domotique/meilleur-dongle-zigbee-home-assistant/',
+	en: '/en/smart-home/best-zigbee-dongle-home-assistant/',
+	de: '/de/smart-home/bester-zigbee-stick-home-assistant/',
+	it: '/it/domotica/miglior-chiavetta-zigbee-home-assistant/',
+	es: '/es/domotica/mejor-dongle-zigbee-home-assistant/',
+}[lang];
+
+const matrixPath = {
+	fr: '/domotique/matrice-compatibilite-home-assistant-homey-zigbee-matter/',
+	en: '/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/',
+	de: '/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/',
+	it: '/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/',
+	es: '/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/',
+}[lang];
+
+const mblockPath = SPARE_PARTS_MBLOCK_HREF[lang as keyof typeof SPARE_PARTS_MBLOCK_HREF];
 ---
 
+<nav class="page-toc" aria-label={ui.tocTitle}>
+	<p><strong>{ui.tocTitle}</strong></p>
+	<ol>
+		<li><a href="#sp-table">{ui.tocTable}</a></li>
+		<li><a href="#sp-tips">{ui.tocTips}</a></li>
+		<li><a href="#sp-links">{ui.tocLinks}</a></li>
+	</ol>
+</nav>
+
 <p>{meta.intro}</p>
-<repaircompliancesections lang="{lang}" showsupport="{false}" variant="smart-home"></repaircompliancesections>
-<repairindicators 'navigateur'="" 'web="" :="" =="fr" ?="" browser'}="" cost="0 €" difficulty="{1}" lang="{lang}" time="5 min (lecture)" tools="{lang"></repairindicators>
+
+<figure style="margin:1rem 0 1.25rem;">
+	<img
+		src={withBase('/images/products/sonoff-zbdongle-e.webp')}
+		alt={ui.altDongle}
+		width="480"
+		height="360"
+		loading="lazy"
+		decoding="async"
+		style="max-width:320px;height:auto;border-radius:10px;"
+	/>
+</figure>
+
+<figure style="margin:0 0 1.25rem;">
+	<img
+		src={withBase('/images/products/raspberry-pi-5-4gb.webp')}
+		alt={ui.altPi}
+		width="480"
+		height="360"
+		loading="lazy"
+		decoding="async"
+		style="max-width:320px;height:auto;border-radius:10px;"
+	/>
+</figure>
+
+<RepairComplianceSections lang={lang} showSupport={false} variant="smart-home" />
+<RepairIndicators difficulty={1} time={ui.readTime} cost="0 €" tools={ui.tools} lang={lang} />
+
+<h2 id="sp-table">{ui.hTable}</h2>
+
+<div class="tableau empile">
 <table>
-<thead>
-<tr>
-<th>{meta.table.cat}</th>
-<th>{meta.table.official}</th>
-<th>{meta.table.compat}</th>
-<th>{meta.table.note}</th>
-<th>{shopLabel}</th>
-</tr>
-</thead>
-<tbody>
+	<thead>
+		<tr>
+			<th scope="col">{meta.table.cat}</th>
+			<th scope="col">{meta.table.official}</th>
+			<th scope="col">{meta.table.compat}</th>
+			<th scope="col">{meta.table.note}</th>
+			<th scope="col">{shopLabel}</th>
+		</tr>
+	</thead>
+	<tbody>
 		{rows.map((row) => (
 			<tr>
-<td><strong>{row.category[lang]}</strong></td>
-<td>{row.official[lang]}</td>
-<td>{row.compat[lang]}</td>
-<td>{row.note[lang]}</td>
-<td>
-<ul>
+				<td data-label={meta.table.cat}>
+					<span class="td-val"><strong>{row.category[lang]}</strong></span>
+				</td>
+				<td data-label={meta.table.official}>
+					<span class="td-val">{row.official[lang]}</span>
+				</td>
+				<td data-label={meta.table.compat}>
+					<span class="td-val">{row.compat[lang]}</span>
+				</td>
+				<td data-label={meta.table.note}>
+					<span class="td-val">{row.note[lang]}</span>
+				</td>
+				<td data-label={shopLabel}>
+					<ul>
 						{row.links.map((link) => (
 							<li>
-<a href="{link.url}" rel="sponsored noopener noreferrer" target="_blank">{link.label[lang]}</a>
-</li>
+								<a href={link.url} rel="sponsored nofollow noopener" target="_blank">
+									{link.label[lang]}
+								</a>
+							</li>
 						))}
 					</ul>
-</td>
-</tr>
+				</td>
+			</tr>
 		))}
 	</tbody>
 </table>
+</div>
+
+<h2 id="sp-tips">{ui.hTips}</h2>
 <p>
-	{lang === 'fr'
-		? 'Robotique : pour les erreurs de téléversement mBlock / Arduino, voir aussi '
-		: lang === 'en'
-			? 'Robotics: for mBlock / Arduino upload errors, see '
-			: lang === 'de'
-				? 'Robotik: Upload-Fehler mBlock / Arduino: '
-				: lang === 'it'
-					? 'Robotica: errori upload mBlock / Arduino: '
-					: 'Robótica educativa: errores de carga mBlock / Arduino: '}
-	<a '="" '}="" :="" =="fr" ?="" href="{lang" mblock-depannage-codes-erreurs-mbot-arduino="">
-		{lang === 'fr' ? 'dépannage mBlock & mBot' : 'mBlock & mBot troubleshooting'}
-	</a>.
+	{ui.tip1}{' '}
+	<a href={withBase(donglePath)}>{ui.tip1Link}</a>.
 </p>
-<repaircompliancesections lang="{lang}" showassist="{false}" showdisclaimer="{false}" showsav="{false}" variant="smart-home"></repaircompliancesections>
+<p>
+	{ui.tip2}{' '}
+	<a href={withBase(matrixPath)}>{ui.tip2Link}</a>.
+</p>
+
+<h2 id="sp-links">{ui.hLinks}</h2>
+<ul>
+	<li>
+		<a href={withBase(toolsPath)}>{ui.linkErrors}</a>
+	</li>
+	<li>
+		<a href={withBase(donglePath)}>{ui.linkDongle}</a>
+	</li>
+	{ui.linkDiag && (
+		<li>
+			<a href={withBase('/domotique/diagnostic-par-symptome/')}>{ui.linkDiag}</a>
+		</li>
+	)}
+</ul>
+{ui.roboticsLead && mblockPath && (
+	<p>
+		{ui.roboticsLead}{' '}
+		<a href={withBase(mblockPath)}>{ui.roboticsLink}</a>.
+	</p>
+)}
+
+<RepairComplianceSections lang={lang} showAssist={false} showDisclaimer={false} showSav={false} variant="smart-home" />

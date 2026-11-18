@@ -21,13 +21,14 @@ const snap = amazonSnapshot(market);
 const mention = priceMentionForLocale(snap?.releveAffichage || '', locale);
 
 const PRODUCTS = [
-	{ asin: 'B083T5G5ZK', query: 'Learning Resources Botley 2.0', key: 'botley' },
-	{ asin: 'B07XR98YYQ', query: 'Makeblock mBot', key: 'mbot' },
-	{ asin: 'B0919F9CKS', query: 'Makeblock mBot2', key: 'mbot2' },
-	{ asin: 'B078Y9RYM2', query: 'ELEGOO Smart Robot Car V4.0', key: 'elegoo' },
-	{ asin: 'B0B6P22YJC', query: 'SONOFF ZBDongle-E', key: 'dongle' },
-	{ asin: 'B0BYZP8NK2', query: 'SONOFF SNZB-02D', key: 'sensor' },
+	{ asin: 'B083T5G5ZK', query: 'Learning Resources Botley 2.0', key: 'botley', image: '/images/products/botley-2.webp' },
+	{ asin: 'B07XR98YYQ', query: 'Makeblock mBot', key: 'mbot', image: '/images/products/mbot.webp' },
+	{ asin: 'B0919F9CKS', query: 'Makeblock mBot2', key: 'mbot2', image: '/images/products/mbot2.webp' },
+	{ asin: 'B078Y9RYM2', query: 'ELEGOO Smart Robot Car V4.0', key: 'elegoo', image: '/images/products/elegoo-robot-car.webp' },
+	{ asin: 'B0B6P22YJC', query: 'SONOFF ZBDongle-E', key: 'dongle', image: '/images/products/sonoff-zbdongle-e.webp' },
+	{ asin: 'B0BYZP8NK2', query: 'SONOFF SNZB-02D', key: 'sensor', image: '/images/products/sonoff-snzb-02d.webp' },
 ];
+const updatedIso = `${today}T12:00:00+01:00`;
 
 const copy = {
 	en: {
@@ -61,6 +62,25 @@ const copy = {
 		compare: 'Compare the main programmable robots →',
 		hub: 'Smart home hub →',
 		faqTitle: 'Questions before ordering',
+		pageUpdatedLabel: 'Page updated:',
+		timezoneLabel: '(Europe/Paris)',
+		tocAria: 'On this page',
+		tocHeading: 'On this page',
+		tocCalendar: '2026 calendar',
+		calendarH2: 'Black Friday 2026 calendar',
+		calColDate: 'Date',
+		calColEvent: 'Event',
+		calColCheck: 'What to check',
+		calRows: [
+			{ date: '18–26 Nov 2026', event: 'Early deals', check: 'Age-fit robot guides before the price drops' },
+			{ date: '27 Nov 2026', event: 'Black Friday', check: 'Amazon snapshot vs live price on the product page' },
+			{ date: '30 Nov 2026', event: 'Cyber Monday', check: 'Zigbee gear and kits often bundled' },
+			{ date: 'Dec 2026', event: 'Christmas', checkChristmas: true },
+		],
+		christmasCellLead: 'See our',
+		christmasGiftGuide: 'Christmas gift guide',
+		priceDropsLabel: 'Price drops hub →',
+		smartHomeGuidesLabel: 'Smart home buying guides →',
 		note: 'Affiliate links: if you buy through them, ROBOT éducatif may earn a commission, at no extra cost to you. Each shop sets the minimum spend, excluded products and whether codes can be combined. Read those conditions on the shop before you pay.',
 		caNote:
 			'This Canada page does not show a British or euro price as if it were Canadian. There is no Canadian-dollar snapshot: use the price Amazon.ca displays for the named model.',
@@ -130,6 +150,25 @@ const copy = {
 		compare: 'Die wichtigsten programmierbaren Roboter vergleichen →',
 		hub: 'Smart-Home-Überblick →',
 		faqTitle: 'Fragen vor der Bestellung',
+		pageUpdatedLabel: 'Seite aktualisiert:',
+		timezoneLabel: '(Europe/Paris)',
+		tocAria: 'Inhalt dieser Seite',
+		tocHeading: 'Inhalt dieser Seite',
+		tocCalendar: 'Kalender 2026',
+		calendarH2: 'Black-Friday-Kalender 2026',
+		calColDate: 'Datum',
+		calColEvent: 'Ereignis',
+		calColCheck: 'Was prüfen',
+		calRows: [
+			{ date: '18.–26. Nov. 2026', event: 'Vorverkauf', check: 'Kaufberater nach Alter, bevor die Preise fallen' },
+			{ date: '27. Nov. 2026', event: 'Black Friday', check: 'Amazon-Preisstand vs. Live-Preis auf der Produktseite' },
+			{ date: '30. Nov. 2026', event: 'Cyber Monday', check: 'Zigbee-Geräte und Kits oft im Bundle' },
+			{ date: 'Dez. 2026', event: 'Weihnachten', checkChristmas: true },
+		],
+		christmasCellLead: 'Siehe unseren',
+		christmasGiftGuide: 'Geschenkeguide Weihnachten',
+		priceDropsLabel: 'Preissenkungen →',
+		smartHomeGuidesLabel: 'Kaufberater →',
 		note: 'Affiliate-Links: wenn Sie darüber kaufen, kann ROBOT éducatif eine Provision erhalten, ohne Mehrpreis für Sie. Mindestbestellwert, Ausschlüsse und Kombinierbarkeit legt der Händler fest. Lesen Sie die Bedingungen im Shop vor dem Bezahlen.',
 		extraTitle: 'Creality, offizieller Shop Deutschland',
 		extraText: '3D-Drucker. Für diesen Shop ist hier kein Gutscheincode hinterlegt.',
@@ -202,6 +241,25 @@ const copy = {
 		compare: 'Confronta i robot programmabili principali →',
 		hub: 'Hub domotica →',
 		faqTitle: 'Domande prima dell’ordine',
+		pageUpdatedLabel: 'Pagina aggiornata:',
+		timezoneLabel: '(Europe/Paris)',
+		tocAria: 'Contenuti della pagina',
+		tocHeading: 'In questa pagina',
+		tocCalendar: 'Calendario 2026',
+		calendarH2: 'Calendario Black Friday 2026',
+		calColDate: 'Data',
+		calColEvent: 'Evento',
+		calColCheck: 'Cosa verificare',
+		calRows: [
+			{ date: '18–26 nov 2026', event: 'Offerte anticipate', check: 'Guide per età prima dei ribassi' },
+			{ date: '27 nov 2026', event: 'Black Friday', check: 'Prezzo rilevato Amazon vs pagina prodotto del giorno' },
+			{ date: '30 nov 2026', event: 'Cyber Monday', check: 'Kit Zigbee spesso in bundle' },
+			{ date: 'Dic 2026', event: 'Natale', checkChristmas: true },
+		],
+		christmasCellLead: 'Vedi la',
+		christmasGiftGuide: 'guida regali di Natale',
+		priceDropsLabel: 'Ribassi prezzo →',
+		smartHomeGuidesLabel: null,
 		note: 'Link affiliati: se acquisti tramite questi link, ROBOT éducatif può ricevere una commissione, senza costo aggiuntivo per te. Soglia, esclusioni e cumulo li decide il negozio. Rileggili prima di pagare.',
 		priceNote: mention
 			? `I prezzi Amazon.it qui sotto sono stati letti il ${snap?.releveAffichage} (Europe/Paris). ${mention}`
@@ -269,6 +327,25 @@ const copy = {
 		compare: 'Comparar los robots programables principales →',
 		hub: 'Hub de domótica →',
 		faqTitle: 'Preguntas antes de pedir',
+		pageUpdatedLabel: 'Página actualizada:',
+		timezoneLabel: '(Europe/Paris)',
+		tocAria: 'Contenido de la página',
+		tocHeading: 'En esta página',
+		tocCalendar: 'Calendario 2026',
+		calendarH2: 'Calendario Black Friday 2026',
+		calColDate: 'Fecha',
+		calColEvent: 'Evento',
+		calColCheck: 'Qué comprobar',
+		calRows: [
+			{ date: '18–26 nov 2026', event: 'Ofertas anticipadas', check: 'Guías por edad antes de las rebajas' },
+			{ date: '27 nov 2026', event: 'Black Friday', check: 'Precio relevado en Amazon vs ficha del día' },
+			{ date: '30 nov 2026', event: 'Cyber Monday', check: 'Kits Zigbee a menudo en pack' },
+			{ date: 'Dic 2026', event: 'Navidad', checkChristmas: true },
+		],
+		christmasCellLead: 'Consulta la',
+		christmasGiftGuide: 'guía de regalos de Navidad',
+		priceDropsLabel: 'Bajadas de precio →',
+		smartHomeGuidesLabel: null,
 		note: 'Enlaces de afiliación: si compras a través de ellos, ROBOT éducatif puede recibir una comisión, sin coste extra para ti. El mínimo, las exclusiones y la acumulación los fija la tienda. Léelos antes de pagar.',
 		extraTitle: 'Powerplanet, España',
 		extraText: 'Tienda de electrónica. Aquí no hay un cupón comprobado para esta tienda.',
@@ -315,6 +392,20 @@ const copy = {
 const c = copy[locale];
 const prefix = market === 'ca' ? '/ca/' : path.startsWith('/uk/') ? '/uk/' : null;
 const hrefFor = (href: string) => (prefix && href.startsWith('/en/') ? href.replace(/^\/en\//, prefix) : href);
+const priceDropsHref =
+	locale === 'de'
+		? '/de/preissenkungen/'
+		: locale === 'it'
+			? '/it/ribassi-prezzo/'
+			: locale === 'es'
+				? '/es/bajadas-de-precio/'
+				: hrefFor('/en/price-drops/');
+const buyingGuidesHref =
+	locale === 'de'
+		? '/de/kaufberater/'
+		: locale === 'en'
+			? hrefFor('/en/smart-home/buying-guides/')
+			: null;
 const shellyShop =
 	locale === 'de'
 		? 'https://www.shelly.com/de'
@@ -336,6 +427,7 @@ const cards = PRODUCTS.map((p) => {
 		price: offer ? offer.label : CHECK_PRICE[locale],
 		url: amazonDpUrl(p.asin, market),
 		group: p.key === 'dongle' || p.key === 'sensor' ? 'home' : 'robot',
+		image: p.image,
 	};
 });
 const robotCards = cards.filter((card) => card.group === 'robot');
@@ -344,18 +436,39 @@ const homeCards = cards.filter((card) => card.group === 'home');
 const faqJson = {
 	'@context': 'https://schema.org',
 	'@type': 'FAQPage',
+	dateModified: updatedIso,
 	mainEntity: c.faq.map((item) => ({
 		'@type': 'Question',
 		name: item.q,
 		acceptedAnswer: { '@type': 'Answer', text: item.a },
 	})),
 };
+const webPageJson = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: c.title,
+	description: c.description,
+	dateModified: updatedIso,
+	inLanguage:
+		market === 'uk'
+			? 'en-GB'
+			: market === 'ca'
+				? 'en-CA'
+				: locale === 'de'
+					? 'de-DE'
+					: locale === 'it'
+						? 'it-IT'
+						: locale === 'es'
+							? 'es-ES'
+							: 'en',
+};
 ---
 
 <!doctype html>
 <html lang={c.html}>
 	<head>
-		<BaseHead title={c.title} description={c.description} />
+		<BaseHead title={c.title} description={c.description} updatedDate={new Date(updatedIso)} ogType="article" />
+		<script type="application/ld+json" set:html={JSON.stringify(webPageJson)} />
 		<script type="application/ld+json" set:html={JSON.stringify(faqJson)} />
 		<style>
 			.bf-wrap { max-width: 960px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 3rem; }
@@ -365,6 +478,11 @@ const faqJson = {
 			.bf-wrap h2 { font-size: 1.35rem; margin: 2rem 0 .75rem; }
 			.bf-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
 			.bf-grid a, .bf-card { display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: 1rem; border-radius: 12px; background: #fff; border: 1px solid #e3e6ea; color: inherit; text-decoration: none; }
+			.bf-card img.bf-prod { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: contain; border-radius: 8px; background: #f4f6f8; }
+			.bf-toc { margin: 1rem 0 1.5rem; padding: 0.85rem 1rem; border: 1px solid #e3e6ea; border-radius: 10px; background: #f8fafc; }
+			.bf-toc ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+			.bf-cal { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; font-size: 0.95rem; }
+			.bf-cal th, .bf-cal td { border: 1px solid #e3e6ea; padding: 0.5rem 0.65rem; text-align: left; }
 			.bf-age { align-self: flex-start; font-size: .75rem; font-weight: 700; color: #fff; background: #111827; padding: .12rem .55rem; border-radius: 99px; }
 			.bf-price { font-weight: 800; margin: .2rem 0; }
 			.bf-price a { color: #1d4ed8; }
@@ -392,8 +510,50 @@ const faqJson = {
 			<p class="bf-lead">{c.lead}</p>
 			<p class="bf-note">{c.note}</p>
 			<p>{priceNote}</p>
+			<p><strong>{c.pageUpdatedLabel}</strong> {pageUpdated} {c.timezoneLabel}.</p>
 
-			<h2>{c.guidesTitle}</h2>
+			<nav class="bf-toc" aria-label={c.tocAria}>
+				<p><strong>{c.tocHeading}</strong></p>
+				<ol>
+					<li><a href="#bf-calendar">{c.tocCalendar}</a></li>
+					<li><a href="#bf-guides">{c.guidesTitle}</a></li>
+					<li><a href="#bf-robots">{c.robotsTitle}</a></li>
+					<li><a href="#bf-home">{c.homeTitle}</a></li>
+					<li><a href="#bf-codes">{c.codesTitle}</a></li>
+					<li><a href="#bf-faq">{c.faqTitle}</a></li>
+				</ol>
+			</nav>
+
+			<h2 id="bf-calendar">{c.calendarH2}</h2>
+			<table class="bf-cal">
+				<thead>
+					<tr>
+						<th scope="col">{c.calColDate}</th>
+						<th scope="col">{c.calColEvent}</th>
+						<th scope="col">{c.calColCheck}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{c.calRows.map((row) => (
+						<tr>
+							<td>{row.date}</td>
+							<td>{row.event}</td>
+							<td>
+								{row.checkChristmas ? (
+									<>
+										{c.christmasCellLead}{' '}
+										<a href={withBase(hrefFor(c.xmas))}>{c.christmasGiftGuide}</a>
+									</>
+								) : (
+									row.check
+								)}
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+
+			<h2 id="bf-guides">{c.guidesTitle}</h2>
 			<p>{c.guidesLead}</p>
 			<ul class="bf-grid">
 				{c.ages.map((age) => (
@@ -405,10 +565,13 @@ const faqJson = {
 				<a href={withBase(hrefFor(c.compareHref))}>{c.compare}</a>
 			</p>
 
-			<h2>{c.robotsTitle}</h2>
+			<h2 id="bf-robots">{c.robotsTitle}</h2>
 			<ul class="bf-grid">
 				{robotCards.map((card) => (
 					<li class="bf-card">
+						{card.image && (
+							<img class="bf-prod" src={withBase(card.image)} alt={card.name} width="320" height="240" loading="lazy" decoding="async" />
+						)}
 						<span class="bf-age">{card.badge}</span>
 						<strong>{card.name}</strong>
 						<p>{card.desc}</p>
@@ -420,10 +583,13 @@ const faqJson = {
 				))}
 			</ul>
 
-			<h2>{c.homeTitle}</h2>
+			<h2 id="bf-home">{c.homeTitle}</h2>
 			<ul class="bf-grid">
 				{homeCards.map((card) => (
 					<li class="bf-card">
+						{card.image && (
+							<img class="bf-prod" src={withBase(card.image)} alt={card.name} width="320" height="240" loading="lazy" decoding="async" />
+						)}
 						<span class="bf-age">{card.badge}</span>
 						<strong>{card.name}</strong>
 						<p>{card.desc}</p>
@@ -441,9 +607,17 @@ const faqJson = {
 					<a class="bf-btn" href={shellyUrl} target="_blank" rel="sponsored nofollow noopener">{c.shellyCta}</a>
 				</li>
 			</ul>
-			<p class="bf-links"><a href={withBase(hrefFor(c.hubHref))}>{c.hub}</a></p>
+			<p class="bf-links">
+				<a href={withBase(hrefFor(c.hubHref))}>{c.hub}</a>
+				{c.priceDropsLabel && priceDropsHref && (
+					<a href={withBase(priceDropsHref)}>{c.priceDropsLabel}</a>
+				)}
+				{c.smartHomeGuidesLabel && buyingGuidesHref && (
+					<a href={withBase(buyingGuidesHref)}>{c.smartHomeGuidesLabel}</a>
+				)}
+			</p>
 
-			<h2>{c.codesTitle}</h2>
+			<h2 id="bf-codes">{c.codesTitle}</h2>
 			{offers.length === 0 ? (
 				<p>{c.emptyCodes}</p>
 			) : (
@@ -474,7 +648,7 @@ const faqJson = {
 				</ul>
 			)}
 
-			<section class="bf-faq">
+			<section class="bf-faq" id="bf-faq">
 				<h2>{c.faqTitle}</h2>
 				{c.faq.map((item) => (
 					<details>

@@ -3,6 +3,7 @@ layout: ../../../layouts/DomotiqueHub.astro
 title: "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
 description: "Choose a robot vacuum cleaner: models under 200 , compatible brands Home Assistant, navigation LiDAR or camera, mop and stations."
 pubDate: 2026-10-23
+updatedDate: 2026-11-18
 category: robots-aspirateurs
 lang: "en"
 frSlug: "rub:robots-aspirateurs"

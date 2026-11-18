@@ -1,0 +1,116 @@
+---
+import { DOMOTIQUE_HUB_AFFILIATE, HUB_AFFILIATE_COPY } from '../data/domotiqueHubAffiliate.mjs';
+import { amazonSearchUrl } from '../lib/amazonAffiliate.mjs';
+import { amazonDpUrl, marketFromPathname } from '../lib/amazonMarket.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	category: 'guides-achat' | 'robots-aspirateurs';
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+}
+
+const { category, lang: langProp } = Astro.props;
+const path = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const market = marketFromPathname(path);
+const lang =
+	langProp ||
+	(market === 'de' ? 'de' : market === 'it' ? 'it' : market === 'es' ? 'es' : market === 'fr' ? 'fr' : 'en');
+const items = DOMOTIQUE_HUB_AFFILIATE[category] ?? [];
+const copy = HUB_AFFILIATE_COPY[lang] ?? HUB_AFFILIATE_COPY.en;
+---
+
+{items.length > 0 && (
+	<section class="hub-aff" aria-labelledby="hub-aff-title">
+		<h2 id="hub-aff-title">{copy.title}</h2>
+		<p>{copy.lead}</p>
+		<ul class="hub-aff-grid">
+			{items.map((item) => {
+				const href = item.asin
+					? amazonDpUrl(item.asin, market)
+					: amazonSearchUrl(lang, item.searchQuery ?? item.name.en);
+				const guide = withBase(item.guide[lang] ?? item.guide.en ?? item.guide.fr);
+				return (
+					<li class="hub-aff-card">
+						<a href={href} class="hub-aff-img" rel="sponsored nofollow noopener" target="_blank">
+							<img
+								src={withBase(item.image)}
+								alt={item.alt}
+								width="320"
+								height="240"
+								loading="lazy"
+								decoding="async"
+							/>
+						</a>
+						<h3>{item.name[lang] ?? item.name.en}</h3>
+						<p>{item.blurb[lang] ?? item.blurb.en}</p>
+						<p class="hub-aff-actions">
+							<a href={guide}>{copy.compare} →</a>
+							<a href={href} rel="sponsored nofollow noopener" target="_blank">{copy.amazon} →</a>
+						</p>
+					</li>
+				);
+			})}
+		</ul>
+	</section>
+)}
+
+<style>
+	.hub-aff {
+		margin: 0 0 1.75rem;
+		padding: 1.1rem 1.15rem;
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-radius: 12px;
+		background: var(--surface-2, #f8fafc);
+	}
+	.hub-aff h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.2rem;
+	}
+	.hub-aff-grid {
+		list-style: none;
+		margin: 1rem 0 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+	.hub-aff-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 0.75rem;
+		border-radius: 10px;
+		background: #fff;
+		border: 1px solid #e3e6ea;
+	}
+	.hub-aff-card h3 {
+		margin: 0;
+		font-size: 1rem;
+	}
+	.hub-aff-card p {
+		margin: 0;
+		font-size: 0.92rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.45;
+	}
+	.hub-aff-img img {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4/3;
+		object-fit: contain;
+		border-radius: 8px;
+		background: #f1f5f9;
+	}
+	.hub-aff-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		margin-top: auto !important;
+		font-weight: 700;
+		font-size: 0.88rem !important;
+	}
+	.hub-aff-actions a {
+		color: var(--accent, #1d4ed8);
+	}
+</style>
