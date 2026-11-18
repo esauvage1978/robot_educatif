@@ -512,6 +512,15 @@ const webPageJson = {
 			<p>{priceNote}</p>
 			<p><strong>{c.pageUpdatedLabel}</strong> {pageUpdated} {c.timezoneLabel}.</p>
 
+			<div style="display:flex;flex-wrap:wrap;gap:0.85rem;margin:1rem 0 1.25rem;">
+				<figure style="margin:0;max-width:220px;">
+					<img src={withBase('/images/products/mbot.webp')} alt={c.cards.mbot.name} width="220" height="165" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;background:#f4f6f8;" />
+				</figure>
+				<figure style="margin:0;max-width:220px;">
+					<img src={withBase('/images/products/mbot2.webp')} alt={c.cards.mbot2.name} width="220" height="165" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;background:#f4f6f8;" />
+				</figure>
+			</div>
+
 			<nav class="bf-toc" aria-label={c.tocAria}>
 				<p><strong>{c.tocHeading}</strong></p>
 				<ol>

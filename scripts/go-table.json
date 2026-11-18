@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-18T11:58:15.082Z",
- "count": 2051,
+ "updated": "2026-11-18T23:53:43.174Z",
+ "count": 2099,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -3851,6 +3851,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-4d5113a197": {
+   "url": "https://www.amazon.ca/s?k=SG90%20micro%20servo&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-4db7700ddb": {
    "url": "https://www.amazon.ca/s?k=python+practical+projects+book&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -4079,6 +4085,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-7677f6e56c": {
+   "url": "https://www.amazon.ca/s?k=Makeblock%20RJ25%20cable&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-786011f8db": {
    "url": "https://www.amazon.ca/s?k=1%2F4W%20resistor%20assortment&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -4123,6 +4135,12 @@
   },
   "az-ca-8b737c52f5": {
    "url": "https://www.amazon.ca/s?k=python+command+line+book&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-8c619c266c": {
+   "url": "https://www.amazon.ca/s?k=Elegoo%20Arduino%20kit&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4349,6 +4367,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-b66df97269": {
+   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-b83a02bb0a": {
    "url": "https://www.amazon.ca/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -4381,6 +4405,12 @@
   },
   "az-ca-c08c70efd3": {
    "url": "https://www.amazon.ca/dp/B0CK3L9WD3?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c2826d56c7": {
+   "url": "https://www.amazon.ca/s?k=BME280%20module%20I2C&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4547,6 +4577,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-e83f8a5fdd": {
+   "url": "https://www.amazon.ca/s?k=Roborock%20Qrevo%20S5V&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-e917be11bc": {
    "url": "https://www.amazon.ca/s?k=python+software+architecture+book&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -4555,6 +4591,12 @@
   },
   "az-ca-ea7910f850": {
    "url": "https://www.amazon.ca/s?k=python+json+files+book&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-eaebad4332": {
+   "url": "https://www.amazon.ca/s?k=DS18B20%20waterproof&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4585,6 +4627,12 @@
   },
   "az-ca-f052b76e69": {
    "url": "https://www.amazon.ca/s?k=waterproof%20momentary%20push%20button%20IP65%2012mm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-f09422b1e1": {
+   "url": "https://www.amazon.ca/s?k=NOUS%20A1Z%20Zigbee&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4829,6 +4877,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-340bfa3dfa": {
+   "url": "https://www.amazon.de/s?k=DS18B20%20waterproof&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-343f27a663": {
    "url": "https://www.amazon.de/s?k=Home+Assistant+Green&tag=roboteducat00-21",
    "merchant": "amazon",
@@ -4901,6 +4955,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-469edae32c": {
+   "url": "https://www.amazon.de/s?k=Makeblock%20mBot&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-47ab62907c": {
    "url": "https://www.amazon.de/s?k=ConBee+II&tag=roboteducat00-21",
    "merchant": "amazon",
@@ -4933,6 +4993,12 @@
   },
   "az-de-4ea6c3bb28": {
    "url": "https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-4ee627b7e7": {
+   "url": "https://www.amazon.de/s?k=Roborock+Qrevo+S5V&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -5153,6 +5219,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-7f1214676a": {
+   "url": "https://www.amazon.de/s?k=SG90%20micro%20servo&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-7f14859853": {
    "url": "https://www.amazon.de/s?k=Learning+Resources+Code+%26+Go+Robot+Mouse&tag=roboteducat00-21",
    "merchant": "amazon",
@@ -5173,6 +5245,12 @@
   },
   "az-de-854e2c1c7a": {
    "url": "https://www.amazon.de/s?k=kit+Raspberry+Pi+5&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-85e44780c8": {
+   "url": "https://www.amazon.de/s?k=Elegoo%20Arduino%20kit&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -5299,6 +5377,12 @@
   },
   "az-de-a693911536": {
    "url": "https://www.amazon.de/s?k=python+packaging+buch&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-a7028b59b1": {
+   "url": "https://www.amazon.de/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -5489,6 +5573,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-dfc5b04d92": {
+   "url": "https://www.amazon.de/s?k=BME280%20module%20I2C&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-e0bf3fad7e": {
    "url": "https://www.amazon.de/dp/B0BB949JCP?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -5557,6 +5647,12 @@
   },
   "az-de-f13148907f": {
    "url": "https://www.amazon.de/s?k=Raspberry+Pi+5+4GB&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-f6e516478a": {
+   "url": "https://www.amazon.de/s?k=Makeblock%20RJ25%20cable&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -5665,6 +5761,12 @@
   },
   "az-es-0ae120afa8": {
    "url": "https://www.amazon.es/s?k=Raspberry+Pi+libro+principiantes&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-0dbf45bf88": {
+   "url": "https://www.amazon.es/s?k=Makeblock%20RJ25%20cable&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -5791,6 +5893,12 @@
   },
   "az-es-27c47b19db": {
    "url": "https://www.amazon.es/s?k=Homey+Pro+mini&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-28d1845f8b": {
+   "url": "https://www.amazon.es/s?k=BME280%20module%20I2C&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -5963,6 +6071,12 @@
    "country": "ES",
    "tag": "roboteducat0c-21"
   },
+  "az-es-44b4b0d30c": {
+   "url": "https://www.amazon.es/s?k=SG90%20micro%20servo&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-4644bdb1c7": {
    "url": "https://www.amazon.es/s?k=Makeblock+mBot2&tag=roboteducat07-21",
    "merchant": "amazon",
@@ -6049,6 +6163,12 @@
   },
   "az-es-5a9e477485": {
    "url": "https://www.amazon.es/s?k=pulsador%20impermeable%20IP65%2012mm%20moment%C3%A1neo&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-5af1b55fc7": {
+   "url": "https://www.amazon.es/s?k=Elegoo%20Arduino%20kit&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -6251,6 +6371,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-8d5c8a5cd9": {
+   "url": "https://www.amazon.es/s?k=DS18B20%20waterproof&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-9019451d4e": {
    "url": "https://www.amazon.es/s?k=sensor+magnetico+reed&tag=roboteducat07-21",
    "merchant": "amazon",
@@ -6409,6 +6535,18 @@
   },
   "az-es-ad8b592684": {
    "url": "https://www.amazon.es/s?k=Raspberry+Pi+3+kit+inicio&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-ae86faa8fa": {
+   "url": "https://www.amazon.es/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-aec8bbe840": {
+   "url": "https://www.amazon.es/s?k=Makeblock%20mBot&tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7709,6 +7847,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-55600c9426": {
+   "url": "https://www.amazon.fr/s?k=SONOFF%20ZBDongle-E&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-56025dcab5": {
    "url": "https://www.amazon.fr/s?k=Makeblock%20mBot%20Ranger&tag=manuso06-21",
    "merchant": "amazon",
@@ -7807,6 +7951,12 @@
   },
   "az-fr-5baf9d0011": {
    "url": "https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-5dbabd2356": {
+   "url": "https://www.amazon.fr/s?k=Elegoo%20Arduino%20kit&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -7939,6 +8089,12 @@
   },
   "az-fr-6d395552a7": {
    "url": "https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-6df9278261": {
+   "url": "https://www.amazon.fr/s?k=NOUS%20A1Z%20Zigbee&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -8537,6 +8693,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-a6cfaa4531": {
+   "url": "https://www.amazon.fr/s?k=BME280%20module%20I2C&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-a6e0cc08cc": {
    "url": "https://www.amazon.fr/s?k=Raspberry+Pi+5+16Go&tag=manuso06-21",
    "merchant": "amazon",
@@ -8593,6 +8755,12 @@
   },
   "az-fr-abf2ccffb8": {
    "url": "https://www.amazon.fr/s?k=%C3%A9tendre%20port%C3%A9e%20zigbee%20routeur%20prise%20garage%20jardin%20zha&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ac1d6b7e1f": {
+   "url": "https://www.amazon.fr/s?k=Roborock%20Qrevo%20S5V&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -8771,6 +8939,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-ba54338f31": {
+   "url": "https://www.amazon.fr/s?k=DS18B20%20waterproof&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-ba880449cf": {
    "url": "https://www.amazon.fr/s?k=Tapo+L530E&tag=manuso06-21",
    "merchant": "amazon",
@@ -8809,6 +8983,12 @@
   },
   "az-fr-bd32f6825d": {
    "url": "https://www.amazon.fr/s?k=radar%20mmwave%20pr%C3%A9sence%20immobile%20aqara%20fp2%20home%20assistant&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-be8d58c3eb": {
+   "url": "https://www.amazon.fr/s?k=Makeblock%20RJ25%20cable&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -9019,6 +9199,12 @@
   },
   "az-fr-d43f9aa4aa": {
    "url": "https://www.amazon.fr/s?k=Makeblock+mBot+Ranger&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-d48fc536b2": {
+   "url": "https://www.amazon.fr/s?k=Makeblock%20mBot&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -9475,6 +9661,12 @@
   },
   "az-fr-fea192bf49": {
    "url": "https://www.amazon.fr/s?k=Ohbot+robot+%C3%A9ducatif&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-ffbd2bb42d": {
+   "url": "https://www.amazon.fr/s?k=SG90%20micro%20servo&tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -10055,6 +10247,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-6681cac870": {
+   "url": "https://www.amazon.co.uk/s?k=BME280%20module%20I2C&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-66b1d9565a": {
    "url": "https://www.amazon.co.uk/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10157,6 +10355,18 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-7ab53c254a": {
+   "url": "https://www.amazon.co.uk/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-80b3835126": {
+   "url": "https://www.amazon.co.uk/s?k=DS18B20%20waterproof&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-819dbbf8e3": {
    "url": "https://www.amazon.co.uk/s?k=Arduino%20Uno%20R4&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10231,6 +10441,12 @@
   },
   "az-gb-8785ee893a": {
    "url": "https://www.amazon.co.uk/s?k=raspberry+pi+5+case&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-887ad54a29": {
+   "url": "https://www.amazon.co.uk/s?k=Makeblock%20RJ25%20cable&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -10325,6 +10541,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-97c1122ac1": {
+   "url": "https://www.amazon.co.uk/s?k=Elegoo%20Arduino%20kit&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-9c39d7b76e": {
    "url": "https://www.amazon.co.uk/s?k=python+projects+games+book&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10351,6 +10573,12 @@
   },
   "az-gb-9f7eca3a7b": {
    "url": "https://www.amazon.co.uk/s?k=mBot+Makeblock+ultrasonic+sensor&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a10dd06773": {
+   "url": "https://www.amazon.co.uk/s?k=Roborock%20Qrevo%20S5V&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -10483,6 +10711,12 @@
   },
   "az-gb-b18d6d4b36": {
    "url": "https://www.amazon.co.uk/s?k=Makeblock+mBot2&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b5052f71b3": {
+   "url": "https://www.amazon.co.uk/s?k=NOUS%20A1Z%20Zigbee&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -10739,6 +10973,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-d97df0572d": {
+   "url": "https://www.amazon.co.uk/s?k=Makeblock%20mBot&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-db1434fa46": {
    "url": "https://www.amazon.co.uk/s?k=SONOFF+ZBDongle-E+Zigbee+3.0&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10889,6 +11129,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-f195d4be86": {
+   "url": "https://www.amazon.co.uk/s?k=SG90%20micro%20servo&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-f25ac29758": {
    "url": "https://www.amazon.co.uk/s?k=UPS+USB+HID&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10975,6 +11221,12 @@
   },
   "az-it-02ee0f1297": {
    "url": "https://www.amazon.it/s?k=imparare+a+programmare+con+scratch+3&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-040f0257e0": {
+   "url": "https://www.amazon.it/s?k=Elegoo%20Arduino%20kit&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -11291,6 +11543,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-601322bd1b": {
+   "url": "https://www.amazon.it/s?k=BME280%20module%20I2C&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-631af70d0c": {
    "url": "https://www.amazon.it/s?k=libro+Scratch+bambini+principianti&tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -11513,8 +11771,20 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-95ed7acbdd": {
+   "url": "https://www.amazon.it/s?k=DS18B20%20waterproof&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-977afb6a0b": {
    "url": "https://www.amazon.it/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-9940b0c139": {
+   "url": "https://www.amazon.it/s?k=SG90%20micro%20servo&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -11599,6 +11869,12 @@
   },
   "az-it-acb19e77f0": {
    "url": "https://www.amazon.it/?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-ad315fa9e8": {
+   "url": "https://www.amazon.it/s?k=Makeblock%20mBot&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -11711,6 +11987,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-c464da4c8d": {
+   "url": "https://www.amazon.it/s?k=Raspberry%20Pi%205%20power%20supply%2027W&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-c5183e379b": {
    "url": "https://www.amazon.it/s?k=mBot+Makeblock+sensore+ultrasuoni&tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -11719,6 +12001,12 @@
   },
   "az-it-c868b0cd30": {
    "url": "https://www.amazon.it/s?k=ups+usb+nut&tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-c99f3e965e": {
+   "url": "https://www.amazon.it/s?k=Makeblock%20RJ25%20cable&tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"

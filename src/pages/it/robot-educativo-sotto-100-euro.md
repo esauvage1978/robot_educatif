@@ -25,7 +25,7 @@ Alcuni link sono affiliati. **I prezzi sono fasce indicative UE (ottobre 2026)**
 
 **Metodo:** non affermiamo test di laboratorio su ogni kit. Incrociamo **documentazione**, **community**, **tutorial** (anche su questo sito) e **prezzi osservati a ottobre 2026**.
 
-Contesto: [miglior robot programmabile per bambini](/it/miglior-robot-programmabile-per-bambini/) (hub). Sotto 50 €: guida francese [robot moins de 50 euros](/robot-moins-de-50-euros/) se leggete il francese.
+Contesto: [miglior robot programmabile per bambini](/it/miglior-robot-programmabile-per-bambini/) (hub). Sotto 50 €: guida francese [robot moins de 50 euros](/robot-moins-de-50-euros/) se leggete il francese. In novembre, confrontate i prezzi anche sulla pagina [Black Friday 2026](/it/black-friday/).
 
 ## Perché la fascia ~100 € conta
 
