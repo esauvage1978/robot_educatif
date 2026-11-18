@@ -1,7 +1,12 @@
 ---
 import RepairComplianceSections from '../RepairComplianceSections.astro';
 import RepairIndicators from '../RepairIndicators.astro';
-import { sparePartsRows, SPARE_PARTS_META } from '../../data/smartHomeSpareParts.mjs';
+import {
+	sparePartsRows,
+	SPARE_PARTS_META,
+	SPARE_PARTS_UI,
+	SPARE_PARTS_MBLOCK_HREF,
+} from '../../data/smartHomeSpareParts.mjs';
 import { withBase } from '../../lib/siteUrl';
 
 interface Props {
@@ -10,6 +15,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const meta = SPARE_PARTS_META[lang];
+const ui = SPARE_PARTS_UI[lang];
 const rows = sparePartsRows(lang);
 const shopLabel =
 	lang === 'fr' ? 'Boutiques' : lang === 'de' ? 'Shops' : lang === 'it' ? 'Negozi' : lang === 'es' ? 'Tiendas' : 'Shops';
@@ -38,37 +44,15 @@ const matrixPath = {
 	es: '/es/domotica/matriz-compatibilidad-home-assistant-homey-zigbee-matter/',
 }[lang];
 
-const mblockPath =
-	lang === 'fr'
-		? '/mblock-depannage-codes-erreurs-mbot-arduino/'
-		: lang === 'en'
-			? '/en/mblock-arduino-upload-errors/'
-			: '/mblock-depannage-codes-erreurs-mbot-arduino/';
-
-const tocTitle =
-	lang === 'fr'
-		? 'Sommaire'
-		: lang === 'de'
-			? 'Inhalt'
-			: lang === 'it'
-				? 'Sommario'
-				: lang === 'es'
-					? 'Índice'
-					: 'On this page';
+const mblockPath = SPARE_PARTS_MBLOCK_HREF[lang as keyof typeof SPARE_PARTS_MBLOCK_HREF];
 ---
 
-<nav class="page-toc" aria-label={tocTitle}>
-	<p><strong>{tocTitle}</strong></p>
+<nav class="page-toc" aria-label={ui.tocTitle}>
+	<p><strong>{ui.tocTitle}</strong></p>
 	<ol>
-		<li>
-			<a href="#sp-table">{lang === 'de' ? 'Vergleichstabelle' : lang === 'fr' ? 'Tableau comparatif' : 'Comparison table'}</a>
-		</li>
-		<li>
-			<a href="#sp-tips">{lang === 'de' ? 'Kauftipps' : lang === 'fr' ? 'Conseils d’achat' : 'Buying tips'}</a>
-		</li>
-		<li>
-			<a href="#sp-links">{lang === 'de' ? 'Weiterführende Guides' : lang === 'fr' ? 'Guides liés' : 'Related guides'}</a>
-		</li>
+		<li><a href="#sp-table">{ui.tocTable}</a></li>
+		<li><a href="#sp-tips">{ui.tocTips}</a></li>
+		<li><a href="#sp-links">{ui.tocLinks}</a></li>
 	</ol>
 </nav>
 
@@ -77,13 +61,7 @@ const tocTitle =
 <figure style="margin:1rem 0 1.25rem;">
 	<img
 		src={withBase('/images/products/sonoff-zbdongle-e.webp')}
-		alt={
-			lang === 'de'
-				? 'SONOFF ZBDongle-E Zigbee-USB-Stick'
-				: lang === 'fr'
-					? 'Clé USB Zigbee SONOFF ZBDongle-E'
-					: 'SONOFF ZBDongle-E Zigbee USB coordinator'
-		}
+		alt={ui.altDongle}
 		width="480"
 		height="360"
 		loading="lazy"
@@ -95,13 +73,7 @@ const tocTitle =
 <figure style="margin:0 0 1.25rem;">
 	<img
 		src={withBase('/images/products/raspberry-pi-5-4gb.webp')}
-		alt={
-			lang === 'de'
-				? 'Raspberry Pi 5 mit USB-C-Netzteil'
-				: lang === 'fr'
-					? 'Raspberry Pi 5 et alimentation USB-C 27 W'
-					: 'Raspberry Pi 5 board with USB-C power supply'
-		}
+		alt={ui.altPi}
 		width="480"
 		height="360"
 		loading="lazy"
@@ -111,15 +83,9 @@ const tocTitle =
 </figure>
 
 <RepairComplianceSections lang={lang} showSupport={false} variant="smart-home" />
-<RepairIndicators
-	difficulty={1}
-	time={lang === 'de' ? '5 Min. Lesezeit' : '5 min (lecture)'}
-	cost="0 €"
-	tools={lang === 'de' ? 'Browser' : lang === 'fr' ? 'Navigateur' : 'Web browser'}
-	lang={lang}
-/>
+<RepairIndicators difficulty={1} time={ui.readTime} cost="0 €" tools={ui.tools} lang={lang} />
 
-<h2 id="sp-table">{lang === 'de' ? 'Original vs günstig: Übersicht' : lang === 'fr' ? 'Officiel vs compatible : tableau' : 'Official vs budget-compatible'}</h2>
+<h2 id="sp-table">{ui.hTable}</h2>
 
 <div class="tableau empile">
 <table>
@@ -164,83 +130,35 @@ const tocTitle =
 </table>
 </div>
 
-<h2 id="sp-tips">
-	{lang === 'de'
-		? 'Worauf Sie bei Ersatzteilen achten sollten'
-		: lang === 'fr'
-			? 'Comment choisir sans se tromper de référence'
-			: 'How to avoid ordering the wrong part'}
-</h2>
+<h2 id="sp-tips">{ui.hTips}</h2>
 <p>
-	{lang === 'de' ? (
-		<>
-			Prüfen Sie Spannung (230 V in DE/AT/CH), Stecker und Firmware-Kompatibilität, bevor Sie ein Relais oder Netzteil
-			tauschen. Bei Zigbee-Sticks gilt: Ember- oder zStack-Firmware zum Modell passend flashen — siehe unseren{' '}
-			<a href={withBase(donglePath)}>Zigbee-Stick-Vergleich</a>.
-		</>
-	) : lang === 'fr' ? (
-		<>
-			Vérifiez la tension (230 V), la présence du neutre et la compatibilité firmware avant d’acheter un relais ou une
-			alimentation. Pour les clés Zigbee, le firmware doit correspondre au modèle (Ember / zStack) : voir le{' '}
-			<a href={withBase(donglePath)}>comparatif des dongles</a>.
-		</>
-	) : (
-		<>
-			Match mains voltage, plug type and firmware before buying relays or PSUs. For Zigbee coordinators, flash the
-			right firmware — see our <a href={withBase(donglePath)}>Zigbee dongle comparison</a>.
-		</>
-	)}
+	{ui.tip1}{' '}
+	<a href={withBase(donglePath)}>{ui.tip1Link}</a>.
 </p>
 <p>
-	{lang === 'de' ? (
-		<>
-			Für Home Assistant, Homey oder Matter: unsere{' '}
-			<a href={withBase(matrixPath)}>Kompatibilitätsmatrix</a> zeigt, welche Geräte lokal ohne Cloud laufen.
-		</>
-	) : lang === 'fr' ? (
-		<>
-			Pour croiser Home Assistant, Homey et Matter :{' '}
-			<a href={withBase(matrixPath)}>matrice de compatibilité</a>.
-		</>
-	) : (
-		<>
-			Cross-check Home Assistant, Homey and Matter with our{' '}
-			<a href={withBase(matrixPath)}>compatibility matrix</a>.
-		</>
-	)}
+	{ui.tip2}{' '}
+	<a href={withBase(matrixPath)}>{ui.tip2Link}</a>.
 </p>
 
-<h2 id="sp-links">{lang === 'de' ? 'Weiterführende Guides' : lang === 'fr' ? 'Guides liés' : 'Related guides'}</h2>
+<h2 id="sp-links">{ui.hLinks}</h2>
 <ul>
 	<li>
-		<a href={withBase(toolsPath)}>
-			{lang === 'de' ? 'Fehlercodes & Störungen (Zigbee, Shelly, HA)' : lang === 'fr' ? 'Codes erreurs & dépannage' : 'Error codes & troubleshooting'}
-		</a>
+		<a href={withBase(toolsPath)}>{ui.linkErrors}</a>
 	</li>
 	<li>
-		<a href={withBase(donglePath)}>
-			{lang === 'de' ? 'Bester Zigbee-Stick für Home Assistant' : lang === 'fr' ? 'Meilleur dongle Zigbee' : 'Best Zigbee dongle'}
-		</a>
+		<a href={withBase(donglePath)}>{ui.linkDongle}</a>
 	</li>
-	<li>
-		<a href={withBase('/domotique/diagnostic-par-symptome/')}>
-			{lang === 'de' ? 'Diagnose nach Symptom (FR)' : lang === 'fr' ? 'Diagnostic par symptôme' : 'Symptom diagnostic (FR)'}
-		</a>
-	</li>
+	{ui.linkDiag && (
+		<li>
+			<a href={withBase('/domotique/diagnostic-par-symptome/')}>{ui.linkDiag}</a>
+		</li>
+	)}
 </ul>
-<p>
-	{lang === 'fr'
-		? 'Robotique : pour les erreurs de téléversement mBlock / Arduino, voir aussi '
-		: lang === 'en'
-			? 'Robotics: for mBlock / Arduino upload errors, see '
-			: lang === 'de'
-				? 'Robotik: Upload-Fehler mBlock / Arduino: '
-				: lang === 'it'
-					? 'Robotica: errori upload mBlock / Arduino: '
-					: 'Robótica educativa: errores de carga mBlock / Arduino: '}
-	<a href={withBase(mblockPath)}>
-		{lang === 'fr' ? 'dépannage mBlock & mBot' : lang === 'de' ? 'mBlock- & mBot-Fehlercodes' : 'mBlock & mBot troubleshooting'}
-	</a>.
-</p>
+{ui.roboticsLead && mblockPath && (
+	<p>
+		{ui.roboticsLead}{' '}
+		<a href={withBase(mblockPath)}>{ui.roboticsLink}</a>.
+	</p>
+)}
 
 <RepairComplianceSections lang={lang} showAssist={false} showDisclaimer={false} showSav={false} variant="smart-home" />

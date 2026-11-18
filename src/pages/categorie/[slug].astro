@@ -338,22 +338,54 @@ const POST_BLURBS: Record<string, string> = {
 							<p style="margin:0 0 0.75rem 0;color:rgb(var(--gray-dark));">
 								Commencez par <strong>un objectif pédagogique</strong> (initiation Scratch, robot physique, technologie collège), puis seulement le matériel.
 							</p>
-							<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.85rem;">
-								<img src={withBase('/images/products/mbot.webp')} alt="Makeblock mBot pour la classe" width="160" height="120" loading="lazy" style="border-radius:8px;object-fit:cover;" />
-								<img src={withBase('/images/products/mbot2.webp')} alt="Makeblock mBot2 CyberPi" width="160" height="120" loading="lazy" style="border-radius:8px;object-fit:cover;" />
-								<img src={withBase('/images/blog-thumbnails/scratch-ecole-maison-par-ou-commencer.webp')} alt="Scratch école et maison" width="160" height="90" loading="lazy" style="border-radius:8px;object-fit:cover;" />
-							</div>
+							<ul
+								class="ecole-aff-grid"
+								style="list-style:none;margin:0 0 0.85rem;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;"
+							>
+								<li style="border:1px solid var(--surface-border);border-radius:10px;padding:0.65rem;background:#fff;">
+									<a
+										href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21"
+										rel="sponsored nofollow noopener"
+										target="_blank"
+										style="display:flex;flex-direction:column;gap:0.4rem;text-decoration:none;color:inherit;"
+									>
+										<img
+											src={withBase('/images/products/mbot.webp')}
+											alt="Makeblock mBot pour la classe"
+											width="200"
+											height="150"
+											loading="lazy"
+											style="width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:8px;"
+										/>
+										<strong style="font-size:0.95rem;">Makeblock mBot</strong>
+										<span style="font-size:0.85rem;color:var(--accent);font-weight:700;">Voir sur Amazon →</span>
+									</a>
+								</li>
+								<li style="border:1px solid var(--surface-border);border-radius:10px;padding:0.65rem;background:#fff;">
+									<a
+										href="https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21"
+										rel="sponsored nofollow noopener"
+										target="_blank"
+										style="display:flex;flex-direction:column;gap:0.4rem;text-decoration:none;color:inherit;"
+									>
+										<img
+											src={withBase('/images/products/mbot2.webp')}
+											alt="Makeblock mBot2 CyberPi"
+											width="200"
+											height="150"
+											loading="lazy"
+											style="width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;border-radius:8px;"
+										/>
+										<strong style="font-size:0.95rem;">Makeblock mBot2</strong>
+										<span style="font-size:0.85rem;color:var(--accent);font-weight:700;">Voir sur Amazon →</span>
+									</a>
+								</li>
+							</ul>
 							<ul style="margin:0 0 0.85rem 0;padding-left:1.2rem;">
 								<li><a href={withBase('/scratch-ecole-maison-par-ou-commencer/')}>Scratch école / maison</a></li>
 								<li><a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>Budget robots pour une classe</a></li>
 								<li><a href={withBase('/10-projets-mbot-gratuits-classe-faciles/')}>10 projets mBot gratuits</a></li>
 							</ul>
-							<p style="margin:0;font-size:0.92rem;">
-								Achat repère (prix du jour) :{' '}
-								<a href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">mBot sur Amazon.fr</a>
-								{' '}·{' '}
-								<a href="https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">mBot2</a>
-							</p>
 						</section>
 					)
 				}

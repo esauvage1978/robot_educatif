@@ -23,7 +23,7 @@ export const DOMOTIQUE_HUB_AFFILIATE = {
 				en: 'USB Zigbee coordinator — the usual first step for local sensors and plugs.',
 				de: 'USB-Zigbee-Koordinator — üblicher Einstieg für lokale Sensoren und Steckdosen.',
 				it: 'Coordinatore Zigbee USB — primo passo per sensori e prese in locale.',
-				es: 'Coordinador Zigble USB — primer paso para sensores y enchufes en local.',
+				es: 'Coordinador Zigbee USB — primer paso para sensores y enchufes en local.',
 			},
 			guide: {
 				fr: '/domotique/meilleur-dongle-zigbee-home-assistant/',
