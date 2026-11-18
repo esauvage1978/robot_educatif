@@ -138,7 +138,34 @@ function hrefOf(item, lang) {
 	return item.href?.[lang] || null;
 }
 
+export const NAV_DOMOTIQUE_NL = {
+	trigger: 'Slim huis',
+	cols: 2,
+	groups: [
+		{
+			title: 'Start',
+			links: [
+				{ href: '/en/smart-home/', label: 'Smart-home-overzicht', hint: '' },
+				{ href: '/en/smart-home/getting-started/', label: 'Waar te beginnen', hint: '' },
+				{ href: '/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/', label: 'Zigbee, Wi‑Fi, Matter', hint: '' },
+				{ href: '/en/smart-home/home-assistant-jeedom-homey-which-hub/', label: 'Welke hub kiezen', hint: '' },
+			],
+		},
+		{
+			title: 'Tools',
+			links: [
+				{ href: SMART_HOME_TOOL_PATHS.troubleshooting.en, label: 'Foutcodes', hint: '' },
+				{ href: SMART_HOME_TOOL_PATHS.compatMatrix.en, label: 'Compatibiliteitsmatrix', hint: '' },
+				{ href: SMART_HOME_TOOL_PATHS.spareParts.en, label: 'Reserveonderdelen en sensoren', hint: '' },
+				{ href: '/en/smart-home/best-zigbee-dongle-home-assistant/', label: 'Zigbee-dongle', hint: '' },
+			],
+		},
+	],
+};
+
 export function navDomotiqueForPath(pathname) {
+	const p = pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+	if (p === '/nl' || p.startsWith('/nl/')) return NAV_DOMOTIQUE_NL;
 	const lang = langOf(pathname);
 	const trigger = { fr: 'Domotique', en: 'Smart home', de: 'Smart Home', it: 'Domotica', es: 'Domótica' }[lang];
 	const groups = GROUPS.map((group) => ({

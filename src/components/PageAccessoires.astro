@@ -140,6 +140,7 @@ const produits = [...new Set(cartes.map((c) => c.produit))];
     <Header />
     <main>
       <PageColumns sommaire={false}>
+        <article class="prose">
         <p class="acc-fil"><a href={homeUrl}>{t.home}</a> · {t.crumb}</p>
         <h1>{t.title}</h1>
         <p>{intro}</p>
@@ -187,6 +188,7 @@ const produits = [...new Set(cartes.map((c) => c.produit))];
             );
           })}
         </ul>
+        </article>
       </PageColumns>
     </main>
     <Footer />

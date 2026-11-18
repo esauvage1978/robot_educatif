@@ -20,8 +20,11 @@ import { withBase } from '../lib/siteUrl';
 import ArticleByline from '../components/ArticleByline.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import { guideArticleDates } from '../lib/guideArticleDates.mjs';
+import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 const fm = Astro.props.frontmatter ?? Astro.props;
 const { title, description, updated, shareTitle, shareDescription, lang: htmlLang = 'en' } = fm;
+const pageLang = htmlLang === 'nl' ? 'nl' : 'en';
+const isNlPage = pageLang === 'nl';
 const minutesRead = Number(fm.minutesRead);
 const readingMinutes = Number.isFinite(minutesRead) && minutesRead > 0 ? minutesRead : undefined;
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
@@ -33,14 +36,16 @@ const ill = frSlug ? getIllustration(frSlug) : null;
 const ogImage = ill ? ill.src : undefined;
 const _n = _p.endsWith('/') ? _p : _p + '/';
 const isSmart = _n.startsWith('/en/smart-home/');
-const others = EN_ASIDE_HUB_LINKS.filter((x) => x.href !== _n && x.href.startsWith('/en/smart-home/') === isSmart);
+const others = isNlPage
+	? []
+	: EN_ASIDE_HUB_LINKS.filter((x) => x.href !== _n && x.href.startsWith('/en/smart-home/') === isSmart);
 const hubRelated = others.slice(0, 5).map((o) => ({ title: o.title, href: o.href }));
 const sharePath = _n;
 const reviewPage = reviewPageForPath(_n);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
 ---
-<html lang={htmlLang === 'nl' ? 'nl' : htmlLang}>
+<html lang={pageLang === 'nl' ? 'nl' : htmlLang}>
 	<head>
 		<BaseHead title={title} description={description} image={ogImage} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
 		<StructuredDataArticle
@@ -270,7 +275,7 @@ const reviewOffer = reviewPage?.offer ?? null;
 				<div class="hero-article-content">
 					<h1>{title}</h1>
 					<p class="hero-desc">{description}</p>
-					<ArticleByline lang="en" dateText={updated} updated={Boolean(updated)} minutes={readingMinutes} />
+					<ArticleByline lang={pageLang} dateText={updated} updated={Boolean(updated)} minutes={readingMinutes} />
 				</div>
 				{ill && (
 					<div class="hero-article-media">
@@ -284,7 +289,7 @@ const reviewOffer = reviewPage?.offer ?? null;
 				<article>
 					{isReviewLayout && (
 						<header class="article-header article-header--review">
-							<ArticleByline lang="en" dateText={updated} updated={Boolean(updated)} minutes={readingMinutes} />
+							<ArticleByline lang={pageLang} dateText={updated} updated={Boolean(updated)} minutes={readingMinutes} />
 							<h1>{title}</h1>
 							<p>{description}</p>
 						</header>
@@ -292,10 +297,11 @@ const reviewOffer = reviewPage?.offer ?? null;
 					<div class="prose">
 						<HubEssentials />
 						<slot />
+						<EditorialReadAlso />
 					</div>
-					<ShareButtons url={withBase(sharePath)} title={shareTitle ?? title} description={shareDescription ?? description} lang="en" />
-					<PageRatingWidget lang="en" />
-					<ArticleQuestionForm lang="en" pageTitle={title} />
+					<ShareButtons url={withBase(sharePath)} title={shareTitle ?? title} description={shareDescription ?? description} lang={pageLang} />
+					<PageRatingWidget lang={pageLang} />
+					<ArticleQuestionForm lang={pageLang} pageTitle={title} />
 				</article>
 				<div class="guide-rail">
 					{isReviewLayout && <ReviewLayoutStyle />}

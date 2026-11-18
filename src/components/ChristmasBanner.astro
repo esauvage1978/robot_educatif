@@ -13,11 +13,13 @@ const lang = inLang('de')
 		? 'it'
 		: inLang('es')
 			? 'es'
-			: inLang('ca')
-				? 'ca'
-				: inLang('en') || inLang('uk') || inLang('us')
-					? 'en'
-					: 'fr';
+			: inLang('nl')
+				? 'nl'
+				: inLang('ca')
+					? 'ca'
+					: inLang('en') || inLang('uk') || inLang('us')
+						? 'en'
+						: 'fr';
 
 const COPY = {
 	fr: {
@@ -61,6 +63,13 @@ const COPY = {
 		text: 'El robot educativo adecuado según la edad y el presupuesto',
 		cta: 'Ver la guía',
 		href: '/es/regalo-navidad-robot-educativo-2026/',
+	},
+	nl: {
+		aria: 'Kerstcadeaugids',
+		title: 'Kerstcadeaugids 2026',
+		text: 'De juiste programmeerrobot per leeftijd en budget',
+		cta: 'Bekijk de gids',
+		href: '/en/educational-robot-christmas-gifts-2026/',
 	},
 };
 const banner = COPY[lang];

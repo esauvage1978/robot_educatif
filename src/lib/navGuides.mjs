@@ -201,6 +201,39 @@ export const NAV_GUIDES_IT = {
 	],
 };
 
+export const NAV_GUIDES_NL = {
+	trigger: 'Koopgidsen',
+	cols: 2,
+	groups: [
+		{
+			title: 'Vergelijken',
+			links: [
+				{ href: '/nl/lego-education-merk/', label: 'LEGO Education merkgids', hint: '' },
+				{ href: '/en/best-programmable-robot-for-kids/', label: 'Programmeerbare robots', hint: '' },
+				{ href: '/en/robotics-equipment-for-renters/', label: 'Voor huurders', hint: 'Zonder werkplaats' },
+				{ href: '/en/educational-robot-christmas-gifts-2026/', label: 'Kerstcadeaus 2026', hint: '' },
+				{ href: '/en/mbot-vs-mbot2/', label: 'mBot vs mBot2', hint: '' },
+				{ href: '/en/thymio-3-review-price-vs-mbot2/', label: 'Thymio 3 vs mBot2', hint: '' },
+				{
+					href: '/en/lego-education-computer-science-ai-2026-spike-prime-alternatives/',
+					label: 'Alternatieven voor LEGO SPIKE',
+					hint: '',
+				},
+				{ href: '/en/educational-robots-2026-2027-calendar-buying-guide/', label: 'Nieuwe robots 2026–2027', hint: '' },
+			],
+		},
+		{
+			title: 'Ook',
+			links: [
+				{ href: '/nl/', label: 'Nederlandstalige pagina’s', hint: '' },
+				{ href: '/nl/prijsdalingen/', label: 'Prijsdalingen', hint: '' },
+				{ href: '/en/smart-home/', label: 'Slim huis', hint: '' },
+				{ href: '/en/install-mblock-5-windows/', label: 'mBlock installeren', hint: '' },
+			],
+		},
+	],
+};
+
 export const NAV_GUIDES_ES = {
 	trigger: 'Guías de compra',
 	cols: 3,
@@ -251,6 +284,13 @@ export function blackFridayPromo(pathname) {
 			text: 'Robots educativos, domótica y ofertas comprobadas',
 		};
 	}
+	if (p === '/nl' || p.startsWith('/nl/')) {
+		return {
+			href: '/en/black-friday/',
+			title: 'Black Friday 2026',
+			text: 'Educatieve robots, slim huis en gecontroleerde aanbiedingen',
+		};
+	}
 	if (isCa) {
 		return {
 			href: '/ca/black-friday/',
@@ -290,5 +330,6 @@ export function navGuidesForPath(pathname) {
 	if (p === '/de' || p.startsWith('/de/')) return { ...NAV_GUIDES_DE, promo };
 	if (p === '/it' || p.startsWith('/it/')) return { ...NAV_GUIDES_IT, promo };
 	if (p === '/es' || p.startsWith('/es/')) return { ...NAV_GUIDES_ES, promo };
+	if (p === '/nl' || p.startsWith('/nl/')) return { ...NAV_GUIDES_NL, promo };
 	return { ...NAV_GUIDES_FR, promo };
 }

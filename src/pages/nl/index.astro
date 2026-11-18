@@ -1,0 +1,35 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PageColumns from '../../components/PageColumns.astro';
+
+const title = 'Educatieve robots — gidsen, robots en programmeren';
+const description =
+	'Gidsen over educatieve robots, LEGO Education, partners en prijsdalingen — inhoud in het Nederlands op robot-educatif.info.';
+---
+<!doctype html>
+<html lang="nl">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<PageColumns sommaire={false}>
+				<nav class="breadcrumb" aria-label="Kruimelpad">
+					<a href="/">Robot Éducatif</a> · Nederlandstalige hub
+				</nav>
+				<h1>{title}</h1>
+				<p>{description}</p>
+				<ul>
+					<li><a href="/nl/lego-education-merk/">LEGO Education merkgids</a></li>
+					<li><a href="/nl/partners/">Partners van de site</a></li>
+					<li><a href="/nl/prijsdalingen/">Prijsdalingen bij partners</a></li>
+					<li><a href="/nl/prijsdalingen/hoe-we-meten/">Hoe we prijsdalingen meten</a></li>
+				</ul>
+			</PageColumns>
+		</main>
+		<Footer />
+	</body>
+</html>
