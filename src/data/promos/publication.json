@@ -4868,17 +4868,6 @@
       "retenus": 0
     },
     {
-      "id": "gotodirect",
-      "mid": "115128",
-      "nom": "Gotodirect",
-      "marque": "Gotodirect",
-      "pages": "toutes",
-      "flux": "erreur",
-      "lus": 0,
-      "retenus": 0,
-      "code": "fichier-trop-gros"
-    },
-    {
       "id": "gsmnet-de",
       "mid": "127701",
       "nom": "GSMnet DE",

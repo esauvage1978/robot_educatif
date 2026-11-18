@@ -763,18 +763,6 @@
       "exclure": []
     },
     {
-      "id": "gotodirect",
-      "mid": "115128",
-      "nom": "Gotodirect",
-      "marque": "Gotodirect",
-      "pages": "toutes",
-      "liensSite": true,
-      "aIntegrer": false,
-      "aVerifier": false,
-      "comparaisonPrix": true,
-      "exclure": []
-    },
-    {
       "id": "gsmnet-de",
       "mid": "127701",
       "nom": "GSMnet DE",

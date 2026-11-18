@@ -95,6 +95,16 @@
 	RewriteRule ^en/robot-for-12-year-old/?$ /en/best-robot-for-a-12-year-old/ [R=301,L,NC]
 	RewriteRule ^en/best-screen-free-coding-toys/?$ /en/best-robot-for-a-6-year-old/ [R=301,L,NC]
 
+	# Gotodirect (Awin 115128) fermé le 18/11/2026 : fiches partenaires vers l’annuaire
+	RewriteRule ^partenaires/gotodirect/?$ /partenaires/ [R=301,L,NC]
+	RewriteRule ^en/partners/gotodirect/?$ /en/partners/ [R=301,L,NC]
+	RewriteRule ^uk/partners/gotodirect/?$ /uk/partners/ [R=301,L,NC]
+	RewriteRule ^ca/partners/gotodirect/?$ /ca/partners/ [R=301,L,NC]
+	RewriteRule ^de/partner/gotodirect/?$ /de/partner/ [R=301,L,NC]
+	RewriteRule ^it/partner/gotodirect/?$ /it/partner/ [R=301,L,NC]
+	RewriteRule ^es/socios/gotodirect/?$ /es/socios/ [R=301,L,NC]
+	RewriteRule ^nl/partners/gotodirect/?$ /nl/partners/ [R=301,L,NC]
+
 
 	# Projets mBot classe : rediriger vers la nouvelle page avec PDF (+ variantes tronquées vues dans GSC)
 	RewriteRule ^projets-mbot-classe/?$ /10-projets-mbot-gratuits-classe-faciles/ [R=301,L,NC]

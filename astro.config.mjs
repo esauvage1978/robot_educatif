@@ -50,6 +50,14 @@ const redirectedPaths = new Set([
 	'/en/smart-home/esp32-smart-home-projects/',
 	'/uk/smart-home/esp32-smart-home-projects/',
 	'/ca/smart-home/esp32-smart-home-projects/',
+	'/partenaires/gotodirect/',
+	'/en/partners/gotodirect/',
+	'/uk/partners/gotodirect/',
+	'/ca/partners/gotodirect/',
+	'/de/partner/gotodirect/',
+	'/it/partner/gotodirect/',
+	'/es/socios/gotodirect/',
+	'/nl/partners/gotodirect/',
 ]);
 
 // https://astro.build/config
@@ -80,6 +88,14 @@ export default defineConfig({
 		'/en/robot-for-10-year-old/': '/en/best-robot-for-a-10-year-old/',
 		'/en/robot-for-12-year-old/': '/en/best-robot-for-a-12-year-old/',
 		'/en/best-screen-free-coding-toys/': '/en/best-robot-for-a-6-year-old/',
+		'/partenaires/gotodirect/': '/partenaires/',
+		'/en/partners/gotodirect/': '/en/partners/',
+		'/uk/partners/gotodirect/': '/uk/partners/',
+		'/ca/partners/gotodirect/': '/ca/partners/',
+		'/de/partner/gotodirect/': '/de/partner/',
+		'/it/partner/gotodirect/': '/it/partner/',
+		'/es/socios/gotodirect/': '/es/socios/',
+		'/nl/partners/gotodirect/': '/nl/partners/',
 	},
 	integrations: [
 		mdx(),
