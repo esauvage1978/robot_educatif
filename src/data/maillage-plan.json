@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T12:19:57.864Z",
+  "generatedAt": "2026-11-18T23:52:24.940Z",
   "pageCount": 1022,
   "outbound": {
     "/about/": [
@@ -679,7 +679,7 @@
     "/de/lernroboter-8-jahre/": [
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       },
       {
         "href": "/de/anleitungen/",
@@ -721,7 +721,7 @@
     "/de/makeblock-cyberpi-ueberblick/": [
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       },
       {
         "href": "/de/vier-gewinnt-python/",
@@ -739,7 +739,7 @@
       },
       {
         "href": "/de/smart-home/erste-smart-home-automatisierungen/",
-        "title": "Erste nützliche Smart-Home-Automatisierungen"
+        "title": "Heimautomatisierung: erste Smart-Home-Automatisierungen"
       },
       {
         "href": "/de/smart-home/raspberry-pi-tuersensor-benachrichtigung/",
@@ -1089,7 +1089,7 @@
       },
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       },
       {
         "href": "/de/python-vier-gewinnt-1-gitter/",
@@ -1187,7 +1187,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       },
       {
         "href": "/de/python-packaging-pyproject/",
@@ -1453,7 +1453,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       },
       {
         "href": "/de/smart-home/zigbee-temperatursensor/",
@@ -1463,7 +1463,7 @@
     "/de/smart-home/einstieg/": [
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       },
       {
         "href": "/de/smart-home/smart-home-trends-2027-ces-mmwave-lokale-ki-energie/",
@@ -1533,7 +1533,7 @@
     "/de/smart-home/esp32-esphome-temperatursensor/": [
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       },
       {
         "href": "/de/smart-home/homey-pro-mini-auspacken-einrichtung/",
@@ -1625,7 +1625,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       }
     ],
     "/de/smart-home/garagentor-vernetzt/": [
@@ -1695,7 +1695,7 @@
       },
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       }
     ],
     "/de/smart-home/home-assistant-raspberry-pi-5-installation/": [
@@ -1779,7 +1779,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       }
     ],
     "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/": [
@@ -1817,7 +1817,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       },
       {
         "href": "/de/smart-home/smarte-steckdosen/",
@@ -1947,7 +1947,7 @@
       },
       {
         "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "title": "Home Assistant, Jeedom, Homey: FHEM-Alternative und welche Smart-Home-Zentrale?"
       }
     ],
     "/de/smart-home/smart-home-glossar/": [
@@ -1985,7 +1985,7 @@
       },
       {
         "href": "/de/smart-home/erste-smart-home-automatisierungen/",
-        "title": "Erste nützliche Smart-Home-Automatisierungen"
+        "title": "Heimautomatisierung: erste Smart-Home-Automatisierungen"
       },
       {
         "href": "/de/smart-home/smart-home-trends-2027-ces-mmwave-lokale-ki-energie/",
@@ -2009,7 +2009,7 @@
     "/de/smart-home/smarte-steckdosen/": [
       {
         "href": "/de/smart-home/erste-smart-home-automatisierungen/",
-        "title": "Erste nützliche Smart-Home-Automatisierungen"
+        "title": "Heimautomatisierung: erste Smart-Home-Automatisierungen"
       },
       {
         "href": "/de/smart-home/smart-home-anfaengerfehler-faq/",
@@ -2213,7 +2213,7 @@
       },
       {
         "href": "/de/smart-home/saugroboter-wischstation-selbstreinigung/",
-        "title": "Saug-Wischroboter: Wischsysteme und Stationen richtig wählen"
+        "title": "Saugroboter Vinylboden: Wischstation und Selbstreinigung richtig wählen"
       }
     ],
     "/de/vier-gewinnt-python/": [
@@ -4389,7 +4389,7 @@
       },
       {
         "href": "/en/comparisons/",
-        "title": "Comparisons: robots and boards side by side"
+        "title": "robot-educatif.info comparisons: robots, Pi and smart home"
       },
       {
         "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
@@ -5037,7 +5037,7 @@
     "/en/smart-home/esp32-smart-home-projects/": [
       {
         "href": "/en/smart-home/getting-started-guides/",
-        "title": "Getting Started in Home Automation: Our Guides to Getting Started"
+        "title": "Getting started in home automation: beginner guides hub"
       },
       {
         "href": "/en/smart-home/homey-pro-mini-unboxing-setup/",
@@ -5499,7 +5499,7 @@
     "/en/smart-home/smart-home-glossary/": [
       {
         "href": "/en/smart-home/getting-started-guides/",
-        "title": "Getting Started in Home Automation: Our Guides to Getting Started"
+        "title": "Getting started in home automation: beginner guides hub"
       },
       {
         "href": "/en/smart-home/error/homey-matter-mdns-ipv6/",

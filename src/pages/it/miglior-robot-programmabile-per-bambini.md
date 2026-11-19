@@ -16,7 +16,7 @@ faqSchema:
 
 > **Trasparenza affiliati** — Alcuni link (Amazon.it e `/go/`) possono generare una commissione senza costi extra. **Prezzi: ottobre 2026** — controllare la pagina prodotto prima dell'acquisto.
 
-> **Risposta diretta (ottobre 2026)** — Il **miglior robot programmabile** dipende da **età**, **autonomia** (**Scratch**, linguaggio a blocchi visivi, vs **Python**) e **tempo adulto** per installare **mBlock** (app Makeblock). Tra **8 e 10 anni**, l’**mBot Makeblock** (circa **85–109 €**, verificare listino) resta il riferimento più documentato su questo sito; tra **10 e 14**, l’**mBot2** (circa **159–179 €**) aggiunge Python e sensori avanzati. Un robot **programmabile** non è un giocattolo **IA**: esegue **il vostro** programma, senza assistente chat integrato.
+> **Risposta diretta (ottobre 2026)** — Il **miglior robot programmabile** dipende da **età**, **autonomia** (**Scratch**, linguaggio a blocchi visivi, vs **Python**) e **tempo adulto** per installare **mBlock** (app Makeblock). Tra **8 e 10 anni**, l’**mBot Makeblock** (circa **85–109 €**, verificare listino) resta il riferimento più documentato su questo sito; tra **10 e 14**, l’**mBot2** (circa **159–179 €**) aggiunge Python e sensori avanzati. Un robot **programmabile** non è un giocattolo **IA**: esegue **il vostro** programma, senza assistente chat integrato. Per le offerte stagionali, consultate la pagina [Black Friday 2026: robot educativi e domotica](/it/black-friday/).
 
 ## Telecomandato, programmabile, autonomo, educativo o « IA »?
 
