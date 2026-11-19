@@ -119,4 +119,4 @@ Sí, reflasheando el firmware ESPHome cuando cambies de montaje (documenta el pi
 
 Luego: [tuto ESPHome](/es/domotica/esp32-esphome-sensor-temperatura/) e ideas en [proyectos ESP32](/es/domotica/proyectos-esp32-domotica/).
 
-[Todas las guías domótica](/es/domotica/)
+[Todas las guías domótica](/es/domotica/). También hemos publicado el [unboxing del kit ElectroHobby.es](/es/domotica/unboxing-kit-electrohobby-esp32/) (producto cedido por la marca): 2 ESP32 DevKit, un ESP32-C3 Super Mini y sensores, para los proyectos previstos.

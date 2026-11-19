@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-18T12:19:57.864Z",
-  "pageCount": 1022,
+  "generatedAt": "2026-11-19T16:34:55.313Z",
+  "pageCount": 1028,
   "outbound": {
     "/about/": [
       {
@@ -552,16 +552,16 @@
     ],
     "/de/lego-education-computer-science-ai-2026-spike-prime-alternativen/": [
       {
-        "href": "/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/",
-        "title": "Home Assistant 2026.10 (7. Okt. 2026): Matter, Reolink, Tuya lokal, Batterien"
-      },
-      {
         "href": "/de/smart-home/esphome-home-assistant-installieren/",
         "title": "ESPHome in Home Assistant installieren"
       },
       {
         "href": "/de/marke-raspberry-pi/",
         "title": "Raspberry Pi: unsere Einschätzung der Marke (Pi 3, 4, 5)"
+      },
+      {
+        "href": "/de/arduino-c/",
+        "title": "Arduino C lernen — Einsteigerkurs Robotik"
       }
     ],
     "/de/lernroboter-10-jahre/": [
@@ -668,12 +668,12 @@
         "title": "Lernroboter 10 Jahre: die 6 besten (2026)"
       },
       {
-        "href": "/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/",
-        "title": "Home Assistant 2026.10 (7. Okt. 2026): Matter, Reolink, Tuya lokal, Batterien"
-      },
-      {
         "href": "/de/lernroboter-weihnachtsgeschenke-2026/",
         "title": "Lernroboter Weihnachtsgeschenke 2026"
+      },
+      {
+        "href": "/de/smart-home/garagentor-vernetzt/",
+        "title": "Garagentor Vernetzt"
       }
     ],
     "/de/lernroboter-8-jahre/": [
@@ -1028,16 +1028,16 @@
     ],
     "/de/mbot-mein-erster-lernroboter/": [
       {
-        "href": "/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/",
-        "title": "Home Assistant 2026.10 (7. Okt. 2026): Matter, Reolink, Tuya lokal, Batterien"
-      },
-      {
         "href": "/de/smart-home/homey-pro-auspacken-einrichtung/",
         "title": "Homey Pro im Test: Auspacken und Einrichtung (Teil 1)"
       },
       {
         "href": "/de/bester-programmierbarer-roboter-fuer-kinder/",
         "title": "Programmierbarer Roboter Kind: Vergleich nach Alter (Weihnachten 2026)"
+      },
+      {
+        "href": "/de/marke-lego-education/",
+        "title": "LEGO Education: Markenführer SPIKE, WeDo und BricQ"
       }
     ],
     "/de/mbot-test-kaufen/": [
@@ -1284,12 +1284,12 @@
         "title": "Robotik-Geschenke nach Alter: Weihnachten, Geburtstag, Schulstart"
       },
       {
-        "href": "/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/",
-        "title": "Home Assistant 2026.10 (7. Okt. 2026): Matter, Reolink, Tuya lokal, Batterien"
-      },
-      {
         "href": "/de/anleitungen/",
         "title": "Anleitungen: mBlock, mBot und Smart Home Schritt für Schritt"
+      },
+      {
+        "href": "/de/bester-lernroboter-2026/",
+        "title": "Welchen Lernroboter wählen — 2026?"
       }
     ],
     "/de/python-vier-gewinnt-1-gitter/": [
@@ -1474,6 +1474,20 @@
         "title": "Türsensor am Raspberry Pi: Reed-Kontakt und Push-Benachrichtigung"
       }
     ],
+    "/de/smart-home/electrohobby-esp32-kit-auspacken/": [
+      {
+        "href": "/de/smart-home/smarte-steckdosen/",
+        "title": "Smarte Steckdosen (Schuko) für Home Assistant: Ratgeber 2026"
+      },
+      {
+        "href": "/de/smart-home/zigbee2mqtt-oder-zha-home-assistant/",
+        "title": "Zigbee2MQTT oder ZHA in Home Assistant: welche Lösung?"
+      },
+      {
+        "href": "/de/smart-home/raspberry-pi-co2-scd41-home-assistant/",
+        "title": "CO₂-Messung mit SCD41 am Raspberry Pi und Home Assistant (MQTT)"
+      }
+    ],
     "/de/smart-home/ersatzteile-sensoren-kompatible-guenstiger/": [
       {
         "href": "/de/smart-home/saugroboter-home-assistant/",
@@ -1536,12 +1550,12 @@
         "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
       },
       {
-        "href": "/de/smart-home/homey-pro-mini-auspacken-einrichtung/",
-        "title": "Homey Pro mini: Auspacken und Einrichtung (Teil 1)"
+        "href": "/de/smart-home/esphome-ota-updates/",
+        "title": "ESPHome-OTA-Updates ohne Kabel"
       },
       {
-        "href": "/de/smart-home/welche-smart-home-zentrale-fuer-einsteiger/",
-        "title": "Welche Smart-Home-Zentrale für Einsteiger?"
+        "href": "/de/smart-home/homey-pro-mini-auspacken-einrichtung/",
+        "title": "Homey Pro mini: Auspacken und Einrichtung (Teil 1)"
       }
     ],
     "/de/smart-home/esp32-smart-home-projektideen/": [
@@ -1596,8 +1610,8 @@
         "title": "Smarte Steckdosen (Schuko) für Home Assistant: Ratgeber 2026"
       },
       {
-        "href": "/de/smart-home/esphome-home-assistant-installieren/",
-        "title": "ESPHome in Home Assistant installieren"
+        "href": "/de/smart-home/homey-pro-auspacken-einrichtung/",
+        "title": "Homey Pro im Test: Auspacken und Einrichtung (Teil 1)"
       }
     ],
     "/de/smart-home/fehlercodes-stoerungen-zigbee-home-assistant-shelly/": [
@@ -1672,16 +1686,16 @@
     ],
     "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/": [
       {
-        "href": "/de/smart-home/esphome-home-assistant-installieren/",
-        "title": "ESPHome in Home Assistant installieren"
-      },
-      {
         "href": "/de/smart-home/home-assistant-green-vs-raspberry-pi-5/",
         "title": "Home Assistant Green vs Raspberry Pi 5: was wählen (2026)?"
       },
       {
         "href": "/de/smart-home/garagentor-smartphone-esp32-esphome/",
         "title": "Garagentor per Smartphone: ESP32, ESPHome und Home Assistant"
+      },
+      {
+        "href": "/de/smart-home/einstieg/",
+        "title": "Smart Home für Einsteiger (DE, AT, CH): wo anfangen 2026?"
       }
     ],
     "/de/smart-home/home-assistant-notstrom-usv/": [
@@ -1714,16 +1728,16 @@
     ],
     "/de/smart-home/homey-pro-auspacken-einrichtung/": [
       {
+        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
+        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
+      },
+      {
         "href": "/de/smart-home/fehlercodes-stoerungen-zigbee-home-assistant-shelly/",
         "title": "Fehlercodes Stoerungen Zigbee Home Assistant Shelly"
       },
       {
         "href": "/de/smart-home/smart-home-glossar/",
         "title": "Smart-Home-Glossar: wichtige Begriffe"
-      },
-      {
-        "href": "/de/smart-home/garagentor-vernetzt/",
-        "title": "Garagentor Vernetzt"
       }
     ],
     "/de/smart-home/homey-pro-mini-auspacken-einrichtung/": [
@@ -1750,8 +1764,8 @@
         "title": "Matter, Thread, Zigbee oder Wi-Fi 2027: Unterschiede und Protokollwahl"
       },
       {
-        "href": "/de/smart-home/saugroboter-unter-200-euro/",
-        "title": "Saugroboter unter 200 Euro: LiDAR und Home Assistant (2026)"
+        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
+        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
       }
     ],
     "/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/": [
@@ -1778,8 +1792,8 @@
         "title": "Kompatibilitaetsmatrix Home Assistant Homey Zigbee Matter"
       },
       {
-        "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
-        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
+        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
       }
     ],
     "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/": [
@@ -1802,12 +1816,12 @@
         "title": "Smart Home Einstieg: kompletter Leitfaden"
       },
       {
-        "href": "/de/smart-home/saugroboter-home-assistant/",
-        "title": "Saugroboter mit Home Assistant: Marken, Integration und lokale Steuerung"
+        "href": "/de/smart-home/esphome-home-assistant-installieren/",
+        "title": "ESPHome in Home Assistant installieren"
       },
       {
-        "href": "/de/smart-home/raspberry-pi-co2-scd41-home-assistant/",
-        "title": "CO₂-Messung mit SCD41 am Raspberry Pi und Home Assistant (MQTT)"
+        "href": "/de/smart-home/saugroboter-home-assistant/",
+        "title": "Saugroboter mit Home Assistant: Marken, Integration und lokale Steuerung"
       }
     ],
     "/de/smart-home/raspberry-pi-co2-scd41-home-assistant/": [
@@ -1876,8 +1890,8 @@
         "title": "Smart Home in der Mietwohnung: was ohne Bohren geht (DE, AT, CH)"
       },
       {
-        "href": "/de/smart-home/esp32-smart-home-projektideen/",
-        "title": "10 ESP32-Projekte fürs Smart Home mit ESPHome"
+        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
+        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
       }
     ],
     "/de/smart-home/saugroboter-unter-200-euro/": [
@@ -2050,16 +2064,16 @@
     ],
     "/de/smart-home/welche-smart-home-zentrale-fuer-einsteiger/": [
       {
+        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
+        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
+      },
+      {
         "href": "/de/smart-home/homey-pro-mini-auspacken-einrichtung/",
         "title": "Homey Pro mini: Auspacken und Einrichtung (Teil 1)"
       },
       {
         "href": "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/",
         "title": "Matter, Thread, Zigbee oder Wi-Fi 2027: Unterschiede und Protokollwahl"
-      },
-      {
-        "href": "/de/smart-home/solar-aussenkamera-iegeek/",
-        "title": "Solar-Außenkamera: Kaufberatung ieGeek (S7, ZY-C2, ZS-GX4S, ZY-G4)"
       }
     ],
     "/de/smart-home/zigbee-temperatursensor/": [
@@ -3258,8 +3272,8 @@
         "title": "Hangman in Python, six chapters"
       },
       {
-        "href": "/en/best-robot-for-an-8-year-old/",
-        "title": "Best coding robot for an 8-year-old"
+        "href": "/en/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards, ESP32-C3 Super Mini and sensors (gifted)"
       }
     ],
     "/en/matatalab-brand/": [
@@ -4174,16 +4188,16 @@
     ],
     "/en/python-intermediate-regex/": [
       {
+        "href": "/en/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards, ESP32-C3 Super Mini and sensors (gifted)"
+      },
+      {
         "href": "/en/smart-home/homey-pro-unboxing-setup/",
         "title": "Homey Pro review: unboxing and setup (part 1)"
       },
       {
         "href": "/en/mbot2-makeblock-what-it-teaches/",
         "title": "Makeblock mBot2: price and what it teaches (2026)"
-      },
-      {
-        "href": "/en/arduino-c-conditions-sensors/",
-        "title": "Arduino C lesson 3: if/else conditions for sensors and actuators"
       }
     ],
     "/en/python-intermediate-tests/": [
@@ -4626,12 +4640,12 @@
         "title": "Sonoff Bridge Pro — coordinateur offline (eWeLink)"
       },
       {
-        "href": "/en/download-mblock-5-free/",
-        "title": "Download mBlock 5 free: official link and online IDE"
+        "href": "/en/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards, ESP32-C3 Super Mini and sensors (gifted)"
       },
       {
-        "href": "/en/python-loops-for-while/",
-        "title": "Python loops: for and while"
+        "href": "/en/download-mblock-5-free/",
+        "title": "Download mBlock 5 free: official link and online IDE"
       }
     ],
     "/en/raspberry-pi-3-vs-4-vs-5/": [
@@ -4952,8 +4966,22 @@
         "title": "Which smart home hub for beginners?"
       },
       {
-        "href": "/en/smart-home/which-esp32-board-for-smart-home/",
-        "title": "Which ESP32 board for smart home: classic, S3, C3, C6 or H2?"
+        "href": "/en/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards, ESP32-C3 Super Mini and sensors (gifted)"
+      }
+    ],
+    "/en/smart-home/electrohobby-esp32-kit-unboxing/": [
+      {
+        "href": "/en/smart-home/connected-garage-door/",
+        "title": "Connected Garage Door"
+      },
+      {
+        "href": "/en/smart-home/error/shelly-dimmer-calibration-failed/",
+        "title": "Shelly Dimmer 2 — calibration failed (flicker / charge < 10 W)"
+      },
+      {
+        "href": "/en/smart-home/robot-vacuums/",
+        "title": "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
       }
     ],
     "/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/": [
@@ -5134,23 +5162,19 @@
     ],
     "/en/smart-home/getting-started-guides/": [
       {
+        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
+        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+      },
+      {
         "href": "/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/",
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
         "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
         "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
-      },
-      {
-        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
       }
     ],
     "/en/smart-home/getting-started/": [
-      {
-        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
-      },
       {
         "href": "/en/smart-home/best-zigbee-dongle-home-assistant/",
         "title": "Best Zigbee dongle for Home Assistant (2026): compared"
@@ -5158,6 +5182,10 @@
       {
         "href": "/en/smart-home/raspberry-pi-co2-scd41-home-assistant/",
         "title": "Raspberry Pi CO₂ sensor (SCD41) with Home Assistant and MQTT"
+      },
+      {
+        "href": "/en/smart-home/error/aqara-interview-sleep/",
+        "title": "Aqara — interview failed (capteur endormi)"
       }
     ],
     "/en/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/": [
@@ -5170,11 +5198,15 @@
         "title": "Robot vacuums that work with Home Assistant: brands and how they integrate"
       },
       {
-        "href": "/en/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "CyberPi / mBot2 — OSError [Errno 28] ENOSPC (mBlock 5)"
+        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
+        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
       }
     ],
     "/en/smart-home/home-assistant-backup-power-ups/": [
+      {
+        "href": "/en/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards, ESP32-C3 Super Mini and sensors (gifted)"
+      },
       {
         "href": "/en/smart-home/raspberry-pi-weather-station-bme280/",
         "title": "Raspberry Pi weather station with BME280 and SQLite history (step-by-step)"
@@ -5182,10 +5214,6 @@
       {
         "href": "/en/smart-home/smart-home-2027-home-assistant-homey-jeedom-alexa/",
         "title": "Smart home 2027: Home Assistant vs Homey vs Jeedom vs Alexa"
-      },
-      {
-        "href": "/en/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
-        "title": "Home Assistant 2026.10 (7 Oct 2026): Matter, Reolink, Tuya local and batteries"
       }
     ],
     "/en/smart-home/home-assistant-green-vs-raspberry-pi-5/": [
@@ -5348,12 +5376,12 @@
         "title": "mBlock and Arduino: upload errors and mBot fixes"
       },
       {
-        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
-      },
-      {
         "href": "/en/smart-home/error/aqara-p2-matter-pase-timeout/",
         "title": "Aqara P2 — échec Matter (timeout PASE / Thread)"
+      },
+      {
+        "href": "/en/smart-home/which-esp32-board-for-smart-home/",
+        "title": "Which ESP32 board for smart home: classic, S3, C3, C6 or H2?"
       }
     ],
     "/en/smart-home/raspberry-pi-pir-motion-lighting/": [
@@ -5380,8 +5408,8 @@
         "title": "Arduino Uno R3 — avrdude stk500_getsync(): not in sync"
       },
       {
-        "href": "/en/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "CyberPi / mBot2 — OSError [Errno 28] ENOSPC (mBlock 5)"
+        "href": "/en/smart-home/esp32-projects/",
+        "title": "ESP32 projects with ESPHome and Home Assistant"
       }
     ],
     "/en/smart-home/raspberry-pi-weather-station-bme280/": [
@@ -5596,16 +5624,16 @@
     ],
     "/en/smart-home/which-esp32-board-for-smart-home/": [
       {
-        "href": "/en/smart-home/connected-garage-door/",
-        "title": "Connected Garage Door"
+        "href": "/en/smart-home/raspberry-pi-pir-motion-lighting/",
+        "title": "Raspberry Pi PIR motion sensor for Home Assistant lighting"
       },
       {
-        "href": "/en/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "CyberPi / mBot2 — OSError [Errno 28] ENOSPC (mBlock 5)"
+        "href": "/en/smart-home/smart-home-beginner-mistakes-faq/",
+        "title": "Smart home beginner mistakes (FAQ)"
       },
       {
-        "href": "/en/smart-home/robot-vacuums/",
-        "title": "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
+        "href": "/en/smart-home/error/sonoff-zbdongle-ezsp-ember-zbdongle-e/",
+        "title": "Sonoff ZBDongle-E — EZSP / pilote Ember (firmware 7.4+)"
       }
     ],
     "/en/smart-home/which-smart-home-hub-for-beginners/": [
@@ -5632,8 +5660,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "href": "/en/smart-home/getting-started-guides/",
+        "title": "Getting Started in Home Automation: Our Guides to Getting Started"
       }
     ],
     "/en/smart-home/zigbee2mqtt-vs-zha-home-assistant/": [
@@ -5856,16 +5884,16 @@
     ],
     "/es/actividad-mbot-medir-distancias/": [
       {
+        "href": "/es/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
+      },
+      {
         "href": "/es/mblock-que-software/",
         "title": "mBlock 5, app o Python: ¿qué software para el mBot?"
       },
       {
         "href": "/es/robot-programable-5-anos/",
         "title": "Robot a los 5 años sin pantalla: Botley, Bee-Bot o Code & Go"
-      },
-      {
-        "href": "/es/uso-osoyoo-sport-car-v1/",
-        "title": "OSOYOO Sport Car V1.0: puesta en marcha, primer programa Arduino y prueba de la dirección"
       }
     ],
     "/es/actividad-scratch-el-cuadrado/": [
@@ -5926,16 +5954,16 @@
     ],
     "/es/bajadas-de-precio/como-medimos/": [
       {
+        "href": "/es/primer-programa-mbot/",
+        "title": "Primer programa mBot en mBlock 5 (paso a paso)"
+      },
+      {
         "href": "/es/domotica/que-box-domotica-elegir-principiante/",
         "title": "Qué box domótica elegir (principiante)"
       },
       {
         "href": "/es/bajadas-de-precio/",
         "title": "Bajadas DE Precio"
-      },
-      {
-        "href": "/es/domotica/primeras-automatizaciones-domotica/",
-        "title": "Primeras automatizaciones domóticas útiles"
       }
     ],
     "/es/bajadas-de-precio/": [
@@ -6238,12 +6266,12 @@
         "title": "Cámara de vigilancia exterior solar: cómo elegir (ieGeek S7, ZY-C2, ZS-GX4S, ZY-G4)"
       },
       {
-        "href": "/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/",
-        "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
+        "href": "/es/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
       },
       {
-        "href": "/es/domotica/raspberry-pi-co2-scd41-home-assistant/",
-        "title": "Sensor CO2 SCD41 en Raspberry Pi + Home Assistant: tutorial con código"
+        "href": "/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/",
+        "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
       }
     ],
     "/es/domotica/glosario-domotica/": [
@@ -6294,12 +6322,12 @@
         "title": "Guías de domótica para el hogar en España"
       },
       {
-        "href": "/es/domotica/home-assistant-2026-10-matter-reolink-tuya-baterias/",
-        "title": "Home Assistant 2026.10 (7 oct 2026): Matter, Reolink, Tuya local y baterías"
+        "href": "/es/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
       },
       {
-        "href": "/es/domotica/protocolos-domotica-zigbee-wifi-thread-matter/",
-        "title": "Zigbee, Wi-Fi, Z-Wave, Thread o Matter: ¿qué protocolo domótico elegir?"
+        "href": "/es/domotica/home-assistant-2026-10-matter-reolink-tuya-baterias/",
+        "title": "Home Assistant 2026.10 (7 oct 2026): Matter, Reolink, Tuya local y baterías"
       }
     ],
     "/es/domotica/home-assistant-jeedom-homey-que-sistema/": [
@@ -6476,12 +6504,12 @@
         "title": "Codigos Error Solucion Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/",
-        "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
+        "href": "/es/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
       },
       {
-        "href": "/es/domotica/que-placa-esp32-domotica/",
-        "title": "Qué placa ESP32 elegir para domótica: ESP32, S3, C3, C6 o H2"
+        "href": "/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/",
+        "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
       }
     ],
     "/es/domotica/puerta-garaje-smartphone-esp32-esphome/": [
@@ -6514,16 +6542,16 @@
     ],
     "/es/domotica/que-placa-esp32-domotica/": [
       {
-        "href": "/es/domotica/puerta-garaje-conectada/",
-        "title": "Puerta Garaje Conectada"
-      },
-      {
         "href": "/es/domotica/matter-thread-zigbee-wifi-que-protocolo-2027/",
         "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
       },
       {
         "href": "/es/domotica/esp32-esphome-sensor-temperatura/",
         "title": "Sensor de temperatura ESP32 + ESPHome para Home Assistant: tutorial completo"
+      },
+      {
+        "href": "/es/domotica/robot-aspirador-menos-200-euros/",
+        "title": "Robot aspirador por menos de 200 €: selección 2026"
       }
     ],
     "/es/domotica/raspberry-pi-co2-scd41-home-assistant/": [
@@ -6720,6 +6748,20 @@
       {
         "href": "/es/domotica/flashear-esp32-esphome/",
         "title": "Flashear un ESP32 con ESPHome (USB)"
+      }
+    ],
+    "/es/domotica/unboxing-kit-electrohobby-esp32/": [
+      {
+        "href": "/es/domotica/puerta-garaje-conectada/",
+        "title": "Puerta Garaje Conectada"
+      },
+      {
+        "href": "/es/domotica/zigbee2mqtt-o-zha-home-assistant/",
+        "title": "Zigbee2MQTT o ZHA: cuál elegir para Home Assistant"
+      },
+      {
+        "href": "/es/domotica/proyectos/porton-electrico-desde-el-telefono/",
+        "title": "Abrir un portón eléctrico desde el teléfono"
       }
     ],
     "/es/domotica/zigbee2mqtt-o-zha-home-assistant/": [
@@ -7120,12 +7162,12 @@
         "title": "Ideas de regalo de robótica por edad: Navidad, cumpleaños, vuelta al cole"
       },
       {
-        "href": "/es/marca-lego-education/",
-        "title": "LEGO Education: guía de marca SPIKE, WeDo y BricQ"
+        "href": "/es/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
       },
       {
-        "href": "/es/bajadas-de-precio/",
-        "title": "Bajadas DE Precio"
+        "href": "/es/marca-lego-education/",
+        "title": "LEGO Education: guía de marca SPIKE, WeDo y BricQ"
       }
     ],
     "/es/montaje-conexion-osoyoo-sport-car-v1/": [
@@ -7720,8 +7762,8 @@
         "title": "Installare mBlock 5 su Windows 10/11 (driver CH340)"
       },
       {
-        "href": "/it/arduino-c/",
-        "title": "Imparare Arduino C — percorso robotica per principianti"
+        "href": "/it/progetti-mbot-un-ora/",
+        "title": "Programmare mBot in 1 ora: idee di sfide e metodo"
       }
     ],
     "/it/arduino-c-funzioni-buone-pratiche/": [
@@ -7898,12 +7940,12 @@
         "title": "Zigbee2MQTT o ZHA: quale stack per Home Assistant?"
       },
       {
-        "href": "/it/domotica/raspberry-pi-sensore-porta-notifica/",
-        "title": "Sensore apertura porta (reed) su Raspberry Pi con notifica smartphone"
+        "href": "/it/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini e sensori (prodotto offerto)"
       },
       {
-        "href": "/it/domotica/errori-principianti-domotica-faq/",
-        "title": "Errori dei principianti in domotica (FAQ)"
+        "href": "/it/domotica/raspberry-pi-sensore-porta-notifica/",
+        "title": "Sensore apertura porta (reed) su Raspberry Pi con notifica smartphone"
       }
     ],
     "/it/domotica/basi-cablaggio-esp32-gpio/": [
@@ -8006,16 +8048,16 @@
     ],
     "/it/domotica/flashare-esp32-esphome/": [
       {
+        "href": "/it/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini e sensori (prodotto offerto)"
+      },
+      {
         "href": "/it/domotica/aggiornamenti-ota-esphome/",
         "title": "Aggiornamenti OTA ESPHome senza cavo"
       },
       {
         "href": "/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/",
         "title": "Zigbee, Wi-Fi, Z-Wave, Thread o Matter: quale protocollo domotico scegliere?"
-      },
-      {
-        "href": "/it/domotica/progetti/cancello-elettrico-dal-telefono/",
-        "title": "Aprire un cancello elettrico dal telefono"
       }
     ],
     "/it/domotica/glossario-domotica/": [
@@ -8136,12 +8178,12 @@
         "title": "Installare ESPHome in Home Assistant"
       },
       {
-        "href": "/it/domotica/",
-        "title": "Guide alla domotica per la casa in Italia"
+        "href": "/it/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini e sensori (prodotto offerto)"
       },
       {
-        "href": "/it/domotica/tendenze-domotica-2027-ces-mmwave-ia-locale-energia/",
-        "title": "Tendenze domotica 2027: CES, mmWave, IA locale ed energia senza abbonamento"
+        "href": "/it/domotica/",
+        "title": "Guide alla domotica per la casa in Italia"
       }
     ],
     "/it/domotica/matter-1-6-novita-nfc-smart-home/": [
@@ -8154,8 +8196,8 @@
         "title": "Home Assistant 2026.10 (7 ott 2026): Matter, Reolink, Tuya locale e batterie"
       },
       {
-        "href": "/it/domotica/miglior-chiavetta-zigbee-home-assistant/",
-        "title": "Miglior chiavetta Zigbee per Home Assistant (2026): confronto"
+        "href": "/it/domotica/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini e sensori (prodotto offerto)"
       }
     ],
     "/it/domotica/matter-thread-zigbee-wifi-quale-protocollo-2027/": [
@@ -8174,16 +8216,16 @@
     ],
     "/it/domotica/miglior-chiavetta-zigbee-home-assistant/": [
       {
-        "href": "/it/domotica/porta-garage-connessa/",
-        "title": "Porta Garage Connessa"
-      },
-      {
         "href": "/it/domotica/robot-aspirapolvere-navigazione-lidar/",
         "title": "Robot aspirapolvere: LiDAR vs telecamera (2026)"
       },
       {
         "href": "/it/domotica/raspberry-pi-co2-scd41-home-assistant/",
         "title": "Sensore CO2 SCD41 su Raspberry Pi + Home Assistant: tutorial con codice"
+      },
+      {
+        "href": "/it/domotica/domotica-in-affitto-senza-lavori/",
+        "title": "Domotica in affitto: cosa si può installare senza lavori?"
       }
     ],
     "/it/domotica/porta-garage-connessa/": [
@@ -8300,16 +8342,16 @@
     ],
     "/it/domotica/quale-scheda-esp32-domotica/": [
       {
+        "href": "/it/mbot-ultrasuoni-4-rallentare-ostacolo/",
+        "title": "mBot ultrasuoni (4/4): rallentare davanti ostacolo"
+      },
+      {
         "href": "/it/domotica/matter-thread-zigbee-wifi-quale-protocollo-2027/",
         "title": "Matter, Thread, Zigbee o Wi-Fi nel 2027: differenze e quale protocollo scegliere"
       },
       {
         "href": "/it/domotica/installare-esphome-home-assistant/",
         "title": "Installare ESPHome in Home Assistant"
-      },
-      {
-        "href": "/it/domotica/porta-garage-connessa/",
-        "title": "Porta Garage Connessa"
       }
     ],
     "/it/domotica/raspberry-pi-co2-scd41-home-assistant/": [
@@ -8506,6 +8548,20 @@
       {
         "href": "/it/domotica/basi-cablaggio-esp32-gpio/",
         "title": "Cablaggio ESP32: GPIO, 3,3 V, pull-up"
+      }
+    ],
+    "/it/domotica/unboxing-kit-electrohobby-esp32/": [
+      {
+        "href": "/it/domotica/porta-garage-connessa/",
+        "title": "Porta Garage Connessa"
+      },
+      {
+        "href": "/it/domotica/prese-smart/",
+        "title": "Prese smart per Home Assistant in Italia: guida 2026"
+      },
+      {
+        "href": "/it/domotica/aggiornamenti-ota-esphome/",
+        "title": "Aggiornamenti OTA ESPHome senza cavo"
       }
     ],
     "/it/domotica/zigbee2mqtt-o-zha-home-assistant/": [
@@ -8882,8 +8938,8 @@
         "title": "Stazione meteo Raspberry Pi con BME280 e storico SQLite: tutorial + codice"
       },
       {
-        "href": "/it/domotica/esp32-esphome-sensore-temperatura/",
-        "title": "ESP32 e ESPHome: sensore temperatura in Home Assistant"
+        "href": "/it/progetti-mbot-un-ora/",
+        "title": "Programmare mBot in 1 ora: idee di sfide e metodo"
       }
     ],
     "/it/mbot-il-mio-primo-robot-educativo/": [
@@ -8924,8 +8980,8 @@
         "title": "mBot vs robot LEGO: quale è meglio?"
       },
       {
-        "href": "/it/progetti-mbot-un-ora/",
-        "title": "Programmare mBot in 1 ora: idee di sfide e metodo"
+        "href": "/it/domotica/quale-scheda-esp32-domotica/",
+        "title": "Quale scheda ESP32 per la domotica? Confronto chip 2026"
       }
     ],
     "/it/mbot-vs-lego-robot/": [
@@ -9056,16 +9112,16 @@
     ],
     "/it/progetti-mbot-un-ora/": [
       {
-        "href": "/it/mbot-ultrasuoni-4-rallentare-ostacolo/",
-        "title": "mBot ultrasuoni (4/4): rallentare davanti ostacolo"
-      },
-      {
         "href": "/it/robot-programmabile-6-anni/",
         "title": "Robot programmabile a 6 anni, in prima elementare"
       },
       {
         "href": "/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/",
         "title": "Matrice Compatibilita Home Assistant Homey Zigbee Matter"
+      },
+      {
+        "href": "/it/raspberry-pi-5-quale-ram/",
+        "title": "Raspberry Pi 5: 4, 8 o 16 GB? La scelta giusta (2026)"
       }
     ],
     "/it/python-condizioni-if-else/": [
@@ -9112,16 +9168,16 @@
     ],
     "/it/python-mini-gioco-terminale/": [
       {
-        "href": "/it/primo-programma-mbot/",
-        "title": "Primo programma mBot in mBlock 5 (passo passo)"
-      },
-      {
         "href": "/it/attivita-scratch-il-quadrato/",
         "title": "Come fare un quadrato su Scratch (attività facile)"
       },
       {
         "href": "/it/sphero-blueprint-robotics-recensione-robot-modulare/",
         "title": "Sphero Blueprint Robotics (2026): recensione del robot modulare"
+      },
+      {
+        "href": "/it/regalo-natale-robot-educativo-2026/",
+        "title": "Regalo Natale Robot Educativo 2026"
       }
     ],
     "/it/python-packaging-pyproject/": [
@@ -9578,6 +9634,10 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+      },
+      {
         "href": "/nl/partners/",
         "title": "Partners — samenwerkingen per markt"
       },
@@ -9606,6 +9666,10 @@
       {
         "href": "/nl/",
         "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
       }
     ],
     "/nl/partners/": [
@@ -9624,6 +9688,10 @@
       {
         "href": "/nl/",
         "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
       }
     ],
     "/nl/prijsdalingen/hoe-we-meten/": [
@@ -9642,6 +9710,10 @@
       {
         "href": "/nl/partners/",
         "title": "Partners — samenwerkingen per markt"
+      },
+      {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
       }
     ],
     "/nl/prijsdalingen/": [
@@ -9660,6 +9732,32 @@
       {
         "href": "/nl/prijsdalingen/hoe-we-meten/",
         "title": "Hoe prijsdalingen worden gemeten"
+      },
+      {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+      }
+    ],
+    "/nl/unboxing-kit-electrohobby-esp32/": [
+      {
+        "href": "/nl/prijsdalingen/",
+        "title": "Prijsdalingen bij partners"
+      },
+      {
+        "href": "/nl/lego-education-merk/",
+        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+      },
+      {
+        "href": "/nl/prijsdalingen/hoe-we-meten/",
+        "title": "Hoe prijsdalingen worden gemeten"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/partners/",
+        "title": "Partners — samenwerkingen per markt"
       }
     ],
     "/outil-quel-robot-enfant/": [
@@ -10162,12 +10260,12 @@
         "title": "Codey Rocky (Makeblock) : robot éducatif Scratch et Python"
       },
       {
-        "href": "/raspberry-pi-5-quelle-version-memoire-acheter/",
-        "title": "Raspberry Pi 5 : 4 Go, 8 Go ou 16 Go, lequel choisir en 2026 ?"
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
       },
       {
-        "href": "/domotique/code-erreur/homey-matter-failed/",
-        "title": "Homey — « Matter pairing failed »"
+        "href": "/raspberry-pi-5-quelle-version-memoire-acheter/",
+        "title": "Raspberry Pi 5 : 4 Go, 8 Go ou 16 Go, lequel choisir en 2026 ?"
       }
     ],
     "/c-arduino-environnement-structure-sketch/": [
@@ -10680,12 +10778,12 @@
         "title": "Projet Journal CLI (5/6) — typage et vérification mypy"
       },
       {
-        "href": "/python-pendu-1-cahier-mot-masque/",
-        "title": "Le pendu en Python (1/6) — cahier des charges et mot masqué"
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
       },
       {
-        "href": "/blog/",
-        "title": "Blog — guides robots et programmation"
+        "href": "/python-pendu-1-cahier-mot-masque/",
+        "title": "Le pendu en Python (1/6) — cahier des charges et mot masqué"
       }
     ],
     "/mbot2-de-makeblock-le-robot-educatif-pour-apprendre-la-robotique/": [
@@ -11516,16 +11614,16 @@
     ],
     "/python-pendu-6-projet-complet/": [
       {
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
+      },
+      {
         "href": "/marque-sonoff/",
         "title": "SONOFF : notre avis sur la marque (Zigbee pour Home Assistant)"
       },
       {
         "href": "/domotique/code-erreur/homey-matter-failed/",
         "title": "Homey — « Matter pairing failed »"
-      },
-      {
-        "href": "/domotique/code-erreur/mbot-com-port-missing/",
-        "title": "mBlock — port COM invisible (Windows / macOS)"
       }
     ],
     "/python-puissance-4-1-cahier-grille/": [
@@ -12476,8 +12574,8 @@
         "title": "Configurateur Projet Domotique"
       },
       {
-        "href": "/domotique/code-erreur/aqara-thermostat-calibration/",
-        "title": "Aqara T1 — écart de température / vanne qui claque"
+        "href": "/domotique/code-erreur/hue-motion-red-led-zigbee/",
+        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
       }
     ],
     "/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/": [
@@ -12630,8 +12728,8 @@
         "title": "Aqara — interview failed (capteur endormi)"
       },
       {
-        "href": "/domotique/quelle-carte-esp32-choisir-domotique/",
-        "title": "Quelle carte ESP32 choisir pour la domotique : ESP32, S3, C3, C6 ou H2 ?"
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
       }
     ],
     "/domotique/quelle-carte-esp32-choisir-domotique/": [
@@ -12658,8 +12756,8 @@
         "title": "Erreurs de débutant en domotique (FAQ)"
       },
       {
-        "href": "/domotique/code-erreur/aqara-interview-sleep/",
-        "title": "Aqara — interview failed (capteur endormi)"
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
       }
     ],
     "/domotique/raspberry-pi-capteur-ouverture-porte-notification/": [
@@ -12812,8 +12910,8 @@
         "title": "Arduino / mBlock — permission denied sur le port série (Linux)"
       },
       {
-        "href": "/domotique/bases-cablage-esp32-gpio/",
-        "title": "Câblage ESP32 : GPIO, 3,3 V et pull-up"
+        "href": "/domotique/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
       }
     ],
     "/domotique/test-homey-pro-mini-deballage-installation/": [
@@ -12826,8 +12924,22 @@
         "title": "Pieces Detachees Capteurs Compatibles Moins Cher"
       },
       {
-        "href": "/domotique/code-erreur/hue-motion-red-led-zigbee/",
-        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
+        "href": "/domotique/rubrique/robots-aspirateurs/",
+        "title": "Robots aspirateurs : bien choisir et les intégrer à Home Assistant"
+      }
+    ],
+    "/domotique/unboxing-kit-electrohobby-esp32/": [
+      {
+        "href": "/domotique/raspberry-pi-station-meteo-bme280-historique/",
+        "title": "Station météo Raspberry Pi avec BME280 et historique SQLite : tuto + code"
+      },
+      {
+        "href": "/domotique/code-erreur/arduino-permission-denied-linux/",
+        "title": "Arduino / mBlock — permission denied sur le port série (Linux)"
+      },
+      {
+        "href": "/domotique/pieces-detachees-capteurs-compatibles-moins-cher/",
+        "title": "Pieces Detachees Capteurs Compatibles Moins Cher"
       }
     ],
     "/domotique/projets/portail-electrique-connecte/": [
@@ -16580,8 +16692,8 @@
         "title": "Python Hangman Course"
       },
       {
-        "href": "/uk/best-robot-for-an-8-year-old/",
-        "title": "Best Robot FOR AN 8 Year OLD"
+        "href": "/uk/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
       }
     ],
     "/ca/makeblock-cyberpi-overview/": [
@@ -16594,8 +16706,8 @@
         "title": "Python Hangman Course"
       },
       {
-        "href": "/ca/best-robot-for-an-8-year-old/",
-        "title": "Best Robot FOR AN 8 Year OLD"
+        "href": "/ca/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
       }
     ],
     "/uk/matatalab-brand/": [
@@ -18356,19 +18468,23 @@
     ],
     "/uk/python-intermediate-regex/": [
       {
+        "href": "/uk/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
+      },
+      {
         "href": "/uk/smart-home/homey-pro-unboxing-setup/",
         "title": "Homey PRO Unboxing Setup"
       },
       {
         "href": "/uk/mbot2-makeblock-what-it-teaches/",
         "title": "Mbot2 Makeblock What IT Teaches"
-      },
-      {
-        "href": "/uk/arduino-c-conditions-sensors/",
-        "title": "Arduino C Conditions Sensors"
       }
     ],
     "/ca/python-intermediate-regex/": [
+      {
+        "href": "/ca/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
+      },
       {
         "href": "/ca/smart-home/homey-pro-unboxing-setup/",
         "title": "Homey PRO Unboxing Setup"
@@ -18376,10 +18492,6 @@
       {
         "href": "/ca/mbot2-makeblock-what-it-teaches/",
         "title": "Mbot2 Makeblock What IT Teaches"
-      },
-      {
-        "href": "/ca/arduino-c-conditions-sensors/",
-        "title": "Arduino C Conditions Sensors"
       }
     ],
     "/uk/python-intermediate-tests/": [
@@ -19256,12 +19368,12 @@
         "title": "Sonoff Zigbee Bridge PRO Offline"
       },
       {
-        "href": "/uk/download-mblock-5-free/",
-        "title": "Download Mblock 5 Free"
+        "href": "/uk/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
       },
       {
-        "href": "/uk/python-loops-for-while/",
-        "title": "Python Loops FOR While"
+        "href": "/uk/download-mblock-5-free/",
+        "title": "Download Mblock 5 Free"
       }
     ],
     "/ca/raspberry-pi-3-getting-started/": [
@@ -19270,12 +19382,12 @@
         "title": "Sonoff Zigbee Bridge PRO Offline"
       },
       {
-        "href": "/ca/download-mblock-5-free/",
-        "title": "Download Mblock 5 Free"
+        "href": "/ca/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
       },
       {
-        "href": "/ca/python-loops-for-while/",
-        "title": "Python Loops FOR While"
+        "href": "/ca/download-mblock-5-free/",
+        "title": "Download Mblock 5 Free"
       }
     ],
     "/uk/raspberry-pi-3-vs-4-vs-5/": [
@@ -19904,8 +20016,8 @@
         "title": "Which Smart Home HUB FOR Beginners"
       },
       {
-        "href": "/uk/smart-home/which-esp32-board-for-smart-home/",
-        "title": "Which Esp32 Board FOR Smart Home"
+        "href": "/uk/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
       }
     ],
     "/ca/smart-home/connected-garage-door/": [
@@ -19918,8 +20030,36 @@
         "title": "Which Smart Home HUB FOR Beginners"
       },
       {
-        "href": "/ca/smart-home/which-esp32-board-for-smart-home/",
-        "title": "Which Esp32 Board FOR Smart Home"
+        "href": "/ca/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
+      }
+    ],
+    "/uk/smart-home/electrohobby-esp32-kit-unboxing/": [
+      {
+        "href": "/uk/smart-home/connected-garage-door/",
+        "title": "Connected Garage Door"
+      },
+      {
+        "href": "/uk/smart-home/error/shelly-dimmer-calibration-failed/",
+        "title": "Shelly Dimmer Calibration Failed"
+      },
+      {
+        "href": "/uk/smart-home/robot-vacuums/",
+        "title": "Robot Vacuums"
+      }
+    ],
+    "/ca/smart-home/electrohobby-esp32-kit-unboxing/": [
+      {
+        "href": "/ca/smart-home/connected-garage-door/",
+        "title": "Connected Garage Door"
+      },
+      {
+        "href": "/ca/smart-home/error/shelly-dimmer-calibration-failed/",
+        "title": "Shelly Dimmer Calibration Failed"
+      },
+      {
+        "href": "/ca/smart-home/robot-vacuums/",
+        "title": "Robot Vacuums"
       }
     ],
     "/uk/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/": [
@@ -20276,19 +20416,23 @@
     ],
     "/uk/smart-home/getting-started-guides/": [
       {
+        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
+      },
+      {
         "href": "/uk/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/",
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
         "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
         "title": "HUE Motion RED LED Zigbee"
-      },
-      {
-        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/ca/smart-home/getting-started-guides/": [
+      {
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
+      },
       {
         "href": "/ca/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/",
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
@@ -20296,17 +20440,9 @@
       {
         "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
         "title": "HUE Motion RED LED Zigbee"
-      },
-      {
-        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/uk/smart-home/getting-started/": [
-      {
-        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
-      },
       {
         "href": "/uk/smart-home/best-zigbee-dongle-home-assistant/",
         "title": "Best Zigbee Dongle Home Assistant"
@@ -20314,13 +20450,13 @@
       {
         "href": "/uk/smart-home/raspberry-pi-co2-scd41-home-assistant/",
         "title": "Raspberry PI CO2 Scd41 Home Assistant"
+      },
+      {
+        "href": "/uk/smart-home/error/aqara-interview-sleep/",
+        "title": "Aqara Interview Sleep"
       }
     ],
     "/ca/smart-home/getting-started/": [
-      {
-        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
-      },
       {
         "href": "/ca/smart-home/best-zigbee-dongle-home-assistant/",
         "title": "Best Zigbee Dongle Home Assistant"
@@ -20328,6 +20464,10 @@
       {
         "href": "/ca/smart-home/raspberry-pi-co2-scd41-home-assistant/",
         "title": "Raspberry PI CO2 Scd41 Home Assistant"
+      },
+      {
+        "href": "/ca/smart-home/error/aqara-interview-sleep/",
+        "title": "Aqara Interview Sleep"
       }
     ],
     "/uk/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/": [
@@ -20340,8 +20480,8 @@
         "title": "Robot Vacuum Home Assistant"
       },
       {
-        "href": "/uk/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/ca/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/": [
@@ -20354,11 +20494,15 @@
         "title": "Robot Vacuum Home Assistant"
       },
       {
-        "href": "/ca/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/uk/smart-home/home-assistant-backup-power-ups/": [
+      {
+        "href": "/uk/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
+      },
       {
         "href": "/uk/smart-home/raspberry-pi-weather-station-bme280/",
         "title": "Raspberry PI Weather Station Bme280"
@@ -20366,13 +20510,13 @@
       {
         "href": "/uk/smart-home/smart-home-2027-home-assistant-homey-jeedom-alexa/",
         "title": "Smart Home 2027 Home Assistant Homey Jeedom Alexa"
-      },
-      {
-        "href": "/uk/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
-        "title": "Home Assistant 2026 10 Matter Reolink Tuya Batteries"
       }
     ],
     "/ca/smart-home/home-assistant-backup-power-ups/": [
+      {
+        "href": "/ca/smart-home/electrohobby-esp32-kit-unboxing/",
+        "title": "Electrohobby Esp32 KIT Unboxing"
+      },
       {
         "href": "/ca/smart-home/raspberry-pi-weather-station-bme280/",
         "title": "Raspberry PI Weather Station Bme280"
@@ -20380,10 +20524,6 @@
       {
         "href": "/ca/smart-home/smart-home-2027-home-assistant-homey-jeedom-alexa/",
         "title": "Smart Home 2027 Home Assistant Homey Jeedom Alexa"
-      },
-      {
-        "href": "/ca/smart-home/home-assistant-2026-10-matter-reolink-tuya-batteries/",
-        "title": "Home Assistant 2026 10 Matter Reolink Tuya Batteries"
       }
     ],
     "/uk/smart-home/home-assistant-green-vs-raspberry-pi-5/": [
@@ -20700,12 +20840,12 @@
         "title": "Mblock Arduino Upload Errors"
       },
       {
-        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
-      },
-      {
         "href": "/uk/smart-home/error/aqara-p2-matter-pase-timeout/",
         "title": "Aqara P2 Matter Pase Timeout"
+      },
+      {
+        "href": "/uk/smart-home/which-esp32-board-for-smart-home/",
+        "title": "Which Esp32 Board FOR Smart Home"
       }
     ],
     "/ca/smart-home/raspberry-pi-door-sensor-notification/": [
@@ -20714,12 +20854,12 @@
         "title": "Mblock Arduino Upload Errors"
       },
       {
-        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
-      },
-      {
         "href": "/ca/smart-home/error/aqara-p2-matter-pase-timeout/",
         "title": "Aqara P2 Matter Pase Timeout"
+      },
+      {
+        "href": "/ca/smart-home/which-esp32-board-for-smart-home/",
+        "title": "Which Esp32 Board FOR Smart Home"
       }
     ],
     "/uk/smart-home/raspberry-pi-pir-motion-lighting/": [
@@ -20760,8 +20900,8 @@
         "title": "Arduino UNO R3 Getsync"
       },
       {
-        "href": "/uk/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/uk/smart-home/esp32-projects/",
+        "title": "Esp32 Projects"
       }
     ],
     "/ca/smart-home/raspberry-pi-pir-motion-sensor-lighting/": [
@@ -20774,8 +20914,8 @@
         "title": "Arduino UNO R3 Getsync"
       },
       {
-        "href": "/ca/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/ca/smart-home/esp32-projects/",
+        "title": "Esp32 Projects"
       }
     ],
     "/uk/smart-home/raspberry-pi-weather-station-bme280/": [
@@ -21200,30 +21340,30 @@
     ],
     "/uk/smart-home/which-esp32-board-for-smart-home/": [
       {
-        "href": "/uk/smart-home/connected-garage-door/",
-        "title": "Connected Garage Door"
+        "href": "/uk/smart-home/raspberry-pi-pir-motion-lighting/",
+        "title": "Raspberry PI PIR Motion Lighting"
       },
       {
-        "href": "/uk/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/uk/smart-home/smart-home-beginner-mistakes-faq/",
+        "title": "Smart Home Beginner Mistakes FAQ"
       },
       {
-        "href": "/uk/smart-home/robot-vacuums/",
-        "title": "Robot Vacuums"
+        "href": "/uk/smart-home/error/sonoff-zbdongle-ezsp-ember-zbdongle-e/",
+        "title": "Sonoff Zbdongle Ezsp Ember Zbdongle E"
       }
     ],
     "/ca/smart-home/which-esp32-board-for-smart-home/": [
       {
-        "href": "/ca/smart-home/connected-garage-door/",
-        "title": "Connected Garage Door"
+        "href": "/ca/smart-home/raspberry-pi-pir-motion-lighting/",
+        "title": "Raspberry PI PIR Motion Lighting"
       },
       {
-        "href": "/ca/smart-home/error/cyberpi-enospc-mblock/",
-        "title": "Cyberpi Enospc Mblock"
+        "href": "/ca/smart-home/smart-home-beginner-mistakes-faq/",
+        "title": "Smart Home Beginner Mistakes FAQ"
       },
       {
-        "href": "/ca/smart-home/robot-vacuums/",
-        "title": "Robot Vacuums"
+        "href": "/ca/smart-home/error/sonoff-zbdongle-ezsp-ember-zbdongle-e/",
+        "title": "Sonoff Zbdongle Ezsp Ember Zbdongle E"
       }
     ],
     "/uk/smart-home/which-smart-home-hub-for-beginners/": [
@@ -21264,8 +21404,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
+        "href": "/uk/smart-home/getting-started-guides/",
+        "title": "Getting Started Guides"
       }
     ],
     "/ca/smart-home/zigbee-temperature-sensor/": [
@@ -21278,8 +21418,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
-        "title": "Esp32 Smart Home Project Ideas"
+        "href": "/ca/smart-home/getting-started-guides/",
+        "title": "Getting Started Guides"
       }
     ],
     "/uk/smart-home/zigbee2mqtt-vs-zha-home-assistant/": [
@@ -23656,7 +23796,7 @@
     ]
   },
   "stats": {
-    "pagesWithSupplement": 1570,
+    "pagesWithSupplement": 1578,
     "b09InKnown": 63
   }
 }

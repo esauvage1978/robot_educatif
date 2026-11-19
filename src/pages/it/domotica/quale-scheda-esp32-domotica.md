@@ -110,4 +110,4 @@ Scheda scelta? Seguite il [tutorial ESPHome temperatura](/it/domotica/esp32-esph
 - **Serve il neutro in scatola?** Questa pagina parla solo della **scheda**; per relè dietro interruttore vedete [Shelly Gen4](/it/shelly-gen4-quale-modulo-scegliere/).
 - **Quale dongle Zigbee?** Vedi [miglior chiavetta Zigbee per Home Assistant](/it/domotica/miglior-chiavetta-zigbee-home-assistant/).
 
-[Tutte le guide domotica](/it/domotica/)
+[Tutte le guide domotica](/it/domotica/). Abbiamo anche pubblicato l’[unboxing del kit ElectroHobby.es](/it/domotica/unboxing-kit-electrohobby-esp32/) (prodotto offerto dal marchio): 2 ESP32 DevKit, un ESP32-C3 Super Mini e sensori, per i progetti in arrivo.

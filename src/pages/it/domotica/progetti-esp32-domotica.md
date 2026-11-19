@@ -5,6 +5,11 @@ description: "Idee ESP32 + ESPHome: sensori, relè, LED, stazione meteo, assiste
 updated: "24 ottobre 2026"
 ---
 
+<figure>
+<a href="/it/domotica/unboxing-kit-electrohobby-esp32/"><img src="/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp" alt="Pacco ElectroHobby.es aperto con schede ESP32 e schede memo" width="1600" height="2133" /></a>
+<figcaption><a href="/it/domotica/unboxing-kit-electrohobby-esp32/">Unboxing del kit ESP32 offerto da ElectroHobby.es</a> — 2 ESP32 DevKit, ESP32-C3 Super Mini e sensori.</figcaption>
+</figure>
+
 **ESP32 + ESPHome** trasforma un microcontrollore Wi-Fi in sensore, relè o display per Home Assistant. Dieci progetti per difficoltà crescente. Prezzi materiali: verificare su Amazon.it o negozi elettronica in Italia.
 
 ## Hardware consigliato

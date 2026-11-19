@@ -69,6 +69,7 @@ const GROUPS = [
 		links: [
 			onlyFr('/domotique/rubrique/esp32/', L('Toute la rubrique', '', '', '', '')),
 			article('quelle-carte-esp32-choisir-domotique', L('Quelle carte choisir', 'Which board', 'Welche Platine', 'Quale scheda', 'Qué placa')),
+			article('unboxing-kit-electrohobby-esp32', L('Unboxing ElectroHobby', 'ElectroHobby unboxing', 'ElectroHobby ausgepackt', 'Unboxing ElectroHobby', 'Unboxing ElectroHobby')),
 			onlyFr('/domotique/bases-cablage-esp32-gpio/', L('Câblage GPIO', '', '', '', '')),
 			onlyFr('/domotique/installer-esphome-home-assistant/', L('Installer ESPHome', '', '', '', '')),
 			onlyFr('/domotique/flasher-code-esp32-esphome/', L('Flasher en USB', '', '', '', '')),
