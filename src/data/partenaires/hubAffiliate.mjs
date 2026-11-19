@@ -66,12 +66,12 @@ export const PARTNER_HUB_ROBOT_CARDS = [
 			nl: 'Makeblock mBot',
 		},
 		blurb: {
-			fr: 'Entrée de gamme courante en école — budget souvent autour de 110 € le kit neuf.',
-			en: 'Frequent school entry kit — often around 110 euros for a new set (check today’s price).',
-			de: 'Häufiger Schulteinstieg — oft um 110 Euro für ein Neukit (Tagespreis prüfen).',
-			it: 'Kit scuola di base — spesso intorno a 110 euro il set nuovo.',
-			es: 'Kit escolar de entrada — a menudo unos 110 euros el pack nuevo.',
-			nl: 'Instapkit voor scholen — vaak rond 110 euro voor een nieuwe set.',
+			fr: 'Entrée de gamme courante en école — idéal pour une première séance robot en binôme.',
+			en: 'Popular school entry kit — a good first classroom robot in pairs.',
+			de: 'Häufiger Schulteinstieg in der Schule — gut für erste Robotersitzungen im Team.',
+			it: 'Kit scuola di base — adatto alle prime lezioni di robotica in coppia.',
+			es: 'Kit escolar de entrada — útil para las primeras sesiones de robot en parejas.',
+			nl: 'Instapkit voor scholen — geschikt voor eerste robotlessen in duo’s.',
 		},
 		go: {
 			fr: '/go/az-fr-1d10774f85/',
@@ -95,7 +95,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Robots souvent cités sur le site',
 		railLead:
-			'L’annuaire ne remplace pas un comparatif : ces kits reviennent dans nos pages école et programmation. Liens partenaires — prix du jour chez le marchand.',
+			'L’annuaire ne remplace pas un comparatif : ces kits reviennent dans nos pages école et programmation. Vérifiez le prix du jour chez le marchand.',
 		compare: 'Lire le guide',
 		amazon: 'Voir sur Amazon',
 		faqTitle: 'Questions fréquentes',
@@ -104,7 +104,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Robots often mentioned on this site',
 		railLead:
-			'This directory is not a buying guide by itself. These kits appear in our school and coding pages. Affiliate links — check today’s price at the shop.',
+			'This directory is not a buying guide by itself. These kits appear in our school and coding pages. Check today’s price at the shop.',
 		compare: 'Read the guide',
 		amazon: 'View on Amazon',
 		faqTitle: 'FAQ',
@@ -113,7 +113,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Roboter, die auf der Website oft vorkommen',
 		railLead:
-			'Das Verzeichnis ersetzt keinen Vergleich. Diese Kits tauchen in Schul- und Programmierseiten auf. Werbelinks — Tagespreis beim Händler prüfen.',
+			'Das Verzeichnis ersetzt keinen Vergleich. Diese Kits tauchen in Schul- und Programmierseiten auf. Tagespreis beim Händler prüfen.',
 		compare: 'Zum Guide',
 		amazon: 'Bei Amazon ansehen',
 		faqTitle: 'Häufige Fragen',
@@ -122,7 +122,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Robot citati spesso sul sito',
 		railLead:
-			'L’elenco non sostituisce un confronto. Questi kit compaiono nelle pagine scuola e programmazione. Link affiliati — prezzo del giorno sul negozio.',
+			'L’elenco non sostituisce un confronto. Questi kit compaiono nelle pagine scuola e programmazione. Controllate il prezzo del giorno sul negozio.',
 		compare: 'Leggi la guida',
 		amazon: 'Vedi su Amazon',
 		faqTitle: 'Domande frequenti',
@@ -131,7 +131,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Robots citados a menudo en el sitio',
 		railLead:
-			'El directorio no sustituye una comparativa. Estos kits aparecen en nuestras páginas de aula y programación. Enlaces afiliados — precio del día en la tienda.',
+			'El directorio no sustituye una comparativa. Estos kits aparecen en nuestras páginas de aula y programación. Consulte el precio del día en la tienda.',
 		compare: 'Ver la guía',
 		amazon: 'Ver en Amazon',
 		faqTitle: 'Preguntas frecuentes',
@@ -140,7 +140,7 @@ export const PARTNER_HUB_COPY = {
 		indexTitleHint: 'robot-educatif.info',
 		railTitle: 'Robots die vaak op de site voorkomen',
 		railLead:
-			'Deze directory is geen koopgids op zich. Deze kits komen terug op school- en programmeerpagina’s. Partnerlinks — controleer de dagprijs bij de winkel.',
+			'Deze directory is geen koopgids op zich. Deze kits komen terug op school- en programmeerpagina’s. Controleer de dagprijs bij de winkel.',
 		compare: 'Lees de gids',
 		amazon: 'Bekijk op Amazon',
 		faqTitle: 'Veelgestelde vragen',
@@ -153,102 +153,102 @@ export const PARTNER_HUB_FAQ = {
 		{
 			question: 'Que liste robot-educatif.info dans cet annuaire ?',
 			answer:
-				'Chaque fiche correspond à un programme d’affiliation accepté (hors Amazon, géré à part). Le filtre aide à retrouver un marchand par pays ou par type marque / revendeur.',
+				'Une fiche par partenariat accepté avec une marque ou un revendeur. Amazon a ses propres pages produit ; ici on retrouve surtout les autres marchands. Les filtres aident à choisir un pays ou un type.',
 		},
 		{
 			question: 'Les liens vers un partenaire sont-ils sponsorisés ?',
 			answer:
-				'Oui lorsqu’un bouton « Voir chez … » ou un lien /go/ est présent : rel="sponsored nofollow". Aucun surcoût pour vous ; la rémunération ne change pas notre méthode de test.',
+				'Certains liens sont affiliés : cela ne change pas le prix pour vous. La rémunération n’influence pas la façon dont nous testons les produits.',
 		},
 		{
 			question: 'Pourquoi un partenaire n’a pas de prix sur cette page ?',
 			answer:
-				'Sans flux produit autorisé ou sans lien marchand validé, nous n’affichons pas de comparateur de prix. Consultez la fiche officielle du programme ou nos articles éditoriaux cités plus bas.',
+				'Quand nous n’avons pas de lien boutique fiable sur la fiche, nous n’affichons pas de prix. Consultez le site officiel du partenaire ou nos articles éditoriaux en bas de page.',
 		},
 	],
 	en: [
 		{
 			question: 'What does robot-educatif.info list in this partners hub?',
 			answer:
-				'Each page is one accepted affiliate programme (Amazon is handled separately). Filters help you find a merchant by country or by brand vs retailer.',
+				'One page per accepted partnership with a brand or retailer. Amazon product pages are handled elsewhere; this hub focuses on other merchants. Filters help by country or type.',
 		},
 		{
 			question: 'Are links to a partner sponsored?',
 			answer:
-				'Yes when a “View at …” button or a /go/ link is shown: rel="sponsored nofollow". There is no extra cost for you; compensation does not change how we test.',
+				'Some links are affiliate links: they do not change what you pay. Compensation does not change how we test products.',
 		},
 		{
 			question: 'Why is there no price on some partner pages?',
 			answer:
-				'Without an authorised product feed or a validated shop link, we do not show a price comparator. Use the official programme page or the editorial articles listed on the partner profile.',
+				'When we cannot offer a reliable shop link on the profile, we do not show a price. Check the partner’s official site or the editorial articles at the bottom of the page.',
 		},
 	],
 	de: [
 		{
 			question: 'Was listet robot-educatif.info in diesem Partner-Verzeichnis?',
 			answer:
-				'Jede Seite ist ein angenommenes Partnerprogramm (Amazon separat). Filter nach Land oder Marke/Händler.',
+				'Eine Seite pro angenommener Partnerschaft mit Marke oder Händler. Amazon-Produktseiten gibt es separat; hier stehen vor allem andere Shops. Filter nach Land oder Typ.',
 		},
 		{
 			question: 'Sind Partnerlinks Werbung?',
 			answer:
-				'Ja, wenn ein Button oder /go/-Link gesetzt ist: rel="sponsored nofollow". Kein Mehrpreis für Sie.',
+				'Einige Links sind Partnerlinks: Sie ändern den Preis für Sie nicht. Vergütung beeinflusst nicht, wie wir Produkte testen.',
 		},
 		{
 			question: 'Warum steht auf manchen Seiten kein Preis?',
 			answer:
-				'Ohne autorisierten Produkt-Feed oder validierten Shop-Link zeigen wir keinen Preisvergleich. Nutzen Sie die offizielle Programmeite oder die verlinkten Artikel.',
+				'Ohne verlässlichen Shop-Link auf der Seite zeigen wir keinen Preis. Nutzen Sie die offizielle Website des Partners oder die verlinkten Artikel unten.',
 		},
 	],
 	it: [
 		{
 			question: 'Cosa elenca robot-educatif.info in questo hub partner?',
 			answer:
-				'Ogni scheda è un programma affiliato accettato (Amazon a parte). I filtri aiutano per paese o tipo marchio/rivenditore.',
+				'Una scheda per ogni partnership accettata con marca o rivenditore. Le pagine prodotto Amazon sono altrove; qui compaiono soprattutto altri negozi. Filtri per paese o tipo.',
 		},
 		{
 			question: 'I link verso un partner sono sponsorizzati?',
 			answer:
-				'Sì quando c’è un pulsante o un link /go/: rel="sponsored nofollow". Nessun sovrapprezzo per voi.',
+				'Alcuni link sono affiliati: non cambiano il prezzo per voi. La remunerazione non influenza come testiamo i prodotti.',
 		},
 		{
 			question: 'Perché alcune schede non hanno un prezzo?',
 			answer:
-				'Senza feed prodotti autorizzato o link negozio validato non mostriamo un comparatore. Usate il sito ufficiale o gli articoli elencati.',
+				'Senza un link affidabile al negozio non mostriamo un prezzo. Consultate il sito ufficiale del partner o gli articoli editoriali in fondo alla pagina.',
 		},
 	],
 	es: [
 		{
 			question: '¿Qué lista robot-educatif.info en este hub de socios?',
 			answer:
-				'Cada ficha es un programa de afiliación aceptado (Amazon aparte). Los filtros ayudan por país o tipo marca/distribuidor.',
+				'Una ficha por colaboración aceptada con marca o tienda. Las páginas de producto de Amazon están aparte; aquí aparecen sobre todo otros comercios. Filtros por país o tipo.',
 		},
 		{
 			question: '¿Los enlaces a un socio son patrocinados?',
 			answer:
-				'Sí cuando hay botón o enlace /go/: rel="sponsored nofollow". No hay recargo para usted.',
+				'Algunos enlaces son de afiliación: no cambian el precio para usted. La remuneración no influye en cómo probamos los productos.',
 		},
 		{
 			question: '¿Por qué algunas fichas no muestran precio?',
 			answer:
-				'Sin feed de productos autorizado o enlace validado no mostramos comparador. Consulte la web oficial o los artículos enlazados.',
+				'Sin un enlace fiable a la tienda no mostramos precio. Consulte la web oficial del socio o los artículos editoriales al final de la página.',
 		},
 	],
 	nl: [
 		{
 			question: 'Wat staat in deze partner-hub op robot-educatif.info?',
 			answer:
-				'Elke pagina is één aanvaard partnerprogramma (Amazon apart). Filters op land of merk/winkel.',
+				'Eén pagina per aanvaarde samenwerking met een merk of winkel. Amazon-productpagina’s staan elders; hier staan vooral andere verkopers. Filters op land of type.',
 		},
 		{
 			question: 'Zijn partnerlinks gesponsord?',
 			answer:
-				'Ja bij een knop of /go/-link: rel="sponsored nofollow". Geen meerprijs voor u.',
+				'Sommige links zijn partnerlinks: ze veranderen de prijs voor u niet. Vergoeding beïnvloedt niet hoe wij producten testen.',
 		},
 		{
 			question: 'Waarom staat er niet overal een prijs?',
 			answer:
-				'Zonder geautoriseerde productfeed of gevalideerde shoplink tonen we geen prijsvergelijker. Gebruik de officiële site of gelinkte artikelen.',
+				'Zonder betrouwbare shoplink op de pagina tonen we geen prijs. Raadpleeg de officiële site van de partner of de redactionele artikelen onderaan.',
 		},
 	],
 };

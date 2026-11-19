@@ -3,14 +3,14 @@ export const PARCOURS_PAGE = {
 	description:
 		'Programme progressif pour une classe ou un club : checklist semaine par semaine, activités mBot et parcours Python du site, version imprimable.',
 	intro:
-		'Chaque case correspond à une séance d’environ 1 h (ajustez selon votre niveau). Cochez au fil de l’eau : la progression est enregistrée dans votre navigateur. Prévoyez un robot Makeblock par binôme : voir le calculateur budget classe pour un ordre de grandeur ~110 € par kit mBot.',
+		'Chaque case correspond à une séance d’environ 1 h (ajustez selon votre niveau). Cochez au fil de l’eau : la progression est enregistrée dans votre navigateur. Prévoyez un robot Makeblock par binôme à partir de la semaine 2 : le calculateur budget classe aide à estimer le coût matériel.',
 };
 
 export const PARCOURS_FAQ = [
 	{
 		question: 'Faut-il un robot dès la semaine 1 ?',
 		answer:
-			'Non : les deux premières semaines restent sur Scratch. Les séances mBot commencent en semaine 2 ; le parcours suppose un accès à mBlock et, idéalement, un mBot ou mBot2 pour les activités capteurs.',
+			'Non : la semaine 1 reste sur Scratch, sans robot. Les séances avec mBot commencent en semaine 2 ; le parcours suppose un accès à mBlock et, idéalement, un mBot ou mBot2 pour les activités capteurs des semaines 2 à 6.',
 	},
 ];
 

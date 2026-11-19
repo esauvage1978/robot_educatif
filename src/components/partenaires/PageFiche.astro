@@ -8,8 +8,8 @@ import StructuredDataArticle from '../StructuredDataArticle.astro';
 import StructuredDataFaq from '../StructuredDataFaq.astro';
 import EditorialReadAlso from '../EditorialReadAlso.astro';
 import Fiche from './Fiche.astro';
-import { metaPage, PREFIX, textes } from '../../data/partenaires/registre.mjs';
-import { FICHE_COPY } from '../../data/partenaires/ficheEditorial.mjs';
+import { metaPage, PREFIX, textes, PUBLIES } from '../../data/partenaires/registre.mjs';
+import { FICHE_COPY, FICHE_GO_LINKS } from '../../data/partenaires/ficheEditorial.mjs';
 import { ARTICLE_AUTHOR } from '../../consts';
 
 interface Props { lang: string; slug: string }
@@ -25,10 +25,12 @@ const articlePath = `${PREFIX[langue]}${slug}/`;
 const articleSlug = `partners/${slug}`;
 const dateLabel =
 	lang === 'fr' ? 'Mis à jour le' : lang === 'de' ? 'Aktualisiert am' : lang === 'en' ? 'Updated' : lang === 'es' ? 'Actualizado el' : lang === 'it' ? 'Aggiornato il' : 'Bijgewerkt op';
+const partner = PUBLIES.find((x) => x.slug === slug);
+const hasShopLink = Boolean(partner && (FICHE_GO_LINKS[slug] || partner.bouton));
 const faqSchema = [
 	{ question: t.affiliation, answer: c.faqAff },
-	{ question: c.faqNoPrice, answer: c.faqNoPrice },
-	{ question: c.faqMulti, answer: c.faqMulti },
+	...(hasShopLink ? [] : [{ question: c.faqNoPriceQ, answer: c.faqNoPrice }]),
+	{ question: c.faqMultiQ, answer: c.faqMulti },
 ];
 ---
 <!doctype html>

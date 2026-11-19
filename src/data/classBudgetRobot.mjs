@@ -1,9 +1,9 @@
 export const BUDGET_PAGE = {
-	title: 'Calculateur budget robotique pour la classe (dès ~110 €)',
+	title: 'Calculateur budget robotique pour la classe',
 	description:
-		'Estimez le coût pour équiper une classe (5 à 30 élèves) : robots dès ~110 € par kit mBot, piles, rangement et coût par élève (mBot2, CyberPi, Raspberry Pi 5, Arduino).',
+		'Estimez le coût pour équiper une classe (5 à 30 élèves) : robots (mBot ~89 €, mBot2 ~149 € dans le calculateur), piles, rangement et coût par élève (CyberPi, Raspberry Pi 5, Arduino).',
 	intro:
-		'Pour une classe en binômes avec des mBot neufs, comptez souvent autour de 110 € par kit robot avant piles et rangement (ordre de grandeur 2026, hors remises éducation). Ajustez selon vos devis fournisseur ou achats groupés.',
+		'Les montants du tableau reprennent des ordres de grandeur TTC 2026 intégrés au calculateur (par exemple mBot ~89 € et mBot2 ~149 € le kit neuf, avant piles partagées et rangement). Ajustez selon vos devis fournisseur ou achats groupés.',
 };
 
 export const BUDGET_FAQ = [
@@ -15,7 +15,7 @@ export const BUDGET_FAQ = [
 	{
 		question: 'Les liens Amazon sont-ils sponsorisés ?',
 		answer:
-			'Oui : les boutons vers Amazon utilisent des liens partenaires (rel="sponsored nofollow"). Le prix affiché sur le site marchand peut varier — vérifiez la fiche au moment de la commande.',
+			'Certains liens vers Amazon sont affiliés : cela ne change pas le prix pour vous. Le tarif affiché sur le site marchand peut varier — vérifiez la fiche au moment de la commande.',
 	},
 ];
 

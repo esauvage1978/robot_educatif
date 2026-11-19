@@ -13,7 +13,7 @@ const shopLang = lang in PARTNER_HUB_COPY ? lang : 'en';
 	<p class="pp-intro">{ui.railLead}</p>
 	<ul class="pp-rail-grid">
 		{PARTNER_HUB_ROBOT_CARDS.map((card) => {
-			const goHref = card.go[shopLang] || card.go.en || card.go.fr;
+			const goHref = card.go[shopLang];
 			const guideHref = card.guide[shopLang] || card.guide.en || card.guide.fr;
 			if (!goHref) return null;
 			return (

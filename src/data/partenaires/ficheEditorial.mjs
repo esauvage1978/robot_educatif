@@ -4,7 +4,7 @@ export const FICHE_COPY = {
 	fr: {
 		roleTitle: 'À quoi sert cette fiche ?',
 		roleBody:
-			'Elle résume un partenariat accepté entre robot-educatif.info et le marchand. Nous n’y publions ni code promo inventé, ni prix figé : lorsqu’un lien sponsorisé est disponible, il mène vers la boutique officielle ou vers notre lien d’affiliation Awin validé.',
+			'Elle présente un partenariat entre robot-educatif.info et ce marchand : qui il est, sur quel marché nous le citons, et comment accéder à sa boutique lorsque nous proposons un lien.',
 		findTitle: 'Retrouver ce partenaire dans nos contenus',
 		findBody:
 			'Les articles ci-dessous citent la marque ou le domaine marchand lorsque nous les testons dans un comparatif, un guide domotique ou une page robots. Ils complètent cette fiche courte.',
@@ -16,19 +16,22 @@ export const FICHE_COPY = {
 		tableLink: 'Accès marchand',
 		tableEditorial: 'Lecture éditoriale',
 		faqTitle: 'Questions fréquentes',
+		tocAria: 'Sommaire',
 		faqAff:
-			'Les liens « Voir chez… » ou les liens /go/ sont des liens partenaires (rel="sponsored nofollow"). Ils ne modifient pas le prix pour vous ; ils financent partiellement le site.',
+			'Certains liens vers la boutique sont affiliés : cela ne change pas le prix pour vous et aide à financer le site.',
 		faqNoPrice:
-			'Sans lien marchand validé dans notre registre, nous n’affichons pas de comparateur de prix sur cette fiche. Consultez les articles listés ou le site officiel lorsqu’il est indiqué.',
+			'Nous n’affichons pas de prix sur cette fiche. Utilisez le lien marchand, le site officiel ou nos articles listés plus haut pour connaître les tarifs du jour.',
 		faqMulti:
-			'Certains groupes (ex. variantes Amazon ou distributeurs) ont une fiche par pays. Utilisez les liens « même partenaire sur d’autres marchés » pour basculer.',
-		goOutin: 'Visiter Outin Germany (lien partenaire)',
-		goWirkaufens: 'Visiter WIRKAUFENS DE (lien partenaire)',
+			'Certains groupes ont une fiche par pays. Les liens « même partenaire sur d’autres marchés » permettent de changer de version.',
+		faqNoPriceQ: 'Pourquoi pas de prix ici ?',
+		faqMultiQ: 'Plusieurs fiches pour un même groupe',
+		goOutin: 'Visiter Outin Germany',
+		goWirkaufens: 'Visiter WIRKAUFENS DE',
 	},
 	en: {
 		roleTitle: 'What this page is for',
 		roleBody:
-			'It summarises an accepted partnership between robot-educatif.info and the merchant. We do not invent promo codes or fixed prices here. When a sponsored shop link exists, it points to the official store or our validated Awin tracking link.',
+			'It introduces a partnership between robot-educatif.info and this merchant: who they are, which market we cover, and how to reach their shop when we provide a link.',
 		findTitle: 'Where this partner appears on the site',
 		findBody:
 			'The articles below mention the brand or shop when we cover it in a comparison, smart-home guide, or robots page. They complement this short profile.',
@@ -40,19 +43,22 @@ export const FICHE_COPY = {
 		tableLink: 'Shop access',
 		tableEditorial: 'Editorial reading',
 		faqTitle: 'FAQ',
+		tocAria: 'On this page',
 		faqAff:
-			'“View at …” buttons and /go/ links are affiliate links (rel="sponsored nofollow"). They do not change the price for you; they help fund the site.',
+			'Some shop links are affiliate links: they do not change what you pay and help support the site.',
 		faqNoPrice:
-			'Without a validated shop link in our register we do not show a price comparator on this page. Use the listed articles or the official site when provided.',
+			'We do not show prices on this page. Use the shop link, the official site, or the articles listed above for today’s prices.',
 		faqMulti:
-			'Some groups (e.g. Amazon variants or distributors) have one page per country. Use “same partner on other markets” to switch.',
-		goOutin: 'Visit Outin Germany (partner link)',
-		goWirkaufens: 'Visit WIRKAUFENS DE (partner link)',
+			'Some groups have one page per country. Use “same partner on other markets” to switch versions.',
+		faqNoPriceQ: 'Why no price on this page?',
+		faqMultiQ: 'Several pages for one group',
+		goOutin: 'Visit Outin Germany',
+		goWirkaufens: 'Visit WIRKAUFENS DE',
 	},
 	de: {
 		roleTitle: 'Wozu dient diese Seite?',
 		roleBody:
-			'Sie fasst eine angenommene Partnerschaft zwischen robot-educatif.info und dem Händler zusammen. Wir erfinden keine Gutscheine oder Festpreise. Wenn ein gesponserter Shop-Link vorliegt, führt er zum offiziellen Shop oder zu unserem validierten Awin-Link.',
+			'Sie stellt eine Partnerschaft zwischen robot-educatif.info und diesem Händler vor: wer er ist, welchen Markt wir abdecken und wie Sie den Shop erreichen, wenn wir einen Link anbieten.',
 		findTitle: 'Wo der Partner auf der Website vorkommt',
 		findBody:
 			'Die Artikel unten nennen Marke oder Shop, wenn wir sie in einem Vergleich, Smart-Home-Guide oder Robotertext behandeln.',
@@ -64,19 +70,22 @@ export const FICHE_COPY = {
 		tableLink: 'Zugang Shop',
 		tableEditorial: 'Redaktioneller Beitrag',
 		faqTitle: 'Häufige Fragen',
+		tocAria: 'Inhalt dieser Seite',
 		faqAff:
-			'Buttons und /go/-Links sind Werbelinks (rel="sponsored nofollow"). Kein Mehrpreis für Sie.',
+			'Einige Shop-Links sind Werbe- bzw. Partnerlinks: Sie ändern den Preis für Sie nicht und unterstützen den Betrieb der Website.',
 		faqNoPrice:
-			'Ohne validierten Shop-Link kein Preisvergleich auf dieser Seite. Nutzen Sie die Artikelliste oder die offizielle Website.',
+			'Auf dieser Seite zeigen wir keine Preise. Nutzen Sie den Shop-Link, die offizielle Website oder die verlinkten Artikel für aktuelle Tarife.',
 		faqMulti:
-			'Manche Gruppen haben je Land eine Seite. Nutzen Sie die Links zu anderen Märkten.',
-		goOutin: 'Outin Germany besuchen (Partnerlink)',
-		goWirkaufens: 'WIRKAUFENS DE besuchen (Partnerlink)',
+			'Manche Gruppen haben je Land eine eigene Seite. Über die Links zu anderen Märkten wechseln Sie die Version.',
+		faqNoPriceQ: 'Warum kein Preis hier?',
+		faqMultiQ: 'Mehrere Seiten pro Gruppe',
+		goOutin: 'Outin Germany besuchen',
+		goWirkaufens: 'WIRKAUFENS DE besuchen',
 	},
 	it: {
 		roleTitle: 'A cosa serve questa scheda',
 		roleBody:
-			'Riassume una partnership accettata tra robot-educatif.info e il negozio. Non inventiamo codici promo o prezzi fissi. Se c’è un link sponsorizzato valido, punta al negozio ufficiale o al nostro link Awin.',
+			'Presenta una partnership tra robot-educatif.info e questo negozio: chi è, quale mercato copriamo e come raggiungere la boutique quando proponiamo un link.',
 		findTitle: 'Dove compare il partner sul sito',
 		findBody: 'Gli articoli sotto citano marca o negozio nei confronti e nelle guide.',
 		tableTitle: 'In sintesi',
@@ -87,16 +96,21 @@ export const FICHE_COPY = {
 		tableLink: 'Accesso negozio',
 		tableEditorial: 'Lettura editoriale',
 		faqTitle: 'Domande frequenti',
-		faqAff: 'Link e pulsanti sono affiliati (rel="sponsored nofollow").',
-		faqNoPrice: 'Senza link validato non mostriamo un comparatore prezzi.',
-		faqMulti: 'Alcuni gruppi hanno una scheda per paese.',
-		goOutin: 'Visita Outin Germany (link affiliato)',
-		goWirkaufens: 'Visita WIRKAUFENS DE (link affiliato)',
+		tocAria: 'Indice della pagina',
+		faqAff:
+			'Alcuni link verso il negozio sono affiliati: non cambiano il prezzo per voi e aiutano a sostenere il sito.',
+		faqNoPrice:
+			'Non mostriamo prezzi su questa scheda. Usate il link al negozio, il sito ufficiale o gli articoli elencati sopra per i prezzi aggiornati.',
+		faqMulti: 'Alcuni gruppi hanno una scheda per paese. I link agli altri mercati cambiano versione.',
+		faqNoPriceQ: 'Perché nessun prezzo qui?',
+		faqMultiQ: 'Più schede per gruppo',
+		goOutin: 'Visita Outin Germany',
+		goWirkaufens: 'Visita WIRKAUFENS DE',
 	},
 	es: {
 		roleTitle: 'Para qué sirve esta ficha',
 		roleBody:
-			'Resume una colaboración aceptada entre robot-educatif.info y el comercio. No inventamos códigos ni precios fijos. Si hay enlace patrocinado, lleva a la tienda oficial o a nuestro enlace Awin validado.',
+			'Presenta una colaboración entre robot-educatif.info y este comercio: quién es, qué mercado cubrimos y cómo acceder a la tienda cuando ofrecemos un enlace.',
 		findTitle: 'Dónde aparece el socio en el sitio',
 		findBody: 'Los artículos abajo mencionan marca o tienda en comparativas y guías.',
 		tableTitle: 'Resumen',
@@ -107,16 +121,21 @@ export const FICHE_COPY = {
 		tableLink: 'Acceso tienda',
 		tableEditorial: 'Lectura editorial',
 		faqTitle: 'Preguntas frecuentes',
-		faqAff: 'Enlaces con rel="sponsored nofollow".',
-		faqNoPrice: 'Sin enlace validado no hay comparador de precios.',
-		faqMulti: 'Algunos grupos tienen una ficha por país.',
-		goOutin: 'Visitar Outin Germany (enlace de afiliado)',
-		goWirkaufens: 'Visitar WIRKAUFENS DE (enlace de afiliado)',
+		tocAria: 'Índice de la página',
+		faqAff:
+			'Algunos enlaces a la tienda son de afiliación: no cambian el precio para usted y ayudan a mantener el sitio.',
+		faqNoPrice:
+			'No mostramos precios en esta ficha. Use el enlace a la tienda, la web oficial o los artículos listados arriba para ver tarifas actuales.',
+		faqMulti: 'Algunos grupos tienen una ficha por país. Los enlaces a otros mercados cambian de versión.',
+		faqNoPriceQ: '¿Por qué no hay precio?',
+		faqMultiQ: 'Varias fichas por grupo',
+		goOutin: 'Visitar Outin Germany',
+		goWirkaufens: 'Visitar WIRKAUFENS DE',
 	},
 	nl: {
 		roleTitle: 'Waar is deze pagina voor',
 		roleBody:
-			'Samenvatting van een aanvaarde samenwerking tussen robot-educatif.info en de winkel. Geen verzonnen acties of vaste prijzen.',
+			'Deze pagina beschrijft een samenwerking tussen robot-educatif.info en deze winkel: wie het is, welke markt we behandelen en hoe u de shop bereikt wanneer we een link aanbieden.',
 		findTitle: 'Waar de partner op de site voorkomt',
 		findBody: 'Artikelen hieronder noemen merk of winkel in vergelijkingen en gidsen.',
 		tableTitle: 'Overzicht',
@@ -127,15 +146,20 @@ export const FICHE_COPY = {
 		tableLink: 'Naar de winkel',
 		tableEditorial: 'Redactioneel',
 		faqTitle: 'Veelgestelde vragen',
-		faqAff: 'Partnerlinks met rel="sponsored nofollow".',
-		faqNoPrice: 'Zonder gevalideerde link geen prijsvergelijker.',
-		faqMulti: 'Sommige groepen hebben een pagina per land.',
-		goOutin: 'Outin Germany bezoeken (partnerlink)',
-		goWirkaufens: 'WIRKAUFENS DE bezoeken (partnerlink)',
+		tocAria: 'Inhoud van deze pagina',
+		faqAff:
+			'Sommige links naar de winkel zijn partnerlinks: ze veranderen de prijs voor u niet en helpen de site te ondersteunen.',
+		faqNoPrice:
+			'We tonen geen prijzen op deze pagina. Gebruik de shoplink, de officiële site of de artikelen hierboven voor actuele tarieven.',
+		faqMulti: 'Sommige groepen hebben een pagina per land. Links naar andere markten wisselen de versie.',
+		faqNoPriceQ: 'Waarom geen prijs hier?',
+		faqMultiQ: 'Meerdere pagina’s per groep',
+		goOutin: 'Outin Germany bezoeken',
+		goWirkaufens: 'WIRKAUFENS DE bezoeken',
 	},
 };
 
-/** Liens /go/ Awin validés (scripts/go-table.json) */
+/** Liens boutique Awin pour fiches dédiées */
 export const FICHE_GO_LINKS = {
 	'outin-germany': '/go/aw-127821-307f712f24/',
 	'wirkaufens-de': '/go/aw-14133-8e0f4a2bc1/',

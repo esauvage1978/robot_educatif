@@ -20,6 +20,7 @@ const quand = dateAffichee(p.date, lang);
 const accueil = lang === 'fr' ? '/' : `/${lang}/`;
 const goHref = FICHE_GO_LINKS[p.slug];
 const shopHref = goHref ? withBase(goHref) : p.bouton;
+const showNoPriceFaq = !shopHref;
 const shopLabel =
 	p.slug === 'outin-germany' ? c.goOutin : p.slug === 'wirkaufens-de' ? c.goWirkaufens : p.amazon ? t.prix : t.voir(p.nom);
 const familleLabel = p.famille === 'revendeur' ? t.revendeurs : t.marques;
@@ -30,7 +31,7 @@ const familleLabel = p.famille === 'revendeur' ? t.revendeurs : t.marques;
   <h1>{p.nom}</h1>
   <p class="pp-chapo">{t.chapo(p.nom, p.marche)}</p>
 
-  <nav class="pp-sommaire" aria-label="Sommaire">
+  <nav class="pp-sommaire" aria-label={c.tocAria}>
     <ul>
       <li><a href="#pp-role">{c.roleTitle}</a></li>
       <li><a href="#pp-table">{c.tableTitle}</a></li>
@@ -130,33 +131,13 @@ const familleLabel = p.famille === 'revendeur' ? t.revendeurs : t.marques;
     <h2>{c.faqTitle}</h2>
     <h3>{t.affiliation}</h3>
     <p>{c.faqAff}</p>
-    <h3>
-      {lang === 'fr'
-        ? 'Pourquoi pas de prix ici ?'
-        : lang === 'de'
-          ? 'Warum kein Preis hier?'
-          : lang === 'en'
-            ? 'Why no price on this page?'
-            : lang === 'es'
-              ? '¿Por qué no hay precio?'
-              : lang === 'it'
-                ? 'Perché nessun prezzo qui?'
-                : 'Waarom geen prijs hier?'}
-    </h3>
-    <p>{c.faqNoPrice}</p>
-    <h3>
-      {lang === 'fr'
-        ? 'Plusieurs fiches pour un même groupe'
-        : lang === 'de'
-          ? 'Mehrere Seiten pro Gruppe'
-          : lang === 'en'
-            ? 'Several pages for one group'
-            : lang === 'es'
-              ? 'Varias fichas por grupo'
-              : lang === 'it'
-                ? 'Più schede per gruppo'
-                : 'Meerdere pagina’s per groep'}
-    </h3>
+    {showNoPriceFaq && (
+      <>
+        <h3>{c.faqNoPriceQ}</h3>
+        <p>{c.faqNoPrice}</p>
+      </>
+    )}
+    <h3>{c.faqMultiQ}</h3>
     <p>{c.faqMulti}</p>
   </section>
 </div>
