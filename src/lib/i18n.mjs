@@ -301,6 +301,16 @@ const EN_RATTACHEES = [
 		it: '/it/domotica/quale-scheda-esp32-domotica/',
 		es: '/es/domotica/que-placa-esp32-domotica/',
 	},
+	{
+		fr: '/domotique/unboxing-kit-electrohobby-esp32/',
+		en: '/en/smart-home/electrohobby-esp32-kit-unboxing/',
+		uk: '/uk/smart-home/electrohobby-esp32-kit-unboxing/',
+		ca: '/ca/smart-home/electrohobby-esp32-kit-unboxing/',
+		de: '/de/smart-home/electrohobby-esp32-kit-auspacken/',
+		it: '/it/domotica/unboxing-kit-electrohobby-esp32/',
+		es: '/es/domotica/unboxing-kit-electrohobby-esp32/',
+		nl: '/nl/unboxing-kit-electrohobby-esp32/',
+	},
 	{ fr: '/partenariat/', en: '/about/' },
 	{ fr: '/categorie/', en: '/en/buying-guides/' },
 	{ fr: '/categorie/cadeaux/', en: '/en/robotics-gift-ideas-by-age/' },
@@ -551,6 +561,7 @@ export const EN_PAGES = [
 	{ href: '/en/smart-home/matter-thread-zigbee-wifi-which-protocol-2027/', fr: '/domotique/matter-thread-zigbee-wifi-differences-quel-protocole-choisir-2027/', title: 'Matter, Thread, Zigbee or Wi-Fi in 2027: differences and which to choose' },
 	{ href: '/en/smart-home/smart-home-trends-2027-ces-mmwave-local-ai-energy/', fr: '/domotique/tendances-domotique-2027-ces-mmwave-ia-locale-energie-sans-abonnement/', title: 'Smart home trends 2027: CES, mmWave, local AI and energy without subscriptions' },
 	{ href: '/en/smart-home/homey-pro-unboxing-setup/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Homey Pro review: unboxing and setup (part 1)' },
+	{ href: '/en/smart-home/electrohobby-esp32-kit-unboxing/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards and sensors (gifted)' },
 
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
@@ -635,6 +646,7 @@ export const DE_PAGES = [
 	{ href: '/de/raspberry-pi-4-welcher-ram/', fr: '/raspberry-pi-4-quelle-version-memoire-acheter/', title: 'Raspberry Pi 4: welcher RAM?' },
 	{ href: '/de/scratch-aktivitaet-quadrat/', fr: '/activite-scratch-le-carre/', title: 'Scratch-Aktivität: Quadrat zeichnen' },
 	{ href: '/de/vier-gewinnt-python/', fr: '/programmation/puissance-4/', title: 'Vier gewinnt in Python, sechs Kapitel' },
+	{ href: '/de/smart-home/electrohobby-esp32-kit-auspacken/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit und Sensoren (Geschenk der Marke)' },
 ];
 // Pages /it/ publiées.
 export const IT_PAGES = [
@@ -718,6 +730,7 @@ export const IT_PAGES = [
 	{ href: '/it/scaricare-mblock-5-gratis/', fr: '/telecharger-mblock-5-gratuit-guide-2026/', title: 'Scaricare mBlock 5 gratis' },
 	{ href: '/it/scratch-scuola-casa-inizio/', fr: '/scratch-ecole-maison-par-ou-commencer/', title: 'Scratch scuola e casa' },
 	{ href: '/it/software-mblock-quale-scegliere/', fr: '/mblock-5-quel-logiciel-choisir/', title: 'Software mBlock: quale scegliere' },
+	{ href: '/it/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit e sensori (prodotto offerto)' },
 ];
 // Pages /es/ publiées.
 export const ES_PAGES = [
@@ -767,6 +780,7 @@ export const ES_PAGES = [
 	{ href: '/es/robot-programable-14-anos/', fr: '/quel-robot-acheter-enfant-14-ans-guide-achat/', title: 'Robot programable para 14 años' },
 	{ href: '/es/domotica/', fr: '/domotique/', title: 'Hub domótica' },
 	{ href: '/es/aviso-legal/', fr: '/mentions-legales/', title: 'Aviso legal' },
+	{ href: '/es/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit y sensores (producto cedido)' },
 
 ];
 export const langOf = (p) => {

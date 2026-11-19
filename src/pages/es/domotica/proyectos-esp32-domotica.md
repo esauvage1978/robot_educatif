@@ -9,6 +9,11 @@ shareDescription: "Hub de proyectos ESP32 con ESPHome: por dificultad y enlaces 
 
 <nav class="breadcrumb" aria-label="Miga de pan"><a href="/es/domotica/">Domótica</a> · Proyectos ESP32</nav>
 
+<figure>
+<a href="/es/domotica/unboxing-kit-electrohobby-esp32/"><img src="/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp" alt="Paquete de ElectroHobby.es abierto, con placas ESP32 y tarjetas memo" width="1600" height="2133" /></a>
+<figcaption><a href="/es/domotica/unboxing-kit-electrohobby-esp32/">Unboxing del kit ESP32 cedido por ElectroHobby.es</a> — 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores.</figcaption>
+</figure>
+
 **Respuesta rápida (noviembre 2026)** — **ESP32** (*microcontrolador Wi-Fi*) + **ESPHome** (firmware declarativo) convierte un chip barato en sensor, relé o pantalla en **Home Assistant**. Cada proyecto enlazado abajo tiene su propia guía con material, YAML y pruebas.
 
 Este hub forma parte de nuestra [domótica](/es/domotica/) con [sensor de temperatura ESP32](/es/domotica/esp32-esphome-sensor-temperatura/), [cómo empezar](/es/domotica/como-empezar/) e [instalar Home Assistant](/es/domotica/instalar-home-assistant-raspberry-pi-5/).

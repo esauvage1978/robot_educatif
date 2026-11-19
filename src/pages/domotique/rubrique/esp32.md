@@ -6,6 +6,12 @@ pubDate: 2026-10-23
 category: esp32
 ---
 
+
+<figure>
+<a href="/domotique/unboxing-kit-electrohobby-esp32/"><img src="/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp" alt="Colis ElectroHobby.es ouvert, avec les modules ESP32 et les cartes mémo" width="1600" height="2133" /></a>
+<figcaption><a href="/domotique/unboxing-kit-electrohobby-esp32/">Unboxing du kit ESP32 offert par ElectroHobby.es</a> — 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs.</figcaption>
+</figure>
+
 L'ESP32 coûte peu, se programme sans écrire de code grâce à ESPHome et s'intègre directement à Home Assistant. Voici nos guides, du choix de la carte au projet complet.
 
 <figure>
@@ -23,6 +29,11 @@ L'ESP32 coûte peu, se programme sans écrire de code grâce à ESPHome et s'int
 <th scope="col">Ce que vous obtenez</th>
 </tr></thead><tbody>
 <tr>
+<tr>
+<td data-label="Guide"><span class="td-val"><a href="/domotique/unboxing-kit-electrohobby-esp32/">Unboxing kit ElectroHobby.es</a></span></td>
+<td data-label="Niveau"><span class="td-val">présentation</span></td>
+<td data-label="Ce que vous obtenez"><span class="td-val">le contenu du colis offert, 2 ESP32 DevKit et les projets prévus</span></td>
+</tr>
 <td data-label="Guide"><span class="td-val"><a href="/domotique/quelle-carte-esp32-choisir-domotique/">Quelle carte ESP32 choisir</a></span></td>
 <td data-label="Niveau"><span class="td-val">débutant</span></td>
 <td data-label="Ce que vous obtenez"><span class="td-val">les 5 puces comparées d'après les fiches Espressif</span></td>
