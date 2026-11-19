@@ -136,6 +136,8 @@ Samen met een magneet zijn reedcontacten een eenvoudige manier om een deur, raam
 
 De kit is nog niet onder spanning gezet. De volgende artikelen zijn **gepland**, nog geen tests:
 
+De volgende opstelling die we willen documenteren is een **zoutniveaucontroller voor een waterontharder**, met een niveaumeting onder het deksel van het zoutvat en **lektetectie** op de vloer. Dit project is nog niet gebouwd: er is dus nog geen testresultaat.
+
 - een ESP32-**weerstation** met AHT20/BMP280, voortbouwend op de [al gepubliceerde ESPHome-handleiding](/en/smart-home/esp32-esphome-temperature-sensor/) ;
 - een **waterniveaumeting** (tank of ontharder) met de bijbehorende sensor, eventueel aangevuld met de HC-SR04 ;
 - **openingsdetectie** met de reedcontacten ;
@@ -147,3 +149,21 @@ Meer ideeën staan in [10 ESP32-projecten voor het slimme huis](/en/smart-home/e
 ## Waar u deze borden en sensors vindt
 
 Het pakket werd **geschonken door** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> <small>(directe, niet-geaffiliateerde link)</small>. De winkel in Murcia verkoopt componenten en kits voor educatieve elektronica.
+
+## FAQ
+
+### Hoe voedt u de ESP32-borden?
+
+De **ESP32 DevKit**-borden (de ontwikkelborden in het 30-pinsformaat, met een **USB-C**-aansluiting — de huidige, ovale USB-connector) sluit u aan op een gewone **5 V**-telefoonadapter die minstens **1 A** (één ampère) kan leveren. U hebt per bord een adapter en een kabel nodig, die u in een stopcontact laat zitten.
+
+De **2-relaismodule 5 V** (het kleine bord dat een elektrisch contact opent of sluit) heeft geen tweede voeding nodig: zodra een ESP32 DevKit al via USB wordt gevoed, verbindt u de **5 V**-pin van de ESP32 (vaak ook **VIN** genoemd, van *voltage input*, de voedingsingang) met de voedingsklemmen van de module, via de meegeleverde **Dupont-jumperkabels** (kant-en-klare draden met stekkeruiteinden).
+
+De **ESP32-C3 Super Mini** (het compactste bord in de kit) kan in principe werken op een **LiPo-accu van 3,7 V** (een lithium-polymeeraccu, gebruikelijk in kleine autonome apparaatjes), dankzij het **uitbreidingsbord** en de accuconnector. Dat hebben we op onze kit nog niet gecontroleerd: het wordt bevestigd bij latere opstellingen.
+
+### Hoe verbindt u de kit met Homey?
+
+Eerst installeert u **ESPHome** op de ESP32. ESPHome is software (firmware) die u op het bord zet, zodat het zich met de **wifi** (het draadloze thuisnetwerk) verbindt en zijn sensors publiceert. Om te beginnen opent u [ESPHome Web](https://web.esphome.io) in een browser, sluit u het bord met een USB-kabel aan en configureert u de wifi en de sensors.
+
+Daarna installeert u op **Homey** (de huisautomatiseringscentrale die de apparaten in huis aanstuurt) de app **ESPHome** van Abe Haverkamp, beschikbaar in de Homey App Store (een community-app): [pagina van de ESPHome-app](https://homey.app/nl-nl/app/io.esphome/). Deze app werkt op **Homey Pro** (modellen uit 2023 en nieuwer), **Homey Pro mini** en een zelf gehoste Homey-server, met Homey-software 13.0.0 of nieuwer. Ze werkt **niet** op **Homey Cloud** (het aanbod zonder Pro-apparaat in huis) en ook niet op oudere Homey Pro-toestellen (2016-2019). Homey praat dan lokaal, op het thuisnetwerk, met het bord via de **native API** van ESPHome (de daarvoor bedoelde communicatie-interface, die u in de configuratie moet inschakelen).
+
+Zodra de app is geïnstalleerd, verschijnt de ESP32 als een Homey-apparaat. U kunt hem gebruiken in **Flows** (de Homey-automatiseringen: «wanneer dit gebeurt, doe dan dat»).

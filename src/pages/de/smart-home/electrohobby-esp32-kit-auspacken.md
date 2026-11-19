@@ -133,6 +133,8 @@ Zusammen mit einem Magneten sind Reed-Kontakte ein einfacher Weg, eine Tür, ein
 
 Das Kit wurde noch nicht eingeschaltet. Die folgenden Beiträge sind **geplant**, noch keine Tests:
 
+Der nächste Aufbau, den wir dokumentieren möchten, ist ein **Salzstands-Kontroller für einen Wasserenthärter**, mit einer Füllstandsmessung unter dem Deckel des Salzbehälters und einer **Leckerkennung** am Boden. Dieses Projekt wurde noch nicht umgesetzt: es gibt daher noch kein Testergebnis.
+
 - eine ESP32-**Wetterstation** mit AHT20/BMP280, aufbauend auf dem [bereits veröffentlichten ESPHome-Tutorial](/de/smart-home/esp32-esphome-temperatursensor/) ;
 - eine **Füllstandsüberwachung** (Tank oder Enthärter) mit dem Wasserstandssensor, optional ergänzt um den HC-SR04 ;
 - eine **Öffnungserkennung** mit den Reed-Kontakten ;
@@ -146,3 +148,21 @@ Weitere Ideen stehen auf der Seite [10 ESP32-Projekte fürs Smart Home](/de/smar
 Das Paket wurde **von** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> **geschenkt** <small>(direkter, nicht affiliierter Link)</small>. Der Shop in Murcia verkauft Bauteile und Kits für die Bildungselektronik.
 
 Wer eine vergleichbare Platine suchen möchte, findet auf dieser Website bereits eine Partnersuche ohne hier genannten Preis: <a href="/go/az-de-6daeb0d4ac/" rel="sponsored nofollow noopener">ESP32 DevKit bei Amazon.de</a> <small>(Partnerlink)</small>. Prüfen Sie vor der Bestellung immer die Händlerseite (Pinzahl, USB-C oder Micro-USB, Flash-Speicher).
+
+## FAQ
+
+### Wie versorgt man die ESP32-Platinen mit Strom?
+
+Die **ESP32-DevKit**-Platinen (die Entwicklungsboards im 30-Pin-Format, mit **USB-C**-Buchse — dem heutigen, ovalen USB-Anschluss) steckt man an ein gewöhnliches **5-V**-Handy-Netzteil, das mindestens **1 A** (ein Ampere) liefern kann. Pro Platine braucht man ein Netzteil und ein Kabel, die an einer Steckdose bleiben.
+
+Das **2-Relais-Modul 5 V** (die kleine Karte, die einen elektrischen Kontakt öffnet oder schließt) braucht kein zweites Netzteil: sobald ein ESP32-DevKit bereits per USB versorgt wird, verbindet man den **5-V**-Pin des ESP32 (oft auch **VIN** genannt, von *voltage input*, dem Versorgungseingang) mit den Versorgungsklemmen des Moduls, über die beiliegenden **Dupont-Jumperkabel** (fertig konfektionierte Leitungen mit Steckenden).
+
+Der **ESP32-C3 Super Mini** (die kompakteste Platine im Kit) kann grundsätzlich mit einem **3,7-V-LiPo**-Akku betrieben werden (ein Lithium-Polymer-Akku, üblich in kleinen netzunabhängigen Geräten), dank der **Erweiterungsplatine** und ihres Batterieanschlusses. Das haben wir an unserem Kit noch nicht geprüft: es wird bei späteren Aufbauten bestätigt.
+
+### Wie verbindet man das Kit mit Homey?
+
+Zuerst installiert man **ESPHome** auf dem ESP32. ESPHome ist eine Software (eine *Firmware*), die man auf die Platine lädt, damit sie sich mit dem **WLAN** (dem drahtlosen Heimnetz) verbindet und ihre Sensoren bereitstellt. Zum Einstieg öffnet man [ESPHome Web](https://web.esphome.io) im Browser, schließt die Platine per USB-Kabel an und richtet WLAN und Sensoren ein.
+
+Anschließend installiert man auf **Homey** (der Hausautomationszentrale, die die Geräte im Haus steuert) die App **ESPHome** von Abe Haverkamp aus dem Homey App Store (eine Community-App): [Seite der ESPHome-App](https://homey.app/de-de/app/io.esphome/). Diese App läuft auf **Homey Pro** (Modelle 2023 und neuer), **Homey Pro mini** und einem selbst gehosteten Homey-Server, mit Homey-Software 13.0.0 oder neuer. Sie läuft **nicht** auf **Homey Cloud** (dem Angebot ohne Pro-Gerät zu Hause) und auch nicht auf älteren Homey-Pro-Geräten (2016–2019). Homey spricht dann lokal im Heimnetz mit der Platine, über die **native API** von ESPHome (die dafür vorgesehene Kommunikationsschnittstelle, die in der Konfiguration aktiviert werden muss).
+
+Ist die App installiert, erscheint der ESP32 als Homey-Gerät. Man kann ihn in **Flows** nutzen (den Homey-Automatisierungen: „wenn dies geschieht, dann tue das“).

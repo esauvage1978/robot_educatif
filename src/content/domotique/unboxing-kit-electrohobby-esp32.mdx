@@ -134,6 +134,8 @@ Les ILS, associés à un aimant, sont un moyen simple de signaler l'ouverture d'
 
 Ce kit n'a pas encore été mis sous tension. Les articles suivants sont **prévus**, pas encore rédigés comme des tests :
 
+Le prochain montage que nous voulons documenter est un **contrôleur de sel pour adoucisseur**, avec une mesure du niveau sous le couvercle du bac et une **détection de fuite** au sol. Ce projet n'a pas encore été réalisé : il n'y a donc pas encore de résultat de test.
+
 - une **station météo** ESP32 + AHT20/BMP280, en s'appuyant sur le [tutoriel ESPHome déjà en ligne](/domotique/esp32-esphome-capteur-temperature/) ;
 - un **suivi de niveau d'eau** (réservoir ou adoucisseur) avec le capteur prévu à cet effet, éventuellement complété par le HC-SR04 ;
 - une **détection d'ouverture** avec les interrupteurs reed ;
@@ -147,3 +149,21 @@ D'autres idées se trouvent dans notre page [10 projets ESP32 pour la domotique]
 Le colis a été **offert par** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> <small>(lien direct, non affilié)</small>. La boutique, basée à Murcie, vend des composants et des kits pour l'électronique éducative.
 
 Si vous cherchez une carte équivalente de votre côté, une recherche affiliée existe déjà sur le site, sans prix affiché ici : <a href="/go/az-fr-10868e4457/" rel="sponsored nofollow noopener">ESP32 DevKit sur Amazon.fr</a> <small>(lien affilié)</small>. Vérifiez toujours la fiche du vendeur (nombre de broches, USB-C ou micro-USB, mémoire flash) avant de commander.
+
+## FAQ
+
+### Comment alimenter les cartes ESP32 ?
+
+Les **ESP32 DevKit** (les cartes de développement au format 30 broches, avec prise **USB-C**, le connecteur USB moderne et ovale) se branchent sur un simple chargeur de téléphone **5 V**, capable de fournir au moins **1 A** (un ampère). Il faut un chargeur et un câble par carte, laissés branchés sur une prise.
+
+Le **module 2 relais 5 V** (la petite carte qui ouvre ou ferme un contact électrique) n'a pas besoin d'une deuxième alimentation : lorsqu'un ESP32 DevKit est déjà alimenté en USB, on relie la broche **5 V** (souvent aussi appelée **VIN**, de l'anglais *voltage input*, l'entrée d'alimentation) de l'ESP32 aux bornes d'alimentation du module, avec les **câbles Dupont** fournis (fils à embouts, prêts à enficher).
+
+L'**ESP32-C3 Super Mini** (la carte la plus compacte du kit) peut, en principe, fonctionner sur une batterie **LiPo 3,7 V** (accumulateur lithium-polymère, courant dans les petits appareils autonomes), grâce à sa **carte d'extension** et à son connecteur batterie. Ce point n'a pas encore été vérifié sur notre kit : il sera confirmé lors des montages à venir.
+
+### Comment connecter le kit à Homey ?
+
+On installe d'abord **ESPHome** sur l'ESP32. ESPHome est un logiciel (un *firmware*) que l'on envoie dans la carte pour qu'elle rejoigne le **Wi-Fi** (le réseau sans fil de la maison) et publie ses capteurs. Pour commencer, on ouvre [ESPHome Web](https://web.esphome.io) dans un navigateur, on branche la carte avec un câble USB, puis on configure le Wi-Fi et les capteurs.
+
+Ensuite, côté **Homey** (le boîtier de domotique qui pilote les appareils de la maison), on installe l'application **ESPHome** d'Abe Haverkamp, disponible dans l'App Store Homey (application de la communauté) : [fiche de l'application ESPHome](https://homey.app/fr-fr/app/io.esphome/). Cette application fonctionne sur **Homey Pro** (modèles 2023 et plus récents), **Homey Pro mini** et le serveur Homey auto-hébergé, avec une version du logiciel Homey 13.0.0 ou plus récente. Elle ne fonctionne pas sur **Homey Cloud** (l'offre sans boîtier Pro à la maison), ni sur les Homey Pro plus anciens (2016-2019). Homey parle alors à la carte en local, sur le réseau de la maison, grâce à l'**API native** d'ESPHome (l'interface de communication prévue à cet effet, à activer dans la configuration).
+
+Une fois l'application installée, l'ESP32 apparaît comme un appareil Homey. On peut l'utiliser dans des **Flows** (les automatisations Homey : « quand ceci se produit, alors fais cela »).
