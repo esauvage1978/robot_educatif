@@ -5,21 +5,40 @@ import { MAKEBLOCK_PAGE } from '../data/makeblockCompat.mjs';
 import { withBase } from '../lib/siteUrl';
 
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
+const makeblockFaq = [
+	{
+		question: 'RJ25 ou mBuild : comment choisir ?',
+		answer:
+			'Le mBot classique utilise des capteurs RJ25 sur la carte mCore. Le mBot2 et la plupart des extensions récentes passent par le bus mBuild. Un capteur RJ25 ne se branche pas directement sur un mBot2 sans adaptateur prévu par Makeblock.',
+	},
+];
 ---
 
 <RobotToolLayout
 	title={MAKEBLOCK_PAGE.title}
 	description={MAKEBLOCK_PAGE.description}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/compatibilite-makeblock/"
 	hubLabel="Makeblock & mBot"
 	hubPath="/accessoires-mbot-par-ou-commencer/"
+	faqSchema={makeblockFaq}
+	heroImage={withBase('/images/models/makeblock-mbot2.webp')}
 >
 	<p>
 		<strong>Réponse rapide</strong> — Avant d’acheter un capteur Makeblock, vérifiez la <strong>connectique</strong> (RJ25 sur mBot classique,{' '}
 		<strong>mBuild</strong> sur mBot2) et le robot cible. Cette matrice interactive croise accessoires et modèles ; les liens Amazon sont{' '}
 		<strong>partenaires</strong> (commission éventuelle, prix du jour sur le site marchand).
 	</p>
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot2.webp')}
+			alt="Makeblock mBot2 avec modules mBuild, cible des accessoires listés dans la matrice"
+			width="800"
+			height="600"
+		/>
+	</figure>
 	<p>
 		Hub Makeblock : <a href={withBase('/accessoires-mbot-par-ou-commencer/')}>accessoires mBot — par où commencer</a> ·{' '}
 		<a href={withBase('/marque-makeblock/')}>notre avis sur la marque Makeblock</a> ·{' '}
@@ -29,6 +48,15 @@ const pubDate = new Date('2026-10-24T00:00:00Z');
 	</p>
 	<p>{MAKEBLOCK_PAGE.intro}</p>
 	<MakeblockCompatMatrix />
+	<section>
+		<h2>FAQ</h2>
+		{makeblockFaq.map((item) => (
+			<div>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</div>
+		))}
+	</section>
 	<p>
 		Pour choisir vos premiers capteurs : <a href={withBase('/accessoires-mbot-par-ou-commencer/')}>accessoires mBot par où commencer</a>
 		· <a href={withBase('/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/')}>mBot vs mBot2</a> ·{' '}

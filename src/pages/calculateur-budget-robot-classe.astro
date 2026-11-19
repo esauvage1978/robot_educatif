@@ -1,24 +1,87 @@
 ---
 import RobotToolLayout from '../layouts/RobotToolLayout.astro';
 import ClassBudgetCalculator from '../components/ClassBudgetCalculator.astro';
-import { BUDGET_PAGE } from '../data/classBudgetRobot.mjs';
+import { BUDGET_PAGE, BUDGET_FAQ } from '../data/classBudgetRobot.mjs';
 import { withBase } from '../lib/siteUrl';
 
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
 ---
 
 <RobotToolLayout
 	title={BUDGET_PAGE.title}
 	description={BUDGET_PAGE.description}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/calculateur-budget-robot-classe/"
 	hubLabel="École & classe"
 	hubPath="/equiper-classe-robots-budget-packs-2026/"
+	faqSchema={BUDGET_FAQ}
+	heroImage={withBase('/images/models/makeblock-mbot-mcore.webp')}
 >
 	<p>{BUDGET_PAGE.intro}</p>
-	<ClassBudgetCalculator />
+
+	<nav aria-label="Sommaire" class="tool-toc">
+		<ul>
+			<li><a href="#budget-calculateur">Calculateur</a></li>
+			<li><a href="#budget-kits">Kits et prix indicatifs</a></li>
+			<li><a href="#budget-faq">FAQ</a></li>
+		</ul>
+	</nav>
+
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot-mcore.webp')}
+			alt="Makeblock mBot classique, kit souvent autour de 110 euros pour une salle en binômes"
+			width="800"
+			height="600"
+		/>
+	</figure>
+
+	<section id="budget-kits">
+		<h2>Kits et prix indicatifs (2026)</h2>
+		<p>
+			Le tableau du calculateur reprend des ordres de grandeur TTC : le <strong>mBot</strong> reste l’option la moins chère pour tester la robotique en classe (souvent <strong>~110 €</strong> le kit une fois piles et rangement intégrés au total), le <strong>mBot2</strong> monte vers 150–170 € par robot neuf. Vérifiez la fiche du jour :
+		</p>
+		<ul>
+			<li>
+				<a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener" target="_blank">mBot Makeblock sur Amazon.fr</a>
+			</li>
+			<li>
+				<a href={withBase('/go/az-fr-1aa86e758c/')} rel="sponsored nofollow noopener" target="_blank">mBot2 sur Amazon.fr</a>
+			</li>
+		</ul>
+	</section>
+
+	<section id="budget-calculateur">
+		<h2>Calculateur interactif</h2>
+		<ClassBudgetCalculator />
+	</section>
+
+	<section id="budget-faq">
+		<h2>Questions fréquentes</h2>
+		{BUDGET_FAQ.map((item) => (
+			<div>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</div>
+		))}
+	</section>
+
 	<p>
 		Approche détaillée : <a href={withBase('/equiper-classe-robots-budget-packs-2026/')}>équiper une classe en robots (budget et packs)</a>
-		· <a href={withBase('/robot-pedagogique-ecole/')}>robot pédagogique à l’école</a>.
+		· <a href={withBase('/robot-pedagogique-ecole/')}>robot pédagogique à l’école</a>
+		· <a href={withBase('/configurateur-kit-robotique-classe/')}>configurateur de kit</a>.
 	</p>
 </RobotToolLayout>
+
+<style>
+	.tool-toc {
+		margin: 1rem 0 1.25rem;
+		padding: 0.65rem 1rem;
+		border-radius: 10px;
+		background: rgba(43, 125, 233, 0.06);
+		border: 1px solid rgba(43, 125, 233, 0.2);
+	}
+	.tool-toc ul { margin: 0; padding-left: 1.2rem; }
+</style>

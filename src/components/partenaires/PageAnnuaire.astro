@@ -3,20 +3,50 @@ import BaseHead from '../BaseHead.astro';
 import Footer from '../Footer.astro';
 import Header from '../Header.astro';
 import PageColumns from '../PageColumns.astro';
+import FormattedDate from '../FormattedDate.astro';
+import StructuredDataArticle from '../StructuredDataArticle.astro';
+import StructuredDataFaq from '../StructuredDataFaq.astro';
+import EditorialReadAlso from '../EditorialReadAlso.astro';
 import Annuaire from './Annuaire.astro';
-import { metaPage } from '../../data/partenaires/registre.mjs';
+import { metaPage, PREFIX } from '../../data/partenaires/registre.mjs';
+import { PARTNER_HUB_FAQ } from '../../data/partenaires/hubAffiliate.mjs';
+import { ARTICLE_AUTHOR } from '../../consts';
+
 interface Props { lang: string }
 const { lang } = Astro.props;
 const meta = metaPage(lang);
 const htmlLang = ({ fr: 'fr', en: 'en', de: 'de', it: 'it', es: 'es', nl: 'nl' } as Record<string, string>)[lang] || 'fr';
+const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
+const langue = lang in PREFIX ? lang : 'fr';
+const articlePath = PREFIX[langue];
+const dateLabel =
+	lang === 'fr' ? 'Mis à jour le' : lang === 'de' ? 'Aktualisiert am' : lang === 'en' ? 'Updated' : lang === 'es' ? 'Actualizado el' : lang === 'it' ? 'Aggiornato il' : 'Bijgewerkt op';
+const faqSchema = PARTNER_HUB_FAQ[lang] || PARTNER_HUB_FAQ.en;
 ---
 <!doctype html>
 <html lang={htmlLang}>
-  <head><BaseHead title={meta.titre} description={meta.description} /></head>
+  <head>
+    <BaseHead title={meta.titre} description={meta.description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+    <StructuredDataArticle title={meta.titre} description={meta.description} pubDate={pubDate} updatedDate={updatedDate} articleSlug="partners-index" />
+    <StructuredDataFaq items={faqSchema} />
+  </head>
   <body>
     <Header />
     <main>
-      <PageColumns sommaire={false}><Annuaire lang={lang} /></PageColumns>
+      <PageColumns sommaire={false}>
+        <p style="font-size:0.9rem;color:rgb(var(--gray-dark));margin:0 0 1rem;">
+          {dateLabel}{' '}
+          <FormattedDate
+            date={updatedDate}
+            locale={htmlLang === 'en' ? 'en-GB' : htmlLang === 'nl' ? 'nl-NL' : `${htmlLang}-${htmlLang === 'de' ? 'DE' : htmlLang === 'it' ? 'IT' : htmlLang === 'es' ? 'ES' : 'FR'}`}
+          /> · {ARTICLE_AUTHOR}
+        </p>
+        <div class="prose">
+          <Annuaire lang={lang} />
+          <EditorialReadAlso pathname={articlePath} />
+        </div>
+      </PageColumns>
     </main>
     <Footer />
   </body>

@@ -1,19 +1,23 @@
 ---
 import RobotToolLayout from '../layouts/RobotToolLayout.astro';
 import ScratchPythonChecklist from '../components/ScratchPythonChecklist.astro';
-import { PARCOURS_PAGE } from '../data/scratchPython6Weeks.mjs';
+import { PARCOURS_PAGE, PARCOURS_FAQ } from '../data/scratchPython6Weeks.mjs';
 import { withBase } from '../lib/siteUrl';
 
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
 ---
 
 <RobotToolLayout
 	title={PARCOURS_PAGE.title}
 	description={PARCOURS_PAGE.description}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/parcours-scratch-python-6-semaines/"
 	hubLabel="Programmation"
 	hubPath="/programmation/"
+	faqSchema={PARCOURS_FAQ}
+	heroImage={withBase('/images/models/makeblock-mbot-mcore.webp')}
 >
 	<p>{PARCOURS_PAGE.intro}</p>
 	<figure>
@@ -24,6 +28,13 @@ const pubDate = new Date('2026-10-24T00:00:00Z');
 			height="600"
 		/>
 	</figure>
+	<p>
+		Kit robot pour les séances matériel :
+		<a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener" target="_blank">mBot sur Amazon.fr</a>
+		·
+		<a href={withBase('/go/az-fr-1aa86e758c/')} rel="sponsored nofollow noopener" target="_blank">mBot2</a>
+		· <a href={withBase('/calculateur-budget-robot-classe/')}>calculateur budget classe</a>.
+	</p>
 	<ScratchPythonChecklist />
 	<p>
 		Installer l’environnement : <a href={withBase('/installer-mblock-5-sous-windows-10/')}>mBlock 5</a> ·{' '}

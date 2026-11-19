@@ -3,20 +3,57 @@ import BaseHead from '../BaseHead.astro';
 import Footer from '../Footer.astro';
 import Header from '../Header.astro';
 import PageColumns from '../PageColumns.astro';
+import FormattedDate from '../FormattedDate.astro';
+import StructuredDataArticle from '../StructuredDataArticle.astro';
+import StructuredDataFaq from '../StructuredDataFaq.astro';
+import EditorialReadAlso from '../EditorialReadAlso.astro';
 import Fiche from './Fiche.astro';
-import { metaPage } from '../../data/partenaires/registre.mjs';
+import { metaPage, PREFIX, textes } from '../../data/partenaires/registre.mjs';
+import { FICHE_COPY } from '../../data/partenaires/ficheEditorial.mjs';
+import { ARTICLE_AUTHOR } from '../../consts';
+
 interface Props { lang: string; slug: string }
 const { lang, slug } = Astro.props;
 const meta = metaPage(lang, slug);
+const t = textes(lang);
+const c = FICHE_COPY[lang] || FICHE_COPY.en;
 const htmlLang = ({ fr: 'fr', en: 'en', de: 'de', it: 'it', es: 'es', nl: 'nl' } as Record<string, string>)[lang] || 'fr';
+const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
+const langue = lang in PREFIX ? lang : 'fr';
+const articlePath = `${PREFIX[langue]}${slug}/`;
+const articleSlug = `partners/${slug}`;
+const dateLabel =
+	lang === 'fr' ? 'Mis à jour le' : lang === 'de' ? 'Aktualisiert am' : lang === 'en' ? 'Updated' : lang === 'es' ? 'Actualizado el' : lang === 'it' ? 'Aggiornato il' : 'Bijgewerkt op';
+const faqSchema = [
+	{ question: t.affiliation, answer: c.faqAff },
+	{ question: c.faqNoPrice, answer: c.faqNoPrice },
+	{ question: c.faqMulti, answer: c.faqMulti },
+];
 ---
 <!doctype html>
 <html lang={htmlLang}>
-  <head><BaseHead title={meta.titre} description={meta.description} /></head>
+  <head>
+    <BaseHead title={meta.titre} description={meta.description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+    <StructuredDataArticle title={meta.titre} description={meta.description} pubDate={pubDate} updatedDate={updatedDate} articleSlug={articleSlug} />
+    <StructuredDataFaq items={faqSchema} />
+  </head>
   <body>
     <Header />
     <main>
-      <PageColumns sommaire={false}><Fiche lang={lang} slug={slug} /></PageColumns>
+      <PageColumns sommaire={false}>
+        <p style="font-size:0.9rem;color:rgb(var(--gray-dark));margin:0 0 1rem;">
+          {dateLabel}{' '}
+          <FormattedDate
+            date={updatedDate}
+            locale={htmlLang === 'en' ? 'en-GB' : htmlLang === 'nl' ? 'nl-NL' : `${htmlLang}-${htmlLang === 'de' ? 'DE' : htmlLang === 'it' ? 'IT' : htmlLang === 'es' ? 'ES' : 'FR'}`}
+          /> · {ARTICLE_AUTHOR}
+        </p>
+        <div class="prose">
+          <Fiche lang={lang} slug={slug} />
+          <EditorialReadAlso pathname={articlePath} />
+        </div>
+      </PageColumns>
     </main>
     <Footer />
   </body>

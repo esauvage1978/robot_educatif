@@ -1,11 +1,11 @@
 {
  "site": "robot-educatif.info",
- "generated": "2026-11-18T23:53:43.180Z",
+ "generated": "2026-11-19T03:53:57.479Z",
  "stats": {
   "files": 3168,
-  "filesChanged": 2389,
+  "filesChanged": 2381,
   "amazon": 6612,
-  "awin": 2171,
+  "awin": 2163,
   "repaired": 0,
   "relFixed": 97,
   "collisions": 0,
@@ -2075,6 +2075,14 @@
    "mid": "14040",
    "dest": "",
    "affid": "3126073"
+  },
+  "aw-14133-8e0f4a2bc1": {
+   "url": "https://www.awin1.com/awclick.php?mid=14133&id=3126073",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "14133",
+   "dest": "",
+   "affid": ""
   },
   "aw-14433-d4dac7931d": {
    "url": "https://www.awin1.com/awclick.php?mid=14433&id=3126073",

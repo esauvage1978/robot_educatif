@@ -1,6 +1,6 @@
 ---
 import SmartHomeCompatMatrix from '../SmartHomeCompatMatrix.astro';
-import { COMPAT_PAGE_META } from '../../data/smartHomeCompat.mjs';
+import { COMPAT_PAGE_META, COMPAT_FAQ, COMPAT_AFFILIATE } from '../../data/smartHomeCompat.mjs';
 import { withBase } from '../../lib/siteUrl';
 
 interface Props {
@@ -9,9 +9,50 @@ interface Props {
 
 const { lang } = Astro.props;
 const meta = COMPAT_PAGE_META[lang];
+const faq = COMPAT_FAQ[lang] || COMPAT_FAQ.fr;
+const affLink = COMPAT_AFFILIATE[lang];
+const tocTitle =
+	lang === 'fr' ? 'Sommaire' : lang === 'de' ? 'Inhaltsverzeichnis' : lang === 'it' ? 'Sommario' : lang === 'es' ? 'Índice' : 'Contents';
+const matTitle =
+	lang === 'fr' ? 'Tableau interactif' : lang === 'de' ? 'Interaktive Tabelle' : lang === 'it' ? 'Tabella interattiva' : lang === 'es' ? 'Tabla interactiva' : 'Interactive table';
+const faqTitle = lang === 'fr' ? 'FAQ' : lang === 'de' ? 'FAQ' : lang === 'it' ? 'FAQ' : lang === 'es' ? 'Preguntas frecuentes' : 'FAQ';
 ---
 
+<nav class="cmx-toc" aria-label={tocTitle}>
+	<ul>
+		<li><a href="#cmx-matrice">{matTitle}</a></li>
+		<li><a href="#cmx-faq">{faqTitle}</a></li>
+	</ul>
+</nav>
+
 <p>{meta.intro}</p>
+
+<figure>
+	<img
+		src={withBase('/images/products/sonoff-zbdongle-e.webp')}
+		alt={
+			lang === 'es'
+				? 'SONOFF ZBDongle-E, coordinador Zigbee USB citado en la matriz Home Assistant'
+				: lang === 'fr'
+					? 'SONOFF ZBDongle-E, dongle Zigbee USB pour coordinateur Home Assistant'
+					: 'SONOFF ZBDongle-E Zigbee USB coordinator for Home Assistant'
+		}
+		width="640"
+		height="480"
+		loading="lazy"
+	/>
+</figure>
+
+{affLink && (
+	<p>
+		{lang === 'fr' && 'Coordinateur Zigbee courant : '}
+		{lang === 'de' && 'Üblicher Zigbee-Koordinator: '}
+		{lang === 'it' && 'Coordinatore Zigbee di riferimento: '}
+		{lang === 'es' && 'Coordinador Zigbee de referencia: '}
+		{lang === 'en' && 'Common Zigbee coordinator: '}
+		<a href={withBase(affLink.go)} rel="sponsored nofollow noopener" target="_blank">{affLink.label}</a>
+	</p>
+)}
 
 <p class="cmx-legend" style="font-size:0.92rem;color:rgb(var(--gray-dark));margin:0 0 1rem 0;max-width:42rem;line-height:1.55;">
 	{lang === 'fr' ? (
@@ -25,16 +66,43 @@ const meta = COMPAT_PAGE_META[lang];
 		<>
 			<strong>Leyenda:</strong> <em>Nativo</em> = integración oficial o muy estable; <em>Plugin</em> = extensión o puente (Zigbee2MQTT, HACS…);
 			<em> No</em> = no previsto o nube obligatoria. Antes de comprar, cruce con{' '}
-			<a href={withBase('/es/domotica/robot-aspirador-navegacion-lidar/')}>navegación LiDAR en aspiradores</a>,{' '}
-			<a href={withBase('/es/domotica/test-homey-pro-mini-unboxing-instalacion/')}>Homey Pro mini (parte 1)</a> y{' '}
-			<a href={withBase('/es/domotica/como-empezar/')}>domótica para principiantes</a>.
+			<a href={withBase('/es/domotica/sensor-temperatura-zigbee/')}>sensor de temperatura Zigbee</a>,{' '}
+			<a href={withBase('/es/domotica/mejor-dongle-zigbee-home-assistant/')}>mejor dongle Zigbee</a> y{' '}
+			<a href={withBase('/es/domotica/como-empezar/')}>guía para principiantes</a>.
+		</>
+	) : lang === 'de' ? (
+		<>
+			<strong>Legende:</strong> <em>Nativ</em> = offizielle Integration; <em>Plugin</em> = Erweiterung (Zigbee2MQTT, HACS…). Siehe auch{' '}
+			<a href={withBase('/de/smart-home/zigbee-temperatursensor/')}>Zigbee-Temperatursensor</a>.
+		</>
+	) : lang === 'it' ? (
+		<>
+			<strong>Legenda:</strong> <em>Nativo</em> = integrazione ufficiale; <em>Plugin</em> = bridge (Zigbee2MQTT, HACS…). Vedi anche{' '}
+			<a href={withBase('/it/domotica/sensore-temperatura-zigbee/')}>sensore temperatura Zigbee</a>.
 		</>
 	) : (
-		meta.intro
+		<>
+			<strong>Legend:</strong> <em>Native</em> = official or stable integration; <em>Plugin</em> = bridge (Zigbee2MQTT, HACS…). See also{' '}
+			<a href={withBase('/en/smart-home/zigbee-temperature-sensor/')}>Zigbee temperature sensor guide</a> and{' '}
+			<a href={withBase('/en/smart-home/best-zigbee-dongle-home-assistant/')}>best Zigbee dongle</a>.
+		</>
 	)}
 </p>
 
-<SmartHomeCompatMatrix lang={lang} />
+<section id="cmx-matrice">
+	<h2>{matTitle}</h2>
+	<SmartHomeCompatMatrix lang={lang} />
+</section>
+
+<section id="cmx-faq">
+	<h2>{faqTitle}</h2>
+	{faq.map((item) => (
+		<div>
+			<h3>{item.question}</h3>
+			<p>{item.answer}</p>
+		</div>
+	))}
+</section>
 
 <p>
 	{lang === 'fr'
@@ -68,3 +136,17 @@ const meta = COMPAT_PAGE_META[lang];
 						: 'error codes & troubleshooting hub'}
 	</a>.
 </p>
+
+<style>
+	.cmx-toc {
+		margin: 0 0 1rem;
+		padding: 0.65rem 1rem;
+		border-radius: 10px;
+		background: rgba(43, 125, 233, 0.06);
+		border: 1px solid rgba(43, 125, 233, 0.2);
+	}
+	.cmx-toc ul {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+</style>
