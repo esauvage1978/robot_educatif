@@ -62,10 +62,10 @@ faqSchema:
 <strong>Makeblock mBot</strong>
 <span style="color:var(--accent);font-weight:700;">View on Amazon →</span>
 </a>
-<a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="border:1px solid var(--surface-border);border-radius:10px;padding:0.75rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.5rem;">
+<a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener" style="border:1px solid var(--surface-border);border-radius:10px;padding:0.75rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.5rem;">
 <img src="/images/products/mbot2.webp" alt="Makeblock mBot2" width="200" height="150" loading="lazy" style="width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;" />
 <strong>Makeblock mBot2</strong>
-<span style="color:var(--accent);font-weight:700;">Amazon UK / check .com →</span>
+<span style="color:var(--accent);font-weight:700;">View on Amazon →</span>
 </a>
 </div>
 

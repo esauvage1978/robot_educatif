@@ -79,7 +79,7 @@ faqSchema:
 
 ![Roborock Qrevo S5V Saug- und Wischroboter mit Absaugstation](/images/products/roborock-qrevo-s5v.webp)
 
-*Roborock Qrevo S5v — rotierende Pads und Station mit Pad-Wäsche (Produktfoto im Depot).*
+*Roborock Qrevo S5v — rotierende Pads und Station mit Pad-Wäsche.*
 
 <p><strong>Preis prüfen:</strong> <a href="https://www.amazon.de/s?k=Roborock+Qrevo+S5V&amp;tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Roborock Qrevo S5V bei Amazon.de</a> · Vergleich [Saugroboter in Home Assistant](/de/smart-home/saugroboter-home-assistant/).</p>
 
