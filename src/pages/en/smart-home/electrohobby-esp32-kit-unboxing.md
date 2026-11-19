@@ -133,6 +133,8 @@ Paired with a magnet, reed switches are a simple way to detect a door, window or
 
 The kit has not been powered up yet. The following articles are **planned**, not written as tests:
 
+The next build we want to document is a **salt-level controller for a water softener**, with a level reading under the lid of the salt bin and **leak detection** on the floor. This project has not been built yet, so there is no test result to report.
+
 - an ESP32 **weather station** with the AHT20/BMP280, building on the [ESPHome tutorial already online](/en/smart-home/esp32-esphome-temperature-sensor/) ;
 - a **water-level monitor** (tank or softener) with the dedicated sensor, possibly plus the HC-SR04 ;
 - **opening detection** with the reed switches ;
@@ -146,3 +148,21 @@ More ideas are listed in our [10 ESP32 smart-home projects](/en/smart-home/esp32
 The parcel was **gifted by** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> <small>(direct, non-affiliate link)</small>. The shop, based in Murcia, sells components and kits for educational electronics.
 
 If you want a similar board from a marketplace, an affiliate search already exists on this site, with no price quoted here: <a href="/go/az-us-687e1d0e5e/" rel="sponsored nofollow noopener">ESP32 DevKit on Amazon</a> <small>(affiliate link)</small>. Always check the seller listing (pin count, USB-C or micro-USB, flash size) before you order.
+
+## FAQ
+
+### How do I power the ESP32 boards?
+
+The **ESP32 DevKit** boards (the 30-pin development boards, with a **USB-C** socket — the modern oval USB connector) plug into an ordinary **5 V** phone charger that can supply at least **1 A** (one ampere). You need one charger and one cable per board, left plugged into a wall outlet.
+
+The **2-relay 5 V module** (the small board that opens or closes an electrical contact) does not need a second power supply: once an ESP32 DevKit is already powered over USB, you connect the ESP32 **5 V** pin (often also labelled **VIN**, for "voltage input") to the module's power terminals with the supplied **Dupont jumper wires** (ready-made leads with plug-in ends).
+
+The **ESP32-C3 Super Mini** (the most compact board in the kit) can, in principle, run from a **3.7 V LiPo** battery (a lithium-polymer cell, common in small off-grid gadgets), thanks to its **expansion board** and battery connector. We have not verified this on our kit yet: it will be checked during later builds.
+
+### How do I connect the kit to Homey?
+
+First, install **ESPHome** on the ESP32. ESPHome is firmware that you flash onto the board so it can join your **Wi-Fi** (the home wireless network) and publish its sensors. To get started, open [ESPHome Web](https://web.esphome.io) in a browser, connect the board with a USB cable, then set up Wi-Fi and the sensors.
+
+Next, on **Homey** (the home-automation hub that controls the devices in the house), install the **ESPHome** app by Abe Haverkamp from the Homey App Store (a community app): [ESPHome app page](https://homey.app/en-us/app/io.esphome/). This app works on **Homey Pro** (2023 models and newer), **Homey Pro mini** and a self-hosted Homey server, with Homey software 13.0.0 or newer. It does **not** work on **Homey Cloud** (the offering without a Pro unit at home), nor on older Homey Pro units (2016–2019). Homey then talks to the board locally, on your home network, through ESPHome's **native API** (the built-in communication interface, which must be enabled in the configuration).
+
+Once the app is installed, the ESP32 appears as a Homey device. You can use it in **Flows** (Homey automations: "when this happens, then do that").

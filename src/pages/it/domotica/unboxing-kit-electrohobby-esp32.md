@@ -133,6 +133,8 @@ Insieme a un magnete, i reed sono un modo semplice per segnalare l'apertura di u
 
 Il kit non è ancora stato alimentato. I seguenti articoli sono **previsti**, non ancora scritti come test:
 
+Il prossimo montaggio che vogliamo documentare è un **controllore del sale per addolcitore**, con una misura di livello sotto il coperchio del contenitore e una **rilevazione delle perdite** a pavimento. Questo progetto non è ancora stato realizzato: non c'è quindi alcun risultato di test.
+
 - una **stazione meteo** ESP32 + AHT20/BMP280, partendo dal [tutorial ESPHome già online](/it/domotica/esp32-esphome-sensore-temperatura/) ;
 - un **monitoraggio del livello dell'acqua** (serbatoio o addolcitore) con l'apposito sensore, eventualmente insieme all'HC-SR04 ;
 - una **rilevazione di apertura** con i reed ;
@@ -146,3 +148,21 @@ Altre idee sono nella pagina [10 progetti ESP32 per la domotica](/it/domotica/pr
 Il pacco è stato **offerto da** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> <small>(link diretto, non affiliato)</small>. Il negozio, con sede a Murcia, vende componenti e kit per l'elettronica educativa.
 
 Se cercate una scheda equivalente, sul sito esiste già una ricerca affiliata, senza un prezzo indicato qui: <a href="/go/az-it-95064ed9fa/" rel="sponsored nofollow noopener">ESP32 DevKit su Amazon.it</a> <small>(link affiliato)</small>. Controllate sempre la scheda del venditore (numero di pin, USB-C o micro-USB, memoria flash) prima di ordinare.
+
+## FAQ
+
+### Come si alimentano le schede ESP32?
+
+Le schede **ESP32 DevKit** (le schede di sviluppo nel formato a 30 pin, con presa **USB-C**, il connettore USB moderno e ovale) si collegano a un ordinario caricatore da telefono **5 V**, in grado di erogare almeno **1 A** (un ampere). Serve un caricatore e un cavo per scheda, lasciati collegati a una presa.
+
+Il **modulo 2 relè 5 V** (la piccola scheda che apre o chiude un contatto elettrico) non ha bisogno di una seconda alimentazione: quando un ESP32 DevKit è già alimentato via USB, si collega il pin **5 V** dell'ESP32 (spesso chiamato anche **VIN**, dall'inglese *voltage input*, l'ingresso di alimentazione) ai morsetti di alimentazione del modulo, con i **cavi Dupont** in dotazione (fili già confezionati con capicorda ad innesto).
+
+L'**ESP32-C3 Super Mini** (la scheda più compatta del kit) può, in linea di principio, funzionare con una batteria **LiPo da 3,7 V** (un accumulatore litio-polimero, comune nei piccoli dispositivi autonomi), grazie alla **scheda di espansione** e al suo connettore batteria. Questo punto non è ancora stato verificato sul nostro kit: verrà confermato nei montaggi successivi.
+
+### Come si collega il kit a Homey?
+
+Per prima cosa si installa **ESPHome** sull'ESP32. ESPHome è un software (un *firmware*) che si carica sulla scheda perché si colleghi al **Wi-Fi** (la rete senza fili di casa) e pubblichi i suoi sensori. Per iniziare, si apre [ESPHome Web](https://web.esphome.io) in un browser, si collega la scheda con un cavo USB, poi si configurano il Wi-Fi e i sensori.
+
+Poi, su **Homey** (il centralino di domotica che pilota i dispositivi di casa), si installa l'app **ESPHome** di Abe Haverkamp, disponibile nell'App Store Homey (un'app della community): [scheda dell'app ESPHome](https://homey.app/it-it/app/io.esphome/). Questa app funziona su **Homey Pro** (modelli 2023 e più recenti), **Homey Pro mini** e un server Homey auto-ospitato, con il software Homey 13.0.0 o successivo. Non funziona su **Homey Cloud** (l'offerta senza un'unità Pro in casa), né sui Homey Pro più vecchi (2016-2019). Homey parla allora alla scheda in locale, sulla rete di casa, tramite l'**API nativa** di ESPHome (l'interfaccia di comunicazione prevista a questo scopo, da attivare nella configurazione).
+
+Una volta installata l'app, l'ESP32 compare come un dispositivo Homey. Si può usare nei **Flow** (le automazioni Homey: «quando accade questo, allora fai quello»).
