@@ -119,4 +119,4 @@ Danach: [ESPHome-Temperatursensor](/de/smart-home/esp32-esphome-temperatursensor
 - **Raspberry Pi oder ESP32?** Der **Pi** ist ein vollständiger Linux-Server (Home Assistant OS); der **ESP32** ist ein günstiger **WLAN-Mikrocontroller** für einen einzelnen Sensor — oft **beides** im Haus.
 - **Flash 4 MB reicht?** Ja für Temperatur/Relais; **Kamera** braucht oft **8 MB + PSRAM**.
 
-[Alle Smart-Home-Ratgeber](/de/smart-home/)
+[Alle Smart-Home-Ratgeber](/de/smart-home/). Wir haben auch das [Unboxing des ElectroHobby.es-Kits](/de/smart-home/electrohobby-esp32-kit-auspacken/) veröffentlicht (Geschenk der Marke): 2 ESP32-DevKit, ein ESP32-C3 Super Mini und Sensoren, für kommende Projekte.

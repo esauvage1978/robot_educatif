@@ -5,6 +5,11 @@ description: "Von Temperatur und Notfall-Taster bis CO₂, mmWave und lokalem Sp
 updated: "24. Oktober 2026"
 ---
 
+<figure>
+<a href="/de/smart-home/electrohobby-esp32-kit-auspacken/"><img src="/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp" alt="Geöffnetes Paket von ElectroHobby.es mit ESP32-Platinen und Merkkarten" width="1600" height="2133" /></a>
+<figcaption><a href="/de/smart-home/electrohobby-esp32-kit-auspacken/">Unboxing des von ElectroHobby.es geschenkten ESP32-Kits</a> — 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren.</figcaption>
+</figure>
+
 **ESP32 + ESPHome** macht aus einem WLAN-Mikrocontroller Sensoren, Relais oder Displays für Home Assistant. Zehn Projekte nach Schwierigkeit — **Materialpreise variieren**, vor dem Kauf vergleichen (Amazon.de, Reichelt, Berrybase …).
 
 Board-Tipp: **ESP32-C6 DevKit** — [Welche Platine?](/de/smart-home/welche-esp32-platine-smart-home/). [ESP32-C6 suchen](https://www.amazon.de/s?k=ESP32-C6+DevKit&tag=roboteducat00-21) (Werbelink).

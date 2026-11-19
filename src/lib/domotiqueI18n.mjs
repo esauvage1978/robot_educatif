@@ -192,6 +192,12 @@ export const DOMOTIQUE_SLUGS = {
 		it: 'tendenze-domotica-2027-ces-mmwave-ia-locale-energia',
 		es: 'tendencias-domotica-2027-ces-mmwave-ia-local-energia',
 	},
+	'unboxing-kit-electrohobby-esp32': {
+		en: 'electrohobby-esp32-kit-unboxing',
+		de: 'electrohobby-esp32-kit-auspacken',
+		it: 'unboxing-kit-electrohobby-esp32',
+		es: 'unboxing-kit-electrohobby-esp32',
+	},
 };
 
 export const DOMOTIQUE_BASE = {
