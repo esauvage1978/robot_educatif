@@ -64,12 +64,14 @@ export function textes(lang) {
       vide: 'Aucun partenaire accepté n’est encore publié.',
     },
     en: {
-      titreIndex: 'Partners',
-      descriptionIndex: 'Brands and shops with an accepted partnership, their official site when it is known, and the articles on this site that mention them.',
+      titreIndex: 'Partners — robot-educatif.info',
+      descriptionIndex:
+        'Partners and affiliate programmes accepted by robot-educatif.info: official sites when known, and editorial pages that mention each brand or retailer.',
       titreFiche: (nom) => `${nom}, partner`,
       descriptionFiche: (nom, marche) => `${nom} is one of the site’s partners for the ${paysDe('en', marche)} market.`,
       chapo: (nom, marche) => `${nom} is one of the site’s partners for the ${paysDe('en', marche)} market.`,
-      intro: 'Each page is one accepted partnership. The filter keeps this page’s country, European programmes and international programmes.',
+      intro:
+        'robot-educatif.info lists each accepted partnership on its own page. Use the filter for country, European programmes, or international retailers — then open a profile for shop links and related articles.',
       tous: 'All',
       marcheLabel: 'Country',
       familleLabel: 'Type',
@@ -292,6 +294,38 @@ const HORS_ARTICLE = /\/(affiliation|affiliate|affiliazione|afiliacion|transpar|
 
 /** Liens éditoriaux manuels quand la détection automatique ne trouve rien (B08). */
 const EDITORIAL_LINKS = {
+	'outin-germany': {
+		en: [
+			{ href: '/en/smart-home/', titre: 'Smart home hub' },
+			{ href: '/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/', titre: 'Compatibility matrix' },
+			{ href: '/en/partners/', titre: 'All partners on robot-educatif.info' },
+		],
+		de: [
+			{ href: '/de/smart-home/', titre: 'Smart-Home-Übersicht' },
+			{ href: '/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/', titre: 'Kompatibilitätsmatrix' },
+			{ href: '/de/partner/', titre: 'Partner-Verzeichnis' },
+		],
+		fr: [
+			{ href: '/domotique/', titre: 'Hub domotique' },
+			{ href: '/partenaires/', titre: 'Annuaire partenaires' },
+		],
+	},
+	'wirkaufens-de': {
+		en: [
+			{ href: '/en/best-programmable-robot-for-kids/', titre: 'Best programmable robot for kids' },
+			{ href: '/en/class-robot-budget-calculator/', titre: 'Classroom budget calculator' },
+			{ href: '/en/partners/', titre: 'Partners on robot-educatif.info' },
+		],
+		de: [
+			{ href: '/de/bester-programmierbarer-roboter-fuer-kinder/', titre: 'Programmierbarer Roboter für Kinder' },
+			{ href: '/de/mbot-vs-mbot2/', titre: 'mBot vs mBot2' },
+			{ href: '/de/partner/', titre: 'Partner-Verzeichnis' },
+		],
+		fr: [
+			{ href: '/meilleur-robot-programmable-enfant-2026/', titre: 'Robot programmable enfant' },
+			{ href: '/calculateur-budget-robot-classe/', titre: 'Calculateur budget classe' },
+		],
+	},
 	'cambuy-de': {
 		es: [
 			{ href: '/es/domotica/como-empezar/', titre: 'Domótica para principiantes' },

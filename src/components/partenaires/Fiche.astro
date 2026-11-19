@@ -3,7 +3,11 @@ interface Props { lang: string; slug: string }
 const { lang, slug } = Astro.props;
 import './partenaires.css';
 import { PUBLIES, PREFIX, textes, logoDe, articlesPour, editorialPour, liensUtiles, dateAffichee, paysDe } from '../../data/partenaires/registre.mjs';
+import { FICHE_COPY, FICHE_GO_LINKS } from '../../data/partenaires/ficheEditorial.mjs';
+import { withBase } from '../../lib/siteUrl';
+
 const t = textes(lang);
+const c = FICHE_COPY[lang] || FICHE_COPY.en;
 const langue = (lang in PREFIX ? lang : 'fr') as keyof typeof PREFIX;
 const index = PREFIX[langue];
 const p = PUBLIES.find((x) => x.slug === slug);
@@ -14,39 +18,151 @@ const voisins = PUBLIES.filter((x) => x.groupe === p.groupe && x.slug !== p.slug
 const logo = logoDe(p.slug);
 const quand = dateAffichee(p.date, lang);
 const accueil = lang === 'fr' ? '/' : `/${lang}/`;
+const goHref = FICHE_GO_LINKS[p.slug];
+const shopHref = goHref ? withBase(goHref) : p.bouton;
+const showNoPriceFaq = !shopHref;
+const shopLabel =
+	p.slug === 'outin-germany' ? c.goOutin : p.slug === 'wirkaufens-de' ? c.goWirkaufens : p.amazon ? t.prix : t.voir(p.nom);
+const familleLabel = p.famille === 'revendeur' ? t.revendeurs : t.marques;
 ---
+
 <div class="pp">
   <p class="pp-fil"><a href={accueil}>{t.accueil}</a> · <a href={index}>{t.titreIndex}</a></p>
   <h1>{p.nom}</h1>
   <p class="pp-chapo">{t.chapo(p.nom, p.marche)}</p>
+
+  <nav class="pp-sommaire" aria-label={c.tocAria}>
+    <ul>
+      <li><a href="#pp-role">{c.roleTitle}</a></li>
+      <li><a href="#pp-table">{c.tableTitle}</a></li>
+      {articles.length > 0 && <li><a href="#pp-articles">{t.articles}</a></li>}
+      <li><a href="#pp-faq">{c.faqTitle}</a></li>
+    </ul>
+  </nav>
+
+  <section id="pp-role">
+    <h2>{c.roleTitle}</h2>
+    <p>{c.roleBody}</p>
+  </section>
+
+  <section id="pp-table">
+    <h2>{c.tableTitle}</h2>
+    <table class="pp-table">
+      <tbody>
+        <tr>
+          <th scope="row">{c.tablePartner}</th>
+          <td>{p.nom}</td>
+        </tr>
+        <tr>
+          <th scope="row">{c.tableMarket}</th>
+          <td>{paysDe(lang, p.marche)}</td>
+        </tr>
+        <tr>
+          <th scope="row">{c.tableFamily}</th>
+          <td>{familleLabel}</td>
+        </tr>
+        {quand && (
+          <tr>
+            <th scope="row">{c.tableSince}</th>
+            <td>{quand}</td>
+          </tr>
+        )}
+        <tr>
+          <th scope="row">{c.tableLink}</th>
+          <td>
+            {shopHref ? (
+              <a class="pp-bouton" href={shopHref} rel="sponsored nofollow noopener" target="_blank">{shopLabel}</a>
+            ) : (
+              <span>—</span>
+            )}
+            {p.officiel && (
+              <>
+                {' '}
+                · <a href={p.officiel} rel="noopener" target="_blank">{t.site}</a>
+              </>
+            )}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
   <div class="pp-identite">
     {logo && <img class="pp-logo" src={logo} alt="" width="72" height="48" />}
-    <p>{t.marche} : {paysDe(lang, p.marche)}</p>
-    {quand && <p>{t.depuis} {quand}</p>}
-    {p.officiel && <p><a href={p.officiel} rel="noopener" target="_blank">{t.site}</a></p>}
-    {p.bouton && (
-      <p><a class="pp-bouton" href={p.bouton} rel="sponsored nofollow noopener" target="_blank">{p.amazon ? t.prix : t.voir(p.nom)}</a></p>
-    )}
   </div>
+
   {articles.length > 0 && (
-    <section>
+    <section id="pp-articles">
       <h2>{t.articles}</h2>
+      <p>{c.findBody}</p>
       <ul class="pp-liste">
-        {articles.map((a: { href: string; titre: string }) => <li><a href={a.href}>{a.titre}</a></li>)}
+        {articles.map((a: { href: string; titre: string }) => (
+          <li><a href={a.href}>{a.titre}</a></li>
+        ))}
       </ul>
     </section>
   )}
+
   {voisins.length > 0 && (
     <section>
       <h2>{t.autres}</h2>
       <ul class="pp-liste">
-        {voisins.map((v) => <li><a href={`${index}${v.slug}/`}>{v.nom}</a> — {paysDe(lang, v.marche)}</li>)}
+        {voisins.map((v) => (
+          <li>
+            <a href={`${index}${v.slug}/`}>{v.nom}</a> — {paysDe(lang, v.marche)}
+          </li>
+        ))}
       </ul>
     </section>
   )}
+
   {utiles.length > 0 && (
-    <ul class="pp-liste">
-      {utiles.map((u) => <li><a href={u.href}>{u.titre}</a></li>)}
-    </ul>
+    <section>
+      <h2>{c.tableEditorial}</h2>
+      <ul class="pp-liste">
+        {utiles.map((u) => (
+          <li><a href={u.href}>{u.titre}</a></li>
+        ))}
+      </ul>
+    </section>
   )}
+
+  <section id="pp-faq">
+    <h2>{c.faqTitle}</h2>
+    <h3>{t.affiliation}</h3>
+    <p>{c.faqAff}</p>
+    {showNoPriceFaq && (
+      <>
+        <h3>{c.faqNoPriceQ}</h3>
+        <p>{c.faqNoPrice}</p>
+      </>
+    )}
+    <h3>{c.faqMultiQ}</h3>
+    <p>{c.faqMulti}</p>
+  </section>
 </div>
+
+<style>
+  .pp-sommaire {
+    margin: 1rem 0 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: rgba(43, 125, 233, 0.06);
+    border: 1px solid rgba(43, 125, 233, 0.2);
+  }
+  .pp-sommaire ul { margin: 0; padding-left: 1.2rem; }
+  .pp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.95rem;
+  }
+  .pp-table th,
+  .pp-table td {
+    border: 1px solid var(--surface-border, #e2e8f0);
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .pp-table th { width: 38%; background: rgba(15, 23, 42, 0.04); font-weight: 600; }
+</style>

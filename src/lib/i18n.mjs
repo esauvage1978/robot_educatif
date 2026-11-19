@@ -1,5 +1,6 @@
 import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n.mjs';
 import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
+import { ROBOT_TOOL_LANG_PAIRS } from './robotToolPaths.mjs';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
 
 /** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
@@ -515,7 +516,10 @@ function fusionnerPaires(paires, ajouts) {
 	return out;
 }
 
-export const LANG_PAIRS = fusionnerPaires([...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES], EN_RATTACHEES);
+export const LANG_PAIRS = fusionnerPaires(
+	[...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...ROBOT_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES],
+	EN_RATTACHEES,
+);
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
 	{ href: '/en/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: educational robots and smart home' },

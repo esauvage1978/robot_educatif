@@ -1,22 +1,54 @@
 ---
 import RobotToolLayout from '../layouts/RobotToolLayout.astro';
 import MbotSensorSvgLibrary from '../components/MbotSensorSvgLibrary.astro';
-import { SVG_LIBRARY_PAGE } from '../data/mbotSensorSvgSchemes.mjs';
+import { SVG_LIBRARY_PAGE, SVG_LIBRARY_FAQ } from '../data/mbotSensorSvgSchemes.mjs';
 import { withBase } from '../lib/siteUrl';
 
 const pubDate = new Date('2026-10-24T00:00:00Z');
+const updatedDate = new Date('2026-11-19T03:00:00+01:00');
 ---
 
 <RobotToolLayout
 	title={SVG_LIBRARY_PAGE.title}
 	description={SVG_LIBRARY_PAGE.description}
 	pubDate={pubDate}
+	updatedDate={updatedDate}
 	articlePath="/ressources-svg-schemas-mbot-capteurs/"
 	hubLabel="mBot & capteurs"
 	hubPath="/accessoires-mbot-par-ou-commencer/"
+	faqSchema={SVG_LIBRARY_FAQ}
+	heroImage={withBase('/images/models/makeblock-mbot2.webp')}
 >
 	<p>{SVG_LIBRARY_PAGE.intro}</p>
+
+	<figure>
+		<img
+			src={withBase('/images/models/makeblock-mbot2.webp')}
+			alt="Makeblock mBot2, robot concerné par les schémas mBuild et capteurs de cette bibliothèque"
+			width="800"
+			height="600"
+		/>
+	</figure>
+
+	<p>
+		Matériel de référence (liens partenaires, prix du jour sur Amazon) :
+		<a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener" target="_blank">mBot classique</a>
+		·
+		<a href={withBase('/go/az-fr-1aa86e758c/')} rel="sponsored nofollow noopener" target="_blank">mBot2</a>.
+	</p>
+
 	<MbotSensorSvgLibrary />
+
+	<section>
+		<h2>FAQ</h2>
+		{SVG_LIBRARY_FAQ.map((item) => (
+			<div>
+				<h3>{item.question}</h3>
+				<p>{item.answer}</p>
+			</div>
+		))}
+	</section>
+
 	<p>
 		Réglages et dépannage :{' '}
 		<a href={withBase('/tableau-reglages-capteurs-mbot2-depannage/')}>tableau capteurs mBot2</a>

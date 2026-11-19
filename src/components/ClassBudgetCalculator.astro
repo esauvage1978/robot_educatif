@@ -1,6 +1,7 @@
 ---
 import { CLASS_MODELS, CLASS_FIXED } from '../data/classBudgetRobot.mjs';
 import { amazonProductUrl } from '../lib/amazon';
+import { withBase } from '../lib/siteUrl';
 
 const modelsJson = JSON.stringify(
 	CLASS_MODELS.map((m) => ({
@@ -57,6 +58,13 @@ const fixedJson = JSON.stringify(CLASS_FIXED);
 		</fieldset>
 		<button type="button" class="cbc-btn" data-cbc-calc>Calculer le budget</button>
 	</form>
+
+	<p class="cbc-aff-static">
+		Références partenaires (prix du jour sur Amazon) :
+		<a href={withBase('/go/az-fr-1d10774f85/')} rel="sponsored nofollow noopener" target="_blank">mBot (~89 € indicatif)</a>
+		·
+		<a href={withBase('/go/az-fr-1aa86e758c/')} rel="sponsored nofollow noopener" target="_blank">mBot2 (~149 € indicatif)</a>
+	</p>
 
 	<div class="cbc-out" data-cbc-out hidden>
 		<h3>Résultat</h3>
@@ -193,7 +201,7 @@ const fixedJson = JSON.stringify(CLASS_FIXED);
 				<li>Coût par élève : <strong>${perStudent} €</strong> (${students} élèves, ${robots} robot(s))</li>
 			`;
 			list.innerHTML = lines.map((l) => `<li>${l}</li>`).join('');
-			list.innerHTML += `<li><a href="${model.url}" target="_blank" rel="noopener noreferrer sponsored">Voir le kit sur Amazon ↗</a></li>`;
+			list.innerHTML += `<li><a href="${model.url}" target="_blank" rel="sponsored nofollow noopener">Voir le kit sur Amazon ↗</a></li>`;
 			modelNote.textContent = model.note || '';
 			out.hidden = false;
 		}

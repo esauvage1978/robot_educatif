@@ -170,8 +170,75 @@ export const COMPAT_PAGE_META = {
 	es: {
 		title: 'Matriz compatibilidad: Home Assistant, Homey, Zigbee, Matter',
 		description:
-			'Cuadrícula interactiva protocolo × central × módulo con estados y consumo.',
+			'Antes de comprar: cruza protocolo Zigbee, Matter o Wi-Fi con Home Assistant, Homey o Jeedom. Tabla Shelly, Sonoff, Aqara con estados y dongle Zigbee de referencia.',
 		intro:
-			'Filtrad por central y protocolo. Referencia noviembre 2026 — comprobad la ficha del fabricante.',
+			'Filtrad por central y protocolo. Referencia noviembre 2026 — comprobad la ficha del fabricante antes de encajar un sensor o enchufe en vuestra instalación.',
 	},
+};
+
+export const COMPAT_FAQ = {
+	fr: [
+		{
+			question: 'Un appareil « Matter » fonctionne-t-il partout ?',
+			answer:
+				'Matter facilite l’interopérabilité, mais l’intégration dépend encore de la box (Home Assistant, Homey, etc.) et parfois d’un border router Thread. Croisez la ligne du tableau et la doc fabricant.',
+		},
+		{
+			question: 'Faut-il un dongle Zigbee avec Home Assistant ?',
+			answer:
+				'Oui pour les capteurs Zigbee sans passerelle propriétaire : un coordinateur USB (par ex. SONOFF ZBDongle-E) est l’option la plus documentée sur ce site.',
+		},
+	],
+	en: [
+		{
+			question: 'Does a “Matter” device work on every hub?',
+			answer:
+				'Matter helps interoperability, but integration still depends on your hub and sometimes a Thread border router. Match the table row with the vendor page.',
+		},
+		{
+			question: 'Do I need a Zigbee dongle with Home Assistant?',
+			answer:
+				'Yes for Zigbee sensors without a proprietary gateway: a USB coordinator such as the SONOFF ZBDongle-E is the usual path documented here.',
+		},
+	],
+	de: [
+		{
+			question: 'Funktioniert Matter auf jeder Zentrale?',
+			answer: 'Matter erleichtert die Verbindung, aber die Integration hängt von der Zentrale und ggf. Thread ab.',
+		},
+		{
+			question: 'Brauche ich einen Zigbee-Stick für Home Assistant?',
+			answer: 'Für Zigbee-Sensoren ohne Hersteller-Gateway ja — z. B. SONOFF ZBDongle-E.',
+		},
+	],
+	it: [
+		{
+			question: 'Un dispositivo Matter funziona ovunque?',
+			answer: 'Matter aiuta, ma l’integrazione dipende dall’hub e a volte da Thread.',
+		},
+		{
+			question: 'Serve una chiavetta Zigbee con Home Assistant?',
+			answer: 'Sì per sensori Zigbee senza gateway di marca — es. SONOFF ZBDongle-E.',
+		},
+	],
+	es: [
+		{
+			question: '¿Un dispositivo Matter vale para cualquier central?',
+			answer:
+				'Matter facilita la interoperabilidad, pero la integración depende de Home Assistant, Homey u otra central y a veces de un border router Thread. Compruebe la fila en la tabla y la ficha del fabricante.',
+		},
+		{
+			question: '¿Hace falta un dongle Zigbee con Home Assistant?',
+			answer:
+				'Sí para sensores Zigbee sin puerta de enlace del fabricante: un coordinador USB como el SONOFF ZBDongle-E es la referencia habitual en esta web.',
+		},
+	],
+};
+
+export const COMPAT_AFFILIATE = {
+	fr: { go: '/go/az-fr-06647672a3/', label: 'SONOFF ZBDongle-E sur Amazon.fr' },
+	en: { go: '/go/az-us-bc91ba396f/', label: 'SONOFF ZBDongle-E on Amazon.com' },
+	de: { go: '/go/az-de-cb0f773ca9/', label: 'SONOFF ZBDongle-E bei Amazon.de' },
+	it: { go: '/go/az-it-93c0ac1f3b/', label: 'SONOFF ZBDongle-E su Amazon.it' },
+	es: { go: '/go/az-es-a772e10f6e/', label: 'SONOFF ZBDongle-E en Amazon.es' },
 };

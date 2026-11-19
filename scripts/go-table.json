@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-18T23:53:43.174Z",
- "count": 2099,
+ "updated": "2026-11-19T03:53:57.472Z",
+ "count": 2100,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -2066,6 +2066,14 @@
    "mid": "14040",
    "dest": "",
    "affid": "3126073"
+  },
+  "aw-14133-8e0f4a2bc1": {
+   "url": "https://www.awin1.com/awclick.php?mid=14133&id=3126073",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "14133",
+   "dest": "",
+   "affid": ""
   },
   "aw-14433-d4dac7931d": {
    "url": "https://www.awin1.com/awclick.php?mid=14433&id=3126073",

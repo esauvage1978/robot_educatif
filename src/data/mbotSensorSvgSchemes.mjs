@@ -1,10 +1,23 @@
 export const SVG_LIBRARY_PAGE = {
-	title: 'Schémas SVG capteurs mBot et mBot2 (broches, RJ25, mBuild)',
+	title: 'Schémas SVG capteurs mBot et mBot2 (RJ25, mBuild)',
 	description:
-		'Bibliothèque de schémas vectoriels : ports RJ25 1 à 4, bus mBuild, ultrason, suiveur de ligne, servomoteur et matrice LED — visualisation interactive et téléchargement SVG pour affiches ou fiches techniques.',
+		'Ports RJ25, bus mBuild, ultrason et suiveur de ligne : schémas SVG interactifs à télécharger pour affiches ou séances mBlock — avec rappel matrice Makeblock et liens matériel.',
 	intro:
 		'Schémas simplifiés pour la classe (broches et polarité à vérifier sur la documentation Makeblock avant câblage). Cliquez sur un schéma pour l’agrandir, puis téléchargez le fichier SVG.',
 };
+
+export const SVG_LIBRARY_FAQ = [
+	{
+		question: 'Ces schémas remplacent-ils la notice Makeblock ?',
+		answer:
+			'Non : ils servent d’affiche ou de support de séance. Avant de câbler un capteur RJ25 ou un module mBuild, croisez toujours la doc officielle et notre matrice de compatibilité accessoires.',
+	},
+	{
+		question: 'Quel robot pour utiliser ces schémas en cours ?',
+		answer:
+			'Les ports RJ25 concernent surtout le mBot classique ; le bus mBuild concerne le mBot2. Vérifiez la génération de robot sur votre table avant d’imprimer.',
+	},
+];
 
 export const SVG_SCHEMES = [
 	{

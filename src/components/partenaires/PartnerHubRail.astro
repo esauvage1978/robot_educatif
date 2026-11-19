@@ -1,0 +1,66 @@
+---
+import { PARTNER_HUB_ROBOT_CARDS, PARTNER_HUB_COPY } from '../../data/partenaires/hubAffiliate.mjs';
+import { withBase } from '../../lib/siteUrl';
+
+interface Props { lang: string }
+const { lang } = Astro.props;
+const ui = PARTNER_HUB_COPY[lang] || PARTNER_HUB_COPY.en;
+const shopLang = lang in PARTNER_HUB_COPY ? lang : 'en';
+---
+
+<section class="pp-rail" aria-labelledby="pp-rail-title">
+	<h2 id="pp-rail-title">{ui.railTitle}</h2>
+	<p class="pp-intro">{ui.railLead}</p>
+	<ul class="pp-rail-grid">
+		{PARTNER_HUB_ROBOT_CARDS.map((card) => {
+			const goHref = card.go[shopLang];
+			const guideHref = card.guide[shopLang] || card.guide.en || card.guide.fr;
+			if (!goHref) return null;
+			return (
+				<li>
+					<article class="pp-rail-card">
+						<a href={withBase(goHref)} rel="sponsored nofollow noopener" target="_blank">
+							<img src={withBase(card.image)} alt={card.alt[shopLang] || card.alt.fr} width="400" height="300" loading="lazy" />
+						</a>
+						<h3>{card.name[shopLang] || card.name.fr}</h3>
+						<p>{card.blurb[shopLang] || card.blurb.fr}</p>
+						<p class="pp-rail-links">
+							<a href={withBase(guideHref)}>{ui.compare}</a>
+							{' · '}
+							<a href={withBase(goHref)} rel="sponsored nofollow noopener" target="_blank">{ui.amazon}</a>
+						</p>
+					</article>
+				</li>
+			);
+		})}
+	</ul>
+</section>
+
+<style>
+	.pp-rail { margin: 2rem 0; }
+	.pp-rail-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.25rem;
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0 0;
+	}
+	.pp-rail-card {
+		border: 1px solid var(--surface-border, #e2e8f0);
+		border-radius: 12px;
+		padding: 1rem;
+		background: var(--surface, #fff);
+		height: 100%;
+		box-sizing: border-box;
+	}
+	.pp-rail-card img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		display: block;
+		margin-bottom: 0.75rem;
+	}
+	.pp-rail-card h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+	.pp-rail-links { font-size: 0.92rem; margin: 0.75rem 0 0; }
+</style>

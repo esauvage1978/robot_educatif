@@ -1,0 +1,25 @@
+---
+import { PARTNER_HUB_FAQ, PARTNER_HUB_COPY } from '../../data/partenaires/hubAffiliate.mjs';
+
+interface Props { lang: string }
+const { lang } = Astro.props;
+const ui = PARTNER_HUB_COPY[lang] || PARTNER_HUB_COPY.en;
+const items = PARTNER_HUB_FAQ[lang] || PARTNER_HUB_FAQ.en;
+---
+
+<section class="pp-faq" aria-labelledby="pp-faq-title">
+	<h2 id="pp-faq-title">{ui.faqTitle}</h2>
+	{items.map((item) => (
+		<div class="pp-faq-item">
+			<h3>{item.question}</h3>
+			<p>{item.answer}</p>
+		</div>
+	))}
+</section>
+
+<style>
+	.pp-faq { margin: 2.5rem 0 1rem; }
+	.pp-faq-item { margin-bottom: 1.25rem; }
+	.pp-faq-item h3 { font-size: 1.02rem; margin: 0 0 0.35rem; }
+	.pp-faq-item p { margin: 0; line-height: 1.55; }
+</style>

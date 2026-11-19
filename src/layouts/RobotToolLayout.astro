@@ -9,6 +9,8 @@ import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.ast
 import ToolResolutionBanner from '../components/ToolResolutionBanner.astro';
 import { ARTICLE_AUTHOR } from '../consts';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import StructuredDataArticle from '../components/StructuredDataArticle.astro';
+import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import { withBase } from '../lib/siteUrl';
 
 interface Props {
@@ -19,18 +21,25 @@ interface Props {
 	articlePath: string;
 	hubLabel?: string;
 	hubPath?: string;
+	/** FAQ visible + JSON-LD FAQPage */
+	faqSchema?: { question: string; answer: string }[];
+	/** Chemin image produit (public/) pour JSON-LD et illustration */
+	heroImage?: string;
 }
 
 const {
 	title,
 	description,
 	pubDate,
-	updatedDate,
+	updatedDate = new Date('2026-11-19T03:00:00+01:00'),
 	articlePath,
 	hubLabel = 'Guides & outils',
 	hubPath = '/meilleur-robot-programmable-enfant-2026/',
+	faqSchema = [],
+	heroImage,
 } = Astro.props;
 const displayDate = updatedDate ?? pubDate;
+const articleSlug = articlePath.replace(/^\/(fr\/)?/, '').replace(/\/$/, '');
 
 const breadcrumbJsonLd = [
 	{ name: 'Accueil', url: withBase('/') },
@@ -42,6 +51,15 @@ const breadcrumbJsonLd = [
 <html lang="fr">
 	<head>
 		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<StructuredDataArticle
+			title={title}
+			description={description}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			heroImage={heroImage}
+			articleSlug={articleSlug}
+		/>
+		<StructuredDataFaq items={faqSchema} />
 		<StructuredDataBreadcrumb items={breadcrumbJsonLd} />
 		<style>
 			main {
