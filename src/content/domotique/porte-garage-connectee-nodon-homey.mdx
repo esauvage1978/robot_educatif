@@ -18,6 +18,8 @@ export const Photo = ({src, alt, caption, portrait}) => (
 
 *Test réalisé le 20 novembre 2026.*
 
+J'ai lancé ce projet pour une raison toute simple. Je rentrais chez moi à moto ; dans ce cas, j'ouvre le garage avec la télécommande (le bip) sur mon porte-clés. La pile était vide, et je n'avais pas mes clés : j'ai dû attendre le retour de ma femme pour rentrer. Désormais, ça n'arrivera plus — et même si quelqu'un oublie ses clés, on peut ouvrir à distance. C'est pour ce genre de raisons que je me suis mis à la domotique : pas un passe-temps de geek, mais répondre à des problèmes réels et faciliter la vie.
+
 J'avais déjà installé le [Homey Pro](/domotique/test-homey-pro-deballage-installation/) chez moi, en pensant l'utiliser d'abord pour **ouvrir et fermer ma porte de garage**. C'est maintenant en place : un relais Zigbee **NodOn SIN-4-1-20** (Interrupteur Relais Multifonction, firmware 3.13.0-3.1.4) pilote le bouton d'origine, et un capteur d'ouverture **Aqara MCCGQ11LM** donne l'état de la porte.
 
 La motorisation est un **Tubauto ProCom** (art. 4512433) sur une **porte sectionnelle**. Un bouton poussoir mural était déjà câblé sur une paire de bornes à ressort de la carte. Je n'ai pas remplacé ce bouton : le relais se contente de fermer le même contact, en parallèle.
@@ -44,6 +46,8 @@ Si vous préférez une approche avec un ESP32 et ESPHome, j'ai déjà documenté
   cons={['Alimentation 230 V : couper le courant avant de câbler', 'Boîtier IP20 : prévoir une protection en local technique ou garage']}
   officialUrl="https://nodon.fr/products/module-multifonction-zigbee"
 />
+
+Merci à Philippe, de chez NodOn, pour sa confiance et pour le matériel, qui fonctionne parfaitement. Le relais NodOn est un produit de qualité, tant visuellement — la finition — qu'à l'usage. Le module m'a été **offert par NodOn** : comme d'habitude sur ce site, je le signale par souci de transparence. L'avis reste indépendant.
 
 ## Sécurité, avant de toucher aux fils
 
