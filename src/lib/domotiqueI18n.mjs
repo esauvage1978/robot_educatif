@@ -192,6 +192,12 @@ export const DOMOTIQUE_SLUGS = {
 		it: 'tendenze-domotica-2027-ces-mmwave-ia-locale-energia',
 		es: 'tendencias-domotica-2027-ces-mmwave-ia-local-energia',
 	},
+	'porte-garage-connectee-nodon-homey': {
+		en: 'garage-door-nodon-relay-homey',
+		de: 'garagentor-nodon-relais-homey',
+		it: 'porta-garage-rele-nodon-homey',
+		es: 'puerta-garaje-rele-nodon-homey',
+	},
 	'unboxing-kit-electrohobby-esp32': {
 		en: 'electrohobby-esp32-kit-unboxing',
 		de: 'electrohobby-esp32-kit-auspacken',

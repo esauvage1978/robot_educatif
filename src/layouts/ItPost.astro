@@ -28,7 +28,8 @@ const { pubDate, updatedDate } = guideArticleDates(fm);
 const articleSlug = _p.replace(/^\/it\//, '').replace(/\/$/, '') || 'page';
 const pair = findPair(_p);
 const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
-const ill = frSlug ? getIllustration(frSlug) : null;
+const realHero = typeof fm.heroImage === 'string' && fm.heroImage.trim() ? fm.heroImage.trim() : '';
+const ill = realHero ? { src: realHero, alt: title, real: true } : (frSlug ? getIllustration(frSlug) : null);
 const ogImage = ill ? ill.src : undefined;
 const _n = _p.endsWith('/') ? _p : _p + '/';
 const smartOf = (h) => h.startsWith('/it/domotica/') || h.includes('/shelly-gen4-');
@@ -274,7 +275,9 @@ const reviewOffer = reviewPage?.offer ?? null;
 				{ill && (
 					<div class="hero-article-media">
 						<img src={withBase(ill.src)} alt={`Illustrazione: ${title}`} width="960" height="540" fetchpriority="high" decoding="async" />
+						{!ill.real && (
 						<p class="ai-illustration-caption">Illustrazione generata con IA</p>
+						)}
 					</div>
 				)}
 			</section>

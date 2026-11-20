@@ -1,0 +1,141 @@
+---
+layout: ../../layouts/EnPost.astro
+lang: nl
+title: "Slimme garagedeur: NodOn-relais en Homey Pro"
+description: "Praktijkervaring: een Zigbee-relais NodOn SIN-4-1-20 parallel op de originele knop van een Tubauto-deur, bediend vanuit Homey Pro, met een Aqara-sensor."
+updated: "20 november 2026"
+heroImage: "/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp"
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Ook beschikbaar in het [Frans](/domotique/porte-garage-connectee-nodon-homey/) en het [Engels](/en/smart-home/garage-door-nodon-relay-homey/).*
+
+*Getest thuis op 20 november 2026.*
+
+Ik had de [Homey Pro](/en/smart-home/homey-pro-unboxing-setup/) al in huis geïnstalleerd (artikel in het Engels), met het idee om hem eerst te gebruiken om mijn **garagedeur te openen en te sluiten**. Dat is nu gedaan: een Zigbee-relais **NodOn SIN-4-1-20** (multifunctionele relais-schakelaar, firmware 3.13.0-3.1.4) bedient de originele drukknop, en een openingsensor **Aqara MCCGQ11LM** geeft aan of de deur open of dicht is.
+
+De motor is een **Tubauto ProCom** (art. 4512433) op een **sectionaaldeur**. Een drukknop aan de muur was al aangesloten op een paar veerklemmen van de print. Die knop heb ik niet vervangen: het relais sluit hetzelfde contact, parallel.
+
+De bedrading is in Frankrijk gedaan, op 230 V (bruin op L, blauw op N). Wie niet vertrouwd is met netspanning, laat dit door een elektricien doen. Wie liever met een ESP32 en ESPHome werkt, vindt een andere aanpak in het [Engelse artikel over een garagedeur met smartphone](/en/smart-home/garage-door-smartphone-esp32-esphome/). Hier loopt alles via Homey en Zigbee. Voor de protocoltermen: [Zigbee, wifi, Thread of Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/) (in het Engels).
+
+## Het materiaal
+
+- het relais **NodOn SIN-4-1-20** (één kanaal, potentiaalvrij contact, zonder energiemeting);
+- de **Homey Pro**, die al in gebruik was;
+- de deur- en raamsensor **Aqara MCCGQ11LM**;
+- een 230 V-aansnoer met stekker;
+- een vochtbestendige lasdoos, aan het plafond bevestigd naast het stopcontact van de motor.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="NodOn-relais SIN-4-1-20 nog voor de bedrading, met de klemmen en de knop PRESS zichtbaar" caption="De NodOn SIN-4-1-20, voor de bedrading." />
+
+<ProductBox
+  productId="nodon-sin-4-1-20"
+  name="NodOn SIN-4-1-20 — Zigbee multifunctionele relais-schakelaar"
+  asin="B09B7TBSP1"
+  image="/images/domotique/porte-garage-nodon-homey/nodon-sin-4-1-20-produit.webp"
+  description="Zigbee 3.0-relais met één kanaal en een potentiaalvrije uitgang, hier parallel aangesloten op de drukknop van een garagedeur."
+  pros={['Potentiaalvrij contact, geschikt voor een garagedeurknop', 'Impulsmodus instelbaar in Homey', 'Werkt ook als Zigbee-router']}
+  cons={['Voeding 230 V: schakel de stroom uit voor het aansluiten', 'Behuizing IP20: bescherm hem in een technische ruimte of garage']}
+  officialUrl="https://nodon.fr/en/products/zigbee-multifunction-relay-switch"
+  lang="nl"
+/>
+
+## Veiligheid, voordat u aan de draden zit
+
+De module wordt gevoed met **230 V**. Ik heb de **stroom uitgeschakeld** tijdens de hele bedrading en de stekker pas weer in het stopcontact gestoken toen de klemmen vastzaten, zonder bloot koper. Als dat werk niet vertrouwd is, laat het dan door een elektricien doen.
+
+Ik raad ook af om een flow te maken die de **deur vanzelf sluit**, zonder dat iemand ziet wat eronder staat. Een melding en daarna een handmatige bevestiging is veiliger.
+
+## De bedrading
+
+De NodOn krijgt stroom via een snoer met stekker, in het stopcontact van de motor: **blauw op N**, **bruin op L**. De module zit in een **vochtbestendige lasdoos**, aan het plafond naast dat stopcontact — een garage is geen woonkamer, en de doos laat de module niet in de open lucht hangen.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn-module in een open lasdoos, met de voedingsdraden en de draden van het potentiaalvrije contact al aangesloten" caption="De NodOn in de doos, na het aansluiten." />
+
+Het **potentiaalvrije contact** van het relais (de twee klemmen rechts, met het relaissymbool) is **parallel** aangesloten op de klemmen van de drukknop: de twee draden gaan in dezelfde **veerklemmen**, naast die van de knop. Daarna werkt de originele knop nog steeds — ik heb hem opnieuw getest voordat ik de doos dichtdeed.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Printplaat van de Tubauto ProCom-motor, met de veerklemmen van de muurdrukknop en het ongebruikte naburige paar" caption="De ProCom-print: het relais gaat naar de klemmen van de originele knop, niet naar het paar ernaast." />
+
+Op deze print is een **naburig klemmenpaar** ongebruikt gelaten. Het kan een veiligheidsingang of een fotocel zijn: zonder de handleiding bij de hand heb ik het relais daar niet op aangesloten.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Dichte lasdoos, bevestigd aan het garageplafond naast het stopcontact van de sectionaaldeur-motor" caption="De dichte doos, aan het plafond, naast het stopcontact van de motor." />
+
+## Koppelen in Homey
+
+In de Homey-app heb ik het apparaat toegevoegd via de app **NodOn**, met de keuze **multifunctionele relais-schakelaar** — het model « 1 RELAY » zonder energiemeting, niet de variant « METERING ». In de Franse app heet hetzelfde apparaat « Interrupteur Relais Multifonction ».
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Scherm van de Homey-app met de lijst van NodOn-apparaten en de multifunctionele relais-schakelaar geselecteerd" caption="De juiste keuze in de NodOn-app: de multifunctionele relais-schakelaar." />
+
+Om het module in koppelstand te zetten volstaat meestal een **lange druk** (ongeveer vijf seconden) op de knop **PRESS**, met een geïsoleerd gereedschap: loslaten zodra de led knippert. Een module die nog nooit is gekoppeld, kan na het inschakelen ook vanzelf een paar minuten in die stand staan.
+
+Een nuttige anekdote: een **korte druk** op PRESS bedient het relais. Tijdens de test ging de garagedeur open. Dat is geen fout, dat is precies de functie van de knop. Ik heb gesloten met de originele drukknop en de Homey-zoektocht gestart op het moment van de lange druk.
+
+## Impulsmodus, zonder extra flow
+
+In de geavanceerde instellingen staat **Duur van de impulsmodus**. De waarde **0** schakelt de modus uit; het bereik loopt van 0 tot 65.535. Ik heb **1.000 ms** (één seconde) ingesteld. Dat werkt perfect: elke activering bootst een druk op de knop na, en ik had geen flow « aanzetten, wachten, uitzetten » nodig.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-parametres-avances.webp" alt="Scherm met de geavanceerde instellingen van het NodOn-relais in Homey, met de impulsmodus tussen de opties" caption="De geavanceerde instellingen van de module in Homey." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-impulsion-1000ms.webp" alt="Homey-instelling Duur van de impulsmodus gezet op 1000 milliseconden" caption="1.000 ms: een impuls van één seconde, net als de originele knop." />
+
+Als de motor niet had gereageerd, had ik het op 1.500 ms gezet. Dat was niet nodig.
+
+De NodOn werkt ook als **Zigbee-router**: hij blijft onder spanning en versterkt het mesh-netwerk, wat welkom is in een garage die wat verder van de rest van het huis ligt.
+
+## De Aqara-sensor
+
+Om te weten of de deur open of dicht is, heb ik een **Aqara MCCGQ11LM** (deur- en raamsensor) in Homey gekoppeld, via de Aqara-app. De behuizing van de sensor zit **onderaan, op de rail** van de sectionaaldeur; de **magneet zit op de deur**, uitgelijnd met de sensor wanneer die dicht is.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-openingsensor onderaan bevestigd op de rail van de sectionale garagedeur, met de magneet zichtbaar op het paneel" caption="De Aqara-sensor onderaan de rail, de magneet op de deur." />
+
+Ik heb een opening en een sluiting getest voordat alles werd afgesloten.
+
+## De flow « Garage open > 10 min »
+
+Het relais beweegt de deur. De sensor waarschuwt. Ik heb een flow **Garage open > 10 min** gemaakt:
+
+1. **Wanneer** het contactalarm activeert (de deur gaat open);
+2. **En** het contactalarm aan staat;
+3. **Dan** een pushmelding « De garagedeur is open », **na 10 minuten**.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-flow-garage-ouvert.webp" alt="Homey-flow Garage langer dan 10 minuten open, met een openingstrigger, een voorwaarde en een uitgestelde melding" caption="De waarschuwingsflow, zoals die in Homey staat." />
+
+Ik heb de testmelding ontvangen.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey-pushmelding die aangeeft dat de garagedeur open is" caption="De melding op de telefoon." />
+
+Er blijft een beperking, en die moet duidelijk zijn: de kaart **En** wordt geëvalueerd **op het moment van openen**, niet na 10 minuten. Als u de deur tussentijds sluit, gaat de melding toch uit, tenzij u een **tweede flow** toevoegt die bij het sluiten de **uitgestelde acties** van de eerste annuleert. In mijn Homey heb ik de exacte naam van die kaart nog niet vastgelegd: zoek in de groep Flow, rond het woord voor « vertraging ». Die uitgebreidere flow komt in een apart artikel.
+
+## Verder uitbouwen
+
+Deze eerste opstelling volstaat voor dagelijks gebruik: een impuls vanuit de app, de status open of dicht, en een waarschuwing als de deur open blijft. Een **geavanceerdere flow** — de melding annuleren als u op tijd sluit, misschien een herinnering 's avonds — wordt later beschreven, op een eigen pagina. Geen automatische sluiting zonder zicht, om de redenen die al zijn genoemd.
+
+## Veelgestelde vragen
+
+**Werkt de originele knop nog?**
+Ja. Het relais staat parallel op dezelfde klemmen. Na het aansluiten heb ik de drukknop aan de muur opnieuw getest: hij beweegt de deur nog steeds.
+
+**Heb ik een flow nodig om een knopdruk na te bootsen?**
+Niet met deze module in Homey: de **impulsmodus op 1.000 ms** is voldoende.
+
+**Kan ik op de klemmen naast de knop aansluiten?**
+Dat heb ik niet gedaan. Op deze print kan het naburige paar een veiligheidsingang zijn. Zonder de handleiding van de ProCom is parallel op de knop de veiligere keuze.
+
+**Kan de deur na 10 minuten vanzelf sluiten?**
+Dat heb ik bewust weggelaten. De waarschuwing informeert; het sluiten blijft een bevestigde actie, omdat niemand ziet wat er onder de deur door gaat.
+
+**Verder lezen** (artikelen in het Engels of Frans)
+
+- [Homey Pro review: unboxing and setup](/en/smart-home/homey-pro-unboxing-setup/)
+- [Open a garage door from a smartphone (ESP32 / ESPHome)](/en/smart-home/garage-door-smartphone-esp32-esphome/)
+- [Zigbee, Wi-Fi, Thread or Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/)
+
+Overzicht van de Nederlandstalige site: [startpagina](/nl/).

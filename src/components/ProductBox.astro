@@ -121,6 +121,19 @@ const UI = {
 		official: 'Ficha oficial',
 		checked: (d: string) => `Consultado el ${d}`,
 	},
+	nl: {
+		indicative: 'Richtprijs',
+		unavailable: 'Niet beschikbaar op Amazon',
+		seePrice: 'Bekijk de prijs',
+		amazon: 'Bekijk de prijs van vandaag op Amazon',
+		amazonListing: 'Bekijk de Amazon-pagina',
+		also: 'Andere winkels',
+		pros: 'Pluspunten',
+		cons: 'Let op',
+		maker: 'Bekijk bij de fabrikant',
+		official: 'Officiële pagina',
+		checked: (d: string) => `Gecontroleerd op ${d}`,
+	},
 };
 
 function uiLocale(pathname: string, explicit?: string) {
@@ -129,6 +142,7 @@ function uiLocale(pathname: string, explicit?: string) {
 	if (p.startsWith('/de/')) return 'de';
 	if (p.startsWith('/it/')) return 'it';
 	if (p.startsWith('/es/')) return 'es';
+	if (p.startsWith('/nl/')) return 'nl';
 	if (/^\/(en|uk|ca|us)\//.test(p)) return 'en';
 	return 'fr';
 }

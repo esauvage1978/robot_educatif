@@ -25,6 +25,7 @@ export const ASIN_SEARCH = {
 	B0BBZY9L59: 'Makeblock CyberPi',
 	B0BYZP8NK2: 'SONOFF SNZB-02D temperature humidity sensor',
 	B0BZCV658S: 'SONOFF SNZB-02D sensor 2 pack',
+	B09B7TBSP1: 'NodOn SIN-4-1-20',
 	B0CDY2962D: 'Homey Pro smart home hub',
 	B0CK2FCG1K: 'Raspberry Pi 5 8GB',
 	B0CK3L9WD3: 'Raspberry Pi 5 4GB',

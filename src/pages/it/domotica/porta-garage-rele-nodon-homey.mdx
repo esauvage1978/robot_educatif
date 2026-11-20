@@ -1,0 +1,140 @@
+---
+layout: ../../../layouts/ItPost.astro
+title: "Porta del garage connessa: relè NodOn e Homey Pro"
+description: "Esperienza pratica: un relè Zigbee NodOn SIN-4-1-20 in parallelo al pulsante originale di una porta Tubauto, comandato da Homey Pro, con un sensore Aqara."
+updated: "20 novembre 2026"
+heroImage: "/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Disponibile anche in [francese](/domotique/porte-garage-connectee-nodon-homey/).*
+
+*Prova fatta in casa il 20 novembre 2026.*
+
+Avevo già installato l'[Homey Pro](/it/domotica/test-homey-pro-unboxing-installazione/) a casa, pensando di usarlo prima di tutto per **aprire e chiudere la porta del garage**. Ora è fatto: un relè Zigbee **NodOn SIN-4-1-20** (Interruttore Relè Multifunzione, firmware 3.13.0-3.1.4) aziona il pulsante originale, e un sensore di apertura **Aqara MCCGQ11LM** indica se la porta è aperta o chiusa.
+
+Il motore è un **Tubauto ProCom** (art. 4512433) su una **porta sezionale**. Un pulsante a parete era già cablato su una coppia di morsetti a molla della scheda. Non ho sostituito quel pulsante: il relè chiude lo stesso contatto, in parallelo.
+
+Il cablaggio è stato fatto in Francia, su rete a 230 V (marrone su L, blu su N). Se non si ha dimestichezza con la tensione di rete, conviene rivolgersi a un elettricista. Chi preferisce un ESP32 e ESPHome trova un altro percorso qui: [aprire una porta del garage dallo smartphone](/it/domotica/porta-garage-smartphone-esp32-esphome/). Qui tutto passa da Homey e Zigbee. Per il vocabolario dei protocolli: [Zigbee, Wi-Fi, Thread o Matter](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/).
+
+## Il materiale
+
+- il relè **NodOn SIN-4-1-20** (un canale, contatto pulito, senza misura dell'energia);
+- l'**Homey Pro**, già in funzione;
+- il sensore porta e finestra **Aqara MCCGQ11LM**;
+- un cavo di alimentazione 230 V con spina;
+- una scatola di derivazione stagna, fissata al soffitto accanto alla presa del motore.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="Modulo relè NodOn SIN-4-1-20 ancora da cablare, con i morsetti e il pulsante PRESS visibili" caption="Il NodOn SIN-4-1-20, prima del cablaggio." />
+
+<ProductBox
+  productId="nodon-sin-4-1-20"
+  name="NodOn SIN-4-1-20 — Interruttore relè multifunzione Zigbee"
+  asin="B09B7TBSP1"
+  image="/images/domotique/porte-garage-nodon-homey/nodon-sin-4-1-20-produit.webp"
+  description="Relè Zigbee 3.0 a un canale, con uscita a contatto pulito, usato qui in parallelo al pulsante di una porta del garage."
+  pros={['Contatto pulito, adatto a un pulsante del garage', 'Modalità impulso regolabile in Homey', 'Funziona anche da router Zigbee']}
+  cons={['Alimentazione 230 V: togliere tensione prima di cablare', 'Contenitore IP20: proteggerlo in un locale tecnico o in garage']}
+  officialUrl="https://nodon.fr/en/products/zigbee-multifunction-relay-switch"
+  lang="it"
+/>
+
+## Sicurezza, prima di toccare i fili
+
+Il modulo è alimentato a **230 V**. Ho **tolto la tensione** per tutto il cablaggio e ho reinserito la spina solo a morsetti stretti, senza rame in vista. Chi non è a proprio agio con questa operazione dovrebbe farla fare a un elettricista.
+
+Sconsiglio anche un flow che **chiuderebbe la porta da solo**, senza che nessuno veda che cosa c'è sotto. Una notifica, poi una conferma manuale, è più prudente.
+
+## Il cablaggio
+
+L'alimentazione del NodOn arriva da un cavo con spina, nella presa del motore: **blu su N**, **marrone su L**. Il modulo sta in una **scatola di derivazione stagna**, fissata al soffitto accanto a quella presa: un garage non è un soggiorno, e la scatola non lascia il modulo all'aperto.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Modulo NodOn installato in una scatola di derivazione aperta, con i fili di alimentazione e del contatto pulito già collegati" caption="Il NodOn nella scatola, a cablaggio terminato." />
+
+Il **contatto pulito** del relè (i due morsetti a destra, con il simbolo del relè) è collegato **in parallelo** ai morsetti del pulsante: i due fili entrano negli **stessi morsetti a molla**, accanto a quelli del pulsante. Dopo, il pulsante originale funziona ancora: l'ho provato di nuovo prima di chiudere.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Scheda elettronica del motore Tubauto ProCom, con i morsetti a molla del pulsante a parete e la coppia vicina inutilizzata" caption="La scheda del ProCom: il relè arriva sui morsetti del pulsante originale, non sulla coppia vicina." />
+
+Su questa scheda una **coppia di morsetti vicina** è rimasta inutilizzata. Può trattarsi di un ingresso di sicurezza o di una fotocellula: senza il manuale a portata di mano, non ci ho collegato il relè.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Scatola di derivazione chiusa, fissata al soffitto del garage accanto alla presa del motore della porta sezionale" caption="La scatola chiusa, al soffitto, accanto alla presa del motore." />
+
+## L'associazione in Homey
+
+Nell'app Homey ho aggiunto il dispositivo tramite l'app **NodOn**, scegliendo **Interruttore Relè Multifunzione** — il modello « 1 RELAY » senza misura dell'energia, non la variante « METERING ».
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Schermata dell'app Homey con l'elenco dei dispositivi NodOn e l'interruttore relè multifunzione selezionato" caption="La scelta giusta nell'app NodOn: l'interruttore relè multifunzione." />
+
+Per entrare in associazione basta in genere una **pressione lunga** (circa cinque secondi) sul pulsante **PRESS**, con un attrezzo isolato: si rilascia quando il LED lampeggia. Un modulo mai associato può entrare da solo in quella modalità per alcuni minuti dopo l'accensione.
+
+Un aneddoto utile: una **pressione breve** su PRESS aziona il relè. Durante la prova la porta del garage si è aperta. Non è un difetto, è esattamente il ruolo del pulsante. Ho richiuso con il pulsante originale e ho avviato la ricerca di Homey al momento della pressione lunga.
+
+## La modalità impulso, senza un flow intermedio
+
+Nelle impostazioni avanzate c'è **Durata della modalità impulso**. Il valore **0** la disattiva; l'intervallo va da 0 a 65.535. Ho impostato **1.000 ms** (un secondo). Funziona perfettamente: ogni attivazione imita una pressione sul pulsante, e non ho avuto bisogno di un flow « accendi, attendi, spegni ».
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-parametres-avances.webp" alt="Schermata delle impostazioni avanzate del relè NodOn in Homey, con la modalità impulso tra le opzioni" caption="Le impostazioni avanzate del modulo in Homey." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-impulsion-1000ms.webp" alt="Impostazione Homey Durata della modalità impulso regolata su 1000 millisecondi" caption="1.000 ms: un impulso di un secondo, come il pulsante originale." />
+
+Se il motore non avesse reagito, avrei provato 1.500 ms. Non è stato necessario.
+
+Il NodOn si comporta anche da **router Zigbee**: resta alimentato e rafforza la rete, il che è utile in un garage un po' discosto dal resto della casa.
+
+## Il sensore Aqara
+
+Per sapere se la porta è aperta o chiusa ho associato un **Aqara MCCGQ11LM** (sensore porta e finestra) in Homey, tramite l'app Aqara. Il corpo del sensore è fissato **in basso, sul binario** della porta sezionale; il **magnete è sulla porta**, allineato al sensore quando è chiusa.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Sensore di apertura Aqara fissato in basso sul binario della porta sezionale del garage, magnete visibile sul pannello" caption="Il sensore Aqara in basso sul binario, il magnete sulla porta." />
+
+Ho provato un'apertura e una chiusura prima di chiudere tutto.
+
+## Il flow « Garage aperto > 10 min »
+
+Il relè muove la porta. Il sensore serve ad avvisare. Ho creato un flow **Garage aperto > 10 min**:
+
+1. **Quando** l'allarme contatto si attiva (la porta si apre);
+2. **E** l'allarme contatto è in funzione;
+3. **Allora** una notifica push « La porta del garage è aperta », **dopo 10 minuti**.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-flow-garage-ouvert.webp" alt="Flow Homey Garage aperto da più di 10 minuti, con l'attivatore di apertura, una condizione e una notifica ritardata" caption="Il flow di avviso, così com'è in Homey." />
+
+Ho ricevuto la notifica di prova.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Notifica push Homey che indica che la porta del garage è aperta" caption="La notifica arrivata sul telefono." />
+
+Resta un limite, e va detto con chiarezza: la carta **E** viene valutata **nel momento dell'apertura**, non allo scadere dei 10 minuti. Se nel frattempo si richiude la porta, la notifica parte lo stesso, a meno di aggiungere un **secondo flow** che, alla chiusura, **annulla le azioni ritardate** del primo. Nel mio Homey non ho ancora fissato il nome esatto di quella carta: va cercata nel gruppo Flow, intorno alla parola « ritardo ». Quel flow più completo arriverà in un articolo a parte.
+
+## Per andare oltre
+
+Questo primo impianto basta per l'uso quotidiano: impulso dall'app, stato aperto o chiuso, e un avviso se la porta resta aperta. Un **flow più avanzato** — annullamento della notifica se si chiude in tempo, magari un richiamo la sera — sarà descritto più avanti, in una pagina dedicata. Niente chiusura automatica senza visibilità, per i motivi già indicati.
+
+## Domande frequenti
+
+**Il pulsante originale funziona ancora?**
+Sì. Il relè è in parallelo sugli stessi morsetti. Dopo il collegamento ho riprovato il pulsante a parete: aziona ancora la porta.
+
+**Serve un flow per imitare la pressione?**
+No, non con questo modulo in Homey: la **modalità impulso a 1.000 ms** è sufficiente.
+
+**Posso collegarmi ai morsetti accanto al pulsante?**
+Non l'ho fatto. Su questa scheda la coppia vicina può essere un ingresso di sicurezza. Senza il manuale del ProCom, il parallelo sul pulsante resta la scelta più sicura.
+
+**La porta può chiudersi da sola dopo 10 minuti?**
+L'ho escluso di proposito. L'avviso informa; la chiusura resta un'azione confermata, perché nessuno vede che cosa passa sotto la porta.
+
+**Da leggere anche**
+
+- [Prova Homey Pro: unboxing e installazione](/it/domotica/test-homey-pro-unboxing-installazione/)
+- [Aprire una porta del garage dallo smartphone (ESP32 / ESPHome)](/it/domotica/porta-garage-smartphone-esp32-esphome/)
+- [Zigbee, Wi-Fi, Thread o Matter: quale protocollo scegliere](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/)
+
+Rubrica: [domotica](/it/domotica/).

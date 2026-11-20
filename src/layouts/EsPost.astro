@@ -29,7 +29,8 @@ const { pubDate, updatedDate } = guideArticleDates(fm);
 const articleSlug = _p.replace(/^\/es\//, '').replace(/\/$/, '') || 'page';
 const pair = findPair(_p);
 const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
-const ill = frSlug ? getIllustration(frSlug) : null;
+const realHero = typeof fm.heroImage === 'string' && fm.heroImage.trim() ? fm.heroImage.trim() : '';
+const ill = realHero ? { src: realHero, alt: title, real: true } : (frSlug ? getIllustration(frSlug) : null);
 const ogImage = ill ? ill.src : undefined;
 const _n = _p.endsWith('/') ? _p : _p + '/';
 const others = ES_PAGES.filter(
@@ -278,7 +279,9 @@ const reviewOffer = reviewPage?.offer ?? null;
 				{ill && (
 					<div class="hero-article-media">
 						<img src={withBase(ill.src)} alt={`Ilustración: ${title}`} width="960" height="540" fetchpriority="high" decoding="async" />
+						{!ill.real && (
 						<p class="ai-illustration-caption">Ilustración generada con IA</p>
+						)}
 					</div>
 				)}
 			</section>
