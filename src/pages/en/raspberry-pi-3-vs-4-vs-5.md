@@ -89,7 +89,7 @@ Between the **[Raspberry Pi](/en/raspberry-pi-brand/) 3 Model B**, the **Pi 4 Mo
 
 ## 3. Prices
 
-Raspberry Pi prices move often (stock, reseller margins, VAT or sales tax). **Check the current price** with an [approved reseller](https://www.raspberrypi.com/resellers/). The French Amazon snapshot of 10 November 2026 lists Pi 5 boards under ASINs that belong to amazon.com; those codes are not reused here as US or UK product pages. Always check the board revision and what is included (power supply, cooler). Dated euro prices for the Pi 5 are on the [French comparison](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/).
+Raspberry Pi prices move often (stock, reseller margins, VAT or sales tax). **Check the current price** with an [approved reseller](https://www.raspberrypi.com/resellers/). The French Amazon snapshot of 10 November 2026 lists Pi 5 boards under ASINs tied to the US storefront; those codes are not reused here as US or UK product pages. Always check the board revision and what is included (power supply, cooler). Dated euro prices for the Pi 5 are on the [French comparison](/raspberry-pi-3-vs-4-vs-5-comparatif-2026/).
 
 ## 4. Which Raspberry Pi for which use?
 

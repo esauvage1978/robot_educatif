@@ -19,13 +19,13 @@ faqSchema:
 
 > **Direct answer (October 2026)** — In 2026, decide by **age**, **language** (blocks vs Python) and **budget**: hub [best programmable robot](/en/best-programmable-robot-for-kids/) + guides from [age 5](/en/best-robot-for-a-5-year-old/) to [age 12](/en/best-robot-for-a-12-year-old/).
 
-> **Shops on this English page** — Product cards and search links default to **Amazon.com** (`amazon.com`). If you buy in the **US or Canada**, use the **Amazon.com** / **Amazon.ca** pairs in the [Amazon links section](#amazon-links-affiliate-search) and confirm the box contents before checkout.
+> **Shops on this English page** — Search links default to the **US Amazon store**. Canadian readers can use the **Amazon.ca** links in the [Amazon links section](#amazon-links-affiliate-search) and confirm the box contents before checkout.
 
 Choosing an **educational robot in 2026** is not about “the best brand on paper”, but about **aligning three realities**: the child’s **real age** (motivation included), the **time** you can spend on setup and updates, and a **total budget** including accessories and batteries. **Scratch** here means a **block-based coding language** (you snap instructions together instead of typing syntax) — the usual entry path between about 7 and 12 on this site. **Python** is a **text programming language**: you type code on a keyboard; it usually needs **fluent reading** and some **typing**, and fits best from about **10–11** with support, or earlier if blocks are already easy.
 
 This guide is deliberately **structured by product families**: you identify your profile, then refine with our detailed articles and **Amazon searches** to compare prices and availability today.
 
-> **Price guidance (October 2026)** — Ranges are **indicative** in **euros** for EU listings; on **Amazon.com** check **today’s price** (often roughly **£70–90** for a classic mBot pack, **£130–170** for mBot2). US shoppers: use the **Amazon.com** links below and verify the box contents. Always confirm **what is in the pack** before paying.
+> **Price guidance** — Ranges are indicative only. On **Amazon.com**, check **today’s price** (often roughly **$80–110** for a classic mBot pack, **$140–190** for mBot2). Use the **Amazon.com** links below and verify the box contents before paying.
 
 ## Guides by age (photos and detailed criteria)
 

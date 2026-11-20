@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Robotics equipment for renters, without a workshop"
-description: "Renters: which robot or kit to buy with no workshop and no drilling. Amazon.com prices, 8 November 2026: space, noise, the tenancy and moving day."
+description: "Renters: which robot or kit to buy with no workshop and no drilling. Marketplace listing snapshots, 8 November 2026: space, noise, the tenancy and moving day."
 updated: "8 November 2026"
 ---
 
-*Affiliate disclosure: Amazon.com links on this page may earn us a commission, at no extra cost to you. Prices are from our amazon.com extract of 8 November 2026, 18:27 Paris time. They move. This page is in English for several countries: pound prices are UK listings, not a conversion, and not a US or Canadian price.*
+*Affiliate disclosure: Amazon affiliate links on this page may earn us a commission, at no extra cost to you. Prices are from our marketplace extract of 8 November 2026, 18:27 Paris time. They move. This page is in English for several countries: pound prices are UK listings, not a conversion, and not a US or Canadian price.*
 
 A renter can learn robotics with a battery or USB robot that lives in one box and leaves with you. The deciding fact is free floor, not the longest spec sheet. With less than a clear metre, [Codey Rocky](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20) was £100 on 8 November 2026 and stays on a desk. With a clear metre, and AA cells bought separately, the [mBot](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) was £53 the same day. A teenager or adult who wants to see the wires starts from the [ELEGOO V4.0 page](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) and checks that the UK listing title says V4.0 before paying. Resin, a laser, an arm screwed into the wall, and an in-wall electrical module stay out.
 

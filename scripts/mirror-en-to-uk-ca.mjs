@@ -119,7 +119,17 @@ function mirror(market) {
 			.replace(/Live Amazon\.com prices/gi, `Live ${amazonShop} prices`)
 			.replace(/Amazon\.com is the default shop/gi, `${amazonShop} is the default shop`)
 			.replace(/on Amazon\.com/gi, `on ${amazonShop}`)
-			.replace(/Amazon\.com ·/g, `${amazonShop} ·`);
+			.replace(/Amazon\.com ·/g, `${amazonShop} ·`)
+			.replace(/Check price on Amazon\.com/gi, `Check price on ${amazonShop}`)
+			.replace(/Search on Amazon\.com/gi, `Search on ${amazonShop}`)
+			.replace(/(?:about|around)\s*€[\d.,\s–-]+/gi, 'check today’s price on ' + amazonShop)
+			.replace(
+				/<code>amazon\.com<\/code>/gi,
+				`<code>${market === 'uk' ? 'amazon.co.uk' : 'amazon.ca'}</code>`,
+			)
+			.replace(/https:\/\/www\.amazon\.com\//gi, `https://www.${MARKET_AMAZON[market].host}/`)
+			.replace(/\blisting on Amazon\.co\.uk showed/gi, `listing on ${amazonShop} showed`)
+			.replace(/\bamazon\.com\b/gi, market === 'uk' ? 'amazon.co.uk' : 'amazon.ca');
 		if (html !== before) {
 			writeFileSync(file, html);
 			n++;

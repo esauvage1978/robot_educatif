@@ -32,8 +32,9 @@ const samples = { caDp: [], comDp: [], frHost: [], amazonComLabel: [], euro: [] 
 for (const root of roots) {
 	const market = path.basename(root);
 	for (const file of walk(root)) {
-		const html = fs.readFileSync(file, 'utf8');
 		const rel = path.relative(dist, file);
+		if (/\/partners\//.test(rel)) continue;
+		const html = fs.readFileSync(file, 'utf8');
 		if (/amazon\.ca\/dp\//i.test(html)) {
 			counts.caDp++;
 			if (samples.caDp.length < 3) samples.caDp.push(rel);

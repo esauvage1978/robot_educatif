@@ -196,7 +196,7 @@ export const project = {
 	durationHours: '2–4',
 	budgetRange: {
 		fr: '0 € (sans électronique) à environ 25–90 € selon la solution',
-		en: '€0 (no electronics) to about €25–90 depending on the approach',
+		en: '$0 (no electronics) to about $25–90 depending on the approach',
 		de: '0 € (ohne Elektronik) bis ca. 25–90 € je nach Lösung',
 		it: '0 € (senza elettronica) fino a circa 25–90 € a seconda della soluzione',
 		es: '0 € (sin electrónica) hasta unos 25–90 € según la solución',
@@ -484,7 +484,7 @@ export const project = {
 				{
 					title: 'A — No electronics: visual gauge and calendar reminder',
 					difficulty: 'Beginner',
-					budget: '€0',
+					budget: '$0',
 					body: 'Open the lid and mark three heights (permanent marker or plastic ruler): full, half, refill. Note how many kilos you add and, over a few weeks, estimate your pace (water hardness and usage). Create a phone calendar reminder or a time-only Home Assistant automation (“every X days, check the salt”).',
 					install: 'No wiring. Check the level at each reminder and adjust the interval after two or three refill cycles.',
 					alert: 'Calendar reminder or timer notification — no automatic measurement.',
@@ -494,7 +494,7 @@ export const project = {
 				{
 					title: 'B — Commercial Zigbee or Wi-Fi tank level sensor',
 					difficulty: 'Beginner to intermediate',
-					budget: 'about €40–90 depending on model and coordinator (check with the seller)',
+					budget: 'about $40–100 depending on model and coordinator (check with the seller)',
 					body: 'Real ultrasonic tank-level sensors exist, for example Tuya / EPTTECH TLC2206 (Zigbee TLC2206-ZB, supported in Zigbee2MQTT with a percentage). They measure distance to a surface and expose a percentage. They are designed for liquids; on salt pellets the surface is uneven, so treat readings as approximate (full / half / low). Another simple path used with Home Assistant: a wired Zigbee leak sensor at the bottom — it only reports “too low” when brine reaches the probe, not a true percentage.',
 					install: 'Fix the head under the lid above the salt, set installation height in the app or Zigbee2MQTT, pair it, then add a Home Assistant alert.',
 					alert: 'Low threshold → mobile notification (liquid_level_percent or liquid_state).',
@@ -514,7 +514,7 @@ export const project = {
 				{
 					title: 'D — ESP32 + waterproof ultrasonic JSN-SR04T (or ToF) + ESPHome',
 					difficulty: 'Intermediate',
-					budget: 'about €25–55 depending on seller (ESP32 + probe + enclosure)',
+					budget: 'about $25–60 depending on seller (ESP32 + probe + enclosure)',
 					body: 'An ESP32 measures distance to the pellets with a JSN-SR04T (waterproof ultrasonic probe on a cable; the module’s PCB is not waterproof) or, alternatively, a VL53L0X / VL53L1X ToF sensor (Time of Flight: light-based distance, shorter range, often better for small bins). ESPHome turns distance into a percentage and full / half / refill. A classic HC-SR04 has no waterproof probe and corrodes quickly here.',
 					install: 'Follow the detailed build below: wiring, flash, empty_m / full_m calibration, then the Home Assistant automation.',
 					alert: 'binary_sensor “Salt needs refill” → notification (YAML provided).',

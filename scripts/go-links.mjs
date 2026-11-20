@@ -55,7 +55,6 @@ function normalizeAmazon(url) {
   const want = AMAZON_TAGS[m[2]];
   const cur = u.searchParams.get('tag');
   if (cur === want) return url;
-  if (cur && m[2] !== 'ca') return url; // autre tag volontaire : inchangé (seul amazon.ca est forcé)
   if (cur) return url.replace(/([?&]tag=)[^&#]*/, '$1' + want);
   return url.replace(/^([^#]*?)(#.*)?$/, (_, a, h) => a + (a.includes('?') ? '&' : '?') + 'tag=' + want + (h || ''));
 }

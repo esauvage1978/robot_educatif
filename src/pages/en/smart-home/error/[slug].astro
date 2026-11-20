@@ -33,7 +33,16 @@ const savNote = entry.savNote?.en || entry.savNote?.fr || '';
 const pick = (value) => (value && typeof value === 'object' ? value.en || value.fr || '' : value || '');
 const tools = pick(entry.tools);
 const time = pick(entry.time);
-const cost = pick(entry.cost);
+function costForEn(raw) {
+	if (!raw || typeof raw !== 'string') return raw || '';
+	if (raw === '0 €') return 'No extra parts cost';
+	return raw
+		.replace(/\s*€/g, '')
+		.replace(/^0$/, 'No extra parts cost')
+		.replace(/(\d+(?:\.\d+)?)\s*–\s*(\d+(?:\.\d+)?)/, 'about $$1–$$2')
+		.replace(/^(\d+(?:\.\d+)?)$/, 'about $$1');
+}
+const cost = lang === 'en' ? costForEn(pick(entry.cost)) : pick(entry.cost);
 const description = symptoms.slice(0, 158).trim();
 const pubDate = new Date('2026-10-24T00:00:00Z');
 const related = getAllCatalogEntries()

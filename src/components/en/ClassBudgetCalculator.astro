@@ -26,7 +26,7 @@ const modelsJson = JSON.stringify(
 	CLASS_MODELS.map((m) => ({
 		id: m.id,
 		label: LABELS[m.id] || m.label,
-		unitEur: m.unitEur,
+		unitUsd: Math.round(m.unitEur * 1.08),
 		url: amazonSearchUrl('en', AMAZON_QUERY[m.id] || m.label),
 		perRobotExtras: m.perRobotExtras,
 		note: NOTES[m.id] || '',
@@ -55,7 +55,7 @@ const fixedJson = JSON.stringify(CLASS_FIXED);
 				Robot
 				<select name="model" data-cbc-model>
 					{CLASS_MODELS.map((m) => (
-						<option value={m.id}>{LABELS[m.id] || m.label} (~€{m.unitEur} / kit)</option>
+						<option value={m.id}>{LABELS[m.id] || m.label} (~${Math.round(m.unitEur * 1.08)} / kit)</option>
 					))}
 				</select>
 			</label>
@@ -188,29 +188,31 @@ const fixedJson = JSON.stringify(CLASS_FIXED);
 			const modelId = String(f.get('model'));
 			const model = models.find((m) => m.id === modelId) || models[0];
 			const robots = Math.ceil(students / groupSize);
-			let total = robots * model.unitEur;
-			const lines = [`${robots} × ${model.label} — €${robots * model.unitEur}`];
+			const u = model.unitUsd || model.unitEur;
+			let total = robots * u;
+			const lines = [`${robots} × ${model.label} — about $${robots * u}`];
 
 			if (f.get('batteries')) {
 				const packs = Math.max(1, Math.ceil(robots / 4));
-				const bat = packs * (fixed.chargerSharedEur || 28);
+				const bat = packs * Math.round((fixed.chargerSharedEur || 28) * 1.08);
 				total += bat;
-				lines.push(`${packs} rechargeable-battery set(s) and a charger — €${bat}`);
+				lines.push(`${packs} rechargeable-battery set(s) and a charger — about $${bat}`);
 			}
 			if (f.get('storage')) {
-				total += fixed.storageBoxEur || 35;
-				lines.push(`1 storage box — €${fixed.storageBoxEur || 35}`);
+				const box = Math.round((fixed.storageBoxEur || 35) * 1.08);
+				total += box;
+				lines.push(`1 storage box — about $${box}`);
 			}
 			if (f.get('spares')) {
-				const sp = robots * (model.perRobotExtras?.sparePartsEur || 0);
+				const sp = robots * Math.round((model.perRobotExtras?.sparePartsEur || 0) * 1.08);
 				total += sp;
-				lines.push(`Spare parts (estimate) — €${sp}`);
+				lines.push(`Spare parts (estimate) — about $${sp}`);
 			}
 
-			const perStudent = (total / students).toFixed(2);
+			const perStudent = (total / students).toFixed(0);
 			summary.innerHTML = `
-				<li>Estimated total: <strong>€${total}</strong></li>
-				<li>Per student: <strong>€${perStudent}</strong> (${students} students, ${robots} robot${robots > 1 ? 's' : ''})</li>
+				<li>Estimated total: <strong>about $${total}</strong></li>
+				<li>Per student: <strong>about $${perStudent}</strong> (${students} students, ${robots} robot${robots > 1 ? 's' : ''})</li>
 			`;
 			list.innerHTML = lines.map((l) => `<li>${l}</li>`).join('');
 			list.innerHTML += `<li><a href="${model.url}" target="_blank" rel="noopener noreferrer sponsored">Check today’s price on Amazon</a></li>`;

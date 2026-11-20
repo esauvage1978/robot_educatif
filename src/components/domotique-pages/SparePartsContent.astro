@@ -2,6 +2,7 @@
 import RepairComplianceSections from '../RepairComplianceSections.astro';
 import RepairIndicators from '../RepairIndicators.astro';
 import { sparePartsRows, SPARE_PARTS_META } from '../../data/smartHomeSpareParts.mjs';
+import { withBase } from '../../lib/siteUrl';
 
 interface Props {
 	lang: 'fr' | 'en' | 'de' | 'it' | 'es';
@@ -12,41 +13,65 @@ const meta = SPARE_PARTS_META[lang];
 const rows = sparePartsRows(lang);
 const shopLabel =
 	lang === 'fr' ? 'Boutiques' : lang === 'de' ? 'Shops' : lang === 'it' ? 'Negozi' : lang === 'es' ? 'Tiendas' : 'Shops';
+const indicatorCost =
+	lang === 'en' ? 'No extra parts cost' : lang === 'de' ? '0 €' : lang === 'it' ? '0 €' : lang === 'es' ? '0 €' : '0 €';
+const indicatorTools =
+	lang === 'fr' ? 'Navigateur web' : lang === 'en' ? 'Web browser' : lang === 'de' ? 'Web-Browser' : lang === 'it' ? 'Browser web' : 'Navegador web';
+const indicatorTime =
+	lang === 'fr' ? '5 min (lecture)' : lang === 'en' ? '5 min (reading)' : lang === 'de' ? '5 Min. (Lesen)' : lang === 'it' ? '5 min (lettura)' : '5 min (lectura)';
+const mblockHref =
+	lang === 'fr'
+		? '/domotique/mblock-depannage-codes-erreurs-mbot-arduino/'
+		: lang === 'en'
+			? '/en/mblock-arduino-upload-errors/'
+			: lang === 'de'
+				? '/de/smart-home/fehlercodes-zigbee-home-assistant-shelly/'
+				: lang === 'it'
+					? '/it/domotica/codici-errore-zigbee-home-assistant-shelly/'
+					: '/es/domotica/codigos-error-zigbee-home-assistant-shelly/';
 ---
 
 <p>{meta.intro}</p>
-<repaircompliancesections lang="{lang}" showsupport="{false}" variant="smart-home"></repaircompliancesections>
-<repairindicators 'navigateur'="" 'web="" :="" =="fr" ?="" browser'}="" cost="0 €" difficulty="{1}" lang="{lang}" time="5 min (lecture)" tools="{lang"></repairindicators>
+
+<RepairComplianceSections lang={lang} showSupport={false} variant="smart-home" />
+
+<RepairIndicators lang={lang} difficulty={1} time={indicatorTime} cost={indicatorCost} tools={indicatorTools} />
+
 <table>
-<thead>
-<tr>
-<th>{meta.table.cat}</th>
-<th>{meta.table.official}</th>
-<th>{meta.table.compat}</th>
-<th>{meta.table.note}</th>
-<th>{shopLabel}</th>
-</tr>
-</thead>
-<tbody>
+	<thead>
+		<tr>
+			<th>{meta.table.cat}</th>
+			<th>{meta.table.official}</th>
+			<th>{meta.table.compat}</th>
+			<th>{meta.table.note}</th>
+			<th>{shopLabel}</th>
+		</tr>
+	</thead>
+	<tbody>
 		{rows.map((row) => (
 			<tr>
-<td><strong>{row.category[lang]}</strong></td>
-<td>{row.official[lang]}</td>
-<td>{row.compat[lang]}</td>
-<td>{row.note[lang]}</td>
-<td>
-<ul>
+				<td>
+					<strong>{row.category[lang]}</strong>
+				</td>
+				<td>{row.official[lang]}</td>
+				<td>{row.compat[lang]}</td>
+				<td>{row.note[lang]}</td>
+				<td>
+					<ul>
 						{row.links.map((link) => (
 							<li>
-<a href="{link.url}" rel="sponsored noopener noreferrer" target="_blank">{link.label[lang]}</a>
-</li>
+								<a href={link.url} rel="sponsored noopener noreferrer" target="_blank">
+									{link.label[lang]}
+								</a>
+							</li>
 						))}
 					</ul>
-</td>
-</tr>
+				</td>
+			</tr>
 		))}
 	</tbody>
 </table>
+
 <p>
 	{lang === 'fr'
 		? 'Robotique : pour les erreurs de téléversement mBlock / Arduino, voir aussi '
@@ -57,8 +82,9 @@ const shopLabel =
 				: lang === 'it'
 					? 'Robotica: errori upload mBlock / Arduino: '
 					: 'Robótica educativa: errores de carga mBlock / Arduino: '}
-	<a '="" '}="" :="" =="fr" ?="" href="{lang" mblock-depannage-codes-erreurs-mbot-arduino="">
+	<a href={withBase(mblockHref)}>
 		{lang === 'fr' ? 'dépannage mBlock & mBot' : 'mBlock & mBot troubleshooting'}
 	</a>.
 </p>
-<repaircompliancesections lang="{lang}" showassist="{false}" showdisclaimer="{false}" showsav="{false}" variant="smart-home"></repaircompliancesections>
+
+<RepairComplianceSections lang={lang} showAssist={false} showDisclaimer={false} showSav={false} variant="smart-home" />

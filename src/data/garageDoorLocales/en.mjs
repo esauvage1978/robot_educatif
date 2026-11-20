@@ -306,7 +306,7 @@ export const garageDoorEn = {
 				],
 				[
 					'Budget',
-					'Catalogue estimate: about €8–62 depending on the profile (module only, or with opening sensor and Zigbee dongle if needed). The configurator details the list.',
+					'Catalogue estimate: about $10–70 depending on the profile (module only, or with opening sensor and Zigbee dongle if needed). The configurator details the list.',
 				],
 				[
 					'Software',

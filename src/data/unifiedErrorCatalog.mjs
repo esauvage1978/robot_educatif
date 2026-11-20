@@ -336,12 +336,12 @@ const TOOLS_FR_EN = {
 };
 
 const COST_FR_EN = {
-	'0 €': '€0',
-	'0–12 €': '€0–12',
-	'0–15 €': '€0–15',
-	'0–25 €': '€0–25',
-	'0–25 € (prise routeur)': '€0–25 (mains-powered Zigbee plug)',
-	'0–5 €': '€0–5',
+	'0 €': 'No extra parts cost',
+	'0–12 €': 'about $0–15',
+	'0–15 €': 'about $0–20',
+	'0–25 €': 'about $0–30',
+	'0–25 € (prise routeur)': 'about $0–30 (mains-powered Zigbee plug)',
+	'0–5 €': 'about $0–8',
 };
 
 const ERROR_CODE_FR_EN = {
