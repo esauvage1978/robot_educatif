@@ -44,9 +44,9 @@ Control the garage from your phone **and** know if it stayed open: a **relay in 
 </table>
 </div>
 
-- ESP32 DevKit — [UK](https://www.amazon.co.uk/s?k=ESP32+DevKit&tag=roboteducatif-21) · [US](https://www.amazon.com/s?k=ESP32+DevKit&tag=roboteducatif-20)  
-- **1-channel relay that triggers on 3.3 V logic** (many “5 V” boards fail on ESP32 GPIO)—[UK search](https://www.amazon.co.uk/s?k=relay+module+3.3v&tag=roboteducatif-21) · [US](https://www.amazon.com/s?k=relay+module+3.3v&tag=roboteducatif-20)  
-- Wired door reed — [UK](https://www.amazon.co.uk/s?k=garage+door+reed+switch&tag=roboteducatif-21) · [US](https://www.amazon.com/s?k=garage+door+reed+switch&tag=roboteducatif-20)
+- ESP32 DevKit — [UK](https://www.amazon.com/s?k=ESP32+DevKit&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=ESP32+DevKit&tag=roboteducatif-20)  
+- **1-channel relay that triggers on 3.3 V logic** (many “5 V” boards fail on ESP32 GPIO)—[UK search](https://www.amazon.com/s?k=relay+module+3.3v&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=relay+module+3.3v&tag=roboteducatif-20)  
+- Wired door reed — [UK](https://www.amazon.com/s?k=garage+door+reed+switch&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=garage+door+reed+switch&tag=roboteducatif-20)
 
 A Shelly in **dry-contact** mode can substitute for the relay if you follow that device’s manual the same way.
 

@@ -92,12 +92,12 @@ Two Wi-Fi plugs that measure consumption, and possibly a smart bulb. The outlay 
 
 You need a brain: the [Home Assistant Green](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/) box or a Raspberry Pi 5. Then you need a Zigbee stick ([stick comparison](/en/smart-home/best-zigbee-dongle-home-assistant/)), a temperature sensor, a contact sensor and a Zigbee plug.
 
-The SONOFF ZBDongle-E is a USB coordinator that works with ZHA or Zigbee2MQTT and has an external antenna. The SONOFF SNZB-02D measures temperature and humidity, has a small screen and runs on a battery. The TP-Link Tapo P110 is a Wi-Fi plug that measures consumption and can be used without a hub at first. Searches on Amazon.co.uk, to check the live price and the model:
+The SONOFF ZBDongle-E is a USB coordinator that works with ZHA or Zigbee2MQTT and has an external antenna. The SONOFF SNZB-02D measures temperature and humidity, has a small screen and runs on a battery. The TP-Link Tapo P110 is a Wi-Fi plug that measures consumption and can be used without a hub at first. Searches on Amazon.com, to check the live price and the model:
 
-- [Home Assistant Green](https://www.amazon.co.uk/s?k=Home+Assistant+Green&tag=roboteducatif-21)
-- [SONOFF ZBDongle-E](https://www.amazon.co.uk/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-21)
-- [SONOFF SNZB-02D](https://www.amazon.co.uk/s?k=SONOFF+SNZB-02D&tag=roboteducatif-21)
-- [TP-Link Tapo P110](https://www.amazon.co.uk/s?k=TP-Link+Tapo+P110&tag=roboteducatif-21)
+- [Home Assistant Green](https://www.amazon.com/s?k=Home+Assistant+Green&tag=roboteducatif-20)
+- [SONOFF ZBDongle-E](https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20)
+- [SONOFF SNZB-02D](https://www.amazon.com/s?k=SONOFF+SNZB-02D&tag=roboteducatif-20)
+- [TP-Link Tapo P110](https://www.amazon.com/s?k=TP-Link+Tapo+P110&tag=roboteducatif-20)
 
 ### With Homey
 
@@ -125,4 +125,4 @@ In our [first automations](/en/smart-home/first-smart-home-automations/). To pic
 
 ---
 
-*Affiliate disclosure: Amazon.co.uk links carry the site's tag (roboteducatif-21). If you buy through them, a commission may be paid at no extra cost to you. Check prices with the seller. Author: Emmanuel Sauvage.*
+*Affiliate disclosure: Amazon.com links carry the site's tag (roboteducatif-20). If you buy through them, a commission may be paid at no extra cost to you. Check prices with the seller. Author: Emmanuel Sauvage.*

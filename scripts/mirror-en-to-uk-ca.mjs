@@ -46,18 +46,21 @@ const MARKET_AMAZON = {
 	ca: { lang: 'en-CA', host: 'www.amazon.ca', tag: 'roboteducat03-20' },
 };
 
+const EU_AMAZON_HOST =
+	/(?:www\.)?amazon\.(?:co\.uk|ca|com|fr|de|it|es|nl)(?![.\w-])/gi;
+const AFFILIATE_TAGS =
+	/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g;
+
 /** Liens Amazon du miroir : boutique et tag du marché, y compris dans les attributs data-*. */
 function retargetAmazonAttrs(html, market) {
 	const { host, tag } = MARKET_AMAZON[market];
-	return html.replace(/=\s*(["'])([^"']*amazon\.(?:com|ca|co\.uk)[^"']*)\1/gi, (full, q, url) => {
+	return html.replace(/=\s*(["'])([^"']*amazon\.[^"']*)\1/gi, (full, q, url) => {
 		const next = url
-			.replace(/(?:www\.)?amazon\.(?:co\.uk|ca|com)(?![.\w-])/gi, (m) =>
+			.replace(EU_AMAZON_HOST, (m) =>
 				m.toLowerCase().startsWith('www.') ? host : host.replace(/^www\./, ''),
 			)
-			.replace(
-				/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g,
-				tag,
-			);
+			.replace(AFFILIATE_TAGS, tag)
+			.replace(/#x26;tag=[^#&'"]*/gi, '');
 		return `=${q}${next}${q}`;
 	});
 }
@@ -108,6 +111,25 @@ function mirror(market) {
 			});
 		}
 		html = retargetAmazonAttrs(html, market);
+		const amazonShop = market === 'uk' ? 'Amazon.co.uk' : 'Amazon.ca';
+		html = html
+			.replace(/Amazon\.com(?![.\w-])/g, amazonShop)
+			.replace(/UK shoppers on Amazon\.co\.uk/gi, 'UK shoppers')
+			.replace(/UK shoppers on Amazon\.com/gi, 'UK shoppers')
+			.replace(/Live Amazon\.com prices/gi, `Live ${amazonShop} prices`)
+			.replace(/Amazon\.com is the default shop/gi, `${amazonShop} is the default shop`)
+			.replace(/on Amazon\.com/gi, `on ${amazonShop}`)
+			.replace(/Amazon\.com ·/g, `${amazonShop} ·`)
+			.replace(/Check price on Amazon\.com/gi, `Check price on ${amazonShop}`)
+			.replace(/Search on Amazon\.com/gi, `Search on ${amazonShop}`)
+			.replace(/(?:about|around)\s*€[\d.,\s–-]+/gi, 'check today’s price on ' + amazonShop)
+			.replace(
+				/<code>amazon\.com<\/code>/gi,
+				`<code>${market === 'uk' ? 'amazon.co.uk' : 'amazon.ca'}</code>`,
+			)
+			.replace(/https:\/\/www\.amazon\.com\//gi, `https://www.${MARKET_AMAZON[market].host}/`)
+			.replace(/\blisting on Amazon\.co\.uk showed/gi, `listing on ${amazonShop} showed`)
+			.replace(/\bamazon\.com\b/gi, market === 'uk' ? 'amazon.co.uk' : 'amazon.ca');
 		if (html !== before) {
 			writeFileSync(file, html);
 			n++;

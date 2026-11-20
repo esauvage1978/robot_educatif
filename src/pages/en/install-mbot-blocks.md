@@ -15,7 +15,7 @@ faqSchema:
     answer: "Another device (CyberPi, Ranger…) may be selected under Devices. Click mBot again to restore its block category."
 ---
 
-Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. **Amazon UK** is the default shop below; **Amazon.com** links are for US buyers. Check today’s listing — we do not invent local prices.
+Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. **Amazon.com** is the default shop below; **Amazon.com** links are for US buyers. Check today’s listing — we do not invent local prices.
 
 > **Direct answer (October 2026)** — In **mBlock 5** (Makeblock’s **Scratch**-like block editor), open **Devices** → **Add (+)** → choose **mBot** (classic **mCore** kit) or **mBot2** (**CyberPi** board) → **OK**. The palette then shows **orange** robot blocks (motors, sensors, LEDs, buzzer). Without this step, only standard on-screen Scratch blocks appear. Install the app first: [Install mBlock 5 on Windows](/en/install-mblock-5-windows/) or [Download mBlock 5 free](/en/download-mblock-5-free/). Next: [First steps in mBlock 5](/en/first-steps-mblock-5/) and [First mBot program](/en/first-mbot-program/).
 
@@ -129,7 +129,7 @@ Often not to add the device locally; sign-in may be required for cloud projects 
 
 | Product | Where to check |
 | --- | --- |
-| [Makeblock mBot](https://www.amazon.co.uk/s?k=Makeblock+mBot&tag=roboteducatif-21) | Amazon UK (affiliate) |
+| [Makeblock mBot](https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20) | Amazon.com (affiliate) |
 | [Makeblock mBot](https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20) | Amazon.com (affiliate) |
 
 Verify model (mBot vs mBot2) on the product page before ordering.

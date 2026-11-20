@@ -3,7 +3,7 @@ export const QUIZ_PAGE_EN = {
 	description:
 		'Three questions — age, screen or no screen, budget — then a robot to start with, links to our buying guides, and an Amazon button for today’s price.',
 	intro:
-		'Pick an age, say whether you want coding **without a screen** (buttons and cards) or **with a tablet or computer** (Scratch, mBlock, Python), and set a rough budget. The quiz suggests one robot, a couple of alternatives, and links to our [2026 buying guides](/en/best-programmable-robot-for-kids/). Prices below are euro ballparks, not a US or UK shelf price.',
+		'Pick an age, say whether you want coding **without a screen** (buttons and cards) or **with a tablet or computer** (Scratch, mBlock, Python), and set a rough budget. The quiz suggests one robot, a couple of alternatives, and links to our [2026 buying guides](/en/best-programmable-robot-for-kids/). Use broad dollar bands below — confirm today’s price on Amazon.com.',
 };
 
 export const QUIZ_QUESTIONS_EN = {
@@ -27,10 +27,10 @@ export const QUIZ_QUESTIONS_EN = {
 	budget: {
 		label: 'Rough budget',
 		options: [
-			{ id: 'lt100', label: 'Under €100' },
-			{ id: '100-200', label: '€100 to €200' },
-			{ id: '200-500', label: '€200 to €500' },
-			{ id: '500+', label: 'Over €500' },
+			{ id: 'lt100', label: 'Under about $110' },
+			{ id: '100-200', label: 'About $110 to $220' },
+			{ id: '200-500', label: 'About $220 to $550' },
+			{ id: '500+', label: 'Over about $550' },
 		],
 	},
 };

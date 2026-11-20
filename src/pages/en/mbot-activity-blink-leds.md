@@ -15,7 +15,7 @@ faqSchema:
     answer: "Enable the mBot extension in mBlock (Device → mBot) and follow our install mBot blocks guide. Without the orange mBot blocks you cannot set the RGB LEDs."
 ---
 
-Some links on this page are affiliate links (Amazon UK for this English edition). If you buy through them, we may earn a commission at no extra cost to you.
+Some links on this page are affiliate links (Amazon.com for this English edition). If you buy through them, we may earn a commission at no extra cost to you.
 
 > **Direct answer (October 2026)** — In **mBlock 5** (Makeblock’s block software, close to **Scratch**), stack a **start** event, a **loop**, **RGB LED** blocks and **wait** to alternate colours on the **classic mBot**; **upload** in **Upload** mode if the robot must blink **without the USB cable**.
 

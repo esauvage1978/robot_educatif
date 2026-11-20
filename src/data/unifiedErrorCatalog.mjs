@@ -336,12 +336,39 @@ const TOOLS_FR_EN = {
 };
 
 const COST_FR_EN = {
-	'0 €': '€0',
-	'0–12 €': '€0–12',
-	'0–15 €': '€0–15',
-	'0–25 €': '€0–25',
-	'0–25 € (prise routeur)': '€0–25 (mains-powered Zigbee plug)',
-	'0–5 €': '€0–5',
+	'0 €': 'No extra parts cost',
+	'0–12 €': 'about $0–15',
+	'0–15 €': 'about $0–20',
+	'0–25 €': 'about $0–30',
+	'0–25 € (prise routeur)': 'about $0–30 (mains-powered Zigbee plug)',
+	'0–5 €': 'about $0–8',
+};
+
+const COST_FR_EURO = {
+	'0 €': 'Keine Zusatzkosten',
+	'0–12 €': 'ca. 0–15 €',
+	'0–15 €': 'ca. 0–20 €',
+	'0–25 €': 'ca. 0–30 €',
+	'0–25 € (prise routeur)': 'ca. 0–30 € (Zigbee-Steckdose als Router)',
+	'0–5 €': 'ca. 0–8 €',
+};
+
+const COST_FR_EURO_IT = {
+	'0 €': 'Nessun costo extra',
+	'0–12 €': 'circa 0–15 €',
+	'0–15 €': 'circa 0–20 €',
+	'0–25 €': 'circa 0–30 €',
+	'0–25 € (prise routeur)': 'circa 0–30 € (presa Zigbee)',
+	'0–5 €': 'circa 0–8 €',
+};
+
+const COST_FR_EURO_ES = {
+	'0 €': 'Sin coste extra',
+	'0–12 €': 'unos 0–15 €',
+	'0–15 €': 'unos 0–20 €',
+	'0–25 €': 'unos 0–30 €',
+	'0–25 € (prise routeur)': 'unos 0–30 € (enchufe Zigbee)',
+	'0–5 €': 'unos 0–8 €',
 };
 
 const ERROR_CODE_FR_EN = {
@@ -368,6 +395,15 @@ export function pickLocalized(value, lang) {
 	if (lang === 'en') {
 		return ERROR_CODE_FR_EN[value] ?? TOOLS_FR_EN[value] ?? COST_FR_EN[value] ?? String(value);
 	}
+	if (lang === 'de') {
+		return ERROR_CODE_FR_EN[value] ?? TOOLS_FR_EN[value] ?? COST_FR_EURO[value] ?? value.en ?? String(value);
+	}
+	if (lang === 'it') {
+		return ERROR_CODE_FR_EN[value] ?? TOOLS_FR_EN[value] ?? COST_FR_EURO_IT[value] ?? value.en ?? String(value);
+	}
+	if (lang === 'es') {
+		return ERROR_CODE_FR_EN[value] ?? TOOLS_FR_EN[value] ?? COST_FR_EURO_ES[value] ?? value.en ?? String(value);
+	}
 	return value.en ?? ERROR_CODE_FR_EN[value] ?? TOOLS_FR_EN[value] ?? String(value);
 }
 
@@ -376,10 +412,13 @@ const toolI18n = (fr) => {
 	return { fr, en, de: en, it: en, es: en };
 };
 
-const costI18n = (fr) => {
-	const en = COST_FR_EN[fr] ?? fr;
-	return { fr, en, de: en, it: en, es: en };
-};
+const costI18n = (fr) => ({
+	fr,
+	en: COST_FR_EN[fr] ?? fr,
+	de: COST_FR_EURO[fr] ?? COST_FR_EN[fr] ?? fr,
+	it: COST_FR_EURO_IT[fr] ?? COST_FR_EN[fr] ?? fr,
+	es: COST_FR_EURO_ES[fr] ?? COST_FR_EN[fr] ?? fr,
+});
 
 function errorCodeForLang(code, lang) {
 	if (lang === 'fr') return code;

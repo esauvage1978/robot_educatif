@@ -83,10 +83,10 @@ IP65, audio bidirezionale, sirena/faretto, cloud opzionale (schede produttore). 
 
 <p><strong>Shop (produttore / affiliati):</strong></p>
 <ul>
-<li><strong>S7</strong> — <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 su ieGeek.com</a> · <a href="https://www.amazon.it/s?k=ieGeek+S7+telecamera+solar&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">Cerca su Amazon.it</a></li>
-<li><strong>ZY-C2</strong> — <a href="https://www.amazon.it/s?k=ieGeek+ZY-C2+solar&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a></li>
-<li><strong>ZS-GX4S</strong> — <a href="https://www.amazon.it/s?k=ieGeek+5MP+solar+camera&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a></li>
-<li><strong>ZY-G4 (4G)</strong> — <a href="https://www.amazon.it/s?k=ieGeek+4G+solar+camera&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a> (SIM e piano dati a parte)</li>
+<li><strong>S7</strong> — <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 su ieGeek.com</a> · <a href="https://www.amazon.it/s?k=ieGeek+S7+telecamera+solar&tag=roboteducat0f-21" target="_blank" rel="noopener nofollow sponsored">Cerca su Amazon.it</a></li>
+<li><strong>ZY-C2</strong> — <a href="https://www.amazon.it/s?k=ieGeek+ZY-C2+solar&tag=roboteducat0f-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a></li>
+<li><strong>ZS-GX4S</strong> — <a href="https://www.amazon.it/s?k=ieGeek+5MP+solar+camera&tag=roboteducat0f-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a></li>
+<li><strong>ZY-G4 (4G)</strong> — <a href="https://www.amazon.it/s?k=ieGeek+4G+solar+camera&tag=roboteducat0f-21" target="_blank" rel="noopener nofollow sponsored">Verifica prezzo Amazon.it</a> (SIM e piano dati a parte)</li>
 </ul>
 
 ## Wi-Fi o 4G
@@ -153,6 +153,6 @@ Filmati solo sulla **vostra proprietà**; evitare strada pubblica e area del vic
 - [Protocolli Zigbee, Wi-Fi, Matter](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/)  
 - [Backup elettrico con Home Assistant](/it/domotica/backup-elettrico-home-assistant/)
 
-*Ultimo controllo schede: 21 ottobre 2026. Link Amazon.it tag affiliato roboteducatif-21.*
+*Ultimo controllo schede: 21 ottobre 2026. Link Amazon.it tag affiliato roboteducat0f-21.*
 
 [Tutte le guide](/it/domotica/)

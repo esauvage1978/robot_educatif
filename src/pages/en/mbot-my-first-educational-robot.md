@@ -24,7 +24,7 @@ Are you looking for an **mBot robot** for a first taste of robotics? The **mBot*
 
 > **Check the model** — This article is about the **classic mBot** (**mCore** board, **RJ25** connectors). The **mBot2** is a different generation (**CyberPi** board, **mBuild** bus). The shopping links below lead to the **classic mBot**. To compare the two: [mBot vs mBot2](/en/mbot-vs-mbot2/).
 
-You can see today’s price of the [Makeblock mBot on Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) or on [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) (affiliate links, UK first). Prices change, so check the listing before you buy.
+You can see today’s price of the [Makeblock mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) or on [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) (affiliate links, UK first). Prices change, so check the listing before you buy.
 
 ## Who is the mBot for?
 
@@ -135,7 +135,7 @@ Check the **right device** in mBlock and the **connection** (USB for testing), t
 
 ### Where can I buy the classic mBot (not the mBot2)?
 
-On Amazon, the tracked product link for the **classic mBot** is this one: [Makeblock mBot on Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) (or [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)). Read the **listing title** (mBot / mBot2) and the photos before ordering, and compare the sellers.
+On Amazon, the tracked product link for the **classic mBot** is this one: [Makeblock mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) (or [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) Read the **listing title** (mBot / mBot2) and the photos before ordering, and compare the sellers.
 
 ## Going further
 

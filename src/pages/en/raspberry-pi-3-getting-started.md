@@ -149,10 +149,9 @@ Once the **system base** is stable, you can move on to **code projects** (Python
 
 This tutorial is about the **Pi 3**: it is powered through **micro-USB** (not USB-C as on the Pi 4 and Pi 5) and a **32-bit** system is recommended to start with. The links below target this hardware. **Check** the connector, the current rating and the compatibility on each product page before buying, because prices change. Kit, microSD and book links are searches so you can compare current offers. The power-supply link points to the official micro-USB 5 V / 2.5 A reference used for the Pi 3; still check the connector on the listing.
 
-- [Raspberry Pi 3 Model B kit — Amazon.co.uk](https://www.amazon.co.uk/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducatif-20)
-- [microSD card 32 GB A1 — Amazon.co.uk](https://www.amazon.co.uk/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducatif-20)
-- [Official 5 V / 2.5 A micro-USB power supply for Pi 3 — Amazon.co.uk](https://www.amazon.co.uk/dp/B01CO1HZJ6?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B01CO1HZJ6?tag=roboteducatif-20)
-- [Raspberry Pi beginner book — Amazon.co.uk](https://www.amazon.co.uk/s?k=Raspberry+Pi+beginner+book&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=Raspberry+Pi+beginner+book&tag=roboteducatif-20)
+- [Raspberry Pi 3 Model B kit — Amazon.com](https://www.amazon.com/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducatif-20)
+- [microSD card 32 GB A1 — Amazon.com](https://www.amazon.com/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducatif-20)
+- [Official 5 V / 2.5 A micro-USB power supply for Pi 3 — Amazon.com](https://www.amazon.com/s?k=Raspberry%20Pi%20micro%20USB%20power%20supply%205V&tag=roboteducatif-20)
 
 For a more recent board (USB-C), see the [Pi 3 vs 4 vs 5 comparison](/en/raspberry-pi-3-vs-4-vs-5/). Never mix up the power supply of a Pi 5 with that of a Pi 3.
 

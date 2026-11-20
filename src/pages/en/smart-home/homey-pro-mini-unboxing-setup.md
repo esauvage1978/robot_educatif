@@ -94,7 +94,7 @@ About 15 minutes in our run, including a firmware update.
 
 ### Which protocol first?
 
-Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/). UK search: <a href="/go/az-gb-bfdc8ca423/" rel="sponsored nofollow noopener">Homey Pro mini on Amazon.co.uk</a>.
+Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/). UK search: <a href="https://www.amazon.com/s?k=Homey+Pro+mini&tag=roboteducatif-20" rel="sponsored nofollow noopener">Homey Pro mini on Amazon.com</a>.
 
 ## Next in the series
 

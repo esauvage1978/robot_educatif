@@ -1,7 +1,7 @@
 /** Tags Amazon Partenaires par marché (guides EN/DE/IT/ES). */
 export const AMAZON_TAG_BY_LANG = {
 	fr: 'manuso06-21',
-	en: 'roboteducatif-21',
+	en: 'roboteducatif-20',
 	de: 'roboteducat00-21',
 	it: 'roboteducat0f-21',
 	es: 'roboteducat07-21',
@@ -12,7 +12,7 @@ export function amazonSearchUrl(lang, query) {
 	const tag = AMAZON_TAG_BY_LANG[lang] ?? AMAZON_TAG_BY_LANG.fr;
 	const host =
 		lang === 'en'
-			? 'www.amazon.co.uk'
+			? 'www.amazon.com'
 			: lang === 'de'
 				? 'www.amazon.de'
 				: lang === 'it'

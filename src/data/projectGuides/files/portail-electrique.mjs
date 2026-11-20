@@ -587,7 +587,7 @@ const en = otherLocale('en', {
 				['Aim', 'Send the same pulse as the control-board button.'],
 				['Difficulty', 'Intermediate. Mains inside the cabinet is electrical work.'],
 				['Time', 'Half a day. An estimate, not a timed install.'],
-				['Budget', 'Catalogue estimate: about €27–30 depending on the profile. The configurator details the list.'],
+				['Budget', 'Catalogue estimate: about $30–40 depending on the profile. The configurator details the list.'],
 				['Hardware', 'One Shelly 1 Mini Gen3 or one Shelly Plus 1 per control board. Lever connectors only if a terminal cannot take two wires.'],
 				['Software', 'The Shelly app, or Home Assistant and its Shelly integration. ESPHome for the bare board, in another guide.'],
 				['Before you start', 'A gate that is already powered, a button that moves it, 2.4 GHz Wi-Fi at the cabinet, and the manual.'],

@@ -51,7 +51,7 @@ export const project = {
 	durationHours: '3–5',
 	budgetRange: {
 		fr: 'environ 35–70 € selon vendeur et vanne',
-		en: 'about €35–70 depending on the seller and valve',
+		en: 'about $35–70 depending on the seller and valve',
 		de: 'ca. 35–70 € je nach Händler und Ventil',
 		it: 'circa 35–70 € a seconda del venditore e della valvola',
 		es: 'unos 35–70 € según el vendedor y la válvula',

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "LEGO Education Computer Science & AI (2026): price and Spike alternatives"
-description: "LEGO CS & AI kit from April 2026 (~$339.95): hub, AI sensors, Python. mBot2 alternatives and how it compares to discontinued SPIKE Prime (June 2026)."
+description: "LEGO CS & AI kit from April 2026 (~around $340): hub, AI sensors, Python. mBot2 alternatives and how it compares to discontinued SPIKE Prime (June 2026)."
 updated: "17 November 2026"
 schemaUpdated: "2026-11-17"
 faqSchema:
@@ -25,11 +25,11 @@ faqSchema:
 }
 </script>
 
-Some links on this page are affiliate links. **Amazon.co.uk** / **Amazon.com** — check today’s price on the listing.
+Some links on this page are affiliate links. **Amazon.com** / **Amazon.com** — check today’s price on the listing.
 
 <p><em>Last updated 17 November 2026.</em></p>
 
-> **Direct answer (November 2026)** — The **LEGO Education Computer Science & AI** kit (**$339.95** US MSRP from **April 2026**) is LEGO’s post-SPIKE classroom offer. Direct **SPIKE Prime / Essential** sales ended **30 June 2026**. For **Python and Wi-Fi** at roughly half the kit cost, **mBot2** remains the best-documented rolling alternative here.
+> **Direct answer (November 2026)** — The **LEGO Education Computer Science & AI** kit (**around $340** US MSRP from **April 2026**) is LEGO’s post-SPIKE classroom offer. Direct **SPIKE Prime / Essential** sales ended **30 June 2026**. For **Python and Wi-Fi** at roughly half the kit cost, **mBot2** remains the best-documented rolling alternative here.
 
 <div class="article-toc" role="navigation" aria-label="Table of contents">
 <p class="article-toc-title">Contents</p>
@@ -44,7 +44,7 @@ Some links on this page are affiliate links. **Amazon.co.uk** / **Amazon.com** �
 </ul>
 </div>
 
-Since **30 June 2026**, **LEGO Education** no longer sells **SPIKE Prime/Essential** direct; the announced successor is the **Computer Science & AI** kit (**from April 2026**, **$339.95** US MSRP). It bundles a programmable hub, simplified **AI/vision** sensors, and **Python** pathways aimed at middle–high school computer-science standards.
+Since **30 June 2026**, **LEGO Education** no longer sells **SPIKE Prime/Essential** direct; the announced successor is the **Computer Science & AI** kit (**from April 2026**, **around $340** US MSRP). It bundles a programmable hub, simplified **AI/vision** sensors, and **Python** pathways aimed at middle–high school computer-science standards.
 
 For background on SPIKE, WeDo and reseller reality, read our [LEGO Education brand guide](/en/lego-education-brand/). For brick-vs-robot workshops, [mBot vs LEGO robot](/en/mbot-vs-lego-robot/) stays the main comparison.
 
@@ -64,22 +64,22 @@ LEGO’s **SPIKE update 2026** page confirms direct catalogue end for SPIKE sets
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2</strong></span></td>
 <td data-label="Indicative price"><span class="td-val">Check listing</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Amazon UK</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Essential</strong> (reseller)</span></td>
-<td data-label="Indicative price"><span class="td-val">Last catalogue ~€289</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener">Amazon UK</a></span></td>
+<td data-label="Indicative price"><span class="td-val">Last catalogue ~$320</span></td>
+<td data-label="Buy"><span class="td-val"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Prime</strong> (reseller)</span></td>
-<td data-label="Indicative price"><span class="td-val">Last catalogue ~€379</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener">Amazon UK</a></span></td>
+<td data-label="Indicative price"><span class="td-val">Last catalogue ~$415</span></td>
+<td data-label="Buy"><span class="td-val"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Raspberry Pi 5 (4 GB)</strong></span></td>
 <td data-label="Indicative price"><span class="td-val">Board + accessories</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Amazon UK</a> · <a href="/go/az-us-a66a9832d5/" rel="sponsored nofollow noopener">Amazon.com</a> — see <a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-a66a9832d5/" rel="sponsored nofollow noopener">Amazon.com</a> — see <a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a></span></td>
 </tr>
 </tbody>
 </table></div>
@@ -141,15 +141,15 @@ Also read [best programmable robot by age](/en/best-programmable-robot-for-kids/
 
 **Makeblock**
 
-- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">mBot2 — Amazon UK</a>
+- <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>
 - <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>
 
 **LEGO (reseller listings — confirm set number)**
 
-- <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a> · <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener">UK</a>
-- <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a> · <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener">UK</a>
+- <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a> · <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener">UK</a>
+- <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a> · <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener">UK</a>
 
-- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
+- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
 
 *Amazon partner — commission possible on eligible purchases.*
 

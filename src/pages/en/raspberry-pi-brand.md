@@ -32,7 +32,7 @@ updated: "23 October 2026"
 <p><strong>In short</strong></p>
 <p>For smart-home projects the Raspberry Pi 5 4 GB is our best-value pick.</p>
 </aside>
-<p>Shop: <a href="https://www.amazon.com/s?k=Raspberry+Pi+5+4GB&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Raspberry Pi 5 4 GB (Amazon US)</a> · <a href="https://www.amazon.co.uk/s?k=Raspberry+Pi+5+4GB&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">Raspberry Pi 5 4 GB (Amazon UK)</a> (affiliate links).</p>
+<p>Shop: <a href="https://www.amazon.com/s?k=Raspberry+Pi+5+4GB&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Raspberry Pi 5 4 GB (Amazon US)</a> · <a href="https://www.amazon.com/s?k=Raspberry+Pi+5+4GB&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Raspberry Pi 5 4 GB (Amazon.com)</a> (affiliate links).</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="/en/sonoff-brand/">SONOFF: our take on the brand</a></li>

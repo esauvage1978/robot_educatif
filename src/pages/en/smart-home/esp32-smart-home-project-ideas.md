@@ -71,7 +71,7 @@ In the US, a **5 V USB adapter** (phone charger) is enough for most bench builds
 </table>
 </div>
 
-We may earn a commission at no extra cost to you. **Guide price: check offers** on the retailer site before you buy. Example hub: <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB (UK)</a> for Home Assistant — see [Pi 5 RAM guide](/en/raspberry-pi-5-which-ram/).
+We may earn a commission at no extra cost to you. **Guide price: check offers** on the retailer site before you buy. Example hub: <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB (UK)</a> for Home Assistant — see [Pi 5 RAM guide](/en/raspberry-pi-5-which-ram/).
 
 **Skill key:** *Beginner* = breadboard + USB power; *Intermediate* = mains-safe relay logic or multiple I2C sensors; *Advanced* = displays, voice or air-quality stacks. Each idea below links to a deeper guide where we have one — start with [ESPHome temperature](/en/smart-home/esp32-esphome-temperature-sensor/) for project 1.
 
