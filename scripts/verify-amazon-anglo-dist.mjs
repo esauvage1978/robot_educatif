@@ -39,8 +39,30 @@ const counts = {
 	caDollarPrice: 0,
 	productB0Query: 0,
 	euLangDollarCost: 0,
+	gluedCurrencyUk: 0,
+	gluedCurrencyCa: 0,
+	aboutDuplicate: 0,
+	ukVisibleDollar: 0,
+	caVisibleDollar: 0,
 };
 const samples = Object.fromEntries(Object.keys(counts).map((k) => [k, []]));
+
+function visibleText(html) {
+	return html
+		.replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+		.replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+		.replace(/<[^>]+>/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+/** £ ou $ collé à une lettre/chiffre (hors préfixe CA$). */
+const GLUED_POUND = /[A-Za-z]£\d|\d£\d/;
+const GLUED_DOLLAR = /[a-z]\$\d|\d\$\d/;
+/** $ visible : pas CA$, pas domaine amazon.com. */
+const VISIBLE_DOLLAR_UK = /(?<!CA)\$[\d]/;
+const VISIBLE_DOLLAR_CA = /(?<!CA)\$[\d]/;
+const ABOUT_DUP = /\b(about|around|roughly|often)\s+\1\b/i;
 
 /** $ seul sur UK (hors « CA$ » sur pages EN importées). */
 const UK_DOLLAR_BAD =
@@ -82,6 +104,7 @@ for (const root of roots) {
 		if (/\/partners\//.test(rel)) continue;
 		const html = fs.readFileSync(file, 'utf8');
 		const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, ' ');
+		const visible = visibleText(html);
 		if (/amazon\.ca\/dp\//i.test(html)) {
 			counts.caDp++;
 			if (samples.caDp.length < 3) samples.caDp.push(rel);
@@ -123,6 +146,10 @@ for (const root of roots) {
 			counts.aboutAbout++;
 			if (samples.aboutAbout.length < 3) samples.aboutAbout.push(rel);
 		}
+		if (ABOUT_DUP.test(visible)) {
+			counts.aboutDuplicate++;
+			if (samples.aboutDuplicate.length < 3) samples.aboutDuplicate.push(rel);
+		}
 		for (const m of html.matchAll(/<a\b([^>]*href=(["'])([^"']+)\2[^>]*)>([\s\S]*?)<\/a>/gi)) {
 			const href = m[3];
 			const host = hostFromHref(href);
@@ -139,7 +166,25 @@ for (const root of roots) {
 			counts.ukDollarPrice++;
 			if (samples.ukDollarPrice.length < 3) samples.ukDollarPrice.push(rel);
 		}
+		if (market === 'uk') {
+			if (GLUED_POUND.test(visible) || GLUED_DOLLAR.test(visible)) {
+				counts.gluedCurrencyUk++;
+				if (samples.gluedCurrencyUk.length < 3) samples.gluedCurrencyUk.push(rel);
+			}
+			if (VISIBLE_DOLLAR_UK.test(visible)) {
+				counts.ukVisibleDollar++;
+				if (samples.ukVisibleDollar.length < 3) samples.ukVisibleDollar.push(rel);
+			}
+		}
 		if (market === 'ca') {
+			if (GLUED_POUND.test(visible) || GLUED_DOLLAR.test(visible)) {
+				counts.gluedCurrencyCa++;
+				if (samples.gluedCurrencyCa.length < 3) samples.gluedCurrencyCa.push(rel);
+			}
+			if (VISIBLE_DOLLAR_CA.test(visible)) {
+				counts.caVisibleDollar++;
+				if (samples.caVisibleDollar.length < 3) samples.caVisibleDollar.push(rel);
+			}
 			if (CA_POUND_STRICT.test(body)) {
 				counts.caPoundPrice++;
 				if (samples.caPoundPrice.length < 3) samples.caPoundPrice.push(rel);

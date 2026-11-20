@@ -196,7 +196,7 @@ export const project = {
 	durationHours: '2–4',
 	budgetRange: {
 		fr: '0 € (sans électronique) à environ 25–90 € selon la solution',
-		en: '$0 (no electronics) to about $25–90 depending on the approach',
+		en: 'Free (no electronics) to about $25–90 depending on the approach',
 		de: '0 € (ohne Elektronik) bis ca. 25–90 € je nach Lösung',
 		it: '0 € (senza elettronica) fino a circa 25–90 € a seconda della soluzione',
 		es: '0 € (sin electrónica) hasta unos 25–90 € según la solución',
@@ -484,7 +484,7 @@ export const project = {
 				{
 					title: 'A — No electronics: visual gauge and calendar reminder',
 					difficulty: 'Beginner',
-					budget: '$0',
+					budget: 'Free',
 					body: 'Open the lid and mark three heights (permanent marker or plastic ruler): full, half, refill. Note how many kilos you add and, over a few weeks, estimate your pace (water hardness and usage). Create a phone calendar reminder or a time-only Home Assistant automation (“every X days, check the salt”).',
 					install: 'No wiring. Check the level at each reminder and adjust the interval after two or three refill cycles.',
 					alert: 'Calendar reminder or timer notification — no automatic measurement.',

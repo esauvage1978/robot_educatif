@@ -5,7 +5,7 @@ description: "Makeblock mBot2: Scratch and Python, Wi-Fi, for ages 10 and up. Am
 updated: "10 November 2026"
 faqSchema:
   - question: "What did the Amazon.com listing say the mBot2 cost on 10 November 2026?"
-    answer: "around $140 at 06:14, ASIN B0919F9CKS. In that same reading, the lowest price over the previous 30 days wasaround $148. We do not invent a dollar or pound price."
+    answer: "around $140 at 06:14, ASIN B0919F9CKS. In that same reading, the lowest price over the previous 30 days was around $148. We do not invent a dollar or pound price."
   - question: "What does the listing say a child does with the mBot2?"
     answer: "The 10 November 2026 Amazon.com listing describes it as compatible with Scratch and Python, with Wi-Fi, for ages 10 and up. The software is mBlock: blocks first, then Python, on the same robot."
 ---

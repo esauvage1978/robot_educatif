@@ -7,7 +7,7 @@ faqSchema:
   - question: "What is the difference between the mBot2 and the CyberPi?"
     answer: "The mBot2 is a mobile robot for paths, floor sensors and short demos. The CyberPi is a development board for a console, connected objects and projects that do not need wheels. Both are Makeblock and use mBlock."
   - question: "What were the Amazon.com prices on 10 November 2026?"
-    answer: "At 06:14 the mBot2 was around $140 (ASIN B0919F9CKS, listing titled ages 10 and up) and the CyberPi learning kit wasaround $50 (ASIN B0BBZY9L59). Another pack can show a different amount. We do not invent a dollar or pound price."
+    answer: "At 06:14 the mBot2 was around $140 (ASIN B0919F9CKS, listing titled ages 10 and up) and the CyberPi learning kit was around $50 (ASIN B0BBZY9L59). Another pack can show a different amount. We do not invent a dollar or pound price."
 ---
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
@@ -41,7 +41,7 @@ If a teenager mainly wants **Linux**, a **server**, or **Python away from a robo
 ## Amazon links
 
 - [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) (mBot2 Makeblock, around $140 on 10 November 2026)
-- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) (CyberPi kit,around $50 on 10 November 2026)
+- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) (CyberPi kit, around $50 on 10 November 2026)
 
 ---
 

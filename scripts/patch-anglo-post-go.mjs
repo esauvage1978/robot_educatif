@@ -88,9 +88,15 @@ function patchJsonStrings(html, fn) {
 function localizeMoney(html, market) {
 	html = html.replace(/, no affiliate tag/gi, '');
 	html = html.replace(/about \$about/gi, 'about');
+	html = html.replace(/\b(about|around|roughly|often)\s+\1\b/gi, '$1');
+	const fixGluedMoney = (s) =>
+		s
+			.replace(/snapshot\$(\d[\d.,]*)/gi, (_, n) => `snapshot, around $${n}`)
+			.replace(/([a-z])\.(\$\d[\d.,]*)/gi, (_, letter, amt) => `${letter}. ${amt}`)
+			.replace(/([a-z])(\$\d[\d.,]*)/g, (_, letter, amt) => `${letter} ${amt}`);
 	if (market === 'uk') {
 		const toPound = (s) => {
-			let t = s
+			let t = fixGluedMoney(s)
 				.replace(/<strong>Cost:<\/strong>\s*\$0\b/gi, '<strong>Cost:</strong> No extra parts cost')
 				.replace(/<strong>Budget<\/strong>\s*\$0\b/gi, '<strong>Budget</strong> £0')
 				.replace(/\bCost:\s*\$0\b/gi, 'Cost: No extra parts cost')
@@ -108,7 +114,7 @@ function localizeMoney(html, market) {
 	}
 	if (market === 'ca') {
 		const toCad = (s) => {
-			let t = s
+			let t = fixGluedMoney(s)
 				.replace(/<strong>£0<\/strong>/gi, '<strong>No cost</strong>')
 				.replace(/\b£0\b/g, 'CA$0')
 				.replace(/<title>([^<]*)<\/title>/gi, (_, title) => {
