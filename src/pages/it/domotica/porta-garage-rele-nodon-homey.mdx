@@ -23,6 +23,8 @@ Avevo già installato l'[Homey Pro](/it/domotica/test-homey-pro-unboxing-install
 
 Il motore è un **Tubauto ProCom** (art. 4512433) su una **porta sezionale**. Un pulsante a parete era già cablato su una coppia di morsetti a molla della scheda. Non ho sostituito quel pulsante: il relè chiude lo stesso contatto, in parallelo.
 
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Targhetta del motore Tubauto ProCom, art. 4512433" caption="La targhetta del motore Tubauto ProCom, art. 4512433." />
+
 Il cablaggio è stato fatto in Francia, su rete a 230 V (marrone su L, blu su N). Se non si ha dimestichezza con la tensione di rete, conviene rivolgersi a un elettricista. Chi preferisce un ESP32 e ESPHome trova un altro percorso qui: [aprire una porta del garage dallo smartphone](/it/domotica/porta-garage-smartphone-esp32-esphome/). Qui tutto passa da Homey e Zigbee. Per il vocabolario dei protocolli: [Zigbee, Wi-Fi, Thread o Matter](/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/).
 
 ## Il materiale
@@ -55,11 +57,15 @@ Sconsiglio anche un flow che **chiuderebbe la porta da solo**, senza che nessuno
 
 L'alimentazione del NodOn arriva da un cavo con spina, nella presa del motore: **blu su N**, **marrone su L**. Il modulo sta in una **scatola di derivazione stagna**, fissata al soffitto accanto a quella presa: un garage non è un soggiorno, e la scatola non lascia il modulo all'aperto.
 
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Relè NodOn SIN-4-1-20 nella scatola di derivazione aperta, prima del cablaggio" caption="Il modulo NodOn nella scatola, prima del cablaggio." />
+
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Presa a soffitto in fase di collegamento, sopra la scatola di derivazione grigia, prima della chiusura" caption="La presa a soffitto in fase di collegamento, appena sopra la scatola di derivazione." />
 
 Il **contatto pulito** del relè (i due morsetti a destra, con il simbolo del relè) è collegato **in parallelo** ai morsetti del pulsante: i due fili entrano negli **stessi morsetti a molla**, accanto a quelli del pulsante. Dopo, il pulsante originale funziona ancora: l'ho provato di nuovo prima di chiudere.
 
 Su questa scheda una **coppia di morsetti vicina** è rimasta inutilizzata. Può trattarsi di un ingresso di sicurezza o di una fotocellula: senza il manuale a portata di mano, non ci ho collegato il relè.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Scheda del motore Tubauto ProCom, con i morsetti a molla e la morsettiera vicina" caption="La scheda del motore ProCom: i morsetti del pulsante e la coppia vicina inutilizzata." />
 
 <Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Scatola di derivazione chiusa, fissata al soffitto del garage accanto alla presa del motore della porta sezionale" caption="La scatola chiusa, al soffitto, accanto alla presa del motore." />
 

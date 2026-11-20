@@ -23,6 +23,8 @@ Den [Homey Pro](/de/smart-home/homey-pro-auspacken-einrichtung/) hatte ich berei
 
 Der Antrieb ist ein **Tubauto ProCom** (Art. 4512433) an einem **Sektionaltor**. Ein Wandtaster war bereits an einem Federklemmenpaar der Platine angeschlossen. Diesen Taster habe ich nicht ersetzt: das Relais schließt denselben Kontakt, parallel dazu.
 
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Typenschild des Tubauto ProCom-Antriebs, Art. 4512433" caption="Das Typenschild des Tubauto ProCom-Antriebs, Art. 4512433." />
+
 Die Installation wurde in Frankreich an 230 V vorgenommen (Braun auf L, Blau auf N). Wer sich mit Netzspannung nicht sicher fühlt, sollte eine Elektrofachkraft hinzuziehen. Wer lieber mit einem ESP32 und ESPHome arbeitet, findet einen anderen Weg hier: [Garagentor per Smartphone öffnen](/de/smart-home/garagentor-smartphone-esp32-esphome/). Hier läuft alles über Homey und Zigbee. Zur Protokoll-Übersicht: [Zigbee, WLAN, Thread oder Matter](/de/smart-home/smart-home-protokolle-zigbee-wifi-thread-matter/).
 
 ## Das Material
@@ -55,11 +57,15 @@ Ich rate auch von einem Flow ab, der das **Tor von allein schließen** würde, o
 
 Das NodOn wird über ein Kabel mit Stecker an der Steckdose des Antriebs versorgt: **Blau auf N**, **Braun auf L**. Das Modul sitzt in einer **feuchtigkeitsgeschützten Abzweigdose** an der Decke neben dieser Steckdose — eine Garage ist kein Wohnzimmer, die Dose lässt das Modul nicht offen liegen.
 
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn-Relais SIN-4-1-20 in der offenen Abzweigdose, vor dem Verdrahten" caption="Das NodOn-Modul in der Dose, vor dem Verdrahten." />
+
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Deckensteckdose beim Anschließen, über der grauen Abzweigdose, vor dem Schließen" caption="Die Deckensteckdose beim Anschließen, direkt über der Abzweigdose." />
 
 Der **potenzialfreie Kontakt** des Relais (die beiden rechten Klemmen mit dem Relais-Symbol) liegt **parallel** an den Klemmen des Wandtasters: die beiden Adern stecken in denselben **Federklemmen**, neben denen des Tasters. Danach funktioniert die Originaltaste weiter — ich habe sie vor dem Schließen der Dose erneut geprüft.
 
 Ein **benachbartes Klemmenpaar** auf dieser Platine blieb ungenutzt. Es kann ein Sicherheitseingang oder eine Lichtschranke sein: ohne die Anleitung habe ich das Relais dort nicht angeschlossen.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Platine des Tubauto ProCom-Antriebs, mit Federklemmen und dem benachbarten Klemmenblock" caption="Die ProCom-Platine: die Tasterklemmen und das ungenutzte benachbarte Paar." />
 
 <Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Geschlossene Abzweigdose an der Garagendecke, neben der Steckdose des Sektionaltor-Antriebs" caption="Die geschlossene Dose an der Decke, neben der Steckdose des Antriebs." />
 

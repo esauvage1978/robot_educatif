@@ -23,6 +23,8 @@ I had already set up the [Homey Pro](/en/smart-home/homey-pro-unboxing-setup/) a
 
 The motor is a **Tubauto ProCom** (part 4512433) on a **sectional door**. A wall push-button was already wired to a pair of spring terminals on the board. I did not replace that button: the relay simply closes the same contact, in parallel.
 
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Nameplate of the Tubauto ProCom motor, part 4512433" caption="The Tubauto ProCom motor nameplate, part 4512433." />
+
 This wiring was done in France, on a 230 V supply (brown on L, blue on N). If you are not comfortable with mains voltage, ask a qualified electrician. If you would rather use an ESP32 and ESPHome, I have already written up another route: [open a garage door from a smartphone](/en/smart-home/garage-door-smartphone-esp32-esphome/). Here everything goes through Homey and Zigbee. For the protocol vocabulary, see [Zigbee, Wi-Fi, Thread or Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/).
 
 ## The kit
@@ -55,11 +57,15 @@ I also advise against a flow that would **close the door on its own**, with nobo
 
 The NodOn is powered by a mains lead with a plug, in the motor's socket: **blue on N**, **brown on L**. The module sits in a **weatherproof junction box**, fixed to the ceiling next to that socket — a garage is not a living room, and the box keeps the module off the open air.
 
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn SIN-4-1-20 relay sitting in the open junction box, before wiring" caption="The NodOn module in the box, before wiring." />
+
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Ceiling socket being wired, above the grey junction box, before closing" caption="The ceiling socket being wired, just above the junction box." />
 
 The relay's **dry contact** (the two terminals on the right, with the relay symbol) is wired **in parallel** with the push-button terminals: its two wires go into the **same spring terminals**, next to the button's own wires. After that, the original button still works — I tested it again before closing the box.
 
 On this board, a **neighbouring pair of terminals** was left unused. It may be a safety input or a photocell: I did not connect the relay there, because I did not have the manual to hand.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Tubauto ProCom motor board, with the spring terminals and the neighbouring terminal block" caption="The ProCom motor board: the button terminals, and the unused neighbouring pair." />
 
 <Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Closed junction box fixed to the garage ceiling, next to the socket of the sectional-door motor" caption="The closed box, on the ceiling, next to the motor's socket." />
 

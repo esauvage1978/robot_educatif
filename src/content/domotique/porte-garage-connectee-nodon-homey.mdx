@@ -22,6 +22,8 @@ J'avais déjà installé le [Homey Pro](/domotique/test-homey-pro-deballage-inst
 
 La motorisation est un **Tubauto ProCom** (art. 4512433) sur une **porte sectionnelle**. Un bouton poussoir mural était déjà câblé sur une paire de bornes à ressort de la carte. Je n'ai pas remplacé ce bouton : le relais se contente de fermer le même contact, en parallèle.
 
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Plaque signalétique du moteur Tubauto ProCom, article 4512433" caption="La plaque du moteur Tubauto ProCom, art. 4512433." />
+
 Si vous préférez une approche avec un ESP32 et ESPHome, j'ai déjà documenté une autre piste : [ouvrir une porte de garage depuis un smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/). Ici, tout passe par Homey et Zigbee. Pour le vocabulaire des protocoles, voir [Zigbee, Wi-Fi, Thread ou Matter](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
 
 ## Le matériel
@@ -53,11 +55,15 @@ Je déconseille aussi un scénario qui **refermerait la porte tout seul**, sans 
 
 L'alimentation du NodOn se fait par un câble avec fiche, branché sur la prise du moteur : **bleu sur N**, **marron sur L**. Le module est dans un **boîtier de dérivation étanche**, fixé au plafond à côté de cette prise — un garage n'est pas un salon, le boîtier évite de laisser le module à l'air libre.
 
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Relais NodOn SIN-4-1-20 posé dans le boîtier de dérivation ouvert, avant le câblage" caption="Le module NodOn dans le boîtier, avant le câblage." />
+
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Prise du plafond en cours de raccordement, au-dessus du boîtier de dérivation gris, avant la fermeture" caption="La prise au plafond en cours de raccordement, juste au-dessus du boîtier de dérivation." />
 
 Le **contact sec** du relais (les deux bornes de droite, au symbole de relais) est branché **en parallèle** sur les bornes du bouton poussoir : ses deux fils glissent dans les **mêmes bornes à ressort**, à côté de ceux du bouton. Après ça, le bouton d'origine fonctionne toujours — je l'ai retesté avant de refermer.
 
 Sur cette carte, une **paire de bornes voisine** n'a pas été utilisée. Elle peut servir à une entrée de sécurité ou à une cellule photoélectrique : je n'ai pas branché le relais dessus, faute de notice sous la main.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Carte du moteur Tubauto ProCom, avec les bornes à ressort et le bornier voisin" caption="La carte du moteur ProCom : les bornes du bouton, et la paire voisine inutilisée." />
 
 <Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Boîtier de dérivation fermé, fixé au plafond du garage à côté de la prise du moteur de la porte sectionnelle" caption="Le boîtier refermé, au plafond, à côté de la prise du moteur." />
 
