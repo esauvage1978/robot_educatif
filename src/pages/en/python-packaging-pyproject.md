@@ -393,6 +393,6 @@ Guided project: [CLI log analyser hub](/programmation/projet-python-avance-journ
 
 Check today’s price on the listing. Partner link — commission possible on qualifying purchases, at no extra cost to you.
 
-- <a href="/go/az-gb-340093262f" rel="sponsored nofollow noopener" class="affiliate-link">Python packaging books — Amazon.co.uk</a> — verify title and edition before buying.
+- <a href="/go/az-gb-340093262f" rel="sponsored nofollow noopener" class="affiliate-link">Python packaging books — Amazon.com</a> — verify title and edition before buying.
 
 *Emmanuel Sauvage — updated 31 October 2026.*

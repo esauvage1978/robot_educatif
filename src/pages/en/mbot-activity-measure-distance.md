@@ -15,7 +15,7 @@ faqSchema:
     answer: "Keep the obstacle between about 3 cm and 400 cm, point at a flat surface, check USB or upload, and confirm mBot blocks are installed."
 ---
 
-Some links on this page are affiliate links (**Amazon UK** is the default shop for this `/en/` guide; **Amazon.com** is listed below for US readers). We may earn a commission on qualifying purchases, at no extra cost to you.
+Some links on this page are affiliate links (**Amazon.com** is the default shop for this `/en/` guide; **Amazon.com** is listed below for US readers). We may earn a commission on qualifying purchases, at no extra cost to you.
 
 > **Direct answer (October 2026)** — In **mBlock 5** (Makeblock’s block software, similar to **Scratch**), read the mBot **ultrasonic sensor** into a **variable** in **Live** mode (real time with the PC, without uploading on every click), then show the same distance on the **LED matrix** by turning the **number** into text (**join** + `" cm"`) and **uploading** the program for a cable-free robot.
 
@@ -192,7 +192,7 @@ Continue with the [intrusion detector](/en/mbot-activity-intrusion-detector/) (s
 
 **For class**: our [10 free mBot classroom projects](/en/10-free-mbot-classroom-projects/) offer a full 10-session progression with pupil worksheets and PDF answer keys.
 
-Hardware: <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" class="affiliate-link">mBot on Amazon.co.uk</a> · <a href="/go/az-us-d15f4ee758/" rel="sponsored nofollow noopener" class="affiliate-link">Amazon.com</a> — check today’s price before you order.
+Hardware: <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" class="affiliate-link">mBot on Amazon.com</a> — check today’s price before you order.
 
 *Amazon partner — commission possible on qualifying purchases, at no extra cost to you.*
 

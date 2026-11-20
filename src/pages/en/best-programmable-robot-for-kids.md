@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Programmable robot for kids: compared by age (Christmas 2026)"
-description: "Botley, mBot, mBot2 and ELEGOO compared by age. Amazon.co.uk prices from 9 November 2026, Christmas tips, specs and mBlock Bluetooth troubleshooting."
+description: "Botley, mBot, mBot2 and ELEGOO compared by age. Amazon.com prices from 9 November 2026, Christmas tips, specs and mBlock Bluetooth troubleshooting."
 updated: "9 November 2026"
 faqSchema:
   - question: "Which programmable robot by age?"
@@ -14,9 +14,9 @@ faqSchema:
     answer: "mBot for affordable first robotics; mBot2 for Python, built-in screen and longevity — see our mBot vs mBot2 comparison on this site."
 ---
 
-> **Affiliate transparency** — Some links below are partner links (Amazon UK/US and others). Qualifying purchases may earn this site a commission at no extra cost to you. **Prices noted October 2026** — confirm on the shop page before ordering.
+> **Affiliate transparency** — Some links below are partner links (Amazon.com/US and others). Qualifying purchases may earn this site a commission at no extra cost to you. **Prices noted October 2026** — confirm on the shop page before ordering.
 
-> **Direct answer (October 2026)** — The **best programmable robot** for a child depends mainly on **age**, **autonomy** (**Scratch**, MIT’s visual block language, vs **Python** text code) and **adult time** to install **mBlock** (Makeblock’s app for mBot and mBot2). Around **8–10**, the **Makeblock mBot** (about **£85–110** on <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Amazon UK</a>, check listing) remains the most documented reference on this site; from **10–14**, the **mBot2** (about **£130–170**) adds Python and advanced sensors. A **programmable** robot is **not** an **AI** toy: it runs **your** program, without a built-in chat assistant.
+> **Direct answer (October 2026)** — The **best programmable robot** for a child depends mainly on **age**, **autonomy** (**Scratch**, MIT’s visual block language, vs **Python** text code) and **adult time** to install **mBlock** (Makeblock’s app for mBot and mBot2). Around **8–10**, the **Makeblock mBot** (about **£85–110** on <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Amazon.com</a>, check listing) remains the most documented reference on this site; from **10–14**, the **mBot2** (about **£130–170**) adds Python and advanced sensors. A **programmable** robot is **not** an **AI** toy: it runs **your** program, without a built-in chat assistant.
 
 ## Remote-controlled, programmable, autonomous, educational or “AI”?
 
@@ -30,14 +30,14 @@ faqSchema:
 
 For age and budget in **October 2026**, use the tables below and our guides for [5](/en/best-robot-for-a-5-year-old/), [8](/en/best-robot-for-an-8-year-old/), [10](/en/best-robot-for-a-10-year-old/) and [12](/en/best-robot-for-a-12-year-old/) years.
 
-| Age band | Typical autonomy | Languages | Software (**IDE** = integrated development environment, the app where you write the program; often **mBlock**) | Getting started | Upgrade path | Amazon.co.uk, 9 Nov 2026 |
+| Age band | Typical autonomy | Languages | Software (**IDE** = integrated development environment, the app where you write the program; often **mBlock**) | Getting started | Upgrade path | Amazon.com, 9 Nov 2026 |
 |----------|------------------|-----------|---------------------------------------------------------------------|-----------------|--------------|------------------------------|
-| **5–7** | low, adult nearby | blocks / screen-free | iPad, Android, Windows | immediate | limited | **£67.94** and **£63.09** (Botley 2.0) |
-| **8–10** | medium with guide | Scratch, mBlock | Windows, macOS, Chromebook, iPad | about 1–2 h setup | good (mBot) | **£89.99** (mBot) |
-| **10–12** | good | Scratch → Python | Windows, macOS, sometimes iPad | about 1 h | strong (mBot2) | **£169.99** (mBot2) |
+| **5–7** | low, adult nearby | blocks / screen-free | iPad, Android, Windows | immediate | limited | **around £68** and **around £63** (Botley 2.0) |
+| **8–10** | medium with guide | Scratch, mBlock | Windows, macOS, Chromebook, iPad | about 1–2 h setup | good (mBot) | **around £90** (mBot) |
+| **10–12** | good | Scratch → Python | Windows, macOS, sometimes iPad | about 1 h | strong (mBot2) | **around £170** (mBot2) |
 | **12+** | high | **Arduino C** (C-like language for Arduino boards), Python | Windows, macOS, Linux | 2–4 h build | very strong | not in this UK snapshot (ELEGOO) |
 
-\*Amazon.co.uk snapshot, 9 November 2026, 06:14. Two Botley 2.0 listings (B083T58PKM at £67.94 and B083T5G5ZK at £63.09). ELEGOO V4.0 was not in that snapshot. These are not US prices.
+\*Amazon.com snapshot, 9 November 2026, 06:14. Two Botley 2.0 listings (B083T58PKM at around £68 and B083T5G5ZK at around £63). ELEGOO V4.0 was not in that snapshot. These are not US prices.
 
 ## Christmas 2026 picks by age (four kits we compare in depth)
 
@@ -46,19 +46,19 @@ For age and budget in **October 2026**, use the tables below and our guides for 
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Best screen-free (ages 5–7)</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-2a149a3c37/" rel="sponsored nofollow noopener">Learning Resources Botley 2.0</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Arrow-pad programming, obstacle detection and line following without a tablet.</p>
-    <a href="/go/az-gb-2a149a3c37/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon UK</a>
+    <a href="/go/az-gb-2a149a3c37/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Reference ages 8–12</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot v1.1</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">About 15 min build, ultrasonic sensor, Scratch blocks in mBlock 5.</p>
-    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon UK</a>
+    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Top pick ages 10–14</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi Wi-Fi)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Colour screen, rechargeable battery, Scratch → Python, IoT (internet of things on your home network).</p>
-    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon UK</a>
+    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Electronics & Arduino C++</p>
@@ -76,7 +76,7 @@ For age and budget in **October 2026**, use the tables below and our guides for 
 
 *ELEGOO Smart Robot Car V4.0 product photo. Credit: Emmanuel Sauvage — October 2026.*
 
-**UK vs US shoppers:** default buttons target **Amazon UK** (`/go/az-gb-…`). Same ASINs on <a href="/go/az-us-d15f4ee758/" rel="sponsored nofollow noopener">mBot Amazon.com</a> and <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">mBot2 Amazon.com</a> — verify plug type, voltage and box contents before ordering from the US store.
+**Shoppers:** affiliate buttons open **Amazon.com** (`/go/az-us-…`). Verify plug type, voltage and box contents on the listing before you order.
 
 *Article updated **31 October 2026**.*
 
@@ -86,7 +86,7 @@ Looking for a **coding robot to unwrap at Christmas**? This guide compares three
 
 - Match the robot to **real age and patience**, not the box photo — guides [5](/en/best-robot-for-a-5-year-old/), [8](/en/best-robot-for-an-8-year-old/), [10](/en/best-robot-for-a-10-year-old/) help.
 - **Prepare Christmas morning**: charged batteries, [mBlock installed](/en/install-mblock-5-windows/) before unboxing.
-- Order early in December; check **today’s price** on <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Amazon UK</a> or <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>.
+- Order early in December; check **today’s price** on <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Amazon.com</a> or <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>.
 - Have one ready-made challenge: our [10 free mBot projects](/en/10-free-mbot-classroom-projects/) work at home too.
 
 ![Makeblock mBot — chassis and mCore board](/images/models/makeblock-mbot-mcore.webp)
@@ -173,7 +173,7 @@ Still choosing between Makeblock kits? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) 
       <li>Scratch + Arduino path</li>
       <li>Sensors included</li>
     </ul>
-    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon UK</a>
+    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <h3 style="margin:0 0 0.35rem;font-size:1.1rem;">Makeblock mBot2 — best around age 10</h3>
@@ -182,7 +182,7 @@ Still choosing between Makeblock kits? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) 
       <li>Python + Scratch</li>
       <li>mBuild modular add-ons (clip-on sensors)</li>
     </ul>
-    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon UK</a>
+    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <h3 style="margin:0 0 0.35rem;font-size:1.1rem;">ELEGOO Robot Car V4.0 — value 13+</h3>

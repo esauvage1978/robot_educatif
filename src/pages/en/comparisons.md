@@ -32,5 +32,5 @@ updated: "5 November 2026"
 </ul>
 
 <h2 id="faq">FAQ</h2>
-<p><strong>Are prices in the comparisons live?</strong> Robot pages use our affiliate search links; confirm price and kit name on Amazon.co.uk, Amazon.ca or Amazon.com before checkout.</p>
+<p><strong>Are prices in the comparisons live?</strong> Robot pages use our affiliate search links; confirm price and kit name on Amazon.com, Amazon.ca or Amazon.com before checkout.</p>
 <p><strong>UK vs Canada URLs?</strong> The same articles are mirrored under <a href="/en/comparisons/">/ca/</a> with regional shop tags where available.</p>

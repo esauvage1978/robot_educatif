@@ -65,9 +65,7 @@ Chain the LED sequence with a distance threshold if the group moves fast: the li
 
 Once the method and ideas are clear, here is the most common kit for these workshops. Amazon prices change: check the listing on the day you buy.
 
-**Makeblock mBot** — ages about 8–12 · Scratch and Arduino · quick build for a workshop · LEDs and ultrasonic sensor suited to 1-hour challenges · [Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
-
-**ELEGOO Penguin Bot** (budget alternative, not an mBot) — ages about 8–14 · Arduino C · an original two-legged robot for a different kind of workshop · [Amazon UK](https://www.amazon.co.uk/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20)
+**Makeblock mBot** — ages about 8–12 · Scratch and Arduino · quick build for a workshop · LEDs and ultrasonic sensor suited to 1-hour challenges · [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) — ages about 8–14 · Arduino C · an original two-legged robot for a different kind of workshop · [Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20)
 
 ## 3. Next steps
 
@@ -83,12 +81,6 @@ Once the method and ideas are clear, here is the most common kit for these works
 
 ## Amazon links (affiliate)
 
-- [Makeblock mBot — Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
-
-*Amazon partner — commission possible on eligible purchases, at no extra cost to you.*
-
-**Tip.** Always end with a **2-minute demo** in front of someone: it fixes the goal and stops you over-complicating the program.
-
-**Also read**: [best educational robot 2026](/en/best-educational-robot-2026/).
+- [Makeblock mBot — Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20).
 
 *Author: Emmanuel Sauvage · updated 31 October 2026.*

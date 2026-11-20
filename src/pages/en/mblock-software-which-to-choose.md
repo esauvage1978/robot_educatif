@@ -5,7 +5,7 @@ description: "PC, tablet or browser: which Makeblock software should you choose 
 updated: "31 October 2026"
 ---
 
-Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Check today’s price on Amazon UK or Amazon.com before you buy.
+Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Check today’s price on Amazon.com or Amazon.com before you buy.
 
 You open **mBlock** for the first time and you do not know whether to **install** it, open it **in the browser**, or jump straight to **Python**? This page compares the three entry points in plain words, so that you can choose according to your computer, your administrator rights and your robot (**mBot**, **mBot2**, etc.).
 
@@ -32,7 +32,7 @@ You open **mBlock** for the first time and you do not know whether to **install*
 
 This is **not** a choice for life: many people use the **app** at home or in the lab, and the **Web** version on locked computers.
 
-If you then need a compatible robot, use the age guides, which name the model before any shop link: [age 8](/en/best-robot-for-an-8-year-old/), [age 10](/en/best-robot-for-a-10-year-old/), [mBot vs mBot2](/en/mbot-vs-mbot2/). The French ASINs for those robots are not reused here as Amazon.com or Amazon.co.uk product pages.
+If you then need a compatible robot, use the age guides, which name the model before any shop link: [age 8](/en/best-robot-for-an-8-year-old/), [age 10](/en/best-robot-for-a-10-year-old/), [mBot vs mBot2](/en/mbot-vs-mbot2/). The French ASINs for those robots are not reused here as Amazon.com or Amazon.com product pages.
 
 ## 1. The mBlock application (Windows / macOS / Chromebook / mobile depending on the version)
 
@@ -88,7 +88,7 @@ In the recent tutorials of this site, we start from **mBlock 5** (the current Sc
 
 ## Where to check a robot price
 
-No Amazon.com or Amazon.co.uk product page is linked from this article: the mBot and mBot2 ASINs in the French snapshot are not assumed to be the same products abroad. Official software: [mblock.cc](https://www.mblock.cc/) and [ide.mblock.cc](https://ide.mblock.cc/). The buying guide is [mBot vs mBot2](/en/mbot-vs-mbot2/).
+No Amazon.com or Amazon.com product page is linked from this article: the mBot and mBot2 ASINs in the French snapshot are not assumed to be the same products abroad. Official software: [mblock.cc](https://www.mblock.cc/) and [ide.mblock.cc](https://ide.mblock.cc/). The buying guide is [mBot vs mBot2](/en/mbot-vs-mbot2/).
 
 ---
 

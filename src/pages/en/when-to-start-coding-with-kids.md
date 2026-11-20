@@ -15,7 +15,7 @@ faqSchema:
     answer: "Often Scratch (or mBlock online) first: zero cost, one finishable project per session. A robot makes sense when loops and events are understood — see our Scratch school/home guide and the age-based robot comparison."
 ---
 
-Some links on this page are affiliate links. **Amazon.co.uk** is the default shop below; **Amazon.com** links are for US readers. Check today’s listing — we do not invent local prices.
+Some links on this page are affiliate links. **Amazon.com** is the default shop below. Check today’s listing before you buy. Check today’s listing — we do not invent local prices.
 
 > **Direct answer (October 2026)** — You can build **logic from ages 4–6** without a screen (tokens, floor paths). **Computer/tablet coding** with **Scratch** (free block language from MIT) fits around **7–9** if the child stays **20–40 minutes** on a task and will **fix** after failure. **Python** (typed text language) often starts around **10–12**, depending on kit and support. The age on the box is not enough: weigh **motivation**, **frustration** and **adult time** for install, save and troubleshooting.
 
@@ -127,9 +127,9 @@ No: Scratch alone often works **6–12 months**; robots after loops/events — [
 
 ## Amazon links (affiliate)
 
-- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener" class="affiliate-link">Programmable educational robots — Amazon.co.uk</a> · <a href="/go/az-us-4a46fed10c" rel="sponsored nofollow noopener" class="affiliate-link">Amazon.com</a>
-- <a href="/go/az-gb-4756410c5b" rel="sponsored nofollow noopener" class="affiliate-link">Scratch books for beginners — Amazon.co.uk</a> · <a href="/go/az-us-c16d76dabf" rel="sponsored nofollow noopener" class="affiliate-link">Amazon.com</a>
-- <a href="/go/az-gb-8d09af5539" rel="sponsored nofollow noopener" class="affiliate-link">Kids coding starter kits — Amazon.co.uk</a> · <a href="/go/az-us-ed6d69c5d8" rel="sponsored nofollow noopener" class="affiliate-link">Amazon.com</a>
+- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener" class="affiliate-link">Programmable educational robots — Amazon.com</a>
+- <a href="/go/az-gb-4756410c5b" rel="sponsored nofollow noopener" class="affiliate-link">Scratch books for beginners — Amazon.com</a>
+- <a href="/go/az-gb-8d09af5539" rel="sponsored nofollow noopener" class="affiliate-link">Kids coding starter kits — Amazon.com</a>
 
 *Amazon Associates — commission possible on eligible purchases. Check today’s price on the listing.*
 

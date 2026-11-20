@@ -129,7 +129,7 @@ Next, make the tune repeat while the button is held, or forever, with **repeat**
 
 <h2 id="buy">Where to buy an mBot (affiliate)</h2>
 
-- <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon UK</a>
+- <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
 - <a href="/go/az-us-d15f4ee758/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
 
 *Amazon partner — commission possible on qualifying purchases.*

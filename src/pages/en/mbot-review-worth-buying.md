@@ -70,10 +70,8 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 
 ## Amazon links (affiliate search)
 
-- [mBot Makeblock on Amazon.co.uk](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
-- [mBot2 Makeblock on Amazon.co.uk](https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20)
-- [mBot / Makeblock accessories](https://www.amazon.co.uk/s?k=mBot+Makeblock+accessories+sensor&tag=roboteducatif-21)
-- [Scratch / kids robotics book](https://www.amazon.co.uk/s?k=Scratch+robot+coding+book+kids&tag=roboteducatif-21)
+- [mBot Makeblock on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)
+- [Scratch / kids robotics book](https://www.amazon.com/s?k=Scratch+robot+coding+book+kids&tag=roboteducatif-20)
 
 *Amazon partner — a commission may be earned on qualifying purchases at **no extra cost** to you. Links may open product or search pages: compare sellers, reviews and terms before adding to basket.*
 
@@ -87,11 +85,7 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 - Pros: easy to assemble in about 15 minutes; intuitive block programming; Scratch and Arduino compatible; many sensors included
 - Badge: Best choice for age 8
 
-[Amazon.co.uk](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) — check today’s price.
-
-**Ideal for**: first programmable robot, family, club, primary/secondary.
-
-### mBot2 (ages 10–14, Python included)
+[Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)
 
 **Makeblock mBot2**
 - Ages: about 10–14 years
@@ -99,17 +93,7 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 - Pros: CyberPi board with colour screen; Python and Scratch compatible; built-in Wi-Fi and IoT (Internet of Things); highly expandable with mBuild extensions
 - Badge: Python evolution
 
-[Amazon.co.uk](https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) — check today’s price.
-
-**Ideal for**: 2–3 year project, Python, secondary school, text programming.
-
----
-
-**In short**: in **2026** the mBot remains a safe bet **if** the project is supported and **if** child + family are ready for a **small technical investment** at the start. The “best” model for you is almost always **mBot vs mBot2**, not “mBot yes/no”.
-
-### Next guides on this topic
-
-- [mBot vs mBot2](/en/mbot-vs-mbot2/)
+[Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20)
 - [mBot accessories](/en/mbot-accessories-where-to-start/)
 - [First steps with mBlock 5](/en/first-steps-mblock-5/)
 

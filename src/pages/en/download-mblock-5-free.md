@@ -19,7 +19,7 @@ faqSchema:
     answer: "Yes. The official Makeblock installer and the browser version are free. Avoid mirror sites and crack links."
 ---
 
-Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. **Amazon UK** is the default shop below for UK readers; **Amazon.com** buttons are for US buyers. Check today’s listing — we do not invent local prices.
+Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. **Amazon.com** is the default shop below for UK readers; **Amazon.com** buttons are for US buyers. Check today’s listing — we do not invent local prices.
 
 <div class="callout-no-install" style="border:2px solid #0f766e;border-radius:12px;padding:1rem 1.25rem;margin:0.75rem 0 1.5rem;background:#f0fdfa;color:#134e4a;font-size:1.03rem;">
 <strong>Prefer not to install anything?</strong> Open the official <strong>IDE</strong> (integrated development environment: the window where you snap blocks together) at <a href="https://ide.mblock.cc/" rel="noopener noreferrer" target="_blank" style="font-weight:700;color:#0f766e;text-decoration:underline;">ide.mblock.cc</a> (mBlock online), then follow our guide <a href="/en/mblock-online-no-install/" style="font-weight:700;color:#0f766e;text-decoration:underline;">mBlock online with no install</a>. This page is only for <strong>downloading</strong> the Windows/Mac desktop app.
@@ -121,21 +121,21 @@ Downloading mBlock 5 to prepare a gift or equip a workshop? Here are Makeblock r
 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (v1.1 Bluetooth)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (v1.1 Bluetooth)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Ideal from age 8 (mBlock blocks) · About 15 min build</p>
-    <p style="margin:0 0 0.75rem;font-weight:700;"><a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" style="color:#0f172a;text-decoration:underline;">Indicative: ~£75–95 (check today’s price)</a></p>
+    <p style="margin:0 0 0.75rem;font-weight:700;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="color:#0f172a;text-decoration:underline;">Indicative: ~£75–95 (check today’s price)</a></p>
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-      <a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot" data-placement="content" style="background:#ff9900;color:#111;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">View on Amazon UK</a>
-      <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot" data-placement="content" style="background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;border:1px solid #cbd5e1;">View on Amazon.com</a>
+      <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot" data-placement="content" style="background:#ff9900;color:#111;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">View on Amazon.com</a>
+      <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot" data-placement="content" style="background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;border:1px solid #cbd5e1;">View on Amazon.com</a>
     </div>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (with CyberPi Wi-Fi)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (with CyberPi Wi-Fi)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Ideal ages 10–14 (mBlock blocks + Python) · Built-in battery about 5 h</p>
-    <p style="margin:0 0 0.75rem;font-weight:700;"><a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" style="color:#0f172a;text-decoration:underline;">Indicative: ~£140–165 (check today’s price)</a></p>
+    <p style="margin:0 0 0.75rem;font-weight:700;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="color:#0f172a;text-decoration:underline;">Indicative: ~£140–165 (check today’s price)</a></p>
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-      <a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot2" data-placement="content" style="background:#ff9900;color:#111;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">View on Amazon UK</a>
-      <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot2" data-placement="content" style="background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;border:1px solid #cbd5e1;">View on Amazon.com</a>
+      <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot2" data-placement="content" style="background:#ff9900;color:#111;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">View on Amazon.com</a>
+      <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" class="affiliate-link" data-product-id="mbot2" data-placement="content" style="background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.45rem 0.8rem;border-radius:8px;text-decoration:none;font-size:0.88rem;border:1px solid #cbd5e1;">View on Amazon.com</a>
     </div>
   </div>
 </div>

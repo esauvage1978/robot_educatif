@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Robotics equipment for renters, without a workshop"
-description: "Renters: which robot or kit to buy with no workshop and no drilling. Amazon.co.uk prices, 8 November 2026: space, noise, the tenancy and moving day."
+description: "Renters: which robot or kit to buy with no workshop and no drilling. Amazon.com prices, 8 November 2026: space, noise, the tenancy and moving day."
 updated: "8 November 2026"
 ---
 
-*Affiliate disclosure: Amazon.co.uk links on this page may earn us a commission, at no extra cost to you. Prices are from our amazon.co.uk extract of 8 November 2026, 18:27 Paris time. They move. This page is in English for several countries: pound prices are UK listings, not a conversion, and not a US or Canadian price.*
+*Affiliate disclosure: Amazon.com links on this page may earn us a commission, at no extra cost to you. Prices are from our amazon.com extract of 8 November 2026, 18:27 Paris time. They move. This page is in English for several countries: pound prices are UK listings, not a conversion, and not a US or Canadian price.*
 
-A renter can learn robotics with a battery or USB robot that lives in one box and leaves with you. The deciding fact is free floor, not the longest spec sheet. With less than a clear metre, [Codey Rocky](https://www.amazon.co.uk/dp/B07CGH8NZ7?tag=roboteducatif-21) was £100 on 8 November 2026 and stays on a desk. With a clear metre, and AA cells bought separately, the [mBot](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) was £53 the same day. A teenager or adult who wants to see the wires starts from the [ELEGOO V4.0 page](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) and checks that the UK listing title says V4.0 before paying. Resin, a laser, an arm screwed into the wall, and an in-wall electrical module stay out.
+A renter can learn robotics with a battery or USB robot that lives in one box and leaves with you. The deciding fact is free floor, not the longest spec sheet. With less than a clear metre, [Codey Rocky](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20) was £100 on 8 November 2026 and stays on a desk. With a clear metre, and AA cells bought separately, the [mBot](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) was £53 the same day. A teenager or adult who wants to see the wires starts from the [ELEGOO V4.0 page](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) and checks that the UK listing title says V4.0 before paying. Resin, a laser, an arm screwed into the wall, and an in-wall electrical module stay out.
 
 Smart-home gear that plugs in without drilling is a different question: [smart home for renters](/en/smart-home/smart-home-renters-no-drilling/). Age, without the tenancy constraint, starts at [the best programmable robot for kids](/en/best-programmable-robot-for-kids/).
 
@@ -28,7 +28,7 @@ Peaceful use also means the neighbour. Small motors are audible in the room, and
 | Goal | Program a robot, then take it away with no mark on the home |
 | Level | Beginner, if you follow the booklet and nobody solders |
 | Time | One evening for the first movement. Ten minutes to pack it away. If packing takes longer, the kit is too big |
-| Budget | £53 to £131.12 for a complete Makeblock robot on amazon.co.uk, 8 November 2026. A Raspberry Pi board and its power supply are extra |
+| Budget | Around £50–£130 for a complete Makeblock robot on amazon.com. Check the current price on Amazon. A Raspberry Pi board and its power supply are extra |
 | Kit | The robot, its cable, a lidded box you own, a switched extension lead |
 | Software | mBlock 5 for Makeblock, the Arduino IDE for an ELEGOO car. Both are free |
 | Network | USB is enough. The landlord’s Wi-Fi is optional |
@@ -54,7 +54,7 @@ Side-by-side: [mBot vs Codey Rocky](/en/mbot-vs-codey-rocky/) and [mBot vs mBot2
 
 ## Models and prices on 8 November 2026
 
-Figures are amazon.co.uk prices on 8 November 2026, 18:27 Paris time. We did not assemble these kits for this article. Dimensions, ages and power come from manufacturer pages, and the age on the Amazon title is noted when it differs. There is no US or Canadian price here.
+Figures are amazon.com prices on 8 November 2026, 18:27 Paris time. We did not assemble these kits for this article. Dimensions, ages and power come from manufacturer pages, and the age on the Amazon title is noted when it differs. There is no US or Canadian price here.
 
 <div class="tableau empile">
 <table>
@@ -66,24 +66,24 @@ Figures are amazon.co.uk prices on 8 November 2026, 18:27 Paris time. We did not
 <th scope="col">Who it suits</th>
 </tr></thead><tbody>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B07CGH8NZ7?tag=roboteducatif-21">Codey Rocky</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20">Codey Rocky</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Desk. About 10 cm on a side</span></td>
 <td data-label="Power"><span class="td-val">950 mAh battery included</span></td>
 <td data-label="Price"><span class="td-val">£100</span></td>
 <td data-label="Who it suits"><span class="td-val">A child, little floor</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21">mBot</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20">mBot</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Floor, then a box</span></td>
 <td data-label="Power"><span class="td-val">4 AA cells not included, or an optional pack</span></td>
 <td data-label="Price"><span class="td-val">£53</span></td>
 <td data-label="Who it suits"><span class="td-val">A child, a clear metre</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21">mBot2</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20">mBot2</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Floor. 9 × 18 × 13 cm</span></td>
 <td data-label="Power"><span class="td-val">2,500 mAh battery included</span></td>
-<td data-label="Price"><span class="td-val">£131.12</span></td>
+<td data-label="Price"><span class="td-val">Around £130 — check today's price</span></td>
 <td data-label="Who it suits"><span class="td-val">Blocks, then Python. Wi-Fi is optional</span></td>
 </tr>
 <tr>
@@ -94,17 +94,17 @@ Figures are amazon.co.uk prices on 8 November 2026, 18:27 Paris time. We did not
 <td data-label="Who it suits"><span class="td-val">Teen or adult, wiring</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21">Penguin Bot V2.0</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20">Penguin Bot V2.0</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Desk</span></td>
 <td data-label="Power"><span class="td-val">USB</span></td>
-<td data-label="Price"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21">See today's price</a></span></td>
+<td data-label="Price"><span class="td-val"><a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20">See today's price</a></span></td>
 <td data-label="Who it suits"><span class="td-val">A short stay, a small budget</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B0BBZY9L59?tag=roboteducatif-21">CyberPi</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20">CyberPi</a></span></td>
 <td data-label="Where it lives"><span class="td-val">A pocket. No chassis</span></td>
 <td data-label="Power"><span class="td-val">USB</span></td>
-<td data-label="Price"><span class="td-val">£47.20</span></td>
+<td data-label="Price"><span class="td-val">Around £45–50 — check today's price</span></td>
 <td data-label="Who it suits"><span class="td-val">Code, without a driving robot</span></td>
 </tr>
 </tbody>
@@ -119,21 +119,21 @@ Figures are amazon.co.uk prices on 8 November 2026, 18:27 Paris time. We did not
 
 **ELEGOO Smart Robot Car V4.0.** The [official page](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) titles the kit “With Camera”, rates it 13+, and describes XH2.54 connectors, line tracking, an ultrasonic sensor, an infrared remote and phone control. It does not describe a soldering step. We have not opened a box. Confirm the camera on the listing you actually buy, because the official title mentions one and some marketplace titles do not. Arduino context: [Arduino robot kit for kids](/en/arduino-robot-kit-for-kids/) and [ELEGOO](/en/elegoo-brand/).
 
-**Penguin Bot.** The UK listing title matches the white V2.0 biped. [See today's price](https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21). It stays on the desk. It does not carry the sensors of a car.
+**Penguin Bot.** The UK listing title matches the white V2.0 biped. [See today's price](https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20) It stays on the desk. It does not carry the sensors of a car.
 
-**CyberPi.** £47.20. A board with a screen, not a driving robot. It goes in a bag when the floor is already full. Overview: [CyberPi](/en/makeblock-cyberpi-overview/).
+**CyberPi.** Around £45–50 — check today's price on Amazon. A board with a screen, not a driving robot. It goes in a bag when the floor is already full. Overview: [CyberPi](/en/makeblock-cyberpi-overview/).
 
-Two more lines from the same extract are for tabletop electronics, not a driving robot. The [official Arduino Starter Kit K000007](https://www.amazon.co.uk/dp/B009UKZV0A?tag=roboteducatif-21) was £69.52, with an English project book named in the title. Loose parts belong in a closed bag from the first evening, or they vanish on moving day.
+Two more lines from the same extract are for tabletop electronics, not a driving robot. The [official Arduino Starter Kit K000007](https://www.amazon.com/s?k=Arduino%20Starter%20Kit%20K000007&tag=roboteducatif-20) is typically around £70 — check today's price — with an English project book named in the title. Loose parts belong in a closed bag from the first evening, or they vanish on moving day.
 
-The [Freenove 4WD ESP32 car](https://www.amazon.co.uk/dp/B08X6PTQFM?tag=roboteducatif-21) was £54.95. The title says the ESP32-CAM board is in the box, with line tracking and obstacle avoidance. We have not built it. The title is in English, and the board’s Wi-Fi brings you back to whose router it is.
+The [Freenove 4WD ESP32 car](https://www.amazon.com/s?k=Freenove%204WD%20Car%20Kit%20ESP32&tag=roboteducatif-20) is usually around £55 — check today's price on Amazon. The title says the ESP32-CAM board is in the box, with line tracking and obstacle avoidance. We have not built it. The title is in English, and the board’s Wi-Fi brings you back to whose router it is.
 
-The Raspberry Pi 5 4 GB is the board on its own. [See today's price](https://www.amazon.co.uk/dp/B0CK3L9WD3?tag=roboteducatif-21). The [Freenove 4WD kit for Pi](https://www.amazon.co.uk/dp/B07YD2LT9D?tag=roboteducatif-21) was £59.95, and the title says the Pi is not included. Add the power supply and the microSD on the day you buy. Those lines are not a finished robot. Memory sizes: [Pi 5, which RAM](/en/raspberry-pi-5-which-ram/).
+The Raspberry Pi 5 4 GB is the board on its own. [See today's price](https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20) The [Freenove 4WD kit for Pi](https://www.amazon.com/s?k=Freenove%204WD%20Smart%20Car%20Kit%20Raspberry%20Pi&tag=roboteducatif-20) is typically around £60 — check today's price — and the title says the Pi is not included. Add the power supply and the microSD on the day you buy. Those lines are not a finished robot. Memory sizes: [Pi 5, which RAM](/en/raspberry-pi-5-which-ram/).
 
 ### Two stays, in pounds
 
 A 9-year-old, an 18-month tenancy, a living room with no clear metre. Codey Rocky at £100 starts with its own battery. The mBot at £53 needs AA cells bought separately. The gap on the page is £47. It pays for a desk robot that is already powered. That gap is worth it when the floor is missing. It is wasted when you have the metre and you are willing to buy cells.
 
-An adult on a six-month tenancy, with a kitchen table. CyberPi at £47.20 or the mBot at £53 covers a real start. A Pi plus a chassis is a second project: the chassis was £59.95 without the board. The [Arduino IDE path](/en/arduino/) is there once a car kit is actually in the room.
+An adult on a six-month tenancy, with a kitchen table. CyberPi (around £45–50) or the mBot at £53 covers a real start. A Pi plus a chassis is a second project: the chassis is typically around £60 without the board — check the listing. The [Arduino IDE path](/en/arduino/) is there once a car kit is actually in the room.
 
 ## One evening, in order
 
@@ -197,7 +197,7 @@ A robot set on the floor, or plugged into an existing socket, does not alter the
 
 ### Does a stay under six months change the model?
 
-Yes. The mBot at £53, or CyberPi at £47.20, keeps the sum small. A Pi plus a chassis is a later step: the chassis does not include the board, and the power supply is a separate buy. That pair makes sense when you already know you will continue after the move.
+Yes. The mBot at £53, or CyberPi around £45–50, keeps the sum small. A Pi plus a chassis is a later step: the chassis does not include the board, and the power supply is a separate buy. That pair makes sense when you already know you will continue after the move.
 
 ### In a house-share, where does the robot drive?
 
@@ -220,4 +220,4 @@ No, as long as you program over USB. That is the basic mode of the mBot, and it 
 - [Private renting in England](https://www.gov.uk/private-renting), as the official overview. The tenancy agreement remains the text that can restrict alterations and noise.
 - [Makeblock mBot](https://www.makeblock.com/products/buy-mbot), [mBot2](https://www.makeblock.com/products/buy-mbot2), [Codey Rocky](https://www.makeblock.com/products/buy-codey-rocky), and the [mBot help centre](https://support.makeblock.com/hc/en-us/articles/1500004081921-FAQs-on-mBot). Codey Rocky dimensions as repeated by [Plan Lab](https://planlab.eu/en/products/makeblock-codey-rocky) and [Pakronics](https://www.pakronics.com.au/products/codey-rocky-mbp1030024).
 - [ELEGOO Smart Robot Car Kit V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0).
-- amazon.co.uk prices, 8 November 2026, 18:27 Paris time, for the models in the table. [KIBO course](https://kinderlabrobotics.com/sign-up-for-the-kibo-home-robotics-course/), fee as shown on KinderLab’s page.
+- amazon.com prices, 8 November 2026, 18:27 Paris time, for the models in the table. [KIBO course](https://kinderlabrobotics.com/sign-up-for-the-kibo-home-robotics-course/), fee as shown on KinderLab’s page.

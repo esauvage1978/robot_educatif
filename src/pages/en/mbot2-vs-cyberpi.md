@@ -7,7 +7,7 @@ faqSchema:
   - question: "What is the difference between the mBot2 and the CyberPi?"
     answer: "The mBot2 is a mobile robot for paths, floor sensors and short demos. The CyberPi is a development board for a console, connected objects and projects that do not need wheels. Both are Makeblock and use mBlock."
   - question: "What were the Amazon.fr prices on 10 November 2026?"
-    answer: "At 06:14 the mBot2 was 127.48 euros (ASIN B0919F9CKS, listing titled ages 10 and up) and the CyberPi learning kit was 45.58 euros (ASIN B0BBZY9L59). Another pack can show a different amount. We do not invent a dollar or pound price."
+    answer: "At 06:14 the mBot2 was around €130 (ASIN B0919F9CKS, listing titled ages 10 and up) and the CyberPi learning kit was around €45 (ASIN B0BBZY9L59). Another pack can show a different amount. We do not invent a dollar or pound price."
 ---
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
@@ -16,7 +16,7 @@ Some links on this page are affiliate links. The button opens Amazon so you can 
 
 ## Prices on 10 November 2026 (Amazon.fr)
 
-Reading from 10 November 2026, 06:14. The [mBot2](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) was **127.48 euros** (ASIN B0919F9CKS, listing titled "ages 10 and up"). The [CyberPi kit](https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20) in that same reading was **45.58 euros** (ASIN B0BBZY9L59). The listing title is a learning kit, not a bare board sold on its own. Another pack can show a different amount. These figures are the Amazon.fr listing on that date. We do not invent a dollar or pound price.
+Reading from 10 November 2026, 06:14. The [mBot2](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) was **around €130** (ASIN B0919F9CKS, listing titled "ages 10 and up"). The [CyberPi kit](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) in that same reading was **around €45** (ASIN B0BBZY9L59). The listing title is a learning kit, not a bare board sold on its own. Another pack can show a different amount. These figures are the Amazon.fr listing on that date. We do not invent a dollar or pound price.
 
 ## 1. What the mBot2 does particularly well
 
@@ -40,8 +40,8 @@ If a teenager mainly wants **Linux**, a **server**, or **Python away from a robo
 
 ## Amazon links
 
-- [Check today's price on Amazon](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) (mBot2 Makeblock, 127.48 euros on 10 November 2026)
-- [Check today's price on Amazon](https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20) (CyberPi kit, 45.58 euros on 10 November 2026)
+- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) (mBot2 Makeblock, around €130 on 10 November 2026)
+- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) (CyberPi kit, around €45 on 10 November 2026)
 
 ---
 

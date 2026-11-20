@@ -15,7 +15,7 @@ faqSchema:
     answer: "PC/tablet compatibility with mBlock or the Arduino IDE, batteries included or not, recent app store reviews, delivery date. Plan 30–60 minutes of adult setup the first evening."
 ---
 
-Some links on this page are affiliate links. **Amazon.co.uk** is the default shop below; **Amazon.com** links are for US readers. Amounts are **indicative October 2026** ranges — always confirm today’s price, exact SKU and delivery on the seller page.
+Some links on this page are affiliate links. **Amazon.com** is the default shop below. Check today’s listing before you buy. Amounts are **indicative October 2026** ranges — always confirm today’s price, exact SKU and delivery on the seller page.
 
 > **Direct answer (October 2026)** — With **under €100** (about **£75–95** in the UK, **$85–110** in the US — verify locally), the usual best fit for an **8–12-year-old** starting robotics is the **Makeblock mBot**. For a **12+** teen who wants **electronics** and a **camera**, choose the **ELEGOO Smart Robot Car V4.0** kit. The **Penguin Bot** (~**£35–45** / **$40–50**) is mainly for **testing interest** or a **second** robot on a tight budget.
 
@@ -64,7 +64,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 
 **Honest limits:** Bluetooth can be flaky — use **USB** first; four AA batteries (rechargeables recommended); no built-in camera.
 
-**Buy links:** [mBot on Amazon UK](/go/az-gb-b5d4d0b7cd) · [mBot on Amazon.com](/go/az-us-d15f4ee758)
+**Buy links:** [mBot on Amazon.com](/go/az-gb-b5d4d0b7cd) · [mBot on Amazon.com](/go/az-us-d15f4ee758)
 
 **Success check:** robot moves on **green flag** in mBlock; changing one block (speed or wait) changes behaviour. Connection issues: [mBlock Bluetooth troubleshooting](/en/mblock-bluetooth-troubleshooting/).
 
@@ -84,7 +84,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 
 **Limits:** 1–2 h assembly and wiring; mostly **English** docs; no mBlock-style blocks.
 
-**Buy links:** [ELEGOO Car on Amazon.com](/go/az-us-f030be64cd) · UK search: [ELEGOO Robot Car V4.0 on Amazon.co.uk](https://www.amazon.co.uk/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-21)
+**Buy links:** [ELEGOO Car on Amazon.com](/go/az-us-f030be64cd) · UK search: [ELEGOO Robot Car V4.0 on Amazon.com](https://www.amazon.com/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-20)
 
 **Who it fits:** teens aiming at **electronics**, **video streaming** or **secondary-school STEM** — see [best robot for a 12-year-old](/en/best-robot-for-a-12-year-old/). If the child never coded, start with mBot or [best robot for an 8-year-old](/en/best-robot-for-an-8-year-old/).
 
@@ -99,7 +99,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 | **Indicative price** | **~£35–45** / **~$40–50** |
 | **Role** | **Test interest** or second robot |
 
-Preset walk/dance modes out of the box; Arduino code on GitHub for advanced users. **Not** a substitute for mBot if you can stretch to **~£85**. [Penguin on Amazon UK](/go/az-gb-591f4137f4) · [Amazon.com](/go/az-us-a9ea4a77b6)
+Preset walk/dance modes out of the box; Arduino code on GitHub for advanced users. **Not** a substitute for mBot if you can stretch to **~£85**. [Penguin on Amazon.com](/go/az-gb-591f4137f4) · [Amazon.com](/go/az-us-a9ea4a77b6)
 
 ## Comparison (October 2026)
 
@@ -133,9 +133,9 @@ For ELEGOO: select **Arduino UNO** in the IDE, pick the correct **COM** port, ru
 
 ## Merchant links (October 2026)
 
-- [Makeblock mBot — Amazon UK](/go/az-gb-b5d4d0b7cd) · [Amazon.com](/go/az-us-d15f4ee758)
-- [Scratch robots search — Amazon UK](/go/az-gb-8d09af5539) · [Amazon.com kits](/go/az-us-ed6d69c5d8)
-- [Programmable educational robots — Amazon UK](/go/az-gb-8919d5eaba)
+- [Makeblock mBot — Amazon.com](/go/az-gb-b5d4d0b7cd) · [Amazon.com](/go/az-us-d15f4ee758)
+- [Scratch robots search — Amazon.com](/go/az-gb-8d09af5539) · [Amazon.com kits](/go/az-us-ed6d69c5d8)
+- [Programmable educational robots — Amazon.com](/go/az-gb-8919d5eaba)
 
 ## FAQ
 

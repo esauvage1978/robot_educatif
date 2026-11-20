@@ -9,7 +9,7 @@ faqSchema:
   - question: "Can you keep the Pi 4 power supply?"
     answer: "It often boots the board, then shows its limits as soon as a USB port draws current. The supply meant for the Pi 5 is the official 27W unit, or a quality USB-C charger that really negotiates 5V at 5A. Check the price. It is not in this reading."
   - question: "4GB or 8GB for a first robot?"
-    answer: "The 4GB, at 145.22 euros on the Amazon.fr reading of 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at 209.09 euros saves you buying the board again six months later. Power, a microSD card, and a case are still added in both cases."
+    answer: "The 4GB, at around €145 on the Amazon.fr reading of 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at around €210 saves you buying the board again six months later. Power, a microSD card, and a case are still added in both cases."
   - question: "Do you need a screen?"
     answer: "Not all the time. A screen, a keyboard, and a mouse are for the first day. After that, SSH gives you a remote terminal, and a remote desktop shows the interface on the computer at home. Tick SSH in Imager before you write the card, or the first contact still happens on a screen."
   - question: "What are GPIO and I2C?"
@@ -35,7 +35,7 @@ import ProductBox from '../../components/ProductBox.astro';
   title="Raspberry Pi 5: which version?"
 />
 
-A bare [Raspberry Pi 5](/en/raspberry-pi-brand/) board does not boot. It needs power, a microSD card, and, as soon as the project lasts, a case that moves the heat. On the Amazon.fr reading of 6 November 2026, the 4GB board was 145.22 euros and the 8GB board was 209.09 euros. Those are euro readings, not converted dollar prices. Neither amount covers the rest of the kit: power, microSD, case, cable, and a possible camera are not in the reading. Their price is checked on the day’s listing, and this guide does not add them to the board. The buttons on this page open today’s listing.
+A bare [Raspberry Pi 5](/en/raspberry-pi-brand/) board does not boot. It needs power, a microSD card, and, as soon as the project lasts, a case that moves the heat. On the Amazon.fr reading of 6 November 2026, the 4GB board was around €145 and the 8GB board was around €210. Those are euro readings, not converted dollar prices. Neither amount covers the rest of the kit: power, microSD, case, cable, and a possible camera are not in the reading. Their price is checked on the day’s listing, and this guide does not add them to the board. The buttons on this page open today’s listing.
 
 The Raspberry Pi Foundation presents the Pi 5 as clearly faster than the Pi 4, on the order of two to three times in its own measurements. That is not a test run for this article. The processor is a Broadcom BCM2712, four Cortex-A76 cores at 2.4 GHz, with a VideoCore VII graphics processor at 800 MHz (OpenGL ES 3.1 and Vulkan 1.2). The memory is LPDDR4X, in 4GB, 8GB, or 16GB. You get two USB 3.0 ports, two USB 2.0 ports, two micro-HDMI outputs up to 4K at 60 frames per second, gigabit Ethernet, Wi-Fi 5, and Bluetooth 5.0. The 40-pin header follows the layout of the Pi 4 and Pi 3, with a PCIe 2.0 link, a power button, and a real-time clock. That clock keeps time with the power off only if you add a battery, which does not come with the board.
 
@@ -61,7 +61,7 @@ To place the board in the range, the [Pi 3, 4, and 5 comparison](/en/raspberry-p
   position={1}
 />
 
-The 4GB board is enough when the project fits in one program and a few sensors: a robot with motors, a light server such as Pi-hole, learning Python and Linux, or modest office work. At 145.22 euros on 6 November 2026, it is the less expensive of the two listings in the reading. It gets tight as soon as a browser, a development environment, and a camera run together. A console for old games is not an automatic argument: the distribution has to announce Pi 5 support. That is not true of every image built for the Pi 4.
+The 4GB board is enough when the project fits in one program and a few sensors: a robot with motors, a light server such as Pi-hole, learning Python and Linux, or modest office work. At around €145 on 6 November 2026, it is the less expensive of the two listings in the reading. It gets tight as soon as a browser, a development environment, and a camera run together. A console for old games is not an automatic argument: the distribution has to announce Pi 5 support. That is not true of every image built for the Pi 4.
 
 <ProductBox
   lang="en"
@@ -81,7 +81,7 @@ The 4GB board is enough when the project fits in one program and a few sensors: 
   position={2}
 />
 
-The 8GB board is the one you take for a camera, a small computer-vision model, or a desktop with several programs open. The gap with the 4GB, on the two listings of 6 November 2026, is 63.87 euros (209.09 euros minus 145.22 euros). That is only the gap between the boards. The same accessories are added to both. Many add-on boards made for the Pi 4 still plug onto the 40 pins, but the case and the port positions have changed. A case that enclosed a Pi 4 is not reused without checking.
+The 8GB board is the one you take for a camera, a small computer-vision model, or a desktop with several programs open. The gap with the 4GB, on the two listings of 6 November 2026, is around €65 (around €210 minus around €145). That is only the gap between the boards. The same accessories are added to both. Many add-on boards made for the Pi 4 still plug onto the 40 pins, but the case and the port positions have changed. A case that enclosed a Pi 4 is not reused without checking.
 
 The 16GB version is for heavy compiling, several containers, or a larger model. It is not in the price reading for this page: check the price on the listing, and do not reuse the 8GB amount. For a first robot or a first year of Python, it is more than you need.
 
@@ -113,11 +113,11 @@ Buying the parts one by one lets you skip the keyboard if the house already has 
 
 ### A first workstation, without a camera
 
-Around a 4GB board at 145.22 euros, plan on the 27W supply, a 64GB microSD card, a ventilated case, and a micro-HDMI cable. The total is not calculated here, because only the board price is in the reading.
+Around a 4GB board at around €145, plan on the 27W supply, a 64GB microSD card, a ventilated case, and a micro-HDMI cable. The total is not calculated here, because only the board price is in the reading.
 
 ### A robot or a camera
 
-Around an 8GB board at 209.09 euros, the same base (power, a microSD card of 128GB rather than 64GB, a ventilated case) then receives the motor board, the sensors, and, if the program has to see, a camera. A battery is added only for a robot that leaves the wall outlet. Each of those lines is priced separately.
+Around an 8GB board at around €210, the same base (power, a microSD card of 128GB rather than 64GB, a ventilated case) then receives the motor board, the sensors, and, if the program has to see, a camera. A battery is added only for a robot that leaves the wall outlet. Each of those lines is priced separately.
 
 ### A slightly busy Linux desktop
 
@@ -188,7 +188,7 @@ It often boots the board, then shows its limits as soon as a USB port draws curr
 
 ### 4GB or 8GB for a first robot?
 
-The 4GB, at 145.22 euros on 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at 209.09 euros saves you buying the board again six months later. Power, the microSD card, and the case are still added in both cases.
+The 4GB, at around €145 on 6 November 2026, is enough for motors and sensors with no image processing. As soon as a camera or a detection model enters the project, the 8GB at around €210 saves you buying the board again six months later. Power, the microSD card, and the case are still added in both cases.
 
 ### Do you need a screen?
 
@@ -202,4 +202,4 @@ The GPIO pins are the board’s general-purpose inputs and outputs: you connect 
 
 For the web, code, and light office work, yes, as long as you have the power supply, the microSD card, and a way to display the image. For a recent game or heavy video editing, no. And without the accessories, the board alone is not a workstation yet.
 
-The useful order, on the day you place it, is therefore the board that matches the project, 4GB at 145.22 euros or 8GB at 209.09 euros in the reading of 6 November 2026, plus a 27W supply, an A2 microSD card, and a ventilated case whose prices are read on their own listings.
+The useful order, on the day you place it, is therefore the board that matches the project, 4GB at around €145 or 8GB at around €210 in the reading of 6 November 2026, plus a 27W supply, an A2 microSD card, and a ventilated case whose prices are read on their own listings.

@@ -20,7 +20,7 @@ The figures below are an Amazon.fr reading on 6 November 2026 at 11:23, in euros
 
 The usual block is software that is out of date, or the wrong cable. A note in the card (which computer or tablet, Wi-Fi if the model needs it, an mBlock account) avoids the next morning. The steps are [first steps in mBlock](/en/first-steps-mblock-5/) and [installing mBlock on Windows](/en/install-mblock-5-windows/). Age bands: [how to choose by age](/en/best-programmable-robot-for-kids/).
 
-The mBot listing on that Amazon.fr reading was **89.99 euros**. It is one product page, not a search for “robot gift”.
+The mBot listing on that Amazon.fr reading was **around €90**. It is one product page, not a search for “robot gift”.
 
 ## About 5 to 7
 
@@ -30,15 +30,15 @@ On the French shop Cultura, the French page of this guide names two Clementoni r
 
 ## About 8 to 10
 
-Sessions get longer: Scratch, a small build, sometimes a first sensor. The same mBot, at **89.99 euros** on that reading, fits if an adult can spend an afternoon on the first connection and which way the motors turn. The age page is [a robot for an 8-year-old](/en/best-robot-for-an-8-year-old/).
+Sessions get longer: Scratch, a small build, sometimes a first sensor. The same mBot, at **around €90** on that reading, fits if an adult can spend an afternoon on the first connection and which way the motors turn. The age page is [a robot for an 8-year-old](/en/best-robot-for-an-8-year-old/).
 
 The French Cultura listings also name the Buki Robot Marko, a kit to assemble that is not programmed, and the Pandacraft “Les robots” kit. Their prices are not in this reading.
 
 ## From 10 to 12
 
-The mBot2 was **167.95 euros** on that reading: more sensors, project-shaped docs. Codey Rocky was **149.99 euros**. The CyberPi kit was **59.99 euros**: a board to build in, not a second rolling robot, and that price is not added to another one here. The closest age page is [a robot for a 10-year-old](/en/best-robot-for-a-10-year-old/). Chassis: [mBot or Codey Rocky](/en/mbot-vs-codey-rocky/) and [mBot or mBot2](/en/mbot-vs-mbot2/).
+The mBot2 was **around €170** on that reading: more sensors, project-shaped docs. Codey Rocky was **around €150**. The CyberPi kit was **around €60**: a board to build in, not a second rolling robot, and that price is not added to another one here. The closest age page is [a robot for a 10-year-old](/en/best-robot-for-a-10-year-old/). Chassis: [mBot or Codey Rocky](/en/mbot-vs-codey-rocky/) and [mBot or mBot2](/en/mbot-vs-mbot2/).
 
-The Raspberry Pi 5 with 4 GB was **145.22 euros**, the board alone. Power supply, case and memory card are not in that figure and are not added up here.
+The Raspberry Pi 5 with 4 GB was **around €145**, the board alone. Power supply, case and memory card are not in that figure and are not added up here.
 
 ## Around the robot, with no fake total
 

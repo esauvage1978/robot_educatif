@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Arduino robot kit for kids: how to choose (2026)"
-description: "ELEGOO Smart Robot Car V4.0 at £70.99 on Amazon.co.uk (16 November 2026), Penguin Bot, age and first Arduino IDE steps. UK prices, not a converted euro price."
+description: "ELEGOO Smart Robot Car V4.0 on Amazon.com (around £70–80), Penguin Bot, age and first Arduino IDE steps. UK prices, not a converted euro price."
 updated: "16 November 2026"
 ---
 
 An Arduino robot kit is a box of parts: a controller board, motors, sensors, a chassis and wires. Your child builds it, then programs it in C/C++ with the free [Arduino IDE](https://www.arduino.cc/en/software). It is a step on from a block-based robot such as the mBot. There is more wiring and more typing, and those are the skills that carry over to other electronics.
 
-This page is for parents and teachers choosing a kit for a child of at least 12, or for a keen teenager. For a first car, the ELEGOO Smart Robot Car V4.0 is the kit here: **£70.99** on Amazon.co.uk on 16 November 2026, 06:10. ELEGOO rates it 13+. The Penguin Bot is the smaller biped, from about 8 with an adult nearby. That UK listing had no price on the same check. Prices in euros from a French shop are not used here.
+This page is for parents and teachers choosing a kit for a child of at least 12, or for a keen teenager. For a first car, the ELEGOO Smart Robot Car V4.0 is the kit here: typically **under about £80** on Amazon.com — check the current price on Amazon. ELEGOO rates it 13+. The Penguin Bot is the smaller biped, from about 8 with an adult nearby. That UK listing had no price on the same check. Prices in euros from a French shop are not used here.
 
 ## What is usually in the box
 
@@ -19,9 +19,9 @@ The gain is that the child can see what each wire does, change the code and the 
 
 ![ELEGOO Smart Robot Car Kit V4.0: black chassis, ultrasonic sensor and a camera module on top](/images/products/elegoo-robot-car.webp)
 
-[ELEGOO](/en/elegoo-brand/) rates the [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) as 13+ on the manufacturer page, checked 21 October 2026. On Amazon.co.uk the listing we checked is a different age line: the title says 8+. Read the age on the box you are about to buy. The same UK listing, [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.co.uk/dp/B07474MMB5?tag=roboteducatif-21), was **£70.99** on 16 November 2026 (06:10, amazon.co.uk). The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module. It does not name a camera. The manufacturer kit in the photo has a camera module on the chassis. If a camera is the reason for the purchase, confirm it on the product page that day. There is no US or Canadian price in our checks. See today's price on the shop for that country.
+[ELEGOO](/en/elegoo-brand/) rates the [Smart Robot Car V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0) as 13+ on the manufacturer page, checked 21 October 2026. On Amazon.com the listing we checked is a different age line: the title says 8+. Read the age on the box you are about to buy. The same UK listing, [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit&tag=roboteducatif-20) is typically **under about £80** — check today's price on Amazon.com. The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module. It does not name a camera. The manufacturer kit in the photo has a camera module on the chassis. If a camera is the reason for the purchase, confirm it on the product page that day. There is no US or Canadian price in our checks. See today's price on the shop for that country.
 
-The smaller kit in this guide is the ELEGOO Penguin Bot, a biped that walks, plays sounds and responds to an infrared remote. A program is already loaded, and servos are the moving parts. It is a first Arduino project from about 8 with an adult nearby, or from about 10 with some independence. It does not include the richer sensors of the car. Extra modules come later, and this page does not add them up into a yearly budget. The Amazon.co.uk listing had no price on 16 November 2026. [See the Penguin Bot listing](https://www.amazon.co.uk/dp/B07GVD6GQH?tag=roboteducatif-21) and check today's price. The same applies in the US and in Canada.
+The smaller kit in this guide is the ELEGOO Penguin Bot, a biped that walks, plays sounds and responds to an infrared remote. A program is already loaded, and servos are the moving parts. It is a first Arduino project from about 8 with an adult nearby, or from about 10 with some independence. It does not include the richer sensors of the car. Extra modules come later, and this page does not add them up into a yearly budget. The Amazon.com listing had no price on 16 November 2026. [See the Penguin Bot listing](https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20) and check today's price. The same applies in the US and in Canada.
 
 ## Is it the right age?
 
@@ -105,7 +105,7 @@ Most UNO-compatible sensors work across UNO-compatible boards, so parts from two
 
 ## Where to buy
 
-Makers' stores and large marketplaces sell these kits in the UK and the US. For loose parts, US-based [SparkFun's Arduino section](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (affiliate link) sells sensors, boards and spares. [DFRobot](https://www.dfrobot.com/) ships internationally and sells chassis and sensors. The only checked price on this page is the Amazon.co.uk car kit above. See today's price for any other shop.
+Makers' stores and large marketplaces sell these kits in the UK and the US. For loose parts, US-based [SparkFun's Arduino section](https://www.sparkfun.com/catalogsearch/result/?q=arduino&affiliate_code=WRBz4h1uMN) (affiliate link) sells sensors, boards and spares. [DFRobot](https://www.dfrobot.com/) ships internationally and sells chassis and sensors. The only checked price on this page is the Amazon.com car kit above. See today's price for any other shop.
 
 ## First steps
 

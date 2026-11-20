@@ -19,13 +19,13 @@ faqSchema:
 
 > **Direct answer (October 2026)** — In 2026, decide by **age**, **language** (blocks vs Python) and **budget**: hub [best programmable robot](/en/best-programmable-robot-for-kids/) + guides from [age 5](/en/best-robot-for-a-5-year-old/) to [age 12](/en/best-robot-for-a-12-year-old/).
 
-> **Shops on this English page** — Product cards and search links default to **Amazon UK** (`amazon.co.uk`). If you buy in the **US or Canada**, use the **Amazon.com** / **Amazon.ca** pairs in the [Amazon links section](#amazon-links-affiliate-search) and confirm the box contents before checkout.
+> **Shops on this English page** — Product cards and search links default to **Amazon.com** (`amazon.com`). If you buy in the **US or Canada**, use the **Amazon.com** / **Amazon.ca** pairs in the [Amazon links section](#amazon-links-affiliate-search) and confirm the box contents before checkout.
 
 Choosing an **educational robot in 2026** is not about “the best brand on paper”, but about **aligning three realities**: the child’s **real age** (motivation included), the **time** you can spend on setup and updates, and a **total budget** including accessories and batteries. **Scratch** here means a **block-based coding language** (you snap instructions together instead of typing syntax) — the usual entry path between about 7 and 12 on this site. **Python** is a **text programming language**: you type code on a keyboard; it usually needs **fluent reading** and some **typing**, and fits best from about **10–11** with support, or earlier if blocks are already easy.
 
 This guide is deliberately **structured by product families**: you identify your profile, then refine with our detailed articles and **Amazon searches** to compare prices and availability today.
 
-> **Price guidance (October 2026)** — Ranges are **indicative** in **euros** for EU listings; on **Amazon UK** check **today’s price** (often roughly **£70–90** for a classic mBot pack, **£130–170** for mBot2). US shoppers: use the **Amazon.com** links below and verify the box contents. Always confirm **what is in the pack** before paying.
+> **Price guidance (October 2026)** — Ranges are **indicative** in **euros** for EU listings; on **Amazon.com** check **today’s price** (often roughly **£70–90** for a classic mBot pack, **£130–170** for mBot2). US shoppers: use the **Amazon.com** links below and verify the box contents. Always confirm **what is in the pack** before paying.
 
 ## Guides by age (photos and detailed criteria)
 
@@ -113,19 +113,19 @@ Use this table as a **filter**, not an absolute law:
 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (ages 8–10)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (ages 8–10)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">First Scratch/mBlock robot · ~15 min build · matches “mBot” rows in the table.</p>
-    <a href="https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (ages 10–14)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (ages 10–14)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Scratch + Python · CyberPi · built-in battery.</p>
-    <a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">LEGO bricks + hub · gentle entry ~7–9 if budget allows.</p>
-    <a href="https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Search on Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Search on Amazon.com</a>
   </div>
 </div>
 
@@ -180,19 +180,17 @@ Install **mBlock 5** ([Windows guide](/en/install-mblock-5-windows/)) or the **S
 
 ## Amazon links (affiliate search) {#amazon-links-affiliate-search}
 
-Compare packs on **Amazon UK** first, then **Amazon.com** if you shop in the US:
+Compare packs on **Amazon.com** first, then **Amazon.com** if you shop in the US:
 
-- [Programmable educational robot for kids](https://www.amazon.co.uk/s?k=programmable+educational+robot+kids&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20)
-- [mBot Makeblock](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
-- [mBot2 Makeblock](https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20)
-- [LEGO SPIKE Prime](https://www.amazon.co.uk/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20)
-- [LEGO SPIKE Essential](https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20)
-- [STEM robotics kit teens](https://www.amazon.co.uk/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-20) — **STEM**: Science, Technology, Engineering, Mathematics
+- [Programmable educational robot for kids](https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20)
+- [mBot Makeblock](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20)
+- [LEGO SPIKE Essential](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20)
+- [STEM robotics kit teens](https://www.amazon.com/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-20) — **STEM**: Science, Technology, Engineering, Mathematics
 
 *Amazon partner — commission possible on qualifying purchases, at no extra cost to you.*
 
 ---
 
-**In short**: in **2026**, the right robot is the one that **gets plugged in often**. Start with the **family profile** (section 1), cross-check with the **decision table**, then use the site’s comparisons and Amazon UK / Amazon.com links to **validate price, packs and reviews** at the exact moment you buy.
+**In short**: in **2026**, the right robot is the one that **gets plugged in often**. Start with the **family profile** (section 1), cross-check with the **decision table**, then use the site’s comparisons and Amazon.com / Amazon.com links to **validate price, packs and reviews** at the exact moment you buy.
 
 *Emmanuel Sauvage*

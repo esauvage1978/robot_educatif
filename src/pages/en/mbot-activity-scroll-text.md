@@ -420,4 +420,4 @@ You can now reuse this “scroll engine” in your projects (show a score, an in
 - Vary the **speed** (`wait 0.05` vs `0.2`) and observe **readability**.
 - Discuss in class: **how many columns** per character if you measure on a screenshot? (link with **pixel** and **typography**).
 
-[mBot — Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
+[mBot — Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20

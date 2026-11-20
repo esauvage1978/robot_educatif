@@ -140,8 +140,8 @@ Not sure which robot you own? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) or [mBot 
 
 <h2 id="buy">Hardware links (affiliate)</h2>
 
-- <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon UK</a>
-- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon UK</a>
+- <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
+- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon.com</a>
 - <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
 
 *Check today's price before ordering.*

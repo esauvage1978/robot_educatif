@@ -74,7 +74,7 @@ This is the kit we recommend most often for starting, and for good reasons: it c
 - Step-by-step tutorials and example code included
 - A solid base for adding your own sensors
 
-<a href="https://www.amazon.com/dp/B078Y9RYM2?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 ### 2. ELEGOO UNO R3 Super Starter Kit: learn electronics before the robot
 
@@ -87,7 +87,7 @@ This is not a robot, and that is exactly why it is useful: an UNO R3 board compa
 - Components you can reuse in later robots
 - The lowest budget in the shortlist
 
-<a href="https://www.amazon.com/dp/B01JD2Z5XW?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=ELEGOO%20UNO%20R3%20Super%20Starter%20Kit&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 ### 3. Freenove 4WD Car Kit for ESP32: a connected robot from the start
 
@@ -100,7 +100,7 @@ Here the board is an **ESP32 with a camera**: the robot creates its own Wi-Fi ne
 - Obstacle avoidance, line following, and light following
 - A natural bridge to IoT and smart home
 
-<a href="https://www.amazon.com/dp/B08X6PTQFM?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=Freenove%204WD%20Car%20Kit%20ESP32&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 ### 4. Freenove 4WD Smart Car Kit for Raspberry Pi: Python and the camera
 
@@ -113,7 +113,7 @@ This car is built around a **Raspberry Pi** (board and battery sold separately) 
 - Compatible with Raspberry Pi 5, 4, 3 B+, and Zero 2 W
 - A full tutorial and open code
 
-<a href="https://www.amazon.com/dp/B07YD2LT9D?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=Freenove%204WD%20Smart%20Car%20Kit%20Raspberry%20Pi&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 ### 5. SunFounder PiCar-X: toward vision and AI
 
@@ -126,7 +126,7 @@ The PiCar-X is also a robot for Raspberry Pi (board not included), with a **stee
 - Compatible with Raspberry Pi 5, 4, 3 B+, and Zero 2 W
 - A good follow-on after a first Arduino kit
 
-<a href="https://www.amazon.com/dp/B0CGLPF29H?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=SunFounder%20PiCar-X&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 **SunFounder promo code:** `LOYAL10`, 10% off to enter at checkout on the official site [SunFounder](https://www.sunfounder.com/?ref=tpytgtyp) (terms according to SunFounder). This code does not apply on Amazon.
 
@@ -138,7 +138,7 @@ For the two Raspberry Pi kits, you need the board itself:
 - Compatible with the Freenove and SunFounder kits
 - Reusable afterward for other projects
 
-<a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 
 ## Which kit fits your goal?
 

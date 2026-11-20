@@ -118,9 +118,9 @@ Confirm memory size on the listing before you buy.
 
 **UK**
 
-- <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon UK</a>
+- <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon.com</a>
 - <a href="/go/az-gb-3e5805c3b4/" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB — UK search</a>
-- <a href="/go/az-gb-c1b8f8eba6/" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB board — Amazon UK</a>
+- <a href="/go/az-gb-c1b8f8eba6/" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB board — Amazon.com</a>
 - <a href="/go/az-gb-8785ee893a/" rel="sponsored nofollow noopener">Pi 5 case / cooling — UK search</a>
 
 **US**
