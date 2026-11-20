@@ -19,6 +19,8 @@ export const Photo = ({src, alt, caption, portrait}) => (
 
 *Tried at home on 20 November 2026.*
 
+I started this project for a very simple reason. I was coming home on my motorcycle; in that case I open the garage with the remote (the fob) on my key ring. The battery was dead, and I didn't have my keys: I had to wait for my wife to get back before I could get in. That won't happen again — and even if someone forgets their keys, the door can be opened remotely. That's the kind of reason I got into home automation: not a geek hobby, but solving real problems and making everyday life easier.
+
 I had already set up the [Homey Pro](/en/smart-home/homey-pro-unboxing-setup/) at home, with the idea of using it first to **open and close my garage door**. That part is now done: a **NodOn SIN-4-1-20** Zigbee relay (Multifunction Relay Switch, firmware 3.13.0-3.1.4) drives the original push-button, and an **Aqara MCCGQ11LM** door sensor reports whether the door is open or closed.
 
 The motor is a **Tubauto ProCom** (part 4512433) on a **sectional door**. A wall push-button was already wired to a pair of spring terminals on the board. I did not replace that button: the relay simply closes the same contact, in parallel.
@@ -46,6 +48,8 @@ This wiring was done in France, on a 230 V supply (brown on L, blue on N). If yo
   officialUrl="https://nodon.fr/en/products/zigbee-multifunction-relay-switch"
   lang="en"
 />
+
+Thanks to Philippe at NodOn for his trust and for the hardware, which works perfectly. The NodOn relay is a quality product, both visually — the finish — and in everyday use. The module was **provided by NodOn**: as usual on this site, I mention that for transparency. The review remains independent.
 
 ## Safety, before you touch any wires
 
