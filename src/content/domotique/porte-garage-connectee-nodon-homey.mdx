@@ -1,0 +1,156 @@
+---
+title: "Porte de garage connectée : relais NodOn et Homey Pro"
+description: "Retour d'expérience : un relais Zigbee NodOn SIN-4-1-20 branché en parallèle du bouton d'origine d'une porte Tubauto, piloté depuis Homey Pro, avec un capteur Aqara."
+pubDate: 2026-11-20T00:00:00Z
+category: "debuter"
+heroImage: "/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp"
+priority: 2
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Test réalisé le 20 novembre 2026.*
+
+J'avais déjà installé le [Homey Pro](/domotique/test-homey-pro-deballage-installation/) chez moi, en pensant l'utiliser d'abord pour **ouvrir et fermer ma porte de garage**. C'est maintenant en place : un relais Zigbee **NodOn SIN-4-1-20** (Interrupteur Relais Multifonction, firmware 3.13.0-3.1.4) pilote le bouton d'origine, et un capteur d'ouverture **Aqara MCCGQ11LM** donne l'état de la porte.
+
+La motorisation est un **Tubauto ProCom** (art. 4512433) sur une **porte sectionnelle**. Un bouton poussoir mural était déjà câblé sur une paire de bornes à ressort de la carte. Je n'ai pas remplacé ce bouton : le relais se contente de fermer le même contact, en parallèle.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Plaque signalétique du moteur Tubauto ProCom, article 4512433" caption="La plaque du moteur Tubauto ProCom, art. 4512433." />
+
+Si vous préférez une approche avec un ESP32 et ESPHome, j'ai déjà documenté une autre piste : [ouvrir une porte de garage depuis un smartphone](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/). Ici, tout passe par Homey et Zigbee. Pour le vocabulaire des protocoles, voir [Zigbee, Wi-Fi, Thread ou Matter](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/).
+
+## Le matériel
+
+- le relais **NodOn SIN-4-1-20** (un canal, contact sec, sans mesure d'énergie) ;
+- le **Homey Pro**, déjà en service ;
+- le capteur de porte et fenêtre **Aqara MCCGQ11LM** ;
+- un câble d'alimentation 230 V avec fiche ;
+- un boîtier de dérivation étanche, fixé au plafond à côté de la prise du moteur.
+
+<ProductBox
+  productId="nodon-sin-4-1-20"
+  name="NodOn SIN-4-1-20 — Interrupteur Relais Multifonction Zigbee"
+  asin="B09B7TBSP1"
+  image="/images/domotique/porte-garage-nodon-homey/nodon-sin-4-1-20-produit.webp"
+  description="Relais Zigbee 3.0 à un canal, avec sortie à contact sec, utilisé ici en parallèle du bouton poussoir d'une porte de garage."
+  pros={['Contact sec, adapté à un bouton de garage', 'Mode impulsion réglable dans Homey', 'Fonctionne aussi comme routeur Zigbee']}
+  cons={['Alimentation 230 V : couper le courant avant de câbler', 'Boîtier IP20 : prévoir une protection en local technique ou garage']}
+  officialUrl="https://nodon.fr/products/module-multifonction-zigbee"
+/>
+
+## Sécurité, avant de toucher aux fils
+
+Le module est alimenté en **230 V**. J'ai **coupé le courant** le temps du câblage, et je n'ai rebranché la fiche qu'une fois les bornes serrées, sans cuivre qui dépasse. Si vous n'êtes pas à l'aise avec le 230 V, faites-le faire par un électricien.
+
+Je déconseille aussi un scénario qui **refermerait la porte tout seul**, sans que personne ne voie ce qui se trouve dessous. Une notification, puis une confirmation manuelle, reste plus prudent.
+
+## Le câblage
+
+L'alimentation du NodOn se fait par un câble avec fiche, branché sur la prise du moteur : **bleu sur N**, **marron sur L**. Le module est dans un **boîtier de dérivation étanche**, fixé au plafond à côté de cette prise — un garage n'est pas un salon, le boîtier évite de laisser le module à l'air libre.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Relais NodOn SIN-4-1-20 posé dans le boîtier de dérivation ouvert, avant le câblage" caption="Le module NodOn dans le boîtier, avant le câblage." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Prise du plafond en cours de raccordement, au-dessus du boîtier de dérivation gris, avant la fermeture" caption="La prise au plafond en cours de raccordement, juste au-dessus du boîtier de dérivation." />
+
+Le **contact sec** du relais (les deux bornes de droite, au symbole de relais) est branché **en parallèle** sur les bornes du bouton poussoir : ses deux fils glissent dans les **mêmes bornes à ressort**, à côté de ceux du bouton. Après ça, le bouton d'origine fonctionne toujours — je l'ai retesté avant de refermer.
+
+Sur cette carte, une **paire de bornes voisine** n'a pas été utilisée. Elle peut servir à une entrée de sécurité ou à une cellule photoélectrique : je n'ai pas branché le relais dessus, faute de notice sous la main.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Carte du moteur Tubauto ProCom, avec les bornes à ressort et le bornier voisin" caption="La carte du moteur ProCom : les bornes du bouton, et la paire voisine inutilisée." />
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Boîtier de dérivation fermé, fixé au plafond du garage à côté de la prise du moteur de la porte sectionnelle" caption="Le boîtier refermé, au plafond, à côté de la prise du moteur." />
+
+## L'appairage dans Homey
+
+Dans l'appli Homey, j'ai ajouté l'appareil via l'application **NodOn**, en choisissant **Interrupteur Relais Multifonction** — c'est le modèle « 1 RELAY » sans mesure d'énergie (pas la variante « METERING »).
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Écran de l'appli Homey proposant les appareils NodOn, avec Interrupteur Relais Multifonction sélectionné" caption="Le bon choix dans l'appli NodOn : Interrupteur Relais Multifonction." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Écran Homey d'appairage du relais NodOn, avec le schéma LED et PRESS" caption="Les instructions d'appairage dans Homey : LED orange et bouton PRESS." />
+
+Pour passer le module en appairage, un **appui long** (environ 5 secondes) sur le bouton **PRESS**, avec un outil isolé, suffit en principe : on relâche quand la LED clignote. Un module jamais appairé peut aussi y passer tout seul quelques minutes après la mise sous tension.
+
+Petite anecdote utile : un **appui court** sur PRESS actionne le relais. Pendant l'essai, la porte du garage s'est ouverte. Ce n'est pas un défaut, c'est exactement le rôle du bouton. J'ai refermé avec le poussoir d'origine, puis j'ai lancé la recherche Homey au moment de l'appui long.
+
+## Le mode impulsion, sans flow intermédiaire
+
+Une fois l'appareil ajouté, les paramètres avancés proposent **Durée du Mode Impulsion**. La valeur **0** désactive le mode ; la plage va de 0 à 65 535. J'ai réglé **1 000 ms** (une seconde). Ça fonctionne parfaitement : chaque activation imite un appui sur le bouton, et je n'ai pas eu besoin d'un flow « allumer, attendre, éteindre ».
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-parametres-avances.webp" alt="Écran des paramètres avancés du relais NodOn dans Homey, avec le mode impulsion parmi les réglages" caption="Les paramètres avancés du module dans Homey." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-impulsion-1000ms.webp" alt="Paramètre Homey Durée du Mode Impulsion réglé sur 1000 millisecondes" caption="1 000 ms : une impulsion d'une seconde, comme le bouton d'origine." />
+
+Si le moteur ne réagissait pas, j'aurais monté à 1 500 ms. Ce n'a pas été nécessaire.
+
+Le NodOn se comporte aussi comme un **routeur Zigbee** : il reste alimenté et renforce le maillage, ce qui est bienvenu dans un garage un peu à l'écart.
+
+## Le capteur Aqara
+
+Pour savoir si la porte est ouverte ou fermée, j'ai appairé un **Aqara MCCGQ11LM** (Capteur de Porte et Fenêtre) dans Homey, via l'application Aqara. Le corps du capteur est posé **en bas, sur le rail** de la porte sectionnelle ; l'**aimant est sur la porte**, aligné avec le capteur quand elle est fermée.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Capteur d'ouverture Aqara fixé en bas sur le rail de la porte de garage sectionnelle, aimant visible sur le panneau" caption="Le capteur Aqara en bas du rail, l'aimant sur la porte." />
+
+J'ai testé une ouverture et une fermeture avant de tout refermer.
+
+## Le flow « Garage ouvert > 10 min »
+
+Le relais ouvre ou ferme. Le capteur, lui, sert à prévenir. J'ai créé un flow **Garage ouvert > 10 min** :
+
+1. **Lorsque** l'alarme contact s'est activée (la porte s'ouvre) ;
+2. **Et** l'alarme contact est en marche ;
+3. **Alors** une notification push « La porte de garage est ouverte », **après 10 minutes**.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-flow-garage-ouvert.webp" alt="Flow Homey Garage ouvert plus de 10 minutes, avec le déclencheur d'ouverture, une condition et une notification retardée" caption="Le flow d'alerte, tel qu'il est dans Homey." />
+
+J'ai bien reçu la notification de test.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Notification push Homey indiquant que la porte de garage est ouverte" caption="La notification reçue sur le téléphone." />
+
+Il reste une limite, qu'il faut dire clairement : dans ce **flow simple**, la carte **Et** est évaluée **au moment de l'ouverture**, pas au bout des 10 minutes. Si on referme la porte entre-temps, la notification part quand même. L'**Advanced Flow** décrit juste après corrige ce point : la condition n'y est vérifiée qu'après le délai.
+
+## Le flow avancé
+
+Le flow simple suffit pour un test, mais il a la limite indiquée plus haut. Dans l'éditeur **Advanced Flow** de Homey (sur le web), j'ai regroupé trois branches, à partir du même capteur.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Éditeur Advanced Flow de Homey, avec trois branches : alerte après 10 minutes, alerte de nuit, et batterie du capteur" caption="L'Advanced Flow, avec les trois branches." />
+
+**Branche 1.** Lorsque « Porte de garage - Garage : L'alarme contact s'est activée », un délai de **10 minutes**, puis la condition « L'alarme contact est en marche ». Sur la sortie **Oui**, une notification push « Garage ouvert > 10 min ». La condition est vérifiée **après** le délai : si la porte a été refermée entre-temps, aucune notification n'est envoyée. C'est précisément ce que le flow simple ne faisait pas.
+
+Un piège à connaître : une condition **non reliée en entrée** — par exemple posée via une carte **Et**, sans fil depuis la carte précédente — n'est **jamais évaluée**. Chaque condition doit être branchée depuis l'étape d'avant.
+
+**Branche 2.** Lorsque « L'alarme contact s'est activée », une condition Date & Heure « L'heure est comprise entre 21:00 et 07:00 », puis une notification « Garage ouvert entre 21h et 7h ». Un test à **21 h 01** a bien déclenché l'alerte.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Notification Homey « Garage ouvert entre 21h et 7h », reçue à 21 h 01" caption="Le test de la branche de nuit, à 21 h 01." />
+
+**Branche 3.** Lorsque « Porte de garage - Garage : Batterie devient inférieur à 10 % », une notification push « Batterie du capteur de la porte de garage inférieure à 10% », envoyée **sous forme d'alerte critique**.
+
+Pas de fermeture automatique sans visibilité, pour les raisons déjà indiquées.
+
+## Questions fréquentes
+
+**Le bouton d'origine fonctionne-t-il encore ?**
+Oui. Le relais est en parallèle sur les mêmes bornes. Après le branchement, j'ai retesté le poussoir mural : il actionne toujours la porte.
+
+**Faut-il un flow pour imiter l'appui ?**
+Non, pas avec ce module dans Homey : le **mode impulsion à 1 000 ms** suffit.
+
+**Puis-je me brancher sur les bornes à côté du bouton ?**
+Je ne l'ai pas fait. Sur cette carte, la paire voisine peut servir à une sécurité. Sans la notice du ProCom, le plus sûr reste le parallèle sur le bouton.
+
+**La porte peut-elle se fermer toute seule au bout de 10 minutes ?**
+Je l'ai volontairement écarté. L'alerte prévient ; la fermeture reste une action confirmée, parce que personne ne voit ce qui passe sous la porte.
+
+**À lire aussi**
+
+- [Test Homey Pro : déballage et installation](/domotique/test-homey-pro-deballage-installation/)
+- [Ouvrir une porte de garage depuis un smartphone (ESP32 / ESPHome)](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/)
+- [Zigbee, Wi-Fi, Thread ou Matter : quel protocole choisir](/domotique/protocoles-domotique-zigbee-wifi-thread-matter/)
+
+Rubrique générale : [domotique](/domotique/).

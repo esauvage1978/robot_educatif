@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-20T12:50:23.966Z",
- "count": 2491,
+ "updated": "2026-11-20T18:50:44.304Z",
+ "count": 2499,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -4843,6 +4843,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-94cd23d7f3": {
+   "url": "https://www.amazon.ca/s?k=NodOn%20SIN-4-1-20%20%E2%80%94%20Zigbee%20multifunction%20relay%20switch&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-95a8b8c10d": {
    "url": "https://www.amazon.ca/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -6141,6 +6147,12 @@
   },
   "az-de-6daeb0d4ac": {
    "url": "https://www.amazon.de/s?k=ESP32+DevKit&tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-6ddf953170": {
+   "url": "https://www.amazon.de/dp/B09B7TBSP1?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -7611,6 +7623,12 @@
   },
   "az-es-c32590bed5": {
    "url": "https://www.amazon.es/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-c37e438611": {
+   "url": "https://www.amazon.es/dp/B09B7TBSP1?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -9363,6 +9381,12 @@
   },
   "az-fr-82eacb145f": {
    "url": "https://www.amazon.fr/s?k=kit+capteurs+Arduino&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-82fa4f4b1e": {
+   "url": "https://www.amazon.fr/dp/B09B7TBSP1?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -12727,6 +12751,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-d486eecf76": {
+   "url": "https://www.amazon.co.uk/s?k=NodOn%20SIN-4-1-20%20%E2%80%94%20Zigbee%20multifunction%20relay%20switch&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-d4b940a85f": {
    "url": "https://www.amazon.co.uk/s?k=Arduino%20Uno%20R3&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -13801,6 +13831,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-a49c64dab4": {
+   "url": "https://www.amazon.it/dp/B09B7TBSP1?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-a67c207b9c": {
    "url": "https://www.amazon.it/dp/B083T58PKM?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -14223,6 +14259,12 @@
   },
   "az-nl-40f8f5eb62": {
    "url": "https://www.amazon.nl/?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-dc1bbdc7f6": {
+   "url": "https://www.amazon.nl/dp/B09B7TBSP1?tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL",
    "tag": "manuso0607-21"
@@ -15513,6 +15555,12 @@
   },
   "az-us-d65733ac56": {
    "url": "https://www.amazon.com/s?k=python+object+oriented+book&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-d868be158d": {
+   "url": "https://www.amazon.com/s?k=NodOn%20SIN-4-1-20%20%E2%80%94%20Zigbee%20multifunction%20relay%20switch&tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
