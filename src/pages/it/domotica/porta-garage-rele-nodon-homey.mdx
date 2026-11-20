@@ -33,8 +33,6 @@ Il cablaggio è stato fatto in Francia, su rete a 230 V (marrone su L, blu su N)
 - un cavo di alimentazione 230 V con spina;
 - una scatola di derivazione stagna, fissata al soffitto accanto alla presa del motore.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="Modulo relè NodOn SIN-4-1-20 ancora da cablare, con i morsetti e il pulsante PRESS visibili" caption="Il NodOn SIN-4-1-20, prima del cablaggio." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Interruttore relè multifunzione Zigbee"
@@ -57,11 +55,9 @@ Sconsiglio anche un flow che **chiuderebbe la porta da solo**, senza che nessuno
 
 L'alimentazione del NodOn arriva da un cavo con spina, nella presa del motore: **blu su N**, **marrone su L**. Il modulo sta in una **scatola di derivazione stagna**, fissata al soffitto accanto a quella presa: un garage non è un soggiorno, e la scatola non lascia il modulo all'aperto.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Modulo NodOn installato in una scatola di derivazione aperta, con i fili di alimentazione e del contatto pulito già collegati" caption="Il NodOn nella scatola, a cablaggio terminato." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Presa a soffitto in fase di collegamento, sopra la scatola di derivazione grigia, prima della chiusura" caption="La presa a soffitto in fase di collegamento, appena sopra la scatola di derivazione." />
 
 Il **contatto pulito** del relè (i due morsetti a destra, con il simbolo del relè) è collegato **in parallelo** ai morsetti del pulsante: i due fili entrano negli **stessi morsetti a molla**, accanto a quelli del pulsante. Dopo, il pulsante originale funziona ancora: l'ho provato di nuovo prima di chiudere.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Scheda elettronica del motore Tubauto ProCom, con i morsetti a molla del pulsante a parete e la coppia vicina inutilizzata" caption="La scheda del ProCom: il relè arriva sui morsetti del pulsante originale, non sulla coppia vicina." />
 
 Su questa scheda una **coppia di morsetti vicina** è rimasta inutilizzata. Può trattarsi di un ingresso di sicurezza o di una fotocellula: senza il manuale a portata di mano, non ci ho collegato il relè.
 
@@ -72,6 +68,8 @@ Su questa scheda una **coppia di morsetti vicina** è rimasta inutilizzata. Può
 Nell'app Homey ho aggiunto il dispositivo tramite l'app **NodOn**, scegliendo **Interruttore Relè Multifunzione** — il modello « 1 RELAY » senza misura dell'energia, non la variante « METERING ».
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Schermata dell'app Homey con l'elenco dei dispositivi NodOn e l'interruttore relè multifunzione selezionato" caption="La scelta giusta nell'app NodOn: l'interruttore relè multifunzione." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Schermata di accoppiamento Homey del relè NodOn, con lo schema LED e PRESS" caption="Le istruzioni di accoppiamento in Homey: LED arancione e pulsante PRESS." />
 
 Per entrare in associazione basta in genere una **pressione lunga** (circa cinque secondi) sul pulsante **PRESS**, con un attrezzo isolato: si rilascia quando il LED lampeggia. Un modulo mai associato può entrare da solo in quella modalità per alcuni minuti dopo l'accensione.
 
@@ -93,7 +91,7 @@ Il NodOn si comporta anche da **router Zigbee**: resta alimentato e rafforza la 
 
 Per sapere se la porta è aperta o chiusa ho associato un **Aqara MCCGQ11LM** (sensore porta e finestra) in Homey, tramite l'app Aqara. Il corpo del sensore è fissato **in basso, sul binario** della porta sezionale; il **magnete è sulla porta**, allineato al sensore quando è chiusa.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Sensore di apertura Aqara fissato in basso sul binario della porta sezionale del garage, magnete visibile sul pannello" caption="Il sensore Aqara in basso sul binario, il magnete sulla porta." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Sensore di apertura Aqara fissato in basso sul binario della porta sezionale del garage, magnete visibile sul pannello" caption="Il sensore Aqara in basso sul binario, il magnete sulla porta." />
 
 Ho provato un'apertura e una chiusura prima di chiudere tutto.
 

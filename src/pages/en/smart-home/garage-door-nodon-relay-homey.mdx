@@ -33,8 +33,6 @@ This wiring was done in France, on a 230 V supply (brown on L, blue on N). If yo
 - a 230 V mains lead with a plug;
 - a weatherproof junction box, fixed to the ceiling next to the motor's socket.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="NodOn SIN-4-1-20 relay module still unpacked, before wiring, with its terminals and PRESS button visible" caption="The NodOn SIN-4-1-20, before wiring." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Zigbee multifunction relay switch"
@@ -57,11 +55,9 @@ I also advise against a flow that would **close the door on its own**, with nobo
 
 The NodOn is powered by a mains lead with a plug, in the motor's socket: **blue on N**, **brown on L**. The module sits in a **weatherproof junction box**, fixed to the ceiling next to that socket — a garage is not a living room, and the box keeps the module off the open air.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn module installed in an open junction box, with the mains leads and dry-contact wires already connected" caption="The NodOn in its box, once the wiring was finished." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Ceiling socket being wired, above the grey junction box, before closing" caption="The ceiling socket being wired, just above the junction box." />
 
 The relay's **dry contact** (the two terminals on the right, with the relay symbol) is wired **in parallel** with the push-button terminals: its two wires go into the **same spring terminals**, next to the button's own wires. After that, the original button still works — I tested it again before closing the box.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Tubauto ProCom motor board, showing the spring terminals of the wall push-button and the unused neighbouring pair" caption="The ProCom board: the relay joins the original button terminals, not the neighbouring pair." />
 
 On this board, a **neighbouring pair of terminals** was left unused. It may be a safety input or a photocell: I did not connect the relay there, because I did not have the manual to hand.
 
@@ -72,6 +68,8 @@ On this board, a **neighbouring pair of terminals** was left unused. It may be a
 In the Homey app I added the device through the **NodOn** app, choosing **Multifunction Relay Switch** — the "1 RELAY" model without energy metering, not the "METERING" variant. In the French app the same device is labelled "Interrupteur Relais Multifonction".
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Homey app screen listing NodOn devices, with the multifunction relay switch selected" caption="The right choice in the NodOn app: the multifunction relay switch." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Homey pairing screen for the NodOn relay, showing the LED and PRESS diagram" caption="The pairing instructions in Homey: orange LED and the PRESS button." />
 
 To put the module into pairing mode, a **long press** (about five seconds) on the **PRESS** button, with an insulated tool, is usually enough: you release when the LED flashes. A module that has never been paired can also enter that mode on its own for a few minutes after power-up.
 
@@ -93,7 +91,7 @@ The NodOn also acts as a **Zigbee router**: it stays powered and strengthens the
 
 To know whether the door is open or closed, I paired an **Aqara MCCGQ11LM** (Door and Window Sensor) in Homey, through the Aqara app. The sensor body is mounted **at the bottom, on the rail** of the sectional door; the **magnet is on the door**, lined up with the sensor when the door is closed.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara door sensor fixed at the bottom of the sectional garage-door rail, with the magnet on the door panel" caption="The Aqara sensor at the bottom of the rail, the magnet on the door." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara door sensor fixed at the bottom of the sectional garage-door rail, with the magnet on the door panel" caption="The Aqara sensor at the bottom of the rail, the magnet on the door." />
 
 I tested an opening and a closing before tidying up and closing the box.
 

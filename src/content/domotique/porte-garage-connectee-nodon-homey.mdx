@@ -32,8 +32,6 @@ Si vous préférez une approche avec un ESP32 et ESPHome, j'ai déjà documenté
 - un câble d'alimentation 230 V avec fiche ;
 - un boîtier de dérivation étanche, fixé au plafond à côté de la prise du moteur.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="Module relais NodOn SIN-4-1-20 encore déballé, avant le câblage, avec ses bornes et le bouton PRESS visibles" caption="Le NodOn SIN-4-1-20, avant le câblage." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Interrupteur Relais Multifonction Zigbee"
@@ -55,11 +53,9 @@ Je déconseille aussi un scénario qui **refermerait la porte tout seul**, sans 
 
 L'alimentation du NodOn se fait par un câble avec fiche, branché sur la prise du moteur : **bleu sur N**, **marron sur L**. Le module est dans un **boîtier de dérivation étanche**, fixé au plafond à côté de cette prise — un garage n'est pas un salon, le boîtier évite de laisser le module à l'air libre.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Module NodOn installé dans un boîtier de dérivation ouvert, avec les fils d'alimentation et de contact sec déjà raccordés" caption="Le NodOn dans son boîtier, une fois le câblage terminé." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Prise du plafond en cours de raccordement, au-dessus du boîtier de dérivation gris, avant la fermeture" caption="La prise au plafond en cours de raccordement, juste au-dessus du boîtier de dérivation." />
 
 Le **contact sec** du relais (les deux bornes de droite, au symbole de relais) est branché **en parallèle** sur les bornes du bouton poussoir : ses deux fils glissent dans les **mêmes bornes à ressort**, à côté de ceux du bouton. Après ça, le bouton d'origine fonctionne toujours — je l'ai retesté avant de refermer.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Carte électronique du moteur Tubauto ProCom, avec les bornes à ressort du bouton poussoir et la paire voisine inutilisée" caption="La carte du ProCom : le relais rejoint les bornes du bouton d'origine, pas la paire voisine." />
 
 Sur cette carte, une **paire de bornes voisine** n'a pas été utilisée. Elle peut servir à une entrée de sécurité ou à une cellule photoélectrique : je n'ai pas branché le relais dessus, faute de notice sous la main.
 
@@ -70,6 +66,8 @@ Sur cette carte, une **paire de bornes voisine** n'a pas été utilisée. Elle p
 Dans l'appli Homey, j'ai ajouté l'appareil via l'application **NodOn**, en choisissant **Interrupteur Relais Multifonction** — c'est le modèle « 1 RELAY » sans mesure d'énergie (pas la variante « METERING »).
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Écran de l'appli Homey proposant les appareils NodOn, avec Interrupteur Relais Multifonction sélectionné" caption="Le bon choix dans l'appli NodOn : Interrupteur Relais Multifonction." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Écran Homey d'appairage du relais NodOn, avec le schéma LED et PRESS" caption="Les instructions d'appairage dans Homey : LED orange et bouton PRESS." />
 
 Pour passer le module en appairage, un **appui long** (environ 5 secondes) sur le bouton **PRESS**, avec un outil isolé, suffit en principe : on relâche quand la LED clignote. Un module jamais appairé peut aussi y passer tout seul quelques minutes après la mise sous tension.
 
@@ -91,7 +89,7 @@ Le NodOn se comporte aussi comme un **routeur Zigbee** : il reste alimenté et r
 
 Pour savoir si la porte est ouverte ou fermée, j'ai appairé un **Aqara MCCGQ11LM** (Capteur de Porte et Fenêtre) dans Homey, via l'application Aqara. Le corps du capteur est posé **en bas, sur le rail** de la porte sectionnelle ; l'**aimant est sur la porte**, aligné avec le capteur quand elle est fermée.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Capteur d'ouverture Aqara fixé en bas sur le rail de la porte de garage sectionnelle, aimant visible sur le panneau" caption="Le capteur Aqara en bas du rail, l'aimant sur la porte." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Capteur d'ouverture Aqara fixé en bas sur le rail de la porte de garage sectionnelle, aimant visible sur le panneau" caption="Le capteur Aqara en bas du rail, l'aimant sur la porte." />
 
 J'ai testé une ouverture et une fermeture avant de tout refermer.
 

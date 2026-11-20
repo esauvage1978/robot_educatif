@@ -33,8 +33,6 @@ El cableado se hizo en Francia, en una red de 230 V (marrón en L, azul en N). S
 - un cable de alimentación de 230 V con enchufe;
 - una caja de derivación estanca, fijada al techo junto a la toma del motor.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="Módulo relé NodOn SIN-4-1-20 todavía sin cablear, con los bornes y el botón PRESS visibles" caption="El NodOn SIN-4-1-20, antes del cableado." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Interruptor relé multifunción Zigbee"
@@ -57,11 +55,9 @@ También desaconsejo un flow que **cerrara la puerta solo**, sin que nadie vea l
 
 La alimentación del NodOn llega por un cable con enchufe, en la toma del motor: **azul en N**, **marrón en L**. El módulo está en una **caja de derivación estanca**, fijada al techo junto a esa toma: un garaje no es un salón, y la caja evita dejar el módulo al aire.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="Módulo NodOn instalado en una caja de derivación abierta, con los hilos de alimentación y de contacto seco ya conectados" caption="El NodOn en su caja, una vez terminado el cableado." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Toma del techo durante el cableado, encima de la caja de derivación gris, antes de cerrarla" caption="La toma del techo durante el cableado, justo encima de la caja de derivación." />
 
 El **contacto seco** del relé (los dos bornes de la derecha, con el símbolo de relé) está cableado **en paralelo** en los bornes del pulsador: sus dos hilos entran en los **mismos bornes de resorte**, junto a los del pulsador. Después, el pulsador original sigue funcionando: lo comprobé otra vez antes de cerrar.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Placa electrónica del motor Tubauto ProCom, con los bornes de resorte del pulsador de pared y el par vecino sin usar" caption="La placa del ProCom: el relé se conecta a los bornes del pulsador original, no al par de al lado." />
 
 En esta placa, un **par de bornes vecino** quedó sin usar. Puede ser una entrada de seguridad o una célula fotoeléctrica: sin el manual a mano, no conecté el relé ahí.
 
@@ -72,6 +68,8 @@ En esta placa, un **par de bornes vecino** quedó sin usar. Puede ser una entrad
 En la app Homey añadí el dispositivo a través de la app **NodOn**, eligiendo **Interruptor Relé Multifunción**: el modelo « 1 RELAY » sin medición de energía, no la variante « METERING ».
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Pantalla de la app Homey con la lista de dispositivos NodOn y el interruptor relé multifunción seleccionado" caption="La elección correcta en la app NodOn: el interruptor relé multifunción." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Pantalla de emparejamiento de Homey del relé NodOn, con el esquema LED y PRESS" caption="Las instrucciones de emparejamiento en Homey: LED naranja y botón PRESS." />
 
 Para entrar en emparejamiento suele bastar una **pulsación larga** (unos cinco segundos) en el botón **PRESS**, con una herramienta aislada: se suelta cuando el LED parpadea. Un módulo que nunca se ha emparejado también puede entrar solo en ese modo unos minutos después de encenderlo.
 
@@ -93,7 +91,7 @@ El NodOn actúa también como **enrutador Zigbee**: permanece alimentado y refue
 
 Para saber si la puerta está abierta o cerrada emparejé un **Aqara MCCGQ11LM** (sensor de puerta y ventana) en Homey, con la app Aqara. El cuerpo del sensor está colocado **abajo, en el raíl** de la puerta seccional; el **imán está en la puerta**, alineado con el sensor cuando está cerrada.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Sensor de apertura Aqara fijado abajo en el raíl de la puerta seccional del garaje, con el imán visible en el panel" caption="El sensor Aqara abajo en el raíl, el imán en la puerta." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Sensor de apertura Aqara fijado abajo en el raíl de la puerta seccional del garaje, con el imán visible en el panel" caption="El sensor Aqara abajo en el raíl, el imán en la puerta." />
 
 Probé una apertura y un cierre antes de terminar y cerrar la caja.
 

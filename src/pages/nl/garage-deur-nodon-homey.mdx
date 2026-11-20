@@ -34,8 +34,6 @@ De bedrading is in Frankrijk gedaan, op 230 V (bruin op L, blauw op N). Wie niet
 - een 230 V-aansnoer met stekker;
 - een vochtbestendige lasdoos, aan het plafond bevestigd naast het stopcontact van de motor.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="NodOn-relais SIN-4-1-20 nog voor de bedrading, met de klemmen en de knop PRESS zichtbaar" caption="De NodOn SIN-4-1-20, voor de bedrading." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Zigbee multifunctionele relais-schakelaar"
@@ -58,11 +56,9 @@ Ik raad ook af om een flow te maken die de **deur vanzelf sluit**, zonder dat ie
 
 De NodOn krijgt stroom via een snoer met stekker, in het stopcontact van de motor: **blauw op N**, **bruin op L**. De module zit in een **vochtbestendige lasdoos**, aan het plafond naast dat stopcontact — een garage is geen woonkamer, en de doos laat de module niet in de open lucht hangen.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn-module in een open lasdoos, met de voedingsdraden en de draden van het potentiaalvrije contact al aangesloten" caption="De NodOn in de doos, na het aansluiten." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Plafondstopcontact tijdens het aansluiten, boven de grijze lasdoos, voor het sluiten" caption="Het plafondstopcontact tijdens het aansluiten, net boven de lasdoos." />
 
 Het **potentiaalvrije contact** van het relais (de twee klemmen rechts, met het relaissymbool) is **parallel** aangesloten op de klemmen van de drukknop: de twee draden gaan in dezelfde **veerklemmen**, naast die van de knop. Daarna werkt de originele knop nog steeds — ik heb hem opnieuw getest voordat ik de doos dichtdeed.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Printplaat van de Tubauto ProCom-motor, met de veerklemmen van de muurdrukknop en het ongebruikte naburige paar" caption="De ProCom-print: het relais gaat naar de klemmen van de originele knop, niet naar het paar ernaast." />
 
 Op deze print is een **naburig klemmenpaar** ongebruikt gelaten. Het kan een veiligheidsingang of een fotocel zijn: zonder de handleiding bij de hand heb ik het relais daar niet op aangesloten.
 
@@ -73,6 +69,8 @@ Op deze print is een **naburig klemmenpaar** ongebruikt gelaten. Het kan een vei
 In de Homey-app heb ik het apparaat toegevoegd via de app **NodOn**, met de keuze **multifunctionele relais-schakelaar** — het model « 1 RELAY » zonder energiemeting, niet de variant « METERING ». In de Franse app heet hetzelfde apparaat « Interrupteur Relais Multifonction ».
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Scherm van de Homey-app met de lijst van NodOn-apparaten en de multifunctionele relais-schakelaar geselecteerd" caption="De juiste keuze in de NodOn-app: de multifunctionele relais-schakelaar." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Homey-koppelingsscherm van het NodOn-relais, met het LED- en PRESS-schema" caption="De koppelinstructies in Homey: oranje LED en de PRESS-knop." />
 
 Om het module in koppelstand te zetten volstaat meestal een **lange druk** (ongeveer vijf seconden) op de knop **PRESS**, met een geïsoleerd gereedschap: loslaten zodra de led knippert. Een module die nog nooit is gekoppeld, kan na het inschakelen ook vanzelf een paar minuten in die stand staan.
 
@@ -94,7 +92,7 @@ De NodOn werkt ook als **Zigbee-router**: hij blijft onder spanning en versterkt
 
 Om te weten of de deur open of dicht is, heb ik een **Aqara MCCGQ11LM** (deur- en raamsensor) in Homey gekoppeld, via de Aqara-app. De behuizing van de sensor zit **onderaan, op de rail** van de sectionaaldeur; de **magneet zit op de deur**, uitgelijnd met de sensor wanneer die dicht is.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-openingsensor onderaan bevestigd op de rail van de sectionale garagedeur, met de magneet zichtbaar op het paneel" caption="De Aqara-sensor onderaan de rail, de magneet op de deur." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-openingsensor onderaan bevestigd op de rail van de sectionale garagedeur, met de magneet zichtbaar op het paneel" caption="De Aqara-sensor onderaan de rail, de magneet op de deur." />
 
 Ik heb een opening en een sluiting getest voordat alles werd afgesloten.
 

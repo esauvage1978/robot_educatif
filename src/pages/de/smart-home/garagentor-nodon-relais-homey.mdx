@@ -33,8 +33,6 @@ Die Installation wurde in Frankreich an 230 V vorgenommen (Braun auf L, Blau auf
 - ein 230-V-Anschlusskabel mit Stecker;
 - eine feuchtigkeitsgeschützte Abzweigdose, an der Decke neben der Steckdose des Antriebs befestigt.
 
-<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-avant-cablage.webp" alt="NodOn-Relais SIN-4-1-20 noch vor dem Anschluss, mit sichtbaren Klemmen und der Taste PRESS" caption="Das NodOn SIN-4-1-20, vor dem Anschluss." />
-
 <ProductBox
   productId="nodon-sin-4-1-20"
   name="NodOn SIN-4-1-20 — Zigbee-Multifunktionsrelais"
@@ -57,11 +55,9 @@ Ich rate auch von einem Flow ab, der das **Tor von allein schließen** würde, o
 
 Das NodOn wird über ein Kabel mit Stecker an der Steckdose des Antriebs versorgt: **Blau auf N**, **Braun auf L**. Das Modul sitzt in einer **feuchtigkeitsgeschützten Abzweigdose** an der Decke neben dieser Steckdose — eine Garage ist kein Wohnzimmer, die Dose lässt das Modul nicht offen liegen.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn-Modul in einer geöffneten Abzweigdose, mit bereits angeschlossenen Netz- und Kontaktadern" caption="Das NodOn in der Dose, nach Abschluss der Verdrahtung." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Deckensteckdose beim Anschließen, über der grauen Abzweigdose, vor dem Schließen" caption="Die Deckensteckdose beim Anschließen, direkt über der Abzweigdose." />
 
 Der **potenzialfreie Kontakt** des Relais (die beiden rechten Klemmen mit dem Relais-Symbol) liegt **parallel** an den Klemmen des Wandtasters: die beiden Adern stecken in denselben **Federklemmen**, neben denen des Tasters. Danach funktioniert die Originaltaste weiter — ich habe sie vor dem Schließen der Dose erneut geprüft.
-
-<Photo src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Elektronikplatine des Tubauto-ProCom-Antriebs mit den Federklemmen des Wandtasters und dem ungenutzten benachbarten Klemmenpaar" caption="Die ProCom-Platine: das Relais kommt an die Klemmen der Originaltaste, nicht an das benachbarte Paar." />
 
 Ein **benachbartes Klemmenpaar** auf dieser Platine blieb ungenutzt. Es kann ein Sicherheitseingang oder eine Lichtschranke sein: ohne die Anleitung habe ich das Relais dort nicht angeschlossen.
 
@@ -72,6 +68,8 @@ Ein **benachbartes Klemmenpaar** auf dieser Platine blieb ungenutzt. Es kann ein
 In der Homey-App habe ich das Gerät über die App **NodOn** hinzugefügt und **Multifunktions-Relais-Schalter** gewählt — das Modell „1 RELAY“ ohne Energiemessung, nicht die Variante „METERING“. In der französischen App heißt dasselbe Gerät „Interrupteur Relais Multifonction“.
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Bildschirm der Homey-App mit der Auswahlliste der NodOn-Geräte, Multifunktionsrelais markiert" caption="Die richtige Wahl in der NodOn-App: das Multifunktionsrelais." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Homey-Kopplungsbildschirm für das NodOn-Relais, mit LED- und PRESS-Schema" caption="Die Kopplungsanleitung in Homey: orange LED und die PRESS-Taste." />
 
 Für den Kopplungsmodus reicht in der Regel ein **langer Druck** (etwa fünf Sekunden) auf die Taste **PRESS** mit einem isolierten Werkzeug: loslassen, sobald die LED blinkt. Ein noch nie gekoppeltes Modul kann nach dem Einschalten auch von selbst einige Minuten in diesem Modus bleiben.
 
@@ -93,7 +91,7 @@ Das NodOn arbeitet außerdem als **Zigbee-Router**: es bleibt versorgt und stär
 
 Ob das Tor offen oder geschlossen ist, sagt ein **Aqara MCCGQ11LM** (Tür- und Fenstersensor), in Homey über die Aqara-App gekoppelt. Das Sensorgehäuse sitzt **unten am Lauf** des Sektionaltors; der **Magnet ist am Tor**, mit dem Sensor fluchtend, wenn das Tor geschlossen ist.
 
-<Photo src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-Öffnungssensor unten am Lauf des Sektionaltors befestigt, Magnet am Torblatt sichtbar" caption="Der Aqara-Sensor unten am Lauf, der Magnet am Tor." />
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-Öffnungssensor unten am Lauf des Sektionaltors befestigt, Magnet am Torblatt sichtbar" caption="Der Aqara-Sensor unten am Lauf, der Magnet am Tor." />
 
 Ich habe ein Öffnen und ein Schließen getestet, bevor alles geschlossen wurde.
 
