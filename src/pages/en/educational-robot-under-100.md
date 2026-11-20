@@ -64,7 +64,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 
 **Honest limits:** Bluetooth can be flaky — use **USB** first; four AA batteries (rechargeables recommended); no built-in camera.
 
-**Buy links:** [mBot on Amazon.com](/go/az-gb-b5d4d0b7cd) · [mBot on Amazon.com](/go/az-us-d15f4ee758)
+**Buy links:** [mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Bluetooth+educational+robot&tag=roboteducatif-20)
 
 **Success check:** robot moves on **green flag** in mBlock; changing one block (speed or wait) changes behaviour. Connection issues: [mBlock Bluetooth troubleshooting](/en/mblock-bluetooth-troubleshooting/).
 
@@ -84,7 +84,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 
 **Limits:** 1–2 h assembly and wiring; mostly **English** docs; no mBlock-style blocks.
 
-**Buy links:** [ELEGOO Car on Amazon.com](/go/az-us-f030be64cd) · UK search: [ELEGOO Robot Car V4.0 on Amazon.com](https://www.amazon.com/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-20)
+**Buy links:** [ELEGOO Robot Car V4.0 on Amazon.com](https://www.amazon.com/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-20)
 
 **Who it fits:** teens aiming at **electronics**, **video streaming** or **secondary-school STEM** — see [best robot for a 12-year-old](/en/best-robot-for-a-12-year-old/). If the child never coded, start with mBot or [best robot for an 8-year-old](/en/best-robot-for-an-8-year-old/).
 
@@ -99,7 +99,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 | **Indicative price** | **~£35–45** / **~$40–50** |
 | **Role** | **Test interest** or second robot |
 
-Preset walk/dance modes out of the box; Arduino code on GitHub for advanced users. **Not** a substitute for mBot if you can stretch to **~£85**. [Penguin on Amazon.com](/go/az-gb-591f4137f4) · [Amazon.com](/go/az-us-a9ea4a77b6)
+Preset walk/dance modes out of the box; Arduino code on GitHub for advanced users. **Not** a substitute for mBot if you can stretch to **around $85**. [Penguin Bot on Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot+robot+kit&tag=roboteducatif-20)
 
 ## Comparison (October 2026)
 
@@ -133,9 +133,9 @@ For ELEGOO: select **Arduino UNO** in the IDE, pick the correct **COM** port, ru
 
 ## Merchant links (October 2026)
 
-- [Makeblock mBot — Amazon.com](/go/az-gb-b5d4d0b7cd) · [Amazon.com](/go/az-us-d15f4ee758)
-- [Scratch robots search — Amazon.com](/go/az-gb-8d09af5539) · [Amazon.com kits](/go/az-us-ed6d69c5d8)
-- [Programmable educational robots — Amazon.com](/go/az-gb-8919d5eaba)
+- [Makeblock mBot — Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Bluetooth&tag=roboteducatif-20)
+- [Makeblock Codey Rocky — Amazon.com](https://www.amazon.com/s?k=Makeblock+Codey+Rocky&tag=roboteducatif-20)
+- [Learning Resources Botley 2.0 — Amazon.com](https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20)
 
 ## FAQ
 

@@ -114,8 +114,8 @@ Neither device has Zigbee built in. Plug in a USB coordinator on a short extensi
 
 ## Where to buy
 
-- <a href="/go/az-gb-81defa28ab/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com</a>
-- <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon.com</a> · see [which Pi 5 RAM to buy](/en/raspberry-pi-5-which-ram/)
+- <a href="https://www.amazon.com/s?k=Home+Assistant+Green&tag=roboteducatif-20" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon.com</a> · see [which Pi 5 RAM to buy](/en/raspberry-pi-5-which-ram/)
 
 ## FAQ
 

@@ -104,8 +104,8 @@ UK and US prices differ — verify at purchase time on the [official Raspberry P
 <h2 id="accessories">4. Accessories you shouldn't forget</h2>
 
 - **Active cooling** (official Active Cooler or the official case with fan).
-- **Power supply**: official 27W USB-C or a documented equivalent — <a href="/go/az-gb-a3d8b480b5/" rel="sponsored nofollow noopener">Pi 5 27 W PSU (UK search)</a> · <a href="/go/az-us-765d931f34/" rel="sponsored nofollow noopener">US</a>.
-- **Fast microSD card**, or an **NVMe** drive if you add a PCIe board — <a href="/go/az-gb-89b9e1aeb0/" rel="sponsored nofollow noopener">A2 microSD (UK)</a> · <a href="/go/az-us-06848dad09/" rel="sponsored nofollow noopener">A2 microSD (US)</a>.
+- **Power supply**: official 27W USB-C or a documented equivalent — <a href="https://www.amazon.com/s?k=Raspberry+Pi+5+27W+power+supply&tag=roboteducatif-20" rel="sponsored nofollow noopener">Pi 5 27 W PSU (UK search)</a> · <a href="/go/az-us-765d931f34/" rel="sponsored nofollow noopener">US</a>.
+- **Fast microSD card**, or an **NVMe** drive if you add a PCIe board — <a href="https://www.amazon.com/s?k=microSD+A2+Raspberry+Pi&tag=roboteducatif-20" rel="sponsored nofollow noopener">A2 microSD (UK)</a> · <a href="/go/az-us-06848dad09/" rel="sponsored nofollow noopener">A2 microSD (US)</a>.
 - **Micro-HDMI cables** for one or two screens.
 
 Flash **Raspberry Pi OS** with **Raspberry Pi Imager** — steps match [Raspberry Pi 3 getting started](/en/raspberry-pi-3-getting-started/).
@@ -118,10 +118,10 @@ Confirm memory size on the listing before you buy.
 
 **UK**
 
-- <a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon.com</a>
-- <a href="/go/az-gb-3e5805c3b4/" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB — UK search</a>
-- <a href="/go/az-gb-c1b8f8eba6/" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB board — Amazon.com</a>
-- <a href="/go/az-gb-8785ee893a/" rel="sponsored nofollow noopener">Pi 5 case / cooling — UK search</a>
+- <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Raspberry Pi 5 4GB — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=raspberry+pi+5+8gb&tag=roboteducatif-20" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB — UK search</a>
+- <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(8GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Raspberry Pi 5 8GB board — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=raspberry+pi+5+case&tag=roboteducatif-20" rel="sponsored nofollow noopener">Pi 5 case / cooling — UK search</a>
 
 **US**
 

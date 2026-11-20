@@ -109,9 +109,13 @@ const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>},]|\\\/
 /** Coupe JSON / parenthèses Markdown collés après une URL (ex. tag=manuso06-21"},"code-and-go"). */
 function trimLooseUrl(raw) {
   let s = raw.replace(/\\\//g, '/');
-  s = s.replace(/(\?|&amp;|&)tag=[^"'&\s#]+?)(\)+|"\}.*)$/, '$1');
-  s = s.replace(/"\}.*$/, '').replace(/,\s*"[^"]*$/, '');
-  return s;
+  const m = s.match(/^(https?:\/\/[^"'}\s]+)/);
+  if (m) return m[1];
+  for (const sep of ['"}', '",', '})', '))']) {
+    const i = s.indexOf(sep);
+    if (i > 12) return s.slice(0, i);
+  }
+  return s.replace(/"\}.*$/, '').replace(/\)+$/, '');
 }
 
 function take(url, repaired) {

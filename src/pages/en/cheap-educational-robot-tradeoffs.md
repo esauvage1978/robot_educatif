@@ -67,7 +67,7 @@ Yes. In French, both common **spellings** point to the same idea: a **robot with
 
 ## Amazon links
 
-- [Check today's price on Amazon](https://www.amazon.com/s?k=cheap+programmable+educational+robot&tag=roboteducatif-20) (cheap programmable educational robot)
+- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock+mBot+educational+robot&tag=roboteducatif-20) (Makeblock mBot)
 - [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) (mBot Makeblock)
 - [Check today's price on Amazon](https://www.amazon.com/s?k=kids+STEM+robotics+kit&tag=roboteducatif-20) (STEM robotics kit for kids)
 

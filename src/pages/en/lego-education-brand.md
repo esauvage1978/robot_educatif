@@ -110,14 +110,14 @@ faqSchema:
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~€289 / check US listings.</p>
     <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
-    <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Middle school / FLL</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~€379 — confirm seller.</p>
     <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
-    <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
 </div>
 

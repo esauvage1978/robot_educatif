@@ -164,7 +164,7 @@ Other text games: [Hangman hub](/programmation/pendu/), [Battleship hub](/progra
 
 Books on **Python game projects** may inspire follow-ups — verify edition and level before buying.
 
-- <a href="/go/az-gb-9c39d7b76e" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.com</a>
 - <a href="/go/az-us-06848dad09" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.com</a> (US)
 
 *Emmanuel Sauvage — updated 31 October 2026.*

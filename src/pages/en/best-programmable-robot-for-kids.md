@@ -16,7 +16,7 @@ faqSchema:
 
 > **Affiliate transparency** — Some links below are partner links (Amazon.com/US and others). Qualifying purchases may earn this site a commission at no extra cost to you. **Prices noted October 2026** — confirm on the shop page before ordering.
 
-> **Direct answer (October 2026)** — The **best programmable robot** for a child depends mainly on **age**, **autonomy** (**Scratch**, MIT’s visual block language, vs **Python** text code) and **adult time** to install **mBlock** (Makeblock’s app for mBot and mBot2). Around **8–10**, the **Makeblock mBot** (about **£85–110** on <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Amazon.com</a>, check listing) remains the most documented reference on this site; from **10–14**, the **mBot2** (about **£130–170**) adds Python and advanced sensors. A **programmable** robot is **not** an **AI** toy: it runs **your** program, without a built-in chat assistant.
+> **Direct answer (October 2026)** — The **best programmable robot** for a child depends mainly on **age**, **autonomy** (**Scratch**, MIT’s visual block language, vs **Python** text code) and **adult time** to install **mBlock** (Makeblock’s app for mBot and mBot2). Around **8–10**, the **Makeblock mBot** (about **£85–110** on <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a>, check listing) remains the most documented reference on this site; from **10–14**, the **mBot2** (about **£130–170**) adds Python and advanced sensors. A **programmable** robot is **not** an **AI** toy: it runs **your** program, without a built-in chat assistant.
 
 ## Remote-controlled, programmable, autonomous, educational or “AI”?
 
@@ -44,21 +44,21 @@ For age and budget in **October 2026**, use the tables below and our guides for 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Best screen-free (ages 5–7)</p>
-    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-2a149a3c37/" rel="sponsored nofollow noopener">Learning Resources Botley 2.0</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="https://www.amazon.com/s?k=product%20B083T5G5ZK&tag=roboteducatif-20" rel="sponsored nofollow noopener">Learning Resources Botley 2.0</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Arrow-pad programming, obstacle detection and line following without a tablet.</p>
-    <a href="/go/az-gb-2a149a3c37/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=product%20B083T5G5ZK&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Reference ages 8–12</p>
-    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot v1.1</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot v1.1</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">About 15 min build, ultrasonic sensor, Scratch blocks in mBlock 5.</p>
-    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Top pick ages 10–14</p>
-    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi Wi-Fi)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi Wi-Fi)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Colour screen, rechargeable battery, Scratch → Python, IoT (internet of things on your home network).</p>
-    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Electronics & Arduino C++</p>
@@ -86,7 +86,7 @@ Looking for a **coding robot to unwrap at Christmas**? This guide compares three
 
 - Match the robot to **real age and patience**, not the box photo — guides [5](/en/best-robot-for-a-5-year-old/), [8](/en/best-robot-for-an-8-year-old/), [10](/en/best-robot-for-a-10-year-old/) help.
 - **Prepare Christmas morning**: charged batteries, [mBlock installed](/en/install-mblock-5-windows/) before unboxing.
-- Order early in December; check **today’s price** on <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Amazon.com</a> or <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>.
+- Order early in December; check **today’s price** on <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> or <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>.
 - Have one ready-made challenge: our [10 free mBot projects](/en/10-free-mbot-classroom-projects/) work at home too.
 
 ![Makeblock mBot — chassis and mCore board](/images/models/makeblock-mbot-mcore.webp)
@@ -173,7 +173,7 @@ Still choosing between Makeblock kits? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) 
       <li>Scratch + Arduino path</li>
       <li>Sensors included</li>
     </ul>
-    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <h3 style="margin:0 0 0.35rem;font-size:1.1rem;">Makeblock mBot2 — best around age 10</h3>
@@ -182,7 +182,7 @@ Still choosing between Makeblock kits? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) 
       <li>Python + Scratch</li>
       <li>mBuild modular add-ons (clip-on sensors)</li>
     </ul>
-    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <h3 style="margin:0 0 0.35rem;font-size:1.1rem;">ELEGOO Robot Car V4.0 — value 13+</h3>

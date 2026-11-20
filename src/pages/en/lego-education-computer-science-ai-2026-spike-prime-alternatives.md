@@ -64,22 +64,22 @@ LEGO’s **SPIKE update 2026** page confirms direct catalogue end for SPIKE sets
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2</strong></span></td>
 <td data-label="Indicative price"><span class="td-val">Check listing</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Essential</strong> (reseller)</span></td>
 <td data-label="Indicative price"><span class="td-val">Last catalogue ~€289</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Prime</strong> (reseller)</span></td>
 <td data-label="Indicative price"><span class="td-val">Last catalogue ~€379</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Raspberry Pi 5 (4 GB)</strong></span></td>
 <td data-label="Indicative price"><span class="td-val">Board + accessories</span></td>
-<td data-label="Buy"><span class="td-val"><a href="/go/az-gb-478e21e86e/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-a66a9832d5/" rel="sponsored nofollow noopener">Amazon.com</a> — see <a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a></span></td>
+<td data-label="Buy"><span class="td-val"><a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="/go/az-us-a66a9832d5/" rel="sponsored nofollow noopener">Amazon.com</a> — see <a href="/en/raspberry-pi-5-which-ram/">Pi 5 RAM guide</a></span></td>
 </tr>
 </tbody>
 </table></div>
@@ -141,15 +141,15 @@ Also read [best programmable robot by age](/en/best-programmable-robot-for-kids/
 
 **Makeblock**
 
-- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>
 - <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>
 
 **LEGO (reseller listings — confirm set number)**
 
-- <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a> · <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener">UK</a>
-- <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a> · <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener">UK</a>
+- <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a> · <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener">UK</a>
+- <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a> · <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener">UK</a>
 
-- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
+- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
 
 *Amazon partner — commission possible on eligible purchases.*
 

@@ -227,7 +227,7 @@ Yes, with mBot blocks and a working front ultrasonic module. Tune cm thresholds 
 
 ## Hardware (indicative links)
 
-[mBot on Amazon.com](/go/az-gb-b5d4d0b7cd/) · [Amazon.com (US)](/go/az-us-d15f4ee758/) — check today’s price. Amazon partner — commission possible on qualifying purchases, at no extra cost to you.
+[mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) · [Amazon.com (US)](/go/az-us-d15f4ee758/) — check today’s price. Amazon partner — commission possible on qualifying purchases, at no extra cost to you.
 
 ---
 

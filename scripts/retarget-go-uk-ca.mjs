@@ -68,11 +68,18 @@ function retargetAmazonUrl(url, loc) {
 	}
 }
 
-function goIdForLoc(oldId, loc) {
+function targetAmazonForLoc(oldId, loc) {
 	const entry = links[oldId];
 	if (!entry?.url) return null;
-	const target = retargetAmazonUrl(entry.url, loc);
-	return idFor(target);
+	return retargetAmazonUrl(entry.url, loc);
+}
+
+/** Ne retourne un id que s'il existe déjà dans la table (append-only). */
+function goIdForLoc(oldId, loc) {
+	const target = targetAmazonForLoc(oldId, loc);
+	if (!target) return null;
+	const existing = urlToId.get(target);
+	return existing && links[existing] ? existing : null;
 }
 
 function walkHtml(dir, acc = []) {
@@ -93,12 +100,14 @@ function patchFile(file, loc) {
 
 	html = html.replace(
 		/href=(["'])(\/go\/(az-(?:gb|ca|us|fr|de|it|es|nl|be)-[\w-]+)\/?)\1/gi,
-		(full, q, hrefPath, id) => {
-			const cur = id.match(/^az-(\w+)/)?.[1];
+		(full, q, hrefPath, oldId) => {
+			const cur = oldId.match(/^az-(\w+)/)?.[1];
 			if (cur === cfg.cc) return full;
-			const newId = goIdForLoc(id, loc);
-			if (!newId) return full;
-			return `href=${q}/go/${newId}/${q}`;
+			const newId = goIdForLoc(oldId, loc);
+			if (newId) return `href=${q}/go/${newId}/${q}`;
+			const target = targetAmazonForLoc(oldId, loc);
+			if (!target) return full;
+			return `href=${q}${target}${q}`;
 		},
 	);
 

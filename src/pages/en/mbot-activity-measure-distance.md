@@ -21,7 +21,7 @@ Some links on this page are affiliate links (**Amazon.com** is the default shop 
 
 This **two-part** activity guides you to:
 
-1. **Read the distance** from the <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" class="affiliate-link">Makeblock mBot</a> **ultrasonic sensor** and see it **on the computer** (variable + **Live** mode);
+1. **Read the distance** from the <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Makeblock mBot</a> **ultrasonic sensor** and see it **on the computer** (variable + **Live** mode);
 2. **Display that distance on the LED matrix** **without the cable** (program **stored on the robot**), handling **number → text**.
 
 Exact block labels may vary with the **mBlock version** and **interface language**; the **logical sequence** stays the same.
@@ -192,7 +192,7 @@ Continue with the [intrusion detector](/en/mbot-activity-intrusion-detector/) (s
 
 **For class**: our [10 free mBot classroom projects](/en/10-free-mbot-classroom-projects/) offer a full 10-session progression with pupil worksheets and PDF answer keys.
 
-Hardware: <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" class="affiliate-link">mBot on Amazon.com</a> — check today’s price before you order.
+Hardware: <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">mBot on Amazon.com</a> — check today’s price before you order.
 
 *Amazon partner — commission possible on qualifying purchases, at no extra cost to you.*
 

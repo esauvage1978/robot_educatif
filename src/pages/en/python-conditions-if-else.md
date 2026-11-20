@@ -445,7 +445,7 @@ You now control **branches**; [lesson 5 — for and while loops](/python-boucles
 
 Prices on Amazon change; check the listing and edition before buying.
 
-- <a href="/go/az-gb-9c39d7b76e" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.com</a>
 - <a href="/go/az-us-06848dad09" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.com</a> (US)
 
 *Emmanuel Sauvage — updated 31 October 2026.*

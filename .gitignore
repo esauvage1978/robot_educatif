@@ -43,3 +43,4 @@ prive/
 *.avant-*
 uk-ca-geo-report.json
 go-links-report.json
+audit/maillage-dist-report.json

@@ -49,7 +49,7 @@ Your ESP32 will need a server. Most readers start with [Home Assistant Green or 
 
 ## Where to buy {#buy}
 
-- <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com search</a> · <a href="/go/az-gb-c0e0c96683/" rel="sponsored nofollow noopener">SONOFF ZBDongle-E — Amazon.com</a> if you mix Zigbee with ESPHome.
+- <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com search</a> · <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">SONOFF ZBDongle-E — Amazon.com</a> if you mix Zigbee with ESPHome.
 - ESP32 boards: search <a href="/go/az-us-a70604b50e/" rel="sponsored nofollow noopener">ESP32 on Amazon.com</a> or open our [chip comparison](/en/smart-home/which-esp32-board-for-smart-home/) for exact DevKitC / C6 references.
 
 ## FAQ {#faq}

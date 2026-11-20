@@ -10,15 +10,15 @@ const updated = '17 November 2026';
 
 /** Partner search links via /go/ (Amazon.com). */
 const GO_UK: Record<string, string> = {
-	mbot: '/go/az-gb-b5d4d0b7cd/',
-	mbot2: '/go/az-gb-a34aebc7e6/',
-	'codey-rocky': '/go/az-gb-0d9298762a/',
-	'elegoo-penguin': '/go/az-gb-cb491e7ec4/',
-	'raspberry-pi-5-8gb': '/go/az-gb-0d703c15cd/',
-	'code-and-go-souris': '/go/az-gb-22af2d7032/',
-	'bee-bot': '/go/az-gb-22af2d7032/',
-	'tale-bot-pro': '/go/az-gb-22af2d7032/',
-	botley: '/go/az-gb-85ba07832a/',
+	mbot: 'https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20',
+	mbot2: 'https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20',
+	'codey-rocky': 'https://www.amazon.com/s?k=Makeblock+Codey+Rocky&tag=roboteducatif-20',
+	'elegoo-penguin': 'https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20',
+	'raspberry-pi-5-8gb': 'https://www.amazon.com/s?k=Raspberry+Pi+5&tag=roboteducatif-20',
+	'code-and-go-souris': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	'bee-bot': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	'tale-bot-pro': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	botley: 'https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20',
 };
 function goUk(key: string) {
 	return GO_UK[key] || GO_UK.mbot;

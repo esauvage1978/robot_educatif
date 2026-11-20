@@ -83,7 +83,7 @@ Keep an OTA password, never expose it to the Internet (port 3232 must never be f
 
 Next: [step-by-step ESP32 projects](/en/smart-home/esp32-smart-home-project-ideas/) and [GPIO wiring basics](/en/smart-home/esp32-wiring-gpio-basics/).
 
-Board used in our ESPHome tutorials: <a href="/go/az-gb-b6d570bd8d/" rel="sponsored nofollow noopener">ESP32-C6 DevKitC-1 on Amazon.com</a>.
+Board used in our ESPHome tutorials: <a href="https://www.amazon.com/s?k=ESP32-C6-DevKitC-1&tag=roboteducatif-20" rel="sponsored nofollow noopener">ESP32-C6 DevKitC-1 on Amazon.com</a>.
 
 ## FAQ
 
