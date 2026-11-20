@@ -2,22 +2,24 @@
 import { QUIZ_QUESTIONS_EN, QUIZ_RESULTS_EN } from '../../data/robotAgeQuiz.en.mjs';
 import productsData from '../../data/products.json';
 import { withBase } from '../../lib/siteUrl';
+import { amazonSearchUrl } from '../../lib/amazonAffiliate.mjs';
 
-function amazonUrl(asin) {
-	return asin ? `https://www.amazon.com/dp/${asin}?tag=roboteducatif-20` : null;
+function amazonUrl(prod, r) {
+	if (!prod) return null;
+	const q = prod.amazonSearchQuery || prod.name || r.name;
+	return q ? amazonSearchUrl('en', q) : null;
 }
 
 const resultsJson = JSON.stringify(
 	Object.fromEntries(
 		Object.entries(QUIZ_RESULTS_EN).map(([key, r]) => {
 			const prod = r.productId ? productsData[r.productId] : null;
-			const asin = r.asin || prod?.asin || null;
 			return [
 				key,
 				{
 					...r,
 					href: withBase(r.href),
-					amazon: amazonUrl(asin),
+					amazon: amazonUrl(prod, r),
 				},
 			];
 		}),

@@ -46,18 +46,21 @@ const MARKET_AMAZON = {
 	ca: { lang: 'en-CA', host: 'www.amazon.ca', tag: 'roboteducat03-20' },
 };
 
+const EU_AMAZON_HOST =
+	/(?:www\.)?amazon\.(?:co\.uk|ca|com|fr|de|it|es|nl)(?![.\w-])/gi;
+const AFFILIATE_TAGS =
+	/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g;
+
 /** Liens Amazon du miroir : boutique et tag du marché, y compris dans les attributs data-*. */
 function retargetAmazonAttrs(html, market) {
 	const { host, tag } = MARKET_AMAZON[market];
-	return html.replace(/=\s*(["'])([^"']*amazon\.(?:com|ca|co\.uk)[^"']*)\1/gi, (full, q, url) => {
+	return html.replace(/=\s*(["'])([^"']*amazon\.[^"']*)\1/gi, (full, q, url) => {
 		const next = url
-			.replace(/(?:www\.)?amazon\.(?:co\.uk|ca|com)(?![.\w-])/gi, (m) =>
+			.replace(EU_AMAZON_HOST, (m) =>
 				m.toLowerCase().startsWith('www.') ? host : host.replace(/^www\./, ''),
 			)
-			.replace(
-				/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g,
-				tag,
-			);
+			.replace(AFFILIATE_TAGS, tag)
+			.replace(/#x26;tag=[^#&'"]*/gi, '');
 		return `=${q}${next}${q}`;
 	});
 }

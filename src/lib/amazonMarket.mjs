@@ -85,7 +85,7 @@ export function marketFromPathname(pathname) {
 	if (p.startsWith('/uk/')) return 'uk';
 	if (p.startsWith('/ca/')) return 'ca';
 	if (p.startsWith('/nl/')) return 'nl';
-	if (p.startsWith('/en/')) return 'uk';
+	if (p.startsWith('/en/')) return 'us';
 	return 'fr';
 }
 

@@ -112,19 +112,19 @@ Usa esta tabla como **filtro**, no como ley absoluta:
 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (8–10 años)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (8–10 años)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Primer robot Scratch/mBlock · montaje ~15 min · encaja con la fila «mBot» de la tabla.</p>
-    <a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Consultar precio en Amazon</a>
+    <a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Consultar precio en Amazon</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (10–14 años)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (10–14 años)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Scratch + Python · CyberPi · batería integrada.</p>
-    <a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Consultar precio en Amazon</a>
+    <a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Consultar precio en Amazon</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Ladrillos LEGO + hub · entrada suave ~7–9 años (comprueba disponibilidad).</p>
-    <a href="https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat0c-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Buscar en Amazon</a>
+    <a href="https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat07-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Buscar en Amazon</a>
   </div>
 </div>
 

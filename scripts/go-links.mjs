@@ -104,10 +104,18 @@ const stats = { files: 0, filesChanged: 0, amazon: 0, awin: 0, repaired: 0, relF
 const A_TAG = /<a\b[^>]*>/gi;
 const HREF = /(\shref\s*=\s*)(["'])(.*?)\2/i;
 // Toute URL Amazon/Awin encore présente hors <a href> (JSON-LD, script, autre attribut).
-const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>]|\\\/)+/g;
+const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>},]|\\\/)+/g;
+
+/** Coupe JSON / parenthèses Markdown collés après une URL (ex. tag=manuso06-21"},"code-and-go"). */
+function trimLooseUrl(raw) {
+  let s = raw.replace(/\\\//g, '/');
+  s = s.replace(/(\?|&amp;|&)tag=[^"'&\s#]+?)(\)+|"\}.*)$/, '$1');
+  s = s.replace(/"\}.*$/, '').replace(/,\s*"[^"]*$/, '');
+  return s;
+}
 
 function take(url, repaired) {
-  url = normalizeAmazon(url);
+  url = normalizeAmazon(trimLooseUrl(url));
   const c = classify(url);
   if (!c) return null;
   const id = urlToId.get(url) || idFor(c.prefix, url);
@@ -148,11 +156,10 @@ for (const file of walk(dist)) {
     return t;
   });
   out = out.replace(LOOSE, (raw) => {
-    let core = raw, trail = '';
-    const tm = raw.match(/^(.*?)([)\].,;:]+)$/);
+    let core = trimLooseUrl(raw), trail = '';
+    const tm = core.match(/^(.*?)([)\].,;:]+)$/);
     if (tm) { core = tm[1]; trail = tm[2]; }
-    const plain = core.replace(/\\\//g, '/');
-    const { url, repaired } = decodeEntities(plain);
+    const { url, repaired } = decodeEntities(core);
     const id = take(url, repaired);
     if (!id) return raw;
     changed = true;
@@ -180,10 +187,10 @@ if (!CHECK_ONLY) for (const file of walk(dist)) {
   const seen = new Set();
   LOOSE.lastIndex = 0;
   for (const raw of h.match(LOOSE) || []) {
-    let core = raw;
-    const tm = raw.match(/^(.*?)([)\].,;:]+)$/);
+    let core = trimLooseUrl(raw);
+    const tm = core.match(/^(.*?)([)\].,;:]+)$/);
     if (tm) core = tm[1];
-    const url = decodeEntities(core.replace(/\\\//g, '/')).url;
+    const url = decodeEntities(core).url;
     if (!classify(url) || seen.has(url)) continue;
     seen.add(url);
     left++;

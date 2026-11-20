@@ -29,9 +29,9 @@ function releveFrais(iso) {
 	return Number.isFinite(age) && age >= 0 && age <= PRIX_JOUR_MS;
 }
 
-/** Marché dont le fichier de relevé porte la devise affichée. /en/ suit le Royaume-Uni. */
+/** Marché dont le fichier de relevé porte la devise affichée. /en/ : pas de prix UK affichés. */
 export function priceMarket(market) {
-	if (market === 'en') return 'uk';
+	if (market === 'en') return null;
 	if (market === 'uk' || market === 'de' || market === 'it' || market === 'es' || market === 'fr' || market === 'ca') return market;
 	return null;
 }

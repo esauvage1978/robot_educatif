@@ -1,5 +1,14 @@
 ---
 import { CLASS_MODELS, CLASS_FIXED } from '../../data/classBudgetRobot.mjs';
+import { amazonSearchUrl } from '../../lib/amazonAffiliate.mjs';
+
+const AMAZON_QUERY = {
+	mbot2: 'Makeblock mBot2',
+	mbot: 'Makeblock mBot',
+	cyberpi: 'Makeblock CyberPi',
+	'raspberry-pi-5': 'Raspberry Pi 5 4GB kit',
+	arduino: 'ELEGOO Smart Robot Car Kit V4',
+};
 
 const LABELS = {
 	mbot2: 'Makeblock mBot2',
@@ -18,7 +27,7 @@ const modelsJson = JSON.stringify(
 		id: m.id,
 		label: LABELS[m.id] || m.label,
 		unitEur: m.unitEur,
-		url: `https://www.amazon.com/dp/${m.asin}?tag=roboteducatif-20`,
+		url: amazonSearchUrl('en', AMAZON_QUERY[m.id] || m.label),
 		perRobotExtras: m.perRobotExtras,
 		note: NOTES[m.id] || '',
 	})),
