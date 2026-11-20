@@ -3,7 +3,7 @@ layout: ../../layouts/EnPost.astro
 lang: nl
 title: "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
 description: "Unboxing van de kit die ElectroHobby.es schonk: 2 ESP32 DevKit WROOM-32 USB-C, ESP32-C3 Super Mini, relais, sensors en jumperkabels, plus de geplande ESP32-projecten op deze site."
-updated: "19 november 2026"
+updated: "20 november 2026"
 ---
 
 <nav class="breadcrumb" aria-label="Broodkruimel"><a href="/nl/">Robot educatief</a> · ElectroHobby unboxing</nav>
@@ -167,3 +167,21 @@ Eerst installeert u **ESPHome** op de ESP32. ESPHome is software (firmware) die 
 Daarna installeert u op **Homey** (de huisautomatiseringscentrale die de apparaten in huis aanstuurt) de app **ESPHome** van Abe Haverkamp, beschikbaar in de Homey App Store (een community-app): [pagina van de ESPHome-app](https://homey.app/nl-nl/app/io.esphome/). Deze app werkt op **Homey Pro** (modellen uit 2023 en nieuwer), **Homey Pro mini** en een zelf gehoste Homey-server, met Homey-software 13.0.0 of nieuwer. Ze werkt **niet** op **Homey Cloud** (het aanbod zonder Pro-apparaat in huis) en ook niet op oudere Homey Pro-toestellen (2016-2019). Homey praat dan lokaal, op het thuisnetwerk, met het bord via de **native API** van ESPHome (de daarvoor bedoelde communicatie-interface, die u in de configuratie moet inschakelen).
 
 Zodra de app is geïnstalleerd, verschijnt de ESP32 als een Homey-apparaat. U kunt hem gebruiken in **Flows** (de Homey-automatiseringen: «wanneer dit gebeurt, doe dan dat»).
+
+### Hoe sluit ik de HC-SR04 aan op een ESP32?
+
+De **HC-SR04** is een ultrasone afstandssensor (hij meet een afstand door een hoge, onhoorbare toon uit te zenden en naar de echo te luisteren). Hij werkt op **5 V**. Zijn pin **ECHO** (de uitgang die de terugkerende echo aangeeft) levert daarom een signaal van **5 V**. De ingangspins van een **ESP32** zijn alleen bedoeld voor **3,3 V**: een signaal van 5 V kan ze beschadigen.
+
+U moet dit signaal dus verlagen met een **spanningsdeler**: twee weerstanden in serie, **1 kΩ** (1 000 ohm, aan de ECHO-kant) en **2 kΩ** (2 000 ohm, aan de massa-/GND-kant). De draad naar de ESP32-pin vertrekt vanuit het middenpunt, tussen de twee weerstanden. Zo krijgt u ongeveer **3,3 V** (5 × 2 / 3). De pin **TRIG** (het startcommando) kan rechtstreeks aangesloten blijven: een niveau van 3,3 V van de ESP32 volstaat meestal om de sensor te activeren. De voeding **VCC** van de HC-SR04 blijft op 5 V.
+
+We hebben deze bedrading op de ontvangen kit nog niet uitgevoerd: dit is de gebruikelijke voorzorg, die we bij latere opstellingen controleren.
+
+### Werkt de ESP32 op 5GHz-wifi?
+
+Nee. De **ESP32**-borden in deze kit (de twee DevKit WROOM-32 en de ESP32-C3 Super Mini) verbinden zich alleen met een **2,4GHz-wifinetwerk**. Een netwerk dat alleen **5 GHz** gebruikt, wordt door het bord niet gezien. Op een router met beide banden hebt u een apart 2,4GHz-netwerk nodig, of een gemengd netwerk waarop 2,4 GHz actief blijft. Dezelfde instelling gebruikt u wanneer u de wifi in ESPHome configureert.
+
+### Kan ik de ESP32 voeden met 5 V op de VIN-pin?
+
+Ja. Op een typische **ESP32 DevKit** is de pin **VIN** (vaak ook als **5 V** aangeduid) de voedingsingang: u kunt er een geregelde spanning van **5 V** op zetten (bijvoorbeeld vanaf een USB-adapter of een spanningsregelaar), met de massa op **GND**. Het is dezelfde pin die u gebruikt, wanneer het bord al via USB wordt gevoed, om 5 V aan de relaismodule te geven.
+
+Zet **geen** 5 V op de pin **3,3 V** (die pin is een geregelde uitgang, geen 5V-ingang). Vermijd ook om USB-voeding en een andere 5V-bron op VIN achteloos te combineren. Deze aansluiting hebben we op onze kit nog niet uitgeprobeerd: dat wordt bevestigd bij latere opstellingen.
