@@ -111,6 +111,15 @@ function mirror(market) {
 			});
 		}
 		html = retargetAmazonAttrs(html, market);
+		const amazonShop = market === 'uk' ? 'Amazon.co.uk' : 'Amazon.ca';
+		html = html
+			.replace(/Amazon\.com(?![.\w-])/g, amazonShop)
+			.replace(/UK shoppers on Amazon\.co\.uk/gi, 'UK shoppers')
+			.replace(/UK shoppers on Amazon\.com/gi, 'UK shoppers')
+			.replace(/Live Amazon\.com prices/gi, `Live ${amazonShop} prices`)
+			.replace(/Amazon\.com is the default shop/gi, `${amazonShop} is the default shop`)
+			.replace(/on Amazon\.com/gi, `on ${amazonShop}`)
+			.replace(/Amazon\.com ·/g, `${amazonShop} ·`);
 		if (html !== before) {
 			writeFileSync(file, html);
 			n++;

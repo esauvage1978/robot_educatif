@@ -26,6 +26,12 @@ function cleanAmazonUrl(url) {
 		u = u.replaceAll('roboteducat0c-21', 'roboteducat07-21');
 		changed = true;
 	}
+	if (/amazon\.it/i.test(u)) {
+		const prev = u;
+		u = u.replace(/([?&]tag=)roboteducatif-21/g, '$1roboteducat0f-21');
+		u = u.replace(/([?&]tag=)roboteducat00-21/g, '$1roboteducat0f-21');
+		if (u !== prev) changed = true;
+	}
 	if (/amazon\.com\.be/i.test(u)) {
 		u = u.replace(/(?:www\.)?amazon\.com\.be/gi, 'www.amazon.fr');
 		changed = true;
@@ -53,6 +59,9 @@ for (const [id, entry] of Object.entries(links)) {
 	if (!changed) continue;
 	entry.url = url;
 	if (entry.tag === 'roboteducat0c-21') entry.tag = 'roboteducat07-21';
+	if (/amazon\.it/i.test(entry.url) && (entry.tag === 'roboteducatif-21' || entry.tag === 'roboteducat00-21')) {
+		entry.tag = 'roboteducat0f-21';
+	}
 	fixed++;
 }
 

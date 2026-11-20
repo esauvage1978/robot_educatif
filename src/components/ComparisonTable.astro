@@ -1,7 +1,7 @@
 ---
 import { AMAZON_AFFILIATE_TAG } from '../consts';
 import {
-	amazonDpUrl,
+	amazonListingUrl,
 	comparisonLabels,
 	marketFromPathname,
 	MARKET_CONFIG,
@@ -70,8 +70,11 @@ const getAmazonUrl = (p: any) => {
 			? `https://www.amazon.fr/dp/${encodeURIComponent(p.asin)}?tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`
 			: `https://www.amazon.fr/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`;
 	}
-	if (p.asin) return amazonDpUrl(p.asin, market);
-	return `https://${cfg.host}/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(cfg.tag)}`;
+	return amazonListingUrl({
+		asin: p.asin,
+		query: p.amazonSearchQuery || p.name,
+		market,
+	});
 };
 
 const getModelHref = (p: any, amzUrl: string) =>
