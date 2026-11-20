@@ -30,7 +30,7 @@ Many families hesitate between the two. In short:
 
 | Criterion | mBot (classic) | mBot2 |
 |--------|-------------------|--------|
-| **Indicative budget (new, 2026)** | Often **around €80–100** (roughly **£70–90 / $85–110** depending on promos and pack — check local listing) | Often **around €150–190** (roughly **£130–170 / $160–210**) |
+| **Indicative budget (new, 2026)** | Often **around $85–100** (roughly **£70–90 / $85–110** depending on promos and pack — check local listing) | Often **around $165–190** (roughly **£130–170 / $160–210**) |
 | **Age / level** | Very relevant **from ~8** with support | Often **more comfortable from ~9–10** if the goal is Python |
 | **Pedagogical lifespan** | Excellent for **blocks** and classic **sensors** | Better for **rich projects** (LED matrix, mic, native **Python**) |
 | **Software learning curve** | mBlock, gentle curve | mBlock + **power-up** without changing robot |

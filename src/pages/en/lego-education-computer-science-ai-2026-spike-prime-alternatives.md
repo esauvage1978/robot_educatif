@@ -68,12 +68,12 @@ LEGO’s **SPIKE update 2026** page confirms direct catalogue end for SPIKE sets
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Essential</strong> (reseller)</span></td>
-<td data-label="Indicative price"><span class="td-val">Last catalogue ~€289</span></td>
+<td data-label="Indicative price"><span class="td-val">Last catalogue ~$320</span></td>
 <td data-label="Buy"><span class="td-val"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO SPIKE Prime</strong> (reseller)</span></td>
-<td data-label="Indicative price"><span class="td-val">Last catalogue ~€379</span></td>
+<td data-label="Indicative price"><span class="td-val">Last catalogue ~$415</span></td>
 <td data-label="Buy"><span class="td-val"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">Amazon.com</a> · <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a></span></td>
 </tr>
 <tr>

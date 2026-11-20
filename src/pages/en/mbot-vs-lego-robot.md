@@ -7,7 +7,7 @@ updated: "30 October 2026"
 
 Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Prices mentioned below are indicative catalogue history; always **check seller / currency in your country** and pack contents on the shop page.
 
-> **Update 23 October 2026**: LEGO Education withdrew SPIKE Essential and SPIKE Prime from direct sale on 30 June 2026; only resellers still clear remaining stock. The SPIKE figures on this page (€289 and €379) are the last LEGO catalogue prices, not guaranteed current prices. Details on our [LEGO Education brand page](/en/lego-education-brand/) (EN) or the [French brand page](/marque-lego/).
+> **Update 23 October 2026**: LEGO Education withdrew SPIKE Essential and SPIKE Prime from direct sale on 30 June 2026; only resellers still clear remaining stock. The SPIKE figures on this page ($320 and $415) are the last LEGO catalogue prices, not guaranteed current prices. Details on our [LEGO Education brand page](/en/lego-education-brand/) (EN) or the [French brand page](/marque-lego/).
 
 “**Is an mBot or a LEGO robot better?**” — families ask this constantly when they want **one big purchase** for back-to-school or Christmas. There is no universal winner: **LEGO Education** shines when the child lives for **building** and the **brick + curriculum** ecosystem; **Makeblock (mBot / mBot2)** shines when you want a **compact rolling robot**, a well-documented **mBlock / Scratch** path, and often a **lower entry price**.
 
@@ -21,7 +21,7 @@ Under “LEGO robot” we mainly mean **[LEGO Education](/en/lego-education-bran
 | **Assembly** | “Small robot” kit (screws, dedicated ports) | **LEGO Technic** — constant rebuild |
 | **Main software** | **mBlock** (Scratch-like); strong Python on **mBot2** | **LEGO SPIKE** app: **Word Blocks** then **Python** |
 | **Community** | Many tutorials around **mBot** | Strong **FIRST LEGO League (FLL)** and teacher resources; language coverage varies by set |
-| **Indicative entry price** | Amazon.com on 9 November 2026: mBot **around £90**, mBot2 **around £170**. A US price was not read for this row | **No longer sold direct by LEGO since 30/06/2026**: reseller stock, variable prices (last catalogue: €289 Essential, €379 Prime — **verify locally**) |
+| **Indicative entry price** | Amazon.com on 9 November 2026: mBot **around £90**, mBot2 **around £170**. A US price was not read for this row | **No longer sold direct by LEGO since 30/06/2026**: reseller stock, variable prices (last catalogue: $320 Essential, $415 Prime — **verify locally**) |
 
 ## 2. Age band and real autonomy
 

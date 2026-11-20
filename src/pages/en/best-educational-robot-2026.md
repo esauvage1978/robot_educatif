@@ -7,7 +7,7 @@ schemaUpdated: "2026-10-31"
 faqSchema:
   - question: "Which robot for a child who has never coded?"
     answer: "Ages 5–7: start with our screen-free buying guide for young children. From about 8 with a Windows PC, a classic Makeblock mBot is the most documented first step on this site."
-  - question: "mBot or mBot2 on a ~€150 budget?"
+  - question: "mBot or mBot2 on a ~$165 budget?"
     answer: "Choose mBot for first blocks; mBot2 if you already want Python and a longer runway through secondary school. See our mBot vs mBot2 comparison."
   - question: "LEGO or Makeblock?"
     answer: "LEGO if long brick builds motivate your child; Makeblock if you want a rolling robot and one software stack (mBlock) faster. See mBot vs LEGO."
@@ -65,7 +65,7 @@ If you are already stuck between two Makeblock models, continue with [mBot vs mB
 
 - **Interest**: lay foundations **without software friction** (no Bluetooth drivers, fewer updates).
 - **Limit**: less “real code” exportable to secondary school; often a **ceiling** around 8–9 for tech-curious kids.
-- **Budget**: often **€40–120** (check local Amazon listing) depending on brand and pack.
+- **Budget**: often **$44–$132** (check local Amazon listing) depending on brand and pack.
 - **Lead**: [screen-free ideas for ages 4–7](/en/best-robot-for-a-5-year-old/) · [Matatalab Tale-Bot](/en/matatalab-tale-bot-educational-robot/) for story-led coding.
 
 ### B. “Scratch-like” robots on the Makeblock ecosystem (mBlock)
@@ -76,7 +76,7 @@ Examples: **mBot**, **mBot2**, **Codey Rocky**.
 
 - **Interest**: direct link with what is often done in **clubs** or **after-school** activities; large community around mBlock.
 - **Limit**: **first power-on** on Windows PC can be **demanding**; assembly is more “small programmable robot” than “big LEGO build”.
-- **Budget**: **mBot** often **~€80–100**; **mBot2** often **~€150–190** (check local listing for £ / $); [budget trade-offs €200–500](/en/educational-robot-200-500-guide/).
+- **Budget**: **mBot** often **~$85–110**; **mBot2** often **~$165–210** (check local listing for £ / $); [budget trade-offs $200–500](/en/educational-robot-200-500-guide/).
 - **Internal links**: [mBot overview](/en/mbot-my-first-educational-robot/), [mBot2 vs mBot](/en/mbot-vs-mbot2/), [CyberPi](/en/makeblock-cyberpi-overview/), [which mBlock to use](/en/mblock-software-which-to-choose/).
 
 ### C. LEGO Education — SPIKE Essential & SPIKE Prime
@@ -84,7 +84,7 @@ Examples: **mBot**, **mBot2**, **Codey Rocky**.
 - **SPIKE Essential**: gentler entry, simpler hub, audience often **~6–9** depending on maturity; ideal for schools and families who want **classic LEGO + a bit of Technic** before the sprint to Prime.
 - **SPIKE Prime**: hub with **6 ports**, motors and sensors compatible with **FIRST LEGO League (FLL)** — international school robotics league with LEGO robots — **Word Blocks** (Scratch 3) and **Python** programming; often aimed **from ~10** to handle complexity with autonomy. If SPIKE stock is unclear in your country, see [LEGO SPIKE alternatives 2026](/en/lego-education-computer-science-ai-2026-spike-prime-alternatives/).
 - **LEGO Mindstorms Robot Inventor (51515)**: very complete consumer set but **discontinued new** at LEGO — interesting mainly **second-hand** if you accept end-of-life documentation ([LEGO product page for 51515](https://www.lego.com/en-gb/product/robot-inventor-51515)).
-- **Budget**: **SPIKE Essential** often **~€150–250** depending on bundle; **SPIKE Prime** new often **~€300–400+** — above an mBot2 pack but with **bricks** and a very structured LEGO Education **curriculum**. Check stock ([SPIKE update 2026](https://education.lego.com/en-us/spike-update-2026/)).
+- **Budget**: **SPIKE Essential** often **~$165–250** depending on bundle; **SPIKE Prime** new often **~$330–$440+** — above an mBot2 pack but with **bricks** and a very structured LEGO Education **curriculum**. Check stock ([SPIKE update 2026](https://education.lego.com/en-us/spike-update-2026/)).
 
 Direct comparison with Makeblock: [mBot vs LEGO](/en/mbot-vs-lego-robot/).
 
@@ -129,9 +129,9 @@ Use this table as a **filter**, not an absolute law:
   </div>
 </div>
 
-### Mini case study: age 8, Windows PC, about €120
+### Mini case study: age 8, Windows PC, about $132
 
-Apply section 1 + the decision table: an **8-year-old** with a parent available for setup and a **~€120** (or local equivalent) ceiling usually lands on a **classic mBot** pack, not SPIKE Prime and not a bare Raspberry Pi. Confirm the listing includes the robot (not only spare parts), install [mBlock](/en/install-mblock-5-windows/) before the first session, and keep one spare battery set.
+Apply section 1 + the decision table: an **8-year-old** with a parent available for setup and a **~$132** (or local equivalent) ceiling usually lands on a **classic mBot** pack, not SPIKE Prime and not a bare Raspberry Pi. Confirm the listing includes the robot (not only spare parts), install [mBlock](/en/install-mblock-5-windows/) before the first session, and keep one spare battery set.
 
 ## 4. Common mistakes in 2026
 
@@ -154,7 +154,7 @@ Apply section 1 + the decision table: an **8-year-old** with a parent available 
 - General guidance (without artificial ranking): [best programmable robot 2026](/en/best-programmable-robot-for-kids/)
 - Guides by age: [age 5](/en/best-robot-for-a-5-year-old/), [age 8](/en/best-robot-for-an-8-year-old/), [age 10](/en/best-robot-for-a-10-year-old/), [age 12](/en/best-robot-for-a-12-year-old/)
 - Focused review: [is the mBot worth buying?](/en/mbot-review-worth-buying/)
-- Budget deep-dives: [€200–500](/en/educational-robot-200-500-guide/), [€500–1000](/quel-robot-educatif-entre-500-et-1000-euros-guide-2026/) (detailed guide in French only), [over €1000](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/) (French), [around €200](/quel-robot-educatif-autour-de-200-euros-guide-2026/) (French)
+- Budget deep-dives: [$200–500](/en/educational-robot-200-500-guide/), [$550–$1100](/quel-robot-educatif-entre-500-et-1000-euros-guide-2026/) (detailed guide in French only), [over $1100](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/) (French), [around $200](/quel-robot-educatif-autour-de-200-euros-guide-2026/) (French)
 
 ## Frequently asked questions
 
@@ -166,7 +166,7 @@ Ages **5–7**: start with [screen-free ideas](/en/best-robot-for-a-5-year-old/)
 
 Install **mBlock 5** ([Windows guide](/en/install-mblock-5-windows/)) or the **SPIKE** app from the box. Test once **before** the gift moment.
 
-### mBot or mBot2 on a ~€150 budget?
+### mBot or mBot2 on a ~$165 budget?
 
 **mBot** for first blocks; **mBot2** if you already want **Python**. Details: [mBot vs mBot2](/en/mbot-vs-mbot2/).
 

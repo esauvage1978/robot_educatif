@@ -1,18 +1,18 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Screen-free educational robots: which to choose by age?"
-description: "Screen-free robots by age: Tale-Bot Pro around €120, Code & Go around €70, Bee-Bot around €90, Botley 2.0 around €100. Check today's price on Amazon."
+description: "Screen-free robots by age: Tale-Bot Pro around $130, Code & Go around $75, Bee-Bot around $95, Botley 2.0 around $110. Check today's price on Amazon."
 updated: "9 November 2026"
 faqSchema:
-  - question: "Which screen-free robots were in stock on Amazon.fr on 9 November 2026?"
-    answer: "At 6:14 a.m. four listings were available: Tale-Bot Pro (ASIN B0CZ6R182M) at around €120, ages 3 to 5 on the listing; the Code & Go kit (B01A5YMCH4) at around €70, ages 4 and up; Bee-Bot (B08BTJFYT3) at around €90, with no age in the title; Botley 2.0 (B083T58PKM) at around €100, ages 5 and up, described as screen-free. Another Tale-Bot Pro listing, B09LYTM5BC, had neither price nor stock that morning."
+  - question: "Which screen-free robots were in stock on Amazon.com?"
+    answer: "At 6:14 a.m. four listings were available: Tale-Bot Pro (ASIN B0CZ6R182M) at around $130, ages 3 to 5 on the listing; the Code & Go kit (B01A5YMCH4) at around $75, ages 4 and up; Bee-Bot (B08BTJFYT3) at around $95, with no age in the title; Botley 2.0 (B083T58PKM) at around $110, ages 5 and up, described as screen-free. Another Tale-Bot Pro listing, B09LYTM5BC, had neither price nor stock that morning."
   - question: "When does a screen-free robot get too short?"
     answer: "Around 7, many children can read a simple instruction and stay 20 to 30 minutes when the challenge is clear. A screen-free robot still makes them plan the whole path before they press go. It gets short when they want to reread the program, add a condition, or show it on the computer. That shift is described in the age-7 guide."
 ---
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-At home, a screen-free robot is programmed with buttons, cards or an arrow remote. Four references we often compare are the Tale-Bot Pro (ASIN B0CZ6R182M) at around €120, listing marked 3 to 5 years ([Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20)); the Code & Go kit (ASIN B01A5YMCH4) at around €70, ages 4 and up ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20)); the Bee-Bot (ASIN B08BTJFYT3) at around €90 ([Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20)); and the Botley 2.0 (ASIN B083T58PKM) at around €100, ages 5 and up, described as screen-free on the listing ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20)). Prices move: the button opens today's listing.
+At home, a screen-free robot is programmed with buttons, cards or an arrow remote. Four references we often compare are the Tale-Bot Pro (ASIN B0CZ6R182M) at around $130, listing marked 3 to 5 years ([Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20)); the Code & Go kit (ASIN B01A5YMCH4) at around $75, ages 4 and up ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20)); the Bee-Bot (ASIN B08BTJFYT3) at around $95 ([Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20)); and the Botley 2.0 (ASIN B083T58PKM) at around $110, ages 5 and up, described as screen-free on the listing ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20)). Prices move: the button opens today's listing.
 
 *Amazon affiliate: a commission is possible on an eligible purchase, at no extra cost. This choice follows the listings in the reading, not a workshop trial.*
 
@@ -20,16 +20,16 @@ At home, a screen-free robot is programmed with buttons, cards or an arrow remot
 
 These models share the same idea: the child sets a sequence of actions, the robot plays it on the floor, and nobody installs software for the first success. The detail by age is further down. The guides for [4 years](/en/best-robot-for-a-4-year-old/) and [5 years](/en/best-robot-for-a-5-year-old/) take up the same listings in the context of each age band.
 
-| Robot | How you program it | Age on the listing | Amazon.fr price |
+| Robot | How you program it | Age on the listing | Amazon.com price |
 | --- | --- | --- | --- |
-| Tale-Bot Pro (Matatalab), ASIN B0CZ6R182M. [Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20) | Buttons on the robot, no screen | 3 to 5 years | around €120 |
-| Code & Go, mouse kit, ASIN B01A5YMCH4. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) | Buttons on the mouse, a maze | 4 years and up | around €70 |
-| Bee-Bot (TTS), ASIN B08BTJFYT3. [Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20) | Arrows on its back, a grid on the floor | Not stated in the title | around €90 |
-| Botley 2.0, ASIN B083T58PKM. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20) | An arrow remote, no screen | 5 years and up | around €100 |
+| Tale-Bot Pro (Matatalab), ASIN B0CZ6R182M. [Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20) | Buttons on the robot, no screen | 3 to 5 years | around $130 |
+| Code & Go, mouse kit, ASIN B01A5YMCH4. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) | Buttons on the mouse, a maze | 4 years and up | around $75 |
+| Bee-Bot (TTS), ASIN B08BTJFYT3. [Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20) | Arrows on its back, a grid on the floor | Not stated in the title | around $95 |
+| Botley 2.0, ASIN B083T58PKM. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20) | An arrow remote, no screen | 5 years and up | around $110 |
 
-Amazon.fr reading of 9 November 2026, 6:14 a.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neither price nor stock that morning: the links on this page open the available listing, B0CZ6R182M.
+Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neither price nor stock that morning: the links on this page open the available listing, B0CZ6R182M.
 
-<section class="noel26-selection" aria-label="Screen-free robots available on Amazon.fr">
+<section class="noel26-selection" aria-label="Screen-free robots available on Amazon.com">
   <h2 class="noel26-title">The listings to open</h2>
   <p class="noel26-sub">Each button names the model from the reading. The price shown is the one from 9 November 2026 at 6:14 a.m.</p>
   <div class="noel26-grid">
@@ -37,7 +37,7 @@ Amazon.fr reading of 9 November 2026, 6:14 a.m. Another Tale-Bot Pro listing (AS
     <div class="noel26-badge">Stories, 3 to 5 years</div>
     <h3 class="noel26-name">Matatalab Tale-Bot Pro</h3>
     <p class="noel26-desc">The commands are on the robot: no tablet to start a sequence. The cards are there to tell the story of the path.</p>
-    <p class="noel26-price">around €120 on 9 November 2026</p>
+    <p class="noel26-price">around $130 on 9 November 2026</p>
     <div class="noel26-btns">
       <a href="https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
     </div>
@@ -46,7 +46,7 @@ Amazon.fr reading of 9 November 2026, 6:14 a.m. Another Tale-Bot Pro listing (AS
     <div class="noel26-badge">Maze, 4 years and up</div>
     <h3 class="noel26-name">Learning Resources Code &amp; Go</h3>
     <p class="noel26-desc">A mouse with buttons and a board to assemble. The mouse alone, without the maze, is a different listing.</p>
-    <p class="noel26-price">around €70 on 9 November 2026</p>
+    <p class="noel26-price">around $75 on 9 November 2026</p>
     <div class="noel26-btns">
       <a href="https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
     </div>
@@ -55,7 +55,7 @@ Amazon.fr reading of 9 November 2026, 6:14 a.m. Another Tale-Bot Pro listing (AS
     <div class="noel26-badge">A grid on the floor</div>
     <h3 class="noel26-name">TTS Bee-Bot</h3>
     <p class="noel26-desc">A bee robot programmed by the arrows on its back. It moves one square at a time on a gridded mat.</p>
-    <p class="noel26-price">around €90 on 9 November 2026</p>
+    <p class="noel26-price">around $95 on 9 November 2026</p>
     <div class="noel26-btns">
       <a href="https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
     </div>
@@ -64,7 +64,7 @@ Amazon.fr reading of 9 November 2026, 6:14 a.m. Another Tale-Bot Pro listing (AS
     <div class="noel26-badge">Screen-free, 5 years and up</div>
     <h3 class="noel26-name">Learning Resources Botley 2.0</h3>
     <p class="noel26-desc">The listing describes it as screen-free: an arrow remote, obstacles and courses. Useful once the child can already hold a sequence of several steps.</p>
-    <p class="noel26-price">Around €100 — check today's price</p>
+    <p class="noel26-price">Around $110 — check today's price</p>
     <div class="noel26-btns">
       <a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
     </div>
@@ -82,7 +82,7 @@ Listing B0CZ6R182M says 3 to 5 years. The commands are on the robot, with no scr
 
 ### Code & Go, for a button maze
 
-Kit B01A5YMCH4 is marked 4 years and up. The mouse remembers the presses on its back, then it crosses the board. The walls clip on: there are pieces to put away, or the next session starts with a search for them. The mouse alone (B01B14XK00) is typically around €40. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) Its listing also says 4 years and up. It does not include the kit's maze: the course is then drawn on the floor.
+Kit B01A5YMCH4 is marked 4 years and up. The mouse remembers the presses on its back, then it crosses the board. The walls clip on: there are pieces to put away, or the next session starts with a search for them. The mouse alone (B01B14XK00) is typically around $45. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) Its listing also says 4 years and up. It does not include the kit's maze: the course is then drawn on the floor.
 
 ![Code & Go mouse on a maze you assemble](/images/products/code-and-go-souris.webp)
 
@@ -120,7 +120,7 @@ Around 7, many children read a simple instruction and last twenty to thirty minu
 
 None of these four robots needs an account, a Bluetooth pairing or an update to play the first time. The sequence is in the room: you see it, you say it, you change a press or a card. It is the same breakdown as later in Scratch ("first this, then that"), on another medium. If the session starts only once the tablet is on, the robot no longer answers the original request.
 
-The mBot (ASIN B07XR98YYQ, around €90, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)) and Codey Rocky (ASIN B07CGH8NZ7, around €150, listing 6 years and up, Scratch and Python, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20)) are not in this choice: they are programmed on a screen, in mBlock. They become relevant when reading and the computer are already accepted. The comparison is in [a programmable robot with Scratch](/en/scratch-programmable-robot/) and getting started is in [mBot, a first robot](/en/mbot-my-first-educational-robot/).
+The mBot (ASIN B07XR98YYQ, around $95, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)) and Codey Rocky (ASIN B07CGH8NZ7, around $165, listing 6 years and up, Scratch and Python, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20)) are not in this choice: they are programmed on a screen, in mBlock. They become relevant when reading and the computer are already accepted. The comparison is in [a programmable robot with Scratch](/en/scratch-programmable-robot/) and getting started is in [mBot, a first robot](/en/mbot-my-first-educational-robot/).
 
 ## Before you buy
 

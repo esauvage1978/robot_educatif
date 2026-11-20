@@ -14,7 +14,7 @@ faqSchema:
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-This page does not state euro prices for the kits. Prices and availability were checked on amazon.fr on 19 October 2026 and can change. Open the button to see today's price.
+This page does not state euro prices for the kits. Prices and availability were checked on amazon.com on 19 October 2026 and can change. Open the button to see today's price.
 
 **For an adult or a teen who is starting, the best robotics kit is a complete Arduino robot car with tutorials online: you build it in an afternoon and you really learn electronics and code.** Then, depending on what you enjoy most (wiring, Python, camera vision), you move on to the ESP32 or the Raspberry Pi. Toy robots such as the mBot suit children. Here we are talking about kits you assemble and program yourself. If the home is a rental and the kit has to fit in a cupboard, start from [robotics equipment for renters](/en/robotics-equipment-for-renters/): floor space and moving day decide before the spec sheet.
 
@@ -184,4 +184,4 @@ Not for all the kits presented here, which use connectors and screw terminals. S
 
 For a first robotics kit for an adult or a teen, the **ELEGOO Smart Robot Car V4.0** remains the safest choice. The **UNO Super Starter Kit** is ideal for learning electronics, the **Freenove ESP32** for a connected robot, and the **Raspberry Pi** kits from Freenove and SunFounder for Python, the camera, and AI. Start small, finish your first robot, then move up.
 
-*Prices and availability checked on amazon.fr on 19 October 2026. They can change.*
+*Prices and availability checked on amazon.com on 19 October 2026. They can change.*

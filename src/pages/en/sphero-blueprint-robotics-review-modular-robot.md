@@ -7,7 +7,7 @@ updated: "28 October 2026"
 
 *Affiliate disclosure: Amazon links on this page may earn us a commission at no extra cost to you. Prices change often—check the retailer before buying.*
 
-> **Direct answer (October 2026)** — **Sphero Blueprint Robotics** (announced **Sept–Oct 2026**) targets **high school/clubs** with a **modular kit** and **Python**; for a **~€170 first robot**, **mBot2** is still easier to run in class with **mBlock**.
+> **Direct answer (October 2026)** — **Sphero Blueprint Robotics** (announced **Sept–Oct 2026**) targets **high school/clubs** with a **modular kit** and **Python**; for a **~$187 first robot**, **mBot2** is still easier to run in class with **mBlock**.
 
 ## ⚡ Compare prices and immediate availability (2026 edition)
 
@@ -55,7 +55,7 @@ updated: "28 October 2026"
 - **Sensors**: distance, color, IMU—maker-like but pre-wired.
 - **Software**: Sphero IDE plus Python export; not mBlock.
 
-## Blueprint vs mBot2 (~€168)
+## Blueprint vs mBot2 (~$185)
 
 **mBot2** is still faster to deploy in class (mBlock, [comparison](/en/mbot-vs-mbot2/)). **Blueprint** targets **longer** capstone projects after students outgrow **BOLT/Mini** spheres.
 

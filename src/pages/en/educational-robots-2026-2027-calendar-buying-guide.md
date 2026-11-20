@@ -7,7 +7,7 @@ updated: "28 October 2026"
 
 *Affiliate disclosure: Amazon links on this page may earn us a commission at no extra cost to you. Prices change often—check the retailer before buying.*
 
-> **Direct answer (October 2026)** — From **Oct 2026** through **2027 back-to-school**, key launches are **Thymio 3** (around €240), **LEGO CS & AI** (around $340), **Sphero Blueprint** (late 2026); with no confirmed **mBot3**, **mBot2** already covers Scratch→Python.
+> **Direct answer (October 2026)** — From **Oct 2026** through **2027 back-to-school**, key launches are **Thymio 3** (around $264), **LEGO CS & AI** (around $340), **Sphero Blueprint** (late 2026); with no confirmed **mBot3**, **mBot2** already covers Scratch→Python.
 
 ## ⚡ Compare prices and immediate availability (2026 edition)
 
@@ -69,7 +69,7 @@ This page tracks **educational robot launches** from **October 2026** through **
 <tr>
 <td data-label="Window"><span class="td-val">Sept 2026</span></td>
 <td data-label="Product"><span class="td-val">Thymio 3</span></td>
-<td data-label="Price anchor"><span class="td-val">around €240</span></td>
+<td data-label="Price anchor"><span class="td-val">around $264</span></td>
 </tr>
 <tr>
 <td data-label="Window"><span class="td-val">Fall 2026</span></td>

@@ -14,7 +14,7 @@ faqSchema:
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-Euro amounts below are Amazon.fr readings. They are not converted. Cultura, Eurekakids, and Makerfire are French shops named in the original shortlist.
+Euro amounts below are Amazon.com readings. They are not converted. Cultura, Eurekakids, and Makerfire are French shops named in the original shortlist.
 
 ## Christmas 2026 shortlist: educational robots for age 6 (Amazon, Cultura, and partners)
 
@@ -24,7 +24,7 @@ Compare Christmas 2026 availability and prices at partner shops (Amazon, Cultura
 
 Immediate programming with an arrow remote, obstacle detection, and black-line following, with no tablet.
 
-**around €100 euros on Amazon.fr on 9 November 2026.**
+**around $110 euros on Amazon.com.**
 
 <a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
 <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dbotley%2Brobot%2Bprogrammable" target="_blank" rel="nofollow sponsored noopener">See it at Cultura</a>
@@ -175,4 +175,4 @@ For a 6-year-old, **Botley 2.0** is the safest choice if you want to avoid scree
 <a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Botley 2.0)
 <a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky)
 
-*Prices and availability checked on amazon.fr on 19 October 2026. They can change. The Botley 2.0 figure of around €100 euros is the Amazon.fr reading of 9 November 2026.*
+*Prices and availability checked on amazon.com on 19 October 2026. They can change. The Botley 2.0 figure of around $110 euros is the Amazon.com snapshot.*

@@ -61,6 +61,6 @@ Teacher forums and a few resellers mention an « mBot3 » for **2027**, with no 
 
 1. **mBot2** — Python, Wi-Fi, [mBot vs mBot2](/en/mbot-vs-mbot2/).
 2. **mBot Ranger** — three forms, rugged wheels.
-3. **Thymio 3** (around €240) — dense sensors, VPL.
+3. **Thymio 3** (around $264) — dense sensors, VPL.
 
 Use our [programmable robot guide](/en/best-programmable-robot-for-kids/) by age.

@@ -1,15 +1,15 @@
 ---
 layout: ../../layouts/EnPost.astro
-title: "Educational robot under €100: best kits in 2026"
-description: "Programmable robots under €100: Makeblock mBot, ELEGOO Car and Penguin — criteria, indicative UK/US prices October 2026, mBlock and Arduino troubleshooting."
+title: "Educational robot under $110: best kits in 2026"
+description: "Programmable robots under $110: Makeblock mBot, ELEGOO Car and Penguin — criteria, indicative UK/US prices October 2026, mBlock and Arduino troubleshooting."
 updated: "31 October 2026"
 schemaUpdated: "2026-10-31"
 faqSchema:
-  - question: "What is the best educational robot under €100 in 2026?"
+  - question: "What is the best educational robot under $110 in 2026?"
     answer: "For most children around 8–12 starting with blocks, the Makeblock mBot is the best documented choice on this site (often roughly £75–95 / $85–110 — check today’s listing). For teens who want Arduino C and a camera, the ELEGOO Smart Robot Car V4.0 kit fits the same budget. The Penguin Bot is mainly for testing interest or as a second, smaller kit."
   - question: "Is it worth paying ~£90 instead of ~£60?"
     answer: "A £60 robot with no community or abandoned app often costs more in lost time and a second purchase. Prefer brands with tutorials, spare parts and maintained software (Makeblock, ELEGOO on Arduino)."
-  - question: "Scratch or Arduino on a sub-€100 robot?"
+  - question: "Scratch or Arduino on a sub-$110 robot?"
     answer: "Scratch via mBlock suits ages 8–11: visual blocks and quick wins. Arduino C needs more reading and patience — usually 12+ or a coding adult. The mBot supports both; the ELEGOO Car is mainly Arduino text."
   - question: "What should I check before Christmas?"
     answer: "PC/tablet compatibility with mBlock or the Arduino IDE, batteries included or not, recent app store reviews, delivery date. Plan 30–60 minutes of adult setup the first evening."
@@ -17,7 +17,7 @@ faqSchema:
 
 Some links on this page are affiliate links. **Amazon.com** is the default shop below. Check today’s listing before you buy. Amounts are **indicative October 2026** ranges — always confirm today’s price, exact SKU and delivery on the seller page.
 
-> **Direct answer (October 2026)** — With **under €100** (about **£75–95** in the UK, **$85–110** in the US — verify locally), the usual best fit for an **8–12-year-old** starting robotics is the **Makeblock mBot**. For a **12+** teen who wants **electronics** and a **camera**, choose the **ELEGOO Smart Robot Car V4.0** kit. The **Penguin Bot** (~**£35–45** / **$40–50**) is mainly for **testing interest** or a **second** robot on a tight budget.
+> **Direct answer (October 2026)** — With **under $110** (about **£75–95** in the UK, **$85–110** in the US — verify locally), the usual best fit for an **8–12-year-old** starting robotics is the **Makeblock mBot**. For a **12+** teen who wants **electronics** and a **camera**, choose the **ELEGOO Smart Robot Car V4.0** kit. The **Penguin Bot** (~**£35–45** / **$40–50**) is mainly for **testing interest** or a **second** robot on a tight budget.
 
 ![Makeblock mBot educational robot with ultrasonic sensor at the front.](/images/products/mbot.webp)
 
@@ -25,15 +25,15 @@ Some links on this page are affiliate links. **Amazon.com** is the default shop 
 
 **How this guide works:** we do **not** claim lab tests on every kit. We combine **manufacturer specs**, **verifiable user feedback**, **tutorial availability** (including activities on this site) and **prices seen online in October 2026**. Figures below are **indicative**, not guaranteed listing prices.
 
-Place this budget in context with our hub [best programmable robots for kids](/en/best-programmable-robot-for-kids/) (main buying guide by age). For tighter budgets see the French guide [robots under €50](/robot-moins-de-50-euros/) if you read French.
+Place this budget in context with our hub [best programmable robots for kids](/en/best-programmable-robot-for-kids/) (main buying guide by age). For tighter budgets see the French guide [robots under $55](/robot-moins-de-50-euros/) if you read French.
 
-## Why the ~€100 band matters
+## Why the ~$110 band matters
 
-Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**, you reach **classroom-proven** robots: **multiple sensors**, **maintained software**, sometimes a path to **Arduino** (programmable microcontroller board). Above **~€150**, **mBot2** or LEGO sets add features you may not need for a **first** robot.
+Below **~$55**, kits are often **limited** or toy-like. **Around $90–110**, you reach **classroom-proven** robots: **multiple sensors**, **maintained software**, sometimes a path to **Arduino** (programmable microcontroller board). Above **~$165**, **mBot2** or LEGO sets add features you may not need for a **first** robot.
 
 | Info | Detail |
 | --- | --- |
-| **Goal** | Pick a **credible** programmable robot under €100 |
+| **Goal** | Pick a **credible** programmable robot under $110 |
 | **Audience** | Parents, teachers, gift ages 8–14 |
 | **Difficulty** | mBot **easy** build; ELEGOO Car **intermediate** wiring |
 | **Time** | 15 min (mBot) to 2 h (ELEGOO Car) first build |
@@ -48,7 +48,7 @@ Below **~€50**, kits are often **limited** or toy-like. **Around €85–100**
 3. **Language path** — Blocks first, then **Arduino** or **Python** on the **same** chassis (mBot) extends life to the early teens.
 4. **Total cost** — Rechargeable AA cells (**~£12–15**), optional line mat (**~£20–25**): budget **+£15–40** beyond the robot.
 
-## 1. Makeblock mBot — default under €100
+## 1. Makeblock mBot — default under $110
 
 ![Makeblock mBot on a neutral background.](/images/lot1/mbot-premier-hero.webp)
 
@@ -139,7 +139,7 @@ For ELEGOO: select **Arduino UNO** in the IDE, pick the correct **COM** port, ru
 
 ## FAQ
 
-### Can we learn without spending €100?
+### Can we learn without spending $110?
 
 Yes — [Scratch at school or home](/en/scratch-school-home-getting-started/) is **free**. A robot helps once **loops** and **events** make sense and the child wants **real sensors**.
 
@@ -153,6 +153,6 @@ See [when to start coding with kids](/en/when-to-start-coding-with-kids/) for ag
 
 ---
 
-**Read next:** [best programmable robots by age](/en/best-programmable-robot-for-kids/) · [best robot for a 10-year-old](/en/best-robot-for-a-10-year-old/) (budget above €100) · [mBlock software guide](/en/mblock-software-which-to-choose/) · [mBot accessories](/en/mbot-accessories-where-to-start/)
+**Read next:** [best programmable robots by age](/en/best-programmable-robot-for-kids/) · [best robot for a 10-year-old](/en/best-robot-for-a-10-year-old/) (budget above $110) · [mBlock software guide](/en/mblock-software-which-to-choose/) · [mBot accessories](/en/mbot-accessories-where-to-start/)
 
 *Last substantive update: 31 October 2026 — Emmanuel Sauvage.*

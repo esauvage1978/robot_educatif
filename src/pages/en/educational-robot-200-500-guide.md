@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
-title: "Educational robots €200–500: which are worth it?"
-description: "Mid-range kits: Ranger, Ultimate, fischertechnik, Ohbot, ELEGOO. Check Amazon.com for current prices in the £200–500 band. No euro figures converted."
+title: "Educational robots $200–500: which are worth it?"
+description: "Mid-range kits: Ranger, Ultimate, fischertechnik, Ohbot, ELEGOO. Check Amazon.com for current prices in the £200–500 band. No dollar figures converted."
 updated: "6 November 2026"
 ---
 
-Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This English page follows the same mid-range shortlist as the French guide (kits people often shop between about 200 and 500 in their own currency). It does not convert euro prices into pounds or dollars. Where a figure appears below, it is the Amazon.com reading of 6 November 2026, 11:23. Amazon.com has no price file on this site: see today’s price. A model missing from the UK reading is not given a number.
+Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This English page follows the same mid-range shortlist as the French guide (kits people often shop between about 200 and 500 in their own currency). It does not convert euro prices into pounds or dollars. Where a figure appears below, it is the Amazon.com snapshot. Amazon.com has no price file on this site: see today’s price. A model missing from the UK reading is not given a number.
 
 On Amazon.com, the [mBot Ranger](https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20) [mBot2](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) and Codey Rocky often sit under **around £200** — check each listing today. All three therefore sit outside the main **£200–500** shortlist on that shop. The US listings are separate: [Ranger on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Ranger&tag=roboteducatif-20) and [mBot2 on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot2&tag=roboteducatif-20). Check the current price on Amazon.
 
@@ -29,7 +29,7 @@ A first discovery should succeed with little friction. Structured learning needs
 
 The Ranger is Makeblock’s three-form mobile kit: a tank, a car, and another build depending on the manual, for about 8 to 14 years. Programming starts in Scratch-like blocks and can move to Arduino. A first build is usually one or two hours with an adult. It has fewer parts than an Ultimate or a World Robot Olympiad-style set.
 
-On Amazon.com it is usually **just under £200** — check today’s price — so it is not the main pick of a 200–500 band. It is the closest Makeblock mobile kit people still compare in this band. The wider entry-level comparison exists in French: [robots around €200](/quel-robot-educatif-autour-de-200-euros-guide-2026/). That page’s euro prices are French listings, not a UK price.
+On Amazon.com it is usually **just under £200** — check today’s price — so it is not the main pick of a 200–500 band. It is the closest Makeblock mobile kit people still compare in this band. The wider entry-level comparison exists in French: [robots around $200](/quel-robot-educatif-autour-de-200-euros-guide-2026/). That page’s euro prices are French listings, not a UK price.
 
 ## No price in the UK reading
 

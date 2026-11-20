@@ -1,17 +1,17 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Thymio 3 (2026): features, price and mBot2 comparison"
-description: "Thymio 3 launches September 2026 around €230–250 list: sensors, VPL, battery. Should you pick it over Makeblock mBot2 (around €160–180)? Review, classroom use, and comparison."
+description: "Thymio 3 launches September 2026around $253–$275 list: sensors, VPL, battery. Should you pick it over Makeblock mBot2 (around $176–$198)? Review, classroom use, and comparison."
 updated: "28 October 2026"
 ---
 
 *Affiliate disclosure: Amazon links on this page may earn us a commission at no extra cost to you. Prices change often—check the retailer before buying.*
 
-> **Direct answer (October 2026)** — **Thymio 3** (Sept 2026, **around €240** list) targets **middle school** with **VPL** and **39 sensors**; **mBot2** (**around £130 / €160–180** on typical listings) fits better if you want **Python**, **CyberPi**, and the **Makeblock/mBlock** path we cover elsewhere.
+> **Direct answer (October 2026)** — **Thymio 3** (Sept 2026, **around $264** list) targets **middle school** with **VPL** and **39 sensors**; **mBot2** (**around £130 / $176–$198** on typical listings) fits better if you want **Python**, **CyberPi**, and the **Makeblock/mBlock** path we cover elsewhere.
 
 ![Makeblock mBot2: blue aluminium chassis, two wheels and front sensors](/images/models/makeblock-mbot2.webp)
 
-The **mBot2** above is the robot in this comparison: **check the current price on Amazon**, against a **around €240** list price band for **Thymio 3** (September 2026).
+The **mBot2** above is the robot in this comparison: **check the current price on Amazon**, against a **around $264** list price band for **Thymio 3** (September 2026).
 
 ## ⚡ Compare prices and immediate availability (2026 edition)
 
@@ -51,7 +51,7 @@ The **mBot2** above is the robot in this comparison: **check the current price o
 </table></div>
 
 
-**Mobsya** shipped **Thymio 3** in **September 2026** at a **around €240** list price (EU). The Swiss robot keeps Thymio's hallmarks—many sensors, **VPL** and **Aseba**—with better battery life and a tougher shell for middle school. In the same classroom slot sits **[Makeblock mBot2](/en/makeblock-brand/)** (**around €160–180** on typical EU listings), covered in our [mBot vs mBot2](/en/mbot-vs-mbot2/) guide.
+**Mobsya** shipped **Thymio 3** in **September 2026** at a **around $264** list price (EU). The Swiss robot keeps Thymio's hallmarks—many sensors, **VPL** and **Aseba**—with better battery life and a tougher shell for middle school. In the same classroom slot sits **[Makeblock mBot2](/en/makeblock-brand/)** (**around $176–$198** on typical EU listings), covered in our [mBot vs mBot2](/en/mbot-vs-mbot2/) guide.
 
 ## What actually changed on Thymio 3
 
@@ -66,28 +66,28 @@ The **mBot2** above is the robot in this comparison: **check the current price o
 <table>
 <thead><tr>
 <th scope="col">Factor</th>
-<th scope="col">Thymio 3 (~€240)</th>
-<th scope="col">mBot2 (~€170)</th>
+<th scope="col">Thymio 3 (~$264)</th>
+<th scope="col">mBot2 (~$187)</th>
 </tr></thead><tbody>
 <tr>
 <td data-label="Factor"><span class="td-val">Audience</span></td>
-<td data-label="Thymio 3 (~€240)"><span class="td-val">Middle school, sensor discovery</span></td>
-<td data-label="mBot2 (~€170)"><span class="td-val">Ages 10–14, Scratch→Python</span></td>
+<td data-label="Thymio 3 (~$264)"><span class="td-val">Middle school, sensor discovery</span></td>
+<td data-label="mBot2 (~$187)"><span class="td-val">Ages 10–14, Scratch→Python</span></td>
 </tr>
 <tr>
 <td data-label="Factor"><span class="td-val">Software</span></td>
-<td data-label="Thymio 3 (~€240)"><span class="td-val">VPL / Aseba</span></td>
-<td data-label="mBot2 (~€170)"><span class="td-val">mBlock / Python</span></td>
+<td data-label="Thymio 3 (~$264)"><span class="td-val">VPL / Aseba</span></td>
+<td data-label="mBot2 (~$187)"><span class="td-val">mBlock / Python</span></td>
 </tr>
 <tr>
 <td data-label="Factor"><span class="td-val">IoT / Wi-Fi</span></td>
-<td data-label="Thymio 3 (~€240)"><span class="td-val">No</span></td>
-<td data-label="mBot2 (~€170)"><span class="td-val">Yes (CyberPi)</span></td>
+<td data-label="Thymio 3 (~$264)"><span class="td-val">No</span></td>
+<td data-label="mBot2 (~$187)"><span class="td-val">Yes (CyberPi)</span></td>
 </tr>
 <tr>
 <td data-label="Factor"><span class="td-val">Class budget</span></td>
-<td data-label="Thymio 3 (~€240)"><span class="td-val">Roughly €70 more per unit</span></td>
-<td data-label="mBot2 (~€170)"><span class="td-val">Better documented value here</span></td>
+<td data-label="Thymio 3 (~$264)"><span class="td-val">Roughly $77 more per unit</span></td>
+<td data-label="mBot2 (~$187)"><span class="td-val">Better documented value here</span></td>
 </tr>
 </tbody>
 </table>
