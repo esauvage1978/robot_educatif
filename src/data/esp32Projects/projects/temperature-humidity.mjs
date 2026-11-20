@@ -31,7 +31,7 @@ export const project = {
 	durationHours: '1–2',
 	budgetRange: {
 		fr: 'environ 10–25 € selon vendeur',
-		en: 'about €10–25 depending on the seller',
+		en: 'about $10–25 depending on the seller',
 		de: 'ca. 10–25 € je nach Händler',
 		it: 'circa 10–25 € a seconda del venditore',
 		es: 'unos 10–25 € según el vendedor',

@@ -5,20 +5,20 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
 const title = 'Educational robot Christmas gifts 2026: picks by age & budget';
 const description =
-	'Christmas 2026 gift guide for coding robots in the UK: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with live Amazon.co.uk prices, photos and age tips for parents.';
+	'Christmas 2026 gift guide for coding robots: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with age tips for parents. Check today’s price on Amazon.com.';
 const updated = '17 November 2026';
 
-/** Partner search links via /go/ (Amazon.co.uk). */
+/** Partner search links via /go/ (Amazon.com). */
 const GO_UK: Record<string, string> = {
-	mbot: '/go/az-gb-b5d4d0b7cd/',
-	mbot2: '/go/az-gb-a34aebc7e6/',
-	'codey-rocky': '/go/az-gb-0d9298762a/',
-	'elegoo-penguin': '/go/az-gb-cb491e7ec4/',
-	'raspberry-pi-5-8gb': '/go/az-gb-0d703c15cd/',
-	'code-and-go-souris': '/go/az-gb-22af2d7032/',
-	'bee-bot': '/go/az-gb-22af2d7032/',
-	'tale-bot-pro': '/go/az-gb-22af2d7032/',
-	botley: '/go/az-gb-85ba07832a/',
+	mbot: 'https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20',
+	mbot2: 'https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20',
+	'codey-rocky': 'https://www.amazon.com/s?k=Makeblock+Codey+Rocky&tag=roboteducatif-20',
+	'elegoo-penguin': 'https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20',
+	'raspberry-pi-5-8gb': 'https://www.amazon.com/s?k=Raspberry+Pi+5&tag=roboteducatif-20',
+	'code-and-go-souris': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	'bee-bot': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	'tale-bot-pro': 'https://www.amazon.com/s?k=Learning+Resources+Botley+2.0&tag=roboteducatif-20',
+	botley: 'https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20',
 };
 function goUk(key: string) {
 	return GO_UK[key] || GO_UK.mbot;
@@ -38,7 +38,7 @@ const cmp = NOEL_COMPARISON.en;
 	</p>
 
 	<ComparisonTable
-		market="uk"
+		market="us"
 		locale="en"
 		title={cmp.title}
 		products={cmp.products}
@@ -47,8 +47,7 @@ const cmp = NOEL_COMPARISON.en;
 	<p>
 		<strong>Christmas 2026</strong> is the moment many families switch from passive screen time to a gift that
 		<strong> builds skills</strong>. A programmable robot stays relevant for years: block coding at primary school,
-		Python or Arduino at secondary. 		This guide is written for <strong>UK shoppers on Amazon.co.uk</strong> (prices
-		refreshed via our product feed). Start from our{' '}
+		Python or Arduino at secondary. 		This guide uses <strong>Amazon.com</strong> search links (US store). Prices change often — confirm the listing before you buy. Start from our{' '}
 		<a href="/en/best-programmable-robot-for-kids/">main robot comparison</a> if you need manufacturer specs first.
 	</p>
 
@@ -68,7 +67,7 @@ const cmp = NOEL_COMPARISON.en;
 	<h2 id="ages-7-9">Ages 7–9: first programmable robot</h2>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title=""
 		products={[{ id: 'mbot', badge: 'Best first robot, ages 8–12' }]}
@@ -77,14 +76,14 @@ const cmp = NOEL_COMPARISON.en;
 		At this stage children tolerate <strong>15–30 minutes of assembly</strong> and understand “if obstacle then turn”.
 		<strong>Scratch</strong> (visual block coding) and <strong>Arduino</strong> (a small programmable board) are the two paths
 		most UK kits mention — you do not need both on day one.
-		The <a href={goUk('mbot')} rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> remains the safe default on Amazon.co.uk: huge teacher community,{' '}
+		The <a href={goUk('mbot')} rel="sponsored nofollow noopener"><strong>Makeblock mBot</strong></a> remains the safe default on Amazon.com: huge teacher community,{' '}
 		<a href="/en/install-mblock-5-windows/">mBlock 5 on Windows</a>, line follower and ultrasonic projects out of the box.
 	</p>
 
 	<h2 id="ages-10-13">Ages 10–13: mBot2 and Python path</h2>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title=""
 		products={[{ id: 'mbot2', badge: 'Scratch, then Python' }]}
@@ -97,7 +96,7 @@ const cmp = NOEL_COMPARISON.en;
 	<h2 id="ages-14-plus">Ages 14+: Arduino kits & Raspberry Pi 5</h2>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title=""
 		products={[
@@ -114,7 +113,7 @@ const cmp = NOEL_COMPARISON.en;
 	<h2 id="ages-4-6">Ages 4–6: screen-free arrows</h2>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title=""
 		products={[{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' }]}
@@ -134,20 +133,20 @@ const cmp = NOEL_COMPARISON.en;
 
 	<h2>Budget bands (UK, 5 November 2026)</h2>
 	<p>
-		Each band below is a card for a kit whose Amazon.co.uk price, in our feed of 5 November 2026, falls in that range.
+		Each band below is a card for a kit whose Amazon.com price, in our feed of 5 November 2026, falls in that range.
 		The button opens today’s listing. Where the feed has no price, the card says to check the product page.
 	</p>
 	<h3>Under £60</h3>
 	<p>
-		The mBot is £53 in this feed, so it sits here rather than in the middle band. The Penguin Bot has no price in the same file: confirm it on Amazon.co.uk before you treat it as a small-budget gift.
+		The mBot is £53 in this feed, so it sits here rather than in the middle band. The Penguin Bot has no price in the same file: confirm it on Amazon.com before you treat it as a small-budget gift.
 	</p>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title="Under £60"
 		products={[
-			{ id: 'mbot', badge: '£53 on 5 Nov 2026' },
+			{ id: 'mbot', badge: 'Around £50 — check today’s price' },
 			{ id: 'elegoo-penguin', badge: 'Biped Arduino kit' },
 			{ id: 'code-and-go-souris', badge: 'Screen-free, age 4+' },
 		]}
@@ -155,12 +154,12 @@ const cmp = NOEL_COMPARISON.en;
 	<h3>£60–£150</h3>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title="£60 to £150"
 		products={[
-			{ id: 'codey-rocky', badge: '£100 on 5 Nov 2026' },
-			{ id: 'mbot2', badge: '£131.12 on 5 Nov 2026' },
+			{ id: 'codey-rocky', badge: 'Around £100 — check today’s price' },
+			{ id: 'mbot2', badge: 'Around £130 — check today’s price' },
 		]}
 	/>
 	<h3>£150 and above</h3>
@@ -169,7 +168,7 @@ const cmp = NOEL_COMPARISON.en;
 	</p>
 	<ComparisonTable
 		variant="cards"
-		market="uk"
+		market="us"
 		locale="en"
 		title="£150 and above"
 		products={[{ id: 'raspberry-pi-5-8gb', badge: 'Board only — check today’s price' }]}
@@ -177,7 +176,7 @@ const cmp = NOEL_COMPARISON.en;
 
 	<h2>Ordering tips before 24 December</h2>
 	<ol>
-		<li>Check <strong>stock and delivery cut-off</strong> on Amazon.co.uk — add to basket early in December.</li>
+		<li>Check <strong>stock and delivery cut-off</strong> on Amazon.com — add to basket early in December.</li>
 		<li>Plan <strong>adult setup time</strong> (mBlock install, USB drivers, Bluetooth pairing on Windows).</li>
 		<li>Keep the receipt: educational kits resell well on local marketplaces if unused.</li>
 		<li>Rechargeable AA or LiPo — avoid opening Christmas day without charged batteries.</li>
@@ -201,7 +200,7 @@ const cmp = NOEL_COMPARISON.en;
 	<p>
 		<strong>Canadian readers</strong> can open the same guide under <a href="/ca/educational-robot-christmas-gifts-2026/">/ca/</a>{' '}
 		with <strong>Amazon.ca</strong> links and CAD pricing where our feed lists them. UK readers use <a href="/uk/">/uk/</a> (Type G
-		plugs). This English page targets <strong>Amazon.co.uk</strong> shoppers.
+		plugs). This English page targets <strong>Amazon.com</strong> shoppers.
 	</p>
 
 	<h2>Wrap-up before you click « Add to basket »</h2>

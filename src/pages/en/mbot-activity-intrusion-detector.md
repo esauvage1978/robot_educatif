@@ -265,4 +265,4 @@ And if you want to go further in programming, Scratch/mBlock are a very good doo
 
 **For the classroom**: our [10 free mBot classroom projects](/en/10-free-mbot-classroom-projects/) offer a full 10-session progression, with pupil sheets and answer keys in PDF.
 
-[mBot — Amazon UK](https://www.amazon.co.uk/dp/B07XR98YYQ?tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
+[mBot — Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)

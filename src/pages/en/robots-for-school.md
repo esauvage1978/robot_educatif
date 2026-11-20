@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Robots for school: a 2026 guide for teachers"
-description: "Classroom robots for elementary and middle school: durability, a shared fleet, curriculum fit, and dated Amazon.fr unit prices. No invented accessory total."
+description: "Classroom robots for elementary and middle school: durability, a shared fleet, curriculum fit, and dated Amazon.com unit prices. No invented accessory total."
 updated: "6 November 2026"
 faqSchema:
   - question: "How many robots for thirty students?"
-    answer: "Ten to fifteen robots allow pairs or groups of three. Six robots force groups of about five, and a lot of waiting. Six mBots are 6 × 89.99 euros, or 539.94 euros of robots alone in the Amazon.fr reading of 6 November 2026."
+    answer: "Ten to fifteen robots allow pairs or groups of three. Six robots force groups of about five, and a lot of waiting. Six mBots are 6 × around $95, or roughly $594 of robots alone in the Amazon.com snapshot."
   - question: "Do you need one computer per robot?"
     answer: "Not for mBlock. You write the program on one machine, then send it to the robot, often wirelessly. You need enough computers so groups are not queuing all period, not a computer bolted to each robot."
   - question: "Can you mix brands?"
@@ -16,18 +16,18 @@ faqSchema:
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-Euro amounts below are Amazon.fr readings of 6 November 2026. They are not converted. French grade names are kept, with a short age note, because the curriculum references (Éduscol, NSI, SNT) are the French ones.
+Euro amounts below are Amazon.com readings of 6 November 2026. They are not converted. French grade names are kept, with a short age note, because the curriculum references (Éduscol, NSI, SNT) are the French ones.
 
 ## Robots recommended for school
 
-| Robot | Role in this guide | Unit price, Amazon.fr, 6 November 2026 |
+| Robot | Role in this guide | Unit price, Amazon.com, 6 November 2026 |
 | --- | --- | --- |
-| Makeblock mBot | Best value | 89.99 euros |
-| Makeblock mBot2 | Best choice for collège (French middle school, about ages 11–15) | 167.95 euros |
+| Makeblock mBot | Best value | around $95 |
+| Makeblock mBot2 | Best choice for collège (French middle school, about ages 11–15) | around $185 |
 
 A robot for class is not chosen like a gift. It passes through many hands, it has to last several years, and it has to follow students from one cycle to the next without a change of ecosystem in the middle of the project. This guide is for teachers, coordinators, and teams putting together a purchase case.
 
-On Amazon.fr, on 6 November 2026, the mBot is 89.99 euros and the mBot2 is 167.95 euros. <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot, 89.99 euros on Amazon.fr on 6 November 2026). <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2, 167.95 euros on Amazon.fr on 6 November 2026). Batteries, mats, cases, and training are not in this reading: check their price, without adding them to the robots. The number of machines and the pack detail are taken up in [equipping a class](/equiper-classe-robots-budget-packs-2026/). The [budget calculator](/en/class-robot-budget-calculator/) is for testing a headcount, not for replacing a quote.
+On Amazon.com, on 6 November 2026, the mBot is around $95 and the mBot2 is around $185. <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot, around $95 on Amazon.com). <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2, around $185 on Amazon.com). Batteries, mats, cases, and training are not in this reading: check their price, without adding them to the robots. The number of machines and the pack detail are taken up in [equipping a class](/equiper-classe-robots-budget-packs-2026/). The [budget calculator](/en/class-robot-budget-calculator/) is for testing a headcount, not for replacing a quote.
 
 ## What the classroom asks for beyond the home
 
@@ -43,7 +43,7 @@ The curriculum has to be able to host the session without a full rewrite. In tec
 
 ### Preschool and CP
 
-At this age, the session lasts ten to fifteen minutes. The child codes a path with buttons or cards, with no screen. CP is the first year of French elementary school, about age 6. The TTS Bee-Bot was 88.80 euros on 6 November 2026. <a href="https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Bee-Bot, 88.80 euros on Amazon.fr on 6 November 2026). The Blue-Bot is not in the reading: check the price. The Tale-Bot Pro, a fuller set, was 121.99 euros on 6 November 2026. <a href="https://www.amazon.com/dp/B0CZ6R182M?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Tale-Bot Pro, 121.99 euros on Amazon.fr on 6 November 2026). Another Tale-Bot set does not reuse that amount.
+At this age, the session lasts ten to fifteen minutes. The child codes a path with buttons or cards, with no screen. CP is the first year of French elementary school, about age 6. The TTS Bee-Bot was around $95 on 6 November 2026. <a href="https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Bee-Bot, around $95 on Amazon.com). The Blue-Bot is not in the reading: check the price. The Tale-Bot Pro, a fuller set, was around $130 on 6 November 2026. <a href="https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Tale-Bot Pro, around $130 on Amazon.com). Another Tale-Bot set does not reuse that amount.
 
 ### From CE to CM, in blocks
 
@@ -56,9 +56,9 @@ CE is the middle of French elementary school, about ages 7–8. You need blocks,
 - Compatible with Scratch and Arduino
 - Many sensors included
 
-<a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot)
+<a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot)
 
-You program the mBot in mBlock, whose blocks look like Scratch, then it can move toward Arduino later. Assembly fits in a discovery session, on the order of a quarter of an hour when the screws are sorted. It runs on AA cells: the manual states the number, and they are not in the price recorded here. Twelve robots, for pairs in a class of twenty-four, cost 12 × 89.99 euros, or 1,079.88 euros of robots alone at the 6 November 2026 price. That is not a lot price observed at Amazon, and it is not the class budget: cells, mats, and a case still have to be priced. Ready sessions are in the [ten mBot projects](/en/10-free-mbot-classroom-projects/).
+You program the mBot in mBlock, whose blocks look like Scratch, then it can move toward Arduino later. Assembly fits in a discovery session, on the order of a quarter of an hour when the screws are sorted. It runs on AA cells: the manual states the number, and they are not in the price recorded here. Twelve robots, for pairs in a class of twenty-four, cost 12 × around $95, or roughly $1188 of robots alone at the 6 November 2026 price. That is not a lot price observed at Amazon, and it is not the class budget: cells, mats, and a case still have to be priced. Ready sessions are in the [ten mBot projects](/en/10-free-mbot-classroom-projects/).
 
 ### In collège, blocks then Python
 
@@ -71,15 +71,15 @@ The machine has to show the same behavior in blocks and in text, and accept a co
 - Wi-Fi and IoT built in
 - Very expandable with mBuild extensions
 
-<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2)
+<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2)
 
-The mBot2 carries the CyberPi: a screen, Wi-Fi, and Python inside mBlock. The rechargeable battery is supplied with the robot, which removes the AA-cell chore. The teaching detail is in the [mBot2 guide](/en/mbot2-makeblock-what-it-teaches/). Twelve mBot2s are 12 × 167.95 euros, or 2,015.40 euros of robots alone in the 6 November 2026 reading. Extensions, the floor course, and storage are not in that figure. For a collège technology room, the [grades 6e–3e guide](/robots-technologie-college-guide/) splits mBot and mBot2 by level.
+The mBot2 carries the CyberPi: a screen, Wi-Fi, and Python inside mBlock. The rechargeable battery is supplied with the robot, which removes the AA-cell chore. The teaching detail is in the [mBot2 guide](/en/mbot2-makeblock-what-it-teaches/). Twelve mBot2s are 12 × around $185, or roughly $2200 of robots alone in the 6 November 2026 reading. Extensions, the floor course, and storage are not in that figure. For a collège technology room, the [grades 6e–3e guide](/robots-technologie-college-guide/) splits mBot and mBot2 by level.
 
 ### In lycée
 
 NSI, SNT, or engineering science ask for long projects, in Python or in C++, sometimes with a camera. The mBot2 remains usable in Python. An open board goes further, at the cost of the wiring.
 
-The Raspberry Pi 5 8 GB was 209.09 euros on 6 November 2026, and the 4 GB board was 145.22 euros. <a href="https://www.amazon.com/dp/B0CK2FCG1K?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 8 GB, 209.09 euros on Amazon.fr on 6 November 2026). <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 4 GB, 145.22 euros on Amazon.fr on 6 November 2026). Those are prices for a bare board. The 27 W power supply, the microSD, the case, and a chassis are not in the reading: check their price. The minimum list is in the [Raspberry Pi 5 kit](/kit-raspberry-pi-5-complet/). An Arduino Mega kit with its extension boards is not in the reading either: check the price of the exact Mega reference.
+The Raspberry Pi 5 8 GB was around $231 on 6 November 2026, and the 4 GB board was around $160. <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%208GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 8 GB, around $231 on Amazon.com). <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 4 GB, around $160 on Amazon.com). Those are prices for a bare board. The 27 W power supply, the microSD, the case, and a chassis are not in the reading: check their price. The minimum list is in the [Raspberry Pi 5 kit](/kit-raspberry-pi-5-complet/). An Arduino Mega kit with its extension boards is not in the reading either: check the price of the exact Mega reference.
 
 ## Funding the case and making it hold
 
@@ -105,18 +105,18 @@ The tables reuse the unit price of 6 November 2026 and multiply it. Amazon does 
 
 | Line | Detail | Amount |
 | --- | --- | --- |
-| mBot | Unit price, Amazon.fr, 6 November 2026 | 89.99 euros |
-| 12 mBots | 12 × 89.99 euros, robots alone | 1,079.88 euros |
+| mBot | Unit price, Amazon.com, 6 November 2026 | around $95 |
+| 12 mBots | 12 × around $95, robots alone | roughly $1188 |
 | AA cells, mats, parts, case | Absent from the reading | Check the price |
 
-Spread across twenty-four students, 1,079.88 euros is 1,079.88 ÷ 24, a little under 45 euros per student for the robots alone. That is not the cost of schooling, and it is not an accessory price.
+Spread across twenty-four students, roughly $1188 is 1,079.88 ÷ 24, a little under 45 euros per student for the robots alone. That is not the cost of schooling, and it is not an accessory price.
 
 ### Collège, twelve mBot2s
 
 | Line | Detail | Amount |
 | --- | --- | --- |
-| mBot2 | Unit price, Amazon.fr, 6 November 2026 | 167.95 euros |
-| 12 mBot2s | 12 × 167.95 euros, robots alone | 2,015.40 euros |
+| mBot2 | Unit price, Amazon.com, 6 November 2026 | around $185 |
+| 12 mBot2s | 12 × around $185, robots alone | roughly $2200 |
 | Battery | Supplied with the mBot2 | No separate purchase |
 | Extensions, course, cupboard, training | Absent from the reading | Check the price |
 
@@ -126,7 +126,7 @@ Here too there is no class total. A one-day training course on the mBot is often
 
 ### How many robots for thirty students?
 
-Ten to fifteen robots allow pairs or groups of three. Six robots force groups of about five, and a lot of waiting. The price follows the model: six mBots are 6 × 89.99 euros, or 539.94 euros of robots alone in the 6 November 2026 reading. Fifteen mBot2s are not deduced from a ready-made range. Calculate number × unit price, then price the storage separately.
+Ten to fifteen robots allow pairs or groups of three. Six robots force groups of about five, and a lot of waiting. The price follows the model: six mBots are 6 × around $95, or roughly $594 of robots alone in the 6 November 2026 reading. Fifteen mBot2s are not deduced from a ready-made range. Calculate number × unit price, then price the storage separately.
 
 ### Do you need one computer per robot?
 
@@ -140,4 +140,4 @@ Rarely. A Makeblock sensor does not screw onto an Arduino kit as if nothing were
 
 The warranty length is on the listing. After that, a fleet that is looked after (batteries charged, falls avoided, parts in stock) lasts several years in many rooms, without the manufacturer promising it. Batteries are the first part you replace.
 
-For an elementary class or the start of collège, twelve mBots are 1,079.88 euros of robots at the unit price of 6 November 2026. For a class moving into Python, twelve mBot2s are 2,015.40 euros, still excluding accessories. The full quote adds what this page cannot price.
+For an elementary class or the start of collège, twelve mBots are roughly $1188 of robots at the unit price of 6 November 2026. For a class moving into Python, twelve mBot2s are roughly $2200 still excluding accessories. The full quote adds what this page cannot price.

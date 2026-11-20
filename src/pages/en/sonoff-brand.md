@@ -48,7 +48,7 @@ updated: "3 November 2026"
 </aside>
 
 <p><strong>Shop (affiliate — check price before checkout):</strong></p>
-<p><a href="https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">ZBDongle-E (Amazon US)</a> · <a href="https://www.amazon.co.uk/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-21" target="_blank" rel="noopener nofollow sponsored">ZBDongle-E (Amazon UK)</a></p>
+<p><a href="https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">ZBDongle-E (Amazon US)</a> · <a href="https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">ZBDongle-E (Amazon.com)</a></p>
 
 <h2 id="faq">FAQ</h2>
 <p><strong>ZHA or Zigbee2MQTT with SONOFF?</strong> Both — see our <a href="/en/smart-home/zigbee2mqtt-vs-zha-home-assistant/">comparison</a>; only one stack per USB stick.</p>

@@ -94,8 +94,8 @@ All four dongles above work with both.
 
 | Model | UK | US |
 |---|---|---|
-| SONOFF ZBDongle-E | <a href="/go/az-gb-c0e0c96683/" rel="sponsored nofollow noopener">Amazon.co.uk</a> | <a href="/go/az-us-1d41f4ef62/" rel="sponsored nofollow noopener">Amazon.com</a> |
-| Home Assistant Green (hub + Zigbee path) | <a href="/go/az-gb-c0e0c96683/" rel="sponsored nofollow noopener">Home Assistant hardware (UK)</a> | <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green search</a> |
+| SONOFF ZBDongle-E | <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> | <a href="/go/az-us-1d41f4ef62/" rel="sponsored nofollow noopener">Amazon.com</a> |
+| Home Assistant Green (hub + Zigbee path) | <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">Home Assistant hardware (UK)</a> | <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green search</a> |
 
 Official pages remain the reference for firmware: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/).
 

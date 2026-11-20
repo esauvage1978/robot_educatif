@@ -17,14 +17,41 @@ const ASIN = {
 	'raspberry-pi-5-8gb': 'B0CK2FCG1K',
 };
 
+/** Requêtes marché US/CA (pas de /dp/ non vérifié). */
+const SEARCH_QUERY = {
+	'bee-bot': 'Learning Resources Code Go Robot Mouse',
+	'blue-bot': 'TTS Bee-Bot',
+	'code-go-mouse': 'Learning Resources Code Go Robot Mouse',
+	'tale-bot-pro': 'Matatalab Tale-Bot Pro',
+	'botley-2': 'Learning Resources Botley 2.0',
+	mbot: 'Makeblock mBot',
+	mbot2: 'Makeblock mBot2',
+	'codey-rocky': 'Makeblock Codey Rocky',
+	'elegoo-car': 'ELEGOO Smart Robot Car Kit V4',
+	'elegoo-robot-car': 'ELEGOO Smart Robot Car Kit V4',
+	'elegoo-penguin': 'ELEGOO Penguin Bot',
+	cyberpi: 'Makeblock CyberPi',
+	'raspberry-pi-5-8gb': 'Raspberry Pi 5 8GB',
+};
+
 function normalizeMarket(market) {
-	if (market === 'en') return 'uk';
+	if (market === 'en') return 'us';
 	return market || 'fr';
+}
+
+function marketSearchUrl(market, query) {
+	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
+	return `https://${cfg.host}/s?k=${encodeURIComponent(query)}&tag=${encodeURIComponent(cfg.tag)}`;
 }
 
 /** URL Amazon affiliée (/dp/ ASIN) pour un produit clé et un marché. */
 export function productAmazonUrl(productKey, market = 'fr') {
 	const m = normalizeMarket(market);
+	if (m === 'us' || m === 'ca') {
+		const query = SEARCH_QUERY[productKey];
+		if (query) return marketSearchUrl(m, query);
+		return null;
+	}
 	const asin = ASIN[productKey];
 	if (asin) return amazonDpUrl(asin, m);
 	return null;

@@ -63,7 +63,7 @@ faqSchema:
 </ul>
 </div>
 
-<p><strong>LEGO Education</strong> is the brand we compare most educational robots against on Robot Éducatif. We have not hands-on tested SPIKE kits in our workshop; this **LEGO Education** guide pulls together our <a href="/en/mbot-vs-lego-robot/">mBot vs LEGO</a> comparison, <a href="/en/lego-spike-alternatives-2026/">SPIKE alternatives</a> feature, official LEGO documentation, and teacher feedback we cite in <a href="/en/best-educational-robot-2026/">best educational robot 2026</a> and <a href="/en/educational-robot-200-500-guide/">robots €200–500</a>.</p>
+<p><strong>LEGO Education</strong> is the brand we compare most educational robots against on Robot Éducatif. We have not hands-on tested SPIKE kits in our workshop; this **LEGO Education** guide pulls together our <a href="/en/mbot-vs-lego-robot/">mBot vs LEGO</a> comparison, <a href="/en/lego-spike-alternatives-2026/">SPIKE alternatives</a> feature, official LEGO documentation, and teacher feedback we cite in <a href="/en/best-educational-robot-2026/">best educational robot 2026</a> and <a href="/en/educational-robot-200-500-guide/">robots $200–500</a>.</p>
 
 <aside class="article-callout" role="note">
 <p><strong>SPIKE direct sales ended</strong></p>
@@ -72,7 +72,7 @@ faqSchema:
 
 <h2 id="history">History and where LEGO Education fits</h2>
 
-<p>After years of <strong>Mindstorms</strong> and <strong>WeDo</strong>, LEGO Education focused on <strong>SPIKE</strong> before announcing in 2025/2026 that SPIKE would leave the direct catalogue. The brand stays strong in <strong>schools</strong> (class packs, teacher training) and in families chasing <strong>FIRST LEGO League</strong>. Last catalogue figures we use in comparisons — Essential around <strong>€289</strong>, Prime around <strong>€379</strong> — are **reference points**, not guaranteed UK or US shelf prices today.</p>
+<p>After years of <strong>Mindstorms</strong> and <strong>WeDo</strong>, LEGO Education focused on <strong>SPIKE</strong> before announcing in 2025/2026 that SPIKE would leave the direct catalogue. The brand stays strong in <strong>schools</strong> (class packs, teacher training) and in families chasing <strong>FIRST LEGO League</strong>. Last catalogue figures we use in comparisons — Essential around <strong>$320</strong>, Prime around <strong>$415</strong> — are **reference points**, not guaranteed UK or US shelf prices today.</p>
 
 <img src="/images/products/lego-spike-essential.webp" alt="LEGO Education SPIKE Essential kit with hub and Technic bricks" width="960" height="540" loading="lazy" decoding="async" />
 
@@ -108,16 +108,16 @@ faqSchema:
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Primary entry</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener">SPIKE Essential</a></h3>
-    <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~€289 / check US listings.</p>
+    <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~$320 / check US listings.</p>
     <a href="/go/az-us-5e9cc5eef8/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
-    <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
     <p style="margin:0 0 0.35rem;font-size:0.85rem;font-weight:700;color:#0f766e;">Middle school / FLL</p>
     <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener">SPIKE Prime</a></h3>
-    <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~€379 — confirm seller.</p>
+    <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Last catalogue ~$415 — confirm seller.</p>
     <a href="/go/az-us-c3cad4d0f0/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Amazon.com</a>
-    <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
 </div>
 
@@ -126,8 +126,8 @@ faqSchema:
 <table>
 <thead><tr><th scope="col">Kit</th><th scope="col">Typical age</th><th scope="col">Coding</th><th scope="col">Typical use</th><th scope="col">Budget hint</th></tr></thead>
 <tbody>
-<tr><td>SPIKE Essential</td><td>6–10</td><td>Word Blocks</td><td>Primary discovery</td><td>~€289 catalogue</td></tr>
-<tr><td>SPIKE Prime</td><td>10–14</td><td>Word Blocks + Python</td><td>Middle school, FLL</td><td>~€379 catalogue</td></tr>
+<tr><td>SPIKE Essential</td><td>6–10</td><td>Word Blocks</td><td>Primary discovery</td><td>~$320 catalogue</td></tr>
+<tr><td>SPIKE Prime</td><td>10–14</td><td>Word Blocks + Python</td><td>Middle school, FLL</td><td>~$415 catalogue</td></tr>
 <tr><td>WeDo 2.0</td><td>6–8</td><td>WeDo blocks</td><td>Short workshops</td><td>Reseller stock</td></tr>
 <tr><td>BricQ Motion</td><td>6–10</td><td>Printed science lessons</td><td>Forces and motion</td><td>Class pack varies</td></tr>
 </tbody>
@@ -140,7 +140,7 @@ faqSchema:
 <tbody>
 <tr><td><a href="/en/mbot-vs-lego-robot/">mBot vs LEGO robot</a></td><td>SPIKE Essential, SPIKE Prime</td><td>LEGO wins on building and FLL; mBot on price and speed to first drive.</td></tr>
 <tr><td><a href="/en/lego-spike-alternatives-2026/">SPIKE alternatives</a></td><td>SPIKE Essential, SPIKE Prime</td><td>mBot2 and Arduino kits often 50–70% cheaper per project.</td></tr>
-<tr><td><a href="/en/educational-robot-200-500-guide/">Robots €200–500</a></td><td>SPIKE lines (when in stock)</td><td>Premium STEM if you find reseller inventory.</td></tr>
+<tr><td><a href="/en/educational-robot-200-500-guide/">Robots $200–500</a></td><td>SPIKE lines (when in stock)</td><td>Premium STEM if you find reseller inventory.</td></tr>
 </tbody>
 </table>
 

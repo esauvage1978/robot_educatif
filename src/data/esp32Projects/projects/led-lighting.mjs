@@ -40,7 +40,7 @@ export const project = {
 	durationHours: '2–3',
 	budgetRange: {
 		fr: 'environ 25–60 € selon vendeur et longueur de bande',
-		en: 'about €25–60 depending on the seller and strip length',
+		en: 'about $25–60 depending on the seller and strip length',
 		de: 'ca. 25–60 € je nach Händler und Streifenlänge',
 		it: 'circa 25–60 € a seconda del venditore e della lunghezza della striscia',
 		es: 'unos 25–60 € según el vendedor y la longitud de la tira',

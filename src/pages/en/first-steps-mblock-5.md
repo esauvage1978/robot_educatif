@@ -5,7 +5,7 @@ description: "mBlock 5 for beginners: stage, sprites, block palettes and robot c
 updated: "31 October 2026"
 ---
 
-Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Check today’s price on Amazon UK or Amazon.com before you buy.
+Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Check today’s price on Amazon.com or Amazon.com before you buy.
 
 > **Direct answer (October 2026)** — **mBlock 5** is an environment close to **Scratch** (programming with coloured blocks) plus blocks for Makeblock robots. After [installing it](/en/install-mblock-5-windows/), add your device (for example an **mBot**), connect it by **USB** or **Bluetooth** (a wireless link), then choose **Live mode** (instant testing as long as the cable or Bluetooth link is active) or **Upload** (the program is saved inside the robot). Common blockers: the wrong mode, or the wrong **COM port** (the name Windows gives to the USB serial cable); see [Bluetooth troubleshooting](/en/mblock-bluetooth-troubleshooting/).
 

@@ -7,7 +7,7 @@ updated: "28 October 2026"
 
 *Affiliate disclosure: Amazon links on this page may earn us a commission at no extra cost to you. Prices change often—check the retailer before buying.*
 
-> **Direct answer (October 2026)** — From **Oct 2026** through **2027 back-to-school**, key launches are **Thymio 3** (€237), **LEGO CS & AI** ($339.95), **Sphero Blueprint** (late 2026); with no confirmed **mBot3**, **mBot2** already covers Scratch→Python.
+> **Direct answer (October 2026)** — From **Oct 2026** through **2027 back-to-school**, key launches are **Thymio 3** (around $264), **LEGO CS & AI** (around $340), **Sphero Blueprint** (late 2026); with no confirmed **mBot3**, **mBot2** already covers Scratch→Python.
 
 ## ⚡ Compare prices and immediate availability (2026 edition)
 
@@ -16,12 +16,12 @@ updated: "28 October 2026"
 <tbody>
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2</strong></span></td>
-<td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">£131.12</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">around £130</span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2 Rover</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.co.uk/s?k=Makeblock%20mBot2%20Rover&tag=roboteducatif-21" data-amazon-query="Makeblock mBot2 Rover" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2%20Rover&tag=roboteducatif-20" data-amazon-query="Makeblock mBot2 Rover" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot Ranger</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$159–$189</span></td>
@@ -37,11 +37,11 @@ updated: "28 October 2026"
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>BBC micro:bit V2 Go</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$25–$35</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0BB949JCP?tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=BBC%20microbit%20V2%20Go%20kit&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Raspberry Pi 5 (4 GB)</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
 </tr>
 </tbody>
 </table></div>
@@ -64,12 +64,12 @@ This page tracks **educational robot launches** from **October 2026** through **
 <tr>
 <td data-label="Window"><span class="td-val">April 2026</span></td>
 <td data-label="Product"><span class="td-val">LEGO Education CS &amp; AI</span></td>
-<td data-label="Price anchor"><span class="td-val">$339.95</span></td>
+<td data-label="Price anchor"><span class="td-val">around $340</span></td>
 </tr>
 <tr>
 <td data-label="Window"><span class="td-val">Sept 2026</span></td>
 <td data-label="Product"><span class="td-val">Thymio 3</span></td>
-<td data-label="Price anchor"><span class="td-val">€237</span></td>
+<td data-label="Price anchor"><span class="td-val">around $264</span></td>
 </tr>
 <tr>
 <td data-label="Window"><span class="td-val">Fall 2026</span></td>

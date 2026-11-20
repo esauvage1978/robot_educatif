@@ -1,6 +1,6 @@
 ---
 import productsData from '../data/products.json';
-import { MARKET_CONFIG, amazonDpUrl, marketFromPathname } from '../lib/amazonMarket.mjs';
+import { MARKET_CONFIG, amazonListingUrl, marketFromPathname } from '../lib/amazonMarket.mjs';
 import { amazonOffer, amazonSnapshot, priceMarket } from '../lib/amazonPriceStore.mjs';
 import { withBase } from '../lib/siteUrl';
 import Button from './Button.astro';
@@ -178,19 +178,21 @@ const product = fromCatalog || {
 
 const locale = uiLocale(Astro.url.pathname, lang);
 const ui = UI[locale as keyof typeof UI] || UI.fr;
-const pageMarket = priceMarket(marketFromPathname(Astro.url.pathname)) || 'fr';
-const marketCfg = MARKET_CONFIG[pageMarket] || MARKET_CONFIG.fr;
+const affiliateMarket = marketFromPathname(Astro.url.pathname);
+const priceCatalogMarket = priceMarket(affiliateMarket) || affiliateMarket;
+const marketCfg = MARKET_CONFIG[affiliateMarket] || MARKET_CONFIG.fr;
 const finalAsin = String(asin || product.asin || '').trim();
-const offer = finalAsin ? amazonOffer(pageMarket, finalAsin) : null;
-const snap = finalAsin ? amazonSnapshot(pageMarket) : null;
+const offer = finalAsin ? amazonOffer(priceCatalogMarket, finalAsin) : null;
+const snap = finalAsin ? amazonSnapshot(priceCatalogMarket) : null;
 const listing = snap?.items?.[finalAsin.toUpperCase()] || null;
 const unavailable = !!(listing && listing.dispo === false);
 
-const amazonUrl = finalAsin
-	? amazonDpUrl(finalAsin, pageMarket)
-	: product.amazonSearchQuery
-		? `https://${marketCfg.host}/s?k=${encodeURIComponent(product.amazonSearchQuery)}&tag=${encodeURIComponent(marketCfg.tag)}`
-		: '';
+const searchQuery = product.amazonSearchQuery || product.shortName || product.name || '';
+const amazonUrl = amazonListingUrl({
+	asin: finalAsin,
+	query: searchQuery,
+	market: affiliateMarket,
+});
 
 const culturaUrl = marketCfg.showCultura
 	? (propCulturaUrl !== undefined ? propCulturaUrl : (fromCatalog?.culturaUrl || ''))
@@ -203,7 +205,7 @@ const placeholderPrice = (value: string) =>
 	!value || /vérifier|voir prix|see today|to check|tagespreis|precio del día|prezzo del giorno|consultar el precio|consulter le prix/i.test(value);
 
 const explicitPrice = !placeholderPrice(propPriceRange || '') ? propPriceRange : '';
-const catalogPrice = pageMarket === 'fr' && !placeholderPrice(product.priceRange || '') ? product.priceRange : '';
+const catalogPrice = affiliateMarket === 'fr' && !placeholderPrice(product.priceRange || '') ? product.priceRange : '';
 
 let priceMode: 'amount' | 'unavailable' | 'phrase' = 'phrase';
 let priceValue = ui.seePrice;
