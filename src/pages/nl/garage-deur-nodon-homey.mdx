@@ -116,11 +116,25 @@ Ik heb de testmelding ontvangen.
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey-pushmelding die aangeeft dat de garagedeur open is" caption="De melding op de telefoon." />
 
-Er blijft een beperking, en die moet duidelijk zijn: de kaart **En** wordt geëvalueerd **op het moment van openen**, niet na 10 minuten. Als u de deur tussentijds sluit, gaat de melding toch uit, tenzij u een **tweede flow** toevoegt die bij het sluiten de **uitgestelde acties** van de eerste annuleert. In mijn Homey heb ik de exacte naam van die kaart nog niet vastgelegd: zoek in de groep Flow, rond het woord voor « vertraging ». Die uitgebreidere flow komt in een apart artikel.
+Er blijft een beperking, en die moet duidelijk zijn: in deze **eenvoudige flow** wordt de kaart **En** geëvalueerd **op het moment van openen**, niet na 10 minuten. Als u de deur tussentijds sluit, gaat de melding toch uit. De **Advanced Flow** hieronder lost dat op: de voorwaarde wordt daar pas na de vertraging gecontroleerd.
 
-## Verder uitbouwen
+## De geavanceerde flow
 
-Deze eerste opstelling volstaat voor dagelijks gebruik: een impuls vanuit de app, de status open of dicht, en een waarschuwing als de deur open blijft. Een **geavanceerdere flow** — de melding annuleren als u op tijd sluit, misschien een herinnering 's avonds — wordt later beschreven, op een eigen pagina. Geen automatische sluiting zonder zicht, om de redenen die al zijn genoemd.
+De eenvoudige flow volstaat voor een test, maar heeft de beperking hierboven. In de **Advanced Flow**-editor van Homey (op het web) heb ik drie takken groepeerd, vanuit dezelfde sensor.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Homey Advanced Flow-editor met drie takken: waarschuwing na 10 minuten, nachtwaarschuwing en sensorbatterij" caption="De Advanced Flow, met de drie takken." />
+
+**Tak 1.** Wanneer « Garagedeur - Garage: Het contactalarm is geactiveerd », een vertraging van **10 minuten**, en daarna de voorwaarde « Het contactalarm staat aan ». Op de uitgang **Ja** een pushmelding « Garage open > 10 min ». De voorwaarde wordt **na** de vertraging gecontroleerd: als de deur intussen is gesloten, gaat er geen melding uit. Precies dat deed de eenvoudige flow niet.
+
+Een valkuil om te kennen: een voorwaarde die **aan de ingang niet is aangesloten** — bijvoorbeeld neergezet via een **En**-kaart, zonder draad vanaf de vorige kaart — wordt **nooit geëvalueerd**. Elke voorwaarde moet vanaf de vorige stap zijn verbonden.
+
+**Tak 2.** Wanneer « Het contactalarm is geactiveerd », een voorwaarde Datum en tijd « Het tijdstip ligt tussen 21:00 en 07:00 », en daarna een melding « Garage open tussen 21 uur en 7 uur ». Een test om **21.01 uur** heeft de waarschuwing wel geactiveerd.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Homey-melding « Garage open tussen 21 uur en 7 uur », ontvangen om 21.01 uur" caption="De test van de nachttak, om 21.01 uur." />
+
+**Tak 3.** Wanneer « Garagedeur - Garage: Batterij wordt lager dan 10 % », een pushmelding « Batterij van de garagedeursensor lager dan 10% », verzonden als **kritieke waarschuwing**.
+
+Geen automatische sluiting zonder zicht, om de redenen die al zijn genoemd.
 
 ## Veelgestelde vragen
 

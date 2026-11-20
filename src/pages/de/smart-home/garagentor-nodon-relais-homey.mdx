@@ -115,11 +115,25 @@ Die Testbenachrichtigung ist angekommen.
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey-Push-Benachrichtigung, dass das Garagentor offen ist" caption="Die Benachrichtigung auf dem Telefon." />
 
-Es bleibt eine Grenze, und die sollte klar benannt werden: die Karte **Und** wird **im Moment des Öffnens** ausgewertet, nicht nach Ablauf der 10 Minuten. Wird das Tor dazwischen geschlossen, geht die Benachrichtigung trotzdem raus — es sei denn, ein **zweiter Flow** bricht beim Schließen die **verzögerten Aktionen** des ersten ab. In meinem Homey habe ich den genauen Namen dieser Karte noch nicht festgehalten: sie steht in der Gruppe Flow, rund um das Wort für „Verzögerung“. Dieser vollständigere Flow kommt in einem eigenen Artikel.
+Es bleibt eine Grenze, und die sollte klar benannt werden: in diesem **einfachen Flow** wird die Karte **Und** **im Moment des Öffnens** ausgewertet, nicht nach Ablauf der 10 Minuten. Wird das Tor dazwischen geschlossen, geht die Benachrichtigung trotzdem raus. Der **Advanced Flow** gleich danach behebt das: die Bedingung wird dort erst nach der Wartezeit geprüft.
 
-## Zum Weiterarbeiten
+## Der Advanced Flow
 
-Dieser erste Aufbau reicht im Alltag: Impuls aus der App, Zustand offen oder geschlossen, und eine Warnung, wenn das Tor offen bleibt. Ein **weitergehender Flow** — Abbruch der Benachrichtigung, wenn man rechtzeitig schließt, vielleicht eine Erinnerung am Abend — wird später auf einer eigenen Seite beschrieben. Kein automatisches Schließen ohne Sicht, aus den schon genannten Gründen.
+Der einfache Flow reicht für einen Test, hat aber die oben genannte Grenze. Im **Advanced-Flow**-Editor von Homey (im Web) habe ich drei Zweige zusammengefasst, ausgehend vom selben Sensor.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Homey-Advanced-Flow-Editor mit drei Zweigen: Warnung nach 10 Minuten, Nachtwarnung und Sensorbatterie" caption="Der Advanced Flow mit seinen drei Zweigen." />
+
+**Zweig 1.** Wenn „Garagentor - Garage: Der Kontakt-Alarm hat sich eingeschaltet“, eine Wartezeit von **10 Minuten**, dann die Bedingung „Der Kontakt-Alarm ist eingeschaltet“. Am Ausgang **Ja** eine Push-Benachrichtigung „Garage offen > 10 Min.“. Die Bedingung wird **nach** der Wartezeit geprüft: wurde das Tor dazwischen geschlossen, geht keine Benachrichtigung raus. Genau das hat der einfache Flow nicht geleistet.
+
+Eine Falle, die man kennen sollte: eine Bedingung, die **am Eingang nicht verbunden** ist — zum Beispiel über eine **Und**-Karte abgelegt, ohne Verbindung von der vorherigen Karte — wird **nie ausgewertet**. Jede Bedingung muss von der vorherigen Stufe verdrahtet sein.
+
+**Zweig 2.** Wenn „Der Kontakt-Alarm hat sich eingeschaltet“, eine Datum-und-Uhrzeit-Bedingung „Die Uhrzeit liegt zwischen 21:00 und 07:00“, dann eine Benachrichtigung „Garage offen zwischen 21 und 7 Uhr“. Ein Test um **21:01 Uhr** hat die Warnung ausgelöst.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Homey-Benachrichtigung „Garage offen zwischen 21 und 7 Uhr“, empfangen um 21:01 Uhr" caption="Der Test des Nachtzweigs, um 21:01 Uhr." />
+
+**Zweig 3.** Wenn „Garagentor - Garage: Batterie wird niedriger als 10 %“, eine Push-Benachrichtigung „Batterie des Garagentor-Sensors unter 10 %“, gesendet als **kritische Warnung**.
+
+Kein automatisches Schließen ohne Sicht, aus den schon genannten Gründen.
 
 ## Häufige Fragen
 

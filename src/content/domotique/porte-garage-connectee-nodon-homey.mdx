@@ -113,11 +113,25 @@ J'ai bien reçu la notification de test.
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Notification push Homey indiquant que la porte de garage est ouverte" caption="La notification reçue sur le téléphone." />
 
-Il reste une limite, qu'il faut dire clairement : la carte **Et** est évaluée **au moment de l'ouverture**, pas au bout des 10 minutes. Si on referme la porte entre-temps, la notification part quand même, sauf à ajouter un **second flow** qui, à la fermeture, **annule les actions retardées** du premier. Dans mon Homey, je n'ai pas encore figé le nom exact de cette carte : il faut la chercher dans le groupe Flow, autour du mot « retard ». Ce second flow, plus complet, viendra dans un article à part.
+Il reste une limite, qu'il faut dire clairement : dans ce **flow simple**, la carte **Et** est évaluée **au moment de l'ouverture**, pas au bout des 10 minutes. Si on referme la porte entre-temps, la notification part quand même. L'**Advanced Flow** décrit juste après corrige ce point : la condition n'y est vérifiée qu'après le délai.
 
-## Pour aller plus loin
+## Le flow avancé
 
-Ce premier montage suffit au quotidien : impulsion depuis l'appli, état ouvert ou fermé, et alerte si la porte reste ouverte. Un **flow plus avancé** — annulation de la notification si on referme à temps, éventuellement un rappel le soir — sera décrit plus tard, sur une page dédiée. Pas de fermeture automatique sans visibilité, pour les raisons déjà indiquées.
+Le flow simple suffit pour un test, mais il a la limite indiquée plus haut. Dans l'éditeur **Advanced Flow** de Homey (sur le web), j'ai regroupé trois branches, à partir du même capteur.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Éditeur Advanced Flow de Homey, avec trois branches : alerte après 10 minutes, alerte de nuit, et batterie du capteur" caption="L'Advanced Flow, avec les trois branches." />
+
+**Branche 1.** Lorsque « Porte de garage - Garage : L'alarme contact s'est activée », un délai de **10 minutes**, puis la condition « L'alarme contact est en marche ». Sur la sortie **Oui**, une notification push « Garage ouvert > 10 min ». La condition est vérifiée **après** le délai : si la porte a été refermée entre-temps, aucune notification n'est envoyée. C'est précisément ce que le flow simple ne faisait pas.
+
+Un piège à connaître : une condition **non reliée en entrée** — par exemple posée via une carte **Et**, sans fil depuis la carte précédente — n'est **jamais évaluée**. Chaque condition doit être branchée depuis l'étape d'avant.
+
+**Branche 2.** Lorsque « L'alarme contact s'est activée », une condition Date & Heure « L'heure est comprise entre 21:00 et 07:00 », puis une notification « Garage ouvert entre 21h et 7h ». Un test à **21 h 01** a bien déclenché l'alerte.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Notification Homey « Garage ouvert entre 21h et 7h », reçue à 21 h 01" caption="Le test de la branche de nuit, à 21 h 01." />
+
+**Branche 3.** Lorsque « Porte de garage - Garage : Batterie devient inférieur à 10 % », une notification push « Batterie du capteur de la porte de garage inférieure à 10% », envoyée **sous forme d'alerte critique**.
+
+Pas de fermeture automatique sans visibilité, pour les raisons déjà indiquées.
 
 ## Questions fréquentes
 

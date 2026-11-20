@@ -115,11 +115,25 @@ I did receive the test notification.
 
 <Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey push notification saying the garage door is open" caption="The notification received on the phone." />
 
-There is still a limit, and it should be stated clearly: the **And** card is evaluated **when the door opens**, not after the 10 minutes. If you close the door in between, the notification still goes out, unless you add a **second flow** that, on closing, **cancels the delayed actions** of the first one. In my Homey I have not yet pinned down the exact name of that card: look for it in the Flow group, around the word for “delay”. That fuller flow will come in a separate article.
+There is still a limit, and it should be stated clearly: in this **simple flow**, the **And** card is evaluated **when the door opens**, not after the 10 minutes. If you close the door in between, the notification still goes out. The **Advanced Flow** described just below fixes that: the condition is only checked after the delay.
 
-## Going further
+## The advanced flow
 
-This first setup is enough day to day: a pulse from the app, open or closed status, and an alert if the door stays open. A **more advanced flow** — cancelling the notification if you close the door in time, perhaps an evening reminder — will be described later, on a dedicated page. No automatic closing without anyone watching, for the reasons already given.
+The simple flow is enough for a test, but it has the limit stated above. In Homey's **Advanced Flow** editor (on the web), I grouped three branches, starting from the same sensor.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Homey Advanced Flow editor with three branches: an alert after 10 minutes, a night-time alert, and a sensor battery alert" caption="The Advanced Flow, with its three branches." />
+
+**Branch 1.** When “Garage door - Garage: The contact alarm turned on”, a **10-minute** delay, then the condition “The contact alarm is on”. On the **Yes** output, a push notification “Garage open > 10 min”. The condition is checked **after** the delay: if the door was closed in the meantime, no notification is sent. That is exactly what the simple flow did not do.
+
+A pitfall worth knowing: a condition that is **not connected at its input** — for example dropped in with an **And** card, with no wire from the previous card — is **never evaluated**. Every condition must be wired from the step before it.
+
+**Branch 2.** When “The contact alarm turned on”, a Date & Time condition “The time is between 21:00 and 07:00”, then a notification “Garage open between 9 p.m. and 7 a.m.”. A test at **9:01 p.m.** did trigger the alert.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Homey notification “Garage open between 9 p.m. and 7 a.m.”, received at 9:01 p.m." caption="The night-time branch test, at 9:01 p.m." />
+
+**Branch 3.** When “Garage door - Garage: Battery becomes lower than 10%”, a push notification “Garage door sensor battery below 10%”, sent as a **critical alert**.
+
+No automatic closing without anyone watching, for the reasons already given.
 
 ## Frequently asked questions
 
