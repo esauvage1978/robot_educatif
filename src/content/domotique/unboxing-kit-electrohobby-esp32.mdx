@@ -2,7 +2,7 @@
 title: "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
 description: "Déballage du colis offert par ElectroHobby.es : 2 ESP32 DevKit WROOM-32 USB-C, ESP32-C3 Super Mini, relais, capteurs et câbles, et les projets ESP32 prévus sur le site."
 pubDate: 2026-11-19T00:00:00Z
-updatedDate: 2026-11-19
+updatedDate: 2026-11-20
 heroImage: "/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp"
 category: "esp32"
 priority: 5
@@ -167,3 +167,21 @@ On installe d'abord **ESPHome** sur l'ESP32. ESPHome est un logiciel (un *firmwa
 Ensuite, côté **Homey** (le boîtier de domotique qui pilote les appareils de la maison), on installe l'application **ESPHome** d'Abe Haverkamp, disponible dans l'App Store Homey (application de la communauté) : [fiche de l'application ESPHome](https://homey.app/fr-fr/app/io.esphome/). Cette application fonctionne sur **Homey Pro** (modèles 2023 et plus récents), **Homey Pro mini** et le serveur Homey auto-hébergé, avec une version du logiciel Homey 13.0.0 ou plus récente. Elle ne fonctionne pas sur **Homey Cloud** (l'offre sans boîtier Pro à la maison), ni sur les Homey Pro plus anciens (2016-2019). Homey parle alors à la carte en local, sur le réseau de la maison, grâce à l'**API native** d'ESPHome (l'interface de communication prévue à cet effet, à activer dans la configuration).
 
 Une fois l'application installée, l'ESP32 apparaît comme un appareil Homey. On peut l'utiliser dans des **Flows** (les automatisations Homey : « quand ceci se produit, alors fais cela »).
+
+### Comment relier le capteur HC-SR04 à un ESP32 ?
+
+Le **HC-SR04** est un capteur à ultrasons (il mesure une distance en envoyant un son aigu, inaudible, et en écoutant l'écho). Il fonctionne en **5 V**. Sa broche **ECHO** (la sortie qui signale le retour de l'écho) envoie donc un signal **5 V**. Or les broches d'entrée d'un **ESP32** ne sont prévues que pour du **3,3 V** : un signal 5 V peut les endommager.
+
+Il faut donc abaisser ce signal avec un **pont diviseur de tension** : deux résistances en série, **1 kΩ** (1 000 ohms, côté ECHO) et **2 kΩ** (2 000 ohms, côté masse / GND). Le fil qui va vers la broche de l'ESP32 part du point milieu, entre les deux résistances. On obtient alors environ **3,3 V** (5 × 2 / 3). La broche **TRIG** (la commande d'émission) peut rester branchée directement : un niveau 3,3 V issu de l'ESP32 suffit en général à déclencher le capteur. L'alimentation **VCC** du HC-SR04 reste à 5 V.
+
+Nous n'avons pas encore réalisé ce câblage sur le kit reçu : ce schéma est la précaution habituelle, à vérifier lors des montages à venir.
+
+### L'ESP32 fonctionne-t-il sur un Wi-Fi 5 GHz ?
+
+Non. Les cartes **ESP32** de ce kit (les deux DevKit WROOM-32 et l'ESP32-C3 Super Mini) ne se connectent qu'à un réseau **Wi-Fi 2,4 GHz**. Un réseau uniquement en **5 GHz** ne sera pas vu par la carte. Sur une box qui propose les deux bandes, il faut soit un réseau 2,4 GHz distinct, soit un réseau mixte sur lequel le 2,4 GHz reste actif. C'est aussi le réglage à indiquer lorsqu'on configure le Wi-Fi dans ESPHome.
+
+### Peut-on alimenter l'ESP32 en 5 V sur la broche VIN ?
+
+Oui, sur un **ESP32 DevKit** typique, la broche **VIN** (souvent aussi marquée **5 V**) est l'entrée d'alimentation : on peut y apporter une tension régulée de **5 V** (par exemple depuis une alimentation USB ou un régulateur), la masse étant reliée à **GND**. C'est la même broche que l'on utilise, lorsque la carte est déjà alimentée en USB, pour fournir du 5 V au module relais.
+
+Il ne faut **pas** envoyer 5 V sur la broche **3,3 V** (cette broche est une sortie régulée, pas une entrée 5 V). Évitez aussi de cumuler sans précaution une alimentation USB et une autre source 5 V sur VIN. Ce branchement n'a pas encore été essayé sur notre kit : il sera confirmé lors des montages.

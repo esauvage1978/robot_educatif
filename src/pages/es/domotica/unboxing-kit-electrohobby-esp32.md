@@ -2,7 +2,7 @@
 layout: ../../../layouts/EsPost.astro
 title: "Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit, ESP32-C3 Super Mini y sensores (producto cedido)"
 description: "Unboxing del kit cedido por ElectroHobby.es: 2 ESP32 DevKit WROOM-32 USB-C, ESP32-C3 Super Mini, relés, sensores y cables Dupont, y los proyectos ESP32 previstos en el sitio."
-updated: "19 de noviembre de 2026"
+updated: "20 de noviembre de 2026"
 ---
 
 <nav class="breadcrumb" aria-label="Miga de pan"><a href="/es/domotica/">Domótica</a> · Unboxing ElectroHobby</nav>
@@ -166,3 +166,21 @@ Primero se instala **ESPHome** en el ESP32. ESPHome es un software (un *firmware
 Después, en **Homey** (el central de domótica que controla los aparatos de la casa), se instala la aplicación **ESPHome** de Abe Haverkamp, disponible en la App Store de Homey (una app de la comunidad): [ficha de la app ESPHome](https://homey.app/es-es/app/io.esphome/). Esta aplicación funciona en **Homey Pro** (modelos 2023 y posteriores), **Homey Pro mini** y un servidor Homey autoalojado, con el software Homey 13.0.0 o posterior. No funciona en **Homey Cloud** (la oferta sin un equipo Pro en casa) ni en los Homey Pro más antiguos (2016-2019). Homey habla entonces con la placa en local, en la red de casa, a través de la **API nativa** de ESPHome (la interfaz de comunicación prevista para ello, que hay que activar en la configuración).
 
 Una vez instalada la app, el ESP32 aparece como un dispositivo Homey. Se puede usar en los **Flows** (las automatizaciones de Homey: «cuando ocurre esto, entonces haz aquello»).
+
+### ¿Cómo conectar el sensor HC-SR04 a un ESP32?
+
+El **HC-SR04** es un sensor de distancia por ultrasonidos (mide una distancia emitiendo un sonido agudo, inaudible, y escuchando el eco). Funciona a **5 V**. Su pin **ECHO** (la salida que señala el retorno del eco) entrega por tanto una señal de **5 V**. Los pines de entrada de un **ESP32** solo están pensados para **3,3 V**: una señal de 5 V puede dañarlos.
+
+Hay que reducir esa señal con un **divisor de tensión**: dos resistencias en serie, **1 kΩ** (1 000 ohmios, lado ECHO) y **2 kΩ** (2 000 ohmios, lado masa / GND). El hilo que va al pin del ESP32 sale del punto medio, entre las dos resistencias. Así se obtienen unos **3,3 V** (5 × 2 / 3). El pin **TRIG** (la orden de emisión) puede quedar conectado directamente: un nivel de 3,3 V del ESP32 suele bastar para disparar el sensor. La alimentación **VCC** del HC-SR04 sigue a 5 V.
+
+Todavía no hemos hecho este cableado en el kit recibido: es la precaución habitual, que comprobaremos en los montajes posteriores.
+
+### ¿Funciona el ESP32 en una red Wi-Fi de 5 GHz?
+
+No. Las placas **ESP32** de este kit (las dos DevKit WROOM-32 y la ESP32-C3 Super Mini) solo se conectan a una red **Wi-Fi de 2,4 GHz**. Una red solo de **5 GHz** no será vista por la placa. En un router que ofrece ambas bandas hace falta una red de 2,4 GHz distinta o una red mixta en la que el 2,4 GHz siga activo. Es el mismo ajuste que hay que indicar al configurar el Wi-Fi en ESPHome.
+
+### ¿Se puede alimentar el ESP32 con 5 V en el pin VIN?
+
+Sí. En un **ESP32 DevKit** típico, el pin **VIN** (a menudo marcado también como **5 V**) es la entrada de alimentación: se le puede aplicar una tensión regulada de **5 V** (por ejemplo desde una fuente USB o un regulador), con la masa unida a **GND**. Es el mismo pin que se usa, cuando la placa ya está alimentada por USB, para dar 5 V al módulo de relés.
+
+No hay que aplicar 5 V al pin de **3,3 V** (ese pin es una salida regulada, no una entrada de 5 V). Evite también combinar sin cuidado la alimentación USB y otra fuente de 5 V en VIN. Esta conexión aún no se ha probado en nuestro kit: se confirmará en los montajes posteriores.
