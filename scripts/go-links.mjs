@@ -124,7 +124,8 @@ function dpToSearchIfNeeded(url) {
 	const tld = m[1].toLowerCase();
 	const host = `www.amazon.${tld}`;
 	const tag = tld === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
-	return searchUrlForAsin(host, tag, m[2]);
+	const next = searchUrlForAsin(host, tag, m[2]);
+	return next || url;
 }
 
 function take(url, repaired) {

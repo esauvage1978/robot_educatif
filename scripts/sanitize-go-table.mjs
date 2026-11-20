@@ -76,6 +76,17 @@ for (const [id, entry] of Object.entries(links)) {
 		}
 		fixed++;
 	}
+	if (/k=product%20B0/i.test(entry.url)) {
+		const asin = decodeURIComponent(entry.url.match(/k=product%20([^&]+)/i)?.[1] || '');
+		const host = /amazon\.ca/i.test(entry.url) ? 'www.amazon.ca' : 'www.amazon.com';
+		const tag = /amazon\.ca/i.test(entry.url) ? 'roboteducat03-20' : 'roboteducatif-20';
+		const next = searchUrlForAsin(host, tag, asin);
+		if (next && next !== entry.url) {
+			entry.url = next;
+			entry.tag = tag;
+			fixed++;
+		}
+	}
 	if (!/^az-(us|ca)-/.test(id) || !/\/dp\//i.test(entry.url)) continue;
 	const m = entry.url.match(/\/\/(www\.)?amazon\.(com|ca)\/dp\/([^?/]+)/i);
 	if (!m) continue;

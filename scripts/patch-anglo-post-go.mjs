@@ -78,37 +78,71 @@ function relabelDirectAmazon(html, market) {
 	);
 }
 
-/** Devises crédibles sans conversion fine (v3). */
+function patchJsonStrings(html, fn) {
+	return html.replace(/<script\b[\s\S]*?<\/script>/gi, (block) =>
+		block.replace(/"(?:[^"\\]|\\.)*"/g, (str) => fn(str)),
+	);
+}
+
+/** Devises crédibles sans conversion fine (revue devises v4). */
 function localizeMoney(html, market) {
 	html = html.replace(/, no affiliate tag/gi, '');
-	const inScript = (s, fn) =>
-		s.replace(/<script\b[\s\S]*?<\/script>/gi, (block) =>
-			block.replace(/"(?:[^"\\]|\\.)*"/g, (str) => fn(str)),
-		);
+	html = html.replace(/about \$about/gi, 'about');
 	if (market === 'uk') {
-		const toPound = (s) =>
-			s
-				.replace(/\b(around|about|roughly|often)\s+\$(\d[\d.,]*)/gi, '$1 £$2')
-				.replace(/~\$(\d[\d.,]*)/g, '~£$1')
-				.replace(/\$(\d[\d.,]*)\s*–\s*\$(\d[\d.,]*)/g, '£$1–£$2')
-				.replace(/(?<=[>~(\s])\$(\d[\d.,]+)/g, '£$1')
+		const toPound = (s) => {
+			let t = s
+				.replace(/<strong>Cost:<\/strong>\s*\$0\b/gi, '<strong>Cost:</strong> No extra parts cost')
+				.replace(/<strong>Budget<\/strong>\s*\$0\b/gi, '<strong>Budget</strong> £0')
+				.replace(/\bCost:\s*\$0\b/gi, 'Cost: No extra parts cost')
+				.replace(/\bBudget\s+\$0\b/gi, 'Budget £0')
+				.replace(/about £(\d[\d.,]*)\s*–\s*\$(\d[\d.,]*)/gi, (_, a, b) => `about £${a}–£${b}`)
+				.replace(/\b(around|about|roughly|often)\s+\$(\d[\d.,]*)/gi, (_, lead, n) => `${lead} £${n}`)
+				.replace(/~\$(\d[\d.,]*)/g, (_, n) => `~£${n}`)
+				.replace(/\$(\d[\d.,]*)\s*–\s*\$(\d[\d.,]*)/g, (_, a, b) => `£${a}–£${b}`)
 				.replace(/\$200–500/g, '£200–500')
-				.replace(/\$([\d]{2,})\b/g, '£$1');
+				.replace(/(?<![A-Za-z/])\$(\d[\d.,]+)/g, (_, n) => `£${n}`);
+			return t;
+		};
 		html = toPound(html);
-		html = inScript(html, toPound);
+		html = patchJsonStrings(html, toPound);
 	}
 	if (market === 'ca') {
-		const toCad = (s) =>
-			s
-				.replace(/£(\d[\d.,]*)\s*\/\s*\$(\d[\d.,]*)/gi, 'CA$$2')
-				.replace(/\b(around|about|roughly|often)\s+£(\d[\d.,]*)/gi, '$1 CA$$2')
-				.replace(/\b(around|about|roughly|often)\s+\$(\d[\d.,]*)/gi, '$1 CA$$2')
-				.replace(/~£(\d[\d.,]*)/g, 'CA$$$1')
-				.replace(/~\$(\d[\d.,]*)/g, 'CA$$$1')
-				.replace(/£(\d[\d.,]*)\s*–\s*£(\d[\d.,]*)/g, 'CA$$1–CA$$2')
-				.replace(/(?<=[>~(\s])£(\d[\d.,]+)/g, 'CA$$$1');
+		const toCad = (s) => {
+			let t = s
+				.replace(/<strong>£0<\/strong>/gi, '<strong>No cost</strong>')
+				.replace(/\b£0\b/g, 'CA$0')
+				.replace(/<title>([^<]*)<\/title>/gi, (_, title) => {
+					const nt = title
+						.replace(/\bunder \$110\b/gi, 'under CA$110')
+						.replace(/\bunder \$55\b/gi, 'under CA$55')
+						.replace(/\bunder \$([\d]+)/gi, (_, n) => `under CA$${n}`);
+					return `<title>${nt}</title>`;
+				})
+				.replace(/content="([^"]*)"\s*\/?>/gi, (full, content) => {
+					if (!/description|og:title|twitter:title/i.test(full)) return full;
+					const nc = content
+						.replace(/\bunder \$110\b/gi, 'under CA$110')
+						.replace(/\bunder \$55\b/gi, 'under CA$55');
+					return full.replace(content, nc);
+				})
+				.replace(/£(\d[\d.,]*)\s*\/\s*\$(\d[\d.,]*)/gi, (_, _a, b) => `CA$${b}`)
+				.replace(/CA\$(\d[\d.,]*)–£(\d[\d.,]*)/gi, (_, a, b) => `CA$${a}–CA$${b}`)
+				.replace(/CA\$(\d[\d.,]*)–\$(\d[\d.,]*)/gi, (_, a, b) => `CA$${a}–CA$${b}`)
+				.replace(/\+\s*£(\d[\d.,]*)–(\d[\d.,]*)/gi, (_, a, b) => `+CA$${a}–${b}`)
+				.replace(/budget\s*\+\s*£/gi, 'budget +CA$')
+				.replace(/\$(\d{1,3}(?:,\d{3})+)(?!\d)/g, (_, n) => `CA$${n}`)
+				.replace(/\b(around|about|roughly|often)\s+£(\d[\d.,]*)/gi, (_, lead, n) => `${lead} CA$${n}`)
+				.replace(/\b(around|about|roughly|often)\s+\$(\d[\d.,]*)/gi, (_, lead, n) => `${lead} CA$${n}`)
+				.replace(/~£(\d[\d.,]*)/g, (_, n) => `CA$${n}`)
+				.replace(/~\$(\d[\d.,]*)/g, (_, n) => `CA$${n}`)
+				.replace(/£(\d[\d.,]*)\s*–\s*£(\d[\d.,]*)/g, (_, a, b) => `CA$${a}–CA$${b}`)
+				.replace(/£(\d[\d.,]*)\s*–\s*\$(\d[\d.,]*)/g, (_, a, b) => `CA$${a}–CA$${b}`)
+				.replace(/(?<![A-Za-z/])£(\d[\d.,]+)/g, (_, n) => `CA$${n}`)
+				.replace(/(?<![A-Za-z/])\$(\d[\d.,]+)/g, (_, n) => `CA$${n}`);
+			return t;
+		};
 		html = toCad(html);
-		html = inScript(html, toCad);
+		html = patchJsonStrings(html, toCad);
 	}
 	return html;
 }

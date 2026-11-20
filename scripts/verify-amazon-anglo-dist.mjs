@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Contrôles post-go-links sur dist/en, dist/uk, dist/ca (CONSIGNES PR41 v2 + v3). */
+/** Contrôles post-go-links sur dist/en, dist/uk, dist/ca (+ table + DE/IT/ES devises). */
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -9,12 +9,6 @@ const tablePath = path.join(path.dirname(new URL(import.meta.url).pathname), 'go
 const table = JSON.parse(fs.readFileSync(tablePath, 'utf8'));
 const links = table.links || table;
 const prod = new Set(Object.keys(links));
-
-const HOST_LABEL = {
-	'amazon.com': /Amazon\.com(?![.\w-])/i,
-	'amazon.co.uk': /Amazon\.co\.uk|Amazon UK/i,
-	'amazon.ca': /Amazon\.ca(?![.\w-])/i,
-};
 
 function walk(d, acc = []) {
 	for (const e of fs.readdirSync(d, { withFileTypes: true })) {
@@ -39,24 +33,28 @@ const counts = {
 	noAffiliateTag: 0,
 	ukDollarPrice: 0,
 	caPoundPrice: 0,
+	aboutAbout: 0,
+	caBrokenCad: 0,
+	caMixedCurrency: 0,
+	caDollarPrice: 0,
+	productB0Query: 0,
+	euLangDollarCost: 0,
 };
-const samples = {
-	caDp: [],
-	comDp: [],
-	frHost: [],
-	amazonComLabel: [],
-	euro: [],
-	servedCaDp: [],
-	servedComDp: [],
-	labelMismatch: [],
-	noAffiliateTag: [],
-	ukDollarPrice: [],
-	caPoundPrice: [],
-};
+const samples = Object.fromEntries(Object.keys(counts).map((k) => [k, []]));
 
-const UK_DOLLAR_PRICE =
-	/(?:~|around|about|roughly|often)\s*\$[\d]|~\$[\d]|\$[\d][\d.,]*\s*–\s*\$[\d]|(?<=[\s(>~])\$[\d]{2,}(?:–[\d]+)?/;
-const CA_POUND_PRICE = /(?:~|around|about|roughly|often)\s*£[\d]|~£[\d]|£[\d][\d.,]*\s*–\s*£[\d]|(?<=[\s(>~])£[\d]{2,}/;
+/** $ seul sur UK (hors « CA$ » sur pages EN importées). */
+const UK_DOLLAR_BAD =
+	/\$about|about \$about|(?:Cost|Budget)[^<]{0,24}\$[\d]|(?:~|around|about|roughly|often)\s+\$[\d]|(?<![A-Za-z/])\$[\d]{2,}/;
+
+/** £ ou $ seul sur CA (CA$ permis). */
+const CA_POUND_BAD = /£[\d]|(?:~|around|about|roughly|often)\s+£[\d]/;
+/** £ en CA hors « No cost » déjà corrigé. */
+const CA_POUND_STRICT = /<strong>£|\b£[\d]/;
+const CA_DOLLAR_BAD = /(?<!CA)(?:~|around|about|roughly|often)\s+\$(?!\d{3})[\d]|(?<!CA)\$[\d]{2,}\s*–/;
+/** Artefact historique « CA$2 » ou « mBot around CA$2 » (montant tronqué), pas CA$0–15 ni CA$2,540. */
+const CA_BROKEN_CAD =
+	/\b(?:around|about|roughly|often)\s+CA\$2\b(?!\d|,)|\bmBot2?\s+around\s+CA\$2\b/;
+const CA_MIXED = /CA\$[\d.,]+\s*–\s*£|CA\$[\d.,]+\s*–\s*\$(?![\d]{2})|£[\d]+\s*–\s*CA\$/;
 
 function hostFromHref(href) {
 	const m = href.match(/amazon\.(com|co\.uk|ca)/i);
@@ -64,10 +62,17 @@ function hostFromHref(href) {
 }
 
 function labelForHost(host) {
-	if (host === 'amazon.com') return 'Amazon.com';
+	if (host === 'amazon.com') return /Amazon\.com(?![.\w-])/i;
 	if (host === 'amazon.co.uk') return /Amazon\.co\.uk|Amazon UK/i;
-	if (host === 'amazon.ca') return /Amazon\.ca/i;
+	if (host === 'amazon.ca') return /Amazon\.ca(?![.\w-])/i;
 	return null;
+}
+
+for (const [id, entry] of Object.entries(links)) {
+	if (/k=product%20B0/i.test(entry?.url || '')) {
+		counts.productB0Query++;
+		if (samples.productB0Query.length < 3) samples.productB0Query.push(id);
+	}
 }
 
 for (const root of roots) {
@@ -76,6 +81,7 @@ for (const root of roots) {
 		const rel = path.relative(dist, file);
 		if (/\/partners\//.test(rel)) continue;
 		const html = fs.readFileSync(file, 'utf8');
+		const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, ' ');
 		if (/amazon\.ca\/dp\//i.test(html)) {
 			counts.caDp++;
 			if (samples.caDp.length < 3) samples.caDp.push(rel);
@@ -84,7 +90,7 @@ for (const root of roots) {
 			counts.comDp++;
 			if (samples.comDp.length < 3) samples.comDp.push(rel);
 		}
-		if (/amazon\.fr/i.test(html)) {
+		if (market !== 'en' && /amazon\.fr/i.test(html)) {
 			counts.frHost++;
 			if (samples.frHost.length < 3) samples.frHost.push(rel);
 		}
@@ -92,7 +98,7 @@ for (const root of roots) {
 			counts.amazonComLabel++;
 			if (samples.amazonComLabel.length < 3) samples.amazonComLabel.push(rel);
 		}
-		if (/€|&euro;|&#8364;/i.test(html)) {
+		if (/€|&euro;|&#8364;/i.test(html) && /en|uk|ca/.test(market)) {
 			counts.euro++;
 			if (samples.euro.length < 3) samples.euro.push(rel);
 		}
@@ -110,8 +116,12 @@ for (const root of roots) {
 			}
 		}
 		if (/no affiliate tag/i.test(html)) {
-			counts.noAffiliateTag++;
-			if (samples.noAffiliateTag.length < 3) samples.noAffiliateTag.push(rel);
+		 counts.noAffiliateTag++;
+		 if (samples.noAffiliateTag.length < 3) samples.noAffiliateTag.push(rel);
+		}
+		if (/\$about|about \$about/i.test(body)) {
+			counts.aboutAbout++;
+			if (samples.aboutAbout.length < 3) samples.aboutAbout.push(rel);
 		}
 		for (const m of html.matchAll(/<a\b([^>]*href=(["'])([^"']+)\2[^>]*)>([\s\S]*?)<\/a>/gi)) {
 			const href = m[3];
@@ -125,30 +135,44 @@ for (const root of roots) {
 				if (samples.labelMismatch.length < 3) samples.labelMismatch.push(`${rel}: « ${plain.slice(0, 40)} » → ${host}`);
 			}
 		}
-		if (market === 'uk' && UK_DOLLAR_PRICE.test(html)) {
+		if (market === 'uk' && UK_DOLLAR_BAD.test(body)) {
 			counts.ukDollarPrice++;
 			if (samples.ukDollarPrice.length < 3) samples.ukDollarPrice.push(rel);
 		}
-		if (market === 'ca' && CA_POUND_PRICE.test(html)) {
-			counts.caPoundPrice++;
-			if (samples.caPoundPrice.length < 3) samples.caPoundPrice.push(rel);
+		if (market === 'ca') {
+			if (CA_POUND_STRICT.test(body)) {
+				counts.caPoundPrice++;
+				if (samples.caPoundPrice.length < 3) samples.caPoundPrice.push(rel);
+			}
+			if (CA_DOLLAR_BAD.test(body)) {
+				counts.caDollarPrice++;
+				if (samples.caDollarPrice.length < 3) samples.caDollarPrice.push(rel);
+			}
+			if (CA_BROKEN_CAD.test(body)) {
+				counts.caBrokenCad++;
+				if (samples.caBrokenCad.length < 3) samples.caBrokenCad.push(rel);
+			}
+			if (CA_MIXED.test(body)) {
+			 counts.caMixedCurrency++;
+			 if (samples.caMixedCurrency.length < 3) samples.caMixedCurrency.push(rel);
+			}
+		}
+	}
+}
+
+for (const market of ['de', 'it', 'es']) {
+	const root = path.join(dist, market);
+	if (!fs.existsSync(root)) continue;
+	for (const file of walk(root)) {
+		const rel = path.relative(dist, file);
+		const html = fs.readFileSync(file, 'utf8');
+		if (/about \$0|about \$[\d]–\$[\d]/.test(html)) {
+			counts.euLangDollarCost++;
+			if (samples.euLangDollarCost.length < 3) samples.euLangDollarCost.push(rel);
 		}
 	}
 }
 
 console.log(JSON.stringify({ counts, samples }, null, 2));
-const bad =
-	counts.caDp ||
-	counts.comDp ||
-	counts.frHost ||
-	counts.amazonComLabel ||
-	counts.euro ||
-	counts.oneAround ||
-	counts.missingGo ||
-	counts.servedCaDp ||
-	counts.servedComDp ||
-	counts.labelMismatch ||
-	counts.noAffiliateTag ||
-	counts.ukDollarPrice ||
-	counts.caPoundPrice;
+const bad = Object.values(counts).some((n) => n > 0);
 if (bad) process.exit(1);

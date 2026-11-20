@@ -32,7 +32,7 @@ A filterable catalog sits on this page (device category, brand, product or model
 
 - **Difficulty:** Easy (2/5)
 - **Time:** 15 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** mBlock 5
 - **Code:** `OSError ENOSPC`
 
@@ -46,7 +46,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Medium (3/5)
 - **Time:** 15 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** Arduino IDE
 - **Code:** `bossac upload error`
 
@@ -66,7 +66,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Easy (2/5)
 - **Time:** 10–20 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** USB cable
 - **Code:** `stk500_getsync()`
 
@@ -80,7 +80,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Easy (2/5)
 - **Time:** 10–20 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** USB cable
 
 **Symptom:** at the end of the upload, mBlock or the Arduino IDE shows `avrdude: stk500_getsync(): not in sync` or "programmer not responding".
@@ -100,7 +100,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Medium (3/5)
 - **Time:** 15–30 min
-- **Cost:** $0–$13 (cable)
+- **Cost:** about $0–15 (cable)
 - **Tools:** Device Manager
 
 **Symptom:** no serial port in mBlock. The robot does not appear.
@@ -115,7 +115,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Easy (1/5)
 - **Time:** 5 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** None
 
 **Symptom:** the robot goes backward when the program asks it to go forward.
@@ -126,7 +126,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Easy (2/5)
 - **Time:** 10 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** Screwdriver (cover screw)
 
 **Symptom:** the distance variable stays at **0** or **400** (out of range) all the time.
@@ -144,7 +144,7 @@ If in doubt, contact Makeblock official support (support.makeblock.com) or the b
 
 - **Difficulty:** Medium (3/5)
 - **Time:** 15 min
-- **Cost:** $0
+- **Cost:** No extra parts cost
 - **Tools:** Terminal
 
 Add your user to the `dialout` group (`sudo usermod -aG dialout $USER`), log in again, and retry. Do not run mBlock as root.

@@ -36,6 +36,7 @@ const time = pick(entry.time);
 function costForEn(raw) {
 	if (!raw || typeof raw !== 'string') return raw || '';
 	if (raw === '0 €') return 'No extra parts cost';
+	if (/^about \$|^No extra parts/i.test(raw)) return raw;
 	return raw
 		.replace(/\s*€/g, '')
 		.replace(/^0$/, 'No extra parts cost')
