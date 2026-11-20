@@ -300,16 +300,16 @@
     ],
     "/de/anleitungen/": [
       {
+        "href": "/de/smart-home/garagentor-nodon-relais-homey/",
+        "title": "Vernetztes Garagentor: NodOn-Relais und Homey Pro"
+      },
+      {
         "href": "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/",
         "title": "Matter, Thread, Zigbee oder Wi-Fi 2027: Unterschiede und Protokollwahl"
       },
       {
         "href": "/de/python-vier-gewinnt-1-gitter/",
         "title": "Vier gewinnt in Python (1/6) — Gitter 6×7 und Datenmodell"
-      },
-      {
-        "href": "/de/marke-raspberry-pi/",
-        "title": "Raspberry Pi: unsere Einschätzung der Marke (Pi 3, 4, 5)"
       }
     ],
     "/de/arduino-c-bedingungen-sensoren/": [
@@ -412,16 +412,16 @@
     ],
     "/de/bester-lernroboter-2026/": [
       {
+        "href": "/de/smart-home/garagentor-vernetzt/",
+        "title": "Garagentor Vernetzt"
+      },
+      {
         "href": "/de/mbot-vs-lego-roboter/",
         "title": "mBot vs LEGO-Roboter: welcher ist besser?"
       },
       {
         "href": "/de/smart-home/smart-home-einstieg-kompletter-leitfaden/",
         "title": "Smart Home Einstieg: kompletter Leitfaden"
-      },
-      {
-        "href": "/de/vergleiche/",
-        "title": "Vergleiche: Roboter und Platinen im direkten Duell"
       }
     ],
     "/de/bester-programmierbarer-roboter-fuer-kinder/": [
@@ -462,8 +462,8 @@
         "title": "Smart-Home-Trends 2027: CES, mmWave, lokale KI und Energie ohne Abo"
       },
       {
-        "href": "/de/smart-home/garagentor-vernetzt/",
-        "title": "Garagentor Vernetzt"
+        "href": "/de/marke-lego-education/",
+        "title": "LEGO Education: Markenführer SPIKE, WeDo und BricQ"
       }
     ],
     "/de/eilik-tischroboter/": [
@@ -672,8 +672,8 @@
         "title": "Lernroboter Weihnachtsgeschenke 2026"
       },
       {
-        "href": "/de/smart-home/garagentor-vernetzt/",
-        "title": "Garagentor Vernetzt"
+        "href": "/de/marke-sonoff/",
+        "title": "SONOFF: unsere Einschätzung der Marke (Zigbee für Home Assistant)"
       }
     ],
     "/de/lernroboter-8-jahre/": [
@@ -748,16 +748,16 @@
     ],
     "/de/marke-lego-education/": [
       {
+        "href": "/de/black-friday/",
+        "title": "Black Friday 2026 — Lernroboter und Smart Home"
+      },
+      {
         "href": "/de/marke-elegoo/",
         "title": "ELEGOO: unsere Einschätzung der Marke (Arduino-Roboter)"
       },
       {
         "href": "/de/matatalab-tale-bot-lernroboter/",
         "title": "Tale-Bot Pro von Matatalab: Test, Erfahrungen und Alter (5–9 Jahre)"
-      },
-      {
-        "href": "/de/vier-gewinnt-python/",
-        "title": "Vier gewinnt in Python: sechs Kapitel im Terminal"
       }
     ],
     "/de/marke-makeblock/": [
@@ -1028,16 +1028,16 @@
     ],
     "/de/mbot-mein-erster-lernroboter/": [
       {
+        "href": "/de/smart-home/garagentor-vernetzt/",
+        "title": "Garagentor Vernetzt"
+      },
+      {
         "href": "/de/smart-home/homey-pro-auspacken-einrichtung/",
         "title": "Homey Pro im Test: Auspacken und Einrichtung (Teil 1)"
       },
       {
         "href": "/de/bester-programmierbarer-roboter-fuer-kinder/",
         "title": "Programmierbarer Roboter Kind: Vergleich nach Alter (Weihnachten 2026)"
-      },
-      {
-        "href": "/de/marke-lego-education/",
-        "title": "LEGO Education: Markenführer SPIKE, WeDo und BricQ"
       }
     ],
     "/de/mbot-test-kaufen/": [
@@ -1350,16 +1350,16 @@
     ],
     "/de/raspberry-pi-4-welcher-ram/": [
       {
+        "href": "/de/smart-home/garagentor-nodon-relais-homey/",
+        "title": "Vernetztes Garagentor: NodOn-Relais und Homey Pro"
+      },
+      {
         "href": "/de/arduino-c-funktionen-best-practices/",
         "title": "Arduino C Lektion 5: Funktionen, Modularität und gute Praktiken"
       },
       {
         "href": "/de/smart-home/ersatzteile-sensoren-kompatible-guenstiger/",
         "title": "Ersatzteile Sensoren Kompatible Guenstiger"
-      },
-      {
-        "href": "/de/scratch-schule-zuhause-einstieg/",
-        "title": "Scratch in Schule oder Zuhause: wo anfangen (2026)?"
       }
     ],
     "/de/raspberry-pi-5-welcher-ram/": [
@@ -1628,6 +1628,20 @@
         "title": "Erste Smart-Home-Geräte kaufen"
       }
     ],
+    "/de/smart-home/garagentor-nodon-relais-homey/": [
+      {
+        "href": "/de/smart-home/smart-home-trends-2027-ces-mmwave-lokale-ki-energie/",
+        "title": "Smart-Home-Trends 2027: CES, mmWave, lokale KI und Energie ohne Abo"
+      },
+      {
+        "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
+        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
+      },
+      {
+        "href": "/de/smart-home/esp32-verkabelung-gpio-grundlagen/",
+        "title": "ESP32-Verkabelung: GPIO, 3,3 V, Pull-up"
+      }
+    ],
     "/de/smart-home/garagentor-smartphone-esp32-esphome/": [
       {
         "href": "/de/smart-home/solar-aussenkamera-iegeek/",
@@ -1644,16 +1658,16 @@
     ],
     "/de/smart-home/garagentor-vernetzt/": [
       {
-        "href": "/de/black-friday/",
-        "title": "Black Friday 2026 — Lernroboter und Smart Home"
-      },
-      {
         "href": "/de/smart-home/homey-pro-mini-auspacken-einrichtung/",
         "title": "Homey Pro mini: Auspacken und Einrichtung (Teil 1)"
       },
       {
         "href": "/de/smart-home/home-assistant-green-vs-raspberry-pi-5/",
         "title": "Home Assistant Green vs Raspberry Pi 5: was wählen (2026)?"
+      },
+      {
+        "href": "/de/smart-home/esphome-ota-updates/",
+        "title": "ESPHome-OTA-Updates ohne Kabel"
       }
     ],
     "/de/smart-home/home-assistant-2026-10-matter-reolink-tuya-batterien/": [
@@ -1756,16 +1770,16 @@
     ],
     "/de/smart-home/": [
       {
+        "href": "/de/smart-home/garagentor-nodon-relais-homey/",
+        "title": "Vernetztes Garagentor: NodOn-Relais und Homey Pro"
+      },
+      {
         "href": "/de/smart-home/home-assistant-green-vs-raspberry-pi-5/",
         "title": "Home Assistant Green vs Raspberry Pi 5: was wählen (2026)?"
       },
       {
         "href": "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/",
         "title": "Matter, Thread, Zigbee oder Wi-Fi 2027: Unterschiede und Protokollwahl"
-      },
-      {
-        "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
-        "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
       }
     ],
     "/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/": [
@@ -1784,10 +1798,6 @@
     ],
     "/de/smart-home/matter-1-6-neue-funktionen-nfc-einrichtung/": [
       {
-        "href": "/de/smart-home/smart-home-trends-2027-ces-mmwave-lokale-ki-energie/",
-        "title": "Smart-Home-Trends 2027: CES, mmWave, lokale KI und Energie ohne Abo"
-      },
-      {
         "href": "/de/smart-home/kompatibilitaetsmatrix-home-assistant-homey-zigbee-matter/",
         "title": "Kompatibilitaetsmatrix Home Assistant Homey Zigbee Matter"
       },
@@ -1798,6 +1808,10 @@
       {
         "href": "/de/smart-home/electrohobby-esp32-kit-auspacken/",
         "title": "ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit, ESP32-C3 Super Mini und Sensoren (Geschenk der Marke)"
+      },
+      {
+        "href": "/de/smart-home/home-assistant-jeedom-homey-welche-zentrale/",
+        "title": "Home Assistant, Jeedom, Homey oder Sprachassistent: welche Smart-Home-Zentrale?"
       }
     ],
     "/de/smart-home/matter-thread-zigbee-wifi-protokoll-wahl-2027/": [
@@ -1942,16 +1956,16 @@
     ],
     "/de/smart-home/smart-home-anfaengerfehler-faq/": [
       {
+        "href": "/de/smart-home/garagentor-nodon-relais-homey/",
+        "title": "Vernetztes Garagentor: NodOn-Relais und Homey Pro"
+      },
+      {
         "href": "/de/smart-home/zigbee2mqtt-oder-zha-home-assistant/",
         "title": "Zigbee2MQTT oder ZHA in Home Assistant: welche Lösung?"
       },
       {
         "href": "/de/smart-home/fehlercodes-stoerungen-zigbee-home-assistant-shelly/",
         "title": "Fehlercodes Stoerungen Zigbee Home Assistant Shelly"
-      },
-      {
-        "href": "/de/smart-home/home-assistant-raspberry-pi-5-installation/",
-        "title": "Home Assistant auf Raspberry Pi 5 installieren: Anleitung 2026 (DE)"
       }
     ],
     "/de/smart-home/smart-home-einstieg-kompletter-leitfaden/": [
@@ -2456,8 +2470,8 @@
         "title": "Arduino: kits and a C programming course"
       },
       {
-        "href": "/en/python-battleship-2-grid-display/",
-        "title": "Python Battleship (2/6): grid and display"
+        "href": "/en/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Connected garage door: NodOn relay and Homey Pro"
       }
     ],
     "/en/accessories/": [
@@ -3066,8 +3080,8 @@
         "title": "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
       },
       {
-        "href": "/en/smart-home/error/shelly-mdns-coiot-lost/",
-        "title": "Shelly — Device offline (mDNS CoIoT & RPC WebSocket)"
+        "href": "/en/best-educational-robot-2026/",
+        "title": "Which educational robot to choose in 2026?"
       }
     ],
     "/en/educational-robots-2026-2027-calendar-buying-guide/": [
@@ -5090,8 +5104,8 @@
         "title": "Homey Pro mini: unboxing and setup (part 1)"
       },
       {
-        "href": "/en/smart-home/robot-vacuums/",
-        "title": "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
+        "href": "/en/smart-home/error/aqara-thermostat-calibration/",
+        "title": "Aqara T1 — écart de température / vanne qui claque"
       }
     ],
     "/en/smart-home/esphome-ota-updates/": [
@@ -5146,8 +5160,22 @@
         "title": "Sonoff ZBDongle-E — EZSP / pilote Ember (firmware 7.4+)"
       },
       {
-        "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
+        "href": "/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/",
+        "title": "Smart-home protocols: Zigbee, Wi-Fi, Thread, Matter"
+      }
+    ],
+    "/en/smart-home/garage-door-nodon-relay-homey/": [
+      {
+        "href": "/en/smart-home/robot-vacuums/",
+        "title": "Robot vacuum cleaners: choose well and integrate them with Home Assistant"
+      },
+      {
+        "href": "/en/smart-home/error/tapo-p110-klap-1002/",
+        "title": "Tapo P110 — erreur 1002 / KLAP handshake failed (HA)"
+      },
+      {
+        "href": "/en/smart-home/error/shelly-mdns-coiot-lost/",
+        "title": "Shelly — Device offline (mDNS CoIoT & RPC WebSocket)"
       }
     ],
     "/en/smart-home/garage-door-smartphone-esp32-esphome/": [
@@ -5174,8 +5202,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
+        "href": "/en/smart-home/esp32-projects/ws2812-led-lighting/",
+        "title": "WS2812 LED lighting on ESP32 with ESPHome"
       }
     ],
     "/en/smart-home/getting-started/": [
@@ -5222,16 +5250,16 @@
     ],
     "/en/smart-home/home-assistant-green-vs-raspberry-pi-5/": [
       {
-        "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
-      },
-      {
         "href": "/en/smart-home/error/shelly-plus-2pm-cover-calibration/",
         "title": "Shelly Plus 2PM — erreur calibration volet (fins de course)"
       },
       {
         "href": "/en/smart-home/error/homey-mini-thread-br-unavailable/",
         "title": "Homey Mini — ERR_THREAD_BR_UNAVAILABLE (Thread / Matter indisponible)"
+      },
+      {
+        "href": "/en/smart-home/esp32-wiring-gpio-basics/",
+        "title": "ESP32 wiring: GPIO, 3.3 V and pull-ups"
       }
     ],
     "/en/smart-home/home-assistant-jeedom-homey-which-hub/": [
@@ -5454,8 +5482,8 @@
         "title": "Homey Mini — LED rouge fixe, bootloop (alimentation USB-C)"
       },
       {
-        "href": "/en/smart-home/matter-1-6-new-features-nfc-setup/",
-        "title": "Matter 1.6 (17 June 2026): NFC pairing, multi-admin and your smart home"
+        "href": "/en/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Connected garage door: NodOn relay and Homey Pro"
       }
     ],
     "/en/smart-home/robot-vacuum-navigation-lidar-camera-gyro/": [
@@ -5530,16 +5558,16 @@
     ],
     "/en/smart-home/smart-home-glossary/": [
       {
+        "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
+      },
+      {
         "href": "/en/smart-home/getting-started-guides/",
         "title": "Getting started in home automation: beginner guides hub"
       },
       {
         "href": "/en/smart-home/error/homey-matter-mdns-ipv6/",
         "title": "Homey — Matter pairing failed (0x000005 / mDNS IPv6)"
-      },
-      {
-        "href": "/en/smart-home/raspberry-pi-door-sensor-notification/",
-        "title": "Door reed sensor on Raspberry Pi with phone notifications"
       }
     ],
     "/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/": [
@@ -5600,16 +5628,16 @@
     ],
     "/en/smart-home/solar-outdoor-security-camera-iegeek/": [
       {
+        "href": "/en/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "Hue Motion — LED rouge au passage (Zigbee / pile)"
+      },
+      {
         "href": "/en/smart-home/robot-vacuum-mop-self-cleaning-dock/",
         "title": "Robot vacuum mops: pad types and self-cleaning docks explained"
       },
       {
         "href": "/en/smart-home/install-home-assistant-raspberry-pi-5/",
         "title": "Install Home Assistant on Raspberry Pi 5 (2026 condensed guide)"
-      },
-      {
-        "href": "/en/smart-home/error/arduino-uno-r3-getsync/",
-        "title": "Arduino Uno R3 — avrdude stk500_getsync(): not in sync"
       }
     ],
     "/en/smart-home/spare-parts-sensors-compatible-budget/": [
@@ -5810,16 +5838,16 @@
     ],
     "/es/accesorios-mbot-por-donde-empezar/": [
       {
+        "href": "/es/mblock-que-software/",
+        "title": "mBlock 5, app o Python: ¿qué software para el mBot?"
+      },
+      {
         "href": "/es/marca-makeblock/",
         "title": "Makeblock: nuestra opinión sobre la marca (mBot, mBot2)"
       },
       {
         "href": "/es/mblock-vs-scratch/",
         "title": "mBlock o Scratch: ¿cuál elegir para empezar?"
-      },
-      {
-        "href": "/es/robot-programable-7-anos/",
-        "title": "Robot programable para 7 años: flechas o bloques"
       }
     ],
     "/es/accesorios/": [
@@ -6112,16 +6140,16 @@
     ],
     "/es/descargar-mblock-5-gratis/": [
       {
+        "href": "/es/montaje-conexion-osoyoo-sport-car-v1/",
+        "title": "OSOYOO Sport Car V1.0: montaje y conexión (lección 1, consejos de montaje)"
+      },
+      {
         "href": "/es/domotica/home-assistant-jeedom-homey-que-sistema/",
         "title": "Home Assistant, Jeedom, Homey o caja comercial: ¿qué «cerebro» para la domótica?"
       },
       {
         "href": "/es/domotica/robot-aspirador-navegacion-lidar/",
         "title": "Robot aspirador LiDAR vs cámara: qué cambia (2026)"
-      },
-      {
-        "href": "/es/conecta-4-python-2-gravedad/",
-        "title": "Conecta 4 en Python, capítulo 2: pantalla y gravedad"
       }
     ],
     "/es/domotica/actualizaciones-ota-esphome/": [
@@ -6516,6 +6544,20 @@
         "title": "Matter, Thread, Zigbee o Wi-Fi en 2027: diferencias y qué protocolo elegir"
       }
     ],
+    "/es/domotica/puerta-garaje-rele-nodon-homey/": [
+      {
+        "href": "/es/domotica/robot-aspirador-navegacion-lidar/",
+        "title": "Robot aspirador LiDAR vs cámara: qué cambia (2026)"
+      },
+      {
+        "href": "/es/domotica/glosario-domotica/",
+        "title": "Glosario de domótica: términos esenciales"
+      },
+      {
+        "href": "/es/domotica/que-box-domotica-elegir-principiante/",
+        "title": "Qué box domótica elegir (principiante)"
+      }
+    ],
     "/es/domotica/puerta-garaje-smartphone-esp32-esphome/": [
       {
         "href": "/es/eilik-robot-de-mesa/",
@@ -6728,16 +6770,16 @@
     ],
     "/es/domotica/test-homey-pro-mini-unboxing-instalacion/": [
       {
+        "href": "/es/domotica/puerta-garaje-rele-nodon-homey/",
+        "title": "Puerta de garaje conectada: relé NodOn y Homey Pro"
+      },
+      {
         "href": "/es/domotica/home-assistant-green-vs-raspberry-pi-5/",
         "title": "Home Assistant Green vs Raspberry Pi 5: ¿cuál elegir (2026)?"
       },
       {
         "href": "/es/domotica/raspberry-pi-co2-scd41-home-assistant/",
         "title": "Sensor CO2 SCD41 en Raspberry Pi + Home Assistant: tutorial con código"
-      },
-      {
-        "href": "/es/domotica/flashear-esp32-esphome/",
-        "title": "Flashear un ESP32 con ESPHome (USB)"
       }
     ],
     "/es/domotica/test-homey-pro-unboxing-instalacion/": [
@@ -6960,8 +7002,8 @@
         "title": "Robot programable para 14 años"
       },
       {
-        "href": "/es/montaje-conexion-osoyoo-sport-car-v1/",
-        "title": "OSOYOO Sport Car V1.0: montaje y conexión (lección 1, consejos de montaje)"
+        "href": "/es/actividad-mbot-medir-distancias/",
+        "title": "Actividad mBot: medir distancias (sensor ultrasónico)"
       }
     ],
     "/es/marca-raspberry-pi/": [
@@ -7036,16 +7078,16 @@
     ],
     "/es/mblock-que-software/": [
       {
-        "href": "/es/montaje-conexion-osoyoo-sport-car-v1/",
-        "title": "OSOYOO Sport Car V1.0: montaje y conexión (lección 1, consejos de montaje)"
-      },
-      {
         "href": "/es/robot-programable-12-anos/",
         "title": "Robot programable 12 años: mBot2, ELEGOO o Raspberry Pi 5"
       },
       {
         "href": "/es/domotica/proyectos-esp32-domotica/",
         "title": "10 proyectos ESP32 para domótica con ESPHome y Home Assistant"
+      },
+      {
+        "href": "/es/accesorios-mbot-por-donde-empezar/",
+        "title": "Accesorios mBot: sensores mBuild, packs y extensiones (guía 2026)"
       }
     ],
     "/es/mblock-vs-scratch/": [
@@ -7176,8 +7218,8 @@
     ],
     "/es/montaje-conexion-osoyoo-sport-car-v1/": [
       {
-        "href": "/es/mblock-que-software/",
-        "title": "mBlock 5, app o Python: ¿qué software para el mBot?"
+        "href": "/es/domotica/puerta-garaje-rele-nodon-homey/",
+        "title": "Puerta de garaje conectada: relé NodOn y Homey Pro"
       },
       {
         "href": "/es/python-condiciones-if-else/",
@@ -7386,16 +7428,16 @@
     ],
     "/es/regalo-navidad-robot-educativo-2026/": [
       {
+        "href": "/es/domotica/puerta-garaje-rele-nodon-homey/",
+        "title": "Puerta de garaje conectada: relé NodOn y Homey Pro"
+      },
+      {
         "href": "/es/domotica/repuestos-sensores-compatibles-baratos/",
         "title": "Repuestos Sensores Compatibles Baratos"
       },
       {
         "href": "/es/domotica/proyectos-esp32-domotica/",
         "title": "10 proyectos ESP32 para domótica con ESPHome y Home Assistant"
-      },
-      {
-        "href": "/es/domotica/que-box-domotica-elegir-principiante/",
-        "title": "Qué box domótica elegir (principiante)"
       }
     ],
     "/es/robot-educativo-200-500-euros/": [
@@ -7446,12 +7488,12 @@
         "title": "mBlock 5, app o Python: ¿qué software para el mBot?"
       },
       {
-        "href": "/es/bajadas-de-precio/",
-        "title": "Bajadas DE Precio"
+        "href": "/es/domotica/puerta-garaje-rele-nodon-homey/",
+        "title": "Puerta de garaje conectada: relé NodOn y Homey Pro"
       },
       {
-        "href": "/es/domotica/codigos-error-solucion-zigbee-home-assistant-shelly/",
-        "title": "Codigos Error Solucion Zigbee Home Assistant Shelly"
+        "href": "/es/bajadas-de-precio/",
+        "title": "Bajadas DE Precio"
       }
     ],
     "/es/robot-programable-14-anos/": [
@@ -8246,6 +8288,20 @@
         "title": "Tendenze domotica 2027: CES, mmWave, IA locale ed energia senza abbonamento"
       }
     ],
+    "/it/domotica/porta-garage-rele-nodon-homey/": [
+      {
+        "href": "/it/domotica/porta-garage-connessa/",
+        "title": "Porta Garage Connessa"
+      },
+      {
+        "href": "/it/domotica/tendenze-domotica-2027-ces-mmwave-ia-locale-energia/",
+        "title": "Tendenze domotica 2027: CES, mmWave, IA locale ed energia senza abbonamento"
+      },
+      {
+        "href": "/it/domotica/domotica-in-affitto-senza-lavori/",
+        "title": "Domotica in affitto: cosa si può installare senza lavori?"
+      }
+    ],
     "/it/domotica/porta-garage-smartphone-esp32-esphome/": [
       {
         "href": "/it/domotica/protocolli-domotica-zigbee-wifi-thread-matter/",
@@ -8486,16 +8542,16 @@
     ],
     "/it/domotica/sensore-temperatura-zigbee/": [
       {
+        "href": "/it/domotica/porta-garage-rele-nodon-homey/",
+        "title": "Porta del garage connessa: relè NodOn e Homey Pro"
+      },
+      {
         "href": "/it/domotica/progetti/cancello-elettrico-dal-telefono/",
         "title": "Aprire un cancello elettrico dal telefono"
       },
       {
         "href": "/it/domotica/miglior-chiavetta-zigbee-home-assistant/",
         "title": "Miglior chiavetta Zigbee per Home Assistant (2026): confronto"
-      },
-      {
-        "href": "/it/domotica/matrice-compatibilita-home-assistant-homey-zigbee-matter/",
-        "title": "Matrice Compatibilita Home Assistant Homey Zigbee Matter"
       }
     ],
     "/it/domotica/telecamera-esterna-solare-iegeek/": [
@@ -8546,12 +8602,12 @@
         "title": "Robot aspirapolvere compatibile con Home Assistant: marche e integrazione"
       },
       {
-        "href": "/it/domotica/robot-lavapavimenti-stazione-autopulente/",
-        "title": "Robot lavapavimenti: mop e stazioni autopulenti"
+        "href": "/it/domotica/porta-garage-rele-nodon-homey/",
+        "title": "Porta del garage connessa: relè NodOn e Homey Pro"
       },
       {
-        "href": "/it/domotica/basi-cablaggio-esp32-gpio/",
-        "title": "Cablaggio ESP32: GPIO, 3,3 V, pull-up"
+        "href": "/it/domotica/robot-lavapavimenti-stazione-autopulente/",
+        "title": "Robot lavapavimenti: mop e stazioni autopulenti"
       }
     ],
     "/it/domotica/unboxing-kit-electrohobby-esp32/": [
@@ -8886,8 +8942,8 @@
         "title": "Forza Quattro in Python, capitolo 2: visualizzazione e gravità"
       },
       {
-        "href": "/it/primo-programma-mbot/",
-        "title": "Primo programma mBot in mBlock 5 (passo passo)"
+        "href": "/it/robot-programmabile-5-anni/",
+        "title": "Robot a 5 anni senza schermo: Botley, Bee-Bot o Code & Go"
       }
     ],
     "/it/mblock-bluetooth-problemi/": [
@@ -9470,12 +9526,12 @@
         "title": "10 progetti ESP32 per la domotica con ESPHome e Home Assistant"
       },
       {
-        "href": "/it/domotica/basi-cablaggio-esp32-gpio/",
-        "title": "Cablaggio ESP32: GPIO, 3,3 V, pull-up"
+        "href": "/it/domotica/porta-garage-rele-nodon-homey/",
+        "title": "Porta del garage connessa: relè NodOn e Homey Pro"
       },
       {
-        "href": "/it/mblock-bluetooth-problemi/",
-        "title": "mBlock Bluetooth: il mBot non si connette (soluzioni)"
+        "href": "/it/domotica/basi-cablaggio-esp32-gpio/",
+        "title": "Cablaggio ESP32: GPIO, 3,3 V, pull-up"
       }
     ],
     "/it/scaricare-mblock-5-gratis/": [
@@ -9632,6 +9688,28 @@
         "title": "Kit robotique adulte et débutant : lequel choisir en 2026"
       }
     ],
+    "/nl/garage-deur-nodon-homey/": [
+      {
+        "href": "/nl/unboxing-kit-electrohobby-esp32/",
+        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+      },
+      {
+        "href": "/nl/prijsdalingen/hoe-we-meten/",
+        "title": "Hoe prijsdalingen worden gemeten"
+      },
+      {
+        "href": "/nl/lego-education-merk/",
+        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/partners/",
+        "title": "Partners — samenwerkingen per markt"
+      }
+    ],
     "/nl/": [
       {
         "href": "/nl/prijsdalingen/hoe-we-meten/",
@@ -9646,12 +9724,12 @@
         "title": "Partners — samenwerkingen per markt"
       },
       {
-        "href": "/nl/lego-education-merk/",
-        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
-        "href": "/nl/prijsdalingen/",
-        "title": "Prijsdalingen bij partners"
+        "href": "/nl/lego-education-merk/",
+        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
       }
     ],
     "/nl/lego-education-merk/": [
@@ -9668,12 +9746,12 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
-        "href": "/nl/unboxing-kit-electrohobby-esp32/",
-        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
       }
     ],
     "/nl/partners/": [
@@ -9690,18 +9768,22 @@
         "title": "Prijsdalingen bij partners"
       },
       {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
-        "href": "/nl/unboxing-kit-electrohobby-esp32/",
-        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
       }
     ],
     "/nl/prijsdalingen/hoe-we-meten/": [
       {
         "href": "/nl/lego-education-merk/",
         "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+      },
+      {
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
         "href": "/nl/prijsdalingen/",
@@ -9714,10 +9796,6 @@
       {
         "href": "/nl/partners/",
         "title": "Partners — samenwerkingen per markt"
-      },
-      {
-        "href": "/nl/unboxing-kit-electrohobby-esp32/",
-        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
       }
     ],
     "/nl/prijsdalingen/": [
@@ -9734,12 +9812,12 @@
         "title": "Educatieve robots — gidsen, robots en programmeren"
       },
       {
-        "href": "/nl/prijsdalingen/hoe-we-meten/",
-        "title": "Hoe prijsdalingen worden gemeten"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
-        "href": "/nl/unboxing-kit-electrohobby-esp32/",
-        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+        "href": "/nl/prijsdalingen/hoe-we-meten/",
+        "title": "Hoe prijsdalingen worden gemeten"
       }
     ],
     "/nl/unboxing-kit-electrohobby-esp32/": [
@@ -9756,12 +9834,12 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
-        "href": "/nl/partners/",
-        "title": "Partners — samenwerkingen per markt"
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
       }
     ],
     "/outil-quel-robot-enfant/": [
@@ -9798,12 +9876,12 @@
         "title": "Carnet Todo en Python (5/6) — persistance et robustesse"
       },
       {
-        "href": "/marque-makeblock/",
-        "title": "Makeblock : avis marque (mBot, mBot2, Codey Rocky)"
+        "href": "/domotique/porte-garage-connectee-nodon-homey/",
+        "title": "Porte de garage connectée : relais NodOn et Homey Pro"
       },
       {
-        "href": "/domotique/code-erreur/aqara-interview-sleep/",
-        "title": "Aqara — interview failed (capteur endormi)"
+        "href": "/marque-makeblock/",
+        "title": "Makeblock : avis marque (mBot, mBot2, Codey Rocky)"
       }
     ],
     "/partenariat/": [
@@ -12434,12 +12512,12 @@
         "title": "Shelly — ERR_OVERTEMP (> 95 °C, boîte d’encastrement)"
       },
       {
-        "href": "/domotique/code-erreur/aqara-thermostat-e1-e2/",
-        "title": "Aqara Thermostat T1 — code E1 / E2 (vanne M30)"
+        "href": "/domotique/code-erreur/hue-bridge-rules-full/",
+        "title": "Hue Bridge — mémoire saturée (RulesFull / 50 lampes)"
       },
       {
-        "href": "/domotique/code-erreur/shelly-offline/",
-        "title": "Shelly — « Device offline » / injoignable"
+        "href": "/domotique/code-erreur/aqara-thermostat-e1-e2/",
+        "title": "Aqara Thermostat T1 — code E1 / E2 (vanne M30)"
       }
     ],
     "/domotique/flasher-code-esp32-esphome/": [
@@ -12598,16 +12676,16 @@
     ],
     "/domotique/meilleur-dongle-zigbee-home-assistant/": [
       {
+        "href": "/domotique/code-erreur/hue-bridge-rules-full/",
+        "title": "Hue Bridge — mémoire saturée (RulesFull / 50 lampes)"
+      },
+      {
         "href": "/domotique/secours-electrique-home-assistant-onduleur-station-ecoflow-shelly/",
         "title": "Secours électrique domotique (Home Assistant, Homey, box Internet) : calculer l'autonomie réelle et automatiser sur coupure avec Shelly et station EcoFlow / ALLPOWERS"
       },
       {
         "href": "/domotique/code-erreur/arduino-uno-r4-bossac-dfu/",
         "title": "Arduino Uno R4 WiFi — erreur bossac / mode DFU"
-      },
-      {
-        "href": "/domotique/code-erreur/aqara-thermostat-e1-e2/",
-        "title": "Aqara Thermostat T1 — code E1 / E2 (vanne M30)"
       }
     ],
     "/domotique/mises-a-jour-ota-esphome/": [
@@ -12652,6 +12730,20 @@
         "title": "mBlock / Arduino — stk500_getsync(): not in sync"
       }
     ],
+    "/domotique/porte-garage-connectee-nodon-homey/": [
+      {
+        "href": "/domotique/erreurs-debutant-domotique-faq/",
+        "title": "Erreurs de débutant en domotique (FAQ)"
+      },
+      {
+        "href": "/domotique/maison-connectee-2027-comparatif-home-assistant-homey-jeedom-alexa/",
+        "title": "Maison connectée 2027 : Home Assistant, Homey, Jeedom ou Alexa — comparatif"
+      },
+      {
+        "href": "/domotique/code-erreur/arduino-uno-r3-getsync/",
+        "title": "Arduino Uno R3 — avrdude stk500_getsync(): not in sync"
+      }
+    ],
     "/domotique/premieres-automatisations-domotique/": [
       {
         "href": "/domotique/rubrique/debuter/",
@@ -12676,8 +12768,8 @@
         "title": "Shelly Plus 2PM — erreur calibration volet (fins de course)"
       },
       {
-        "href": "/domotique/code-erreur/hue-bridge-rules-full/",
-        "title": "Hue Bridge — mémoire saturée (RulesFull / 50 lampes)"
+        "href": "/domotique/code-erreur/mbot-motor-reverse/",
+        "title": "mBot — moteur qui tourne à l’envers"
       }
     ],
     "/domotique/prise-connectee-zigbee-home-assistant/": [
@@ -15178,8 +15270,8 @@
         "title": "Arduino"
       },
       {
-        "href": "/uk/python-battleship-2-grid-display/",
-        "title": "Python Battleship 2 Grid Display"
+        "href": "/uk/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/ca/10-free-mbot-classroom-projects/": [
@@ -15192,8 +15284,8 @@
         "title": "Arduino"
       },
       {
-        "href": "/ca/python-battleship-2-grid-display/",
-        "title": "Python Battleship 2 Grid Display"
+        "href": "/ca/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/uk/arduino-c-conditions-sensors/": [
@@ -16304,8 +16396,8 @@
         "title": "Robot Vacuums"
       },
       {
-        "href": "/uk/smart-home/error/shelly-mdns-coiot-lost/",
-        "title": "Shelly Mdns Coiot Lost"
+        "href": "/uk/best-educational-robot-2026/",
+        "title": "Best Educational Robot 2026"
       }
     ],
     "/ca/educational-robot-under-50/": [
@@ -16318,8 +16410,8 @@
         "title": "Robot Vacuums"
       },
       {
-        "href": "/ca/smart-home/error/shelly-mdns-coiot-lost/",
-        "title": "Shelly Mdns Coiot Lost"
+        "href": "/ca/best-educational-robot-2026/",
+        "title": "Best Educational Robot 2026"
       }
     ],
     "/uk/educational-robots-2026-2027-calendar-buying-guide/": [
@@ -20260,8 +20352,8 @@
         "title": "Homey PRO Mini Unboxing Setup"
       },
       {
-        "href": "/uk/smart-home/robot-vacuums/",
-        "title": "Robot Vacuums"
+        "href": "/uk/smart-home/error/aqara-thermostat-calibration/",
+        "title": "Aqara Thermostat Calibration"
       }
     ],
     "/ca/smart-home/esp32-wiring-gpio-basics/": [
@@ -20274,8 +20366,8 @@
         "title": "Homey PRO Mini Unboxing Setup"
       },
       {
-        "href": "/ca/smart-home/robot-vacuums/",
-        "title": "Robot Vacuums"
+        "href": "/ca/smart-home/error/aqara-thermostat-calibration/",
+        "title": "Aqara Thermostat Calibration"
       }
     ],
     "/uk/smart-home/esphome-ota-updates/": [
@@ -20372,8 +20464,8 @@
         "title": "Sonoff Zbdongle Ezsp Ember Zbdongle E"
       },
       {
-        "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
+        "href": "/uk/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/",
+        "title": "Smart Home Protocols Zigbee Wifi Thread Matter"
       }
     ],
     "/ca/smart-home/flash-esp32-esphome/": [
@@ -20386,8 +20478,36 @@
         "title": "Sonoff Zbdongle Ezsp Ember Zbdongle E"
       },
       {
-        "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
+        "href": "/ca/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/",
+        "title": "Smart Home Protocols Zigbee Wifi Thread Matter"
+      }
+    ],
+    "/uk/smart-home/garage-door-nodon-relay-homey/": [
+      {
+        "href": "/uk/smart-home/robot-vacuums/",
+        "title": "Robot Vacuums"
+      },
+      {
+        "href": "/uk/smart-home/error/tapo-p110-klap-1002/",
+        "title": "Tapo P110 Klap 1002"
+      },
+      {
+        "href": "/uk/smart-home/error/shelly-mdns-coiot-lost/",
+        "title": "Shelly Mdns Coiot Lost"
+      }
+    ],
+    "/ca/smart-home/garage-door-nodon-relay-homey/": [
+      {
+        "href": "/ca/smart-home/robot-vacuums/",
+        "title": "Robot Vacuums"
+      },
+      {
+        "href": "/ca/smart-home/error/tapo-p110-klap-1002/",
+        "title": "Tapo P110 Klap 1002"
+      },
+      {
+        "href": "/ca/smart-home/error/shelly-mdns-coiot-lost/",
+        "title": "Shelly Mdns Coiot Lost"
       }
     ],
     "/uk/smart-home/garage-door-smartphone-esp32-esphome/": [
@@ -20428,8 +20548,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
+        "href": "/uk/smart-home/esp32-projects/ws2812-led-lighting/",
+        "title": "Ws2812 LED Lighting"
       }
     ],
     "/ca/smart-home/getting-started-guides/": [
@@ -20442,8 +20562,8 @@
         "title": "Error Codes Troubleshooting Zigbee Home Assistant Shelly"
       },
       {
-        "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
+        "href": "/ca/smart-home/esp32-projects/ws2812-led-lighting/",
+        "title": "Ws2812 LED Lighting"
       }
     ],
     "/uk/smart-home/getting-started/": [
@@ -20532,23 +20652,19 @@
     ],
     "/uk/smart-home/home-assistant-green-vs-raspberry-pi-5/": [
       {
-        "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
-      },
-      {
         "href": "/uk/smart-home/error/shelly-plus-2pm-cover-calibration/",
         "title": "Shelly Plus 2PM Cover Calibration"
       },
       {
         "href": "/uk/smart-home/error/homey-mini-thread-br-unavailable/",
         "title": "Homey Mini Thread BR Unavailable"
+      },
+      {
+        "href": "/uk/smart-home/esp32-wiring-gpio-basics/",
+        "title": "Esp32 Wiring Gpio Basics"
       }
     ],
     "/ca/smart-home/home-assistant-green-vs-raspberry-pi-5/": [
-      {
-        "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
-        "title": "HUE Motion RED LED Zigbee"
-      },
       {
         "href": "/ca/smart-home/error/shelly-plus-2pm-cover-calibration/",
         "title": "Shelly Plus 2PM Cover Calibration"
@@ -20556,6 +20672,10 @@
       {
         "href": "/ca/smart-home/error/homey-mini-thread-br-unavailable/",
         "title": "Homey Mini Thread BR Unavailable"
+      },
+      {
+        "href": "/ca/smart-home/esp32-wiring-gpio-basics/",
+        "title": "Esp32 Wiring Gpio Basics"
       }
     ],
     "/uk/smart-home/home-assistant-jeedom-homey-which-hub/": [
@@ -20988,8 +21108,8 @@
         "title": "Homey Mini Bootloop USB"
       },
       {
-        "href": "/uk/smart-home/matter-1-6-new-features-nfc-setup/",
-        "title": "Matter 1 6 NEW Features NFC Setup"
+        "href": "/uk/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/ca/smart-home/robot-vacuum-mop-self-cleaning-dock/": [
@@ -21002,8 +21122,8 @@
         "title": "Homey Mini Bootloop USB"
       },
       {
-        "href": "/ca/smart-home/matter-1-6-new-features-nfc-setup/",
-        "title": "Matter 1 6 NEW Features NFC Setup"
+        "href": "/ca/smart-home/garage-door-nodon-relay-homey/",
+        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/uk/smart-home/robot-vacuum-navigation-lidar-camera-gyro/": [
@@ -21148,19 +21268,23 @@
     ],
     "/uk/smart-home/smart-home-glossary/": [
       {
+        "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "HUE Motion RED LED Zigbee"
+      },
+      {
         "href": "/uk/smart-home/getting-started-guides/",
         "title": "Getting Started Guides"
       },
       {
         "href": "/uk/smart-home/error/homey-matter-mdns-ipv6/",
         "title": "Homey Matter Mdns Ipv6"
-      },
-      {
-        "href": "/uk/smart-home/raspberry-pi-door-sensor-notification/",
-        "title": "Raspberry PI Door Sensor Notification"
       }
     ],
     "/ca/smart-home/smart-home-glossary/": [
+      {
+        "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "HUE Motion RED LED Zigbee"
+      },
       {
         "href": "/ca/smart-home/getting-started-guides/",
         "title": "Getting Started Guides"
@@ -21168,10 +21292,6 @@
       {
         "href": "/ca/smart-home/error/homey-matter-mdns-ipv6/",
         "title": "Homey Matter Mdns Ipv6"
-      },
-      {
-        "href": "/ca/smart-home/raspberry-pi-door-sensor-notification/",
-        "title": "Raspberry PI Door Sensor Notification"
       }
     ],
     "/uk/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/": [
@@ -21288,19 +21408,23 @@
     ],
     "/uk/smart-home/solar-outdoor-security-camera-iegeek/": [
       {
+        "href": "/uk/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "HUE Motion RED LED Zigbee"
+      },
+      {
         "href": "/uk/smart-home/robot-vacuum-mop-self-cleaning-dock/",
         "title": "Robot Vacuum MOP Self Cleaning Dock"
       },
       {
         "href": "/uk/smart-home/install-home-assistant-raspberry-pi-5/",
         "title": "Install Home Assistant Raspberry PI 5"
-      },
-      {
-        "href": "/uk/smart-home/error/arduino-uno-r3-getsync/",
-        "title": "Arduino UNO R3 Getsync"
       }
     ],
     "/ca/smart-home/solar-outdoor-security-camera-iegeek/": [
+      {
+        "href": "/ca/smart-home/error/hue-motion-red-led-zigbee/",
+        "title": "HUE Motion RED LED Zigbee"
+      },
       {
         "href": "/ca/smart-home/robot-vacuum-mop-self-cleaning-dock/",
         "title": "Robot Vacuum MOP Self Cleaning Dock"
@@ -21308,10 +21432,6 @@
       {
         "href": "/ca/smart-home/install-home-assistant-raspberry-pi-5/",
         "title": "Install Home Assistant Raspberry PI 5"
-      },
-      {
-        "href": "/ca/smart-home/error/arduino-uno-r3-getsync/",
-        "title": "Arduino UNO R3 Getsync"
       }
     ],
     "/uk/smart-home/spare-parts-sensors-compatible-budget/": [
@@ -23800,7 +23920,7 @@
     ]
   },
   "stats": {
-    "pagesWithSupplement": 1578,
+    "pagesWithSupplement": 1586,
     "b09InKnown": 63
   }
 }

@@ -1,0 +1,158 @@
+---
+layout: ../../../layouts/EnPost.astro
+title: "Connected garage door: NodOn relay and Homey Pro"
+description: "Hands-on: a NodOn SIN-4-1-20 Zigbee relay wired in parallel with the original button of a Tubauto door, controlled from Homey Pro, with an Aqara sensor."
+updated: "20 November 2026"
+heroImage: "/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Also available in [French](/domotique/porte-garage-connectee-nodon-homey/).*
+
+*Tried at home on 20 November 2026.*
+
+I had already set up the [Homey Pro](/en/smart-home/homey-pro-unboxing-setup/) at home, with the idea of using it first to **open and close my garage door**. That part is now done: a **NodOn SIN-4-1-20** Zigbee relay (Multifunction Relay Switch, firmware 3.13.0-3.1.4) drives the original push-button, and an **Aqara MCCGQ11LM** door sensor reports whether the door is open or closed.
+
+The motor is a **Tubauto ProCom** (part 4512433) on a **sectional door**. A wall push-button was already wired to a pair of spring terminals on the board. I did not replace that button: the relay simply closes the same contact, in parallel.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Nameplate of the Tubauto ProCom motor, part 4512433" caption="The Tubauto ProCom motor nameplate, part 4512433." />
+
+This wiring was done in France, on a 230 V supply (brown on L, blue on N). If you are not comfortable with mains voltage, ask a qualified electrician. If you would rather use an ESP32 and ESPHome, I have already written up another route: [open a garage door from a smartphone](/en/smart-home/garage-door-smartphone-esp32-esphome/). Here everything goes through Homey and Zigbee. For the protocol vocabulary, see [Zigbee, Wi-Fi, Thread or Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/).
+
+## The kit
+
+- the **NodOn SIN-4-1-20** relay (one channel, dry contact, no energy metering);
+- the **Homey Pro**, already running;
+- the **Aqara MCCGQ11LM** door and window sensor;
+- a 230 V mains lead with a plug;
+- a weatherproof junction box, fixed to the ceiling next to the motor's socket.
+
+<ProductBox
+  productId="nodon-sin-4-1-20"
+  name="NodOn SIN-4-1-20 — Zigbee multifunction relay switch"
+  asin="B09B7TBSP1"
+  image="/images/domotique/porte-garage-nodon-homey/nodon-sin-4-1-20-produit.webp"
+  description="One-channel Zigbee 3.0 relay with a dry-contact output, used here in parallel with a garage-door push-button."
+  pros={['Dry contact, suitable for a garage-door button', 'Pulse mode can be set in Homey', 'Also acts as a Zigbee router']}
+  cons={['Mains powered: isolate the supply before wiring', 'IP20 housing: protect it in a plant room or garage']}
+  officialUrl="https://nodon.fr/en/products/zigbee-multifunction-relay-switch"
+  lang="en"
+/>
+
+## Safety, before you touch any wires
+
+The module is supplied at **mains voltage**. I **isolated the supply** for the whole of the wiring, and I only plugged it back in once the terminals were tight, with no bare copper showing. If that is not familiar work for you, have an electrician do it.
+
+I also advise against a flow that would **close the door on its own**, with nobody watching what is underneath. A notification, then a manual confirmation, is safer.
+
+## The wiring
+
+The NodOn is powered by a mains lead with a plug, in the motor's socket: **blue on N**, **brown on L**. The module sits in a **weatherproof junction box**, fixed to the ceiling next to that socket — a garage is not a living room, and the box keeps the module off the open air.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn SIN-4-1-20 relay sitting in the open junction box, before wiring" caption="The NodOn module in the box, before wiring." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Ceiling socket being wired, above the grey junction box, before closing" caption="The ceiling socket being wired, just above the junction box." />
+
+The relay's **dry contact** (the two terminals on the right, with the relay symbol) is wired **in parallel** with the push-button terminals: its two wires go into the **same spring terminals**, next to the button's own wires. After that, the original button still works — I tested it again before closing the box.
+
+On this board, a **neighbouring pair of terminals** was left unused. It may be a safety input or a photocell: I did not connect the relay there, because I did not have the manual to hand.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Tubauto ProCom motor board, with the spring terminals and the neighbouring terminal block" caption="The ProCom motor board: the button terminals, and the unused neighbouring pair." />
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Closed junction box fixed to the garage ceiling, next to the socket of the sectional-door motor" caption="The closed box, on the ceiling, next to the motor's socket." />
+
+## Pairing in Homey
+
+In the Homey app I added the device through the **NodOn** app, choosing **Multifunction Relay Switch** — the "1 RELAY" model without energy metering, not the "METERING" variant. In the French app the same device is labelled "Interrupteur Relais Multifonction".
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Homey app screen listing NodOn devices, with the multifunction relay switch selected" caption="The right choice in the NodOn app: the multifunction relay switch." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Homey pairing screen for the NodOn relay, showing the LED and PRESS diagram" caption="The pairing instructions in Homey: orange LED and the PRESS button." />
+
+To put the module into pairing mode, a **long press** (about five seconds) on the **PRESS** button, with an insulated tool, is usually enough: you release when the LED flashes. A module that has never been paired can also enter that mode on its own for a few minutes after power-up.
+
+A useful anecdote: a **short press** on PRESS operates the relay. During the test, the garage door opened. That is not a fault — it is exactly what the button is for. I closed the door with the original push-button, then started the Homey search at the moment of the long press.
+
+## Pulse mode, with no extra flow
+
+Once the device was added, the advanced settings offered **Pulse mode duration**. **0** turns the mode off; the range is 0 to 65,535. I set **1,000 ms** (one second). It works perfectly: each activation mimics a press on the button, and I did not need a flow that turns the relay on, waits, and turns it off.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-parametres-avances.webp" alt="Homey advanced settings screen for the NodOn relay, with pulse mode among the options" caption="The module's advanced settings in Homey." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-impulsion-1000ms.webp" alt="Homey setting Pulse mode duration set to 1000 milliseconds" caption="1,000 ms: a one-second pulse, like the original button." />
+
+If the motor had not reacted, I would have tried 1,500 ms. That was not needed.
+
+The NodOn also acts as a **Zigbee router**: it stays powered and strengthens the mesh, which is welcome in a garage a little apart from the rest of the house.
+
+## The Aqara sensor
+
+To know whether the door is open or closed, I paired an **Aqara MCCGQ11LM** (Door and Window Sensor) in Homey, through the Aqara app. The sensor body is mounted **at the bottom, on the rail** of the sectional door; the **magnet is on the door**, lined up with the sensor when the door is closed.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara door sensor fixed at the bottom of the sectional garage-door rail, with the magnet on the door panel" caption="The Aqara sensor at the bottom of the rail, the magnet on the door." />
+
+I tested an opening and a closing before tidying up and closing the box.
+
+## The “Garage open > 10 min” flow
+
+The relay moves the door. The sensor is there to warn you. I built a flow **Garage open > 10 min**:
+
+1. **When** the contact alarm turns on (the door opens);
+2. **And** the contact alarm is on;
+3. **Then** a push notification “The garage door is open”, **after 10 minutes**.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-flow-garage-ouvert.webp" alt="Homey flow Garage open for more than 10 minutes, with an opening trigger, a condition and a delayed notification" caption="The alert flow, as it stands in Homey." />
+
+I did receive the test notification.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey push notification saying the garage door is open" caption="The notification received on the phone." />
+
+There is still a limit, and it should be stated clearly: in this **simple flow**, the **And** card is evaluated **when the door opens**, not after the 10 minutes. If you close the door in between, the notification still goes out. The **Advanced Flow** described just below fixes that: the condition is only checked after the delay.
+
+## The advanced flow
+
+The simple flow is enough for a test, but it has the limit stated above. In Homey's **Advanced Flow** editor (on the web), I grouped three branches, starting from the same sensor.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Homey Advanced Flow editor with three branches: an alert after 10 minutes, a night-time alert, and a sensor battery alert" caption="The Advanced Flow, with its three branches." />
+
+**Branch 1.** When “Garage door - Garage: The contact alarm turned on”, a **10-minute** delay, then the condition “The contact alarm is on”. On the **Yes** output, a push notification “Garage open > 10 min”. The condition is checked **after** the delay: if the door was closed in the meantime, no notification is sent. That is exactly what the simple flow did not do.
+
+A pitfall worth knowing: a condition that is **not connected at its input** — for example dropped in with an **And** card, with no wire from the previous card — is **never evaluated**. Every condition must be wired from the step before it.
+
+**Branch 2.** When “The contact alarm turned on”, a Date & Time condition “The time is between 21:00 and 07:00”, then a notification “Garage open between 9 p.m. and 7 a.m.”. A test at **9:01 p.m.** did trigger the alert.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Homey notification “Garage open between 9 p.m. and 7 a.m.”, received at 9:01 p.m." caption="The night-time branch test, at 9:01 p.m." />
+
+**Branch 3.** When “Garage door - Garage: Battery becomes lower than 10%”, a push notification “Garage door sensor battery below 10%”, sent as a **critical alert**.
+
+No automatic closing without anyone watching, for the reasons already given.
+
+## Frequently asked questions
+
+**Does the original button still work?**
+Yes. The relay is in parallel on the same terminals. After the wiring, I tested the wall button again: it still moves the door.
+
+**Do I need a flow to mimic a button press?**
+Not with this module in Homey: **pulse mode at 1,000 ms** is enough.
+
+**Can I use the terminals next to the button?**
+I did not. On this board, the neighbouring pair may be a safety input. Without the ProCom manual, the safer option is to parallel the button.
+
+**Can the door close by itself after 10 minutes?**
+I deliberately left that out. The alert warns you; closing stays a confirmed action, because nobody sees what is passing under the door.
+
+**Further reading**
+
+- [Homey Pro review: unboxing and setup](/en/smart-home/homey-pro-unboxing-setup/)
+- [Open a garage door from a smartphone (ESP32 / ESPHome)](/en/smart-home/garage-door-smartphone-esp32-esphome/)
+- [Zigbee, Wi-Fi, Thread or Matter: which protocol to choose](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/)
+
+Section hub: [smart home](/en/smart-home/).
