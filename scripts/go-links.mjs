@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { searchUrlForAsin } from './asin-search-queries.mjs';
 
 const args = process.argv.slice(2);
 const dist = path.resolve(args.find((a) => !a.startsWith('--')) || 'dist');
@@ -117,9 +118,21 @@ function trimLooseUrl(raw) {
   return s.replace(/"\}.*$/, '').replace(/\)+$/, '');
 }
 
+function dpToSearchIfNeeded(url) {
+	const m = url.match(/amazon\.(com|ca)\/dp\/([^?/]+)/i);
+	if (!m) return url;
+	const tld = m[1].toLowerCase();
+	const host = `www.amazon.${tld}`;
+	const tag = tld === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
+	return searchUrlForAsin(host, tag, m[2]);
+}
+
 function take(url, repaired) {
-  url = normalizeAmazon(trimLooseUrl(url));
-  const c = classify(url);
+	url = normalizeAmazon(trimLooseUrl(url));
+	const c = classify(url);
+	if (c && (c.prefix === 'az-us' || c.prefix === 'az-ca') && /\/dp\//i.test(url)) {
+		url = normalizeAmazon(dpToSearchIfNeeded(url));
+	}
   if (!c) return null;
   const id = urlToId.get(url) || idFor(c.prefix, url);
   const prev = table.get(id);

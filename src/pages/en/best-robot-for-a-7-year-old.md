@@ -26,7 +26,7 @@ Batteries are often not in the box. A tablet or a computer is required for Codey
 | Codey Rocky | mBlock blocks, then Python | Tablet or computer | None | Ready for blocks, wants lights and sounds |
 | mBot | mBlock blocks, and Arduino later | Tablet or computer | About 15–20 minutes with an adult | Likes building, and you are there |
 
-**Botley 2.0** still goes further than a first button toy: longer challenges, obstacle detection, black-line following, loops on the remote. It is the right robot if you do not want a tablet yet. A child who is already bored of arrows will want blocks around 8. [Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20) · [Amazon.ca, no affiliate tag](https://www.amazon.ca/s?k=Learning%20Resources%20Botley%202.0).
+**Botley 2.0** still goes further than a first button toy: longer challenges, obstacle detection, black-line following, loops on the remote. It is the right robot if you do not want a tablet yet. A child who is already bored of arrows will want blocks around 8. [Search on Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20).
 
 **Code & Go Robot Mouse** remains the shared, simpler maze. It will feel finished sooner. [Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducatif-20).
 

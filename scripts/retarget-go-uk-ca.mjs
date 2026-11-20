@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { searchUrlForAsin } from './asin-search-queries.mjs';
 
 const dist = path.resolve(process.argv[2] || 'dist');
 const TABLE_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'go-table.json');
@@ -59,6 +60,10 @@ function retargetAmazonUrl(url, loc) {
 	try {
 		const u = new URL(url);
 		if (!/amazon\./i.test(u.hostname)) return url;
+		const dp = u.pathname.match(/\/dp\/([^/]+)/);
+		if (dp && (loc === 'uk' || loc === 'ca')) {
+			return searchUrlForAsin(cfg.host, cfg.tag, dp[1]);
+		}
 		u.hostname = cfg.host;
 		u.searchParams.set('tag', cfg.tag);
 		u.hash = '';

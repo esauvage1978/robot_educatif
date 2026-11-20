@@ -8,6 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { searchUrlForAsin } from './asin-search-queries.mjs';
 
 const TABLE_FILE = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
@@ -53,21 +54,44 @@ function cleanAmazonUrl(url) {
 	return { url: u, changed };
 }
 
+/** Ids US hors prod, suppression explicite autorisée (revue v3). */
+const REMOVABLE_IDS = ['az-us-1ff0be97a8'];
+let removed = 0;
+for (const id of REMOVABLE_IDS) {
+	if (links[id]) {
+		delete links[id];
+		removed++;
+		fixed++;
+	}
+}
+
 for (const [id, entry] of Object.entries(links)) {
 	if (!entry?.url) continue;
 	const { url, changed } = cleanAmazonUrl(entry.url);
-	if (!changed) continue;
-	entry.url = url;
-	if (entry.tag === 'roboteducat0c-21') entry.tag = 'roboteducat07-21';
-	if (/amazon\.it/i.test(entry.url) && (entry.tag === 'roboteducatif-21' || entry.tag === 'roboteducat00-21')) {
-		entry.tag = 'roboteducat0f-21';
+	if (changed) {
+		entry.url = url;
+		if (entry.tag === 'roboteducat0c-21') entry.tag = 'roboteducat07-21';
+		if (/amazon\.it/i.test(entry.url) && (entry.tag === 'roboteducatif-21' || entry.tag === 'roboteducat00-21')) {
+			entry.tag = 'roboteducat0f-21';
+		}
+		fixed++;
 	}
-	fixed++;
+	if (!/^az-(us|ca)-/.test(id) || !/\/dp\//i.test(entry.url)) continue;
+	const m = entry.url.match(/\/\/(www\.)?amazon\.(com|ca)\/dp\/([^?/]+)/i);
+	if (!m) continue;
+	const host = `www.amazon.${m[2].toLowerCase()}`;
+	const tag = m[2].toLowerCase() === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
+	const next = searchUrlForAsin(host, tag, m[3]);
+	if (next !== entry.url) {
+		entry.url = next;
+		entry.tag = tag;
+		fixed++;
+	}
 }
 
 const idCountAfter = Object.keys(links).length;
-if (idCountAfter < idCountBefore) {
-	console.error('[sanitize-go-table] ERREUR : perte d’ids');
+if (idCountAfter + removed < idCountBefore) {
+	console.error('[sanitize-go-table] ERREUR : perte d’ids inattendue');
 	process.exit(1);
 }
 if (idCountAfter < 2052) {
