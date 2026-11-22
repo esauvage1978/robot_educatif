@@ -1,0 +1,11 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import BestProgrammableRobotAngloBody from '../../components/BestProgrammableRobotAngloBody.astro';
+import { BEST_PROGRAMMABLE_ROBOT_ANGLO } from '../../data/bestProgrammableRobotAnglo.mjs';
+
+const c = BEST_PROGRAMMABLE_ROBOT_ANGLO.ca;
+---
+
+<EnPost title={c.title} description={c.description} updated={c.updated} lang={c.htmlLang}>
+	<BestProgrammableRobotAngloBody marketKey="ca" />
+</EnPost>

@@ -1,0 +1,17 @@
+---
+import EnPost from '../../../layouts/EnPost.astro';
+import Esp32SmartHomeProjectIdeasBody from '../../../components/Esp32SmartHomeProjectIdeasBody.astro';
+import { ESP32_HUB_FAQ, ESP32_SMART_HOME_HUB_ANGLO } from '../../../data/esp32SmartHomeHubAnglo.mjs';
+
+const c = ESP32_SMART_HOME_HUB_ANGLO.us;
+---
+
+<EnPost
+	title={c.title}
+	description={c.description}
+	updated={c.updated}
+	lang={c.htmlLang}
+	faqSchema={ESP32_HUB_FAQ}
+>
+	<Esp32SmartHomeProjectIdeasBody marketKey="us" />
+</EnPost>
