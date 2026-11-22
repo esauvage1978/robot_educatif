@@ -1,22 +1,16 @@
 /**
  * Image Open Graph pour les fiches code erreur domotique : photo produit réelle (public/), pas SVG.
  */
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import { withImageVersion } from './imageVersion';
+import { publicImageExists } from './publicImageExists';
 
-type ErrorCatalogEntry = {
+export type ErrorCatalogEntry = {
 	product_slug: string | null;
 	applicable_products?: string[];
 };
 
-function publicImageExists(pathname: string): boolean {
-	const clean = pathname.split('?')[0].replace(/^\//, '');
-	return existsSync(join(process.cwd(), 'public', clean));
-}
-
 /**
- * Choisit la première photo produit disponible (products/ puis models/) pour l’entrée catalogue.
+ * Choisit la première photo produit disponible (catalogue, products/, models/) pour l’entrée catalogue.
  */
 export function resolveErrorCodeOgImage(
 	entry: ErrorCatalogEntry,

@@ -14,6 +14,7 @@ import { ARTICLE_AUTHOR } from '../consts';
 import { withBase } from '../lib/siteUrl';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import { resolveDomotiqueToolOgImage } from '../lib/toolPageOgImage.mjs';
 
 interface Props {
 	title: string;
@@ -23,6 +24,8 @@ interface Props {
 	updatedDate?: Date;
 	articlePath: string;
 	hubLabel: string;
+	/** Chemin public /images/... — og:image + twitter:image + JSON-LD (photo produit réelle) */
+	image?: string;
 	/** Pages codes erreurs / pièces détachées (conformité SAV) */
 	repairGuide?: boolean;
 	/** Remplace le fil d’Ariane par défaut (JSON-LD) */
@@ -31,8 +34,6 @@ interface Props {
 	contentProvidesH1?: boolean;
 	/** Fil d’Ariane HTML déjà présent dans le contenu (ex. fiche code erreur). */
 	skipDefaultBreadcrumb?: boolean;
-	/** Chemin public /images/... ou URL absolue — og:image + twitter:image + JSON-LD article */
-	image?: string;
 }
 
 const {
@@ -47,8 +48,9 @@ const {
 	breadcrumbItems,
 	contentProvidesH1 = false,
 	skipDefaultBreadcrumb = false,
-	image,
+	image: imageProp,
 } = Astro.props;
+const toolOgImage = imageProp ?? resolveDomotiqueToolOgImage(articlePath);
 const articleSlug = articlePath.replace(/^\/(fr\/)?/, '').replace(/\/$/, '');
 const formLang = lang === 'fr' ? 'fr' : lang;
 const hubPath =
@@ -84,14 +86,14 @@ const crossLinkVariant =
 
 <html lang={lang === 'fr' ? 'fr' : lang}>
 	<head>
-		<BaseHead title={title} description={description} image={image} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<BaseHead title={title} description={description} image={toolOgImage} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
 		<StructuredDataArticle
 			title={title}
 			description={description}
 			pubDate={pubDate}
 			updatedDate={updatedDate}
 			articleSlug={articleSlug}
-			heroImage={image}
+			heroImage={toolOgImage}
 		/>
 		<StructuredDataBreadcrumb items={breadcrumbJsonLd} />
 		<style>

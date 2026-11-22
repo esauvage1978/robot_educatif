@@ -11,6 +11,7 @@ import GoogleConsentDefault from './GoogleConsentDefault.astro';
 import { expandLangPair, findPair, OMIT_US_HREFLANG } from '../lib/i18n.mjs';
 import { ensureMetaDescription } from '../lib/metaDescription';
 import { fitPageTitle } from '../lib/pageTitle';
+import { resolvePageOgImageFromPath } from '../lib/pageOgImageFromPath.mjs';
 
 const HREFLANG_CODES = {
 	fr: 'fr',
@@ -41,16 +42,23 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title: rawTitle, description: rawDescription, image = FallbackImage, preloadLcpImage, noIndex = false, ogType = 'website', pubDate, updatedDate } = Astro.props;
+const { title: rawTitle, description: rawDescription, image: imageProp, preloadLcpImage, noIndex = false, ogType = 'website', pubDate, updatedDate } = Astro.props;
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const title = fitPageTitle(rawTitle);
 const description = ensureMetaDescription(rawDescription, { title: rawTitle, pathname: Astro.url.pathname });
+const hasExplicitImage =
+	imageProp != null &&
+	imageProp !== '' &&
+	!(typeof imageProp === 'string' &&
+		(imageProp.includes('blog-placeholder') || imageProp.includes('/images/blog-thumbnails/')));
+const autoOgImage = hasExplicitImage ? undefined : resolvePageOgImageFromPath(_p);
+const image = hasExplicitImage ? imageProp : autoOgImage ?? FallbackImage;
 // Handle both ImageMetadata objects and plain string paths
 const imagePath = typeof image === 'string' ? image : (image?.src || FallbackImage.src);
 const ogImageUrl = new URL(imagePath, Astro.site).toString();
 const isIllustration = imagePath.includes('/images/illustrations/');
 const ogW = isIllustration ? '960' : '1200';
 const ogH = isIllustration ? '540' : '630';
-const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const langPair = expandLangPair(findPair(_p));
 const isUk = _p === '/uk' || _p.startsWith('/uk/');
 const isCa = _p === '/ca' || _p.startsWith('/ca/');

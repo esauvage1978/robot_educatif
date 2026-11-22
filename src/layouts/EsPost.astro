@@ -15,6 +15,7 @@ import { reviewPageForPath } from '../lib/reviewOffers.mjs';
 import { findPair, ES_PAGES, slugOf } from '../lib/i18n.mjs';
 import { ES_ASIDE_HUB_LINKS } from '../lib/esAsideHubLinks.mjs';
 import { getIllustration } from '../lib/illustration';
+import { resolveArticleOgImage } from '../lib/articleOgImage.mjs';
 import { withBase } from '../lib/siteUrl';
 import ArticleByline from '../components/ArticleByline.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
@@ -32,10 +33,10 @@ const { pubDate, updatedDate } = guideArticleDates(fm);
 const articleSlug = _p.replace(/^\/es\//, '').replace(/\/$/, '') || 'page';
 const pair = findPair(_p);
 const frSlug = pair && pair.fr ? slugOf(pair.fr) : '';
+const _n = _p.endsWith('/') ? _p : _p + '/';
 const realHero = typeof fm.heroImage === 'string' && fm.heroImage.trim() ? fm.heroImage.trim() : '';
 const ill = realHero ? { src: realHero, alt: title, real: true } : (frSlug ? getIllustration(frSlug) : null);
-const ogImage = ill ? ill.src : undefined;
-const _n = _p.endsWith('/') ? _p : _p + '/';
+const ogImage = resolveArticleOgImage({ heroImage: realHero, articleSlug, pathname: _n }) ?? undefined;
 const others = ES_PAGES.filter(
 	(x) =>
 		x.href !== _n &&

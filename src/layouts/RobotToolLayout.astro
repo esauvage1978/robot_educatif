@@ -12,6 +12,7 @@ import EditorialReadAlso from '../components/EditorialReadAlso.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import { withBase } from '../lib/siteUrl';
+import { resolveToolOrHubPathOg } from '../lib/toolPageOgImage.mjs';
 
 interface Props {
 	title: string;
@@ -41,6 +42,8 @@ const {
 const displayDate = updatedDate ?? pubDate;
 const articleSlug = articlePath.replace(/^\/(fr\/)?/, '').replace(/\/$/, '');
 
+const toolOgImage = heroImage ?? resolveToolOrHubPathOg(articlePath);
+
 const breadcrumbJsonLd = [
 	{ name: 'Accueil', url: withBase('/') },
 	{ name: hubLabel, url: withBase(hubPath) },
@@ -50,7 +53,7 @@ const breadcrumbJsonLd = [
 
 <html lang="fr">
 	<head>
-		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<BaseHead title={title} description={description} image={toolOgImage} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
 		<StructuredDataArticle
 			title={title}
 			description={description}
