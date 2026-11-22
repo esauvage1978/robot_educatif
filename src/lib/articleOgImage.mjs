@@ -47,6 +47,8 @@ const PRODUCT_BY_SLUG = {
 	'test-homey-pro-mini-unboxing-instalacion': 'homey-mini',
 	'thymio-3-nouveautes-prix-avis-comparatif-mbot2': 'mbot2',
 	'sphero-blueprint-robotics-presentation-avis-robot-modulaire': 'mbot2',
+	'programmation-enfant-a-quel-age-commencer': 'matatalab',
+	'when-to-start-coding-with-kids': 'matatalab',
 };
 
 const EXTRA_SLUG_IMAGES = {
@@ -131,8 +133,10 @@ function inferFromSlug(slug) {
 	if (s.includes('scratch') || s.includes('mblock')) return accept(PRESET_IMAGES.scratch);
 	if (s.includes('python') || s.includes('pendu') || s.includes('puissance-4') || s.includes('bataille'))
 		return accept(PRESET_IMAGES.mbot2);
-	if (/robot|mbot|programm|stem|arduino|elegoo|cyberpi|codey|matatalab|tale-bot|cadeau|gift|noel|christmas/i.test(s))
+	if (/robot|mbot|arduino|elegoo|cyberpi|codey|matatalab|tale-bot|cadeau|gift|noel|christmas/i.test(s))
 		return accept(PRESET_IMAGES.mbot2);
+	if (/programmation|programmier|programming|codierung/i.test(s) && /enfant|kind|kids|ninos|bambini/i.test(s))
+		return accept(PRESET_IMAGES.matatalab);
 	return undefined;
 }
 
@@ -156,11 +160,11 @@ export function resolveArticleOgImage(opts) {
 		const pair = findPair(normalized);
 		if (pair?.fr) {
 			const frSlug = slugOf(pair.fr);
-			const fromFr = inferFromSlug(frSlug);
-			if (fromFr) return fromFr;
 			const mapped = PRODUCT_BY_SLUG[frSlug];
 			if (mapped && PRESET_IMAGES[mapped]) return accept(PRESET_IMAGES[mapped]);
 			if (mapped && EXTRA_SLUG_IMAGES[mapped]) return accept(EXTRA_SLUG_IMAGES[mapped]);
+			const fromFr = inferFromSlug(frSlug);
+			if (fromFr) return fromFr;
 		}
 	}
 	return undefined;
