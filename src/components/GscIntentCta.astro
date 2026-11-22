@@ -1,0 +1,101 @@
+---
+import ComparisonTable from './ComparisonTable.astro';
+import ProductBox from './ProductBox.astro';
+import { withBase } from '../lib/siteUrl';
+
+interface ProductRef {
+	id: string;
+	badge?: string;
+}
+
+interface IntentConfig {
+	locale: string;
+	market: string;
+	ui: { title: string; tableTitle: string; conclusionTitle: string };
+	pick: ProductRef[];
+	table: ProductRef[];
+	conclusion: ProductRef;
+	skipInjectTable?: boolean;
+	skipInjectPick?: boolean;
+}
+
+interface Props {
+	config: IntentConfig;
+	/** pick | table | conclusion */
+	phase: 'pick' | 'table' | 'conclusion';
+	noelHref?: string;
+}
+
+const { config, phase, noelHref = '' } = Astro.props;
+const { locale, market, ui, pick, table, conclusion, skipInjectTable } = config;
+---
+
+{phase === 'pick' && pick?.length > 0 && (
+	<section class="gsc-intent-pick" aria-label={ui.title}>
+		<h2 class="gsc-intent-heading">{ui.title}</h2>
+		<div class="gsc-intent-pick-grid">
+			{pick.map((item) => (
+				<ProductBox id={item.id} productId={item.id} layout="stack" badge={item.badge || ''} lang={locale} />
+			))}
+		</div>
+	</section>
+)}
+
+{phase === 'table' && !skipInjectTable && table?.length > 0 && (
+	<section class="gsc-intent-table" aria-label={ui.tableTitle}>
+		<ComparisonTable
+			market={market}
+			locale={locale}
+			title={ui.tableTitle}
+			products={table}
+		/>
+	</section>
+)}
+
+{phase === 'conclusion' && conclusion?.id && (
+	<section class="gsc-intent-conclusion" aria-labelledby="gsc-intent-conclusion-title">
+		<h2 id="gsc-intent-conclusion-title">{ui.conclusionTitle}</h2>
+		<ProductBox id={conclusion.id} productId={conclusion.id} badge={conclusion.badge || ''} lang={locale} />
+		{noelHref && (
+			<p class="gsc-intent-noel">
+				<a href={withBase(noelHref)} class="article-cta">
+					{
+						{
+							fr: '→ Guide cadeaux Black Friday / Noël 2026',
+							en: '→ Black Friday & Christmas 2026 gift guide',
+							de: '→ Weihnachtsgeschenke & Black Friday 2026',
+							it: '→ Guida regali Natale e Black Friday 2026',
+							es: '→ Guía regalos Navidad y Black Friday 2026',
+							nl: '→ Kerstcadeau- en Black Friday-gids 2026',
+						}[locale] || '→ Guide cadeaux Black Friday / Noël 2026'
+					}
+				</a>
+			</p>
+		)}
+	</section>
+)}
+
+<style>
+	.gsc-intent-heading {
+		margin: 1.25rem 0 0.75rem;
+		font-size: 1.2rem;
+	}
+	.gsc-intent-pick-grid {
+		display: grid;
+		gap: 0.85rem;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+		margin-bottom: 1.25rem;
+	}
+	.gsc-intent-conclusion {
+		margin: 2rem 0 1rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.gsc-intent-conclusion h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.2rem;
+	}
+	.gsc-intent-noel {
+		margin: 1rem 0 0;
+	}
+</style>

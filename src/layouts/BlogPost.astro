@@ -30,6 +30,9 @@ import { withImageVersion } from '../lib/imageVersion';
 import { withBase } from '../lib/siteUrl';
 import { findPair } from '../lib/i18n.mjs';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import GscIntentCta from '../components/GscIntentCta.astro';
+import { gscIntentForPath, gscIntentForSlug } from '../lib/gscIntentPages.mjs';
+import { NOEL_PATHS } from '../data/noelGuideI18n.mjs';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	/** Obligatoire pour les articles ; sur les pages type « À propos », laisser vide pour des suggestions générales */
@@ -98,6 +101,29 @@ const chooseRobotAges = articleSlug ? CHOOSE_ROBOT_SLUGS[articleSlug] : undefine
 const reviewPage = reviewPageForPath(Astro.url.pathname);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
+const gscIntentRaw = articleSlug ? gscIntentForSlug(articleSlug) : gscIntentForPath(Astro.url.pathname);
+/** Pages déjà structurées avec comparatif en tête : conclusion layout seulement. */
+const GSC_LAYOUT_CONCLUSION_ONLY = new Set(['meilleur-robot-programmable-enfant-2026']);
+const conclusionOnly = Boolean(articleSlug && gscIntentRaw && GSC_LAYOUT_CONCLUSION_ONLY.has(articleSlug));
+const gscIntent = gscIntentRaw
+	? {
+			...gscIntentRaw,
+			skipInjectTable: conclusionOnly || gscIntentRaw.skipInjectTable,
+			skipInjectPick: conclusionOnly,
+		}
+	: null;
+const noelHref =
+	NOEL_PATHS[
+		gscIntent?.market === 'fr'
+			? 'fr'
+			: gscIntent?.locale === 'de'
+				? 'de'
+				: gscIntent?.locale === 'it'
+					? 'it'
+					: gscIntent?.locale === 'es'
+						? 'es'
+						: 'fr'
+	] || NOEL_PATHS.fr;
 
 // Détection automatique du TutorialProductBox selon les catégories
 const categoryLower = categories.map(c => c.toLowerCase());
@@ -265,7 +291,10 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 						</header>
 					)}
 					<div class:list={['prose', articleSlug ? `prose--slug-${articleSlug}` : false]}>
+						{gscIntent && !gscIntent.skipInjectPick && <GscIntentCta config={gscIntent} phase="pick" />}
+						{gscIntent && !gscIntent.skipInjectTable && <GscIntentCta config={gscIntent} phase="table" />}
 						<slot />
+						{gscIntent && <GscIntentCta config={gscIntent} phase="conclusion" noelHref={noelHref} />}
 						<EditorialReadAlso pathname={Astro.url.pathname} />
 						{chooseRobotAges && <ChooseRobotBox ages={chooseRobotAges} />}
 						{tutorialProducts && tutorialProducts.length > 0 && (

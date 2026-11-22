@@ -1,0 +1,182 @@
+---
+import ComparisonTable from './ComparisonTable.astro';
+import { priceMentionForLocale } from '../lib/amazonMarket.mjs';
+import { catalogForMarket } from '../lib/marketProducts.mjs';
+
+interface Props {
+	market?: string;
+	locale?: string;
+}
+
+const pathname = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const locale =
+	Astro.props.locale ||
+	(pathname.startsWith('/de/')
+		? 'de'
+		: pathname.startsWith('/it/')
+			? 'it'
+			: pathname.startsWith('/es/')
+				? 'es'
+				: pathname.startsWith('/nl/')
+					? 'nl'
+					: /^\/(en|uk|ca|us)\//.test(pathname)
+						? 'en'
+						: 'fr');
+const market = Astro.props.market || (locale === 'de' ? 'de' : locale === 'it' ? 'it' : locale === 'es' ? 'es' : locale === 'fr' ? 'fr' : 'uk');
+const { releveAffichage } = await catalogForMarket(market, locale);
+const priceMention = priceMentionForLocale(releveAffichage, locale);
+
+const COPY = {
+	fr: {
+		h2: 'Sélections Black Friday et Noël 2026 par âge et budget',
+		lead: 'Prix indicatifs selon le relevé Amazon du moment ; vérifiez le tarif avant commande.',
+		ages: [
+			{ id: 'a35', title: '3–5 ans', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: '6–8 ans', products: [{ id: 'mbot', badge: 'Premier robot' }] },
+			{ id: 'a911', title: '9–11 ans', products: [{ id: 'mbot2', badge: 'Scratch + Python' }] },
+			{ id: 'a12', title: '12 ans et plus', products: [{ id: 'elegoo-robot-car', badge: 'Arduino' }, { id: 'raspberry-pi-5-8gb', badge: 'Linux / IA' }] },
+			{ id: 'aado', title: 'Ado / adulte débutant', products: [{ id: 'elegoo-penguin', badge: 'Petit budget' }, 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Moins de 30 €', products: ['elegoo-penguin'] },
+			{ title: '30–60 €', products: ['botley-2', 'code-and-go-souris'] },
+			{ title: '60–120 €', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Plus de 120 €', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+	en: {
+		h2: 'Black Friday & Christmas 2026 picks by age and budget',
+		lead: 'Indicative prices from our latest Amazon check — confirm before you buy.',
+		ages: [
+			{ id: 'a35', title: 'Ages 3–5', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: 'Ages 6–8', products: [{ id: 'mbot', badge: 'First coding robot' }] },
+			{ id: 'a911', title: 'Ages 9–11', products: [{ id: 'mbot2', badge: 'Scratch + Python' }] },
+			{ id: 'a12', title: 'Ages 12+', products: [{ id: 'elegoo-robot-car', badge: 'Arduino' }, 'raspberry-pi-5-8gb'] },
+			{ id: 'aado', title: 'Teen / beginner adult', products: ['elegoo-penguin', 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Under $30 / £30', products: ['elegoo-penguin'] },
+			{ title: '$30–60 / £30–60', products: ['botley-2', 'code-and-go-souris'] },
+			{ title: '$60–120 / £60–120', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Over $120 / £120', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+	de: {
+		h2: 'Black Friday & Weihnachten 2026: nach Alter und Budget',
+		lead: 'Richtpreise laut Amazon-Erfassung — Tagespreis prüfen.',
+		ages: [
+			{ id: 'a35', title: '3–5 Jahre', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: '6–8 Jahre', products: ['mbot'] },
+			{ id: 'a911', title: '9–11 Jahre', products: ['mbot2'] },
+			{ id: 'a12', title: '12+ Jahre', products: ['elegoo-robot-car', 'raspberry-pi-5-8gb'] },
+			{ id: 'aado', title: 'Teenager / Einsteiger', products: ['elegoo-penguin', 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Unter 30 €', products: ['elegoo-penguin'] },
+			{ title: '30–60 €', products: ['botley-2'] },
+			{ title: '60–120 €', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Über 120 €', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+	it: {
+		h2: 'Black Friday e Natale 2026: per età e budget',
+		lead: 'Prezzi indicativi dal rilevamento Amazon — controllare il giorno dell’ordine.',
+		ages: [
+			{ id: 'a35', title: '3–5 anni', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: '6–8 anni', products: ['mbot'] },
+			{ id: 'a911', title: '9–11 anni', products: ['mbot2'] },
+			{ id: 'a12', title: '12+ anni', products: ['elegoo-robot-car', 'raspberry-pi-5-8gb'] },
+			{ id: 'aado', title: 'Adolescenti / principianti', products: ['elegoo-penguin', 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Sotto 30 €', products: ['elegoo-penguin'] },
+			{ title: '30–60 €', products: ['botley-2'] },
+			{ title: '60–120 €', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Oltre 120 €', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+	es: {
+		h2: 'Black Friday y Navidad 2026: por edad y presupuesto',
+		lead: 'Precios orientativos según el relevamiento en Amazon.',
+		ages: [
+			{ id: 'a35', title: '3–5 años', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: '6–8 años', products: ['mbot'] },
+			{ id: 'a911', title: '9–11 años', products: ['mbot2'] },
+			{ id: 'a12', title: '12+ años', products: ['elegoo-robot-car', 'raspberry-pi-5-8gb'] },
+			{ id: 'aado', title: 'Adolescente / principiante', products: ['elegoo-penguin', 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Menos de 30 €', products: ['elegoo-penguin'] },
+			{ title: '30–60 €', products: ['botley-2'] },
+			{ title: '60–120 €', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Más de 120 €', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+	nl: {
+		h2: 'Black Friday & Kerst 2026: per leeftijd en budget',
+		lead: 'Richtprijzen volgens onze Amazon-check — controleer vóór aankoop.',
+		ages: [
+			{ id: 'a35', title: '3–5 jaar', products: ['code-and-go-souris', 'botley-2'] },
+			{ id: 'a68', title: '6–8 jaar', products: ['mbot'] },
+			{ id: 'a911', title: '9–11 jaar', products: ['mbot2'] },
+			{ id: 'a12', title: '12+ jaar', products: ['elegoo-robot-car', 'raspberry-pi-5-8gb'] },
+			{ id: 'aado', title: 'Tiener / beginner', products: ['elegoo-penguin', 'raspberry-pi-5-8gb'] },
+		],
+		budgets: [
+			{ title: 'Minder dan € 30', products: ['elegoo-penguin'] },
+			{ title: '€ 30–60', products: ['botley-2'] },
+			{ title: '€ 60–120', products: ['mbot', 'elegoo-robot-car'] },
+			{ title: 'Meer dan € 120', products: ['mbot2', 'raspberry-pi-5-8gb'] },
+		],
+	},
+};
+
+const c = COPY[locale] || COPY.fr;
+---
+
+<section class="noel-matrix" aria-labelledby="noel-matrix-title">
+	<h2 id="noel-matrix-title">{c.h2}</h2>
+	<p class="noel-matrix-lead">{c.lead}</p>
+	{priceMention && <p class="amazon-price-mention">{priceMention}</p>}
+
+	{c.ages.map((block) => (
+		<div>
+			<h3 id={`noel-age-${block.id}`}>{block.title}</h3>
+			<ComparisonTable variant="cards" market={market} locale={locale} title="" products={block.products} />
+		</div>
+	))}
+
+	<h3>{locale === 'fr' ? 'Par budget' : locale === 'de' ? 'Nach Budget' : locale === 'it' ? 'Per budget' : locale === 'es' ? 'Por presupuesto' : locale === 'nl' ? 'Per budget' : 'By budget'}</h3>
+	{c.budgets.map((block) => (
+		<div>
+			<h4>{block.title}</h4>
+			<ComparisonTable variant="cards" market={market} locale={locale} title="" products={block.products} />
+		</div>
+	))}
+</section>
+
+<style>
+	.noel-matrix {
+		margin: 2rem 0;
+		padding: 1.25rem 1rem;
+		border-radius: 14px;
+		background: linear-gradient(135deg, #fff8f0, #f3f8ff);
+		border: 1px solid #e8e0d4;
+	}
+	.noel-matrix h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.35rem;
+	}
+	.noel-matrix-lead {
+		margin: 0 0 1rem;
+		color: #4a5160;
+	}
+	.noel-matrix h3 {
+		margin: 1.5rem 0 0.5rem;
+		font-size: 1.1rem;
+	}
+	.noel-matrix h4 {
+		margin: 1rem 0 0.35rem;
+		font-size: 1rem;
+	}
+</style>

@@ -4,6 +4,7 @@ import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
 import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
 
 const title = 'Educational robot Christmas gifts 2026: Canada guide by age';
 const description =
@@ -26,6 +27,8 @@ const cmp = NOEL_COMPARISON.ca;
 	</p>
 
 	<ComparisonTable market="ca" locale="en" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="ca" locale="en" />
 
 	<p>
 		<strong>Christmas 2026</strong> is a strong time to gift a <strong>programmable robot</strong> instead of another passive

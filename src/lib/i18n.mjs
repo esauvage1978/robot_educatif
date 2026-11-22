@@ -66,6 +66,7 @@ const STATIC_LANG_PAIRS = [
 		de: '/de/lernroboter-weihnachtsgeschenke-2026/',
 		it: '/it/regalo-natale-robot-educativo-2026/',
 		es: '/es/regalo-navidad-robot-educativo-2026/',
+		nl: '/nl/kerstcadeau-leerrobot-2026/',
 	},
 	{
 		fr: '/robot-enfant-4-ans/',

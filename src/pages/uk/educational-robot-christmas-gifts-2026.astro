@@ -1,0 +1,33 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
+import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+
+const title = 'Christmas robot gifts 2026 UK: by age & budget';
+const description =
+	'Black Friday and Christmas 2026: mBot, mBot2, ELEGOO and Raspberry Pi 5 with Amazon.co.uk prices in GBP, photos and age tips.';
+const updated = '22 November 2026';
+const cmp = NOEL_COMPARISON.en;
+---
+
+<EnPost title={title} description={description} updated={updated} lang="en-GB">
+	<AffiliateDisclosure locale="en" />
+
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/uk/">Home</a> · <a href="/uk/best-programmable-robot-for-kids/">Buying guides</a> · Christmas gifts 2026
+	</nav>
+
+	<p>
+		<strong>Christmas 2026</strong> on Amazon.co.uk: indicative <strong>GBP</strong> prices from our latest snapshot — VAT included where listed.
+	</p>
+
+	<ComparisonTable market="uk" locale="en" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="uk" locale="en" />
+
+	<p>
+		<a href="/uk/black-friday/">Black Friday 2026 UK hub</a> · <a href="/uk/price-drops/">Price drops</a>
+	</p>
+</EnPost>

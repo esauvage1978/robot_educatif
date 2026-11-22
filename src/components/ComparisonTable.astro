@@ -9,6 +9,7 @@ import {
 } from '../lib/amazonMarket.mjs';
 import { catalogForMarket } from '../lib/marketProducts.mjs';
 import { withBase } from '../lib/siteUrl';
+import { productAffiliateHref } from '../lib/productGoUrl.mjs';
 import ProductBox from './ProductBox.astro';
 
 interface ProductItem {
@@ -65,20 +66,26 @@ const products = rawList
 	.filter((p): p is NonNullable<typeof p> => p !== null);
 
 const getAmazonUrl = (p: any) => {
+	let fallback: string;
 	if (market === 'fr') {
-		return p.asin
+		fallback = p.asin
 			? `https://www.amazon.fr/dp/${encodeURIComponent(p.asin)}?tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`
 			: `https://www.amazon.fr/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`;
+	} else {
+		fallback = amazonListingUrl({
+			asin: p.asin,
+			query: p.amazonSearchQuery || p.name,
+			market,
+		});
 	}
-	return amazonListingUrl({
-		asin: p.asin,
-		query: p.amazonSearchQuery || p.name,
-		market,
-	});
+	const href = productAffiliateHref({ productId: p.id, market, fallbackHref: fallback });
+	return href.startsWith('/') ? withBase(href) : href;
 };
 
-const getModelHref = (p: any, amzUrl: string) =>
-	market === 'fr' && p.modelGo ? withBase(p.modelGo) : amzUrl;
+const getModelHref = (p: any, amzUrl: string) => {
+	if (p.modelGo) return withBase(p.modelGo);
+	return amzUrl;
+};
 
 const productImg = (p: any) => {
 	if (p.imageAmazon && !p.amazonIndispo) return p.imageAmazon;

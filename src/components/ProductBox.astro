@@ -3,6 +3,7 @@ import productsData from '../data/products.json';
 import { MARKET_CONFIG, amazonListingUrl, marketFromPathname } from '../lib/amazonMarket.mjs';
 import { amazonOffer, amazonSnapshot, priceMarket } from '../lib/amazonPriceStore.mjs';
 import { withBase } from '../lib/siteUrl';
+import { productAffiliateHref } from '../lib/productGoUrl.mjs';
 import Button from './Button.astro';
 
 interface Props {
@@ -202,11 +203,18 @@ const listing = snap?.items?.[finalAsin.toUpperCase()] || null;
 const unavailable = !!(listing && listing.dispo === false);
 
 const searchQuery = product.amazonSearchQuery || product.shortName || product.name || '';
-const amazonUrl = amazonListingUrl({
+const amazonUrlRaw = amazonListingUrl({
 	asin: finalAsin,
 	query: searchQuery,
 	market: affiliateMarket,
 });
+const pidForGo = product.id || lookupId;
+const amazonUrl = productAffiliateHref({
+	productId: pidForGo,
+	market: affiliateMarket,
+	fallbackHref: amazonUrlRaw,
+});
+const toHref = (href: string) => (href.startsWith('/') ? withBase(href) : href);
 
 const culturaUrl = marketCfg.showCultura
 	? (propCulturaUrl !== undefined ? propCulturaUrl : (fromCatalog?.culturaUrl || ''))
@@ -268,7 +276,7 @@ const plainRel = 'noopener';
 
 type ShopLink = { href: string; label: string; sponsored: boolean };
 const primary: ShopLink | null = amazonUrl
-	? { href: amazonUrl, label: unavailable ? ui.amazonListing : (ctaText || ui.amazon), sponsored: true }
+	? { href: toHref(amazonUrl), label: unavailable ? ui.amazonListing : (ctaText || ui.amazon), sponsored: true }
 	: partnerUrl
 		? { href: partnerUrl, label: partnerLabel || ui.maker, sponsored: partnerIsSponsored }
 		: officialUrl

@@ -37,6 +37,15 @@ export const NOEL_COMPARISON = {
 			{ id: 'raspberry-pi-5-8gb', badge: 'Per adolescenti' },
 		],
 	},
+	nl: {
+		title: 'Onze kerstcadeaus 2026',
+		products: [
+			{ id: 'mbot', badge: 'Beste cadeau 8–12 jaar' },
+			{ id: 'mbot2', badge: 'Premium 10–14 jaar' },
+			{ id: 'elegoo-penguin', badge: 'Klein budget' },
+			{ id: 'raspberry-pi-5-8gb', badge: 'Tieners' },
+		],
+	},
 	es: {
 		title: 'Nuestras ideas regalo Navidad 2026',
 		products: [
@@ -72,14 +81,18 @@ export const NOEL_PATHS = {
 	de: '/de/lernroboter-weihnachtsgeschenke-2026/',
 	it: '/it/regalo-natale-robot-educativo-2026/',
 	es: '/es/regalo-navidad-robot-educativo-2026/',
+	nl: '/nl/kerstcadeau-leerrobot-2026/',
 };
 
 export const NOEL_DIST_SLUGS = [
 	'robot-educatif-cadeau-noel-2026',
 	'en/educational-robot-christmas-gifts-2026',
+	'uk/educational-robot-christmas-gifts-2026',
+	'ca/educational-robot-christmas-gifts-2026',
 	'de/lernroboter-weihnachtsgeschenke-2026',
 	'it/regalo-natale-robot-educativo-2026',
 	'es/regalo-navidad-robot-educativo-2026',
+	'nl/kerstcadeau-leerrobot-2026',
 ];
 
 /** Champs catalogue localisés (nom court, âge, points forts) par locale. */

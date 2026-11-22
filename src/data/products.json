@@ -360,5 +360,23 @@
     "partnerUrl": "https://www.sunfounder.com/?ref=acxklqal",
     "prixReleveLe": "04/11/2026 14:02",
     "imageAmazon": "https://m.media-amazon.com/images/I/41ptc+fHxaL._SL500_.jpg"
+  },
+  "roborock-q7-m5": {
+    "id": "roborock-q7-m5",
+    "name": "Roborock Q7 M5",
+    "shortName": "Roborock Q7 M5",
+    "asin": "B0DT4FJJXM",
+    "ages": "Adulte",
+    "languages": ["App mobile", "Home Assistant"],
+    "image": "/images/products/roborock-q7-m5.webp",
+    "pros": [
+      "Navigation LiDAR",
+      "Nettoyage par pièce",
+      "Intégration Home Assistant documentée"
+    ],
+    "description": "Robot aspirateur LiDAR — bon rapport qualité-prix en 2026",
+    "badge": "Notre repère budget",
+    "priceRange": "",
+    "prixReleveLe": "04/11/2026 14:02"
   }
 }

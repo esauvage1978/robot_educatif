@@ -3,6 +3,7 @@ import EnPost from '../../layouts/EnPost.astro';
 import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
 const title = 'Educational robot Christmas gifts 2026: picks by age & budget';
 const description =
 	'Christmas 2026 gift guide for coding robots: mBot, mBot2, ELEGOO Penguin Bot and Raspberry Pi 5 with age tips for parents. Check today’s price on Amazon.com.';
@@ -43,6 +44,8 @@ const cmp = NOEL_COMPARISON.en;
 		title={cmp.title}
 		products={cmp.products}
 	/>
+
+	<NoelFetesGiftMatrix market="us" locale="en" />
 
 	<p>
 		<strong>Christmas 2026</strong> is the moment many families switch from passive screen time to a gift that
