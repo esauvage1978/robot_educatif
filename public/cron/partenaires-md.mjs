@@ -280,14 +280,24 @@ function urlsDe(ligne, marche) {
   return { bouton, officiel };
 }
 
+/** Fiches encore listées sur le sitemap live (nov. 2026) sans retrait documenté — voir scripts/data/sitemap-live-url-treatments.json */
+export const SITEMAP_HISTORIQUE_PARTNER_SLUGS = new Set([
+  'enabot-us',
+  'esseeffe-it',
+  'hifi-regler-de',
+  'paj-gps-es-pt',
+  'paj-gps-france',
+  'paj-gps-italy',
+]);
+
 export function partenairesPublies(registre) {
   const pris = new Set();
   const out = [];
   for (const ligne of registre.lignes || []) {
-    if (!estAccepte(ligne.statut)) continue;
     const marche = marcheDe(ligne.marque);
     let slug = /^amazon/i.test(ligne.marque) && NOMS_AMAZON[marche] ? `amazon-${marche}` : slugifier(nomAffiche(ligne.marque, marche));
     if (!slug) slug = 'partenaire';
+    if (!estAccepte(ligne.statut) && !SITEMAP_HISTORIQUE_PARTNER_SLUGS.has(slug)) continue;
     const mid = (String(ligne.liens || '').match(/awinmid=(\d+)/i) || [])[1] || '';
     if (pris.has(slug)) slug = `${slug}-${mid || '2'}`.slice(0, 60);
     let n = 2;
