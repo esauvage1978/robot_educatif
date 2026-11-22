@@ -31,6 +31,8 @@ interface Props {
 	contentProvidesH1?: boolean;
 	/** Fil d’Ariane HTML déjà présent dans le contenu (ex. fiche code erreur). */
 	skipDefaultBreadcrumb?: boolean;
+	/** Chemin public /images/... ou URL absolue — og:image + twitter:image + JSON-LD article */
+	image?: string;
 }
 
 const {
@@ -45,6 +47,7 @@ const {
 	breadcrumbItems,
 	contentProvidesH1 = false,
 	skipDefaultBreadcrumb = false,
+	image,
 } = Astro.props;
 const articleSlug = articlePath.replace(/^\/(fr\/)?/, '').replace(/\/$/, '');
 const formLang = lang === 'fr' ? 'fr' : lang;
@@ -81,13 +84,14 @@ const crossLinkVariant =
 
 <html lang={lang === 'fr' ? 'fr' : lang}>
 	<head>
-		<BaseHead title={title} description={description} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
+		<BaseHead title={title} description={description} image={image} ogType="article" pubDate={pubDate} updatedDate={updatedDate} />
 		<StructuredDataArticle
 			title={title}
 			description={description}
 			pubDate={pubDate}
 			updatedDate={updatedDate}
 			articleSlug={articleSlug}
+			heroImage={image}
 		/>
 		<StructuredDataBreadcrumb items={breadcrumbJsonLd} />
 		<style>
