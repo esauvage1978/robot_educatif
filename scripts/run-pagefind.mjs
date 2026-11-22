@@ -8,14 +8,18 @@
  * Déploiement : copier tout le contenu de `dist/` sur le serveur, y compris le dossier
  * `dist/pagefind/` (sinon la page Recherche ne charge pas l’UI).
  */
-import { execSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const pagefindCli = path.join(root, 'node_modules', 'pagefind', 'lib', 'runner', 'bin.cjs');
 
-execSync('npx pagefind --site dist --force-language fr', {
+const run = spawnSync(process.execPath, [pagefindCli, '--site', 'dist', '--force-language', 'fr'], {
 	cwd: root,
 	stdio: 'inherit',
-	shell: true,
 });
+
+if (run.status !== 0) {
+	process.exit(run.status ?? 1);
+}

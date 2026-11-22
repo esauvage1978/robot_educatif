@@ -5,33 +5,21 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { loadLegacyAliases } from './go-legacy-lib.mjs';
+import {
+	defaultF41DistDir,
+	loadLegacyAliases,
+	readF41GoTable,
+	slugsFromDist,
+} from './go-legacy-lib.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.resolve(process.argv[2] || 'dist');
-const f41Dist = process.argv[3] || '/tmp/dist-f41';
+const f41Dist = process.argv[3] || defaultF41DistDir();
 const legacy = loadLegacyAliases();
 
-const f41Table = JSON.parse(
-	execSync('git show f41bd1e:scripts/go-table.json', { cwd: ROOT, encoding: 'utf8' }),
-);
+const f41Table = readF41GoTable(ROOT);
 const f41links = f41Table.links || f41Table;
-
-function slugsFromDist(d) {
-	const out = new Set();
-	if (!fs.existsSync(d)) return out;
-	const rg = execSync(
-		`rg -o --no-filename '/go/([a-z0-9][a-z0-9-]*)' "${d}" -g '*.html' || true`,
-		{ encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 },
-	);
-	for (const line of rg.split('\n')) {
-		const m = line.match(/\/go\/([a-z0-9][a-z0-9-]*)/i);
-		if (m) out.add(m[1]);
-	}
-	return out;
-}
 
 const f41s = slugsFromDist(f41Dist);
 const curS = slugsFromDist(dist);

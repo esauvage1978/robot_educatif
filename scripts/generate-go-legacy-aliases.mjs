@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { defaultF41DistDir, readF41GoTable, slugsFromDist } from './go-legacy-lib.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const f41Table = JSON.parse(
-	execSync('git show f41bd1e:scripts/go-table.json', { cwd: ROOT, encoding: 'utf8' }),
-);
+const f41Table = readF41GoTable(ROOT);
 const f41links = f41Table.links || f41Table;
 
-function slugsFromDist(dist) {
-	const s = new Set();
-	const rg = execSync(
-		`rg -o --no-filename '/go/([a-z0-9][a-z0-9-]*)' "${dist}" -g '*.html' || true`,
-		{ encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 },
-	);
-	for (const line of rg.split('\n')) {
-		const m = line.match(/\/go\/([a-z0-9][a-z0-9-]*)/i);
-		if (m) s.add(m[1]);
-	}
-	return s;
-}
-
-const f41Dist = process.argv[2] || '/tmp/dist-f41';
+const f41Dist = process.argv[2] || defaultF41DistDir();
 const curDist = process.argv[3] || path.join(ROOT, 'dist');
 const f41s = slugsFromDist(f41Dist);
 let curs = new Set();
