@@ -62,7 +62,6 @@ export function gscIntentForPath(pathname) {
 		key === 'hub-best-robot' &&
 		(path.includes('/best-programmable-robot-for-kids') || path.includes('/miglior-robot-programmabile-per-bambini'))
 	) {
-		intent.skipInjectPick = true;
 		intent.skipInjectTable = true;
 	}
 	return intent;

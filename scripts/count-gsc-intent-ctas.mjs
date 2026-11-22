@@ -31,7 +31,9 @@ for (const urlPath of paths) {
 		continue;
 	}
 	const html = fs.readFileSync(file, 'utf8');
-	const pick = (html.match(/class="gsc-intent-pick"/g) || []).length;
+	const pick =
+		(html.match(/class="gsc-intent-pick"/g) || []).length +
+		(html.match(/class="gsc-pick-compact"/g) || []).length;
 	const table =
 		(html.match(/class="gsc-intent-table"/g) || []).length +
 		(html.match(/class="comparison-container"/g) || []).length;

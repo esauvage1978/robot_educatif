@@ -30,6 +30,8 @@ interface Props {
 	languages?: string[];
 	/** `stack` : carte étroite (grille). `row` : carte pleine largeur. */
 	layout?: 'row' | 'stack';
+	/** Priorise `/images/products/` au lieu de l’image Amazon distante. */
+	preferLocalImage?: boolean;
 }
 
 const {
@@ -54,6 +56,7 @@ const {
 	ages: propAges,
 	languages: propLanguages,
 	layout = 'row',
+	preferLocalImage = false,
 } = Astro.props;
 
 const UI = {
@@ -247,14 +250,30 @@ if (offer) {
 	priceValue = ui.seePrice;
 }
 
-const checkedOn = (offer || unavailable) && snap?.releveAffichage
+let checkedOn = (offer || unavailable) && snap?.releveAffichage
 	? ui.checked(shortDate(snap.releveAffichage, locale))
 	: '';
+if (!checkedOn && priceMode === 'amount' && product.prixReleveLe) {
+	checkedOn = ui.checked(shortDate(product.prixReleveLe, locale));
+}
+if (priceMode === 'amount' && !checkedOn) {
+	priceMode = 'phrase';
+	priceValue = ui.seePrice;
+}
 
-const imageSrc =
-	!unavailable && !product.amazonIndispo && product.imageAmazon
-		? product.imageAmazon
-		: withBase(image || product.image || product.imageUrl || '/images/products/mbot2.webp');
+const localImg = image || product.image || product.imageUrl || '';
+const imageSrc = (() => {
+	if (preferLocalImage && localImg && !localImg.endsWith('.svg')) {
+		return withBase(localImg);
+	}
+	if (localImg && !localImg.endsWith('.svg')) {
+		return withBase(localImg);
+	}
+	if (!unavailable && !product.amazonIndispo && product.imageAmazon && !String(product.imageAmazon).endsWith('.svg')) {
+		return product.imageAmazon;
+	}
+	return withBase('/images/products/mbot2.webp');
+})();
 
 const prosList: string[] = propPros || product.pros || [];
 const consList: string[] = propCons || product.cons || [];
