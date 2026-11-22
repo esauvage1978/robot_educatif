@@ -5,10 +5,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.resolve(process.argv[2] || 'dist');
 const TABLE = JSON.parse(
-	fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), 'go-table.json'), 'utf8'),
+	fs.readFileSync(path.join(SCRIPT_DIR, 'go-table.json'), 'utf8'),
 );
 const links = TABLE.links || TABLE;
 

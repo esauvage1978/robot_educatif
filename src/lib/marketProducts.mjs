@@ -70,6 +70,9 @@ export async function catalogForMarket(market, locale) {
 		} else if (market === 'us' || market === 'ca') {
 			clone.priceRange = '';
 		}
+		if (market !== 'fr' && typeof clone.priceRange === 'string' && clone.priceRange.includes('€')) {
+			clone.priceRange = '';
+		}
 		out[key] = clone;
 	}
 	return { catalog: out, releveAffichage: meta.releveAffichage || '' };

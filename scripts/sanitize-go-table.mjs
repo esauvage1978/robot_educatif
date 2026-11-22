@@ -9,6 +9,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { searchUrlForAsin } from './asin-search-queries.mjs';
+import { legacyIdSet } from './go-legacy-lib.mjs';
+
+const LEGACY_IDS = legacyIdSet();
 
 const TABLE_FILE = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
@@ -66,6 +69,7 @@ for (const id of REMOVABLE_IDS) {
 }
 
 for (const [id, entry] of Object.entries(links)) {
+	if (LEGACY_IDS.has(id) || entry?.legacyAlias) continue;
 	if (!entry?.url) continue;
 	const { url, changed } = cleanAmazonUrl(entry.url);
 	if (changed) {

@@ -55,7 +55,7 @@ Nessun prezzo nel rilevamento. Consultare il prezzo: [fischertechnik STEM Coding
 
 ### Ohbot v2.1
 
-![Ohbot testa robot educativa](/images/blog/robots-educatif-200-euros-2026/ohbot-robot-educativo.jpg)
+![Ohbot testa robot educativa](/images/blog/robots-educatif-200-euros-2026/ohbot-robot-educatif.jpg)
 
 Ohbot è una testa: espressioni, voce, reazioni, blocchi e a volte Python secondo la versione. Non attraversa la stanza. L’interesse è il dialogo, circa 9–15 anni. Compatibilità PC, Mac o Chromebook: sulla scheda Ohbot 2.1. Nessun prezzo nel rilevamento. Consultare il prezzo: [Ohbot robot educativo](https://www.amazon.it/s?k=Ohbot+robot+educativo&tag=roboteducat0f-21).
 

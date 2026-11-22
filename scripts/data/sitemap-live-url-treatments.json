@@ -1,0 +1,415 @@
+{
+  "description": "Traitement des URL du sitemap live absentes du dist (comparaison index.html) — PR #48",
+  "generated": "2026-11-22",
+  "count": 50,
+  "partnerSlugsRestored": [
+    "enabot-us",
+    "esseeffe-it",
+    "hifi-regler-de",
+    "paj-gps-es-pt",
+    "paj-gps-france",
+    "paj-gps-italy"
+  ],
+  "entries": [
+    {
+      "url": "https://robot-educatif.info/ca/partners/enabot-us/",
+      "path": "ca/partners/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/ca/partners/esseeffe-it/",
+      "path": "ca/partners/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/ca/partners/hifi-regler-de/",
+      "path": "ca/partners/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/ca/partners/paj-gps-es-pt/",
+      "path": "ca/partners/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/ca/partners/paj-gps-france/",
+      "path": "ca/partners/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/ca/partners/paj-gps-italy/",
+      "path": "ca/partners/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/enabot-us/",
+      "path": "de/partner/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/esseeffe-it/",
+      "path": "de/partner/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/hifi-regler-de/",
+      "path": "de/partner/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/paj-gps-es-pt/",
+      "path": "de/partner/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/paj-gps-france/",
+      "path": "de/partner/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/de/partner/paj-gps-italy/",
+      "path": "de/partner/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/enabot-us/",
+      "path": "en/partners/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/esseeffe-it/",
+      "path": "en/partners/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/hifi-regler-de/",
+      "path": "en/partners/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/paj-gps-es-pt/",
+      "path": "en/partners/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/paj-gps-france/",
+      "path": "en/partners/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/en/partners/paj-gps-italy/",
+      "path": "en/partners/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/enabot-us/",
+      "path": "es/socios/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/esseeffe-it/",
+      "path": "es/socios/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/hifi-regler-de/",
+      "path": "es/socios/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/paj-gps-es-pt/",
+      "path": "es/socios/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/paj-gps-france/",
+      "path": "es/socios/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/es/socios/paj-gps-italy/",
+      "path": "es/socios/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/enabot-us/",
+      "path": "it/partner/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/esseeffe-it/",
+      "path": "it/partner/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/hifi-regler-de/",
+      "path": "it/partner/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/paj-gps-es-pt/",
+      "path": "it/partner/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/paj-gps-france/",
+      "path": "it/partner/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/it/partner/paj-gps-italy/",
+      "path": "it/partner/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/enabot-us/",
+      "path": "nl/partners/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/esseeffe-it/",
+      "path": "nl/partners/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/hifi-regler-de/",
+      "path": "nl/partners/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/paj-gps-es-pt/",
+      "path": "nl/partners/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/paj-gps-france/",
+      "path": "nl/partners/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/nl/partners/paj-gps-italy/",
+      "path": "nl/partners/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/enabot-us/",
+      "path": "partenaires/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/esseeffe-it/",
+      "path": "partenaires/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/hifi-regler-de/",
+      "path": "partenaires/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/paj-gps-es-pt/",
+      "path": "partenaires/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/paj-gps-france/",
+      "path": "partenaires/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/partenaires/paj-gps-italy/",
+      "path": "partenaires/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/enabot-us/",
+      "path": "uk/partners/enabot-us",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (enabot-us) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/esseeffe-it/",
+      "path": "uk/partners/esseeffe-it",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (esseeffe-it) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/hifi-regler-de/",
+      "path": "uk/partners/hifi-regler-de",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (hifi-regler-de) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/paj-gps-es-pt/",
+      "path": "uk/partners/paj-gps-es-pt",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-es-pt) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/paj-gps-france/",
+      "path": "uk/partners/paj-gps-france",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-france) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/uk/partners/paj-gps-italy/",
+      "path": "uk/partners/paj-gps-italy",
+      "treatment": "restore",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "PARTENAIRES.md statut « en attente » (paj-gps-italy) ; page en ligne HTTP 200 ; aucun retrait documenté (≠ Gotodirect PR #33, commit f202b2e)"
+    },
+    {
+      "url": "https://robot-educatif.info/downloads/mbot/10-projets-mbot-classe.pdf",
+      "path": "downloads/mbot/10-projets-mbot-classe.pdf",
+      "treatment": "dist_present",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "Fichier statique public/downloads/mbot/ ; présent au build dist/ ; listé sitemap live ; aucune suppression documentée"
+    },
+    {
+      "url": "https://robot-educatif.info/downloads/mbot/corriges-diagrammes.pdf",
+      "path": "downloads/mbot/corriges-diagrammes.pdf",
+      "treatment": "dist_present",
+      "redirectTarget": null,
+      "httpLive2026-11-22": 200,
+      "evidence": "Fichier statique public/downloads/mbot/ ; présent au build dist/ ; listé sitemap live ; aucune suppression documentée"
+    }
+  ]
+}
