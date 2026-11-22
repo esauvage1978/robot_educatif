@@ -124,4 +124,4 @@ Classic ESP32 is cheaper and better documented. C6 only if you already plan **80
 **Can I run Zigbee on ESP32-C6 inside ESPHome today?**  
 Support moves quickly; read the current ESPHome release notes before buying hardware for Zigbee-only use.
 
-[All smart-home guides](/en/smart-home/)
+[All smart-home guides](/en/smart-home/). We have also published the [ElectroHobby.es kit unboxing](/en/smart-home/electrohobby-esp32-kit-unboxing/) (product gifted by the brand): 2 ESP32 DevKit boards, an ESP32-C3 Super Mini and sensors, for upcoming projects.

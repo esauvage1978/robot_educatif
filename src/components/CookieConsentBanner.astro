@@ -4,7 +4,7 @@ import { withBase } from '../lib/siteUrl';
 
 const cookiesPageUrl = withBase('/gestion-des-cookies/');
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
-const isEn = _p === '/en' || _p.startsWith('/en/');
+const isEn = _p === '/en' || _p.startsWith('/en/') || _p === '/uk' || _p.startsWith('/uk/') || _p === '/ca' || _p.startsWith('/ca/');
 const isDe = _p === '/de' || _p.startsWith('/de/');
 const isIt = _p === '/it' || _p.startsWith('/it/');
 const isEs = _p === '/es' || _p.startsWith('/es/');

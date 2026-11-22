@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { searchUrlForAsin } from './asin-search-queries.mjs';
 
 const args = process.argv.slice(2);
 const dist = path.resolve(args.find((a) => !a.startsWith('--')) || 'dist');
@@ -55,7 +56,6 @@ function normalizeAmazon(url) {
   const want = AMAZON_TAGS[m[2]];
   const cur = u.searchParams.get('tag');
   if (cur === want) return url;
-  if (cur && m[2] !== 'ca') return url; // autre tag volontaire : inchangé (seul amazon.ca est forcé)
   if (cur) return url.replace(/([?&]tag=)[^&#]*/, '$1' + want);
   return url.replace(/^([^#]*?)(#.*)?$/, (_, a, h) => a + (a.includes('?') ? '&' : '?') + 'tag=' + want + (h || ''));
 }
@@ -104,11 +104,36 @@ const stats = { files: 0, filesChanged: 0, amazon: 0, awin: 0, repaired: 0, relF
 const A_TAG = /<a\b[^>]*>/gi;
 const HREF = /(\shref\s*=\s*)(["'])(.*?)\2/i;
 // Toute URL Amazon/Awin encore présente hors <a href> (JSON-LD, script, autre attribut).
-const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>]|\\\/)+/g;
+const LOOSE = /https?:(?:\\\/|\/){2}(?:(?!&quot;|&#34;|&#x22;)[^"'\\\s<>},]|\\\/)+/g;
+
+/** Coupe JSON / parenthèses Markdown collés après une URL (ex. tag=manuso06-21"},"code-and-go"). */
+function trimLooseUrl(raw) {
+  let s = raw.replace(/\\\//g, '/');
+  const m = s.match(/^(https?:\/\/[^"'}\s]+)/);
+  if (m) return m[1];
+  for (const sep of ['"}', '",', '})', '))']) {
+    const i = s.indexOf(sep);
+    if (i > 12) return s.slice(0, i);
+  }
+  return s.replace(/"\}.*$/, '').replace(/\)+$/, '');
+}
+
+function dpToSearchIfNeeded(url) {
+	const m = url.match(/amazon\.(com|ca)\/dp\/([^?/]+)/i);
+	if (!m) return url;
+	const tld = m[1].toLowerCase();
+	const host = `www.amazon.${tld}`;
+	const tag = tld === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
+	const next = searchUrlForAsin(host, tag, m[2]);
+	return next || url;
+}
 
 function take(url, repaired) {
-  url = normalizeAmazon(url);
-  const c = classify(url);
+	url = normalizeAmazon(trimLooseUrl(url));
+	const c = classify(url);
+	if (c && (c.prefix === 'az-us' || c.prefix === 'az-ca') && /\/dp\//i.test(url)) {
+		url = normalizeAmazon(dpToSearchIfNeeded(url));
+	}
   if (!c) return null;
   const id = urlToId.get(url) || idFor(c.prefix, url);
   const prev = table.get(id);
@@ -148,11 +173,10 @@ for (const file of walk(dist)) {
     return t;
   });
   out = out.replace(LOOSE, (raw) => {
-    let core = raw, trail = '';
-    const tm = raw.match(/^(.*?)([)\].,;:]+)$/);
+    let core = trimLooseUrl(raw), trail = '';
+    const tm = core.match(/^(.*?)([)\].,;:]+)$/);
     if (tm) { core = tm[1]; trail = tm[2]; }
-    const plain = core.replace(/\\\//g, '/');
-    const { url, repaired } = decodeEntities(plain);
+    const { url, repaired } = decodeEntities(core);
     const id = take(url, repaired);
     if (!id) return raw;
     changed = true;
@@ -180,10 +204,10 @@ if (!CHECK_ONLY) for (const file of walk(dist)) {
   const seen = new Set();
   LOOSE.lastIndex = 0;
   for (const raw of h.match(LOOSE) || []) {
-    let core = raw;
-    const tm = raw.match(/^(.*?)([)\].,;:]+)$/);
+    let core = trimLooseUrl(raw);
+    const tm = core.match(/^(.*?)([)\].,;:]+)$/);
     if (tm) core = tm[1];
-    const url = decodeEntities(core.replace(/\\\//g, '/')).url;
+    const url = decodeEntities(core).url;
     if (!classify(url) || seen.has(url)) continue;
     seen.add(url);
     left++;

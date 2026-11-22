@@ -79,7 +79,7 @@ mBlock prepares better for more technical programming.
 
 Scratch needs a computer or a tablet with a web browser, an internet connection or the offline app, and nothing else.
 
-mBlock needs a Windows, Mac or Linux computer, a USB cable (Bluetooth on some kits) and batteries or a power supply. The usual hardware is a Makeblock robot such as the mBot, an Arduino board, or a BBC micro:bit. No UK or US price is given on this page: the French mBot ASIN is not reused as an Amazon.co.uk or Amazon.com listing. Scratch has no hardware cost. mBlock means buying a robot or a board.
+mBlock needs a Windows, Mac or Linux computer, a USB cable (Bluetooth on some kits) and batteries or a power supply. The usual hardware is a Makeblock robot such as the mBot, an Arduino board, or a BBC micro:bit. No UK or US price is given on this page: the French mBot ASIN is not reused as an Amazon.com or Amazon.com listing. Scratch has no hardware cost. mBlock means buying a robot or a board.
 
 ### 5. Resources and community
 

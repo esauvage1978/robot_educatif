@@ -4,7 +4,7 @@ import PageColumns from './PageColumns.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import { withBase } from '../lib/siteUrl';
-import { amazonDpUrl, marketFromPathname, priceMentionForLocale } from '../lib/amazonMarket.mjs';
+import { amazonListingUrl, marketFromPathname, priceMentionForLocale } from '../lib/amazonMarket.mjs';
 import { amazonOffer, amazonSnapshot } from '../lib/amazonPriceStore.mjs';
 import { CHECK_PRICE } from '../lib/amazonPriceMatch.mjs';
 import promos from '../data/promos.json';
@@ -425,7 +425,7 @@ const cards = PRODUCTS.map((p) => {
 		asin: p.asin,
 		query: p.query,
 		price: offer ? offer.label : CHECK_PRICE[locale],
-		url: amazonDpUrl(p.asin, market),
+		url: amazonListingUrl({ asin: p.asin, query: p.query, market }),
 		group: p.key === 'dongle' || p.key === 'sensor' ? 'home' : 'robot',
 		image: p.image,
 	};

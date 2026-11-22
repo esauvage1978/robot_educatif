@@ -63,7 +63,7 @@ For the technical detail (FCC P3C, X2D Pro, QIDI Smart 5), the reference file is
 
 1. **Opening a fablab before Christmas 2026**: take a machine that is **already CE certified** and in stock (Creality K1C / K2 Plus, Bambu A1 Combo, Anycubic Kobra 3 Combo, Qidi Plus4). The “wait or buy” comparisons are on scan3dlab:
    - [Multi-tool H3C / K3 / INDX / M1D](https://scan3dlab.com/comparatifs/bambu-lab-h3c-vs-creality-k3-vs-prusa-core-one-indx/)
-   - [SPARKX i8 vs combos under €450](https://scan3dlab.com/comparatifs/creality-sparkx-i8-vs-bambu-lab-a1-combo-vs-anycubic-kobra-3/)
+   - [SPARKX i8 vs combos under $495](https://scan3dlab.com/comparatifs/creality-sparkx-i8-vs-bambu-lab-a1-combo-vs-anycubic-kobra-3/)
 
 2. **Robotics project → printing custom chassis**: useful volume ≥ 220 mm and a closed enclosure (noise, PLA dust). While you wait for the K3, an **A1 Combo** or a **K1C** covers PLA/PETG for printed mBot mounts.
 

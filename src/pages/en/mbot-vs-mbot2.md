@@ -120,15 +120,15 @@ The **mBot** and the **mBot2** are two generations of [Makeblock](/en/makeblock-
 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Entry · AA batteries · RJ25 ports.</p>
-    <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price — Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price — Amazon.com</a>
     <a href="/go/az-us-d15f4ee758/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot2</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">CyberPi · Python · Li-ion battery.</p>
-    <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price — Amazon UK</a>
+    <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price — Amazon.com</a>
     <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;margin-left:0.35rem;">Amazon.com</a>
   </div>
 </div>
@@ -164,9 +164,9 @@ Still comparing brands? See our [programmable robot guide](/en/best-programmable
 
 <h2 id="buy">5. Where to buy</h2>
 
-- <a href="/go/az-gb-b5d4d0b7cd/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon UK</a>
-- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon UK</a>
-- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
+- <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon.com</a>
+- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
 
 *Amazon partner — commission possible on eligible purchases.*
 

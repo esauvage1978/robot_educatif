@@ -1,5 +1,5 @@
 ---
-import { amazonDpUrl, marketFromPathname, priceMentionForLocale, MARKET_CONFIG } from '../lib/amazonMarket.mjs';
+import { amazonListingUrl, marketFromPathname, priceMentionForLocale, MARKET_CONFIG } from '../lib/amazonMarket.mjs';
 import {
 	CHECK_PRICE,
 	amazonOffer,
@@ -9,7 +9,8 @@ import {
 } from '../lib/amazonPriceStore.mjs';
 
 const pathname = Astro.url.pathname;
-const market = priceMarket(marketFromPathname(pathname)) || 'fr';
+const affiliateMarket = marketFromPathname(pathname);
+const market = priceMarket(affiliateMarket) || affiliateMarket;
 const locale = localeForMarket(market);
 const snap = amazonSnapshot(market);
 const mention = priceMentionForLocale(snap?.releveAffichage || '', locale);
@@ -204,7 +205,9 @@ const shellyUrl = `https://www.awin1.com/cread.php?awinmid=114660&awinaffid=${sh
 const items = c.items.map((item) => {
 	const offer = item.asin ? amazonOffer(market, item.asin) : null;
 	const price = item.shelly ? c.shellyPrice : offer ? offer.label : CHECK_PRICE[locale];
-	const url = item.shelly ? shellyUrl : amazonDpUrl(item.asin, market);
+	const url = item.shelly
+		? shellyUrl
+		: amazonListingUrl({ asin: item.asin, query: item.query, market: affiliateMarket });
 	return { ...item, price, url, priced: Boolean(offer) || Boolean(item.shelly) };
 });
 ---

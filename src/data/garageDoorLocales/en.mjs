@@ -306,7 +306,7 @@ export const garageDoorEn = {
 				],
 				[
 					'Budget',
-					'Catalogue estimate: about €8–62 depending on the profile (module only, or with opening sensor and Zigbee dongle if needed). The configurator details the list.',
+					'Catalogue estimate: about $10–70 depending on the profile (module only, or with opening sensor and Zigbee dongle if needed). The configurator details the list.',
 				],
 				[
 					'Software',
@@ -371,15 +371,15 @@ export const garageDoorEn = {
 		p(
 			link('Shelly 1 Mini Gen3, official page', SHELLY_PRODUCT),
 			' · ',
-			link('Search on Amazon.co.uk', marketSearch('en', 'Shelly 1 Mini Gen3'), true),
+			link('Search on Amazon.com', amazonComSearch('Shelly 1 Mini Gen3'), true),
 			' · ',
 			link('Search on Amazon.com', amazonComSearch('Shelly 1 Mini Gen3'), true),
 			'. Sensor: ',
-			link('SONOFF SNZB-04P on Amazon.co.uk', marketSearch('en', 'SONOFF SNZB-04P'), true),
+			link('SONOFF SNZB-04P on Amazon.com', amazonComSearch('SONOFF SNZB-04P'), true),
 			' · ',
 			link('on Amazon.com', amazonComSearch('SONOFF SNZB-04P'), true),
 			'. Optional coordinator: ',
-			link('SONOFF ZBDongle-E on Amazon.co.uk', marketSearch('en', 'SONOFF ZBDongle-E'), true),
+			link('SONOFF ZBDongle-E on Amazon.com', amazonComSearch('SONOFF ZBDongle-E'), true),
 			' · ',
 			link('on Amazon.com', amazonComSearch('SONOFF ZBDongle-E'), true),
 			'.',

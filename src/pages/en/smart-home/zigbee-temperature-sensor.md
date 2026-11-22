@@ -83,13 +83,7 @@ A **Zigbee temperature sensor** in each heated room lets you automate heating, s
 </table>
 </div>
 
-**Buy (affiliate — check price):** [SNZB-02D Amazon UK](https://www.amazon.co.uk/dp/B0BYZP8NK2?tag=roboteducatif-21) · [Amazon US](https://www.amazon.com/dp/B0BYZP8NK2?tag=roboteducatif-20) · [2-pack UK](https://www.amazon.co.uk/dp/B0BZCV658S?tag=roboteducatif-21)
-
-## SONOFF SNZB-02D — our pick
-
-- LCD shows temp and humidity without opening the app  
-- Best claimed accuracy in this list  
-- CR2450 often lasts ~2 years (maker figure; room temperature affects life)  
+**Buy (affiliate — check price):** [SNZB-02D Amazon.com](https://www.amazon.com/s?k=SONOFF%20SNZB-02D%20temperature%20sensor&tag=roboteducatif-20)  
 - Min/max last 24 h on display  
 - Works with **ZHA** and **Zigbee2MQTT**
 

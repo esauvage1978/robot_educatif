@@ -60,7 +60,7 @@ updated: "4 November 2026"
 ## Parts list
 
 - Raspberry Pi **4 or 5**, **Raspberry Pi OS Bookworm**.
-- **BME280** I2C breakout ([search BME280 I2C on Amazon US](https://www.amazon.com/s?k=BME280+I2C&tag=roboteducatif-20) · [Amazon UK](https://www.amazon.co.uk/s?k=BME280+I2C&tag=roboteducatif-21)). Do **not** buy a **BMP280** if you need humidity — it lacks the humidity channel.
+- **BME280** I2C breakout ([search BME280 I2C on Amazon US](https://www.amazon.com/s?k=BME280+I2C&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=BME280+I2C&tag=roboteducatif-20)). Do **not** buy a **BMP280** if you need humidity — it lacks the humidity channel.
 - Four jumper wires. For outdoor use, a **radiation shield** (ventilated, shaded).
 
 ## Wiring (copy this table)

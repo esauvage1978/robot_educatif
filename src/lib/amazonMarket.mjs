@@ -85,7 +85,7 @@ export function marketFromPathname(pathname) {
 	if (p.startsWith('/uk/')) return 'uk';
 	if (p.startsWith('/ca/')) return 'ca';
 	if (p.startsWith('/nl/')) return 'nl';
-	if (p.startsWith('/en/')) return 'uk';
+	if (p.startsWith('/en/')) return 'us';
 	return 'fr';
 }
 
@@ -139,6 +139,19 @@ export function priceMentionForLocale(releveAffichage, locale = 'fr') {
 export function amazonDpUrl(asin, market) {
 	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
 	return `https://${cfg.host}/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(cfg.tag)}`;
+}
+
+/** Lien affilié produit : recherche obligatoire sur US/CA (pas de /dp/ non vérifié). */
+export function amazonListingUrl({ asin, query, market }) {
+	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
+	const q = (query || '').trim();
+	if (market === 'us' || market === 'ca') {
+		const search = q || 'educational robot kit';
+		return `https://${cfg.host}/s?k=${encodeURIComponent(search)}&tag=${encodeURIComponent(cfg.tag)}`;
+	}
+	if (asin) return amazonDpUrl(asin, market);
+	if (q) return `https://${cfg.host}/s?k=${encodeURIComponent(q)}&tag=${encodeURIComponent(cfg.tag)}`;
+	return `https://${cfg.host}/?tag=${encodeURIComponent(cfg.tag)}`;
 }
 
 export function comparisonLabels(locale) {

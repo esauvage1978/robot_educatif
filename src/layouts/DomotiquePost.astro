@@ -40,6 +40,7 @@ const {
 	description,
 	pubDate,
 	updatedDate,
+	heroImage,
 	category = 'home-assistant',
 	articleSlug,
 	faqSchema = [],
@@ -52,7 +53,8 @@ const selfPath = `/domotique/${articleSlug}/`;
 const guideRelated = DOMOTIQUE_READ_ALSO.filter((l) => l.href !== selfPath).slice(0, 4);
 
 const illustration = getIllustration(articleSlug);
-const thumbnailPath = illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`;
+const realHero = typeof heroImage === 'string' && heroImage.trim() ? heroImage.trim() : '';
+const thumbnailPath = realHero || (illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`);
 const thumbnailImage = withImageVersion(thumbnailPath);
 
 const breadcrumbLabel = title.includes(':') ? title.split(':')[0].trim() : title;
@@ -192,10 +194,12 @@ const reviewOffer = reviewPage?.offer ?? null;
 						minutes={minutes}
 					/>
 				</header>
-				{illustration && !isReviewLayout && hubContentIllustration && (
+				{(realHero || illustration) && !isReviewLayout && (realHero || hubContentIllustration) && (
 					<figure class="domotique-illustration">
-						<img src={thumbnailImage} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+						<img src={thumbnailImage} alt={realHero ? title : illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+						{!realHero && illustration && (
 						<figcaption class="ai-illustration-caption">Illustration générée par IA</figcaption>
+						)}
 					</figure>
 				)}
 

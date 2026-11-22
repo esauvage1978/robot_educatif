@@ -1,0 +1,187 @@
+---
+title: "Unboxing du kit ElectroHobby.es : 2 ESP32 DevKit, ESP32-C3 Super Mini et capteurs (produit offert)"
+description: "Déballage du colis offert par ElectroHobby.es : 2 ESP32 DevKit WROOM-32 USB-C, ESP32-C3 Super Mini, relais, capteurs et câbles, et les projets ESP32 prévus sur le site."
+pubDate: 2026-11-19T00:00:00Z
+updatedDate: 2026-11-20
+heroImage: "/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp"
+category: "esp32"
+priority: 5
+---
+
+> **Réponse directe** — Le 19 novembre 2026, nous avons reçu un colis **offert par ElectroHobby.es**, boutique espagnole d'électronique éducative basée à Murcie. Ce texte est un **unboxing** : il présente le contenu réel du colis et les usages que nous prévoyons d'en faire sur robot-educatif.info. **Aucun essai n'a encore été réalisé** ; il n'y a donc ni mesure, ni verdict de test.
+
+Les liens vers Amazon sont des **liens affiliés** (`/go/`) : ils peuvent générer une commission sans surcoût. Le lien vers ElectroHobby.es est un **lien direct, non affilié**.
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/15-colis-papier-bulle.webp" alt="Colis ElectroHobby.es ouvert, pièces protégées par du papier bulle" width="1600" height="1200" />
+<figcaption>Le colis à l'ouverture, encore dans son papier bulle.</figcaption>
+</figure>
+
+## Le contenu du colis
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/14-colis-ouvert-cartes-electrohobby.webp" alt="Contenu du colis ElectroHobby.es avec les modules ESP32, les capteurs et deux cartes mémo" width="1600" height="2133" />
+<figcaption>Vue d'ensemble du colis, avec les deux cartes mémo ElectroHobby (code couleur des résistances et loi d'Ohm).</figcaption>
+</figure>
+
+Voici l'inventaire constaté à l'ouverture, le 19 novembre 2026 :
+
+- **2 ESP32 DevKit** WROOM-32, connecteur USB-C, 30 broches ;
+- un **ESP32-C3 Super Mini**, avec ses barrettes de broches ;
+- une **carte d'extension** pour ESP32-C3 Super Mini, avec connecteur batterie ;
+- un **module 2 relais 5 V** (JQC3F-05VDC-C, avec optocoupleurs) ;
+- un capteur à ultrasons **HC-SR04** ;
+- un capteur de lumière **TEMT6000** ;
+- un capteur de **niveau d'eau** ;
+- un **micro I2S de type INMP441** (broches SD, VDD, GND, SCK, WS et LR) ;
+- un module **AHT20 + BMP280** (température, humidité et pression, bus I2C) ;
+- une dizaine d'**interrupteurs reed** (ILS) ;
+- trois nappes de **câbles Dupont** (mâle-mâle, mâle-femelle, femelle-femelle) ;
+- deux **cartes mémo ElectroHobby** (code couleur des résistances, loi d'Ohm).
+
+## Les 2 ESP32 DevKit WROOM-32 USB-C
+
+Le colis contient **2 ESP32 DevKit** distincts, au format classique 30 broches, avec prise **USB-C**. C'est le type de carte que nous recommandons pour débuter avec ESPHome, dans [quelle carte ESP32 choisir](/domotique/quelle-carte-esp32-choisir-domotique/).
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/05-esp32-devkit-wroom-32-usbc-1.webp" alt="Premier ESP32 DevKit WROOM-32 USB-C 30 broches vu de face" width="1600" height="1200" />
+<figcaption>Premier des 2 ESP32 DevKit reçus.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/06-esp32-devkit-wroom-32-usbc-2.webp" alt="Second ESP32 DevKit WROOM-32 USB-C 30 broches, carte distincte" width="1600" height="1200" />
+<figcaption>Second ESP32 DevKit, clairement une deuxième carte et non un second angle de la première.</figcaption>
+</figure>
+
+Deux cartes identiques permettent de mener deux projets en parallèle, par exemple un capteur d'un côté et une commande de relais de l'autre, sans démonter le premier montage.
+
+## L'ESP32-C3 Super Mini et sa carte d'extension
+
+L'**ESP32-C3 Super Mini** est une carte très compacte, à cœur RISC-V, avec Wi-Fi et Bluetooth Low Energy. Elle est pratique dès que l'on manque de place dans un boîtier. Les barrettes de broches étaient fournies à part, à souder si besoin.
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/01-esp32-c3-super-mini-recto.webp" alt="ESP32-C3 Super Mini vu du recto, bouton et connecteur USB-C visibles" width="1600" height="1200" />
+<figcaption>Recto de l'ESP32-C3 Super Mini.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/02-esp32-c3-super-mini-verso.webp" alt="ESP32-C3 Super Mini vu du verso, pastille métallique et pastilles de soudure" width="1600" height="1200" />
+<figcaption>Verso de la même carte.</figcaption>
+</figure>
+
+Le colis inclut aussi une **carte d'extension** prévue pour ce Super Mini, avec un **connecteur batterie**. Elle devrait faciliter les projets autonomes, par exemple un capteur posé à l'écart d'une prise USB. Ce point sera vérifié lors des montages à venir, pas dans cet unboxing.
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/12-carte-extension-esp32-c3.webp" alt="Carte d'extension pour ESP32-C3 Super Mini avec connecteur batterie" width="1600" height="2133" />
+<figcaption>Carte d'extension pour l'ESP32-C3 Super Mini, connecteur batterie visible.</figcaption>
+</figure>
+
+## Module 2 relais 5 V
+
+Le module porte deux relais **JQC3F-05VDC-C** et des optocoupleurs. Ce type de carte sert à commander un contact sec : c'est précisément le besoin décrit dans notre guide [ouvrir une porte de garage au smartphone avec un ESP32](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/). Aucun câblage n'a encore été réalisé ici.
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/07-module-2-relais-5v.webp" alt="Module deux relais 5 V JQC3F-05VDC-C avec optocoupleurs" width="1600" height="1200" />
+<figcaption>Module 2 relais 5 V, borniers et optocoupleurs visibles.</figcaption>
+</figure>
+
+## Capteurs et micro
+
+Les capteurs permettent d'imaginer plusieurs tutoriels ESP32, sans rien préjuger de leurs performances tant qu'ils n'ont pas été essayés.
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/10-hc-sr04.webp" alt="Capteur à ultrasons HC-SR04, quatre broches VCC Trig Echo GND" width="1600" height="2133" />
+<figcaption>Capteur à ultrasons HC-SR04, pour une mesure de distance ou un niveau (hors liquide).</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/03-temt6000.webp" alt="Capteur de lumière ambiante TEMT6000 sur petit circuit imprimé" width="1600" height="1200" />
+<figcaption>Capteur de lumière TEMT6000.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/04-capteur-niveau-eau.webp" alt="Capteur de niveau d'eau à traces découvertes, avec bornier trois fils" width="1600" height="1200" />
+<figcaption>Capteur de niveau d'eau, prévu pour un suivi de réservoir ou d'adoucisseur.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/09-micro-i2s-inmp441.webp" alt="Micro I2S de type INMP441 avec broches SD, VDD, GND, SCK, WS et LR" width="1600" height="1200" />
+<figcaption>Micro I2S de type INMP441, identifié d'après le silkscreen SD / VDD / GND / SCK / WS / LR.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/08-aht20-bmp280.webp" alt="Module combiné AHT20 et BMP280, connecteur I2C" width="1600" height="1200" />
+<figcaption>Module AHT20 + BMP280 : température, humidité et pression atmosphérique en I2C.</figcaption>
+</figure>
+
+Le module météo AHT20 + BMP280 s'inscrit dans la lignée de notre tutoriel [capteur de température ESP32 + ESPHome](/domotique/esp32-esphome-capteur-temperature/). Le capteur d'eau et le HC-SR04 pourront servir à un suivi de niveau. Le micro I2S ouvre la porte à une commande vocale locale, plus tard.
+
+## Interrupteurs reed et câbles Dupont
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/11-interrupteurs-reed-ils.webp" alt="Une dizaine d'interrupteurs reed ILS en vrac sur le bureau" width="1600" height="2133" />
+<figcaption>Interrupteurs reed (ILS), pour détecter l'ouverture d'une porte ou d'un capot avec un aimant.</figcaption>
+</figure>
+
+<figure>
+<img src="/images/domotique/electrohobby-unboxing/13-cables-dupont.webp" alt="Trois nappes de câbles Dupont mâle-mâle, mâle-femelle et femelle-femelle" width="1600" height="2133" />
+<figcaption>Les trois nappes Dupont fournies : mâle-mâle, mâle-femelle et femelle-femelle.</figcaption>
+</figure>
+
+Les ILS, associés à un aimant, sont un moyen simple de signaler l'ouverture d'une porte, d'une fenêtre ou du capot d'un appareil. Les nappes Dupont évitent d'avoir à préparer des fils avant les premiers essais sur plaque d'essai.
+
+## Quels projets nous prévoyons sur le site
+
+Ce kit n'a pas encore été mis sous tension. Les articles suivants sont **prévus**, pas encore rédigés comme des tests :
+
+Le prochain montage que nous voulons documenter est un **contrôleur de sel pour adoucisseur**, avec une mesure du niveau sous le couvercle du bac et une **détection de fuite** au sol. Ce projet n'a pas encore été réalisé : il n'y a donc pas encore de résultat de test.
+
+- une **station météo** ESP32 + AHT20/BMP280, en s'appuyant sur le [tutoriel ESPHome déjà en ligne](/domotique/esp32-esphome-capteur-temperature/) ;
+- un **suivi de niveau d'eau** (réservoir ou adoucisseur) avec le capteur prévu à cet effet, éventuellement complété par le HC-SR04 ;
+- une **détection d'ouverture** avec les interrupteurs reed ;
+- une **commande par relais**, dans l'esprit du guide [porte de garage](/domotique/ouvrir-porte-garage-smartphone-esp32-esphome/) ;
+- plus tard, un essai de **micro I2S** pour une commande vocale locale.
+
+D'autres idées se trouvent dans notre page [10 projets ESP32 pour la domotique](/domotique/projets-esp32-domotique/).
+
+## Où trouver ces cartes et capteurs
+
+Le colis a été **offert par** <a href="https://www.electrohobby.es/" rel="sponsored noopener" target="_blank">ElectroHobby.es</a> <small>(lien direct, non affilié)</small>. La boutique, basée à Murcie, vend des composants et des kits pour l'électronique éducative.
+
+Si vous cherchez une carte équivalente de votre côté, une recherche affiliée existe déjà sur le site, sans prix affiché ici : <a href="/go/az-fr-10868e4457/" rel="sponsored nofollow noopener">ESP32 DevKit sur Amazon.fr</a> <small>(lien affilié)</small>. Vérifiez toujours la fiche du vendeur (nombre de broches, USB-C ou micro-USB, mémoire flash) avant de commander.
+
+## FAQ
+
+### Comment alimenter les cartes ESP32 ?
+
+Les **ESP32 DevKit** (les cartes de développement au format 30 broches, avec prise **USB-C**, le connecteur USB moderne et ovale) se branchent sur un simple chargeur de téléphone **5 V**, capable de fournir au moins **1 A** (un ampère). Il faut un chargeur et un câble par carte, laissés branchés sur une prise.
+
+Le **module 2 relais 5 V** (la petite carte qui ouvre ou ferme un contact électrique) n'a pas besoin d'une deuxième alimentation : lorsqu'un ESP32 DevKit est déjà alimenté en USB, on relie la broche **5 V** (souvent aussi appelée **VIN**, de l'anglais *voltage input*, l'entrée d'alimentation) de l'ESP32 aux bornes d'alimentation du module, avec les **câbles Dupont** fournis (fils à embouts, prêts à enficher).
+
+L'**ESP32-C3 Super Mini** (la carte la plus compacte du kit) peut, en principe, fonctionner sur une batterie **LiPo 3,7 V** (accumulateur lithium-polymère, courant dans les petits appareils autonomes), grâce à sa **carte d'extension** et à son connecteur batterie. Ce point n'a pas encore été vérifié sur notre kit : il sera confirmé lors des montages à venir.
+
+### Comment connecter le kit à Homey ?
+
+On installe d'abord **ESPHome** sur l'ESP32. ESPHome est un logiciel (un *firmware*) que l'on envoie dans la carte pour qu'elle rejoigne le **Wi-Fi** (le réseau sans fil de la maison) et publie ses capteurs. Pour commencer, on ouvre [ESPHome Web](https://web.esphome.io) dans un navigateur, on branche la carte avec un câble USB, puis on configure le Wi-Fi et les capteurs.
+
+Ensuite, côté **Homey** (le boîtier de domotique qui pilote les appareils de la maison), on installe l'application **ESPHome** d'Abe Haverkamp, disponible dans l'App Store Homey (application de la communauté) : [fiche de l'application ESPHome](https://homey.app/fr-fr/app/io.esphome/). Cette application fonctionne sur **Homey Pro** (modèles 2023 et plus récents), **Homey Pro mini** et le serveur Homey auto-hébergé, avec une version du logiciel Homey 13.0.0 ou plus récente. Elle ne fonctionne pas sur **Homey Cloud** (l'offre sans boîtier Pro à la maison), ni sur les Homey Pro plus anciens (2016-2019). Homey parle alors à la carte en local, sur le réseau de la maison, grâce à l'**API native** d'ESPHome (l'interface de communication prévue à cet effet, à activer dans la configuration).
+
+Une fois l'application installée, l'ESP32 apparaît comme un appareil Homey. On peut l'utiliser dans des **Flows** (les automatisations Homey : « quand ceci se produit, alors fais cela »).
+
+### Comment relier le capteur HC-SR04 à un ESP32 ?
+
+Le **HC-SR04** est un capteur à ultrasons (il mesure une distance en envoyant un son aigu, inaudible, et en écoutant l'écho). Il fonctionne en **5 V**. Sa broche **ECHO** (la sortie qui signale le retour de l'écho) envoie donc un signal **5 V**. Or les broches d'entrée d'un **ESP32** ne sont prévues que pour du **3,3 V** : un signal 5 V peut les endommager.
+
+Il faut donc abaisser ce signal avec un **pont diviseur de tension** : deux résistances en série, **1 kΩ** (1 000 ohms, côté ECHO) et **2 kΩ** (2 000 ohms, côté masse / GND). Le fil qui va vers la broche de l'ESP32 part du point milieu, entre les deux résistances. On obtient alors environ **3,3 V** (5 × 2 / 3). La broche **TRIG** (la commande d'émission) peut rester branchée directement : un niveau 3,3 V issu de l'ESP32 suffit en général à déclencher le capteur. L'alimentation **VCC** du HC-SR04 reste à 5 V.
+
+Nous n'avons pas encore réalisé ce câblage sur le kit reçu : ce schéma est la précaution habituelle, à vérifier lors des montages à venir.
+
+### L'ESP32 fonctionne-t-il sur un Wi-Fi 5 GHz ?
+
+Non. Les cartes **ESP32** de ce kit (les deux DevKit WROOM-32 et l'ESP32-C3 Super Mini) ne se connectent qu'à un réseau **Wi-Fi 2,4 GHz**. Un réseau uniquement en **5 GHz** ne sera pas vu par la carte. Sur une box qui propose les deux bandes, il faut soit un réseau 2,4 GHz distinct, soit un réseau mixte sur lequel le 2,4 GHz reste actif. C'est aussi le réglage à indiquer lorsqu'on configure le Wi-Fi dans ESPHome.
+
+### Peut-on alimenter l'ESP32 en 5 V sur la broche VIN ?
+
+Oui, sur un **ESP32 DevKit** typique, la broche **VIN** (souvent aussi marquée **5 V**) est l'entrée d'alimentation : on peut y apporter une tension régulée de **5 V** (par exemple depuis une alimentation USB ou un régulateur), la masse étant reliée à **GND**. C'est la même broche que l'on utilise, lorsque la carte est déjà alimentée en USB, pour fournir du 5 V au module relais.
+
+Il ne faut **pas** envoyer 5 V sur la broche **3,3 V** (cette broche est une sortie régulée, pas une entrée 5 V). Évitez aussi de cumuler sans précaution une alimentation USB et une autre source 5 V sur VIN. Ce branchement n'a pas encore été essayé sur notre kit : il sera confirmé lors des montages.

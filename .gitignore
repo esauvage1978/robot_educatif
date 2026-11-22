@@ -42,3 +42,5 @@ prive/
 # Copies locales avant modification
 *.avant-*
 uk-ca-geo-report.json
+go-links-report.json
+audit/maillage-dist-report.json

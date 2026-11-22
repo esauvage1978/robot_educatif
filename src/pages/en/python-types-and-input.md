@@ -316,4 +316,4 @@ print(f"{name} is about {height} m tall")</code></pre>
 
 ## Amazon (affiliate)
 
-- [Python exercises and problems — Amazon UK](https://www.amazon.co.uk/s?k=python+exercises+book&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=python+exercises+book&tag=roboteducatif-20) — check today’s price on the listing.
+- [Python exercises and problems — Amazon.com](https://www.amazon.com/s?k=python+exercises+book&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=python+exercises+book&tag=roboteducatif-20) — check today’s price on the listing.

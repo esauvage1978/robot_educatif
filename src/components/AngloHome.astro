@@ -7,12 +7,14 @@ import HomeSmartHome from '../components/HomeSmartHome.astro';
 import { getIllustration } from '../lib/illustration';
 import { withBase } from '../lib/siteUrl';
 import { withImageVersion } from '../lib/imageVersion';
-import { MARKET_CONFIG, amazonDpUrl } from '../lib/amazonMarket.mjs';
+import { MARKET_CONFIG, amazonListingUrl } from '../lib/amazonMarket.mjs';
 import { catalogForMarket } from '../lib/marketProducts.mjs';
 import { EN_PAGES, slugOf } from '../lib/i18n.mjs';
 
-const { market = 'uk', lang = 'en' } = Astro.props;
+const { market: propMarket, lang = 'en' } = Astro.props;
+const market = propMarket ?? (Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '').startsWith('/ca') ? 'ca' : Astro.url.pathname.includes('/en') ? 'us' : 'uk');
 const isCa = market === 'ca';
+const catalogMarket = isCa ? 'ca' : market === 'us' ? 'us' : 'uk';
 const TITLE = isCa
 	? 'Coding robots & smart home — guides for Canada'
 	: 'Coding robots & smart home — guides for UK, US & Canada';
@@ -24,14 +26,14 @@ const card = (href) => {
 	const ill = getIllustration(slugOf(p.fr));
 	return { ...p, img: ill ? withImageVersion(withBase(ill.src)) : null, alt: ill ? `Illustration: ${p.title}` : '' };
 };
-const { catalog } = await catalogForMarket(isCa ? 'ca' : 'uk', 'en');
+const { catalog } = await catalogForMarket(catalogMarket, 'en');
 const heroMbot2 = catalog.mbot2;
-const heroMbot2Price = !isCa && heroMbot2 && !heroMbot2.amazonIndispo ? heroMbot2.priceRange : '';
-const heroMbot2Href = isCa
-	? `https://www.amazon.ca/s?k=${encodeURIComponent('Makeblock mBot2')}&tag=${MARKET_CONFIG.ca.tag}`
-	: heroMbot2?.asin && !heroMbot2.amazonIndispo
-		? amazonDpUrl(heroMbot2.asin, 'uk')
-		: '';
+const heroMbot2Price = market !== 'us' && heroMbot2 && !heroMbot2.amazonIndispo ? heroMbot2.priceRange : '';
+const heroMbot2Href = amazonListingUrl({
+	asin: heroMbot2?.asin,
+	query: 'Makeblock mBot2',
+	market: catalogMarket,
+});
 const heroAmazonLabel = isCa ? "See today's price" : 'See on Amazon';
 const christmasHref = isCa ? '/ca/educational-robot-christmas-gifts-2026/' : '/en/educational-robot-christmas-gifts-2026/';
 const heroImage = withImageVersion(withBase('/mbot2-hero-v2.webp'));
@@ -62,13 +64,12 @@ const ages = [
 import { getProductImage } from '../lib/amazonImage';
 import { buildHomePopularProducts } from '../lib/homePopularProducts.mjs';
 
-const popularProducts = isCa
-	? (await buildHomePopularProducts('uk', 'en')).map((product) => ({
-			...product,
-			price: '',
-			href: `https://www.amazon.ca/s?k=${encodeURIComponent(product.name)}&tag=${MARKET_CONFIG.ca.tag}`,
-		}))
-	: await buildHomePopularProducts('uk', 'en');
+const popularBase = await buildHomePopularProducts(catalogMarket === 'us' ? 'uk' : catalogMarket, 'en');
+const popularProducts = popularBase.map((product) => ({
+	...product,
+	price: catalogMarket === 'us' ? '' : product.price,
+	href: amazonListingUrl({ asin: product.asin, query: product.name, market: catalogMarket }),
+}));
 ---
 
 <!doctype html>

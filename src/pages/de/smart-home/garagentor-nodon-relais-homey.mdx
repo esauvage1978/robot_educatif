@@ -1,0 +1,162 @@
+---
+layout: ../../../layouts/DePost.astro
+title: "Vernetztes Garagentor: NodOn-Relais und Homey Pro"
+description: "Praxistest: ein Zigbee-Relais NodOn SIN-4-1-20 parallel zur Originaltaste eines Tubauto-Tors, gesteuert über Homey Pro, mit einem Aqara-Sensor."
+updated: "20. November 2026"
+heroImage: "/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Auch auf [Französisch](/domotique/porte-garage-connectee-nodon-homey/).*
+
+*Getestet am 20. November 2026.*
+
+Ich habe dieses Projekt aus einem ganz einfachen Grund angefangen. Ich kam mit dem Motorrad nach Hause; in dem Fall öffne ich das Garagentor mit der Fernbedienung (dem Piepser) am Schlüsselbund. Die Batterie war leer, und ich hatte meine Schlüssel nicht dabei: Ich musste warten, bis meine Frau zurückkam, um reinkommen zu können. Das wird nicht wieder vorkommen — und selbst wenn jemand seine Schlüssel vergisst, lässt sich das Tor aus der Ferne öffnen. Aus solchen Gründen habe ich mit der Hausautomation angefangen: kein Geek-Hobby, sondern echte Probleme lösen und den Alltag erleichtern.
+
+Den [Homey Pro](/de/smart-home/homey-pro-auspacken-einrichtung/) hatte ich bereits eingerichtet, zuerst mit dem Gedanken, damit mein **Garagentor zu öffnen und zu schließen**. Das ist jetzt erledigt: ein Zigbee-Relais **NodOn SIN-4-1-20** (Multifunktions-Relais-Schalter, Firmware 3.13.0-3.1.4) bedient die Originaltaste, und ein Öffnungssensor **Aqara MCCGQ11LM** meldet, ob das Tor offen oder geschlossen ist.
+
+Der Antrieb ist ein **Tubauto ProCom** (Art. 4512433) an einem **Sektionaltor**. Ein Wandtaster war bereits an einem Federklemmenpaar der Platine angeschlossen. Diesen Taster habe ich nicht ersetzt: das Relais schließt denselben Kontakt, parallel dazu.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/tubauto-procom-plaque.webp" alt="Typenschild des Tubauto ProCom-Antriebs, Art. 4512433" caption="Das Typenschild des Tubauto ProCom-Antriebs, Art. 4512433." />
+
+Die Installation wurde in Frankreich an 230 V vorgenommen (Braun auf L, Blau auf N). Wer sich mit Netzspannung nicht sicher fühlt, sollte eine Elektrofachkraft hinzuziehen. Wer lieber mit einem ESP32 und ESPHome arbeitet, findet einen anderen Weg hier: [Garagentor per Smartphone öffnen](/de/smart-home/garagentor-smartphone-esp32-esphome/). Hier läuft alles über Homey und Zigbee. Zur Protokoll-Übersicht: [Zigbee, WLAN, Thread oder Matter](/de/smart-home/smart-home-protokolle-zigbee-wifi-thread-matter/).
+
+## Das Material
+
+- das Relais **NodOn SIN-4-1-20** (ein Kanal, potenzialfreier Kontakt, ohne Energiemessung);
+- der bereits laufende **Homey Pro**;
+- der Tür- und Fenstersensor **Aqara MCCGQ11LM**;
+- ein 230-V-Anschlusskabel mit Stecker;
+- eine feuchtigkeitsgeschützte Abzweigdose, an der Decke neben der Steckdose des Antriebs befestigt.
+
+<ProductBox
+  productId="nodon-sin-4-1-20"
+  name="NodOn SIN-4-1-20 — Zigbee-Multifunktionsrelais"
+  asin="B09B7TBSP1"
+  image="/images/domotique/porte-garage-nodon-homey/nodon-sin-4-1-20-produit.webp"
+  description="Zigbee-3.0-Relais mit einem Kanal und potenzialfreiem Ausgang, hier parallel zur Garagentor-Taste angeschlossen."
+  pros={['Potenzialfreier Kontakt, geeignet für eine Garagentor-Taste', 'Impulsmodus in Homey einstellbar', 'Arbeitet zugleich als Zigbee-Router']}
+  cons={['230-V-Versorgung: vor dem Anschluss spannungsfrei schalten', 'Gehäuse IP20: in einem Technikraum oder in der Garage schützen']}
+  officialUrl="https://nodon.fr/en/products/zigbee-multifunction-relay-switch"
+  lang="de"
+/>
+
+Dank an Philippe von NodOn für sein Vertrauen und für das Material, das einwandfrei funktioniert. Das NodOn-Relais ist ein Qualitätsprodukt, sowohl optisch — die Verarbeitung — als auch im Gebrauch. Das Modul wurde mir von **NodOn zur Verfügung gestellt**: wie üblich auf dieser Website weise ich darauf hin, der Transparenz halber. Die Einschätzung bleibt unabhängig.
+
+## Sicherheit, bevor die Adern angefasst werden
+
+Das Modul wird mit **230 V** versorgt. Ich habe für die gesamte Verdrahtung den **Strom abgeschaltet** und den Stecker erst wieder eingesteckt, als die Klemmen fest saßen und kein Kupfer frei lag. Wer unsicher ist, lässt das einen Elektriker machen.
+
+Ich rate auch von einem Flow ab, der das **Tor von allein schließen** würde, ohne dass jemand sieht, was darunter ist. Eine Benachrichtigung und dann eine manuelle Bestätigung ist sicherer.
+
+## Die Verdrahtung
+
+Das NodOn wird über ein Kabel mit Stecker an der Steckdose des Antriebs versorgt: **Blau auf N**, **Braun auf L**. Das Modul sitzt in einer **feuchtigkeitsgeschützten Abzweigdose** an der Decke neben dieser Steckdose — eine Garage ist kein Wohnzimmer, die Dose lässt das Modul nicht offen liegen.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/nodon-dans-boitier.webp" alt="NodOn-Relais SIN-4-1-20 in der offenen Abzweigdose, vor dem Verdrahten" caption="Das NodOn-Modul in der Dose, vor dem Verdrahten." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/prise-plafond-raccordement.webp" alt="Deckensteckdose beim Anschließen, über der grauen Abzweigdose, vor dem Schließen" caption="Die Deckensteckdose beim Anschließen, direkt über der Abzweigdose." />
+
+Der **potenzialfreie Kontakt** des Relais (die beiden rechten Klemmen mit dem Relais-Symbol) liegt **parallel** an den Klemmen des Wandtasters: die beiden Adern stecken in denselben **Federklemmen**, neben denen des Tasters. Danach funktioniert die Originaltaste weiter — ich habe sie vor dem Schließen der Dose erneut geprüft.
+
+Ein **benachbartes Klemmenpaar** auf dieser Platine blieb ungenutzt. Es kann ein Sicherheitseingang oder eine Lichtschranke sein: ohne die Anleitung habe ich das Relais dort nicht angeschlossen.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/carte-moteur-procom-bornes.webp" alt="Platine des Tubauto ProCom-Antriebs, mit Federklemmen und dem benachbarten Klemmenblock" caption="Die ProCom-Platine: die Tasterklemmen und das ungenutzte benachbarte Paar." />
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp" alt="Geschlossene Abzweigdose an der Garagendecke, neben der Steckdose des Sektionaltor-Antriebs" caption="Die geschlossene Dose an der Decke, neben der Steckdose des Antriebs." />
+
+## Die Kopplung in Homey
+
+In der Homey-App habe ich das Gerät über die App **NodOn** hinzugefügt und **Multifunktions-Relais-Schalter** gewählt — das Modell „1 RELAY“ ohne Energiemessung, nicht die Variante „METERING“. In der französischen App heißt dasselbe Gerät „Interrupteur Relais Multifonction“.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-choix-appareil-nodon.webp" alt="Bildschirm der Homey-App mit der Auswahlliste der NodOn-Geräte, Multifunktionsrelais markiert" caption="Die richtige Wahl in der NodOn-App: das Multifunktionsrelais." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-appairage-nodon.webp" alt="Homey-Kopplungsbildschirm für das NodOn-Relais, mit LED- und PRESS-Schema" caption="Die Kopplungsanleitung in Homey: orange LED und die PRESS-Taste." />
+
+Für den Kopplungsmodus reicht in der Regel ein **langer Druck** (etwa fünf Sekunden) auf die Taste **PRESS** mit einem isolierten Werkzeug: loslassen, sobald die LED blinkt. Ein noch nie gekoppeltes Modul kann nach dem Einschalten auch von selbst einige Minuten in diesem Modus bleiben.
+
+Eine nützliche Beobachtung: ein **kurzer Druck** auf PRESS betätigt das Relais. Beim Versuch öffnete sich das Garagentor. Das ist kein Fehler, sondern genau die Aufgabe der Taste. Ich habe mit dem Originaltaster geschlossen und die Homey-Suche im Moment des langen Drucks gestartet.
+
+## Impulsmodus, ohne Extra-Flow
+
+In den erweiterten Einstellungen gibt es **Dauer des Impulsmodus**. **0** schaltet den Modus aus; der Bereich geht von 0 bis 65 535. Ich habe **1 000 ms** (eine Sekunde) eingestellt. Das funktioniert einwandfrei: jede Aktivierung ahmt einen Tastendruck nach, ein Flow „einschalten, warten, ausschalten“ war nicht nötig.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-parametres-avances.webp" alt="Bildschirm der erweiterten Einstellungen des NodOn-Relais in Homey, mit dem Impulsmodus unter den Optionen" caption="Die erweiterten Einstellungen des Moduls in Homey." />
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-impulsion-1000ms.webp" alt="Homey-Einstellung Dauer des Impulsmodus auf 1000 Millisekunden gesetzt" caption="1 000 ms: ein Impuls von einer Sekunde, wie die Originaltaste." />
+
+Hätte der Motor nicht reagiert, hätte ich auf 1 500 ms erhöht. Das war nicht nötig.
+
+Das NodOn arbeitet außerdem als **Zigbee-Router**: es bleibt versorgt und stärkt das Mesh, was in einer etwas abseits liegenden Garage willkommen ist.
+
+## Der Aqara-Sensor
+
+Ob das Tor offen oder geschlossen ist, sagt ein **Aqara MCCGQ11LM** (Tür- und Fenstersensor), in Homey über die Aqara-App gekoppelt. Das Sensorgehäuse sitzt **unten am Lauf** des Sektionaltors; der **Magnet ist am Tor**, mit dem Sensor fluchtend, wenn das Tor geschlossen ist.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/capteur-aqara-rail.webp" alt="Aqara-Öffnungssensor unten am Lauf des Sektionaltors befestigt, Magnet am Torblatt sichtbar" caption="Der Aqara-Sensor unten am Lauf, der Magnet am Tor." />
+
+Ich habe ein Öffnen und ein Schließen getestet, bevor alles geschlossen wurde.
+
+## Der Flow „Garage offen > 10 Min.“
+
+Das Relais bewegt das Tor. Der Sensor warnt. Ich habe einen Flow **Garage offen > 10 Min.** angelegt:
+
+1. **Wenn** der Kontakt-Alarm aktiviert wird (das Tor öffnet sich);
+2. **Und** der Kontakt-Alarm eingeschaltet ist;
+3. **Dann** eine Push-Benachrichtigung „Das Garagentor ist offen“, **nach 10 Minuten**.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/homey-flow-garage-ouvert.webp" alt="Homey-Flow Garage länger als 10 Minuten offen, mit Öffnungsauslöser, Bedingung und verzögerter Benachrichtigung" caption="Der Warn-Flow, so wie er in Homey steht." />
+
+Die Testbenachrichtigung ist angekommen.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-porte-ouverte.webp" alt="Homey-Push-Benachrichtigung, dass das Garagentor offen ist" caption="Die Benachrichtigung auf dem Telefon." />
+
+Es bleibt eine Grenze, und die sollte klar benannt werden: in diesem **einfachen Flow** wird die Karte **Und** **im Moment des Öffnens** ausgewertet, nicht nach Ablauf der 10 Minuten. Wird das Tor dazwischen geschlossen, geht die Benachrichtigung trotzdem raus. Der **Advanced Flow** gleich danach behebt das: die Bedingung wird dort erst nach der Wartezeit geprüft.
+
+## Der Advanced Flow
+
+Der einfache Flow reicht für einen Test, hat aber die oben genannte Grenze. Im **Advanced-Flow**-Editor von Homey (im Web) habe ich drei Zweige zusammengefasst, ausgehend vom selben Sensor.
+
+<Photo src="/images/domotique/porte-garage-nodon-homey/homey-advanced-flow.webp" alt="Homey-Advanced-Flow-Editor mit drei Zweigen: Warnung nach 10 Minuten, Nachtwarnung und Sensorbatterie" caption="Der Advanced Flow mit seinen drei Zweigen." />
+
+**Zweig 1.** Wenn „Garagentor - Garage: Der Kontakt-Alarm hat sich eingeschaltet“, eine Wartezeit von **10 Minuten**, dann die Bedingung „Der Kontakt-Alarm ist eingeschaltet“. Am Ausgang **Ja** eine Push-Benachrichtigung „Garage offen > 10 Min.“. Die Bedingung wird **nach** der Wartezeit geprüft: wurde das Tor dazwischen geschlossen, geht keine Benachrichtigung raus. Genau das hat der einfache Flow nicht geleistet.
+
+Eine Falle, die man kennen sollte: eine Bedingung, die **am Eingang nicht verbunden** ist — zum Beispiel über eine **Und**-Karte abgelegt, ohne Verbindung von der vorherigen Karte — wird **nie ausgewertet**. Jede Bedingung muss von der vorherigen Stufe verdrahtet sein.
+
+**Zweig 2.** Wenn „Der Kontakt-Alarm hat sich eingeschaltet“, eine Datum-und-Uhrzeit-Bedingung „Die Uhrzeit liegt zwischen 21:00 und 07:00“, dann eine Benachrichtigung „Garage offen zwischen 21 und 7 Uhr“. Ein Test um **21:01 Uhr** hat die Warnung ausgelöst.
+
+<Photo portrait src="/images/domotique/porte-garage-nodon-homey/notification-garage-nuit.webp" alt="Homey-Benachrichtigung „Garage offen zwischen 21 und 7 Uhr“, empfangen um 21:01 Uhr" caption="Der Test des Nachtzweigs, um 21:01 Uhr." />
+
+**Zweig 3.** Wenn „Garagentor - Garage: Batterie wird niedriger als 10 %“, eine Push-Benachrichtigung „Batterie des Garagentor-Sensors unter 10 %“, gesendet als **kritische Warnung**.
+
+Kein automatisches Schließen ohne Sicht, aus den schon genannten Gründen.
+
+## Häufige Fragen
+
+**Funktioniert die Originaltaste noch?**
+Ja. Das Relais liegt parallel an denselben Klemmen. Nach dem Anschluss habe ich den Wandtaster erneut geprüft: er bewegt das Tor weiterhin.
+
+**Brauche ich einen Flow, um einen Tastendruck nachzubilden?**
+Nicht mit diesem Modul in Homey: der **Impulsmodus mit 1 000 ms** reicht.
+
+**Kann ich die Klemmen neben dem Taster nutzen?**
+Das habe ich nicht getan. Auf dieser Platine kann das benachbarte Paar ein Sicherheitseingang sein. Ohne die ProCom-Anleitung ist der Parallelanschluss an den Taster die sicherere Lösung.
+
+**Kann sich das Tor nach 10 Minuten von selbst schließen?**
+Das habe ich bewusst weggelassen. Die Warnung informiert; das Schließen bleibt eine bestätigte Aktion, weil niemand sieht, was unter dem Tor durchgeht.
+
+**Weiterlesen**
+
+- [Homey Pro im Test: Auspacken und Einrichtung](/de/smart-home/homey-pro-auspacken-einrichtung/)
+- [Garagentor per Smartphone öffnen (ESP32 / ESPHome)](/de/smart-home/garagentor-smartphone-esp32-esphome/)
+- [Zigbee, WLAN, Thread oder Matter: welches Protokoll](/de/smart-home/smart-home-protokolle-zigbee-wifi-thread-matter/)
+
+Übersicht: [Smart Home](/de/smart-home/).

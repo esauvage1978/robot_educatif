@@ -1,18 +1,18 @@
 ---
 layout: ../../layouts/EnPost.astro
 title: "Educational robots over 1,000 euros: an expert guide (2026)"
-description: "Over 1,000 euros: myCobot, Bioloid Premium, UGOT, myAGV, and Sphero. None are in the Amazon.fr reading of 6 November 2026. No converted prices."
+description: "Over 1,000 euros: myCobot, Bioloid Premium, UGOT, myAGV, and Sphero. None are in the Amazon.com snapshot. No converted prices."
 updated: "6 November 2026"
 faqSchema:
   - question: "Does this page list a current price for myCobot, Bioloid, UGOT, myAGV, or Sphero?"
-    answer: "No. None of those platforms are in the Amazon.fr reading of 6 November 2026, 11:23. The page does not print a current price and does not convert a dollar price from a shop abroad. Check the exact bundle: arm alone, vision kit, or a count of robots."
+    answer: "No. None of those platforms are in the Amazon.com snapshot. The page does not print a current price and does not convert a dollar price from a shop abroad. Check the exact bundle: arm alone, vision kit, or a count of robots."
   - question: "Who are robots over 1,000 euros for?"
     answer: "They suit a long project, a training course, or a lab: an arm, a humanoid, a mobile base, or a classroom set. From 12 to 16, an adult or a teacher needs to handle assembly, software, and the safety of an arm or servos. Students and engineers in training get the most from them, especially when the docs assume Linux, ROS, or OpenCV."
 ---
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-Past 1,000 euros, you leave discovery kits behind. An arm, a humanoid, a mobile base, or a classroom set: Python, sometimes ROS, vision, and heavier sensors. These platforms serve a long project, a training course, or a lab. They are not an afternoon of unboxing. None of them are in the Amazon.fr reading of 6 November 2026, 11:23. This page therefore shows no current price, and it does not convert a dollar price seen on a shop abroad. Check the price on the listing for the exact bundle (arm alone, vision kit, number of robots).
+Past 1,000 euros, you leave discovery kits behind. An arm, a humanoid, a mobile base, or a classroom set: Python, sometimes ROS, vision, and heavier sensors. These platforms serve a long project, a training course, or a lab. They are not an afternoon of unboxing. None of them are in the Amazon.com snapshot. This page therefore shows no current price, and it does not convert a dollar price seen on a shop abroad. Check the price on the listing for the exact bundle (arm alone, vision kit, number of robots).
 
 The wider map is in [which educational robot to choose in 2026](/en/best-educational-robot-2026/). Below this budget: [500 to 1,000 euros](/en/educational-robot-500-1000/) and [200 to 500 euros](/en/educational-robot-200-500-guide/).
 
@@ -51,7 +51,7 @@ The [Bioloid Premium](https://www.robotis.us/robotis-premium/) is a modular huma
 
 ![UBTECH Education — UGOT kit, transforming mode (official image)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.webp)
 
-The UGOT is a UBTECH educational robot with several morphologies, including a quadruped mode. The packs UBTECH Education cites, such as City Guardian or Space Exploration, are classroom sets, not a single figure. The [UGOT](https://www.ubtrobot.com/en/ai-education/products/ugot) pages and the [education collection](https://www.ubtecheducation.com/collections/ugot) describe the offer. You ask a distributor for the price: it is not in the Amazon.fr reading. Read the search below listing by listing.
+The UGOT is a UBTECH educational robot with several morphologies, including a quadruped mode. The packs UBTECH Education cites, such as City Guardian or Space Exploration, are classroom sets, not a single figure. The [UGOT](https://www.ubtrobot.com/en/ai-education/products/ugot) pages and the [education collection](https://www.ubtecheducation.com/collections/ugot) describe the offer. You ask a distributor for the price: it is not on Amazon.com. Read the search below listing by listing.
 
 <a href="https://www.amazon.com/s?k=UBTECH+UGOT+robot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (UBTECH UGOT)
 

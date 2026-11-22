@@ -27,7 +27,7 @@ faqSchema:
 }
 </script>
 
-Some links on this page are affiliate links. **Amazon.co.uk** is the default shop below; check today’s listing — we do not invent local prices.
+Some links on this page are affiliate links. **Amazon.com** is the default shop below; check today’s listing — we do not invent local prices.
 
 <p><em>Last updated 17 November 2026.</em></p>
 
@@ -128,7 +128,7 @@ This opinion is based on Makeblock’s documentation, on the board’s published
 
 If you are hesitating for a 10-year-old, our guide to the [best robot for a 10-year-old](/en/best-robot-for-a-10-year-old/) compares the options by profile.
 
-The price changes depending on the offers and kits. For a **CyberPi inside a rolling robot**, confirm the listing is **mBot2** (not classic mBot): <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">mBot2 — Amazon UK</a> · <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Amazon.com</a>. See [mBot vs mBot2](/en/mbot-vs-mbot2/) before you order.
+The price changes depending on the offers and kits. For a **CyberPi inside a rolling robot**, confirm the listing is **mBot2** (not classic mBot): <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">mBot2 — Amazon.com</a>. See [mBot vs mBot2](/en/mbot-vs-mbot2/) before you order.
 
 <h2 id="tutorial">Tutorial: display a message and react to button A in Python</h2>
 
@@ -197,9 +197,9 @@ What next? You can add a second button, display the light sensor’s value or, i
 
 <h2 id="buy">Where to buy (affiliate)</h2>
 
-- <a href="/go/az-gb-a34aebc7e6/" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi robot) — Amazon UK</a>
+- <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot2 (CyberPi robot) — Amazon.com</a>
 - <a href="/go/az-us-aa0fb23b7b/" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon.com</a>
-- <a href="/go/az-gb-8919d5eaba" rel="sponsored nofollow noopener">Programmable educational robots — Amazon UK search</a>
+- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener">Programmable educational robots — Amazon.com search</a>
 
 *Amazon Associates — a commission may be earned on eligible purchases, at no extra cost to you.*
 

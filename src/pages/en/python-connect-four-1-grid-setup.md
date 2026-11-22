@@ -13,7 +13,7 @@ faqSchema:
     answer: "Run python puissance4_chapitre_01.py. Expect Grille 6 x 7 creee, a bottom row with a single 1 at index 3 (three tokens stacked in that column), Grille pleine ? False, and the OK message pointing to chapter 2."
 ---
 
-Some links below are affiliate links. **Amazon.co.uk** is the default shop; an **Amazon.com** link is included for US readers. Check today’s price — we do not invent local amounts.
+Some links below are affiliate links. **Amazon.com** is the default shop; an **Amazon.com** link is included for US readers. Check today’s price — we do not invent local amounts.
 
 **Direct answer (October 2026)** — You lay the **foundation** of **Connect Four** in **Python 3**: a **6×7 grid** as a **list of lists**, **constants** (`VIDE`, `J1`, `J2`) and **`grille_pleine`** to detect a future **draw**. No pretty display yet: you work in a **terminal** (text window where you run `python filename.py`). Download **`puissance4_chapitre_01.py`** below; next step is [chapter 2 — display and gravity](/python-puissance-4-2-affichage-gravite/).
 
@@ -164,7 +164,7 @@ Other text games: [Hangman hub](/programmation/pendu/), [Battleship hub](/progra
 
 Books on **Python game projects** may inspire follow-ups — verify edition and level before buying.
 
-- <a href="/go/az-gb-9c39d7b76e" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.co.uk</a>
+- <a href="https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.com</a>
 - <a href="/go/az-us-06848dad09" rel="sponsored nofollow noopener" class="affiliate-link">Python game project books on Amazon.com</a> (US)
 
 *Emmanuel Sauvage — updated 31 October 2026.*

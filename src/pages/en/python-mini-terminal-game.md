@@ -97,7 +97,7 @@ More text games on this site: [Hangman](/programmation/pendu/), [Battleship](/pr
 
 Practice books (affiliate links — UK first, then US):
 
-- [Python game projects — Amazon UK](https://www.amazon.co.uk/s?k=python+projects+games+book&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20)
-- [Learn Python 3 with exercises — Amazon UK](https://www.amazon.co.uk/s?k=python+3+learn+exercises+book&tag=roboteducatif-21) · [Amazon.com](https://www.amazon.com/s?k=python+3+learn+exercises+book&tag=roboteducatif-20)
+- [Python game projects — Amazon.com](https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20)
+- [Learn Python 3 with exercises — Amazon.com](https://www.amazon.com/s?k=python+3+learn+exercises+book&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=python+3+learn+exercises+book&tag=roboteducatif-20)
 
 *Author: Emmanuel Sauvage · updated 31 October 2026.*

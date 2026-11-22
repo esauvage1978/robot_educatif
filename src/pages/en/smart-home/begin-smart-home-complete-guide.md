@@ -46,9 +46,9 @@ Would you rather not install anything yourself? Homey is a ready-made hub that c
 
 Shopping searches, to check the live price and the plug type for your country:
 
-- [Home Assistant Green on Amazon.co.uk](https://www.amazon.co.uk/s?k=Home+Assistant+Green&tag=roboteducatif-21)
-- [Homey Pro mini on Amazon.co.uk](https://www.amazon.co.uk/s?k=Homey+Pro+mini&tag=roboteducatif-21)
-- [SONOFF ZBDongle-E on Amazon.co.uk](https://www.amazon.co.uk/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-21)
+- [Home Assistant Green on Amazon.com](https://www.amazon.com/s?k=Home+Assistant+Green&tag=roboteducatif-20)
+- [Homey Pro mini on Amazon.com](https://www.amazon.com/s?k=Homey+Pro+mini&tag=roboteducatif-20)
+- [SONOFF ZBDongle-E on Amazon.com](https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20)
 
 ## Step 1: know what you really want
 
@@ -86,7 +86,7 @@ For each goal, the budget ranges and the traps to avoid (such as a hidden subscr
 
 The Home Assistant Green is the simplest way to start: Home Assistant comes preinstalled, it runs locally and it needs no mandatory subscription. Check the current price with the seller before you buy.
 
-Would you rather have a ready-made hub that you set up entirely from an app? The Homey Pro mini by Athom is the simplest alternative. It speaks Zigbee, Thread and Matter out of the box (the radio languages explained in our [glossary](/en/smart-home/smart-home-glossary/)) and runs locally, even when the internet is down. Z-Wave, Bluetooth and infrared need the Homey Bridge, sold separately; the more expensive Homey Pro has them built in. The Homey Pro mini is currently being tested by us: see our [unboxing and step-by-step setup](/en/smart-home/homey-pro-mini-unboxing-setup/). [Check the Homey Pro mini price on Amazon.co.uk](https://www.amazon.co.uk/s?k=Homey+Pro+mini&tag=roboteducatif-21).
+Would you rather have a ready-made hub that you set up entirely from an app? The Homey Pro mini by Athom is the simplest alternative. It speaks Zigbee, Thread and Matter out of the box (the radio languages explained in our [glossary](/en/smart-home/smart-home-glossary/)) and runs locally, even when the internet is down. Z-Wave, Bluetooth and infrared need the Homey Bridge, sold separately; the more expensive Homey Pro has them built in. The Homey Pro mini is currently being tested by us: see our [unboxing and step-by-step setup](/en/smart-home/homey-pro-mini-unboxing-setup/). [Check the Homey Pro mini price on Amazon.com](https://www.amazon.com/s?k=Homey+Pro+mini&tag=roboteducatif-20).
 
 ## Step 3: understand how your devices talk to each other
 
@@ -144,4 +144,4 @@ In the [smart home glossary](/en/smart-home/smart-home-glossary/). Each term is 
 
 ---
 
-*Affiliate disclosure: Amazon.co.uk links carry the site's tag (roboteducatif-21). If you buy through them, a commission may be paid at no extra cost to you. Check current prices and availability with the seller. Author: Emmanuel Sauvage.*
+*Affiliate disclosure: Amazon.com links carry the site's tag (roboteducatif-20). If you buy through them, a commission may be paid at no extra cost to you. Check current prices and availability with the seller. Author: Emmanuel Sauvage.*

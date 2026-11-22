@@ -12,7 +12,7 @@ faqSchema:
     answer: "input() returns text (str). To compare numbers, convert with int() or float() as in lesson 3; otherwise 10 < \"2\" can behave unexpectedly."
 ---
 
-Some links below are affiliate links. **Amazon.co.uk** is the default shop; an **Amazon.com** link is included for US readers. Check today’s price — we do not invent local amounts.
+Some links below are affiliate links. **Amazon.com** is the default shop; an **Amazon.com** link is included for US readers. Check today’s price — we do not invent local amounts.
 
 **Direct answer (October 2026)** — In **Python 3**, a **condition** (`if`, `elif`, `else`) **chooses** which statements run depending on whether a test is **true** or **false**. You compare values with `==`, `!=`, `<`, `>`, … and combine tests with **`and`**, **`or`**, **`not`**. No robot needed: a **terminal** (the window where you run `python`) is enough.
 
@@ -445,7 +445,7 @@ You now control **branches**; [lesson 5 — for and while loops](/python-boucles
 
 Prices on Amazon change; check the listing and edition before buying.
 
-- <a href="/go/az-gb-9c39d7b76e" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.co.uk</a>
+- <a href="https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.com</a>
 - <a href="/go/az-us-06848dad09" rel="sponsored nofollow noopener" class="affiliate-link">Python project and game books on Amazon.com</a> (US)
 
 *Emmanuel Sauvage — updated 31 October 2026.*
