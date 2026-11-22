@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-20T18:49:11.969Z",
-  "pageCount": 1034,
+  "generatedAt": "2026-11-22T07:54:07.440Z",
+  "pageCount": 1037,
   "outbound": {
     "/about/": [
       {
@@ -130,6 +130,20 @@
         "title": "HOW WE Measure"
       }
     ],
+    "/ca/best-programmable-robot-for-kids/": [
+      {
+        "href": "/ca/educational-robot-christmas-gifts-2026/",
+        "title": "Educational Robot Christmas Gifts 2026"
+      },
+      {
+        "href": "/ca/black-friday/",
+        "title": "Black Friday 2026 — educational robots and smart home"
+      },
+      {
+        "href": "/ca/",
+        "title": "Coding robots & smart home — guides for Canada"
+      }
+    ],
     "/ca/black-friday/": [
       {
         "href": "/ca/price-drops/how-we-measure/",
@@ -154,8 +168,8 @@
         "title": "HOW WE Measure"
       },
       {
-        "href": "/ca/black-friday/",
-        "title": "Black Friday 2026 — educational robots and smart home"
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/ca/": [
@@ -164,12 +178,12 @@
         "title": "Accessories for the boards and robots already covered"
       },
       {
-        "href": "/ca/black-friday/",
-        "title": "Black Friday 2026 — educational robots and smart home"
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
-        "href": "/ca/price-drops/how-we-measure/",
-        "title": "HOW WE Measure"
+        "href": "/ca/black-friday/",
+        "title": "Black Friday 2026 — educational robots and smart home"
       }
     ],
     "/ca/price-drops/how-we-measure/": [
@@ -178,12 +192,12 @@
         "title": "Black Friday 2026 — educational robots and smart home"
       },
       {
-        "href": "/ca/educational-robot-christmas-gifts-2026/",
-        "title": "Educational Robot Christmas Gifts 2026"
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
-        "href": "/ca/price-drops/",
-        "title": "Price Drops"
+        "href": "/ca/best-programmable-robot-for-kids/",
+        "title": "Best Programmable Robot FOR Kids"
       }
     ],
     "/ca/price-drops/": [
@@ -192,8 +206,26 @@
         "title": "Black Friday 2026 — educational robots and smart home"
       },
       {
+        "href": "/ca/best-programmable-robot-for-kids/",
+        "title": "Best Programmable Robot FOR Kids"
+      },
+      {
+        "href": "/ca/accessories/",
+        "title": "Accessories for the boards and robots already covered"
+      },
+      {
+        "href": "/ca/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
+      }
+    ],
+    "/ca/smart-home/esp32-smart-home-project-ideas/": [
+      {
         "href": "/ca/price-drops/how-we-measure/",
         "title": "HOW WE Measure"
+      },
+      {
+        "href": "/ca/price-drops/",
+        "title": "Price Drops"
       },
       {
         "href": "/ca/accessories/",
@@ -2458,16 +2490,16 @@
     ],
     "/en/10-free-mbot-classroom-projects/": [
       {
+        "href": "/en/python-advanced-context-managers/",
+        "title": "Advanced Python: context managers and contextlib"
+      },
+      {
         "href": "/en/arduino-c/",
         "title": "Learn Arduino C — beginner robotics course hub"
       },
       {
         "href": "/en/arduino/",
         "title": "Arduino: kits and a C programming course"
-      },
-      {
-        "href": "/en/smart-home/garage-door-nodon-relay-homey/",
-        "title": "Connected garage door: NodOn relay and Homey Pro"
       }
     ],
     "/en/accessories/": [
@@ -2540,12 +2572,12 @@
         "title": "A cheap educational robot: what to accept, and what to avoid"
       },
       {
-        "href": "/en/python-advanced-course/",
-        "title": "Advanced Python: six lessons"
-      },
-      {
         "href": "/en/arduino-c-conditions-sensors/",
         "title": "Arduino C lesson 3: if/else conditions for sensors and actuators"
+      },
+      {
+        "href": "/en/python-advanced-course/",
+        "title": "Advanced Python: six lessons"
       }
     ],
     "/en/arduino-c-types-variables/": [
@@ -2849,7 +2881,7 @@
       },
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
         "href": "/en/matatalab-the-company/",
@@ -3577,7 +3609,7 @@
       },
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
         "href": "/en/connect-four-python-5-draw/",
@@ -4785,7 +4817,7 @@
       },
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/en/robotics-gift-ideas-by-age/": [
@@ -5191,7 +5223,7 @@
     "/en/smart-home/getting-started-guides/": [
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
         "href": "/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/",
@@ -5227,7 +5259,7 @@
       },
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       }
     ],
     "/en/smart-home/home-assistant-backup-power-ups/": [
@@ -5303,7 +5335,7 @@
     "/en/smart-home/homey-pro-unboxing-setup/": [
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
         "href": "/en/smart-home/error/z2m-no-route/",
@@ -5429,7 +5461,7 @@
     "/en/smart-home/raspberry-pi-pir-motion-sensor-lighting/": [
       {
         "href": "/en/smart-home/esp32-smart-home-project-ideas/",
-        "title": "10 ESP32 smart-home projects with ESPHome and Home Assistant"
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
         "href": "/en/smart-home/error/arduino-uno-r3-getsync/",
@@ -10106,10 +10138,6 @@
     ],
     "/uk/accessories/": [
       {
-        "href": "/uk/black-friday/",
-        "title": "Black Friday 2026 — educational robots and smart home"
-      },
-      {
         "href": "/uk/price-drops/how-we-measure/",
         "title": "HOW WE Measure"
       },
@@ -10118,22 +10146,44 @@
         "title": "Coding robots & smart home — guides for UK, US & Canada"
       },
       {
+        "href": "/uk/black-friday/",
+        "title": "Black Friday 2026 — educational robots and smart home"
+      },
+      {
+        "href": "/uk/best-programmable-robot-for-kids/",
+        "title": "Best Programmable Robot FOR Kids"
+      },
+      {
         "href": "/uk/price-drops/",
         "title": "Price Drops"
       }
     ],
-    "/uk/black-friday/": [
+    "/uk/best-programmable-robot-for-kids/": [
+      {
+        "href": "/uk/black-friday/",
+        "title": "Black Friday 2026 — educational robots and smart home"
+      },
       {
         "href": "/uk/accessories/",
         "title": "Accessories for the boards and robots already covered"
       },
       {
-        "href": "/uk/",
-        "title": "Coding robots & smart home — guides for UK, US & Canada"
+        "href": "/uk/price-drops/how-we-measure/",
+        "title": "HOW WE Measure"
+      }
+    ],
+    "/uk/black-friday/": [
+      {
+        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
-        "href": "/uk/price-drops/",
-        "title": "Price Drops"
+        "href": "/uk/best-programmable-robot-for-kids/",
+        "title": "Best Programmable Robot FOR Kids"
+      },
+      {
+        "href": "/uk/",
+        "title": "Coding robots & smart home — guides for UK, US & Canada"
       }
     ],
     "/uk/": [
@@ -10156,15 +10206,29 @@
         "title": "Accessories for the boards and robots already covered"
       },
       {
-        "href": "/uk/price-drops/",
-        "title": "Price Drops"
+        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
       },
       {
-        "href": "/uk/",
-        "title": "Coding robots & smart home — guides for UK, US & Canada"
+        "href": "/uk/price-drops/",
+        "title": "Price Drops"
       }
     ],
     "/uk/price-drops/": [
+      {
+        "href": "/uk/smart-home/esp32-smart-home-project-ideas/",
+        "title": "Esp32 Smart Home Project Ideas"
+      },
+      {
+        "href": "/uk/price-drops/how-we-measure/",
+        "title": "HOW WE Measure"
+      },
+      {
+        "href": "/uk/black-friday/",
+        "title": "Black Friday 2026 — educational robots and smart home"
+      }
+    ],
+    "/uk/smart-home/esp32-smart-home-project-ideas/": [
       {
         "href": "/uk/black-friday/",
         "title": "Black Friday 2026 — educational robots and smart home"
@@ -10174,8 +10238,8 @@
         "title": "HOW WE Measure"
       },
       {
-        "href": "/uk/accessories/",
-        "title": "Accessories for the boards and robots already covered"
+        "href": "/uk/price-drops/",
+        "title": "Price Drops"
       }
     ],
     "/10-projets-mbot-gratuits-classe-faciles/": [
@@ -15258,19 +15322,23 @@
     ],
     "/uk/10-free-mbot-classroom-projects/": [
       {
+        "href": "/uk/python-advanced-context-managers/",
+        "title": "Python Advanced Context Managers"
+      },
+      {
         "href": "/uk/arduino-c/",
         "title": "Arduino C"
       },
       {
         "href": "/uk/arduino/",
         "title": "Arduino"
-      },
-      {
-        "href": "/uk/smart-home/garage-door-nodon-relay-homey/",
-        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/ca/10-free-mbot-classroom-projects/": [
+      {
+        "href": "/ca/python-advanced-context-managers/",
+        "title": "Python Advanced Context Managers"
+      },
       {
         "href": "/ca/arduino-c/",
         "title": "Arduino C"
@@ -15278,10 +15346,6 @@
       {
         "href": "/ca/arduino/",
         "title": "Arduino"
-      },
-      {
-        "href": "/ca/smart-home/garage-door-nodon-relay-homey/",
-        "title": "Garage Door Nodon Relay Homey"
       }
     ],
     "/uk/arduino-c-conditions-sensors/": [
@@ -15374,12 +15438,12 @@
         "title": "Cheap Educational Robot Tradeoffs"
       },
       {
-        "href": "/uk/python-advanced-course/",
-        "title": "Python Advanced Course"
-      },
-      {
         "href": "/uk/arduino-c-conditions-sensors/",
         "title": "Arduino C Conditions Sensors"
+      },
+      {
+        "href": "/uk/python-advanced-course/",
+        "title": "Python Advanced Course"
       }
     ],
     "/ca/arduino-c-sketch-structure-serial/": [
@@ -15388,12 +15452,12 @@
         "title": "Cheap Educational Robot Tradeoffs"
       },
       {
-        "href": "/ca/python-advanced-course/",
-        "title": "Python Advanced Course"
-      },
-      {
         "href": "/ca/arduino-c-conditions-sensors/",
         "title": "Arduino C Conditions Sensors"
+      },
+      {
+        "href": "/ca/python-advanced-course/",
+        "title": "Python Advanced Course"
       }
     ],
     "/uk/arduino-c-types-variables/": [
@@ -15534,34 +15598,6 @@
       {
         "href": "/ca/robotics-kit-for-adult-beginners/",
         "title": "Robotics KIT FOR Adult Beginners"
-      }
-    ],
-    "/uk/best-programmable-robot-for-kids/": [
-      {
-        "href": "/uk/python-development-environment/",
-        "title": "Python Development Environment"
-      },
-      {
-        "href": "/uk/osoyoo-sport-car-v1-unboxing/",
-        "title": "Osoyoo Sport CAR V1 Unboxing"
-      },
-      {
-        "href": "/uk/smart-home/esp32-wiring-gpio-basics/",
-        "title": "Esp32 Wiring Gpio Basics"
-      }
-    ],
-    "/ca/best-programmable-robot-for-kids/": [
-      {
-        "href": "/ca/python-development-environment/",
-        "title": "Python Development Environment"
-      },
-      {
-        "href": "/ca/osoyoo-sport-car-v1-unboxing/",
-        "title": "Osoyoo Sport CAR V1 Unboxing"
-      },
-      {
-        "href": "/ca/smart-home/esp32-wiring-gpio-basics/",
-        "title": "Esp32 Wiring Gpio Basics"
       }
     ],
     "/uk/best-python-programmable-robot/": [
@@ -20276,34 +20312,6 @@
       {
         "href": "/ca/smart-home/robot-vacuum-under-200/",
         "title": "Robot Vacuum Under 200"
-      },
-      {
-        "href": "/ca/smart-home/raspberry-pi-pir-motion-sensor-lighting/",
-        "title": "Raspberry PI PIR Motion Sensor Lighting"
-      }
-    ],
-    "/uk/smart-home/esp32-smart-home-project-ideas/": [
-      {
-        "href": "/uk/smart-home/error/arduino-uno-r3-getsync/",
-        "title": "Arduino UNO R3 Getsync"
-      },
-      {
-        "href": "/uk/smart-home/homey-pro-unboxing-setup/",
-        "title": "Homey PRO Unboxing Setup"
-      },
-      {
-        "href": "/uk/smart-home/raspberry-pi-pir-motion-sensor-lighting/",
-        "title": "Raspberry PI PIR Motion Sensor Lighting"
-      }
-    ],
-    "/ca/smart-home/esp32-smart-home-project-ideas/": [
-      {
-        "href": "/ca/smart-home/error/arduino-uno-r3-getsync/",
-        "title": "Arduino UNO R3 Getsync"
-      },
-      {
-        "href": "/ca/smart-home/homey-pro-unboxing-setup/",
-        "title": "Homey PRO Unboxing Setup"
       },
       {
         "href": "/ca/smart-home/raspberry-pi-pir-motion-sensor-lighting/",

@@ -7,8 +7,18 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
-/** Pages UK/CA déjà construites par Astro : ne pas les écraser par la copie anglaise. */
-const KEEP_IF_PRESENT = new Set(['black-friday/index.html', 'black-friday.html', 'index.html']);
+/**
+ * Pages UK/CA déjà construites par Astro : ne pas les écraser par la copie anglaise.
+ * Ajouter ici tout slug dont la variante EN/UK/CA est différenciée dans src/pages/{uk,ca}/.
+ */
+const KEEP_IF_PRESENT = new Set([
+	'black-friday/index.html',
+	'black-friday.html',
+	'index.html',
+	'educational-robot-christmas-gifts-2026/index.html',
+	'best-programmable-robot-for-kids/index.html',
+	'smart-home/esp32-smart-home-project-ideas/index.html',
+]);
 
 const dist = process.argv[2] || 'dist';
 const enRoot = join(dist, 'en');
