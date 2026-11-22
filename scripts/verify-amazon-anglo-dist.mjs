@@ -2,10 +2,12 @@
 /** Contrôles post-go-links sur dist/en, dist/uk, dist/ca (+ table + DE/IT/ES devises). */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.resolve(process.argv[2] || 'dist');
 const roots = ['en', 'uk', 'ca'].map((m) => path.join(dist, m)).filter((d) => fs.existsSync(d));
-const tablePath = path.join(path.dirname(new URL(import.meta.url).pathname), 'go-table.json');
+const tablePath = path.join(SCRIPT_DIR, 'go-table.json');
 const table = JSON.parse(fs.readFileSync(tablePath, 'utf8'));
 const links = table.links || table;
 const prod = new Set(Object.keys(links));
