@@ -7,6 +7,7 @@ import {
 	getAllCatalogEntries,
 } from '../../../../data/unifiedErrorCatalog.mjs';
 import { withBase } from '../../../../lib/siteUrl';
+import { resolveErrorCodeOgImage } from '../../../../lib/errorCodeOgImage';
 
 export function getStaticPaths() {
 	return getAllCatalogEntries().map((entry) => ({
@@ -21,6 +22,7 @@ const productBySlug = Object.fromEntries(PRODUCTS.map((p) => [p.slug, p]));
 const brandBySlug = Object.fromEntries(BRANDS.map((b) => [b.slug, b]));
 const categoryBySlug = Object.fromEntries(DEVICE_CATEGORIES.map((c) => [c.slug, c]));
 const primary = entry.product_slug ? productBySlug[entry.product_slug] : null;
+const ogImage = resolveErrorCodeOgImage(entry, productBySlug);
 const brand = brandBySlug[entry.brand_slug];
 const category = categoryBySlug[entry.category_slug];
 const productLabel = primary?.name ?? entry.product_slug ?? brand?.name ?? 'this device';
@@ -63,6 +65,7 @@ const hub = '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-sh
 	articlePath={articlePath}
 	hubLabel="Smart home"
 	repairGuide={true}
+	image={ogImage}
 	contentProvidesH1={true}
 	skipDefaultBreadcrumb={true}
 	breadcrumbItems={[

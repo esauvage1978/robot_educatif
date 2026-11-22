@@ -13,6 +13,7 @@ import {
 import { withBase } from '../../../lib/siteUrl';
 import { ARTICLE_AUTHOR } from '../../../consts';
 import { buildErrorCodeSeoTitle } from '../../../lib/pageTitle';
+import { resolveErrorCodeOgImage } from '../../../lib/errorCodeOgImage';
 
 export function getStaticPaths() {
 	const entries = getAllCatalogEntries();
@@ -33,6 +34,7 @@ const productBySlug = Object.fromEntries(PRODUCTS.map((p) => [p.slug, p]));
 const brandBySlug = Object.fromEntries(BRANDS.map((b) => [b.slug, b]));
 
 const primaryProduct = entry.product_slug ? productBySlug[entry.product_slug] : null;
+const ogImage = resolveErrorCodeOgImage(entry, productBySlug);
 const productLabel = primaryProduct?.name ?? entry.product_slug ?? '';
 const brand = brandBySlug[entry.brand_slug];
 const imageSrc = primaryProduct?.image_url ?? `/images/models/${entry.product_slug}.webp`;
@@ -144,6 +146,7 @@ const jsonLd = {
 	articlePath={articlePath}
 	hubLabel="Domotique"
 	repairGuide={true}
+	image={ogImage}
 	skipDefaultBreadcrumb={true}
 	breadcrumbItems={[
 		{ name: 'Accueil', url: withBase('/') },
