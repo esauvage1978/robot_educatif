@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
 	defaultF41DistDir,
+	legacyGoPageHtml,
 	loadLegacyAliases,
 	readF41GoTable,
 	slugsFromDist,
@@ -30,33 +31,12 @@ for (const id of f41s) {
 	if (e?.url) toEmit.set(id, { ...e, legacyAlias: true });
 }
 
-function esc(s) {
-	return String(s)
-		.replace(/&/g, '&amp;')
-		.replace(/"/g, '&quot;')
-		.replace(/</g, '&lt;');
-}
-
 let written = 0;
 for (const [id, entry] of toEmit) {
 	if (!entry?.url || !/^https:\/\//i.test(entry.url)) continue;
 	const dir = path.join(dist, 'go', id);
 	fs.mkdirSync(dir, { recursive: true });
-	const url = entry.url;
-	const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0;url=${esc(url)}">
-<link rel="canonical" href="${esc(url)}">
-<meta name="robots" content="noindex,nofollow">
-<title>Redirect</title>
-<style>body{font-family:system-ui,sans-serif;margin:2rem}a{word-break:break-all}</style>
-</head>
-<body><p><a href="${esc(url)}" rel="nofollow sponsored noopener">Continue</a></p></body>
-</html>
-`;
-	fs.writeFileSync(path.join(dir, 'index.html'), html);
+	fs.writeFileSync(path.join(dir, 'index.html'), legacyGoPageHtml(id));
 	written++;
 }
 
