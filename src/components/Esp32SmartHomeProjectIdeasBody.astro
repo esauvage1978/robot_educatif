@@ -1,0 +1,216 @@
+---
+import { ESP32_SMART_HOME_HUB_ANGLO } from '../data/esp32SmartHomeHubAnglo.mjs';
+
+interface Props {
+	marketKey: 'us' | 'uk' | 'ca';
+}
+
+const { marketKey } = Astro.props;
+const c = ESP32_SMART_HOME_HUB_ANGLO[marketKey];
+const p = c.prefix;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: c.title,
+	dateModified: '2026-11-17',
+	inLanguage: c.schemaLang,
+})} />
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+	<a href={`${p}smart-home/`}>Smart home guides</a> · ESP32 project ideas
+</nav>
+
+<p><em>Last updated {c.updated}.</em></p>
+
+<div class="article-toc" role="navigation" aria-label="Table of contents">
+	<p class="article-toc-title">Contents</p>
+	<ul>
+		<li><a href="#board">Recommended dev board</a></li>
+		<li><a href="#beginner">Beginner projects</a></li>
+		<li><a href="#intermediate">Intermediate projects</a></li>
+		<li><a href="#advanced">Advanced projects</a></li>
+		<li><a href="#bonus">Bonus ideas</a></li>
+		<li><a href="#zigbee">ESP32 vs Zigbee</a></li>
+		<li><a href="#faq">FAQ</a></li>
+	</ul>
+</div>
+
+<p>
+	<em>Also available in <a href="/domotique/projets-esp32-domotique/">French</a>.</em>
+</p>
+
+<p>
+	<strong>ESP32 + ESPHome</strong> turns a cheap Wi-Fi microcontroller into sensors, relays and displays that Home Assistant
+	discovers natively. Ten starter projects by skill level—verify part prices at order time. Hub:{' '}
+	<a href={`${p}smart-home/`}>all smart-home guides</a> · <a href={`${p}smart-home/getting-started/`}>getting started</a>.
+</p>
+
+<p set:html={c.marketNote} />
+
+<h2 id="board">Recommended dev board</h2>
+
+<div class="tableau empile">
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">Part</th>
+				<th scope="col">Typical use</th>
+				<th scope="col">Check price (affiliate)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label="Part"><span class="td-val"><strong>ESP32-C6 DevKitC</strong></span></td>
+				<td data-label="Typical use"><span class="td-val">Wi-Fi 6, Matter-ready, good default in 2026</span></td>
+				<td data-label="Check price (affiliate)">
+					<span class="td-val"><a href={`${p}smart-home/which-esp32-board-for-smart-home/`}>Which ESP32 board?</a></span>
+				</td>
+			</tr>
+			<tr>
+				<td data-label="Part"><span class="td-val">Classic <strong>ESP32 DevKit</strong></span></td>
+				<td data-label="Typical use"><span class="td-val">Most tutorials and forum examples</span></td>
+				<td data-label="Check price (affiliate)">
+					<span class="td-val"><a href={`${p}smart-home/which-esp32-board-for-smart-home/`}>Which ESP32 board?</a></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<p>
+	We may earn a commission at no extra cost to you. <strong>Guide price: check offers</strong> on the retailer site before you buy.
+	Example hub: <a href={c.piUrl} rel="sponsored nofollow noopener">{c.piLinkLabel}</a> for Home Assistant — see{' '}
+	<a href={`${p}raspberry-pi-5-which-ram/`}>Pi 5 RAM guide</a>.
+</p>
+
+<p>
+	<strong>Skill key:</strong> <em>Beginner</em> = breadboard + USB power; <em>Intermediate</em> = mains-safe relay logic or multiple I2C
+	sensors; <em>Advanced</em> = displays, voice or air-quality stacks. Each idea below links to a deeper guide where we have one — start with{' '}
+	<a href={`${p}smart-home/esp32-esphome-temperature-sensor/`}>ESPHome temperature</a> for project 1.
+</p>
+
+<h2 id="beginner">Beginner (1–2 hours)</h2>
+
+<h3>1. Room temperature (DHT22)</h3>
+<p>
+	ESP32 + DHT22 per room. Full walkthrough: <a href={`${p}smart-home/esp32-esphome-temperature-sensor/`}>ESPHome temperature sensor</a>.
+</p>
+
+<h3>2. Panic button</h3>
+<p>GPIO button fires a Home Assistant event—alarm, notify, “all off” scene.</p>
+
+<pre><code>{`binary_sensor:
+  - platform: gpio
+    pin: GPIO4
+    name: "Panic button"
+    on_press:
+      - homeassistant.event:
+          event: panic_button`}</code></pre>
+
+<h3>3. Status LED (WS2812)</h3>
+<p>RGB strip shows house state—green OK, red window open, blue away.</p>
+
+<h2 id="intermediate">Intermediate (2–4 hours)</h2>
+
+<h3>4. Local weather node</h3>
+<p>BME280 (temp, humidity, pressure) + optional BH1750 light—automate blinds from lux.</p>
+
+<h3>5. Four-channel relay</h3>
+<p>
+	Drive fan, pump or gate logic—<strong>not</strong> mains unless you know the electrical code; prefer certified in-wall relays for{' '}
+	{c.mainsVoltage} loads.
+</p>
+<p>Off-the-shelf Wi-Fi relay alternative: Shelly 1 Gen4 (local integration in HA).</p>
+
+<h3>6. mmWave presence (LD2410)</h3>
+<p>Detects still occupants—better than PIR for desks and beds.</p>
+
+<h2 id="advanced">Advanced (4–8 hours)</h2>
+
+<h3>7. E-paper dashboard</h3>
+<p>2.9″ e-paper shows temp and forecast without a bright always-on LCD.</p>
+
+<h3>8. CO₂ (MH-Z19B or SCD4x)</h3>
+<p>
+	Alert and boost ventilation above ~1000 ppm. Pi + SCD41 MQTT path:{' '}
+	<a href={`${p}smart-home/raspberry-pi-co2-scd41-home-assistant/`}>Raspberry Pi CO₂</a>.
+</p>
+
+<h3>9. Local voice (Atom Echo / HA Voice)</h3>
+<p>Wake word and commands without Google/Alexa cloud—requires HA voice pipeline setup.</p>
+
+<h3>10. Pulse counting</h3>
+<p>Hall sensor on utility meter impulses—track water or (where legal) electricity pulses.</p>
+
+<h2 id="bonus">Bonus ideas</h2>
+<ul>
+	<li><strong>ESP32-CAM + relay:</strong> gate or doorbell camera locally in HA</li>
+	<li><strong>Soil moisture + valve:</strong> garden irrigation when dry</li>
+	<li><strong>PIR + siren:</strong> DIY alarm entities in HA</li>
+	<li><strong>BME680 + PMS5003:</strong> indoor air quality stack</li>
+</ul>
+
+<h2 id="zigbee">ESP32 vs Zigbee sensors</h2>
+
+<div class="tableau empile">
+	<table>
+		<thead>
+			<tr>
+				<th scope="col"> </th>
+				<th scope="col">ESP32 + ESPHome</th>
+				<th scope="col">Zigbee</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-label=""><span class="td-val"><strong>Pros</strong></span></td>
+				<td data-label="ESP32 + ESPHome"><span class="td-val">Any I2C/GPIO sensor, often cheaper parts</span></td>
+				<td data-label="Zigbee"><span class="td-val">Battery, no USB cable</span></td>
+			</tr>
+			<tr>
+				<td data-label=""><span class="td-val"><strong>Cons</strong></span></td>
+				<td data-label="ESP32 + ESPHome"><span class="td-val">Needs 5 V USB (usually)</span></td>
+				<td data-label="Zigbee"><span class="td-val">Needs coordinator</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<p>
+	Docs: <a href="https://esphome.io" rel="noopener noreferrer">esphome.io</a> · Community:{' '}
+	<a href="https://community.home-assistant.io" rel="noopener noreferrer">Home Assistant forum</a>.
+</p>
+
+<p>
+	<strong>Hub on Raspberry Pi?</strong> <a href={`${p}raspberry-pi-5-which-ram/`}>Pi 5 which RAM</a> ·{' '}
+	<a href={`${p}smart-home/install-home-assistant-raspberry-pi-5/`}>Install Home Assistant on Pi 5</a>. Server-free automations:{' '}
+	<a href={`${p}smart-home/first-smart-home-automations/`}>first smart home automations</a>.
+</p>
+
+<p>
+	Related: <a href={`${p}smart-home/garage-door-smartphone-esp32-esphome/`}>garage door on ESP32</a> ·{' '}
+	<a href={`${p}smart-home/first-smart-home-automations/`}>first automations</a>.
+</p>
+
+<p><a href={`${p}smart-home/`}>All smart-home guides</a></p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>Do I need to code in C++?</h3>
+<p><strong>ESPHome</strong> uses YAML; you flash from Home Assistant or the ESPHome CLI. Arduino C is optional for custom firmware.</p>
+
+<h3>ESP32 or Zigbee?</h3>
+<p>
+	<strong>ESP32</strong> for USB-powered custom sensors; <strong>Zigbee</strong> for battery mesh nodes —{' '}
+	<a href={`${p}smart-home/zigbee-temperature-sensor/`}>Zigbee temperature guide</a>.
+</p>
+
+<h3>Which board first?</h3>
+<p>See <a href={`${p}smart-home/which-esp32-board-for-smart-home/`}>which ESP32 board for smart home</a>.</p>
+
+<h3>Run Home Assistant on Pi 5?</h3>
+<p>
+	Yes — <strong>4GB</strong> is enough for HA plus a few add-ons: <a href={`${p}raspberry-pi-5-which-ram/`}>Pi 5 RAM guide</a>.
+</p>
