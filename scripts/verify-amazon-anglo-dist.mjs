@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { relPosix } from './rel-posix.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.resolve(process.argv[2] || 'dist');
@@ -102,8 +103,8 @@ for (const [id, entry] of Object.entries(links)) {
 for (const root of roots) {
 	const market = path.basename(root);
 	for (const file of walk(root)) {
-		const rel = path.relative(dist, file);
-		if (/\/partners\//.test(rel)) continue;
+		const rel = relPosix(dist, file);
+		if (/\/partners?\//.test(rel) || /\/socios\//.test(rel) || /\/partenaires\//.test(rel)) continue;
 		const html = fs.readFileSync(file, 'utf8');
 		const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, ' ');
 		const visible = visibleText(html);
@@ -211,7 +212,7 @@ for (const market of ['de', 'it', 'es']) {
 	const root = path.join(dist, market);
 	if (!fs.existsSync(root)) continue;
 	for (const file of walk(root)) {
-		const rel = path.relative(dist, file);
+		const rel = relPosix(dist, file);
 		const html = fs.readFileSync(file, 'utf8');
 		if (/about \$0|about \$[\d]–\$[\d]/.test(html)) {
 			counts.euLangDollarCost++;
