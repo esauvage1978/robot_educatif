@@ -1,0 +1,40 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
+import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
+
+const title = 'Kerstcadeaus 2026: leerrobots per leeftijd';
+const description =
+	'Black Friday en Kerst 2026: Makeblock mBot, mBot2 en ELEGOO met prijzen op Amazon.nl (EUR), foto’s en tips per leeftijd en budget.';
+const updated = '22 november 2026';
+const cmp = NOEL_COMPARISON.nl;
+---
+
+<EnPost title={title} description={description} updated={updated} lang="nl">
+	<AffiliateDisclosure locale="nl" />
+
+	<nav class="breadcrumb" aria-label="Kruimelpad">
+		<a href="/nl/">Home</a> · <a href="/nl/partner/">Partners</a> · Kerstcadeaus leerrobots 2026
+	</nav>
+
+	<p>
+		Deze gids bundelt onze <strong>kerst- en Black Friday-keuzes 2026</strong> voor programmeerbare robots. Prijzen zijn
+		indicatief op basis van het laatste <strong>Amazon.nl</strong>-overzicht — controleer altijd de live prijs vóór u bestelt.
+	</p>
+
+	<ComparisonTable market="nl" locale="nl" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="nl" locale="nl" />
+
+	<p>
+		Voor uitgebreidere vergelijkingen per leeftijd, zie onze Engelstalige hub{' '}
+		<a href="/en/best-programmable-robot-for-kids/">best programmable robot for kids</a> of de Franse{' '}
+		<a hreflang="fr" href="/robot-educatif-cadeau-noel-2026/">gids cadeaux Noël</a>.
+	</p>
+
+	<p>
+		<a href="/nl/black-friday/">Black Friday 2026</a> · <a href="/nl/prijsdalingen/">Prijsoverzicht</a>
+	</p>
+</EnPost>

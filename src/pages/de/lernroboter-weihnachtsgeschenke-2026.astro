@@ -4,6 +4,7 @@ import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
 import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
 
 const title = 'Lernroboter zu Weihnachten 2026: Geschenk-Tipps nach Alter';
 const description =
@@ -24,6 +25,8 @@ const cmp = NOEL_COMPARISON.de;
 	</p>
 
 	<ComparisonTable market="de" locale="de" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="de" locale="de" />
 
 	<p>
 		<strong>Weihnachten 2026</strong> ist ideal, um Kindern ein Geschenk zu machen, das <strong>Technik greifbar</strong>{' '}

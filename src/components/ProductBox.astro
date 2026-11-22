@@ -3,6 +3,7 @@ import productsData from '../data/products.json';
 import { MARKET_CONFIG, amazonListingUrl, marketFromPathname } from '../lib/amazonMarket.mjs';
 import { amazonOffer, amazonSnapshot, priceMarket } from '../lib/amazonPriceStore.mjs';
 import { withBase } from '../lib/siteUrl';
+import { productAffiliateHref } from '../lib/productGoUrl.mjs';
 import Button from './Button.astro';
 
 interface Props {
@@ -29,6 +30,8 @@ interface Props {
 	languages?: string[];
 	/** `stack` : carte étroite (grille). `row` : carte pleine largeur. */
 	layout?: 'row' | 'stack';
+	/** Priorise `/images/products/` au lieu de l’image Amazon distante. */
+	preferLocalImage?: boolean;
 }
 
 const {
@@ -53,6 +56,7 @@ const {
 	ages: propAges,
 	languages: propLanguages,
 	layout = 'row',
+	preferLocalImage = false,
 } = Astro.props;
 
 const UI = {
@@ -202,11 +206,18 @@ const listing = snap?.items?.[finalAsin.toUpperCase()] || null;
 const unavailable = !!(listing && listing.dispo === false);
 
 const searchQuery = product.amazonSearchQuery || product.shortName || product.name || '';
-const amazonUrl = amazonListingUrl({
+const amazonUrlRaw = amazonListingUrl({
 	asin: finalAsin,
 	query: searchQuery,
 	market: affiliateMarket,
 });
+const pidForGo = product.id || lookupId;
+const amazonUrl = productAffiliateHref({
+	productId: pidForGo,
+	market: affiliateMarket,
+	fallbackHref: amazonUrlRaw,
+});
+const toHref = (href: string) => (href.startsWith('/') ? withBase(href) : href);
 
 const culturaUrl = marketCfg.showCultura
 	? (propCulturaUrl !== undefined ? propCulturaUrl : (fromCatalog?.culturaUrl || ''))
@@ -239,14 +250,30 @@ if (offer) {
 	priceValue = ui.seePrice;
 }
 
-const checkedOn = (offer || unavailable) && snap?.releveAffichage
+let checkedOn = (offer || unavailable) && snap?.releveAffichage
 	? ui.checked(shortDate(snap.releveAffichage, locale))
 	: '';
+if (!checkedOn && priceMode === 'amount' && product.prixReleveLe) {
+	checkedOn = ui.checked(shortDate(product.prixReleveLe, locale));
+}
+if (priceMode === 'amount' && !checkedOn) {
+	priceMode = 'phrase';
+	priceValue = ui.seePrice;
+}
 
-const imageSrc =
-	!unavailable && !product.amazonIndispo && product.imageAmazon
-		? product.imageAmazon
-		: withBase(image || product.image || product.imageUrl || '/images/products/mbot2.webp');
+const localImg = image || product.image || product.imageUrl || '';
+const imageSrc = (() => {
+	if (preferLocalImage && localImg && !localImg.endsWith('.svg')) {
+		return withBase(localImg);
+	}
+	if (localImg && !localImg.endsWith('.svg')) {
+		return withBase(localImg);
+	}
+	if (!unavailable && !product.amazonIndispo && product.imageAmazon && !String(product.imageAmazon).endsWith('.svg')) {
+		return product.imageAmazon;
+	}
+	return withBase('/images/products/mbot2.webp');
+})();
 
 const prosList: string[] = propPros || product.pros || [];
 const consList: string[] = propCons || product.cons || [];
@@ -268,7 +295,7 @@ const plainRel = 'noopener';
 
 type ShopLink = { href: string; label: string; sponsored: boolean };
 const primary: ShopLink | null = amazonUrl
-	? { href: amazonUrl, label: unavailable ? ui.amazonListing : (ctaText || ui.amazon), sponsored: true }
+	? { href: toHref(amazonUrl), label: unavailable ? ui.amazonListing : (ctaText || ui.amazon), sponsored: true }
 	: partnerUrl
 		? { href: partnerUrl, label: partnerLabel || ui.maker, sponsored: partnerIsSponsored }
 		: officialUrl

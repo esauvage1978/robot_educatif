@@ -4,6 +4,7 @@ import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
 import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
 
 const title = 'Regalo Natale 2026: robot educativi programmabili per bambini';
 const description =
@@ -24,6 +25,8 @@ const cmp = NOEL_COMPARISON.it;
 	</p>
 
 	<ComparisonTable market="it" locale="it" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="it" locale="it" />
 
 	<p>
 		<strong>Natale 2026</strong> è il momento giusto per regalare un <strong>robot programmabile</strong> che dura anni:

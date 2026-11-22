@@ -4,6 +4,7 @@ import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import { NOEL_COMPARISON } from '../../data/noelGuideI18n.mjs';
 import { productAmazonUrl } from '../../lib/guideAffiliateProducts.mjs';
+import NoelFetesGiftMatrix from '../../components/NoelFetesGiftMatrix.astro';
 
 const title = 'Regalo Navidad 2026: robots educativos programables para niños';
 const description =
@@ -24,6 +25,8 @@ const cmp = NOEL_COMPARISON.es;
 	</p>
 
 	<ComparisonTable market="es" locale="es" title={cmp.title} products={cmp.products} />
+
+	<NoelFetesGiftMatrix market="es" locale="es" />
 
 	<p>
 		En esta guía usamos <strong>programación por bloques</strong> (como en Scratch), el acrónimo <strong>STEM</strong> (ciencia,

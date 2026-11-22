@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SelectionFetes2026 from '../../components/SelectionFetes2026.astro';
 import HomeIntentPaths from '../../components/HomeIntentPaths.astro';
 import HomeSmartHome from '../../components/HomeSmartHome.astro';
 import { getIllustration } from '../../lib/illustration';
@@ -639,6 +640,8 @@ const popularProducts = await buildHomePopularProducts('de', 'de');
 					</div>
 				</div>
 			</section>
+
+			<SelectionFetes2026 locale="de" />
 
 			<HomeIntentPaths lang="de" />
 

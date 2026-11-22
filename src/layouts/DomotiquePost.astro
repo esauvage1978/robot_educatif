@@ -14,6 +14,9 @@ import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import StructuredDataBreadcrumb from '../components/StructuredDataBreadcrumb.astro';
 import DomotiqueBreadcrumbNav from '../components/DomotiqueBreadcrumbNav.astro';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import GscIntentCta from '../components/GscIntentCta.astro';
+import { gscIntentForPath } from '../lib/gscIntentPages.mjs';
+import { NOEL_PATHS } from '../data/noelGuideI18n.mjs';
 import StructuredDataFaq from '../components/StructuredDataFaq.astro';
 import ArticleByline from '../components/ArticleByline.astro';
 import { withBase } from '../lib/siteUrl';
@@ -61,6 +64,8 @@ const breadcrumbLabel = title.includes(':') ? title.split(':')[0].trim() : title
 const reviewPage = reviewPageForPath(`/domotique/${articleSlug}/`);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
+const gscIntent = gscIntentForPath(Astro.url.pathname);
+const noelHref = NOEL_PATHS.fr;
 ---
 
 <html lang="fr">
@@ -204,7 +209,10 @@ const reviewOffer = reviewPage?.offer ?? null;
 				)}
 
 				<div class="article-content prose">
+								{gscIntent && !gscIntent.skipInjectPick && <GscIntentCta config={gscIntent} phase="pick" />}
+								{gscIntent && !gscIntent.skipInjectTable && <GscIntentCta config={gscIntent} phase="table" />}
 								<slot />
+								{gscIntent && <GscIntentCta config={gscIntent} phase="conclusion" noelHref={noelHref} />}
 								<EditorialReadAlso />
 							</div>
 							<!-- page-rating-v1 -->

@@ -19,6 +19,9 @@ import ArticleByline from '../components/ArticleByline.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import { guideArticleDates } from '../lib/guideArticleDates.mjs';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import GscIntentCta from '../components/GscIntentCta.astro';
+import { gscIntentForPath } from '../lib/gscIntentPages.mjs';
+import { NOEL_PATHS } from '../data/noelGuideI18n.mjs';
 const fm = Astro.props.frontmatter ?? Astro.props;
 const { title, description, updated } = fm;
 const minutesRead = Number(fm.minutesRead);
@@ -39,6 +42,8 @@ const hubRelated = others.slice(0, 5).map((o) => ({ title: o.title, href: o.href
 const reviewPage = reviewPageForPath(_n);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
+const gscIntent = gscIntentForPath(Astro.url.pathname);
+const noelHref = NOEL_PATHS.it;
 ---
 <html lang="it">
 	<head>
@@ -293,7 +298,10 @@ const reviewOffer = reviewPage?.offer ?? null;
 					)}
 					<div class="prose">
 						<HubEssentials />
+						{gscIntent && !gscIntent.skipInjectPick && <GscIntentCta config={gscIntent} phase="pick" />}
+						{gscIntent && !gscIntent.skipInjectTable && <GscIntentCta config={gscIntent} phase="table" />}
 						<slot />
+						{gscIntent && <GscIntentCta config={gscIntent} phase="conclusion" noelHref={noelHref} />}
 						<EditorialReadAlso />
 					</div>
 					<PageRatingWidget lang="it" />

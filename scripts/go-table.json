@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-20T18:50:44.304Z",
- "count": 2499,
+ "updated": "2026-11-22T13:14:22.516Z",
+ "count": 2513,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -2075,6 +2075,14 @@
    "dest": "",
    "affid": "3126073"
   },
+  "aw-14133-8e0f4a2bc1": {
+   "url": "https://www.awin1.com/awclick.php?mid=14133&id=3126073",
+   "merchant": "awin",
+   "country": "DE",
+   "mid": "14133",
+   "dest": "",
+   "affid": ""
+  },
   "aw-14433-d4dac7931d": {
    "url": "https://www.awin1.com/awclick.php?mid=14433&id=3126073",
    "merchant": "awin",
@@ -3530,7 +3538,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-092cc2e82e": {
-   "url": "https://www.amazon.ca/s?k=Freenove%20ESP32%204WD%20smart%20car%20kit&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B08X6PTQFM?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3824,13 +3832,13 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-290aec42f7": {
-   "url": "https://www.amazon.ca/s?k=Home%20Assistant%20Voice%20Preview%20Edition&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0G1ZKHX1W?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
   },
   "az-ca-29335e4a2a": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot2&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0919F9CKS?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4010,7 +4018,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-3895494da2": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B083T58PKM?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4046,7 +4054,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-3b5fd1fb54": {
-   "url": "https://www.amazon.ca/s?k=TTS%20Bee-Bot%20programmable%20floor%20robot&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B08BTJFYT3?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4100,7 +4108,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-40f4db158f": {
-   "url": "https://www.amazon.ca/s?k=Freenove%20Raspberry%20Pi%204WD%20smart%20car&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07YD2LT9D?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4130,7 +4138,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-468f6c1acc": {
-   "url": "https://www.amazon.ca/s?k=Arduino%20Starter%20Kit%20K000007&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B009UKZV0A?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4172,7 +4180,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-49fb9ef2a9": {
-   "url": "https://www.amazon.ca/s?k=Philips%20Hue%20motion%20sensor&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07HH4SLZN?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4292,7 +4300,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-57507523f5": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot%20Ranger&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07KG4JHBH?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4406,7 +4414,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-621cf79d54": {
-   "url": "https://www.amazon.ca/s?k=Homey%20Pro%20smart%20home%20hub&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CDY2962D?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4424,7 +4432,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-638931d826": {
-   "url": "https://www.amazon.ca/s?k=Matatalab%20Tale-Bot%20Pro%20coding%20robot&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CZ6R182M?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4454,7 +4462,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-684acee5dd": {
-   "url": "https://www.amazon.ca/s?k=SONOFF%20SNZB-02D%20sensor%202%20pack&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0BZCV658S?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4610,7 +4618,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-75b96df0e5": {
-   "url": "https://www.amazon.ca/s?k=BBC%20micro%3Abit%20V2%20Go%20kit&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0BB949JCP?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4826,7 +4834,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-901bc431f2": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO%20UNO%20R3%20Super%20Starter%20Kit&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B01JD2Z5XW?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4928,7 +4936,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-a26799b6e0": {
-   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%205%208GB&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CK2FCG1K?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4946,7 +4954,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-a439f6987f": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07XR98YYQ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5018,7 +5026,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-aaf247c52c": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B01B14XK00?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5031,6 +5039,12 @@
   },
   "az-ca-ac369739b5": {
    "url": "https://www.amazon.ca/s?k=Creality+K1C&&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ac4a0db9be": {
+   "url": "https://www.amazon.ca/s?k=Roborock+Q7+M5+robot+vacuum&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5049,6 +5063,12 @@
   },
   "az-ca-ae2cbfdbd4": {
    "url": "https://www.amazon.ca/s?k=Makeblock%20mBot&&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-ae9fc11c47": {
+   "url": "https://www.amazon.ca/s?k=SONOFF+ZBDongle-E+Zigbee+USB&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5204,7 +5224,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-c08c70efd3": {
-   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%205%204GB&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CK3L9WD3?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5264,7 +5284,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-cbc391a1b8": {
-   "url": "https://www.amazon.ca/s?k=SunFounder%20PiCar-X%20Raspberry%20Pi%20robot&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CGLPF29H?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5360,7 +5380,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-d44aaecb54": {
-   "url": "https://www.amazon.ca/s?k=Raspberry%20Pi%203%20power%20supply%205V%20micro%20USB&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B01CO1HZJ6?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5390,7 +5410,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-d82d8c8350": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B078Y9RYM2?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5497,6 +5517,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-e83f8a5fdd": {
+   "url": "https://www.amazon.ca/s?k=Roborock%20Qrevo%20S5V&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-e8918e42f2": {
    "url": "https://www.amazon.ca/s?k=python+practical+projects+book&&tag=roboteducat03-20",
    "merchant": "amazon",
@@ -5577,6 +5603,12 @@
   },
   "az-ca-f052b76e69": {
    "url": "https://www.amazon.ca/s?k=waterproof%20momentary%20push%20button%20IP65%2012mm&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-f09422b1e1": {
+   "url": "https://www.amazon.ca/s?k=NOUS%20A1Z%20Zigbee&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5690,7 +5722,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-fdd8f58049": {
-   "url": "https://www.amazon.ca/s?k=OSOYOO%20Sport%20Car%20Arduino%20kit&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B098T6527G?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -6021,6 +6053,12 @@
   },
   "az-de-4ea6c3bb28": {
    "url": "https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-4ee627b7e7": {
+   "url": "https://www.amazon.de/s?k=Roborock+Qrevo+S5V&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -9133,6 +9171,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-6df9278261": {
+   "url": "https://www.amazon.fr/s?k=NOUS%20A1Z%20Zigbee&tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-6e19a9c01a": {
    "url": "https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21",
    "merchant": "amazon",
@@ -11761,6 +11805,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-6d96b0ffd0": {
+   "url": "https://www.amazon.co.uk/s?k=Roborock+Q7+M5+robot+vacuum&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-6e19f136c8": {
    "url": "https://www.amazon.co.uk/s?k=Roborock%20Q7%20M5%20robot%20vacuum&&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -12211,6 +12261,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-a10dd06773": {
+   "url": "https://www.amazon.co.uk/s?k=Roborock%20Qrevo%20S5V&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-a1644778dd": {
    "url": "https://www.amazon.co.uk/s?k=SONOFF%20ZBDongle-E&&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -12229,8 +12285,20 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-a2f0dfb0b9": {
+   "url": "https://www.amazon.co.uk/s?k=SONOFF+ZBDongle-E+Zigbee+USB&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-a34aebc7e6": {
    "url": "https://www.amazon.co.uk/dp/B0919F9CKS?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a3a9a8749a": {
+   "url": "https://www.amazon.co.uk/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -12471,6 +12539,12 @@
   },
   "az-gb-b4921c0e44": {
    "url": "https://www.amazon.co.uk/s?k=myAGV+Elephant+Robotics&&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-b5052f71b3": {
+   "url": "https://www.amazon.co.uk/s?k=NOUS%20A1Z%20Zigbee&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -13904,10 +13978,10 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-b2ff59a57e": {
-   "url": "https://www.amazon.it/s?k=ESP32+DevKit&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/s?k=ESP32+DevKit&tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "IT",
-   "tag": "roboteducat0f-21"
+   "tag": "roboteducat00-21"
   },
   "az-it-b3b9b2ea82": {
    "url": "https://www.amazon.it/s?k=modulo%20rel%C3%A8%201%20canale%205V%20optoisolato%20Arduino&tag=roboteducat0f-21",
@@ -14672,7 +14746,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-4236525763": {
-   "url": "https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14756,7 +14830,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-4d50cae494": {
-   "url": "https://www.amazon.com/s?k=BBC%20micro%3Abit%20V2%20Go%20kit&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B0BB949JCP?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14816,7 +14890,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-56c130208f": {
-   "url": "https://www.amazon.com/s?k=Philips%20Hue%20motion%20sensor&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07HH4SLZN?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14930,7 +15004,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-69d2b177fc": {
-   "url": "https://www.amazon.com/s?k=TTS%20Bee-Bot%20programmable%20floor%20robot&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14948,7 +15022,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-6e29e4e95b": {
-   "url": "https://www.amazon.com/s?k=Freenove%20ESP32%204WD%20smart%20car%20kit&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B08X6PTQFM?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15038,7 +15112,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-7c0162746a": {
-   "url": "https://www.amazon.com/s?k=Roborock%20Q7%20M5%20robot%20vacuum&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B0DT4FJJXM?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15139,6 +15213,12 @@
    "country": "US",
    "tag": "roboteducatif-20"
   },
+  "az-us-8bcfa755b5": {
+   "url": "https://www.amazon.com/s?k=Roborock%20Qrevo%20S5V&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
   "az-us-8cb4b2da1b": {
    "url": "https://www.amazon.com/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducatif-20",
    "merchant": "amazon",
@@ -15219,6 +15299,12 @@
   },
   "az-us-9a5691175d": {
    "url": "https://www.amazon.com/s?k=BME280+module&tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-9d8ceda345": {
+   "url": "https://www.amazon.com/s?k=NOUS%20A1Z%20Zigbee&tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15344,7 +15430,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-b32cd108c5": {
-   "url": "https://www.amazon.com/s?k=Raspberry%20Pi%203%20power%20supply%205V%20micro%20USB&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B01CO1HZJ6?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15368,7 +15454,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-b5314845bf": {
-   "url": "https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15422,7 +15508,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-bddab87f10": {
-   "url": "https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B01B14XK00?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15494,7 +15580,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-c900a610b9": {
-   "url": "https://www.amazon.com/s?k=SunFounder%20PiCar-X%20Raspberry%20Pi%20robot&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B0CGLPF29H?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15548,7 +15634,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-d406fa03eb": {
-   "url": "https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15608,7 +15694,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-dd9445a9ea": {
-   "url": "https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro%20coding%20robot&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B0CZ6R182M?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15746,7 +15832,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-ed51a26a8e": {
-   "url": "https://www.amazon.com/s?k=Freenove%20Raspberry%20Pi%204WD%20smart%20car&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07YD2LT9D?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15782,7 +15868,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-f030be64cd": {
-   "url": "https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B078Y9RYM2?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15842,7 +15928,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-fdb3bb50c3": {
-   "url": "https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"

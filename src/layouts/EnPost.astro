@@ -21,6 +21,9 @@ import ArticleByline from '../components/ArticleByline.astro';
 import StructuredDataArticle from '../components/StructuredDataArticle.astro';
 import { guideArticleDates } from '../lib/guideArticleDates.mjs';
 import EditorialReadAlso from '../components/EditorialReadAlso.astro';
+import GscIntentCta from '../components/GscIntentCta.astro';
+import { gscIntentForPath } from '../lib/gscIntentPages.mjs';
+import { NOEL_PATHS } from '../data/noelGuideI18n.mjs';
 const fm = Astro.props.frontmatter ?? Astro.props;
 const { title, description, updated, shareTitle, shareDescription, lang: htmlLang = 'en' } = fm;
 const pageLang = htmlLang === 'nl' ? 'nl' : 'en';
@@ -45,6 +48,15 @@ const sharePath = _n;
 const reviewPage = reviewPageForPath(_n);
 const isReviewLayout = Boolean(reviewPage?.review);
 const reviewOffer = reviewPage?.offer ?? null;
+const gscIntent = gscIntentForPath(Astro.url.pathname);
+const noelHref =
+	NOEL_PATHS[
+		Astro.url.pathname.includes('/uk/')
+			? 'uk'
+			: Astro.url.pathname.includes('/ca/')
+				? 'ca'
+				: 'en'
+	] || NOEL_PATHS.en;
 ---
 <html lang={pageLang === 'nl' ? 'nl' : htmlLang}>
 	<head>
@@ -299,7 +311,10 @@ const reviewOffer = reviewPage?.offer ?? null;
 					)}
 					<div class="prose">
 						<HubEssentials />
+						{gscIntent && !gscIntent.skipInjectPick && <GscIntentCta config={gscIntent} phase="pick" />}
+						{gscIntent && !gscIntent.skipInjectTable && <GscIntentCta config={gscIntent} phase="table" />}
 						<slot />
+						{gscIntent && <GscIntentCta config={gscIntent} phase="conclusion" noelHref={noelHref} />}
 						<EditorialReadAlso />
 					</div>
 					<ShareButtons url={withBase(sharePath)} title={shareTitle ?? title} description={shareDescription ?? description} lang={pageLang} />

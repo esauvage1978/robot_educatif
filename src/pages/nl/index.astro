@@ -3,25 +3,70 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import PageColumns from '../../components/PageColumns.astro';
+import SelectionFetes2026 from '../../components/SelectionFetes2026.astro';
+import { withBase } from '../../lib/siteUrl';
+import { NOEL_PATHS } from '../../data/noelGuideI18n.mjs';
 
 const title = 'Educatieve robots — gidsen, robots en programmeren';
 const description =
 	'Gidsen over educatieve robots, LEGO Education, partners en prijsdalingen — inhoud in het Nederlands op robot-educatif.info.';
+const noelHref = NOEL_PATHS.nl;
 ---
 <!doctype html>
 <html lang="nl">
 	<head>
 		<BaseHead title={title} description={description} />
+		<style>
+			.nl-hero {
+				max-width: 1320px;
+				margin: 1.25rem auto 0;
+				padding: 0 clamp(1rem, 3vw, 1.75rem);
+			}
+			.nl-badge {
+				display: inline-block;
+				font-size: 0.82rem;
+				font-weight: 600;
+				padding: 0.35rem 0.65rem;
+				border-radius: 999px;
+				background: #ecfdf5;
+				color: #047857;
+				margin-bottom: 0.65rem;
+			}
+			.nl-hero h1 {
+				margin: 0 0 0.5rem;
+				font-size: clamp(1.5rem, 3.5vw, 2rem);
+				line-height: 1.2;
+			}
+			.nl-hero p {
+				margin: 0 0 1rem;
+				color: #334155;
+				max-width: 62ch;
+			}
+			.nl-hero .btn {
+				display: inline-block;
+				padding: 0.65rem 1rem;
+				border-radius: 10px;
+				background: #1d4ed8;
+				color: #fff;
+				font-weight: 600;
+				text-decoration: none;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
+			<div class="nl-hero">
+				<span class="nl-badge">🎄 Kerstgids 2026 bijgewerkt</span>
+				<h1>{title}</h1>
+				<p>{description}</p>
+				<a class="btn" href={withBase(noelHref)}>Bekijk de kerstcadeaugids →</a>
+			</div>
+			<SelectionFetes2026 locale="nl" />
 			<PageColumns sommaire={false}>
 				<nav class="breadcrumb" aria-label="Kruimelpad">
 					<a href="/">Robot Éducatif</a> · Nederlandstalige hub
 				</nav>
-				<h1>{title}</h1>
-				<p>{description}</p>
 				<ul>
 					<li><a href="/nl/lego-education-merk/">LEGO Education merkgids</a></li>
 					<li><a href="/nl/partners/">Partners van de site</a></li>

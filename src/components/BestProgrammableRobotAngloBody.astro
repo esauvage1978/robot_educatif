@@ -1,6 +1,7 @@
 ---
 import AffiliateDisclosure from './AffiliateDisclosure.astro';
 import ComparisonTable from './ComparisonTable.astro';
+import GscNotreChoixCompact from './GscNotreChoixCompact.astro';
 import { BEST_PROGRAMMABLE_ROBOT_ANGLO } from '../data/bestProgrammableRobotAnglo.mjs';
 
 interface Props {
@@ -23,6 +24,15 @@ const p = c.prefix;
 	<a href={`${p}mbot-vs-mbot2/`}>mBot vs mBot2</a>
 </p>
 
+<p>
+	<strong>Updated {c.updated}.</strong>
+	<Fragment set:html={c.intro} /> Browse our <a href={`${p}buying-guides/`}>buying guides index</a> for age-specific detail
+	pages. <strong>Scratch</strong> means block coding (like puzzle pieces); <strong>Arduino</strong> is text-based C/C++ on a
+	microcontroller board.
+</p>
+
+<GscNotreChoixCompact pageKey="hub-best-robot" market={c.market} locale="en" />
+
 <ComparisonTable
 	market={c.market}
 	locale="en"
@@ -35,13 +45,6 @@ const p = c.prefix;
 		{ id: 'elegoo-robot-car', badge: 'Teen Arduino' },
 	]}
 />
-
-<p>
-	<strong>Updated {c.updated}.</strong>
-	<Fragment set:html={c.intro} /> Browse our <a href={`${p}buying-guides/`}>buying guides index</a> for age-specific detail
-	pages. <strong>Scratch</strong> means block coding (like puzzle pieces); <strong>Arduino</strong> is text-based C/C++ on a
-	microcontroller board.
-</p>
 
 <figure>
 	<img

@@ -8,6 +8,7 @@ export const NOEL_GUIDE_PATHS = new Set([
 	'/de/lernroboter-weihnachtsgeschenke-2026/',
 	'/it/regalo-natale-robot-educativo-2026/',
 	'/es/regalo-navidad-robot-educativo-2026/',
+	'/nl/kerstcadeau-leerrobot-2026/',
 ]);
 
 export function normalizePathname(pathname) {
