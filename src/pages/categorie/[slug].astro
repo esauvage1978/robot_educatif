@@ -9,6 +9,7 @@ import StructuredDataArticle from '../../components/StructuredDataArticle.astro'
 import { buildCategoryIndex } from '../../lib/categories';
 import { buildCategoryMetaDescription } from '../../lib/metaDescription';
 import { withBase } from '../../lib/siteUrl';
+import { resolvePageOgImageFromPath } from '../../lib/pageOgImageFromPath.mjs';
 import PageColumns from '../../components/PageColumns.astro';
 
 export async function getStaticPaths() {
@@ -63,7 +64,7 @@ const POST_BLURBS: Record<string, string> = {
 <!doctype html>
 <html lang="fr">
 	<head>
-		<BaseHead title={pageTitle} description={pageDesc} noIndex={shouldNoIndex} pubDate={pagePubDate} updatedDate={pageUpdated} ogType="article" />
+		<BaseHead title={pageTitle} description={pageDesc} image={resolvePageOgImageFromPath(`/categorie/${entry.slug}/`)} noIndex={shouldNoIndex} pubDate={pagePubDate} updatedDate={pageUpdated} ogType="article" />
 		<StructuredDataArticle
 			title={pageTitle}
 			description={pageDesc}

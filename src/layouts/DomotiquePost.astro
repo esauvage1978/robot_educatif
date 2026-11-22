@@ -22,6 +22,7 @@ import ArticleByline from '../components/ArticleByline.astro';
 import { withBase } from '../lib/siteUrl';
 import { withImageVersion } from '../lib/imageVersion';
 import { getIllustration } from '../lib/illustration';
+import { resolveArticleOgImage } from '../lib/articleOgImage.mjs';
 
 type Props = CollectionEntry<'domotique'>['data'] & {
 	articleSlug: string;
@@ -59,6 +60,8 @@ const illustration = getIllustration(articleSlug);
 const realHero = typeof heroImage === 'string' && heroImage.trim() ? heroImage.trim() : '';
 const thumbnailPath = realHero || (illustration ? illustration.src : `/images/blog-thumbnails/${articleSlug}.png`);
 const thumbnailImage = withImageVersion(thumbnailPath);
+const ogProductImage = resolveArticleOgImage({ heroImage: realHero, articleSlug }) ?? undefined;
+const ogImageForHead = ogProductImage ?? (realHero ? thumbnailImage : undefined);
 
 const breadcrumbLabel = title.includes(':') ? title.split(':')[0].trim() : title;
 const reviewPage = reviewPageForPath(`/domotique/${articleSlug}/`);
@@ -73,7 +76,7 @@ const noelHref = NOEL_PATHS.fr;
 		<BaseHead 
 			title={title} 
 			description={description} 
-			image={thumbnailImage}
+			image={ogImageForHead}
 			ogType="article"
 			pubDate={pubDate}
 			updatedDate={updatedDate}
