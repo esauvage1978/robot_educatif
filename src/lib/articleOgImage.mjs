@@ -95,17 +95,38 @@ function inferFromSlug(slug) {
 	if (s.includes('mbot') || s.includes('mblock') || s.includes('makeblock')) return accept(PRESET_IMAGES.mbot);
 	if (s.includes('esp32') || s.includes('esphome')) return accept('/images/products/esp32-c6-devkitc.webp');
 	if (
-		s.includes('zigbee') ||
-		s.includes('home-assistant') ||
-		s.includes('domotique') ||
-		s.includes('smart-home') ||
-		s.includes('homey') ||
-		s.includes('shelly') ||
-		s.includes('vacuum') ||
-		s.includes('aspirateur') ||
-		s.includes('saugroboter')
+		s.includes('temperature-sensor') ||
+		s.includes('temperatursensor') ||
+		s.includes('capteur-temperature') ||
+		s.includes('sensore-temperatura') ||
+		s.includes('sensor-temperatura')
 	)
+		return accept('/images/products/sonoff-snzb-02d.webp');
+	if (s.includes('vacuum') || s.includes('aspirateur') || s.includes('saugroboter') || s.includes('aspirapolvere'))
+		return accept('/images/products/roborock-q7-m5.webp');
+	if (s.includes('dongle') || s.includes('zigbee-stick') || s.includes('chiavetta-zigbee') || s.includes('bester-zigbee'))
 		return accept('/images/products/sonoff-zbdongle-e.webp');
+	if (
+		s.includes('begin-smart-home') ||
+		s.includes('debuter-en-domotique') ||
+		s.includes('einstieg-kompletter') ||
+		s.includes('guida-completa') ||
+		s.includes('guia-completa') ||
+		s.includes('quel-box-domotique') ||
+		s.includes('which-smart-home-hub') ||
+		s.includes('welche-smart-home')
+	)
+		return accept('/images/products/home-assistant-green.webp');
+	if (s.includes('homey')) return accept(EXTRA_SLUG_IMAGES['homey-pro']);
+	if (
+		s.includes('home-assistant') ||
+		s.includes('smart-home') ||
+		s.includes('domotique') ||
+		s.includes('domotica') ||
+		s.includes('shelly')
+	)
+		return accept('/images/products/home-assistant-green.webp');
+	if (s.includes('zigbee')) return accept('/images/products/sonoff-zbdongle-e.webp');
 	if (s.includes('lego') || s.includes('spike')) return accept(PRESET_IMAGES.lego);
 	if (s.includes('scratch') || s.includes('mblock')) return accept(PRESET_IMAGES.scratch);
 	if (s.includes('python') || s.includes('pendu') || s.includes('puissance-4') || s.includes('bataille'))
