@@ -14,7 +14,7 @@ export const RATIO_MAX = 0.9;
 export const JOURS_FRAIS = 2;
 export const HISTORIQUE_JOURS = 35;
 export const MAX_HISTORIQUE_MID = 20000;
-export const MAX_PAR_MARCHE = { eu: 80, de: 40, us: 40 };
+export const MAX_PAR_MARCHE = { eu: 80, de: 40, us: 40, uk: 40, ca: 40 };
 
 /** Aligné sur src/config/affiliation.ts : statut actif, plus la boutique US Anycubic. */
 export const PARTENAIRES = [
@@ -48,7 +48,7 @@ export function appliquerPartenaires(liste, affid) {
     PAR_MID.set(String(p.mid), p);
   }
 }
-const LOCALES = { fr: 'fr-FR', en: 'en-GB', de: 'de-DE', it: 'it-IT', es: 'es-ES', nl: 'nl-NL' };
+const LOCALES = { fr: 'fr-FR', en: 'en-US', uk: 'en-GB', ca: 'en-CA', de: 'de-DE', it: 'it-IT', es: 'es-ES', nl: 'nl-NL' };
 const COULEURS = /\b(black|white|red|blue|grey|gray|green|yellow|orange|purple|pink|silver|gold|transparent|clear|natural|noir|blanc|rouge|bleu|blu|gris|vert|jaune|violet|rose|argent|schwarz|weiss|weiß|rot|blau|grau|grun|grün|gelb|lila|nero|bianco|rosso|grigio|verde|giallo|rosa|negro|blanco|azul|amarillo|morado)\b/g;
 
 export function partenaireParMid(mid) {
@@ -149,7 +149,31 @@ export function hrefFiable(href) {
 export function visibleLang(produit, lang) {
   if (produit.marche === 'de') return lang === 'de';
   if (produit.marche === 'us') return lang === 'en';
+  if (produit.marche === 'uk' || produit.marche === 'ca') return lang === 'en';
   return produit.marche === 'eu';
+}
+
+/** Affichage par zone géographique (UK/CA/EN/FR…) — devise et marché cohérents. */
+export function visiblePourGeo(produit, geo, lang) {
+  const g = geo || 'fr';
+  if (g === 'uk') {
+    return produit.devise === 'GBP' && produit.marche === 'uk' && langueDeLaPage(produit, lang);
+  }
+  if (g === 'ca') {
+    return produit.devise === 'CAD' && produit.marche === 'ca' && langueDeLaPage(produit, lang);
+  }
+  if (g === 'en') {
+    if (produit.marche === 'us') return produit.devise === 'USD' && langueDeLaPage(produit, lang);
+    if (produit.marche === 'eu') return produit.devise === 'EUR' && langueDeLaPage(produit, lang);
+    return false;
+  }
+  if (g === 'de') {
+    return produit.marche === 'de' && produit.devise === 'EUR' && langueDeLaPage(produit, lang);
+  }
+  if (['fr', 'it', 'es', 'nl'].includes(g)) {
+    return produit.marche === 'eu' && produit.devise === 'EUR' && langueDeLaPage(produit, lang);
+  }
+  return visibleLang(produit, lang) && produit.devise === 'EUR' && langueDeLaPage(produit, lang);
 }
 
 const MARQUEURS_LANGUE = {
@@ -198,6 +222,8 @@ export function marcheDe(mid, url, devise) {
   if (mid === '117285' || host === 'www.toolchest.de' || host === 'toolchest.de') return devise === 'EUR' ? 'de' : null;
   if (mid === '129417' || host === 'us.anycubic3d.com') return devise === 'USD' ? 'us' : null;
   if (devise === 'USD') return 'us';
+  if (devise === 'GBP') return 'uk';
+  if (devise === 'CAD') return 'ca';
   if (devise === 'EUR') return 'eu';
   return null;
 }
@@ -339,7 +365,7 @@ export function normaliserLigne(row, midFeed) {
   }
   if (deviseCol && devise && deviseCol !== devise) return null;
   if (!devise) devise = deviseCol;
-  if (devise !== 'EUR' && devise !== 'USD') return null;
+  if (!['EUR', 'USD', 'GBP', 'CAD'].includes(devise)) return null;
   const marche = marcheDuPartenaire(partenaire, devise, marcheDe(mid, url, devise));
   if (!marche) return null;
 
@@ -542,9 +568,15 @@ export function selectionner(historique, aujourdhui) {
   });
 }
 
-export function produitsVisibles(publication, lang, aujourdhui) {
+export function produitsVisibles(publication, lang, aujourdhui, geo = 'fr') {
   if (!publication || publication.amazonExclu !== true || publication.version !== 1) return [];
-  return (publication.produits || []).filter((p) => frais(p.releve, aujourdhui) && visibleLang(p, lang) && langueDeLaPage(p, lang) && (concerneLeSite(p.nom) || concerneLeSite(p.marque)) && hrefFiable(p.href));
+  return (publication.produits || []).filter(
+    (p) =>
+      frais(p.releve, aujourdhui) &&
+      visiblePourGeo(p, geo, lang) &&
+      (concerneLeSite(p.nom) || concerneLeSite(p.marque)) &&
+      hrefFiable(p.href),
+  );
 }
 
 export function formaterDate(iso, lang) {
@@ -552,8 +584,28 @@ export function formaterDate(iso, lang) {
   return new Intl.DateTimeFormat(LOCALES[lang] || 'fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 }
 
-export function formaterMontant(n, devise, lang) {
-  return new Intl.NumberFormat(LOCALES[lang] || 'fr-FR', { style: 'currency', currency: devise }).format(n);
+export function localeAffichage(lang, geo, devise) {
+  if (geo === 'uk') return LOCALES.uk;
+  if (geo === 'ca') return devise === 'CAD' ? 'en-US' : LOCALES.ca;
+  return LOCALES[lang] || 'fr-FR';
+}
+
+export function formaterMontant(n, devise, lang, geo) {
+  return new Intl.NumberFormat(localeAffichage(lang, geo, devise), {
+    style: 'currency',
+    currency: devise,
+  }).format(n);
+}
+
+/** Texte HTML visible des cartes baisses (tests UK/CA sans $ US). */
+export function texteVisibleCartes(cartes, lang, geo) {
+  const parts = [];
+  for (const p of cartes) {
+    parts.push(formaterMontant(p.prix, p.devise, lang, geo));
+    parts.push(formaterMontant(p.reference, p.devise, lang, geo));
+    parts.push(formaterMontant(p.ecart, p.devise, lang, geo));
+  }
+  return parts.join(' ');
 }
 
 export function formaterPourcent(ratio, lang) {

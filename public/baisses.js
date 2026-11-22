@@ -7,6 +7,7 @@
   if (!el || !textes) return;
   var T = JSON.parse(textes.textContent);
   var lang = el.getAttribute('data-lang') || 'fr';
+  var geo = el.getAttribute('data-geo') || lang;
 
   function aujourdhui() {
     return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
@@ -16,11 +17,36 @@
     var j = (Date.parse(auj + 'T00:00:00Z') - Date.parse(iso + 'T00:00:00Z')) / 86400000;
     return j >= 0 && j <= 2;
   }
+  function languePage(p) {
+    var connue = ['fr', 'en', 'de', 'it', 'es', 'nl'].indexOf(p.langue) !== -1 ? p.langue : '';
+    if (!connue && p.nom) {
+      var s = String(p.nom).toLowerCase();
+      if (/\b(der |die |das |und |für |mit |kosten|preis)\b/.test(s)) connue = 'de';
+      else if (/\b(il |lo |per |con |prezzo)\b/.test(s)) connue = 'it';
+      else if (/\b(el |los |para |con |precio)\b/.test(s)) connue = 'es';
+      else if (/\b(de |het |voor |prijs)\b/.test(s)) connue = 'nl';
+      else if (/\b(the |with |for )\b/.test(s)) connue = 'en';
+      else if (/\b(le |la |les |pour |avec )\b/.test(s)) connue = 'fr';
+    }
+    if (!connue) return true;
+    return connue === lang;
+  }
   function visible(p) {
-    if (p.langue && p.langue !== lang) return false;
-    if (p.marche === 'de') return lang === 'de';
-    if (p.marche === 'us') return lang === 'en';
-    return p.marche === 'eu';
+    if (!languePage(p)) return false;
+    if (geo === 'uk') return p.devise === 'GBP' && p.marche === 'uk';
+    if (geo === 'ca') return p.devise === 'CAD' && p.marche === 'ca';
+    if (geo === 'en') {
+      if (p.marche === 'us') return p.devise === 'USD';
+      if (p.marche === 'eu') return p.devise === 'EUR';
+      return false;
+    }
+    if (geo === 'de') return p.marche === 'de' && p.devise === 'EUR';
+    if (geo === 'fr' || geo === 'it' || geo === 'es' || geo === 'nl') {
+      return p.marche === 'eu' && p.devise === 'EUR';
+    }
+    if (p.marche === 'de') return lang === 'de' && p.devise === 'EUR';
+    if (p.marche === 'us') return lang === 'en' && p.devise === 'USD';
+    return p.marche === 'eu' && p.devise === 'EUR';
   }
   function imageOk(url) {
     try {
@@ -49,11 +75,13 @@
       return false;
     }
   }
-  function locale() {
-    return { fr: 'fr-FR', en: 'en-GB', de: 'de-DE', it: 'it-IT', es: 'es-ES', nl: 'nl-NL' }[lang] || 'fr-FR';
+  function locale(devise) {
+    if (geo === 'uk') return 'en-GB';
+    if (geo === 'ca') return devise === 'CAD' ? 'en-US' : 'en-CA';
+    return { fr: 'fr-FR', en: 'en-US', de: 'de-DE', it: 'it-IT', es: 'es-ES', nl: 'nl-NL' }[lang] || 'fr-FR';
   }
   function montant(n, devise) {
-    return new Intl.NumberFormat(locale(), { style: 'currency', currency: devise }).format(n);
+    return new Intl.NumberFormat(locale(devise), { style: 'currency', currency: devise }).format(n);
   }
   function dateLongue(iso) {
     return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(iso + 'T00:00:00Z'));
@@ -179,7 +207,7 @@
       compare.className = 'baisse-comparaison';
       compare.textContent = montant(p.reference, p.devise) + ' — ' + base(p) + '. ' + T.ecart.replace('{montant}', montant(p.ecart, p.devise)).replace('{pct}', pourcent(p.ratio));
       li.appendChild(compare);
-      if (p.marche === 'us') {
+      if (p.marche === 'us' && geo === 'en') {
         var note = document.createElement('p');
         note.className = 'baisse-marche';
         note.textContent = T.us;

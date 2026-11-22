@@ -19,7 +19,7 @@
     "repair:svg-mblock": "node scripts/fix-svg-control-chars.mjs && node scripts/normalize-svg-utf8.mjs",
     "dev": "astro dev --port 4321",
     "dev:wamp": "cross-env ASTRO_BASE=/site_vitrine/robot_educatif/ astro dev --port 4321",
-    "prebuild": "node scripts/generate-blog-thumbnails.mjs && node scripts/generate-maillage-plan.mjs",
+    "prebuild": "node scripts/generate-blog-thumbnails.mjs && node scripts/generate-maillage-plan.mjs && node --test scripts/verify-promos-geo-currency.test.mjs",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 ASTRO_BASE= astro build && node scripts/check-product-jsonld.mjs dist && node scripts/rewrite-relative-assets.mjs && node scripts/ensure-inline-css-live-parity.mjs dist && cross-env ASTRO_BASE= node scripts/write-404-stats-tracker.mjs && node scripts/run-pagefind.mjs && node scripts/verify-blog-routes.mjs && node scripts/mirror-en-to-uk-ca.mjs dist && node scripts/retarget-go-uk-ca.mjs dist && node scripts/extend-sitemap-uk-ca.mjs dist && node scripts/sitemap-hreflang.mjs dist && node scripts/uk-ca-geo.mjs dist --site https://robot-educatif.info && node scripts/sanitize-go-table.mjs && node scripts/go-links.mjs dist --site robot-educatif.info && node scripts/patch-anglo-post-go.mjs dist && node scripts/emit-go-legacy-pages.mjs dist && node scripts/verify-go-legacy-dist.mjs dist && node scripts/verify-amazon-anglo-dist.mjs dist && node scripts/verify-sitemap-live-coverage.mjs dist && node scripts/audit-maillage-dist.mjs dist --strict && node scripts/verify-local-images-dist.mjs dist",
     "verify:blog-routes": "node scripts/verify-blog-routes.mjs",
     "check:product-jsonld": "node scripts/check-product-jsonld.mjs",
