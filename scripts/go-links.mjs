@@ -14,6 +14,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { searchUrlForAsin } from './asin-search-queries.mjs';
+import { applyLegacyToTable, loadLegacyAliases } from './go-legacy-lib.mjs';
 
 const args = process.argv.slice(2);
 const dist = path.resolve(args.find((a) => !a.startsWith('--')) || 'dist');
@@ -99,6 +100,8 @@ if (fs.existsSync(TABLE_FILE)) {
   for (const [id, e] of Object.entries(links)) { table.set(id, e); if (e && e.url && !urlToId.has(e.url)) urlToId.set(e.url, id); }
   prevCount = table.size;
 } else console.warn('[go-links] ATTENTION : table précédente absente (' + TABLE_FILE + '), elle sera créée');
+const legacyCount = applyLegacyToTable(table, urlToId);
+if (legacyCount) console.log(`[go-links] ${legacyCount} alias legacy chargés`);
 const usedIds = new Set();
 const stats = { files: 0, filesChanged: 0, amazon: 0, awin: 0, repaired: 0, relFixed: 0, collisions: 0, invalid: 0 };
 const A_TAG = /<a\b[^>]*>/gi;
@@ -135,8 +138,33 @@ function take(url, repaired) {
 		url = normalizeAmazon(dpToSearchIfNeeded(url));
 	}
   if (!c) return null;
-  const id = urlToId.get(url) || idFor(c.prefix, url);
+  let id = urlToId.get(url);
+  if (!id) {
+    id = idFor(c.prefix, url);
+    const leg = table.get(id);
+    if (leg?.legacyAlias && leg.url !== url) {
+      let salt = 0;
+      while (salt < 32) {
+        const alt = c.prefix + '-' + crypto.createHash('sha1').update(`${url}\0${salt}`).digest('hex').slice(0, 10);
+        const prevAlt = table.get(alt);
+        if (!prevAlt?.legacyAlias) {
+          id = alt;
+          break;
+        }
+        salt++;
+      }
+    }
+  }
   const prev = table.get(id);
+  if (prev?.legacyAlias) {
+    if (prev.url === url) {
+      usedIds.add(id);
+      if (repaired) stats.repaired++;
+      stats[c.merchant]++;
+      return id;
+    }
+    return null;
+  }
   if (prev && prev.url !== url) { stats.collisions++; console.error('[go-links] COLLISION ' + id); return null; }
   usedIds.add(id);
   if (!prev) urlToId.set(url, id);
@@ -185,16 +213,28 @@ for (const file of walk(dist)) {
   if (changed) { stats.filesChanged++; if (!CHECK_ONLY) fs.writeFileSync(file, out); }
 }
 
-// Table : PHP (non lisible depuis le web) + JSON de contrôle hors dist
-const ids = [...table.keys()].sort();
-const php = '<?php\n// Généré par go-links.mjs le ' + new Date().toISOString() + ' pour ' + SITE + ' — NE PAS MODIFIER À LA MAIN\nif (!defined(\'GO_LINKS\')) { http_response_code(404); exit; }\nreturn ' +
-  '[\n' + ids.map((id) => '  ' + JSON.stringify(id).replace(/\$/g, '\\$') + ' => ' + phpArr(table.get(id))).join(',\n') + '\n];\n';
 function phpStr(s) { return "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'"; }
-function phpArr(o) { return '[' + Object.entries(o).map(([k, v]) => phpStr(k) + ' => ' + phpStr(v)).join(', ') + ']'; }
+function phpArr(o) {
+  const row = { ...o };
+  delete row.legacyAlias;
+  return '[' + Object.entries(row).map(([k, v]) => phpStr(k) + ' => ' + phpStr(v)).join(', ') + ']';
+}
+
 if (!CHECK_ONLY) {
+  applyLegacyToTable(table, urlToId);
+  const allIds = [...table.keys()].sort();
+  const php = '<?php\n// Généré par go-links.mjs le ' + new Date().toISOString() + ' pour ' + SITE + ' — NE PAS MODIFIER À LA MAIN\nif (!defined(\'GO_LINKS\')) { http_response_code(404); exit; }\nreturn ' +
+    '[\n' + allIds.map((id) => '  ' + JSON.stringify(id).replace(/\$/g, '\\$') + ' => ' + phpArr(table.get(id))).join(',\n') + '\n];\n';
+  const linksOut = Object.fromEntries(
+    allIds.map((i) => {
+      const e = { ...table.get(i) };
+      delete e.legacyAlias;
+      return [i, e];
+    }),
+  );
   fs.writeFileSync(path.join(dist, 'go-table.php'), php);
-  fs.writeFileSync(TABLE_FILE, JSON.stringify({ site: SITE, updated: new Date().toISOString(), count: ids.length, links: Object.fromEntries(ids.map((i) => [i, table.get(i)])) }, null, 1));
-  fs.writeFileSync(path.join(path.dirname(dist), 'go-links-report.json'), JSON.stringify({ site: SITE, generated: new Date().toISOString(), stats, links: Object.fromEntries(ids.map((i) => [i, table.get(i)])) }, null, 1));
+  fs.writeFileSync(TABLE_FILE, JSON.stringify({ site: SITE, updated: new Date().toISOString(), count: allIds.length, links: linksOut }, null, 1));
+  fs.writeFileSync(path.join(path.dirname(dist), 'go-links-report.json'), JSON.stringify({ site: SITE, generated: new Date().toISOString(), stats, links: linksOut }, null, 1));
 }
 
 // Contrôle : plus aucune URL Amazon/Awin dans le HTML (lien, JSON-LD, script).

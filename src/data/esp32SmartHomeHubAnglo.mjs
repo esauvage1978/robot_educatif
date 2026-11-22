@@ -3,7 +3,7 @@ export const ESP32_SMART_HOME_HUB_ANGLO = {
 	us: {
 		prefix: '/en/',
 		htmlLang: 'en',
-		title: '10 ESP32 smart-home projects with ESPHome and Home Assistant (US)',
+		title: '10 ESP32 smart-home project ideas for US homes (ESPHome)',
 		description:
 			'DHT22, mmWave presence, relays and CO₂ sensors with ESP32 + ESPHome. US wiring (120 V), Amazon.com parts and difficulty levels.',
 		updated: '17 November 2026',
@@ -17,7 +17,7 @@ export const ESP32_SMART_HOME_HUB_ANGLO = {
 	uk: {
 		prefix: '/uk/',
 		htmlLang: 'en-GB',
-		title: '10 ESP32 smart-home projects with ESPHome and Home Assistant (UK)',
+		title: '10 ESP32 smart-home project ideas for UK homes (ESPHome)',
 		description:
 			'Ten ESP32 + ESPHome builds for UK homes: room sensors, mmWave, relays and e-paper. Amazon.co.uk prices in GBP, BS 7671 mains notes.',
 		updated: '17 November 2026',
@@ -31,7 +31,7 @@ export const ESP32_SMART_HOME_HUB_ANGLO = {
 	ca: {
 		prefix: '/ca/',
 		htmlLang: 'en-CA',
-		title: '10 ESP32 smart-home projects with ESPHome and Home Assistant (Canada)',
+		title: '10 ESP32 smart-home project ideas for Canada (ESPHome)',
 		description:
 			'ESP32 smart-home starter projects for Canadian makers: ESPHome, Home Assistant, Amazon.ca sourcing and provincial electrical cautions.',
 		updated: '17 November 2026',

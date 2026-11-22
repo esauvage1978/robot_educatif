@@ -83,7 +83,13 @@ const mblockPath = SPARE_PARTS_MBLOCK_HREF[lang as keyof typeof SPARE_PARTS_MBLO
 </figure>
 
 <RepairComplianceSections lang={lang} showSupport={false} variant="smart-home" />
-<RepairIndicators difficulty={1} time={ui.readTime} cost="0 €" tools={ui.tools} lang={lang} />
+<RepairIndicators
+	difficulty={1}
+	time={ui.readTime}
+	cost={{ fr: '0 €', en: '£0', de: '0 €', it: '0 €', es: '0 €' }[lang]}
+	tools={ui.tools}
+	lang={lang}
+/>
 
 <h2 id="sp-table">{ui.hTable}</h2>
 
