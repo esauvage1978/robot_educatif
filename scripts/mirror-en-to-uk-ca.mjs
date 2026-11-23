@@ -15,6 +15,7 @@ const KEEP_IF_PRESENT = new Set([
 	'black-friday/index.html',
 	'black-friday.html',
 	'index.html',
+	'search/index.html',
 	'educational-robot-christmas-gifts-2026/index.html',
 	'best-programmable-robot-for-kids/index.html',
 	'smart-home/esp32-smart-home-project-ideas/index.html',

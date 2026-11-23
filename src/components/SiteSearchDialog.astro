@@ -1,0 +1,172 @@
+---
+import { getSearchConfig, searchLocaleFromPath } from '../lib/siteSearch.mjs';
+import { withBase } from '../lib/siteUrl';
+import SiteSearchLauncher from './SiteSearchLauncher.astro';
+
+const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
+const locale = searchLocaleFromPath(_p);
+const cfg = getSearchConfig(locale);
+const searchPageHref = withBase(cfg.path);
+---
+
+<div
+	class="search-dialog"
+	id="site-search-dialog"
+	hidden
+	role="dialog"
+	aria-modal="true"
+	aria-labelledby="site-search-dialog-title"
+>
+	<div class="search-dialog__backdrop" data-search-close tabindex="-1"></div>
+	<div class="search-dialog__panel">
+		<header class="search-dialog__head">
+			<h2 id="site-search-dialog-title">{cfg.title}</h2>
+			<a class="search-dialog__full" href={searchPageHref}>{cfg.fullPageLabel}</a>
+			<button type="button" class="search-dialog__close header-icon-btn" data-search-close aria-label={cfg.closeLabel}>
+				<span aria-hidden="true">×</span>
+			</button>
+		</header>
+		<div id="site-search-dialog-root" class="search-dialog__root" aria-live="polite"></div>
+	</div>
+</div>
+
+<SiteSearchLauncher locale={locale} element="#site-search-dialog-root" autoInit={false} loadCss={false} />
+
+<style>
+	.search-dialog {
+		position: fixed;
+		inset: 0;
+		z-index: 200;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		padding: clamp(0.75rem, 3vw, 2rem);
+	}
+
+	.search-dialog[hidden] {
+		display: none !important;
+	}
+
+	.search-dialog__backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(11, 31, 42, 0.45);
+	}
+
+	.search-dialog__panel {
+		position: relative;
+		width: min(720px, 100%);
+		max-height: min(85vh, 780px);
+		overflow: auto;
+		background: var(--surface);
+		border: 1px solid var(--surface-border);
+		border-radius: 14px;
+		box-shadow: 0 16px 48px rgba(11, 31, 42, 0.18);
+		padding: 1rem 1.1rem 1.25rem;
+		margin-top: clamp(2rem, 8vh, 4rem);
+	}
+
+	.search-dialog__head {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.search-dialog__head h2 {
+		margin: 0;
+		font-size: 1.15rem;
+		flex: 1;
+	}
+
+	.search-dialog__full {
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: var(--primary);
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.search-dialog__full:hover {
+		text-decoration: underline;
+	}
+
+	.search-dialog__root {
+		min-height: 10rem;
+	}
+
+	.search-dialog__root :global(.pagefind-ui) {
+		--pagefind-ui-scale: 1;
+	}
+</style>
+
+<script>
+	(() => {
+		const dialog = document.getElementById('site-search-dialog');
+		const root = document.getElementById('site-search-dialog-root');
+		if (!dialog || !root) return;
+
+		let opened = false;
+		let trapping = false;
+
+		function openDialog() {
+			dialog.hidden = false;
+			document.documentElement.classList.add('search-dialog-open');
+			const closeBtn = dialog.querySelector<HTMLButtonElement>('[data-search-close].search-dialog__close');
+			closeBtn?.focus();
+			if (!opened && typeof window.__robotSiteSearchInit === 'function') {
+				window.__robotSiteSearchInit(root).then(() => {
+					const input = root.querySelector<HTMLInputElement>('input');
+					input?.focus();
+				});
+				opened = true;
+			}
+		}
+
+		function closeDialog() {
+			dialog.hidden = true;
+			document.documentElement.classList.remove('search-dialog-open');
+			document.querySelector<HTMLElement>('[data-search-open]')?.focus();
+		}
+
+		document.addEventListener('click', (e) => {
+			const t = e.target as HTMLElement;
+			if (t.closest('[data-search-open]')) {
+				e.preventDefault();
+				openDialog();
+			}
+			if (t.closest('[data-search-close]')) {
+				e.preventDefault();
+				closeDialog();
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && !dialog.hidden) {
+				e.preventDefault();
+				closeDialog();
+			}
+		});
+
+		if (!trapping) {
+			trapping = true;
+			dialog.addEventListener('keydown', (e) => {
+				if (e.key !== 'Tab' || dialog.hidden) return;
+				const focusables = dialog.querySelectorAll<HTMLElement>(
+					'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+				);
+				const list = Array.from(focusables).filter((el) => !el.hasAttribute('disabled'));
+				if (!list.length) return;
+				const first = list[0];
+				const last = list[list.length - 1];
+				if (e.shiftKey && document.activeElement === first) {
+					e.preventDefault();
+					last.focus();
+				} else if (!e.shiftKey && document.activeElement === last) {
+					e.preventDefault();
+					first.focus();
+				}
+			});
+		}
+	})();
+</script>

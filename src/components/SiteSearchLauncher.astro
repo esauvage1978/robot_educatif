@@ -1,0 +1,96 @@
+---
+import { getSearchConfig } from '../lib/siteSearch.mjs';
+
+interface Props {
+	locale: import('../lib/siteSearch.mjs').SearchLocale;
+	element: string;
+	autoInit?: boolean;
+	loadCss?: boolean;
+}
+
+const { locale, element, autoInit = false, loadCss = true } = Astro.props;
+const cfg = getSearchConfig(locale);
+const basePath = import.meta.env.BASE_URL;
+const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
+---
+
+{loadCss && (
+	<link rel="stylesheet" href={pagefindUiCss} media="print" onload="this.media='all'" />
+)}
+<script
+	is:inline
+	define:vars={{
+		basePath,
+		cfg,
+		element,
+		autoInit,
+	}}
+>
+	(function () {
+		const base = typeof basePath === 'string' && basePath.length ? basePath : '/';
+		const bundlePath = new URL(base + 'pagefind/', window.location.origin).pathname;
+		const pagefindUiJs = new URL(base + 'pagefind/pagefind-ui.js', window.location.origin).href;
+
+		let uiPromise = null;
+
+		function attachPagefindUI(targetEl) {
+			if (!targetEl) return Promise.reject(new Error('missing element'));
+			if (uiPromise) return uiPromise;
+
+			uiPromise = new Promise(function (resolve, reject) {
+				function fail(err) {
+					reject(err);
+				}
+
+				const s = document.createElement('script');
+				s.src = pagefindUiJs;
+				s.async = true;
+				s.onload = function () {
+					try {
+						var PagefindUI = window.PagefindUI;
+						if (typeof PagefindUI !== 'function') {
+							fail(new Error('PagefindUI indisponible'));
+							return;
+						}
+						var opts = {
+							element: targetEl,
+							bundlePath: bundlePath,
+							showSubResults: true,
+							showImages: true,
+							showEmptyFilters: false,
+							resetStyles: false,
+							debounceTimeoutMs: 200,
+							translations: cfg.translations,
+						};
+						if (cfg.pagefindLang) opts.language = cfg.pagefindLang;
+						if (cfg.pagefindFilters && Object.keys(cfg.pagefindFilters).length) {
+							opts.filters = cfg.pagefindFilters;
+						}
+						var instance = new PagefindUI(opts);
+						resolve(instance);
+					} catch (e) {
+						fail(e);
+					}
+				};
+				s.onerror = function () {
+					fail(new Error('pagefind-ui.js'));
+				};
+				document.head.appendChild(s);
+			});
+			return uiPromise;
+		}
+
+		window.__robotSiteSearchInit = function (selector) {
+			const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
+			return attachPagefindUI(el);
+		};
+
+		if (autoInit) {
+			const run = function () {
+				window.__robotSiteSearchInit(element).catch(function () {});
+			};
+			if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+			else run();
+		}
+	})();
+</script>

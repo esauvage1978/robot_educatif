@@ -1,0 +1,63 @@
+---
+import BaseHead from './BaseHead.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import PageColumns from './PageColumns.astro';
+import SiteSearchLauncher from './SiteSearchLauncher.astro';
+import { getSearchConfig } from '../lib/siteSearch.mjs';
+
+interface Props {
+	locale: 'fr' | 'en' | 'uk' | 'ca' | 'de' | 'it' | 'es' | 'nl';
+}
+
+const { locale } = Astro.props;
+const cfg = getSearchConfig(locale);
+const basePath = import.meta.env.BASE_URL;
+const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
+---
+
+<!doctype html>
+<html lang={cfg.htmlLang}>
+	<head>
+		<BaseHead title={cfg.title} description={cfg.description} noIndex={true} />
+		<link rel="stylesheet" href={pagefindUiCss} media="print" onload="this.media='all'" />
+		<noscript><link rel="stylesheet" href={pagefindUiCss} /></noscript>
+	</head>
+	<body data-pagefind-ignore="all">
+		<Header />
+		<main>
+			<PageColumns>
+				<article class="search-page">
+					<h1>{cfg.title}</h1>
+					<p class="search-lead">{cfg.lead}</p>
+					<div id="search" class="search-root" aria-live="polite"></div>
+				</article>
+			</PageColumns>
+		</main>
+		<Footer />
+		<SiteSearchLauncher locale={locale} element="#search" autoInit={true} loadCss={false} />
+		<style>
+			.search-page {
+				width: min(920px, calc(100% - 2rem));
+				margin: 0 auto;
+				padding: clamp(1.5rem, 4vw, 2.5rem) 1rem 3rem;
+			}
+			.search-page h1 {
+				margin: 0 0 0.75rem 0;
+				font-size: clamp(1.75rem, 3vw, 2.25rem);
+			}
+			.search-lead {
+				margin: 0 0 1.25rem 0;
+				max-width: 40rem;
+				color: rgb(var(--gray-dark));
+				line-height: 1.65;
+			}
+			.search-root {
+				min-height: 12rem;
+			}
+			.search-root :global(.pagefind-ui) {
+				--pagefind-ui-scale: 1;
+			}
+		</style>
+	</body>
+</html>
