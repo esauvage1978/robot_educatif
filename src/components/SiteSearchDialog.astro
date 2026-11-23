@@ -2,6 +2,7 @@
 import { getSearchConfig, searchLocaleFromPath } from '../lib/siteSearch.mjs';
 import { withBase } from '../lib/siteUrl';
 import SiteSearchLauncher from './SiteSearchLauncher.astro';
+import SiteSearchUiOverrides from './SiteSearchUiOverrides.astro';
 
 const _p = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
 const locale = searchLocaleFromPath(_p);
@@ -12,6 +13,7 @@ const searchPageHref = withBase(cfg.path);
 <div
 	class="search-dialog"
 	id="site-search-dialog"
+	data-pagefind-ignore="all"
 	hidden
 	role="dialog"
 	aria-modal="true"
@@ -30,6 +32,7 @@ const searchPageHref = withBase(cfg.path);
 	</div>
 </div>
 
+<SiteSearchUiOverrides />
 <SiteSearchLauncher locale={locale} element="#site-search-dialog-root" autoInit={false} loadCss={false} />
 
 <style>

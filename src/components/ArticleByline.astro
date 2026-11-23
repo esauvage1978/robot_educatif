@@ -29,7 +29,7 @@ const when = formatted ? (updated ? `${L.updated} ${formatted}` : formatted) : '
 const shownMinutes = typeof minutes === 'number' && minutes > 0 ? minutes : undefined;
 ---
 
-<div class="article-byline">
+<div class="article-byline" data-pagefind-ignore="all">
 	<img
 		class="article-byline__photo"
 		src={withBase('/images/authors/emmanuel-sauvage.webp')}

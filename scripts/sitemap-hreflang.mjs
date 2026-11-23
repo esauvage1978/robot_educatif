@@ -26,9 +26,9 @@ function alternates(p) {
 	let out = null;
 	const f = fileFor(p);
 	if (existsSync(f)) {
-		const raw = readFileSync(f, 'utf8');
-		const end = raw.search(/<\/head>/i);
-		const head = end < 0 ? raw : raw.slice(0, end);
+		const fd = readFileSync(f, { encoding: 'utf8', flag: 'r' });
+		const end = fd.search(/<\/head>/i);
+		const head = end < 0 ? fd.slice(0, 65536) : fd.slice(0, Math.min(end, 65536));
 		if (!/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(head)) {
 			out = [];
 			for (const tag of head.match(/<link\b[^>]*>/gi) || []) {

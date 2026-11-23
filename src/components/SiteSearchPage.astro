@@ -2,8 +2,8 @@
 import BaseHead from './BaseHead.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
-import PageColumns from './PageColumns.astro';
 import SiteSearchLauncher from './SiteSearchLauncher.astro';
+import SiteSearchUiOverrides from './SiteSearchUiOverrides.astro';
 import { getSearchConfig } from '../lib/siteSearch.mjs';
 
 interface Props {
@@ -26,15 +26,14 @@ const pagefindUiCss = `${basePath}pagefind/pagefind-ui.css`;
 	<body data-pagefind-ignore="all">
 		<Header />
 		<main>
-			<PageColumns>
-				<article class="search-page">
-					<h1>{cfg.title}</h1>
-					<p class="search-lead">{cfg.lead}</p>
-					<div id="search" class="search-root" aria-live="polite"></div>
-				</article>
-			</PageColumns>
+			<article class="search-page">
+				<h1>{cfg.title}</h1>
+				<p class="search-lead">{cfg.lead}</p>
+				<div id="search" class="search-root" aria-live="polite"></div>
+			</article>
 		</main>
 		<Footer />
+		<SiteSearchUiOverrides />
 		<SiteSearchLauncher locale={locale} element="#search" autoInit={true} loadCss={false} />
 		<style>
 			.search-page {
