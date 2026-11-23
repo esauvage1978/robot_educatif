@@ -35,7 +35,7 @@ const lang = detectContentLang(path);
 const heading = READ_ALSO_HEADING[lang] ?? READ_ALSO_HEADING.en;
 ---
 
-<section class="editorial-read-also" aria-labelledby="editorial-read-also-title">
+<section class="editorial-read-also" data-pagefind-ignore="all" aria-labelledby="editorial-read-also-title">
 	<h2 id="editorial-read-also-title">{heading}</h2>
 	<ul>
 		{links.map((link) => (

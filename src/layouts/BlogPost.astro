@@ -269,18 +269,18 @@ if (categoryLower.some(c => c.includes('mblock') || c.includes('mbot'))) {
 				</div>
 				{heroIsImageMetadata && (
 					<div class="hero-article-media">
-						<Image width={1600} height={760} src={resolvedImageForMeta} alt={title} />
+						<Image width={1600} height={760} src={resolvedImageForMeta} alt={title} data-pagefind-meta="image" />
 					</div>
 				)}
 				{heroImagePathWithVersion && (
 					<div class="hero-article-media">
 						{illustration ? (
 							<>
-								<img src={heroImagePathWithVersion} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" />
+								<img src={heroImagePathWithVersion} alt={illustration.alt} width="960" height="540" fetchpriority="high" decoding="async" data-pagefind-meta="image" />
 								<p class="ai-illustration-caption">Illustration générée par IA</p>
 							</>
 						) : (
-							<img src={heroImagePathWithVersion} alt={title} width="1200" height="630" loading="lazy" />
+							<img src={heroImagePathWithVersion} alt={title} width="1200" height="630" loading="lazy" data-pagefind-meta="image" />
 						)}
 					</div>
 				)}

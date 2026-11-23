@@ -1,12 +1,9 @@
 /**
- * Indexe le dossier `dist/` avec Pagefind après `astro build`.
- * Contenu traité comme français (`--force-language fr`).
+ * Indexe le dossier `dist/` avec Pagefind (après astro build + miroir UK/CA).
+ * Langues détectées via `<html lang>` — un sous-index par langue, sans --force-language.
  *
- * Respecte ASTRO_BASE : le bundle est servi sous `${BASE_URL}pagefind/` ;
- * la page `recherche.astro` passe `bundlePath` au Pagefind UI.
- *
- * Déploiement : copier tout le contenu de `dist/` sur le serveur, y compris le dossier
- * `dist/pagefind/` (sinon la page Recherche ne charge pas l’UI).
+ * Respecte ASTRO_BASE : le bundle est servi sous `${BASE_URL}pagefind/`.
+ * Déploiement : copier tout `dist/`, y compris `dist/pagefind/`.
  */
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -15,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pagefindCli = path.join(root, 'node_modules', 'pagefind', 'lib', 'runner', 'bin.cjs');
 
-const run = spawnSync(process.execPath, [pagefindCli, '--site', 'dist', '--force-language', 'fr'], {
+const run = spawnSync(process.execPath, [pagefindCli, '--site', 'dist'], {
 	cwd: root,
 	stdio: 'inherit',
 });

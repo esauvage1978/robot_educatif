@@ -23,7 +23,7 @@ const domotiquePosts = await getCollection('domotique');
 const readAlso = variant === 'guide' ? resolveRelatedThumbs(relatedLinks, pathname, allPosts, domotiquePosts) : [];
 ---
 
-<aside class="guide-sidebar" data-guide-sidebar>
+<aside class="guide-sidebar" data-guide-sidebar data-pagefind-ignore="all">
 	{
 		variant === 'guide' && (
 			<section class="guide-sidebar__box guide-sidebar__box--quick" aria-labelledby="guide-sidebar-quick-title">

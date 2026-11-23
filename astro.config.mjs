@@ -14,6 +14,7 @@ import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
 import { normalizeAstroBase } from './src/lib/astroBase.mjs';
 import { vitePluginDevWampUrlMirror } from './src/vite/dev-wamp-url-mirror.mjs';
 import { buildSitemapMetadata } from './src/lib/sitemapMetadata.mjs';
+import { isSearchPagePath } from './src/lib/siteSearch.mjs';
 
 // Build metadata synchronously at config time
 const { articleDates, latestDate, domotiqueLatest } = buildSitemapMetadata();
@@ -114,7 +115,7 @@ export default defineConfig({
 				}
 				
 				// Exclude internal pages, 404, and search
-				if (path.includes('/stats-articles-interne') || path.endsWith('/404') || path.endsWith('/recherche/')) {
+				if (path.includes('/stats-articles-interne') || path.endsWith('/404') || isSearchPagePath(path)) {
 					return false;
 				}
 				
