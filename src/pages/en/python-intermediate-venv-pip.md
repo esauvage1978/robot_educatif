@@ -305,4 +305,4 @@ requests==2.31.0
 
 ## On Amazon
 
-- Python deployment books: <a href="https://www.amazon.com/s?k=python+deployment+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+- Python deployment books: Check today's price on Amazon

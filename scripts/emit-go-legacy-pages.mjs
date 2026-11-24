@@ -13,6 +13,41 @@ import {
 	readF41GoTable,
 	slugsFromDist,
 } from './go-legacy-lib.mjs';
+import {
+	buildSearchAsinIndex,
+	isGenericPythonBookQuery,
+	resolveSearchQuery,
+} from './lib/amazon-search-resolve.mjs';
+
+const SEARCH_INDEX = buildSearchAsinIndex();
+const TAGS = {
+	'www.amazon.fr': 'manuso06-21',
+	'www.amazon.co.uk': 'roboteducatif-21',
+	'www.amazon.com': 'roboteducatif-20',
+	'www.amazon.ca': 'roboteducat03-20',
+	'www.amazon.de': 'roboteducat00-21',
+	'www.amazon.it': 'roboteducat0f-21',
+	'www.amazon.es': 'roboteducat07-21',
+	'www.amazon.nl': 'manuso0607-21',
+};
+
+function legacyUrlToDp(url) {
+	if (!/\/s\?k=/i.test(url)) return url;
+	try {
+		const u = new URL(url);
+		const k = decodeURIComponent(u.searchParams.get('k') || '');
+		if (!k || isGenericPythonBookQuery(k)) return null;
+		const asin = resolveSearchQuery(k, SEARCH_INDEX);
+		if (!asin) return null;
+		const host = u.hostname;
+		const tag = u.searchParams.get('tag') || TAGS[host] || '';
+		u.pathname = `/dp/${asin}`;
+		u.search = tag ? `?tag=${encodeURIComponent(tag)}` : '';
+		return u.toString();
+	} catch {
+		return url;
+	}
+}
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.resolve(process.argv[2] || 'dist');
@@ -34,6 +69,9 @@ for (const id of f41s) {
 let written = 0;
 for (const [id, entry] of toEmit) {
 	if (!entry?.url || !/^https:\/\//i.test(entry.url)) continue;
+	const dp = legacyUrlToDp(entry.url);
+	if (dp === null) continue;
+	if (dp !== entry.url) entry.url = dp;
 	const dir = path.join(dist, 'go', id);
 	fs.mkdirSync(dir, { recursive: true });
 	fs.writeFileSync(path.join(dir, 'index.html'), legacyGoPageHtml(id));
@@ -46,6 +84,10 @@ const table = JSON.parse(fs.readFileSync(tablePath, 'utf8'));
 const links = table.links || table;
 let patched = 0;
 for (const [id, entry] of toEmit) {
+	if (!entry?.url) continue;
+	if (/\/s\?k=/i.test(entry.url)) continue;
+	const cur = links[id];
+	if (cur?.url && /\/dp\//i.test(cur.url) && /\/s\?k=/i.test(entry.url)) continue;
 	if (links[id]?.url === entry.url) continue;
 	const row = { ...entry };
 	delete row.legacyAlias;

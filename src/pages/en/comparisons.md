@@ -21,7 +21,6 @@ faqSchema:
 <li><a href="#comparison-table">Comparison table</a></li>
 <li><a href="#pick-by-question">Pick by question</a></li>
 <li><a href="#kits-on-test">Kits we compare most</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ol>
 </div>
 

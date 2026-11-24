@@ -17,25 +17,25 @@ updated: "28 October 2026"
 <td data-label="Product"><span class="td-val">Home Assistant Green</span></td>
 <td data-label="Role">Local HA hub</td>
 <td data-label="Indicative price"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.com/s?k=Home+Assistant+Green&tag=roboteducatif-20" target="_blank" rel="sponsored nofollow noopener">Check deal →</a></td>
+<td data-label=""><a href="https://www.amazon.com/dp/B0CXVKSG19?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check deal →</a></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val">SONOFF ZBDongle-E</span></td>
 <td data-label="Role">ZHA / Zigbee2MQTT</td>
 <td data-label="Indicative price"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.com/s?k=SONOFF+ZBDongle-E+Zigbee+3.0&tag=roboteducatif-20" target="_blank" rel="sponsored nofollow noopener">Check deal →</a></td>
+<td data-label=""><a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check deal →</a></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val">Aqara FP2 / mmWave</span></td>
 <td data-label="Role">mmWave presence</td>
 <td data-label="Indicative price"><span class="td-val">Presence sensor ≈ 45–90 $</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.com/s?k=Aqara+FP2+presence+sensor+mmWave&tag=roboteducatif-20" target="_blank" rel="sponsored nofollow noopener">Check deal →</a></td>
+<td data-label=""><a href="https://www.amazon.com/dp/B0BSXCLR8R?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check deal →</a></td>
 </tr>
 <tr>
 <td data-label="Product"><span class="td-val">Tapo P110M Matter</span></td>
 <td data-label="Role">Matter plug + metering</td>
 <td data-label="Indicative price"><span class="td-val">Matter plug ≈ 18–35 $</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.com/s?k=Tapo+P110M+Matter+smart+plug&tag=roboteducatif-20" target="_blank" rel="sponsored nofollow noopener">Check deal →</a></td>
+<td data-label=""><a href="https://www.amazon.com/dp/B0CDCLMC6W?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check deal →</a></td>
 </tr>
 </tbody></table></div>
 <p class="re-dom-gear-note">Verify price and stock · affiliate links.</p>

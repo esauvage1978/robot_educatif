@@ -21,31 +21,31 @@ The **mBot2** above is the robot in this comparison: **check the current price o
 <tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">Around £130</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" data-amazon-query="Makeblock mBot2" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot2 Rover</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2%20Rover&tag=roboteducatif-20" data-amazon-query="Makeblock mBot2 Rover" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Makeblock mBot Ranger</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$159–$189</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock+mBot+Ranger&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Sphero BOLT / Mini</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$49–$149</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Sphero+BOLT+Mini&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B08FJ7G1TG?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>LEGO Education STEM kit</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$200–$350</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=LEGO+Education+STEM+robot&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>BBC micro:bit V2 Go</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val">~$25–$35</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=BBC%20microbit%20V2%20Go%20kit&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0BB949JCP?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr><tr>
 <td data-label="Product"><span class="td-val"><strong>Raspberry Pi 5 (4 GB)</strong></span></td>
 <td data-label="Indicative price (Oct 2026)"><span class="td-val" data-amazon-price="1">See today's price</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Check price →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price →</a></span></td>
 </tr>
 </tbody>
 </table></div>

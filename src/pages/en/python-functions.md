@@ -325,4 +325,4 @@ Each exercise uses the **functions** from this lesson (`def`, `return`, paramete
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+structured+programming+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+Check today's price on Amazon

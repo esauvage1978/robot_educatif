@@ -30,11 +30,11 @@ The [Makeblock](/en/makeblock-brand/) mBot range is read here as three kits: the
 
 Listings: mBot, mBot2, and Ranger below. A commission is possible on an eligible purchase, at no extra cost. The functional comparison, beyond price, is in [mBot or mBot2](/en/mbot-vs-mbot2/).
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot, ASIN B07XR98YYQ)
+<a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot, ASIN B07XR98YYQ)
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2, ASIN B0919F9CKS)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2, ASIN B0919F9CKS)
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot Ranger, ASIN B07KG4JHBH)
+<a href="https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot Ranger, ASIN B07KG4JHBH)
 
 ## mBot: the entry ticket at around $95
 
@@ -53,7 +53,7 @@ The box brings together an aluminum chassis, two DC motors, an ultrasonic sensor
 
 It suits a first robot, around 8–10, and a class that wants several stations without moving up to the mBot2 price. It has no Wi-Fi from the start, and no color screen: feedback goes through the LEDs and the buzzer. The next step, if you stay on this chassis, is Arduino rather than Python. Possible add-ons are presented in [mBot accessories](/en/mbot-accessories-where-to-start/), with no price until they appear in the reading.
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot)
+<a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot)
 
 ## mBot2: around $185, for Python
 
@@ -73,7 +73,7 @@ The difference is the CyberPi board: color screen, microphone, speaker, accelero
 
 The gap with the mBot, around $85 in the reading (167.95 − 89.99), makes sense if Python is already the goal, in middle school or in a club, and if the robot needs to last several years. It does not make sense for a first discovery, or if the child would rather take a chassis apart than write. Eight mBots at around $95 come to roughly $792 for the kits alone. Six come to roughly $594. That sum includes neither batteries nor a demonstration mBot2: those lines are checked separately.
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2)
 
 ## Ranger: around $210, three forms
 
@@ -100,7 +100,7 @@ The Ranger is rebuilt. The Tank Raptor runs on tracks. The car form points the u
 
 You take the Ranger if mechanics come first. You take the mBot2 if Python and Wi-Fi come first. The price gap in typical listings is on the order of $25 between Ranger and mBot2.
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot Ranger)
+<a href="https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot Ranger)
 
 ## What you still need to plan, with no invented total
 
@@ -108,7 +108,7 @@ The three kits do not all say the same thing about batteries. Check the manual: 
 
 The CyberPi Scratch and Python learning kit was **around $65** in the same reading. That amount describes that kit, not the price of swapping an mCore board into an mBot you have already built. A bare board can lack the screen and functions that belong to the mBot2. The map of the families is in [which robot to choose in 2026](/en/best-educational-robot-2026/).
 
-<a href="https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (CyberPi learning kit, ASIN B0BBZY9L59)
+<a href="https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (CyberPi learning kit, ASIN B0BBZY9L59)
 
 For a class, an education reseller can quote. This Amazon reading contains no negotiated discount. Second-hand has no price here either: you check the firmware, the Bluetooth, the manual, and the cables before you accept an amount the seller states. Promotions sometimes return on Black Friday, at back-to-school, or on Prime Day. The percentage is not known in advance: that day’s listing is what counts.
 

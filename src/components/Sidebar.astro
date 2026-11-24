@@ -283,6 +283,7 @@ const readAlso = variant === 'guide' ? resolveRelatedThumbs(relatedLinks, pathna
 		const cleanLabel = (text: string) =>
 			text
 				.replace(/\s+/g, ' ')
+				.replace(/^(\d+\.\s*)+\d+[\.\)\]]\s*/, '')
 				.replace(/^(\d+[\.\)\]]\s*)/, '')
 				.replace(/^(\d+\s*[-–—]\s*)/, '')
 				.trim();

@@ -14,7 +14,6 @@ Alcuni link sono di affiliazione (`/go/`).
 <li><a href="#protocolli">Protocolli</a></li>
 <li><a href="#elettrico">Norme elettriche</a></li>
 <li><a href="#percorso">Percorso</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

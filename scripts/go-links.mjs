@@ -13,8 +13,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { searchUrlForAsin } from './asin-search-queries.mjs';
 import { applyLegacyToTable, loadLegacyAliases } from './go-legacy-lib.mjs';
+import {
+	buildSearchAsinIndex,
+	isGenericPythonBookQuery,
+	resolveSearchQuery,
+} from './lib/amazon-search-resolve.mjs';
+
+const SEARCH_ASIN_INDEX = buildSearchAsinIndex();
 
 const args = process.argv.slice(2);
 const dist = path.resolve(args.find((a) => !a.startsWith('--')) || 'dist');
@@ -121,22 +127,25 @@ function trimLooseUrl(raw) {
   return s.replace(/"\}.*$/, '').replace(/\)+$/, '');
 }
 
-function dpToSearchIfNeeded(url) {
-	const m = url.match(/amazon\.(com|ca)\/dp\/([^?/]+)/i);
-	if (!m) return url;
-	const tld = m[1].toLowerCase();
-	const host = `www.amazon.${tld}`;
-	const tag = tld === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
-	const next = searchUrlForAsin(host, tag, m[2]);
-	return next || url;
+function searchToDpIfPossible(url) {
+	if (!/\/s\?k=/i.test(url)) return url;
+	try {
+		const u = new URL(url);
+		const k = decodeURIComponent(u.searchParams.get('k') || '');
+		if (!k || isGenericPythonBookQuery(k)) return url;
+		const asin = resolveSearchQuery(k, SEARCH_ASIN_INDEX);
+		if (!asin) return url;
+		u.pathname = `/dp/${asin}`;
+		u.searchParams.delete('k');
+		return u.toString();
+	} catch {
+		return url;
+	}
 }
 
 function take(url, repaired) {
-	url = normalizeAmazon(trimLooseUrl(url));
+	url = searchToDpIfPossible(normalizeAmazon(trimLooseUrl(url)));
 	const c = classify(url);
-	if (c && (c.prefix === 'az-us' || c.prefix === 'az-ca') && /\/dp\//i.test(url)) {
-		url = normalizeAmazon(dpToSearchIfNeeded(url));
-	}
   if (!c) return null;
   let id = urlToId.get(url);
   if (!id) {
@@ -165,7 +174,17 @@ function take(url, repaired) {
     }
     return null;
   }
-  if (prev && prev.url !== url) { stats.collisions++; console.error('[go-links] COLLISION ' + id); return null; }
+  if (prev && prev.url !== url) {
+    // B14 : conserver une fiche /dp/ déjà enregistrée si le HTML pointe encore vers /s?k=
+    if (prev.url && /\/dp\/|\/gp\/product\//i.test(prev.url) && /\/s\?k=/i.test(url)) {
+      usedIds.add(id);
+      stats[c.merchant]++;
+      return id;
+    }
+    stats.collisions++;
+    console.error('[go-links] COLLISION ' + id);
+    return null;
+  }
   usedIds.add(id);
   if (!prev) urlToId.set(url, id);
   if (!prev) table.set(id, { url, merchant: c.merchant, country: c.country, ...(c.tag ? { tag: c.tag } : {}), ...(c.mid ? { mid: c.mid, dest: c.dest, affid: c.affid } : {}) });

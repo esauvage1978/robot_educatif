@@ -139,4 +139,4 @@ agenda = "agenda_cli.cli:main"</code></pre>
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+best+practices+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+Check today's price on Amazon

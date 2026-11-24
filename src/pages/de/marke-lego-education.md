@@ -42,7 +42,6 @@ faqSchema:
 <li><a href="#tabelle">Kit-Vergleich</a></li>
 <li><a href="#alternativen">Alternativen</a></li>
 <li><a href="#garantie">Garantie</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

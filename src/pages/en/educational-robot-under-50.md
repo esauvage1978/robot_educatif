@@ -16,11 +16,11 @@ Figures below are typical Amazon.com listing bands from a late-2026 snapshot; pr
 
 On the Amazon.com snapshot. The ELEGOO **Penguin Bot**, a biped robot you program in Arduino, is **around $45**. The **UNO R3 Super Starter kit**, a board and components with no mobile robot, is **around $50**. The **CyberPi kit**, a Scratch and Python learning kit, is **around $50**: it is not a robot that moves. The **mBot**, often filed with the low prices, is **around $75**: it is covered in the [under-$110 guide](/en/educational-robot-under-100/). The figures come from that reading. The functions come from manufacturer manuals and from guides already published here.
 
-Fifty dollars is enough to see whether a child takes to it, to add a second robot very different from the one they already have, or to buy several simple copies. For an 8-year-old starting with blocks, the first robot in this reading is the mBot, at around $75, in mBlock. <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot, around $75 on Amazon.com).
+Fifty dollars is enough to see whether a child takes to it, to add a second robot very different from the one they already have, or to buy several simple copies. For an 8-year-old starting with blocks, the first robot in this reading is the mBot, at around $75, in mBlock. <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot, around $75 on Amazon.com).
 
 ## What this budget is actually for
 
-A kit left aside after two weeks commits around $45 with the Penguin, and around $140 with the mBot2. The mBot2 is over $110: it is cited here only to take it out of this budget. <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2, around $140 on Amazon.com). The low price limits the sum if the child changes their mind.
+A kit left aside after two weeks commits around $45 with the Penguin, and around $140 with the mBot2. The mBot2 is over $110: it is cited here only to take it out of this budget. <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot2, around $140 on Amazon.com). The low price limits the sum if the child changes their mind.
 
 The same reading allows a simple calculation, with no accessories. Two Penguin Bots are roughly $88. Ten are roughly $440. Four mBots are about $300. Those are multiplications of the unit price, useful for siblings or a small club that wants the same model several times. Batteries, cells, and books are not in this reading: adding them would invent a total.
 
@@ -37,7 +37,7 @@ For a child under 8, the button robots in the reading are above $55: the site's 
 - An ELEGOO tutorial for obstacle avoidance
 - Assembly to do with an adult
 
-<a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Penguin Bot, ASIN B07GVD6GQH, around $45 on Amazon.com).
+<a href="https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Penguin Bot, ASIN B07GVD6GQH, around $45 on Amazon.com).
 
 The Penguin Bot is the only mobile robot in the reading under $55. It walks on two legs, plays sounds, and is programmed like an Arduino project. The [ELEGOO obstacle-avoidance tutorial](https://wiki.elegoo.com/Robots%26Kits/Penguin-obstacle-avoidance) describes an ultrasonic sensor for the distance in front of the robot and two infrared sensors on the sides. Music goes through the speakers in the build. The same tutorial explains how to program that avoidance. The visible project is walking, avoidance, and a short sequence of moves.
 
@@ -45,7 +45,7 @@ The listing is aimed at ages 8 and up. At 8, an adult installs the Arduino IDE, 
 
 Assembly takes an afternoon: small screws and servo direction, which the ELEGOO tutorial spells out. It also shows a case plugged into a battery port. Depending on the listings, you sometimes read a USB-rechargeable battery, sometimes cells. This reading does not include that accessory. Check the price of the format written on today's listing, and do not add it by guesswork to the around $45.
 
-The step-by-step documentation is first ELEGOO's, in English on the wiki, with videos. It is not the French mBot corpus. The [ELEGOO brand](/en/elegoo-brand/) page already says so: the Penguin is a small budget, not the default classroom robot. The button above and <a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> open the same ASIN, B07GVD6GQH.
+The step-by-step documentation is first ELEGOO's, in English on the wiki, with videos. It is not the French mBot corpus. The [ELEGOO brand](/en/elegoo-brand/) page already says so: the Penguin is a small budget, not the default classroom robot. The button above and <a href="https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> open the same ASIN, B07GVD6GQH.
 
 Once the sample program is uploaded and the power is connected, the robot should move forward. You then change a duration or an angle, upload the program again, and the gait changes. If nothing moves, go back over the USB cable, the battery port, and the servo direction before concluding that the board is at fault.
 

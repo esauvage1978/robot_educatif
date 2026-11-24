@@ -62,7 +62,7 @@ export const DOMOTIQUE_HUB_AFFILIATE = {
 		{
 			image: '/images/products/nous-a1z.webp',
 			alt: 'Prise connectée Zigbee NOUS A1Z avec mesure de consommation',
-			searchQuery: 'NOUS A1Z Zigbee',
+			asin: 'B0CP9Q8V7G',
 			name: {
 				fr: 'NOUS A1Z (Zigbee)',
 				en: 'NOUS A1Z (Zigbee)',
@@ -116,7 +116,7 @@ export const DOMOTIQUE_HUB_AFFILIATE = {
 		{
 			image: '/images/products/roborock-qrevo-s5v.webp',
 			alt: 'Robot aspirateur laveur Roborock avec station',
-			searchQuery: 'Roborock Qrevo S5V',
+			asin: 'B0CQRWCN6D',
 			name: {
 				fr: 'Roborock (série Qrevo)',
 				en: 'Roborock (Qrevo series)',

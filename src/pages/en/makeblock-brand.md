@@ -32,7 +32,7 @@ updated: "23 October 2026"
 <p><strong>In short</strong></p>
 <p>Makeblock is our default pick for a first serious programmable robot from around age 8, with some adult help at the start: mBot for a tight budget, mBot2 for a longer project with Python.</p>
 </aside>
-<p>Shop: <a href="https://www.amazon.com/s?k=Makeblock+mBot2&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">mBot2 (Amazon US)</a> · <a href="https://www.amazon.com/s?k=Makeblock+mBot2&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">mBot2 (Amazon.com)</a> · <a href="https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">mBot (Amazon US)</a> · <a href="https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">mBot (Amazon.com)</a> (affiliate links).</p>
+<p>Shop: <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot2 (Amazon US)</a> · <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot2 (Amazon.com)</a> · <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot (Amazon US)</a> · <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot (Amazon.com)</a> (affiliate links).</p>
 <h2 id="see-also">See also</h2>
 <ul>
 <li><a href="/en/elegoo-brand/">ELEGOO: our take on the brand</a></li>

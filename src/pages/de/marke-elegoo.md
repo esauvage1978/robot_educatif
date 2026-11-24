@@ -39,7 +39,7 @@ updated: "3. November 2026"
 <h2 id="kaufen">Wo kaufen (Werbelinks)</h2>
 <p><strong>Preise vor Bestellung prüfen:</strong></p>
 <p>
-<a href="https://www.amazon.de/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducat00-21" rel="sponsored nofollow noopener">Smart Robot Car V4.0 bei Amazon.de</a> ·
+<a href="https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Smart Robot Car V4.0 bei Amazon.de</a> ·
 <a href="https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0" target="_blank" rel="noopener nofollow sponsored">Offizielle ELEGOO-Produktseite</a>
 </p>
 

@@ -17,7 +17,7 @@ updated: "28. Oktober 2026"
 <td data-label="Produkt"><span class="td-val">Home Assistant Green</span></td>
 <td data-label="Einsatz">Lokale HA-Box</td>
 <td data-label="Richtpreis"><span class="td-val" data-amazon-price="1">Tagespreis ansehen</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.de/s?k=Home+Assistant+Green&tag=roboteducat00-21" target="_blank" rel="sponsored nofollow noopener">Angebot →</a></td>
+<td data-label=""><a href="https://www.amazon.de/dp/B0CXVKSG19?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Angebot →</a></td>
 </tr>
 <tr>
 <td data-label="Produkt"><span class="td-val">SONOFF ZBDongle-E</span></td>
@@ -29,13 +29,13 @@ updated: "28. Oktober 2026"
 <td data-label="Produkt"><span class="td-val">Aqara FP2 / mmWave</span></td>
 <td data-label="Einsatz">Präsenz mmWave</td>
 <td data-label="Richtpreis"><span class="td-val">Presence sensor ≈ 45–90 €</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.de/s?k=Aqara+FP2+presence+sensor+mmWave&tag=roboteducat00-21" target="_blank" rel="sponsored nofollow noopener">Angebot →</a></td>
+<td data-label=""><a href="https://www.amazon.de/dp/B0BSXCLR8R?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Angebot →</a></td>
 </tr>
 <tr>
 <td data-label="Produkt"><span class="td-val">Tapo P110M Matter</span></td>
 <td data-label="Einsatz">Matter-Steckdose</td>
 <td data-label="Richtpreis"><span class="td-val">Matter plug ≈ 18–35 €</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.de/s?k=Tapo+P110M+Matter+smart+plug&tag=roboteducat00-21" target="_blank" rel="sponsored nofollow noopener">Angebot →</a></td>
+<td data-label=""><a href="https://www.amazon.de/dp/B0CDCLMC6W?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Angebot →</a></td>
 </tr>
 </tbody></table></div>
 <p class="re-dom-gear-note">Verify price and stock · affiliate links.</p>

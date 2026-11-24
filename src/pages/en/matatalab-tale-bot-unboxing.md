@@ -29,7 +29,7 @@ The Tale-Bot robot from [Matatalab](/en/matatalab-brand/) is a fun, interactive 
 3. Press **Program**, then chain **Forward × 2**, **Back × 1**, **Dance** — confirm with **Play**.
 4. Try **Story** mode (for example, a walk at the zoo). See the [Tale-Bot FAQ](/en/matatalab-tale-bot-faq/) if the voice stays in English.
 
-<p style="margin:1rem 0;"><a href="https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank"><strong>Check today's price on Amazon</strong></a> · <a href="https://www.matatalab.com/" target="_blank" rel="noopener">Matatalab site</a></p>
+<p style="margin:1rem 0;"><a href="https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank"><strong>Check today's price on Amazon</strong></a> · <a href="https://www.matatalab.com/" target="_blank" rel="noopener">Matatalab site</a></p>
 
 To see what the Tale-Bot Pro is in detail: [The Matatalab Tale-Bot: an educational robot for children](/en/matatalab-tale-bot-educational-robot/).
 

@@ -12,7 +12,6 @@ updated: "17 de noviembre de 2026"
 <li><a href="#unboxing">Unboxing</a></li>
 <li><a href="#conectividad">Conectividad</a></li>
 <li><a href="#instalacion">Instalación en la app</a></li>
-<li><a href="#faq">Preguntas frecuentes</a></li>
 </ul>
 </div>
 

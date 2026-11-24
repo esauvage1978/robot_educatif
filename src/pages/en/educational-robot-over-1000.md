@@ -35,7 +35,7 @@ The software pieces you meet, depending on the brand, are Python, vision (OpenCV
 
 Elephant Robotics sells a desktop arm, the myCobot, and an [AI Kit 2023](https://shop.elephantrobotics.com/products/artificial-intelligence-kit-2023) that is not the arm. The total changes depending on whether you buy the vision kit alone, the arm (M5 or Pi versions), or both from a reseller. That distinction is what matters, not an amount copied from a grid. Check the price of the real cart. The search below is there to find a listing: confirm that it actually contains the arm if the arm is what you want.
 
-<a href="https://www.amazon.com/s?k=myCobot+Elephant+Robotics&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (myCobot Elephant Robotics)
+<a href="https://www.amazon.com/dp/B0B8VQZQ1K?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (myCobot Elephant Robotics)
 
 You program the arm in Python, with vision scenarios described in the kit’s documentation, in English. This is a project for a student or a maker who already has a gripping project in mind. A realistic start is around 16.
 
@@ -45,7 +45,7 @@ You program the arm in Python, with vision scenarios described in the kit’s do
 
 The [Bioloid Premium](https://www.robotis.us/robotis-premium/) is a modular humanoid: many Dynamixel servos depending on the kit, calibration, walking, and gestures. It teaches mechanical structure more than a ready-made application. Assembly and adjustments take time. With a mentor, you can look at it from age 12. Without a mentor, you already need to be persistent. The shop cited here is in the United States: its price is not a French price. Check the import price, VAT included, or a European reseller. The search below does not replace reading the reference.
 
-<a href="https://www.amazon.com/s?k=Bioloid+ROBOTIS+Premium&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Bioloid ROBOTIS Premium)
+<a href="https://www.amazon.com/dp/B0064DIN70?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Bioloid ROBOTIS Premium)
 
 ## UGOT (UBTECH)
 
@@ -53,7 +53,7 @@ The [Bioloid Premium](https://www.robotis.us/robotis-premium/) is a modular huma
 
 The UGOT is a UBTECH educational robot with several morphologies, including a quadruped mode. The packs UBTECH Education cites, such as City Guardian or Space Exploration, are classroom sets, not a single figure. The [UGOT](https://www.ubtrobot.com/en/ai-education/products/ugot) pages and the [education collection](https://www.ubtecheducation.com/collections/ugot) describe the offer. You ask a distributor for the price: it is not on Amazon.com. Read the search below listing by listing.
 
-<a href="https://www.amazon.com/s?k=UBTECH+UGOT+robot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (UBTECH UGOT)
+<a href="https://www.amazon.com/dp/B0C9JKYQ7L?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (UBTECH UGOT)
 
 The programming they advertise runs from blocks to Python. The visual effect is strong, from about 14 or in a classroom, if someone structures the sessions. It is not a printed manual of thirty exercises: you need a path.
 
@@ -63,7 +63,7 @@ The programming they advertise runs from blocks to Python. The visual effect is 
 
 The [myAGV](https://shop.elephantrobotics.com/products/myagv-pi), here in the Pi variant, is a mobile chassis for navigation trials. The sensors depend on the configuration. The docs lead toward Python and, depending on the version, ROS. Linux is part of the entry ticket: this is a purchase that requires reading. The audience is students and makers, more often from 16. Check the price of the exact variant. The search below does not guarantee the Pi version.
 
-<a href="https://www.amazon.com/s?k=myAGV+Elephant+Robotics&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (myAGV Elephant Robotics)
+<a href="https://www.amazon.com/dp/B0BPCLKMWV?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (myAGV Elephant Robotics)
 
 ## Sphero, for a school
 
@@ -71,7 +71,7 @@ The [myAGV](https://shop.elephantrobotics.com/products/myagv-pi), here in the Pi
 
 Sphero is first an ecosystem: robots including the BOLT+, activities, and the Sphero Edu software, from blocks toward languages depending on the level. A large “school” budget often means a lot, a case, or a program, not a single research robot. The [Sphero](https://www.sphero.com/) site and a quote (education distributors) are the source of the price. No lot amount is in the reading of 6 November 2026. The search below targets the BOLT family, not another robot from the brand. It fits a school that wants the same line in several rooms, and it is a weaker fit for someone looking for a ROS base.
 
-<a href="https://www.amazon.com/s?k=Sphero+BOLT+education&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Sphero BOLT)
+<a href="https://www.amazon.com/dp/B07R7L98K1?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Sphero BOLT)
 
 ## Comparison with no invented price
 

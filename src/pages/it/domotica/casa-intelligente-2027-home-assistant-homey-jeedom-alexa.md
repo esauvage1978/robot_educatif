@@ -17,7 +17,7 @@ updated: "28 ottobre 2026"
 <td data-label="Prodotto"><span class="td-val">Home Assistant Green</span></td>
 <td data-label="Uso">Hub HA locale</td>
 <td data-label="Prezzo indicativo"><span class="td-val" data-amazon-price="1">Vedi il prezzo del giorno</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.it/s?k=Home+Assistant+Green&tag=roboteducat0f-21" target="_blank" rel="sponsored nofollow noopener">Vedi offerta →</a></td>
+<td data-label=""><a href="https://www.amazon.it/dp/B0CXVKSG19?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi offerta →</a></td>
 </tr>
 <tr>
 <td data-label="Prodotto"><span class="td-val">SONOFF ZBDongle-E</span></td>
@@ -29,13 +29,13 @@ updated: "28 ottobre 2026"
 <td data-label="Prodotto"><span class="td-val">Aqara FP2 / mmWave</span></td>
 <td data-label="Uso">Presenza mmWave</td>
 <td data-label="Prezzo indicativo"><span class="td-val">Presence sensor ≈ 45–90 €</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.it/s?k=Aqara+FP2+presence+sensor+mmWave&tag=roboteducat0f-21" target="_blank" rel="sponsored nofollow noopener">Vedi offerta →</a></td>
+<td data-label=""><a href="https://www.amazon.it/dp/B0BSXCLR8R?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi offerta →</a></td>
 </tr>
 <tr>
 <td data-label="Prodotto"><span class="td-val">Tapo P110M Matter</span></td>
 <td data-label="Uso">Presa Matter</td>
 <td data-label="Prezzo indicativo"><span class="td-val">Matter plug ≈ 18–35 €</span></td>
-<td data-label=""><a class="btn btn-action btn-sm" href="https://www.amazon.it/s?k=Tapo+P110M+Matter+smart+plug&tag=roboteducat0f-21" target="_blank" rel="sponsored nofollow noopener">Vedi offerta →</a></td>
+<td data-label=""><a href="https://www.amazon.it/dp/B0CDCLMC6W?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi offerta →</a></td>
 </tr>
 </tbody></table></div>
 <p class="re-dom-gear-note">Verify price and stock · affiliate links.</p>

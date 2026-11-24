@@ -21,7 +21,7 @@ We compare four **ieGeek** models from **official product pages** (iegeek.com, c
 
 > **Disclosure:** ieGeek links below may be affiliate links. That does not change which models are listed or the specs quoted.
 
-<p><strong>Shop (manufacturer / affiliate):</strong> <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 on ieGeek.com</a> · <a href="https://www.amazon.com/s?k=ieGeek+solar+security+camera&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Search on Amazon US</a> · <a href="https://www.amazon.com/s?k=ieGeek+solar+security+camera&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Amazon.com</a> · <a href="https://www.amazon.ca/s?k=ieGeek+solar+security+camera&tag=roboteducatif-20" target="_blank" rel="noopener nofollow sponsored">Amazon.ca</a></p>
+<p><strong>Shop (manufacturer / affiliate):</strong> <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 on ieGeek.com</a> · Search on Amazon US · Amazon.com · Amazon.ca</p>
 
 ## Comparison (manufacturer specs)
 

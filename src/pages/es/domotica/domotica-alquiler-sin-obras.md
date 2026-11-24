@@ -13,7 +13,6 @@ Algunos enlaces son de afiliación (`/go/`).
 <li><a href="#tabla">Tabla resumen</a></li>
 <li><a href="#sin-riesgo">Instalación sin obras</a></li>
 <li><a href="#acordar">Antes de acordar</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

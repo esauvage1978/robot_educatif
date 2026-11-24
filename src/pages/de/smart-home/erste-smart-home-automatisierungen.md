@@ -22,7 +22,6 @@ faqSchema:
 <ol>
 <li><a href="#prinzip">Prinzip in drei Worten</a></li>
 <li><a href="#automatisierungen">Zehn Automatisierungen</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ol>
 </div>
 

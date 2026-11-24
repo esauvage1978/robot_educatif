@@ -26,7 +26,6 @@ faqSchema:
 <li><a href="#homey">Homey Pro</a></li>
 <li><a href="#sprachassistenten">Sprachassistenten</a></li>
 <li><a href="#entscheidung">Entscheidungshilfe</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ol>
 </div>
 

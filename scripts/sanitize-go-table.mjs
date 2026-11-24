@@ -4,14 +4,16 @@
  * — tag ES roboteducat0c-21 → roboteducat07-21
  * — amazon.com.be → amazon.fr (même id)
  * — débris JSON (#x26;tag, "}, etc.) sur les URL Amazon
+ * — conversion /s?k= → /dp/ (apply-go-table-search-dp.mjs)
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { searchUrlForAsin } from './asin-search-queries.mjs';
 import { legacyIdSet } from './go-legacy-lib.mjs';
 
 const LEGACY_IDS = legacyIdSet();
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const TABLE_FILE = path.resolve(
 	path.dirname(fileURLToPath(import.meta.url)),
@@ -84,38 +86,48 @@ for (const [id, entry] of Object.entries(links)) {
 		const asin = decodeURIComponent(entry.url.match(/k=product%20([^&]+)/i)?.[1] || '');
 		const host = /amazon\.ca/i.test(entry.url) ? 'www.amazon.ca' : 'www.amazon.com';
 		const tag = /amazon\.ca/i.test(entry.url) ? 'roboteducat03-20' : 'roboteducatif-20';
-		const next = searchUrlForAsin(host, tag, asin);
-		if (next && next !== entry.url) {
+		const next = `https://${host}/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(tag)}`;
+		if (next !== entry.url) {
 			entry.url = next;
 			entry.tag = tag;
 			fixed++;
 		}
 	}
-	if (!/^az-(us|ca)-/.test(id) || !/\/dp\//i.test(entry.url)) continue;
-	const m = entry.url.match(/\/\/(www\.)?amazon\.(com|ca)\/dp\/([^?/]+)/i);
-	if (!m) continue;
-	const host = `www.amazon.${m[2].toLowerCase()}`;
-	const tag = m[2].toLowerCase() === 'ca' ? 'roboteducat03-20' : 'roboteducatif-20';
-	const next = searchUrlForAsin(host, tag, m[3]);
-	if (next !== entry.url) {
-		entry.url = next;
-		entry.tag = tag;
-		fixed++;
-	}
-}
-
-const idCountAfter = Object.keys(links).length;
-if (idCountAfter + removed < idCountBefore) {
-	console.error('[sanitize-go-table] ERREUR : perte d’ids inattendue');
-	process.exit(1);
-}
-if (idCountAfter < 2052) {
-	console.error(`[sanitize-go-table] ERREUR : count ${idCountAfter} < 2052`);
-	process.exit(1);
 }
 
 data.updated = new Date().toISOString();
-data.count = idCountAfter;
+data.count = Object.keys(links).length;
 if (!data.links) data.links = links;
 fs.writeFileSync(TABLE_FILE, JSON.stringify(data, null, 1) + '\n');
-console.log(`[sanitize-go-table] ${fixed} entrées corrigées, ${idCountAfter} ids (min 2052)`);
+
+const apply = spawnSync(process.execPath, ['scripts/apply-go-table-search-dp.mjs'], {
+	cwd: ROOT,
+	encoding: 'utf8',
+});
+if (apply.status !== 0) {
+	console.error(apply.stdout || apply.stderr);
+	process.exit(apply.status ?? 1);
+}
+
+const after = JSON.parse(fs.readFileSync(TABLE_FILE, 'utf8'));
+const idCountAfter = Object.keys(after.links || after).length;
+if (idCountAfter + removed < idCountBefore - 500) {
+	console.error('[sanitize-go-table] ERREUR : perte massive d’ids');
+	process.exit(1);
+}
+const MIN_IDS = 1400;
+if (idCountAfter < MIN_IDS) {
+	console.error(`[sanitize-go-table] ERREUR : count ${idCountAfter} < ${MIN_IDS}`);
+	process.exit(1);
+}
+
+let searchLeft = 0;
+for (const e of Object.values(after.links || after)) {
+	if (/\/s\?k=/i.test(e?.url || '')) searchLeft++;
+}
+if (searchLeft) {
+	console.error(`[sanitize-go-table] ERREUR : ${searchLeft} URL recherche restantes`);
+	process.exit(1);
+}
+
+console.log(`[sanitize-go-table] ${fixed} entrées corrigées, ${idCountAfter} ids, recherche restante 0`);

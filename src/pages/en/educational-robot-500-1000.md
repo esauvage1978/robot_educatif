@@ -14,9 +14,9 @@ Some links on this page are affiliate links. The button opens Amazon so you can 
 
 Between 500 and 1,000 euros, you leave the living-room robot for longer kits: mechanics, sensors, sometimes vision. The Amazon.com snapshot. The mBot2 alone was **around $185**. The CyberPi board as a learning kit was **around $65**. Adding accessories that were not in the reading in order to “reach” 500 euros would invent a total: this guide does not do that. The fischertechnik TXT 4.0, the mBot Ultimate, a DFRobot chassis with HuskyLens, and the Unitree Go family have no price in this reading. Check the price, and count them here only if that day’s listing is between 500 and 1,000 euros.
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2, ASIN B0919F9CKS)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2, ASIN B0919F9CKS)
 
-<a href="https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (CyberPi learning kit, ASIN B0BBZY9L59)
+<a href="https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (CyberPi learning kit, ASIN B0BBZY9L59)
 
 ## What this band asks of you
 
@@ -46,7 +46,7 @@ The Robotics TXT 4.0 Base Set (reference 559888) is aimed more at ages 12–16, 
 
 It is not on Amazon.com. Check the price, and confirm the set reference. Place it between 500 and 1,000 euros only if that day’s listing says so.
 
-<a href="https://www.amazon.com/s?k=fischertechnik+TXT+4.0+robotics+base+set&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (fischertechnik TXT 4.0 robotics base set)
+<a href="https://www.amazon.com/dp/B084H1L8TW?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (fischertechnik TXT 4.0 robotics base set)
 
 ### mBot Ultimate
 
@@ -60,7 +60,7 @@ The mBot Ultimate is a large crate of parts, often presented as a 10-in-1, block
 
 The photo shows a Go2. The Go family covers several models, from consumer versions to Edu or research versions, with locomotion and, on the lab side, Python or ROS. This is not a first robot. No Unitree price is in the reading of 6 November 2026. Use the search only to identify a listing, then the exact reference, support, and the SDK. As long as that listing is not between 500 and 1,000 euros, the quadruped does not count on this page. Above that, see the [guide beyond 1,000 euros](/en/educational-robot-over-1000/).
 
-<a href="https://www.amazon.com/s?k=Unitree+Go+robot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Unitree Go)
+<a href="https://www.amazon.com/dp/B0C1VWYB2J?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Unitree Go)
 
 ### DFRobot and HuskyLens
 
@@ -70,7 +70,7 @@ HuskyLens is a vision sensor (color, object, or face depending on the mode) that
 
 The Amazon.com reading does not give the price of this cart, and this page does not add up parts that were not in the reading. Check the price of each listing, starting with the search below. Dollar prices on the DFRobot site are not converted into euros here.
 
-<a href="https://www.amazon.com/s?k=HuskyLens+DFRobot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (HuskyLens DFRobot)
+<a href="https://www.amazon.com/dp/B07RWXCN3V?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (HuskyLens DFRobot)
 
 ## Table
 

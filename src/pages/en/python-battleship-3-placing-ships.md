@@ -267,6 +267,6 @@ if __name__ == "__main__":
 
 ## Amazon
 
-- Python 3, exercises with solutions: <a href="https://www.amazon.com/s?k=python+3+exercises+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
-- Python programming books for children: <a href="https://www.amazon.com/s?k=python+programming+books+for+kids&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
-- Python 3 exercises with solutions (Amazon search): <a href="https://www.amazon.com/s?k=python+3+exercises+with+solutions&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+- Python 3, exercises with solutions: Check today's price on Amazon
+- Python programming books for children: <a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
+- Python 3 exercises with solutions (Amazon search): Check today's price on Amazon

@@ -26,7 +26,7 @@ Immediate programming with an arrow remote, obstacle detection, and black-line f
 
 **around $110 euros on Amazon.com.**
 
-<a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dbotley%2Brobot%2Bprogrammable" target="_blank" rel="nofollow sponsored noopener">See it at Cultura</a>
 <a href="https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F" target="_blank" rel="nofollow sponsored noopener">See it at Eurekakids</a>
 
@@ -36,7 +36,7 @@ An expressive robot that arrives assembled, with an LED matrix, color and sound 
 
 **Indicative range: about 139–159 euros (check today's price).**
 
-<a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dcodey%2Brocky%2Bmakeblock" target="_blank" rel="nofollow sponsored noopener">See it at Cultura</a>
 <a href="https://www.awin1.com/cread.php?awinmid=127267&awinaffid=3126073&ued=https%3A%2F%2Fshop.makerfire.com%2F" target="_blank" rel="nofollow sponsored noopener">See it at Makerfire</a>
 
@@ -46,7 +46,7 @@ A modular board game with a maze, tunnels, challenge cards, and direct programmi
 
 **Indicative range: about 55–69 euros (check today's price).**
 
-<a href="https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 <a href="https://www.awin1.com/cread.php?awinmid=113876&awinaffid=3126073&ued=https%3A%2F%2Fwww.cultura.com%2Fsearch%2Fresults%3Fsearch_query%3Dsouris%2Brobot%2Bprogrammable" target="_blank" rel="nofollow sponsored noopener">See it at Cultura</a>
 <a href="https://www.awin1.com/cread.php?awinmid=131482&awinaffid=3126073&ued=https%3A%2F%2Fwww.eurekakids.fr%2F" target="_blank" rel="nofollow sponsored noopener">See it at Eurekakids</a>
 
@@ -104,7 +104,7 @@ You program Botley with an **arrow remote**: the child enters a sequence of move
 - Line following and obstacle detection for going further
 - Progressive challenges, from short paths to long sequences
 
-<a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 
 **Good to know**: there are several Botley 2.0 boxes. The one we keep (46 pieces) includes the robot, the remote, removable arms, coding cards, and path accessories. A fuller version adds game boards, for about 40 euros more. Batteries are not included: plan rechargeable cells.
 
@@ -119,7 +119,7 @@ Codey Rocky is a small robot that arrives assembled, with an **LED screen**, col
 - Programmable with mBlock, then in Python later
 - USB rechargeable battery
 
-<a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 
 ### 3. Code & Go, the robot mouse (Learning Resources): the smart small budget
 
@@ -132,7 +132,7 @@ Colby, the robot mouse, is programmed with **the buttons on its back**. The acti
 - Challenge cards sorted by difficulty
 - Plays well with two or three children
 
-<a href="https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+<a href="https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a>
 
 ## Which robot fits your child?
 
@@ -172,7 +172,7 @@ Not at 6. Building with a screwdriver becomes interesting around 8, with an adul
 
 For a 6-year-old, **Botley 2.0** is the safest choice if you want to avoid screens, **Codey Rocky** is the one that will stay with them the longest, and the **Code & Go mouse** is the right low-price way in. Whatever you choose, bet on short sessions, concrete challenges, and an adult who plays along the first few times. For the next step, our [7–8-year guide](/en/best-robot-for-an-8-year-old/) takes over.
 
-<a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Botley 2.0)
-<a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky)
+<a href="https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Botley 2.0)
+<a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky)
 
 *Prices and availability checked on amazon.com on 19 October 2026. They can change. The Botley 2.0 figure of around $110 euros is the Amazon.com snapshot.*

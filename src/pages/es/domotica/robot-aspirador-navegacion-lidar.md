@@ -19,7 +19,6 @@ Esta guía forma parte del [hub domótica](/es/domotica/) junto a [robots bajo 2
 <li><a href="#tabla">Tabla comparativa</a></li>
 <li><a href="#evitacion">Evitación de obstáculos</a></li>
 <li><a href="#domotica">Domótica</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

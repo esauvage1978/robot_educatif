@@ -16,7 +16,7 @@ const DOMOTIQUE_LANG_PAIRS = Object.entries(DOMOTIQUE_SLUGS).map(([frSlug]) => (
 
 // Paires FR/EN pour hreflang et sélecteur de langue (chemins sans base).
 const STATIC_LANG_PAIRS = [
-	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/' },
+	{ fr: '/', en: '/en/', uk: '/uk/', ca: '/ca/', de: '/de/', it: '/it/', es: '/es/', nl: '/nl/' },
 	{ fr: '/belgique/' },
 	{ fr: '/suisse/' },
 	{ fr: '/luxembourg/' },
@@ -349,7 +349,7 @@ const EN_RATTACHEES = [
 	{ fr: '/mbot-mon-premier-robot-educatif/', en: '/en/mbot-my-first-educational-robot/', de: '/de/mbot-mein-erster-lernroboter/', it: '/it/mbot-il-mio-primo-robot-educativo/' },
 	{ fr: '/mbot-avis-faut-il-acheter-pour-un-enfant/', en: '/en/mbot-review-worth-buying/', de: '/de/mbot-test-kaufen/', it: '/it/mbot-recensione-vale-la-pena/' },
 	{ fr: '/serie-capteur-ultrason-mbot-4-ralentir-sarreter-obstacle/', en: '/en/mbot-ultrasonic-4-slow-stop-obstacle/', de: '/de/mbot-ultraschall-4-langsamer-stopp/', it: '/it/mbot-ultrasuoni-4-rallentare-ostacolo/' },
-	{ fr: '/mbot-vs-lego-robot-lequel-est-le-meilleur/', en: '/en/mbot-vs-lego-robot/', de: '/de/mbot-vs-lego-roboter/', it: '/it/mbot-vs-lego-robot/' },
+	{ fr: '/mbot-vs-lego-robot-lequel-est-le-meilleur/', en: '/en/mbot-vs-lego-robot/', de: '/de/mbot-vs-lego-roboter/', it: '/it/mbot-vs-lego-robot/', es: '/es/mbot-vs-lego-robot/' },
 	{ fr: '/python-conditions-if-else/', en: '/en/python-conditions-if-else/' },
 	{ fr: '/python-mini-jeu-terminal/', en: '/en/python-mini-terminal-game/', de: '/de/python-mini-terminalspiel/', it: '/it/python-mini-gioco-terminale/' },
 	{ fr: '/python-av-packaging-pyproject/', en: '/en/python-packaging-pyproject/', de: '/de/python-packaging-pyproject/', it: '/it/python-packaging-pyproject/' },

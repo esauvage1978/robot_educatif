@@ -27,7 +27,6 @@ Some links below are partner links (`/go/`): they may earn a commission at no ex
 <li><a href="#essentials">Essentials table</a></li>
 <li><a href="#boards">Which board first?</a></li>
 <li><a href="#buy">Where to buy</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -49,7 +48,7 @@ Your ESP32 will need a server. Most readers start with [Home Assistant Green or 
 
 ## Where to buy {#buy}
 
-- <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com search</a> · <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">SONOFF ZBDongle-E — Amazon.com</a> if you mix Zigbee with ESPHome.
+- <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green — Amazon.com search</a> · <a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">SONOFF ZBDongle-E — Amazon.com</a> if you mix Zigbee with ESPHome.
 - ESP32 boards: search <a href="/go/az-us-a70604b50e/" rel="sponsored nofollow noopener">ESP32 on Amazon.com</a> or open our [chip comparison](/en/smart-home/which-esp32-board-for-smart-home/) for exact DevKitC / C6 references.
 
 ## FAQ {#faq}

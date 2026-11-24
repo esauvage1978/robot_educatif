@@ -13,7 +13,6 @@ Einige Links sind Partnerlinks (`/go/`).
 <li><a href="#uebersicht">Übersicht</a></li>
 <li><a href="#unkritisch">Unkritische Geräte</a></li>
 <li><a href="#klaeren">Vorher klären</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

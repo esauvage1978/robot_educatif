@@ -25,19 +25,19 @@ L’**mBot2** qui sopra è il robot di questo confronto: circa **168 €**, cont
 </tr><tr>
 <td data-label="Prodotto"><span class="td-val"><strong>Makeblock mBot2 Rover</strong></span></td>
 <td data-label="Prezzo indicativo (ott. 2026)"><span class="td-val" data-amazon-price="1">Vedi il prezzo del giorno</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/s?k=Makeblock%20mBot2%20Rover&tag=roboteducat0f-21" data-amazon-query="Makeblock mBot2 Rover" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Vedi prezzo →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi prezzo →</a></span></td>
 </tr><tr>
 <td data-label="Prodotto"><span class="td-val"><strong>Makeblock mBot Ranger</strong></span></td>
 <td data-label="Prezzo indicativo (ott. 2026)"><span class="td-val">~159–189 €</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/s?k=Makeblock+mBot+Ranger&tag=roboteducat0f-21" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Vedi prezzo →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi prezzo →</a></span></td>
 </tr><tr>
 <td data-label="Prodotto"><span class="td-val"><strong>Sphero BOLT / Mini</strong></span></td>
 <td data-label="Prezzo indicativo (ott. 2026)"><span class="td-val">~49–149 €</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/s?k=Sphero+BOLT+Mini&tag=roboteducat0f-21" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Vedi prezzo →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/dp/B08FJ7G1TG?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi prezzo →</a></span></td>
 </tr><tr>
 <td data-label="Prodotto"><span class="td-val"><strong>LEGO Education STEM kit</strong></span></td>
 <td data-label="Prezzo indicativo (ott. 2026)"><span class="td-val">~200–350 €</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/s?k=LEGO+Education+STEM+robot&tag=roboteducat0f-21" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Vedi prezzo →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.it/dp/B07CGH8NZ7?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">Vedi prezzo →</a></span></td>
 </tr><tr>
 <td data-label="Prodotto"><span class="td-val"><strong>BBC micro:bit V2 Go</strong></span></td>
 <td data-label="Prezzo indicativo (ott. 2026)"><span class="td-val">~25–35 €</span></td>
