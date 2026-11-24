@@ -83,12 +83,12 @@ faqSchema:
 <h2 id="prijzen">Prijzen</h2>
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener">SPIKE Essential</a></h3>
-    <a href="/go/az-gb-c6f26ae938/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Via Amazon UK</a>
+    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-nl-c8f4e2a1b6/" rel="sponsored nofollow noopener">SPIKE Essential</a></h3>
+    <a href="/go/az-nl-c8f4e2a1b6/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Via Amazon.nl</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener">SPIKE Prime</a></h3>
-    <a href="/go/az-gb-dd8d098a50/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Via Amazon UK</a>
+    <h3 style="margin:0 0 0.35rem;font-size:1.05rem;"><a href="/go/az-nl-f1d3e7b492/" rel="sponsored nofollow noopener">SPIKE Prime</a></h3>
+    <a href="/go/az-nl-f1d3e7b492/" rel="sponsored nofollow noopener" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Via Amazon.nl</a>
   </div>
 </div>
 
@@ -127,7 +127,7 @@ faqSchema:
 <p>Installeer de SPIKE-app vóór de eerste bouwsessie: tablets moeten vaak up-to-date zijn, en sommige Chromebooks vragen school-IT om toestemming. WeDo gebruikt een aparte app; meng ze niet op één profiel kind. Vergelijk met <a hreflang="en" href="/en/download-mblock-5-free/">mBlock 5 downloaden (EN)</a> als je twijfelt tussen LEGO en Makeblock.</p>
 
 <h2 id="prijs-nl">Prijzen in Nederland</h2>
-<p>Er is geen aparte Amazon.nl-link in ons /go/-register; we gebruiken UK- of FR-zoekresultaten. Controleer verzendkosten en btw. De catalogusprijzen in euro zijn richtwaarden, niet de laagste marktprijs van vandaag. Veel Nederlandse gezinnen bestellen via Amazon.de of .fr; plan 3–7 dagen levertijd. Ouders vergelijken ook tweedehands SPIKE op marktplaatsen — controleer of de hub oplaadt en of de app de firmware herkent.</p>
+<p>Controleer verzendkosten en btw op Amazon.nl. De catalogusprijzen in euro zijn richtwaarden, niet de laagste marktprijs van vandaag. Ouders vergelijken ook tweedehands SPIKE op marktplaatsen — controleer of de hub oplaadt en of de app de firmware herkent.</p>
 
 <h2 id="oordeel">Ons oordeel</h2>
 <aside class="article-callout" role="note">

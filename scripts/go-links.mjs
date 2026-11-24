@@ -134,9 +134,6 @@ function dpToSearchIfNeeded(url) {
 function take(url, repaired) {
 	url = normalizeAmazon(trimLooseUrl(url));
 	const c = classify(url);
-	if (c && (c.prefix === 'az-us' || c.prefix === 'az-ca') && /\/dp\//i.test(url)) {
-		url = normalizeAmazon(dpToSearchIfNeeded(url));
-	}
   if (!c) return null;
   let id = urlToId.get(url);
   if (!id) {
@@ -165,7 +162,17 @@ function take(url, repaired) {
     }
     return null;
   }
-  if (prev && prev.url !== url) { stats.collisions++; console.error('[go-links] COLLISION ' + id); return null; }
+  if (prev && prev.url !== url) {
+    // B14 : conserver une fiche /dp/ déjà enregistrée si le HTML pointe encore vers /s?k=
+    if (prev.url && /\/dp\/|\/gp\/product\//i.test(prev.url) && /\/s\?k=/i.test(url)) {
+      usedIds.add(id);
+      stats[c.merchant]++;
+      return id;
+    }
+    stats.collisions++;
+    console.error('[go-links] COLLISION ' + id);
+    return null;
+  }
   usedIds.add(id);
   if (!prev) urlToId.set(url, id);
   if (!prev) table.set(id, { url, merchant: c.merchant, country: c.country, ...(c.tag ? { tag: c.tag } : {}), ...(c.mid ? { mid: c.mid, dest: c.dest, affid: c.affid } : {}) });

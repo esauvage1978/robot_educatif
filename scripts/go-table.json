@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-22T13:14:22.516Z",
- "count": 2513,
+ "updated": "2026-11-24T16:32:33.480Z",
+ "count": 2519,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -3466,7 +3466,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-03678a1e5d": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot2&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0919F9CKS?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3508,7 +3508,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-06c6ef26b0": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B078Y9RYM2?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3616,7 +3616,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-0f47d48594": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B083T58PKM?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3628,7 +3628,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-10999519f9": {
-   "url": "https://www.amazon.ca/s?k=ELEGOO+Penguin+Bot+robot+kit&&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07GVD6GQH?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3706,7 +3706,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-1ddce59165": {
-   "url": "https://www.amazon.ca/s?k=raspberry+pi+5+8gb&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CK2FCG1K?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -3754,7 +3754,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-2241137745": {
-   "url": "https://www.amazon.ca/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B0CZ6R182M?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4480,7 +4480,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-69a314920e": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20mBot&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07XR98YYQ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4690,7 +4690,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-800c12188b": {
-   "url": "https://www.amazon.ca/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B01B14XK00?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -4744,7 +4744,7 @@
    "tag": "roboteducat03-20"
   },
   "az-ca-8812cc26a4": {
-   "url": "https://www.amazon.ca/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat03-20",
+   "url": "https://www.amazon.ca/dp/B07CGH8NZ7?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5231,6 +5231,12 @@
   },
   "az-ca-c2826d56c7": {
    "url": "https://www.amazon.ca/s?k=BME280%20module%20I2C&tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-c2e226c8dc": {
+   "url": "https://www.amazon.ca/s?k=ELEGOO+Penguin+Bot+robot+kit&amp&tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -6376,7 +6382,7 @@
    "tag": "roboteducat00-21"
   },
   "az-de-93d72caacb": {
-   "url": "https://www.amazon.de/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducat00-21",
+   "url": "https://www.amazon.de/dp/B082WD5YV9?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -6502,7 +6508,7 @@
    "tag": "roboteducat00-21"
   },
   "az-de-b6f9fd4c97": {
-   "url": "https://www.amazon.de/s?k=LEGO+SPIKE+Essential&tag=roboteducat00-21",
+   "url": "https://www.amazon.de/dp/B09LMS9YXX?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -6520,7 +6526,7 @@
    "tag": "roboteducat00-21"
   },
   "az-de-ba79062085": {
-   "url": "https://www.amazon.de/s?k=LEGO+SPIKE+Prime&tag=roboteducat00-21",
+   "url": "https://www.amazon.de/dp/B07QN7ZJF9?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -6628,7 +6634,7 @@
    "tag": "roboteducat00-21"
   },
   "az-de-d9539bcaaf": {
-   "url": "https://www.amazon.de/s?k=Makeblock+mBot+Ranger&tag=roboteducat00-21",
+   "url": "https://www.amazon.de/dp/B07KG4JHBH?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -7252,7 +7258,7 @@
    "tag": "roboteducat07-21"
   },
   "az-es-5f0a8f70e3": {
-   "url": "https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat07-21",
+   "url": "https://www.amazon.es/dp/B09LMS9YXX?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7408,7 +7414,7 @@
    "tag": "roboteducat07-21"
   },
   "az-es-825025dea6": {
-   "url": "https://www.amazon.es/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducat07-21",
+   "url": "https://www.amazon.es/dp/B082WD5YV9?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7474,7 +7480,7 @@
    "tag": "roboteducat07-21"
   },
   "az-es-944778c7cb": {
-   "url": "https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat07-21",
+   "url": "https://www.amazon.es/dp/B09LMS9YXX?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7624,7 +7630,7 @@
    "tag": "roboteducat07-21"
   },
   "az-es-afd02e1227": {
-   "url": "https://www.amazon.es/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducat07-21",
+   "url": "https://www.amazon.es/dp/B09LMS9YXX?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7726,7 +7732,7 @@
    "tag": "roboteducat07-21"
   },
   "az-es-d93de73c99": {
-   "url": "https://www.amazon.es/s?k=LEGO+SPIKE+Prime&tag=roboteducat07-21",
+   "url": "https://www.amazon.es/dp/B07QN7ZJF9?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -8266,7 +8272,7 @@
    "tag": "manuso06-21"
   },
   "az-fr-1e87f6ed73": {
-   "url": "https://www.amazon.fr/s?k=LEGO+Education+SPIKE+Essential&tag=manuso06-21",
+   "url": "https://www.amazon.fr/dp/B08W2JHFDB?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -8350,7 +8356,7 @@
    "tag": "manuso06-21"
   },
   "az-fr-248ff96510": {
-   "url": "https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21",
+   "url": "https://www.amazon.fr/dp/B07QN7ZJF9?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -9328,7 +9334,7 @@
    "tag": "manuso06-21"
   },
   "az-fr-7b431a3d08": {
-   "url": "https://www.amazon.fr/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=manuso06-21",
+   "url": "https://www.amazon.fr/dp/B082WD5YV9?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -9910,7 +9916,7 @@
    "tag": "manuso06-21"
   },
   "az-fr-b3c73a10ef": {
-   "url": "https://www.amazon.fr/s?k=LEGO+SPIKE+Prime+robot+%C3%A9ducation&tag=manuso06-21",
+   "url": "https://www.amazon.fr/dp/B07QN7ZJF9?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -10330,7 +10336,7 @@
    "tag": "manuso06-21"
   },
   "az-fr-d6f6be9c47": {
-   "url": "https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21",
+   "url": "https://www.amazon.fr/dp/B08W2JHFDB?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -11469,8 +11475,14 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-4dc549dc09": {
+   "url": "https://www.amazon.co.uk/s?k=LEGO+Mindstorms+Robot+Inventor+51515&amp&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-4e329fc9ee": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+Education+SPIKE+Essential&&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B09LMS9YXX?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -11961,6 +11973,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-814a7860a5": {
+   "url": "https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&amp&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-819dbbf8e3": {
    "url": "https://www.amazon.co.uk/s?k=Arduino%20Uno%20R4&tag=roboteducatif-21",
    "merchant": "amazon",
@@ -12046,7 +12064,7 @@
    "tag": "roboteducatif-21"
   },
   "az-gb-877fa01e79": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B09LMS9YXX?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -12269,6 +12287,12 @@
   },
   "az-gb-a1644778dd": {
    "url": "https://www.amazon.co.uk/s?k=SONOFF%20ZBDongle-E&&tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-a1cd70ce66": {
+   "url": "https://www.amazon.co.uk/s?k=LEGO+Education+SPIKE+Essential&amp&tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -12580,7 +12604,7 @@
    "tag": "roboteducatif-21"
   },
   "az-gb-b8e96fc86b": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B09LMS9YXX?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -12694,7 +12718,7 @@
    "tag": "roboteducatif-21"
   },
   "az-gb-c6f26ae938": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B09LMS9YXX?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -12946,7 +12970,7 @@
    "tag": "roboteducatif-21"
   },
   "az-gb-dd8d098a50": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B07QN7ZJF9?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -13246,7 +13270,7 @@
    "tag": "roboteducatif-21"
   },
   "az-gb-fc1bc069fd": {
-   "url": "https://www.amazon.co.uk/s?k=LEGO+Mindstorms+Robot+Inventor+51515&&tag=roboteducatif-21",
+   "url": "https://www.amazon.co.uk/dp/B08586NDKT?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -13426,7 +13450,7 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-3102dc8bb7": {
-   "url": "https://www.amazon.it/s?k=LEGO+SPIKE+Essential&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/dp/B09LMS9YXX?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -13462,7 +13486,7 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-350009dc68": {
-   "url": "https://www.amazon.it/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/dp/B09LMS9YXX?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -13498,7 +13522,7 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-37d9a9034a": {
-   "url": "https://www.amazon.it/s?k=Makeblock+mBot+Ranger&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -13534,7 +13558,7 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-4647da7907": {
-   "url": "https://www.amazon.it/s?k=LEGO+SPIKE+Prime&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/dp/B07QN7ZJF9?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -13882,7 +13906,7 @@
    "tag": "roboteducat0f-21"
   },
   "az-it-9e97813cd1": {
-   "url": "https://www.amazon.it/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducat0f-21",
+   "url": "https://www.amazon.it/dp/B082WD5YV9?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -14337,8 +14361,20 @@
    "country": "NL",
    "tag": "manuso0607-21"
   },
+  "az-nl-c8f4e2a1b6": {
+   "url": "https://www.amazon.nl/dp/B09LMS9YXX?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
   "az-nl-dc1bbdc7f6": {
    "url": "https://www.amazon.nl/dp/B09B7TBSP1?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-f1d3e7b492": {
+   "url": "https://www.amazon.nl/dp/B07QN7ZJF9?tag=manuso0607-21",
    "merchant": "amazon",
    "country": "NL",
    "tag": "manuso0607-21"
@@ -14368,7 +14404,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-03f801e971": {
-   "url": "https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B083T58PKM?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14386,7 +14422,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-0951de68b3": {
-   "url": "https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14872,7 +14908,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-54b7800198": {
-   "url": "https://www.amazon.com/s?k=Makeblock+mBot+Ranger&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -14932,7 +14968,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-5e9cc5eef8": {
-   "url": "https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15256,7 +15292,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-9797143628": {
-   "url": "https://www.amazon.com/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B08586NDKT?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15544,7 +15580,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-c3cad4d0f0": {
-   "url": "https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07QN7ZJF9?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15616,7 +15652,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-d15f4ee758": {
-   "url": "https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -15814,7 +15850,7 @@
    "tag": "roboteducatif-20"
   },
   "az-us-ea8f038500": {
-   "url": "https://www.amazon.com/s?k=LEGO+Education+SPIKE+Essential&tag=roboteducatif-20",
+   "url": "https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
