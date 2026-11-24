@@ -31,6 +31,18 @@ const p = c.prefix;
 	microcontroller board.
 </p>
 
+<div class="article-toc" role="navigation" aria-label="Table of contents">
+	<p class="article-toc-title">Contents</p>
+	<ul>
+		<li><a href="#gift-tips">Christmas and birthday gifts</a></li>
+		<li><a href="#match-child">Match the robot to the child</a></li>
+		<li><a href="#three-criteria">Three criteria that matter</a></li>
+		<li><a href="#manufacturer-specs">Manufacturer specs</a></li>
+		<li><a href="#age-guides">Age guides</a></li>
+		<li><a href="#common-mistakes">Common mistakes</a></li>
+	</ul>
+</div>
+
 <GscNotreChoixCompact pageKey="hub-best-robot" market={c.market} locale="en" />
 
 <ComparisonTable
@@ -57,7 +69,7 @@ const p = c.prefix;
 	/>
 </figure>
 
-<h2>Christmas and birthday gifts: practical tips</h2>
+<h2 id="gift-tips">Christmas and birthday gifts: practical tips</h2>
 <ul>
 	<li>
 		Match the kit to the child’s <strong>real age and patience</strong>, not the box art — use our{' '}
@@ -73,7 +85,7 @@ const p = c.prefix;
 	))}
 </ul>
 
-<h2>1. Match the robot to the child, not the marketing</h2>
+<h2 id="match-child">1. Match the robot to the child, not the marketing</h2>
 <ul>
 	<li>
 		<strong>{marketKey === 'us' ? '5–7 years' : marketKey === 'uk' ? 'Ages 5–7' : 'Grades 1–3'}</strong> — {c.ageBullets.young}; see our{' '}
@@ -84,14 +96,14 @@ const p = c.prefix;
 	<li><strong>{marketKey === 'us' ? '13+ with an adult' : marketKey === 'uk' ? 'Ages 13+ with an adult' : 'Secondary + adult helper'}</strong> — {c.ageBullets.teen}.</li>
 </ul>
 
-<h2>2. Three criteria that matter</h2>
+<h2 id="three-criteria">2. Three criteria that matter</h2>
 <p>
 	<strong>Software still maintained</strong> (tutorials, community), <strong>at least two types of challenge</strong> (line follow,
 	obstacle, light…), and <strong>total budget</strong> including batteries and storage. If you choose Makeblock, start with{' '}
 	<a href={`${p}install-mblock-5-windows/`}>installing mBlock 5 on Windows</a>.
 </p>
 
-<h2>Manufacturer specs (reference)</h2>
+<h2 id="manufacturer-specs">Manufacturer specs (reference)</h2>
 <p set:html={c.specsLead} />
 
 <div class="tableau empile">
@@ -151,14 +163,14 @@ const p = c.prefix;
 	</table>
 </div>
 
-<h2>3. Age guides on this site</h2>
+<h2 id="age-guides">3. Age guides on this site</h2>
 <p>
 	<a href={`${p}best-robot-for-an-8-year-old/`}>Robot for 8 years</a> · <a href={`${p}best-robot-for-a-10-year-old/`}>10 years</a> ·{' '}
 	<a href={`${p}best-robot-for-a-12-year-old/`}>12 years</a> · <a href={`${p}mbot-vs-mbot2/`}>mBot vs mBot2</a> ·{' '}
 	<a href={`${p}makeblock-brand/`}>Makeblock brand hub</a>
 </p>
 
-<h2>Common mistakes</h2>
+<h2 id="common-mistakes">Common mistakes</h2>
 <ul>
 	<li>Buying the cheapest kit with {c.mistakeDoc}.</li>
 	<li>Underestimating adult time for drivers, Bluetooth and first login.</li>

@@ -1,0 +1,100 @@
+---
+import EnPost from '../../layouts/EnPost.astro';
+import AffiliateDisclosure from '../../components/AffiliateDisclosure.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import GscNotreChoixCompact from '../../components/GscNotreChoixCompact.astro';
+
+const title = 'Beste programmeerbare robot voor kinderen (2026): leeftijd 5–14';
+const description =
+	'Vergelijking Botley 2.0, mBot, mBot2, Codey Rocky en ELEGOO voor kinderen van 5 tot 14 jaar. Amazon.nl, tips per leeftijd en links naar diepere gidsen.';
+const updated = '4 november 2026';
+---
+
+<EnPost title={title} description={description} updated={updated} lang="nl">
+	<AffiliateDisclosure locale="nl" />
+
+	<nav class="breadcrumb" aria-label="Kruimelpad">
+		<a href="/nl/">Home</a> · <a href="/en/buying-guides/">Koopgidsen (EN)</a> · Programmeerbare robots
+	</nav>
+	<p>
+		<a href="/nl/kerstcadeau-leerrobot-2026/">Kerstcadeaus leerrobot</a> ·{' '}
+		<a href="/en/mbot-vs-mbot2/">mBot vs mBot2 (EN)</a> ·{' '}
+		<a href="/nl/lego-education-merk/">LEGO Education</a>
+	</p>
+
+	<p>
+		<strong>Bijgewerkt op 4 november 2026.</strong> Deze hub vergelijkt <strong>leerrobots</strong> voor kinderen van{' '}
+		<strong>5 tot 14 jaar</strong>. Prijzen op <strong>Amazon.nl</strong> zijn indicatief — controleer de live prijs vóór u bestelt.{' '}
+		<strong>Scratch</strong> is blokprogrammeren; <strong>Arduino</strong> is tekstcode in C/C++ op een microcontroller.
+	</p>
+
+	<div class="article-toc" role="navigation" aria-label="Inhoudsopgave">
+		<p class="article-toc-title">Inhoud</p>
+		<ul>
+			<li><a href="#match-child">Leeftijd en geduld</a></li>
+			<li><a href="#three-criteria">Software en budget</a></li>
+			<li><a href="#age-guides">Meer gidsen</a></li>
+			<li><a href="#common-mistakes">Veelgemaakte fouten</a></li>
+		</ul>
+	</div>
+
+	<GscNotreChoixCompact pageKey="hub-best-robot" market="nl" locale="nl" />
+
+	<ComparisonTable
+		market="nl"
+		locale="nl"
+		title="Snelle vergelijking (5–14 jaar)"
+		products={[
+			{ id: 'botley-2', badge: 'Top 5–7 jaar' },
+			{ id: 'mbot', badge: 'Top 8–12 jaar' },
+			{ id: 'mbot2', badge: 'Top 10–14 jaar' },
+			{ id: 'codey-rocky', badge: 'Scratch + sensoren' },
+			{ id: 'elegoo-robot-car', badge: 'Arduino tiener' },
+		]}
+	/>
+
+	<figure>
+		<img
+			src="/images/products/mbot2.webp"
+			alt="Makeblock mBot2 programmeerbare robot met ultrasoonsensoren"
+			width="600"
+			height="600"
+			loading="lazy"
+			decoding="async"
+		/>
+	</figure>
+
+	<h2 id="match-child">1. Leeftijd en geduld eerst</h2>
+	<ul>
+		<li><strong>5–7 jaar</strong> — korte sessies, vaak <strong>zonder scherm</strong>.</li>
+		<li><strong>8–10 jaar</strong> — Scratch/mBlock, eenvoudige montage.</li>
+		<li><strong>10–14 jaar</strong> — Python en Wi‑Fi met mBot2.</li>
+		<li><strong>13+ met volwassene</strong> — Arduino-kit ELEGOO.</li>
+	</ul>
+
+	<h2 id="three-criteria">2. Software, sensoren, echt budget</h2>
+	<p>
+		Zoek actuele tutorials en een actieve community. Tel batterijen, opbergmateriaal en tijd van een volwassene voor drivers en
+		Bluetooth. Zie <a href="/en/install-mblock-5-windows/">mBlock 5 installeren (EN)</a>.
+	</p>
+
+	<h2 id="age-guides">3. Meer gidsen</h2>
+	<p>
+		<a href="/en/best-robot-for-an-8-year-old/">Robot 8 jaar (EN)</a> ·{' '}
+		<a href="/en/best-robot-for-a-10-year-old/">10 jaar (EN)</a> ·{' '}
+		<a href="/nl/mbot-vs-lego-robot/">mBot vs LEGO</a> ·{' '}
+		<a href="/nl/kerstcadeau-leerrobot-2026/">Kerstcadeaus 2026</a>
+	</p>
+
+	<h2 id="common-mistakes">Veelgemaakte fouten</h2>
+	<ul>
+		<li>Alleen op de laagste dagprijs letten zonder recente reviews over stevigheid en support.</li>
+		<li>De tijd voor drivers, Bluetooth en eerste login onderschatten.</li>
+		<li>Een tiener-Arduino-kit kopen voor een 7-jarige die nog liever zonder laptop speelt.</li>
+	</ul>
+
+	<p>
+		<strong>Kortom:</strong> de beste robot is degene die echt gebruikt wordt — duidelijke software, gevarieerde uitdagingen en een
+		honest budget. Start vanuit een leeftijdsgids en controleer de prijs bij de verkoper.
+	</p>
+</EnPost>

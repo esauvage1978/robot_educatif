@@ -13,7 +13,19 @@ Einige Links auf dieser Seite sind Affiliate-Links. Beim Kauf darüber kann eine
 
 Unter „LEGO-Roboter“ meinen wir vor allem **[LEGO Education](/de/marke-lego-education/) SPIKE Essential**, **SPIKE Prime** und den älteren **LEGO Mindstorms Robot Inventor (51515)** — letzterer wird von LEGO seit Ende 2022 **nicht mehr neu** verkauft, kursiert aber noch **gebraucht**; Dokumentation und Apps langfristig im Blick behalten. Preise sind **Richtwerte** für Deutschland / EU **2026**; prüfen Sie immer **Verkäufer** und **Packungsinhalt** (LEGO-Akku manchmal separat usw.).
 
-## 1. Zwei Produktphilosophien
+<div class="article-toc" role="navigation" aria-label="Inhalt">
+<p class="article-toc-title">Inhalt</p>
+<ul>
+<li><a href="#philosophies">Zwei Produktphilosophien</a></li>
+<li><a href="#ages">Alter und Autonomie</a></li>
+<li><a href="#getting-started">Einstieg</a></li>
+<li><a href="#six-months">Weiterentwicklung</a></li>
+<li><a href="#recap">Kurzüberblick</a></li>
+<li><a href="#verdict">Kein Sieger</a></li>
+</ul>
+</div>
+
+<h2 id="philosophies">1. Zwei Produktphilosophien</h2>
 
 | | **mBot / mBot2 (Makeblock)** | **LEGO SPIKE (Essential / Prime)** |
 |--|------------------------------|-------------------------------------|
@@ -23,7 +35,7 @@ Unter „LEGO-Roboter“ meinen wir vor allem **[LEGO Education](/de/marke-lego-
 | **Community** | Viele Tutorials rund um **mBot** | Starke **FIRST LEGO League (FLL)**- und Lehrerressourcen; Sprachabdeckung je nach Set |
 | **Richtpreis Einstieg** | **89,99 €** (mBot) und **158,90 €** (mBot2) bei Amazon.de am 9. November 2026 | **Seit 30.06.2026 nicht mehr direkt bei LEGO**: Händlerbestände, variable Preise (letzter Katalog: 289 € Essential, 379 € Prime) |
 
-## 2. Altersstufe und echte Autonomie
+<h2 id="ages">2. Altersstufe und echte Autonomie</h2>
 
 | Zielgruppe | Orientierung |
 |--------|-------------|
@@ -34,7 +46,7 @@ Unter „LEGO-Roboter“ meinen wir vor allem **[LEGO Education](/de/marke-lego-
 
 Zum Einstiegsalter beim Programmieren: [Guide (nur Französisch)](/programmation-enfant-a-quel-age-commencer/) · [Kaufberater DE](/de/kaufberater/).
 
-## 3. Einstieg (Kinder **und** Erwachsene)
+<h2 id="getting-started">3. Einstieg (Kinder **und** Erwachsene)</h2>
 
 ### Makeblock mBot / mBot2
 
@@ -46,7 +58,7 @@ Zum Einstiegsalter beim Programmieren: [Guide (nur Französisch)](/programmation
 - **Installation**: LEGO-App für **Tablet / PC**; Konten und Updates geräteabhängig.
 - **Kinderkurve**: der **Bauanteil** dauert länger als bei einem bereits autoartigen mBot; für manche Kinder ein **Plus** (Stolz aufs Modell), für andere eine **Hürde** („ich will sofort programmieren“).
 
-## 4. Entwicklung — was passiert in sechs Monaten?
+<h2 id="six-months">4. Entwicklung — was passiert in sechs Monaten?</h2>
 
 ### LEGO
 
@@ -60,7 +72,7 @@ Zum Einstiegsalter beim Programmieren: [Guide (nur Französisch)](/programmation
 - **Code**: natürlicher Weg zu **Python** auf **mBot2** ohne Markenwechsel — [mBot vs mBot2](/de/mbot-vs-mbot2/).
 - **Bauen**: Sie „bauen keinen Technic-Dinosaurier neu“; Wachstum ist eher **Sensor + Algorithmus**.
 
-## 5. Kurzüberblick — was ist **für mich** besser?
+<h2 id="recap">5. Kurzüberblick — was ist **für mich** besser?</h2>
 
 | Sie priorisieren… | Tendenz zu… |
 |-----------------|---------------|
@@ -70,7 +82,7 @@ Zum Einstiegsalter beim Programmieren: [Guide (nur Französisch)](/programmation
 | Erster LEGO-Code ohne Prime-Budget | **SPIKE Essential** (Restbestände); sonst **mBot** |
 | Gebraucht / Mindstorms-Nostalgie | **Robot Inventor** (wenn Preis und Zustand ok — **eingestellt**) |
 
-## 6. Kein Sieger — eine Designentscheidung
+<h2 id="verdict">6. Kein Sieger — eine Designentscheidung</h2>
 
 - Das **beste** Kit ist das, das **regelmäßig aus der Box** kommt.
 - Wenn Ihr Kind „bauen vor Code“ ablehnt, kann ein schweres **LEGO**-Set frustrieren; umgekehrt kann ein **Stein-Fan** den **mBot** optisch „zu starr“ finden.
