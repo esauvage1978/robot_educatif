@@ -19,7 +19,7 @@ These exercises use **Serial** output in the Arduino **IDE** (**Integrated Devel
 
 This is lesson **5** of the [Arduino C course](/en/arduino-c/). Previous lessons: [sketch structure](/en/arduino-c-sketch-structure-serial/), [types](/en/arduino-c-types-variables/), [conditions](/en/arduino-c-conditions-sensors/), [loops and timing](/c-arduino-boucles-timing/).
 
-Some links on this page are affiliate links: if you buy through them, we may earn a commission at no extra cost to you. To run the exercises on real hardware, an **Arduino Uno starter kit** (board, USB cable, LEDs, resistors, breadboard) is enough — check today’s price on [Amazon.com](https://www.amazon.com/s?k=arduino+uno+starter+kit&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=arduino+uno+starter+kit&tag=roboteducatif-20). Books on C for Arduino: [Amazon.com](https://www.amazon.com/s?k=arduino+learn+c+programming&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=arduino+learn+c+programming&tag=roboteducatif-20).
+Some links on this page are affiliate links: if you buy through them, we may earn a commission at no extra cost to you. To run the exercises on real hardware, an **Arduino Uno starter kit** (board, USB cable, LEDs, resistors, breadboard) is enough — check today’s price on [Amazon.com](https://www.amazon.com/dp/B009UKZV0A?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B009UKZV0A?tag=roboteducatif-20). Books on C for Arduino: Amazon.com · Amazon.com.
 
 ## 1) DRY (Don't Repeat Yourself)
 

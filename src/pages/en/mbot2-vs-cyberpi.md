@@ -16,7 +16,7 @@ Some links on this page are affiliate links. The button opens Amazon so you can 
 
 ## Prices on 10 November 2026 (Amazon.com)
 
-Reading from 10 November 2026, 06:14. The [mBot2](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) was **around $140** (ASIN B0919F9CKS, listing titled "ages 10 and up"). The [CyberPi kit](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) in that same reading was **around $50** (ASIN B0BBZY9L59). The listing title is a learning kit, not a bare board sold on its own. Another pack can show a different amount. These figures are the Amazon.com listing on that date. We do not invent a dollar or pound price.
+Reading from 10 November 2026, 06:14. The [mBot2](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) was **around $140** (ASIN B0919F9CKS, listing titled "ages 10 and up"). The [CyberPi kit](https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20) in that same reading was **around $50** (ASIN B0BBZY9L59). The listing title is a learning kit, not a bare board sold on its own. Another pack can show a different amount. These figures are the Amazon.com listing on that date. We do not invent a dollar or pound price.
 
 ## 1. What the mBot2 does particularly well
 
@@ -40,8 +40,8 @@ If a teenager mainly wants **Linux**, a **server**, or **Python away from a robo
 
 ## Amazon links
 
-- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) (mBot2 Makeblock, around $140 on 10 November 2026)
-- [Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20) (CyberPi kit, around $50 on 10 November 2026)
+- [Check today's price on Amazon](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) (mBot2 Makeblock, around $140 on 10 November 2026)
+- [Check today's price on Amazon](https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20) (CyberPi kit, around $50 on 10 November 2026)
 
 ---
 

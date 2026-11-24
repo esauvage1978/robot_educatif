@@ -46,9 +46,9 @@ Möchten Sie lieber nichts selbst installieren? Homey ist eine fertige Zentrale,
 
 Einkaufssuchen, um den aktuellen Preis und den Steckertyp für Ihr Land zu prüfen:
 
-- [Home Assistant Green bei Amazon.de](https://www.amazon.de/s?k=Home+Assistant+Green&tag=roboteducat00-21)
-- [Homey Pro mini bei Amazon.de](https://www.amazon.de/s?k=Homey+Pro+mini&tag=roboteducat00-21)
-- [SONOFF ZBDongle-E bei Amazon.de](https://www.amazon.de/s?k=SONOFF+ZBDongle-E&tag=roboteducat00-21)
+- [Home Assistant Green bei Amazon.de](https://www.amazon.de/dp/B0CXVKSG19?tag=roboteducat00-21)
+- [Homey Pro mini bei Amazon.de](https://www.amazon.de/dp/B0D9Y5Y9YQ?tag=roboteducat00-21)
+- [SONOFF ZBDongle-E bei Amazon.de](https://www.amazon.de/dp/B0B6P22YJC?tag=roboteducat00-21)
 
 ## Schritt 1: wissen, was Sie wirklich wollen
 
@@ -86,7 +86,7 @@ Zu jedem Ziel finden Sie Budgetspannen und die Fallen, die Sie vermeiden sollten
 
 Der Home Assistant Green ist der einfachste Einstieg: Home Assistant ist vorinstalliert, er läuft lokal und braucht kein Pflicht-Abo. Prüfen Sie den aktuellen Preis vor dem Kauf beim Händler.
 
-Sie möchten lieber eine fertige Zentrale, die Sie komplett per App einrichten? Der Homey Pro mini von Athom ist die einfachste Alternative. Er spricht ab Werk Zigbee, Thread und Matter (die Funksprachen erklärt unser [Glossar](/de/smart-home/smart-home-glossar/)) und läuft lokal, auch wenn das Internet ausfällt. Z-Wave, Bluetooth und Infrarot brauchen die separat erhältliche Homey Bridge; der teurere Homey Pro hat sie eingebaut. Den Homey Pro mini testen wir gerade selbst: siehe unser [Auspacken und Einrichten Schritt für Schritt](/de/smart-home/homey-pro-mini-auspacken-einrichtung/). [Aktuellen Preis des Homey Pro mini bei Amazon.de prüfen](https://www.amazon.de/s?k=Homey+Pro+mini&tag=roboteducat00-21).
+Sie möchten lieber eine fertige Zentrale, die Sie komplett per App einrichten? Der Homey Pro mini von Athom ist die einfachste Alternative. Er spricht ab Werk Zigbee, Thread und Matter (die Funksprachen erklärt unser [Glossar](/de/smart-home/smart-home-glossar/)) und läuft lokal, auch wenn das Internet ausfällt. Z-Wave, Bluetooth und Infrarot brauchen die separat erhältliche Homey Bridge; der teurere Homey Pro hat sie eingebaut. Den Homey Pro mini testen wir gerade selbst: siehe unser [Auspacken und Einrichten Schritt für Schritt](/de/smart-home/homey-pro-mini-auspacken-einrichtung/). [Aktuellen Preis des Homey Pro mini bei Amazon.de prüfen](https://www.amazon.de/dp/B0D9Y5Y9YQ?tag=roboteducat00-21).
 
 ## Schritt 3: verstehen, wie Ihre Geräte miteinander sprechen
 

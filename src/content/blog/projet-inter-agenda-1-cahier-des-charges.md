@@ -181,4 +181,4 @@ agenda add … / python -m agenda_cli …
 
 ## Amazon (partenaire)
 
-- [Python projets](https://www.amazon.fr/s?k=python+projets+pratiques+livre&tag=manuso06-21)
+- Python projets

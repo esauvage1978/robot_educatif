@@ -306,4 +306,4 @@ assert 0.1 + 0.2 == pytest.approx(0.3)</code></pre>
 
 ## Amazon (partenaire)
 
-- [Tests logiciels Python](https://www.amazon.fr/s?k=tests+logiciels+python+livre&tag=manuso06-21)
+- Tests logiciels Python

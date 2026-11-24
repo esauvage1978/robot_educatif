@@ -45,7 +45,7 @@ Dieses Tutorial gehört zu unserem [Smart-Home-Hub](/de/smart-home/) mit [Zigbee
 </table>
 </div>
 
-Suche: [ESP32-C6 bei Amazon.de](https://www.amazon.de/s?k=ESP32-C6+DevKit&tag=roboteducat00-21), [BME280 Modul](https://www.amazon.de/s?k=BME280+Modul&tag=roboteducat00-21) (Werbelinks).
+Suche: [ESP32-C6 bei Amazon.de](https://www.amazon.de/dp/B0CHKTWN7F?tag=roboteducat00-21), [BME280 Modul](https://www.amazon.de/dp/B01M8KJ3VY?tag=roboteducat00-21) (Werbelinks).
 
 ## ESPHome in Home Assistant
 

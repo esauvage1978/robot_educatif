@@ -29,11 +29,11 @@ No hemos vuelto a probar cada anuncio para esta página. Las listas de sensores 
 | ELEGOO V4.0 | Un coche Arduino UNO | C/C++ en el IDE de Arduino | Electrónica, con un adulto |
 | Raspberry Pi 5 | Un ordenador Linux pequeño | Python, más lo que añadas | El ordenador, no solo un robot |
 
-**mBot2** con CyberPi: bloques, Python, Wi-Fi, pantalla a color, batería que Makeblock describe en torno a cinco horas. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [Buscar en Amazon.es](https://www.amazon.es/s?k=Makeblock%20mBot2&tag=roboteducat07-21). El CyberPi tiene que estar en la caja.
+**mBot2** con CyberPi: bloques, Python, Wi-Fi, pantalla a color, batería que Makeblock describe en torno a cinco horas. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [Buscar en Amazon.es](https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21). El CyberPi tiene que estar en la caja.
 
-**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, cámara, línea, obstáculo, montaje de serie sin soldar. ELEGOO: 13+. A los 12 el cableado se supervisa. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Cómo elegir un kit Arduino](/es/kit-robot-arduino-para-ninos/). [Buscar en Amazon.es](https://www.amazon.es/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat07-21).
+**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, cámara, línea, obstáculo, montaje de serie sin soldar. ELEGOO: 13+. A los 12 el cableado se supervisa. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Cómo elegir un kit Arduino](/es/kit-robot-arduino-para-ninos/). [Buscar en Amazon.es](https://www.amazon.es/dp/B07474MMB5?tag=roboteducat07-21).
 
-**Raspberry Pi 5** es el ordenador. La placa sola no mueve motores. Compara generaciones en [Pi 3, 4 o 5](/es/raspberry-pi-3-vs-4-vs-5/). La RAM se elige por el uso, no por la palabra robot. [Buscar en Amazon.es](https://www.amazon.es/s?k=Raspberry%20Pi%205&tag=roboteducat07-21). Los resultados mezclan placas oficiales, kits y otros anuncios. Lee al vendedor.
+**Raspberry Pi 5** es el ordenador. La placa sola no mueve motores. Compara generaciones en [Pi 3, 4 o 5](/es/raspberry-pi-3-vs-4-vs-5/). La RAM se elige por el uso, no por la palabra robot. [Buscar en Amazon.es](https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21). Los resultados mezclan placas oficiales, kits y otros anuncios. Lee al vendedor.
 
 Si sigue a gusto con los bloques y no quiere montar, siguen valiendo la [guía de 10 años](/es/robot-programable-10-anos/) y Codey Rocky.
 

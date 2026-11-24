@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-24T16:49:48.002Z",
- "count": 1885,
+ "updated": "2026-11-24T18:01:24.974Z",
+ "count": 1900,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -4215,6 +4215,12 @@
    "country": "CA",
    "tag": "roboteducat03-20"
   },
+  "az-ca-63af0454f8": {
+   "url": "https://www.amazon.ca/dp/B0C77D437L?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
   "az-ca-652475d00e": {
    "url": "https://www.amazon.ca/dp/B07QN7ZJF9?tag=roboteducat03-20",
    "merchant": "amazon",
@@ -4673,6 +4679,12 @@
   },
   "az-ca-af9f536565": {
    "url": "https://www.amazon.ca/dp/B08BTJFYT3?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-ca-afaf1ae3ca": {
+   "url": "https://www.amazon.ca/dp/B0D9Y5Y9YQ?tag=roboteducat03-20",
    "merchant": "amazon",
    "country": "CA",
    "tag": "roboteducat03-20"
@@ -5211,6 +5223,12 @@
    "country": "DE",
    "tag": "roboteducat00-21"
   },
+  "az-de-0c6d6b4cb1": {
+   "url": "https://www.amazon.de/dp/B08586NDKT?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
   "az-de-0c9497fd55": {
    "url": "https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21",
    "merchant": "amazon",
@@ -5345,6 +5363,12 @@
   },
   "az-de-3a246106ea": {
    "url": "https://www.amazon.de/dp/B01CO1HZJ6?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-de-3b70aa74e6": {
+   "url": "https://www.amazon.de/dp/B0D9Y5Y9YQ?tag=roboteducat00-21",
    "merchant": "amazon",
    "country": "DE",
    "tag": "roboteducat00-21"
@@ -6279,6 +6303,12 @@
    "country": "ES",
    "tag": "roboteducat07-21"
   },
+  "az-es-49f309976f": {
+   "url": "https://www.amazon.es/dp/B0D9Y5Y9YQ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
   "az-es-4b743e457a": {
    "url": "https://www.amazon.es/dp/B0BSXCLR8R?tag=roboteducat07-21",
    "merchant": "amazon",
@@ -6599,6 +6629,12 @@
   },
   "az-es-b540ece847": {
    "url": "https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-es-b72d69c881": {
+   "url": "https://www.amazon.es/dp/B08586NDKT?tag=roboteducat07-21",
    "merchant": "amazon",
    "country": "ES",
    "tag": "roboteducat07-21"
@@ -7157,6 +7193,12 @@
   },
   "az-fr-39de846aa6": {
    "url": "https://www.amazon.fr/dp/B0B8VQZQ1K?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-fr-3a6bccbc69": {
+   "url": "https://www.amazon.fr/dp/B08586NDKT?tag=manuso06-21",
    "merchant": "amazon",
    "country": "FR",
    "tag": "manuso06-21"
@@ -7911,6 +7953,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-b494a0b734": {
+   "url": "https://www.amazon.fr/dp/B08FBPLGGG?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-b4b898e844": {
    "url": "https://www.amazon.fr/dp/B009UKZV0A?tag=manuso06-21",
    "merchant": "amazon",
@@ -8217,6 +8265,12 @@
    "country": "FR",
    "tag": "manuso06-21"
   },
+  "az-fr-e3df5748f9": {
+   "url": "https://www.amazon.fr/dp/B09LMS9YXX?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
   "az-fr-e50a0d3100": {
    "url": "https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21",
    "merchant": "amazon",
@@ -8393,6 +8447,12 @@
   },
   "az-gb-02b633bd53": {
    "url": "https://www.amazon.co.uk/dp/B0CK3L9WD3?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-04b8f81f81": {
+   "url": "https://www.amazon.co.uk/dp/B08FBPLGGG?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -9957,6 +10017,12 @@
    "country": "GB",
    "tag": "roboteducatif-21"
   },
+  "az-gb-de26cb5547": {
+   "url": "https://www.amazon.co.uk/dp/B0C77D437L?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
   "az-gb-de61da8f3c": {
    "url": "https://www.amazon.co.uk/dp/B07YD2LT9D?tag=roboteducatif-21",
    "merchant": "amazon",
@@ -10079,6 +10145,12 @@
   },
   "az-gb-efc8bb3e30": {
    "url": "https://www.amazon.co.uk/dp/B08FJ7G1TG?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-gb-f033b85837": {
+   "url": "https://www.amazon.co.uk/dp/B0D9Y5Y9YQ?tag=roboteducatif-21",
    "merchant": "amazon",
    "country": "GB",
    "tag": "roboteducatif-21"
@@ -10431,6 +10503,12 @@
    "country": "IT",
    "tag": "roboteducat0f-21"
   },
+  "az-it-637c71653d": {
+   "url": "https://www.amazon.it/dp/B0D9Y5Y9YQ?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
   "az-it-63c3ef6ddc": {
    "url": "https://www.amazon.it/dp/B0BBZY9L59?tag=roboteducat0f-21",
    "merchant": "amazon",
@@ -10607,6 +10685,12 @@
   },
   "az-it-95ed7acbdd": {
    "url": "https://www.amazon.it/dp/B085G45KT8?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-it-961426bb46": {
+   "url": "https://www.amazon.it/dp/B08586NDKT?tag=roboteducat0f-21",
    "merchant": "amazon",
    "country": "IT",
    "tag": "roboteducat0f-21"
@@ -11535,6 +11619,12 @@
    "country": "US",
    "tag": "roboteducatif-20"
   },
+  "az-us-72f5bc2f66": {
+   "url": "https://www.amazon.com/dp/B0C77D437L?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
   "az-us-759010ab1b": {
    "url": "https://www.amazon.com/dp/B09P2P58BS?tag=roboteducatif-20",
    "merchant": "amazon",
@@ -11813,6 +11903,12 @@
   },
   "az-us-ab5d13b1f1": {
    "url": "https://www.amazon.com/dp/B09B7TBSP1?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-us-af93d302f6": {
+   "url": "https://www.amazon.com/dp/B0D9Y5Y9YQ?tag=roboteducatif-20",
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
@@ -12164,12 +12260,6 @@
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
-  },
-  "az-gb-04b8f81f81": {
-   "url": "https://www.amazon.co.uk/dp/B08FBPLGGG?tag=roboteducatif-21",
-   "merchant": "amazon",
-   "country": "GB",
-   "tag": "roboteducatif-21"
   }
  }
 }

@@ -51,7 +51,7 @@ Alcuni link in questa pagina sono di affiliazione. Se acquisti tramite questi li
 
 Vuoi imparare Arduino per far lampeggiare un LED, leggere un sensore o guidare un piccolo robot, ma molti tutorial saltano troppo avanti. Questo percorso gratuito ti accompagna lezione dopo lezione: struttura dello sketch, tipi di variabili, condizioni, cicli, poi funzioni. Ogni pagina propone codice da digitare, esercizi e gli errori più frequenti.
 
-Risorse di approfondimento su [Amazon.it](https://www.amazon.it/s?k=arduino+imparare+c+programmazione&tag=roboteducat0f-21) (affiliazione).
+Risorse di approfondimento su [Amazon.it](https://www.amazon.it/dp/B009UKZV0A?tag=roboteducat0f-21) (affiliazione).
 
 ## C standard vs linguaggio Arduino — quale differenza?
 

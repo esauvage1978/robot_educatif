@@ -90,7 +90,7 @@ In den aktuellen Anleitungen dieser Website gehen wir von **mBlock 5** aus (die 
 
 - [Makeblock mBot Roboter](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 - [Makeblock mBot2](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21)
-- [Scratch-Buch für Kinder](https://www.amazon.de/s?k=Scratch+Buch+Kinder+Programmieren&tag=roboteducat00-21) · [Scratch Programmierbuch Kinder](https://www.amazon.de/s?k=Scratch+Programmierbuch+Kinder&tag=roboteducat00-21)
+- [Scratch-Buch für Kinder](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21) · [Scratch Programmierbuch Kinder](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 
 <p style="margin:1rem 0;"><a href="https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21" class="affiliate-link" data-product-id="mbot2" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;">Tagespreis auf Amazon ansehen (mBot2)</a> · <a href="https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21" class="affiliate-link" data-product-id="mbot" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;border:1px solid #cbd5e1;">Tagespreis ansehen (mBot v1)</a></p>
 

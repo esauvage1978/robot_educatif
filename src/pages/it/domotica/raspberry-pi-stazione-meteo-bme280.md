@@ -26,7 +26,7 @@ Il **BME280** misura temperatura, umidità e pressione. Con Raspberry Pi registr
 ## Materiale
 
 - Pi 4/5 Bookworm  
-- Modulo **BME280** I2C (non confondere con BMP280 senza umidità) — [Amazon.it BME280](https://www.amazon.it/s?k=BME280+module+I2C&tag=roboteducat0f-21)  
+- Modulo **BME280** I2C (non confondere con BMP280 senza umidità) — [Amazon.it BME280](https://www.amazon.it/dp/B01M8KJ3VY?tag=roboteducat0f-21)  
 - Esterno: schermatura Stevenson o ombra
 
 ## Cablaggio

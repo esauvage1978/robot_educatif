@@ -28,7 +28,7 @@ Lettura ogni 30 s, MQTT con discovery HA, servizio all’avvio.
 ## Materiale
 
 - Raspberry Pi 4/5, **Raspberry Pi OS Bookworm**  
-- Modulo **SCD40 o SCD41** (I2C 0x62) — [ricerca SCD41 Amazon.it](https://www.amazon.it/s?k=SCD41+CO2&tag=roboteducat0f-21)  
+- Modulo **SCD40 o SCD41** (I2C 0x62) — [ricerca SCD41 Amazon.it](https://www.amazon.it/dp/B09P2P58BS?tag=roboteducat0f-21)  
 - Broker MQTT (Mosquitto in HA)
 
 ## Cablaggio (3,3 V sul Pi)

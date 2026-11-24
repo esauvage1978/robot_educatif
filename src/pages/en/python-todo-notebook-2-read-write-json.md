@@ -61,4 +61,4 @@ def sauvegarder(chemin: Path, data):
 
 ## On Amazon
 
-A book search for Python, files and data: [Check today's price on Amazon](https://www.amazon.com/s?k=python+data+files+book&tag=roboteducatif-20).
+A book search for Python, files and data: Check today's price on Amazon.

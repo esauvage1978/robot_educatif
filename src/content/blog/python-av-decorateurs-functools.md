@@ -358,7 +358,7 @@ fib.cache_clear()</code></pre>
 
 ## Amazon (partenaire)
 
-- [Livres Python design patterns](https://www.amazon.fr/s?k=python+design+patterns+livre&tag=manuso06-21)
+- Livres Python design patterns
 
 ## FAQ
 

@@ -45,7 +45,7 @@ ELEGOO official policy (checked 2 November 2026): **12 months** on Arduino board
 <p>ELEGOO is our **best-value path to real Arduino** from the early teens. Younger children should start with a block robot such as the mBot — see our <a href="/en/best-programmable-robot-for-kids/">programmable robot guide</a>.</p>
 </aside>
 
-Shop: [Robot Car V4.0 (Amazon US)](https://www.amazon.com/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-20) · [Robot Car V4.0 (Amazon.com)](https://www.amazon.com/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducatif-20) (affiliate links).
+Shop: [Robot Car V4.0 (Amazon US)](https://www.amazon.com/dp/B07474MMB5?tag=roboteducatif-20) · [Robot Car V4.0 (Amazon.com)](https://www.amazon.com/dp/B07474MMB5?tag=roboteducatif-20) (affiliate links).
 
 ## See also
 

@@ -97,7 +97,7 @@ Altri giochi testuali: [impiccato](/programmation/pendu/), [battaglia navale](/p
 
 Libri di esercizi (link partner — Amazon.it):
 
-- [Progetti Python giochi](https://www.amazon.it/s?k=python+progetti+giochi+libro&tag=roboteducat0f-21)
-- [Imparare Python 3 con esercizi](https://www.amazon.it/s?k=python+3+imparare+esercizi+libro&tag=roboteducat0f-21)
+- Progetti Python giochi
+- Imparare Python 3 con esercizi
 
 *Autore: Emmanuel Sauvage · aggiornato il 31 ottobre 2026.*

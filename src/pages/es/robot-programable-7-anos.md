@@ -26,13 +26,13 @@ Las pilas a menudo no vienen. Codey Rocky y mBot piden tablet u ordenador. El em
 | Codey Rocky | Bloques mBlock y luego Python | Tablet u ordenador | Ninguno | Quiere luces y sonidos, sin tornillos |
 | mBot | Bloques mBlock y Arduino más adelante | Tablet u ordenador | Unos 15–20 minutos contigo | Le gusta construir |
 
-**Botley 2.0** llega más lejos que el primer juguete de botones: retos largos, obstáculo, línea negra, repeticiones en el mando. Es el adecuado mientras no quieras tablet. Quien ya se aburre de las flechas querrá bloques hacia los 8 años. [Buscar en Amazon.es](https://www.amazon.es/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat07-21).
+**Botley 2.0** llega más lejos que el primer juguete de botones: retos largos, obstáculo, línea negra, repeticiones en el mando. Es el adecuado mientras no quieras tablet. Quien ya se aburre de las flechas querrá bloques hacia los 8 años. [Buscar en Amazon.es](https://www.amazon.es/dp/B083T5G5ZK?tag=roboteducat07-21).
 
-**Code & Go Robot Mouse** sigue siendo el laberinto más simple para compartir. [Buscar en Amazon.es](https://www.amazon.es/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat07-21).
+**Code & Go Robot Mouse** sigue siendo el laberinto más simple para compartir. [Buscar en Amazon.es](https://www.amazon.es/dp/B01A5YMCH4?tag=roboteducat07-21).
 
-**Codey Rocky**: bloques, sin montaje, luego Python. [Makeblock](/es/marca-makeblock/) · [Buscar en Amazon.es](https://www.amazon.es/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat07-21).
+**Codey Rocky**: bloques, sin montaje, luego Python. [Makeblock](/es/marca-makeblock/) · [Buscar en Amazon.es](https://www.amazon.es/dp/B07CGH8NZ7?tag=roboteducat07-21).
 
-**mBot** (chasis Bluetooth, no el mBot2) es el primer montaje de verdad: ultrasonidos, línea, bloques en mBlock y un modo Arduino que ahora no hace falta. Makeblock describe un montaje corto, del orden de 15 minutos, y alimentación con cuatro pilas AA o una batería opcional. Cuenta con pilas recargables. Ficha: [mBot](https://www.makeblock.com/products/buy-mbot). [Buscar en Amazon.es](https://www.amazon.es/s?k=Makeblock%20mBot%20Bluetooth&tag=roboteducat07-21). Comprueba que no sea el mBot2 ni un recambio.
+**mBot** (chasis Bluetooth, no el mBot2) es el primer montaje de verdad: ultrasonidos, línea, bloques en mBlock y un modo Arduino que ahora no hace falta. Makeblock describe un montaje corto, del orden de 15 minutos, y alimentación con cuatro pilas AA o una batería opcional. Cuenta con pilas recargables. Ficha: [mBot](https://www.makeblock.com/products/buy-mbot). [Buscar en Amazon.es](https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21). Comprueba que no sea el mBot2 ni un recambio.
 
 ## Decisión
 

@@ -93,7 +93,7 @@ Green optional an **12 V DC** der Powerstation (Doppelwandler vermeiden) — nur
 
 **Passthrough ≠ UPS.** Ohne dokumentierte kurze Umschaltzeit bootet der Pi.
 
-USV mit USB: [Amazon.de Suche UPS HID](https://www.amazon.de/s?k=USV+USB+HID&tag=roboteducat00-21) (Werbelink). NUT-HCL: [networkupstools.org](https://networkupstools.org/stable-hcl.html).
+USV mit USB: Amazon.de Suche UPS HID (Werbelink). NUT-HCL: [networkupstools.org](https://networkupstools.org/stable-hcl.html).
 
 ## Schritt 5: Test
 

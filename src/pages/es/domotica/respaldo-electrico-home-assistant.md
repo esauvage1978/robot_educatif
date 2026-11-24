@@ -98,7 +98,7 @@ Green admite **12 V DC** (5,5 × 2,1 mm): si la estación tiene salida 12 V comp
 
 **Passthrough ≠ UPS**: leer tiempo de conmutación en ficha del fabricante.
 
-Estaciones: ALLPOWERS, BLUETTI, EcoFlow… SAI: modelo con USB y lista [NUT HCL](https://networkupstools.org/stable-hcl.html) ([Amazon.es SAI USB](https://www.amazon.es/s?k=SAI+USB+HID&tag=roboteducat07-21)).
+Estaciones: ALLPOWERS, BLUETTI, EcoFlow… SAI: modelo con USB y lista [NUT HCL](https://networkupstools.org/stable-hcl.html) (Amazon.es SAI USB).
 
 ## Probar un corte real
 

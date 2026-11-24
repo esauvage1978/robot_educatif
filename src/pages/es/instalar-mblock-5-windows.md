@@ -20,7 +20,7 @@ schemaUpdated: "2026-10-31"
 - **En PC:** descarga gratis la aplicación en [mblock.cc](https://www.mblock.cc/en-us/download/), y sigue esta guía para Windows 10 u 11.
 - **Después de instalar:** para un primer proyecto guiado (bandera verde, sprites), ve a [primeros pasos mBlock 5](/es/primeros-pasos-mblock-5/).
 
-**El robot más sencillo de pilotar con mBlock:** el [Makeblock mBot2 con placa CyberPi](https://www.amazon.es/s?k=Makeblock+mBot2&tag=roboteducat07-21) (enlace de afiliado Amazon.es), programable por bloques y luego en Python. Para elegir según la edad: [robot para 8 años](/es/robot-programable-8-anos/), [robot para 10 años](/es/robot-programable-10-anos/), [kits de robot Arduino](/es/kit-robot-arduino-para-ninos/).
+**El robot más sencillo de pilotar con mBlock:** el [Makeblock mBot2 con placa CyberPi](https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21) (enlace de afiliado Amazon.es), programable por bloques y luego en Python. Para elegir según la edad: [robot para 8 años](/es/robot-programable-8-anos/), [robot para 10 años](/es/robot-programable-10-anos/), [kits de robot Arduino](/es/kit-robot-arduino-para-ninos/).
 
 </div>
 
@@ -35,7 +35,7 @@ schemaUpdated: "2026-10-31"
 
 mBlock existe también para **macOS**, **iOS**, **Android**, **Linux** y **Chromebook** — aquí solo tratamos **Windows**. ¿Imposible instalar software en el equipo? **mBlock en línea** funciona en el navegador: ve la guía para [programar con mBlock en línea sin instalar nada](/es/mblock-online-sin-instalar/).
 
-Una vez hecha la instalación, podrás programar un robot como el **[mBot](https://www.amazon.es/s?k=Makeblock+mBot&tag=roboteducat07-21)** (enlace Amazon afiliado).
+Una vez hecha la instalación, podrás programar un robot como el **[mBot](https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21)** (enlace Amazon afiliado).
 
 ## Antes de empezar (requisitos previos)
 

@@ -15,7 +15,7 @@ Saber cuándo se abre la puerta de entrada, el trastero o un armario: un **conta
 
 ## Material y cableado
 
-Pi 4/5 Bookworm, **reed NO** ([Amazon.es](https://www.amazon.es/s?k=sensor+magnetico+reed&tag=roboteducat07-21)), cableado:
+Pi 4/5 Bookworm, **reed NO** (Amazon.es), cableado:
 
 <div class="tableau empile">
 <table>

@@ -164,4 +164,4 @@ if __name__ == "__main__":
 
 ## On Amazon
 
-A book search for clean Python practice: [Check today's price on Amazon](https://www.amazon.com/s?k=clean+code+python+book&tag=roboteducatif-20).
+A book search for clean Python practice: Check today's price on Amazon.

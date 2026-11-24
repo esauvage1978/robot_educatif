@@ -92,9 +92,9 @@ or `python3 hello.py` on a Mac.
 
 These links are **searches** on Amazon. The button opens Amazon so you can check today's price.
 
-- Books on learning Python 3: [Check today's price on Amazon](https://www.amazon.com/s?k=learn+python+3+book&tag=roboteducatif-20)
-- Python for beginners and kids: [Check today's price on Amazon](https://www.amazon.com/s?k=python+beginner+kids+book&tag=roboteducatif-20)
-- Programming and algorithms for a general audience: [Check today's price on Amazon](https://www.amazon.com/s?k=programming+algorithms+beginner+book&tag=roboteducatif-20)
+- Books on learning Python 3: Check today's price on Amazon
+- Python for beginners and kids: Check today's price on Amazon
+- Programming and algorithms for a general audience: Check today's price on Amazon
 
 ## What comes next
 

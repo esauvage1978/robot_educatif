@@ -105,7 +105,7 @@ Sur les tutoriels récents du site, on part de **mBlock 5** (interface actuelle 
 
 - [Robot Makeblock mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [mBot2 Makeblock](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
-- [Livre Scratch programmation enfant](https://www.amazon.fr/s?k=livre+Scratch+programmation+enfant&tag=manuso06-21)
+- [Livre Scratch programmation enfant](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 
 <p style="margin:1rem 0;"><a href="https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21" class="affiliate-link" data-product-id="mbot2" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;">Voir le prix du jour sur Amazon (mBot2)</a> · <a href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21" class="affiliate-link" data-product-id="mbot" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;border:1px solid #cbd5e1;">Voir le prix du jour (mBot v1)</a></p>
 

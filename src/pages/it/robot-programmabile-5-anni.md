@@ -71,7 +71,7 @@ Robot da pavimento con griglia (~15 cm per passo).
 
 ### Tale-Bot Pro
 
-[Tale-Bot Matatalab](/it/matatalab-tale-bot-robot-educativo/) · [Marchio Matatalab](/it/marchio-matatalab/) · [Cerca Tale-Bot Pro](https://www.amazon.it/s?k=Matatalab+Tale-Bot+Pro&tag=roboteducat0f-21).
+[Tale-Bot Matatalab](/it/matatalab-tale-bot-robot-educativo/) · [Marchio Matatalab](/it/marchio-matatalab/) · [Cerca Tale-Bot Pro](https://www.amazon.it/dp/B09LYTM5BC?tag=roboteducat0f-21).
 
 ![Tale-Bot Pro](/images/illustrations/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab.webp)
 

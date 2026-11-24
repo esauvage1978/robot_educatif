@@ -17,7 +17,7 @@ Quando il tuo programma robotico cresce, diventa difficile da leggere: tanti `if
 
 Questa è la lezione **5** del [percorso Arduino C](/it/arduino-c/). Lezioni precedenti: [struttura dello sketch](/en/arduino-c-sketch-structure-serial/), [tipi e variabili](/en/arduino-c-types-variables/), [condizioni e sensori](/en/arduino-c-conditions-sensors/), [cicli e timing](/c-arduino-boucles-timing/).
 
-Alcuni link di questa pagina sono di affiliazione: se acquisti tramite questi link possiamo ricevere una commissione, senza costi aggiuntivi per te. Per eseguire gli esercizi su hardware reale basta uno **starter kit Arduino Uno** (scheda, cavo USB, LED, resistenze, breadboard) — controlla il prezzo del giorno su [Amazon.it](https://www.amazon.it/s?k=arduino+uno+starter+kit&tag=roboteducat0f-21). Libri sul C per Arduino: [Amazon.it](https://www.amazon.it/s?k=arduino+imparare+c+programmazione&tag=roboteducat0f-21).
+Alcuni link di questa pagina sono di affiliazione: se acquisti tramite questi link possiamo ricevere una commissione, senza costi aggiuntivi per te. Per eseguire gli esercizi su hardware reale basta uno **starter kit Arduino Uno** (scheda, cavo USB, LED, resistenze, breadboard) — controlla il prezzo del giorno su [Amazon.it](https://www.amazon.it/dp/B009UKZV0A?tag=roboteducat0f-21). Libri sul C per Arduino: [Amazon.it](https://www.amazon.it/dp/B009UKZV0A?tag=roboteducat0f-21).
 
 ## Sommario esercizi
 

@@ -43,7 +43,7 @@ La macchina ELEGOO (kit auto intelligente 4.0, scheda tipo UNO) era a **75,99 �
 
 ![Makeblock mBot Ultimate](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ultimate.jpg)
 
-L’Ultimate è la cassa grande Makeblock, spesso presentata come 10-in-1: molti pezzi meccanici ed elettronici, blocchi e Arduino, circa 10–16 anni. Non è un regalo montato in dieci minuti. Non c’è un prezzo nel rilevamento del 6 novembre 2026. Consultare il prezzo su [mBot Ultimate](https://www.amazon.it/s?k=Makeblock+mBot+Ultimate+2.0&tag=roboteducat0f-21) e verificare che l’annuncio sia il kit. Entra in questa selezione solo se il prezzo del giorno sta tra 200 e 500 €. Le vecchie fasce di prezzo in euro non vengono riproposte come prezzo attuale.
+L’Ultimate è la cassa grande Makeblock, spesso presentata come 10-in-1: molti pezzi meccanici ed elettronici, blocchi e Arduino, circa 10–16 anni. Non è un regalo montato in dieci minuti. Non c’è un prezzo nel rilevamento del 6 novembre 2026. Consultare il prezzo su [mBot Ultimate](https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21) e verificare che l’annuncio sia il kit. Entra in questa selezione solo se il prezzo del giorno sta tra 200 e 500 €. Le vecchie fasce di prezzo in euro non vengono riproposte come prezzo attuale.
 
 ### fischertechnik STEM Coding Robo Mission
 
@@ -51,13 +51,13 @@ L’Ultimate è la cassa grande Makeblock, spesso presentata come 10-in-1: molti
 
 Lo STEM Coding Robo Mission (fischertechnik, rif. 576109) è pensato per lezioni e progetti lunghi, circa 10–16 anni, anche in un club. Controllore TXT 4.0, sensori di colore e di linea, software ROBO Pro Coding (blocchi o testo) per missioni su percorso. Il marchio è molto presente nella scuola in Germania. Il primo impatto è più serio che spettacolare. In club il montaggio si spalma su più incontri.
 
-Nessun prezzo nel rilevamento. Consultare il prezzo: [fischertechnik STEM Coding Robo Mission](https://www.amazon.it/s?k=fischertechnik+STEM+Coding+Robo+Mission&tag=roboteducat0f-21). Controllare il riferimento, non un accessorio isolato.
+Nessun prezzo nel rilevamento. Consultare il prezzo: [fischertechnik STEM Coding Robo Mission](https://www.amazon.it/dp/B084H9R8QZ?tag=roboteducat0f-21). Controllare il riferimento, non un accessorio isolato.
 
 ### Ohbot v2.1
 
 ![Ohbot testa robot educativa](/images/blog/robots-educatif-200-euros-2026/ohbot-robot-educatif.jpg)
 
-Ohbot è una testa: espressioni, voce, reazioni, blocchi e a volte Python secondo la versione. Non attraversa la stanza. L’interesse è il dialogo, circa 9–15 anni. Compatibilità PC, Mac o Chromebook: sulla scheda Ohbot 2.1. Nessun prezzo nel rilevamento. Consultare il prezzo: [Ohbot robot educativo](https://www.amazon.it/s?k=Ohbot+robot+educativo&tag=roboteducat0f-21).
+Ohbot è una testa: espressioni, voce, reazioni, blocchi e a volte Python secondo la versione. Non attraversa la stanza. L’interesse è il dialogo, circa 9–15 anni. Compatibilità PC, Mac o Chromebook: sulla scheda Ohbot 2.1. Nessun prezzo nel rilevamento. Consultare il prezzo: [Ohbot robot educativo](https://www.amazon.it/dp/B07HH4SLZN?tag=roboteducat0f-21).
 
 ## Confronto
 

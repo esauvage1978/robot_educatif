@@ -15,8 +15,8 @@ CO2 alto en una habitación indica aire poco renovado. Este tutorial convierte u
 
 ## Material
 
-- Raspberry Pi 4 o 5 con Raspberry Pi OS Bookworm ([Amazon.es](https://www.amazon.es/s?k=Raspberry+Pi+5&tag=roboteducat07-21)).  
-- Módulo **SCD40/SCD41** I2C ([Amazon.es](https://www.amazon.es/s?k=SCD41+sensor+CO2&tag=roboteducat07-21)).  
+- Raspberry Pi 4 o 5 con Raspberry Pi OS Bookworm ([Amazon.es](https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21)).  
+- Módulo **SCD40/SCD41** I2C ([Amazon.es](https://www.amazon.es/dp/B09P2P58BS?tag=roboteducat07-21)).  
 - Broker MQTT (Mosquitto en Home Assistant).
 
 ## Cableado (3,3 V)

@@ -387,4 +387,4 @@ class Carte:
 
 ## Amazon (partenaire)
 
-- [Python orienté objet](https://www.amazon.fr/s?k=python+orient%C3%A9+objet+livre&tag=manuso06-21)
+- Python orienté objet

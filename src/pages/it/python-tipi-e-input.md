@@ -310,4 +310,4 @@ Il passo successivo è **testare** i valori convertiti (pari / dispari, menu, vo
 
 ## Amazon (partner)
 
-- [Esercizi e problemi Python](https://www.amazon.it/s?k=esercizi+python+libro&tag=roboteducat0f-21) — verifica il prezzo attuale sulla scheda.
+- Esercizi e problemi Python — verifica il prezzo attuale sulla scheda.

@@ -310,4 +310,4 @@ La [lección 4 — condiciones e if/else](/python-conditions-if-else/) usa estas
 
 ## Amazon (afiliado)
 
-- [Ejercicios y problemas Python](https://www.amazon.es/s?k=ejercicios+python+libro&tag=roboteducat07-21) — consulta el precio actual en el anuncio.
+- Ejercicios y problemas Python — consulta el precio actual en el anuncio.

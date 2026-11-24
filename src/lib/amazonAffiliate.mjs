@@ -1,4 +1,7 @@
 /** Tags Amazon Partenaires par marché (guides EN/DE/IT/ES). */
+import { buildSearchAsinIndex, resolveSearchQuery, isGenericPythonBookQuery } from './amazonSearchResolve.mjs';
+import { amazonDpUrl } from './amazonMarket.mjs';
+
 export const AMAZON_TAG_BY_LANG = {
 	fr: 'manuso06-21',
 	en: 'roboteducatif-20',
@@ -8,21 +11,28 @@ export const AMAZON_TAG_BY_LANG = {
 	nl: 'manuso0607-21',
 };
 
+const LANG_TO_MARKET = {
+	fr: 'fr',
+	en: 'us',
+	de: 'de',
+	it: 'it',
+	es: 'es',
+	nl: 'nl',
+};
+
+let _index;
+function index() {
+	if (!_index) _index = buildSearchAsinIndex();
+	return _index;
+}
+
+/** URL produit Amazon (fiche /dp/ uniquement — plus de recherche /s?k=). */
 export function amazonSearchUrl(lang, query) {
-	const tag = AMAZON_TAG_BY_LANG[lang] ?? AMAZON_TAG_BY_LANG.fr;
-	const host =
-		lang === 'en'
-			? 'www.amazon.com'
-			: lang === 'de'
-				? 'www.amazon.de'
-				: lang === 'it'
-					? 'www.amazon.it'
-					: lang === 'es'
-						? 'www.amazon.es'
-						: lang === 'nl'
-							? 'www.amazon.nl'
-							: 'www.amazon.fr';
-	return `https://${host}/s?k=${encodeURIComponent(query)}&tag=${tag}`;
+	if (!query || isGenericPythonBookQuery(query)) return '';
+	const market = LANG_TO_MARKET[lang] ?? 'fr';
+	const asin = resolveSearchQuery(query, index());
+	if (!asin) return '';
+	return amazonDpUrl(asin, market);
 }
 
 export const SHELLY_AWIN =

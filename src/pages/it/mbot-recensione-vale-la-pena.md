@@ -72,8 +72,8 @@ L’articolo [presentazione mBot](/it/mbot-il-mio-primo-robot-educativo/) comple
 
 - [mBot Makeblock su Amazon.it](https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21)
 - [mBot2 Makeblock su Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21)
-- [Accessori mBot / Makeblock](https://www.amazon.it/s?k=mBot+Makeblock+accessori+sensore&tag=roboteducat0f-21)
-- [Libro Scratch / robotica per bambini](https://www.amazon.it/s?k=libro+Scratch+robot+educativo+bambini&tag=roboteducat0f-21)
+- [Accessori mBot / Makeblock](https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21)
+- [Libro Scratch / robotica per bambini](https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21)
 
 *Partner Amazon — può essere versata una commissione sugli acquisti idonei, **senza costi aggiuntivi** per te. I link aprono pagine prodotto o di ricerca: confronta venditori, recensioni e condizioni prima del carrello.*
 

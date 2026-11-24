@@ -7,7 +7,7 @@ updated: "6 November 2026"
 
 Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This English page follows the same mid-range shortlist as the French guide (kits people often shop between about 200 and 500 in their own currency). It does not convert euro prices into pounds or dollars. Where a figure appears below, it is the Amazon.com snapshot. Amazon.com has no price file on this site: see today’s price. A model missing from the UK reading is not given a number.
 
-On Amazon.com, the [mBot Ranger](https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20) [mBot2](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) and Codey Rocky often sit under **around £200** — check each listing today. All three therefore sit outside the main **£200–500** shortlist on that shop. The US listings are separate: [Ranger on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Ranger&tag=roboteducatif-20) and [mBot2 on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot2&tag=roboteducatif-20). Check the current price on Amazon.
+On Amazon.com, the [mBot Ranger](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20) [mBot2](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) and Codey Rocky often sit under **around £200** — check each listing today. All three therefore sit outside the main **£200–500** shortlist on that shop. The US listings are separate: [Ranger on Amazon.com](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20) and [mBot2 on Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20). Check the current price on Amazon.
 
 Age context, in French: [when to start coding](/programmation-enfant-a-quel-age-commencer/). In English: [a robot for a 10-year-old](/en/best-robot-for-a-10-year-old/), [which educational robot in 2026](/en/best-educational-robot-2026/), and [mBot vs mBot2](/en/mbot-vs-mbot2/).
 
@@ -37,7 +37,7 @@ On Amazon.com it is usually **just under £200** — check today’s price — s
 
 ![Makeblock mBot Ultimate](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ultimate.jpg)
 
-The Ultimate is Makeblock’s large crate, often marketed as a 10-in-1: many mechanical and electronic parts, blocks then Arduino, aimed at about 10 to 16 years. It is not a ten-minute gift. It is not in the UK price file. See today’s price on [mBot Ultimate at Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Ultimate+2.0&tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Ultimate+2.0&tag=roboteducatif-20), and check the listing is the kit, not an accessory. Keep it in this band only if that day’s price sits inside it. Older euro ranges are not repeated here.
+The Ultimate is Makeblock’s large crate, often marketed as a 10-in-1: many mechanical and electronic parts, blocks then Arduino, aimed at about 10 to 16 years. It is not a ten-minute gift. It is not in the UK price file. See today’s price on [mBot Ultimate at Amazon.com](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20), and check the listing is the kit, not an accessory. Keep it in this band only if that day’s price sits inside it. Older euro ranges are not repeated here.
 
 ### fischertechnik STEM Coding Robo Mission
 
@@ -45,7 +45,7 @@ The Ultimate is Makeblock’s large crate, often marketed as a 10-in-1: many mec
 
 STEM Coding Robo Mission (fischertechnik ref. 576109) is built for lessons and long projects, about 10 to 16, including clubs. The TXT 4.0 controller, colour and line sensors, and ROBO Pro Coding (blocks or text) support mission-style courses. The brand is widely used in German schools. The first impression is serious rather than spectacular. A club usually spreads the build over several sessions.
 
-No price is in the UK file. See today’s price: [fischertechnik STEM Coding Robo Mission on Amazon.com](https://www.amazon.com/s?k=fischertechnik+STEM+Coding+Robo+Mission&tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/s?k=fischertechnik+STEM+Coding+Robo+Mission&tag=roboteducatif-20). Confirm the reference.
+No price is in the UK file. See today’s price: [fischertechnik STEM Coding Robo Mission on Amazon.com](https://www.amazon.com/dp/B084H9R8QZ?tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/dp/B084H9R8QZ?tag=roboteducatif-20). Confirm the reference.
 
 ### Ohbot v2.1
 
@@ -53,13 +53,13 @@ No price is in the UK file. See today’s price: [fischertechnik STEM Coding Rob
 
 Ohbot is a programmable head: expressions, voice, reactions, blocks and sometimes Python depending on the version. It does not drive across the room. The interest is dialogue, for about 9 to 15 years. A first assembly of the head is often one to three hours. Check PC, Mac or Chromebook support on the Ohbot 2.1 sheet.
 
-No price is in the UK file. See today’s price: [Ohbot on Amazon.com](https://www.amazon.com/s?k=Ohbot+educational+robot&tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/s?k=Ohbot+educational+robot&tag=roboteducatif-20).
+No price is in the UK file. See today’s price: [Ohbot on Amazon.com](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20) and [on Amazon.com](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20).
 
 ## ELEGOO car: under about £80 on Amazon.com
 
 ![ELEGOO Smart Robot Car Kit V4](/images/blog/robots-educatif-200-500-euros-2026/elegoo-smart-robot-car-kit-v4.jpg)
 
-The [ELEGOO car listing on Amazon.com](https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit&tag=roboteducatif-20) is typically **under about £80** — check the current price on Amazon. The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module, and it says 8+. It does not name a camera. US shoppers: [see the Amazon.com listing](https://www.amazon.com/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4&tag=roboteducatif-20) At that level the car sits far under a £200–500 band, so it belongs in a lower guide.
+The [ELEGOO car listing on Amazon.com](https://www.amazon.com/dp/B07474MMB5?tag=roboteducatif-20) is typically **under about £80** — check the current price on Amazon. The title names an UNO R3 board, line tracking, an ultrasonic sensor and an infrared module, and it says 8+. It does not name a camera. US shoppers: [see the Amazon.com listing](https://www.amazon.com/dp/B07474MMB5?tag=roboteducatif-20) At that level the car sits far under a £200–500 band, so it belongs in a lower guide.
 
 ## Comparison
 

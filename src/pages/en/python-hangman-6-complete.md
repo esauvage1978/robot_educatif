@@ -203,4 +203,4 @@ Continue with [Connect Four](/en/connect-four-python/) or the [todo notebook](/p
 
 ## On Amazon
 
-A book search for Python game projects: [Check today's price on Amazon](https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20).
+A book search for Python game projects: Check today's price on Amazon.

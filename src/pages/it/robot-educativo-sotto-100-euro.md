@@ -70,7 +70,7 @@ Verifica: movimento con **bandiera verde** in mBlock. Problemi: [Bluetooth mBloc
 
 Scheda Arduino UNO, motori, sensori, **camera FPV**, modulo **ESP8266**. Montaggio **1–2 h**, documentazione soprattutto in inglese.
 
-**Acquisto:** [cerca ELEGOO Robot Car su Amazon.it](https://www.amazon.it/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducat0f-21) · [robot programmabili — Amazon.it](/go/az-it-0671e9bd00)
+**Acquisto:** [cerca ELEGOO Robot Car su Amazon.it](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21) · [robot programmabili — Amazon.it](/go/az-it-0671e9bd00)
 
 Per adolescenti: [robot 12 anni](/it/robot-programmabile-12-anni/). Principianti: [8 anni](/it/robot-programmabile-8-anni/).
 

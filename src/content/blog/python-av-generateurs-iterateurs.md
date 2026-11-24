@@ -337,4 +337,4 @@ list(chain.from_iterable([[1], [2], [3]]))</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python avancé programmation](https://www.amazon.fr/s?k=python+avanc%C3%A9+livre&tag=manuso06-21)
+- Python avancé programmation

@@ -15,7 +15,7 @@ faqSchema:
     answer: "Ein anderes Gerät (CyberPi, Ranger…) ist aktiv. Erneut auf mBot unter Geräte klicken."
 ---
 
-Einige Links auf dieser Seite sind Affiliate-Links. Bei einem Kauf können wir eine Provision erhalten, ohne Mehrkosten für Sie. Preise auf [Amazon.de](https://www.amazon.de/s?k=Makeblock+mBot&tag=roboteducat00-21) prüfen — wir erfinden keine Tagespreise.
+Einige Links auf dieser Seite sind Affiliate-Links. Bei einem Kauf können wir eine Provision erhalten, ohne Mehrkosten für Sie. Preise auf [Amazon.de](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21) prüfen — wir erfinden keine Tagespreise.
 
 > **Direkte Antwort (Oktober 2026)** — In **mBlock 5** (Makeblocks blockbasierter Editor, ähnlich **Scratch** vom MIT): **Geräte** → **Hinzufügen (+)** → **mBot** (klassisches **mCore**-Kit) oder **mBot2** (**CyberPi**) → **OK**. Dann erscheinen **orangene** Robot-Blöcke (Motoren, Sensoren, LEDs, Summer). Ohne diesen Schritt nur Standard-Scratch-Blöcke. Zuerst: [mBlock 5 unter Windows installieren](/de/mblock-5-installieren-windows/) oder [mBlock 5 kostenlos laden](/de/mblock-5-kostenlos-herunterladen/). Danach: [Erste Schritte mBlock 5](/de/erste-schritte-mblock-5/) und [Erstes mBot-Programm](/de/erstes-mbot-programm/).
 
@@ -117,7 +117,7 @@ Scratch allein steuert kein Makeblock-Hardware — [mBlock vs Scratch](/de/mbloc
 
 ## Orientierungspreise (Oktober 2026)
 
-[Makeblock mBot bei Amazon.de](https://www.amazon.de/s?k=Makeblock+mBot&tag=roboteducat00-21) — Modell mBot vs mBot2 auf der Produktseite prüfen.
+[Makeblock mBot bei Amazon.de](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21) — Modell mBot vs mBot2 auf der Produktseite prüfen.
 
 ---
 

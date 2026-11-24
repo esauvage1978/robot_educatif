@@ -89,4 +89,4 @@ La **sauvegarde** arrive à la [partie 5](/python-carnet-todo-5-persistance/) : 
 
 ## Amazon (partenaire)
 
-- [Exercices Python](https://www.amazon.fr/s?k=exercices+python+livre&tag=manuso06-21)
+- Exercices Python

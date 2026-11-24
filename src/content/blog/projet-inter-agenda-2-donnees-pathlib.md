@@ -175,4 +175,4 @@ Oui pour un fichier lisible à la main et des diffs Git clairs ; en production �
 
 ## Amazon (partenaire)
 
-- [Python fichiers données](https://www.amazon.fr/s?k=python+json+fichiers+livre&tag=manuso06-21)
+- Python fichiers données

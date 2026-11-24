@@ -94,10 +94,10 @@ Vi serve un cervello: il box [Home Assistant Green](/it/domotica/home-assistant-
 
 La SONOFF ZBDongle-E è un coordinatore USB che funziona con ZHA o Zigbee2MQTT e ha un'antenna esterna. Il SONOFF SNZB-02D misura temperatura e umidità, ha un piccolo schermo e funziona a pila. La TP-Link Tapo P110 è una presa Wi-Fi che misura il consumo e, all'inizio, si può usare senza box. Ricerche su Amazon.it, per verificare il prezzo aggiornato e il modello:
 
-- [Home Assistant Green](https://www.amazon.it/s?k=Home+Assistant+Green&tag=roboteducat0f-21)
-- [SONOFF ZBDongle-E](https://www.amazon.it/s?k=SONOFF+ZBDongle-E&tag=roboteducat0f-21)
-- [SONOFF SNZB-02D](https://www.amazon.it/s?k=SONOFF+SNZB-02D&tag=roboteducat0f-21)
-- [TP-Link Tapo P110](https://www.amazon.it/s?k=TP-Link+Tapo+P110&tag=roboteducat0f-21)
+- [Home Assistant Green](https://www.amazon.it/dp/B0CXVKSG19?tag=roboteducat0f-21)
+- [SONOFF ZBDongle-E](https://www.amazon.it/dp/B0B6P22YJC?tag=roboteducat0f-21)
+- [SONOFF SNZB-02D](https://www.amazon.it/dp/B0BYZP8NK2?tag=roboteducat0f-21)
+- [TP-Link Tapo P110](https://www.amazon.it/dp/B0CDCLMC6W?tag=roboteducat0f-21)
 
 ### Con Homey
 

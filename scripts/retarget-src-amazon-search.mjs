@@ -75,6 +75,18 @@ for (const file of walk(SRC)) {
 		stripped++;
 		return inner.trim() || '';
 	});
+	text = text.replace(
+		/\[([^\]]*)\]\((https?:\/\/[^)\s]*amazon\.[^)\s]*\/s\?k=[^)]+)\)/gi,
+		(full, label, href) => {
+			const next = fixUrl(href);
+			if (next) {
+				converted++;
+				return `[${label}](${next})`;
+			}
+			stripped++;
+			return label;
+		},
+	);
 	if (text !== before) {
 		fs.writeFileSync(file, text, 'utf8');
 		filesChanged++;

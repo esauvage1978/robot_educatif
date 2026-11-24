@@ -144,4 +144,4 @@ Tu disposes du **fil conducteur** pour un **outil de log** complet : **générat
 
 ## Amazon (partenaire)
 
-- [Python packaging professionnel](https://www.amazon.fr/s?k=python+packaging+livre&tag=manuso06-21)
+- Python packaging professionnel

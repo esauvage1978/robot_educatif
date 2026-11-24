@@ -127,4 +127,4 @@ if __name__ == "__main__":
 
 ## On Amazon
 
-A book search for Python, data and files: [Check today's price on Amazon](https://www.amazon.com/s?k=python+data+files+book&tag=roboteducatif-20).
+A book search for Python, data and files: Check today's price on Amazon.

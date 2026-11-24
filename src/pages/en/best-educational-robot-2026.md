@@ -182,10 +182,10 @@ Install **mBlock 5** ([Windows guide](/en/install-mblock-5-windows/)) or the **S
 
 Compare packs on **Amazon.com** first, then **Amazon.com** if you shop in the US:
 
-- [Programmable educational robot for kids](https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20)
-- [mBot Makeblock](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20)
-- [LEGO SPIKE Essential](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20)
-- [STEM robotics kit teens](https://www.amazon.com/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=STEM+robotics+kit+programming+teens&tag=roboteducatif-20) — **STEM**: Science, Technology, Engineering, Mathematics
+- [Programmable educational robot for kids](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20)
+- [mBot Makeblock](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B07QN7ZJF9?tag=roboteducatif-20)
+- [LEGO SPIKE Essential](https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20)
+- [STEM robotics kit teens](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) — **STEM**: Science, Technology, Engineering, Mathematics
 
 *Amazon partner — commission possible on qualifying purchases, at no extra cost to you.*
 

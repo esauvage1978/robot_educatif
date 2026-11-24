@@ -336,6 +336,6 @@ Reading and writing **text files** ([lesson 8](/en/python-text-files/)) lets you
 
 ## Python resources (affiliate)
 
-- Beginner Python books: [Check today's price on Amazon.](https://www.amazon.com/s?k=learn+python+beginner+book&tag=roboteducatif-20)
-- Python exercises and projects: [Check today's price on Amazon.](https://www.amazon.com/s?k=python+exercises+projects+book&tag=roboteducatif-20)
-- Python data structures: [Check today's price on Amazon.](https://www.amazon.com/s?k=python+data+structures&tag=roboteducatif-20)
+- Beginner Python books: Check today's price on Amazon.
+- Python exercises and projects: Check today's price on Amazon.
+- Python data structures: Check today's price on Amazon.

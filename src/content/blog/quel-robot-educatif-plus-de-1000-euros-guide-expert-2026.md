@@ -67,7 +67,7 @@ Les briques logicielles que l’on croise, selon la marque, sont Python, la visi
 
 ![Elephant Robotics — AI Kit avec myCobot (visuel bundle officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-mycobot-ai-kit.jpg)
 
-Elephant Robotics vend un bras de bureau, le myCobot, et un [AI Kit 2023](https://shop.elephantrobotics.com/products/artificial-intelligence-kit-2023) qui n’est pas le bras. Le total change selon que l’on achète le kit vision seul, le bras (versions M5 ou Pi), ou les deux chez un revendeur. C’est cette distinction qui compte, pas un montant recopié d’une grille. Consulter le prix du panier réel. La recherche [myCobot Elephant Robotics](https://www.amazon.fr/s?k=myCobot+Elephant+Robotics&tag=manuso06-21) sert à trouver une annonce : vérifiez qu’elle contient bien le bras si c’est le bras que vous voulez.
+Elephant Robotics vend un bras de bureau, le myCobot, et un [AI Kit 2023](https://shop.elephantrobotics.com/products/artificial-intelligence-kit-2023) qui n’est pas le bras. Le total change selon que l’on achète le kit vision seul, le bras (versions M5 ou Pi), ou les deux chez un revendeur. C’est cette distinction qui compte, pas un montant recopié d’une grille. Consulter le prix du panier réel. La recherche [myCobot Elephant Robotics](https://www.amazon.fr/dp/B0B8VQZQ1K?tag=manuso06-21) sert à trouver une annonce : vérifiez qu’elle contient bien le bras si c’est le bras que vous voulez.
 
 Le bras se programme en Python, avec des scénarios de vision décrits dans la doc du kit, en anglais. Ce n’est pas un jouet pour un enfant seul. L’usage réaliste commence vers 16 ans, pour un étudiant ou un maker qui a déjà un projet de préhension.
 
@@ -75,13 +75,13 @@ Le bras se programme en Python, avec des scénarios de vision décrits dans la d
 
 ![ROBOTIS — Bioloid Premium (visuel officiel boutique US)](/images/blog/robots-educatif-plus-de-1000-euros-2026/robotis-bioloid-premium-kit.jpg)
 
-Le [Bioloid Premium](https://www.robotis.us/robotis-premium/) est un humanoïde modulaire : nombreux servos Dynamixel selon le kit, calibration, marche et gestes. Il forme à la structure mécanique plus qu’à une application prête. Le montage et les réglages prennent du temps. Avec un mentor, on le voit à partir de 12 ans ; sans mentor, il faut déjà être assidu. La boutique citée est aux États-Unis : son tarif n’est pas un prix français. Consulter le prix à l’import, TVA comprise, ou chez un revendeur européen. La recherche [Bioloid ROBOTIS Premium](https://www.amazon.fr/s?k=Bioloid+ROBOTIS+Premium&tag=manuso06-21) ne remplace pas la lecture de la référence.
+Le [Bioloid Premium](https://www.robotis.us/robotis-premium/) est un humanoïde modulaire : nombreux servos Dynamixel selon le kit, calibration, marche et gestes. Il forme à la structure mécanique plus qu’à une application prête. Le montage et les réglages prennent du temps. Avec un mentor, on le voit à partir de 12 ans ; sans mentor, il faut déjà être assidu. La boutique citée est aux États-Unis : son tarif n’est pas un prix français. Consulter le prix à l’import, TVA comprise, ou chez un revendeur européen. La recherche [Bioloid ROBOTIS Premium](https://www.amazon.fr/dp/B0064DIN70?tag=manuso06-21) ne remplace pas la lecture de la référence.
 
 ## UGOT (UBTECH)
 
 ![UBTECH Education — kit UGOT, mode transformable (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/ubtech-ugot-transforming.webp)
 
-L’UGOT est un robot éducatif UBTECH à plusieurs morphologies, dont un mode quadrupède. Les packs cités par UBTECH Education, comme City Guardian ou Space Exploration, sont des ensembles pour la classe, pas une seule figurine. Les pages [UGOT](https://www.ubtrobot.com/en/ai-education/products/ugot) et la [collection éducation](https://www.ubtecheducation.com/collections/ugot) décrivent l’offre. Le prix se demande au distributeur : il n’est pas dans le relevé Amazon.fr. La recherche [UBTECH UGOT](https://www.amazon.fr/s?k=UBTECH+UGOT+robot&tag=manuso06-21) doit être lue annonce par annonce.
+L’UGOT est un robot éducatif UBTECH à plusieurs morphologies, dont un mode quadrupède. Les packs cités par UBTECH Education, comme City Guardian ou Space Exploration, sont des ensembles pour la classe, pas une seule figurine. Les pages [UGOT](https://www.ubtrobot.com/en/ai-education/products/ugot) et la [collection éducation](https://www.ubtecheducation.com/collections/ugot) décrivent l’offre. Le prix se demande au distributeur : il n’est pas dans le relevé Amazon.fr. La recherche [UBTECH UGOT](https://www.amazon.fr/dp/B0C9JKYQ7L?tag=manuso06-21) doit être lue annonce par annonce.
 
 La programmation annoncée va des blocs à Python. L’effet visuel est fort, à partir d’environ 14 ans ou en salle, si quelqu’un structure les séances. Ce n’est pas un manuel de trente exercices déjà imprimé : il faut un parcours.
 
@@ -89,13 +89,13 @@ La programmation annoncée va des blocs à Python. L’effet visuel est fort, à
 
 ![Elephant Robotics — myAGV Pi (visuel officiel)](/images/blog/robots-educatif-plus-de-1000-euros-2026/elephant-myagv-pi.webp)
 
-Le [myAGV](https://shop.elephantrobotics.com/products/myagv-pi), ici en variante Pi, est un châssis mobile pour des essais de navigation. Les capteurs dépendent de la configuration. La doc mène vers Python et, selon la version, ROS. Linux fait partie du ticket d’entrée : ce n’est pas un cadeau sans lecture. Public visé : étudiants et makers, plutôt à partir de 16 ans. Consulter le prix de la variante exacte. La recherche [myAGV Elephant Robotics](https://www.amazon.fr/s?k=myAGV+Elephant+Robotics&tag=manuso06-21) ne garantit pas la version Pi.
+Le [myAGV](https://shop.elephantrobotics.com/products/myagv-pi), ici en variante Pi, est un châssis mobile pour des essais de navigation. Les capteurs dépendent de la configuration. La doc mène vers Python et, selon la version, ROS. Linux fait partie du ticket d’entrée : ce n’est pas un cadeau sans lecture. Public visé : étudiants et makers, plutôt à partir de 16 ans. Consulter le prix de la variante exacte. La recherche [myAGV Elephant Robotics](https://www.amazon.fr/dp/B0BPCLKMWV?tag=manuso06-21) ne garantit pas la version Pi.
 
 ## Sphero, côté établissement
 
 ![Sphero BOLT+ — illustration produit (boutique officielle, famille grand public / école)](/images/blog/robots-educatif-plus-de-1000-euros-2026/sphero-bolt-plus-mat.jpg)
 
-Sphero est d’abord un écosystème : robots dont le BOLT+, activités, logiciel Sphero Edu, des blocs vers des langages selon le niveau. Un gros budget « école » correspond souvent à un lot, une mallette ou un programme, pas à un seul robot de recherche. Le site [Sphero](https://www.sphero.com/) et un devis (distributeurs éducation) sont la source du prix. Aucun montant de lot n’est dans le relevé du 6 novembre 2026. La recherche [Sphero BOLT](https://www.amazon.fr/s?k=Sphero+BOLT+education&tag=manuso06-21) vise la famille BOLT, pas un autre robot de la marque. C’est pertinent pour un établissement qui veut la même ligne dans plusieurs salles, moins pour une personne qui cherche une base ROS.
+Sphero est d’abord un écosystème : robots dont le BOLT+, activités, logiciel Sphero Edu, des blocs vers des langages selon le niveau. Un gros budget « école » correspond souvent à un lot, une mallette ou un programme, pas à un seul robot de recherche. Le site [Sphero](https://www.sphero.com/) et un devis (distributeurs éducation) sont la source du prix. Aucun montant de lot n’est dans le relevé du 6 novembre 2026. La recherche [Sphero BOLT](https://www.amazon.fr/dp/B07R7L98K1?tag=manuso06-21) vise la famille BOLT, pas un autre robot de la marque. C’est pertinent pour un établissement qui veut la même ligne dans plusieurs salles, moins pour une personne qui cherche une base ROS.
 
 ## Comparatif sans prix inventé
 

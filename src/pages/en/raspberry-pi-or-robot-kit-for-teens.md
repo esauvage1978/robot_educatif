@@ -81,9 +81,9 @@ No. CyberPi is a **Makeblock board** with the mBlock ecosystem. It sits close to
 
 ## Amazon links
 
-- [Check today's price on Amazon](https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20) (Raspberry Pi beginner kit)
-- [Check today's price on Amazon](https://www.amazon.com/s?k=teen+programmable+Python+robot+kit&tag=roboteducatif-20) (programmable Python robot kit for teens)
-- [Check today's price on Amazon](https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20) (Raspberry Pi microSD card)
+- [Check today's price on Amazon](https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20) (Raspberry Pi beginner kit)
+- [Check today's price on Amazon](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) (programmable Python robot kit for teens)
+- [Check today's price on Amazon](https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20) (Raspberry Pi microSD card)
 
 ---
 

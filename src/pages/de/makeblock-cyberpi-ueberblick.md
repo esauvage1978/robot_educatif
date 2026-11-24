@@ -81,7 +81,7 @@ Der Preis ändert sich je nach Angeboten und Sets: Prüfe vor der Bestellung den
 
 [Die Makeblock CyberPi auf Amazon.de ansehen](https://www.amazon.de/dp/B0BBZY9L59?tag=roboteducat00-21)
 
-Lieber gleich einen fertigen Roboter? Die CyberPi ist auch das „Gehirn“ des mBot2: [mBot2 / CyberPi-Kit auf Amazon.de](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21). Weitere Makeblock-Elektronikkits: [Suche auf Amazon.de](https://www.amazon.de/s?k=Makeblock+programmierbares+Elektronik+Kit&tag=roboteducat00-21).
+Lieber gleich einen fertigen Roboter? Die CyberPi ist auch das „Gehirn“ des mBot2: [mBot2 / CyberPi-Kit auf Amazon.de](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21). Weitere Makeblock-Elektronikkits: Suche auf Amazon.de.
 
 *Affiliate-Links: Die Seite erhält eine kleine Provision, wenn du über diese Links kaufst, ohne Mehrkosten für dich. Prüfe vor der Bestellung, ob das Angebot die CyberPi-Platine allein ist oder ein Set, das bereits den mBot2-Roboter enthält.*
 

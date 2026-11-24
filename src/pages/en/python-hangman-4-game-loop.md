@@ -184,4 +184,4 @@ if __name__ == "__main__":
 
 ## On Amazon
 
-A book search for Python algorithms for beginners: [Check today's price on Amazon](https://www.amazon.com/s?k=python+algorithms+beginner&tag=roboteducatif-20).
+A book search for Python algorithms for beginners: Check today's price on Amazon.

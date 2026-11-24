@@ -28,7 +28,7 @@ Do not buy an **mBuild-only** module expecting it to plug into a classic mBot v1
 
 ### Recommended first purchase after the kit
 
-When the robot already works, the most useful pair is often **rechargeable batteries** plus an **ultrasonic rangefinder** (a sensor that measures distance with sound waves), to [measure distances](/en/mbot-activity-measure-distance/). The classic mBot kit already includes the ultrasonic sensor, the line follower and the infrared remote. A second sensor is only for another robot or a spare, and only if the listing says **RJ25**. [mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) around £90 on 9 November 2026.
+When the robot already works, the most useful pair is often **rechargeable batteries** plus an **ultrasonic rangefinder** (a sensor that measures distance with sound waves), to [measure distances](/en/mbot-activity-measure-distance/). The classic mBot kit already includes the ultrasonic sensor, the line follower and the infrared remote. A second sensor is only for another robot or a spare, and only if the listing says **RJ25**. [mBot on Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) around £90 on 9 November 2026.
 
 ## 1. A sensible priority order
 
@@ -72,7 +72,7 @@ It is useful in a **club** or on a **project day**; at home, good rechargeable b
 
 Amazon.com first, then Amazon.com:
 
-- [Makeblock mBot on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) — around £90 on 9 November 2026. The kit already includes the ultrasonic sensor.
+- [Makeblock mBot on Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) — around £90 on 9 November 2026. The kit already includes the ultrasonic sensor.
 
 *Amazon partner — commission possible on eligible purchases.*
 

@@ -27,9 +27,9 @@ Der Karton ist der Anfang. Sensoren, ein brauchbares Netzteil und ein Kurs sind 
 | Linux-Computer | Raspberry Pi 5, plus Strom und Speicher | Python | Computer, Kameras, Projekte zu Hause |
 | Roboter, der schon Python kann | mBot2 | Blöcke, dann Python | Am Wochenende fahren, danach echter Code |
 
-**ELEGOO Smart Robot Car Kit V4.0** passt zur Herstellerangabe 13+. Arduino UNO, Kamera, Linie, Hindernis, Anleitung, im Serienaufbau ohne Löten. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Arduino-Kits im Vergleich](/de/arduino-roboter-bausatz-fuer-kinder/). [Bei Amazon.de suchen](https://www.amazon.de/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat00-21).
+**ELEGOO Smart Robot Car Kit V4.0** passt zur Herstellerangabe 13+. Arduino UNO, Kamera, Linie, Hindernis, Anleitung, im Serienaufbau ohne Löten. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Arduino-Kits im Vergleich](/de/arduino-roboter-bausatz-fuer-kinder/). [Bei Amazon.de suchen](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21).
 
-**Raspberry Pi 5** ist der Computer. RAM nach der Aufgabe: [welcher RAM](/de/raspberry-pi-5-welcher-ram/), und [Pi 3, 4 oder 5](/de/raspberry-pi-3-vs-4-vs-5/), wenn ein älteres Board günstiger daliegt. Netzteil und microSD-Karte gehören dazu, sonst startet nichts. Ein Fahrgestell ist ein zweites Projekt. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Raspberry%20Pi%205&tag=roboteducat00-21). Den Verkäufer lesen.
+**Raspberry Pi 5** ist der Computer. RAM nach der Aufgabe: [welcher RAM](/de/raspberry-pi-5-welcher-ram/), und [Pi 3, 4 oder 5](/de/raspberry-pi-3-vs-4-vs-5/), wenn ein älteres Board günstiger daliegt. Netzteil und microSD-Karte gehören dazu, sonst startet nichts. Ein Fahrgestell ist ein zweites Projekt. [Bei Amazon.de suchen](https://www.amazon.de/dp/B0CK3L9WD3?tag=roboteducat00-21). Den Verkäufer lesen.
 
 **mBot2** ist die Abkürzung, wenn zuerst ein Roboter gewünscht ist und erst danach die Werkzeugkette. CyberPi, Blöcke und Python, WLAN, Farbdisplay. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [mBot vs mBot2](/de/mbot-vs-mbot2/). [Amazon.de](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21).
 

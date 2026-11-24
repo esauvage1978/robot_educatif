@@ -16,7 +16,7 @@ updated: "24 ottobre 2026"
 - **Case con ventola** (ufficiale o Argon NEO 5 per silenzio)  
 - **SONOFF ZBDongle-E** per Zigbee — [confronto chiavette](/it/domotica/miglior-chiavetta-zigbee-home-assistant/)
 
-Link ricerca Amazon.it (prezzi variabili): [Pi 5 4 GB](https://www.amazon.it/s?k=raspberry+pi+5+4gb&tag=roboteducat0f-21), [alimentatore 27W](https://www.amazon.it/s?k=raspberry+pi+power+supply+27w&tag=roboteducat0f-21), [ZBDongle-E](https://www.amazon.it/dp/B0B6P22YJC?tag=roboteducat0f-21).
+Link ricerca Amazon.it (prezzi variabili): [Pi 5 4 GB](https://www.amazon.it/dp/B0CK3L9WD3?tag=roboteducat0f-21), [alimentatore 27W](https://www.amazon.it/dp/B0CM46P7MC?tag=roboteducat0f-21), [ZBDongle-E](https://www.amazon.it/dp/B0B6P22YJC?tag=roboteducat0f-21).
 
 **NVMe vs SD**: ~5× velocità, meno corruzione; 256 GB Crucial P3 basta per HA + storico.
 

@@ -98,10 +98,10 @@ Altri progetti simili: [10 idee ESP32 domotica](/it/domotica/progetti-esp32-domo
 
 **Amazon.it (affiliato tag roboteducat0f-21, prezzi da verificare)**
 
-- [ESP32-C6 DevKit](https://www.amazon.it/s?k=ESP32-C6+DevKit&tag=roboteducat0f-21)
-- [DHT22](https://www.amazon.it/s?k=DHT22&tag=roboteducat0f-21)
-- [BME280](https://www.amazon.it/s?k=BME280+module&tag=roboteducat0f-21)
-- [Kit breadboard e jumper](https://www.amazon.it/s?k=breadboard+jumper+kit&tag=roboteducat0f-21)
+- [ESP32-C6 DevKit](https://www.amazon.it/dp/B0CHKTWN7F?tag=roboteducat0f-21)
+- [DHT22](https://www.amazon.it/dp/B08SFH6C6W?tag=roboteducat0f-21)
+- [BME280](https://www.amazon.it/dp/B01M8KJ3VY?tag=roboteducat0f-21)
+- Kit breadboard e jumper
 
 ## 2. Installare l’add-on ESPHome
 

@@ -170,4 +170,4 @@ if __name__ == "__main__":
 
 ## Amazon (partenaire)
 
-- [Python — bonnes pratiques](https://www.amazon.fr/s?k=clean+code+python+livre&tag=manuso06-21)
+- Python — bonnes pratiques

@@ -7,7 +7,7 @@ updated: "24. Oktober 2026"
 
 Hoher **CO₂-Gehalt** bedeutet schlecht gelüftete Räume. Mit **Raspberry Pi** und **SCD40/SCD41** (photoakustisch, nicht nur geschätzt) messen Sie CO₂, Temperatur und Luftfeuchte und senden die Werte per **MQTT** an Home Assistant — z. B. für die Meldung „Fenster auf“.
 
-**Keine Preise:** SCD41-Module sind teurer als Temperatur-Sensoren — Preis beim Kauf prüfen. [SCD41 bei Amazon.de](https://www.amazon.de/s?k=SCD41+CO2+Sensor&tag=roboteducat00-21) (Werbelink).
+**Keine Preise:** SCD41-Module sind teurer als Temperatur-Sensoren — Preis beim Kauf prüfen. [SCD41 bei Amazon.de](https://www.amazon.de/dp/B09P2P58BS?tag=roboteducat00-21) (Werbelink).
 
 ## Ziel
 

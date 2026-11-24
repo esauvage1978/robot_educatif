@@ -51,7 +51,7 @@ Some links on this page are affiliate links. If you buy through them, we may ear
 
 You want to learn Arduino so you can blink an LED, read a sensor or drive a small robot, but many tutorials jump ahead too fast. This free course walks you lesson by lesson: sketch structure, variable types, conditions, loops, then functions. Each page has code to type, exercises and the mistakes beginners hit most often.
 
-Prefer **Amazon.com** first, then **Amazon.com**: [Amazon.com learning resources](https://www.amazon.com/s?k=arduino+learn+c+programming&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=arduino+learn+c+programming&tag=roboteducatif-20) (affiliate).
+Prefer **Amazon.com** first, then **Amazon.com**: Amazon.com learning resources · Amazon.com (affiliate).
 
 ## Standard C vs Arduino language — what is the difference?
 

@@ -161,4 +161,4 @@ a.update(Counter({"INFO": 2, "ERROR": 1}))</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python asyncio livre](https://www.amazon.fr/s?k=python+asyncio+livre&tag=manuso06-21)
+- Python asyncio livre

@@ -303,4 +303,4 @@ asyncio.run(main())</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python asyncio](https://www.amazon.fr/s?k=python+asyncio+livre&tag=manuso06-21)
+- Python asyncio

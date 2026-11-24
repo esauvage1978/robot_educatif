@@ -89,9 +89,9 @@ To compare also with the tablet app **mBlock Blockly** and the **Python** editor
 
 Makeblock’s educational robots can be programmed from `ide.mblock.cc`. Check the listing name and today’s price before buying:
 
-- **[Makeblock mBot (ages ~8–12)](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)** — school classic · Scratch blocks & Arduino
-- **[Makeblock mBot2 CyberPi (ages ~10–14)](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20)** — colour screen, Wi‑Fi, rechargeable battery · blocks & Python
-- **[Makeblock Codey Rocky (ages ~6–12)](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20)** — ready to play, expressive LED matrix · Scratch & Python
+- **[Makeblock mBot (ages ~8–12)](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)** — school classic · Scratch blocks & Arduino
+- **[Makeblock mBot2 CyberPi (ages ~10–14)](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20)** — colour screen, Wi‑Fi, rechargeable battery · blocks & Python
+- **[Makeblock Codey Rocky (ages ~6–12)](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20)** — ready to play, expressive LED matrix · Scratch & Python
 
 <h2 id="faq">7. FAQ — mBlock online</h2>
 
@@ -136,19 +136,19 @@ Live mode is ideal for the first lesson of the day. Upload is the goal once the 
 
 School classic · Scratch blocks and Arduino path later. Confirm the listing is the Bluetooth/USB educational kit, not a spare board only.
 
-- [Amazon.com — check price](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)
+- [Amazon.com — check price](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
 
 ### Makeblock mBot2 CyberPi (~10–14 years)
 
 Colour screen, Wi‑Fi, rechargeable battery · blocks and Python. Ideal when you want one robot that grows with the learner.
 
-- [Amazon.com — check price](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20)
+- [Amazon.com — check price](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20)
 
 ### Makeblock Codey Rocky (~6–12 years)
 
 Ready to play with little or no build · expressive LED matrix · Scratch and Python.
 
-- [Codey Rocky on Amazon.com — check today's price](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20)
+- [Codey Rocky on Amazon.com — check today's price](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20)
 
 Related guides: [Which mBlock software](/en/mblock-software-which-to-choose/), [First steps in mBlock 5](/en/first-steps-mblock-5/), [Bluetooth troubleshooting](/en/mblock-bluetooth-troubleshooting/).
 

@@ -27,7 +27,7 @@ That figure is the Amazon.com listing on that date. We do not invent a dollar or
 
 The lowest price over the previous 30 days, in the same reading, is around $148. The button opens this listing.
 
-[Check today's price on Amazon](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) (mBot2)
+[Check today's price on Amazon](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) (mBot2)
 
 The listing title says ages 10 and up. For a child of that age, the [guide for a 10-year-old](/en/best-robot-for-a-10-year-old/) compares this robot with the other kits from the same moment. The software is [mBlock](/en/mblock-software-which-to-choose/): blocks first, Python next, on the same robot.
 

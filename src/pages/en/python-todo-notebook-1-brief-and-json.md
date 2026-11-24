@@ -66,4 +66,4 @@ You can add `date_creation` or `priorite` later, as an extension.
 
 ## On Amazon
 
-A book search for Python, data and JSON: [Check today's price on Amazon](https://www.amazon.com/s?k=python+data+json+book&tag=roboteducatif-20).
+A book search for Python, data and JSON: Check today's price on Amazon.

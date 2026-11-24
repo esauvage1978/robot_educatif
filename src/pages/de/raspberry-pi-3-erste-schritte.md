@@ -144,10 +144,10 @@ Sobald die **Systembasis** stabil ist, können Sie zu **Code-Projekten** (Python
 
 Dieses Tutorial betrifft den **Pi 3**: Die Stromversorgung läuft über **Micro-USB** (nicht über USB-C wie beim Pi 4 und Pi 5), und zum Start wird ein **32-Bit-System** empfohlen. Die Links unten zielen auf diese Hardware. **Prüfen** Sie vor dem Kauf auf jeder Produktseite Anschluss, Stromstärke und Kompatibilität, denn Preise ändern sich. Kit-, microSD- und Buch-Links sind Suchen, damit Sie aktuelle Angebote vergleichen können. Der Netzteil-Link zeigt auf die offizielle Micro-USB-Referenz 5 V / 2,5 A für den Pi 3; prüfen Sie den Anschluss trotzdem auf der Angebotsseite.
 
-- [Raspberry Pi 3 Model B Kit](https://www.amazon.de/s?k=Raspberry+Pi+3+Model+B+Kit&tag=roboteducat00-21)
-- [microSD-Karte 32 GB, Klasse A1](https://www.amazon.de/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducat00-21)
+- [Raspberry Pi 3 Model B Kit](https://www.amazon.de/dp/B01CD5VC92?tag=roboteducat00-21)
+- [microSD-Karte 32 GB, Klasse A1](https://www.amazon.de/dp/B073K14H8V?tag=roboteducat00-21)
 - [Offizielles Netzteil 5 V / 2,5 A Micro-USB für den Pi 3](https://www.amazon.de/dp/B01CO1HZJ6?tag=roboteducat00-21)
-- [Raspberry-Pi-Einsteigerbuch (Deutsch)](https://www.amazon.de/s?k=Raspberry+Pi+Einsteiger+Buch&tag=roboteducat00-21)
+- Raspberry-Pi-Einsteigerbuch (Deutsch)
 
 Für ein neueres Board (USB-C) lesen Sie den [Vergleich Pi 3 vs 4 vs 5](/de/raspberry-pi-3-vs-4-vs-5/). Verwechseln Sie nie das Netzteil eines Pi 5 mit dem eines Pi 3.
 

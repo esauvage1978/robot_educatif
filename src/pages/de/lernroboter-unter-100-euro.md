@@ -76,7 +76,7 @@ Erfolg: Bewegung bei **grüner Flagge** in mBlock. Probleme: [mBlock Bluetooth](
 
 Arduino UNO, Motoren, Sensoren, **FPV-Kamera**, **ESP8266** Wi-Fi. Montage **1–2 h**, Docs meist **Englisch**.
 
-**Kauf:** [ELEGOO Smart Robot Car — Suche Amazon.de](https://www.amazon.de/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=roboteducat00-21) · [Programmierbare Roboter — Amazon.de](/go/az-de-5624342488)
+**Kauf:** [ELEGOO Smart Robot Car — Suche Amazon.de](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21) · [Programmierbare Roboter — Amazon.de](/go/az-de-5624342488)
 
 Für Jugendliche: [Lernroboter 12 Jahre](/de/lernroboter-12-jahre/). Anfänger: [8 Jahre](/de/lernroboter-8-jahre/).
 

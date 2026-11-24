@@ -90,7 +90,7 @@ En los tutoriales recientes de este sitio partimos de **mBlock 5** (la interfaz 
 
 - [Robot Makeblock mBot](https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21)
 - [mBot2 Makeblock](https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21)
-- [Libro de Scratch y programación para niños](https://www.amazon.es/s?k=libro+Scratch+programacion+ninos&tag=roboteducat07-21)
+- Libro de Scratch y programación para niños
 
 <p style="margin:1rem 0;"><a href="https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21" class="affiliate-link" data-product-id="mbot2" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;">Ver el precio del día en Amazon (mBot2)</a> · <a href="https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21" class="affiliate-link" data-product-id="mbot" data-placement="content" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#f1f5f9;color:#0f172a;font-weight:700;padding:0.55rem 1rem;border-radius:8px;text-decoration:none;border:1px solid #cbd5e1;">Precio del día (mBot v1)</a></p>
 

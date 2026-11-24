@@ -23,7 +23,7 @@ Das Garagentor vom Handy öffnen und **sehen, ob es offen steht**, ist eines der
 4. Test mit Wandtaster, dann per HA
 5. Automatisierung „offen geblieben“
 
-Dauer: etwa 2–3 h, Niveau: mittel. **Keine Preise** — ESP32, Relais (3,3-V-Steuerung!) und Reed sind Standardteile ([ESP32](https://www.amazon.de/s?k=ESP32+DevKit&tag=roboteducat00-21), [Reed Garagentor](https://www.amazon.de/s?k=Reed+Kontakt+Garage&tag=roboteducat00-21), Werbelinks).
+Dauer: etwa 2–3 h, Niveau: mittel. **Keine Preise** — ESP32, Relais (3,3-V-Steuerung!) und Reed sind Standardteile ([ESP32](https://www.amazon.de/dp/B0B3Z7Z24M?tag=roboteducat00-21), Reed Garagentor, Werbelinks).
 
 ## Material
 

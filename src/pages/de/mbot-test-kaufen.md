@@ -72,8 +72,8 @@ Der Artikel [mBot-Vorstellung](/de/mbot-mein-erster-lernroboter/) ergänzt diese
 
 - [mBot Makeblock bei Amazon.de](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 - [mBot2 Makeblock bei Amazon.de](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21)
-- [mBot- / Makeblock-Zubehör](https://www.amazon.de/s?k=mBot+Makeblock+Zubeh%C3%B6r+Sensor&tag=roboteducat00-21)
-- [Scratch- / Robotik-Buch für Kinder](https://www.amazon.de/s?k=Scratch+Roboter+Programmieren+Buch+Kinder&tag=roboteducat00-21)
+- [mBot- / Makeblock-Zubehör](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
+- [Scratch- / Robotik-Buch für Kinder](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 
 *Amazon-Partner — bei qualifizierten Käufen kann eine Provision anfallen, **ohne Mehrkosten** für Sie. Links öffnen Produkt- oder Suchseiten: vergleichen Sie Verkäufer, Bewertungen und Konditionen vor dem Warenkorb.*
 

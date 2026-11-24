@@ -71,7 +71,7 @@ Robot de suelo con cuadrícula (~15 cm por paso).
 
 ### Tale-Bot Pro
 
-[Tale-Bot Matatalab](/es/matatalab-tale-bot-robot-educativo/) · [Marca Matatalab](/es/marca-matatalab/) · [Buscar Tale-Bot Pro en Amazon.es](https://www.amazon.es/s?k=Matatalab+Tale-Bot+Pro&tag=roboteducat07-21).
+[Tale-Bot Matatalab](/es/matatalab-tale-bot-robot-educativo/) · [Marca Matatalab](/es/marca-matatalab/) · [Buscar Tale-Bot Pro en Amazon.es](https://www.amazon.es/dp/B09LYTM5BC?tag=roboteducat07-21).
 
 ![Tale-Bot Pro](/images/illustrations/deballage-et-premier-pas-du-robot-tale-bot-de-chez-matatalab.webp)
 

@@ -170,9 +170,9 @@ Pour un panorama des alternatives (sans écran, cartes, etc.) : [quel robot édu
 - [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
 - [mBot2 Makeblock](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21)
 - [mBot Ranger Makeblock](https://www.amazon.fr/dp/B07KG4JHBH?tag=manuso06-21)
-- [LEGO SPIKE Prime (stocks restants chez les revendeurs)](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21)
-- [LEGO SPIKE Essential (stocks restants chez les revendeurs)](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21)
-- [LEGO Mindstorms Robot Inventor occasion / neuf marchands](https://www.amazon.fr/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=manuso06-21)
+- [LEGO SPIKE Prime (stocks restants chez les revendeurs)](https://www.amazon.fr/dp/B07QN7ZJF9?tag=manuso06-21)
+- [LEGO SPIKE Essential (stocks restants chez les revendeurs)](https://www.amazon.fr/dp/B09LMS9YXX?tag=manuso06-21)
+- [LEGO Mindstorms Robot Inventor occasion / neuf marchands](https://www.amazon.fr/dp/B08586NDKT?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles, sans surcoût pour vous.*
 

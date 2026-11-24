@@ -7,7 +7,7 @@ updated: "30 October 2026"
 
 Some links on this page are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. Check today’s price on Amazon.com or Amazon.com before you buy.
 
-**Makeblock mBot** — ages about 8–12 · Scratch blocks and Arduino · About 15 minutes to assemble · Ideal for class. [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)** — This page gathers **10 free mBot activities** for class or home: **15 to 60 min** each, from the first motor program to sensor challenges (reversing radar, line follower, intrusion detector). Each card states **duration**, **skills** and a **challenge** for fast groups. Download the **PDFs** (pupil sheets + mBlock solutions) below; install [mBlock 5](/en/install-mblock-5-windows/) before session 1; plan **1 robot for 2–3 pupils** and rechargeable batteries. Sheets are ready to print or project.
+**Makeblock mBot** — ages about 8–12 · Scratch blocks and Arduino · About 15 minutes to assemble · Ideal for class. [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)** — This page gathers **10 free mBot activities** for class or home: **15 to 60 min** each, from the first motor program to sensor challenges (reversing radar, line follower, intrusion detector). Each card states **duration**, **skills** and a **challenge** for fast groups. Download the **PDFs** (pupil sheets + mBlock solutions) below; install [mBlock 5](/en/install-mblock-5-windows/) before session 1; plan **1 robot for 2–3 pupils** and rechargeable batteries. Sheets are ready to print or project.
 
 ## At a glance
 

@@ -26,13 +26,13 @@ Batterien liegen oft nicht dabei. Codey Rocky und mBot brauchen Tablet oder Comp
 | Codey Rocky | mBlock-Blöcke, dann Python | Tablet oder PC | Keiner | Will Licht und Ton, keine Schrauben |
 | mBot | mBlock-Blöcke, später Arduino | Tablet oder PC | Etwa 15–20 Minuten mit Ihnen | Baut gern |
 
-**Botley 2.0** geht weiter als das erste Tastenspiel: längere Aufgaben, Hindernis, schwarze Linie, Wiederholungen auf der Fernbedienung. Richtig, solange kein Tablet gewünscht ist. Wer Pfeile schon langweilig findet, will um das 8. Lebensjahr Blöcke. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducat00-21).
+**Botley 2.0** geht weiter als das erste Tastenspiel: längere Aufgaben, Hindernis, schwarze Linie, Wiederholungen auf der Fernbedienung. Richtig, solange kein Tablet gewünscht ist. Wer Pfeile schon langweilig findet, will um das 8. Lebensjahr Blöcke. [Bei Amazon.de suchen](https://www.amazon.de/dp/B083T5G5ZK?tag=roboteducat00-21).
 
-**Code & Go Robot Mouse** bleibt das einfachere gemeinsame Labyrinth. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat00-21).
+**Code & Go Robot Mouse** bleibt das einfachere gemeinsame Labyrinth. [Bei Amazon.de suchen](https://www.amazon.de/dp/B01A5YMCH4?tag=roboteducat00-21).
 
-**Codey Rocky**: Blöcke, kein Aufbau, später Python. [Makeblock](/de/marke-makeblock/) · [Vergleich mit mBot](/de/mbot-vs-codey-rocky/) · [Bei Amazon.de suchen](https://www.amazon.de/s?k=Makeblock%20Codey%20Rocky&tag=roboteducat00-21).
+**Codey Rocky**: Blöcke, kein Aufbau, später Python. [Makeblock](/de/marke-makeblock/) · [Vergleich mit mBot](/de/mbot-vs-codey-rocky/) · [Bei Amazon.de suchen](https://www.amazon.de/dp/B07CGH8NZ7?tag=roboteducat00-21).
 
-**mBot** (Bluetooth-Fahrgestell, nicht mBot2) ist der erste richtige Aufbau: Ultraschall, Linie, Blöcke in mBlock, ein Arduino-Modus, den Sie jetzt nicht brauchen. Makeblock beschreibt einen kurzen Aufbau in der Größenordnung von 15 Minuten und Betrieb mit vier AA-Batterien oder einem optionalen Akku. Legen Sie Akkus dazu. Vergleich mit dem neueren Modell: [mBot vs mBot2](/de/mbot-vs-mbot2/). Herstellerseite: [mBot](https://www.makeblock.com/products/buy-mbot). [Bei Amazon.de suchen](https://www.amazon.de/s?k=Makeblock%20mBot%20Bluetooth&tag=roboteducat00-21). Prüfen, dass es nicht mBot2 und kein Ersatzteil ist.
+**mBot** (Bluetooth-Fahrgestell, nicht mBot2) ist der erste richtige Aufbau: Ultraschall, Linie, Blöcke in mBlock, ein Arduino-Modus, den Sie jetzt nicht brauchen. Makeblock beschreibt einen kurzen Aufbau in der Größenordnung von 15 Minuten und Betrieb mit vier AA-Batterien oder einem optionalen Akku. Legen Sie Akkus dazu. Vergleich mit dem neueren Modell: [mBot vs mBot2](/de/mbot-vs-mbot2/). Herstellerseite: [mBot](https://www.makeblock.com/products/buy-mbot). [Bei Amazon.de suchen](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21). Prüfen, dass es nicht mBot2 und kein Ersatzteil ist.
 
 ## Entscheidung
 

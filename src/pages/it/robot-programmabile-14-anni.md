@@ -27,9 +27,9 @@ La scatola è l'inizio. Sensori, un alimentatore serio e un corso sono acquisti 
 | Computer Linux | Raspberry Pi 5, più alimentazione e memoria | Python | Il computer, camere, progetti in casa |
 | Robot che già esegue Python | mBot2 | Blocchi, poi Python | Si muove nel weekend, poi codice vero |
 
-**ELEGOO Smart Robot Car Kit V4.0** coincide con l'indicazione 13+ del produttore. Arduino UNO, camera, linea, ostacolo, manuale, montaggio di serie senza saldature. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat0f-21).
+**ELEGOO Smart Robot Car Kit V4.0** coincide con l'indicazione 13+ del produttore. Arduino UNO, camera, linea, ostacolo, manuale, montaggio di serie senza saldature. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21).
 
-**Raspberry Pi 5** è il computer. Confrontate le generazioni in [Pi 3, 4 o 5](/it/raspberry-pi-3-vs-4-vs-5/). Servono alimentatore e microSD, altrimenti non parte. Un telaio da robot è un secondo progetto. [Cerca su Amazon.it](https://www.amazon.it/s?k=Raspberry%20Pi%205&tag=roboteducat0f-21). Leggete il venditore: la ricerca mescola schede, kit e altre inserzioni.
+**Raspberry Pi 5** è il computer. Confrontate le generazioni in [Pi 3, 4 o 5](/it/raspberry-pi-3-vs-4-vs-5/). Servono alimentatore e microSD, altrimenti non parte. Un telaio da robot è un secondo progetto. [Cerca su Amazon.it](https://www.amazon.it/dp/B0CK3L9WD3?tag=roboteducat0f-21). Leggete il venditore: la ricerca mescola schede, kit e altre inserzioni.
 
 **mBot2** è la scorciatoia se prima vuole un robot e solo dopo la catena di strumenti. CyberPi, blocchi e Python, Wi-Fi, schermo a colori. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21).
 

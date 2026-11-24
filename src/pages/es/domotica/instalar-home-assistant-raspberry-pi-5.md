@@ -47,7 +47,7 @@ Instalar **Home Assistant en Raspberry Pi 5** en 2026 es sencillo con **Raspberr
 </table>
 </div>
 
-Enlaces: [Pi 5 4 GB](https://www.amazon.es/s?k=raspberry+pi+5+4gb&tag=roboteducat07-21), [fuente 27 W](https://www.amazon.es/s?k=raspberry+pi+power+supply+27w&tag=roboteducat07-21), [SanDisk 64 GB](https://www.amazon.es/s?k=sandisk+extreme+64gb&tag=roboteducat07-21).
+Enlaces: [Pi 5 4 GB](https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21), [fuente 27 W](https://www.amazon.es/dp/B0CM46P7MC?tag=roboteducat07-21), SanDisk 64 GB.
 
 **NVMe (opcional)**: HAT M.2 oficial + SSD 256 GB (Crucial P3). ~5× más rápido y fiable que SD para escrituras intensas de HA.
 

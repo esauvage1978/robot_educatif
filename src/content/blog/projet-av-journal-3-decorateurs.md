@@ -158,4 +158,4 @@ def timer(name):
 
 ## Amazon (partenaire)
 
-- [Python patterns](https://www.amazon.fr/s?k=python+design+patterns+livre&tag=manuso06-21)
+- Python patterns

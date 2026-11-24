@@ -36,7 +36,7 @@ Comandare il garage dal telefono e **sapere se è rimasto aperto**: relè **in p
 
 ## Materiale
 
-- ESP32 DevKit ([Amazon.it ESP32](https://www.amazon.it/s?k=ESP32+DevKit&tag=roboteducat0f-21))  
+- ESP32 DevKit ([Amazon.it ESP32](https://www.amazon.it/dp/B0B3Z7Z24M?tag=roboteducat0f-21))  
 - Modulo relè **1 canale compatibile 3,3 V** in ingresso  
 - Contatto reed filare  
 - Alimentatore USB 5 V  

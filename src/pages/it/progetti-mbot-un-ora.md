@@ -67,7 +67,7 @@ Quando metodo e idee sono chiari, ecco il materiale più comune per questi labor
 
 **Makeblock mBot** — circa 8–12 anni · Scratch e Arduino · montaggio rapido per un laboratorio · LED e sensore a ultrasuoni adatti alle sfide da 1 h · [Amazon.it](https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21)
 
-**ELEGOO Penguin Bot** (alternativa economica, non è un mBot) — circa 8–14 anni · Arduino C · robot bipede originale per laboratori di altro tipo · [Amazon.it](https://www.amazon.it/s?k=ELEGOO+Penguin+Bot&tag=roboteducat0f-21)
+**ELEGOO Penguin Bot** (alternativa economica, non è un mBot) — circa 8–14 anni · Arduino C · robot bipede originale per laboratori di altro tipo · [Amazon.it](https://www.amazon.it/dp/B07GVD6GQH?tag=roboteducat0f-21)
 
 ## 3. Approfondimenti
 
