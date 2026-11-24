@@ -221,6 +221,9 @@ for (const market of ['de', 'it', 'es']) {
 	}
 }
 
-console.log(JSON.stringify({ counts, samples }, null, 2));
-const bad = Object.values(counts).some((n) => n > 0);
+/** Compteurs de santé (liens /go/ → /dp/ attendus), ne font pas échouer le build. */
+const INFO_ONLY = new Set(['servedCaDp', 'servedComDp']);
+
+console.log(JSON.stringify({ counts, samples, infoOnly: [...INFO_ONLY] }, null, 2));
+const bad = Object.entries(counts).some(([k, n]) => n > 0 && !INFO_ONLY.has(k));
 if (bad) process.exit(1);
