@@ -59,7 +59,7 @@ Corridoio o ripostiglio accesi al passaggio: **PIR HC-SR501** segnala movimento;
 </table>
 </div>
 
-- Modulo **HC-SR501** — [ricerca Amazon.it](https://www.amazon.it/s?k=HC-SR501+PIR&tag=roboteducat0f-21)  
+- Modulo **HC-SR501** — ricerca Amazon.it  
 - Raspberry Pi 4/5 con **Raspberry Pi OS Bookworm**  
 - Broker MQTT (es. Mosquitto su Home Assistant)  
 - Lampada o presa già integrata in HA

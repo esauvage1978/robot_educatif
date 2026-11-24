@@ -62,4 +62,4 @@ Before you write, copy `taches.json` to `taches.json.bak` with `shutil.copy2`. T
 
 ## On Amazon
 
-A book search for Python and JSON data: [Check today's price on Amazon](https://www.amazon.com/s?k=python+data+json+book&tag=roboteducatif-20).
+A book search for Python and JSON data: Check today's price on Amazon.

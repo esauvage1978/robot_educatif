@@ -300,7 +300,7 @@ Retour au [hub Python intermédiaire](/programmation/python-intermediaire/) · [
 
 ## Amazon (partenaire, optionnel)
 
-- [Python traitement de texte](https://www.amazon.fr/s?k=python+traitement+texte+livre&tag=manuso06-21)
+- Python traitement de texte
 </think>
 
 

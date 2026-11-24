@@ -70,8 +70,8 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 
 ## Amazon links (affiliate search)
 
-- [mBot Makeblock on Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)
-- [Scratch / kids robotics book](https://www.amazon.com/s?k=Scratch+robot+coding+book+kids&tag=roboteducatif-20)
+- [mBot Makeblock on Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
+- Scratch / kids robotics book
 
 *Amazon partner — a commission may be earned on qualifying purchases at **no extra cost** to you. Links may open product or search pages: compare sellers, reviews and terms before adding to basket.*
 
@@ -85,7 +85,7 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 - Pros: easy to assemble in about 15 minutes; intuitive block programming; Scratch and Arduino compatible; many sensors included
 - Badge: Best choice for age 8
 
-[Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)
+[Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)
 
 **Makeblock mBot2**
 - Ages: about 10–14 years
@@ -93,7 +93,7 @@ The article [mBot overview](/en/mbot-my-first-educational-robot/) complements th
 - Pros: CyberPi board with colour screen; Python and Scratch compatible; built-in Wi-Fi and IoT (Internet of Things); highly expandable with mBuild extensions
 - Badge: Python evolution
 
-[Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20)
+[Amazon.com](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20)
 - [mBot accessories](/en/mbot-accessories-where-to-start/)
 - [First steps with mBlock 5](/en/first-steps-mblock-5/)
 

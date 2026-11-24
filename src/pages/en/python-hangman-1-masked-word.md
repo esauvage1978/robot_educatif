@@ -137,4 +137,4 @@ if __name__ == "__main__":
 
 ## On Amazon
 
-A book search for Python projects and games: [Check today's price on Amazon](https://www.amazon.com/s?k=python+projects+games+book&tag=roboteducatif-20).
+A book search for Python projects and games: Check today's price on Amazon.

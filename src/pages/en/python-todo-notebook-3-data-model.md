@@ -73,4 +73,4 @@ The **ids** of the tasks you keep are **not** reused. That is the simpler choice
 
 ## On Amazon
 
-A book search for clean Python practice: [Check today's price on Amazon](https://www.amazon.com/s?k=clean+code+python+book&tag=roboteducatif-20).
+A book search for clean Python practice: Check today's price on Amazon.

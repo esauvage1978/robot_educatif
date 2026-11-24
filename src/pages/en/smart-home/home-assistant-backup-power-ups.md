@@ -126,7 +126,7 @@ The **router often dominates** the Pi. Unplug TVs and chargers from the backed-u
 
 Permanent mains charging of a station 24/7: read manufacturer guidance on battery longevity.
 
-Shopping: UPS with USB and [NUT compatibility](https://networkupstools.org/stable-hcl.html)—[Amazon.com UPS search](https://www.amazon.com/s?k=UPS+USB+HID&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=UPS+USB+HID&tag=roboteducatif-20).
+Shopping: UPS with USB and [NUT compatibility](https://networkupstools.org/stable-hcl.html)—Amazon.com UPS search · US.
 
 ## Test a real outage
 

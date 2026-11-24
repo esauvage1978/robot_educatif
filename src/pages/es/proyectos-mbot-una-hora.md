@@ -67,7 +67,7 @@ Cuando el método y las ideas están claros, este es el material más habitual p
 
 **Makeblock mBot** — unos 8–12 años · Scratch y Arduino · montaje rápido para un taller · LED y sensor de ultrasonidos adecuados para retos de 1 h · [Amazon.es](https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21)
 
-**ELEGOO Penguin Bot** (alternativa económica, no es un mBot) — unos 8–14 años · Arduino C · robot bípedo original para talleres de otro tipo · [Amazon.es](https://www.amazon.es/s?k=ELEGOO+Penguin+Bot&tag=roboteducat07-21)
+**ELEGOO Penguin Bot** (alternativa económica, no es un mBot) — unos 8–14 años · Arduino C · robot bípedo original para talleres de otro tipo · [Amazon.es](https://www.amazon.es/dp/B07GVD6GQH?tag=roboteducat07-21)
 
 ## 3. Prolongaciones
 

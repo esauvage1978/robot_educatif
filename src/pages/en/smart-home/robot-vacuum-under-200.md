@@ -11,7 +11,7 @@ A **capable robot under £200 or about $200** is realistic in 2026 if you insist
 
 ## Quick picks
 
-**Top choice — Roborock Q7 M5** ([Amazon.com](https://www.amazon.com/s?k=Roborock%20Q7%20M5%20robot%20vacuum&tag=roboteducatif-20))
+**Top choice — Roborock Q7 M5** ([Amazon.com](https://www.amazon.com/dp/B0DT4FJJXM?tag=roboteducatif-20))
 - Strong suction for the class (maker spec ~4200 Pa)
 - Long runtime on paper (~180 min in manufacturer materials)
 - Basic drag mop on many SKUs

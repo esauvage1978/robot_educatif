@@ -296,6 +296,6 @@ Lege einen Ordner `sensor_logs/` an, schreibe drei `.txt`-Dateien mit `Path.writ
 
 Übungsbücher (Partnerlinks):
 
-- [Python pathlib / Dateien](https://www.amazon.de/s?k=python+pathlib+dateien+buch&tag=roboteducat00-21)
+- Python pathlib / Dateien
 
 *Autor: Emmanuel Sauvage · Stand 31. Oktober 2026.*

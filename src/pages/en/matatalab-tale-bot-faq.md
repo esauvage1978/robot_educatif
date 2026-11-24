@@ -49,6 +49,6 @@ To read more: the [official Matatalab site](https://www.matatalab.com/).
 
 Matatalab online shop, Tale-Bot Pro
 
-Or on Amazon: [Check today's price on Amazon](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20) (Tale-Bot Pro).
+Or on Amazon: [Check today's price on Amazon](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) (Tale-Bot Pro).
 
 **See also**: [Who is Matatalab?](/en/matatalab-the-company/)

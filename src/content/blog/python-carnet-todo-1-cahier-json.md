@@ -69,4 +69,4 @@ Tu pourras ajouter `date_creation` ou `priorite` dans une extension.
 
 ## Amazon (partenaire)
 
-- [Python et données](https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=manuso06-21)
+- Python et données

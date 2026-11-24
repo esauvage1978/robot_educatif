@@ -373,4 +373,4 @@ En **tête de fichier** après le docstring du module, groupés : bibliothèque 
 
 ## Amazon (partenaire)
 
-- [Python architecture logicielle](https://www.amazon.fr/s?k=python+architecture+logicielle+livre&tag=manuso06-21)
+- Python architecture logicielle

@@ -150,4 +150,4 @@ def test_from_dict(raw, exc): ...</code></pre>
 
 ## Amazon (partenaire)
 
-- [pytest livre](https://www.amazon.fr/s?k=pytest+python+livre&tag=manuso06-21)
+- pytest livre

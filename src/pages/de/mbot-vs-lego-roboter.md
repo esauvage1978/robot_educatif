@@ -81,10 +81,10 @@ Für einen weiteren Überblick: [Welchen Lernroboter 2026](/de/bester-lernrobote
 
 - [mBot Makeblock](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 - [mBot2 Makeblock](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21)
-- [mBot Ranger Makeblock (Suche)](https://www.amazon.de/s?k=Makeblock+mBot+Ranger&tag=roboteducat00-21)
-- [LEGO SPIKE Prime Restbestände](https://www.amazon.de/s?k=LEGO+SPIKE+Prime&tag=roboteducat00-21)
-- [LEGO SPIKE Essential Restbestände](https://www.amazon.de/s?k=LEGO+SPIKE+Essential&tag=roboteducat00-21)
-- [LEGO Mindstorms Robot Inventor 51515](https://www.amazon.de/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducat00-21)
+- [mBot Ranger Makeblock (Suche)](https://www.amazon.de/dp/B07KG4JHBH?tag=roboteducat00-21)
+- [LEGO SPIKE Prime Restbestände](https://www.amazon.de/dp/B07QN7ZJF9?tag=roboteducat00-21)
+- [LEGO SPIKE Essential Restbestände](https://www.amazon.de/dp/B09LMS9YXX?tag=roboteducat00-21)
+- [LEGO Mindstorms Robot Inventor 51515](https://www.amazon.de/dp/B08586NDKT?tag=roboteducat00-21)
 
 *Amazon-Partner — Provision bei berechtigten Käufen möglich, ohne Mehrkosten für Sie.*
 

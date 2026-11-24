@@ -303,6 +303,6 @@ Crea una carpeta `sensor_logs/`, escribe tres archivos `.txt` con `Path.write_te
 
 Libros de ejercicios (enlaces de afiliado):
 
-- [Python pathlib / archivos](https://www.amazon.es/s?k=python+pathlib+archivos+libro&tag=roboteducat07-21)
+- Python pathlib / archivos
 
 *Autor: Emmanuel Sauvage · actualizado el 31 de octubre de 2026.*

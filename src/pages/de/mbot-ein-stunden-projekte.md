@@ -67,7 +67,7 @@ Wenn Methode und Ideen klar sind, hier das gängigste Material für diese Worksh
 
 **Makeblock mBot** — ca. 8–12 Jahre · Scratch und Arduino · schneller Aufbau für einen Workshop · LEDs und Ultraschallsensor passend zu 1-Stunden-Challenges · [Amazon.de](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 
-**ELEGOO Penguin Bot** (Budget-Alternative, kein mBot) — ca. 8–14 Jahre · Arduino C · origineller zweibeiniger Roboter für andere Workshop-Formate · [Amazon.de](https://www.amazon.de/s?k=ELEGOO+Penguin+Bot&tag=roboteducat00-21)
+**ELEGOO Penguin Bot** (Budget-Alternative, kein mBot) — ca. 8–14 Jahre · Arduino C · origineller zweibeiniger Roboter für andere Workshop-Formate · [Amazon.de](https://www.amazon.de/dp/B07GVD6GQH?tag=roboteducat00-21)
 
 ## 3. Weiterführendes
 

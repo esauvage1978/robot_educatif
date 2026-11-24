@@ -60,4 +60,4 @@ Do not forget `import json` in the file that defines `charger_securise`.
 
 ## On Amazon
 
-A book search for learning Python 3 through projects: [Check today's price on Amazon](https://www.amazon.com/s?k=python+3+learn+box+set&tag=roboteducatif-20).
+A book search for learning Python 3 through projects: Check today's price on Amazon.

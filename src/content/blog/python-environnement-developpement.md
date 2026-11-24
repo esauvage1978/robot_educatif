@@ -96,9 +96,9 @@ ou `python3 hello.py` sur Mac.
 
 Ces liens sont des **recherches** sur Amazon.fr ; vérifie fiche, avis et prix au moment de l’achat.
 
-- [Livres « apprendre Python 3 »](https://www.amazon.fr/s?k=apprendre+python+3+livre&tag=manuso06-21)
-- [Python pour débutants / enfants](https://www.amazon.fr/s?k=python+d%C3%A9butant+enfant+livre&tag=manuso06-21)
-- [Programmation et algorithmique (grand public)](https://www.amazon.fr/s?k=programmation+algorithmique+livre+d%C3%A9butant&tag=manuso06-21)
+- Livres « apprendre Python 3 »
+- Python pour débutants / enfants
+- Programmation et algorithmique (grand public)
 
 ## Suite du parcours
 

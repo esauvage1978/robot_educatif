@@ -31,9 +31,9 @@ Non abbiamo ritestato ogni inserzione per questa pagina. Gli elenchi di sensori 
 
 **mBot2** con CyberPi: blocchi, Python, Wi-Fi, schermo a colori, batteria che Makeblock descrive intorno alle cinque ore. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). Pagina prodotto già usata su questo sito: [Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21). Il CyberPi deve essere nella scatola.
 
-**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, camera, linea, ostacolo, montaggio di serie senza saldature. ELEGOO: 13+. A 12 anni il cablaggio si sorveglia. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Come scegliere un kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat0f-21).
+**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, camera, linea, ostacolo, montaggio di serie senza saldature. ELEGOO: 13+. A 12 anni il cablaggio si sorveglia. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Come scegliere un kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21).
 
-**Raspberry Pi 5** è il computer. La scheda da sola non muove motori. Il confronto tra generazioni: [Pi 3, 4 o 5](/it/raspberry-pi-3-vs-4-vs-5/). La RAM va scelta per l'uso, non per la parola robot: una scheda da sola che fa solo desktop non ha bisogno della versione più grande, un progetto con camera sì. [Cerca su Amazon.it](https://www.amazon.it/s?k=Raspberry%20Pi%205&tag=roboteducat0f-21). I risultati mescolano schede ufficiali, kit e altre inserzioni. Leggete il venditore.
+**Raspberry Pi 5** è il computer. La scheda da sola non muove motori. Il confronto tra generazioni: [Pi 3, 4 o 5](/it/raspberry-pi-3-vs-4-vs-5/). La RAM va scelta per l'uso, non per la parola robot: una scheda da sola che fa solo desktop non ha bisogno della versione più grande, un progetto con camera sì. [Cerca su Amazon.it](https://www.amazon.it/dp/B0CK3L9WD3?tag=roboteducat0f-21). I risultati mescolano schede ufficiali, kit e altre inserzioni. Leggete il venditore.
 
 Se sta bene sui blocchi e non vuole montare, restano validi la [guida dei 10 anni](/it/robot-programmabile-10-anni/) e Codey Rocky.
 

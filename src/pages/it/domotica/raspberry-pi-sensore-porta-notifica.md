@@ -28,7 +28,7 @@ Apertura/chiusura, push su apertura, MQTT opzionale.
 ## Materiale
 
 - Pi 4/5 Bookworm  
-- Reed **normally open** ([Amazon.it reed porta](https://www.amazon.it/s?k=sensore+magnetico+porta+reed&tag=roboteducat0f-21))  
+- Reed **normally open** (Amazon.it reed porta)  
 - Cavo 2 fili
 
 ## Cablaggio

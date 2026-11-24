@@ -47,7 +47,7 @@ El coche ELEGOO (kit inteligente 4.0, placa tipo UNO) estaba a **99,99 €**. Sa
 
 ![Makeblock mBot Ultimate](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ultimate.jpg)
 
-El Ultimate es la caja grande de Makeblock, a menudo presentada como 10 en 1: muchas piezas mecánicas y electrónicas, bloques y Arduino, unos 10-16 años. No es un regalo montado en diez minutos. No hay precio en el relevo del 6 de noviembre de 2026. Consultar el precio en [mBot Ultimate](https://www.amazon.es/s?k=Makeblock+mBot+Ultimate+2.0&tag=roboteducat07-21) y comprobar que el anuncio es el kit. Solo entra en esta selección si el precio del día está entre 200 y 500 €.
+El Ultimate es la caja grande de Makeblock, a menudo presentada como 10 en 1: muchas piezas mecánicas y electrónicas, bloques y Arduino, unos 10-16 años. No es un regalo montado en diez minutos. No hay precio en el relevo del 6 de noviembre de 2026. Consultar el precio en [mBot Ultimate](https://www.amazon.es/dp/B07KG4JHBH?tag=roboteducat07-21) y comprobar que el anuncio es el kit. Solo entra en esta selección si el precio del día está entre 200 y 500 €.
 
 ### fischertechnik STEM Coding Robo Mission
 
@@ -55,13 +55,13 @@ El Ultimate es la caja grande de Makeblock, a menudo presentada como 10 en 1: mu
 
 El set STEM Coding Robo Mission (fischertechnik, ref. 576109) está pensado para clases y proyectos largos, unos 10-16 años, también en un club. Controlador TXT 4.0, sensores de color y de línea, programa ROBO Pro Coding (bloques o texto) para misiones de recorrido. La marca está muy presente en la enseñanza en Alemania. El primer resultado se ve más serio que espectacular.
 
-No hay precio en el relevo. Consultar el precio: [fischertechnik STEM Coding Robo Mission](https://www.amazon.es/s?k=fischertechnik+STEM+programación+Robo+Mission&tag=roboteducat07-21). Hay que mirar la referencia, no un accesorio suelto.
+No hay precio en el relevo. Consultar el precio: [fischertechnik STEM Coding Robo Mission](https://www.amazon.es/dp/B084H9R8QZ?tag=roboteducat07-21). Hay que mirar la referencia, no un accesorio suelto.
 
 ### Ohbot v2.1
 
 ![Ohbot cabeza de robot educativa](/images/blog/robots-educatif-200-euros-2026/ohbot-robot-educatif.jpg)
 
-Ohbot es una cabeza: expresiones, voz, reacciones, bloques y a veces Python según la versión. No cruza la casa. El interés es el diálogo, unos 9-15 años. La compatibilidad con PC, Mac o Chromebook se lee en la ficha Ohbot 2.1. Sin precio en el relevo. Consultar el precio: [Ohbot robot educativo](https://www.amazon.es/s?k=Ohbot+robot+educativo&tag=roboteducat07-21).
+Ohbot es una cabeza: expresiones, voz, reacciones, bloques y a veces Python según la versión. No cruza la casa. El interés es el diálogo, unos 9-15 años. La compatibilidad con PC, Mac o Chromebook se lee en la ficha Ohbot 2.1. Sin precio en el relevo. Consultar el precio: [Ohbot robot educativo](https://www.amazon.es/dp/B07HH4SLZN?tag=roboteducat07-21).
 
 ## Comparación
 

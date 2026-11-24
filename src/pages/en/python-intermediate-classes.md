@@ -381,4 +381,4 @@ class Carte:
 
 ## Amazon (affiliate)
 
-Object-oriented Python books: [Check today's price on Amazon.](https://www.amazon.com/s?k=python+object-oriented+programming+book&tag=roboteducatif-20)
+Object-oriented Python books: Check today's price on Amazon.

@@ -83,7 +83,7 @@ A **Zigbee temperature sensor** in each heated room lets you automate heating, s
 </table>
 </div>
 
-**Buy (affiliate — check price):** [SNZB-02D Amazon.com](https://www.amazon.com/s?k=SONOFF%20SNZB-02D%20temperature%20sensor&tag=roboteducatif-20)  
+**Buy (affiliate — check price):** [SNZB-02D Amazon.com](https://www.amazon.com/dp/B0BYZP8NK2?tag=roboteducatif-20)  
 - Min/max last 24 h on display  
 - Works with **ZHA** and **Zigbee2MQTT**
 

@@ -65,7 +65,7 @@ Chain the LED sequence with a distance threshold if the group moves fast: the li
 
 Once the method and ideas are clear, here is the most common kit for these workshops. Amazon prices change: check the listing on the day you buy.
 
-**Makeblock mBot** — ages about 8–12 · Scratch and Arduino · quick build for a workshop · LEDs and ultrasonic sensor suited to 1-hour challenges · [Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) — ages about 8–14 · Arduino C · an original two-legged robot for a different kind of workshop · [Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=ELEGOO+Penguin+Bot&tag=roboteducatif-20)
+**Makeblock mBot** — ages about 8–12 · Scratch and Arduino · quick build for a workshop · LEDs and ultrasonic sensor suited to 1-hour challenges · [Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) — ages about 8–14 · Arduino C · an original two-legged robot for a different kind of workshop · [Amazon.com](https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20)
 
 ## 3. Next steps
 
@@ -81,6 +81,6 @@ Once the method and ideas are clear, here is the most common kit for these works
 
 ## Amazon links (affiliate)
 
-- [Makeblock mBot — Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20).
+- [Makeblock mBot — Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20).
 
 *Author: Emmanuel Sauvage · updated 31 October 2026.*

@@ -17,7 +17,7 @@ Wenn dein Robotik-Programm wächst, wird es schwer lesbar: viele `if`, viele Wie
 
 Das ist Lektion **5** des [Arduino-C-Kurses](/de/arduino-c/). Vorherige Lektionen: [Sketch-Aufbau](/de/arduino-c-sketch-aufbau-serial/), [Datentypen](/de/arduino-c-datentypen-variablen/), [Bedingungen](/de/arduino-c-bedingungen-sensoren/), [Schleifen und Timing](/c-arduino-boucles-timing/). Kurz zur Erinnerung: `delay()` blockiert die Schleife; für parallele Aufgaben eher `millis()` nutzen.
 
-Einige Links auf dieser Seite sind Affiliate-Links: Bei einem Kauf darüber können wir eine Provision erhalten — ohne Mehrkosten für dich. Um die Übungen auf echter Hardware auszuführen, reicht ein **Arduino-Uno-Starterkit** (Platine, USB-Kabel, LEDs, Widerstände, Breadboard) — Tagespreis auf [Amazon.de](https://www.amazon.de/s?k=arduino+uno+starter+kit&tag=roboteducat00-21) prüfen. Bücher zu C für Arduino: [Amazon.de](https://www.amazon.de/s?k=arduino+lernen+c+programmierung&tag=roboteducat00-21).
+Einige Links auf dieser Seite sind Affiliate-Links: Bei einem Kauf darüber können wir eine Provision erhalten — ohne Mehrkosten für dich. Um die Übungen auf echter Hardware auszuführen, reicht ein **Arduino-Uno-Starterkit** (Platine, USB-Kabel, LEDs, Widerstände, Breadboard) — Tagespreis auf [Amazon.de](https://www.amazon.de/dp/B009UKZV0A?tag=roboteducat00-21) prüfen. Bücher zu C für Arduino: [Amazon.de](https://www.amazon.de/dp/B009UKZV0A?tag=roboteducat00-21).
 
 ## 1) DRY (Don't Repeat Yourself — Wiederholungen vermeiden)
 

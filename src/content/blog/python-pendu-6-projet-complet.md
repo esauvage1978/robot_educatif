@@ -209,4 +209,4 @@ Enchaîne avec [Puissance 4](/programmation/puissance-4/) ou le [Carnet Todo](/p
 
 ## Amazon (partenaire)
 
-- [Projets Python jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+- Projets Python jeux

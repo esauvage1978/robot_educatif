@@ -74,7 +74,7 @@ Ein Saugroboter wird richtig nützlich, wenn er **von selbst startet** — wenn 
 </table>
 </div>
 
-**Empfehlung:** **Roborock** — offizielle Integration, lokale Steuerung, Räume, Verbrauchsmaterial, Fehler. Budget-Tipp: [Saugroboter unter 200 Euro](/de/smart-home/saugroboter-unter-200-euro/) (Roborock Q7 M5). Saugroboter [bei Amazon.de](https://www.amazon.de/s?k=Roborock+Saugroboter&tag=roboteducat00-21) (Werbelink).
+**Empfehlung:** **Roborock** — offizielle Integration, lokale Steuerung, Räume, Verbrauchsmaterial, Fehler. Budget-Tipp: [Saugroboter unter 200 Euro](/de/smart-home/saugroboter-unter-200-euro/) (Roborock Q7 M5). Saugroboter [bei Amazon.de](https://www.amazon.de/dp/B0DT4FJJXM?tag=roboteducat00-21) (Werbelink).
 
 ## Lokal oder Cloud
 

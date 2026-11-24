@@ -26,11 +26,11 @@ Il bambino sa dire quale blocco è sbagliato e tiene un progetto su più sedute.
 
 **mBot2** se il budget permette un robot per i prossimi anni. Makeblock descrive CyberPi, blocchi e Python, una batteria integrata nell'ordine delle cinque ore, motori con encoder e un sensore RGB quadruplo. Scheda: [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). La pagina prodotto già usata su questo sito: [Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21). Controllate che nella scatola ci sia il CyberPi, non una scheda usata.
 
-**mBot** resta il robot a blocchi: ultrasuoni, linea, luce, montaggio breve, circa un'ora con quattro stilo o batteria opzionale. [mBot](https://www.makeblock.com/products/buy-mbot). [Cerca su Amazon.it](https://www.amazon.it/s?k=Makeblock%20mBot%20Bluetooth&tag=roboteducat0f-21).
+**mBot** resta il robot a blocchi: ultrasuoni, linea, luce, montaggio breve, circa un'ora con quattro stilo o batteria opzionale. [mBot](https://www.makeblock.com/products/buy-mbot). [Cerca su Amazon.it](https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21).
 
-**mBot Ranger**: tre forme in una scatola. Makeblock ha venduto più di una generazione Ranger; confrontate nome e foto sull'inserzione. Non trattiamo una sola pagina prodotto come verificata su ogni mercato, per questo il link è una ricerca. [Cerca su Amazon.it](https://www.amazon.it/s?k=Makeblock%20mBot%20Ranger&tag=roboteducat0f-21).
+**mBot Ranger**: tre forme in una scatola. Makeblock ha venduto più di una generazione Ranger; confrontate nome e foto sull'inserzione. Non trattiamo una sola pagina prodotto come verificata su ogni mercato, per questo il link è una ricerca. [Cerca su Amazon.it](https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21).
 
-**ELEGOO Smart Robot Car Kit V4.0**: Arduino UNO, camera, linea, ostacolo. ELEGOO indica 13+. A 10 anni solo se un adulto guida cablaggio e IDE Arduino. Non è un giocattolo Scratch. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Guida ai kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat0f-21).
+**ELEGOO Smart Robot Car Kit V4.0**: Arduino UNO, camera, linea, ostacolo. ELEGOO indica 13+. A 10 anni solo se un adulto guida cablaggio e IDE Arduino. Non è un giocattolo Scratch. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Guida ai kit Arduino](/it/kit-robot-arduino-per-bambini/). [Cerca su Amazon.it](https://www.amazon.it/dp/B07474MMB5?tag=roboteducat0f-21).
 
 Codey Rocky funziona ancora a 10 anni se non volete montaggio. È il passo più piccolo, nella [guida degli 8 anni](/it/robot-programmabile-8-anni/).
 

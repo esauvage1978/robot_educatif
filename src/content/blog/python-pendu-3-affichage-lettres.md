@@ -136,4 +136,4 @@ if __name__ == "__main__":
 
 ## Amazon (partenaire)
 
-- [Exercices Python](https://www.amazon.fr/s?k=exercices+python+livre&tag=manuso06-21)
+- Exercices Python

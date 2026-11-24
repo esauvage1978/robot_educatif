@@ -17,7 +17,7 @@ Cuando tu programa robótico crece, se vuelve difícil de leer: muchos `if`, muc
 
 Esta es la lección **5** del [curso Arduino C](/es/arduino-c/). Lecciones anteriores: [estructura del sketch y Serial](/en/arduino-c-sketch-structure-serial/), [tipos y variables](/en/arduino-c-types-variables/), [condiciones y sensores](/en/arduino-c-conditions-sensors/), [bucles y timing](/c-arduino-boucles-timing/).
 
-Algunos enlaces de esta página son de afiliados: si compras a través de ellos, podemos recibir una comisión sin coste extra para ti. Para ejecutar los ejercicios en hardware real basta con un **kit de inicio Arduino Uno** (placa, cable USB, LED, resistencias, protoboard) — comprueba el precio del día en [Amazon.es](https://www.amazon.es/s?k=arduino+uno+starter+kit&tag=roboteducat07-21). Libros sobre C para Arduino: [Amazon.es](https://www.amazon.es/s?k=arduino+aprender+c+programacion&tag=roboteducat07-21).
+Algunos enlaces de esta página son de afiliados: si compras a través de ellos, podemos recibir una comisión sin coste extra para ti. Para ejecutar los ejercicios en hardware real basta con un **kit de inicio Arduino Uno** (placa, cable USB, LED, resistencias, protoboard) — comprueba el precio del día en [Amazon.es](https://www.amazon.es/dp/B009UKZV0A?tag=roboteducat07-21). Libros sobre C para Arduino: [Amazon.es](https://www.amazon.es/dp/B009UKZV0A?tag=roboteducat07-21).
 
 ## 1) DRY (no repetirte)
 

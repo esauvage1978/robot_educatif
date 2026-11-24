@@ -94,7 +94,7 @@ Il **router** pesa spesso più del server HA. Togliete dalla presa di backup tut
 
 Attenzione: **passthrough** ≠ UPS garantito. Leggete **tempo di switchover** in scheda tecnica.
 
-UPS con USB: [ricerca Amazon.it](https://www.amazon.it/s?k=ups+usb+nut&tag=roboteducat0f-21). Confrontate modelli su [lista NUT](https://networkupstools.org/stable-hcl.html).
+UPS con USB: ricerca Amazon.it. Confrontate modelli su [lista NUT](https://networkupstools.org/stable-hcl.html).
 
 ## Test reale
 

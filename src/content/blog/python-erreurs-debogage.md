@@ -408,4 +408,4 @@ Le [mini-jeu « plus ou moins »](/python-mini-jeu-terminal/) assemble boucles, 
 
 ## Amazon (partenaire)
 
-- [Bonnes pratiques Python](https://www.amazon.fr/s?k=clean+code+python+livre&tag=manuso06-21)
+- Bonnes pratiques Python

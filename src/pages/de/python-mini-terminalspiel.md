@@ -97,7 +97,7 @@ Weitere Textspiele: [Galgenmännchen](/programmation/pendu/), [Schiffe versenken
 
 Übungsbücher (Partnerlinks — Amazon.de):
 
-- [Python-Projekte Spiele](https://www.amazon.de/s?k=python+projekte+spiele+buch&tag=roboteducat00-21)
-- [Python 3 lernen mit Übungen](https://www.amazon.de/s?k=python+3+lernen+uebungen+buch&tag=roboteducat00-21)
+- Python-Projekte Spiele
+- Python 3 lernen mit Übungen
 
 *Autor: Emmanuel Sauvage · Stand 31. Oktober 2026.*

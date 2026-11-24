@@ -309,4 +309,4 @@ requests==2.31.0
 
 ## Amazon (partenaire)
 
-- [Python professionnel déploiement](https://www.amazon.fr/s?k=python+d%C3%A9ploiement+livre&tag=manuso06-21)
+- Python professionnel déploiement

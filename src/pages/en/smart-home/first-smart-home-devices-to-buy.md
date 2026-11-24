@@ -94,10 +94,10 @@ You need a brain: the [Home Assistant Green](/en/smart-home/home-assistant-green
 
 The SONOFF ZBDongle-E is a USB coordinator that works with ZHA or Zigbee2MQTT and has an external antenna. The SONOFF SNZB-02D measures temperature and humidity, has a small screen and runs on a battery. The TP-Link Tapo P110 is a Wi-Fi plug that measures consumption and can be used without a hub at first. Searches on Amazon.com, to check the live price and the model:
 
-- [Home Assistant Green](https://www.amazon.com/s?k=Home+Assistant+Green&tag=roboteducatif-20)
-- [SONOFF ZBDongle-E](https://www.amazon.com/s?k=SONOFF+ZBDongle-E&tag=roboteducatif-20)
-- [SONOFF SNZB-02D](https://www.amazon.com/s?k=SONOFF+SNZB-02D&tag=roboteducatif-20)
-- [TP-Link Tapo P110](https://www.amazon.com/s?k=TP-Link+Tapo+P110&tag=roboteducatif-20)
+- [Home Assistant Green](https://www.amazon.com/dp/B0CXVKSG19?tag=roboteducatif-20)
+- [SONOFF ZBDongle-E](https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20)
+- [SONOFF SNZB-02D](https://www.amazon.com/dp/B0BYZP8NK2?tag=roboteducatif-20)
+- [TP-Link Tapo P110](https://www.amazon.com/dp/B0CDCLMC6W?tag=roboteducatif-20)
 
 ### With Homey
 

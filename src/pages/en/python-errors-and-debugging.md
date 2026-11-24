@@ -377,4 +377,4 @@ The [higher-or-lower mini-game](/en/python-mini-terminal-game/) brings together 
 
 ## Amazon (affiliate)
 
-Python good-practice books: [Check today's price on Amazon.](https://www.amazon.com/s?k=clean+code+python+book&tag=roboteducatif-20)
+Python good-practice books: Check today's price on Amazon.

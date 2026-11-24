@@ -143,4 +143,4 @@ L’outil **`journal-stats`** (nom fictif du tutoriel) lit un ou plusieurs **fic
 
 ## Amazon (partenaire)
 
-- [Python avancé projet](https://www.amazon.fr/s?k=python+architecture+logicielle+livre&tag=manuso06-21)
+- Python avancé projet

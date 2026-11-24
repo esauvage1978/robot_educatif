@@ -153,9 +153,9 @@ Non : l’apprentissage à la maison peut **compléter** ; l’important est la 
 
 ## Liens Amazon (affiliation)
 
-- [Livre Scratch enfant débutant](https://www.amazon.fr/s?k=livre+Scratch+enfant+d%C3%A9butant&tag=manuso06-21)
-- [Robot programmable Scratch](https://www.amazon.fr/s?k=robot+programmable+Scratch+enfant&tag=manuso06-21)
-- [Kit initiation programmation](https://www.amazon.fr/s?k=kit+initiation+programmation+enfant&tag=manuso06-21)
+- Livre Scratch enfant débutant
+- [Robot programmable Scratch](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
+- [Kit initiation programmation](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

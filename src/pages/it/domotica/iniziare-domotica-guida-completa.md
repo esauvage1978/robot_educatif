@@ -46,9 +46,9 @@ Preferite non installare nulla da soli? Homey Pro mini è un box già pronto che
 
 Ricerche di acquisto, per verificare il prezzo aggiornato e il modello per il vostro paese:
 
-- [Home Assistant Green su Amazon.it](https://www.amazon.it/s?k=Home+Assistant+Green&tag=roboteducat0f-21)
-- [Homey Pro mini su Amazon.it](https://www.amazon.it/s?k=Homey+Pro+mini&tag=roboteducat0f-21)
-- [SONOFF ZBDongle-E su Amazon.it](https://www.amazon.it/s?k=SONOFF+ZBDongle-E&tag=roboteducat0f-21)
+- [Home Assistant Green su Amazon.it](https://www.amazon.it/dp/B0CXVKSG19?tag=roboteducat0f-21)
+- [Homey Pro mini su Amazon.it](https://www.amazon.it/dp/B0D9Y5Y9YQ?tag=roboteducat0f-21)
+- [SONOFF ZBDongle-E su Amazon.it](https://www.amazon.it/dp/B0B6P22YJC?tag=roboteducat0f-21)
 
 ## Passo 1: sapere cosa volete davvero
 
@@ -86,7 +86,7 @@ Per ogni obiettivo, le fasce di budget e le trappole da evitare (come un abbonam
 
 L'Home Assistant Green è il modo più semplice per cominciare: Home Assistant è preinstallato, funziona in locale e non richiede un abbonamento obbligatorio. Verificate il prezzo aggiornato presso il venditore prima di comprare.
 
-Preferite una centralina pronta all'uso, da configurare interamente con un'app? L'Homey Pro mini di Athom è l'alternativa più semplice. Parla di serie Zigbee, Thread e Matter (le lingue radio spiegate nel nostro [glossario](/it/domotica/glossario-domotica/)) e funziona in locale, anche se Internet cade. Z-Wave, Bluetooth e infrarossi richiedono l'Homey Bridge, venduto a parte; l'Homey Pro, più costoso, li ha integrati. Stiamo testando l'Homey Pro mini: guardate il nostro [unboxing e installazione passo passo](/it/domotica/test-homey-pro-mini-unboxing-installazione/). [Vedi il prezzo dell'Homey Pro mini su Amazon.it](https://www.amazon.it/s?k=Homey+Pro+mini&tag=roboteducat0f-21).
+Preferite una centralina pronta all'uso, da configurare interamente con un'app? L'Homey Pro mini di Athom è l'alternativa più semplice. Parla di serie Zigbee, Thread e Matter (le lingue radio spiegate nel nostro [glossario](/it/domotica/glossario-domotica/)) e funziona in locale, anche se Internet cade. Z-Wave, Bluetooth e infrarossi richiedono l'Homey Bridge, venduto a parte; l'Homey Pro, più costoso, li ha integrati. Stiamo testando l'Homey Pro mini: guardate il nostro [unboxing e installazione passo passo](/it/domotica/test-homey-pro-mini-unboxing-installazione/). [Vedi il prezzo dell'Homey Pro mini su Amazon.it](https://www.amazon.it/dp/B0D9Y5Y9YQ?tag=roboteducat0f-21).
 
 ## Passo 3: capire come si parlano i vostri dispositivi
 

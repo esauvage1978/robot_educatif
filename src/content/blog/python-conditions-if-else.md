@@ -419,4 +419,4 @@ Les [boucles](/python-boucles-for-while/) répètent des actions : par exemple p
 
 ## Amazon (partenaire)
 
-- [Algorithmique et Python débutant](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)
+- Algorithmique et Python débutant

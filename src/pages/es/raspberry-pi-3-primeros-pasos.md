@@ -151,10 +151,10 @@ Una vez estable la **base del sistema**, puedes pasar a:
 
 Este tutorial trata de la **Pi 3**: se alimenta por **micro-USB** (no por USB-C como la Pi 4 y la Pi 5) y se recomienda un sistema de **32 bits** para empezar. Los enlaces de abajo apuntan a este material. **Comprueba** el conector, la intensidad y la compatibilidad en cada ficha antes de comprar, porque los precios cambian. Los enlaces de kit, microSD y libro son búsquedas para comparar ofertas. El enlace de la fuente apunta a la referencia oficial micro-USB 5 V / 2,5 A para la Pi 3; comprueba igualmente el conector en la ficha.
 
-- [Kit Raspberry Pi 3 Model B](https://www.amazon.es/s?k=Raspberry+Pi+3+Model+B+kit&tag=roboteducat07-21)
-- [Tarjeta microSD 32 GB clase A1](https://www.amazon.es/s?k=microSD+32GB+A1+Raspberry+Pi&tag=roboteducat07-21)
+- [Kit Raspberry Pi 3 Model B](https://www.amazon.es/dp/B01CD5VC92?tag=roboteducat07-21)
+- [Tarjeta microSD 32 GB clase A1](https://www.amazon.es/dp/B073K14H8V?tag=roboteducat07-21)
 - [Fuente de alimentación 5 V / 2,5 A micro-USB para Pi 3](https://www.amazon.es/dp/B01CO1HZJ6?tag=roboteducat07-21)
-- [Libro Raspberry Pi para principiantes](https://www.amazon.es/s?k=Raspberry+Pi+libro+principiantes&tag=roboteducat07-21)
+- Libro Raspberry Pi para principiantes
 
 Para una placa más reciente (USB-C), consulta la [comparativa Pi 3 vs 4 vs 5](/es/raspberry-pi-3-vs-4-vs-5/). No mezcles nunca la fuente de alimentación de una Pi 5 con la de una Pi 3.
 

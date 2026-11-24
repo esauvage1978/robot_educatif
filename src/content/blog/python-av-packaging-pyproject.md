@@ -252,4 +252,4 @@ Projet guidé : [Analyseur de journal CLI](/programmation/projet-python-avance-j
 
 ## Amazon (partenaire)
 
-- [Python packaging livre](https://www.amazon.fr/s?k=python+packaging+livre&tag=manuso06-21)
+- Python packaging livre

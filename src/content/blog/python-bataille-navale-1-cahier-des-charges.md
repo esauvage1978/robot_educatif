@@ -191,4 +191,4 @@ if __name__ == "__main__":
 
 ## Amazon (partenaire)
 
-- [Python — projets et jeux](https://www.amazon.fr/s?k=python+projets+jeux+livre&tag=manuso06-21)
+- Python — projets et jeux

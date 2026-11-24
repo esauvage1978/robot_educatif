@@ -36,9 +36,9 @@ Abrir el garaje desde el móvil y **saber si quedó abierto** es uno de los proy
 
 ## Material
 
-- **ESP32 DevKit** ([buscar en Amazon.es](https://www.amazon.es/s?k=ESP32+DevKit&tag=roboteducat07-21))
-- **Relé 1 canal 3,3 V** en la entrada IN ([Amazon.es](https://www.amazon.es/s?k=modulo+rele+3.3V&tag=roboteducat07-21))
-- **Contacto reed** ([Amazon.es](https://www.amazon.es/s?k=sensor+magnetico+puerta+garaje&tag=roboteducat07-21))
+- **ESP32 DevKit** ([buscar en Amazon.es](https://www.amazon.es/dp/B0B3Z7Z24M?tag=roboteducat07-21))
+- **Relé 1 canal 3,3 V** en la entrada IN (Amazon.es)
+- **Contacto reed** (Amazon.es)
 - Fuente USB 5 V
 
 ## Cableado

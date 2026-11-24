@@ -9,11 +9,11 @@ Montar tu **sensor de temperatura ESP32 + ESPHome** cuesta poco y se integra sol
 
 ## Material
 
-**ESP32-C6 DevKitC** (recomendado): Wi-Fi 6, Thread/Zigbee nativos, USB-C ([Amazon.es](https://www.amazon.es/s?k=ESP32-C6+DevKit&tag=roboteducat07-21)).
+**ESP32-C6 DevKitC** (recomendado): Wi-Fi 6, Thread/Zigbee nativos, USB-C ([Amazon.es](https://www.amazon.es/dp/B0CHKTWN7F?tag=roboteducat07-21)).
 
 **Sensor**:
 - **DHT22**: ±0,5 °C, sencillo, 1 cable datos  
-- **BME280**: I2C, presión atmosférica, mejor precisión con oversampling ([Amazon.es DHT22](https://www.amazon.es/s?k=DHT22&tag=roboteducat07-21), [BME280](https://www.amazon.es/s?k=BME280+modulo&tag=roboteducat07-21))
+- **BME280**: I2C, presión atmosférica, mejor precisión con oversampling ([Amazon.es DHT22](https://www.amazon.es/dp/B08SFH6C6W?tag=roboteducat07-21), BME280)
 
 Breadboard, cables Dupont, resistencia 4,7 kΩ opcional (DHT22), USB 5 V.
 

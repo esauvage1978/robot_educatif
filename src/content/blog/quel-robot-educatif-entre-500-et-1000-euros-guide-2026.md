@@ -71,7 +71,7 @@ Le mBot2 était à **167,95 €** le 6 novembre 2026. Il sort de la sélection p
 
 Le Robotics TXT 4.0 Base Set (référence 559888) s’adresse plutôt à 12–16 ans, et aux enseignants : la documentation produit parle d’activités à deux à quatre élèves par kit. Le contrôleur TXT 4.0, la caméra et les capteurs servent des modèles de cours. On programme avec ROBO Pro Coding, en blocs ou en Python selon le niveau. Le nom « Robo Pro » désigne surtout ce logiciel, pas un second robot. L’ensemble est moins spectaculaire au déballage qu’un jouet grand public, ce qui convient à un club.
 
-Il n’est pas dans le relevé Amazon.fr. Consulter le prix sur [fischertechnik TXT 4.0 robotics base set](https://www.amazon.fr/s?k=fischertechnik+TXT+4.0+robotics+base+set&tag=manuso06-21), en vérifiant la référence du set. Ne le rangez entre 500 et 1 000 € que si la fiche du jour le confirme.
+Il n’est pas dans le relevé Amazon.fr. Consulter le prix sur [fischertechnik TXT 4.0 robotics base set](https://www.amazon.fr/dp/B084H1L8TW?tag=manuso06-21), en vérifiant la référence du set. Ne le rangez entre 500 et 1 000 € que si la fiche du jour le confirme.
 
 ### mBot Ultimate
 
@@ -83,7 +83,7 @@ Le mBot Ultimate est un grand coffret de pièces, souvent présenté en 10-en-1,
 
 ![Unitree quadrupède (visuel Go2, boutique officielle)](/images/blog/robots-educatif-500-1000-euros-2026/unitree-quadruped-go.jpg)
 
-La photo montre un Go2. La famille Go couvre plusieurs modèles, du grand public à des versions Edu ou recherche, avec de la locomotion, et côté labo du Python ou ROS. Ce n’est pas un premier robot. Aucun prix Unitree n’est dans le relevé du 6 novembre 2026. Consulter le prix sur [Unitree Go](https://www.amazon.fr/s?k=Unitree+Go+robot&tag=manuso06-21) seulement pour identifier une annonce, puis la référence exacte, le SAV et le SDK. Tant que cette fiche n’est pas entre 500 et 1 000 €, le quadrupède ne compte pas dans cette page. Au-dessus, voir le [guide au-delà de 1 000 €](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/).
+La photo montre un Go2. La famille Go couvre plusieurs modèles, du grand public à des versions Edu ou recherche, avec de la locomotion, et côté labo du Python ou ROS. Ce n’est pas un premier robot. Aucun prix Unitree n’est dans le relevé du 6 novembre 2026. Consulter le prix sur [Unitree Go](https://www.amazon.fr/dp/B0C1VWYB2J?tag=manuso06-21) seulement pour identifier une annonce, puis la référence exacte, le SAV et le SDK. Tant que cette fiche n’est pas entre 500 et 1 000 €, le quadrupède ne compte pas dans cette page. Au-dessus, voir le [guide au-delà de 1 000 €](/quel-robot-educatif-plus-de-1000-euros-guide-expert-2026/).
 
 ### DFRobot et HuskyLens
 
@@ -91,7 +91,7 @@ La photo montre un Go2. La famille Go couvre plusieurs modèles, du grand public
 
 HuskyLens est un capteur de vision (couleur, objet ou visage selon le mode) qui se monte sur un châssis, sans obliger un service en ligne. DFRobot documente par exemple le [Devastator](https://www.dfrobot.com/product-1477.html) et le [HCR](https://www.dfrobot.com/product-63.html). On choisit le châssis, le capteur, le contrôleur et les batteries. Ce n’est pas un coffret unique comme le mBot2 : le parcours pédagogique se construit avec les tutoriels, souvent en anglais, plutôt à partir de 12 ans.
 
-Le relevé Amazon.fr ne donne pas le prix de ce panier, et cette page n’additionne pas des pièces non relevées. Consulter le prix de chaque fiche, à commencer par la recherche [HuskyLens DFRobot](https://www.amazon.fr/s?k=HuskyLens+DFRobot&tag=manuso06-21). Les tarifs en dollars du site DFRobot ne sont pas convertis ici en euros.
+Le relevé Amazon.fr ne donne pas le prix de ce panier, et cette page n’additionne pas des pièces non relevées. Consulter le prix de chaque fiche, à commencer par la recherche [HuskyLens DFRobot](https://www.amazon.fr/dp/B07RWXCN3V?tag=manuso06-21). Les tarifs en dollars du site DFRobot ne sont pas convertis ici en euros.
 
 ## Tableau
 

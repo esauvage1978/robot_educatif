@@ -156,4 +156,4 @@ datetime.strptime(m.group("ts"), "%Y-%m-%d %H:%M:%S")</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python performance](https://www.amazon.fr/s?k=python+performance+livre&tag=manuso06-21)
+- Python performance

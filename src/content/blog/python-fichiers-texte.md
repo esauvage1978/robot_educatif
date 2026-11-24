@@ -324,4 +324,4 @@ Gérer proprement les **erreurs** ([leçon 9](/python-erreurs-debogage/)) évite
 
 ## Ressource livre (partenaire)
 
-- [Livres Python données et fichiers sur Amazon.fr](https://www.amazon.fr/s?k=python+donn%C3%A9es+fichiers+livre&tag=manuso06-21)
+- Livres Python données et fichiers sur Amazon.fr

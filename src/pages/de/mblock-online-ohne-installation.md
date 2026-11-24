@@ -91,7 +91,7 @@ Die Makeblock-Bildungsroboter lassen sich von `ide.mblock.cc` aus programmieren.
 
 - **[Makeblock mBot (ca. 8–12 Jahre)](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)** — Klassiker für Schulen · Scratch-Blöcke & Arduino · [Preis auf Amazon.de prüfen](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 - **[Makeblock mBot2 CyberPi (ca. 10–14 Jahre)](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21)** — Farbdisplay, Wi‑Fi, Akku · Blöcke & Python
-- **[Makeblock Codey Rocky (ca. 6–12 Jahre)](https://www.amazon.de/s?k=Makeblock+Codey+Rocky&tag=roboteducat00-21)** — sofort spielbereit, LED-Matrix · Scratch & Python
+- **[Makeblock Codey Rocky (ca. 6–12 Jahre)](https://www.amazon.de/dp/B07CGH8NZ7?tag=roboteducat00-21)** — sofort spielbereit, LED-Matrix · Scratch & Python
 
 <h2 id="faq">7. FAQ — mBlock online</h2>
 
@@ -148,7 +148,7 @@ Farbdisplay, Wi‑Fi, Akku · Blöcke und Python. Gut, wenn ein Roboter mitwachs
 
 Sofort spielbereit · ausdrucksstarke LED-Matrix · Scratch und Python.
 
-- [Amazon.de Suche](https://www.amazon.de/s?k=Makeblock+Codey+Rocky&tag=roboteducat00-21)
+- [Amazon.de Suche](https://www.amazon.de/dp/B07CGH8NZ7?tag=roboteducat00-21)
 
 Verwandte Leitfäden: [Welche mBlock-Software](/de/mblock-software-welche-waehlen/), [Erste Schritte mBlock 5](/de/erste-schritte-mblock-5/), [Bluetooth-Probleme](/de/mblock-bluetooth-probleme/).
 

@@ -81,10 +81,10 @@ Para un panorama más amplio: [qué robot educativo en 2026](/es/mejor-robot-edu
 
 - [mBot Makeblock](https://www.amazon.es/dp/B07XR98YYQ?tag=roboteducat07-21)
 - [mBot2 Makeblock](https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21)
-- [mBot Ranger Makeblock (búsqueda)](https://www.amazon.es/s?k=Makeblock+mBot+Ranger&tag=roboteducat07-21)
-- [LEGO SPIKE Prime stocks restantes](https://www.amazon.es/s?k=LEGO+SPIKE+Prime&tag=roboteducat07-21)
-- [LEGO SPIKE Essential stocks restantes](https://www.amazon.es/s?k=LEGO+SPIKE+Essential&tag=roboteducat07-21)
-- [LEGO Mindstorms Robot Inventor 51515](https://www.amazon.es/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducat07-21)
+- [mBot Ranger Makeblock (búsqueda)](https://www.amazon.es/dp/B07KG4JHBH?tag=roboteducat07-21)
+- [LEGO SPIKE Prime stocks restantes](https://www.amazon.es/dp/B07QN7ZJF9?tag=roboteducat07-21)
+- [LEGO SPIKE Essential stocks restantes](https://www.amazon.es/dp/B09LMS9YXX?tag=roboteducat07-21)
+- [LEGO Mindstorms Robot Inventor 51515](https://www.amazon.es/dp/B08586NDKT?tag=roboteducat07-21)
 
 *Socio Amazon — comisión posible en compras elegibles, sin sobrecoste.*
 

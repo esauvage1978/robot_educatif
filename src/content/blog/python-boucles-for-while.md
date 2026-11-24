@@ -339,4 +339,4 @@ Les [fonctions](/python-fonctions/) permettent de **nommer** un morceau de code 
 
 ## Amazon (partenaire)
 
-- [Python 3 exercices corrigés](https://www.amazon.fr/s?k=python+3+exercices+corrig%C3%A9s&tag=manuso06-21)
+- Python 3 exercices corrigés

@@ -67,9 +67,9 @@ Oui — en français, les deux **formules** courantes désignent la même idée 
 
 ## Liens Amazon (affiliation)
 
-- [Robot éducatif programmable pas cher](https://www.amazon.fr/s?k=Robot+%C3%A9ducatif+programmable+pas+cher&tag=manuso06-21)
+- [Robot éducatif programmable pas cher](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21)
 - [mBot Makeblock](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21)
-- [Kit robotique STEM enfant](https://www.amazon.fr/s?k=kit+robotique+STEM+enfant&tag=manuso06-21)
+- [Kit robotique STEM enfant](https://www.amazon.fr/dp/B07474MMB5?tag=manuso06-21)
 
 *Partenaire Amazon — commission possible sur achats éligibles.*
 

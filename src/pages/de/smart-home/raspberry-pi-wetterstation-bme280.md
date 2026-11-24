@@ -7,7 +7,7 @@ updated: "24. Oktober 2026"
 
 Der **BME280** liefert Temperatur, Luftfeuchte und Druck. Am **Raspberry Pi** wird daraus eine kleine **Wetterstation** mit **SQLite-Historie** — Daten bleiben lokal (DSGVO-freundlich), kein Cloud-Abo.
 
-Ca. 1 h, Anfänger bis Mittel. Modul [bei Amazon.de](https://www.amazon.de/s?k=BME280+I2C&tag=roboteducat00-21) (Werbelink). **BMP280** ohne Feuchte funktioniert nicht mit diesem Code.
+Ca. 1 h, Anfänger bis Mittel. Modul [bei Amazon.de](https://www.amazon.de/dp/B01M8KJ3VY?tag=roboteducat00-21) (Werbelink). **BMP280** ohne Feuchte funktioniert nicht mit diesem Code.
 
 ## Ziel
 

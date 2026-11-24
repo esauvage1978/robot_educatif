@@ -174,12 +174,12 @@ Siehe [mBot vs LEGO](/de/mbot-vs-lego-roboter/).
 
 ## Amazon-Links (Affiliate-Suche)
 
-- [Programmierbarer Lernroboter Kind](https://www.amazon.de/s?k=programmierbarer+Lernroboter+Kinder&tag=roboteducat00-21)
+- [Programmierbarer Lernroboter Kind](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21)
 - [mBot Makeblock](https://www.amazon.de/dp/B07XR98YYQ?tag=roboteducat00-21)
 - [mBot2 Makeblock](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21)
-- [LEGO SPIKE Prime](https://www.amazon.de/s?k=LEGO+SPIKE+Prime&tag=roboteducat00-21)
-- [LEGO SPIKE Essential](https://www.amazon.de/s?k=LEGO+SPIKE+Essential&tag=roboteducat00-21)
-- [STEM-Robotik-Kit Teenager](https://www.amazon.de/s?k=STEM+Robotik+Kit+Programmierung+Jugendliche&tag=roboteducat00-21) — **STEM**: Science, Technology, Engineering, Mathematics (MINT)
+- [LEGO SPIKE Prime](https://www.amazon.de/dp/B07QN7ZJF9?tag=roboteducat00-21)
+- [LEGO SPIKE Essential](https://www.amazon.de/dp/B09LMS9YXX?tag=roboteducat00-21)
+- STEM-Robotik-Kit Teenager — **STEM**: Science, Technology, Engineering, Mathematics (MINT)
 
 *Amazon-Partner — Provision auf qualifizierte Käufe möglich, ohne Mehrkosten für Sie.*
 

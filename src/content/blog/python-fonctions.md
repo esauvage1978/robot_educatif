@@ -331,4 +331,4 @@ Les [listes et chaînes](/python-listes-et-chaines/) donnent des structures de d
 
 ## Amazon (partenaire)
 
-- [Python programmation structurée](https://www.amazon.fr/s?k=python+programmation+structur%C3%A9e&tag=manuso06-21)
+- [Python programmation structurée](https://www.amazon.fr/dp/B0BBZY9L59?tag=manuso06-21)

@@ -49,7 +49,7 @@ MatataStudio official store (checked 23 October 2026): 1-year limited warranty f
 <p>The Tale-Bot Pro is our pick for a first robot **without a tablet** from ages 3 to 5. For block coding from age 6–8, see our <a href="/en/best-programmable-robot-for-kids/">programmable robot guide</a>.</p>
 </aside>
 
-Shop: [Tale-Bot Pro (Amazon US)](https://www.amazon.com/s?k=Matatalab+Tale-Bot+Pro&tag=roboteducatif-20) · [Tale-Bot Pro (Amazon.com)](https://www.amazon.com/s?k=Matatalab+Tale-Bot+Pro&tag=roboteducatif-20) (affiliate links).
+Shop: [Tale-Bot Pro (Amazon US)](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) · [Tale-Bot Pro (Amazon.com)](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) (affiliate links).
 
 ## See also
 

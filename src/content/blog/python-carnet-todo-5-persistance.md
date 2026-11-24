@@ -67,4 +67,4 @@ Avant d’écrire, copie `taches.json` vers `taches.json.bak` avec `shutil.copy2
 
 ## Amazon (partenaire)
 
-- [Python données](https://www.amazon.fr/s?k=python+donn%C3%A9es+json+livre&tag=manuso06-21)
+- Python données

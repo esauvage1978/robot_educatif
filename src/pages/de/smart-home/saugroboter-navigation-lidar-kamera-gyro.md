@@ -119,7 +119,7 @@ Einsteiger-Hub: [Smart Home Einstieg](/de/smart-home/einstieg/) · Saugroboter i
 </table>
 </div>
 
-Werbelinks (Amazon.de, Preise variieren): [LiDAR Saugroboter suchen](https://www.amazon.de/s?k=Roborock+LiDAR+Saugroboter&tag=roboteducat00-21) · [Saugroboter unter 200 €](/de/smart-home/saugroboter-unter-200-euro/).
+Werbelinks (Amazon.de, Preise variieren): [LiDAR Saugroboter suchen](https://www.amazon.de/dp/B0DT4FJJXM?tag=roboteducat00-21) · [Saugroboter unter 200 €](/de/smart-home/saugroboter-unter-200-euro/).
 
 ## Zufall und Gyroskop
 

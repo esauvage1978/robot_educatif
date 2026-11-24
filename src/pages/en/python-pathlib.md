@@ -304,6 +304,6 @@ Next: [Classes and OOP](/python-inter-poo-classes/) — structure data and behav
 
 Practice books (affiliate links):
 
-- [Python pathlib / files — Amazon.com](https://www.amazon.com/s?k=python+pathlib+files+book&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=python+pathlib+files+book&tag=roboteducatif-20)
+- Python pathlib / files — Amazon.com · Amazon.com
 
 *Author: Emmanuel Sauvage · updated 31 October 2026.*

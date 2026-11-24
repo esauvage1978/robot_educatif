@@ -67,8 +67,8 @@ High CO₂ in a closed bedroom or office means stale air. This tutorial uses a R
 </table>
 </div>
 
-- Pi: [Amazon.com](https://www.amazon.com/s?k=Raspberry+Pi+5&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=Raspberry+Pi+5&tag=roboteducatif-20)  
-- SCD41 module: [UK](https://www.amazon.com/s?k=SCD41+CO2+sensor&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=SCD41+CO2+sensor&tag=roboteducatif-20)
+- Pi: [Amazon.com](https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20) · [US](https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20)  
+- SCD41 module: [UK](https://www.amazon.com/dp/B09P2P58BS?tag=roboteducatif-20) · [US](https://www.amazon.com/dp/B09P2P58BS?tag=roboteducatif-20)
 
 ## Wiring (I2C 0x62)
 

@@ -79,10 +79,10 @@ For a wider panorama: [which educational robot in 2026](/en/best-educational-rob
 
 ## Amazon links (affiliate search / product)
 
-- [mBot Makeblock — Amazon.com](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=Makeblock+mBot+Ranger&tag=roboteducatif-20)
-- [LEGO SPIKE Prime remaining stock — UK](https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Prime&tag=roboteducatif-20)
-- [LEGO SPIKE Essential remaining stock — UK](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20)
-- [LEGO Mindstorms Robot Inventor 51515 — UK](https://www.amazon.com/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/s?k=LEGO+Mindstorms+Robot+Inventor+51515&tag=roboteducatif-20)
+- [mBot Makeblock — Amazon.com](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20)
+- [LEGO SPIKE Prime remaining stock — UK](https://www.amazon.com/dp/B07QN7ZJF9?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B07QN7ZJF9?tag=roboteducatif-20)
+- [LEGO SPIKE Essential remaining stock — UK](https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20)
+- [LEGO Mindstorms Robot Inventor 51515 — UK](https://www.amazon.com/dp/B08586NDKT?tag=roboteducatif-20) · [Amazon.com](https://www.amazon.com/dp/B08586NDKT?tag=roboteducatif-20)
 
 *Amazon partner — commission possible on eligible purchases, at no extra cost to you.*
 

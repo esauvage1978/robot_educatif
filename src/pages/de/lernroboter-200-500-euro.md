@@ -43,7 +43,7 @@ Das Angebot [ELEGOO Smart Robot Car Kit V4.0](https://www.amazon.de/dp/B07474MMB
 
 ![Makeblock mBot Ultimate](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ultimate.jpg)
 
-Der Ultimate ist der große Makeblock-Kasten, oft als 10-in-1 beworben: viele mechanische und elektronische Teile, Blöcke und Arduino, etwa 10 bis 16 Jahre. Das ist kein Geschenk, das in zehn Minuten fährt. Im Amazon.de-Stand vom 6. November 2026 steht kein Preis. Preis ansehen über [mBot Ultimate](https://www.amazon.de/s?k=Makeblock+mBot+Ultimate+2.0&tag=roboteducat00-21), und prüfen, dass die Anzeige der Baukasten ist. Nur wenn der Tagespreis zwischen 200 und 500 € liegt, gehört er in diese Auswahl.
+Der Ultimate ist der große Makeblock-Kasten, oft als 10-in-1 beworben: viele mechanische und elektronische Teile, Blöcke und Arduino, etwa 10 bis 16 Jahre. Das ist kein Geschenk, das in zehn Minuten fährt. Im Amazon.de-Stand vom 6. November 2026 steht kein Preis. Preis ansehen über [mBot Ultimate](https://www.amazon.de/dp/B07KG4JHBH?tag=roboteducat00-21), und prüfen, dass die Anzeige der Baukasten ist. Nur wenn der Tagespreis zwischen 200 und 500 € liegt, gehört er in diese Auswahl.
 
 ### fischertechnik STEM Coding Robo Mission
 
@@ -51,13 +51,13 @@ Der Ultimate ist der große Makeblock-Kasten, oft als 10-in-1 beworben: viele me
 
 Das STEM Coding Robo Mission (fischertechnik, Ref. 576109) ist für Unterricht und längere Projekte gedacht, etwa 10 bis 16 Jahre, auch im Verein. Steuerung TXT 4.0, Farb- und Liniensensoren, Software ROBO Pro Coding (Blöcke oder Text) für missionsartige Parcours. Die Marke ist im deutschsprachigen Unterricht stark verankert. Der erste Eindruck ist ernsthafter als spektakulär. Ein Verein plant den Aufbau über mehrere Einheiten.
 
-Kein Preis im Stand. Preis ansehen: [fischertechnik STEM Coding Robo Mission](https://www.amazon.de/s?k=fischertechnik+STEM+Coding+Robo+Mission&tag=roboteducat00-21). Die Referenz prüfen, nicht ein einzelnes Zubehörteil.
+Kein Preis im Stand. Preis ansehen: [fischertechnik STEM Coding Robo Mission](https://www.amazon.de/dp/B084H9R8QZ?tag=roboteducat00-21). Die Referenz prüfen, nicht ein einzelnes Zubehörteil.
 
 ### Ohbot v2.1
 
 ![Ohbot Lernroboter-Kopf](/images/blog/robots-educatif-200-euros-2026/ohbot-robot-educatif.jpg)
 
-Der Ohbot ist ein Kopf: Mimik, Stimme, Reaktionen, Blöcke und je nach Version Python. Er fährt nicht durch die Wohnung. Das Interesse ist das Gespräch, etwa 9 bis 15 Jahre. PC, Mac oder Chromebook stehen auf dem Datenblatt Ohbot 2.1. Kein Preis im Stand. Preis ansehen: [Ohbot Lernroboter](https://www.amazon.de/s?k=Ohbot+Lernroboter&tag=roboteducat00-21).
+Der Ohbot ist ein Kopf: Mimik, Stimme, Reaktionen, Blöcke und je nach Version Python. Er fährt nicht durch die Wohnung. Das Interesse ist das Gespräch, etwa 9 bis 15 Jahre. PC, Mac oder Chromebook stehen auf dem Datenblatt Ohbot 2.1. Kein Preis im Stand. Preis ansehen: Ohbot Lernroboter.
 
 Codey Rocky wird auf manchen Übersichtsseiten neben dem Ranger genannt. In der Amazon.de-Datei dieser Website fehlt der Preis. Preis ansehen, und ihn nicht mit einem französischen Betrag füllen.
 

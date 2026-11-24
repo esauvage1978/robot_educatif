@@ -104,7 +104,7 @@ UK and US prices differ — verify at purchase time on the [official Raspberry P
 
 - **Active cooling** (official Active Cooler or the official case with fan).
 - **Power supply**: official 27W USB-C or a documented equivalent — <a href="https://www.amazon.com/dp/B0CM46P7MC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Pi 5 27 W PSU (UK search)</a> · <a href="/go/az-us-765d931f34/" rel="sponsored nofollow noopener">US</a>.
-- **Fast microSD card**, or an **NVMe** drive if you add a PCIe board — <a href="https://www.amazon.com/dp/B07FCMKK5V?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">A2 microSD (UK)</a> · <a href="/go/az-us-06848dad09/" rel="sponsored nofollow noopener">A2 microSD (US)</a>.
+- **Fast microSD card**, or an **NVMe** drive if you add a PCIe board — <a href="https://www.amazon.com/dp/B07FCMKK5V?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">A2 microSD (UK)</a> · <a href="https://www.amazon.com/dp/B07FCMKK5V?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">A2 microSD (US)</a>.
 - **Micro-HDMI cables** for one or two screens.
 
 Flash **Raspberry Pi OS** with **Raspberry Pi Imager** — steps match [Raspberry Pi 3 getting started](/en/raspberry-pi-3-getting-started/).

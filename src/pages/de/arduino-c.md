@@ -51,7 +51,7 @@ Einige Links auf dieser Seite sind Affiliate-Links. Bei einem Kauf können wir e
 
 Sie möchten Arduino lernen, um eine LED blinken zu lassen, einen Sensor zu lesen oder einen kleinen Roboter zu steuern — aber viele Tutorials springen zu schnell. Dieser kostenlose Kurs führt Sie Lektion für Lektion: Sketch-Struktur, Variablentypen, Bedingungen, Schleifen, dann Funktionen. Jede Seite bietet Code zum Tippen, Übungen und typische Fehler.
 
-Ergänzende Lernressourcen auf [Amazon.de](https://www.amazon.de/s?k=arduino+lernen+c+programmierung&tag=roboteducat00-21) (Affiliate).
+Ergänzende Lernressourcen auf [Amazon.de](https://www.amazon.de/dp/B009UKZV0A?tag=roboteducat00-21) (Affiliate).
 
 ## Standard-C vs. Arduino-Sprache — worin liegt der Unterschied?
 

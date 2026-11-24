@@ -1,23 +1,29 @@
 #!/usr/bin/env node
 /**
- * Après mirror-en-to-uk-ca : dans dist/uk et dist/ca, remplace les /go/az-us-* (et autres
- * marchés hors cible) par az-gb-* / az-ca-* via scripts/go-table.json, ou réécrit l’hôte Amazon.
- * Supprime les fragments #x26;tag= sur les URL Amazon restantes dans le HTML.
+ * Après go-links (uk/ca) : remplace les /go/az-us-*, /go/az-fr-*, etc. par l’id du marché
+ * local quand la table go-table.json a la fiche, et réécrit tout Amazon direct restant en /go/<id>/.
+ * Jamais de /s?k= ni de href Amazon brut dans le HTML.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { searchUrlForAsin } from './asin-search-queries.mjs';
+import {
+	buildSearchAsinIndex,
+	isGenericPythonBookQuery,
+	resolveSearchQuery,
+} from './lib/amazon-search-resolve.mjs';
 
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.resolve(process.argv[2] || 'dist');
-const TABLE_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'go-table.json');
+const TABLE_FILE = path.join(ROOT, 'scripts/go-table.json');
 
 const LOCS = {
 	uk: { cc: 'gb', host: 'www.amazon.co.uk', tag: 'roboteducatif-21', prefix: 'az-gb' },
 	ca: { cc: 'ca', host: 'www.amazon.ca', tag: 'roboteducat03-20', prefix: 'az-ca' },
 };
 
+const SEARCH_INDEX = buildSearchAsinIndex();
 const raw = JSON.parse(fs.readFileSync(TABLE_FILE, 'utf8'));
 const links = raw.links || raw;
 const urlToId = new Map();
@@ -59,18 +65,46 @@ function retargetAmazonUrl(url, loc) {
 	const cfg = LOCS[loc];
 	try {
 		const u = new URL(url);
-		if (!/amazon\./i.test(u.hostname)) return url;
-		const dp = u.pathname.match(/\/dp\/([^/]+)/);
-		if (dp && (loc === 'uk' || loc === 'ca')) {
-			return searchUrlForAsin(cfg.host, cfg.tag, dp[1]);
+		if (!/amazon\./i.test(u.hostname)) return null;
+		let asin = u.pathname.match(/\/dp\/([^/]+)/i)?.[1];
+		if (!asin && /\/s\?k=/i.test(url)) {
+			const k = decodeURIComponent(u.searchParams.get('k') || '');
+			if (k && !isGenericPythonBookQuery(k)) asin = resolveSearchQuery(k, SEARCH_INDEX);
+		}
+		if (asin) {
+			return `https://${cfg.host}/dp/${encodeURIComponent(asin)}?tag=${encodeURIComponent(cfg.tag)}`;
 		}
 		u.hostname = cfg.host;
 		u.searchParams.set('tag', cfg.tag);
-		u.hash = '';
+		u.searchParams.delete('k');
+		if (/\/s\?/i.test(u.pathname + u.search)) return null;
 		return u.toString();
 	} catch {
-		return url;
+		return null;
 	}
+}
+
+function ensureGoId(targetUrl) {
+	if (!targetUrl) return null;
+	let id = urlToId.get(targetUrl);
+	if (!id) {
+		id = idFor(targetUrl);
+		try {
+			const u = new URL(targetUrl);
+			const m = u.hostname.match(/amazon\.(fr|de|it|es|nl|co\.uk|com|ca)/i);
+			const country = m ? (TLD_COUNTRY[m[1].toLowerCase()] || '') : '';
+			links[id] = {
+				url: targetUrl,
+				merchant: 'amazon',
+				country,
+				tag: u.searchParams.get('tag') || '',
+			};
+			urlToId.set(targetUrl, id);
+		} catch {
+			return null;
+		}
+	}
+	return id;
 }
 
 function targetAmazonForLoc(oldId, loc) {
@@ -79,12 +113,11 @@ function targetAmazonForLoc(oldId, loc) {
 	return retargetAmazonUrl(entry.url, loc);
 }
 
-/** Ne retourne un id que s'il existe déjà dans la table (append-only). */
 function goIdForLoc(oldId, loc) {
 	const target = targetAmazonForLoc(oldId, loc);
 	if (!target) return null;
 	const existing = urlToId.get(target);
-	return existing && links[existing] ? existing : null;
+	return existing && links[existing] ? existing : ensureGoId(target);
 }
 
 function walkHtml(dir, acc = []) {
@@ -99,20 +132,28 @@ function walkHtml(dir, acc = []) {
 }
 
 function patchFile(file, loc) {
-	const cfg = LOCS[loc];
 	let html = fs.readFileSync(file, 'utf8');
 	const before = html;
 
 	html = html.replace(
 		/href=(["'])(\/go\/(az-(?:gb|ca|us|fr|de|it|es|nl|be)-[\w-]+)\/?)\1/gi,
 		(full, q, hrefPath, oldId) => {
+			const cfg = LOCS[loc];
 			const cur = oldId.match(/^az-(\w+)/)?.[1];
 			if (cur === cfg.cc) return full;
 			const newId = goIdForLoc(oldId, loc);
 			if (newId) return `href=${q}/go/${newId}/${q}`;
-			const target = targetAmazonForLoc(oldId, loc);
+			return full;
+		},
+	);
+
+	html = html.replace(
+		/href=(["'])(https?:\/\/[^"']*amazon\.[^"']*)\1/gi,
+		(full, q, url) => {
+			const target = retargetAmazonUrl(url, loc);
 			if (!target) return full;
-			return `href=${q}${target}${q}`;
+			const id = ensureGoId(target);
+			return id ? `href=${q}/go/${id}/${q}` : full;
 		},
 	);
 
@@ -127,6 +168,7 @@ function patchFile(file, loc) {
 }
 
 let total = 0;
+let tableDirty = false;
 for (const loc of ['uk', 'ca']) {
 	const root = path.join(dist, loc);
 	const files = walkHtml(root);
@@ -136,6 +178,15 @@ for (const loc of ['uk', 'ca']) {
 		if (patchFile(f, loc)) n++;
 	}
 	console.log(`[retarget-go-uk-ca] ${loc}: ${files.length} html, ${n} patched`);
+}
+
+const beforeCount = raw.count ?? Object.keys(raw.links || raw).length;
+if (Object.keys(links).length !== beforeCount) tableDirty = true;
+if (tableDirty) {
+	raw.links = links;
+	raw.count = Object.keys(links).length;
+	raw.updated = new Date().toISOString();
+	fs.writeFileSync(TABLE_FILE, JSON.stringify(raw, null, 1) + '\n');
 }
 
 if (!total) console.warn('[retarget-go-uk-ca] aucun HTML sous dist/uk ou dist/ca');

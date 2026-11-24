@@ -25,9 +25,9 @@ mBot, Arduino-Autos und Raspberry Pi gehören später dazu, ab dem [Ratgeber fü
 | Kartenroboter (Matatalab Tale-Bot) | Karten in einer Reihe | Nein | Geschichten und Karten legen |
 | Alles mit Tablet oder Aufbau | Blöcke oder Kleinteile | Ja | Mit 4 nicht die erste Wahl |
 
-**Code & Go Robot Mouse** von Learning Resources ist ein Tastenroboter, den der Hersteller etwa ab 4 Jahren führt: Tasten auf dem Rücken, Labyrinthplatten, kein Tablet. Roboter im Stil des Bee-Bot leisten dasselbe auf einem Bodenraster. Das Alter auf der aktuellen Packung prüfen. [Bei Amazon.de suchen](https://www.amazon.de/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat00-21). Die Suche zeigt Treffer; das Modell vor dem Kauf vergleichen.
+**Code & Go Robot Mouse** von Learning Resources ist ein Tastenroboter, den der Hersteller etwa ab 4 Jahren führt: Tasten auf dem Rücken, Labyrinthplatten, kein Tablet. Roboter im Stil des Bee-Bot leisten dasselbe auf einem Bodenraster. Das Alter auf der aktuellen Packung prüfen. [Bei Amazon.de suchen](https://www.amazon.de/dp/B01A5YMCH4?tag=roboteducat00-21). Die Suche zeigt Treffer; das Modell vor dem Kauf vergleichen.
 
-**Matatalab Tale-Bot** bleibt ohne Bildschirm: Karten legen, der Roboter spielt die Folge ab. Mehr dazu auf unserer [Matatalab-Seite](/de/marke-matatalab/). [Bei Amazon.de suchen](https://www.amazon.de/s?k=Matatalab%20Tale-Bot&tag=roboteducat00-21).
+**Matatalab Tale-Bot** bleibt ohne Bildschirm: Karten legen, der Roboter spielt die Folge ab. Mehr dazu auf unserer [Matatalab-Seite](/de/marke-matatalab/). [Bei Amazon.de suchen](https://www.amazon.de/dp/B09LYTM5BC?tag=roboteducat00-21).
 
 **Botley 2.0** wird oft erst ab 5 Jahren geführt. Mit 4 nur, wenn das Kind Folgen schon ohne Frust schafft. Sonst der [Ratgeber für 5 Jahre](/de/lernroboter-5-jahre/).
 

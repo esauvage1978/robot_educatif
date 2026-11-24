@@ -190,4 +190,4 @@ if __name__ == "__main__":
 
 ## Amazon (partenaire)
 
-- [Algorithmique Python](https://www.amazon.fr/s?k=algorithmique+python+d%C3%A9butant&tag=manuso06-21)
+- Algorithmique Python

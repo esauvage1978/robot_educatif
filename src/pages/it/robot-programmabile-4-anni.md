@@ -25,9 +25,9 @@ mBot, auto Arduino e Raspberry Pi arrivano dopo, dal [guida per gli 8 anni](/it/
 | Robot a carte (Matatalab Tale-Bot) | Carte in fila | No | Storie e carte da disporre |
 | Qualsiasi cosa con tablet o viti | Blocchi o pezzi piccoli | Sì | Non è la scelta base a 4 anni |
 
-**Code & Go Robot Mouse** di Learning Resources è un robot a tasti che il produttore indica circa dai 4 anni: tasti sul dorso, piastre da labirinto, niente tablet. I robot in stile Bee-Bot fanno lo stesso lavoro su una griglia a terra. Controllate l'età sulla confezione attuale. [Cerca su Amazon.it](https://www.amazon.it/s?k=Learning%20Resources%20Code%20%26%20Go%20Robot%20Mouse&tag=roboteducat0f-21). È una ricerca: verificate il modello.
+**Code & Go Robot Mouse** di Learning Resources è un robot a tasti che il produttore indica circa dai 4 anni: tasti sul dorso, piastre da labirinto, niente tablet. I robot in stile Bee-Bot fanno lo stesso lavoro su una griglia a terra. Controllate l'età sulla confezione attuale. [Cerca su Amazon.it](https://www.amazon.it/dp/B01A5YMCH4?tag=roboteducat0f-21). È una ricerca: verificate il modello.
 
-**Tale-Bot** di Matatalab resta senza schermo: si mettono le carte in fila e il robot esegue. [Pagina Matatalab](/it/marchio-matatalab/). [Cerca su Amazon.it](https://www.amazon.it/s?k=Matatalab%20Tale-Bot&tag=roboteducat0f-21).
+**Tale-Bot** di Matatalab resta senza schermo: si mettono le carte in fila e il robot esegue. [Pagina Matatalab](/it/marchio-matatalab/). [Cerca su Amazon.it](https://www.amazon.it/dp/B09LYTM5BC?tag=roboteducat0f-21).
 
 **Botley 2.0** è spesso indicato dai 5 anni. A 4 anni ha senso solo se le sequenze corte riescono già senza frustrazione. Altrimenti la [guida per i 5 anni](/it/robot-programmabile-5-anni/).
 

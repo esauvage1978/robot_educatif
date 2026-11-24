@@ -66,4 +66,4 @@ def sauvegarder(chemin: Path, data):
 
 ## Amazon (partenaire)
 
-- [Python fichiers et données](https://www.amazon.fr/s?k=python+donn%C3%A9es+fichiers+livre&tag=manuso06-21)
+- Python fichiers et données

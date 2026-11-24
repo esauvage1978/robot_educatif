@@ -104,7 +104,7 @@ Los precios del material cambian a menudo: los presupuestos son **estimaciones q
 
 ## La base: una placa ESP32-C6
 
-Todos los proyectos usan la misma placa de control. La elección se explica en [qué placa ESP32 para domótica](/es/domotica/que-placa-esp32-domotica/). [Buscar ESP32-C6 DevKit en Amazon.es](https://www.amazon.es/s?k=ESP32-C6+DevKit&tag=roboteducat07-21) (enlace de afiliado).
+Todos los proyectos usan la misma placa de control. La elección se explica en [qué placa ESP32 para domótica](/es/domotica/que-placa-esp32-domotica/). [Buscar ESP32-C6 DevKit en Amazon.es](https://www.amazon.es/dp/B0CHKTWN7F?tag=roboteducat07-21) (enlace de afiliado).
 
 ## Tutoriales básicos
 

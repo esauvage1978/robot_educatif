@@ -176,12 +176,12 @@ Incrociate sezione 1 e tabella: un **bambino di 8 anni** con adulto disponibile 
 
 ## Link Amazon (ricerca affiliata)
 
-- [Robot educativo programmabile bambini](https://www.amazon.it/s?k=robot+educativo+programmabile+bambini&tag=roboteducat0f-21)
+- [Robot educativo programmabile bambini](https://www.amazon.it/dp/B01A5YMCH4?tag=roboteducat0f-21)
 - [mBot Makeblock](https://www.amazon.it/dp/B07XR98YYQ?tag=roboteducat0f-21)
 - [mBot2 Makeblock](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21)
-- [LEGO SPIKE Prime](https://www.amazon.it/s?k=LEGO+SPIKE+Prime&tag=roboteducat0f-21)
-- [LEGO SPIKE Essential](https://www.amazon.it/s?k=LEGO+SPIKE+Essential&tag=roboteducat0f-21)
-- [Kit robotica STEM adolescenti](https://www.amazon.it/s?k=kit+robotica+STEM+programmazione+ragazzi&tag=roboteducat0f-21) — **STEM**: scienze, tecnologia, ingegneria, matematica
+- [LEGO SPIKE Prime](https://www.amazon.it/dp/B07QN7ZJF9?tag=roboteducat0f-21)
+- [LEGO SPIKE Essential](https://www.amazon.it/dp/B09LMS9YXX?tag=roboteducat0f-21)
+- [Kit robotica STEM adolescenti](https://www.amazon.it/dp/B078Y9RYM2?tag=roboteducat0f-21) — **STEM**: scienze, tecnologia, ingegneria, matematica
 
 *Partner Amazon — commissione possibile sugli acquisti idonei, senza costi aggiuntivi per te.*
 

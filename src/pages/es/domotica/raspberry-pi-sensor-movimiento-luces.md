@@ -23,7 +23,7 @@ Guía del [hub domótica](/es/domotica/). Encender el pasillo o el trastero al p
 
 ## Material y cableado
 
-**HC-SR501** ([Amazon.es](https://www.amazon.es/s?k=HC-SR501&tag=roboteducat07-21)), alimentación 5 V, salida 3,3 V compatible con GPIO:
+**HC-SR501** ([Amazon.es](https://www.amazon.es/dp/B07TKF36YV?tag=roboteducat07-21)), alimentación 5 V, salida 3,3 V compatible con GPIO:
 
 <div class="tableau empile">
 <table>

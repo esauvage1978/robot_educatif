@@ -108,6 +108,6 @@ Zentrale fehlt noch? [Home Assistant Raspberry Pi 5](/de/smart-home/home-assista
 
 Mit etwas höherem Budget: Modelle mit **Auto-Entleerungsstation** — seltener manuelles Entleeren. Details: [Wischstationen](/de/smart-home/saugroboter-wischstation-selbstreinigung/), [Navigation](/de/smart-home/saugroboter-navigation-lidar-kamera-gyro/).
 
-Weitere Saugroboter [bei Amazon.de suchen](https://www.amazon.de/s?k=Saugroboter+LiDAR&tag=roboteducat00-21) (Werbelink).
+Weitere Saugroboter [bei Amazon.de suchen](https://www.amazon.de/dp/B0DT4FJJXM?tag=roboteducat00-21) (Werbelink).
 
 [Alle Smart-Home-Ratgeber](/de/smart-home/)

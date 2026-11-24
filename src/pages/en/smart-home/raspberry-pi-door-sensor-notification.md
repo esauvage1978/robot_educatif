@@ -43,7 +43,7 @@ Know when the front door, shed or cupboard opens: a **two-wire reed switch** nee
 </table>
 </div>
 
-Reed (normally open, closes with magnet): [UK](https://www.amazon.com/s?k=door+contact+reed+switch&tag=roboteducatif-20) · [US](https://www.amazon.com/s?k=door+contact+reed+switch&tag=roboteducatif-20)
+Reed (normally open, closes with magnet): [UK](https://www.amazon.com/dp/B07YVL8SF9?tag=roboteducatif-20) · [US](https://www.amazon.com/dp/B07YVL8SF9?tag=roboteducatif-20)
 
 ## Wiring
 

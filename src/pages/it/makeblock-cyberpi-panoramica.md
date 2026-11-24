@@ -81,7 +81,7 @@ Il prezzo cambia secondo le offerte e i kit: consulta la tariffa attuale sulla s
 
 [Vedi la CyberPi Makeblock su Amazon.it](https://www.amazon.it/dp/B0BBZY9L59?tag=roboteducat0f-21)
 
-Preferisci un robot pronto da montare? La CyberPi è anche il “cervello” del mBot2: [kit mBot2 / CyberPi su Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21) · [tutte le offerte mBot2](https://www.amazon.it/s?k=Makeblock+mBot2&tag=roboteducat0f-21). Altri kit elettronici Makeblock: [ricerca su Amazon.it](https://www.amazon.it/s?k=kit+elettronico+Makeblock+programmabile&tag=roboteducat0f-21).
+Preferisci un robot pronto da montare? La CyberPi è anche il “cervello” del mBot2: [kit mBot2 / CyberPi su Amazon.it](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21) · [tutte le offerte mBot2](https://www.amazon.it/dp/B0919F9CKS?tag=roboteducat0f-21). Altri kit elettronici Makeblock: [ricerca su Amazon.it](https://www.amazon.it/dp/B07KG4JHBH?tag=roboteducat0f-21).
 
 *Link di affiliazione: il sito riceve una piccola commissione se acquisti tramite questi link, senza costi aggiuntivi per te. Prima di ordinare, verifica se l’annuncio è la scheda CyberPi da sola oppure un kit che include già il robot mBot2.*
 

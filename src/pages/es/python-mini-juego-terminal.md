@@ -97,7 +97,7 @@ Más juegos de texto: [ahorcado](/programmation/pendu/), [batalla naval](/progra
 
 Libros de ejercicios (enlaces de afiliado — Amazon.es):
 
-- [Proyectos Python juegos](https://www.amazon.es/s?k=python+proyectos+juegos+libro&tag=roboteducat07-21)
-- [Aprender Python 3 con ejercicios](https://www.amazon.es/s?k=python+3+aprender+ejercicios+libro&tag=roboteducat07-21)
+- Proyectos Python juegos
+- Aprender Python 3 con ejercicios
 
 *Autor: Emmanuel Sauvage · actualizado el 31 de octubre de 2026.*

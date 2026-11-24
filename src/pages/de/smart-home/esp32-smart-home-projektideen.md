@@ -12,7 +12,7 @@ updated: "24. Oktober 2026"
 
 **ESP32 + ESPHome** macht aus einem WLAN-Mikrocontroller Sensoren, Relais oder Displays für Home Assistant. Zehn Projekte nach Schwierigkeit — **Materialpreise variieren**, vor dem Kauf vergleichen (Amazon.de, Reichelt, Berrybase …).
 
-Board-Tipp: **ESP32-C6 DevKit** — [Welche Platine?](/de/smart-home/welche-esp32-platine-smart-home/). [ESP32-C6 suchen](https://www.amazon.de/s?k=ESP32-C6+DevKit&tag=roboteducat00-21) (Werbelink).
+Board-Tipp: **ESP32-C6 DevKit** — [Welche Platine?](/de/smart-home/welche-esp32-platine-smart-home/). [ESP32-C6 suchen](https://www.amazon.de/dp/B0CHKTWN7F?tag=roboteducat00-21) (Werbelink).
 
 ## Einsteiger (1–2 h)
 

@@ -9,7 +9,7 @@ updated: "3. November 2026"
 
 Dieser Leitfaden gehört zum [Smart-Home-Hub](/de/smart-home/) und ergänzt [Bewegungsmelder + Licht](/de/smart-home/raspberry-pi-bewegungsmelder-beleuchtung/) sowie [CO₂-Sensor SCD41](/de/smart-home/raspberry-pi-co2-scd41-home-assistant/).
 
-Dauer ca. 45 Min., Einsteiger. Reed-Kontakte [bei Amazon.de](https://www.amazon.de/s?k=Reed+Kontakt+Tür&tag=roboteducat00-21) (Werbelink, Preis prüfen, Stand November 2026).
+Dauer ca. 45 Min., Einsteiger. Reed-Kontakte bei Amazon.de (Werbelink, Preis prüfen, Stand November 2026).
 
 ## Ziel
 

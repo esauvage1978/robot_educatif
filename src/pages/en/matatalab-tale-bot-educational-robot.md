@@ -96,14 +96,14 @@ We received the Tale-Bot Pro free of charge from Matatalab, with no conditions o
 
 The price varies over time and between sellers: check the price shown on the Amazon listing on the day you order. If you prefer to buy from the manufacturer, look at the official shop on the [Matatalab website](https://www.matatalab.com/) (the online shop is now called MatataStudio), which states a one-year limited warranty, detailed on our [Matatalab brand page](/en/matatalab-brand/).
 
-*[Affiliate disclosure: [See the Tale-Bot Pro on Amazon.com](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20). If you buy through these links, the site earns a small commission at no extra cost to you. Match the listing’s photos and name to the Tale-Bot **Pro** before ordering.]*
+*[Affiliate disclosure: [See the Tale-Bot Pro on Amazon.com](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20). If you buy through these links, the site earns a small commission at no extra cost to you. Match the listing’s photos and name to the Tale-Bot **Pro** before ordering.]*
 
 ## Two other screen-free robots to compare
 
 The Tale-Bot Pro is not the only robot that lets you code without a screen. Here are two other ideas, described in more detail in our guide to the [best coding robot for a 6-year-old](/en/best-robot-for-a-6-year-old/):
 
-- **Botley 2.0 (Learning Resources)**: controlled with an arrow remote, with no app or tablet. It can follow a black line and detect an obstacle, which introduces the idea of a condition (“if I meet an obstacle, then I turn”). It is aimed at children aged 5 and over. [See Botley 2.0 on Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20)
-- **Code & Go Robot Mouse (Learning Resources)**: a board game with a maze, walls, tunnels and challenge cards, where the mouse is programmed with the buttons on its back. It is an economical solution, and ideal for playing with several children. [See Code & Go Robot Mouse on Amazon.com](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20)
+- **Botley 2.0 (Learning Resources)**: controlled with an arrow remote, with no app or tablet. It can follow a black line and detect an obstacle, which introduces the idea of a condition (“if I meet an obstacle, then I turn”). It is aimed at children aged 5 and over. [See Botley 2.0 on Amazon.com](https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20)
+- **Code & Go Robot Mouse (Learning Resources)**: a board game with a maze, walls, tunnels and challenge cards, where the mouse is programmed with the buttons on its back. It is an economical solution, and ideal for playing with several children. [See Code & Go Robot Mouse on Amazon.com](https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20)
 
 Choose the Tale-Bot Pro if your child likes stories and characters, Botley if you want more logical challenges, and the Code & Go mouse if you are looking for a low-budget gift to share between siblings. When your child wants to program on a screen with coloured blocks, the [mBot](/en/mbot-my-first-educational-robot/) is a natural next step, at around 8 or 9.
 
@@ -131,6 +131,6 @@ The robot seemed well built for a 4-year-old’s use, but the costumes are fragi
 
 ### How much does the Tale-Bot Pro cost?
 
-The price changes between sellers and over time. Check it on the [Amazon.com product page for the Tale-Bot Pro](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20) or on the official shop before ordering.
+The price changes between sellers and over time. Check it on the [Amazon.com product page for the Tale-Bot Pro](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) or on the official shop before ordering.
 
 *Amazon Associates — a commission may be earned on eligible purchases, at no extra cost to you.*

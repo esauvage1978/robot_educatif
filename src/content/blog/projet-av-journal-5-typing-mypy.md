@@ -153,4 +153,4 @@ NAME: Final = "journal-stats"</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python typing](https://www.amazon.fr/s?k=python+type+hints+livre&tag=manuso06-21)
+- Python typing

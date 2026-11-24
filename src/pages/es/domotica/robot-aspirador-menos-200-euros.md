@@ -40,7 +40,7 @@ En Amazon.es: [Roborock Q7 M5](https://www.amazon.es/dp/B0DT4FJJXM?tag=roboteduc
 ✅ App Dreamehome en español  
 ❌ Stock variable en España  
 
-Compra orientativa: [Dreame D9 Max Gen 2 en Amazon.es](https://www.amazon.es/s?k=Dreame+D9+Max+Gen+2&tag=roboteducat07-21) — verifica el modelo exacto en la ficha.
+Compra orientativa: Dreame D9 Max Gen 2 en Amazon.es — verifica el modelo exacto en la ficha.
 
 ### 3. Xiaomi S40C
 
@@ -48,7 +48,7 @@ Compra orientativa: [Dreame D9 Max Gen 2 en Amazon.es](https://www.amazon.es/s?k
 ✅ El más barato con LiDAR en muchas campañas  
 ❌ Succión justa en moqueta gruesa  
 
-Compra orientativa: [Xiaomi S40C en Amazon.es](https://www.amazon.es/s?k=Xiaomi+S40C+robot&tag=roboteducat07-21).
+Compra orientativa: Xiaomi S40C en Amazon.es.
 
 ## Comparativa
 

@@ -47,7 +47,7 @@ updated: "24. Oktober 2026"
 </table>
 </div>
 
-Links: [Raspberry Pi 5 bei Amazon.de](https://www.amazon.de/s?k=Raspberry+Pi+5&tag=roboteducat00-21), [ZBDongle-E](https://www.amazon.de/dp/B0B6P22YJC?tag=roboteducat00-21) (Werbelinks).
+Links: [Raspberry Pi 5 bei Amazon.de](https://www.amazon.de/dp/B0CK3L9WD3?tag=roboteducat00-21), [ZBDongle-E](https://www.amazon.de/dp/B0B6P22YJC?tag=roboteducat00-21) (Werbelinks).
 
 Alternativ fertige Box: [Home Assistant Green vs. Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/).
 

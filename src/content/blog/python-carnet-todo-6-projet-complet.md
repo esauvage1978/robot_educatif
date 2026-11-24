@@ -65,4 +65,4 @@ N’oublie pas `import json` dans le fichier qui définit `charger_securise`.
 
 ## Amazon (partenaire)
 
-- [Python 3 — manuels et projets](https://www.amazon.fr/s?k=python+3+coffret+apprendre&tag=manuso06-21)
+- Python 3 — manuels et projets

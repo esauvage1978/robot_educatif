@@ -12,7 +12,7 @@ faqSchema:
 
 Some links on this page are affiliate links. The button opens Amazon so you can check today's price.
 
-At home, a screen-free robot is programmed with buttons, cards or an arrow remote. Four references we often compare are the Tale-Bot Pro (ASIN B0CZ6R182M) at around $130, listing marked 3 to 5 years ([Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20)); the Code & Go kit (ASIN B01A5YMCH4) at around $75, ages 4 and up ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20)); the Bee-Bot (ASIN B08BTJFYT3) at around $95 ([Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20)); and the Botley 2.0 (ASIN B083T58PKM) at around $110, ages 5 and up, described as screen-free on the listing ([Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20)). Prices move: the button opens today's listing.
+At home, a screen-free robot is programmed with buttons, cards or an arrow remote. Four references we often compare are the Tale-Bot Pro (ASIN B0CZ6R182M) at around $130, listing marked 3 to 5 years ([Check today's price on Amazon.](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20)); the Code & Go kit (ASIN B01A5YMCH4) at around $75, ages 4 and up ([Check today's price on Amazon.](https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20)); the Bee-Bot (ASIN B08BTJFYT3) at around $95 ([Check today's price on Amazon.](https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20)); and the Botley 2.0 (ASIN B083T58PKM) at around $110, ages 5 and up, described as screen-free on the listing ([Check today's price on Amazon.](https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20)). Prices move: the button opens today's listing.
 
 *Amazon affiliate: a commission is possible on an eligible purchase, at no extra cost. This choice follows the listings in the reading, not a workshop trial.*
 
@@ -22,10 +22,10 @@ These models share the same idea: the child sets a sequence of actions, the robo
 
 | Robot | How you program it | Age on the listing | Amazon.com price |
 | --- | --- | --- | --- |
-| Tale-Bot Pro (Matatalab), ASIN B0CZ6R182M. [Check today's price on Amazon.](https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20) | Buttons on the robot, no screen | 3 to 5 years | around $130 |
-| Code & Go, mouse kit, ASIN B01A5YMCH4. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) | Buttons on the mouse, a maze | 4 years and up | around $75 |
-| Bee-Bot (TTS), ASIN B08BTJFYT3. [Check today's price on Amazon.](https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20) | Arrows on its back, a grid on the floor | Not stated in the title | around $95 |
-| Botley 2.0, ASIN B083T58PKM. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20) | An arrow remote, no screen | 5 years and up | around $110 |
+| Tale-Bot Pro (Matatalab), ASIN B0CZ6R182M. [Check today's price on Amazon.](https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20) | Buttons on the robot, no screen | 3 to 5 years | around $130 |
+| Code & Go, mouse kit, ASIN B01A5YMCH4. [Check today's price on Amazon.](https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20) | Buttons on the mouse, a maze | 4 years and up | around $75 |
+| Bee-Bot (TTS), ASIN B08BTJFYT3. [Check today's price on Amazon.](https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20) | Arrows on its back, a grid on the floor | Not stated in the title | around $95 |
+| Botley 2.0, ASIN B083T58PKM. [Check today's price on Amazon.](https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20) | An arrow remote, no screen | 5 years and up | around $110 |
 
 Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neither price nor stock that morning: the links on this page open the available listing, B0CZ6R182M.
 
@@ -82,7 +82,7 @@ Listing B0CZ6R182M says 3 to 5 years. The commands are on the robot, with no scr
 
 ### Code & Go, for a button maze
 
-Kit B01A5YMCH4 is marked 4 years and up. The mouse remembers the presses on its back, then it crosses the board. The walls clip on: there are pieces to put away, or the next session starts with a search for them. The mouse alone (B01B14XK00) is typically around $45. [Check today's price on Amazon.](https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20) Its listing also says 4 years and up. It does not include the kit's maze: the course is then drawn on the floor.
+Kit B01A5YMCH4 is marked 4 years and up. The mouse remembers the presses on its back, then it crosses the board. The walls clip on: there are pieces to put away, or the next session starts with a search for them. The mouse alone (B01B14XK00) is typically around $45. [Check today's price on Amazon.](https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20) Its listing also says 4 years and up. It does not include the kit's maze: the course is then drawn on the floor.
 
 ![Code & Go mouse on a maze you assemble](/images/products/code-and-go-souris.webp)
 
@@ -120,7 +120,7 @@ Around 7, many children read a simple instruction and last twenty to thirty minu
 
 None of these four robots needs an account, a Bluetooth pairing or an update to play the first time. The sequence is in the room: you see it, you say it, you change a press or a card. It is the same breakdown as later in Scratch ("first this, then that"), on another medium. If the session starts only once the tablet is on, the robot no longer answers the original request.
 
-The mBot (ASIN B07XR98YYQ, around $95, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20)) and Codey Rocky (ASIN B07CGH8NZ7, around $165, listing 6 years and up, Scratch and Python, [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20)) are not in this choice: they are programmed on a screen, in mBlock. They become relevant when reading and the computer are already accepted. The comparison is in [a programmable robot with Scratch](/en/scratch-programmable-robot/) and getting started is in [mBot, a first robot](/en/mbot-my-first-educational-robot/).
+The mBot (ASIN B07XR98YYQ, around $95, [Check today's price on Amazon.](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20)) and Codey Rocky (ASIN B07CGH8NZ7, around $165, listing 6 years and up, Scratch and Python, [Check today's price on Amazon.](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20)) are not in this choice: they are programmed on a screen, in mBlock. They become relevant when reading and the computer are already accepted. The comparison is in [a programmable robot with Scratch](/en/scratch-programmable-robot/) and getting started is in [mBot, a first robot](/en/mbot-my-first-educational-robot/).
 
 ## Before you buy
 

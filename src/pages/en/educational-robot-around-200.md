@@ -34,7 +34,7 @@ The kind of learning changes the right box. A playful kit has to succeed quickly
 
 ![Makeblock mBot Ranger, a 3-in-1 educational robot](/images/blog/robots-educatif-200-euros-2026/makeblock-mbot-ranger.jpg)
 
-The mBot Ranger (ASIN B07KG4JHBH) is **around $150** on Amazon.com.m. On 6 November the same listing was around $210. It is no longer in the middle of the "around $200" band. [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20mBot%20Ranger&tag=roboteducatif-20)
+The mBot Ranger (ASIN B07KG4JHBH) is **around $150** on Amazon.com.m. On 6 November the same listing was around $210. It is no longer in the middle of the "around $200" band. [Check today's price on Amazon.](https://www.amazon.com/dp/B07KG4JHBH?tag=roboteducatif-20)
 
 Makeblock aims it at a child of about 8 to 14. A realistic start is closer to 8 or 9, with an adult for the first build, the batteries or the battery pack depending on the version, mBlock or the app, and Bluetooth.
 
@@ -44,7 +44,7 @@ It is the most versatile choice on this page: it drives and it can be rebuilt. O
 
 ## Under $200: do not present them as the core of this page
 
-The mBot2 and Codey Rocky appear in the catalog comparison because their price is dated, not because they cost around $200. The mBot2 (ASIN B0919F9CKS) is **around $140** on Amazon.com. [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20) Codey Rocky (ASIN B07CGH8NZ7) is **around $125** the same day. [Check today's price on Amazon.](https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20) On 6 November those listings were around $185 and around $165. The first is aimed more at 10 to 14, with Python and Wi-Fi. The second is more compact and more playful, often from 6. The detail of the choice between the two best-known Makeblock chassis is in [mBot or mBot2](/en/mbot-vs-mbot2/).
+The mBot2 and Codey Rocky appear in the catalog comparison because their price is dated, not because they cost around $200. The mBot2 (ASIN B0919F9CKS) is **around $140** on Amazon.com. [Check today's price on Amazon.](https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20) Codey Rocky (ASIN B07CGH8NZ7) is **around $125** the same day. [Check today's price on Amazon.](https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20) On 6 November those listings were around $185 and around $165. The first is aimed more at 10 to 14, with Python and Wi-Fi. The second is more compact and more playful, often from 6. The detail of the choice between the two best-known Makeblock chassis is in [mBot or mBot2](/en/mbot-vs-mbot2/).
 
 ## Ozobot Evo: playful, price not in the reading
 

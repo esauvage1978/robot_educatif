@@ -78,4 +78,4 @@ Les **id** des tâches restantes ne sont **pas** réutilisés (plus simple) ; `p
 
 ## Amazon (partenaire)
 
-- [Bonnes pratiques Python](https://www.amazon.fr/s?k=clean+code+python+livre&tag=manuso06-21)
+- Bonnes pratiques Python

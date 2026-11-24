@@ -8,6 +8,7 @@ import {
 } from '../../../../data/unifiedErrorCatalog.mjs';
 import { withBase } from '../../../../lib/siteUrl';
 import { resolveErrorCodeOgImage } from '../../../../lib/errorCodeOgImage';
+import { buildSearchAsinIndex, resolveSearchQuery } from '../../../../lib/amazonSearchResolve.mjs';
 
 export function getStaticPaths() {
 	return getAllCatalogEntries().map((entry) => ({
@@ -52,7 +53,10 @@ const related = getAllCatalogEntries()
 	.filter((e) => e.brand_slug === entry.brand_slug && e.slug !== entry.slug)
 	.slice(0, 5);
 const searchName = primary?.name || brand?.name || entry.error_code;
-const amazonHref = `https://www.amazon.com/s?k=${encodeURIComponent(searchName)}&tag=roboteducatif-20`;
+const amazonAsin = resolveSearchQuery(searchName, buildSearchAsinIndex());
+const amazonHref = amazonAsin
+	? `https://www.amazon.com/dp/${encodeURIComponent(amazonAsin)}?tag=roboteducatif-20`
+	: '';
 const mains = entry.category_slug === 'micromodules-relais';
 const hub = '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-shelly/';
 ---
@@ -121,10 +125,19 @@ const hub = '/en/smart-home/error-codes-troubleshooting-zigbee-home-assistant-sh
 	<p>
 		Some links on this page are affiliate links. The button opens Amazon so you can check today’s price. We do not invent a local dollar or pound amount.
 	</p>
-	<p>
-		<a href={amazonHref} rel="sponsored nofollow noopener" target="_blank">Check today’s price on Amazon</a>
-		{' '}for {productLabel}. The same steps are on the <a href={withBase(`/domotique/code-erreur/${entry.slug}/`)}>French page</a>, which also carries the longer notes for a few codes.
-	</p>
+	{amazonHref ? (
+		<p>
+			<a href={amazonHref} rel="sponsored nofollow noopener" target="_blank">Check today’s price on Amazon</a>
+			{' '}for {productLabel}. The same steps are on the{' '}
+			<a href={withBase(`/domotique/code-erreur/${entry.slug}/`)}>French page</a>, which also carries the longer
+			notes for a few codes.
+		</p>
+	) : (
+		<p>
+			The same steps are on the <a href={withBase(`/domotique/code-erreur/${entry.slug}/`)}>French page</a>, which
+			also carries the longer notes for a few codes.
+		</p>
+	)}
 
 	{related.length > 0 && (
 		<>

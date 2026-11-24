@@ -94,10 +94,10 @@ Sie brauchen ein Gehirn: die Zentrale [Home Assistant Green](/de/smart-home/home
 
 Der SONOFF ZBDongle-E ist ein USB-Koordinator, der mit ZHA oder Zigbee2MQTT arbeitet und eine externe Antenne hat. Der SONOFF SNZB-02D misst Temperatur und Luftfeuchtigkeit, hat ein kleines Display und läuft mit Batterie. Die TP-Link Tapo P110 ist eine WLAN-Steckdose, die den Verbrauch misst und anfangs ohne Zentrale genutzt werden kann. Suchlinks bei Amazon.de, um den aktuellen Preis und das Modell zu prüfen:
 
-- [Home Assistant Green](https://www.amazon.de/s?k=Home+Assistant+Green&tag=roboteducat00-21)
-- [SONOFF ZBDongle-E](https://www.amazon.de/s?k=SONOFF+ZBDongle-E&tag=roboteducat00-21)
-- [SONOFF SNZB-02D](https://www.amazon.de/s?k=SONOFF+SNZB-02D&tag=roboteducat00-21)
-- [TP-Link Tapo P110](https://www.amazon.de/s?k=TP-Link+Tapo+P110&tag=roboteducat00-21)
+- [Home Assistant Green](https://www.amazon.de/dp/B0CXVKSG19?tag=roboteducat00-21)
+- [SONOFF ZBDongle-E](https://www.amazon.de/dp/B0B6P22YJC?tag=roboteducat00-21)
+- [SONOFF SNZB-02D](https://www.amazon.de/dp/B0BYZP8NK2?tag=roboteducat00-21)
+- [TP-Link Tapo P110](https://www.amazon.de/dp/B0CDCLMC6W?tag=roboteducat00-21)
 
 ### Mit Homey
 

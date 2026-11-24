@@ -294,4 +294,4 @@ def is_str_list(x: list[object]) -> TypeGuard[list[str]]:
 
 ## Amazon (partenaire)
 
-- [Python typage statique](https://www.amazon.fr/s?k=python+type+hints+livre&tag=manuso06-21)
+- Python typage statique

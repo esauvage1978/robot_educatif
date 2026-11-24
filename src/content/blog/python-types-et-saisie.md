@@ -338,4 +338,4 @@ La [leçon 4](/python-conditions-if-else/) utilise ces conversions pour **tester
 
 ## Amazon (partenaire)
 
-- [Exercices et problèmes Python](https://www.amazon.fr/s?k=exercices+python+livre&tag=manuso06-21)
+- Exercices et problèmes Python

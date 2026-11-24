@@ -143,4 +143,4 @@ agenda = "agenda_cli.cli:main"</code></pre>
 
 ## Amazon (partenaire)
 
-- [Python bonnes pratiques](https://www.amazon.fr/s?k=python+bonnes+pratiques+livre&tag=manuso06-21)
+- Python bonnes pratiques

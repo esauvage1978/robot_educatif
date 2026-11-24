@@ -27,11 +27,11 @@ La caja es el principio. Sensores, una alimentación en condiciones y un curso s
 | Ordenador Linux | Raspberry Pi 5, más alimentación y almacenamiento | Python | El ordenador, cámaras, proyectos en casa |
 | Robot que ya ejecuta Python | mBot2 | Bloques y luego Python | Se mueve el fin de semana y después hay código de verdad |
 
-**ELEGOO Smart Robot Car Kit V4.0** encaja con la edad 13+ del fabricante. Arduino UNO, cámara, línea, obstáculo, manual, montaje de serie sin soldar. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Kits Arduino](/es/kit-robot-arduino-para-ninos/). [Buscar en Amazon.es](https://www.amazon.es/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat07-21).
+**ELEGOO Smart Robot Car Kit V4.0** encaja con la edad 13+ del fabricante. Arduino UNO, cámara, línea, obstáculo, manual, montaje de serie sin soldar. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Kits Arduino](/es/kit-robot-arduino-para-ninos/). [Buscar en Amazon.es](https://www.amazon.es/dp/B07474MMB5?tag=roboteducat07-21).
 
-**Raspberry Pi 5** es el ordenador. Compara generaciones en [Pi 3, 4 o 5](/es/raspberry-pi-3-vs-4-vs-5/). Hacen falta alimentación y microSD, si no, no arranca. Un chasis de robot es un segundo proyecto. [Buscar en Amazon.es](https://www.amazon.es/s?k=Raspberry%20Pi%205&tag=roboteducat07-21). Lee al vendedor: la búsqueda mezcla placas, kits y otros anuncios.
+**Raspberry Pi 5** es el ordenador. Compara generaciones en [Pi 3, 4 o 5](/es/raspberry-pi-3-vs-4-vs-5/). Hacen falta alimentación y microSD, si no, no arranca. Un chasis de robot es un segundo proyecto. [Buscar en Amazon.es](https://www.amazon.es/dp/B0CK3L9WD3?tag=roboteducat07-21). Lee al vendedor: la búsqueda mezcla placas, kits y otros anuncios.
 
-**mBot2** es el atajo si primero quiere un robot y solo después la cadena de herramientas. CyberPi, bloques y Python, Wi-Fi, pantalla a color. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [Buscar en Amazon.es](https://www.amazon.es/s?k=Makeblock%20mBot2&tag=roboteducat07-21).
+**mBot2** es el atajo si primero quiere un robot y solo después la cadena de herramientas. CyberPi, bloques y Python, Wi-Fi, pantalla a color. [mBot2](https://www.makeblock.com/pages/mbot2-coding-robot). [Buscar en Amazon.es](https://www.amazon.es/dp/B0919F9CKS?tag=roboteducat07-21).
 
 ## Decisión
 

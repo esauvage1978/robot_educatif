@@ -146,11 +146,6 @@ export function amazonListingUrl({ asin, query, market }) {
 	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
 	const q = (query || '').trim();
 	if (asin) return amazonDpUrl(asin, market);
-	if (market === 'us' || market === 'ca') {
-		const search = q || 'educational robot kit';
-		return `https://${cfg.host}/s?k=${encodeURIComponent(search)}&tag=${encodeURIComponent(cfg.tag)}`;
-	}
-	if (q) return `https://${cfg.host}/s?k=${encodeURIComponent(q)}&tag=${encodeURIComponent(cfg.tag)}`;
 	return `https://${cfg.host}/?tag=${encodeURIComponent(cfg.tag)}`;
 }
 

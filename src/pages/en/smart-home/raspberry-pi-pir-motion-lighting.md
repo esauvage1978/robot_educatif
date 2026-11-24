@@ -63,7 +63,7 @@ This project fits the [smart home hub](/en/smart-home/) alongside [door notifica
 </table>
 </div>
 
-HC-SR501 module: [Amazon.com search](https://www.amazon.com/s?k=HC-SR501&tag=roboteducatif-20) · [Amazon US search](https://www.amazon.com/s?k=HC-SR501&tag=roboteducatif-20)
+HC-SR501 module: [Amazon.com search](https://www.amazon.com/dp/B07TKF36YV?tag=roboteducatif-20) · [Amazon US search](https://www.amazon.com/dp/B07TKF36YV?tag=roboteducatif-20)
 
 The module runs on **5 V**; **OUT is 3.3 V** — safe on Pi GPIO without a level shifter.
 

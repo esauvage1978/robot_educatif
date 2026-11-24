@@ -31,9 +31,9 @@ Wir haben nicht jedes Angebot für diese Seite nachgetestet. Die Sensorlisten fo
 
 **mBot2** mit CyberPi: Blöcke, Python, WLAN, Farbdisplay, Akku laut Makeblock etwa fünf Stunden. [mBot2 beim Hersteller](https://www.makeblock.com/pages/mbot2-coding-robot). [mBot vs mBot2](/de/mbot-vs-mbot2/). Produktseite, die diese Website bereits nutzt: [Amazon.de](https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21). CyberPi muss in der Packung sein.
 
-**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, Kamera, Linie, Hindernis, im Serienaufbau ohne Löten. ELEGOO: 13+. Mit 12 die Verdrahtung beaufsichtigen. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Arduino-Bausatz wählen](/de/arduino-roboter-bausatz-fuer-kinder/). [Bei Amazon.de suchen](https://www.amazon.de/s?k=ELEGOO%20Smart%20Robot%20Car%20Kit%20V4.0&tag=roboteducat00-21).
+**ELEGOO Smart Robot Car Kit V4.0**: UNO R3, Kamera, Linie, Hindernis, im Serienaufbau ohne Löten. ELEGOO: 13+. Mit 12 die Verdrahtung beaufsichtigen. [ELEGOO V4.0](https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0). [Arduino-Bausatz wählen](/de/arduino-roboter-bausatz-fuer-kinder/). [Bei Amazon.de suchen](https://www.amazon.de/dp/B07474MMB5?tag=roboteducat00-21).
 
-**Raspberry Pi 5** ist der Computer. Die Platine allein treibt keine Motoren. Den RAM nach der Nutzung wählen, nicht nach dem Wort Roboter: [welcher RAM](/de/raspberry-pi-5-welcher-ram/) und [Pi 3, 4 oder 5](/de/raspberry-pi-3-vs-4-vs-5/). [Bei Amazon.de suchen](https://www.amazon.de/s?k=Raspberry%20Pi%205&tag=roboteducat00-21). Treffer mischen offizielle Boards, Kits und andere Anbieter. Den Verkäufer lesen.
+**Raspberry Pi 5** ist der Computer. Die Platine allein treibt keine Motoren. Den RAM nach der Nutzung wählen, nicht nach dem Wort Roboter: [welcher RAM](/de/raspberry-pi-5-welcher-ram/) und [Pi 3, 4 oder 5](/de/raspberry-pi-3-vs-4-vs-5/). [Bei Amazon.de suchen](https://www.amazon.de/dp/B0CK3L9WD3?tag=roboteducat00-21). Treffer mischen offizielle Boards, Kits und andere Anbieter. Den Verkäufer lesen.
 
 Wer bei Blöcken bleibt und nicht bauen will, ist mit dem [Ratgeber für 10 Jahre](/de/lernroboter-10-jahre/) und mit Codey Rocky noch richtig bedient.
 

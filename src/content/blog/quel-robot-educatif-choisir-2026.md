@@ -86,7 +86,7 @@ Les présentations détaillées : [mBot](/mbot-mon-premier-robot-educatif/), [mB
 
 SPIKE Essential est l’entrée la plus douce de la gamme : hub plus simple, public souvent autour de 6 à 9 ans, pour une famille qui veut des briques avant un set plus chargé. SPIKE Prime vise plutôt à partir d’environ 10 ans, avec un hub à six ports, des moteurs et des capteurs utilisés en First LEGO League, des blocs Word Blocks (Scratch 3) et Python. Le Mindstorms Robot Inventor (51515) est un set grand public très complet, mais LEGO ne le vend plus neuf : il ne reste intéressant qu’en occasion, avec une documentation qui ne sera plus mise à jour.
 
-Aucun de ces sets n’est dans le relevé Amazon.fr du 9 novembre 2026. Consulter le prix du jour sur [LEGO SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21) et [LEGO SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21), et vérifier que la fiche est bien le set, pas une recherche d’accessoires. La comparaison avec Makeblock est dans [mBot ou LEGO](/mbot-vs-lego-robot-lequel-est-le-meilleur/).
+Aucun de ces sets n’est dans le relevé Amazon.fr du 9 novembre 2026. Consulter le prix du jour sur [LEGO SPIKE Essential](https://www.amazon.fr/dp/B09LMS9YXX?tag=manuso06-21) et [LEGO SPIKE Prime](https://www.amazon.fr/dp/B07QN7ZJF9?tag=manuso06-21), et vérifier que la fiche est bien le set, pas une recherche d’accessoires. La comparaison avec Makeblock est dans [mBot ou LEGO](/mbot-vs-lego-robot-lequel-est-le-meilleur/).
 
 ### Cartes et kits ouverts
 
@@ -137,6 +137,6 @@ Un premier robot trop ambitieux reste souvent dans le placard : un kit moins che
 
 Les repères généraux, sans classement artificiel, sont dans [meilleur robot programmable 2026](/meilleur-robot-programmable-enfant-2026/). Les guides par âge : [5 ans](/quel-robot-acheter-enfant-5-ans-guide-achat/), [8 ans](/quel-robot-acheter-enfant-8-ans-guide-achat/), [10 ans](/quel-robot-acheter-enfant-10-ans-guide-achat/), [12 ans](/quel-robot-acheter-enfant-12-ans-guide-achat/). L’avis ciblé : [faut-il acheter le mBot ?](/mbot-avis-faut-il-acheter-pour-un-enfant/).
 
-Les fiches du relevé : [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) (89,99 €), [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) (167,95 €), [Codey Rocky](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21) (149,99 €). Pour LEGO, les recherches au nom du set : [SPIKE Prime](https://www.amazon.fr/s?k=LEGO+SPIKE+Prime&tag=manuso06-21) et [SPIKE Essential](https://www.amazon.fr/s?k=LEGO+SPIKE+Essential&tag=manuso06-21). Partenaire Amazon : une commission est possible sur un achat éligible, sans surcoût.
+Les fiches du relevé : [mBot](https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21) (89,99 €), [mBot2](https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21) (167,95 €), [Codey Rocky](https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21) (149,99 €). Pour LEGO, les recherches au nom du set : [SPIKE Prime](https://www.amazon.fr/dp/B07QN7ZJF9?tag=manuso06-21) et [SPIKE Essential](https://www.amazon.fr/dp/B09LMS9YXX?tag=manuso06-21). Partenaire Amazon : une commission est possible sur un achat éligible, sans surcoût.
 
 En 2026, le bon robot est celui qui sera rallumé souvent. Le profil du tableau, puis le prix daté de la fiche, tranchent mieux qu’une note de marque.

@@ -156,4 +156,4 @@ except ValueError as e:
 
 ## Amazon (partenaire)
 
-- [Python ligne de commande](https://www.amazon.fr/s?k=python+cli+livre&tag=manuso06-21)
+- Python ligne de commande

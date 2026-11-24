@@ -344,6 +344,6 @@ Lire et écrire des **fichiers texte** ([leçon 8](/python-fichiers-texte/)) per
 
 ## Ressources Python (partenaire)
 
-- [Apprendre Python — livres débutant](https://www.amazon.fr/s?k=apprendre+python+d%C3%A9butant+livre&tag=manuso06-21)
-- [Exercices et projets Python](https://www.amazon.fr/s?k=python+exercices+projets+livre&tag=manuso06-21)
+- Apprendre Python — livres débutant
+- Exercices et projets Python
 - [Structures de données Python](/go/az-fr-7228657cbb/)

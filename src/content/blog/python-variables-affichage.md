@@ -372,4 +372,4 @@ La [leçon 3](/python-types-et-saisie/) introduit les **types** (`int`, `float`,
 
 ## Amazon (partenaire)
 
-- [Initiation Python livre](https://www.amazon.fr/s?k=python+initiation+livre&tag=manuso06-21)
+- Initiation Python livre

@@ -330,4 +330,4 @@ def atomic_write(path: Path):
 
 ## Amazon (partenaire)
 
-- [Python concurrent programming](https://www.amazon.fr/s?k=python+concurrent+programming+livre&tag=manuso06-21)
+- Python concurrent programming

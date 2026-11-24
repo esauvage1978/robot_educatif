@@ -63,6 +63,6 @@ Offizielle Produktseite: [Homey Pro mini](https://homey.app/de-de/homey-pro-mini
 
 **Teil 2:** Matter auf Thread und Zigbee-Geräte koppeln, erste Flows.
 
-Weiter: [Smart Home Einstieg](/de/smart-home/einstieg/). Homey Pro mini [bei Amazon.de](https://www.amazon.de/s?k=Homey+Pro+mini&tag=roboteducat00-21) (Werbelink, Verfügbarkeit prüfen).
+Weiter: [Smart Home Einstieg](/de/smart-home/einstieg/). Homey Pro mini [bei Amazon.de](https://www.amazon.de/dp/B0D9Y5Y9YQ?tag=roboteducat00-21) (Werbelink, Verfügbarkeit prüfen).
 
 [Alle Smart-Home-Ratgeber](/de/smart-home/)

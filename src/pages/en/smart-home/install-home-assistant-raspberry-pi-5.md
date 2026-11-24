@@ -17,7 +17,7 @@ Hardware choice: [Home Assistant Green vs Raspberry Pi 5](/en/smart-home/home-as
 - **Official 27 W USB-C PSU** (under-power causes random freezes)  
 - **microSD (32–64 GB, quality brand)** or **NVMe + Pi 5 M.2 HAT** for faster, longer-lived storage  
 - **Ethernet cable** (preferred over Wi-Fi for the hub—especially with Zigbee on 2.4 GHz)  
-- Optional: **Zigbee USB coordinator**—[best Zigbee dongle](/en/smart-home/best-zigbee-dongle-home-assistant/) (e.g. [SONOFF ZBDongle-E on Amazon.com](https://www.amazon.com/s?k=SONOFF%20ZBDongle-E&tag=roboteducatif-20))
+- Optional: **Zigbee USB coordinator**—[best Zigbee dongle](/en/smart-home/best-zigbee-dongle-home-assistant/) (e.g. [SONOFF ZBDongle-E on Amazon.com](https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20))
 
 ## 1. Flash Home Assistant OS
 

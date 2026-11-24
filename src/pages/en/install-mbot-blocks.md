@@ -129,8 +129,8 @@ Often not to add the device locally; sign-in may be required for cloud projects 
 
 | Product | Where to check |
 | --- | --- |
-| [Makeblock mBot](https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20) | Amazon.com (affiliate) |
-| [Makeblock mBot](https://www.amazon.com/s?k=Makeblock+mBot&tag=roboteducatif-20) | Amazon.com (affiliate) |
+| [Makeblock mBot](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) | Amazon.com (affiliate) |
+| [Makeblock mBot](https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20) | Amazon.com (affiliate) |
 
 Verify model (mBot vs mBot2) on the product page before ordering.
 

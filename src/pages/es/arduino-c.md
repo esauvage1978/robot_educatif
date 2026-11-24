@@ -51,7 +51,7 @@ Algunos enlaces de esta página son de afiliados. Si compras a través de ellos,
 
 Quieres aprender Arduino para hacer parpadear un LED, leer un sensor o pilotar un pequeño robot, pero muchos tutoriales saltan demasiado. Este recorrido gratuito te guía lección a lección: estructura del sketch, tipos de variables, condiciones, bucles y luego funciones. Cada página propone código para escribir, ejercicios y los errores más frecuentes.
 
-Recursos complementarios en [Amazon.es](https://www.amazon.es/s?k=arduino+aprender+c+programacion&tag=roboteducat07-21) (afiliado).
+Recursos complementarios en [Amazon.es](https://www.amazon.es/dp/B009UKZV0A?tag=roboteducat07-21) (afiliado).
 
 ## C estándar vs lenguaje Arduino — ¿cuál es la diferencia?
 

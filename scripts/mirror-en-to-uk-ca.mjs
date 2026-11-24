@@ -6,6 +6,13 @@
  */
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import {
+	buildSearchAsinIndex,
+	isGenericPythonBookQuery,
+	resolveSearchQuery,
+} from './lib/amazon-search-resolve.mjs';
+
+const SEARCH_INDEX = buildSearchAsinIndex();
 
 /**
  * Pages UK/CA déjà construites par Astro : ne pas les écraser par la copie anglaise.
@@ -116,8 +123,10 @@ function mirror(market) {
 			html = html.replace(/<a\b([^>]*?)>/gi, (full, attrs) => {
 				if (!/amazon\.co\.uk/i.test(attrs)) return full;
 				const q = /data-amazon-query="([^"]*)"/.exec(attrs);
-				if (!q) return full;
-				const href = `https://www.amazon.ca/s?k=${encodeURIComponent(q[1])}&tag=roboteducat03-20`;
+				if (!q || isGenericPythonBookQuery(q[1])) return full;
+				const asin = resolveSearchQuery(q[1], SEARCH_INDEX);
+				if (!asin) return full;
+				const href = `https://www.amazon.ca/dp/${encodeURIComponent(asin)}?tag=roboteducat03-20`;
 				return `<a${attrs.replace(/href="[^"]*"/, `href="${href}"`)}>`;
 			});
 		}

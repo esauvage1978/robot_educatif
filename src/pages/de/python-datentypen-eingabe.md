@@ -314,4 +314,4 @@ print(f"{vorname} ist etwa {groesse} m groß")</code></pre>
 
 ## Amazon (Partner)
 
-- [Übungen und Aufgaben Python](https://www.amazon.de/s?k=python+%C3%BCbungen+buch&tag=roboteducat00-21) — aktuellen Preis auf der Angebotsseite prüfen.
+- Übungen und Aufgaben Python — aktuellen Preis auf der Angebotsseite prüfen.
