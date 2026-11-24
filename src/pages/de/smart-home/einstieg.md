@@ -14,7 +14,6 @@ Einige Links sind Partnerlinks (`/go/`).
 <li><a href="#funk">Funkstandards</a></li>
 <li><a href="#elektro">Elektrik DE/AT/CH</a></li>
 <li><a href="#weg">Schritt für Schritt</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

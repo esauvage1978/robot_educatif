@@ -34,7 +34,6 @@ faqSchema:
 <li><a href="#automations">Ten automations</a></li>
 <li><a href="#yaml">YAML example</a></li>
 <li><a href="#tips">Practical tips</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -47,7 +46,7 @@ This page gives you ten simple ideas. For each one, you will know what it is for
 - [First smart home devices to buy](/en/smart-home/first-smart-home-devices-to-buy/)
 - [Smart home glossary](/en/smart-home/smart-home-glossary/)
 - [Homey Pro mini: unboxing and setup](/en/smart-home/homey-pro-mini-unboxing-setup/)
-- [Install Home Assistant on a Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/) — hardware: [Pi 5 which RAM](/en/raspberry-pi-5-which-ram/) · <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%20(4GB)&tag=roboteducatif-20" rel="sponsored nofollow noopener">Pi 5 4GB (UK)</a>
+- [Install Home Assistant on a Raspberry Pi 5](/en/smart-home/install-home-assistant-raspberry-pi-5/) — hardware: [Pi 5 which RAM](/en/raspberry-pi-5-which-ram/) · <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Pi 5 4GB (UK)</a>
 - [ESP32 project ideas](/en/smart-home/esp32-smart-home-project-ideas/) for DIY sensors
 
 <h2 id="principle">The principle, in three words</h2>

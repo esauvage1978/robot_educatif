@@ -38,7 +38,7 @@ faqSchema:
 </tr><tr>
 <td data-label="Produkt"><span class="td-val"><strong>Makeblock mBot2 Rover</strong></span></td>
 <td data-label="Richtpreis (Nov. 2026)"><span class="td-val" data-amazon-price="1">Tagespreis ansehen</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/s?k=Makeblock%20mBot2%20Rover&amp;tag=roboteducat00-21" data-amazon-query="Makeblock mBot2 Rover" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Preis prüfen →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Preis prüfen →</a></span></td>
 </tr><tr>
 <td data-label="Produkt"><span class="td-val"><strong>Makeblock mBot Ranger</strong></span></td>
 <td data-label="Richtpreis (Nov. 2026)"><span class="td-val">~159–189 €</span></td>
@@ -46,11 +46,11 @@ faqSchema:
 </tr><tr>
 <td data-label="Produkt"><span class="td-val"><strong>Sphero BOLT / Mini</strong></span></td>
 <td data-label="Richtpreis (Nov. 2026)"><span class="td-val">~49–149 €</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/s?k=Sphero+BOLT+Mini&amp;tag=roboteducat00-21" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Preis prüfen →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/dp/B08FJ7G1TG?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Preis prüfen →</a></span></td>
 </tr><tr>
 <td data-label="Produkt"><span class="td-val"><strong>LEGO Education STEM kit</strong></span></td>
 <td data-label="Richtpreis (Nov. 2026)"><span class="td-val">~200–350 €</span></td>
-<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/s?k=LEGO+Education+STEM+robot&amp;tag=roboteducat00-21" class="btn btn-action btn-sm" rel="nofollow sponsored noopener" target="_blank">Preis prüfen →</a></span></td>
+<td data-label="Amazon"><span class="td-val"><a href="https://www.amazon.de/dp/B07CGH8NZ7?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Preis prüfen →</a></span></td>
 </tr><tr>
 <td data-label="Produkt"><span class="td-val"><strong>BBC micro:bit V2 Go</strong></span></td>
 <td data-label="Richtpreis (Nov. 2026)"><span class="td-val">~25–35 €</span></td>

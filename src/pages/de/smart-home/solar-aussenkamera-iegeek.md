@@ -75,9 +75,9 @@ Alle laut Fiche **IP65**, Gegensprechen, Sirene, Scheinwerfer; Cloud optional.
 
 <p><strong>Kaufen (November 2026, Werbelinks):</strong>
 <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 auf ieGeek.com</a> ·
-<a href="https://www.amazon.de/s?k=ieGeek+Solar+Au%C3%9Fenkamera&tag=roboteducat00-21" target="_blank" rel="noopener nofollow sponsored">ieGeek auf Amazon.de</a> ·
-<a href="https://www.amazon.de/s?k=ieGeek+ZY-C2&tag=roboteducat00-21" target="_blank" rel="noopener nofollow sponsored">ZY-C2 suchen</a> ·
-<a href="https://www.amazon.de/s?k=ieGeek+4G+ZY-G4&tag=roboteducat00-21" target="_blank" rel="noopener nofollow sponsored">ZY-G4 4G</a>
+ieGeek auf Amazon.de ·
+ZY-C2 suchen ·
+ZY-G4 4G
 </p>
 
 ## WLAN oder 4G

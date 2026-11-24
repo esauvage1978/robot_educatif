@@ -288,4 +288,4 @@ def is_str_list(x: list[object]) -> TypeGuard[list[str]]:
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+type+hints+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Python static typing)
+Check today's price on Amazon (Python static typing)

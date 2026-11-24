@@ -177,4 +177,4 @@ agenda add … / python -m agenda_cli …
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+practical+projects+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+Check today's price on Amazon

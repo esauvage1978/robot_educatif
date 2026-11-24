@@ -39,7 +39,7 @@ Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neithe
     <p class="noel26-desc">The commands are on the robot: no tablet to start a sequence. The cards are there to tell the story of the path.</p>
     <p class="noel26-price">around $130 on 9 November 2026</p>
     <div class="noel26-btns">
-      <a href="https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
+      <a href="https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon.</a>
     </div>
   </article>
   <article class="noel26-card">
@@ -48,7 +48,7 @@ Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neithe
     <p class="noel26-desc">A mouse with buttons and a board to assemble. The mouse alone, without the maze, is a different listing.</p>
     <p class="noel26-price">around $75 on 9 November 2026</p>
     <div class="noel26-btns">
-      <a href="https://www.amazon.com/s?k=Learning%20Resources%20Code%20Go%20Robot%20Mouse&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
+      <a href="https://www.amazon.com/dp/B01A5YMCH4?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon.</a>
     </div>
   </article>
   <article class="noel26-card">
@@ -57,7 +57,7 @@ Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neithe
     <p class="noel26-desc">A bee robot programmed by the arrows on its back. It moves one square at a time on a gridded mat.</p>
     <p class="noel26-price">around $95 on 9 November 2026</p>
     <div class="noel26-btns">
-      <a href="https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
+      <a href="https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon.</a>
     </div>
   </article>
   <article class="noel26-card">
@@ -66,7 +66,7 @@ Amazon.com snapshot.m. Another Tale-Bot Pro listing (ASIN B09LYTM5BC) had neithe
     <p class="noel26-desc">The listing describes it as screen-free: an arrow remote, obstacles and courses. Useful once the child can already hold a sequence of several steps.</p>
     <p class="noel26-price">Around $110 — check today's price</p>
     <div class="noel26-btns">
-      <a href="https://www.amazon.com/s?k=Learning%20Resources%20Botley%202.0&tag=roboteducatif-20" target="_blank" rel="nofollow sponsored noopener" class="noel26-btn noel26-btn--amz">Check today's price on Amazon.</a>
+      <a href="https://www.amazon.com/dp/B083T5G5ZK?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon.</a>
     </div>
   </article>
   </div>

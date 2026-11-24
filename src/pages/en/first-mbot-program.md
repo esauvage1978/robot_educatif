@@ -40,7 +40,6 @@ Some links on this page are affiliate links. Check today’s price on the shop p
 <li><a href="#upload">Test and upload</a></li>
 <li><a href="#next">Project file and next steps</a></li>
 <li><a href="#buy">Where to buy</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -129,7 +128,7 @@ Next, make the tune repeat while the button is held, or forever, with **repeat**
 
 <h2 id="buy">Where to buy an mBot (affiliate)</h2>
 
-- <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
+- <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot — Amazon.com</a>
 - <a href="/go/az-us-d15f4ee758/" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
 
 *Amazon partner — commission possible on qualifying purchases.*

@@ -38,7 +38,7 @@ Diese Markenseite gehört zu [unseren Marken](/de/marken/) und ergänzt [Makeblo
 <p>Preise prüfen vor Bestellung (November 2026):</p>
 <p>
 <a href="https://shop.matatastudio.com/products/tale-bot-pro" target="_blank" rel="noopener nofollow sponsored">Tale-Bot Pro — MatataStudio Shop</a> ·
-<a href="https://www.amazon.de/s?k=Matatalab+Tale-Bot+Pro&tag=roboteducat00-21" target="_blank" rel="noopener nofollow sponsored">Amazon.de suchen</a>
+<a href="https://www.amazon.de/dp/B09LYTM5BC?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Amazon.de suchen</a>
 </p>
 
 <h2 id="garantie">Garantie und Kundendienst</h2>

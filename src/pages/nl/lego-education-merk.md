@@ -43,7 +43,6 @@ faqSchema:
 <li><a href="#tabel">Kitvergelijking</a></li>
 <li><a href="#alternatieven">Alternatieven</a></li>
 <li><a href="#garantie">Garantie</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

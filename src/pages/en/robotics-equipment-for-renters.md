@@ -66,21 +66,21 @@ Figures are amazon.com prices on 8 November 2026, 18:27 Paris time. We did not a
 <th scope="col">Who it suits</th>
 </tr></thead><tbody>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20">Codey Rocky</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Codey Rocky</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Desk. About 10 cm on a side</span></td>
 <td data-label="Power"><span class="td-val">950 mAh battery included</span></td>
 <td data-label="Price"><span class="td-val">£100</span></td>
 <td data-label="Who it suits"><span class="td-val">A child, little floor</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20">mBot</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Floor, then a box</span></td>
 <td data-label="Power"><span class="td-val">4 AA cells not included, or an optional pack</span></td>
 <td data-label="Price"><span class="td-val">£53</span></td>
 <td data-label="Who it suits"><span class="td-val">A child, a clear metre</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20">mBot2</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">mBot2</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Floor. 9 × 18 × 13 cm</span></td>
 <td data-label="Power"><span class="td-val">2,500 mAh battery included</span></td>
 <td data-label="Price"><span class="td-val">Around £130 — check today's price</span></td>
@@ -94,14 +94,14 @@ Figures are amazon.com prices on 8 November 2026, 18:27 Paris time. We did not a
 <td data-label="Who it suits"><span class="td-val">Teen or adult, wiring</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20">Penguin Bot V2.0</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Penguin Bot V2.0</a></span></td>
 <td data-label="Where it lives"><span class="td-val">Desk</span></td>
 <td data-label="Power"><span class="td-val">USB</span></td>
-<td data-label="Price"><span class="td-val"><a href="https://www.amazon.com/s?k=ELEGOO%20Penguin%20Bot&tag=roboteducatif-20">See today's price</a></span></td>
+<td data-label="Price"><span class="td-val"><a href="https://www.amazon.com/dp/B07GVD6GQH?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">See today's price</a></span></td>
 <td data-label="Who it suits"><span class="td-val">A short stay, a small budget</span></td>
 </tr>
 <tr>
-<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20">CyberPi</a></span></td>
+<td data-label="Model"><span class="td-val"><a href="https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">CyberPi</a></span></td>
 <td data-label="Where it lives"><span class="td-val">A pocket. No chassis</span></td>
 <td data-label="Power"><span class="td-val">USB</span></td>
 <td data-label="Price"><span class="td-val">Around £45–50 — check today's price</span></td>

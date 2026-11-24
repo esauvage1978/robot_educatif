@@ -18,7 +18,6 @@ Partner links (`/go/`) may earn a commission at no extra cost. Check stock befor
 <li><a href="#buy">Where to buy</a></li>
 <li><a href="#zha">ZHA or Zigbee2MQTT</a></li>
 <li><a href="#tips">Set-up tips</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -94,8 +93,8 @@ All four dongles above work with both.
 
 | Model | UK | US |
 |---|---|---|
-| SONOFF ZBDongle-E | <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">Amazon.com</a> | <a href="/go/az-us-1d41f4ef62/" rel="sponsored nofollow noopener">Amazon.com</a> |
-| Home Assistant Green (hub + Zigbee path) | <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">Home Assistant hardware (UK)</a> | <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green search</a> |
+| SONOFF ZBDongle-E | <a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Amazon.com</a> | <a href="/go/az-us-1d41f4ef62/" rel="sponsored nofollow noopener">Amazon.com</a> |
+| Home Assistant Green (hub + Zigbee path) | <a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Home Assistant hardware (UK)</a> | <a href="/go/az-us-8ba6d0fd8d/" rel="sponsored nofollow noopener">Home Assistant Green search</a> |
 
 Official pages remain the reference for firmware: [SONOFF ZBDongle-E](https://sonoff.tech/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-e), [Home Assistant Connect ZBT-2](https://www.home-assistant.io/connect/zbt-2/).
 

@@ -37,7 +37,6 @@ faqSchema:
 <li><a href="#range">Range and interference</a></li>
 <li><a href="#usb-vs-bt">USB or Bluetooth?</a></li>
 <li><a href="#buy">Hardware links</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -140,9 +139,9 @@ Not sure which robot you own? Read [mBot vs mBot2](/en/mbot-vs-mbot2/) or [mBot 
 
 <h2 id="buy">Hardware links (affiliate)</h2>
 
-- <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot — Amazon.com</a>
-- <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener">Makeblock mBot2 — Amazon.com</a>
-- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener">Programmable educational robots — UK search</a>
+- <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot — Amazon.com</a>
+- <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 — Amazon.com</a>
+- <a href="https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Programmable educational robots — UK search</a>
 
 *Check today's price before ordering.*
 

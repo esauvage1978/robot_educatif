@@ -57,15 +57,14 @@ faqSchema:
 <div class="article-toc" role="navigation" aria-label="Sommaire de l’article">
 <p class="article-toc-title">Sommaire</p>
 <ul>
-<li><a href="#telechargement-officiel">1. Liens officiels vérifiés (Windows, Mac, Linux, Android/iPad)</a></li>
-<li><a href="#windows">2. Installer mBlock 5 sur PC Windows 10 et Windows 11</a></li>
-<li><a href="#pilote-ch340">3. Pilote USB mBot (CH340) : l'étape clé à ne pas fermer</a></li>
-<li><a href="#macos">4. Installation sur Mac (macOS), Linux et Chromebook</a></li>
-<li><a href="#sans-installation">5. Alternative sur navigateur (sans droits administrateur)</a></li>
-<li><a href="#apres-telechargement">6. Passer mBlock 5 en français et brancher le mBot</a></li>
-<li><a href="#equipement-noel">7. Avec quel robot utiliser mBlock 5 ? (Offres Amazon &amp; Cultura)</a></li>
-<li><a href="#depannage">8. Dépannage téléchargement et installation</a></li>
-<li><a href="#faq">9. FAQ Téléchargement mBlock 5</a></li>
+<li><a href="#telechargement-officiel">Liens officiels vérifiés (Windows, Mac, Linux, Android/iPad)</a></li>
+<li><a href="#windows">Installer mBlock 5 sur PC Windows 10 et Windows 11</a></li>
+<li><a href="#pilote-ch340">Pilote USB mBot (CH340) : l'étape clé à ne pas fermer</a></li>
+<li><a href="#macos">Installation sur Mac (macOS), Linux et Chromebook</a></li>
+<li><a href="#sans-installation">Alternative sur navigateur (sans droits administrateur)</a></li>
+<li><a href="#apres-telechargement">Passer mBlock 5 en français et brancher le mBot</a></li>
+<li><a href="#equipement-noel">Avec quel robot utiliser mBlock 5 ? (Offres Amazon &amp; Cultura)</a></li>
+<li><a href="#depannage">Dépannage téléchargement et installation</a></li>
 </ul>
 </div>
 

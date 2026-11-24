@@ -127,9 +127,9 @@ No: Scratch alone often works **6–12 months**; robots after loops/events — [
 
 ## Amazon links (affiliate)
 
-- <a href="https://www.amazon.com/s?k=programmable+educational+robot+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Programmable educational robots — Amazon.com</a>
-- <a href="https://www.amazon.com/s?k=Scratch+book+children+beginners&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Scratch books for beginners — Amazon.com</a>
-- <a href="https://www.amazon.com/s?k=coding+starter+kit+kids&tag=roboteducatif-20" rel="sponsored nofollow noopener" class="affiliate-link">Kids coding starter kits — Amazon.com</a>
+- <a href="https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Programmable educational robots — Amazon.com</a>
+- Scratch books for beginners — Amazon.com
+- <a href="https://www.amazon.com/dp/B0BB949JCP?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Kids coding starter kits — Amazon.com</a>
 
 *Amazon Associates — commission possible on eligible purchases. Check today’s price on the listing.*
 

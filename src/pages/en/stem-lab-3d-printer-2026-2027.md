@@ -71,7 +71,7 @@ For the technical detail (FCC P3C, X2D Pro, QIDI Smart 5), the reference file is
 
 4. **Technology watch only**: read the analysis [FCC leaks, Bambu P3C and QIDI Smart 5](https://scan3dlab.com/imprimantes-3d/fuites-fcc-bambu-lab-p3c-x2d-pro-qidi-smart-5/) — no sale date, but useful for a **course-planning project** (STI2D, the French engineering high-school track, and NSI, digital sciences).
 
-<p>Amazon landmarks for the printers named above (not mBot robots): Creality K1C <a href="https://www.amazon.com/s?k=Creality+K1C&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> · Bambu Lab A1 Combo <a href="https://www.amazon.com/s?k=Bambu+Lab+A1+Combo&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> · Anycubic Kobra 3 <a href="https://www.amazon.com/s?k=Anycubic+Kobra+3&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>.</p>
+<p>Amazon landmarks for the printers named above (not mBot robots): Creality K1C Check today's price on Amazon · Bambu Lab A1 Combo Check today's price on Amazon · Anycubic Kobra 3 Check today's price on Amazon.</p>
 
 ## SainSmart (CNC and maker electronics)
 

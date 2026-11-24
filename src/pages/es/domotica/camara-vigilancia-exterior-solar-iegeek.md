@@ -77,9 +77,9 @@ Comparativa de cuatro ieGeek según **fichas oficiales** (iegeek.com, 21/10/2026
 
 <p><strong>Comprar (noviembre 2026, enlaces patrocinados):</strong>
 <a href="https://www.iegeek.com/products/wireless-24-7-recording-camera-s7" target="_blank" rel="noopener nofollow sponsored">S7 en ieGeek.com</a> ·
-<a href="https://www.amazon.es/s?k=ieGeek+c%C3%A1mara+solar+exterior&tag=roboteducat07-21" target="_blank" rel="noopener nofollow sponsored">Buscar en Amazon.es</a> ·
-<a href="https://www.amazon.es/s?k=ieGeek+ZY-C2&tag=roboteducat07-21" target="_blank" rel="noopener nofollow sponsored">ZY-C2 en Amazon.es</a> ·
-<a href="https://www.amazon.es/s?k=ieGeek+4G+ZY-G4&tag=roboteducat07-21" target="_blank" rel="noopener nofollow sponsored">ZY-G4 4G en Amazon.es</a>
+Buscar en Amazon.es ·
+ZY-C2 en Amazon.es ·
+ZY-G4 4G en Amazon.es
 </p>
 
 ## Wi-Fi o 4G

@@ -121,9 +121,9 @@ Nutzen Sie diese Tabelle als **Filter**, nicht als absolute Regel:
     <a href="https://www.amazon.de/dp/B0919F9CKS?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Preis auf Amazon prüfen</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.de/s?k=LEGO+SPIKE+Essential&tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.de/dp/B09LMS9YXX?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">LEGO-Blöcke + Hub · sanfter Einstieg ~7–9 Jahre, wenn Budget reicht (Verfügbarkeit prüfen).</p>
-    <a href="https://www.amazon.de/s?k=LEGO+SPIKE+Essential&tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Bei Amazon suchen</a>
+    <a href="https://www.amazon.de/dp/B09LMS9YXX?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">Bei Amazon suchen</a>
   </div>
 </div>
 

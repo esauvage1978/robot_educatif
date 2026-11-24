@@ -297,4 +297,4 @@ asyncio.run(main())</code></pre>
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+asyncio+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Python asyncio)
+Check today's price on Amazon (Python asyncio)

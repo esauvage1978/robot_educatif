@@ -302,4 +302,4 @@ assert 0.1 + 0.2 == pytest.approx(0.3)</code></pre>
 
 Python software-testing books:
 
-<a href="https://www.amazon.com/s?k=python+software+testing+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+Check today's price on Amazon

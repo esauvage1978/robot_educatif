@@ -14,9 +14,9 @@ Some links on this page are affiliate links. The button opens Amazon so you can 
 
 This project runs across **six articles**. You will code **Battleship** you can play in the **terminal**, reusing what you saw in the [Python track](/programmation/python/): lists, loops, `input`, functions, and conditions. Once the game runs, you can move it onto a Makeblock mBot2 or a Raspberry Pi 5 to show the grid on a screen or drive LEDs.
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Makeblock mBot2)
 
-<a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%208GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5)
+<a href="https://www.amazon.com/dp/B0CK2FCG1K?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5)
 
 **Suggested level**: comfortable through the articles on [lists](/python-listes-et-chaines/) and, ideally, [files](/python-fichiers-texte/) (optional, for saving a game later).
 
@@ -190,4 +190,4 @@ if __name__ == "__main__":
 
 ## Amazon
 
-<a href="https://www.amazon.com/s?k=python+game+projects+book&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a>
+Check today's price on Amazon

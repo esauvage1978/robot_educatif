@@ -108,7 +108,7 @@ Klein, günstig, ein RISC-V-Kern — Sensor oder Relais. Weniger Pins als der kl
 - Flash: 4 MB für ESPHome; 8 MB+ und PSRAM für Kamera.
 - Dauerbetrieb: stabiles 5-V-USB-Netzteil (Schuko-Steckernetzteil in DE/AT).
 
-<p><strong>Kaufen (Werbelink):</strong> <a href="https://www.amazon.de/s?k=ESP32+DevKit&tag=roboteducat00-21" target="_blank" rel="noopener nofollow sponsored">ESP32 DevKit bei Amazon.de</a></p>
+<p><strong>Kaufen (Werbelink):</strong> <a href="https://www.amazon.de/dp/B0B3Z7Z24M?tag=roboteducat00-21" rel="sponsored nofollow noopener" target="_blank">ESP32 DevKit bei Amazon.de</a></p>
 
 Danach: [ESPHome-Temperatursensor](/de/smart-home/esp32-esphome-temperatursensor/), [Projektideen](/de/smart-home/esp32-smart-home-projektideen/). Hub-Vergleich: [Home Assistant Green vs Raspberry Pi 5](/de/smart-home/home-assistant-green-vs-raspberry-pi-5/).
 

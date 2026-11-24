@@ -15,7 +15,6 @@ Alcuni link sono di affiliazione (`/go/`): possono generare una commissione senz
 <li><a href="#zigbee">Zigbee</a></li>
 <li><a href="#zwave">Z-Wave</a></li>
 <li><a href="#thread">Thread e Matter</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

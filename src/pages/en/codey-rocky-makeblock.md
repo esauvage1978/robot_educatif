@@ -78,7 +78,7 @@ For **sending the program to the robot** (it then runs on its own), see also the
 
 ## Link to Amazon
 
-<a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky) — search the listing; check price and availability when you buy.
+<a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky) — search the listing; check price and availability when you buy.
 
 To compare with other Makeblock approaches, see [CyberPi](/en/makeblock-cyberpi-overview/), [mBot](/en/mbot-my-first-educational-robot/), or [mBot2](/en/mbot2-makeblock-what-it-teaches/).
 

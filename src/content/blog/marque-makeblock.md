@@ -66,7 +66,7 @@ relatedLinks:
 <p><strong>En bref</strong></p>
 <p>Makeblock est notre marque de référence pour un premier robot programmable sérieux à partir d’environ 8 ans, avec un peu d’aide adulte au début. Le mBot convient à un budget serré ; le mBot2 à un projet sur 2 à 3 ans avec Python. Pour un enfant qui veut avant tout construire avec des briques, voyez plutôt notre page <a href="/marque-lego/">LEGO</a>.</p>
 </aside>
-<p>Voir les produits : <a href="https://www.amazon.fr/s?k=mBot+Makeblock&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">mBot</a> · <a href="https://www.amazon.fr/s?k=mBot2+Makeblock&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">mBot2</a> · <a href="https://www.amazon.fr/s?k=Codey+Rocky+Makeblock&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">Codey Rocky</a> (liens affiliés Amazon).</p>
+<p>Voir les produits : <a href="https://www.amazon.fr/dp/B07XR98YYQ?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">mBot</a> · <a href="https://www.amazon.fr/dp/B0919F9CKS?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">mBot2</a> · <a href="https://www.amazon.fr/dp/B07CGH8NZ7?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Codey Rocky</a> (liens affiliés Amazon).</p>
 <h2 id="a-lire-aussi">À lire aussi</h2>
 <ul>
 <li><a href="/marque-lego/">LEGO : notre avis sur la marque</a></li>

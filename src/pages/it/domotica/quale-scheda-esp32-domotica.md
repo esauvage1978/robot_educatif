@@ -100,7 +100,7 @@ Il **C6** unisce **Wi‑Fi 6**, BLE 5 e radio **IEEE 802.15.4** (Thread e Zigbee
 - **Flash**: 4 MB bastano per ESPHome; 8 MB+ e PSRAM per telecamera.
 - **Alimentazione**: 5 V via USB; per uso fisso, alimentatore di qualità.
 
-<p><strong>Acquisto (link affiliato):</strong> <a href="https://www.amazon.it/s?k=ESP32+DevKit&tag=roboteducat0f-21" target="_blank" rel="noopener nofollow sponsored">DevKit ESP32 su Amazon.it</a></p>
+<p><strong>Acquisto (link affiliato):</strong> <a href="https://www.amazon.it/dp/B0B3Z7Z24M?tag=roboteducat0f-21" rel="sponsored nofollow noopener" target="_blank">DevKit ESP32 su Amazon.it</a></p>
 
 Scheda scelta? Seguite il [tutorial ESPHome temperatura](/it/domotica/esp32-esphome-sensore-temperatura/) e un’idea tra i [progetti ESP32](/it/domotica/progetti-esp32-domotica/). Confronto hub: [Home Assistant Green vs Raspberry Pi 5](/it/domotica/home-assistant-green-vs-raspberry-pi-5/).
 

@@ -67,7 +67,7 @@ relatedLinks:
 </aside>
 
 <p><strong>Achat (affiliation — vérifiez le prix avant paiement) :</strong></p>
-<p><a href="https://www.amazon.fr/s?k=SONOFF+ZBDongle-E&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">ZBDongle-E sur Amazon</a> · <a href="https://www.amazon.fr/s?k=SONOFF+SNZB-02D&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">SNZB-02D sur Amazon</a></p>
+<p><a href="https://www.amazon.fr/dp/B0B6P22YJC?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">ZBDongle-E sur Amazon</a> · <a href="https://www.amazon.fr/dp/B0BYZP8NK2?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">SNZB-02D sur Amazon</a></p>
 
 <h2 id="faq">FAQ</h2>
 <p><strong>ZHA ou Zigbee2MQTT avec SONOFF ?</strong> Les deux fonctionnent avec le ZBDongle-E — voir notre <a href="/domotique/home-assistant-zigbee2mqtt-ou-zha/">comparatif ZHA / Z2M</a>. Une seule pile par clé USB.</p>

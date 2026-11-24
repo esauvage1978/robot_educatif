@@ -27,7 +27,7 @@ Euro amounts below are Amazon.com readings of 6 November 2026. They are not conv
 
 A robot for class is not chosen like a gift. It passes through many hands, it has to last several years, and it has to follow students from one cycle to the next without a change of ecosystem in the middle of the project. This guide is for teachers, coordinators, and teams putting together a purchase case.
 
-On Amazon.com, on 6 November 2026, the mBot is around $95 and the mBot2 is around $185. <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot, around $95 on Amazon.com). <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2, around $185 on Amazon.com). Batteries, mats, cases, and training are not in this reading: check their price, without adding them to the robots. The number of machines and the pack detail are taken up in [equipping a class](/equiper-classe-robots-budget-packs-2026/). The [budget calculator](/en/class-robot-budget-calculator/) is for testing a headcount, not for replacing a quote.
+On Amazon.com, on 6 November 2026, the mBot is around $95 and the mBot2 is around $185. <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot, around $95 on Amazon.com). <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot2, around $185 on Amazon.com). Batteries, mats, cases, and training are not in this reading: check their price, without adding them to the robots. The number of machines and the pack detail are taken up in [equipping a class](/equiper-classe-robots-budget-packs-2026/). The [budget calculator](/en/class-robot-budget-calculator/) is for testing a headcount, not for replacing a quote.
 
 ## What the classroom asks for beyond the home
 
@@ -43,7 +43,7 @@ The curriculum has to be able to host the session without a full rewrite. In tec
 
 ### Preschool and CP
 
-At this age, the session lasts ten to fifteen minutes. The child codes a path with buttons or cards, with no screen. CP is the first year of French elementary school, about age 6. The TTS Bee-Bot was around $95 on 6 November 2026. <a href="https://www.amazon.com/s?k=TTS%20Bee-Bot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Bee-Bot, around $95 on Amazon.com). The Blue-Bot is not in the reading: check the price. The Tale-Bot Pro, a fuller set, was around $130 on 6 November 2026. <a href="https://www.amazon.com/s?k=Matatalab%20Tale-Bot%20Pro&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Tale-Bot Pro, around $130 on Amazon.com). Another Tale-Bot set does not reuse that amount.
+At this age, the session lasts ten to fifteen minutes. The child codes a path with buttons or cards, with no screen. CP is the first year of French elementary school, about age 6. The TTS Bee-Bot was around $95 on 6 November 2026. <a href="https://www.amazon.com/dp/B08BTJFYT3?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Bee-Bot, around $95 on Amazon.com). The Blue-Bot is not in the reading: check the price. The Tale-Bot Pro, a fuller set, was around $130 on 6 November 2026. <a href="https://www.amazon.com/dp/B09LYTM5BC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Tale-Bot Pro, around $130 on Amazon.com). Another Tale-Bot set does not reuse that amount.
 
 ### From CE to CM, in blocks
 
@@ -56,7 +56,7 @@ CE is the middle of French elementary school, about ages 7–8. You need blocks,
 - Compatible with Scratch and Arduino
 - Many sensors included
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot)
+<a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot)
 
 You program the mBot in mBlock, whose blocks look like Scratch, then it can move toward Arduino later. Assembly fits in a discovery session, on the order of a quarter of an hour when the screws are sorted. It runs on AA cells: the manual states the number, and they are not in the price recorded here. Twelve robots, for pairs in a class of twenty-four, cost 12 × around $95, or roughly $1188 of robots alone at the 6 November 2026 price. That is not a lot price observed at Amazon, and it is not the class budget: cells, mats, and a case still have to be priced. Ready sessions are in the [ten mBot projects](/en/10-free-mbot-classroom-projects/).
 
@@ -71,7 +71,7 @@ The machine has to show the same behavior in blocks and in text, and accept a co
 - Wi-Fi and IoT built in
 - Very expandable with mBuild extensions
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot2)
 
 The mBot2 carries the CyberPi: a screen, Wi-Fi, and Python inside mBlock. The rechargeable battery is supplied with the robot, which removes the AA-cell chore. The teaching detail is in the [mBot2 guide](/en/mbot2-makeblock-what-it-teaches/). Twelve mBot2s are 12 × around $185, or roughly $2200 of robots alone in the 6 November 2026 reading. Extensions, the floor course, and storage are not in that figure. For a collège technology room, the [grades 6e–3e guide](/robots-technologie-college-guide/) splits mBot and mBot2 by level.
 
@@ -79,7 +79,7 @@ The mBot2 carries the CyberPi: a screen, Wi-Fi, and Python inside mBlock. The re
 
 NSI, SNT, or engineering science ask for long projects, in Python or in C++, sometimes with a camera. The mBot2 remains usable in Python. An open board goes further, at the cost of the wiring.
 
-The Raspberry Pi 5 8 GB was around $231 on 6 November 2026, and the 4 GB board was around $160. <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%208GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 8 GB, around $231 on Amazon.com). <a href="https://www.amazon.com/s?k=Raspberry%20Pi%205%204GB&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 4 GB, around $160 on Amazon.com). Those are prices for a bare board. The 27 W power supply, the microSD, the case, and a chassis are not in the reading: check their price. The minimum list is in the [Raspberry Pi 5 kit](/kit-raspberry-pi-5-complet/). An Arduino Mega kit with its extension boards is not in the reading either: check the price of the exact Mega reference.
+The Raspberry Pi 5 8 GB was around $231 on 6 November 2026, and the 4 GB board was around $160. <a href="https://www.amazon.com/dp/B0CK2FCG1K?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 8 GB, around $231 on Amazon.com). <a href="https://www.amazon.com/dp/B0CK3L9WD3?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Raspberry Pi 5 4 GB, around $160 on Amazon.com). Those are prices for a bare board. The 27 W power supply, the microSD, the case, and a chassis are not in the reading: check their price. The minimum list is in the [Raspberry Pi 5 kit](/kit-raspberry-pi-5-complet/). An Arduino Mega kit with its extension boards is not in the reading either: check the price of the exact Mega reference.
 
 ## Funding the case and making it hold
 

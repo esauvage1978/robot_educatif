@@ -113,19 +113,19 @@ Use this table as a **filter**, not an absolute law:
 
 <div class="merchant-cards-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (ages 8–10)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot (ages 8–10)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">First Scratch/mBlock robot · ~15 min build · matches “mBot” rows in the table.</p>
-    <a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
+    <a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (ages 10–14)</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Makeblock mBot2 (ages 10–14)</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">Scratch + Python · CyberPi · built-in battery.</p>
-    <a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Check price on Amazon.com</a>
+    <a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check price on Amazon.com</a>
   </div>
   <div style="border:1px solid #dce3ee;border-radius:12px;padding:1rem;background:#fff;">
-    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
+    <h3 style="margin:0 0 0.35rem;font-size:1.1rem;"><a href="https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">LEGO SPIKE Essential</a></h3>
     <p style="margin:0 0 0.5rem;font-size:0.92rem;color:#475569;">LEGO bricks + hub · gentle entry ~7–9 if budget allows.</p>
-    <a href="https://www.amazon.com/s?k=LEGO+SPIKE+Essential&tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank" style="display:inline-block;background:#ff9900;color:#111;font-weight:700;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;font-size:0.9rem;">Search on Amazon.com</a>
+    <a href="https://www.amazon.com/dp/B09LMS9YXX?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Search on Amazon.com</a>
   </div>
 </div>
 

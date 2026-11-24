@@ -42,7 +42,6 @@ faqSchema:
 <li><a href="#tabella">Tabella kit</a></li>
 <li><a href="#alternative">Alternative</a></li>
 <li><a href="#garanzia">Garanzia</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 

@@ -59,7 +59,7 @@ Strengths:
 - An LED screen and sensors for varied projects
 - A move to Python is possible later
 
-<a href="https://www.amazon.com/s?k=Makeblock%20Codey%20Rocky&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky, ASIN B07CGH8NZ7)
+<a href="https://www.amazon.com/dp/B07CGH8NZ7?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (Codey Rocky, ASIN B07CGH8NZ7)
 
 ### mBot: the classroom and family classic (ages 8–12)
 
@@ -76,7 +76,7 @@ Strengths:
 - A short build that shows how the robot is put together
 - A path onward to Arduino
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot, ASIN B07XR98YYQ)
+<a href="https://www.amazon.com/dp/B07XR98YYQ?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot, ASIN B07XR98YYQ)
 
 ### mBot2: Scratch, then Python, on the same robot (age 10 and up)
 
@@ -93,7 +93,7 @@ Strengths:
 - Wi-Fi for connected projects
 - Plenty of room to grow through middle school
 
-<a href="https://www.amazon.com/s?k=Makeblock%20mBot2&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (mBot2, ASIN B0919F9CKS)
+<a href="https://www.amazon.com/dp/B0919F9CKS?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (mBot2, ASIN B0919F9CKS)
 
 ### The CyberPi board alone: programming without a rolling robot
 
@@ -110,7 +110,7 @@ Strengths:
 - Wi-Fi for the Internet of Things
 - Reusable on a robot later
 
-<a href="https://www.amazon.com/s?k=Makeblock%20CyberPi&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (CyberPi, ASIN B0BBZY9L59)
+<a href="https://www.amazon.com/dp/B0BBZY9L59?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (CyberPi, ASIN B0BBZY9L59)
 
 ### micro:bit V2: the only board in official Scratch… that you motorize yourself
 
@@ -118,7 +118,7 @@ The **micro:bit** is a small programmable board widely used in middle school: 25
 
 **On Amazon**: micro:bit V2 Go kit (official board, cable, battery case).
 
-<a href="https://www.amazon.com/s?k=BBC%20microbit%20V2%20Go%20kit&tag=roboteducatif-20" class="btn btn-action" rel="nofollow sponsored noopener" target="_blank">Check today's price on Amazon</a> (micro:bit V2 Go kit, ASIN B0BB949JCP)
+<a href="https://www.amazon.com/dp/B0BB949JCP?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Check today's price on Amazon</a> (micro:bit V2 Go kit, ASIN B0BB949JCP)
 
 ## How to choose in 30 seconds
 

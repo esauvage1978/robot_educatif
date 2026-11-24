@@ -49,7 +49,7 @@ relatedLinks:
 <p><strong>En bref</strong></p>
 <p>Le Tale-Bot Pro est un excellent premier robot pour un enfant de 3 à 5 ans : il l’utilise seul, longtemps, et les histoires captivent. Ménagez seulement les déguisements.</p>
 </aside>
-<p>Voir le produit : <a href="https://www.amazon.fr/s?k=Matatalab+Tale-Bot+Pro&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">Tale-Bot Pro sur Amazon</a> (lien affilié).</p>
+<p>Voir le produit : <a href="https://www.amazon.fr/dp/B09LYTM5BC?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Tale-Bot Pro sur Amazon</a> (lien affilié).</p>
 <h2 id="a-lire-aussi">À lire aussi</h2>
 <ul>
 <li><a href="/marque-makeblock/">Makeblock : la suite logique vers 8 ans</a></li>

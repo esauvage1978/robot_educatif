@@ -18,7 +18,6 @@ The Homey Pro mini arrived this morning—Athom’s compact “brain” for Zigb
 <li><a href="#unboxing">Unboxing</a></li>
 <li><a href="#ports">Ports</a></li>
 <li><a href="#setup">App setup</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -94,7 +93,7 @@ About 15 minutes in our run, including a firmware update.
 
 ### Which protocol first?
 
-Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/). UK search: <a href="https://www.amazon.com/s?k=Homey+Pro+mini&tag=roboteducatif-20" rel="sponsored nofollow noopener">Homey Pro mini on Amazon.com</a>.
+Depends on your devices: [Zigbee, Wi-Fi, Thread, Matter](/en/smart-home/smart-home-protocols-zigbee-wifi-thread-matter/). UK search: <a href="https://www.amazon.com/dp/B0G1ZKHX1W?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">Homey Pro mini on Amazon.com</a>.
 
 ## Next in the series
 

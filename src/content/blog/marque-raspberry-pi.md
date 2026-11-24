@@ -58,7 +58,7 @@ relatedLinks:
 <p><strong>En bref</strong></p>
 <p>Pour la domotique et les projets, le Raspberry Pi 5 4 Go est notre meilleur rapport qualité/prix. Pour un ado de moins de 12 ans, un robot éducatif reste plus adapté ; ensuite, le Pi ouvre Python, Linux et l’électronique.</p>
 </aside>
-<p>Voir les produits : <a href="https://www.amazon.fr/s?k=Raspberry+Pi+5+4Go&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">Raspberry Pi 5 4 Go</a> · <a href="https://www.amazon.fr/s?k=kit+Raspberry+Pi+5&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">kits Raspberry Pi 5</a> (liens affiliés Amazon).</p>
+<p>Voir les produits : Raspberry Pi 5 4 Go · <a href="https://www.amazon.fr/dp/B07YD2LT9D?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">kits Raspberry Pi 5</a> (liens affiliés Amazon).</p>
 <h2 id="a-lire-aussi">À lire aussi</h2>
 <ul>
 <li><a href="/marque-sonoff/">SONOFF : notre avis sur la marque</a></li>

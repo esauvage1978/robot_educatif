@@ -51,7 +51,7 @@ relatedLinks:
 <p><strong>En bref</strong></p>
 <p>ELEGOO offre le meilleur rapport qualité/prix pour apprendre l’Arduino à partir de 12 ans : le Robot Car V4.0 pour un projet complet avec caméra, le Penguin Bot pour un petit budget. Pour débuter plus tôt, préférez <a href="/marque-makeblock/">Makeblock</a>.</p>
 </aside>
-<p>Voir les produits : <a href="https://www.amazon.fr/s?k=ELEGOO+Smart+Robot+Car+V4.0&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">Robot Car V4.0</a> · <a href="https://www.amazon.fr/s?k=ELEGOO+Penguin+Bot&tag=manuso06-21" target="_blank" rel="noopener nofollow sponsored">Penguin Bot</a> (liens affiliés Amazon).</p>
+<p>Voir les produits : <a href="https://www.amazon.fr/dp/B07474MMB5?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Robot Car V4.0</a> · <a href="https://www.amazon.fr/dp/B07GVD6GQH?tag=manuso06-21" rel="sponsored nofollow noopener" target="_blank">Penguin Bot</a> (liens affiliés Amazon).</p>
 <h2 id="a-lire-aussi">À lire aussi</h2>
 <ul>
 <li><a href="/programmation/arduino-c/">Cours de C pour Arduino</a></li>

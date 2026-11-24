@@ -14,7 +14,6 @@ Some links are partner links (`/go/`).
 <li><a href="#standards">Wireless standards</a></li>
 <li><a href="#uk-us">UK vs US</a></li>
 <li><a href="#steps">Step-by-step</a></li>
-<li><a href="#faq">FAQ</a></li>
 </ul>
 </div>
 
@@ -105,7 +104,7 @@ A smart home doesn't have to start with a big hub and a weekend of wiring. This 
 
 **Step 2: add a home hub.** For local control, install [Home Assistant](https://www.home-assistant.io/) on a ready-made **Home Assistant Green** or on a **Raspberry Pi 5**: compare them in [Home Assistant Green vs Raspberry Pi 5](/en/smart-home/home-assistant-green-vs-raspberry-pi-5/).
 
-**Step 3: add a Zigbee coordinator and your first sensors.** Temperature, door and motion sensors are cheap and run for months on a coin cell. See [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/), our [compatibility matrix](/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/) and <a href="https://www.amazon.com/s?k=Sonoff+ZBDongle-E&tag=roboteducatif-20" rel="sponsored nofollow noopener">SONOFF ZBDongle-E on Amazon.com</a> (verify listing before order).
+**Step 3: add a Zigbee coordinator and your first sensors.** Temperature, door and motion sensors are cheap and run for months on a coin cell. See [the best Zigbee dongle for Home Assistant](/en/smart-home/best-zigbee-dongle-home-assistant/), our [compatibility matrix](/en/smart-home/compatibility-matrix-home-assistant-homey-zigbee-matter/) and <a href="https://www.amazon.com/dp/B0B6P22YJC?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">SONOFF ZBDongle-E on Amazon.com</a> (verify listing before order).
 
 **Step 4: expand where it helps.** Relays behind switches (a job for an electrician if you're not qualified), radiator valves, a robot vacuum or DIY ESP32 sensors.
 

@@ -23,15 +23,15 @@ Board choice: [which ESP32 for smart home](/en/smart-home/which-esp32-board-for-
 </tr></thead><tbody>
 <tr>
 <td data-label="Item"><span class="td-val">ESP32 dev board</span></td>
-<td data-label="Notes"><span class="td-val">Classic ESP32 or ESP32-C6 DevKit—<a href="https://www.amazon.com/s?k=ESP32+DevKit&amp;amp;tag=roboteducatif-20">search UK</a> · <a href="https://www.amazon.com/s?k=ESP32+DevKit&amp;amp;tag=roboteducatif-20">US</a></span></td>
+<td data-label="Notes"><span class="td-val">Classic ESP32 or ESP32-C6 DevKit—<a href="https://www.amazon.com/dp/B0B3Z7Z24M?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">search UK</a> · <a href="https://www.amazon.com/dp/B0B3Z7Z24M?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">US</a></span></td>
 </tr>
 <tr>
 <td data-label="Item"><span class="td-val"><strong>DHT22</strong></span></td>
-<td data-label="Notes"><span class="td-val">Simple 1-wire, ±0.5 °C typical—<a href="https://www.amazon.com/s?k=DHT22&amp;amp;tag=roboteducatif-20">UK</a> · <a href="https://www.amazon.com/s?k=DHT22&amp;amp;tag=roboteducatif-20">US</a></span></td>
+<td data-label="Notes"><span class="td-val">Simple 1-wire, ±0.5 °C typical—<a href="https://www.amazon.com/dp/B08SFH6C6W?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">UK</a> · <a href="https://www.amazon.com/dp/B08SFH6C6W?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">US</a></span></td>
 </tr>
 <tr>
 <td data-label="Item"><span class="td-val"><strong>BME280</strong> (optional)</span></td>
-<td data-label="Notes"><span class="td-val">I2C, humidity + <strong>pressure</strong>—<a href="https://www.amazon.com/s?k=BME280+module&amp;amp;tag=roboteducatif-20">UK</a> · <a href="https://www.amazon.com/s?k=BME280+module&amp;amp;tag=roboteducatif-20">US</a></span></td>
+<td data-label="Notes"><span class="td-val">I2C, humidity + <strong>pressure</strong>—<a href="https://www.amazon.com/dp/B01M8KJ3VY?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">UK</a> · <a href="https://www.amazon.com/dp/B01M8KJ3VY?tag=roboteducatif-20" rel="sponsored nofollow noopener" target="_blank">US</a></span></td>
 </tr>
 <tr>
 <td data-label="Item"><span class="td-val">Breadboard + dupont wires</span></td>
