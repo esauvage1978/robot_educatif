@@ -32,7 +32,19 @@ tags:
 
 Sous « Lego robot », on regroupe ici principalement **[LEGO Education](/marque-lego/) SPIKE Essential**, **SPIKE Prime**, et l’ancien **LEGO Mindstorms Robot Inventor (51515)** — ce dernier **n’est plus commercialisé en neuf** par LEGO depuis fin 2022, mais circule encore en **occasion** ; gardez en tête documentation et applications sur le **long terme**. Les **prix** cités sont **indicatifs** pour la France en **2026** ; vérifiez toujours le **vendeur** et le **contenu du pack** (batterie rechargeable LEGO vendue parfois à part, etc.).
 
-## 1. Rappel des deux philosophies
+<div class="article-toc" role="navigation" aria-label="Sommaire">
+<p class="article-toc-title">Sommaire</p>
+<ul>
+<li><a href="#philosophies">Deux philosophies</a></li>
+<li><a href="#ages">Tranche d’âge</a></li>
+<li><a href="#getting-started">Prise en main</a></li>
+<li><a href="#six-months">Évolutivité</a></li>
+<li><a href="#recap">Tableau récapitulatif</a></li>
+<li><a href="#verdict">Pas de vainqueur unique</a></li>
+</ul>
+</div>
+
+<h2 id="philosophies">1. Rappel des deux philosophies</h2>
 
 <div class="tableau empile">
 <table>
@@ -70,7 +82,7 @@ Sous « Lego robot », on regroupe ici principalement **[LEGO Education](/marque
 </table>
 </div>
 
-## 2. Tranche d’âge et autonomie réelle
+<h2 id="ages">2. Tranche d’âge et autonomie réelle</h2>
 
 <div class="tableau empile">
 <table>
@@ -100,7 +112,7 @@ Sous « Lego robot », on regroupe ici principalement **[LEGO Education](/marque
 
 Pour l’âge côté code : [programmation enfant : à quel âge](/programmation-enfant-a-quel-age-commencer/).
 
-## 3. Prise en main (enfants **et** adultes)
+<h2 id="getting-started">3. Prise en main (enfants **et** adultes)</h2>
 
 ### Makeblock mBot / mBot2
 
@@ -112,7 +124,7 @@ Pour l’âge côté code : [programmation enfant : à quel âge](/programmation
 - **Installation** : application **tablette / PC** LEGO ; comptes et mises à jour selon appareil.
 - **Courbe enfant** : la **partie construction** est plus longue qu’un mBot **déjà typé voiture** ; pour certains enfants c’est un **plus** (fierté du modèle), pour d’autres une **barrière** (« je veux coder tout de suite »).
 
-## 4. Évolutivité et « que fait-on dans six mois ? »
+<h2 id="six-months">4. Évolutivité et « que fait-on dans six mois ? »</h2>
 
 ### LEGO
 
@@ -126,7 +138,7 @@ Pour l’âge côté code : [programmation enfant : à quel âge](/programmation
 - **Code** : passage naturel vers **Python** sur **mBot2** sans changer de marque — [mBot vs mBot2](/mbot-vs-mbot2-comparaison-des-robots-educatifs-pour-enfants/).
 - **Construction** : on ne « reconstruit pas un dinosaure Technic » ; l’évolutivité est plutôt **Capteur + Algo**.
 
-## 5. Tableau récapitulatif « lequel est le meilleur **pour moi** »
+<h2 id="recap">5. Tableau récapitulatif « lequel est le meilleur **pour moi** »</h2>
 
 <div class="tableau empile">
 <table>
@@ -158,7 +170,7 @@ Pour l’âge côté code : [programmation enfant : à quel âge](/programmation
 </table>
 </div>
 
-## 6. Pas de « vainqueur », un choix de design
+<h2 id="verdict">6. Pas de « vainqueur », un choix de design</h2>
 
 - Le **meilleur** kit est celui qui **sera sorti de la boîte** régulièrement.
 - Si votre enfant refuse le mode **« je monte avant de coder »**, un set **LEGO lourd** peut frustrer ; inversement, un enfant **fan de briques** peut trouver le **mBot** « trop figé » visuellement.

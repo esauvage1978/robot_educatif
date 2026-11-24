@@ -13,7 +13,19 @@ Algunos enlaces de esta página son de afiliados. Si compras a través de ellos,
 
 Bajo «robot LEGO» agrupamos sobre todo **[LEGO Education](/marque-lego/) SPIKE Essential**, **SPIKE Prime** y el antiguo **LEGO Mindstorms Robot Inventor (51515)** — este último **ya no se vende nuevo** por LEGO desde finales de 2022, pero circula de **segunda mano**; ten en cuenta documentación y apps a largo plazo. Los precios son **orientativos** para España / UE en **2026**; verifica siempre el **vendedor** y el **contenido del pack** (batería recargable LEGO a veces vendida aparte, etc.).
 
-## 1. Dos filosofías de producto
+<div class="article-toc" role="navigation" aria-label="Índice">
+<p class="article-toc-title">Índice</p>
+<ul>
+<li><a href="#philosophies">Dos filosofías de producto</a></li>
+<li><a href="#ages">Franja de edad</a></li>
+<li><a href="#getting-started">Puesta en marcha</a></li>
+<li><a href="#six-months">Evolución</a></li>
+<li><a href="#recap">Resumen</a></li>
+<li><a href="#verdict">Sin vencedor único</a></li>
+</ul>
+</div>
+
+<h2 id="philosophies">1. Dos filosofías de producto</h2>
 
 | | **mBot / mBot2 (Makeblock)** | **LEGO SPIKE (Essential / Prime)** |
 |--|------------------------------|-------------------------------------|
@@ -23,7 +35,7 @@ Bajo «robot LEGO» agrupamos sobre todo **[LEGO Education](/marque-lego/) SPIKE
 | **Comunidad** | Muchos tutoriales alrededor de **mBot** | Recursos **FIRST LEGO League (FLL)** y docentes; cobertura de idioma variable |
 | **Precio de entrada orientativo** | **89,99 €** (mBot) y **205,68 €** (mBot2) en Amazon.es el 9 de noviembre de 2026 | **Ya no se vende directo por LEGO desde el 30/06/2026**: stocks de revendedores, precios variables (último catálogo: 289 € Essential, 379 € Prime) |
 
-## 2. Franja de edad y autonomía real
+<h2 id="ages">2. Franja de edad y autonomía real</h2>
 
 | Público | Orientación |
 |--------|-------------|
@@ -34,7 +46,7 @@ Bajo «robot LEGO» agrupamos sobre todo **[LEGO Education](/marque-lego/) SPIKE
 
 Para la edad del código: [robots por edad](/es/mejor-robot-programable-para-ninos/) · [versión en francés](/programmation-enfant-a-quel-age-commencer/).
 
-## 3. Puesta en marcha (niños **y** adultos)
+<h2 id="getting-started">3. Puesta en marcha (niños **y** adultos)</h2>
 
 ### Makeblock mBot / mBot2
 
@@ -46,7 +58,7 @@ Para la edad del código: [robots por edad](/es/mejor-robot-programable-para-nin
 - **Instalación**: app LEGO para **tablet / PC**; cuentas y actualizaciones según el dispositivo.
 - **Curva del niño**: la **parte de construcción** dura más que un mBot ya con forma de coche; para algunos es un **plus** (orgullo del modelo), para otros una **barrera** («quiero programar ya»).
 
-## 4. Evolución — ¿qué pasa en seis meses?
+<h2 id="six-months">4. Evolución — ¿qué pasa en seis meses?</h2>
 
 ### LEGO
 
@@ -60,7 +72,7 @@ Para la edad del código: [robots por edad](/es/mejor-robot-programable-para-nin
 - **Código**: paso natural a **Python** en **mBot2** sin cambiar de marca — [mBot vs mBot2](/es/mbot-vs-mbot2/).
 - **Construcción**: no «reconstruyes un dinosaurio Technic»; la evolución es más **sensor + algoritmo**.
 
-## 5. Resumen — ¿cuál es mejor **para mí**?
+<h2 id="recap">5. Resumen — ¿cuál es mejor **para mí**?</h2>
 
 | Priorizas… | Inclínate por… |
 |-----------------|---------------|
@@ -70,7 +82,7 @@ Para la edad del código: [robots por edad](/es/mejor-robot-programable-para-nin
 | Primer LEGO code sin presupuesto Prime | **SPIKE Essential** (stocks); si no, **mBot** |
 | Segunda mano / nostalgia Mindstorms | **Robot Inventor** (si precio y estado ok — **descatalogado**) |
 
-## 6. Sin «vencedor» — una elección de diseño
+<h2 id="verdict">6. Sin «vencedor» — una elección de diseño</h2>
 
 - El **mejor** kit es el que **sale de la caja** con regularidad.
 - Si tu hijo rechaza el modo «montar antes de programar», un set **LEGO** pesado puede frustrar; a la inversa, un **fan de los ladrillos** puede encontrar el **mBot** «demasiado fijo» visualmente.

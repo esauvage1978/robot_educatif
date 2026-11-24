@@ -219,10 +219,15 @@ const amazonUrl = productAffiliateHref({
 });
 const toHref = (href: string) => (href.startsWith('/') ? withBase(href) : href);
 
+const showFrPartners = affiliateMarket === 'fr';
 const culturaUrl = marketCfg.showCultura
 	? (propCulturaUrl !== undefined ? propCulturaUrl : (fromCatalog?.culturaUrl || ''))
 	: '';
-const partnerUrl = propPartnerUrl !== undefined ? propPartnerUrl : (product.partnerUrl || '');
+const partnerUrl = showFrPartners
+	? propPartnerUrl !== undefined
+		? propPartnerUrl
+		: product.partnerUrl || ''
+	: '';
 const partnerLabel = propPartnerLabel || product.partnerLabel || ui.maker;
 const partnerIsSponsored = partnerSponsored ?? sponsoredUrl(partnerUrl);
 
