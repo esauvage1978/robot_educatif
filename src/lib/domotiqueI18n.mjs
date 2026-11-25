@@ -204,6 +204,12 @@ export const DOMOTIQUE_SLUGS = {
 		it: 'unboxing-kit-electrohobby-esp32',
 		es: 'unboxing-kit-electrohobby-esp32',
 	},
+	'agent-ia-homey-cle-api-advanced-flow': {
+		en: 'ai-agent-homey-api-key-advanced-flow',
+		de: 'ki-agent-homey-api-schluessel-advanced-flow',
+		it: 'agente-ia-homey-chiave-api-advanced-flow',
+		es: 'agente-ia-homey-clave-api-advanced-flow',
+	},
 };
 
 export const DOMOTIQUE_BASE = {

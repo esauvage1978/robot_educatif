@@ -334,6 +334,16 @@ const EN_RATTACHEES = [
 		es: '/es/domotica/puerta-garaje-rele-nodon-homey/',
 		nl: '/nl/garage-deur-nodon-homey/',
 	},
+	{
+		fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/',
+		en: '/en/smart-home/ai-agent-homey-api-key-advanced-flow/',
+		uk: '/uk/smart-home/ai-agent-homey-api-key-advanced-flow/',
+		ca: '/ca/smart-home/ai-agent-homey-api-key-advanced-flow/',
+		de: '/de/smart-home/ki-agent-homey-api-schluessel-advanced-flow/',
+		it: '/it/domotica/agente-ia-homey-chiave-api-advanced-flow/',
+		es: '/es/domotica/agente-ia-homey-clave-api-advanced-flow/',
+		nl: '/nl/ai-agent-homey-api-sleutel-advanced-flow/',
+	},
 	{ fr: '/partenariat/', en: '/about/' },
 	{ fr: '/categorie/', en: '/en/buying-guides/' },
 	{ fr: '/categorie/cadeaux/', en: '/en/robotics-gift-ideas-by-age/' },
@@ -596,6 +606,7 @@ export const EN_PAGES = [
 	{ href: '/en/smart-home/homey-pro-unboxing-setup/', fr: '/domotique/test-homey-pro-deballage-installation/', title: 'Homey Pro review: unboxing and setup (part 1)' },
 	{ href: '/en/smart-home/garage-door-nodon-relay-homey/', fr: '/domotique/porte-garage-connectee-nodon-homey/', title: 'Connected garage door: NodOn relay and Homey Pro' },
 	{ href: '/en/smart-home/electrohobby-esp32-kit-unboxing/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards and sensors (gifted)' },
+	{ href: '/en/smart-home/ai-agent-homey-api-key-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'An AI agent builds my Homey Advanced Flows with an API key' },
 
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
@@ -682,6 +693,7 @@ export const DE_PAGES = [
 	{ href: '/de/scratch-aktivitaet-quadrat/', fr: '/activite-scratch-le-carre/', title: 'Scratch-Aktivität: Quadrat zeichnen' },
 	{ href: '/de/vier-gewinnt-python/', fr: '/programmation/puissance-4/', title: 'Vier gewinnt in Python, sechs Kapitel' },
 	{ href: '/de/smart-home/electrohobby-esp32-kit-auspacken/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit und Sensoren (Geschenk der Marke)' },
+	{ href: '/de/smart-home/ki-agent-homey-api-schluessel-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Ein KI-Agent erstellt meine Homey Advanced Flows per API-Schlüssel' },
 ];
 // Pages /it/ publiées.
 export const IT_PAGES = [
@@ -767,6 +779,7 @@ export const IT_PAGES = [
 	{ href: '/it/scratch-scuola-casa-inizio/', fr: '/scratch-ecole-maison-par-ou-commencer/', title: 'Scratch scuola e casa' },
 	{ href: '/it/software-mblock-quale-scegliere/', fr: '/logiciel-mblock-makeblock-mbot-quel-choisir/', title: 'Software mBlock: quale scegliere' },
 	{ href: '/it/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit e sensori (prodotto offerto)' },
+	{ href: '/it/domotica/agente-ia-homey-chiave-api-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Un agente IA crea i miei Advanced Flow Homey con una chiave API' },
 ];
 // Pages /es/ publiées.
 export const ES_PAGES = [
@@ -818,6 +831,7 @@ export const ES_PAGES = [
 	{ href: '/es/domotica/', fr: '/domotique/', title: 'Hub domótica' },
 	{ href: '/es/aviso-legal/', fr: '/mentions-legales/', title: 'Aviso legal' },
 	{ href: '/es/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit y sensores (producto cedido)' },
+	{ href: '/es/domotica/agente-ia-homey-clave-api-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Un agente de IA crea mis Advanced Flows de Homey con una clave API' },
 
 ];
 
