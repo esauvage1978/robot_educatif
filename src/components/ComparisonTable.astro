@@ -1,5 +1,4 @@
 ---
-import { AMAZON_AFFILIATE_TAG } from '../consts';
 import {
 	amazonListingUrl,
 	comparisonLabels,
@@ -66,18 +65,11 @@ const products = rawList
 	.filter((p): p is NonNullable<typeof p> => p !== null);
 
 const getAmazonUrl = (p: any) => {
-	let fallback: string;
-	if (market === 'fr') {
-		fallback = p.asin
-			? `https://www.amazon.fr/dp/${encodeURIComponent(p.asin)}?tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`
-			: `https://www.amazon.fr/s?k=${encodeURIComponent(p.amazonSearchQuery || p.name)}&tag=${encodeURIComponent(AMAZON_AFFILIATE_TAG)}`;
-	} else {
-		fallback = amazonListingUrl({
-			asin: p.asin,
-			query: p.amazonSearchQuery || p.name,
-			market,
-		});
-	}
+	const fallback = amazonListingUrl({
+		asin: p.asin,
+		query: p.amazonSearchQuery || p.name,
+		market,
+	});
 	const href = productAffiliateHref({ productId: p.id, market, fallbackHref: fallback });
 	return href.startsWith('/') ? withBase(href) : href;
 };

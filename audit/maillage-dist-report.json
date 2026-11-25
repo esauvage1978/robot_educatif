@@ -1,9 +1,9 @@
 {
   "summary": {
     "dist": "/agent/repos/robot_educatif/dist",
-    "totalEditorial": 3054,
+    "totalEditorial": 3084,
     "editorialReadAlso": {
-      "blocksRendered": 1577,
+      "blocksRendered": 1600,
       "blocksUnder3Links": 0,
       "badAnchorCount": 0,
       "truncatedAnchorCount": 0,
@@ -11,12 +11,12 @@
       "deadInternalLinks": 0
     },
     "b08": {
-      "below3": 990,
-      "atLeast3": 2064
+      "below3": 997,
+      "atLeast3": 2087
     },
     "b09": {
-      "zeroInbound": 33,
-      "atLeast3Inbound": 1728
+      "zeroInbound": 34,
+      "atLeast3Inbound": 1749
     }
   },
   "badAnchors": [],
@@ -45,6 +45,7 @@
     "/en/robot-for-12-year-old/",
     "/en/robot-for-8-year-old/",
     "/en/smart-home/esp32-smart-home-projects/",
+    "/es/domotica/error/",
     "/es/socios/gotodirect/",
     "/it/partner/gotodirect/",
     "/meilleur-robot-educatif-6-ans/",
@@ -75,6 +76,7 @@
     "/ca/partners/anker-solix-de/",
     "/ca/partners/anycubic-us/",
     "/ca/partners/aosu/",
+    "/ca/partners/aosu-da/",
     "/ca/partners/aosu-life/",
     "/ca/partners/apolosign/",
     "/ca/partners/applian-llc/",
@@ -233,6 +235,7 @@
     "/de/partner/anker-solix-de/",
     "/de/partner/anycubic-us/",
     "/de/partner/aosu/",
+    "/de/partner/aosu-da/",
     "/de/partner/aosu-life/",
     "/de/partner/apolosign/",
     "/de/partner/applian-llc/",
@@ -375,6 +378,7 @@
     "/en/partners/anker-solix-de/",
     "/en/partners/anycubic-us/",
     "/en/partners/aosu/",
+    "/en/partners/aosu-da/",
     "/en/partners/aosu-life/",
     "/en/partners/apolosign/",
     "/en/partners/applian-llc/",
@@ -511,6 +515,7 @@
     "/es/socios/anker-solix-de/",
     "/es/socios/anycubic-us/",
     "/es/socios/aosu/",
+    "/es/socios/aosu-da/",
     "/es/socios/aosu-life/",
     "/es/socios/apolosign/",
     "/es/socios/applian-llc/",
@@ -649,6 +654,7 @@
     "/it/partner/anker-solix-de/",
     "/it/partner/anycubic-us/",
     "/it/partner/aosu/",
+    "/it/partner/aosu-da/",
     "/it/partner/aosu-life/",
     "/it/partner/apolosign/",
     "/it/partner/applian-llc/",
@@ -787,6 +793,7 @@
     "/nl/partners/anker-solix-de/",
     "/nl/partners/anycubic-us/",
     "/nl/partners/aosu/",
+    "/nl/partners/aosu-da/",
     "/nl/partners/aosu-life/",
     "/nl/partners/apolosign/",
     "/nl/partners/applian-llc/",
@@ -928,6 +935,7 @@
     "/uk/partners/anker-solix-de/",
     "/uk/partners/anycubic-us/",
     "/uk/partners/aosu/",
+    "/uk/partners/aosu-da/",
     "/uk/partners/aosu-life/",
     "/uk/partners/apolosign/",
     "/uk/partners/applian-llc/",

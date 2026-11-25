@@ -43,7 +43,7 @@ tests/
 
 This split prepares **unit tests** without launching the CLI every time.
 
-## Data model (draft)
+## Data model (v1)
 
 Each event is a **JSON object** with at least: **`id`**, **`title`**, **`start`** (ISO string), **`duration_minutes`** (integer or `null`), **`note`** (string, may be empty). The file root is an **object** with an **`events`** key: a list of objects.
 

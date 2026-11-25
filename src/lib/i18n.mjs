@@ -2,6 +2,7 @@ import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n
 import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
 import { ROBOT_TOOL_LANG_PAIRS } from './robotToolPaths.mjs';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
+import { SECTION_INDEX_LANG_PAIRS, SECTION_INDEX_PATHS } from '../data/domotiqueSectionIndexes.mjs';
 
 /** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
 export const OMIT_US_HREFLANG = true;
@@ -49,6 +50,7 @@ const STATIC_LANG_PAIRS = [
 		de: '/de/preissenkungen/',
 		it: '/it/ribassi-prezzo/',
 		es: '/es/bajadas-de-precio/',
+		nl: '/nl/prijsdalingen/',
 	},
 	{
 		fr: '/baisses-de-prix/comment-nous-mesurons/',
@@ -58,6 +60,7 @@ const STATIC_LANG_PAIRS = [
 		de: '/de/preissenkungen/wie-wir-messen/',
 		it: '/it/ribassi-prezzo/come-misuriamo/',
 		es: '/es/bajadas-de-precio/como-medimos/',
+		nl: '/nl/prijsdalingen/hoe-we-meten/',
 	},
 	{
 		fr: '/robot-educatif-cadeau-noel-2026/',
@@ -366,7 +369,13 @@ const EN_RATTACHEES = [
 	{ fr: '/mise-en-route-raspberry-pi-3-modele-b/', en: '/en/raspberry-pi-3-getting-started/', de: '/de/raspberry-pi-3-erste-schritte/', it: '/it/raspberry-pi-3-primi-passi/' },
 	{ fr: '/raspberry-pi-4-quelle-version-memoire-acheter/', en: '/en/raspberry-pi-4-which-ram/', de: '/de/raspberry-pi-4-welcher-ram/', it: '/it/raspberry-pi-4-quale-ram/' },
 	{ fr: '/domotique/rubrique/guides-achat/', en: '/en/smart-home/buying-guides/' },
-	{ fr: '/domotique/projets/porte-garage-connectee/', en: '/en/smart-home/connected-garage-door/' },
+	{
+		fr: '/domotique/projets/porte-garage-connectee/',
+		en: '/en/smart-home/connected-garage-door/',
+		de: '/de/smart-home/garagentor-vernetzt/',
+		it: '/it/domotica/porta-garage-connessa/',
+		es: '/es/domotica/puerta-garaje-conectada/',
+	},
 	{ fr: '/domotique/rubrique/esp32/', en: '/en/smart-home/esp32-projects/' },
 	{ fr: '/domotique/projets-esp32/arrosage-automatique/', en: '/en/smart-home/esp32-projects/automatic-irrigation/' },
 	{ fr: '/domotique/projets-esp32/capteur-ouverture-porte-fenetre/', en: '/en/smart-home/esp32-projects/door-window-sensor/' },
@@ -553,10 +562,7 @@ function fusionnerPaires(paires, ajouts) {
 	return out;
 }
 
-export const LANG_PAIRS = fusionnerPaires(
-	[...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...ROBOT_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES],
-	EN_RATTACHEES,
-);
+// LANG_PAIRS est construit après EN/DE/IT/ES_PAGES (voir fin de fichier).
 // Pages /en/ publiées (cartes accueil, menu latéral).
 export const EN_PAGES = [
 	{ href: '/en/black-friday/', fr: '/black-friday/', title: 'Black Friday 2026: educational robots and smart home' },
@@ -624,7 +630,7 @@ export const DE_PAGES = [
 	{ href: '/de/smart-home/garagentor-nodon-relais-homey/', fr: '/domotique/porte-garage-connectee-nodon-homey/', title: 'Vernetztes Garagentor: NodOn-Relais und Homey Pro' },
 	{ href: '/de/smart-home/erste-smart-home-automatisierungen/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Erste Smart-Home-Automatisierungen' },
 	{ href: '/de/smart-home/erste-smart-home-geraete-kaufen/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Erste Smart-Home-Geräte kaufen' },
-	{ href: '/de/smart-home/garagentor-vernetzt/', fr: '/domotique/porte-garage-connectee/', title: 'Garagentor vernetzen' },
+	{ href: '/de/smart-home/garagentor-vernetzt/', fr: '/domotique/projets/porte-garage-connectee/', title: 'Garagentor vernetzen' },
 	{ href: '/de/smart-home/smart-home-anfaengerfehler-faq/', fr: '/domotique/erreurs-debutant-domotique-faq/', title: 'Smart-Home-Anfängerfehler (FAQ)' },
 	{ href: '/de/smart-home/smart-home-einstieg-kompletter-leitfaden/', fr: '/domotique/debuter-en-domotique-guide-complet/', title: 'Smart Home Einstieg: kompletter Leitfaden' },
 	{ href: '/de/smart-home/smart-home-glossar/', fr: '/domotique/glossaire-domotique/', title: 'Smart-Home-Glossar' },
@@ -704,7 +710,7 @@ export const IT_PAGES = [
 	{ href: '/it/domotica/errori-principianti-domotica-faq/', fr: '/domotique/erreurs-debutant-domotique-faq/', title: 'Errori principianti domotica (FAQ)' },
 	{ href: '/it/domotica/glossario-domotica/', fr: '/domotique/glossaire-domotique/', title: 'Glossario domotica' },
 	{ href: '/it/domotica/iniziare-domotica-guida-completa/', fr: '/domotique/debuter-en-domotique-guide-complet/', title: 'Iniziare domotica: guida completa' },
-	{ href: '/it/domotica/porta-garage-connessa/', fr: '/domotique/porte-garage-connectee/', title: 'Porta garage connessa' },
+	{ href: '/it/domotica/porta-garage-connessa/', fr: '/domotique/projets/porte-garage-connectee/', title: 'Porta garage connessa' },
 	{ href: '/it/domotica/prime-automazioni-domotica/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Prime automazioni domotica' },
 	{ href: '/it/domotica/primi-dispositivi-domotica-da-comprare/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Primi dispositivi domotica da comprare' },
 	{ href: '/it/domotica/quale-box-domotica-per-principianti/', fr: '/domotique/quelle-box-domotique-choisir-debutant/', title: 'Quale box domotica per principianti' },
@@ -759,7 +765,7 @@ export const IT_PAGES = [
 	{ href: '/it/robot-educativo-200-500-euro/', fr: '/quel-robot-educatif-entre-200-et-500-euros-guide-2026/', title: 'Robot educativi 200–500 €' },
 	{ href: '/it/scaricare-mblock-5-gratis/', fr: '/telecharger-mblock-5-gratuit-guide-2026/', title: 'Scaricare mBlock 5 gratis' },
 	{ href: '/it/scratch-scuola-casa-inizio/', fr: '/scratch-ecole-maison-par-ou-commencer/', title: 'Scratch scuola e casa' },
-	{ href: '/it/software-mblock-quale-scegliere/', fr: '/mblock-5-quel-logiciel-choisir/', title: 'Software mBlock: quale scegliere' },
+	{ href: '/it/software-mblock-quale-scegliere/', fr: '/logiciel-mblock-makeblock-mbot-quel-choisir/', title: 'Software mBlock: quale scegliere' },
 	{ href: '/it/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit e sensori (prodotto offerto)' },
 ];
 // Pages /es/ publiées.
@@ -799,7 +805,7 @@ export const ES_PAGES = [
 	{ href: '/es/domotica/glosario-domotica/', fr: '/domotique/glossaire-domotique/', title: 'Glosario domótica' },
 	{ href: '/es/domotica/primeras-automatizaciones-domotica/', fr: '/domotique/premieres-automatisations-domotique/', title: 'Primeras automatizaciones domótica' },
 	{ href: '/es/domotica/primeros-dispositivos-domotica-comprar/', fr: '/domotique/premiers-appareils-domotique-acheter/', title: 'Primeros dispositivos domótica a comprar' },
-	{ href: '/es/domotica/puerta-garaje-conectada/', fr: '/domotique/porte-garage-connectee/', title: 'Puerta de garaje conectada' },
+	{ href: '/es/domotica/puerta-garaje-conectada/', fr: '/domotique/projets/porte-garage-connectee/', title: 'Puerta de garaje conectada' },
 	{ href: '/es/domotica/que-box-domotica-elegir-principiante/', fr: '/domotique/quelle-box-domotique-choisir-debutant/', title: 'Qué hub domótica elegir (principiante)' },
 	{ href: '/es/robot-programable-4-anos/', fr: '/robot-enfant-4-ans/', title: 'Robot programable para 4 años' },
 	{ href: '/es/robot-programable-5-anos/', fr: '/quel-robot-acheter-enfant-5-ans-guide-achat/', title: 'Robot programable para 5 años' },
@@ -808,12 +814,48 @@ export const ES_PAGES = [
 	{ href: '/es/robot-programable-8-anos/', fr: '/quel-robot-acheter-enfant-8-ans-guide-achat/', title: 'Robot programable para 8 años' },
 	{ href: '/es/robot-programable-10-anos/', fr: '/quel-robot-acheter-enfant-10-ans-guide-achat/', title: 'Robot programable para 10 años' },
 	{ href: '/es/robot-programable-12-anos/', fr: '/quel-robot-acheter-enfant-12-ans-guide-achat/', title: 'Robot programable para 12 años' },
-	{ href: '/es/robot-programable-14-anos/', fr: '/quel-robot-acheter-enfant-14-ans-guide-achat/', title: 'Robot programable para 14 años' },
+	{ href: '/es/robot-programable-14-anos/', fr: '/robot-programmable-14-ans-ado/', title: 'Robot programable para 14 años' },
 	{ href: '/es/domotica/', fr: '/domotique/', title: 'Hub domótica' },
 	{ href: '/es/aviso-legal/', fr: '/mentions-legales/', title: 'Aviso legal' },
 	{ href: '/es/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit y sensores (producto cedido)' },
 
 ];
+
+const normPairPath = (h) => (h && !h.endsWith('/') ? `${h}/` : h || '');
+
+/** Cartes accueil → paires hreflang (fusion avec paires existantes). */
+function pagesToLangPairs(pages, localeKey) {
+	return pages
+		.filter((p) => p.href)
+		.map(({ href, fr }) => {
+			const pair = { [localeKey]: normPairPath(href) };
+			if (fr) pair.fr = normPairPath(fr);
+			return pair;
+		});
+}
+
+const CATALOG_LANG_PAIRS = fusionnerPaires(
+	[],
+	[
+		...pagesToLangPairs(EN_PAGES, 'en'),
+		...pagesToLangPairs(DE_PAGES, 'de'),
+		...pagesToLangPairs(IT_PAGES, 'it'),
+		...pagesToLangPairs(ES_PAGES, 'es'),
+	],
+);
+
+export const LANG_PAIRS = fusionnerPaires(
+	[
+		...STATIC_LANG_PAIRS,
+		...DOMOTIQUE_LANG_PAIRS,
+		...SMART_HOME_TOOL_LANG_PAIRS,
+		...ROBOT_TOOL_LANG_PAIRS,
+		...PAIRES_PARTENAIRES,
+		...SECTION_INDEX_LANG_PAIRS,
+	],
+	[...EN_RATTACHEES, ...CATALOG_LANG_PAIRS],
+);
+
 export const langOf = (p) => {
 	for (const l of ['uk', 'ca', 'us', 'en', 'de', 'it', 'es', 'nl']) {
 		if (p === `/${l}` || p.startsWith(`/${l}/`)) return l;
@@ -835,6 +877,11 @@ export function expandLangPair(pair) {
 
 export function findPair(pathname) {
 	const p = norm(pathname);
+	for (const paths of Object.values(SECTION_INDEX_PATHS)) {
+		if (Object.values(paths).includes(p)) {
+			return expandLangPair({ ...paths });
+		}
+	}
 	const direct = LANG_PAIRS.find(
 		(x) =>
 			x.fr === p ||

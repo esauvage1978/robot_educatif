@@ -39,19 +39,9 @@ function normalizeMarket(market) {
 	return market || 'fr';
 }
 
-function marketSearchUrl(market, query) {
-	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
-	return `https://${cfg.host}/s?k=${encodeURIComponent(query)}&tag=${encodeURIComponent(cfg.tag)}`;
-}
-
 /** URL Amazon affiliée (/dp/ ASIN) pour un produit clé et un marché. */
 export function productAmazonUrl(productKey, market = 'fr') {
 	const m = normalizeMarket(market);
-	if (m === 'us' || m === 'ca') {
-		const query = SEARCH_QUERY[productKey];
-		if (query) return marketSearchUrl(m, query);
-		return null;
-	}
 	const asin = ASIN[productKey];
 	if (asin) return amazonDpUrl(asin, m);
 	return null;

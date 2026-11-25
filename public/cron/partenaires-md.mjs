@@ -288,6 +288,7 @@ export const SITEMAP_HISTORIQUE_PARTNER_SLUGS = new Set([
   'paj-gps-es-pt',
   'paj-gps-france',
   'paj-gps-italy',
+  'circuitmess',
 ]);
 
 export function partenairesPublies(registre) {
