@@ -2,6 +2,7 @@ import { DOMOTIQUE_SLUGS, domotiquePath, frDomotiquePath } from './domotiqueI18n
 import { SMART_HOME_TOOL_LANG_PAIRS } from './smartHomeToolPaths.mjs';
 import { ROBOT_TOOL_LANG_PAIRS } from './robotToolPaths.mjs';
 import { PAIRES_PARTENAIRES } from '../data/partenaires/registre.mjs';
+import { SECTION_INDEX_LANG_PAIRS, SECTION_INDEX_PATHS } from '../data/domotiqueSectionIndexes.mjs';
 
 /** Tant que /us/ n’est pas entièrement en ligne : pas de hreflang en-US (évite 404 juge TRUITE). */
 export const OMIT_US_HREFLANG = true;
@@ -844,7 +845,14 @@ const CATALOG_LANG_PAIRS = fusionnerPaires(
 );
 
 export const LANG_PAIRS = fusionnerPaires(
-	[...STATIC_LANG_PAIRS, ...DOMOTIQUE_LANG_PAIRS, ...SMART_HOME_TOOL_LANG_PAIRS, ...ROBOT_TOOL_LANG_PAIRS, ...PAIRES_PARTENAIRES],
+	[
+		...STATIC_LANG_PAIRS,
+		...DOMOTIQUE_LANG_PAIRS,
+		...SMART_HOME_TOOL_LANG_PAIRS,
+		...ROBOT_TOOL_LANG_PAIRS,
+		...PAIRES_PARTENAIRES,
+		...SECTION_INDEX_LANG_PAIRS,
+	],
 	[...EN_RATTACHEES, ...CATALOG_LANG_PAIRS],
 );
 
@@ -869,6 +877,11 @@ export function expandLangPair(pair) {
 
 export function findPair(pathname) {
 	const p = norm(pathname);
+	for (const paths of Object.values(SECTION_INDEX_PATHS)) {
+		if (Object.values(paths).includes(p)) {
+			return expandLangPair({ ...paths });
+		}
+	}
 	const direct = LANG_PAIRS.find(
 		(x) =>
 			x.fr === p ||

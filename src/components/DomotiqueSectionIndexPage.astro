@@ -1,0 +1,99 @@
+---
+import DomotiqueToolLayout from '../layouts/DomotiqueToolLayout.astro';
+import {
+	articlePathForSection,
+	buildSectionIndexItems,
+	hubPathForSection,
+	sectionCopy,
+} from '../data/domotiqueSectionIndexes.mjs';
+import { withBase } from '../lib/siteUrl';
+
+interface Props {
+	section: 'code-error' | 'esp32-projects' | 'rubrique';
+	lang: 'fr' | 'en' | 'de' | 'it' | 'es' | 'nl';
+}
+
+const { section, lang } = Astro.props;
+const copy = sectionCopy(lang, section);
+const items = buildSectionIndexItems(section, lang);
+const articlePath = articlePathForSection(section, lang);
+const hubPath = hubPathForSection(lang, section);
+const pubDate = new Date('2026-10-24T00:00:00Z');
+const hubLabel =
+	lang === 'fr'
+		? 'Domotique'
+		: lang === 'de'
+			? 'Smart Home'
+			: lang === 'it'
+				? 'Domotica'
+				: lang === 'es'
+					? 'Domótica'
+					: lang === 'nl'
+						? 'Smart home'
+						: 'Smart home';
+const affiliate =
+	lang === 'fr'
+		? 'Certains liens de cette page sont affiliés (Amazon et partenaires) : une commission peut être versée sans surcoût. En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.'
+		: lang === 'de'
+			? 'Einige Links sind Affiliate-Links (Amazon und Partner). Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.'
+			: lang === 'it'
+				? 'Alcuni link sono di affiliazione (Amazon e partner). In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.'
+				: lang === 'es'
+					? 'Algunos enlaces son de afiliación (Amazon y socios). Como Afiliado de Amazon, obtengo ingresos por compras idóneas.'
+					: lang === 'nl'
+						? 'Sommige links zijn affiliate-links (Amazon en partners). Als Amazon Associate verdien ik aan in aanmerking komende aankopen.'
+						: 'Some links are affiliate links (Amazon and partners). As an Amazon Associate I earn from qualifying purchases.';
+const home =
+	lang === 'fr' ? '/' : lang === 'nl' ? '/nl/' : `/${lang}/`;
+---
+
+<DomotiqueToolLayout
+	title={copy.title}
+	description={copy.description}
+	lang={lang === 'fr' ? 'fr' : lang === 'de' ? 'de' : lang === 'it' ? 'it' : lang === 'es' ? 'es' : 'en'}
+	pubDate={pubDate}
+	articlePath={articlePath}
+	hubLabel={hubLabel}
+	breadcrumbItems={[
+		{ name: lang === 'fr' ? 'Accueil' : 'Home', url: withBase(home) },
+		{ name: hubLabel, url: withBase(hubPath) },
+		{ name: copy.title, url: withBase(articlePath) },
+	]}
+	contentProvidesH1={true}
+>
+	<div class="prose">
+		<h1>{copy.title}</h1>
+		<p>{copy.lead}</p>
+		<p>
+			<a href={withBase(hubPath)}>{copy.hubLabel}</a>
+		</p>
+		<p class="affiliate-disclosure">{affiliate}</p>
+		<ol class="section-index-list">
+			{items.map((item) => (
+				<li>
+					<a href={withBase(item.href)}>{item.title}</a>
+					{item.meta ? <span class="section-index-meta"> — {item.meta}</span> : null}
+				</li>
+			))}
+		</ol>
+	</div>
+</DomotiqueToolLayout>
+
+<style>
+	.section-index-list {
+		list-style: decimal;
+		padding-left: 1.25rem;
+		margin: 1.5rem 0;
+	}
+	.section-index-list li {
+		margin: 0.35rem 0;
+	}
+	.section-index-meta {
+		color: rgb(var(--gray-dark, 80 80 90));
+		font-size: 0.92rem;
+	}
+	.affiliate-disclosure {
+		font-size: 0.9rem;
+		color: rgb(var(--gray-dark, 60 60 65));
+	}
+</style>

@@ -4565,16 +4565,6 @@
       "retenus": 0
     },
     {
-      "id": "circuitmess",
-      "mid": "124978",
-      "nom": "CircuitMess",
-      "marque": "CircuitMess",
-      "pages": "toutes",
-      "flux": "absent",
-      "lus": 0,
-      "retenus": 0
-    },
-    {
       "id": "comet-it",
       "mid": "23030",
       "nom": "Comet IT",
