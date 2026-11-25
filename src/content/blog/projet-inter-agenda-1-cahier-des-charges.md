@@ -47,7 +47,7 @@ tests/
 
 Cette séparation prépare les **tests unitaires** sans lancer la CLI à chaque fois.
 
-## Modèle de données (brouillon)
+## Modèle de données (v1)
 
 Chaque événement est un **objet JSON** avec au minimum : **`id`**, **`title`**, **`start`** (chaîne ISO), **`duration_minutes`** (entier ou `null`), **`note`** (chaîne, peut être vide). La racine du fichier est un **objet** avec une clé **`events`** : liste d’objets.
 

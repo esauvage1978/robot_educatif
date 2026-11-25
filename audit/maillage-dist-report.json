@@ -1,9 +1,9 @@
 {
   "summary": {
     "dist": "/agent/repos/robot_educatif/dist",
-    "totalEditorial": 3054,
+    "totalEditorial": 3056,
     "editorialReadAlso": {
-      "blocksRendered": 1577,
+      "blocksRendered": 1579,
       "blocksUnder3Links": 0,
       "badAnchorCount": 0,
       "truncatedAnchorCount": 0,
@@ -12,11 +12,11 @@
     },
     "b08": {
       "below3": 990,
-      "atLeast3": 2064
+      "atLeast3": 2066
     },
     "b09": {
       "zeroInbound": 33,
-      "atLeast3Inbound": 1728
+      "atLeast3Inbound": 1733
     }
   },
   "badAnchors": [],

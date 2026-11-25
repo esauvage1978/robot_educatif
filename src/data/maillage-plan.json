@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-24T17:52:39.194Z",
-  "pageCount": 1039,
+  "generatedAt": "2026-11-25T09:02:06.489Z",
+  "pageCount": 1041,
   "outbound": {
     "/about/": [
       {
@@ -9716,6 +9716,28 @@
         "title": "Kit robotique adulte et débutant : lequel choisir en 2026"
       }
     ],
+    "/nl/beste-programmeerbare-robot-voor-kinderen/": [
+      {
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+      },
+      {
+        "href": "/nl/kerstcadeau-leerrobot-2026/",
+        "title": "Kerstcadeau Leerrobot 2026"
+      },
+      {
+        "href": "/nl/partners/",
+        "title": "Partners — samenwerkingen per markt"
+      },
+      {
+        "href": "/nl/",
+        "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/lego-education-merk/",
+        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+      }
+    ],
     "/nl/garage-deur-nodon-homey/": [
       {
         "href": "/nl/unboxing-kit-electrohobby-esp32/",
@@ -9726,16 +9748,16 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
-        "href": "/nl/lego-education-merk/",
-        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+        "href": "/nl/mbot-vs-lego-robot/",
+        "title": "mBot vs LEGO-robot: welke is beter?"
+      },
+      {
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
         "href": "/nl/",
         "title": "Educatieve robots — gidsen, robots en programmeren"
-      },
-      {
-        "href": "/nl/kerstcadeau-leerrobot-2026/",
-        "title": "Kerstcadeau Leerrobot 2026"
       }
     ],
     "/nl/": [
@@ -9752,12 +9774,12 @@
         "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
       },
       {
-        "href": "/nl/garage-deur-nodon-homey/",
-        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
-        "href": "/nl/lego-education-merk/",
-        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       }
     ],
     "/nl/kerstcadeau-leerrobot-2026/": [
@@ -9766,12 +9788,12 @@
         "title": "Educatieve robots — gidsen, robots en programmeren"
       },
       {
-        "href": "/nl/prijsdalingen/hoe-we-meten/",
-        "title": "Hoe prijsdalingen worden gemeten"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
-        "href": "/nl/unboxing-kit-electrohobby-esp32/",
-        "title": "Unboxing van de ElectroHobby.es-kit: 2 ESP32 DevKit, ESP32-C3 Super Mini en sensors (cadeau van het merk)"
+        "href": "/nl/prijsdalingen/hoe-we-meten/",
+        "title": "Hoe prijsdalingen worden gemeten"
       },
       {
         "href": "/nl/garage-deur-nodon-homey/",
@@ -9796,12 +9818,34 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
+      },
+      {
         "href": "/nl/garage-deur-nodon-homey/",
         "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+      }
+    ],
+    "/nl/mbot-vs-lego-robot/": [
+      {
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
+      },
+      {
+        "href": "/nl/partners/",
+        "title": "Partners — samenwerkingen per markt"
       },
       {
         "href": "/nl/",
         "title": "Educatieve robots — gidsen, robots en programmeren"
+      },
+      {
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+      },
+      {
+        "href": "/nl/kerstcadeau-leerrobot-2026/",
+        "title": "Kerstcadeau Leerrobot 2026"
       }
     ],
     "/nl/partners/": [
@@ -9818,12 +9862,12 @@
         "title": "Hoe prijsdalingen worden gemeten"
       },
       {
-        "href": "/nl/garage-deur-nodon-homey/",
-        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       }
     ],
     "/nl/prijsdalingen/hoe-we-meten/": [
@@ -9832,12 +9876,12 @@
         "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
       },
       {
-        "href": "/nl/garage-deur-nodon-homey/",
-        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
-        "href": "/nl/prijsdalingen/",
-        "title": "Prijsdalingen bij partners"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       },
       {
         "href": "/nl/",
@@ -9862,15 +9906,19 @@
         "title": "Partners — samenwerkingen per markt"
       },
       {
-        "href": "/nl/garage-deur-nodon-homey/",
-        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
+        "href": "/nl/garage-deur-nodon-homey/",
+        "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
       }
     ],
     "/nl/unboxing-kit-electrohobby-esp32/": [
+      {
+        "href": "/nl/mbot-vs-lego-robot/",
+        "title": "mBot vs LEGO-robot: welke is beter?"
+      },
       {
         "href": "/nl/kerstcadeau-leerrobot-2026/",
         "title": "Kerstcadeau Leerrobot 2026"
@@ -9880,16 +9928,12 @@
         "title": "Prijsdalingen bij partners"
       },
       {
-        "href": "/nl/lego-education-merk/",
-        "title": "LEGO Education: merkgids SPIKE, WeDo en BricQ"
+        "href": "/nl/beste-programmeerbare-robot-voor-kinderen/",
+        "title": "Beste Programmeerbare Robot Voor Kinderen"
       },
       {
         "href": "/nl/garage-deur-nodon-homey/",
         "title": "Slimme garagedeur: NodOn-relais en Homey Pro"
-      },
-      {
-        "href": "/nl/",
-        "title": "Educatieve robots — gidsen, robots en programmeren"
       }
     ],
     "/outil-quel-robot-enfant/": [
@@ -23946,7 +23990,7 @@
     ]
   },
   "stats": {
-    "pagesWithSupplement": 1587,
+    "pagesWithSupplement": 1589,
     "b09InKnown": 63
   }
 }

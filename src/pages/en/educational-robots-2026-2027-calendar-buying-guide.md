@@ -74,7 +74,7 @@ This page tracks **educational robot launches** from **October 2026** through **
 <tr>
 <td data-label="Window"><span class="td-val">Fall 2026</span></td>
 <td data-label="Product"><span class="td-val">Sphero Blueprint Robotics</span></td>
-<td data-label="Price anchor"><span class="td-val">TBD premium</span></td>
+<td data-label="Price anchor"><span class="td-val">Price TBC at launch</span></td>
 </tr>
 <tr>
 <td data-label="Window"><span class="td-val">Ongoing</span></td>

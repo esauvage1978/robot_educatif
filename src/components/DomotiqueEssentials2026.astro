@@ -238,7 +238,7 @@ const items = c.items.map((item) => {
 					{item.shelly && (
 						<a
 							class="re-dom-essentials-btn re-dom-essentials-btn--ghost"
-							href={`https://${MARKET_CONFIG[market].host}/s?k=${encodeURIComponent(item.query)}&tag=${MARKET_CONFIG[market].tag}`}
+							href={amazonListingUrl({ asin: item.asin, query: item.query, market: affiliateMarket })}
 							data-amazon-query={item.query}
 							target="_blank"
 							rel="sponsored nofollow noopener"

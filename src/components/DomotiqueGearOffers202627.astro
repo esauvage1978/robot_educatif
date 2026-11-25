@@ -1,4 +1,5 @@
 ---
+import { amazonSearchUrl } from '../lib/amazonAffiliate.mjs';
 /** Bloc conversion « Matériel recommandé 2026–2027 » — au-dessus de la ligne de flottaison. */
 interface Props {
 	lang?: 'fr' | 'en' | 'uk' | 'ca' | 'us' | 'de' | 'it' | 'es';
@@ -25,8 +26,8 @@ const tags: Record<string, { host: string; tag: string; sym: string }> = {
 };
 
 const t = tags[lang] ?? tags.fr;
-const amz = (q: string) =>
-	`https://${t.host}/s?k=${encodeURIComponent(q)}&tag=${t.tag}`;
+const amzLang = ({ fr: 'fr', en: 'en', uk: 'en', ca: 'en', us: 'en', de: 'de', it: 'it', es: 'es', nl: 'nl' } as const)[lang] ?? 'fr';
+const amz = (q: string) => amazonSearchUrl(amzLang, q) || `https://${t.host}/?tag=${encodeURIComponent(t.tag)}`;
 
 const copy: Record<
 	string,

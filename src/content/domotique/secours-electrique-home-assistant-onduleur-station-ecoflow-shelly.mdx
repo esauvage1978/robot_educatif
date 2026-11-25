@@ -396,7 +396,7 @@ Sur **Homey Pro mini** (qui ne consomme que ~3 W en USB-C !), créez deux **Adva
    - **ET (And)** : Toujours indisponible après un délai de `30 secondes`.
    - **ALORS (Then)** :
      - Activer la variable logique `Sur_Batterie = Oui`.
-     - Envoyer une notification push à Manu : *« ⚠️ Coupure 230 V détectée : Homey Pro mini + Box Fibre sur batterie EcoFlow / Mini-UPS. »*
+     - Envoyer une notification push (ntfy ou HA) : *« ⚠️ Coupure 230 V détectée : Homey Pro mini + Box Fibre sur batterie EcoFlow / Mini-UPS. »*
      - Couper les scénarios non essentiels (ex. chauffage fil pilote forcé en mode **Arrêt / Hors-gel** pour éviter tout appel de puissance au retour du courant — voir notre guide sur le [pilotage de chauffage fil pilote avec Shelly et Zigbee](/domotique/piloter-chauffage-electrique-fil-pilote-zigbee-shelly-home-assistant/)).
 2. **Flow 2 — Retour secteur et reprise progressive** :
    - **QUAND (When)** : *Shelly Plug S Amont* redevient disponible (`Sur_Batterie == Oui`).

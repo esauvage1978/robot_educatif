@@ -17,13 +17,13 @@ export const CELL_CREDIT = 'https://commons.wikimedia.org/wiki/File:Electric_eye
 export const CC_BY = 'https://creativecommons.org/licenses/by/2.0/';
 export const CC_BY_SA = 'https://creativecommons.org/licenses/by-sa/4.0/';
 
-/** Recherche Amazon.com, identifiant partenaire US déjà utilisé sur les articles anglais du site. */
-export function amazonComSearch(query) {
-	return `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=roboteducatif-20`;
-}
-
 export function marketSearch(lang, query) {
 	return amazonSearchUrl(lang, query);
+}
+
+/** @deprecated Utiliser marketSearch('en', query). */
+export function amazonComSearch(query) {
+	return marketSearch('en', query);
 }
 
 export function guidePath(lang, frSlug) {
