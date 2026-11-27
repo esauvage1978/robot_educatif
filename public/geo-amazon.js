@@ -102,7 +102,9 @@
     if (/^\/s\/?$/.test(u.pathname)) kw = u.searchParams.get('k') || u.searchParams.get('field-keywords') || '';
     else kw = asinOf(u.pathname);
     if (!kw) return null; // ni ASIN ni recherche : lien d'origine
-    return 'https://' + TARGET[0] + '/s?k=' + encodeURIComponent(kw) + '&tag=' + TARGET[1];
+    var asin = asinOf(u.pathname) || (/^[A-Z0-9]{10}$/.test(kw) ? kw : '');
+    if (asin) return 'https://' + TARGET[0] + '/dp/' + asin + '?tag=' + TARGET[1];
+    return null; // pas de bascule vers /s?k= : conserver l'URL d'origine
   }
   function fix(a) {
     if (!a || a.getAttribute('data-amz-geo')) return;
