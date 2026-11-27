@@ -210,6 +210,12 @@ export const DOMOTIQUE_SLUGS = {
 		it: 'agente-ia-homey-chiave-api-advanced-flow',
 		es: 'agente-ia-homey-clave-api-advanced-flow',
 	},
+	'test-gmktec-m6-ultra-serveur-domotique-home-assistant': {
+		en: 'gmktec-m6-ultra-home-assistant-server',
+		de: 'gmktec-m6-ultra-home-assistant-server',
+		it: 'test-gmktec-m6-ultra-server-domotica-home-assistant',
+		es: 'test-gmktec-m6-ultra-servidor-domotica-home-assistant',
+	},
 };
 
 export const DOMOTIQUE_BASE = {

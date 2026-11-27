@@ -6,7 +6,7 @@ export function productGoPath(productId, market) {
 	if (!productId || !market) return null;
 	const map = PRODUCT_GO_BY_MARKET[productId];
 	if (!map) return null;
-	return map[market] || map.fr || null;
+	return map[market] || null;
 }
 
 /** Marché affilié pour ProductBox selon id produit dérivé des champs page ou catalogue. */

@@ -1,0 +1,216 @@
+---
+layout: ../../../layouts/EsPost.astro
+title: "GMKtec M6 Ultra como servidor de domótica: Home Assistant, Homey y asistente de voz local"
+description: "He convertido el mini-PC GMKtec M6 Ultra en mi servidor de domótica: Home Assistant en una MV (2 núcleos, 2 GB, listo en 59 s), lectura del Homey Pro mini por su API local y un asistente de voz Whisper + Piper que responde en 1,1 a 1,3 s. Medidas, acabado y límites."
+updated: "25 de noviembre de 2026"
+heroImage: "/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Photo = ({src, alt, caption, portrait}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: portrait ? '420px' : '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={portrait ? 900 : 1200} height={portrait ? 1200 : 900} style={{width: '100%', height: 'auto', borderRadius: '10px'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*También disponible en [francés](/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/).*
+
+<div class="shelly-encart" style="margin-bottom:1.25rem;">
+<p><strong>Producto recibido gratuitamente para esta prueba</strong></p>
+<p>GMKtec me ha regalado este mini-PC para que lo pruebe en casa. Sigo libre de escribir lo que constato, y las medidas son mías. Los enlaces de Amazon de esta página son de afiliación: una compra puede generar una comisión para Robot Éducatif, sin coste adicional para usted. Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+</div>
+
+*Pruebas realizadas del 22 al 25 de noviembre de 2026.*
+
+El GMKtec NucBox M6 Ultra es un pequeño mini-PC con Windows 11 Pro, un procesador AMD Ryzen 5 7640HS, 16 GB de memoria, un SSD de 512 GB y la gráfica integrada Radeon 760M. En LocAIhome ya he contado cómo se desenvuelve con modelos de IA en local ([la prueba de IA local del GMKtec M6 Ultra](https://locaihome.com/es/hardware/gmktec-m6-ultra-ia-local/)). Aquí le doy otro papel: el de servidor de domótica de la casa, encendido de forma permanente junto a mi PC principal. Home Assistant, el diálogo con mi Homey Pro mini, un asistente de voz que no pasa por la nube: esto es lo que funciona de verdad, con cifras.
+
+<Photo src="/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp" alt="Mini-PC GMKtec M6 Ultra encendido en un escritorio, botón de encendido verde iluminado, fuente de alimentación al lado" caption="El M6 Ultra en servicio en mi escritorio, junto a su fuente de alimentación." />
+
+## En resumen
+
+**Lo que me ha gustado**
+- Home Assistant funciona en una máquina virtual de 2 núcleos y 2 GB y responde en **59 s** tras un reinicio, sin tocar Windows.
+- Un asistente de voz totalmente local responde a « ¿Está cerrada la puerta del garaje? » en **1,1 a 1,3 s**.
+- El Homey Pro mini se lee desde el mini-PC por su API local, en unas decenas de milisegundos.
+- Unos **10 W** en reposo (estimación de software), una caja sobria y bien acabada, y dos puertos Ethernet de 2,5 G.
+
+**Los límites**
+- Con 6 GB reservados para el chip gráfico, Windows solo ve unos 9,8 GB de memoria: Home Assistant más un modelo de IA de 7.000 millones de parámetros queda justo.
+- No hay radio Zigbee ni Thread integrada: hace falta un dongle USB o un hub como un Homey.
+- No tengo un sonómetro fiable, así que en esta prueba no hay una cifra en decibelios.
+
+## Unboxing, acabado y diseño
+
+La caja es blanca y sobria, con el logotipo GMKtec en letras doradas. En el interior, el mini-PC va encajado en una bandeja, con la fuente de alimentación, un cable HDMI, un soporte VESA para fijarlo detrás de una pantalla y el manual.
+
+<Photo portrait src="/images/domotique/gmktec/gmktec-m6-ultra-boite.webp" alt="Caja blanca del mini-PC GMKtec con el logotipo dorado" caption="La caja del GMKtec M6 Ultra." />
+
+La carcasa es un cuadrado gris oscuro mate de unos 12,9 × 12,7 × 4,8 cm y 528 g según la ficha del fabricante. El logotipo GMKtec, con su « 1 » verde, ocupa la parte superior, junto a las pegatinas AMD Ryzen y Radeon. Es limpio, sin estética gamer ni LED inútil: se integra con facilidad en un escritorio o en una estantería junto al router.
+
+<Photo portrait src="/images/domotique/gmktec/gmktec-m6-ultra-boitier-dessus.webp" alt="Parte superior del GMKtec M6 Ultra, gris oscuro mate, con el logotipo GMKtec y pegatinas AMD" caption="La parte superior de la carcasa, todavía en su bandeja." />
+
+En el frente están el botón de encendido verde lima, una toma jack, un puerto USB4 (Type-C) y dos USB 3.2. Para la domótica es práctico: un dongle Zigbee o un micrófono USB se conectan delante, sin rebuscar detrás.
+
+<Photo src="/images/domotique/gmktec/gmktec-m6-ultra-facade.webp" alt="Frente del GMKtec M6 Ultra con botón verde, jack, puerto USB-C y dos puertos USB-A" caption="El frente: botón verde, jack, USB4 y dos USB 3.2." />
+
+Detrás, dos puertos USB, una salida HDMI, una salida DisplayPort, las dos tomas Ethernet de 2,5 G y la entrada de alimentación. En la entrega, una etiqueta amarilla cubre las tomas de red: GMKtec aconseja no conectar el cable Ethernet durante la primera configuración de Windows, para evitar actualizaciones largas antes del escritorio. Lo seguí y conecté el mini-PC a la red cuando Windows ya estaba listo.
+
+<Photo src="/images/domotique/gmktec/gmktec-m6-ultra-connectique-arriere.webp" alt="Parte trasera del GMKtec M6 Ultra: USB, HDMI, DisplayPort, dos tomas Ethernet bajo una etiqueta amarilla y entrada DC" caption="La parte trasera, con la etiqueta que recomienda conectar la red después de la configuración." />
+
+El manual, en varios idiomas entre ellos el español y el francés, describe los puertos y las características de este ejemplar (configuración de 16 GB / 512 GB). Las rejillas de ventilación de los laterales y la base recuerdan que hay un ventilador: no es una caja pasiva como un Home Assistant Green.
+
+<Photo portrait src="/images/domotique/gmktec/gmktec-m6-ultra-notice.webp" alt="Manual del GMKtec M6 Ultra abierto en la página que presenta los puertos" caption="El manual incluido." />
+
+## Mi instalación: una pantalla para dos ordenadores
+
+El mini-PC vive junto a mi PC principal y comparte su pantalla. Para pasar de uno a otro sin desconectar cables uso un pequeño conmutador HDMI GANA de aluminio: dos fuentes, una pantalla y un botón con LED azul para conmutar. No necesita alimentación. Atención: solo conmuta la imagen. Para compartir también el teclado y el ratón de un solo gesto hace falta un conmutador KVM de verdad (HDMI + USB).
+
+<Photo portrait src="/images/domotique/gmktec/switch-hdmi-gana-bureau.webp" alt="Conmutador HDMI GANA gris de aluminio al pie de un brazo de monitor, botón con LED azul encendido" caption="El conmutador HDMI GANA al pie de la pantalla: una pulsación y la pantalla pasa del PC principal al GMKtec." />
+
+En red, el GMKtec está conectado por Ethernet a un pequeño switch Gigabit de metal, fijado bajo el tablero del escritorio. Para un servidor de domótica, el cable es preferible al Wi-Fi: el enlace con el router, el Homey y los dispositivos Wi-Fi se mantiene estable, y el mini-PC sigue siendo accesible aunque el Wi-Fi esté saturado.
+
+<Photo portrait src="/images/domotique/gmktec/switch-ethernet-sous-bureau.webp" alt="Pequeño switch Ethernet negro fijado bajo un escritorio, con cuatro cables conectados y LED verdes encendidos" caption="El switch Ethernet fijado bajo el escritorio, que une el GMKtec al resto de la red." />
+
+## Home Assistant en una máquina virtual
+
+Quería conservar Windows en la máquina: también la uso para la IA local y algunas tareas programadas. Por eso arranqué la imagen oficial **Home Assistant OS 18.4** en una máquina virtual QEMU, con la aceleración por hardware de Windows (WHPX), sin activar el rol Hyper-V. La MV recibe **2 núcleos y 2 GB de memoria**, el mínimo recomendado por Home Assistant.
+
+El primer arranque es el más largo: la consola de Home Assistant aparece en 28 s, pero hacen falta unos 2 min 36 s antes de que responda la interfaz web, mientras el sistema descarga e instala sus componentes. Después, un reinicio completo de la MV hasta la interfaz tarda **59 s**.
+
+En reposo, una vez arrancado Home Assistant, la MV ocupa unos **2 060 MB** de memoria y consume **alrededor del 11 % de un núcleo lógico** del procesador (medida durante 3 minutos). El Ryzen 5 7640HS tiene 12 hilos: Home Assistant solo apenas le pide nada, y queda todo el margen para automatizaciones, paneles, Node-RED o el historial de sensores. Terminé la configuración inicial (cuenta local, zona Europe/Paris, unidades métricas) sin indicar una dirección.
+
+Si no necesita Windows, la otra vía es borrar el SSD e instalar Home Assistant OS directamente en el mini-PC (imagen « Generic x86-64 »): más sencillo para conectar dongles USB, pero la máquina solo sirve para eso. Para comparar con las cajas dedicadas, véase [Home Assistant Green o Raspberry Pi 5](/es/domotica/home-assistant-green-vs-raspberry-pi-5/).
+
+## El enlace con el Homey Pro mini
+
+Ya tengo un Homey Pro mini en casa, que entre otras cosas controla [mi puerta de garaje con un relé NodOn](/es/domotica/puerta-garaje-rele-nodon-homey/). El GMKtec no lo sustituye: ambos se complementan. El Homey conserva las radios (Zigbee, Thread y Matter integrados; Z-Wave, 433 MHz e infrarrojos a través de un Homey Bridge) y sus Flows; el mini-PC aporta la potencia de cálculo.
+
+Con una clave API creada en los ajustes del Homey, el mini-PC consulta su API local en la red de casa, sin pasar por Internet. Allí encuentro los 5 dispositivos declarados (el enchufe exterior con su tensión y su consumo, el sensor y el relé de la puerta de garaje, una bombilla, una pasarela de radio), las 21 estancias y zonas, y el Flow avanzado « Garaje abierto ≥ 10 min ». En diez lecturas de la lista completa de dispositivos, la respuesta llegó en **32 a 85 ms**. Me limité a la lectura: el único dispositivo que se podía accionar sin consecuencias, la bombilla, estaba fuera de línea durante la prueba, y no iba a abrir la puerta del garaje para una demostración.
+
+En el lado de Home Assistant existe una integración Homey de la comunidad (vía HACS) que usa esa misma clave API, y la vía MQTT, que funciona con todos los modelos de Homey. La comparativa [Home Assistant, Jeedom o Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/) ayuda a ver qué hace mejor cada sistema.
+
+## Un asistente de voz 100 % local
+
+Es el uso que más justifica un mini-PC frente a una caja pequeña: un asistente de voz que entiende el francés, responde en voz alta y no envía nada a la nube. Se apoya en tres piezas gratuitas: **Whisper** para pasar la voz a texto, **Piper** para la síntesis de voz y **Ollama** para un modelo de lenguaje, si se quieren respuestas libres.
+
+Medí cada pieza en el procesador del GMKtec, con la voz francesa « siwis » de Piper. Piper genera una frase de un poco más de 4 segundos en **0,25 a 0,38 s**, es decir el 6-9 % de su duración. Para Whisper hice que Piper leyera la pregunta « Quelle température fait-il dans le salon, et est-ce que la porte du garage est fermée ? » y luego la transcribí:
+
+<div class="tableau empile">
+<table>
+<thead><tr>
+<th scope="col">Modelo Whisper</th>
+<th scope="col">Tiempo de transcripción (4,2 s de audio)</th>
+<th scope="col">Resultado</th>
+</tr></thead><tbody>
+<tr>
+<td data-label="Modelo Whisper"><span class="td-val"><strong>base</strong></span></td>
+<td data-label="Tiempo de transcripción (4,2 s de audio)"><span class="td-val">1,25 a 1,5 s</span></td>
+<td data-label="Resultado"><span class="td-val">Un error de concordancia (« Quel température »), sentido comprendido</span></td>
+</tr>
+<tr>
+<td data-label="Modelo Whisper"><span class="td-val"><strong>small</strong></span></td>
+<td data-label="Tiempo de transcripción (4,2 s de audio)"><span class="td-val">3,1 a 4,5 s</span></td>
+<td data-label="Resultado"><span class="td-val">Frase exacta</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Después monté una cadena completa breve: la pregunta « Est-ce que la porte du garage est fermée ? » la transcribe Whisper, el mini-PC lee el estado del sensor en el Homey y Piper pronuncia la respuesta. En tres pruebas, la respuesta está lista en **1,09 a 1,27 s**, la mayor parte para la transcripción (0,9 a 1,1 s), 25 a 50 ms para consultar el Homey y 0,13 a 0,18 s para la voz. Todo ello sin ninguna conexión a Internet. Estos tiempos se midieron mientras en la máquina corría en paralelo un trabajo de IA: en un mini-PC en calma solo pueden mejorar.
+
+Para respuestas más libres (« Resúmeme el tiempo y dime si debo regar »), se añade un modelo de lenguaje con Ollama. No repetí esa cronometraje el 25 de noviembre: otro trabajo ya usaba Ollama en la máquina. Los caudales siguientes se midieron el 22 de noviembre de 2026 en este mismo ejemplar y se detallan en [la prueba de IA local en LocAIhome](https://locaihome.com/es/hardware/gmktec-m6-ultra-ia-local/): qwen2.5:7b produce 11 a 13 tokens por segundo (13,07 tokens/s en la ventana HWiNFO de 180 s, en la Radeon 760M) y llama3.2:3b 22 a 27 tokens por segundo. Para una respuesta de una frase, eso añadiría uno o dos segundos (estimación a partir de estos caudales, no cronometrada el 25 de noviembre). El verdadero punto de atención es la memoria: durante las pruebas, con la MV de Home Assistant y qwen2.5:7b cargados, Windows usaba 10,0 GB de los 10,5 GB que ve. Para un asistente de voz cotidiano, recomiendo por tanto el pequeño llama3.2:3b, o reducir la memoria reservada al chip gráfico en la BIOS (Windows ve entonces unos 13,8 GB), o pasar a 32 GB de RAM: el M6 Ultra tiene dos ranuras SO-DIMM.
+
+## Ruido, calor y consumo
+
+No tengo un sonómetro fiable, y Windows no expone la velocidad del ventilador de este modelo a las herramientas de medida que usé: por eso no doy una cifra en decibelios ni en revoluciones por minuto. Esto es, en cambio, lo que pude medir.
+
+Con HWiNFO, el 22 de noviembre, el procesador (incluido el chip gráfico) consume de media **10,2 W** en reposo, **35,0 W** con el procesador al 100 % y **42,9 W** cuando un modelo de IA rueda a pleno en la Radeon 760M. Son estimaciones de software, no una medida en el enchufe. Las temperaturas registradas se mantienen razonables: 42 °C en reposo, 72 °C como máximo en IA en el chip gráfico, 78 °C como máximo al 100 % del procesador.
+
+El 25 de noviembre, durante una tarea de IA larga que tenía el procesador en torno al 69 % desde hace varias horas, el sensor térmico que expone Windows mostró 89 a 93 °C, sin ninguna limitación de rendimiento señalada. Es un sensor distinto del de HWiNFO, y un caso extremo: en un uso normal de domótica, Home Assistant y el asistente de voz solo cargan el procesador unos segundos, y la máquina pasa la mayor parte del tiempo en reposo. Para un servidor encendido día y noche, es este régimen de reposo en torno a 10 W el que cuenta. LocAIhome profundiza en el ruido y el consumo de un mini-PC encendido 24 horas en su guía.
+
+## ¿Para qué usos?
+
+El GMKtec M6 Ultra se desenvuelve bien como **servidor Home Assistant** para toda una casa, con historial, paneles y automatizaciones, y como **puente entre varios sistemas**: aquí Home Assistant y el Homey, mañana MQTT o Node-RED. Su verdadera diferencia frente a una Raspberry Pi o un Home Assistant Green es el **asistente de voz local**: la transcripción y la síntesis en francés corren rápido en su procesador, y puede alojar un modelo de lenguaje pequeño. Sus dos puertos Ethernet de 2,5 G también abren la puerta a un uso de red (cortafuegos, enrutador por software) para quien le guste trastear.
+
+Es menos pertinente si solo quiere encender luces y recibir avisos: un Home Assistant Green consume menos, no hace ruido y se conecta sin configuración. Y necesita accesorios: un dongle Zigbee para los sensores Zigbee si no tiene un Homey, y más memoria si piensa hacer funcionar a la vez Home Assistant, un modelo de 7 u 8 mil millones de parámetros y la videovigilancia con detección.
+
+<ProductBox
+  productId="gmktec-m6-ultra"
+  name="GMKtec NucBox M6 Ultra (Ryzen 5 7640HS, 16 GB, 512 GB)"
+  asin="B0FND44YYW"
+  image="/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp"
+  preferLocalImage
+  priceRange="consulte el precio del vendedor"
+  pros={[
+    'Home Assistant en MV listo en 59 s',
+    'Asistente de voz local en ~1,2 s',
+    'Unos 10 W en reposo (estimación)',
+    '2 puertos Ethernet de 2,5 G'
+  ]}
+  cons={[
+    '~9,8 GB visibles con 6 GB reservados para la GPU',
+    'Sin radio Zigbee o Thread integrada'
+  ]}
+  badge="Probado en casa"
+/>
+
+Para una instalación más sencilla, o como complemento para las radios:
+
+<ProductBox
+  productId="home-assistant-green"
+  name="Home Assistant Green"
+  asin="B0CXVKSG19"
+  image="/images/products/home-assistant-green.webp"
+  priceRange="consulte el precio del vendedor"
+  pros={[
+    'Listo para usar, sin configuración',
+    'Silencioso, consumo muy bajo'
+  ]}
+  cons={[
+    'No es lo bastante potente para un asistente de voz local con IA'
+  ]}
+  badge="Más simple"
+/>
+
+<ProductBox
+  productId="sonoff-zbdongle-e"
+  name="SONOFF ZBDongle-E"
+  asin="B0B6P22YJC"
+  image="/images/products/sonoff-zbdongle-e.webp"
+  priceRange="consulte el precio del vendedor"
+  pros={[
+    'Añade Zigbee a Home Assistant',
+    'Se conecta en el frente del mini-PC'
+  ]}
+  badge="Dongle Zigbee"
+/>
+
+Para reproducir mi instalación de escritorio, el conmutador HDMI GANA y el switch Ethernet están descritos más arriba, con fotos. No indico una ficha de producto: no pude asociar con certeza el GANA gris ni el switch de red a una referencia de Amazon precisa, y el GANA solo conmuta la imagen. Para compartir también el teclado y el ratón hace falta un conmutador KVM de verdad (HDMI y USB).
+
+Y para usos más pesados de lo que permite el M6 Ultra con 16 GB:
+
+- más memoria para hacer funcionar Home Assistant y un modelo 7B u 8B sin apreturas: [kit Crucial 32 GB (2 × 16 GB) DDR5-4800 SO-DIMM](/go/az-es-01219e1acb/), compatible con las dos ranuras del M6 Ultra;
+- más espacio para los modelos, las copias de seguridad y las grabaciones de cámaras: [SSD Samsung 990 EVO Plus 1 TB](/go/az-es-cf5f9d1df4/) para la segunda ranura M.2;
+- un servidor que lo hace todo a la vez (modelos de IA grandes, videovigilancia con detección, varias MV): el [GMKtec EVO-X2 (Ryzen AI Max+ 395, 64 GB)](/go/az-es-6e0f0c011a/), en otra gama de precios.
+
+## Preguntas frecuentes
+
+**¿Se puede ejecutar Home Assistant en el GMKtec M6 Ultra sin borrar Windows?**
+Sí. Lo arranqué en una máquina virtual QEMU (2 núcleos, 2 GB) con la aceleración WHPX de Windows, sin activar Hyper-V. Home Assistant responde en 59 s tras un reinicio y solo usa alrededor del 11 % de un núcleo en reposo.
+
+**¿Puede el GMKtec sustituir un Homey Pro mini?**
+No para las radios: no tiene Zigbee, Z-Wave ni Thread integrados. En cambio, dialoga muy bien con él por su API local (respuesta en 32 a 85 ms en mi caso), y ambos se complementan.
+
+**¿Un asistente de voz local es lo bastante rápido?**
+Sí para órdenes y preguntas sencillas: 1,09 a 1,27 s entre el final de la pregunta y la respuesta lista, con Whisper « base » y Piper, leyendo el estado de un sensor en el Homey. El modelo Whisper « small » es más preciso pero tres veces más lento.
+
+**¿Cuánto consume encendido de forma permanente?**
+Unos 10,2 W de media en reposo según HWiNFO (estimación del procesador y del chip gráfico, no una medida en el enchufe), 35 a 43 W a plena carga.
+
+**¿Bastan 16 GB de memoria?**
+Para Home Assistant y el asistente de voz con un modelo pequeño, sí. Para Home Assistant más un modelo de 7.000 millones de parámetros en permanencia queda justo con 6 GB reservados para el chip gráfico: reduzca esa reserva en la BIOS o pase a 32 GB.
+
+Para seguir: [instalar Home Assistant en una Raspberry Pi 5](/es/domotica/instalar-home-assistant-raspberry-pi-5/), [el mejor dongle Zigbee para Home Assistant](/es/domotica/mejor-dongle-zigbee-home-assistant/), [mi prueba del Homey Pro mini](/es/domotica/test-homey-pro-mini-unboxing-instalacion/) y toda la [sección de domótica](/es/domotica/).
+
