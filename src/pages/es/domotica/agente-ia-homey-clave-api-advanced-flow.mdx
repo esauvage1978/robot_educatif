@@ -1,0 +1,167 @@
+---
+layout: ../../../layouts/EsPost.astro
+title: "Un agente de IA crea mis Advanced Flows de Homey con una clave API"
+description: "Experiencia práctica: una clave API de Homey Pro mini confiada a un agente de IA Grok, que crea un Advanced Flow con una frase y controla la casa por voz o con un prompt."
+updated: "25 de noviembre de 2026"
+heroImage: "/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp"
+---
+
+import ProductBox from '../../../components/ProductBox.astro';
+
+export const Shot = ({src, alt, caption, w, h, max}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: max || '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={w} height={h} style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #e3e6ea'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*También disponible en [francés](/domotique/agent-ia-homey-cle-api-advanced-flow/).*
+
+*Probado en casa el 25 de noviembre de 2026.*
+
+Esta noche no abrí el editor de Flows. Escribí una frase a un agente de IA (en francés): «¿puedes crearme un advanced flow que encienda el enchufe exterior a las 18 h y lo apague a las 21 h?». Un minuto después, el Advanced Flow ya existía, activado, en mi **Homey Pro mini**. Así está conectado, esto es lo que comprobé después y por eso sigo siendo prudente.
+
+## Lo que hice, en resumen
+
+- En la app Homey creé una **clave API** (Ajustes y luego Claves API).
+- Se la di a un **agente de IA Grok** (un asistente Grok Bot al que llamé «Homey»).
+- Le pedí, en lenguaje natural, un Advanced Flow para el enchufe exterior del jardín.
+- El agente leyó primero la descripción de las tarjetas Flow de mi Homey y después creó y activó el Advanced Flow **«Prise extérieure 18h-21h»** (enchufe exterior 18-21 h).
+- No tocó mi otro flow, **«Garage ouvert >= 10 min»**, el de mi [puerta de garaje conectada con un relé NodOn](/es/domotica/puerta-garaje-rele-nodon-homey/).
+
+<Shot src="/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp" alt="Chat en francés con el agente de IA Homey: petición de un Advanced Flow para el enchufe exterior y confirmación de su creación" caption="Mi petición y la respuesta del agente tras crear el flow (en francés)." w={647} h={385} max="647px" />
+
+El mismo agente controla también los aparatos de la casa: en mi Homey son las apps **Aqara, NodOn, Tapo, Tuya y HomeyScript**. Le hablo por voz (el micrófono de la app) o escribo un prompt.
+
+## ¿Qué es una clave API de Homey?
+
+Homey Pro ofrece una **Web API**: la usan la app Homey, Alexa y Google Assistant para controlar los aparatos y lanzar Flows. Una **clave API** es un token de acceso que creas tú mismo en tu Homey para que una herramienta externa pueda llamar a esa API.
+
+Según la documentación de Athom, las claves API se crean en los modelos recientes de Homey Pro (incluido Homey Pro mini); al crearla **eliges sus permisos**, la clave **solo se muestra una vez** y se puede **revocar en cualquier momento**. Un detalle importa: en el foro oficial, un desarrollador de Athom explica que los clientes OAuth de la Web API no obtienen ciertos derechos sensibles, como crear Flows o Advanced Flows, y remite a las claves API creadas en tu propio Homey. Es, por tanto, la herramienta adecuada para un agente que tiene que **crear** automatizaciones.
+
+## Crear la clave y elegir sus derechos
+
+1. En la app o la web app de Homey, abre **Ajustes** y luego **Claves API**.
+2. Crea una clave nueva y ponle un nombre claro (por ejemplo «Agente IA»).
+3. Marca **solo los permisos necesarios**: en mi caso, leer y controlar aparatos, leer y crear Flows. Nada más «por si acaso».
+4. Copia la clave enseguida y guárdala en un lugar seguro (un gestor de contraseñas): Homey no volverá a mostrarla.
+
+<Shot src="/images/domotique/homey-agent-ia/parametres-homey-cles-api.webp" alt="Menú Ajustes de la app Homey en francés con la entrada Claves API, las integraciones Claude y ChatGPT y las apps Aqara, HomeyScript, NodOn, Tapo y Tuya" caption="Los ajustes de mi Homey (interfaz en francés): claves API, integraciones y apps instaladas." w={364} h={880} max="320px" />
+
+Tres reglas que sigo:
+
+- **Mínimo privilegio**: una clave por uso, con los mínimos derechos. Si el agente solo necesita leer, no necesita borrar.
+- **Revocación**: ante la menor duda (filtración, herramienta abandonada), borro la clave en los ajustes y el acceso se corta.
+- **No publicarla nunca**: ninguna clave en una captura, un foro, un repositorio de GitHub o un mensaje compartido. Una clave API es como la llave de casa.
+
+## Lo que hizo el agente
+
+El agente no adivina las tarjetas. Empezó **leyendo la descripción de las tarjetas Flow** disponibles en mi Homey (disparadores, condiciones y acciones de cada app). Después montó el Advanced Flow:
+
+- **Fecha y hora: son las 18:00** → **Prise extérieure - Jardin: Encender**;
+- **Fecha y hora: son las 21:00** → **Prise extérieure - Jardin: Apagar**.
+
+Lo guardó como «Prise extérieure 18h-21h», lo activó y me indicó la zona horaria usada (hora de París). En la pestaña Flow se ven exactamente esas cuatro tarjetas.
+
+<Shot src="/images/domotique/homey-agent-ia/advanced-flow-prise-exterieure.webp" alt="Advanced Flow de Homey Prise extérieure 18h-21h: tarjeta Fecha y hora 18:00 unida a Encender, tarjeta 21:00 unida a Apagar" caption="El Advanced Flow creado por el agente, tal como aparece en la pestaña Flow." w={1443} h={417} />
+
+## Ejemplos de prompts
+
+Cuanto más preciso es el prompt, menos sorpresas. Los que mejor me funcionan tienen la misma forma: **aparato exacto, momento, acción y lo que no hay que tocar**.
+
+- «Crea un Advanced Flow que encienda el enchufe exterior a las 18 h y lo apague a las 21 h, todos los días. No modifiques ningún otro flow.»
+- «Enumera mis aparatos de la zona Jardín y dime cuáles están encendidos.»
+- «Apaga el enchufe exterior.»
+- «Enséñame las tarjetas de mi flow Garaje abierto, sin cambiar nada.»
+- «Propónme un flow que me avise si la puerta del garaje sigue abierta después de las 22 h. No lo crees, descríbelo primero.»
+
+El último es mi favorito: pedir **un plan antes de la acción** da tiempo a revisar.
+
+## Comprobar después de crearlo
+
+No me fío a ciegas, aunque todo parezca correcto. Tras cada flow creado por el agente:
+
+- abro la pestaña **Flow** y reviso cada tarjeta: aparato, acción y hora correctos;
+- compruebo que el flow está **activado** (o desactivado si así lo pedí);
+- verifico que **los demás flows no han cambiado**;
+- hago una prueba real: espero a la hora prevista, o uso una hora de prueba cercana, y miro el enchufe.
+
+## Límites y riesgos
+
+Una IA que actúa sobre la casa no es poca cosa. Esto es lo que tengo presente:
+
+- **Errores de interpretación**: «la luz del salón» puede referirse a dos lámparas. De ahí los nombres claros de los aparatos y la revisión.
+- **Confirmación**: para todo lo relacionado con la seguridad (puerta del garaje, cerradura, calefacción), pido al agente que **proponga antes de actuar**, y mantengo una acción manual. Como con mi garaje: nada de cierre automático sin ver lo que pasa.
+- **Dependencia de la nube**: el agente de IA funciona en línea. Sin Internet, no hay control a través del agente. Pero, una vez creados, los Flows se ejecutan **en el Homey**, que según Athom lo procesa todo en local: el enchufe se encenderá a las 18 h aunque el agente no esté disponible.
+- **Poder de la clave**: el agente puede hacer todo lo que la clave permite. Por eso elegir los permisos importa más que todo lo demás.
+
+## Usos concretos en familia
+
+- **Luces exteriores y luces de Navidad** a horas fijas, sin programador mecánico.
+- **Rutina nocturna de los niños**: «apaga la luz quitamiedos del dormitorio a las 21 h los días de colegio».
+- **Salir de casa**: «apaga todos los enchufes del salón», dicho en voz alta mientras te pones el abrigo.
+- **Avisos**: una notificación si el garaje se queda abierto, como mi flow actual.
+- **Adolescentes autónomos**: piden en lenguaje natural, sin aprender el editor de Flows, y tú mantienes el control de la clave.
+
+## ¿Agente propio o integraciones de Claude y ChatGPT?
+
+Homey también ofrece de serie **integraciones con Claude y ChatGPT**: aparecen en los ajustes de la app (ver la captura de arriba). Según las páginas de ayuda de Athom, pasan por el servidor MCP de Homey y el inicio de sesión con tu cuenta Homey, y permiten, entre otras cosas, controlar los aparatos y crear o modificar Flows y Advanced Flows. Es la vía más sencilla si ya usas uno de esos asistentes.
+
+Elegí una clave API con un agente Grok por un motivo práctico: ya uso este agente para otras tareas, y la clave me deja decidir los permisos y revocarla en un momento. Aquí no comparo el rendimiento de los asistentes: solo he probado mi propia configuración.
+
+## El material
+
+Todo funciona en un Homey Pro mini, que [desembalé e instalé aquí](/es/domotica/test-homey-pro-mini-unboxing-instalacion/). Para elegir entre varias centrales: [Home Assistant, Jeedom u Homey](/es/domotica/home-assistant-jeedom-homey-que-sistema/).
+
+<ProductBox
+  productId="homey-pro-mini-agent"
+  name="Homey Pro mini"
+  asin="B0G1ZKHX1W"
+  image="/images/domotique/homey/homey-pro-mini-boitier-dessus.webp"
+  description="La centralita domótica compacta de Athom usada en esta prueba: Zigbee, Matter y Thread, claves API locales."
+  pros={['Claves API creadas en la centralita, revocables', 'Flows ejecutados en local', 'Advanced Flows visuales']}
+  cons={["Claves API solo en los Homey Pro recientes", "La clave abre la casa: guárdala en lugar seguro"]}
+  officialUrl="https://homey.app/es-es/homey-pro-mini/"
+/>
+
+Para un uso como el mío basta un enchufe exterior Zigbee resistente a la intemperie. Este es un ejemplo disponible en Amazon (Zigbee 3.0, IP44, medición de consumo); no lo he probado. Comprueba la compatibilidad en la App Store de Homey y el tipo de enchufe de tu país antes de comprar.
+
+<ProductBox
+  productId="nous-a6z-exterieur"
+  name="NOUS A6Z, enchufe exterior Zigbee IP44"
+  asin="B0DKD4BZFV"
+  image="/images/products/nous-a6z-zigbee-exterieur.webp"
+  description="Enchufe Zigbee 3.0 para exterior, IP44, 16 A, con medición de consumo."
+  pros={['IP44, pensado para el jardín', 'Medición de consumo', 'Zigbee 3.0']}
+  cons={["No probado en mi Homey", "Tipo de clavija a comprobar"]}
+/>
+
+## Preguntas frecuentes
+
+**¿Puede el agente estropear mis flows existentes?**
+Puede hacer lo que la clave permita. En mi caso no tocó «Garage ouvert >= 10 min», y se lo indico expresamente en mis prompts. Limita los permisos y revisa tras cada creación.
+
+**¿Hay que saber programar?**
+No. No escribí ni una línea de código: bastó una frase. Eso sí, hay que saber revisar un flow en la app.
+
+**¿Qué pasa si revoco la clave?**
+El agente pierde el acceso al Homey. Los flows ya creados siguen ahí y continúan funcionando.
+
+**¿Funciona en un Homey Pro antiguo (2019)?**
+Según un desarrollador de Athom en el foro oficial, las claves API solo están disponibles en la nueva generación de Homey Pro.
+
+## Fuentes
+
+- [Create and use API Keys on Homey Pro](https://support.homey.app/hc/en-us/articles/8178797067292-Create-and-use-API-Keys-on-Homey-Pro) (ayuda de Homey, en inglés)
+- [Documentación de la Homey Web API](https://api.developer.homey.app/) (Athom, en inglés)
+- [Web API client scopes](https://community.homey.app/t/web-api-client-scopes/146746) (foro oficial de Homey, respuesta de Athom)
+- [Homey Pro mini: claves API locales y procesamiento local](https://homey.app/es-es/homey-pro-mini/) (Athom)
+- [How to connect Homey to ChatGPT](https://support.homey.app/hc/en-us/articles/27950286160540-How-to-connect-Homey-to-ChatGPT) y [How to connect Homey to Claude](https://support.homey.app/hc/en-us/articles/27951048410652-How-to-connect-Homey-to-Claude) (ayuda de Homey)
+
+**Lee también**
+
+- [Homey Pro mini: unboxing e instalación](/es/domotica/test-homey-pro-mini-unboxing-instalacion/)
+- [Puerta de garaje conectada: relé NodOn y Homey Pro](/es/domotica/puerta-garaje-rele-nodon-homey/)
+- [Homey Pro: unboxing e instalación](/es/domotica/test-homey-pro-unboxing-instalacion/)
+
+Sección: [domótica](/es/domotica/).

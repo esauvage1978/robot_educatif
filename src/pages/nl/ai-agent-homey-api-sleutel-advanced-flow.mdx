@@ -1,0 +1,167 @@
+---
+layout: ../../layouts/EnPost.astro
+lang: nl
+title: "Een AI-agent maakt mijn Homey Advanced Flows met een API-sleutel"
+description: "Praktijkervaring: een API-sleutel van de Homey Pro mini voor een Grok AI-agent, die met één zin een Advanced Flow maakt en het huis bedient met spraak of een prompt."
+updated: "25 november 2026"
+heroImage: "/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp"
+---
+
+import ProductBox from '../../components/ProductBox.astro';
+
+export const Shot = ({src, alt, caption, w, h, max}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: max || '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={w} height={h} style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #e3e6ea'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Ook beschikbaar in het [Frans](/domotique/agent-ia-homey-cle-api-advanced-flow/) en het [Engels](/en/smart-home/ai-agent-homey-api-key-advanced-flow/).*
+
+*Thuis getest op 25 november 2026.*
+
+Vanavond heb ik de Flow-editor niet geopend. Ik schreef één zin aan een AI-agent (in het Frans): "kun je een advanced flow maken die het buitenstopcontact om 18 uur aanzet en om 21 uur uitzet?" Een minuut later stond de Advanced Flow, ingeschakeld, op mijn **Homey Pro mini**. Zo is het gekoppeld, dit heb ik daarna gecontroleerd, en daarom blijf ik voorzichtig.
+
+## Wat ik deed, in het kort
+
+- In de Homey-app maakte ik een **API-sleutel** aan (Instellingen, daarna API-sleutels).
+- Ik gaf die aan een **Grok AI-agent** (een Grok Bot-assistent die ik "Homey" noemde).
+- Ik vroeg hem in gewone taal om een Advanced Flow voor het buitenstopcontact in de tuin.
+- De agent las eerst de beschrijving van de Flow-kaarten van mijn Homey en maakte daarna de Advanced Flow **"Prise extérieure 18h-21h"** (buitenstopcontact 18-21 uur) aan en zette hem aan.
+- Mijn andere flow, **"Garage ouvert >= 10 min"**, van mijn [slimme garagedeur met NodOn-relais](/nl/garage-deur-nodon-homey/), liet hij ongemoeid.
+
+<Shot src="/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp" alt="Chat in het Frans met de AI-agent Homey: verzoek om een Advanced Flow voor het buitenstopcontact, daarna de bevestiging dat hij is aangemaakt" caption="Mijn verzoek en het antwoord van de agent na het aanmaken van de flow (in het Frans)." w={647} h={385} max="647px" />
+
+Dezelfde agent bedient ook de apparaten in huis: op mijn Homey zijn dat de apps **Aqara, NodOn, Tapo, Tuya en HomeyScript**. Ik praat met hem (microfoon van de app) of typ een prompt.
+
+## Wat is een Homey API-sleutel?
+
+Homey Pro biedt een **Web API**: de Homey-app, Alexa en Google Assistant gebruiken die om apparaten te bedienen en Flows te starten. Een **API-sleutel** is een toegangstoken dat u zelf op uw Homey aanmaakt, zodat een extern hulpmiddel die API kan aanroepen.
+
+Volgens de documentatie van Athom maakt u API-sleutels aan op recente Homey Pro-modellen (ook de Homey Pro mini); bij het aanmaken **kiest u de rechten**, de sleutel wordt **maar één keer getoond** en is **altijd in te trekken**. Eén detail telt: op het officiële forum legt een ontwikkelaar van Athom uit dat OAuth-clients van de Web API bepaalde gevoelige rechten niet krijgen, zoals Flows of Advanced Flows aanmaken, en verwijst naar API-sleutels die u op uw eigen Homey aanmaakt. Daarmee zijn ze het juiste middel voor een agent die automatiseringen moet **aanmaken**.
+
+## De sleutel aanmaken en de rechten kiezen
+
+1. Open in de Homey-app of web-app **Instellingen** en daarna **API-sleutels**.
+2. Maak een nieuwe sleutel aan en geef hem een duidelijke naam (bijvoorbeeld "AI-agent").
+3. Vink **alleen de nodige rechten** aan: bij mij apparaten lezen en bedienen, Flows lezen en aanmaken. Niets extra "voor de zekerheid".
+4. Kopieer de sleutel meteen en bewaar hem veilig (een wachtwoordmanager): Homey toont hem niet opnieuw.
+
+<Shot src="/images/domotique/homey-agent-ia/parametres-homey-cles-api.webp" alt="Instellingenmenu van de Homey-app in het Frans met de optie API-sleutels, de integraties Claude en ChatGPT en de apps Aqara, HomeyScript, NodOn, Tapo en Tuya" caption="Mijn Homey-instellingen (Franse interface): API-sleutels, integraties en geïnstalleerde apps." w={364} h={880} max="320px" />
+
+Drie regels die ik volg:
+
+- **Minimale rechten**: één sleutel per gebruik, met zo weinig rechten als mogelijk. Wie alleen hoeft te lezen, hoeft niets te verwijderen.
+- **Intrekken**: bij de minste twijfel (lek, verlaten hulpmiddel) verwijder ik de sleutel in de instellingen en stopt de toegang.
+- **Nooit publiceren**: geen sleutel in een screenshot, forumbericht, GitHub-repository of gedeeld bericht. Een API-sleutel is als een huissleutel.
+
+## Wat de agent deed
+
+De agent raadt de kaarten niet. Hij begon met **het lezen van de beschrijving van de Flow-kaarten** op mijn Homey (triggers, voorwaarden en acties van elke app). Daarna stelde hij de Advanced Flow samen:
+
+- **Datum & tijd: het is 18:00** → **Prise extérieure - Jardin: Aanzetten**;
+- **Datum & tijd: het is 21:00** → **Prise extérieure - Jardin: Uitzetten**.
+
+Hij bewaarde hem als "Prise extérieure 18h-21h", zette hem aan en vertelde welke tijdzone hij gebruikte (Parijse tijd). In het tabblad Flow ziet u precies die vier kaarten.
+
+<Shot src="/images/domotique/homey-agent-ia/advanced-flow-prise-exterieure.webp" alt="Homey Advanced Flow Prise extérieure 18h-21h: kaart Datum en tijd 18:00 verbonden met Aanzetten, kaart 21:00 verbonden met Uitzetten" caption="De Advanced Flow die de agent maakte, zoals in het tabblad Flow." w={1443} h={417} />
+
+## Voorbeelden van prompts
+
+Hoe preciezer de prompt, hoe minder verrassingen. De prompts die bij mij goed werken hebben dezelfde vorm: **exact apparaat, moment, actie en wat niet aangeraakt mag worden**.
+
+- "Maak een Advanced Flow die het buitenstopcontact elke dag om 18 uur aanzet en om 21 uur uitzet. Wijzig geen andere flow."
+- "Geef de apparaten in de zone Tuin en zeg welke aanstaan."
+- "Zet het buitenstopcontact uit."
+- "Laat de kaarten van mijn flow Garage open zien, zonder iets te veranderen."
+- "Stel een flow voor die me waarschuwt als de garagedeur na 22 uur nog openstaat. Maak hem niet aan, beschrijf hem eerst."
+
+De laatste is mijn favoriet: **eerst een plan, dan de actie** geeft tijd om na te lezen.
+
+## Controleren na het aanmaken
+
+Ik vertrouw niet blind, ook niet als alles goed lijkt. Na elke flow van de agent:
+
+- open ik het tabblad **Flow** en lees ik elke kaart na: juist apparaat, juiste actie, juiste tijd;
+- controleer ik of de flow **aanstaat** (of uit, als ik dat vroeg);
+- kijk ik of **de andere flows niet veranderd** zijn;
+- doe ik een echte test: ik wacht op het tijdstip, of neem een testtijd vlakbij, en kijk naar het stopcontact.
+
+## Grenzen en risico's
+
+Een AI die in huis handelt, is niet niks. Dit houd ik in gedachten:
+
+- **Verkeerde interpretatie**: "het licht in de woonkamer" kan twee lampen betekenen. Vandaar duidelijke apparaatnamen en nalezen.
+- **Bevestiging**: voor alles wat met veiligheid te maken heeft (garagedeur, slot, verwarming) laat ik de agent **eerst voorstellen, dan handelen**, en houd ik een handmatige actie. Net als bij mijn garage: geen automatisch sluiten zonder zicht.
+- **Afhankelijkheid van de cloud**: de AI-agent draait online. Zonder internet geen bediening via de agent. Eenmaal aangemaakt draaien Flows wel **op de Homey**, die volgens Athom alles lokaal verwerkt: het stopcontact gaat om 18 uur aan, ook als de agent niet bereikbaar is.
+- **Macht van de sleutel**: de agent kan alles wat de sleutel toestaat. Daarom telt de keuze van de rechten meer dan al het andere.
+
+## Praktisch gebruik in het gezin
+
+- **Buiten- en kerstverlichting** op vaste tijden, zonder mechanische tijdschakelaar.
+- **Avondroutine van de kinderen**: "zet het nachtlampje in de kinderkamer op schooldagen om 21 uur uit".
+- **Het huis verlaten**: "zet alle stopcontacten in de woonkamer uit", hardop gezegd terwijl u uw jas aantrekt.
+- **Waarschuwingen**: een melding als de garage openblijft, zoals mijn bestaande flow.
+- **Zelfstandige tieners**: ze vragen in gewone taal, zonder de Flow-editor te leren, en u houdt de controle over de sleutel.
+
+## Eigen agent of de integraties Claude en ChatGPT?
+
+Homey biedt standaard ook **integraties met Claude en ChatGPT**: ze staan in de instellingen van de app (zie de screenshot hierboven). Volgens de hulppagina's van Athom lopen ze via de Homey MCP-server en een aanmelding met uw Homey-account, en kunt u er onder meer apparaten mee bedienen en Flows en Advanced Flows aanmaken of wijzigen. Dat is de eenvoudigste weg als u een van die assistenten al gebruikt.
+
+Ik koos om praktische redenen voor een API-sleutel met een Grok-agent: ik gebruik deze agent al voor andere taken, en met de sleutel bepaal ik zelf de rechten en kan ik hem in één keer intrekken. Ik vergelijk hier niet de prestaties van de assistenten: ik heb alleen mijn eigen opstelling getest.
+
+## Het materiaal
+
+Alles draait op een Homey Pro mini; het [uitpakken en installeren](/en/smart-home/homey-pro-mini-unboxing-setup/) staat in een artikel in het Engels. Twijfelt u tussen centrales: [Home Assistant, Jeedom of Homey](/en/smart-home/home-assistant-jeedom-homey-which-hub/) (in het Engels).
+
+<ProductBox
+  productId="homey-pro-mini-agent"
+  name="Homey Pro mini"
+  asin="B0G1ZKHX1W"
+  image="/images/domotique/homey/homey-pro-mini-boitier-dessus.webp"
+  description="De compacte domoticacentrale van Athom uit deze test: Zigbee, Matter en Thread, lokale API-sleutels."
+  pros={['API-sleutels op de centrale, in te trekken', 'Flows draaien lokaal', 'Visuele Advanced Flows']}
+  cons={["API-sleutels alleen op recente Homey Pro", "De sleutel opent het huis: veilig bewaren"]}
+  officialUrl="https://homey.app/nl-nl/homey-pro-mini/"
+/>
+
+Voor gebruik zoals het mijne volstaat een weerbestendig Zigbee-buitenstopcontact. Dit is een voorbeeld op Amazon (Zigbee 3.0, IP44, verbruiksmeting); ik heb het niet getest. Controleer de compatibiliteit in de Homey App Store voordat u koopt.
+
+<ProductBox
+  productId="nous-a6z-exterieur"
+  name="NOUS A6Z, Zigbee-buitenstopcontact IP44"
+  asin="B0DKD4BZFV"
+  image="/images/products/nous-a6z-zigbee-exterieur.webp"
+  description="Zigbee 3.0-stopcontact voor buiten, IP44, 16 A, met verbruiksmeting."
+  pros={['IP44, bedoeld voor de tuin', 'Verbruiksmeting', 'Zigbee 3.0']}
+  cons={["Niet getest op mijn Homey", "Compatibiliteit vooraf controleren"]}
+/>
+
+## Veelgestelde vragen
+
+**Kan de agent mijn bestaande flows kapotmaken?**
+Hij kan wat de sleutel toestaat. Bij mij liet hij "Garage ouvert >= 10 min" ongemoeid, en ik zet dat expliciet in mijn prompts. Beperk de rechten en lees na na elke aanmaak.
+
+**Moet ik kunnen programmeren?**
+Nee. Ik schreef geen regel code: één zin was genoeg. Wel moet u een flow in de app kunnen nalezen.
+
+**Wat gebeurt er als ik de sleutel intrek?**
+De agent verliest de toegang tot de Homey. Bestaande flows blijven staan en blijven draaien.
+
+**Werkt dit op een oudere Homey Pro (2019)?**
+Volgens een ontwikkelaar van Athom op het officiële forum zijn API-sleutels alleen beschikbaar op de nieuwe generatie Homey Pro.
+
+## Bronnen
+
+- [Create and use API Keys on Homey Pro](https://support.homey.app/hc/en-us/articles/8178797067292-Create-and-use-API-Keys-on-Homey-Pro) (Homey-hulp, Engels)
+- [Documentatie van de Homey Web API](https://api.developer.homey.app/) (Athom, Engels)
+- [Web API client scopes](https://community.homey.app/t/web-api-client-scopes/146746) (officieel Homey-forum, antwoord van Athom)
+- [Homey Pro mini: lokale API-sleutels en lokale verwerking](https://homey.app/nl-nl/homey-pro-mini/) (Athom)
+- [How to connect Homey to ChatGPT](https://support.homey.app/hc/en-us/articles/27950286160540-How-to-connect-Homey-to-ChatGPT) en [How to connect Homey to Claude](https://support.homey.app/hc/en-us/articles/27951048410652-How-to-connect-Homey-to-Claude) (Homey-hulp)
+
+**Lees ook**
+
+- [Slimme garagedeur: NodOn-relais en Homey Pro](/nl/garage-deur-nodon-homey/)
+- [Homey Pro mini: uitpakken en installeren](/en/smart-home/homey-pro-mini-unboxing-setup/) (in het Engels)
+
+Terug naar de [Nederlandse startpagina](/nl/).

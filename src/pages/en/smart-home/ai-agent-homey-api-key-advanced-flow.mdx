@@ -1,0 +1,142 @@
+---
+layout: ../../../layouts/EnPost.astro
+title: "An AI agent builds my Homey Advanced Flows with an API key"
+description: "Hands-on: a Homey Pro mini API key given to a Grok AI agent, which creates an Advanced Flow from one sentence and controls the home by voice or by typed prompt."
+updated: "25 November 2026"
+heroImage: "/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp"
+---
+
+export const Shot = ({src, alt, caption, w, h, max}) => (
+  <figure style={{margin: '1.5rem auto', maxWidth: max || '760px'}}>
+    <img src={src} alt={alt} loading="lazy" decoding="async" width={w} height={h} style={{width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #e3e6ea'}} />
+    <figcaption style={{fontSize: '0.9rem', opacity: 0.8, textAlign: 'center', marginTop: '0.4rem'}}>{caption}</figcaption>
+  </figure>
+);
+
+*Also available in [French](/domotique/agent-ia-homey-cle-api-advanced-flow/).*
+
+*Tested at home on 25 November 2026.*
+
+Tonight I did not open the Flow editor. I wrote one sentence to an AI agent: "can you create an advanced flow that turns the outdoor plug on at 6pm and off at 9pm" (I wrote it in French). A minute later the Advanced Flow existed, enabled, on my **Homey Pro mini**. Here is how it is wired, what I checked afterwards, and why I stay careful.
+
+## What I did, in short
+
+- In the Homey app, I created an **API key** (Settings, then API Keys).
+- I gave it to a **Grok AI agent** (a Grok Bot assistant I named "Homey").
+- I asked it, in plain language, for an Advanced Flow for the garden's outdoor plug.
+- The agent first read the description of my Homey's Flow cards, then created and enabled the Advanced Flow **"Prise extérieure 18h-21h"** (outdoor plug 6pm–9pm).
+- It did not touch my other flow, **"Garage ouvert >= 10 min"**, the one from my [connected garage door with a NodOn relay](/en/smart-home/garage-door-nodon-relay-homey/).
+
+<Shot src="/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp" alt="Chat with the Homey AI agent, in French: request for an Advanced Flow for the outdoor plug, then confirmation it was created" caption="My request and the agent's reply after creating the flow (in French)." w={647} h={385} max="647px" />
+
+The same agent also controls the devices in the house: on my Homey, these are the **Aqara, NodOn, Tapo, Tuya and HomeyScript** apps. I talk to it by voice (the app's microphone) or type a prompt.
+
+## What is a Homey API key?
+
+Homey Pro exposes a **Web API**: the Homey app, Alexa and Google Assistant use it to control devices and start Flows. An **API key** is an access token you create yourself on your Homey so an outside tool can call that API.
+
+According to Athom's documentation, API keys are created on recent Homey Pro models (including Homey Pro mini); when you create one, **you choose its permissions**, it is **shown only once**, and it can be **revoked at any time**. One detail matters here: on the official forum, an Athom developer explains that OAuth Web API clients cannot get certain sensitive rights, such as creating Flows or Advanced Flows, and points to API keys created on your own Homey instead. That makes them the right tool for an agent that has to **create** automations.
+
+## Creating the key and choosing its rights
+
+1. In the Homey app or web app, open **Settings**, then **API Keys**.
+2. Create a new key and give it a clear name (for example "AI agent").
+3. Tick **only the permissions you need**: for my use, reading and controlling devices, reading and creating Flows. Do not tick anything extra "just in case".
+4. Copy the key straight away and store it somewhere safe (a password manager): Homey will not show it again.
+
+<Shot src="/images/domotique/homey-agent-ia/parametres-homey-cles-api.webp" alt="Homey app Settings menu in French, with the API Keys entry, the Claude and ChatGPT integrations, and the Aqara, HomeyScript, NodOn, Tapo and Tuya apps" caption="My Homey settings (French interface): API Keys, integrations and installed apps." w={364} h={880} max="320px" />
+
+Three rules I stick to:
+
+- **Least privilege**: one key per use, with the minimum rights. If the agent only needs to read, it does not need to delete.
+- **Revocation**: at the slightest doubt (leak, abandoned tool), I delete the key in settings and access stops.
+- **Never publish it**: no key in a screenshot, a forum post, a GitHub repository or a shared message. An API key is like a house key.
+
+## What the agent did
+
+The agent does not guess the cards. It started by **reading the description of the Flow cards** available on my Homey (triggers, conditions and actions of each app). Then it assembled the Advanced Flow:
+
+- **Date & Time: it is 18:00** → **Prise extérieure - Jardin: Turn on**;
+- **Date & Time: it is 21:00** → **Prise extérieure - Jardin: Turn off**.
+
+It saved it as "Prise extérieure 18h-21h", enabled it and told me which time zone it used (Paris time). In the Flow tab, those four cards are exactly what you see.
+
+<Shot src="/images/domotique/homey-agent-ia/advanced-flow-prise-exterieure.webp" alt="Homey Advanced Flow Prise extérieure 18h-21h: Date and Time 18:00 card linked to Turn on, 21:00 card linked to Turn off" caption="The Advanced Flow created by the agent, as shown in the Flow tab." w={1443} h={417} />
+
+## Prompt examples
+
+The more precise the prompt, the fewer surprises. The ones that work well for me share the same shape: **exact device, time, action, and what must not be touched**.
+
+- "Create an Advanced Flow that turns the outdoor plug on at 6pm and off at 9pm, every day. Do not change any other flow."
+- "List my devices in the Garden zone and tell me which ones are on."
+- "Turn off the outdoor plug."
+- "Show me the cards of my Garage open flow, without changing anything."
+- "Suggest a flow that notifies me if the garage door is still open after 10pm. Do not create it, describe it first."
+
+The last one is my favourite: asking for a **plan before action** gives you time to review.
+
+## Checking after creation
+
+I do not trust blindly, even when everything looks fine. After each flow the agent creates:
+
+- I open the **Flow** tab and review each card: right device, right action, right time;
+- I check the flow is **enabled** (or disabled if that is what I asked);
+- I check that **the other flows have not changed**;
+- I run a real test: I wait for the set time, or use a test time close by, and watch the plug.
+
+## Limits and risks
+
+An AI acting on your home is not trivial. Here is what I keep in mind:
+
+- **Misinterpretation**: "the living-room light" can mean two lamps. Hence clear device names, and reviewing.
+- **Confirmation**: for anything security-related (garage door, lock, heating), I ask the agent to **propose before acting**, and I keep a manual action. As with my garage, no automatic closing without line of sight.
+- **Cloud dependency**: the AI agent runs online. Without internet, no control through the agent. Once created, however, Flows run **on the Homey**, which processes everything locally according to Athom: the plug will still turn on at 6pm if the agent is unavailable.
+- **The key's power**: the agent can do whatever the key allows. That is why choosing permissions matters more than anything else.
+
+## Practical uses for a family
+
+- **Outdoor lights and Christmas lights** on fixed times, without a mechanical timer.
+- **Kids' evening routine**: "turn off the bedroom night light at 9pm on school nights".
+- **Leaving the house**: "turn off all the living-room plugs", said out loud while putting your coat on.
+- **Alerts**: a notification if the garage stays open, like my existing flow.
+- **Independent teenagers**: they ask in plain language, without learning the Flow editor, and you keep control of the key.
+
+## Your own agent or the Claude and ChatGPT integrations?
+
+Homey also offers built-in **Claude and ChatGPT integrations**: they appear in the app's settings (see the screenshot above). According to Athom's help pages, they go through the Homey MCP server and a sign-in with your Homey account, and among other things let you control devices and create or update Flows and Advanced Flows. That is the simplest route if you already use one of these assistants.
+
+I chose an API key with a Grok agent for a practical reason: I already use this agent for other tasks, and the key lets me decide the permissions myself, then revoke it in one go. I am not comparing assistants' performance here: I only tested my own setup.
+
+## The hardware
+
+Everything runs on a Homey Pro mini, which I [unboxed and set up here](/en/smart-home/homey-pro-mini-unboxing-setup/). To choose between hubs, see [Home Assistant, Jeedom or Homey](/en/smart-home/home-assistant-jeedom-homey-which-hub/). Availability of the Homey Pro mini varies by country: see the [official Homey Pro mini page](https://homey.app/en-gb/homey-pro-mini/). For a schedule like mine, any weatherproof outdoor smart plug supported by your Homey will do; check the Homey App Store before buying.
+
+## Frequently asked questions
+
+**Can the agent break my existing flows?**
+It can do whatever the key allows. In my case it did not touch "Garage ouvert >= 10 min", and I say so explicitly in my prompts. Limit permissions and review after each creation.
+
+**Do I need to code?**
+No. I did not write a single line of code: one sentence was enough. You do need to be able to read a flow in the app.
+
+**What happens if I revoke the key?**
+The agent loses access to the Homey. Flows already created stay in place and keep running.
+
+**Does it work on an older Homey Pro (2019)?**
+According to an Athom developer on the official forum, API keys are only available on the newer generation of Homey Pro.
+
+## Sources
+
+- [Create and use API Keys on Homey Pro](https://support.homey.app/hc/en-us/articles/8178797067292-Create-and-use-API-Keys-on-Homey-Pro) (Homey help)
+- [Homey Web API documentation](https://api.developer.homey.app/) (Athom)
+- [Web API client scopes](https://community.homey.app/t/web-api-client-scopes/146746) (official Homey forum, Athom reply)
+- [Homey Pro mini: local API keys and local processing](https://homey.app/en-gb/homey-pro-mini/) (Athom)
+- [How to connect Homey to ChatGPT](https://support.homey.app/hc/en-us/articles/27950286160540-How-to-connect-Homey-to-ChatGPT) and [How to connect Homey to Claude](https://support.homey.app/hc/en-us/articles/27951048410652-How-to-connect-Homey-to-Claude) (Homey help)
+
+**Further reading**
+
+- [Homey Pro mini review: unboxing and setup](/en/smart-home/homey-pro-mini-unboxing-setup/)
+- [Connected garage door: NodOn relay and Homey Pro](/en/smart-home/garage-door-nodon-relay-homey/)
+- [Homey Pro review: unboxing and setup](/en/smart-home/homey-pro-unboxing-setup/)
+
+Section hub: [smart home](/en/smart-home/).
