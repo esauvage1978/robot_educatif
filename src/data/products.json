@@ -378,5 +378,47 @@
     "badge": "Notre repère budget",
     "priceRange": "",
     "prixReleveLe": "04/11/2026 14:02"
+  },
+  "gmktec-m6-ultra": {
+    "id": "gmktec-m6-ultra",
+    "name": "GMKtec NucBox M6 Ultra (Ryzen 5 7640HS, 16 Go, 512 Go)",
+    "asin": "B0GR5DZRX9",
+    "image": "/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp",
+    "pros": [
+      "Home Assistant en VM prêt en 59 s",
+      "Assistant vocal local en ~1,2 s",
+      "Environ 10 W au repos (estimation)",
+      "2 ports Ethernet 2,5 G"
+    ],
+    "cons": [
+      "~9,8 Go visibles avec 6 Go réservés au GPU",
+      "Pas de radio Zigbee ou Thread intégrée"
+    ],
+    "description": "Mini-PC Windows 11 Pro, testé comme serveur domotique (Home Assistant en VM, assistant vocal local, lien avec un Homey Pro).",
+    "badge": "Testé chez moi"
+  },
+  "crucial-32go-ddr5-sodimm": {
+    "id": "crucial-32go-ddr5-sodimm",
+    "name": "Kit Crucial 32 Go (2 × 16 Go) DDR5-4800 SO-DIMM",
+    "asin": "B09S2PNYTY",
+    "pros": [
+      "Deux barrettes SO-DIMM, compatible avec les deux emplacements du M6 Ultra"
+    ],
+    "description": "Kit CT2K16G48C40S5, pour passer le M6 Ultra à 32 Go."
+  },
+  "samsung-990-evo-plus-1to": {
+    "id": "samsung-990-evo-plus-1to",
+    "name": "SSD Samsung 990 EVO Plus 1 To",
+    "asin": "B0DGH2FH7T",
+    "pros": [
+      "Format M.2 2280 NVMe, pour le second emplacement du M6 Ultra"
+    ],
+    "description": "SSD interne MZ-V9S1T0BW, 1 To."
+  },
+  "gmktec-evo-x2": {
+    "id": "gmktec-evo-x2",
+    "name": "GMKtec EVO-X2 (Ryzen AI Max+ 395, 64 Go)",
+    "asin": "B0FRMQKTG7",
+    "description": "Mini-PC plus puissant, pour des usages plus lourds que le M6 Ultra en 16 Go (gros modèles d'IA, plusieurs VM)."
   }
 }

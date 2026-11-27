@@ -1,7 +1,7 @@
 {
  "site": "robot-educatif.info",
- "updated": "2026-11-25T10:32:36.607Z",
- "count": 1899,
+ "updated": "2026-11-25T20:29:59.144Z",
+ "count": 1933,
  "links": {
   "aw-100407-4c2e3e8a07": {
    "url": "https://www.awin1.com/awclick.php?mid=100407&id=3126073",
@@ -12252,6 +12252,210 @@
    "merchant": "amazon",
    "country": "US",
    "tag": "roboteducatif-20"
+  },
+  "az-fr-3aab64cc3a": {
+   "url": "https://www.amazon.fr/dp/B0GR5DZRX9?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-de-b00ddfa0fb": {
+   "url": "https://www.amazon.de/dp/B0GR5DZRX9?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-it-48174a2757": {
+   "url": "https://www.amazon.it/dp/B0GR5DZRX9?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-es-75ce519cc0": {
+   "url": "https://www.amazon.es/dp/B0FND44YYW?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-nl-d7b1611d8a": {
+   "url": "https://www.amazon.nl/dp/B0FND44YYW?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-us-ee40a30864": {
+   "url": "https://www.amazon.com/dp/B0FLDC98GC?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-gb-c040c6705f": {
+   "url": "https://www.amazon.co.uk/dp/B0FQBTB3R3?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-ca-e141d4d599": {
+   "url": "https://www.amazon.ca/dp/B0FLDC98GC?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-fr-fd1bd7b6fd": {
+   "url": "https://www.amazon.fr/dp/B09S2PNYTY?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-de-1ad22e1227": {
+   "url": "https://www.amazon.de/dp/B09S2PNYTY?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-it-ca2d5a74bb": {
+   "url": "https://www.amazon.it/dp/B09S2PNYTY?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-es-01219e1acb": {
+   "url": "https://www.amazon.es/dp/B09S2PNYTY?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-nl-42b694a71c": {
+   "url": "https://www.amazon.nl/dp/B09S2PNYTY?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-us-9704dbc11c": {
+   "url": "https://www.amazon.com/dp/B09S2PNYTY?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-gb-8517d846db": {
+   "url": "https://www.amazon.co.uk/dp/B09S2PNYTY?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-ca-b96677dbf4": {
+   "url": "https://www.amazon.ca/dp/B09S2PNYTY?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-fr-6b298eca4d": {
+   "url": "https://www.amazon.fr/dp/B0DGH2FH7T?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-de-1c78a98c95": {
+   "url": "https://www.amazon.de/dp/B0DGH2FH7T?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-it-0a801391ab": {
+   "url": "https://www.amazon.it/dp/B0DGH2FH7T?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-es-cf5f9d1df4": {
+   "url": "https://www.amazon.es/dp/B0DGH2FH7T?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-nl-c104b585d3": {
+   "url": "https://www.amazon.nl/dp/B0DGH2FH7T?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-us-f45966035c": {
+   "url": "https://www.amazon.com/dp/B0DGH2FH7T?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-gb-cf62e8ab1b": {
+   "url": "https://www.amazon.co.uk/dp/B0DGH2FH7T?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-ca-554a43d0d1": {
+   "url": "https://www.amazon.ca/dp/B0DGH2FH7T?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-fr-00babaa73f": {
+   "url": "https://www.amazon.fr/dp/B0FRMQKTG7?tag=manuso06-21",
+   "merchant": "amazon",
+   "country": "FR",
+   "tag": "manuso06-21"
+  },
+  "az-de-f90494ae3e": {
+   "url": "https://www.amazon.de/dp/B0FRMQKTG7?tag=roboteducat00-21",
+   "merchant": "amazon",
+   "country": "DE",
+   "tag": "roboteducat00-21"
+  },
+  "az-it-4535345208": {
+   "url": "https://www.amazon.it/dp/B0FRMQKTG7?tag=roboteducat0f-21",
+   "merchant": "amazon",
+   "country": "IT",
+   "tag": "roboteducat0f-21"
+  },
+  "az-es-6e0f0c011a": {
+   "url": "https://www.amazon.es/dp/B0FRMQKTG7?tag=roboteducat07-21",
+   "merchant": "amazon",
+   "country": "ES",
+   "tag": "roboteducat07-21"
+  },
+  "az-nl-f07a918ec8": {
+   "url": "https://www.amazon.nl/dp/B0G8JZD2ZK?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-us-244bf6feaf": {
+   "url": "https://www.amazon.com/dp/B0FJDG5R8S?tag=roboteducatif-20",
+   "merchant": "amazon",
+   "country": "US",
+   "tag": "roboteducatif-20"
+  },
+  "az-gb-3dcc52bce1": {
+   "url": "https://www.amazon.co.uk/dp/B0FJDG5R8S?tag=roboteducatif-21",
+   "merchant": "amazon",
+   "country": "GB",
+   "tag": "roboteducatif-21"
+  },
+  "az-ca-cab3391702": {
+   "url": "https://www.amazon.ca/dp/B0F53QXNGH?tag=roboteducat03-20",
+   "merchant": "amazon",
+   "country": "CA",
+   "tag": "roboteducat03-20"
+  },
+  "az-nl-d651e3b404": {
+   "url": "https://www.amazon.nl/dp/B0CXVKSG19?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
+  },
+  "az-nl-7843b72a21": {
+   "url": "https://www.amazon.nl/dp/B0B6P22YJC?tag=manuso0607-21",
+   "merchant": "amazon",
+   "country": "NL",
+   "tag": "manuso0607-21"
   }
  }
 }

@@ -26,6 +26,7 @@ const KEEP_IF_PRESENT = new Set([
 	'educational-robot-christmas-gifts-2026/index.html',
 	'best-programmable-robot-for-kids/index.html',
 	'smart-home/esp32-smart-home-project-ideas/index.html',
+	'smart-home/gmktec-m6-ultra-home-assistant-server/index.html',
 ]);
 
 const dist = process.argv[2] || 'dist';

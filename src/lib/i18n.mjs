@@ -344,6 +344,16 @@ const EN_RATTACHEES = [
 		es: '/es/domotica/agente-ia-homey-clave-api-advanced-flow/',
 		nl: '/nl/ai-agent-homey-api-sleutel-advanced-flow/',
 	},
+	{
+		fr: '/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/',
+		en: '/en/smart-home/gmktec-m6-ultra-home-assistant-server/',
+		uk: '/uk/smart-home/gmktec-m6-ultra-home-assistant-server/',
+		ca: '/ca/smart-home/gmktec-m6-ultra-home-assistant-server/',
+		de: '/de/smart-home/gmktec-m6-ultra-home-assistant-server/',
+		it: '/it/domotica/test-gmktec-m6-ultra-server-domotica-home-assistant/',
+		es: '/es/domotica/test-gmktec-m6-ultra-servidor-domotica-home-assistant/',
+		nl: '/nl/gmktec-m6-ultra-home-assistant-server/',
+	},
 	{ fr: '/partenariat/', en: '/about/' },
 	{ fr: '/categorie/', en: '/en/buying-guides/' },
 	{ fr: '/categorie/cadeaux/', en: '/en/robotics-gift-ideas-by-age/' },
@@ -608,6 +618,8 @@ export const EN_PAGES = [
 	{ href: '/en/smart-home/electrohobby-esp32-kit-unboxing/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es kit unboxing: 2 ESP32 DevKit boards and sensors (gifted)' },
 	{ href: '/en/smart-home/ai-agent-homey-api-key-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'An AI agent builds my Homey Advanced Flows with an API key' },
 
+	{ href: '/en/smart-home/gmktec-m6-ultra-home-assistant-server/', fr: '/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/', title: 'GMKtec M6 Ultra as a home-automation server: Home Assistant, Homey and a local voice assistant' },
+
 ];
 // Pages /de/ publiées (cartes accueil, menu latéral).
 export const DE_PAGES = [
@@ -694,6 +706,8 @@ export const DE_PAGES = [
 	{ href: '/de/vier-gewinnt-python/', fr: '/programmation/puissance-4/', title: 'Vier gewinnt in Python, sechs Kapitel' },
 	{ href: '/de/smart-home/electrohobby-esp32-kit-auspacken/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'ElectroHobby.es-Kit ausgepackt: 2 ESP32-DevKit und Sensoren (Geschenk der Marke)' },
 	{ href: '/de/smart-home/ki-agent-homey-api-schluessel-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Ein KI-Agent erstellt meine Homey Advanced Flows per API-Schlüssel' },
+	{ href: '/de/smart-home/gmktec-m6-ultra-home-assistant-server/', fr: '/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/', title: 'GMKtec M6 Ultra als Smart-Home-Server: Home Assistant, Homey und lokaler Sprachassistent' },
+
 ];
 // Pages /it/ publiées.
 export const IT_PAGES = [
@@ -780,6 +794,8 @@ export const IT_PAGES = [
 	{ href: '/it/software-mblock-quale-scegliere/', fr: '/logiciel-mblock-makeblock-mbot-quel-choisir/', title: 'Software mBlock: quale scegliere' },
 	{ href: '/it/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit e sensori (prodotto offerto)' },
 	{ href: '/it/domotica/agente-ia-homey-chiave-api-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Un agente IA crea i miei Advanced Flow Homey con una chiave API' },
+	{ href: '/it/domotica/test-gmktec-m6-ultra-server-domotica-home-assistant/', fr: '/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/', title: 'GMKtec M6 Ultra come server di domotica: Home Assistant, Homey e assistente vocale locale' },
+
 ];
 // Pages /es/ publiées.
 export const ES_PAGES = [
@@ -832,6 +848,8 @@ export const ES_PAGES = [
 	{ href: '/es/aviso-legal/', fr: '/mentions-legales/', title: 'Aviso legal' },
 	{ href: '/es/domotica/unboxing-kit-electrohobby-esp32/', fr: '/domotique/unboxing-kit-electrohobby-esp32/', title: 'Unboxing del kit ElectroHobby.es: 2 ESP32 DevKit y sensores (producto cedido)' },
 	{ href: '/es/domotica/agente-ia-homey-clave-api-advanced-flow/', fr: '/domotique/agent-ia-homey-cle-api-advanced-flow/', title: 'Un agente de IA crea mis Advanced Flows de Homey con una clave API' },
+
+	{ href: '/es/domotica/test-gmktec-m6-ultra-servidor-domotica-home-assistant/', fr: '/domotique/test-gmktec-m6-ultra-serveur-domotique-home-assistant/', title: 'GMKtec M6 Ultra como servidor de domótica: Home Assistant, Homey y asistente de voz local' },
 
 ];
 

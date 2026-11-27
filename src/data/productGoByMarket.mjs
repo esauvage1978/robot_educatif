@@ -87,5 +87,65 @@ export const PRODUCT_GO_BY_MARKET = {
     "it": "/go/az-it-387223dbae/",
     "ca": "/go/az-ca-1ddce59165/",
     "us": "/go/az-us-19d260b107/"
+  },
+  "gmktec-m6-ultra": {
+    "fr": "/go/az-fr-3aab64cc3a/",
+    "de": "/go/az-de-b00ddfa0fb/",
+    "it": "/go/az-it-48174a2757/",
+    "es": "/go/az-es-75ce519cc0/",
+    "nl": "/go/az-nl-d7b1611d8a/",
+    "us": "/go/az-us-ee40a30864/",
+    "uk": "/go/az-gb-c040c6705f/",
+    "ca": "/go/az-ca-e141d4d599/"
+  },
+  "crucial-32go-ddr5-sodimm": {
+    "fr": "/go/az-fr-fd1bd7b6fd/",
+    "de": "/go/az-de-1ad22e1227/",
+    "it": "/go/az-it-ca2d5a74bb/",
+    "es": "/go/az-es-01219e1acb/",
+    "nl": "/go/az-nl-42b694a71c/",
+    "us": "/go/az-us-9704dbc11c/",
+    "uk": "/go/az-gb-8517d846db/",
+    "ca": "/go/az-ca-b96677dbf4/"
+  },
+  "samsung-990-evo-plus-1to": {
+    "fr": "/go/az-fr-6b298eca4d/",
+    "de": "/go/az-de-1c78a98c95/",
+    "it": "/go/az-it-0a801391ab/",
+    "es": "/go/az-es-cf5f9d1df4/",
+    "nl": "/go/az-nl-c104b585d3/",
+    "us": "/go/az-us-f45966035c/",
+    "uk": "/go/az-gb-cf62e8ab1b/",
+    "ca": "/go/az-ca-554a43d0d1/"
+  },
+  "gmktec-evo-x2": {
+    "fr": "/go/az-fr-00babaa73f/",
+    "de": "/go/az-de-f90494ae3e/",
+    "it": "/go/az-it-4535345208/",
+    "es": "/go/az-es-6e0f0c011a/",
+    "nl": "/go/az-nl-f07a918ec8/",
+    "us": "/go/az-us-244bf6feaf/",
+    "uk": "/go/az-gb-3dcc52bce1/",
+    "ca": "/go/az-ca-cab3391702/"
+  },
+  "home-assistant-green": {
+    "fr": "/go/az-fr-5f6b6ff91f/",
+    "de": "/go/az-de-3341464c7e/",
+    "it": "/go/az-it-d2a49e66a6/",
+    "es": "/go/az-es-1d841ba8de/",
+    "uk": "/go/az-gb-57c3a0468e/",
+    "us": "/go/az-us-7004ee669b/",
+    "ca": "/go/az-ca-00b8d40e7b/",
+    "nl": "/go/az-nl-d651e3b404/"
+  },
+  "sonoff-zbdongle-e": {
+    "fr": "/go/az-fr-06647672a3/",
+    "de": "/go/az-de-cb0f773ca9/",
+    "it": "/go/az-it-93c0ac1f3b/",
+    "es": "/go/az-es-a772e10f6e/",
+    "uk": "/go/az-gb-2c98d1dd3f/",
+    "us": "/go/az-us-bc91ba396f/",
+    "ca": "/go/az-ca-62b8ee6449/",
+    "nl": "/go/az-nl-7843b72a21/"
   }
 };
