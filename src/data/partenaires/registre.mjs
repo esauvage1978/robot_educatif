@@ -385,6 +385,8 @@ export function liensUtiles(lang) {
   const out = [];
   if (aff) out.push({ href: aff.url, titre: t.affiliation });
   if (contact) out.push({ href: contact.url, titre: contact.titre });
-  else if (about) out.push({ href: about.url, titre: about.titre });
+  if (about) out.push({ href: about.url, titre: about.titre });
+  const hub = PREFIX[langue];
+  if (hub) out.push({ href: hub, titre: t.titreIndex });
   return out;
 }
