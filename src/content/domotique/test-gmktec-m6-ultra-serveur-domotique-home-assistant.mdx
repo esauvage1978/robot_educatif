@@ -1,6 +1,6 @@
 ---
 title: "Test GMKtec M6 Ultra en serveur domotique : Home Assistant, Homey et assistant vocal local"
-description: "J'ai fait du mini-PC GMKtec M6 Ultra mon serveur domotique : Home Assistant en VM (2 cœurs, 2 Go, prêt en 59 s), lecture du Homey Pro mini par son API locale, assistant vocal Whisper + Piper qui répond en 1,1 à 1,3 s. Mesures, finition et limites."
+description: "J'ai fait du mini-PC GMKtec M6 Ultra mon serveur domotique : Home Assistant en VM (2 cœurs, 2 Go, prêt en 59 s), lecture du Homey Pro par son API locale, assistant vocal Whisper + Piper qui répond en 1,1 à 1,3 s. Mesures, finition et limites."
 pubDate: 2026-11-25T00:00:00Z
 category: "home-assistant"
 heroImage: "/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp"
@@ -24,7 +24,7 @@ export const Photo = ({src, alt, caption, portrait}) => (
 
 *Tests réalisés du 22 au 25 novembre 2026.*
 
-Le GMKtec NucBox M6 Ultra est un petit mini-PC sous Windows 11 Pro, avec un processeur AMD Ryzen 5 7640HS, 16 Go de mémoire, un SSD de 512 Go et la puce graphique intégrée Radeon 760M. J'ai déjà raconté sur LocAIhome comment il se débrouille pour faire tourner des modèles d'IA en local ([le test IA locale du GMKtec M6 Ultra](https://locaihome.com/materiel/gmktec-m6-ultra-ia-locale/)). Ici, je lui donne un autre rôle : celui de serveur domotique de la maison, allumé en permanence à côté de mon PC principal. Home Assistant, dialogue avec mon Homey Pro mini, assistant vocal qui ne passe pas par le cloud : voici ce qui marche vraiment, chiffres à l'appui.
+Le GMKtec NucBox M6 Ultra est un petit mini-PC sous Windows 11 Pro, avec un processeur AMD Ryzen 5 7640HS, 16 Go de mémoire, un SSD de 512 Go et la puce graphique intégrée Radeon 760M. J'ai déjà raconté sur LocAIhome comment il se débrouille pour faire tourner des modèles d'IA en local ([le test IA locale du GMKtec M6 Ultra](https://locaihome.com/materiel/gmktec-m6-ultra-ia-locale/)). Ici, je lui donne un autre rôle : celui de serveur domotique de la maison, allumé en permanence à côté de mon PC principal. Home Assistant, dialogue avec mon Homey Pro, assistant vocal qui ne passe pas par le cloud : voici ce qui marche vraiment, chiffres à l'appui.
 
 <Photo src="/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp" alt="Mini-PC GMKtec M6 Ultra allumé sur un bureau, bouton d'alimentation vert éclairé, bloc secteur posé à côté" caption="Le M6 Ultra en service sur mon bureau, à côté de son bloc d'alimentation." />
 
@@ -33,13 +33,13 @@ Le GMKtec NucBox M6 Ultra est un petit mini-PC sous Windows 11 Pro, avec un proc
 **Ce qui m'a plu**
 - Home Assistant tourne dans une machine virtuelle de 2 cœurs et 2 Go et répond en **59 s** après un redémarrage, sans toucher à Windows.
 - Un assistant vocal entièrement local répond à « Est-ce que la porte du garage est fermée ? » en **1,1 à 1,3 s**.
-- Le Homey Pro mini se lit depuis le mini-PC par son API locale, en quelques dizaines de millisecondes.
+- Le Homey Pro se lit depuis le mini-PC par son API locale, en quelques dizaines de millisecondes.
 - Environ **10 W** au repos (estimation logicielle), un boîtier sobre et bien fini, deux ports Ethernet 2,5 G.
 
 **Les limites**
 - Avec 6 Go réservés à la puce graphique, Windows ne voit qu'environ 9,8 Go de mémoire : Home Assistant plus un modèle d'IA de 7 milliards de paramètres, c'est serré.
 - Pas de radio Zigbee ni Thread intégrée : il faut un dongle USB ou une box comme la Homey.
-- Je n'ai pas de sonomètre fiable, donc pas de chiffre en décibels dans ce test.
+- Le GMKtec ne se distingue pas du bruit ambiant de la pièce (mesure au smartphone, sans chiffre en décibels).
 
 ## Déballage, finition et design
 
@@ -65,9 +65,9 @@ La notice, en plusieurs langues dont le français, décrit les ports et les cara
 
 ## Mon installation : un écran pour deux ordinateurs
 
-Le mini-PC vit à côté de mon PC principal et partage son écran. Pour passer de l'un à l'autre sans débrancher de câble, j'utilise un petit switch HDMI GANA en aluminium : deux sources, un écran, et un bouton à LED bleue pour basculer. Il ne demande pas d'alimentation. Attention, il ne bascule que l'image : pour partager aussi le clavier et la souris d'un seul geste, il faut un vrai switch KVM (HDMI + USB).
+Le mini-PC vit à côté de mon PC principal et partage son écran. Pour passer de l'un à l'autre sans débrancher de câble, j'utilise un petit switch HDMI 4K GANA en aluminium : deux sources, un écran, et un bouton à LED bleue pour basculer. Il ne demande pas d'alimentation. Le clavier et la souris du GMKtec sont les siens : le switch ne sert qu'à l'image.
 
-<Photo portrait src="/images/domotique/gmktec/switch-hdmi-gana-bureau.webp" alt="Switch HDMI GANA gris en aluminium posé au pied d'un bras d'écran, bouton à LED bleue allumé" caption="Le switch HDMI GANA au pied de l'écran : un appui et l'écran passe du PC principal au GMKtec." />
+<Photo portrait src="/images/domotique/gmktec/switch-hdmi-gana-bureau.webp" alt="Switch HDMI 4K GANA gris en aluminium posé au pied d'un bras d'écran, bouton à LED bleue allumé" caption="Le switch HDMI 4K GANA au pied de l'écran : un appui et l'image passe du PC principal au GMKtec." />
 
 Côté réseau, le GMKtec est branché en Ethernet sur un petit switch Gigabit en métal, fixé sous le plateau du bureau. Pour un serveur domotique, le câble est préférable au Wi-Fi : la liaison avec la box, le Homey et les appareils Wi-Fi reste stable, et le mini-PC est joignable même quand le Wi-Fi est saturé.
 
@@ -83,9 +83,9 @@ Au repos, une fois Home Assistant démarré, la VM occupe environ **2 060 Mo** d
 
 Si vous n'avez pas besoin de Windows, l'autre voie est d'effacer le SSD et d'installer Home Assistant OS directement sur le mini-PC (image « Generic x86-64 ») : plus simple pour brancher des dongles USB, mais la machine ne sert plus qu'à ça. Pour comparer avec les boîtiers dédiés, voir [Home Assistant Green ou Raspberry Pi 5](/domotique/home-assistant-green-vs-raspberry-pi-5/).
 
-## Le lien avec le Homey Pro mini
+## Le lien avec le Homey Pro
 
-J'ai déjà un Homey Pro mini à la maison, qui pilote notamment [ma porte de garage avec un relais NodOn](/domotique/porte-garage-connectee-nodon-homey/). Le GMKtec ne le remplace pas : les deux se complètent. Le Homey garde les radios (Zigbee, Thread et Matter intégrés ; Z-Wave, 433 MHz et infrarouge via un Homey Bridge) et ses Flows, le mini-PC apporte la puissance de calcul.
+J'ai déjà un Homey Pro à la maison, qui pilote notamment [ma porte de garage avec un relais NodOn](/domotique/porte-garage-connectee-nodon-homey/). Le GMKtec ne le remplace pas : les deux se complètent. Le Homey garde les radios (Zigbee, Z-Wave, Thread, 433 MHz, infrarouge) et ses Flows, le mini-PC apporte la puissance de calcul.
 
 Avec une clé d'API créée dans les réglages du Homey, le mini-PC interroge son API locale sur le réseau de la maison, sans passer par Internet. J'y retrouve les 5 appareils déclarés (la prise extérieure avec sa tension et sa consommation, le capteur et le relais de la porte de garage, une ampoule, une passerelle radio), les 21 pièces et zones, et le Flow avancé « Garage ouvert ≥ 10 min ». Sur dix lectures de la liste complète des appareils, la réponse est arrivée en **32 à 85 ms**. Je me suis limité à la lecture : le seul appareil qu'on pourrait actionner sans conséquence, l'ampoule, était hors ligne pendant le test, et je n'allais pas ouvrir la porte de garage pour une démo.
 
@@ -124,7 +124,7 @@ Pour des réponses plus libres (« Résume-moi la météo et dis-moi si je dois 
 
 ## Bruit, chaleur et consommation
 
-Je n'ai pas de sonomètre fiable, et Windows n'expose pas la vitesse du ventilateur de ce modèle aux outils de mesure que j'ai utilisés : je ne donne donc pas de chiffre en décibels ni en tours par minute. Voici en revanche ce que j'ai pu mesurer.
+La machine est très discrète. Avec l'application « Mesure du son » d'un téléphone, le GMKtec ne se distingue pas du bruit ambiant de la pièce : la courbe reste plate sur une vingtaine de secondes. L'étalonnage d'une appli smartphone est relatif, je n'en tire donc aucun chiffre en décibels. Windows n'expose pas non plus la vitesse du ventilateur de ce modèle aux outils que j'ai utilisés, je ne donne donc pas de tours par minute non plus. Voici en revanche les consommations et températures mesurées.
 
 Avec HWiNFO, le 22 novembre, le processeur (puce graphique comprise) consomme en moyenne **10,2 W** au repos, **35,0 W** avec le processeur à 100 % et **42,9 W** quand un modèle d'IA tourne à plein sur la Radeon 760M. Ce sont des estimations logicielles, pas une mesure à la prise. Les températures relevées restent raisonnables : 42 °C au repos, 72 °C au maximum en IA sur la puce graphique, 78 °C au maximum à 100 % processeur.
 
@@ -187,7 +187,7 @@ Pour une installation plus simple, ou en complément pour les radios :
   badge="Dongle Zigbee"
 />
 
-Pour reproduire mon installation de bureau, le switch HDMI GANA et le switch Ethernet sont décrits plus haut, photos à l'appui. Je n'indique pas de fiche produit : je n'ai pas pu rattacher avec certitude le GANA gris ni le switch réseau à une référence Amazon précise, et le GANA ne bascule que l'image. Pour partager aussi le clavier et la souris, il faut un vrai switch KVM (HDMI et USB).
+Pour reproduire mon installation de bureau, le switch HDMI 4K GANA et le switch Ethernet sont décrits plus haut, photos à l'appui. Je n'indique pas de fiche produit : je n'ai pas pu rattacher avec certitude le GANA ni le switch réseau à une référence Amazon précise. Le GMKtec a son propre clavier et sa propre souris ; le switch ne sert qu'à basculer l'image.
 
 Et pour des usages plus lourds que ce que permet le M6 Ultra en 16 Go :
 
@@ -200,7 +200,7 @@ Et pour des usages plus lourds que ce que permet le M6 Ultra en 16 Go :
 **Peut-on faire tourner Home Assistant sur le GMKtec M6 Ultra sans effacer Windows ?**
 Oui. Je l'ai lancé dans une machine virtuelle QEMU (2 cœurs, 2 Go) avec l'accélération WHPX de Windows, sans activer Hyper-V. Home Assistant répond en 59 s après un redémarrage et n'utilise qu'environ 11 % d'un cœur au repos.
 
-**Le GMKtec peut-il remplacer un Homey Pro mini ?**
+**Le GMKtec peut-il remplacer un Homey Pro ?**
 Pas pour les radios : il n'a ni Zigbee, ni Z-Wave, ni Thread intégrés. En revanche, il dialogue très bien avec lui par son API locale (réponse en 32 à 85 ms chez moi), et les deux se complètent.
 
 **Un assistant vocal local est-il assez rapide ?**
@@ -212,4 +212,4 @@ Environ 10,2 W en moyenne au repos d'après HWiNFO (estimation du processeur et 
 **16 Go de mémoire suffisent-ils ?**
 Pour Home Assistant et l'assistant vocal avec un petit modèle, oui. Pour Home Assistant plus un modèle de 7 milliards de paramètres en permanence, c'est juste avec 6 Go réservés à la puce graphique : réduisez cette réserve dans le BIOS ou passez à 32 Go.
 
-Pour aller plus loin : [installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/), [le meilleur dongle Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/), [mon test du Homey Pro mini](/domotique/test-homey-pro-mini-deballage-installation/) et toute la [rubrique domotique](/domotique/).
+Pour aller plus loin : [installer Home Assistant sur Raspberry Pi 5](/domotique/home-assistant-raspberry-pi-5-installation/), [le meilleur dongle Zigbee pour Home Assistant](/domotique/meilleur-dongle-zigbee-home-assistant/), [mon test du Homey Pro](/domotique/test-homey-pro-deballage-installation/) et toute la [rubrique domotique](/domotique/).
