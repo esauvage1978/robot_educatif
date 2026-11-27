@@ -84,7 +84,10 @@ function go_geo_amazon_url($url, $cc) {
     elseif (preg_match('#^/s/?$#', $path) && !empty($q['field-keywords']) && is_string($q['field-keywords'])) $kw = $q['field-keywords'];
     elseif (preg_match('#/(?:dp|gp/product|gp/aw/d|exec/obidos/ASIN)/([A-Z0-9]{10})(?:[/?]|$)#i', $path, $m)) $kw = strtoupper($m[1]);
     if ($kw === '') return $url;
-    return 'https://' . $host . '/s?k=' . rawurlencode($kw) . '&tag=' . $tag;
+  if (preg_match('/^[A-Z0-9]{10}$/', $kw)) {
+    return 'https://' . $host . '/dp/' . $kw . '?tag=' . $tag;
+  }
+    return $url;
 }
 
 $id = isset($_GET['id']) ? strtolower((string)$_GET['id']) : '';
