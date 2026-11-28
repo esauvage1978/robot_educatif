@@ -450,18 +450,15 @@ const showPartner = market === 'fr';
 		border-top: 1px solid rgb(var(--gray-light));
 		line-height: 1.5;
 	}
+	/* Colonne d'article (refonte 2026-11) : le tableau reste un tableau compact qui défile
+	   dans son conteneur, au lieu de répéter de grandes fiches produit déjà présentes plus haut. */
 	@container comparison (max-width: 52rem) {
-		.comparison-cards {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-			padding: 1rem;
-		}
-		.comparison-container--cards .comparison-cards {
-			padding: 0;
-		}
 		.table-responsive {
-			display: none;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		.comparison-table {
+			min-width: 44rem;
 		}
 	}
 	@media (max-width: 640px) {

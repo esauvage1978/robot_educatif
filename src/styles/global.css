@@ -1739,3 +1739,40 @@ textarea:focus-visible,
 		scroll-behavior: auto !important;
 	}
 }
+
+/* Refonte 2026-11 — en-tête d'article compact : texte et couverture côte à côte sur grand écran. */
+@media (min-width: 1024px) {
+	:root .hero-article:has(.hero-article-media) {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+		gap: 2.25rem;
+		align-items: center;
+		box-sizing: border-box;
+		padding-inline: max(1.25rem, calc((100% - 1140px) / 2));
+		margin-bottom: 1.5rem;
+	}
+	:root .hero-article:has(.hero-article-media) .hero-article-content {
+		width: auto;
+		margin: 0;
+		padding: 1.5rem 0;
+	}
+	:root .hero-article:has(.hero-article-media) .hero-article-media {
+		max-width: none;
+		margin: 0;
+		padding: 1.25rem 0;
+	}
+	:root .hero-article .hero-article-media img {
+		border-radius: var(--re-radius, 12px);
+	}
+	:root .hero-article:has(.hero-article-media) .hero-article-content h1 {
+		font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+	}
+}
+@media (max-width: 1023px) {
+	:root .hero-article .hero-article-media {
+		padding: 0 1rem 1.1rem;
+	}
+	:root .hero-article .hero-article-content {
+		padding: 1.25rem 0 1rem;
+	}
+}
