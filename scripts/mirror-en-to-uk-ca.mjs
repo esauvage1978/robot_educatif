@@ -66,7 +66,7 @@ const MARKET_AMAZON = {
 };
 
 const EU_AMAZON_HOST =
-	/(?:www\.)?amazon\.(?:co\.uk|ca|com|fr|de|it|es|nl)(?![.\w-])/gi;
+	/(?<!media-)(?:www\.)?amazon\.(?:co\.uk|ca|com|fr|de|it|es|nl)(?![.\w-])/gi; // (?<!media-) : ne pas toucher m.media-amazon.com (CDN d'images)
 const AFFILIATE_TAGS =
 	/\b(?:roboteducatif-2[01]|roboteducat03-20|manuso06-21|manuso0607-21|roboteducat00-21|roboteducat0f-21|roboteducat07-21)\b/g;
 
