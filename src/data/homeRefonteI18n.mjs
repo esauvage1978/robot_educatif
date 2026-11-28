@@ -479,3 +479,58 @@ HOME_RE.es = {
 	},
 	partners: null,
 };
+
+HOME_RE.nl = {
+	ill: 'Illustratie',
+	photo: 'Foto van de fabrikant',
+	hero: {
+		kicker: 'Educatieve robots voor kinderen van 5 tot 14 jaar',
+		lead: 'Gidsen, vergelijkingen en praktijkverhalen om een programmeerbare robot te kiezen die bij het niveau van het kind past, thuis of in de klas.',
+		cta1: 'De juiste robot vinden',
+		cta1Href: '/nl/beste-programmeerbare-robot-voor-kinderen/',
+		cta2: 'Gidsen in het Nederlands',
+		cta2Href: '#gidsen',
+		guidesLabel: 'gidsen in het Nederlands',
+		methodLabel: null,
+		imgAlt: 'Illustratie: een op papier getekend parcours, een tablet met programmeerblokken en robotonderdelen',
+		productCaption: 'Productfoto',
+	},
+	intents: {
+		title: 'Waar beginnen?',
+		items: [
+			{ title: 'Een robot voor een kind kiezen', text: 'De koopgids vergelijkt modellen voor kinderen van 5 tot 14 jaar.', cta: 'Naar de koopgids', href: '/nl/beste-programmeerbare-robot-voor-kinderen/' },
+			{ title: 'mBot of LEGO?', text: 'Budget, leeftijd, bouwen en software naast elkaar gezet.', cta: 'Bekijk de vergelijking', href: '/nl/mbot-vs-lego-robot/' },
+			{ title: 'Prijsdalingen volgen', text: 'Prijsdalingen bij partners en hoe we ze meten.', cta: 'Naar de prijsdalingen', href: '/nl/prijsdalingen/' },
+		],
+	},
+	ages: null,
+	season: {
+		noel: { kicker: 'Kerst 2026', title: 'Kerstcadeaus: leerrobots per leeftijd', text: 'Een seizoensselectie met leerrobots per leeftijd. Controleer altijd de dagprijs bij de verkoper.', cta: 'Naar de kerstcadeaugids', href: NOEL_PATHS.nl, img: '/images/illustrations/robot-educatif-cadeau-noel-2026.webp', imgAlt: 'Illustratie: kinderen ontdekken een kleine robot onder de kerstboom' },
+		off: { kicker: 'Prijzen', title: 'Prijsdalingen bij partners', text: 'Overzicht van prijsdalingen en hoe we ze meten.', cta: 'Naar de prijsdalingen', href: '/nl/prijsdalingen/' },
+	},
+	products: {
+		title: 'Robots uitgelegd vóór de aankoop',
+		lead: 'Vier modellen uit onze gidsen, met het belangrijkste vóór u kiest.',
+		ages: 'Leeftijdsindicatie',
+		code: 'Programmeren',
+		guide: 'Naar de vergelijking',
+		buy: 'Bekijk op Amazon.nl',
+		priceOn: 'Prijs genoteerd op',
+		disclosure: 'Affiliate-links: bij een aankoop ontvangen wij een commissie, voor u verandert de prijs niet. De prijs bij de verkoper is bepalend.',
+		all: 'Alle robots per leeftijd vergelijken',
+		allHref: '/nl/beste-programmeerbare-robot-voor-kinderen/',
+		tags: { scratch: 'Scratch-blokken', python: 'Python mogelijk', arduino: 'Arduino-code', build: 'Om zelf te bouwen', screen: 'Ingebouwd scherm' },
+		guides: { mbot: '/nl/mbot-vs-lego-robot/', mbot2: '/nl/mbot-vs-lego-robot/' },
+	},
+	projects: null,
+	teachers: null,
+	tools: null,
+	domo: { imgAlt: 'Illustratie: een familiewoonkamer met discrete sensoren en een wandtablet' },
+	latest: { title: 'Gidsen om mee te beginnen', series: 'Dossier', articles: 'artikelen', all: 'Alle koopgidsen', allHref: '/nl/beste-programmeerbare-robot-voor-kinderen/', id: 'gidsen' },
+	author: {
+		title: 'Wie schrijft deze gidsen?',
+		text: 'Robot Éducatif wordt geschreven door Emmanuel Sauvage. Elk artikel laat zien of het om een praktijktest met de hardware gaat of om een documentaire analyse op basis van de gegevens van de fabrikant.',
+		cta: null,
+	},
+	partners: null,
+};

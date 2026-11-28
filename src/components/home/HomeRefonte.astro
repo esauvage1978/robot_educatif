@@ -22,7 +22,7 @@ export interface LatestItem {
 	series?: { count: number; others: { href: string; title: string }[] };
 }
 interface Props {
-	lang: 'fr' | 'en' | 'uk' | 'ca' | 'de' | 'it' | 'es';
+	lang: 'fr' | 'en' | 'uk' | 'ca' | 'de' | 'it' | 'es' | 'nl';
 	h1: string;
 	h1Em?: string;
 	h1After?: string;
@@ -33,7 +33,7 @@ interface Props {
 }
 const { lang, h1, h1Em, h1After, guideCount, hero, products = [], latest = [] } = Astro.props;
 const t = HOME_RE[lang] || HOME_RE.en;
-const smartLang = (['fr', 'de', 'it', 'es'].includes(lang) ? lang : 'en') as 'fr' | 'en' | 'de' | 'it' | 'es';
+const smartLang = (['fr', 'de', 'it', 'es', 'nl'].includes(lang) ? lang : 'en') as 'fr' | 'en' | 'de' | 'it' | 'es' | 'nl';
 const season = activeSeason();
 const feat = season?.id === 'noel-2026' ? t.season.noel : t.season.off;
 const isHash = (h: string) => h.startsWith('#');
@@ -47,7 +47,7 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 			<p class="rh__lead">{t.hero.lead}</p>
 			<div class="rh__ctas">
 				<a class="re-btn" href={withBase(t.hero.cta1Href)}>{t.hero.cta1}</a>
-				<a class="re-btn re-btn--ghost" href="#par-age">{t.hero.cta2}</a>
+				<a class="re-btn re-btn--ghost" href={href(t.hero.cta2Href || '#par-age')}>{t.hero.cta2}</a>
 			</div>
 			<p class="rh__meta">
 				{guideCount ? <span><strong>{guideCount}</strong> {t.hero.guidesLabel}</span> : null}
@@ -83,8 +83,9 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 	</ul>
 </section>
 
-<section class="rs" id="par-age" aria-labelledby="ra-title">
+<section class="rs" id={t.ages ? 'par-age' : undefined} aria-labelledby={t.ages ? 'ra-title' : undefined} aria-label={t.ages ? undefined : feat.kicker}>
 	<div class="rs__in">
+		{t.ages && <>
 		<header class="rs__head">
 			<h2 id="ra-title">{t.ages.title}</h2>
 			<p>{t.ages.lead}</p>
@@ -107,6 +108,7 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 				</li>
 			))}
 		</ul>
+		</>}
 		<aside class="rsea" aria-label={feat.kicker}>
 			{feat.img && <img class="rsea__img" src={withBase(feat.img)} alt={feat.imgAlt} width="480" height="270" loading="lazy" decoding="async" />}
 			<div class="rsea__body">
@@ -157,7 +159,7 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 	</section>
 )}
 
-<section class="rs" id="projets" aria-labelledby="rj-title">
+{t.projects && <section class="rs" id="projets" aria-labelledby="rj-title">
 	<div class="rs__in">
 		<header class="rs__head">
 			<h2 id="rj-title">{t.projects.title}</h2>
@@ -179,9 +181,9 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 		</ul>
 		{t.projects.more && <p class="rs__more"><a class="re-link" href={withBase(t.projects.moreHref)}>{t.projects.more} →</a></p>}
 	</div>
-</section>
+</section>}
 
-<section class="rs rs--alt" id="enseignants" aria-labelledby="re-title">
+{t.teachers && <section class="rs rs--alt" id="enseignants" aria-labelledby="re-title">
 	<div class="rs__in">
 		<div class="rt">
 			<div class="rt__intro">
@@ -214,12 +216,12 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 		)}
 		{lang === 'fr' && <SiteQuickAccess layout="home" />}
 	</div>
-</section>
+</section>}
 
 <HomeSmartHome lang={smartLang} illustration="/images/editorial/re-domotique" illustrationAlt={t.domo.imgAlt} illustrationLabel={t.ill} />
 
 {t.latest && latest.length > 0 && (
-	<section class="rs" aria-labelledby="rl-title">
+	<section class="rs" id={t.latest.id} aria-labelledby="rl-title">
 		<div class="rs__in">
 			<header class="rs__head rs__head--row">
 				<h2 id="rl-title">{t.latest.title}</h2>

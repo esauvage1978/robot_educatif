@@ -1,72 +1,61 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
-import PageColumns from '../../components/PageColumns.astro';
-import SelectionFetes2026 from '../../components/SelectionFetes2026.astro';
+import Footer from '../../components/Footer.astro';
+import HomeRefonte from '../../components/home/HomeRefonte.astro';
 import { withBase } from '../../lib/siteUrl';
-import { NOEL_PATHS } from '../../data/noelGuideI18n.mjs';
-import { activeSeason } from '../../data/seasonal.mjs';
-const inSeason = activeSeason()?.id === 'noel-2026';
+import { withImageVersion } from '../../lib/imageVersion';
+import { amazonDpUrl } from '../../lib/amazonMarket.mjs';
+import { catalogForMarket } from '../../lib/marketProducts.mjs';
+import { buildHomeProductCards } from '../../lib/homePopularProducts.mjs';
 
 const title = 'Educatieve robots — gidsen, robots en programmeren';
 const description =
 	'Gidsen over educatieve robots, LEGO Education, partners en prijsdalingen — inhoud in het Nederlands op robot-educatif.info.';
-const noelHref = NOEL_PATHS.nl;
+
+const { catalog } = await catalogForMarket('nl', 'nl');
+const heroMbot2 = catalog.mbot2;
+const reProducts = await buildHomeProductCards('nl', 'nl');
+const reHero =
+	heroMbot2 && heroMbot2.asin && !heroMbot2.amazonIndispo
+		? {
+				name: heroMbot2.shortName || heroMbot2.name,
+				ages: reProducts.find((x) => x.key === 'mbot2')?.ages || '',
+				image: '/images/products/mbot2.webp',
+				href: amazonDpUrl(heroMbot2.asin, 'nl'),
+				buyLabel: 'Bekijk op Amazon.nl',
+			}
+		: null;
+
+const photo = (src, alt) => ({ img: withImageVersion(withBase(src)), alt });
+// Artikelen die echt in het Nederlands bestaan (titels uit hun frontmatter).
+const reLatest = [
+	{ href: '/nl/gmktec-m6-ultra-home-assistant-server/', title: 'GMKtec M6 Ultra als domoticaserver: Home Assistant, Homey en lokale spraakassistent', ...photo('/images/domotique/gmktec/gmktec-m6-ultra-en-marche.webp', 'De GMKtec M6 Ultra in bedrijf') },
+	{ href: '/nl/garage-deur-nodon-homey/', title: 'Slimme garagedeur: NodOn-relais en Homey Pro', ...photo('/images/domotique/porte-garage-nodon-homey/boitier-plafond.webp', 'Het NodOn-relais in een kastje aan het plafond') },
+	{ href: '/nl/ai-agent-homey-api-sleutel-advanced-flow/', title: 'Een AI-agent maakt mijn Homey Advanced Flows met een API-sleutel', ...photo('/images/domotique/homey-agent-ia/conversation-agent-ia-homey.webp', 'Gesprek met een AI-agent over Homey') },
+	{ href: '/nl/mbot-vs-lego-robot/', title: 'mBot vs LEGO-robot: welke is beter?', ...photo('/images/illustrations/mbot-vs-lego-robot-lequel-est-le-meilleur.webp', 'Illustratie: twee kinderen bekijken een robot en een robot van LEGO-blokjes') },
+];
+const rePreload = ['480', '800', '1200'].map((w) => `${withBase(`/images/editorial/re-hero-projet-${w}.webp`)} ${w}w`).join(', ');
 ---
 <!doctype html>
 <html lang="nl">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.nl-hero {
-				max-width: 1320px;
-				margin: 1.25rem auto 0;
-				padding: 0 clamp(1rem, 3vw, 1.75rem);
-			}
-			.nl-badge {
-				display: inline-block;
-				font-size: 0.82rem;
-				font-weight: 600;
-				padding: 0.35rem 0.65rem;
-				border-radius: 999px;
-				background: var(--re-teal-50, #f0fdfa);
-				color: var(--re-teal-700, #115e59);
-				margin-bottom: 0.65rem;
-			}
-			.nl-hero h1 {
-				margin: 0 0 0.5rem;
-				font-size: clamp(1.5rem, 3.5vw, 2rem);
-				line-height: 1.2;
-			}
-			.nl-hero p {
-				margin: 0 0 1rem;
-				color: var(--re-ink-2, #334155);
-				max-width: 62ch;
-			}
-		</style>
+		<link rel="preload" as="image" href={withBase("/images/editorial/re-hero-projet-800.webp")} imagesrcset={rePreload} imagesizes="(min-width: 960px) 520px, 92vw" fetchpriority="high" />
+		<style>body { background: var(--re-bg); }</style>
 	</head>
 	<body>
 		<Header />
-		<main>
-			<div class="nl-hero">
-				{inSeason && <span class="nl-badge">Kerstgids 2026 bijgewerkt</span>}
-				<h1>{title}</h1>
-				<p>{description}</p>
-				{inSeason && <a class="re-btn" href={withBase(noelHref)}>Bekijk de kerstcadeaugids</a>}
-			</div>
-			{inSeason && <SelectionFetes2026 locale="nl" />}
-			<PageColumns sommaire={false}>
-				<nav class="breadcrumb" aria-label="Kruimelpad">
-					<a href="/">Robot Éducatif</a> · Nederlandstalige hub
-				</nav>
-				<ul>
-					<li><a href="/nl/lego-education-merk/">LEGO Education merkgids</a></li>
-					<li><a href="/nl/partners/">Partners van de site</a></li>
-					<li><a href="/nl/prijsdalingen/">Prijsdalingen bij partners</a></li>
-					<li><a href="/nl/prijsdalingen/hoe-we-meten/">Hoe we prijsdalingen meten</a></li>
-				</ul>
-			</PageColumns>
+		<main class="home">
+			<HomeRefonte
+				lang="nl"
+				h1="Educatieve robots:"
+				h1Em="gidsen en vergelijkingen"
+				h1After="om de juiste te kiezen"
+				hero={reHero}
+				products={reProducts}
+				latest={reLatest}
+			/>
 		</main>
 		<Footer />
 	</body>

@@ -6,7 +6,7 @@ import { SMART_HOME_TOOL_PATHS } from '../lib/smartHomeToolPaths.mjs';
 import EdImg from './home/EdImg.astro';
 
 interface Props {
-	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	lang?: 'fr' | 'en' | 'de' | 'it' | 'es' | 'nl';
 	/** Visuel éditorial optionnel (base sans suffixe -800.webp) : entrée domotique illustrée de l'accueil. */
 	illustration?: string;
 	illustrationAlt?: string;
@@ -203,6 +203,42 @@ const copy = {
 				text: 'Zigbee2MQTT, ZHA, Shelly y Sonoff: qué comprobar según el síntoma.',
 				cta: 'Códigos de error',
 				href: SMART_HOME_TOOL_PATHS.troubleshooting.es,
+			},
+		],
+	},
+	nl: {
+		title: 'Het slimme huis',
+		lead: 'Praktijkverhalen en rubrieken over domotica: server, garagedeur, ESP32 en foutcodes.',
+		all: 'Alle domoticarubrieken',
+		hub: '/nl/smart-home/topics/',
+		cards: [
+			{
+				kicker: 'Server',
+				title: 'GMKtec M6 Ultra als domoticaserver',
+				text: 'Home Assistant in een VM, Homey Pro lokaal uitlezen en een lokale spraakassistent, met metingen.',
+				cta: 'Lees het verslag',
+				href: '/nl/gmktec-m6-ultra-home-assistant-server/',
+			},
+			{
+				kicker: 'Een project',
+				title: 'Slimme garagedeur met Homey',
+				text: 'Een NodOn-relais naast de originele knop van de deur, bediend vanuit Homey Pro.',
+				cta: 'Bekijk het project',
+				href: '/nl/garage-deur-nodon-homey/',
+			},
+			{
+				kicker: 'ESP32',
+				title: 'ESP32-projecten',
+				text: 'Elf projectideeën met ESP32-kaarten en sensoren.',
+				cta: 'Naar de projecten',
+				href: '/nl/smart-home/esp32-projects/',
+			},
+			{
+				kicker: 'Storing',
+				title: 'Foutcodes Zigbee en Shelly',
+				text: 'Catalogus met foutcodes; de detailpagina’s zijn in het Frans of Engels.',
+				cta: 'Foutcodes',
+				href: '/nl/smart-home/error/',
 			},
 		],
 	},
