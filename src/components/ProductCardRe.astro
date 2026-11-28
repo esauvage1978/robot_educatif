@@ -29,7 +29,7 @@ interface Props {
 const p = Astro.props;
 const img = p.image ? (p.image.startsWith('http') ? p.image : withBase(p.image)) : '';
 ---
-<article class="pc">
+<article class="pc product-card">
 	<div class="pc__media">
 		{img ? (
 			<img src={img} alt={p.imageAlt || p.name} width="300" height="300" loading="lazy" decoding="async" />
