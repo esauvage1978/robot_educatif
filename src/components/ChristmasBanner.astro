@@ -1,8 +1,8 @@
 ---
 import { withBase } from '../lib/siteUrl';
-import { isNoelGuidePage } from '../lib/christmasBannerPaths.mjs';
+import { isNoelGuidePage, normalizePathname } from '../lib/christmasBannerPaths.mjs';
+import { activeSeason, HOME_PATHS } from '../data/seasonal.mjs';
 
-const CHRISTMAS_END_DATE = new Date('2026-12-31T23:59:59');
 const ENABLE_CHRISTMAS_BANNER = true;
 
 const path = Astro.url.pathname.replace(/^\/site_vitrine\/robot_educatif/, '');
@@ -77,7 +77,8 @@ const banner = COPY[lang];
 const now = new Date();
 const showBanner =
 	ENABLE_CHRISTMAS_BANNER &&
-	now <= CHRISTMAS_END_DATE &&
+	activeSeason(now)?.id === 'noel-2026' &&
+	!HOME_PATHS.has(normalizePathname(Astro.url.pathname)) &&
 	!isNoelGuidePage(Astro.url.pathname);
 ---
 

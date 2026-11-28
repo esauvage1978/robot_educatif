@@ -181,10 +181,10 @@ const outilsTrigger = isNl
 					: 'Outils';
 
 const outilsMenuFr: [string, string][] = [
-	[URL_CONFIGURATEUR_DOMOTIQUE, '⚡ Configurateur Domotique'],
-	[URL_CODES_ERREURS_DOMOTIQUE, '🔧 Codes erreurs'],
+	[URL_CONFIGURATEUR_DOMOTIQUE, 'Configurateur projet domotique'],
+	[URL_CODES_ERREURS_DOMOTIQUE, 'Codes erreurs domotique'],
 	[URL_PIECES_SAV_DOMOTIQUE, 'Pièces détachées & SAV'],
-	[URL_QUIZ_ROBOT_ENFANT, 'Quel robot éducatif choisir ?'],
+	[URL_QUIZ_ROBOT_ENFANT, 'Quiz : quel robot pour mon enfant ?'],
 	['/configurateur-kit-robotique-classe/', 'Configurateur kit classe'],
 	['/calculateur-budget-robot-classe/', 'Calculateur budget classe'],
 	['/compatibilite-makeblock/', 'Compatibilité Makeblock mBot'],
@@ -192,36 +192,36 @@ const outilsMenuFr: [string, string][] = [
 	['/mblock-depannage-codes-erreurs-mbot-arduino/', 'Dépannage mBlock & codes mBot'],
 ];
 const outilsMenuEn: [string, string][] = [
-	['/en/smart-home/', '⚡ Smart home tools'],
-	[SMART_HOME_TOOL_PATHS.troubleshooting.en, '🔧 Error codes'],
+	['/en/smart-home/', 'Smart home tools'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.en, 'Smart home error codes'],
 	[SMART_HOME_TOOL_PATHS.spareParts.en, 'Spare parts & sensors'],
 	[SMART_HOME_TOOL_PATHS.compatMatrix.en, 'Compatibility matrix'],
 	['/en/best-programmable-robot-for-kids/', 'Robot buying guide'],
 ];
 const outilsMenuDe: [string, string][] = [
-	['/de/smart-home/', '⚡ Smart Home'],
-	[SMART_HOME_TOOL_PATHS.troubleshooting.de, '🔧 Fehlercodes'],
+	['/de/smart-home/', 'Smart Home'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.de, 'Smart-Home-Fehlercodes'],
 	[SMART_HOME_TOOL_PATHS.spareParts.de, 'Ersatzteile & Sensoren'],
 	[SMART_HOME_TOOL_PATHS.compatMatrix.de, 'Kompatibilitätsmatrix'],
 	['/de/bester-programmierbarer-roboter-fuer-kinder/', 'Kaufberater Roboter'],
 ];
 const outilsMenuIt: [string, string][] = [
-	['/it/domotica/', '⚡ Domotica'],
-	[SMART_HOME_TOOL_PATHS.troubleshooting.it, '🔧 Codici errore'],
+	['/it/domotica/', 'Domotica'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.it, 'Codici errore domotica'],
 	[SMART_HOME_TOOL_PATHS.spareParts.it, 'Ricambi e sensori'],
 	[SMART_HOME_TOOL_PATHS.compatMatrix.it, 'Matrice compatibilità'],
 	['/it/miglior-robot-programmabile-per-bambini/', 'Guida robot'],
 ];
 const outilsMenuEs: [string, string][] = [
-	['/es/domotica/', '⚡ Domótica'],
-	[SMART_HOME_TOOL_PATHS.troubleshooting.es, '🔧 Códigos error'],
+	['/es/domotica/', 'Domótica'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.es, 'Códigos de error domótica'],
 	[SMART_HOME_TOOL_PATHS.spareParts.es, 'Repuestos y sensores'],
 	[SMART_HOME_TOOL_PATHS.compatMatrix.es, 'Matriz compatibilidad'],
 	['/es/mejor-robot-programable-para-ninos/', 'Guía robots'],
 ];
 const outilsMenuNl: [string, string][] = [
-	['/en/smart-home/', '⚡ Slim huis'],
-	[SMART_HOME_TOOL_PATHS.troubleshooting.en, '🔧 Foutcodes'],
+	['/en/smart-home/', 'Slim huis'],
+	[SMART_HOME_TOOL_PATHS.troubleshooting.en, 'Foutcodes slim huis'],
 	[SMART_HOME_TOOL_PATHS.spareParts.en, 'Reserveonderdelen en sensoren'],
 	[SMART_HOME_TOOL_PATHS.compatMatrix.en, 'Compatibiliteitsmatrix'],
 	['/en/best-programmable-robot-for-kids/', 'Robot-koopgids'],
@@ -238,28 +238,27 @@ const outilsMenu = isNl
 					? outilsMenuEs
 					: outilsMenuFr;
 
-const ctaConfigHref = isNl
-	? '/en/smart-home/'
-	: isAnglo
-		? '/en/smart-home/'
-		: isDe
-			? '/de/smart-home/'
-			: isIt
-				? '/it/domotica/'
-				: isEs
-					? '/es/domotica/'
-					: URL_CONFIGURATEUR_DOMOTIQUE;
+/* Bouton d'en-tête : intention principale robotique (quiz ou guide par âge), plus de « Configurateur » ambigu. */
+const ctaConfigHref = isNl || isAnglo
+	? '/en/which-educational-robot-by-age/'
+	: isDe
+		? '/de/bester-programmierbarer-roboter-fuer-kinder/'
+		: isIt
+			? '/it/miglior-robot-programmabile-per-bambini/'
+			: isEs
+				? '/es/mejor-robot-programable-para-ninos/'
+				: URL_QUIZ_ROBOT_ENFANT;
 const ctaConfigLabel = isNl
-	? '⚡ Configurator'
+	? 'Robot kiezen'
 	: isAnglo
-		? '⚡ Configurator'
+		? 'Find a robot'
 		: isDe
-			? '⚡ Konfigurator'
+			? 'Roboter finden'
 			: isIt
-				? '⚡ Configuratore'
+				? 'Trova il robot'
 				: isEs
-					? '⚡ Configurador'
-					: '⚡ Configurateur';
+					? 'Encontrar un robot'
+					: 'Trouver un robot';
 
 const langNavLabel = isNl ? 'Taal' : isAnglo ? 'Language' : isDe ? 'Sprache' : isIt ? 'Lingua' : isEs ? 'Idioma' : 'Langue';
 
@@ -536,10 +535,10 @@ const menuCloseLabel = isNl
 	.header-cta {
 		display: inline-flex;
 		align-items: center;
-		background: var(--primary);
+		background: var(--re-orange);
 		color: #fff !important;
-		padding: 0.45rem 0.85rem;
-		border-radius: 999px;
+		padding: 0.45rem 0.9rem;
+		border-radius: var(--re-radius-sm);
 		font-weight: 700;
 		font-size: 0.8125rem;
 		text-decoration: none;
@@ -547,7 +546,7 @@ const menuCloseLabel = isNl
 	}
 
 	.header-cta:hover {
-		background: var(--primary-light);
+		background: var(--re-orange-hover);
 		color: #fff !important;
 	}
 

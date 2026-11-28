@@ -1647,3 +1647,95 @@ main:has(> .page-layout) {
 		white-space: normal !important;
 	}
 }
+
+/* ===== Refonte visuelle 2026-11 : variables communes et composants partagés ===== */
+:root {
+	--re-teal: #0F766E;
+	--re-teal-700: #115E59;
+	--re-teal-50: #F0FDFA;
+	--re-teal-100: #CCFBF1;
+	--re-orange: #C2410C; /* fond des boutons d'action : contraste AA avec le blanc */
+	--re-orange-hover: #9A3412;
+	--re-orange-soft: #FFEDD5;
+	--re-ink: #0B1F2A;
+	--re-text: #334155;
+	--re-muted: #526072;
+	--re-line: #E2E8F0;
+	--re-bg: #F8FAFC;
+	--re-surface: #FFFFFF;
+	--re-space-1: 0.25rem;
+	--re-space-2: 0.5rem;
+	--re-space-3: 0.75rem;
+	--re-space-4: 1rem;
+	--re-space-5: 1.5rem;
+	--re-space-6: 2rem;
+	--re-space-7: 3rem;
+	--re-section-y: clamp(2rem, 4vw, 3.25rem);
+	--re-radius-sm: 8px;
+	--re-radius: 12px;
+	--re-radius-lg: 18px;
+	--re-shadow-sm: 0 1px 2px rgba(11, 31, 42, 0.06), 0 1px 3px rgba(11, 31, 42, 0.08);
+	--re-shadow: 0 6px 20px rgba(11, 31, 42, 0.08);
+	--re-fs-xs: 0.8125rem;
+	--re-fs-sm: 0.9375rem;
+	--re-fs-base: 1.0625rem;
+	--re-fs-lg: 1.25rem;
+	--re-fs-xl: clamp(1.45rem, 2.4vw, 1.85rem);
+	--re-wrap: 1240px;
+	--re-focus: 0 0 0 3px #fff, 0 0 0 5px #0F766E;
+}
+
+/* Boutons harmonisés : .re-btn (principal orange), .re-btn--ghost (secondaire), .re-btn--teal */
+.re-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
+	min-height: 44px;
+	padding: 0.65rem 1.25rem;
+	border-radius: var(--re-radius-sm);
+	border: 2px solid var(--re-orange);
+	background: var(--re-orange);
+	color: #fff !important;
+	font-family: var(--font-heading);
+	font-weight: 800;
+	font-size: 1rem;
+	line-height: 1.2;
+	text-decoration: none !important;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.re-btn:hover { background: var(--re-orange-hover); border-color: var(--re-orange-hover); }
+.re-btn--ghost { background: #fff; color: var(--re-teal) !important; border-color: var(--re-teal); }
+.re-btn--ghost:hover { background: var(--re-teal-50); color: var(--re-teal-700) !important; border-color: var(--re-teal-700); }
+.re-btn--teal { background: var(--re-teal); border-color: var(--re-teal); }
+.re-btn--teal:hover { background: var(--re-teal-700); border-color: var(--re-teal-700); }
+.re-btn--sm { min-height: 40px; padding: 0.45rem 0.9rem; font-size: 0.9375rem; }
+.re-link { color: var(--re-teal); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--prose-link-line); }
+.re-link:hover { color: var(--re-teal-700); text-decoration-color: currentColor; }
+
+/* Focus clavier visible partout */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+	outline: 3px solid var(--re-teal);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+.re-btn:focus-visible { outline: none; box-shadow: var(--re-focus); }
+
+/* Grands tableaux : défilement limité à leur conteneur */
+.re-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+
+/* Réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
