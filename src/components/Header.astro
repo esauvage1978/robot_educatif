@@ -78,19 +78,13 @@ const navMainDe: [string, string][] = [
 	['/blog/', 'Blog'],
 ];
 const navMainIt: [string, string][] = [
-	['/it/', 'Home'],
-	['/it/miglior-robot-programmabile-per-bambini/', "Guide all'acquisto"],
 	['/it/raspberry-pi-3-vs-4-vs-5/', 'Confronti'],
 	['/it/kit-robot-arduino-per-bambini/', 'Arduino'],
-	['/it/domotica/', 'Domotica'],
 	['/it/marchi/', 'Marchi'],
 ];
 const navMainEs: [string, string][] = [
-	['/es/', 'Inicio'],
-	['/es/mejor-robot-programable-para-ninos/', 'Guías de compra'],
 	['/es/raspberry-pi-3-vs-4-vs-5/', 'Comparativas'],
 	['/es/kit-robot-arduino-para-ninos/', 'Arduino'],
-	['/es/domotica/', 'Domótica'],
 	['/es/marcas/', 'Marcas'],
 ];
 const navMainNl: [string, string][] = [
@@ -791,7 +785,8 @@ const menuCloseLabel = isNl
 		color: rgb(var(--gray-dark));
 	}
 
-	@media (max-width: 768px) {
+	/* Menu compact jusqu'à 1100 px : la barre complète ne tient pas entre 769 et 1100 px (refonte 2026-11). */
+	@media (max-width: 1100px) {
 		.desktop-only {
 			display: none !important;
 		}
@@ -815,7 +810,23 @@ const menuCloseLabel = isNl
 		}
 	}
 
-	@media (min-width: 769px) and (max-width: 1320px) {
+	/* Libellés plus longs (IT/ES/DE) : la navigation ne doit pas dépasser de l'écran (refonte 2026-11). */
+	@media (min-width: 1101px) and (max-width: 1520px) {
+		:global(html[lang='it']) .internal-links :global(a),
+		:global(html[lang='it']) .nav-dropdown__trigger,
+		:global(html[lang='es']) .internal-links :global(a),
+		:global(html[lang='es']) .nav-dropdown__trigger {
+			font-size: 0.84rem;
+			padding-inline: 0.4rem;
+		}
+		:global(html[lang='it']) .header-cta,
+		:global(html[lang='es']) .header-cta {
+			font-size: 0.75rem;
+			padding-inline: 0.65rem;
+		}
+	}
+
+	@media (min-width: 1101px) and (max-width: 1320px) {
 		:global(html[lang='de']) .internal-links :global(a),
 		:global(html[lang='de']) .nav-dropdown__trigger {
 			font-size: 0.82rem;

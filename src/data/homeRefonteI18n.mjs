@@ -202,7 +202,7 @@ const EN_BASE = {
 		],
 	},
 	domo: { imgAlt: 'Illustration: a family living room with discreet sensors and a wall tablet' },
-	latest: { title: 'Latest guides', series: 'Series', articles: 'articles', all: 'All guides', allHref: '/en/buying-guides/' },
+	latest: { title: 'Guides to start with', series: 'Series', articles: 'articles', all: 'All buying guides', allHref: '/en/buying-guides/' },
 	author: {
 		title: 'Who writes these guides?',
 		text: 'Robot Éducatif is written by Emmanuel Sauvage. Articles say clearly whether they are a hands-on test with the hardware (assembly, first programs, photos) or a documentary analysis based on manufacturer specifications.',
@@ -295,7 +295,7 @@ HOME_RE.de = {
 	},
 	tools: null,
 	domo: { imgAlt: 'Illustration: ein Familienwohnzimmer mit unauffälligen Sensoren und einem Wandtablet' },
-	latest: { title: 'Neueste Ratgeber', series: 'Dossier', articles: 'Artikel', all: 'Alle Ratgeber', allHref: '/de/kaufberater/' },
+	latest: { title: 'Ratgeber für den Einstieg', series: 'Dossier', articles: 'Artikel', all: 'Alle Kaufberater', allHref: '/de/kaufberater/' },
 	author: {
 		title: 'Wer schreibt diese Ratgeber?',
 		text: 'Robot Éducatif wird von Emmanuel Sauvage geschrieben. Jeder Artikel zeigt, ob es sich um einen Praxistest mit der Hardware oder um eine dokumentarische Analyse auf Basis der Herstellerangaben handelt.',
@@ -383,7 +383,7 @@ HOME_RE.it = {
 	},
 	tools: null,
 	domo: { imgAlt: 'Illustrazione: un soggiorno di famiglia con sensori discreti e un tablet a parete' },
-	latest: null,
+	latest: { title: 'Guide per iniziare', series: 'Dossier', articles: 'articoli', all: 'Tutte le guide per marchio', allHref: '/it/marchi/' },
 	author: {
 		title: 'Chi scrive queste guide?',
 		text: 'Robot Éducatif è scritto da Emmanuel Sauvage. Ogni articolo indica se si tratta di una prova con l’hardware o di un’analisi documentale basata sulle schede dei produttori.',
@@ -471,7 +471,7 @@ HOME_RE.es = {
 	},
 	tools: null,
 	domo: { imgAlt: 'Ilustración: un salón familiar con sensores discretos y una tableta de pared' },
-	latest: null,
+	latest: { title: 'Guías para empezar', series: 'Dossier', articles: 'artículos', all: 'Todas las guías por marca', allHref: '/es/marcas/' },
 	author: {
 		title: '¿Quién escribe estas guías?',
 		text: 'Robot Éducatif lo escribe Emmanuel Sauvage. Cada artículo indica si se trata de una prueba con el hardware o de un análisis documental basado en las fichas de los fabricantes.',
