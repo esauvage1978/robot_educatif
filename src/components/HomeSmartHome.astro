@@ -3,11 +3,17 @@ import { withBase } from '../lib/siteUrl';
 import { domotiquePath } from '../lib/domotiqueI18n.mjs';
 import { SMART_HOME_TOOL_PATHS } from '../lib/smartHomeToolPaths.mjs';
 
+import EdImg from './home/EdImg.astro';
+
 interface Props {
 	lang?: 'fr' | 'en' | 'de' | 'it' | 'es';
+	/** Visuel éditorial optionnel (base sans suffixe -800.webp) : entrée domotique illustrée de l'accueil. */
+	illustration?: string;
+	illustrationAlt?: string;
+	illustrationLabel?: string;
 }
 
-const { lang = 'fr' } = Astro.props;
+const { lang = 'fr', illustration, illustrationAlt = '', illustrationLabel } = Astro.props;
 
 const installHref =
 	lang === 'fr'
@@ -205,11 +211,15 @@ const copy = {
 const t = copy[lang];
 ---
 
-<section class="home-smart" aria-labelledby="home-smart-title">
+<section class:list={['home-smart', { 'home-smart--ill': !!illustration }]} aria-labelledby="home-smart-title">
 	<div class="home-smart__inner">
 		<div class="home-smart__head">
-			<h2 id="home-smart-title">{t.title}</h2>
-			<p>{t.lead}</p>
+			{illustration && <EdImg base={illustration} alt={illustrationAlt} label={illustrationLabel} sizes="(min-width: 960px) 360px, 92vw" class="home-smart__ill" />}
+			<div>
+				<h2 id="home-smart-title">{t.title}</h2>
+				<p>{t.lead}</p>
+				{illustration && <p class="home-smart__hub"><a class="re-btn re-btn--teal re-btn--sm" href={withBase(t.hub)}>{t.all}</a></p>}
+			</div>
 		</div>
 		<ul class="home-smart__grid">
 			{t.cards.map((card) => (
@@ -223,15 +233,17 @@ const t = copy[lang];
 				</li>
 			))}
 		</ul>
-		<p class="home-smart__all">
-			<a href={withBase(t.hub)}>{t.all}</a>
-		</p>
+		{!illustration && (
+			<p class="home-smart__all">
+				<a href={withBase(t.hub)}>{t.all}</a>
+			</p>
+		)}
 	</div>
 </section>
 
 <style>
 	.home-smart {
-		padding: 4rem clamp(1rem, 5vw, 2rem);
+		padding: var(--re-section-y, 3rem) clamp(1rem, 5vw, 2rem);
 		background: var(--surface-2);
 		border-top: 1px solid var(--surface-border);
 		border-bottom: 1px solid var(--surface-border);
@@ -247,8 +259,8 @@ const t = copy[lang];
 	.home-smart__head h2 {
 		font-family: var(--font-heading);
 		font-weight: 800;
-		font-size: clamp(1.8rem, 3vw, 2.5rem);
-		margin: 0 0 0.75rem;
+		font-size: var(--re-fs-xl, clamp(1.45rem, 2.4vw, 1.85rem));
+		margin: 0 0 0.5rem;
 		color: rgb(var(--black));
 	}
 	.home-smart__head p {
@@ -278,9 +290,9 @@ const t = copy[lang];
 		box-sizing: border-box;
 		padding: 1.35rem 1.2rem 1.45rem;
 		background: var(--surface);
-		border: 2px solid var(--surface-border);
+		border: 1px solid var(--surface-border);
 		border-top: 4px solid var(--primary, #0f766e);
-		border-radius: 16px;
+		border-radius: var(--re-radius, 12px);
 		text-decoration: none;
 		color: inherit;
 		transition:
@@ -291,7 +303,6 @@ const t = copy[lang];
 	.home-smart__card:hover {
 		border-color: var(--primary);
 		box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
-		transform: translateY(-2px);
 	}
 	.home-smart__kicker {
 		font-size: 0.78rem;
@@ -334,5 +345,13 @@ const t = copy[lang];
 	}
 	.home-smart__all a:hover {
 		text-decoration: underline;
+	}
+	.home-smart--ill .home-smart__inner { max-width: var(--re-wrap, 1240px); }
+	.home-smart--ill .home-smart__head { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 1.5rem; align-items: center; text-align: left; margin-bottom: 1.25rem; }
+	.home-smart--ill .home-smart__head p { margin: 0; max-width: 60ch; }
+	.home-smart__hub { margin-top: 0.85rem !important; }
+	.home-smart--ill :global(.home-smart__ill) { border-radius: var(--re-radius, 12px); }
+	@media (max-width: 760px) {
+		.home-smart--ill .home-smart__head { grid-template-columns: 1fr; }
 	}
 </style>

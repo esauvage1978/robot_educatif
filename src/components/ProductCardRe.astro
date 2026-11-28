@@ -1,0 +1,78 @@
+---
+/**
+ * Carte produit commune : photo du modèle exact (fond uniforme, object-fit: contain),
+ * âge indiqué, intérêt principal, 2-3 informations utiles, lien vers l'analyse et bouton marchand.
+ * Repli sobre si aucune photo autorisée n'est disponible.
+ */
+import { withBase } from '../lib/siteUrl';
+interface Props {
+	name: string;
+	image?: string;
+	imageAlt?: string;
+	ages?: string;
+	agesLabel: string;
+	summary?: string;
+	facts?: string[];
+	codeLabel?: string;
+	langs?: string[];
+	tags?: string[];
+	guideHref?: string;
+	guideLabel?: string;
+	buyHref?: string;
+	buyLabel?: string;
+	buyRel?: string;
+	price?: string;
+	priceDate?: string;
+	priceOnLabel?: string;
+	noPhotoLabel?: string;
+}
+const p = Astro.props;
+const img = p.image ? (p.image.startsWith('http') ? p.image : withBase(p.image)) : '';
+---
+<article class="pc">
+	<div class="pc__media">
+		{img ? (
+			<img src={img} alt={p.imageAlt || p.name} width="300" height="300" loading="lazy" decoding="async" />
+		) : (
+			<span class="pc__nophoto">{p.noPhotoLabel || 'Photo non disponible'}</span>
+		)}
+	</div>
+	<div class="pc__body">
+		{p.tags && p.tags.length > 0 && (
+			<ul class="pc__tags">{p.tags.map((t) => <li>{t}</li>)}</ul>
+		)}
+		<h3 class="pc__name">{p.name}</h3>
+		{p.ages && <p class="pc__age"><span>{p.agesLabel}</span> {p.ages}</p>}
+		{p.summary && <p class="pc__sum">{p.summary}</p>}
+		<ul class="pc__facts">
+			{p.langs && p.langs.length > 0 && p.codeLabel && <li><strong>{p.codeLabel}</strong> : {p.langs.join(', ')}</li>}
+			{(p.facts || []).map((f) => <li>{f}</li>)}
+		</ul>
+		{p.price && (
+			<p class="pc__price"><strong>{p.price}</strong>{p.priceDate && <span> · {p.priceOnLabel} {p.priceDate}</span>}</p>
+		)}
+		<div class="pc__actions">
+			{p.buyHref && <a class="re-btn re-btn--sm" href={p.buyHref} rel={p.buyRel || 'sponsored nofollow noopener'} target="_blank">{p.buyLabel}</a>}
+			{p.guideHref && <a class="re-link pc__guide" href={withBase(p.guideHref)}>{p.guideLabel}</a>}
+		</div>
+	</div>
+</article>
+<style>
+	.pc { display: flex; flex-direction: column; height: 100%; background: var(--re-surface); border: 1px solid var(--re-line); border-radius: var(--re-radius); overflow: hidden; box-shadow: var(--re-shadow-sm); }
+	.pc__media { aspect-ratio: 4 / 3; background: #fff; border-bottom: 1px solid var(--re-line); display: flex; align-items: center; justify-content: center; padding: 0.75rem; }
+	.pc__media img { width: 100%; height: 100%; object-fit: contain; }
+	.pc__nophoto { color: var(--re-muted); font-size: var(--re-fs-sm); border: 1px dashed var(--re-line); border-radius: var(--re-radius-sm); padding: 0.5rem 0.75rem; }
+	.pc__body { display: flex; flex-direction: column; gap: 0.45rem; padding: 0.9rem 1rem 1rem; flex: 1; }
+	.pc__tags { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
+	.pc__tags li { font-size: var(--re-fs-xs); font-weight: 700; color: var(--re-teal-700); background: var(--re-teal-50); border: 1px solid var(--re-teal-100); border-radius: 999px; padding: 0.05rem 0.55rem; margin: 0; }
+	.pc__name { font-size: 1.15rem; margin: 0; color: var(--re-ink); }
+	.pc__age { margin: 0; font-size: var(--re-fs-sm); color: var(--re-text); }
+	.pc__age span { font-weight: 700; color: var(--re-ink); }
+	.pc__sum { margin: 0; font-size: var(--re-fs-sm); line-height: 1.5; color: var(--re-text); }
+	.pc__facts { margin: 0; padding-left: 1.1rem; font-size: var(--re-fs-sm); line-height: 1.45; color: var(--re-text); }
+	.pc__facts li { margin: 0.1rem 0; }
+	.pc__price { margin: 0.2rem 0 0; font-size: var(--re-fs-sm); color: var(--re-muted); }
+	.pc__price strong { color: var(--re-ink); font-size: 1rem; }
+	.pc__actions { margin-top: auto; padding-top: 0.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+	.pc__guide { font-size: var(--re-fs-sm); }
+</style>
