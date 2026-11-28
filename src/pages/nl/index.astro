@@ -6,6 +6,8 @@ import PageColumns from '../../components/PageColumns.astro';
 import SelectionFetes2026 from '../../components/SelectionFetes2026.astro';
 import { withBase } from '../../lib/siteUrl';
 import { NOEL_PATHS } from '../../data/noelGuideI18n.mjs';
+import { activeSeason } from '../../data/seasonal.mjs';
+const inSeason = activeSeason()?.id === 'noel-2026';
 
 const title = 'Educatieve robots — gidsen, robots en programmeren';
 const description =
@@ -28,8 +30,8 @@ const noelHref = NOEL_PATHS.nl;
 				font-weight: 600;
 				padding: 0.35rem 0.65rem;
 				border-radius: 999px;
-				background: #ecfdf5;
-				color: #047857;
+				background: var(--re-teal-50, #f0fdfa);
+				color: var(--re-teal-700, #115e59);
 				margin-bottom: 0.65rem;
 			}
 			.nl-hero h1 {
@@ -39,17 +41,8 @@ const noelHref = NOEL_PATHS.nl;
 			}
 			.nl-hero p {
 				margin: 0 0 1rem;
-				color: #334155;
+				color: var(--re-ink-2, #334155);
 				max-width: 62ch;
-			}
-			.nl-hero .btn {
-				display: inline-block;
-				padding: 0.65rem 1rem;
-				border-radius: 10px;
-				background: #1d4ed8;
-				color: #fff;
-				font-weight: 600;
-				text-decoration: none;
 			}
 		</style>
 	</head>
@@ -57,12 +50,12 @@ const noelHref = NOEL_PATHS.nl;
 		<Header />
 		<main>
 			<div class="nl-hero">
-				<span class="nl-badge">🎄 Kerstgids 2026 bijgewerkt</span>
+				{inSeason && <span class="nl-badge">Kerstgids 2026 bijgewerkt</span>}
 				<h1>{title}</h1>
 				<p>{description}</p>
-				<a class="btn" href={withBase(noelHref)}>Bekijk de kerstcadeaugids →</a>
+				{inSeason && <a class="re-btn" href={withBase(noelHref)}>Bekijk de kerstcadeaugids</a>}
 			</div>
-			<SelectionFetes2026 locale="nl" />
+			{inSeason && <SelectionFetes2026 locale="nl" />}
 			<PageColumns sommaire={false}>
 				<nav class="breadcrumb" aria-label="Kruimelpad">
 					<a href="/">Robot Éducatif</a> · Nederlandstalige hub

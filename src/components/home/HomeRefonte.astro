@@ -1,0 +1,407 @@
+---
+/**
+ * Accueil refondu (toutes langues) : promesse et orientation, choix par âge, sélection de robots,
+ * projets, enseignants, domotique, derniers guides, auteur et méthode, partenariat.
+ * Le <head>, le H1 (SEO), les données structurées restent dans chaque page.
+ */
+import { withBase } from '../../lib/siteUrl';
+import { HOME_RE, AGE_IMG, PROJECT_IMG } from '../../data/homeRefonteI18n.mjs';
+import { activeSeason } from '../../data/seasonal.mjs';
+import EdImg from './EdImg.astro';
+import ProductCardRe from '../ProductCardRe.astro';
+import HomeSmartHome from '../HomeSmartHome.astro';
+import SiteQuickAccess from '../SiteQuickAccess.astro';
+import FormattedDate from '../FormattedDate.astro';
+
+export interface LatestItem {
+	href: string;
+	title: string;
+	date?: Date;
+	img?: string | null;
+	alt?: string;
+	series?: { count: number; others: { href: string; title: string }[] };
+}
+interface Props {
+	lang: 'fr' | 'en' | 'uk' | 'ca' | 'de' | 'it' | 'es';
+	h1: string;
+	h1Em?: string;
+	h1After?: string;
+	guideCount?: number;
+	hero?: { name: string; ages?: string; image: string; href?: string; buyLabel?: string } | null;
+	products?: any[];
+	latest?: LatestItem[];
+}
+const { lang, h1, h1Em, h1After, guideCount, hero, products = [], latest = [] } = Astro.props;
+const t = HOME_RE[lang] || HOME_RE.en;
+const smartLang = (['fr', 'de', 'it', 'es'].includes(lang) ? lang : 'en') as 'fr' | 'en' | 'de' | 'it' | 'es';
+const season = activeSeason();
+const feat = season?.id === 'noel-2026' ? t.season.noel : t.season.off;
+const isHash = (h: string) => h.startsWith('#');
+const href = (h: string) => (isHash(h) ? h : withBase(h));
+---
+<section class="rh" aria-labelledby="rh-title">
+	<div class="rh__in">
+		<div class="rh__text">
+			<p class="rh__kicker">{t.hero.kicker}</p>
+			<h1 id="rh-title">{h1}{h1Em && <> <em>{h1Em}</em></>}{h1After && <> {h1After}</>}</h1>
+			<p class="rh__lead">{t.hero.lead}</p>
+			<div class="rh__ctas">
+				<a class="re-btn" href={withBase(t.hero.cta1Href)}>{t.hero.cta1}</a>
+				<a class="re-btn re-btn--ghost" href="#par-age">{t.hero.cta2}</a>
+			</div>
+			<p class="rh__meta">
+				{guideCount ? <span><strong>{guideCount}</strong> {t.hero.guidesLabel}</span> : null}
+				{t.hero.methodLabel && <a class="re-link" href={withBase(t.hero.methodHref)}>{t.hero.methodLabel}</a>}
+			</p>
+		</div>
+		<div class="rh__visual">
+			<EdImg base="/images/editorial/re-hero-projet" ratio="4/3" alt={t.hero.imgAlt} eager label={t.ill} sizes="(min-width: 960px) 520px, 92vw" class="rh__ill" />
+			{hero && (
+				<div class="rh__product">
+					<img src={withBase(hero.image)} alt={hero.name} width="120" height="120" loading="eager" decoding="async" />
+					<div>
+						<span class="rh__plabel">{t.hero.productCaption}</span>
+						<strong>{hero.name}</strong>
+						{hero.ages && <span class="rh__page">{hero.ages}</span>}
+						{hero.href && <a class="re-link" href={hero.href} rel="sponsored nofollow noopener" target="_blank">{hero.buyLabel}</a>}
+					</div>
+				</div>
+			)}
+		</div>
+	</div>
+	<ul class="ri">
+		{t.intents.items.map((it, i) => (
+			<li>
+				<a class="ri__card" href={href(it.href)}>
+					<span class="ri__num" aria-hidden="true">{i + 1}</span>
+					<strong>{it.title}</strong>
+					<span>{it.text}</span>
+					<em>{it.cta} <span aria-hidden="true">→</span></em>
+				</a>
+			</li>
+		))}
+	</ul>
+</section>
+
+<section class="rs" id="par-age" aria-labelledby="ra-title">
+	<div class="rs__in">
+		<header class="rs__head">
+			<h2 id="ra-title">{t.ages.title}</h2>
+			<p>{t.ages.lead}</p>
+		</header>
+		<ul class="ra">
+			{t.ages.items.map((a, i) => (
+				<li>
+					<a class="ra__card" href={withBase(a.href)}>
+						<EdImg base={AGE_IMG[i]} alt="" label={t.ill} />
+						<div class="ra__body">
+							<span class="ra__age">{a.age}</span>
+							<h3>{a.title}</h3>
+							<dl>
+								<div><dt>{t.ages.activity}</dt><dd>{a.activity}</dd></div>
+								<div><dt>{t.ages.help}</dt><dd>{a.help}</dd></div>
+							</dl>
+							<em>{t.ages.cta} <span aria-hidden="true">→</span></em>
+						</div>
+					</a>
+				</li>
+			))}
+		</ul>
+		<aside class="rsea" aria-label={feat.kicker}>
+			{feat.img && <img class="rsea__img" src={withBase(feat.img)} alt={feat.imgAlt} width="480" height="270" loading="lazy" decoding="async" />}
+			<div class="rsea__body">
+				<span class="rsea__kicker">{feat.kicker}</span>
+				<strong>{feat.title}</strong>
+				<p>{feat.text}</p>
+			</div>
+			<a class="re-btn re-btn--teal" href={withBase(feat.href)}>{feat.cta}</a>
+		</aside>
+	</div>
+</section>
+
+{products.length > 0 && (
+	<section class="rs rs--alt" aria-labelledby="rp-title">
+		<div class="rs__in">
+			<header class="rs__head">
+				<h2 id="rp-title">{t.products.title}</h2>
+				<p>{t.products.lead}</p>
+			</header>
+			<p class="rp__disc">{t.products.disclosure}</p>
+			<ul class="rp">
+				{products.map((p) => (
+					<li>
+						<ProductCardRe
+							name={p.name}
+							image={p.image}
+							ages={p.ages}
+							agesLabel={t.products.ages}
+							summary={p.summary}
+							facts={p.facts}
+							codeLabel={t.products.code}
+							langs={p.langs}
+							tags={(p.tags || []).map((k: string) => t.products.tags[k]).filter(Boolean)}
+							guideHref={t.products.guides[p.key]}
+							guideLabel={t.products.guide}
+							buyHref={p.href}
+							buyLabel={t.products.buy}
+							buyRel={p.rel}
+							price={p.price}
+							priceDate={p.priceDate}
+							priceOnLabel={t.products.priceOn}
+						/>
+					</li>
+				))}
+			</ul>
+			<p class="rs__more"><a class="re-btn re-btn--ghost" href={withBase(t.products.allHref)}>{t.products.all}</a></p>
+		</div>
+	</section>
+)}
+
+<section class="rs" id="projets" aria-labelledby="rj-title">
+	<div class="rs__in">
+		<header class="rs__head">
+			<h2 id="rj-title">{t.projects.title}</h2>
+			<p>{t.projects.lead}</p>
+		</header>
+		<ul class="rj">
+			{t.projects.items.map((p, i) => (
+				<li>
+					<a class="rj__card" href={withBase(p.href)}>
+						<EdImg base={PROJECT_IMG[i]} alt="" label={t.ill} sizes="(min-width: 1100px) 290px, (min-width: 700px) 45vw, 92vw" />
+						<div class="rj__body">
+							<span class="rj__kicker">{p.kicker}</span>
+							<h3>{p.title}</h3>
+							<p>{p.text}</p>
+						</div>
+					</a>
+				</li>
+			))}
+		</ul>
+		{t.projects.more && <p class="rs__more"><a class="re-link" href={withBase(t.projects.moreHref)}>{t.projects.more} →</a></p>}
+	</div>
+</section>
+
+<section class="rs rs--alt" id="enseignants" aria-labelledby="re-title">
+	<div class="rs__in">
+		<div class="rt">
+			<div class="rt__intro">
+				<h2 id="re-title">{t.teachers.title}</h2>
+				<p>{t.teachers.lead}</p>
+				<EdImg base="/images/editorial/re-classe" alt={t.teachers.imgAlt} label={t.ill} sizes="(min-width: 960px) 420px, 92vw" class="rt__img" />
+				{t.teachers.guide && <p><a class="re-link" href={withBase(t.teachers.guideHref)}>{t.teachers.guide} →</a></p>}
+			</div>
+			<ul class="rt__list">
+				{t.teachers.items.map((it) => (
+					<li>
+						<a href={withBase(it.href)}>
+							<strong>{it.title}</strong>
+							<span>{it.text}</span>
+							<em>{it.cta} <span aria-hidden="true">→</span></em>
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+		{t.tools && (
+			<div class="rtool">
+				<h3>{t.tools.title}</h3>
+				<ul>
+					{t.tools.items.map((it) => (
+						<li><a href={withBase(it.href)}><strong>{it.title}</strong><span>{it.text}</span></a></li>
+					))}
+				</ul>
+			</div>
+		)}
+		{lang === 'fr' && <SiteQuickAccess layout="home" />}
+	</div>
+</section>
+
+<HomeSmartHome lang={smartLang} illustration="/images/editorial/re-domotique" illustrationAlt={t.domo.imgAlt} illustrationLabel={t.ill} />
+
+{t.latest && latest.length > 0 && (
+	<section class="rs" aria-labelledby="rl-title">
+		<div class="rs__in">
+			<header class="rs__head rs__head--row">
+				<h2 id="rl-title">{t.latest.title}</h2>
+				<a class="re-link" href={withBase(t.latest.allHref)}>{t.latest.all} →</a>
+			</header>
+			<ul class="rl">
+				{latest.map((a) => (
+					<li class="rl__card">
+						<a class="rl__main" href={withBase(a.href)}>
+							{a.img && (
+								<div class="rl__media">
+									<img src={a.img} alt={a.alt || ''} width="448" height="252" loading="lazy" decoding="async" />
+								</div>
+							)}
+							<div class="rl__body">
+								{a.series && <span class="rl__series">{t.latest.series} · {a.series.count} {t.latest.articles}</span>}
+								{a.date && <span class="rl__date"><FormattedDate date={a.date} /></span>}
+								<h3>{a.title}</h3>
+							</div>
+						</a>
+						{a.series && a.series.others.length > 0 && (
+							<ul class="rl__others">
+								{a.series.others.map((o) => <li><a href={withBase(o.href)}>{o.title}</a></li>)}
+							</ul>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+)}
+
+<section class="rs rs--alt" aria-labelledby="rau-title">
+	<div class="rs__in ram">
+		<div class="ram__author">
+			<h2 id="rau-title">{t.author.title}</h2>
+			<p>{t.author.text}</p>
+			{t.author.cta && <a class="re-link" href={withBase(t.author.href)}>{t.author.cta} →</a>}
+		</div>
+		{t.partners && (
+			<div class="ram__partners">
+				<h2>{t.partners.title}</h2>
+				<p>{t.partners.text}</p>
+				<a class="re-btn re-btn--ghost re-btn--sm" href={withBase(t.partners.href)}>{t.partners.cta}</a>
+			</div>
+		)}
+	</div>
+</section>
+
+<style>
+	.rh { background: linear-gradient(180deg, var(--re-teal-50) 0%, var(--re-bg) 100%); padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) clamp(1.5rem, 3vw, 2.25rem); }
+	.rh__in { max-width: var(--re-wrap); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+	.rh__kicker { margin: 0 0 0.5rem; font-size: var(--re-fs-sm); font-weight: 700; color: var(--re-teal-700); }
+	.rh h1 { font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.1; margin: 0 0 0.9rem; color: var(--re-ink); max-width: 18ch; text-wrap: balance; }
+	.rh h1 em { font-style: normal; color: var(--re-teal); }
+	.rh__lead { margin: 0 0 1.25rem; font-size: 1.08rem; line-height: 1.55; color: var(--re-text); max-width: 52ch; }
+	.rh__ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+	.rh__meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin: 1rem 0 0; font-size: var(--re-fs-sm); color: var(--re-muted); }
+	.rh__meta strong { color: var(--re-ink); }
+	.rh__visual { position: relative; }
+	.rh__visual :global(.rh__ill) { border-radius: var(--re-radius-lg); box-shadow: var(--re-shadow); }
+	.rh__product { position: absolute; right: clamp(0.5rem, 2vw, 1rem); bottom: clamp(-1rem, -1vw, -0.5rem); display: flex; gap: 0.75rem; align-items: center; max-width: min(320px, 78%); background: #fff; border: 1px solid var(--re-line); border-radius: var(--re-radius); padding: 0.6rem 0.85rem 0.6rem 0.6rem; box-shadow: var(--re-shadow); }
+	.rh__product img { width: 88px; height: 88px; object-fit: contain; flex: none; }
+	.rh__product div { display: flex; flex-direction: column; gap: 0.1rem; font-size: var(--re-fs-sm); line-height: 1.35; }
+	.rh__product strong { color: var(--re-ink); font-size: 1rem; }
+	.rh__plabel { font-size: var(--re-fs-xs); color: var(--re-muted); }
+	.rh__page { color: var(--re-text); }
+	.ri { list-style: none; max-width: var(--re-wrap); margin: clamp(2rem, 4vw, 2.75rem) auto 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+	.ri li { margin: 0; }
+	.ri__card { position: relative; display: flex; flex-direction: column; gap: 0.3rem; height: 100%; box-sizing: border-box; padding: 1rem 1.1rem 1rem 3.4rem; background: #fff; border: 1px solid var(--re-line); border-radius: var(--re-radius); text-decoration: none; color: inherit; box-shadow: var(--re-shadow-sm); transition: border-color 0.15s, box-shadow 0.15s; }
+	.ri__card:hover { border-color: var(--re-teal); box-shadow: var(--re-shadow); }
+	.ri__num { position: absolute; left: 1rem; top: 1rem; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--re-teal); color: #fff; font-weight: 800; display: grid; place-items: center; font-size: 0.9rem; }
+	.ri__card strong { font-family: var(--font-heading); font-size: 1.08rem; color: var(--re-ink); line-height: 1.3; }
+	.ri__card span:not(.ri__num) { font-size: var(--re-fs-sm); line-height: 1.45; color: var(--re-text); }
+	.ri__card em, .ra__card em, .rt__list em { font-style: normal; font-weight: 700; color: var(--re-teal); margin-top: auto; padding-top: 0.25rem; font-size: var(--re-fs-sm); }
+
+	.rs { padding: var(--re-section-y) clamp(1rem, 4vw, 2rem); }
+	.rs--alt { background: #fff; border-top: 1px solid var(--re-line); border-bottom: 1px solid var(--re-line); }
+	.rs + .rs--alt, .rs--alt + .rs { border-top: 0; }
+	.rs__in { max-width: var(--re-wrap); margin: 0 auto; }
+	.rs__head { margin: 0 0 1.25rem; max-width: 60ch; }
+	.rs__head h2, .rt__intro h2, .ram h2 { font-family: var(--font-heading); font-weight: 800; font-size: var(--re-fs-xl); color: var(--re-ink); margin: 0 0 0.35rem; }
+	.rs__head p, .rt__intro > p { margin: 0; color: var(--re-text); font-size: 1rem; line-height: 1.5; }
+	.rs__head--row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; max-width: none; }
+	.rs__more { margin: 1.25rem 0 0; text-align: center; }
+
+	.ra { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+	.ra li { margin: 0; }
+	.ra__card { display: flex; flex-direction: column; height: 100%; background: #fff; border: 1px solid var(--re-line); border-radius: var(--re-radius); overflow: hidden; text-decoration: none; color: inherit; box-shadow: var(--re-shadow-sm); transition: border-color 0.15s, box-shadow 0.15s; }
+	.ra__card:hover { border-color: var(--re-teal); box-shadow: var(--re-shadow); }
+	.ra__body { display: flex; flex-direction: column; gap: 0.35rem; padding: 0.85rem 1rem 1rem; flex: 1; }
+	.ra__age { align-self: flex-start; font-size: var(--re-fs-xs); font-weight: 800; color: #fff; background: var(--re-teal); border-radius: 999px; padding: 0.1rem 0.6rem; }
+	.ra__body h3 { font-size: 1.12rem; margin: 0; color: var(--re-ink); }
+	.ra__body dl { margin: 0; display: grid; gap: 0.2rem; font-size: var(--re-fs-sm); line-height: 1.4; }
+	.ra__body dl div { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+	.ra__body dt { font-weight: 700; color: var(--re-ink); }
+	.ra__body dt::after { content: ' :'; }
+	.ra__body dd { margin: 0; color: var(--re-text); }
+
+	.rsea { margin-top: 1.25rem; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1rem 1.25rem; align-items: center; padding: 0.85rem 1rem; background: var(--re-orange-soft); border: 1px solid #FED7AA; border-radius: var(--re-radius); }
+	.rsea__img { width: 168px; height: 95px; object-fit: cover; border-radius: var(--re-radius-sm); }
+	.rsea__body { display: flex; flex-direction: column; gap: 0.15rem; }
+	.rsea__kicker { font-size: var(--re-fs-xs); font-weight: 800; color: #9A3412; text-transform: uppercase; letter-spacing: 0.04em; }
+	.rsea__body strong { font-family: var(--font-heading); font-size: 1.12rem; color: var(--re-ink); }
+	.rsea__body p { margin: 0; font-size: var(--re-fs-sm); color: var(--re-text); line-height: 1.45; }
+
+	.rp__disc { margin: -0.5rem 0 1rem; font-size: var(--re-fs-xs); color: var(--re-muted); max-width: 80ch; }
+	.rp { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+	.rp li { margin: 0; }
+
+	.rj { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+	.rj li { margin: 0; }
+	.rj__card { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; border-radius: var(--re-radius); overflow: hidden; background: #fff; border: 1px solid var(--re-line); transition: border-color 0.15s, box-shadow 0.15s; }
+	.rj__card:hover { border-color: var(--re-teal); box-shadow: var(--re-shadow); }
+	.rj__body { padding: 0.75rem 0.9rem 0.95rem; display: flex; flex-direction: column; gap: 0.25rem; }
+	.rj__kicker { font-size: var(--re-fs-xs); font-weight: 800; color: var(--re-teal-700); text-transform: uppercase; letter-spacing: 0.04em; }
+	.rj__body h3 { font-size: 1.05rem; margin: 0; color: var(--re-ink); }
+	.rj__body p { margin: 0; font-size: var(--re-fs-sm); line-height: 1.45; color: var(--re-text); }
+
+	.rt { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: start; }
+	.rt__intro :global(.rt__img) { border-radius: var(--re-radius); margin: 1rem 0 0.75rem; }
+	.rt__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
+	.rt__list li { margin: 0; }
+	.rt__list a { display: flex; flex-direction: column; gap: 0.3rem; height: 100%; box-sizing: border-box; padding: 1rem; border: 1px solid var(--re-line); border-left: 4px solid var(--re-teal); border-radius: var(--re-radius-sm); background: var(--re-bg); text-decoration: none; color: inherit; }
+	.rt__list a:hover { border-color: var(--re-teal); background: var(--re-teal-50); }
+	.rt__list strong { font-family: var(--font-heading); font-size: 1.05rem; color: var(--re-ink); }
+	.rt__list span { font-size: var(--re-fs-sm); line-height: 1.45; color: var(--re-text); }
+	.rtool { margin-top: 1.5rem; }
+	.rtool h3 { font-size: 1.05rem; margin: 0 0 0.6rem; color: var(--re-ink); }
+	.rtool ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0.6rem; }
+	.rtool li { margin: 0; }
+	.rtool a { display: flex; flex-direction: column; padding: 0.6rem 0.8rem; border: 1px solid var(--re-line); border-radius: var(--re-radius-sm); text-decoration: none; color: inherit; background: #fff; }
+	.rtool a:hover { border-color: var(--re-teal); }
+	.rtool strong { color: var(--re-teal-700); font-size: var(--re-fs-sm); }
+	.rtool span { font-size: var(--re-fs-xs); color: var(--re-muted); }
+
+	.rl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+	.rl__card { margin: 0; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--re-line); border-radius: var(--re-radius); overflow: hidden; }
+	.rl__main { display: flex; flex-direction: column; text-decoration: none; color: inherit; flex: 1; }
+	.rl__main:hover h3 { color: var(--re-teal); }
+	.rl__media { aspect-ratio: 16 / 9; background: var(--re-teal-50); overflow: hidden; }
+	.rl__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+	.rl__body { padding: 0.75rem 0.9rem 0.9rem; display: flex; flex-direction: column; gap: 0.25rem; }
+	.rl__series { align-self: flex-start; font-size: var(--re-fs-xs); font-weight: 800; color: #9A3412; background: var(--re-orange-soft); border-radius: 999px; padding: 0.05rem 0.55rem; }
+	.rl__date { font-size: var(--re-fs-xs); color: var(--re-muted); }
+	.rl__body h3 { font-size: 1rem; line-height: 1.35; margin: 0; color: var(--re-ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+	.rl__others { margin: 0; padding: 0 0.9rem 0.85rem 1.9rem; font-size: var(--re-fs-xs); line-height: 1.4; }
+	.rl__others li { margin: 0.2rem 0; }
+	.rl__others a { color: var(--re-teal-700); }
+
+	.ram { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(1.25rem, 3vw, 2.5rem); }
+	.ram p { margin: 0 0 0.6rem; color: var(--re-text); line-height: 1.55; }
+	.ram__partners { padding: 1rem 1.1rem; border: 1px solid var(--re-line); border-radius: var(--re-radius); background: var(--re-bg); }
+	.ram__partners h2 { font-size: var(--re-fs-lg); }
+
+	@media (max-width: 1080px) {
+		.rp, .rj, .rl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (max-width: 960px) {
+		.rh__in, .rt, .ram { grid-template-columns: 1fr; }
+		.rh__visual { max-width: 560px; }
+		.ri { grid-template-columns: 1fr; }
+		.ra { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.rsea { grid-template-columns: minmax(0, 1fr) auto; }
+		.rsea__img { display: none; }
+	}
+	@media (max-width: 600px) {
+		.ra, .rp, .rj, .rl, .rt__list { grid-template-columns: 1fr; }
+		.rh__product { position: static; margin-top: 0.75rem; max-width: none; }
+		.rsea { grid-template-columns: 1fr; }
+		.rh__ctas .re-btn { flex: 1 1 100%; }
+	}
+	@media (min-width: 420px) and (max-width: 600px) {
+		.rj, .rl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	/* Mobile : cartes d'âge horizontales (vignette + texte) pour éviter un long défilement. */
+	@media (max-width: 600px) {
+		.ra { gap: 0.7rem; }
+		.ra__card { display: grid; grid-template-columns: 108px minmax(0, 1fr); }
+		.ra__card :global(.ed-img) { height: 100%; aspect-ratio: auto !important; }
+		.ra__card :global(.ed-img img) { height: 100%; object-fit: cover; }
+		.ra__body { padding: 0.65rem 0.75rem 0.75rem; gap: 0.25rem; }
+		.ra__body h3 { font-size: 1rem; }
+	}
+</style>

@@ -1,0 +1,40 @@
+---
+/** Visuel éditorial responsive (illustrations Canva exportées en WebP 480/800/1200). */
+import { withBase } from '../../lib/siteUrl';
+interface Props {
+	base: string; // ex. /images/editorial/re-age-4-5
+	alt: string;
+	ratio?: '16/9' | '4/3';
+	sizes?: string;
+	eager?: boolean;
+	label?: string; // « Illustration » : ne pas présenter comme une photo de test
+	class?: string;
+}
+const { base, alt, ratio = '16/9', sizes = '(min-width: 1100px) 380px, (min-width: 700px) 45vw, 92vw', eager = false, label, class: cls } = Astro.props;
+const h = (w: number) => (ratio === '4/3' ? Math.round((w * 3) / 4) : Math.round((w * 9) / 16));
+const srcset = [480, 800, 1200].map((w) => `${withBase(`${base}-${w}.webp`)} ${w}w`).join(', ');
+---
+<figure class:list={['ed-img', cls]} style={`aspect-ratio:${ratio}`}>
+	<img
+		src={withBase(`${base}-800.webp`)}
+		srcset={srcset}
+		sizes={sizes}
+		width="800"
+		height={h(800)}
+		alt={alt}
+		loading={eager ? 'eager' : 'lazy'}
+		fetchpriority={eager ? 'high' : undefined}
+		decoding="async"
+	/>
+	{label && <figcaption class="ed-img__label">{label}</figcaption>}
+</figure>
+<style>
+	.ed-img { position: relative; margin: 0; overflow: hidden; background: var(--re-teal-50); }
+	.ed-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	.ed-img__label {
+		position: absolute; left: 0.5rem; bottom: 0.5rem;
+		padding: 0.1rem 0.45rem; border-radius: 6px;
+		background: rgba(11, 31, 42, 0.72); color: #fff;
+		font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5;
+	}
+</style>
