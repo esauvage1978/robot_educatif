@@ -503,7 +503,21 @@ HOME_RE.nl = {
 			{ title: 'Prijsdalingen volgen', text: 'Prijsdalingen bij partners en hoe we ze meten.', cta: 'Naar de prijsdalingen', href: '/nl/prijsdalingen/' },
 		],
 	},
-	ages: null,
+	ages: {
+		title: 'Kiezen op leeftijd en begeleiding',
+		lead: 'Richtwaarden: het niveau van het kind en de beschikbare hulp tellen even zwaar als de leeftijd.',
+		activity: 'Activiteit',
+		help: 'Begeleiding',
+		cta: 'Naar de gids',
+		items: [
+			{ age: '4-5 jaar', title: 'Logica ontdekken zonder scherm', activity: 'Kaarten, knoppen en parcours op de vloer', help: 'Volwassene aanwezig', href: '/robot-enfant-4-ans/' },
+			{ age: '5-7 jaar', title: 'Eerste sequenties', activity: 'Robots met knoppen, zeer eenvoudige visuele blokken', help: 'Volwassene in de buurt', href: '/quel-robot-acheter-enfant-5-ans-guide-achat/' },
+			{ age: '8-9 jaar', title: 'Programmeren met blokken en sensoren', activity: 'Lijn volgen, obstakels, licht', help: 'Hulp bij de start', href: '/quel-robot-acheter-enfant-8-ans-guide-achat/' },
+			{ age: '10-12 jaar', title: 'Langere projecten', activity: 'Blokken, en daarna eerste stappen in geschreven code, afhankelijk van de vlotheid', help: 'Toenemende zelfstandigheid', href: '/quel-robot-acheter-enfant-10-ans-guide-achat/' },
+			{ age: '12-14 jaar', title: 'Elektronica en montage', activity: 'Kits om te bekabelen, borden zoals Arduino', help: 'Zelfstandig met de documentatie', href: '/quel-robot-acheter-enfant-12-ans-guide-achat/' },
+			{ age: '14 jaar en ouder', title: 'Zelfstandige projecten', activity: 'Raspberry Pi, Linux, vision, verbonden objecten', help: 'Zelfstandig', href: '/robot-programmable-14-ans-ado/' },
+		],
+	},
 	season: {
 		noel: { kicker: 'Kerst 2026', title: 'Kerstcadeaus: leerrobots per leeftijd', text: 'Een seizoensselectie met leerrobots per leeftijd. Controleer altijd de dagprijs bij de verkoper.', cta: 'Naar de kerstcadeaugids', href: NOEL_PATHS.nl, img: '/images/illustrations/robot-educatif-cadeau-noel-2026.webp', imgAlt: 'Illustratie: kinderen ontdekken een kleine robot onder de kerstboom' },
 		off: { kicker: 'Prijzen', title: 'Prijsdalingen bij partners', text: 'Overzicht van prijsdalingen en hoe we ze meten.', cta: 'Naar de prijsdalingen', href: '/nl/prijsdalingen/' },
@@ -522,9 +536,39 @@ HOME_RE.nl = {
 		tags: { scratch: 'Scratch-blokken', python: 'Python mogelijk', arduino: 'Arduino-code', build: 'Om zelf te bouwen', screen: 'Ingebouwd scherm' },
 		guides: { mbot: '/nl/mbot-vs-lego-robot/', mbot2: '/nl/mbot-vs-lego-robot/' },
 	},
-	projects: null,
-	teachers: null,
-	tools: null,
+	projects: {
+		title: 'Projecten om te leren en te creëren',
+		lead: 'Begeleide activiteiten, van de eerste sequentie tot een volledig programma.',
+		items: [
+			{ kicker: 'mBot', title: '10 gratis mBot-projecten', text: 'Lijn volgen, obstakels, geluid: kant-en-klare sessies.', href: '/10-projets-mbot-gratuits-classe-faciles/' },
+			{ kicker: 'Scratch', title: 'Eerste programma’s met blokken', text: 'Een korte activiteit om lussen en bewegingen te begrijpen.', href: '/activite-scratch-le-carre/' },
+			{ kicker: 'Arduino', title: 'Arduino C stap voor stap', text: 'Structuur van een sketch, variabelen, sensoren en actuatoren.', href: '/programmation/arduino-c/' },
+			{ kicker: 'Python', title: 'Python-cursus en minigames', text: 'Variabelen, lussen, en daarna complete spellen in de console.', href: '/programmation/python/' },
+		],
+		more: 'Alle programmeertrajecten',
+		moreHref: '/programmation/',
+	},
+	teachers: {
+		title: 'Bronnen voor leerkrachten',
+		lead: 'Een les voorbereiden, de uitrusting begroten en materiaal hergebruiken.',
+		imgAlt: 'Illustratie: een roboticales in de klas met bakken onderdelen en tablets',
+		items: [
+			{ title: 'Klassikaal budget', text: 'Schat de kosten in op basis van het aantal leerlingen en het robotmodel.', cta: 'Budget berekenen', href: '/calculateur-budget-robot-classe/' },
+			{ title: 'Robotica-kit', text: 'Stel een kit samen en exporteer een offerte voor de school.', cta: 'De kit configureren', href: '/configurateur-kit-robotique-classe/' },
+			{ title: 'Lesfiches', text: 'Maak een pdf-fiche: verloop, vaardigheden en evaluatie.', cta: 'Een fiche maken', href: '/generateur-fiche-seance-robotique-pdf/' },
+			{ title: 'Technische bronnen', text: 'SVG-schema’s van de mBot-sensoren, instellingen en probleemoplossing.', cta: 'De schema’s bekijken', href: '/ressources-svg-schemas-mbot-capteurs/' },
+		],
+		guide: 'Gids: een klas uitrusten met robots',
+		guideHref: '/equiper-classe-robots-budget-packs-2026/',
+	},
+	tools: {
+		title: 'Hulpmiddelen voor robotgebruikers',
+		items: [
+			{ title: 'Instellingen mBot2-sensoren', text: 'Startwaarden en tips bij problemen.', href: '/tableau-reglages-capteurs-mbot2-depannage/' },
+			{ title: 'Makeblock-compatibiliteit', text: 'Welke accessoires bij welke robot horen.', href: '/compatibilite-makeblock/' },
+			{ title: 'mBlock-probleemoplossing', text: 'Foutcodes en verbindingsproblemen.', href: '/mblock-depannage-codes-erreurs-mbot-arduino/' },
+		],
+	},
 	domo: { imgAlt: 'Illustratie: een familiewoonkamer met discrete sensoren en een wandtablet' },
 	latest: { title: 'Gidsen om mee te beginnen', series: 'Dossier', articles: 'artikelen', all: 'Alle koopgidsen', allHref: '/nl/beste-programmeerbare-robot-voor-kinderen/', id: 'gidsen' },
 	author: {
@@ -532,5 +576,5 @@ HOME_RE.nl = {
 		text: 'Robot Éducatif wordt geschreven door Emmanuel Sauvage. Elk artikel laat zien of het om een praktijktest met de hardware gaat of om een documentaire analyse op basis van de gegevens van de fabrikant.',
 		cta: null,
 	},
-	partners: null,
+	partners: { title: 'Bent u een merk?', text: 'Producttests, tutorials en zichtbaarheid op YouTube en Pinterest.', cta: 'Ontdek de samenwerking', href: '/partenariat/' },
 };
