@@ -150,7 +150,7 @@ function mirror(market) {
 			)
 			.replace(/https:\/\/www\.amazon\.com\//gi, `https://www.${MARKET_AMAZON[market].host}/`)
 			.replace(/\blisting on Amazon\.co\.uk showed/gi, `listing on ${amazonShop} showed`)
-			.replace(/\bamazon\.com\b/gi, market === 'uk' ? 'amazon.co.uk' : 'amazon.ca');
+			.replace(/(?<!media-)\bamazon\.com\b/gi, market === 'uk' ? 'amazon.co.uk' : 'amazon.ca'); // ne pas toucher m.media-amazon.com (CDN d'images, seul hôte valide)
 		if (html !== before) {
 			writeFileSync(file, html);
 			n++;
