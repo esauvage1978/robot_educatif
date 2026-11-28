@@ -62,7 +62,8 @@ export async function catalogForMarket(market, locale) {
 				clone.priceRange = '';
 			}
 			if (row.image && !clone.amazonIndispo) {
-				clone.imageAmazon = row.image;
+				// Les relevés UK/CA contiennent parfois m.media-amazon.co.uk / .ca, hôtes inexistants : même image sur .com.
+				clone.imageAmazon = String(row.image).replace(/^https:\/\/m\.media-amazon\.[a-z.]+\//, "https://m.media-amazon.com/");
 			}
 			if (row.titre) {
 				clone.amazonTitle = row.titre;

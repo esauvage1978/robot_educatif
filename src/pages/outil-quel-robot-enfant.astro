@@ -15,7 +15,7 @@ const pubDate = new Date('2026-11-03T00:00:00Z');
 	hubLabel="Guides d'achat"
 	hubPath="/meilleur-robot-programmable-enfant-2026/"
 >
-	<p set:html={QUIZ_PAGE.intro} />
+	<p set:html={QUIZ_PAGE.intro.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, t, u) => `<a href="${withBase(u)}">${t}</a>`)} />
 	<RobotAgeQuiz />
 	<h2>Relier chaque tranche d’âge à un guide détaillé</h2>
 	<figure>

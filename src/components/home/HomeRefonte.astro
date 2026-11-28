@@ -395,4 +395,13 @@ const href = (h: string) => (isHash(h) ? h : withBase(h));
 	@media (min-width: 420px) and (max-width: 600px) {
 		.rj, .rl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	}
+	/* Mobile : cartes d'âge horizontales (vignette + texte) pour éviter un long défilement. */
+	@media (max-width: 600px) {
+		.ra { gap: 0.7rem; }
+		.ra__card { display: grid; grid-template-columns: 108px minmax(0, 1fr); }
+		.ra__card :global(.ed-img) { height: 100%; aspect-ratio: auto !important; }
+		.ra__card :global(.ed-img img) { height: 100%; object-fit: cover; }
+		.ra__body { padding: 0.65rem 0.75rem 0.75rem; gap: 0.25rem; }
+		.ra__body h3 { font-size: 1rem; }
+	}
 </style>
