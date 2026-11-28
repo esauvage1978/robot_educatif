@@ -36,7 +36,7 @@ export async function buildHomePopularProducts(market, locale) {
 	return out;
 }
 
-const AGE_UNIT = { fr: 'ans', en: 'years', de: 'Jahre', it: 'anni', es: 'años' };
+const AGE_UNIT = { fr: 'ans', en: 'years', de: 'Jahre', it: 'anni', es: 'años', nl: 'jaar' };
 
 /**
  * Cartes produits de l'accueil refondu : mêmes modèles et mêmes liens /dp/ que « Les plus populaires »,
@@ -45,7 +45,7 @@ const AGE_UNIT = { fr: 'ans', en: 'years', de: 'Jahre', it: 'anni', es: 'años' 
 export async function buildHomeProductCards(market, locale) {
 	const { catalog } = await catalogForMarket(market, locale);
 	const cfg = MARKET_CONFIG[market] || MARKET_CONFIG.fr;
-	const lang = ['fr', 'de', 'it', 'es'].includes(locale) ? locale : 'en';
+	const lang = ['fr', 'de', 'it', 'es', 'nl'].includes(locale) ? locale : 'en';
 	const out = [];
 	for (const key of KEYS) {
 		const p = catalog[key];
@@ -74,8 +74,9 @@ export async function buildHomeProductCards(market, locale) {
 			image: localRaster ? `/${localRel}` : p.imageAmazon,
 			ages,
 			langs,
-			summary: lang === 'fr' ? p.description || pros[0] || '' : pros[0] || '',
-			facts: (lang === 'fr' ? pros.slice(0, 2) : pros.slice(1, 3)).filter(Boolean),
+			// NL : pas de texte néerlandais dans les données produits, on n'affiche pas de texte d'une autre langue.
+			summary: lang === 'nl' ? '' : lang === 'fr' ? p.description || pros[0] || '' : pros[0] || '',
+			facts: lang === 'nl' ? [] : (lang === 'fr' ? pros.slice(0, 2) : pros.slice(1, 3)).filter(Boolean),
 			tags: tags.slice(0, 2),
 			price,
 			priceDate: price ? p.prixReleveLe || '' : '',
