@@ -120,7 +120,7 @@ for (const root of roots) {
 			counts.frHost++;
 			if (samples.frHost.length < 3) samples.frHost.push(rel);
 		}
-		if (market !== 'en' && /Amazon\.com(?![.\w-])/i.test(html)) {
+		if (market !== 'en' && /(?<!media-)Amazon\.com(?![.\w-])/i.test(html)) { // m.media-amazon.com = CDN d'images valide, pas un libellé de boutique
 			counts.amazonComLabel++;
 			if (samples.amazonComLabel.length < 3) samples.amazonComLabel.push(rel);
 		}
